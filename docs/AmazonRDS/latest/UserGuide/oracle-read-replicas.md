@@ -1,45 +1,30 @@
-# Troubleshooting RDS for Oracle replicas
+# Redo transport compression with RDS for Oracle
 
-This section describes possible replication problems and solutions.
+Use RDS for Oracle redo transport compression to improve the replication performance between your primary DB instance and standby replicas. This is particularly useful in environments that have limited network bandwidth or high-latency connections.
 
-###### Topics
+## Obtaining a license for redo transport compression
 
-- [Monitoring Oracle replication lag](#oracle-read-replicas.troubleshooting.lag "#oracle-read-replicas.troubleshooting.lag")
-- [Troubleshooting Oracle replication failure after adding or modifying
-  triggers](#oracle-read-replicas.troubleshooting.triggers "#oracle-read-replicas.troubleshooting.triggers")
+Redo transport compression is part of the [Oracle Advanced Compression](//www.oracle.com/database/advanced-compression/ "//www.oracle.com/database/advanced-compression/") option. To use redo transport compression, you need a valid license for the Oracle Advanced Compression option. For licensing information, contact your Oracle representative.
 
-## Monitoring Oracle replication lag
+## Configuring redo transport compression
 
-To monitor replication lag in Amazon CloudWatch, view the Amazon RDS `ReplicaLag` metric. For more information about replication lag time,
-see [Monitoring read replication](USER_ReadRepl.md "USER_ReadRepl.md") and [Amazon CloudWatch metrics for Amazon RDS](rds-metrics.md "rds-metrics.md").
+To configure redo transport compression, you can use the `rds.replica.redo_compression` parameter. This parameter is available for Oracle versions 19c and 21c.
 
-For a read replica, if the lag time is too long, query the following views:
+The `rds.replica.redo_compression` parameter accepts the following values:
 
-- `V$ARCHIVED_LOG` – Shows which commits have been applied to the read
-  replica.
-- `V$DATAGUARD_STATS` – Shows a detailed breakdown of the components that make up the `ReplicaLag`
-  metric.
-- `V$DATAGUARD_STATUS` – Shows the log output from Oracle's internal replication
-  processes.
+- `DISABLE` – Default value that disables redo transport compression.
+- `ENABLE` – Value that enables redo transport compression through the default algorithm [ZLIB](https://zlib.net/ "https://zlib.net/").
+- `ZLIB` – Value that explicitly enables redo transport compression using the ZLIB algorithm, which provides good compression ratios.
+- `LZO` – Value that explicitly enables redo transport compression using the [LZO](https://www.oberhumer.com/opensource/lzo/ "https://www.oberhumer.com/opensource/lzo/") algorithm, which optimizes compression speed, particularly during decompression.
 
-For a mounted replica, if the lag time is too long, you can't query the `V$` views. Instead, do the following:
+## Performance considerations for redo transport compression
 
-- Check the `ReplicaLag` metric in CloudWatch.
-- Check the alert log file for the replica in the console. Look for errors in the recovery messages. The messages include the log
-  sequence number, which you can compare to the primary sequence number. For more information, see [Amazon RDS for Oracle database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md").
+Compression and decompression operations consume CPU resources on both the primary and standby instances. If you use redo transport compression, consider instance resource usage and network conditions.
 
-## Troubleshooting Oracle replication failure after adding or modifying
+## Related topics for redo transport compression
 
-triggers
+For more information on configuring redo transport compression, see the following resources:
 
-If you add or modify any triggers, and if replication fails afterward, the problem may be the triggers.
-Ensure that the trigger excludes the following user accounts, which are required by RDS for
-replication:
-
-- User accounts with administrator privileges
-- `SYS`
-- `SYSTEM`
-- `RDS_DATAGUARD`
-- `rdsdb`
-
-For more information, see [Miscellaneous considerations for RDS for Oracle replicas](oracle-read-replicas.md#oracle-read-replicas.limitations.miscellaneous "oracle-read-replicas.md#oracle-read-replicas.limitations.miscellaneous").
+- [DB parameter groups for
+  Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md")
+- [RedoCompression](https://docs.oracle.com/en/database/oracle/oracle-database/19/dgbkr/oracle-data-guard-broker-properties.html#GUID-5E6DDFD0-6196-48EB-94AF-21A1AFBB7DE1 "https://docs.oracle.com/en/database/oracle/oracle-database/19/dgbkr/oracle-data-guard-broker-properties.html#GUID-5E6DDFD0-6196-48EB-94AF-21A1AFBB7DE1") in the Oracle Database 19c release notes

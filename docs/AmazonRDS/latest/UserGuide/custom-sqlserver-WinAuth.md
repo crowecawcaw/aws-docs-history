@@ -1,164 +1,50 @@
-# Network Validation
+# Configure Microsoft Active
 
-Before joining your RDS Custom instance to either self-managed or AWS Managed Microsoft AD, check the
-following from a EC2 instance in the same VPC as where you plan to launch the RDS Custom for SQL Server instance.
+Directory using AWS Directory Service
 
-- Check if you are able to resolve the fully qualified domain name (FQDN) to domain controller IPs.
+AWS Managed Microsoft AD creates a fully managed Microsoft Active Directory in AWS that is powered
+by Windows Server 2019 and operates at the 2012 R2 Forest and Domain functional levels. AWS Directory Service creates the domain controllers in different subnets in an
+Amazon VPC, making your directory highly available even in the event of failure.
 
-```
-nslookup corp.example.com
-```
+To create a directory with AWS Managed Microsoft AD, see [Getting started with AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/ms_ad_getting_started.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started.md") in
+the _AWS Directory Service Administration Guide_.
 
-The command must return a similar output:
+## Configure your network connectivity
 
-```
-Server:  ip-10-0-0-2.us-west-2.compute.internal
-Address:  25.0.0.2
+### Enable cross-VPC traffic between the directory and the DB instance
 
-Non-authoritative answer:
-Name:    corp.example.com
-Addresses:  40.0.9.25 (DC1 IP)
-            40.0.50.123 (DC2 IP)
-```
+To locate the directory and the DB instance in the same VPC, skip this step and
+move on to next step in [Network configuration port rules](custom-sqlserver-WinAuth.md "custom-sqlserver-WinAuth.md").
 
-- Resolve AWS services from an EC2 instance in the VPC where you are launching your RDS Custom instance:
+To locate the directory and the DB instance in different VPCs, configure cross-VPC traffic using VPC peering or AWS Transit Gateway.
+For more information about using VPC peering,
+see [What is VPC peering?](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md") in the
+_Amazon VPC Peering Guide_ and [What is AWS Transit Gateway?](../../../vpc/latest/tgw/what-is-transit-gateway.md "../../../vpc/latest/tgw/what-is-transit-gateway.md")
+in the _Amazon VPC Transit Gateways_.
 
-```
-$region='`input-your-aws-region`'
-$domainFQDN='`input-your-domainFQDN`'
+###### Enable cross-VPC traffic using VPC peering
 
-function Test-DomainPorts {
-    param (
-        [string]$Domain,
-        [array]$Ports
-    )
+1. Set up appropriate VPC routing rules to ensure that network traffic can flow both ways.
+2. Allow the DB instance's security group to recieve inbound traffic from the directory's security group.
+   For more information, see [Network configuration port rules](custom-sqlserver-WinAuth.md "custom-sqlserver-WinAuth.md").
+3. Network access control list (ACL) must not block traffic.
 
-    foreach ($portInfo in $Ports) {
-        try {
-            $conn = New-Object System.Net.Sockets.TcpClient
-            $connectionResult = $conn.BeginConnect($Domain, $portInfo.Port, $null, $null)
-            $success = $connectionResult.AsyncWaitHandle.WaitOne(1000) # 1 second timeout
-            if ($success) {
-                $conn.EndConnect($connectionResult)
-                $result = $true
-            } else {
-                $result = $false
-            }
-        }
-        catch {
-            $result = $false
-        }
-        finally {
-            if ($null -ne $conn) {
-                $conn.Close()
-            }
-        }
-        Write-Host "$($portInfo.Description) port open: $result"
-    }
-}
+If a different AWS account owns the directory, you must share the directory. To share the directory with
+AWS account within which the RDS Custom for SQL Server instance is by following the
+[Tutorial: Sharing your AWS Managed Microsoft AD for seamless EC2 domain-join](../../../directoryservice/latest/admin-guide/ms_ad_tutorial_directory_sharing.md "../../../directoryservice/latest/admin-guide/ms_ad_tutorial_directory_sharing.md") in the _AWS Directory Service Administration Guide_.
 
-# Check if ports can be reached
-$ports = @(
-    @{Port = 53;   Description = "DNS"},
-    @{Port = 88;   Description = "Kerberos"},
-    @{Port = 389;  Description = "LDAP"},
-    @{Port = 445;  Description = "SMB"},
-    @{Port = 5985; Description = "WinRM"},
-    @{Port = 636;  Description = "LDAPS"},
-    @{Port = 3268; Description = "Global Catalog"},
-    @{Port = 3269; Description = "Global Catalog over SSL"},
-    @{Port = 9389; Description = "AD DS"}
-)
+###### Sharing a directory betweens AWS accounts
 
-function Test-DomainReachability {
-    param (
-        [string]$DomainName
-    )
+1. Sign in to the AWS Directory Service console using the account for the DB instance and check if the domain has the `SHARED`
+   status before proceeding.
+2. After signing in to the AWS Directory Service console using the account for the DB instance,
+   note the **Directory ID** value. You use this ID to join the DB instance to the domain.
 
-    try {
-        $dnsResults = Resolve-DnsName -Name $DomainName -ErrorAction Stop
-        Write-Host "Domain $DomainName is successfully resolving to following IP addresses: $($dnsResults.IpAddress)"
-        Write-Host ""
-        return $true
-    }
-    catch {
-        Write-Host ""
-        Write-Host "Error Message: $($_.Exception.Message)"
-        Write-Host "Domain $DomainName reachability check failed, please Configure DNS resolution"
-        return $false
-    }
-}
+## Configure DNS resolution
 
-$domain = (Get-WmiObject Win32_ComputerSystem).Domain
-if ($domain -eq 'WORKGROUP') {
-    Write-Host ""
-    Write-Host "Host $env:computername is still part of WORKGROUP and not part of any domain"
-    }
-else {
-    Write-Host ""
-    Write-Host "Host $env:computername is joined to $domain domain"
-    Write-Host ""
-    }
+When you create a directory with AWS Managed Microsoft AD, AWS Directory Service creates two domain controllers and adds
+the DNS service on your behalf.
 
-
-$isReachable = Test-DomainReachability -DomainName $domainFQDN
-if ($isReachable) {
-    write-Host "Checking if domain $domainFQDN is reachable on required ports  "
-    Test-DomainPorts -Domain $domainFQDN -Ports $ports
-}
-else {
-    Write-Host "Port check skipped. Domain not reachable"
-}
-
-
-
-# Get network adapter configuration
-$networkConfig = Get-WmiObject Win32_NetworkAdapterConfiguration |
-                 Where-Object { $_.IPEnabled -eq $true } |
-                 Select-Object -First 1
-
-# Check DNS server settings
-$dnsServers = $networkConfig.DNSServerSearchOrder
-
-if ($dnsServers) {
-    Write-Host "`nDNS Server settings:"
-    foreach ($server in $dnsServers) {
-        Write-Host "  - $server"
-    }
-} else {
-    Write-Host "`nNo DNS servers configured or unable to retrieve DNS server information."
-}
-
-write-host ""
-
-# Checks reachability to dependent services
-$services = "s3", "ec2", "secretsmanager", "logs", "events", "monitoring", "ssm", "ec2messages", "ssmmessages"
-
-function Get-TcpConnectionAsync {
-    param (
-        $ServicePrefix,
-        $region
-    )
-    $endpoint = "${ServicePrefix}.${region}.amazonaws.com"
-    $tcp = New-Object Net.Sockets.TcpClient
-    $result = $false
-
-    try {
-        $connectTask = $tcp.ConnectAsync($endpoint, 443)
-        $timedOut = $connectTask.Wait(3000)
-        $result = $tcp.Connected
-    }
-    catch {
-        $result = $false
-    }
-    return $result
-}
-
-foreach ($service in $services) {
-    $validationResult = Get-TcpConnectionAsync -ServicePrefix $service -Region $region
-    Write-Host "Reachability to $service is $validationResult"
-}
-```
-
-The `TcpTestSucceeded` value must return `True` for `s3`, `ec2`, `secretsmanager`, `logs`, `events`,
-`monitoring`, `ssm`, `ec2messages`, and `ssmmessages`.
+If you have an existing AWS Managed Microsoft AD or plan on launching one in a VPC other than your RDS Custom for SQL Server DB instance,
+configure the VPC DNS resolver to forward queries for certain domains with a Route 53 outbound and resolver rule,
+see [Configure a Route 53 Resolver outbound endpoint to resolve DNS records](https://repost.aws/knowledge-center/route53-resolve-with-outbound-endpoint "https://repost.aws/knowledge-center/route53-resolve-with-outbound-endpoint").

@@ -1,6 +1,6 @@
-# Creating and connecting to a MySQL DB instance
+# Creating and connecting to a MariaDB DB instance
 
-This tutorial creates an EC2 instance and an RDS for MySQL DB instance. The tutorial shows you how to access the DB
+This tutorial creates an EC2 instance and an RDS for MariaDB DB instance. The tutorial shows you how to access the DB
 instance from the EC2 instance using a standard MySQL client. As a best practice, this
 tutorial creates a private DB instance in a virtual private cloud (VPC). In most cases,
 other resources in the same VPC, such as EC2 instances, can access the DB instance, but resources
@@ -13,42 +13,39 @@ the DB instance is in the private subnet.
 ###### Important
 
 There's no charge for creating an AWS account. However, by completing this tutorial, you might incur
-costs for the AWS resources you use. You can delete these resources after you complete the tutorial
+costs for the resources you use. You can delete these resources after you complete the tutorial
 if they are no longer needed.
 
 The following diagram shows the configuration when the tutorial is complete.
 
-![EC2 instance and MySQL DB instance.](images/getting-started-mysql.png)
+![EC2 instance and MariaDB DB instance.](images/getting-started-mariadb.png)
 This tutorial allows you to create your resources by using one of the following methods:
 
 1. Use the AWS Management Console ‐
-   [Create a MySQL DB instance](#CHAP_GettingStarted.Creating.MySQL "#CHAP_GettingStarted.Creating.MySQL") and
-   [Create an EC2
-   instance](#CHAP_GettingStarted.Creating.MySQL.EC2 "#CHAP_GettingStarted.Creating.MySQL.EC2")
+   [Create an EC2 instance](#CHAP_GettingStarted.Creating.MariaDB.EC2 "#CHAP_GettingStarted.Creating.MariaDB.EC2") and
+   [Create a MariaDB DB instance](#CHAP_GettingStarted.Creating.MariaDB "#CHAP_GettingStarted.Creating.MariaDB")
 2. Use AWS CloudFormation to create the database instance and EC2 instance ‐
-   [(Optional) Create VPC, EC2 instance, and MySQL instance using AWS CloudFormation](#CHAP_GettingStarted.CFN.MySQL "#CHAP_GettingStarted.CFN.MySQL")
-   The first method uses **Easy create** to create a private MySQL DB instance with the AWS Management Console.
+   [(Optional) Create VPC, EC2 instance, and MariaDB instance using AWS CloudFormation](#CHAP_GettingStarted.CFN.MariaDB "#CHAP_GettingStarted.CFN.MariaDB")
+   The first method uses **Easy create** to create a private MariaDB DB instance with the AWS Management Console.
    Here, you specify only the DB engine type, DB instance size, and DB instance identifier.
    **Easy create** uses the default settings for the other configuration options.
 
 When you use **Standard create** instead, you can specify more configuration options when you create a DB instance.
 These options include settings for availability, security, backups, and maintenance.
-To create a public DB instance, you must use **Standard create**. For information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+To create a public DB instance, you must use **Standard create**.
+For information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
 
 ###### Topics
 
-- [Prerequisites](#CHAP_GettingStarted.Prerequisites.MySQL "#CHAP_GettingStarted.Prerequisites.MySQL")
-- [Create an EC2
-  instance](#CHAP_GettingStarted.Creating.MySQL.EC2 "#CHAP_GettingStarted.Creating.MySQL.EC2")
-- [Create a MySQL DB instance](#CHAP_GettingStarted.Creating.MySQL "#CHAP_GettingStarted.Creating.MySQL")
-- [(Optional) Create VPC, EC2 instance, and MySQL instance using AWS CloudFormation](#CHAP_GettingStarted.CFN.MySQL "#CHAP_GettingStarted.CFN.MySQL")
-- [Connect to a MySQL DB
-  instance](#CHAP_GettingStarted.Connecting.MySQL "#CHAP_GettingStarted.Connecting.MySQL")
-- [Delete the EC2 instance and DB
-  instance](#CHAP_GettingStarted.Deleting.MySQL "#CHAP_GettingStarted.Deleting.MySQL")
+- [Prerequisites](#CHAP_GettingStarted.Prerequisites.MariaDB "#CHAP_GettingStarted.Prerequisites.MariaDB")
+- [Create an EC2 instance](#CHAP_GettingStarted.Creating.MariaDB.EC2 "#CHAP_GettingStarted.Creating.MariaDB.EC2")
+- [Create a MariaDB DB instance](#CHAP_GettingStarted.Creating.MariaDB "#CHAP_GettingStarted.Creating.MariaDB")
+- [(Optional) Create VPC, EC2 instance, and MariaDB instance using AWS CloudFormation](#CHAP_GettingStarted.CFN.MariaDB "#CHAP_GettingStarted.CFN.MariaDB")
+- [Connect to a MariaDB DB instance](#CHAP_GettingStarted.Connecting.MariaDB "#CHAP_GettingStarted.Connecting.MariaDB")
+- [Delete the EC2 instance and DB instance](#CHAP_GettingStarted.Deleting.MariaDB "#CHAP_GettingStarted.Deleting.MariaDB")
 - [(Optional) Delete the EC2 instance and DB
-  instance created with CloudFormation](#CHAP_GettingStarted.DeletingCFN.MySQL "#CHAP_GettingStarted.DeletingCFN.MySQL")
-- [(Optional) Connect your DB instance to a Lambda function](#CHAP_GettingStarted.ComputeConnect.MySQL "#CHAP_GettingStarted.ComputeConnect.MySQL")
+  instance created with CloudFormation](#CHAP_GettingStarted.DeletingCFN.MariaDB "#CHAP_GettingStarted.DeletingCFN.MariaDB")
+- [(Optional) Connect your DB instance to a Lambda function](#CHAP_GettingStarted.ComputeConnect.MariaDB "#CHAP_GettingStarted.ComputeConnect.MariaDB")
 
 ## Prerequisites
 
@@ -57,9 +54,7 @@ Before you begin, complete the steps in the following sections:
 - [Sign up for an AWS account](CHAP_SettingUp.md#sign-up-for-aws "CHAP_SettingUp.md#sign-up-for-aws")
 - [Create a user with administrative access](CHAP_SettingUp.md#create-an-admin "CHAP_SettingUp.md#create-an-admin")
 
-## Create an EC2
-
-instance
+## Create an EC2 instance
 
 Create an Amazon EC2 instance that you will use to connect to your database.
 
@@ -154,50 +149,46 @@ need when you connect using SSH:
 8. Wait until the **Instance state** for your EC2 instance has a status
    of **Running** before continuing.
 
-## Create a MySQL DB instance
+## Create a MariaDB DB instance
 
 The basic building block of Amazon RDS is the DB instance. This environment is where you run your
-MySQL databases.
+MariaDB databases.
 
-In this example, you use **Easy create** to create a DB instance running the MySQL database
-engine with a db.t3.micro DB instance class.
+In this example, you use **Easy create** to create a DB instance running
+the MariaDB database engine with a db.t4g.micro DB instance class.
 
-###### To create a MySQL DB instance with Easy create
+###### To create a MariaDB DB instance with Easy create
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the Amazon RDS console, choose the AWS Region you used for the EC2
-   instance previously.
+2. In the upper-right corner of the Amazon RDS console, choose the AWS Region in which you want to
+   create the DB instance.
 3. In the navigation pane, choose **Databases**.
-4. Choose **Create database** and make sure that **Easy
-   create** is chosen.
+4. Choose **Create database** and select **Easy create**.
 
-![Easy create option.](images/easy-create-option.png) 5. In **Configuration**, choose **MySQL**. 6. For **DB instance size**, choose **Free tier**.
-**Free tier** appears for free plan accounts.
-**Sandbox** appears for paid plan
-accounts. 7. For **DB instance identifier**, enter `database-test1`. 8. For **Master username**, enter a name for the master user, or keep the
+![Easy create option.](images/easy-create-option.png) 5. In **Configuration**, choose **MariaDB**. 6. For **DB instance size**, choose **Free tier** or
+**Sandbox**. **Free
+tier** appears for free plan accounts. **Sandbox** appears for paid plan accounts. 7. For **DB instance identifier**, enter `database-test1`. 8. For **Master username**, enter a name for the master user, or keep the
 default name.
 
 The **Create database** page should look similar to the following image.
 For free plan accounts, **Free tier** appears. For
 paid plan accounts, **Sandbox** appears.
 
-![Create database page.](images/easy-create-mysql.png) 9. To use an automatically generated master password for the DB instance, select
+![Create database page.](images/easy-create-mariadb.png) 9. To use an automatically generated master password for the DB instance, select
 **Auto generate a password**.
 
-To enter your master password, make sure **Auto generate a
-password** is cleared, and then enter the same password in
-**Master password** and **Confirm
-password**. 10. To set up a connection with the EC2 instance you created previously, open
-**Set up EC2 connection -
-_optional_**.
+To enter your master password, clear **Auto generate a password**, and
+then enter the same password in **Master password** and
+**Confirm master password**. 10. To set up a connection with the EC2 instance you created previously, expand **Set
+up EC2 connection - _optional_**.
 
-Select **Connect to an EC2 compute resource**. Choose the EC2 instance
-you created previously.
+Select **Connect to an EC2 compute resource**. Choose the EC2
+instance you created previously.
 
-![Set up EC2 connection option.](images/EC2_RDS_Setup_Conn-EasyCreate.png) 11. (Optional) Open **View default settings for Easy create**.
+![Set up EC2 connection option.](images/EC2_RDS_Setup_Conn-EasyCreate.png) 11. Expand **View default settings for Easy create**.
 
-![Easy create default settings.](images/easy-create-view-default-mysql.png)
+![Easy create default settings.](images/easy-create-view-default-maria.png)
 
 You can examine the default settings used with **Easy create**. The
 **Editable after database is created** column shows which
@@ -213,11 +204,11 @@ options you can change after you create the database.
 
 12. Choose **Create database**.
 
-To view the master username and password for the DB instance, choose
-**View credential details**.
+To view the master username and password for the DB instance, choose **View
+credential details**.
 
-You can use the username and password that appears to connect to the DB
-instance as the master user.
+You can use the username and password that appears to connect to the DB instance as the
+master user.
 
 ###### Important
 
@@ -226,20 +217,20 @@ record it, you might have to change it.
 
 If you need to change the master user password after the DB instance
 is available, you can modify the DB instance to do so. For more
-information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md"). 13. In the **Databases** list, choose the name of the new MySQL
+information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md"). 13. In the **Databases** list, choose the name of the new MariaDB
 DB instance to show its details.
 
 The DB instance has a status of **Creating** until it is ready to use.
 
-![DB instance details.](images/MySQL-Launch06.png)
+![DB instance details.](images/MariaDB-Launch06.png)
 
-When the status changes to **Available**, you can connect to the
-DB instance. Depending on the DB instance class and the amount of storage,
-it can take up to 20 minutes before the new instance is available.
+When the status changes to **Available**, you can connect to the DB
+instance. Depending on the DB instance class and the amount of storage, it can
+take up to 20 minutes before the new instance is available.
 
-## (Optional) Create VPC, EC2 instance, and MySQL instance using AWS CloudFormation
+## (Optional) Create VPC, EC2 instance, and MariaDB instance using AWS CloudFormation
 
-Instead of using the console to create your VPC, EC2 instance, and MySQL instance, you can use AWS CloudFormation to provision AWS resources by treating infrastructure as code.
+Instead of using the console to create your VPC, EC2 instance, and MariaDB instance, you can use AWS CloudFormation to provision AWS resources by treating infrastructure as code.
 To help you organize your AWS resources into smaller and more manageable units, you can use the AWS CloudFormation nested stack functionality.
 For more information, see [Creating a stack on the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") and
 [Working with nested stacks](../../../AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.md").
@@ -248,10 +239,8 @@ For more information, see [Creating a stack on the AWS CloudFormation console](.
 
 AWS CloudFormation is free, but the resources that CloudFormation creates are live. You incur the standard
 usage fees for these resources until you terminate them. For more information, see
-[RDS for MySQL
-pricing](https://aws.amazon.com/rds/mysql/pricing "https://aws.amazon.com/rds/mysql/pricing").
-
-To create your resources using the AWS CloudFormation console, complete the following steps:
+[RDS for MariaDB
+pricing](https://aws.amazon.com/rds/mariadb/pricing "https://aws.amazon.com/rds/mariadb/pricing").
 
 - Download the CloudFormation template
 - Configure your resources using CloudFormation
@@ -261,7 +250,7 @@ To create your resources using the AWS CloudFormation console, complete the foll
 A CloudFormation template is a JSON or YAML text file that contains the configuration information about the resources you want to create in the stack.
 This template also creates a VPC and a bastion host for you along with the RDS instance.
 
-To download the template file, open the following link, [MySQL CloudFormation template](https://github.com/aws-ia/cfn-ps-amazon-rds/blob/main/templates/rds-mysql-main.template.yaml "https://github.com/aws-ia/cfn-ps-amazon-rds/blob/main/templates/rds-mysql-main.template.yaml").
+To download the template file, open the following link, [MariaDB CloudFormation template](https://github.com/aws-ia/cfn-ps-amazon-rds/blob/main/templates/rds-mariadb-main.template.yaml "https://github.com/aws-ia/cfn-ps-amazon-rds/blob/main/templates/rds-mariadb-main.template.yaml").
 
 In the Github page, click the _Download raw file_ button to save the template YAML file.
 
@@ -279,7 +268,7 @@ Follow the steps below:
 2. Choose **Create Stack**.
 3. In the Specify template section, select **Upload a template file from your computer**, and then choose **Next**.
 4. In the **Specify stack details** page, set the following parameters:
-   1. Set **Stack name** to **MySQLTestStack**.
+   1. Set **Stack name** to **MariaDBTestStack**.
    2. Under **Parameters**, set **Availability Zones** by selecting three availability zones.
    3. Under **Linux Bastion Host configuration**, for **Key Name**, select a key pair to login to your EC2 instance.
    4. In **Linux Bastion Host configuration** settings,
@@ -297,37 +286,33 @@ Follow the steps below:
    time in a test environment, but it's unsafe for production
    environments. In production, authorize only a specific IP
    address or range of addresses to access your EC2 instances using
-   SSH. 5. Under **Database General configuration**, set **Database instance class** to **db.t3.micro**. 6. Set **Database name** to `database-test1`. 7. For **Database master username**, enter a name for the master user. 8. Set **Manage DB master user password with Secrets Manager** to
-   `false` for this tutorial. 9. For **Database password**, set a password of your choice. Remember this password for further steps in the tutorial. 10. Under **Database Storage configuration**, set **Database storage
+   SSH. 5. Under **Database General configuration**, set **Database instance class** to **db.t3.micro**. 6. Set **Database name** to `database-test1`. 7. For **Database master username**, enter a name for the master user. 8. Set **Manage DB master user password with Secrets Manager** to `false` for this tutorial. 9. For **Database password**, set a password of your choice. Remember this password for further steps in the tutorial. 10. Under **Database Storage configuration**, set **Database storage
    type** to **gp2**. 11. Under **Database Monitoring configuration**, set **Enable RDS Performance Insights** to false. 12. Leave all other settings as the default values. Click **Next** to continue.
 
-5. In the **Configure stack options** page, leave all the default options. Click **Next** to continue.
-6. In the **Review stack** page, select **Submit** after checking the database and Linux bastion host options.
+5. In the **Review stack** page, select **Submit** after checking the database and Linux bastion host options.
 
 After the stack creation process completes, view the stacks with names _BastionStack_ and _RDSNS_
 to note the information you need to connect to the database. For more information, see
 [Viewing AWS CloudFormation stack data and resources on the AWS Management Console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md").
 
-## Connect to a MySQL DB
+## Connect to a MariaDB DB instance
 
-instance
+You can use any standard SQL client application to connect to the DB instance. In
+this example, you connect to a MariaDB DB instance using the mysql command-line client.
 
-You can use any standard SQL client application to connect to the DB instance. In this example, you
-connect to a MySQL DB instance using the mysql command-line client.
-
-###### To connect to a MySQL DB instance
+###### To connect to a MariaDB DB instance
 
 1. Find the endpoint (DNS name) and port number for your DB instance.
    1. Sign in to the AWS Management Console and open the Amazon RDS console at
       [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
    2. In the upper-right corner of the Amazon RDS console, choose the AWS Region for the DB instance.
    3. In the navigation pane, choose **Databases**.
-   4. Choose the MySQL DB instance name to display its details.
+   4. Choose the MariaDB DB instance name to display its details.
    5. On the **Connectivity & security** tab, copy the endpoint.
-      Also, note the port number. You need both the endpoint and the port number
-      to connect to the DB instance.
+      Also note the port number. You need both the endpoint and the port
+      number to connect to the DB instance.
 
-   ![Connect to a MySQL DB instance.](images/MySQLConnect1.png)
+   ![Connect to a MariaDB DB instance.](images/MariaDBConnect1.png)
 
 2. Connect to the EC2 instance that you created earlier by following the steps in
    [Connect to your Linux
@@ -362,45 +347,51 @@ examine updates before installing, omit this option.
 sudo dnf update -y
 ```
 
-4. To install the mysql command-line client from MariaDB on Amazon Linux 2023, run the
-   following command:
+4. Install the mysql command-line client from MariaDB.
+
+To install the MariaDB command-line client on Amazon Linux 2023, run the following
+command:
 
 ```
 sudo dnf install mariadb105
 ```
 
-5. Connect to the MySQL DB instance. For example, enter the following
-   command. This action lets you connect to the MySQL DB instance using the MySQL client.
+5. Connect to the MariaDB DB instance. For example, enter the following
+   command. This action lets you connect to the MariaDB DB instance using the
+   MySQL client.
 
-Substitute the DB instance endpoint (DNS name) for `endpoint`,
-and substitute the master username that you used for `admin`. Provide
-the master password that you used when prompted for a password.
+Substitute the DB instance endpoint (DNS name) for
+`endpoint`, and substitute the
+master username that you used for `admin`.
+Provide the master password that you used when prompted for a password.
 
 ```
 mysql -h `endpoint` -P 3306 -u `admin` -p
 ```
 
-After you enter the password for the user, you should see output similar to the following.
+After you enter the password for the user, you should see output similar to the
+following.
 
 ```
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MySQL connection id is 3082
-Server version: 8.0.28 Source distribution
+Your MariaDB connection id is 156
+Server version: 10.6.10-MariaDB-log managed by https://aws.amazon.com/rds/
 
 Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-MySQL [(none)]>
+MariaDB [(none)]>
 ```
 
-For more information about connecting to a MySQL DB instance, see [Connecting to your MySQL DB instance](USER_ConnectToInstance.md "USER_ConnectToInstance.md"). If you can't connect to your DB instance, see
+For more information about connecting to a MariaDB DB instance, see [Connecting to your MariaDB DB instance](USER_ConnectToMariaDBInstance.md "USER_ConnectToMariaDBInstance.md"). If you can't connect to your DB instance, see
 [Can't connect to Amazon RDS DB instance](CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting "CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting").
 
-For security, it is a best practice to use encrypted connections. Only use an unencrypted MySQL
+For security, it is a best practice to use encrypted connections. Only use an unencrypted MariaDB
 connection when the client and server are in the same VPC and the network is trusted. For information about
-using encrypted connections, see [Connecting to your MySQL DB instance on
-Amazon RDS with SSL/TLS from the MySQL command-line client (encrypted)](USER_ConnectToInstanceSSL.md "USER_ConnectToInstanceSSL.md"). 6. Run SQL commands.
+using encrypted connections, see [Connecting to your MariaDB DB
+instance on Amazon RDS with SSL/TLS from the MySQL command-line client
+(encrypted)](USER_ConnectToMariaDBInstanceSSL.md "USER_ConnectToMariaDBInstanceSSL.md"). 6. Run SQL commands.
 
 For example, the following SQL command shows the current date and time:
 
@@ -408,9 +399,7 @@ For example, the following SQL command shows the current date and time:
 SELECT CURRENT_TIMESTAMP;
 ```
 
-## Delete the EC2 instance and DB
-
-instance
+## Delete the EC2 instance and DB instance
 
 After you connect to and explore the sample EC2 instance and DB instance that you created, delete them so
 you're no longer charged for them.
@@ -433,9 +422,8 @@ in the _Amazon EC2 User Guide_.
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Databases**.
-3. Choose the DB instance that you want to delete.
-4. For **Actions**, choose
-   **Delete**.
+3. Choose the DB instance you want to delete.
+4. For **Actions**, choose **Delete**.
 5. Clear **Create final snapshot?** and **Retain automated backups**.
 6. Complete the acknowledgement and choose **Delete**.
 
@@ -443,13 +431,13 @@ in the _Amazon EC2 User Guide_.
 
 instance created with CloudFormation
 
-If you used AWS CloudFormation to create resources, delete the CloudFormation stack after you
-connect to and explore the sample EC2 instance and DB instance, so you're no longer charged for them.
+If you used AWS CloudFormation to create resources, delete the CloudFormation
+stack after you connect to and explore the sample EC2 instance and DB instance, so you're no longer charged for them.
 
 ###### To delete the CloudFormation resources
 
 1. Open the AWS CloudFormation console.
-2. On the **Stacks** page in the CloudFormationconsole,
+2. On the **Stacks** page in the CloudFormation console,
    select the root stack (the stack without the name VPCStack, BastionStack or RDSNS).
 3. Choose **Delete**.
 4. Select **Delete stack** when prompted for confirmation.
@@ -459,7 +447,7 @@ in the _AWS CloudFormation User Guide_.
 
 ## (Optional) Connect your DB instance to a Lambda function
 
-You can also connect your RDS for MySQL DB instance to a Lambda serverless compute resource.
+You can also connect your RDS for MariaDB DB instance to a Lambda serverless compute resource.
 Lambda functions allow you to run code without provisioning or managing infrastructure. A Lambda function
 also allows you to automatically respond to code execution requests at any scale, from a dozen events
 a day to hundreds of per second. For more information, see [Automatically connecting a Lambda function and a

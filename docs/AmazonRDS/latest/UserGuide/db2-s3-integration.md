@@ -155,7 +155,29 @@ For Linux, macOS, or Unix:
 ```
 aws iam create-policy \
     --policy-name `iam_policy_name` \
-    --policy-document file://`iam_policy_file_name`.json
+    --policy-document '{
+      "Version": "2012-10-17"		 	 	 		 	 	 		 	 	 ,
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Action": [
+            "kms:GenerateDataKey",
+            "kms:Decrypt",
+            "s3:PutObject",
+            "s3:GetObject",
+            "s3:AbortMultipartUpload",
+            "s3:ListBucket",
+            "s3:DeleteObject",
+            "s3:GetObjectVersion",
+            "s3:ListMultipartUploadParts"
+          ],
+          "Resource": [
+            "arn:aws:s3:::`s3_bucket_name`/*",
+            "arn:aws:s3:::`s3_bucket_name`"
+          ]
+        }
+      ]
+    }'
 ```
 
 For Windows:
@@ -163,7 +185,27 @@ For Windows:
 ```
 aws iam create-policy ^
     --policy-name `iam_policy_name` ^
-    --policy-document file://`iam_policy_file_name`.json
+    --policy-document '{
+      "Version": "2012-10-17"		 	 	 		 	 	 		 	 	 ,
+      "Statement": [
+        {
+          "Effect": "Allow",
+            "Action": [
+              "s3:PutObject",
+              "s3:GetObject",
+              "s3:AbortMultipartUpload",
+              "s3:ListBucket",
+              "s3:DeleteObject",
+              "s3:GetObjectVersion",
+              "s3:ListMultipartUploadParts"
+            ],
+            "Resource": [
+              "arn:aws:s3:::`s3_bucket_name`/*",
+              "arn:aws:s3:::`s3_bucket_name`"
+            ]
+        }
+      ]
+    }'
 ```
 
 3. After the policy is created, note the ARN of the policy. You need the
@@ -236,7 +278,18 @@ For Linux, macOS, or Unix:
 ```
 aws iam create-role \
     --role-name `iam_role_name` \
-    --assume-role-policy-document file://`iam_assume_role_policy_file_name`.json
+    --assume-role-policy-document '{
+      "Version": "2012-10-17"		 	 	 		 	 	 		 	 	 ,
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Principal": {
+            "Service": "rds.amazonaws.com"
+          },
+          "Action": "sts:AssumeRole"
+        }
+      ]
+    }'
 ```
 
 For Windows:
@@ -244,7 +297,18 @@ For Windows:
 ```
 aws iam create-role ^
     --role-name `iam_role_name` ^
-    --assume-role-policy-document file://`iam_assume_role_policy_file_name`.json
+    --assume-role-policy-document '{
+      "Version": "2012-10-17"		 	 	 		 	 	 		 	 	 ,
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Principal": {
+            "Service": "rds.amazonaws.com"
+          },
+          "Action": "sts:AssumeRole"
+        }
+      ]
+    }'
 ```
 
 3. After the role is created, note the ARN of the role. You need the ARN

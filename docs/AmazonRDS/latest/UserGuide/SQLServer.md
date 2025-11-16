@@ -1,90 +1,71 @@
-# Instance store support for the tempdb database on Amazon RDS for SQL Server
+# Using Database Mail on Amazon RDS for SQL Server
 
-An _instance store_ provides temporary block-level
-storage for your DB instance. This storage is located on disks that are physically attached
-to the host computer. These disks have Non-Volatile Memory Express (NVMe) instance storage
-that is based on solid-state drives (SSDs). This storage is optimized for low latency, very
-high random I/O performance, and high sequential read throughput.
+You can use Database Mail to send email messages to users from your Amazon RDS on SQL Server database instance. The messages can contain
+files and query results. Database Mail includes the following components:
 
-By placing `tempdb` data files and `tempdb` log files on the instance store, you can achieve
-lower read and write latencies compared to standard storage based on Amazon EBS.
+- **Configuration and security objects** – These objects create profiles and accounts,
+  and are stored in the `msdb` database.
+- **Messaging objects** – These objects include the [sp_send_dbmail](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql") stored procedure used to send messages, and data structures that hold information about
+  messages. They're stored in the `msdb` database.
+- **Logging and auditing objects** – Database Mail writes logging information to the
+  `msdb` database and the Microsoft Windows application event log.
+- **Database Mail executable** – `DatabaseMail.exe` reads from a queue in the
+  `msdb` database and sends email messages.
+  RDS supports Database Mail for all SQL Server versions on the Web, Standard, and Enterprise Editions.
 
-###### Note
+## Limitations
 
-SQL Server database files and database log files aren't placed on the instance store.
+The following limitations apply to using Database Mail on your SQL Server DB instance:
 
-## Enabling the instance store
+- Database Mail isn't supported for SQL Server Express Edition.
+- Modifying Database Mail configuration parameters isn't supported. To see the preset (default) values, use the
+  [sysmail_help_configure_sp](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-help-configure-sp-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-help-configure-sp-transact-sql") stored procedure.
+- File attachments aren't fully supported. For more information, see [Working with file attachments](#SQLServer.DBMail.Files "#SQLServer.DBMail.Files").
+- The maximum file attachment size is 1 MB.
+- Database Mail requires additional configuration on Multi-AZ DB instances. For more information, see [Considerations for Multi-AZ deployments](#SQLServer.DBMail.MAZ "#SQLServer.DBMail.MAZ").
+- Configuring SQL Server Agent to send email messages to predefined operators isn't supported.
 
-When RDS provisions DB instances with one of the following instance classes, the `tempdb` database is
-automatically placed onto the instance store:
+## Amazon RDS stored procedures and functions for Database Mail
 
-- db.m5d
-- db.r5d
-- db.x2iedn
+Microsoft provides [stored procedures](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/database-mail-stored-procedures-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/database-mail-stored-procedures-transact-sql") for using Database Mail, such as creating, listing, updating, and deleting accounts and profiles.
+In addition, RDS provides the stored procedures and functions for Database Mail shown in the following table.
 
-To enable the instance store, do one of the following:
+| Procedure/Function              | Description                                                                      |
+| ------------------------------- | -------------------------------------------------------------------------------- |
+| rds_fn_sysmail_allitems         | Shows sent messages, including those submitted by other users.                   |
+| rds_fn_sysmail_event_log        | Shows events, including those for messages submitted by other users.             |
+| rds_fn_sysmail_mailattachments  | Shows attachments, including those to messages submitted by other users.         |
+| rds_sysmail_control             | Starts and stops the mail queue (DatabaseMail.exe process).                      |
+| rds_sysmail_delete_mailitems_sp | Deletes email messages sent by all users from the Database Mail internal tables. |
 
-- Create a SQL Server DB instance using one of these instance types. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
-- Modify an existing SQL Server DB instance to use one of them. For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+## Working with file attachments
 
-The instance store is available in all AWS Regions where one or more of these instance types are supported. For more
-information on the `db.m5d` and `db.r5d` instance classes, see [DB instance classes](Concepts.md "Concepts.md"). For more information on the instance classes supported by Amazon RDS for SQL Server,
-see [DB instance class support for Microsoft SQL Server](SQLServer.Concepts.General.md "SQLServer.Concepts.General.md").
+The following file attachment extensions aren't supported in Database Mail messages from RDS on SQL Server: .ade, .adp,
+.apk, .appx, .appxbundle, .bat, .bak, .cab, .chm, .cmd, .com, .cpl, .dll, .dmg, .exe, .hta, .inf1, .ins, .isp, .iso, .jar, .job,
+.js, .jse, .ldf, .lib, .lnk, .mde, .mdf, .msc, .msi, .msix, .msixbundle, .msp, .mst, .nsh, .pif, .ps, .ps1, .psc1, .reg, .rgs,
+.scr, .sct, .shb, .shs, .svg, .sys, .u3p, .vb, .vbe, .vbs, .vbscript, .vxd, .ws, .wsc, .wsf, and .wsh.
 
-## File location and size considerations
+Database Mail uses the Microsoft Windows security context of the current user to control access to files. Users who log in
+with SQL Server Authentication can't attach files using the `@file_attachments` parameter with the
+`sp_send_dbmail` stored procedure. Windows doesn't allow SQL Server to provide credentials from a remote
+computer to another remote computer. Therefore, Database Mail can't attach files from a network share when the command is
+run from a computer other than the computer running SQL Server.
 
-On instances without an instance store, RDS stores the `tempdb` data and log files in the
-`D:\rdsdbdata\DATA` directory. Both files start at 8 MB by default.
+However, you can use SQL Server Agent jobs to attach files. For more information on SQL Server Agent, see [Using SQL Server Agent for Amazon RDS](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md") and [SQL Server Agent](https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent "https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent") in the Microsoft
+documentation.
 
-On instances with an instance store, RDS stores the `tempdb` data and log files in the
-`T:\rdsdbdata\DATA` directory.
+## Considerations for Multi-AZ deployments
 
-When `tempdb` has only one data file (`tempdb.mdf`) and one log file
-(`templog.ldf`), `templog.ldf` starts at 8 MB by default and
-`tempdb.mdf` starts at 80% or more of the instance's storage capacity. Twenty percent of the storage
-capacity or 200 GB, whichever is less, is kept free to start. Multiple `tempdb` data files split the 80% disk
-space evenly, while log files always have an 8-MB initial size.
+When you configure Database Mail on a Multi-AZ DB instance, the configuration isn't automatically propagated to the
+secondary. We recommend converting the Multi-AZ instance to a Single-AZ instance, configuring Database Mail, and then converting
+the DB instance back to Multi-AZ. Then both the primary and secondary nodes have the Database Mail configuration.
 
-For example, if you modify your DB instance class from `db.m5.2xlarge` to `db.m5d.2xlarge`, the size of
-`tempdb` data files increases from 8 MB each to 234 GB in total.
+If you create a read replica from your Multi-AZ instance that has Database Mail configured, the replica inherits the
+configuration, but without the password to the SMTP server. Update the Database Mail account with the password.
 
-###### Note
+## Removing the SMTP (port 25) restriction
 
-Besides the `tempdb` data and log files on the instance store (`T:\rdsdbdata\DATA`),
-you can still create extra `tempdb` data and log files on the data volume
-(`D:\rdsdbdata\DATA`). Those files always have an 8 MB initial size.
-
-## Backup considerations
-
-You might need to retain backups for long periods, incurring costs over time. The `tempdb` data and log
-blocks can change very often depending on the workload. This can greatly increase the DB snapshot size.
-
-When `tempdb` is on the instance store, snapshots don't include temporary files. This means that
-snapshot sizes are smaller and consume less of the free backup allocation compared to EBS-only storage.
-
-## Disk full errors
-
-If you use all of the available space in the instance store, you might receive errors such as the following:
-
-- **`The transaction log for database 'tempdb' is full due to 'ACTIVE_TRANSACTION'.`**
-- **`Could not allocate space for object 'dbo.SORT temporary run storage: 140738941419520' in database 'tempdb'
-because the 'PRIMARY' filegroup is full. Create disk space by deleting unneeded files, dropping objects in the
-filegroup, adding additional files to the filegroup, or setting autogrowth on for existing files in the
-filegroup.`**
-
-You can do one or more of the following when the instance store is full:
-
-- Adjust your workload or the way you use `tempdb`.
-- Scale up to use a DB instance class with more NVMe storage.
-- Stop using the instance store, and use an instance class with only EBS storage.
-- Use a mixed mode by adding secondary data or log files for `tempdb` on the EBS volume.
-
-## Removing the instance store
-
-To remove the instance store, modify your SQL Server DB instance to use an instance type that doesn't support instance store,
-such as db.m5, db.r5, or db.x1e.
-
-###### Note
-
-When you remove the instance store, the temporary files are moved to the `D:\rdsdbdata\DATA` directory
-and reduced in size to 8 MB.
+By default, AWS blocks outbound traffic on SMTP (port 25) for RDS for SQL Server DB instances.
+This is done to prevent spam based on the elastic network interface owner's policies.
+You can remove this restriction if needed. For more information, see
+[How do I remove the restriction on port 25 from my Amazon EC2 instance or Lambda function?](https://repost.aws/knowledge-center/ec2-port-25-throttle "https://repost.aws/knowledge-center/ec2-port-25-throttle").

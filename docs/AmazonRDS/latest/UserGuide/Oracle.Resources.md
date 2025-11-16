@@ -1,301 +1,134 @@
-# Using the Oracle Repository Creation Utility on RDS for Oracle
+# Installing a Siebel database on Oracle on Amazon RDS
 
-You can use Amazon RDS to host an RDS for Oracle DB instance that holds the schemas to support your Oracle Fusion Middleware components. Before you can
-use Fusion Middleware components, create and populate schemas for them in your database. You create and populate the schemas by using the
-Oracle Repository Creation Utility (RCU).
+You can use Amazon RDS to host a Siebel Database on an Oracle DB instance.
+The Siebel Database is part of the Siebel Customer Relationship Management (CRM) application architecture.
+For an illustration, see
+[Generic architecture of Siebel business application](https://docs.oracle.com/cd/E63029_01/books/PerformTun/performtun_archinfra.htm#i1043361 "https://docs.oracle.com/cd/E63029_01/books/PerformTun/performtun_archinfra.htm#i1043361").
 
-## Supported versions and licensing options for RCU
+Use the following topic to help set up a Siebel Database on an Oracle DB instance on
+Amazon RDS. You can also find out how to use Amazon Web Services to support the other components
+required by the Siebel CRM application architecture.
 
-Amazon RDS supports Oracle Repository Creation Utility (RCU) version 12c only.
-You can use the RCU in the following configurations:
+###### Note
 
-- RCU 12c with Oracle Database 21c
-- RCU 12c with Oracle Database 19c
+To install a Siebel Database on Oracle on Amazon RDS, you need to use the master user account.
+You don't need `SYSDBA` privilege; master user privilege is sufficient.
+For more information, see
+[Master user account privileges](UsingWithRDS.md "UsingWithRDS.md").
 
-Before you can use RCU, make sure that you do the following:
+## Licensing and versions
 
-- Obtain a license for Oracle Fusion Middleware.
-- Follow the Oracle licensing guidelines for the Oracle database that hosts the repository. For more information, see [Oracle Fusion Middleware Licensing Information User
-  Manual](https://docs.oracle.com/en/middleware/fusion-middleware/fmwlc/ "https://docs.oracle.com/en/middleware/fusion-middleware/fmwlc/") in the Oracle documentation.
+To install a Siebel Database on Amazon RDS, you must use your own Oracle Database license, and your own Siebel license.
+You must have the appropriate Oracle Database license (with Software Update License and Support)
+for the DB instance class and Oracle Database edition.
+For more information,
+see [RDS for Oracle licensing options](Oracle.Concepts.md "Oracle.Concepts.md").
 
-Fusion MiddleWare supports repositories on Oracle Database Enterprise Edition and Standard Edition 2. Oracle recommends Enterprise Edition
-for production installations that require partitioning and installations that require online index rebuild.
+Oracle Database Enterprise Edition is the only edition certified by Siebel for this
+scenario. Amazon RDS supports Siebel CRM version 15.0 or 16.0.
 
-Before you create your RDS for Oracle instance, confirm the Oracle database version that you need to support the components that you want to deploy.
-To find the requirements for the Fusion Middleware components and versions you want to deploy, use the Certification Matrix. For more
-information, see [Oracle Fusion
-Middleware Supported System Configurations](http://www.oracle.com/technetwork/middleware/ias/downloads/fusion-certification-100350.html "http://www.oracle.com/technetwork/middleware/ias/downloads/fusion-certification-100350.html") in the Oracle documentation.
-
-Amazon RDS supports Oracle database version upgrades as needed. For more information, see
+Amazon RDS supports database version upgrades.
+For more information, see
 [Upgrading
 a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
 
-## Requirements and limitations for RCU
+## Before you begin
 
-To use RCU, you need an Amazon VPC. Your Amazon RDS DB instance must be available only to your Fusion
-Middleware components, and not to the public Internet. Thus, host your Amazon RDS DB instance in a
-private subnet, which provides greater security. You also need an RDS for Oracle DB instance. For more
-information, see [Creating and connecting to an Oracle DB instance](CHAP_GettingStarted.CreatingConnecting.md "CHAP_GettingStarted.CreatingConnecting.md").
+Before you begin, you need an Amazon VPC.
+Because your Amazon RDS DB instance needs to be available only to your Siebel Enterprise Server,
+and not to the public Internet, your Amazon RDS DB instance is hosted in a private subnet, providing greater security.
 
-You can store the schemas for any Fusion Middleware components in your Amazon RDS DB instance. The following schemas
-have been verified to install correctly:
+For information about how to create an Amazon VPC for use with Siebel CRM, see
+[Creating and connecting to an Oracle DB instance](CHAP_GettingStarted.CreatingConnecting.md "CHAP_GettingStarted.CreatingConnecting.md").
 
-- Analytics (ACTIVITIES)
-- Audit Services (IAU)
-- Audit Services Append (IAU_APPEND)
-- Audit Services Viewer (IAU_VIEWER)
-- Discussions (DISCUSSIONS)
-- Metadata Services (MDS)
-- Oracle Business Intelligence (BIPLATFORM)
-- Oracle Platform Security Services (OPSS)
-- Portal and Services (WEBCENTER)
-- Portlet Producers (PORTLET)
-- Service Table (STB)
-- SOA Infrastructure (SOAINFRA)
-- User Messaging Service (UCSUMS)
-- WebLogic Services (WLS)
+Before you begin, you also need an Oracle DB instance.
 
-## Guidelines for using RCU
+For information about how to create an Oracle DB instance for use with Siebel CRM, see
+[Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
 
-The following are some recommendations for working with your DB instance in this scenario:
+## Installing and configuring a Siebel database
 
-- We recommend that you use Multi-AZ for production workloads.
-  For more information about working with multiple Availability
-  Zones, see [Regions, Availability Zones, and Local Zones](Concepts.md "Concepts.md").
-- For additional security,
-  Oracle recommends that you use Transparent Data Encryption (TDE)
-  to encrypt your data at rest.
-  If you have an Enterprise Edition license that includes the Advanced Security Option,
-  you can enable encryption at rest by using the TDE option.
-  For more information, see
-  [Oracle Transparent Data Encryption](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").
-
-Amazon RDS also provides an encryption at rest option for all database editions.
+After you create your Oracle DB instance, you can install your Siebel Database.
+You install the database by creating table owner and administrator accounts,
+installing stored procedures and functions,
+and then running the Siebel Database Configuration Wizard.
 For more information, see
-[Encrypting Amazon RDS
-resources](Overview.md "Overview.md").
+[Installing the Siebel database on the RDBMS](https://docs.oracle.com/cd/E63029_01/books/SiebInstWIN/SiebInstCOM_ConfigDB.html "https://docs.oracle.com/cd/E63029_01/books/SiebInstWIN/SiebInstCOM_ConfigDB.html").
 
-- Configure your VPC Security Groups
-  to allow communication between your application servers
-  and your Amazon RDS DB instance.
-  The application servers that host the Fusion Middleware components
-  can be on Amazon EC2 or on-premises.
+To run the Siebel Database Configuration Wizard, you need to use the master user account.
+You don't need `SYSDBA` privilege; master user privilege is sufficient.
+For more information, see
+[Master user account privileges](UsingWithRDS.md "UsingWithRDS.md").
 
-## Running RCU
+## Using other Amazon RDS features with a Siebel database
 
-To create and populate the schemas to support your Fusion Middleware components, use the Oracle Repository
-Creation Utility (RCU). You can run RCU in different ways.
+After you create your Oracle DB instance, you can use additional Amazon RDS features
+to help you customize your Siebel Database.
 
-###### Topics
+### Collecting statistics with the Oracle Statspack option
 
-- [Running RCU using the command line in one step](#Oracle.Resources.RCU.SilentSingle "#Oracle.Resources.RCU.SilentSingle")
-- [Running RCU using the command line in multiple steps](#Oracle.Resources.RCU.SilentMulti "#Oracle.Resources.RCU.SilentMulti")
-- [Running RCU in interactive mode](#Oracle.Resources.RCU.Interactive "#Oracle.Resources.RCU.Interactive")
+You can add features to your DB instance through the use of options in DB option groups.
+When you created your Oracle DB instance, you used the default DB option group.
+If you want to add features to your database, you can create a new option group for your DB instance.
 
-### Running RCU using the command line in one step
+If you want to collect performance statistics on your Siebel Database,
+you can add the Oracle Statspack feature.
+For more information, see [Oracle Statspack](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").
 
-If you don't need to edit any of your schemas before populating them,
-you can run RCU in a single step.
-Otherwise, see the following section for running RCU in multiple steps.
+Some option changes are applied immediately, and some option changes are applied during the next maintenance window for the DB instance.
+For more information, see [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md").
 
-You can run the RCU in silent mode by using the command-line parameter `-silent`.
-When you run RCU in silent mode, you can avoid entering passwords on the command line by
-creating a text file containing the passwords. Create a text file with the password for
-`dbUser` on the first line, and the password for each component on
-subsequent lines. You specify the name of the password file as the last parameter to the
-RCU command.
+After you create a customized option group, modify your DB instance to attach it.
+For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
 
-###### Example
+### Performance tuning with parameters
 
-The following example creates and populates schemas for the SOA Infrastructure component (and its dependencies) in a single step.
+You manage your DB engine configuration through the use of parameters in a DB parameter group.
+When you created your Oracle DB instance, you used the default DB parameter group.
+If you want to customize your database configuration, you can create a new parameter group for your DB instance.
 
-For Linux, macOS, or Unix:
+When you change a parameter, depending on the type of the parameter,
+the changes are applied either immediately or after you manually reboot the DB instance.
+For more information, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
-```
-export ORACLE_HOME=/u01/app/oracle/product/12.2.1.0/fmw
-export JAVA_HOME=/usr/java/jdk1.8.0_65
-`${ORACLE_HOME}`/oracle_common/bin/rcu \
--silent \
--createRepository \
--connectString `${dbhost}`:`${dbport}`:`${dbname}` \
--dbUser `${dbuser}` \
--dbRole Normal \
--honorOMF \
--schemaPrefix `${SCHEMA_PREFIX}` \
--component MDS \
--component STB \
--component OPSS \
--component IAU \
--component IAU_APPEND \
--component IAU_VIEWER \
--component UCSUMS \
--component WLS \
--component SOAINFRA \
--f < `/tmp/passwordfile.txt`
+After you create a customized parameter group, modify your DB instance to attach it.
+For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
 
-```
+To optimize your Oracle DB instance for Siebel CRM, you can customize certain parameters.
+The following table shows some recommended parameter settings.
+For more information about performance tuning Siebel CRM,
+see [Siebel CRM Performance Tuning Guide](https://docs.oracle.com/cd/E63029_01/books/PerformTun/toc.htm "https://docs.oracle.com/cd/E63029_01/books/PerformTun/toc.htm").
 
-For more information, see [Running Repository Creation Utility from the command line](https://docs.oracle.com/middleware/1221/core/RCUUG/GUID-0D3A2959-7CC8-4001-997E-718ADF04C5F2.htm#RCUUG248 "https://docs.oracle.com/middleware/1221/core/RCUUG/GUID-0D3A2959-7CC8-4001-997E-718ADF04C5F2.htm#RCUUG248")
-in the Oracle documentation.
+| Parameter name                      | Default value | Guidance for optimal Siebel CRM performance |
+| ----------------------------------- | ------------- | ------------------------------------------- |
+| `_always_semi_join`                 | `CHOOSE`      | `OFF`                                       |
+| `_b_tree_bitmap_plans`              | `TRUE`        | `FALSE`                                     |
+| `_like_with_bind_as_equality`       | `FALSE`       | `TRUE`                                      |
+| `_no_or_expansion`                  | `FALSE`       | `FALSE`                                     |
+| `_optimizer_join_sel_sanity_check`  | `TRUE`        | `TRUE`                                      |
+| `_optimizer_max_permutations`       | 2000          | 100                                         |
+| `_optimizer_sortmerge_join_enabled` | `TRUE`        | `FALSE`                                     |
+| `_partition_view_enabled`           | `TRUE`        | `FALSE`                                     |
+| `open_cursors`                      | `300`         | At least `2000`.                            |
 
-### Running RCU using the command line in multiple steps
+### Creating snapshots
 
-To manually edit your schema scripts, run RCU in multiple steps:
+After you create your Siebel Database,
+you can copy the database by using the snapshot features of Amazon RDS.
+For more information,
+see [Creating a DB snapshot for a Single-AZ DB instance for Amazon RDS](USER_CreateSnapshot.md "USER_CreateSnapshot.md")
+and [Restoring to a DB instance](USER_RestoreFromSnapshot.md "USER_RestoreFromSnapshot.md").
 
-1. Run RCU in **Prepare Scripts for System Load** mode
-   by using the `-generateScript` command-line parameter to create the scripts for your schemas.
-2. Manually edit and run the generated script `script_systemLoad.sql`.
-3. Run RCU again in **Perform Product Load** mode
-   by using the `-dataLoad` command-line parameter to populate the schemas.
-4. Run the generated cleanup script `script_postDataLoad.sql`.
+## Support for other Siebel CRM components
 
-To run RCU in silent mode, specify the command-line parameter `-silent`. When you run RCU in
-silent mode, you can avoid typing passwords on the command line by creating a text file containing the
-passwords. Create a text file with the password for `dbUser` on the first line, and the password
-for each component on subsequent lines. Specify the name of the password file as the last parameter to the
-RCU command.
+In addition to your Siebel Database,
+you can also use Amazon Web Services to support the other components of your Siebel CRM application architecture.
 
-###### Example
+You can find more information about the support provided by Amazon AWS
+for additional Siebel CRM components in the following table.
 
-The following example creates schema scripts for the SOA Infrastructure component and its dependencies.
-
-For Linux, macOS, or Unix:
-
-```
-export ORACLE_HOME=/u01/app/oracle/product/12.2.1.0/fmw
-export JAVA_HOME=/usr/java/jdk1.8.0_65
-`${ORACLE_HOME}`/oracle_common/bin/rcu \
--silent \
--generateScript \
--connectString `${dbhost}`:`${dbport}`:`${dbname}` \
--dbUser `${dbuser}` \
--dbRole Normal \
--honorOMF \
-[-encryptTablespace true] \
--schemaPrefix `${SCHEMA_PREFIX}` \
--component MDS \
--component STB \
--component OPSS \
--component IAU \
--component IAU_APPEND \
--component IAU_VIEWER \
--component UCSUMS \
--component WLS \
--component SOAINFRA \
--scriptLocation /tmp/rcuscripts \
--f < `/tmp/passwordfile.txt`
-```
-
-Now you can edit the generated script, connect to your Oracle DB instance, and run the script.
-The generated script is named `script_systemLoad.sql`.
-For information about connecting to your Oracle DB instance, see
-[Step 3: Connect your SQL client to an
-Oracle DB instance](CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Connecting.Oracle "CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Connecting.Oracle").
-
-The following example populates the schemas for the SOA Infrastructure component (and its dependencies).
-
-For Linux, macOS, or Unix:
-
-```
-export JAVA_HOME=/usr/java/jdk1.8.0_65
-`${ORACLE_HOME}`/oracle_common/bin/rcu \
--silent \
--dataLoad \
--connectString `${dbhost}`:`${dbport}`:`${dbname}` \
--dbUser `${dbuser}` \
--dbRole Normal \
--honorOMF \
--schemaPrefix `${SCHEMA_PREFIX}` \
--component MDS \
--component STB \
--component OPSS \
--component IAU \
--component IAU_APPEND \
--component IAU_VIEWER \
--component UCSUMS \
--component WLS \
--component SOAINFRA \
--f < `/tmp/passwordfile.txt`
-
-```
-
-To finish, you connect to your Oracle DB instance, and run the clean-up script.
-The script is named `script_postDataLoad.sql`.
-
-For more information, see [Running Repository Creation Utility from the command line](https://docs.oracle.com/middleware/1221/core/RCUUG/GUID-0D3A2959-7CC8-4001-997E-718ADF04C5F2.htm#RCUUG248 "https://docs.oracle.com/middleware/1221/core/RCUUG/GUID-0D3A2959-7CC8-4001-997E-718ADF04C5F2.htm#RCUUG248")
-in the Oracle documentation.
-
-### Running RCU in interactive mode
-
-To use the RCU graphical user interface, run RCU in interactive mode. Include the `-interactive`
-parameter and omit the `-silent` parameter. For more information, see [Understanding
-Repository Creation Utility screens](https://docs.oracle.com/middleware/1213/core/RCUUG/rcu_screens.htm#RCUUG143 "https://docs.oracle.com/middleware/1213/core/RCUUG/rcu_screens.htm#RCUUG143") in the Oracle documentation.
-
-###### Example
-
-The following example starts RCU in interactive mode and pre-populates the connection information.
-
-For Linux, macOS, or Unix:
-
-```
-export ORACLE_HOME=/u01/app/oracle/product/12.2.1.0/fmw
-export JAVA_HOME=/usr/java/jdk1.8.0_65
-`${ORACLE_HOME}`/oracle_common/bin/rcu \
--interactive \
--createRepository \
--connectString `${dbhost}`:`${dbport}`:`${dbname}` \
--dbUser `${dbuser}` \
--dbRole Normal
-```
-
-## Troubleshooting RCU
-
-Be mindful of the following issues.
-
-###### Topics
-
-- [Oracle Managed Files (OMF)](#Oracle.Resources.RCU.KnownIssues.OMF "#Oracle.Resources.RCU.KnownIssues.OMF")
-- [Object privileges](#Oracle.Resources.RCU.KnownIssues.object-privs "#Oracle.Resources.RCU.KnownIssues.object-privs")
-- [Enterprise Scheduler Service](#Oracle.Resources.RCU.KnownIssues.Scheduler "#Oracle.Resources.RCU.KnownIssues.Scheduler")
-
-### Oracle Managed Files (OMF)
-
-Amazon RDS uses OMF data files to simplify storage management. You can customize tablespace attributes, such as size and extent management.
-However, if you specify a data file name when you run RCU, the tablespace code fails with `ORA-20900`. You can use RCU with OMF
-in the following ways:
-
-- In RCU 12.2.1.0 and later, use the `-honorOMF` command-line parameter.
-- In RCU 12.1.0.3 and later, use multiple steps and edit the generated script. For more information, see [Running RCU using the command line in multiple steps](#Oracle.Resources.RCU.SilentMulti "#Oracle.Resources.RCU.SilentMulti").
-
-### Object privileges
-
-Because Amazon RDS is a managed service, you don't have full `SYSDBA` access to your RDS for Oracle DB instance. However, RCU 12c
-supports users with lower privileges. In most cases, the master user privilege is sufficient to create repositories.
-
-The master account can directly grant privileges that it has already been granted `WITH GRANT OPTION`. In some cases, when
-you attempt to grant `SYS` object privileges, the RCU might fail with `ORA-01031`. You can retry and
-run the `rdsadmin_util.grant_sys_object` stored procedure, as shown in the following example:
-
-```
-BEGIN
-  rdsadmin.rdsadmin_util.grant_sys_object('GV_$SESSION','MY_DBA','SELECT');
-END;
-/
-```
-
-If you attempt to grant `SYS` privileges on the object `SCHEMA_VERSION_REGISTRY`, the operation might fail with
-`ORA-20199: Error in rdsadmin_util.grant_sys_object`. You can qualify the table `SCHEMA_VERSION_REGISTRY$` and
-the view `SCHEMA_VERSION_REGISTRY` with the schema owner name, which is `SYSTEM`, and retry the operation. Or, you
-can create a synonym. Log in as the master user and run the following statements:
-
-```
-CREATE OR REPLACE VIEW SYSTEM.SCHEMA_VERSION_REGISTRY
-  AS SELECT * FROM SYSTEM.SCHEMA_VERSION_REGISTRY$;
-CREATE OR REPLACE PUBLIC SYNONYM SCHEMA_VERSION_REGISTRY FOR SYSTEM.SCHEMA_VERSION_REGISTRY;
-CREATE OR REPLACE PUBLIC SYNONYM SCHEMA_VERSION_REGISTRY$ FOR SCHEMA_VERSION_REGISTRY;
-```
-
-### Enterprise Scheduler Service
-
-When you use the RCU to drop an Enterprise Scheduler Service repository, the RCU might fail with `Error: Component drop check
- failed`.
+| Siebel CRM component                               | Amazon AWS Support                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Siebel Enterprise(with one or more Siebel Servers) | You can host your Siebel Servers on Amazon Elastic Compute Cloud (Amazon EC2) instances.<br>You can use Amazon EC2 to launch as many or as few virtual servers as you need.<br>Using Amazon EC2, you can scale up or down easily to handle changes in requirements.<br>For more information, see [What is Amazon EC2?](../../../AWSEC2/latest/UserGuide/concepts.md "../../../AWSEC2/latest/UserGuide/concepts.md")<br>You can put your servers in the same VPC with your DB instance and<br>use the VPC security group to access the database.<br>For more information, see<br>[Working with a DB instance in a VPC](USER_VPC.md "USER_VPC.md"). |
+| Web Servers(with Siebel Web Server Extensions)     | You can install multiple Web Servers on multiple EC2 instances.<br>You can then use Elastic Load Balancing to distribute incoming traffic among the instances.<br>For more information, see [What is Elastic Load Balancing?](../../../elasticloadbalancing/latest/userguide/elastic-load-balancing.md "../../../elasticloadbalancing/latest/userguide/elastic-load-balancing.md")                                                                                                                                                                                                                                                                |
+| Siebel Gateway Name Server                         | You can host your Siebel Gateway Name Server on an EC2 instance.<br>You can then put your server in the same VPC with the DB instance and<br>use the VPC security group to access the database.<br>For more information, see<br>[Working with a DB instance in a VPC](USER_VPC.md "USER_VPC.md").                                                                                                                                                                                                                                                                                                                                                 |

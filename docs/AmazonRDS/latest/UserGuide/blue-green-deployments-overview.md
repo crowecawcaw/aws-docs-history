@@ -44,8 +44,6 @@ blue/green deployments](blue-green-deployments-replication-type.md "blue-green-d
   blue/green deployments](blue-green-deployments-considerations.md "blue-green-deployments-considerations.md")
 - [Best practices for Amazon RDS
   blue/green deployments](blue-green-deployments-best-practices.md "blue-green-deployments-best-practices.md")
-- [PostgreSQL replication methods for
-  blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md")
 
 ## Region
 

@@ -9,8 +9,9 @@ The following are best practices for blue/green deployments.
 - [General best practices for
   blue/green deployments](#blue-green-deployments-best-practices-general "#blue-green-deployments-best-practices-general")
 - [RDS for MySQL best practices for blue/green deployments](#blue-green-deployments-best-practices-mysql "#blue-green-deployments-best-practices-mysql")
-- [RDS for PostgreSQL best
-  practices for blue/green deployments](#blue-green-deployments-best-practices-postgres "#blue-green-deployments-best-practices-postgres")
+- [RDS for MySQL best practices for blue/green deployments](#blue-green-deployments-best-practices-agd "#blue-green-deployments-best-practices-agd")
+- [PostgreSQL replication methods for
+  blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md")
 
 ## General best practices for
 
@@ -70,7 +71,22 @@ RDS for MySQL DB instance.
     green Multi-AZ DB instances to Single-AZ DB instances. Re-enable Multi-AZ right
     before switchover.
 
-## RDS for PostgreSQL best
+## RDS for MySQL best practices for blue/green deployments
+
+In addition to the above listed general and engine specific best practices, consider the following best practices for
+RDS for MySQL DB instance
+
+- Monitor the following CloudWatch metrics to identify periods of low activity in your production environment:
+
+      + `DatabaseConnections`
+      + `ActiveTransactions`
+
+  Schedule the blue/green switchover during your planned maintenance window or during a period of low activity.
+
+- Blue/Green switchover duration varies based on your workload and the number of secondary regions. When you initiate a blue/green switchover, the service waits for replica lag to reach zero before proceeding. We recommend checking replica lag before initiating a switchover.
+- If you intend to use a DB parameter or DB Cluster parameter group other than the default one for your green environment, create the desired parameter group with the same name in all secondary regions before initiating the blue/green deployment.
+
+### RDS for PostgreSQL best
 
 practices for blue/green deployments
 
@@ -86,7 +102,7 @@ RDS for PostgreSQL DB instance.
 - [RDS for PostgreSQL
   best practices for blue/green deployments with logical replication](#blue-green-deployments-best-practices-postgres-logical "#blue-green-deployments-best-practices-postgres-logical")
 
-### RDS for PostgreSQL
+#### RDS for PostgreSQL
 
 general best practices for blue/green deployments
 
@@ -124,7 +140,7 @@ from an RDS for PostgreSQL DB instance.
   version 13 and lower. For version 14 and higher, set the `wal_keep_size`
   parameter too 1 TiB, if there's enough free storage space.
 
-### RDS for PostgreSQL
+#### RDS for PostgreSQL
 
 best practices for blue/green deployments with physical replication
 
@@ -136,7 +152,7 @@ For an explanation of when blue/green deployments use physical replication inste
 logical replication, see [PostgreSQL replication methods for
 blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md").
 
-### RDS for PostgreSQL
+#### RDS for PostgreSQL
 
 best practices for blue/green deployments with logical replication
 

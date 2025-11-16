@@ -1,59 +1,41 @@
-# Requirements for the Oracle Data Guard
+# Initiating the Oracle Data Guard switchover
 
-switchover
+You can switch over an RDS for Oracle read replica to the primary role, and the former primary DB instance to a replica role.
 
-Before initiating the Oracle Data Guard switchover, make sure that your replication environment meets the following
-requirements:
+###### To switch over an Oracle read replica to the primary DB role
 
-- The original standby database is mounted or open read-only.
-- Automatic backups are enabled on the original standby database.
-- The original primary database and the original standby database are in the
-  `available` state.
-- The original primary database and the original standby database don't have pending
-  maintenance actions in any of the following states: `required`,
-  `next window`, or `in progress`. Actions in these states
-  block switchover. To learn how to check the status of pending maintenance updates,
-  see [Viewing pending maintenance
-  updates](USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Maintenance.Viewing "USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Maintenance.Viewing").
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the Amazon RDS console, choose **Databases**.
 
-Pending maintenance actions in the `available` state don't block
-switchover. RDS for Oracle frequently releases operating system (OS) updates in the
-`available` state. These pending OS updates won't block a switchover
-unless you schedule them for the next maintenance window, which puts them in the
-`next window` state.
+The **Databases** pane appears. Each read replica shows
+**Replica** in the **Role**
+column. 3. Choose the read replica that you want to switch over to the primary role. 4. For **Actions**, choose **Switch over replica**. 5. Choose **I acknowledge**. Then choose **Switch over replica**. 6. On the **Databases** page, monitor the progress of the switchover.
 
-###### Note
+![Monitor the progress of the Oracle Data Guard switchover.](images/oracle-switchover-progress.png)
 
-If you want to defer a scheduled maintenance action so that you can execute a
-switchover, choose **Actions** and then **Defer
-upgrade** in the RDS console. You can also prevent a switchover
-from being blocked by applying a pending maintenance action or moving the
-maintenance window to an interval before your switchover. For more information,
-see the re:Post article [How to remove RDS pending maintenance items](https://repost.aws/questions/QUV3dBjmVVRnmVV1pAlzjx1w/how-to-remove-rds-pending-maintenance-item "https://repost.aws/questions/QUV3dBjmVVRnmVV1pAlzjx1w/how-to-remove-rds-pending-maintenance-item").
+When the switchover completes, the role of the switchover target changes from **Replica** to
+**Source**.
 
-- The original standby database is in the replicating state.
-- You aren't attempting to initiate a switchover when either the primary database or standby database is
-  currently in a switchover lifecycle. If a replica database is reconfiguring after a switchover, Amazon RDS
-  prevents you from initiating another switchover.
+![The source and replica databases change roles.](images/oracle-switchover-complete.png)
+To switch over an Oracle replica to the primary DB role, use the AWS CLI [`switchover-read-replica`](../../../cli/latest/reference/rds/switchover-read-replica.md "../../../cli/latest/reference/rds/switchover-read-replica.md") command. The following examples make the Oracle replica named
+`replica-to-be-made-primary` into the new primary database.
 
-###### Note
+###### Example
 
-A _bystander replica_ is a replica in the Oracle Data Guard configuration that isn't the target of the
-switchover. Bystander replicas can be in any state during the switchover.
+For Linux, macOS, or Unix:
 
-- The original standby database has a configuration that is as close as desired to the original primary
-  database. Assume a scenario where the original primary and original standby databases have different options.
-  After the switchover completes, Amazon RDS doesn't automatically reconfigure the new primary database to have the
-  same options as the original primary database.
-- You configure your desired Multi-AZ deployment before initiating a switchover. Amazon RDS doesn't
-  manage Multi-AZ as part of the switchover. The Multi-AZ deployment remains as it is.
+```
+aws rds switchover-read-replica \
+    --db-instance-identifier `replica-to-be-made-primary`
+```
 
-Assume that db_maz is the primary database in a Multi-AZ deployment, and db_saz is a
-Single-AZ replica. You initiate a switchover from db_maz to db_saz. Afterward,
-db_maz is a Multi-AZ replica database, and db_saz is a Single-AZ primary database.
-The new primary database is now unprotected by a Multi-AZ deployment.
+For Windows:
 
-- In preparation for a cross-Region switchover, the primary database doesn't use the same option group as a DB instance outside of the
-  replication configuration. For a cross-Region switchover to succeed, the current primary database
-  and its read replicas must be the only DB instances to use the option group of the
-  current primary database. Otherwise, Amazon RDS prevents the switchover.
+```
+aws rds switchover-read-replica ^
+    --db-instance-identifier `replica-to-be-made-primary`
+```
+
+To switch over an Oracle replica to the primary DB role, call the Amazon RDS API [`SwitchoverReadReplica`](../APIReference/API_SwitchoverReadReplica.md "../APIReference/API_SwitchoverReadReplica.md") operation with the required parameter `DBInstanceIdentifier`. This parameter
+specifies the name of the Oracle replica that you want to assume the primary DB role.

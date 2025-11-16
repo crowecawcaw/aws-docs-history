@@ -1,50 +1,52 @@
 # Determining
 
-which tables are currently eligible for autovacuum
+if autovacuum is currently running and for how long
 
-Often, it is one or two tables in need of vacuuming. Tables whose
-`relfrozenxid` value is greater than the number of transactions in
-`autovacuum_freeze_max_age` are always targeted by autovacuum. Otherwise, if the
-number of tuples made obsolete since the last VACUUM exceeds the vacuum threshold, the table
-is vacuumed.
+If you need to manually vacuum a table, make sure to determine if autovacuum is currently
+running. If it is, you might need to adjust parameters to make it run more efficiently, or
+turn off autovacuum temporarily so that you can manually run VACUUM.
 
-The [autovacuum threshold](https://www.postgresql.org/docs/current/static/routine-vacuuming.html#AUTOVACUUM "https://www.postgresql.org/docs/current/static/routine-vacuuming.html#AUTOVACUUM") is defined as:
-
-```
-Vacuum-threshold = vacuum-base-threshold + vacuum-scale-factor * number-of-tuples
-```
-
-where the `vacuum base threshold` is `autovacuum_vacuum_threshold`,
-the `vacuum scale factor` is `autovacuum_vacuum_scale_factor`, and the
-`number of tuples` is `pg_class.reltuples`.
-
-While you are connected to your database, run the following query to see a list of tables
-that autovacuum sees as eligible for vacuuming.
+Use the following query to determine if autovacuum is running, how long it has been
+running, and if it is waiting on another session.
 
 ```
-`WITH vbt AS (SELECT setting AS autovacuum_vacuum_threshold FROM
-pg_settings WHERE name = 'autovacuum_vacuum_threshold'),
-vsf AS (SELECT setting AS autovacuum_vacuum_scale_factor FROM
-pg_settings WHERE name = 'autovacuum_vacuum_scale_factor'),
-fma AS (SELECT setting AS autovacuum_freeze_max_age FROM pg_settings WHERE name = 'autovacuum_freeze_max_age'),
-sto AS (select opt_oid, split_part(setting, '=', 1) as param,
-split_part(setting, '=', 2) as value from (select oid opt_oid, unnest(reloptions) setting from pg_class) opt)
-SELECT '"'||ns.nspname||'"."'||c.relname||'"' as relation,
-pg_size_pretty(pg_table_size(c.oid)) as table_size,
-age(relfrozenxid) as xid_age,
-coalesce(cfma.value::float, autovacuum_freeze_max_age::float) autovacuum_freeze_max_age,
-(coalesce(cvbt.value::float, autovacuum_vacuum_threshold::float) +
-coalesce(cvsf.value::float,autovacuum_vacuum_scale_factor::float) * c.reltuples)
-AS autovacuum_vacuum_tuples, n_dead_tup as dead_tuples FROM
-pg_class c join pg_namespace ns on ns.oid = c.relnamespace
-join pg_stat_all_tables stat on stat.relid = c.oid join vbt on (1=1) join vsf on (1=1) join fma on (1=1)
-left join sto cvbt on cvbt.param = 'autovacuum_vacuum_threshold' and c.oid = cvbt.opt_oid
-left join sto cvsf on cvsf.param = 'autovacuum_vacuum_scale_factor' and c.oid = cvsf.opt_oid
-left join sto cfma on cfma.param = 'autovacuum_freeze_max_age' and c.oid = cfma.opt_oid
-WHERE c.relkind = 'r' and nspname <> 'pg_catalog'
-AND (age(relfrozenxid) >= coalesce(cfma.value::float, autovacuum_freeze_max_age::float)
-OR coalesce(cvbt.value::float, autovacuum_vacuum_threshold::float) +
-coalesce(cvsf.value::float,autovacuum_vacuum_scale_factor::float) *
-c.reltuples <= n_dead_tup)
-ORDER BY age(relfrozenxid) DESC LIMIT 50;`
+SELECT datname, usename, pid, state, wait_event, current_timestamp - xact_start AS xact_runtime, query
+FROM pg_stat_activity
+WHERE upper(query) LIKE '%VACUUM%'
+ORDER BY xact_start;
 ```
+
+After running the query, you should see output similar to the following.
+
+```
+
+ datname | usename  |  pid  | state  | wait_event |      xact_runtime       | query
+ --------+----------+-------+--------+------------+-------------------------+--------------------------------------------------------------------------------------------------------
+ mydb    | rdsadmin | 16473 | active |            | 33 days 16:32:11.600656 | autovacuum: VACUUM ANALYZE public.mytable1 (to prevent wraparound)
+ mydb    | rdsadmin | 22553 | active |            | 14 days 09:15:34.073141 | autovacuum: VACUUM ANALYZE public.mytable2 (to prevent wraparound)
+ mydb    | rdsadmin | 41909 | active |            | 3 days 02:43:54.203349  | autovacuum: VACUUM ANALYZE public.mytable3
+ mydb    | rdsadmin |   618 | active |            | 00:00:00                | SELECT datname, usename, pid, state, wait_event, current_timestamp - xact_start AS xact_runtime, query+
+         |          |       |        |            |                         | FROM pg_stat_activity                                                                                 +
+         |          |       |        |            |                         | WHERE query like '%VACUUM%'                                                                           +
+         |          |       |        |            |                         | ORDER BY xact_start;                                                                                  +
+
+```
+
+Several issues can cause a long-running autovacuum session (that is, multiple days long).
+The most common issue is that your [`maintenance_work_mem`](https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM "https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM") parameter value is set too low for the size of
+the table or rate of updates.
+
+We recommend that you use the following formula to set the
+`maintenance_work_mem` parameter value.
+
+```
+GREATEST({DBInstanceClassMemory/63963136*1024},65536)
+```
+
+Short running autovacuum sessions can also indicate problems:
+
+- It can indicate that there aren't enough `autovacuum_max_workers` for
+  your workload. In this case, you need to indicate the number of workers.
+- It can indicate that there is an index corruption (autovacuum crashes and restarts on
+  the same relation but makes no progress). In this case, run a manual `vacuum freeze
+verbose `table`` to see the exact cause.

@@ -1,99 +1,49 @@
-# Using SQL Server Agent for Amazon RDS
+# Working with Amazon RDS for Microsoft SQL Server logs
 
-With Amazon RDS, you can use SQL Server Agent on a DB instance running Microsoft SQL Server Enterprise Edition, Standard Edition, or Web
-Edition. SQL Server Agent is a Microsoft Windows service that runs scheduled administrative tasks that are called jobs. You can
-use SQL Server Agent to run T-SQL jobs to rebuild indexes, run corruption checks, and aggregate data in a SQL Server DB
-instance.
+You can use the Amazon RDS console to view, watch, and download SQL Server Agent logs, Microsoft SQL Server error logs, and SQL Server
+Reporting Services (SSRS) logs.
 
-When you create a SQL Server DB instance, the master user is enrolled in the `SQLAgentUserRole` role.
+## Watching log files
 
-SQL Server Agent can run a job on a schedule, in response to a specific event, or on demand. For more information, see [SQL Server Agent](http://msdn.microsoft.com/en-us/library/ms189237 "http://msdn.microsoft.com/en-us/library/ms189237") in the Microsoft documentation.
+If you view a log in the Amazon RDS console, you can see its contents as they exist at that
+moment. Watching a log in the console opens it in a dynamic state so that you can
+see updates to it in near-real time.
 
-###### Note
+Only the latest log is active for watching. For example, suppose you have the following
+logs shown:
 
-Avoid scheduling jobs to run during the maintenance and backup windows for your DB instance. The maintenance and backup
-processes that are launched by AWS could interrupt a job or cause it to be canceled.
+![An image of the Logs section from the Amazon RDS console with an error log selected.](images/logs_sqlserver.png)
 
-In Multi-AZ deployments, SQL Server Agent jobs are replicated from the primary host to the secondary host when the job
-replication feature is turned on. For more information, see [Turning on SQL Server Agent job replication](#SQLServerAgent.Replicate "#SQLServerAgent.Replicate").
+Only log/ERROR, as the most recent log, is being actively updated. You can choose to watch
+others, but they are static and will not update.
 
-Multi-AZ deployments have a limit of 10,000 SQL Server Agent jobs. If you need a higher limit, request an increase by
-contacting Support. Open the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") page, sign in if necessary, and
-choose **Create case**. Choose **Service limit increase**. Complete and submit the
-form.
+## Archiving log files
 
-To view the history of an individual SQL Server Agent job in SQL Server Management Studio (SSMS), open Object Explorer, right-click
-the job, and then choose **View History**.
+The Amazon RDS console shows logs for the past week through the current day. You can download
+and archive logs to keep them for reference past that time. One way to archive logs
+is to load them into an Amazon S3 bucket. For instructions on how to set up an Amazon S3
+bucket and upload a file, see [Amazon S3
+basics](../../../AmazonS3/latest/userguide/AmazonS3Basics.md "../../../AmazonS3/latest/userguide/AmazonS3Basics.md") in the _Amazon Simple Storage Service Getting Started Guide_ and
+click **Get Started**.
 
-Because SQL Server Agent is running on a managed host in a DB instance, some actions aren't supported:
+## Viewing error and agent logs
 
-- Running replication jobs and running command-line scripts by using ActiveX, Windows command shell, or Windows
-  PowerShell aren't supported.
-- You can't manually start, stop, or restart SQL Server Agent.
-- Email notifications through SQL Server Agent aren't available from a DB instance.
-- SQL Server Agent alerts and operators aren't supported.
-- Using SQL Server Agent to create backups isn't supported. Use Amazon RDS to back up your DB instance.
-- Currently, RDS for SQL Server does not support the use SQL Server Agent tokens.
+To view Microsoft SQL Server error and agent logs, use the Amazon RDS stored procedure `rds_read_error_log` with the
+following parameters:
 
-## Turning on SQL Server Agent job replication
+- **`@index`** – the version
+  of the log to retrieve. The default value is 0, which retrieves the current
+  error log. Specify 1 to retrieve the previous log, specify 2 to retrieve the
+  one before that, and so on.
+- **`@type`** – the type of
+  log to retrieve. Specify 1 to retrieve an error log. Specify 2 to retrieve
+  an agent log.
 
-You can turn on SQL Server Agent job replication by using the following stored procedure:
-
-```
-EXECUTE msdb.dbo.rds_set_system_database_sync_objects @object_types = 'SQLAgentJob';
-```
-
-You can run the stored procedure on all SQL Server versions supported by Amazon RDS for SQL Server. Jobs in the following categories are
-replicated:
-
-- [Uncategorized (Local)]
-- [Uncategorized (Multi-Server)]
-- [Uncategorized]
-- Data Collector
-- Database Engine Tuning Advisor
-- Database Maintenance
-- Full-Text
-
-Only jobs that use T-SQL job steps are replicated. Jobs with step types such as SQL Server Integration Services (SSIS),
-SQL Server Reporting Services (SSRS), Replication, and PowerShell aren't replicated. Jobs that use Database Mail and
-server-level objects aren't replicated.
-
-###### Important
-
-The primary host is the source of truth for replication. Before turning on job replication, make sure that your SQL
-Server Agent jobs are on the primary. If you don't do this, it could lead to the deletion of your SQL Server Agent jobs
-if you turn on the feature when newer jobs are on the secondary host.
-
-You can use the following function to confirm whether replication is turned on.
+The following example requests the current error log.
 
 ```
-SELECT * from msdb.dbo.rds_fn_get_system_database_sync_objects();
+EXEC rdsadmin.dbo.rds_read_error_log @index = `0`, @type = `1`;
 ```
 
-The T-SQL query returns the following if SQL Server Agent jobs are replicating. If they're not replicating, it
-returns nothing for `object_class`.
-
-![SQL Server Agent jobs are replicating](images/SQLAgentJob.png)
-
-You can use the following function to find the last time objects were synchronized in UTC time.
-
-```
-SELECT * from msdb.dbo.rds_fn_server_object_last_sync_time();
-```
-
-For example, suppose that you modify a SQL Server Agent job at 01:00. You expect
-the most recent synchronization time to be after 01:00, indicating that
-synchronization has taken place.
-
-After synchronization, the values returned for `date_created` and `date_modified` on the secondary node are expected to match.
-
-![Last time server objects were synchronized was 01:21:23](images/SQLAgentJob_last_sync_time.png)
-
-If you are also using `tempdb` replication, you can enable replication for both SQL Agent jobs and the `tempdb`
-configuration by providing them in the `@object_type` parameter:
-
-```
-EXECUTE msdb.dbo.rds_set_system_database_sync_objects @object_types = 'SQLAgentJob,TempDbFile';
-```
-
-For more information on `tempdb` replication, see [TempDB configuration for Multi-AZ deployments](SQLServer.TempDB.md "SQLServer.TempDB.md").
+For more information on SQL Server errors, see [Database
+engine errors](https://docs.microsoft.com/en-us/sql/relational-databases/errors-events/database-engine-events-and-errors "https://docs.microsoft.com/en-us/sql/relational-databases/errors-events/database-engine-events-and-errors") in the Microsoft documentation.

@@ -1,25 +1,17 @@
-# Monitoring MariaDB read replicas
+# Working with
 
-For MariaDB read replicas, you can monitor replication lag in Amazon CloudWatch by viewing
-the Amazon RDS `ReplicaLag` metric. The `ReplicaLag` metric reports
-the value of the `Seconds_Behind_Master` field of the `SHOW REPLICA
- STATUS` command.
+Multi-AZ read replica deployments with MariaDB
 
-###### Note
+You can create a read replica from either single-AZ or Multi-AZ DB instance
+deployments. You use Multi-AZ deployments to improve the durability and availability
+of critical data, but you can't use the Multi-AZ secondary to serve read-only
+queries. Instead, you can create read replicas from high-traffic Multi-AZ DB
+instances to offload read-only queries. If the source instance of a Multi-AZ
+deployment fails over to the secondary, any associated read replicas automatically
+switch to use the secondary (now primary) as their replication source. For more
+information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md").
 
-Previous versions of MariaDB used `SHOW SLAVE STATUS` instead of
-`SHOW REPLICA STATUS`. If you are using a MariaDB version before 10.5,
-then use `SHOW SLAVE STATUS`.
-
-Common causes for replication lag for MariaDB are the following:
-
-- A network outage.
-- Writing to tables with indexes on a read replica. If the
-  `read_only` parameter is not set to 0 on the read replica, it
-  can break replication.
-- Using a nontransactional storage engine such as MyISAM. Replication
-  is only supported for the InnoDB storage engine on MariaDB.
-  When the `ReplicaLag` metric reaches 0, the replica has caught up to
-  the source DB instance. If the `ReplicaLag` metric returns -1, then
-  replication is currently not active. `ReplicaLag` = -1 is equivalent to
-  `Seconds_Behind_Master` = `NULL`.
+You can create a read replica as a Multi-AZ DB instance. Amazon RDS creates a standby of your
+replica in another Availability Zone for failover support for the replica. Creating
+your read replica as a Multi-AZ DB instance is independent of whether the source
+database is a Multi-AZ DB instance.

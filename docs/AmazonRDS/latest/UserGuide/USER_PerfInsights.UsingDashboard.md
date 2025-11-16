@@ -1,54 +1,122 @@
-# Analyzing SQL Server execution plans using the Performance Insights dashboard for Amazon RDS
+# Overview of the Performance Insights dashboard
 
-When analyzing DB load on a SQL Server Database, you might want to know which plans are contributing the most to DB load.
-You can determine which plans are contributing the most to DB load by using the plan capture feature of Performance Insights.
+The dashboard is the easiest way to interact with Performance Insights. The following example shows the dashboard for a PostgreSQL DB
+instance.
 
-###### To analyze SQL Server execution plans using the console
+![Filter metrics](images/perf_insights_0b.png)
 
-1. Open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Performance Insights**.
-3. Choose a SQL Server DB instance. The Performance Insights dashboard is displayed for that
-   DB instance.
-4. In the **Database load (DB load)** section, choose **Plans**
-   next to **Slice by**.
+###### Topics
 
-The Average active sessions chart shows the plans used by your top SQL statements. The plan hash values appear to
-the right of the color-coded squares. Each hash value uniquely identifies a plan.
+- [Time range filter](#USER_PerfInsights.UsingDashboard.Components.time-range "#USER_PerfInsights.UsingDashboard.Components.time-range")
+- [Counter metrics chart](#USER_PerfInsights.UsingDashboard.Components.Countermetrics "#USER_PerfInsights.UsingDashboard.Components.Countermetrics")
+- [Database load chart](#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions "#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions")
+- [Top dimensions
+  table](#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable "#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable")
 
-![Slice by plans](images/pi-slice-by-plans-sqlserver.png) 5. Scroll down to the **Top SQL** tab.
+## Time range filter
 
-In the following example, the top SQL digest has three plans.
-The presence of a question mark in the SQL statement indicates that the statement is a digest.
-To view the full SQL statement, choose a value in the **SQL statements** column.
+By default, the Performance Insights dashboard shows DB load for the last hour. You can adjust this range to be as short as 5 minutes or as
+long as 2 years. You can also select a custom relative range.
 
-![Choose a digest plan](images/top-sql-plans-unselected-sqlserver.png) 6. Choose the digest to expand it into its component statements.
+![Performance Insights relative time](images/perf-insights-relative-time.png)
 
-In the following example, the `SELECT` statement is a digest query. The component queries in the digest
-use three different execution plans. The colors assigned to the plans correspond to the database load chart.
+You can select an absolute range with a beginning and ending date and time. The following example shows the time range beginning at midnight on
+9/25/24 and ending at 11:59 PM on 9/28/24.
 
-![Choose a digest plan](images/pi-digest-plan-sqlserver.png) 7. Scroll down and choose two **Plans** to compare from **Plans for digest
-query** list.
+![Performance Insights absolute time](images/perf-insights-absolute-time.png)
 
-You can view either one or two plans for a query at a time. The following screenshot
-compares two plans in the digest. In the following example, 40% of the average
-active sessions running this digest query are using the plan on the left, whereas
-28% are using the plan on the right.
+By default, the time zone for the Performance Insights dashboard is Coordinated Universal Time (UTC). You can also choose the local time zone.
 
-![Compare the plans side by side](images/pi-compare-plan-sqlserver.png)
+![Select the local time zone for your Performance Insights dashboard](images/perf-insights-local-time-zone.png)
 
-In the previous example, the plans differ in an important way. Step 2 in the plan on the left uses an table scan, whereas the plan
-on the right uses a clustered index scan. For a table with a large number of rows, a query retrieving a single row is almost
-always faster with a clustered index scan. 8. (Optional) Choose the **Settings** icon on the Plan Details table to customize the visibility and order of columns.
-The following screenshot shows the Plan Details table with the **Output list** column as the second column.
+## Counter metrics chart
 
-![Customize the visibility and order of columns in the Plan Details table](images/pi-plan-fields-sql-server.png) 9. (Optional) Choose **Copy** to copy the plan to the clipboard, or **Download** to
-save the plan to your hard drive.
+With counter metrics, you can customize the Performance Insights dashboard to include up to 10 additional graphs.
+These graphs show a selection of dozens of operating system and database performance metrics. You can correlate this
+information with DB load to help identify and analyze performance problems.
 
-###### Note
+The **Counter metrics** chart displays data for performance counters. The default
+metrics depend on the DB engine:
 
-Performance Insights displays estimated execution plans using a hierarchical tree table.
-The table includes the partial execution information for each statement.
-For more information about the columns in the Plan Details table, see [SET SHOWPLAN_ALL](https://learn.microsoft.com/en-us/sql/t-sql/statements/set-showplan-all-transact-sql "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-showplan-all-transact-sql") in the SQL Server documentation.
-To display the full execution information for an estimated execution plan, choose **Download** to download the plan and then upload the plan to SQL Server Management Studio.
-For more information about displaying an estimated execution plan using SQL Server Management Studio, see [Display an Estimated Execution Plan](https://learn.microsoft.com/en-us/sql/relational-databases/performance/display-the-estimated-execution-plan "https://learn.microsoft.com/en-us/sql/relational-databases/performance/display-the-estimated-execution-plan") in the SQL Server documentation.
+- MySQL and MariaDB – `db.SQL.Innodb_rows_read.avg`
+- Oracle – `db.User.user calls.avg`
+- Microsoft SQL Server – `db.Databases.Active Transactions(_Total).avg`
+- PostgreSQL – `db.Transactions.xact_commit.avg`
+
+![Counter metrics](images/oracle_perf_insights_counters.png)
+
+To change the performance counters, choose **Manage Metrics**. You can select multiple
+**OS metrics** or **Database metrics**, as
+shown in the following screenshot. To see details for any metric, hover over the metric name.
+
+![Filter metrics](images/perf_insights_select_metrics.png)
+
+For descriptions of the counter metrics that you can add for each DB engine, see [Performance Insights counter metrics](USER_PerfInsights_Counters.md "USER_PerfInsights_Counters.md").
+
+## Database load chart
+
+The **Database load** chart shows how the database activity compares to DB instance
+capacity as represented by the **Max vCPU** line. By default, the stacked line
+chart represents DB load as average active sessions per unit of time. The DB load is sliced (grouped) by wait
+states.
+
+![Database load](images/perf_insights_2.png)
+
+### DB load sliced by
+
+dimensions
+
+You can choose to display load as active sessions grouped by any supported dimensions. The following table shows
+which dimensions are supported for the different engines.
+
+| Dimension    | Oracle | SQL Server | PostgreSQL | MySQL |
+| ------------ | ------ | ---------- | ---------- | ----- |
+| Host         | Yes    | Yes        | Yes        | Yes   |
+| SQL          | Yes    | Yes        | Yes        | Yes   |
+| User         | Yes    | Yes        | Yes        | Yes   |
+| Waits        | Yes    | Yes        | Yes        | Yes   |
+| Plans        | Yes    | No         | No         | No    |
+| Application  | No     | No         | Yes        | No    |
+| Database     | No     | No         | Yes        | Yes   |
+| Session type | No     | No         | Yes        | No    |
+
+The following image shows the dimensions for a PostgreSQL DB instance.
+
+![Filter metrics](images/perf_insights_2b.png)
+
+### DB load details for
+
+a dimension item
+
+To see details about a DB load item within a dimension, hover over the item name. The following image shows
+details for a SQL statement.
+
+![Database load item details](images/perf_insights_2c.png)
+
+To see details for any item for the selected time period in the legend, hover over that item.
+
+![Time period details for DB load](images/perf_insights_3.png)
+
+## Top dimensions
+
+table
+
+The Top dimensions table slices DB load by different dimensions. A dimension is a category or "slice by" for
+different characteristics of DB load. If the dimension is SQL, **Top SQL** shows the SQL
+statements that contribute the most to DB load.
+
+![Top N dimensions](images/perf_insights_4c.png)
+
+Choose any of the following dimension tabs.
+
+| Tab               | Description                                                   | Supported engines                                  |
+| ----------------- | ------------------------------------------------------------- | -------------------------------------------------- |
+| Top SQL           | The SQL statements that are currently running                 | All                                                |
+| Top waits         | The event for which the database backend is waiting           | All                                                |
+| Top hosts         | The host name of the connected client                         | All                                                |
+| Top users         | The user logged in to the database                            | All                                                |
+| Top databases     | The name of the database to which the client is connected     | PostgreSQL, MySQL, MariaDB, and SQL Server<br>only |
+| Top applications  | The name of the application that is connected to the database | PostgreSQL and SQL Server only                     |
+| Top session types | The type of the current session                               | PostgreSQL only                                    |
+
+To learn how to analyze queries by using the **Top SQL** tab, see [Overview of the Top SQL tab](USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.md#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL "USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.md#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL").

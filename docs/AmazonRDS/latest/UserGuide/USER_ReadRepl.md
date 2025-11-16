@@ -1,193 +1,173 @@
-# Working with DB instance read replicas
+# Promoting a read replica to be a standalone
 
-A _read replica_ is a read-only copy of a DB instance. You can reduce the
-load on your primary DB instance by routing queries from your applications to the read replica. In
-this way, you can elastically scale out beyond the capacity constraints of a single DB instance
-for read-heavy database workloads.
+DB instance
 
-To create a read replica from a source DB instance, Amazon RDS uses the built-in replication features
-of the DB engine. For information about using read replicas with a specific engine, see the
-following sections:
+You can promote a read replica into a standalone DB instance. If a source DB instance has several read
+replicas, promoting one of the read replicas to a DB instance has no effect on the other
+replicas.
 
-- [Working with replicas for Amazon RDS for Db2](db2-replication.md "db2-replication.md")
-- [Working with MariaDB read replicas](USER_MariaDB.Replication.md "USER_MariaDB.Replication.md")
-- [Working with read replicas for Microsoft SQL Server in Amazon RDS](SQLServer.md "SQLServer.md")
-- [Working with MySQL read replicas](USER_MySQL.Replication.md "USER_MySQL.Replication.md")
-- [Working with read replicas for Amazon RDS for Oracle](oracle-read-replicas.md "oracle-read-replicas.md")
-- [Working with read replicas for
-  Amazon RDS for PostgreSQL](USER_PostgreSQL.Replication.md "USER_PostgreSQL.Replication.md")
-  After you create a read replica from a source DB instance, the source becomes the primary DB instance.
-  When you make updates to the primary DB instance, Amazon RDS copies them asynchronously to the read
-  replica. The following diagram shows a source DB instance replicating to a read replica in a
-  different Availability Zone (AZ). Clients have read/write access to the primary DB instance and
-  read-only access to the replica.
+When you promote a read replica, RDS reboots the DB instance before making it available. The
+promotion process can take several minutes or longer to complete, depending on the size of
+the read replica.
 
-![Read replica configuration](images/read-replica.png)
-Read replicas are billed as standard DB instances at the same rates as the DB instance class used for
-the replica. You aren't charged for the data transfer incurred in replicating data between
-the source DB instance and a read replica within the same AWS Region. For more information, see
-[Cross-Region replication costs](USER_ReadRepl.md#USER_ReadRepl.XRgn.Costs "USER_ReadRepl.md#USER_ReadRepl.XRgn.Costs") and
-[DB instance billing for Amazon RDS](User_DBInstanceBilling.md "User_DBInstanceBilling.md").
+![Promoting a read replica](images/read-replica-promote.png)
 
-###### Topics
+## Use cases for promoting a read
 
-- [Overview of Amazon RDS read replicas](#USER_ReadRepl.Overview "#USER_ReadRepl.Overview")
-- [Differences between read replicas for
-  DB engines](USER_ReadRepl.Overview.md "USER_ReadRepl.Overview.md")
-- [Creating a read replica](USER_ReadRepl.md "USER_ReadRepl.md")
-- [Promoting a read replica to be a standalone
-  DB instance](USER_ReadRepl.md "USER_ReadRepl.md")
-- [Monitoring read replication](USER_ReadRepl.md "USER_ReadRepl.md")
-- [Creating a read replica in a different
-  AWS Region](USER_ReadRepl.md "USER_ReadRepl.md")
+replica
 
-## Overview of Amazon RDS read replicas
+You might want to promote a read replica to a standalone DB instance for any of the
+following reasons:
 
-The following sections discuss DB _instance_ read
-replicas. For information about Multi-AZ DB _cluster_ read
-replicas, see [Working with Multi-AZ DB cluster read replicas for Amazon RDS](USER_MultiAZDBCluster_ReadRepl.md "USER_MultiAZDBCluster_ReadRepl.md").
+- **Implementing failure recovery** – You
+  can use read replica promotion as a data recovery scheme if the primary DB instance
+  fails. This approach complements synchronous replication, automatic failure
+  detection, and failover.
 
-###### Topics
+If you are aware of the ramifications and limitations of asynchronous
+replication and you still want to use read replica promotion for data recovery,
+you can. To do this, first create a read replica and then monitor the primary
+DB instance for failures. In the event of a failure, do the following:
 
-- [Use cases for read replicas](#USER_ReadRepl.Overview.use-cases "#USER_ReadRepl.Overview.use-cases")
-- [How read replicas work](#USER_ReadRepl.Overview.how-it-works "#USER_ReadRepl.Overview.how-it-works")
-- [Read replicas in a
-  Multi-AZ deployment](#USER_ReadRepl.Overview.maz-replicas "#USER_ReadRepl.Overview.maz-replicas")
-- [Cross-Region read
-  replicas](#USER_ReadRepl.Overview.xregion-replicas "#USER_ReadRepl.Overview.xregion-replicas")
-- [Read replica storage
-  types](#USER_ReadRepl.Overview.replica-storage "#USER_ReadRepl.Overview.replica-storage")
-- [Restrictions for creating
-  a replica from a replica](#USER_ReadRepl.Overview.circular-replication "#USER_ReadRepl.Overview.circular-replication")
-- [Considerations when
-  deleting replicas](#USER_ReadRepl.Overview.deletion-considerations "#USER_ReadRepl.Overview.deletion-considerations")
+    1. Promote the read replica.
+    2. Direct database traffic to the promoted DB instance.
+    3. Create a replacement read replica with the promoted DB instance as its
+     source.
 
-### Use cases for read replicas
+- **Upgrading storage configuration** – If
+  your source DB instance isn't on the preferred storage configuration, you can create a
+  read replica of the instance and upgrade the storage file system configuration.
+  This option migrates the file system of the read replica to the preferred
+  configuration. You can then promote the read replica to a standalone
+  instance.
 
-Deploying one or more read replicas for a given source DB instance might make sense in a
-variety of scenarios, including the following:
+You can use this option to overcome the scaling limitations on storage and
+file size for older 32-bit file systems. For more information, see [Upgrading the storage file system for a DB
+instance](USER_PIOPS.md "USER_PIOPS.md").
 
-- Scaling beyond the compute or I/O capacity of a single DB instance for read-heavy
-  database workloads. You can direct this excess read traffic to one or more read
-  replicas.
-- Serving read traffic while the source DB instance is unavailable. In some cases,
-  your source DB instance might not be able to take I/O requests, for example due to I/O
-  suspension for backups or scheduled maintenance. In these cases, you can direct
-  read traffic to your read replicas. For this use case, keep in mind that the
-  data on the read replica might be "stale" because the source DB instance is
-  unavailable.
-- Business reporting or data warehousing scenarios where you might want business
-  reporting queries to run against a read replica, rather than your production
-  DB instance.
-- Implementing disaster recovery. You can promote a read replica to a standalone
-  instance as a disaster recovery solution if the primary DB instance fails.
+This option is only available if your source DB instance is _not_
+on the latest storage configuration, or if you're modifying the DB instance class
+within the same request.
 
-### How read replicas work
-
-When you create a read replica, you specify an existing DB instance as the source. Then
-Amazon RDS takes a snapshot of the source instance and creates a read-only instance from the
-snapshot. Amazon RDS then uses the asynchronous replication method for the DB engine to
-update the read replica whenever there is a change to the primary DB instance.
-
-The read replica operates as a DB instance that allows only read-only
-connections. Exceptions are the RDS for Db2 and the RDS for Oracle DB engines, which support replica
-databases in standby mode and mounted mode, respectively. A standby replica and mounted
-replica don't accept user connections and so can't serve read-only workloads. The
-primary use for standby replicas and mounted replicas is cross-Region disaster recovery.
-For more information, see [Working with replicas for Amazon RDS for Db2](db2-replication.md "db2-replication.md") and [Working with read replicas for Amazon RDS for Oracle](oracle-read-replicas.md "oracle-read-replicas.md").
-
-Applications connect to a read replica just as they do to any DB instance. Amazon RDS replicates
-all databases from the source DB instance.
-
-You must manually create read replicas. RDS doesn't support autoscaling of read
-replicas, which is the automatic add or removing of read replicas as read demand
-changes.
-
-### Read replicas in a
-
-Multi-AZ deployment
-
-You can configure a read replica for a DB instance that also has a standby replica
-configured for high availability in a Multi-AZ deployment. Replication with the standby replica is
-synchronous. Unlike a read replica, a standby replica can't serve read traffic.
-
-In the following scenario, clients have read/write access to a primary DB instance in one
-AZ. The primary instance copies updates asynchronously to a read replica in a second AZ
-and also copies them synchronously to a standby replica in a third AZ. Clients have read
-access only to the read replica.
-
-![Read replica and standby replica configuration](images/read-and-standby-replica.png)
-
-For more information about high availability and standby replicas, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md").
-
-### Cross-Region read
-
-replicas
-
-In some cases, a read replica resides in a different AWS Region from its primary
-DB instance. In these cases, Amazon RDS sets up a secure communications channel between the primary
-DB instance and the read replica. Amazon RDS establishes any AWS security configurations needed
-to enable the secure channel, such as adding security group entries. For more
-information about cross-Region read replicas, see [Creating a read replica in a different
-AWS Region](USER_ReadRepl.md "USER_ReadRepl.md").
-
-The information in this chapter applies to creating Amazon RDS read replicas either in the
-same AWS Region as the source DB instance, or in a separate AWS Region. The following
-information doesn't apply to setting up replication with an instance that is running on
-an Amazon EC2 instance or that is on-premises.
-
-### Read replica storage
-
-types
-
-By default, a read replica is created with the same storage type as the source DB
-instance. However, you can create a read replica that has a different storage type from
-the source DB instance based on the options listed in the following table.
-
-| Source DB instance storage type | Source DB instance storage allocation | Read replica storage type options           |
-| ------------------------------- | ------------------------------------- | ------------------------------------------- |
-| Provisioned IOPS                | 100 GiB–64 TiB                        | Provisioned IOPS, General Purpose, Magnetic |
-| General Purpose                 | 100 GiB–64 TiB                        | Provisioned IOPS, General Purpose, Magnetic |
-| General Purpose                 | <100 GiB                              | General Purpose, Magnetic                   |
-| Magnetic                        | 100 GiB–6 TiB                         | Provisioned IOPS, General Purpose, Magnetic |
-| Magnetic                        | <100 GiB                              | General Purpose, Magnetic                   |
+- **Sharding** – Sharding embodies the
+  "share-nothing" architecture and essentially involves breaking a large database
+  into several smaller databases. One common way to split a database is splitting
+  tables that are not joined in the same query onto different hosts. Another
+  method is duplicating a table across multiple hosts and then using a hashing
+  algorithm to determine which host receives a given update. You can create read
+  replicas corresponding to each of your shards (smaller databases) and promote
+  them when you decide to convert them into standalone shards. You can then carve
+  out the key space (if you are splitting rows) or distribution of tables for each
+  of the shards depending on your requirements.
+- **Performing DDL operations (MySQL and MariaDB
+  only)** – DDL operations, such as creating or rebuilding
+  indexes, can take time and impose a significant performance penalty on your DB
+  instance. You can perform these operations on a MySQL or MariaDB read replica
+  once the read replica is in sync with its primary DB instance. Then you can promote
+  the read replica and direct your applications to use the promoted
+  instance.
 
 ###### Note
 
-When you increase the allocated storage of a read replica, it must be by at least
-10 percent. If you try to increase the value by less than 10 percent, you get an
-error.
+If your read replica is an RDS for Oracle DB instance, you can perform a
+_switchover_ instead of a promotion. In a switchover, the
+source DB instance becomes the new replica, and the replica becomes the new source DB instance.
+For more information, see [Performing an Oracle Data Guard switchover](oracle-replication-switchover.md "oracle-replication-switchover.md").
 
-### Restrictions for creating
+## Characteristics of a promoted
 
-a replica from a replica
+read replica
 
-Amazon RDS doesn't support circular replication. You can't configure a DB instance to serve as a
-replication source for an existing DB instance. You can only create a new read replica from an
-existing DB instance. For example, if `MySourceDBInstance` replicates to
-`ReadReplica1`, you can't configure
-`ReadReplica1` to replicate back to
-`MySourceDBInstance`.
+After you promote the read replica, it ceases to function as a read replica and
+becomes a standalone DB instance. The new standalone DB instance has the following
+characteristics:
 
-For RDS for MariaDB and RDS for MySQL, and for certain versions of RDS for PostgreSQL, you can
-create a read replica from an existing read replica. For example, you can create new
-read replica `ReadReplica2` from existing replica
-`ReadReplica1`. For RDS for Db2, RDS for Oracle, and RDS for SQL Server, you
-can't create a read replica from an existing read replica.
+- The standalone DB instance retains the option group and the parameter group of the
+  pre-promotion read replica.
+- You can create read replicas from the standalone DB instance and perform
+  point-in-time restore operations.
+- You can't use the DB instance as a replication target because it is no longer a read
+  replica.
 
-### Considerations when
+## Prerequisites for promoting a read
 
-deleting replicas
+replica
 
-RDS doesn't support autoscaling of read replicas. Thus, RDS won't increase the number
-of replicas when demand increases or decrease the number of replicas when demand
-decreases. If you no longer need read replicas, manually delete them using the same
-mechanisms for deleting a DB instance. If you delete a source DB instance without deleting its read
-replicas in the same AWS Region, each replica is promoted to a standalone DB instance.
+Before you promote a read replica, do the following:
 
-For information about deleting a DB instance, see [Deleting a DB instance](USER_DeleteInstance.md "USER_DeleteInstance.md"). For information about read replica promotion,
-see [Promoting a read replica to be a standalone
-DB instance](USER_ReadRepl.md "USER_ReadRepl.md"). For
-information related to deleting the source DB instance for a cross-Region read replica, see
-[Cross-Region replication
-considerations](USER_ReadRepl.md#USER_ReadRepl.XRgn.Cnsdr "USER_ReadRepl.md#USER_ReadRepl.XRgn.Cnsdr").
+- Review your backup strategy:
+  - We recommend that you enable backups and complete at least one backup.
+    Backup duration is a function of the number of changes to the database
+    since the previous backup.
+  - If you have enabled backups on your read replica, configure the
+    automated backup window so that daily backups don't interfere with
+    read replica promotion.
+  - Make sure that your read replica doesn't have the
+    `backing-up` status. You can't promote a read replica
+    when it is in this state.
+
+- Stop any transactions from being written to the primary DB instance, and then wait
+  for RDS to apply all updates to the read replica.
+
+Database updates occur on the read replica after they have occurred on the
+primary DB instance. Replication lag can vary significantly. Use the [`Replica Lag`](http://aws.amazon.com/rds/faqs/#105 "http://aws.amazon.com/rds/faqs/#105")
+metric to determine when all updates have been made to the read replica.
+
+- (MySQL and MariaDB only) To make changes to a MySQL or MariaDB read replica
+  before you promote it, set the `read_only` parameter to
+  `0` in the DB parameter group for the read replica. You can then
+  perform all needed DDL operations, such as creating indexes, on the read
+  replica. Actions taken on the read replica don't affect the performance of the
+  primary DB instance.
+
+## Promoting a read replica: basic
+
+steps
+
+The following steps show the general process for promoting a read replica to a DB
+instance:
+
+1. Promote the read replica by using the **Promote** option on
+   the Amazon RDS console, the AWS CLI command [`promote-read-replica`](../../../cli/latest/reference/rds/promote-read-replica.md "../../../cli/latest/reference/rds/promote-read-replica.md"), or the [`PromoteReadReplica`](../APIReference/API_PromoteReadReplica.md "../APIReference/API_PromoteReadReplica.md") Amazon RDS API operation.
+
+###### Note
+
+The promotion process takes a few minutes to complete. When you promote a
+read replica, RDS stops replication and reboots the read replica. When the
+reboot is complete, the read replica is available as a new DB instance. 2. (Optional) Modify the new DB instance to be a Multi-AZ deployment. For more
+information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md") and [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md").
+
+###### To promote a read replica to a standalone DB instance
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the Amazon RDS console, choose **Databases**.
+
+The **Databases** pane appears. Each read replica
+shows **Replica** in the **Role**
+column. 3. Choose the read replica that you want to promote. 4. For **Actions**, choose
+**Promote**. 5. On the **Promote Read Replica** page, enter the
+backup retention period and the backup window for the newly promoted DB
+instance. 6. When the settings are as you want them, choose
+**Continue**. 7. On the acknowledgment page, choose **Promote Read
+Replica**.
+To promote a read replica to a standalone DB instance, use the AWS CLI [`promote-read-replica`](../../../cli/latest/reference/rds/promote-read-replica.md "../../../cli/latest/reference/rds/promote-read-replica.md") command.
+
+###### Example
+
+For Linux, macOS, or Unix:
+
+```
+aws rds promote-read-replica \
+    --db-instance-identifier `myreadreplica`
+```
+
+For Windows:
+
+```
+aws rds promote-read-replica ^
+    --db-instance-identifier `myreadreplica`
+```
+
+To promote a read replica to a standalone DB instance, call the Amazon RDS API [`PromoteReadReplica`](../APIReference/API_PromoteReadReplica.md "../APIReference/API_PromoteReadReplica.md") operation with the required
+parameter `DBInstanceIdentifier`.

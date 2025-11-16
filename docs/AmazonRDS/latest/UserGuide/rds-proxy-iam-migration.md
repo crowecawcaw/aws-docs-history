@@ -17,9 +17,7 @@ cat > updated-proxy-policy.json ≪ EOF
 
 ```
 {
-
   "Version": "2012-10-17",
-
   "Statement": [
     {
       "Sid": "GetSecretsValue",
