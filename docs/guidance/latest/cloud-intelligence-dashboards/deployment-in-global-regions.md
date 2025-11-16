@@ -166,51 +166,24 @@ steps below.
 1. Log into your Destination Linked Account and search for **QuickSight**
    in the list of Services
 2. You will be asked to **Sign up** before you will be able to use it
-3. After pressing the **Sign up** button you will be presented with 2
-   options, please ensure you select the **Enterprise Edition** during this
-   step
+   - Ensure you select the **Region** that is most appropriate based on where you plan to deploy the dashboards.
+   - Enter a **name** for your QuickSight account. This must be unique across all QuickSight accounts.
+   - Enter an **email address** for notifications to be sent to. This email will be linked to your QuickSight user account so it can be your email.
 
-###### Note
-
-`Amazon QuickSight Q` feature has additional monthly cost and not needed for CID
-
-1. Select **Continue** and you will be presented with an option to add
-   Pixel-Perfect Reports. This is not required in order to deploy these
-   dashboards, so you can safely choose **No, Maybe Later**.
-
-###### Note
-
-`Amazon QuickSight Pixel-Perfect Reports` feature has additional monthly cost and not needed for CID
-
-1. You will then need to fill in a series of options in order to finish creating your account:
+3. You will then need to fill in a series of options in order to finish creating your account:
    - Please select the appropriate **Authentication** method
 
    ###### Note
 
    Select `Use AWS IAM Identity Center` if you want to use and share the CID dashboards in Production with your wider Organization using your existing Identity Provider such as Azure AD, Okta, or others. Follow the steps [here](publishing-as-sso-application.md "publishing-as-sso-application.md"). You may select `Use IAM federated identities & QuickSight-managed users` to get started quickly, however, **NOTE:** You will **NOT** be able to change the QuickSight Authentication method later
 
-   ![QuickSight Authentication Options Image](images/images/dashboards/qs-auth-options.png)
-   - Ensure you select the **Region** that is most appropriate based on where you plan to deploy the dashboards.
-   - Enter a **name** for your QuickSight account. This must be unique across all QuickSight accounts.
-   - Enter an **email address** for notifications to be sent to. This email will be linked to your QuickSight user account so it can be your email.
-   - (Optional) Click **Select S3 buckets** and choose all cid buckets
-     (`cid-*`). By default CID installed with Cloud Formation will not use
-     these permissions but you might need that for other custom analysis that
-     you create for CUR analysis outside of CID framework. Also you might
-     need these permissions if you are planning to use CLI for dashboard
-     installation.
+4. Click **Create Account** and wait for the congratulations screen to display. Go to 'Manage Quick Suite'.
+   - (optional, not recommended) Downgrade your user to avoid charges for Amazon Q in Quick Suite.
+   - Make sure that Pixel Perfect and Amazon Q in Quick Suite are deactivated.
+   - Click on the SPICE Capacity option and choose `auto purchase` or purchase enough SPICE capacity so
+     that the total is roughly 40GB. If you get SPICE capacity errors later, you can come back here to purchase more. If you’ve purchased too much you can also release it after you’ve deployed the dashboards.
 
-1. Click **Finish** and wait for the congratulations screen to display
-
-![QuickSight Sign up Workflow Image](images/images/dashboards/qs-enterprise-activation.gif)
-
-1. Click on the persona icon on the top right and select Manage
-   QuickSight.
-2. Click on the SPICE Capacity option. Purchase enough SPICE capacity so
-   that the total is roughly 40GB. If you get SPICE capacity errors later,
-   you can come back here to purchase more. If you’ve purchased too much
-   you can also release it after you’ve deployed the dashboards. You can
-   also use auto purchase feature.
+![QuickSight Sign up Workflow Image](/images/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/qs-enterprise-activation.gif)
 
 ### 3.2 Deploy Dashboards
 

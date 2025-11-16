@@ -56,7 +56,7 @@ If your Log Archive bucket is SSE-KMS encrypted, and you do not provide the ARN 
 
 ### Account Names
 
-If you deployed other CUDOS dashboards or the AWS Organizations Data Collection Module of the [Data Collection Stack](data-collection.md "data-collection.md"), the dashboard will display account names.
+If you deployed other CUDOS dashboards, the dashboard will display account names.
 
 ## Before you start
 

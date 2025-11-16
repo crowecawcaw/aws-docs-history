@@ -23,7 +23,7 @@ Get more familiar with Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo?dashboard=datatransfer-cost-analysis-dashboard "https://cid.workshops.aws.dev/demo?dashboard=datatransfer-cost-analysis-dashboard")
 
-![Image of a Data transfer dashboard in QuickSight](/images/guidance/latest/cloud-intelligence-dashboards/images/data_transfer_dashboard.png)
+![Image of a Data transfer dashboard in QuickSight](images/data_transfer_dashboard.png)
 
 ## Prerequisites
 
