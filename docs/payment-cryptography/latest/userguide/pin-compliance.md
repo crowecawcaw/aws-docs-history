@@ -9,5 +9,6 @@ This guide will discuss those configurations when appropriate to a meeting a req
 
 ###### Topics
 
+- [Common Topics](compliance.pin.md "compliance.pin.md")
 - [Assessment Scope](pin-compliance-scope.md "pin-compliance-scope.md")
 - [Transaction Processing Operations](pin-compliance-control.md "pin-compliance-control.md")

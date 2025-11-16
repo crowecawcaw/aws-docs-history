@@ -20,9 +20,9 @@ protect, and protection methods.
 |                    | **Wrapping<br>Key** |               |
 | ------------------ | ------------------- | ------------- | ------------- | ------------- | ------- | ------------- | ------------- | ------------- | ------------- | ------------- | -------- | ----- |
 | **Key To Protect** | TDES_2KEY           | TDES_3KEY     | AES_128       | AES_192       | AES_256 | RSA_2048      | RSA_3072      | RSA_4096      | ECC_p256      | ECC_p384      | ECC_p521 | Notes |
-| **TDES_2KEY**      | TR-31               | TR-31         | TR-31         | TR-31         | TR-31   | TR-34, RSA    | TR-34, RSA    | RSA           | ECDH          | ECDH          | ECDH     |       |
-| **TDES_3KEY**      | Not supported       | TR-31         | TR-31         | TR-31         | TR-31   | TR-34, RSA    | TR-34, RSA    | RSA           | ECDH          | ECDH          | ECDH     |       |
-| **AES_128**        | Not supported       | Not supported | TR-31         | TR-31         | TR-31   | Not supported | TR-34, RSA    | RSA           | ECDH          | ECDH          | ECDH     |       |
+| **TDES_2KEY**      | TR-31               | TR-31         | TR-31         | TR-31         | TR-31   | TR-34, RSA    | TR-34, RSA    | TR-34, RSA    | ECDH          | ECDH          | ECDH     |       |
+| **TDES_3KEY**      | Not supported       | TR-31         | TR-31         | TR-31         | TR-31   | TR-34, RSA    | TR-34, RSA    | TR-34, RSA    | ECDH          | ECDH          | ECDH     |       |
+| **AES_128**        | Not supported       | Not supported | TR-31         | TR-31         | TR-31   | Not supported | TR-34, RSA    | TR-34, RSA    | ECDH          | ECDH          | ECDH     |       |
 | **AES_192**        | Not supported       | Not supported | Not supported | TR-31         | TR-31   | Not supported | Not supported | Not supported | Not supported | ECDH          | ECDH     |       |
 | **AES_256**        | Not supported       | Not supported | Not supported | Not supported | TR-31   | Not supported | Not supported | Not supported | Not supported | Not supported | ECDH     |       |
 
@@ -31,11 +31,10 @@ Algorithms](https://docs-prv.pcisecuritystandards.org/PTS/Derived%20Test%20Requi
 
 **Key Encryption Key (KEK) Exchange**
 
-We recommend using public key cryptography (RSA,ECC) for the initial key exchange with
-the [ANSI X9.24 TR-34](terminology.md#terms.tr34 "terminology.md#terms.tr34") standard. This initial key type can
+We recommend using [ANSI X9.24 TR-34](terminology.md#terms.tr34 "terminology.md#terms.tr34") standard. This initial key type can
 be called a Key Encryption Key (KEK), Zone Master Key (ZMK), or Zone Control Master Key
 (ZCMK). If your systems or partners don't support TR-34 yet you can use [RSA Wrap/Unwrap](terminology.md#terms.rsawrap "terminology.md#terms.rsawrap"). If your needs include exchanging AES-256
-keys, you can use [ECDH](terminology.md#terms.ecdh "terminology.md#terms.ecdh")
+keys, you can use [ECDH](terminology.md#terms.ecdh "terminology.md#terms.ecdh").
 
 If you need to continue processing paper key components until all partners support
 electronic key exchange, consider using an offline HSM or utilizing a 3rd party [key custodian as a service](terminology.md#terms.kcaas "terminology.md#terms.kcaas").

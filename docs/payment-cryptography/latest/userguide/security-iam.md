@@ -10,26 +10,24 @@ use with no additional charge.
 - [Audience](#security_iam_audience "#security_iam_audience")
 - [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
-- [How AWS Payment Cryptography works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [AWS Payment Cryptography identity-based
-  policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
-- [Troubleshooting AWS Payment Cryptography identity
-  and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [How AWS Payment Cryptography works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
+- [AWS Payment Cryptography identity-based policy
+  examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [Troubleshooting AWS Payment Cryptography identity and
+  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
 ## Audience
 
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 - **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting AWS Payment Cryptography identity
-  and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
+  administrator if you cannot access features (see [Troubleshooting AWS Payment Cryptography identity and
+  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
 - **Service administrator** - determine user access and
-  submit permission requests (see [How AWS Payment Cryptography works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
+  submit permission requests (see [How AWS Payment Cryptography works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
 - **IAM administrator** - write policies to manage
-  access (see [AWS Payment Cryptography identity-based
-  policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
+  access (see [AWS Payment Cryptography identity-based policy
+  examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
 
 ## Authenticating with identities
 

@@ -26,8 +26,8 @@ prescriptive.
 - **Practice least privileged access**: IAM can be used to limit production access to systems rather than individuals, such as
   prohibiting individual users from creating keys or running cryptographic operations. IAM can also be used to limit access to both commands and keys that may not be applicable
   for your use case, such as limiting the ability to generate or validate pins for an acquirer. Another way to use least privileged access is to restrict sensitive
-  operations (such as key import) to specific service accounts. See [AWS Payment Cryptography identity-based
-  policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md") for examples.
+  operations (such as key import) to specific service accounts. See [AWS Payment Cryptography identity-based policy
+  examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md") for examples.
   **See also**
 
 - [Identity and access management for AWS Payment Cryptography](security-iam.md "security-iam.md")

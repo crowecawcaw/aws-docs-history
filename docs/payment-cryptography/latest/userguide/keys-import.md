@@ -7,6 +7,7 @@ that you've upgraded to the [latest version](../../../cli/latest/userguide/getti
 
 ###### Contents
 
+- [Introduction to importing keys](keys-import.md#keys-import-introduction "keys-import.md#keys-import-introduction")
 - [Importing symmetric keys](keys-import.md#keys-import-symmetric "keys-import.md#keys-import-symmetric")
   - [Import keys using asymmetric techniques (TR-34)](keys-import.md#keys-import-tr34 "keys-import.md#keys-import-tr34")
   - [Import keys using asymmetric techniques (ECDH)](keys-import.md#keys-import-ecdh "keys-import.md#keys-import-ecdh")
@@ -18,6 +19,21 @@ that you've upgraded to the [latest version](../../../cli/latest/userguide/getti
 - [Importing asymmetric (RSA, ECC) public keys](keys-import.md#keys-import-asymmetric "keys-import.md#keys-import-asymmetric")
   - [Importing RSA public keys](keys-import.md#keys-import-rsapublickey "keys-import.md#keys-import-rsapublickey")
   - [Importing ECC public keys](keys-import.md#keys-import-eccpublickey "keys-import.md#keys-import-eccpublickey")
+
+## Introduction to importing keys
+
+###### Note
+
+When importing keys using X9.143, TR-31 or TR-34 key blocks, AWS Payment Cryptography typically retains (but does not utilize) any optional headers.
+The HM(HMAC hash type) header is used during cryptographic operations. The KP header (KCV of wrapping key) is specific to the import process and is not retained.
+
+When exchanging keys with a counterparty, it is typically to first exchange a key exchange key (KEK). This key will then be
+used to protect subsequent keys. Using electronic formats, the KEK may be exchanged use asymmetric techniques such as
+TR-34, ECDH or RSA wrap. Subsequent keys will be exchanged using a symmetric key exchange such as TR-31. This KEK will be long lived
+and may only be updated every few years based on policy and its defined crypto period.
+
+If only one or two keys are being exchanged, you may also chose to use asymmetric techniques to directly exchange that key such
+as a BDK. AWS Payment Cryptography supports both methods of key exchange.
 
 ## Importing symmetric keys
 

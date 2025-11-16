@@ -53,8 +53,8 @@ Tag Restrictions](../../../awsaccountbilling/latest/aboutv2/allocation-tag-restr
 - Control access to your AWS resources. Allowing and denying access to keys
   based on their tags is part of AWS Payment Cryptography support for attribute-based
   access control (ABAC). For information about controlling access to
-  AWS Payment Cryptography based on their tags, see [Authorization based on
-  AWS Payment Cryptography tags](security_iam_service-with-iam.md#security_iam_service-with-iam-tags "security_iam_service-with-iam.md#security_iam_service-with-iam-tags"). For more general information about using tags to
+  AWS Payment Cryptography based on their tags, see [Authorization based on AWS Payment Cryptography
+  tags](security_iam_service-with-iam.md#security_iam_service-with-iam-tags "security_iam_service-with-iam.md#security_iam_service-with-iam-tags"). For more general information about using tags to
   control access to AWS resources, see [Controlling Access to AWS Resources Using Resource Tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in the
   _IAM User Guide_.
   AWS Payment Cryptography writes an entry to your AWS CloudTrail log when you use the TagResource, UntagResource, or ListTagsForResource operations.

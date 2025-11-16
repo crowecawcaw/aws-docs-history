@@ -61,9 +61,9 @@ For more details, see AWS Key Management Service Cryptographic Details.
 
 Key material that AWS Payment Cryptography generates or loads for payment keys is never exported or transmitted in AWS Payment Cryptography API operations in cleartext. AWS Payment Cryptography uses key identifiers to represent the keys in API operations.
 
-However, some AWS Payment Cryptography API operations export keys encrypted by a previously shared or asymmetric key exchange key. Also, customers can use API operations to import encrypted key material for payment keys.
+However, some API operations export keys encrypted by a previously shared or asymmetric key exchange key. Also, customers can use API operations to import encrypted key material for payment keys.
 
-All AWS Payment Cryptography API calls must be signed and be transmitted using Transport Layer Security (TLS). AWS Payment Cryptography requires TLS versions and cipher suites defined by PCI as "strong cryptography". All service endpoints support TLS 1.0—1.3 and hybrid post-quantum TLS.
+All AWS Payment Cryptography API calls must be signed and be transmitted using Transport Layer Security (TLS). AWS Payment Cryptography requires TLS versions and cipher suites defined by PCI as "strong cryptography". All service endpoints support TLS 1.2—1.3 and hybrid post-quantum TLS.
 
 For more details, see AWS Key Management Service Cryptographic Details.
 

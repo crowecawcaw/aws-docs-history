@@ -34,31 +34,33 @@ Example output:
 
 ```
 {
-  "eventVersion": "1.11",
-  "userIdentity": {
-    "accountId": "123456789012",
-    "invokedBy": "payment-cryptography.amazonaws.com"
-  },
-  "eventTime": "2025-08-15T17:50:41Z",
-  "eventSource": "payment-cryptography.amazonaws.com",
-  "eventName": "SynchronizeMultiRegionKey",
-  "awsRegion": "us-east-1",
-  "sourceIPAddress": "payment-cryptography.amazonaws.com",
-  "userAgent": "payment-cryptography.amazonaws.com",
-  "requestParameters": null,
-  "responseElements": null,
-  "eventID": "55c0fcbc-5b2e-4bd2-a976-99305be6e6fc",
-  "readOnly": false,
-  "eventType": "AwsServiceEvent",
-  "managementEvent": true,
-  "recipientAccountId": "123456789012",
-  "serviceEventDetails": {
-    "keyArn": "arn:aws:payment-cryptography:us-east-1:123456789012:key/kwapwa6qaifllw2h",
-    "replicationRegion": "us-east-2"
-  },
-  "eventCategory": "Management"
+    "Key": {
+        "CreateTimestamp": "2022-10-26T16:04:11.642000-07:00",
+        "Enabled": true,
+        "Exportable": true,
+        "KeyArn": "FE23D3",
+        "KeyAttributes": {
+            "KeyAlgorithm": "TDES_3KEY",
+            "KeyClass": "SYMMETRIC_KEY",
+            "KeyModesOfUse": {
+                "Decrypt": false,
+                "DeriveKey": true,
+                "Encrypt": false,
+                "Generate": false,
+                "NoRestrictions": false,
+                "Sign": false,
+                "Unwrap": false,
+                "Verify": true,
+                "Wrap": false
+            },
+            "KeyUsage": "TR31_B0_BASE_DERIVATION_KEY"
+        },
+        "KeyCheckValue": "FE23D3",
+        "KeyCheckValueAlgorithm": "ANSI_X9_24",
+        "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
+        "KeyState": "CREATE_COMPLETE",
+        "UsageStartTimestamp": "2022-10-26T16:04:11.559000-07:00"
 }
-
 ```
 
 ## Creating a 2KEY TDES key for CVV/CVV2
@@ -81,7 +83,7 @@ Example output:
         "CreateTimestamp": "2022-10-26T16:04:11.642000-07:00",
         "Enabled": true,
         "Exportable": true,
-        "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/hjprdg5o4jtgs5tw",
+        "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/7f7g4spf3xcklhzu",
         "KeyAttributes": {
             "KeyAlgorithm": "TDES_2KEY",
             "KeyClass": "SYMMETRIC_KEY",
@@ -98,7 +100,7 @@ Example output:
             },
             "KeyUsage": "TR31_C0_CARD_VERIFICATION_KEY"
         },
-        "KeyCheckValue": "B72F",
+        "KeyCheckValue": "AEA5CD",
         "KeyCheckValueAlgorithm": "ANSI_X9_24",
         "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
         "KeyState": "CREATE_COMPLETE",
@@ -128,7 +130,7 @@ Example output:
         "CreateTimestamp": "2022-10-27T08:27:51.795000-07:00",
         "Enabled": true,
         "Exportable": true,
-        "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/kwapwa6qaifllw2h",
+        "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/ivi5ksfsuplneuyt",
         "KeyAttributes": {
             "KeyAlgorithm": "TDES_3KEY",
             "KeyClass": "SYMMETRIC_KEY",
@@ -145,7 +147,7 @@ Example output:
             },
             "KeyUsage": "TR31_P0_PIN_ENCRYPTION_KEY"
         },
-        "KeyCheckValue": "9CA6",
+        "KeyCheckValue": "7CC9E2",
         "KeyCheckValueAlgorithm": "ANSI_X9_24",
         "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
         "KeyState": "CREATE_COMPLETE",
@@ -192,7 +194,7 @@ Example output:
             "KeyUsage": "TR31_D1_ASYMMETRIC_KEY_FOR_DATA_ENCRYPTION"
         },
         "KeyCheckValue": "40AD487F",
-        "KeyCheckValueAlgorithm": "CMAC",
+        "KeyCheckValueAlgorithm": "SHA-1",
         "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
         "KeyState": "CREATE_COMPLETE",
         "UsageStartTimestamp": "2022-11-15T11:15:42.182000-08:00"
@@ -221,7 +223,7 @@ Example output:
         "CreateTimestamp": "2022-10-27T10:22:59.668000-07:00",
         "Enabled": true,
         "Exportable": true,
-        "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/j4u4cmnzkelhc6yb",
+        "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/37y2tsl45p5zjbh2",
         "KeyAttributes": {
             "KeyAlgorithm": "TDES_3KEY",
             "KeyClass": "SYMMETRIC_KEY",
@@ -238,7 +240,7 @@ Example output:
             },
             "KeyUsage": "TR31_V2_VISA_PIN_VERIFICATION_KEY"
         },
-        "KeyCheckValue": "5132",
+        "KeyCheckValue": "7F2363",
         "KeyCheckValueAlgorithm": "ANSI_X9_24",
         "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
         "KeyState": "CREATE_COMPLETE",
@@ -273,7 +275,7 @@ Example output:
         "CreateTimestamp": "2024-10-17T01:31:55.908000+00:00",
         "Enabled": true,
         "Exportable": true,
-        "KeyArn": "arn:aws:payment-cryptography:us-west-2:075556953750:key/xzydvquw6ejfxnwq",
+        "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/wc3rjsssguhxtilv",
         "KeyAttributes": {
             "KeyAlgorithm": "ECC_NIST_P256",
             "KeyClass": "ASYMMETRIC_KEY_PAIR",
@@ -290,8 +292,8 @@ Example output:
             },
             "KeyUsage": "TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT"
         },
-        "KeyCheckValue": "7E34F19F",
-        "KeyCheckValueAlgorithm": "CMAC",
+        "KeyCheckValue": "",
+        "KeyCheckValueAlgorithm": "SHA-1",
         "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
         "KeyState": "CREATE_COMPLETE",
         "UsageStartTimestamp": "2024-10-17T01:31:55.866000+00:00"

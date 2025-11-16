@@ -27,4 +27,5 @@ model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://a
 - [Resilience](resilience.md "resilience.md")
 - [Infrastructure security](infrastructure-security.md "infrastructure-security.md")
 - [Use Amazon VPC and AWS PrivateLink](vpc-endpoint.md "vpc-endpoint.md")
+- [Hybrid post-quantum TLS](pqtls.md "pqtls.md")
 - [Security best practices](security-best-practices.md "security-best-practices.md")

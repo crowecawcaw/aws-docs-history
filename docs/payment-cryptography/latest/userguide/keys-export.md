@@ -11,7 +11,8 @@
     exchange key (TR-31)](keys-export.md#keys-export-tr31 "keys-export.md#keys-export-tr31")
 
 - [Export DUKPT Initial Keys (IPEK/IK)](keys-export.md#keys-export-ipek "keys-export.md#keys-export-ipek")
-  - [Specify key block headers for export](keys-export.md#keys-export-optionalheaders "keys-export.md#keys-export-optionalheaders")
+- [Specify key block headers for export](keys-export.md#keys-export-optionalheaders "keys-export.md#keys-export-optionalheaders")
+  - [Common Headers](keys-export.md#keys-export-commonheaders "keys-export.md#keys-export-commonheaders")
 
 - [Export asymmetric (RSA) keys](keys-export.md#keys-export-publickey "keys-export.md#keys-export-publickey")
 
@@ -510,7 +511,7 @@ generate the same IPEK.
 }`
 ```
 
-### Specify key block headers for export
+## Specify key block headers for export
 
 You can modify or append key block information when exporting in ASC TR-31 or TR-34
 formats. The following table describes the TR-31 key block format and which elements you can
@@ -595,6 +596,19 @@ Even when you set exportability to Not Exportable in this example, the [KIF](ter
  }
 }`
 ```
+
+### Common Headers
+
+X9.143 defines certain headers for common use cases. With the exception of the HM(HMAC Hash) header, AWS Payment Cryptography does not parse or utilize these headers.
+
+| Header Name | Purpose                                                                        | Typical Validation                                                                                                                                                                                                                                 | Notes                                                                                                                                                                                                                                                                                                                                              |
+| ----------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BI          | Base Derivation Key Identifier for DUKPT                                       | 2 hex characters (00 for TDES, 11 for AES) then 10 hex characters for TDES KSI or 8 hex characters for BDK ID (AES DUKPT).                                                                                                                         | Contains the (BDK ID, for AES DUKPT) or the Key Set Identifier (KSI, for TDES DUKPT).<br>Can be used when exchanging the BDK ID or the KSI, but do not need to<br>exchange the other data contained in the IK and KS blocks. Typically BI is used when transmitting to a KIF whereas IK or KS are used<br>when injecting into the terminal itself. |
+| HM          | Specifies the hash type for HMAC operations                                    | • 10 – SHA-1<br>• 20 – SHA-224<br>• 21 – SHA-256<br>• 22 – SHA-384<br>• 23 – SHA-512<br>• 24 – SHA-512/224<br>• 25 – SHA-512/256<br>• 30 – SHA3-224<br>• 31 – SHA3-256<br>• 32 – SHA3-384<br>• 33 – SHA3-512<br>• 40 – SHAKE128<br>• 41 – SHAKE256 | The service automatically populates this field on export and will parse it on import. Hash types not supported by the service such<br>as SHAKE128 can be imported but may not be usuable for cryptographic functions.                                                                                                                              |
+| IK          | Initial Key Serial Number for AES DUKPT                                        | 16 hex characters                                                                                                                                                                                                                                  | This value is used to instantiate the use of the Initial DUKPT key on the receiving device and it identifies<br>the Initial Key derived from a BDK. This field typically contains the derivation data but no counter. Use KS for TDES DUKPT.                                                                                                       |
+| KS          | Initial Key Serial Number for TDES DUKPT                                       | 20 hex characters                                                                                                                                                                                                                                  | This value is used to instantiate the use of the Initial DUKPT key on the receiving device and it identifies<br>the Initial Key derived from a BDK. This field typically contains the derivation data + a zeroized counter value. Use IK for AES DUKPT.                                                                                            |
+| KP          | [KCV](terminology.md#terms.kcv "terminology.md#terms.kcv") of the wrapping key | 2 hex characters represent the KCV method (00 for X9.24 method and 01 for CMAC method). Followed by KCV value<br>which is typically 6 hex characters. For example 010FA329 represents KCV of 0FA329 calculated using 01(CMAC) method.              | This value is used to instantiate the use of the Initial DUKPT key on the receiving device and it identifies<br>the Initial Key derived from a BDK. This field typically contains the derivation data + a zeroized counter value. Use IK for AES DUKPT.                                                                                            |
+| PB          | Padding block                                                                  | random printable ASCII characters                                                                                                                                                                                                                  | The service automatically populates this field on export to ensure optional headers are multiples of encryption block length                                                                                                                                                                                                                       |
 
 ## Export asymmetric (RSA) keys
 
