@@ -7,7 +7,7 @@ Infrastructure Composer](getting-started-build.md "getting-started-build.md").
 To add a card to your application, drag it from the resource palette and drop it onto
 the visual canvas.
 
-![Selecting a resource from the resource palette and dragging it onto the Infrastructure Composer canvas.](images/aac_ref_05.gif)
+![Selecting a resource from the resource palette and dragging it onto the Infrastructure Composer canvas.](/images/infrastructure-composer/latest/dg/images/aac_ref_05.gif)
 You can choose from two types of cards: [Enhanced component cards](using-composer-cards-component-intro-enhanced.md "using-composer-cards-component-intro-enhanced.md") and [Standard IaC resource cards](using-composer-cards-resource-intro.md "using-composer-cards-resource-intro.md").
 
 After placing your cards on the visual canvas, you'll be ready to group, connect, arrange, and configure your cards. See the following topics for information on doing this:
