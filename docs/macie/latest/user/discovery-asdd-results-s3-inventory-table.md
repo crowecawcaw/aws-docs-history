@@ -96,7 +96,7 @@ formats](discovery-supported-storage.md "discovery-supported-storage.md"). 6. To
     On the **Bucket details** tab of the panel, you can pivot and drill
      down on many of the fields. To show buckets that have the same value for a field, choose
 
-    ![The zoom in icon, which is a magnifying glass that has a plus sign in it.](/images/macie/latest/user/images/icon-magnifying-glass-plus-sign.png)
+    ![The zoom in icon, which is a magnifying glass that has a plus sign in it.](images/icon-magnifying-glass-plus-sign.png)
      in the field. To show buckets that have other values for a field,
      choose
     ![The zoom out icon, which is a magnifying glass that has a minus sign in it.](images/icon-magnifying-glass-minus-sign.png)

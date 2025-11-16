@@ -157,10 +157,10 @@ formats](discovery-supported-storage.md "discovery-supported-storage.md"). 5. To
 You can pivot and drill down on many of the fields in the bucket details
 panel. To show buckets that have the same value for a field, choose
 
-![The zoom in icon, which is a magnifying glass that has a plus sign in it.](/images/macie/latest/user/images/icon-magnifying-glass-plus-sign.png)
+![The zoom in icon, which is a magnifying glass that has a plus sign in it.](images/icon-magnifying-glass-plus-sign.png)
 in the field. To show buckets that have other values
 for a field, choose
-![The zoom out icon, which is a magnifying glass that has a minus sign in it.](/images/macie/latest/user/images/icon-magnifying-glass-minus-sign.png)
+![The zoom out icon, which is a magnifying glass that has a minus sign in it.](images/icon-magnifying-glass-minus-sign.png)
 in the field. 7. To export data from the table to a CSV file, select the checkbox for each row that you
 want to export, or select the checkbox in the selection column heading to select
 all rows. Then choose **Export to CSV** at the top of the page.
@@ -215,10 +215,10 @@ access](#monitoring-s3-inventory-view-details-public-access "#monitoring-s3-inve
 As you review the information in each section, you can optionally pivot and drill down
 on certain fields. To show buckets that have the same value for a field, choose
 
-![The zoom in icon, which is a magnifying glass that has a plus sign in it.](/images/macie/latest/user/images/icon-magnifying-glass-plus-sign.png)
+![The zoom in icon, which is a magnifying glass that has a plus sign in it.](images/icon-magnifying-glass-plus-sign.png)
 in the field. To show buckets that have other values for a field,
 choose
-![The zoom out icon, which is a magnifying glass that has a minus sign in it.](/images/macie/latest/user/images/icon-magnifying-glass-minus-sign.png)
+![The zoom out icon, which is a magnifying glass that has a minus sign in it.](images/icon-magnifying-glass-minus-sign.png)
 in the field.
 
 ### Overview

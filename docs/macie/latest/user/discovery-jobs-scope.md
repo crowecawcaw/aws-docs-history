@@ -153,14 +153,14 @@ the details panel. In the panel, you can also:
   ![The zoom in icon, which is a magnifying glass that has a plus sign in it.](images/icon-magnifying-glass-plus-sign.png)
   to show buckets with the same value. Choose
 
-![The zoom out icon, which is a magnifying glass that has a minus sign in it.](/images/macie/latest/user/images/icon-magnifying-glass-minus-sign.png)
+![The zoom out icon, which is a magnifying glass that has a minus sign in it.](images/icon-magnifying-glass-minus-sign.png)
 to show buckets with other values.
 
 - Retrieve the latest metadata for objects in the bucket. This can be
   helpful if you recently created a bucket or made significant changes to the
   bucket's objects during the past 24 hours. To retrieve the data, choose
   refresh (
-  ![The refresh button, which is a button that displays an empty, dark gray circle with an arrow.](/images/macie/latest/user/images/btn-refresh-object-data.png)
+  ![The refresh button, which is a button that displays an empty, dark gray circle with an arrow.](images/btn-refresh-object-data.png)
   ) in the **Object
   statistics** section of the panel. This option is available for
   buckets that store 30,000 or fewer objects.

@@ -208,7 +208,7 @@ Macie can also retrieve the latest object metadata for a specific bucket if you 
 manually refresh that data. This can be helpful if you recently created a bucket or made
 significant changes to a bucket's objects during the past 24 hours. To manually refresh
 object metadata for a bucket, choose refresh (
-![The refresh button, which is a button that displays an empty, dark gray circle with an arrow.](images/btn-refresh-object-data.png)
+![The refresh button, which is a button that displays an empty, dark gray circle with an arrow.](/images/macie/latest/user/images/btn-refresh-object-data.png)
 ) in the
 **Object statistics** section of the [bucket details panel](monitoring-s3-inventory-review.md#monitoring-s3-inventory-view-details "monitoring-s3-inventory-review.md#monitoring-s3-inventory-view-details") on the
 **S3 buckets** page of the console. This feature is available for
