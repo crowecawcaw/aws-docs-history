@@ -27,7 +27,7 @@ This tutorial uses AWS events and the built in `aws.events` schema registry.
 You can also create an EventBridge rule based on the schema of your custom events by adding them
 to a custom schema registry manually, or by using schema discovery.
 
-For more information on schemas, see [Amazon EventBridge schemas](eb-schema.md "eb-schema.md"). For more information on creating a rule using other event pattern options, see [Creating rules that react to events in Amazon EventBridge](eb-create-rule.md "eb-create-rule.md").
+For more information on schemas, see [Amazon EventBridge schemas](eb-schema.md "eb-schema.md"). For more information on creating a rule using other event pattern options, see [Creating rules in Amazon EventBridge](eb-create-rule-visual.md "eb-create-rule-visual.md").
 
 ## Step 1: Create an Amazon Kinesis stream
 

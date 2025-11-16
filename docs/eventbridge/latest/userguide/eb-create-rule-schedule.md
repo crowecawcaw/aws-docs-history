@@ -1,15 +1,12 @@
-# Creating a rule that runs on a
-
-schedule in Amazon EventBridge
-
-A [rule](eb-rules.md "eb-rules.md") can run in response to an [event](eb-events.md "eb-events.md"), or at certain time intervals. For example, to periodically run an
-AWS Lambda function, you can create a rule to run on a schedule.
+# Creating a scheduled rule (legacy) in Amazon EventBridge
 
 ###### Note
 
-While you can create rules that run on a schedule, EventBridge now
+Scheduled rules are a legacy feature of EventBridge.
+
+EventBridge
 offers a more flexible and powerful way to create, run, and manage scheduled tasks
-centrally: EventBridge Scheduler. With EventBridge Scheduler, you can create schedules using cron
+centrally, at scale: EventBridge Scheduler. With EventBridge Scheduler, you can create schedules using cron
 and rate expressions for recurring patterns, or configure one-time invocations. You can set
 up flexible time windows for delivery, define retry limits, and set the maximum retention
 time for failed API invocations.
@@ -17,7 +14,7 @@ time for failed API invocations.
 Scheduler is highly customizable, and offers improved scalability over scheduled rules, with a wider set of target API operations and AWS services.
 We recommend that you use Scheduler to invoke targets on a schedule.
 
-For more information, see [Create a schedule](using-eventbridge-scheduler.md#using-eventbridge-scheduler-create "using-eventbridge-scheduler.md#using-eventbridge-scheduler-create").
+For more information, see [Create a schedule](using-eventbridge-scheduler.md#using-eventbridge-scheduler-create "using-eventbridge-scheduler.md#using-eventbridge-scheduler-create") or the _[EventBridge Scheduler User Guide](../../../scheduler/latest/UserGuide/what-is-scheduler.md "../../../scheduler/latest/UserGuide/what-is-scheduler.md")_.
 
 In EventBridge, you can create two types of scheduled rules:
 
@@ -47,13 +44,7 @@ using a cron expression is one minute. Due to the distributed nature of EventBri
 target services, there can be a delay of several seconds between the time the scheduled
 rule is triggered and the time the target service runs the target resource.
 
-The following video gives an overview of scheduling tasks:
-
-###### Topics
-
-- [Create a rule that runs on a schedule](#eb-create-scheduled-rule "#eb-create-scheduled-rule")
-
-## Create a rule that runs on a schedule
+## Create a scheduled rule (legacy)
 
 The following steps walk you through how to create an EventBridge rule that runs on a regular
 schedule.
@@ -76,50 +67,14 @@ First, enter a name and description for your rule to identify it.
 ###### To define the rule detail
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2. In the navigation pane, choose **Rules**.
-3. Choose **Create rule**.
+2. In the navigation pane, under **Scheduler**, choose **Scheduled rule (legacy)**.
+3. Choose **Create scheduled rule**.
 4. Enter a **Name** and, optionally, a
    **Description** for the rule.
 
 A rule can't have the same name as another rule in the same AWS Region and
-on the same event bus. 5. For **Event bus**, choose the default event bus.
-You can only create scheduled rules using the default event bus. 6. To have the rule take effect as soon as you create it, make sure the **Enable the rule
-on the selected event bus** option is enabled. 7. For **Rule type**, choose **Schedule**.
-
-At this point, you can choose to continue with creating a rule that runs on a schedule, or use
-Amazon EventBridge Scheduler. 8. Choose how you want to continue:
-
-    * Use EventBridge Scheduler to create your schedule
-
-
-    ###### Note
-
-    EventBridge Scheduler is a serverless scheduler that allows you to create, run, and manage tasks from one
-     central, managed service. It provides one-time and recurring
-     scheduling functionality independent of event buses and rules.
-     EventBridge Scheduler is highly customizable, and offers improved scalability
-     over EventBridge scheduled rules, with a wider set of target API
-     operations and AWS services.
-
-    We recommend that you use EventBridge Scheduler to invoke targets on a
-     schedule. For more information, see [What
-     is Amazon EventBridge Scheduler?](../../../scheduler/latest/UserGuide/what-is-scheduler.md "../../../scheduler/latest/UserGuide/what-is-scheduler.md") in the *Amazon EventBridge Scheduler User
-     Guide*.
-
-
-
-
-    	1. Select **Continue in EventBridge Scheduler**
-
-
-    	EventBridge opens the EventBridge Scheduler console to the **Create schedule** page.
-    	2. [Create the schedule](../../../scheduler/latest/UserGuide/getting-started.md#getting-started-console "../../../scheduler/latest/UserGuide/getting-started.md#getting-started-console") in the EventBridge Scheduler console.
-    * Continue using EventBridge to create a scheduled rule for the default event bus
-
-
-
-
-    	1. Select **Continue to create rule**.
+on the same event bus. 5. To have the rule take effect as soon as you create it, make sure the **Enable the
+scheduled rule** option is enabled.
 
 ### Define the schedule
 
@@ -127,7 +82,7 @@ Next, define the schedule pattern.
 
 ###### To define the schedule pattern
 
-1. For **Schedule pattern**, choose whether you want the schedule to run at a specific time, or at a regular rate:
+- For **Schedule pattern**, choose whether you want the schedule to run at a specific time, or at a regular rate:
 
 Specific time
 
@@ -151,8 +106,6 @@ Regular rate
 
 
     For more information on constructing a rate expression, see [Rate expressions](eb-scheduled-rule-pattern.md#eb-rate-expressions "eb-scheduled-rule-pattern.md#eb-rate-expressions").
-
-2. Choose **Next**.
 
 ### Select targets
 

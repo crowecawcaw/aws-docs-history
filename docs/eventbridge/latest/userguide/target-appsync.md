@@ -24,8 +24,8 @@ architecture](../../../appsync/latest/devguide/graphql-overview.md "../../../app
 
 ###### To specify an AWS AppSync target for an EventBridge rule using the console
 
-1.  [Create or edit the rule.](eb-create-rule.md "eb-create-rule.md")
-2.  Under **Target**, [specify the target](eb-create-rule.md#eb-create-rule-target "eb-create-rule.md#eb-create-rule-target") by choosing **AWS service** and then **AWS AppSync**.
+1.  [Create or edit the rule.](eb-create-rule-visual.md "eb-create-rule-visual.md")
+2.  Under **Target**, [specify the target](eb-create-rule-wizard.md#eb-create-rule-target "eb-create-rule-wizard.md#eb-create-rule-target") by choosing **AWS service** and then **AWS AppSync**.
 3.  Specify the mutation operation to be parsed and executed, along with the selection set.
     - Choose the AWS AppSync API, and then the GraphQL API mutation to invoke.
     - Under **Configure parameters and selection set**, choose to create a selection set using key-value mapping or an input transformer.

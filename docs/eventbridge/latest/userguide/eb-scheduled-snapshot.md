@@ -20,8 +20,7 @@ the AWS Management Console.
 ## Step 1: Create the rule
 
 Create a rule that takes snapshots on a schedule. You can use a rate expression or
-a cron expression to specify the schedule. For more information, see [Creating a rule that runs on a
-schedule in Amazon EventBridge](eb-create-rule-schedule.md "eb-create-rule-schedule.md").
+a cron expression to specify the schedule. For more information, see [Creating a scheduled rule (legacy) in Amazon EventBridge](eb-create-rule-schedule.md "eb-create-rule-schedule.md").
 
 ###### To create a rule
 

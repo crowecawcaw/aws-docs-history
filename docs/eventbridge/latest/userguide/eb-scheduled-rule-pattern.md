@@ -1,4 +1,20 @@
-# Using cron and rate expressions to schedule rules in Amazon EventBridge
+# Setting a schedule pattern for scheduled rules (legacy) in Amazon EventBridge
+
+###### Note
+
+Scheduled rules are a legacy feature of EventBridge.
+
+EventBridge
+offers a more flexible and powerful way to create, run, and manage scheduled tasks
+centrally, at scale: EventBridge Scheduler. With EventBridge Scheduler, you can create schedules using cron
+and rate expressions for recurring patterns, or configure one-time invocations. You can set
+up flexible time windows for delivery, define retry limits, and set the maximum retention
+time for failed API invocations.
+
+Scheduler is highly customizable, and offers improved scalability over scheduled rules, with a wider set of target API operations and AWS services.
+We recommend that you use Scheduler to invoke targets on a schedule.
+
+For more information, see [Create a schedule](using-eventbridge-scheduler.md#using-eventbridge-scheduler-create "using-eventbridge-scheduler.md#using-eventbridge-scheduler-create") or the _[EventBridge Scheduler User Guide](../../../scheduler/latest/UserGuide/what-is-scheduler.md "../../../scheduler/latest/UserGuide/what-is-scheduler.md")_.
 
 When you create a scheduled rule in EventBridge you can specify a schedule pattern that determines when EventBridge runs the rule:
 

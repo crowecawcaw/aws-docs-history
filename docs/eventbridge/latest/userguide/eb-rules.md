@@ -15,15 +15,17 @@ criteria (called an _event pattern_). An event
 pattern defines the event structure and the fields that a rule
 matches. If an event matches the criteria defined in the event pattern, EventBridge sends it to the target(s) you specify.
 
-For more information, see [Creating rules that react to events in Amazon EventBridge](eb-create-rule.md "eb-create-rule.md").
+For more information, see [Creating rules in Amazon EventBridge](eb-create-rule-visual.md "eb-create-rule-visual.md").
 
 ## Rules that run on a schedule
 
 ###### Note
 
-While you can create rules that run on a schedule, EventBridge now
+Scheduled rules are a legacy feature of EventBridge.
+
+EventBridge
 offers a more flexible and powerful way to create, run, and manage scheduled tasks
-centrally: EventBridge Scheduler. With EventBridge Scheduler, you can create schedules using cron
+centrally, at scale: EventBridge Scheduler. With EventBridge Scheduler, you can create schedules using cron
 and rate expressions for recurring patterns, or configure one-time invocations. You can set
 up flexible time windows for delivery, define retry limits, and set the maximum retention
 time for failed API invocations.
@@ -31,14 +33,13 @@ time for failed API invocations.
 Scheduler is highly customizable, and offers improved scalability over scheduled rules, with a wider set of target API operations and AWS services.
 We recommend that you use Scheduler to invoke targets on a schedule.
 
-For more information, see [Create a schedule](using-eventbridge-scheduler.md#using-eventbridge-scheduler-create "using-eventbridge-scheduler.md#using-eventbridge-scheduler-create").
+For more information, see [Create a schedule](using-eventbridge-scheduler.md#using-eventbridge-scheduler-create "using-eventbridge-scheduler.md#using-eventbridge-scheduler-create") or the _[EventBridge Scheduler User Guide](../../../scheduler/latest/UserGuide/what-is-scheduler.md "../../../scheduler/latest/UserGuide/what-is-scheduler.md")_.
 
 You can also create rules that sends events to the specified targets at specified
 intervals. For example, to periodically run an Lambda function, you can
 create a rule to run on a schedule.
 
-For more information, see [Creating a rule that runs on a
-schedule in Amazon EventBridge](eb-create-rule-schedule.md "eb-create-rule-schedule.md").
+For more information, see [Creating a scheduled rule (legacy) in Amazon EventBridge](eb-create-rule-schedule.md "eb-create-rule-schedule.md").
 
 ## Rules managed by AWS services
 
@@ -55,5 +56,3 @@ You can delete managed rules by using the **Force delete** option,
 but you should only delete them if you're sure that the other service no longer needs
 the rule. Otherwise, deleting a managed rule causes the features that rely on it to stop
 working.
-
-The following video covers the basics of rules:

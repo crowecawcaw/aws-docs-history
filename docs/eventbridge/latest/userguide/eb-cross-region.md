@@ -17,8 +17,8 @@ rule.
 
 console
 
-1. Follow the steps in the [Creating rules that react to events in Amazon EventBridge](eb-create-rule.md "eb-create-rule.md") procedure.
-2. In the [Select targets](eb-create-rule.md#eb-create-rule-target "eb-create-rule.md#eb-create-rule-target") step, when prompted to choose a target type:
+1. Follow the steps in the [Creating rules in Amazon EventBridge](eb-create-rule-visual.md "eb-create-rule-visual.md") procedure.
+2. In the [Select targets](eb-create-rule-wizard.md#eb-create-rule-target "eb-create-rule-wizard.md#eb-create-rule-target") step, when prompted to choose a target type:
    1. Select **EventBridge event bus**.
    2. Select **Event bus in a
       different account or Region**.

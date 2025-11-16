@@ -19,6 +19,14 @@ If you want to create a schedule using one of the EventBridge Scheduler SDKs, th
 EventBridge Scheduler requires to invoke a target. For more information about manually setting up an execution role for your schedule, see [Setting up an execution role](../../../scheduler/latest/UserGuide/setting-up.md#setting-up-execution-role "../../../scheduler/latest/UserGuide/setting-up.md#setting-up-execution-role")
 in the _EventBridge Scheduler User Guide_.
 
+## Related resources
+
+For more information about EventBridge Scheduler, see the following:
+
+- [EventBridge Scheduler User Guide](../../../scheduler/latest/UserGuide/what-is-scheduler.md "../../../scheduler/latest/UserGuide/what-is-scheduler.md")
+- [EventBridge Scheduler API Reference](../../../scheduler/latest/APIReference/Welcome.md "../../../scheduler/latest/APIReference/Welcome.md")
+- [EventBridge Scheduler Pricing](https://aws.amazon.com/eventbridge/pricing/#Scheduler "https://aws.amazon.com/eventbridge/pricing/#Scheduler")
+
 ## Create a schedule
 
 ###### To create a schedule by using the console
@@ -135,11 +143,3 @@ You can view a list of your new and existing schedules on the
 **Schedules** page. Under the
 **Status** column, verify that your new schedule is
 **Enabled**.
-
-## Related resources
-
-For more information about EventBridge Scheduler, see the following:
-
-- [EventBridge Scheduler User Guide](../../../scheduler/latest/UserGuide/what-is-scheduler.md "../../../scheduler/latest/UserGuide/what-is-scheduler.md")
-- [EventBridge Scheduler API Reference](../../../scheduler/latest/APIReference/Welcome.md "../../../scheduler/latest/APIReference/Welcome.md")
-- [EventBridge Scheduler Pricing](https://aws.amazon.com/eventbridge/pricing/#Scheduler "https://aws.amazon.com/eventbridge/pricing/#Scheduler")

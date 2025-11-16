@@ -3,7 +3,7 @@
 You can use input transformers to customize the text from an [event](eb-events.md "eb-events.md") before EventBridge
 passes the information to the [target](eb-targets.md "eb-targets.md") of a [rule](eb-rules.md "eb-rules.md").
 
-Configuring an input transformer is typically part of the larger process of specifying a target while [creating a new rule](eb-create-rule.md "eb-create-rule.md")
+Configuring an input transformer is typically part of the larger process of specifying a target while [creating a new rule](eb-create-rule-visual.md "eb-create-rule-visual.md")
 or editing an existing one.
 Using the Sandbox in EventBridge, however, you can quickly configure an input transformer and use a sample event to confirm you are getting the desired output,
 without having to create or edit a rule.

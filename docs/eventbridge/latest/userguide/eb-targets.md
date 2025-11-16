@@ -9,8 +9,6 @@ When you add targets to a rule and that rule runs soon after, any new or updated
 might not be immediately invoked. Allow a short period of time for changes to take
 effect.
 
-The following video covers the basics of targets:
-
 ## Event bus targets available in the EventBridge
 
 console
@@ -56,7 +54,7 @@ You can have EventBridge send events to a number of AWS service resources. These
     + [Amazon Redshift Serverless workgroup data API queries](../../../redshift/latest/mgmt/data-api-calling-event-bridge.md "../../../redshift/latest/mgmt/data-api-calling-event-bridge.md")
     + SageMaker AI Pipeline
     + Amazon SNS topic
-    + [Amazon SQS standard and FIFO
+    + [Amazon SQS standard, fair, and FIFO
      queues](#targets-specifics-sqs "#targets-specifics-sqs")
     + Step Functions state machine (ASYNC)
     + Systems Manager Automation
@@ -87,7 +85,7 @@ Use [`RedshiftDataParameters`](../APIReference/API_RedshiftDataParameters.md "..
 
 Use [`SageMakerPipelineParameters`](../APIReference/API_SageMakerPipelineParameters.md "../APIReference/API_SageMakerPipelineParameters.md").
 
-- Amazon SQS FIFO queues
+- Amazon SQS fair and FIFO queues
 
 Use [`SqsParameters`](../APIReference/API_SqsParameters.md "../APIReference/API_SqsParameters.md") to specify the message group to use as the target.
 
@@ -105,25 +103,38 @@ Supported syntax includes:
 
 ### Dynamic path parameters
 
-Some target parameters support optional dynamic JSON path syntax. This syntax allows you to specify JSON paths instead of static values (for example `$.detail.state`).
-The entire value has to be a JSON path, not just part of it. For example, `RedshiftParameters.Sql` can be `$.detail.state` but it can't be
-`"SELECT * FROM $.detail.state"`. These paths are replaced dynamically at runtime with data from the event payload itself at the specified path. Dynamic path parameters
-can't reference new or transformed values resulting from input transformation. The supported syntax for
-dynamic parameter JSON paths is the same as
-when transforming input. For more information, see [Amazon EventBridge input transformation](eb-transform-target-input.md "eb-transform-target-input.md")
+Dynamic path parameters let you use JSON path syntax to reference event data at runtime instead of static values.
 
-Dynamic syntax can be used on all the string, non-enum fields of these parameters:
+You can use dynamic JSON path syntax with target parameters to specify JSON paths instead of static values (for example, `$.detail.state`).
+
+#### Requirements
+
+The entire value must be a JSON path, not just part of it. For example:
+
+- ✓ Correct: `RedshiftParameters.Sql` can be `$.detail.state`
+- ✗ Incorrect: `RedshiftParameters.Sql` cannot be `"SELECT * FROM $.detail.state"`
+
+EventBridge replaces these paths at runtime with data from the event payload at the specified path.
+
+#### Limitations
+
+Dynamic path parameters cannot reference new or transformed values from input transformation. The JSON path syntax is the same as input transformation syntax. For more information, see [Amazon EventBridge input transformation](eb-transform-target-input.md "eb-transform-target-input.md").
+
+#### Supported parameters
+
+You can use dynamic syntax on all string, non-enum fields of these parameters:
 
 - [`EcsParameters`](../APIReference/API_EcsParameters.md "../APIReference/API_EcsParameters.md")
 - [`HttpParameters`](../APIReference/API_HttpParameters.md "../APIReference/API_HttpParameters.md") (except `HeaderParameters` keys)
 - [`RedshiftDataParameters`](../APIReference/API_RedshiftDataParameters.md "../APIReference/API_RedshiftDataParameters.md")
 - [`SageMakerPipelineParameters`](../APIReference/API_SageMakerPipelineParameters.md "../APIReference/API_SageMakerPipelineParameters.md")
+- [`SqsParameters`](../APIReference/API_SqsParameters.md "../APIReference/API_SqsParameters.md")
 
 ## Permissions
 
 To make API calls on the resources that you own, EventBridge needs appropriate permissions.
 Specify an IAM execution role [using the EventBridge
-console](eb-create-rule.md#eb-create-rule-target "eb-create-rule.md#eb-create-rule-target"), or by setting the `RoleARN` parameter in [`PutTargets`](../APIReference/API_PutTargets.md "../APIReference/API_PutTargets.md").
+console](eb-create-rule-wizard.md#eb-create-rule-target "eb-create-rule-wizard.md#eb-create-rule-target"), or by setting the `RoleARN` parameter in [`PutTargets`](../APIReference/API_PutTargets.md "../APIReference/API_PutTargets.md").
 
 For example, the following policy defines permission to send messages to an
 Amazon SQS queue:

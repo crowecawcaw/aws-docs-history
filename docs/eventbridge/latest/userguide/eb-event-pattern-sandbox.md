@@ -1,6 +1,6 @@
 # Testing event patterns using the EventBridge Sandbox
 
-Defining an event pattern is typically part of the larger process of [creating a new rule](eb-create-rule.md "eb-create-rule.md") or editing an existing one. Using
+Defining an event pattern is typically part of the larger process of [creating a new rule](eb-create-rule-visual.md "eb-create-rule-visual.md") or editing an existing one. Using
 the Sandbox in EventBridge, however, you can quickly define an event pattern and use a sample event
 to confirm the pattern matches the desired events, without having to create or edit a
 rule. Once you've got your event pattern tested, EventBridge give you the option of creating a new rule using that event pattern directly from the sandbox.
@@ -205,4 +205,4 @@ which you can use to create a rule and assign it to the event bus of your choice
 Note that **Step 2 - Build event pattern** contains the event
 pattern information you've already specified, and which you can accept or update.
 
-For more on how to create rules, see [Creating rules that react to events in Amazon EventBridge](eb-create-rule.md "eb-create-rule.md").
+For more on how to create rules, see [Creating rules in Amazon EventBridge](eb-create-rule-visual.md "eb-create-rule-visual.md").

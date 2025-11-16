@@ -44,7 +44,7 @@ and start the event relay
 6. [Start the Event Relay](https://resources.docs.salesforce.com/rel1/doc/en-us/static/pdf/Salesforce_Event_Bus_Relay_Pilot.pdf#h.t01b3xp87vhu "https://resources.docs.salesforce.com/rel1/doc/en-us/static/pdf/Salesforce_Event_Bus_Relay_Pilot.pdf#h.t01b3xp87vhu")
 
 Now that you've set up and started the Event Bus Relay and configured the partner event source you can create an
-[EventBridge rule that reacts to events](eb-create-rule.md "eb-create-rule.md") to filter and send the data to a [target](eb-targets.md "eb-targets.md").
+[EventBridge rule that reacts to events](eb-create-rule-visual.md "eb-create-rule-visual.md") to filter and send the data to a [target](eb-targets.md "eb-targets.md").
 
 ## Receiving events from Salesforce using Amazon AppFlow
 

@@ -167,5 +167,5 @@ when cross-account or cross-Region events match this rule.
 
 To ensure rules match the desired events, we strongly recommend you validate your event patterns. You can validate your event patterns using the EventBridge console or API:
 
-- In the EventBridge console, you can create and test event patterns [as part of creating a rule](eb-create-rule.md "eb-create-rule.md"), or separately by [using the Sandbox](eb-event-pattern-sandbox.md "eb-event-pattern-sandbox.md").
+- In the EventBridge console, you can create and test event patterns [as part of creating a rule](eb-create-rule-visual.md "eb-create-rule-visual.md"), or separately by [using the Sandbox](eb-event-pattern-sandbox.md "eb-event-pattern-sandbox.md").
 - You can test your event patterns in the AWS CLI using the [test-event-pattern](../../../cli/latest/reference/events/test-event-pattern.md "../../../cli/latest/reference/events/test-event-pattern.md") command.

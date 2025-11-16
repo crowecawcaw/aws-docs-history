@@ -28,7 +28,7 @@ Keep in mind the following when using OAuth as an authorization method for conne
   require OAuth. That way, if an OAuth token has expired, EventBridge will refresh
   the token when retrying the invocation.
 
-For more information on setting a retry policy for a rule, see [Select targets](eb-create-rule.md#eb-create-rule-target "eb-create-rule.md#eb-create-rule-target").
+For more information on setting a retry policy for a rule, see [Select targets](eb-create-rule-wizard.md#eb-create-rule-target "eb-create-rule-wizard.md#eb-create-rule-target").
 
 ## Considerations for connection authorization
 

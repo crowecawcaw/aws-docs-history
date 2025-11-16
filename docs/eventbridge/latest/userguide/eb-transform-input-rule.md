@@ -6,7 +6,7 @@ You can configure input transformers for targets that are AWS services or API de
 
 ###### To create a target input transformer as part of a rule
 
-1. Follow the steps for creating a rule as detailed in [Creating rules that react to events in Amazon EventBridge](eb-create-rule.md "eb-create-rule.md").
+1. Follow the steps for creating a rule as detailed in [Creating rules in Amazon EventBridge](eb-create-rule-visual.md "eb-create-rule-visual.md").
 2. In **Step 3 - Select target(s)**, expand **Additional settings**.
 3. For **Configure target input**, choose **Input transformer** in the dropdown.
 
@@ -117,4 +117,4 @@ following:
 ```
 
 (Optional) You can also choose **Copy** to copy the generated
-output to your device's clipboard. 9. Select **Confirm** 10. Follow the rest of the steps for creating a rule as detailed in [Creating rules that react to events in Amazon EventBridge](eb-create-rule.md "eb-create-rule.md").
+output to your device's clipboard. 9. Select **Confirm** 10. Follow the rest of the steps for creating a rule as detailed in [Creating rules in Amazon EventBridge](eb-create-rule-visual.md "eb-create-rule-visual.md").

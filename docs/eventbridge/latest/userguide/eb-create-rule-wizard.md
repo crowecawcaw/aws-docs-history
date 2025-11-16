@@ -5,9 +5,6 @@ create [rules](eb-rules.md "eb-rules.md"). When an event matches the [event patt
 event to the specified [target](eb-targets.md "eb-targets.md") and triggers the action
 defined in the rule.
 
-The following video explores creating different kinds of
-rules, and how to test them:
-
 The following steps walk you through how to create a rule that EventBridge uses to match events as they are sent to the specified event bus.
 
 ###### Steps

@@ -146,8 +146,8 @@ Specifying an AWS service in another account as a target is part of creating the
 
 console
 
-1. Follow the steps in the [Creating rules that react to events in Amazon EventBridge](eb-create-rule.md "eb-create-rule.md") procedure.
-2. In the [Select targets](eb-create-rule.md#eb-create-rule-target "eb-create-rule.md#eb-create-rule-target") step, when prompted to choose a target type:
+1. Follow the steps in the [Creating rules in Amazon EventBridge](eb-create-rule-visual.md "eb-create-rule-visual.md") procedure.
+2. In the [Select targets](eb-create-rule-wizard.md#eb-create-rule-target "eb-create-rule-wizard.md#eb-create-rule-target") step, when prompted to choose a target type:
    1. Select **AWS service**.
    2. Select an AWS service that supports cross-account targets.
 
