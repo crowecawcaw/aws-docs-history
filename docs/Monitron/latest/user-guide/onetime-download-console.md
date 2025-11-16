@@ -201,7 +201,7 @@ following:
 
 
 
-    ![Support case form with Account and billing selected, and service details specified.](images/s3-export-5.png)
+    ![Support case form with Account and billing selected, and service details specified.](/images/Monitron/latest/user-guide/images/s3-export-5.png)
 
 4. In **Additional information** do the
    following:

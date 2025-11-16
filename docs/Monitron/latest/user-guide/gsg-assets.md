@@ -26,7 +26,7 @@ web app and the Amazon Monitron mobile app.
 the asset to. The project or site name indicates that you are at that
 level in the app.
 
-![Site name dropdown menu in a navigation bar with a notification bell icon.](images/site-level.png)
+![Site name dropdown menu in a navigation bar with a notification bell icon.](/images/Monitron/latest/user-guide/images/site-level.png)
 
 For more information about changing from site level to project level
 and vice versa, see [Navigating between projects and sites in
