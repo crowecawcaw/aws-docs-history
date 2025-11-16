@@ -51,11 +51,17 @@ Console
    **Add listener**.
 5. For **Protocol**, choose **HTTPS**.
    Keep the default port or enter a different port.
-6. (Optional) To add an authentication rule, select **Authenticate users**
-   chose an identity provider, and provide the required information.
-   For more information, see [Authenticate users using an Application Load Balancer](listener-authenticate-users.md "listener-authenticate-users.md").
-7. For **Routing action**, select one of the following
-   routing actions and provide the required information:
+6. (Optional) For **Pre-routing action**,
+   select one of the following actions:
+   - **Authenticate user** – Choose
+     an identity provider and provide the required information.
+     For more information, see [Authenticate users using an Application Load Balancer](listener-authenticate-users.md "listener-authenticate-users.md").
+   - **Validate token** – Enter
+     the JWKS endpoint, issues, and any additional claims.
+     For more information, see [Verify JWTs using an Application Load Balancer](listener-verify-jwt.md "listener-verify-jwt.md").
+
+7. For **Routing action**, select one of the
+   following actions:
    - **Forward to target groups** –
      Choose a target group. To add another target group, choose
      **Add target group**, choose a target group,

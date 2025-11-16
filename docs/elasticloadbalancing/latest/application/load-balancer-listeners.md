@@ -19,6 +19,7 @@ requests to the targets that you register, such as EC2 instances.
 - [Listener rules](listener-rules.md "listener-rules.md")
 - [Mutual TLS authentication](mutual-authentication.md "mutual-authentication.md")
 - [User authentication](listener-authenticate-users.md "listener-authenticate-users.md")
+- [JWT verification](listener-verify-jwt.md "listener-verify-jwt.md")
 - [X-forwarded headers](x-forwarded-headers.md "x-forwarded-headers.md")
 - [HTTP header modification](header-modification.md "header-modification.md")
 - [Delete a listener](delete-listener.md "delete-listener.md")

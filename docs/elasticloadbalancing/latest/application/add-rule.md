@@ -101,13 +101,17 @@ Console
 8. (Optional) To add a transform, choose **Add transform**,
    choose the transform type, and enter a regular expression to match and a
    replacement string.
-9. (Optional) To add an authentication rule to an HTTPS listener,
-   choose **Actions**, **Authenticate
-   users**, chose an identity provider, and provide the
-   required information. For more information, see [Authenticate users using an Application Load Balancer](listener-authenticate-users.md "listener-authenticate-users.md").
-10. For **Actions**, **Routing
-    action**, select one of the following routing actions
-    and provide the required information:
+9. (Optional, HTTPS listeners only) For **Pre-routing action**,
+   select one of the following actions:
+   - **Authenticate user** – Choose
+     an identity provider and provide the required information.
+     For more information, see [Authenticate users using an Application Load Balancer](listener-authenticate-users.md "listener-authenticate-users.md").
+   - **Validate token** – Enter
+     the JWKS endpoint, issues, and any additional claims.
+     For more information, see [Verify JWTs using an Application Load Balancer](listener-verify-jwt.md "listener-verify-jwt.md").
+
+10. For **Routing action**, select one of the
+    following actions:
     - **Forward to target groups** –
       Choose a target group. To add another target group, choose
       **Add target group**, choose a target

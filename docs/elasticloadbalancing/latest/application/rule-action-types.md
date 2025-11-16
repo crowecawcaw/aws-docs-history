@@ -27,6 +27,11 @@ Return a custom HTTP response. For more information, see [Fixed-response actions
 Forward requests to the specified target groups. For more information, see
 [Forward actions](#forward-actions "#forward-actions").
 
+`jwt-validation`
+
+Validate JWT access tokens in client requests. For more information,
+see [JWT verification](listener-verify-jwt.md "listener-verify-jwt.md").
+
 `redirect`
 
 Redirect requests from one URL to another. For more information, see [Redirect actions](#redirect-actions "#redirect-actions").

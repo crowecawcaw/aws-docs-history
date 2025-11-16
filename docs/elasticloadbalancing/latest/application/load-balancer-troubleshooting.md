@@ -180,6 +180,7 @@ metric.
 - [HTTP 505: Version not supported](#http-505-issues "#http-505-issues")
 - [HTTP 507: Insufficient Storage](#http-507-issues "#http-507-issues")
 - [HTTP 561: Unauthorized](#http-561-issues "#http-561-issues")
+- [HTTP 562: JWKS Request Failed](#http-562-issues "#http-562-issues")
 
 ### HTTP 400: Bad request
 
@@ -206,6 +207,24 @@ true:
 - The requested scope doesn't return an ID token.
 - You don't complete the login process before the client login timeout
   expires. For more information see, [Client login timeout](listener-authenticate-users.md#client-login-timeout "listener-authenticate-users.md#client-login-timeout").
+- The JWT authentication failed due to one of the following reasons:
+  - The request is missing the Authorization header. (JWTHeaderNotPresent)
+  - The token format in the request is invalid. This can occur when:
+    - Token is malformed or missing mandatory parts (header, payload, or signature)
+    - Header lacks the "Bearer" prefix
+    - Header contains a different authentication type (e.g., "Basic")
+    - Authorization header exists but token is missing
+    - Multiple tokens are present in the request (JWTRequestFormatInvalid)
+
+  - The token signature validation failed. This can occur when:
+    - Signature doesn't match
+    - Public key is invalid or cannot be converted to a decoding key
+    - Public key size is not 2K
+    - Token is signed with an unsupported algorithm
+    - KID in the token is not present in the JWKS endpoint (JWTSignatureValidationFailed)
+
+  - The JWT is missing a required claim for validation. (JWTClaimNotPresent)
+  - The format of a claim's value in the JWT doesn't match the specified configuration format. (JWTClaimFormatInvalid)
 
 ### HTTP 403: Forbidden
 
@@ -281,6 +300,8 @@ Possible causes:
 - The user claim received from the IdP is greater than 11KB in size.
 - The IdP token endpoint or the IdP user info endpoint is taking longer
   than 5 seconds to respond.
+- The load balancer is unable to communicate with the JWKS endpoint, or the JWKS endpoint is not responding within 5 seconds.
+- The size of the response returned by the JWKS endpoint exceeds 150KB or the number of keys returned by the JWKS endpoint exceeds 10
 
 ### HTTP 501: Not implemented
 
@@ -355,6 +376,10 @@ The redirect URL is too long.
 You configured a listener rule to authenticate users, but the IdP returned an
 error code when authenticating the user. Check your access logs for the related
 [error reason code](load-balancer-access-logs.md#error-reason-codes "load-balancer-access-logs.md#error-reason-codes").
+
+### HTTP 562: JWKS Request Failed
+
+The load balancer failed to receive a successful response from the JWKS (JSON Web Key Set) endpoint. A successful response should have a status code in the 200-299 range, but a different status code was received instead.
 
 ## A target generates an HTTP error
 
