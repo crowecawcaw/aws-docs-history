@@ -5,8 +5,8 @@ and standardize developer environments for data scientists and CI/CD systems for
 engineers. Projects also help organizations set up dependency management, code repository
 management, build reproducibility, and artifact sharing.
 
-You can provision SageMaker Projects from the AWS Service Catalog using
-custom or SageMaker AI-provided templates. For information
+You can provision SageMaker Projects using
+custom templates that are stored in Amazon S3 buckets, or by using templates from the AWS Service Catalog or SageMaker AI. For information
 about the AWS Service Catalog, see [What Is AWS Service
 Catalog](../../../servicecatalog/latest/dg/what-is-service-catalog.md "../../../servicecatalog/latest/dg/what-is-service-catalog.md"). With SageMaker Projects, MLOps engineers and organization admins can
 define their own templates or use SageMaker AI-provided templates. The SageMaker AI-provided templates
@@ -44,11 +44,21 @@ and decoupling resources across multiple accounts. SageMaker Projects can suppor
 these tasks through custom template offerings
 where organizations use AWS CloudFormation templates to define the resources needed for an
 ML workflow. Data Scientists can choose a template to bootstrap and pre-configure
-their ML workflow. These custom templates are created as Service Catalog products and you can
+their ML workflow.
+
+To get started, we recommend that you create and store custom templates inside an Amazon S3 bucket. Doing so lets you create a bucket
+in any supported Region for your organization. S3 supports version control, so you can maintain
+multiple versions of your templates and roll back if necessary. For information about how to create a project from template
+store in an Amazon S3 bucket, see [Using a template from an Amazon S3 bucket](sagemaker-projects-templates-custom.md#sagemaker-projects-templates-s3 "sagemaker-projects-templates-custom.md#sagemaker-projects-templates-s3").
+
+Alternatively, you can also create custom templates as Service Catalog products and you can
 provision them in the Studio or Studio Classic UI under **Organization
 Templates**. The Service Catalog is a service that helps organizations create and
 manage catalogs of products that are approved for use on AWS. For more information
 about creating custom templates, see [Build Custom SageMaker AI Project Templates – Best Practices](https://aws.amazon.com/blogs/machine-learning/build-custom-sagemaker-project-templates-best-practices/ "https://aws.amazon.com/blogs/machine-learning/build-custom-sagemaker-project-templates-best-practices/").
+
+While you can use either option, we recommend that you use S3 buckets over the Service Catalog, so you
+can create a bucket in supported Regions where SageMaker AI is available without needing to manage the complexities of the Service Catalog.
 
 SageMaker Projects can help you manage your Git repositories so that you can
 collaborate more efficiently across teams, ensure code consistency, and support

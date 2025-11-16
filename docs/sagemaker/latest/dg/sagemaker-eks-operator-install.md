@@ -20,6 +20,13 @@ aws eks create-addon \
  --region `AWS Region`
 ```
 
+- (Optional) If you run your HyperPod cluster nodes in a private VPC, you must set up PrivateLinks VPC endpoints
+  for the Amazon SageMaker AI API (`com.amazonaws.`aws-region`.sagemaker.api`) and Amazon EKS Auth services (com.amazonaws.`aws-region`.eks-auth).
+  You must also make sure that your cluster nodes are running
+  with subnets that are in a security group that allows the traffic to route through
+  the VPC endpoints to communicate with SageMaker AI and Amazon EKS. If these aren't properly set up, the add-on installation can fail. To learn more
+  about setting up VPC endpoints, see [Create a VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws").
+
 ## Installing the training operator
 
 You can now install the HyperPod training operator through the SageMaker AI console, the Amazon EKS console, or with the AWS CLI

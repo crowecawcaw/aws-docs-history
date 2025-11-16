@@ -19,7 +19,7 @@ human loop. On the right of the image, the human loop is depicted in three steps
 worker UI and tools are generated and the task is made available to workers, 2) workers
 review input data, and finally, 3) results are saved in Amazon S3.
 
-![Use Amazon Augmented AI with Amazon Rekognition](images/a2i/diagrams/product-page-diagram_A2I-Components_Rekognition@2x.png)
+![Use Amazon Augmented AI with Amazon Rekognition](/images/sagemaker/latest/dg/images/a2i/diagrams/product-page-diagram_A2I-Components_Rekognition@2x.png)
 You can set the following activation conditions when using the Amazon Rekognition task type:
 
 - Initiate human review for labels identified by Amazon Rekognition based on the label confidence
