@@ -1,4 +1,4 @@
-# Creating or updating a workflow
+# HealthOmics workflow operations
 
 To create a private workflow, you need:
 

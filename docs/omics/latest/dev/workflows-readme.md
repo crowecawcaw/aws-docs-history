@@ -1,8 +1,7 @@
-# Working with a README file
+# HealthOmics Workflow README files
 
-Upload a README.md file containing instructions, diagrams, and essential information
-for your workflow. Each workflow version supports one README file, which can be updated
-anytime.
+You can upload a README.md file containing instructions, diagrams, and essential information
+for your workflow. Each workflow version supports one README file, which you can update at any time.
 
 **README requirements include:**
 

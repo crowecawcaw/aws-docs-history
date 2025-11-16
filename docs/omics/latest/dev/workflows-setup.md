@@ -27,9 +27,11 @@ creating the workflow:
 
 ###### Topics
 
+- [HealthOmics workflow integration with Git-based repositories](workflows-git-integration.md "workflows-git-integration.md")
 - [Workflow definition files in HealthOmics](workflow-definition-files.md "workflow-definition-files.md")
 - [Parameter template files for HealthOmics workflows](parameter-templates.md "parameter-templates.md")
 - [Container images for private workflows](workflows-ecr.md "workflows-ecr.md")
+- [HealthOmics Workflow README files](workflows-readme.md "workflows-readme.md")
 - [Requesting Sentieon licenses for private workflows](private-workflows-subscribe.md "private-workflows-subscribe.md")
 - [Workflow linters in HealthOmics](workflows-linter.md "workflows-linter.md")
-- [Creating or updating a workflow](creating-private-workflows.md "creating-private-workflows.md")
+- [HealthOmics workflow operations](creating-private-workflows.md "creating-private-workflows.md")

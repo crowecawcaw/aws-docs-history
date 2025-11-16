@@ -208,6 +208,8 @@ AWS HealthOmics API Reference.
 ###### Topics
 
 - [Specify the workflow definition Amazon S3 location](#create-defn-uri-parameter "#create-defn-uri-parameter")
+- [Use the workflow definition from a Git-based repository](#create-defn-uri-git "#create-defn-uri-git")
+- [Specify a Readme file](#specify-readme-file "#specify-readme-file")
 - [Specify the main definition file](#create-main-parameter "#create-main-parameter")
 - [Specify the run storage type](#create-run-storage-parameter "#create-run-storage-parameter")
 - [Specify the GPU configuration](#create-accelerator-parameter "#create-accelerator-parameter")
@@ -226,6 +228,88 @@ aws omics create-workflow  \
   --owner-id  123456789012
     ...
 ```
+
+#### Use the workflow definition from a Git-based repository
+
+To use the workflow definition from a supported Git-based repository, use the `definition-repository`
+parameter in your request. Don’t provide any other `definition` parameter, as a request fails if it
+includes more than one input source.
+
+The `definition-respository` parameter contains the following fields:
+
+- **connectionArn** – ARN of the Code Connection that connects your AWS resources to
+  the external repository.
+- **fullRepositoryId** – Enter the repository ID as `owner-name/repo-name`.
+  Verify you have access to the files in this repository.
+- **sourceReference** (Optional) – Enter a repository reference type (BRANCH, TAG, or COMMIT) and a value.
+
+HealthOmics uses the latest commit on the default branch if you don't specify a source reference.
+
+- **excludeFilePatterns** (Optional) – Enter the file patterns to exclude specific folders, files, or extensions. This helps manage data
+  size when importing repository files. Provide a maximum of 50 patterns. the patterns must follow the
+  [glob pattern syntax](https://fossil-scm.org/home/doc/tip/www/globs.md "https://fossil-scm.org/home/doc/tip/www/globs.md"). For
+  example:
+  - `tests/`
+  - `*.jpeg`
+  - `large_data.zip`
+
+When you specify the workflow definition from a Git-based repository, use `parameter-template-path` to
+specify the parameter template file. If you don’t provide this parameter, HealthOmics creates the workflow
+without a parameter template.
+
+The following example shows the parameters related to content from a Git-based private repository:
+
+```
+aws omics create-workflow \
+    --name custom-variant \
+    --description "Custom variant calling pipeline" \
+    --engine "WDL" \
+    --definition-repository '{
+            "connectionArn": "arn:aws:codeconnections:us-east-1:123456789012:connection/abcd1234-5678-90ab-cdef-1234567890ab",
+            "fullRepositoryId": "myorg/my-genomics-workflows",
+            "sourceReference": {
+                "type": "BRANCH",
+                "value": "main"
+            },
+            "excludeFilePatterns": ["tests/**", "*.log"]
+      }' \
+    --main "workflows/variant-calling/main.wdl" \
+    --parameter-template-path "parameters/variant-calling-params.json" \
+    --readme-path "docs/variant-calling-README.md" \
+    --storage-type "DYNAMIC" \
+```
+
+For more examples, see the blog post [How To Create an AWS HealthOmics Workflows from Content in Git](https://repost.aws/articles/ARCEN7AjhaRSmteczRoc_QsA/how-to-create-an-aws-healthomics-workflows-from-content-in-git "https://repost.aws/articles/ARCEN7AjhaRSmteczRoc_QsA/how-to-create-an-aws-healthomics-workflows-from-content-in-git").
+
+#### Specify a Readme file
+
+You can specify the README file location using one of the following parameters:
+
+- **readme-markdown** – String input or a file on your local machine.
+- **readme-uri** – The URI of a file stored on S3.
+- **readme-path** – The path to the README file in the repository.
+
+Use readme-path only in conjunction with **definition-respository**. If
+you don’t specify any README parameter, HealthOmics imports the root level README.md file in the
+repository (if it exists).
+
+The following examples show how specify the README file location using readme-path and readme-uri.
+
+```
+# Using README from repository
+aws omics create-workflow \
+    --name "documented-workflow" \
+    --definition-repository '...' \
+    --readme-path "docs/workflow-guide.md"
+
+# Using README from S3
+aws omics create-workflow \
+    --name "s3-readme-workflow" \
+    --definition-repository '...' \
+    --readme-uri "s3://my-bucket/workflow-docs/readme.md"
+```
+
+For more information, see [HealthOmics Workflow README files](workflows-readme.md "workflows-readme.md").
 
 #### Specify the **main** definition file
 

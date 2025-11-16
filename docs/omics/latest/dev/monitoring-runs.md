@@ -102,7 +102,8 @@ If every task in the run eventually completes, even if they required retries, He
 Completed. HealthOmics assigns a new task ID to each retry, so the run includes task IDs for the failed attempts and the
 completed attempt.
 
-By default, HealthOmics attempts up to two retries of a failed task. You can opt out of task retry for specific tasks
+The default retry behavior depends on which definition language the workflow uses. The default for Nextflow is no retries.
+For WDL and CWL, HealthOmics attempts up to two retries of a failed task, but you can opt out of task retry for specific tasks
 or for all tasks in a workflow. Task retry is useful to address intermittent service errors.
 However, you might consider opting out a task that is idempotent.
 

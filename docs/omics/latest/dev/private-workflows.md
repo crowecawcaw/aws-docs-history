@@ -27,7 +27,6 @@ For full examples of how to use HealthOmics private workflows, see [HealthOmics 
 ###### Topics
 
 - [Creating private workflows in HealthOmics](workflows-setup.md "workflows-setup.md")
-- [Working with a README file](workflows-readme.md "workflows-readme.md")
 - [Workflow versioning in HealthOmics](workflow-versions.md "workflow-versions.md")
 - [Using HealthOmics runs](running-workflows.md "running-workflows.md")
 - [Using HealthOmics run groups](creating-run-groups.md "creating-run-groups.md")

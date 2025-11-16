@@ -1,9 +1,15 @@
 # Workflow definition files in HealthOmics
 
-You use a workflow definition to specify information about the workflow, runs, and the tasks in the runs.
-You create workflow definitions in one or more files using a workflow definition language. HealthOmics supports workflow
-definitions written in WDL, Nextflow, or CWL. For details about each of these languages, see
-the language-specific detailed sections below.
+You use a workflow definition to specify information about the workflow, runs, and the tasks in the runs. You
+create workflow definitions in one or more files using a workflow definition language. HealthOmics supports workflow
+definitions written in WDL, Nextflow, or CWL.
+
+HealthOmics supports the following choices for WDL workflow definitions:
+
+- WDL – Provides a spec-conformant WDL engine.
+- WDL lenient – Designed to handle workflows migrated from Cromwell. It supports customer Cromwell
+  directives and some non-conformant logic. For details, see [Implicit type conversion in WDL lenient](workflow-languages-wdl.md#workflow-wdl-type-conversion "workflow-languages-wdl.md#workflow-wdl-type-conversion").
+  For information about each of the workflow languages, see the language-specific detailed sections below.
 
 You specify the following types of information in the workflow definition:
 

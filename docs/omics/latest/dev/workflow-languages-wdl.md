@@ -5,17 +5,21 @@ HealthOmics.
 
 ###### Topics
 
-- [Implicit type conversion](#workflow-wdl-type-conversion "#workflow-wdl-type-conversion")
+- [Implicit type conversion in WDL lenient](#workflow-wdl-type-conversion "#workflow-wdl-type-conversion")
 - [Namespace definition in input.json](#workflow-wdl-namespace-defn "#workflow-wdl-namespace-defn")
 - [Primitive types in WDL](#workflow-wdl-primitive-types "#workflow-wdl-primitive-types")
 - [Complex types in WDL](#workflow-wdl-complex-types "#workflow-wdl-complex-types")
 - [Directives in WDL](#workflow-wdl-directives "#workflow-wdl-directives")
 - [WDL workflow definition example](#wdl-example "#wdl-example")
 
-## Implicit type conversion
+## Implicit type conversion in WDL lenient
 
-HealthOmics supports implicit type conversion in the input.json file and the workflow definition. HealthOmics
-supports type conversion for the following items in the list of WDL’s [limited exceptions](https://github.com/openwdl/wdl/blob/wdl-1.2/SPEC.md#-limited-exceptions "https://github.com/openwdl/wdl/blob/wdl-1.2/SPEC.md#-limited-exceptions"):
+HealthOmics supports implicit type conversion in the input.json file and the workflow definition.
+To use implicit type casting, specify the workflow engine as WDL lenient when you create the workflow.
+WDL lenient is designed to handle workflows migrated from Cromwell. It supports customer Cromwell
+directives and some non-conformant logic.
+
+WDL lenient supports type conversion for the following items in the list of WDL’s [limited exceptions](https://github.com/openwdl/wdl/blob/wdl-1.2/SPEC.md#-limited-exceptions "https://github.com/openwdl/wdl/blob/wdl-1.2/SPEC.md#-limited-exceptions"):
 
 - Float to Int, where the coercion results in no loss of precision (such as 1.0 maps to 1).
 - String to Int/Float, where the coercion results in no loss of precision.

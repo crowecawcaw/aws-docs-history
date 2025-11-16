@@ -57,8 +57,78 @@ the order of precedence that HealthOmics uses to apply configuration settings, f
 
 ###### Topics
 
+- [Task retry strategy using errorStrategy](#workflow-nextflow-errorStrategy "#workflow-nextflow-errorStrategy")
+- [Task retry attempts using maxRetries](#workflow-nexflow-task-retry "#workflow-nexflow-task-retry")
 - [Opt out of task retry using omicsRetryOn5xx](#workflow-nextflow-retry-5xx "#workflow-nextflow-retry-5xx")
-- [Set task duration using the time directive](#time-directive-nextflow "#time-directive-nextflow")
+- [Task duration using the time directive](#time-directive-nextflow "#time-directive-nextflow")
+
+### Task retry strategy using `errorStrategy`
+
+Use the `errorStrategy` directive to define the strategy for task errors. By default, when a task
+returns with an error indication (a non-zero exit status), the task stops and HealthOmics terminates the entire run. If
+you set `errorStrategy` to `retry`, HealthOmics attempts one retry of the failed task. To
+increase the number of retries, see [Task retry attempts using maxRetries](#workflow-nexflow-task-retry "#workflow-nexflow-task-retry").
+
+```
+process {
+    label 'my_label'
+    errorStrategy 'retry'
+
+    script:
+    """
+    your-command-here
+    """
+}
+```
+
+For information about how HealthOmics handles task retries during a run, see [Task Retries](monitoring-runs.md#run-status-task-retries "monitoring-runs.md#run-status-task-retries").
+
+### Task retry attempts using `maxRetries`
+
+By default, HealthOmics doesn't attempt any retries of a failed task, or attempts one retry if you
+configure `errorStrategy`. To increase the maximum number of retries, set `errorStrategy`
+to `retry` and configure the maximum number of retries using the `maxRetries` directive.
+
+The following example sets the maximum number of retries to 3 in the global configuration.
+
+```
+process {
+    errorStrategy = 'retry'
+    maxRetries = 3
+}
+```
+
+The following example shows how to set `maxRetries` in the task section of the workflow definition.
+
+```
+process myTask {
+    label 'my_label'
+    errorStrategy 'retry'
+    maxRetries 3
+
+    script:
+    """
+    your-command-here
+    """
+}
+```
+
+The following example shows how to specify task-specific configuration in the Nextflow
+config file, based on the name or label selectors.
+
+```
+process {
+    withLabel: 'my_label' {
+        errorStrategy = 'retry'
+        maxRetries = 3
+    }
+
+    withName: 'myTask' {
+        errorStrategy = 'retry'
+        maxRetries = 3
+    }
+}
+```
 
 ### Opt out of task retry using `omicsRetryOn5xx`
 
@@ -107,7 +177,7 @@ process {
 }
 ```
 
-### Set task duration using the `time` directive
+### Task duration using the `time` directive
 
 HealthOmics provides an adjustable quota (see [HealthOmics service quotas](service-quotas.md "service-quotas.md")) to
 specify the maximum duration for a run. For Nextflow v23 and v24 workflows, you can also specify maximum task
