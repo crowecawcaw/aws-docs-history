@@ -1,6 +1,7 @@
 #
 
 AWS App Studio
+
 endpoints and quotas
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types
@@ -23,5 +24,6 @@ The following are the service endpoints and service quotas for this service.
 
 For information on quotas, see [Quotas for
 
-AWS App Studio](../../../appstudio/latest/userguide/quotas.md "../../../appstudio/latest/userguide/quotas.md") in the _AWS App Studio
-User Guide_.
+AWS App Studio](../../../appstudio/latest/userguide/quotas.md "../../../appstudio/latest/userguide/quotas.md") in the \*AWS App Studio
+
+User Guide\*.

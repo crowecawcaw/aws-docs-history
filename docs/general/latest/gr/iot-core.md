@@ -197,7 +197,7 @@ representation.
 AWS IoT provides endpoints that support the [Federal Information Processing Standard (FIPS) 140-2](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
 Choose the appropriate FIPS compliant endpoint to access AWS IoT features in your
 AWS Region from [FIPS Endpoints by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service"). For more information about
-the FIPs endpoints provided by AWS IoT, see [Connecting to AWS IoT FIPS endpoints](../../../iot/latest/developerguide/iot-connect-fips.md "../../../iot/latest/developerguide/iot-connect-fips.md").
+the FIPS endpoints provided by AWS IoT, see [Connecting to AWS IoT FIPS endpoints](../../../iot/latest/developerguide/iot-connect-fips.md "../../../iot/latest/developerguide/iot-connect-fips.md").
 
 ## Service quotas
 

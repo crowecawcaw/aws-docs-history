@@ -69,7 +69,7 @@ quotas](aws-general.md#aws-service-information "aws-general.md#aws-service-infor
 - [CloudWatch Logs](cwl_region.md "cwl_region.md")
 - [CloudWatch Network Synthetic Monitor](cwnm_region.md "cwnm_region.md")
 - [CloudWatch OAM](cloudwatchoam.md "cloudwatchoam.md")
-- [CloudWatch Logs Observability Admin](cwobsadmin.md "cwobsadmin.md")
+- [CloudWatch Observability Admin](cwobsadmin.md "cwobsadmin.md")
 - [CloudWatch RUM](cw_rum_region.md "cw_rum_region.md")
 - [CloudWatch Synthetics](cw-synthetics_region.md "cw-synthetics_region.md")
 - [CodeArtifact](codeartifact.md "codeartifact.md")

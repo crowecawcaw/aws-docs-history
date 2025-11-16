@@ -51,7 +51,7 @@ following endpoints.
 | Asia Pacific (Seoul)       | ap-northeast-2 | ssm.ap-northeast-2.amazonaws.com<br>ssm.ap-northeast-2.api.aws                                                                     | HTTPS<br>HTTPS                   |
 | Asia Pacific (Singapore)   | ap-southeast-1 | ssm.ap-southeast-1.amazonaws.com<br>ssm.ap-southeast-1.api.aws                                                                     | HTTPS<br>HTTPS                   |
 | Asia Pacific (Sydney)      | ap-southeast-2 | ssm.ap-southeast-2.amazonaws.com<br>ssm.ap-southeast-2.api.aws                                                                     | HTTPS<br>HTTPS                   |
-| Asia Pacific (Taipei)      | ap-east-2      | ssm.ap-east-2.amazonaws.com                                                                                                        | HTTPS                            |
+| Asia Pacific (Taipei)      | ap-east-2      | ssm.ap-east-2.amazonaws.com<br>ssm.ap-east-2.api.aws                                                                               | HTTPS<br>HTTPS                   |
 | Asia Pacific (Thailand)    | ap-southeast-7 | ssm.ap-southeast-7.amazonaws.com<br>ssm.ap-southeast-7.api.aws                                                                     | HTTPS<br>HTTPS                   |
 | Asia Pacific (Tokyo)       | ap-northeast-1 | ssm.ap-northeast-1.amazonaws.com<br>ssm.ap-northeast-1.api.aws                                                                     | HTTPS<br>HTTPS                   |
 | Canada (Central)           | ca-central-1   | ssm.ca-central-1.amazonaws.com<br>ssm-fips.ca-central-1.amazonaws.com<br>ssm-fips.ca-central-1.api.aws<br>ssm.ca-central-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |

@@ -13,28 +13,28 @@ The following are the service endpoints and service quotas for this service.
 
 These are the endpoints for MediaPackage V2 live content workflows.
 
-| Region Name               | Region         | Endpoint                                                                                    | Protocol       |
-| ------------------------- | -------------- | ------------------------------------------------------------------------------------------- | -------------- |
-| US East (Ohio)            | us-east-2      | mediapackagev2.us-east-2.amazonaws.com<br>mediapackagev2-fips.us-east-2.amazonaws.com       | HTTPS<br>HTTPS |
-| US East (N. Virginia)     | us-east-1      | mediapackagev2.us-east-1.amazonaws.com<br>mediapackagev2-fips.us-east-1.amazonaws.com       | HTTPS<br>HTTPS |
-| US West (N. California)   | us-west-1      | mediapackagev2.us-west-1.amazonaws.com<br>mediapackagev2-fips.us-west-1.amazonaws.com       | HTTPS<br>HTTPS |
-| US West (Oregon)          | us-west-2      | mediapackagev2.us-west-2.amazonaws.com<br>mediapackagev2-fips.us-west-2.amazonaws.com       | HTTPS<br>HTTPS |
-| Asia Pacific (Hyderabad)  | ap-south-2     | mediapackagev2.ap-south-2.amazonaws.com                                                     | HTTPS          |
-| Asia Pacific (Melbourne)  | ap-southeast-4 | mediapackagev2.ap-southeast-4.amazonaws.com                                                 | HTTPS          |
-| Asia Pacific (Mumbai)     | ap-south-1     | mediapackagev2.ap-south-1.amazonaws.com                                                     | HTTPS          |
-| Asia Pacific (Osaka)      | ap-northeast-3 | mediapackagev2.ap-northeast-3.amazonaws.com                                                 | HTTPS          |
-| Asia Pacific (Seoul)      | ap-northeast-2 | mediapackagev2.ap-northeast-2.amazonaws.com                                                 | HTTPS          |
-| Asia Pacific (Singapore)  | ap-southeast-1 | mediapackagev2.ap-southeast-1.amazonaws.com                                                 | HTTPS          |
-| Asia Pacific (Sydney)     | ap-southeast-2 | mediapackagev2.ap-southeast-2.amazonaws.com                                                 | HTTPS          |
-| Asia Pacific (Tokyo)      | ap-northeast-1 | mediapackagev2.ap-northeast-1.amazonaws.com                                                 | HTTPS          |
-| Canada (Central)          | ca-central-1   | mediapackagev2.ca-central-1.amazonaws.com<br>mediapackagev2-fips.ca-central-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (Frankfurt)        | eu-central-1   | mediapackagev2.eu-central-1.amazonaws.com                                                   | HTTPS          |
-| Europe (Ireland)          | eu-west-1      | mediapackagev2.eu-west-1.amazonaws.com                                                      | HTTPS          |
-| Europe (London)           | eu-west-2      | mediapackagev2.eu-west-2.amazonaws.com                                                      | HTTPS          |
-| Europe (Paris)            | eu-west-3      | mediapackagev2.eu-west-3.amazonaws.com                                                      | HTTPS          |
-| Europe (Stockholm)        | eu-north-1     | mediapackagev2.eu-north-1.amazonaws.com                                                     | HTTPS          |
-| Middle East (UAE)         | me-central-1   | mediapackagev2.me-central-1.amazonaws.com                                                   | HTTPS          |
-| South America (São Paulo) | sa-east-1      | mediapackagev2.sa-east-1.amazonaws.com                                                      | HTTPS          |
+| Region Name               | Region         | Endpoint                                                                                                                                                                       | Protocol                         |
+| ------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
+| US East (Ohio)            | us-east-2      | mediapackagev2.us-east-2.amazonaws.com<br>mediapackagev2-fips.us-east-2.amazonaws.com<br>mediapackagev2-fips.us-east-2.api.aws<br>mediapackagev2.us-east-2.api.aws             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| US East (N. Virginia)     | us-east-1      | mediapackagev2.us-east-1.amazonaws.com<br>mediapackagev2-fips.us-east-1.amazonaws.com<br>mediapackagev2-fips.us-east-1.api.aws<br>mediapackagev2.us-east-1.api.aws             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| US West (N. California)   | us-west-1      | mediapackagev2.us-west-1.amazonaws.com<br>mediapackagev2-fips.us-west-1.amazonaws.com<br>mediapackagev2-fips.us-west-1.api.aws<br>mediapackagev2.us-west-1.api.aws             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| US West (Oregon)          | us-west-2      | mediapackagev2.us-west-2.amazonaws.com<br>mediapackagev2-fips.us-west-2.amazonaws.com<br>mediapackagev2-fips.us-west-2.api.aws<br>mediapackagev2.us-west-2.api.aws             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| Asia Pacific (Hyderabad)  | ap-south-2     | mediapackagev2.ap-south-2.amazonaws.com<br>mediapackagev2.ap-south-2.api.aws                                                                                                   | HTTPS<br>HTTPS                   |
+| Asia Pacific (Melbourne)  | ap-southeast-4 | mediapackagev2.ap-southeast-4.amazonaws.com<br>mediapackagev2.ap-southeast-4.api.aws                                                                                           | HTTPS<br>HTTPS                   |
+| Asia Pacific (Mumbai)     | ap-south-1     | mediapackagev2.ap-south-1.amazonaws.com<br>mediapackagev2.ap-south-1.api.aws                                                                                                   | HTTPS<br>HTTPS                   |
+| Asia Pacific (Osaka)      | ap-northeast-3 | mediapackagev2.ap-northeast-3.amazonaws.com<br>mediapackagev2.ap-northeast-3.api.aws                                                                                           | HTTPS<br>HTTPS                   |
+| Asia Pacific (Seoul)      | ap-northeast-2 | mediapackagev2.ap-northeast-2.amazonaws.com<br>mediapackagev2.ap-northeast-2.api.aws                                                                                           | HTTPS<br>HTTPS                   |
+| Asia Pacific (Singapore)  | ap-southeast-1 | mediapackagev2.ap-southeast-1.amazonaws.com<br>mediapackagev2.ap-southeast-1.api.aws                                                                                           | HTTPS<br>HTTPS                   |
+| Asia Pacific (Sydney)     | ap-southeast-2 | mediapackagev2.ap-southeast-2.amazonaws.com<br>mediapackagev2.ap-southeast-2.api.aws                                                                                           | HTTPS<br>HTTPS                   |
+| Asia Pacific (Tokyo)      | ap-northeast-1 | mediapackagev2.ap-northeast-1.amazonaws.com<br>mediapackagev2.ap-northeast-1.api.aws                                                                                           | HTTPS<br>HTTPS                   |
+| Canada (Central)          | ca-central-1   | mediapackagev2.ca-central-1.amazonaws.com<br>mediapackagev2-fips.ca-central-1.amazonaws.com<br>mediapackagev2-fips.ca-central-1.api.aws<br>mediapackagev2.ca-central-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| Europe (Frankfurt)        | eu-central-1   | mediapackagev2.eu-central-1.amazonaws.com<br>mediapackagev2.eu-central-1.api.aws                                                                                               | HTTPS<br>HTTPS                   |
+| Europe (Ireland)          | eu-west-1      | mediapackagev2.eu-west-1.amazonaws.com<br>mediapackagev2.eu-west-1.api.aws                                                                                                     | HTTPS<br>HTTPS                   |
+| Europe (London)           | eu-west-2      | mediapackagev2.eu-west-2.amazonaws.com<br>mediapackagev2.eu-west-2.api.aws                                                                                                     | HTTPS<br>HTTPS                   |
+| Europe (Paris)            | eu-west-3      | mediapackagev2.eu-west-3.amazonaws.com<br>mediapackagev2.eu-west-3.api.aws                                                                                                     | HTTPS<br>HTTPS                   |
+| Europe (Stockholm)        | eu-north-1     | mediapackagev2.eu-north-1.amazonaws.com<br>mediapackagev2.eu-north-1.api.aws                                                                                                   | HTTPS<br>HTTPS                   |
+| Middle East (UAE)         | me-central-1   | mediapackagev2.me-central-1.amazonaws.com<br>mediapackagev2.me-central-1.api.aws                                                                                               | HTTPS<br>HTTPS                   |
+| South America (São Paulo) | sa-east-1      | mediapackagev2.sa-east-1.amazonaws.com<br>mediapackagev2.sa-east-1.api.aws                                                                                                     | HTTPS<br>HTTPS                   |
 
 These are the endpoints for MediaPackage V1 live content workflows.
 

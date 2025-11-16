@@ -11,16 +11,6 @@ The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
 
-| Region Name           | Region         | Endpoint                                   | Protocol |
-| --------------------- | -------------- | ------------------------------------------ | -------- |
-| US East (Ohio)        | us-east-2      | lookoutvision.us-east-2.amazonaws.com      | HTTPS    |
-| US East (N. Virginia) | us-east-1      | lookoutvision.us-east-1.amazonaws.com      | HTTPS    |
-| US West (Oregon)      | us-west-2      | lookoutvision.us-west-2.amazonaws.com      | HTTPS    |
-| Asia Pacific (Seoul)  | ap-northeast-2 | lookoutvision.ap-northeast-2.amazonaws.com | HTTPS    |
-| Asia Pacific (Tokyo)  | ap-northeast-1 | lookoutvision.ap-northeast-1.amazonaws.com | HTTPS    |
-| Europe (Frankfurt)    | eu-central-1   | lookoutvision.eu-central-1.amazonaws.com   | HTTPS    |
-| Europe (Ireland)      | eu-west-1      | lookoutvision.eu-west-1.amazonaws.com      | HTTPS    |
-
 ## Service quotas
 
 | Name                                                                 | Default                              | Adjustable                                                                                                                                                                                     | Description                                                                                                                                            |

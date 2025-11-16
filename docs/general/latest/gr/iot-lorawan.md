@@ -13,7 +13,7 @@ The following are the service endpoints and service quotas for this service.
 
 The following sections describe the service endpoints for AWS IoT Wireless.
 AWS IoT Core for Amazon Sidewalk can only be used in the AWS Region `us-east-1`. You can use
-these endpoints to perform the operations in the [AWS IoT Wireless API Reference](../../../iot-wireless/2020-11-22/apireference.md "../../../iot-wireless/2020-11-22/apireference.md").
+these endpoints to perform the operations in the [AWS IoT Wireless API Reference](../../../iot-wireless/latest/apireference.md "../../../iot-wireless/latest/apireference.md").
 
 For information about:
 
@@ -48,7 +48,7 @@ or the dual-stack endpoint, which uses the format
 
 For information about the operations supported by the
 AWS IoT Wireless - control plane endpoints, see [AWS IoT Wireless API
-operations](../../../iot-wireless/2020-11-22/apireference/API_Operations.md "../../../iot-wireless/2020-11-22/apireference/API_Operations.md") in the _AWS IoT Wireless API
+operations](../../../iot-wireless/latest/apireference/API_Operations.md "../../../iot-wireless/latest/apireference/API_Operations.md") in the _AWS IoT Wireless API
 Reference_.
 
 | Region Name               | Region         | Endpoint                                                                               | Protocol |
@@ -66,7 +66,7 @@ Reference_.
 The AWS IoT Core for LoRaWAN - data plane endpoints are specific to each
 AWS account and AWS Region. To find the
 AWS IoT Core for LoRaWAN - data plane endpoint for your AWS account and
-AWS Region, use the [get-service-endpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotwireless/get-service-endpoint.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotwireless/get-service-endpoint.html") CLI command shown here, or the [GetServiceEndpoint](../../../iot-wireless/2020-11-22/apireference/API_GetServiceEndpoint.md "../../../iot-wireless/2020-11-22/apireference/API_GetServiceEndpoint.md") REST API.
+AWS Region, use the [get-service-endpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotwireless/get-service-endpoint.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotwireless/get-service-endpoint.html") CLI command shown here, or the [GetServiceEndpoint](../../../iot-wireless/latest/apireference/API_GetServiceEndpoint.md "../../../iot-wireless/latest/apireference/API_GetServiceEndpoint.md") REST API.
 
 ###### Note
 
@@ -130,7 +130,7 @@ generic endpoint representation.
 
 For information about the actions supported by the
 AWS IoT Wireless - data plane endpoints, see [AWS IoT Wireless API
-operations](../../../iot-wireless/2020-11-22/apireference/API_Operations.md "../../../iot-wireless/2020-11-22/apireference/API_Operations.md") in the _AWS IoT Wireless API
+operations](../../../iot-wireless/latest/apireference/API_Operations.md "../../../iot-wireless/latest/apireference/API_Operations.md") in the _AWS IoT Wireless API
 Reference_.
 
 ## Service quotas

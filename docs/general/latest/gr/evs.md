@@ -41,10 +41,6 @@ _Service Quotas User Guide_.
 
 ###### Important
 
-To enable Amazon EVS environment creation, your host count per EVS environment quota must be at least 4. The default quota is 0. To increase this quota, go to the [Service Quotas console](https://console.aws.amazon.com/servicequotas "https://console.aws.amazon.com/servicequotas") and request a quota increase.
-
-###### Important
-
 Ensure that your EC2 Running On-Demand Standard Instance quota reflects the number of vCPUs that you need for all of the EC2 instances that you will use on Amazon EVS. Each i4i.metal instance uses 128 vCPUs. For information about increasing EC2 service quotas, see [Request an increase](../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md#request-increase "../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md#request-increase") in the
 _Amazon EC2 User Guide_.
 
