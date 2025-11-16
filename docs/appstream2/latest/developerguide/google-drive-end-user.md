@@ -46,7 +46,7 @@ add your Google Drive account to WorkSpaces Applications.
 
 ![Google Drive option highlighted in the Add Storage dropdown menu.](images/AddGoogleDrive1.png) 4. Choose the domain for your Google Drive account.
 
-![Dropdown menu showing login account options with example.com highlighted.](/images/appstream2/latest/developerguide/images/LoginAccounts.png) 5. The **Sign in with Google** dialog box is displayed.
+![Dropdown menu showing login account options with example.com highlighted.](images/LoginAccounts.png) 5. The **Sign in with Google** dialog box is displayed.
 Enter the sign-in credentials for your Google Drive account when prompted.
 
 After your Google Drive account is added to WorkSpaces Applications, your Google Drive

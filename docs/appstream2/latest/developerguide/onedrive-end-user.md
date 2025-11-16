@@ -36,7 +36,7 @@ your OneDrive account to WorkSpaces Applications.
 2. In the **My Files** dialog box, choose **Add
    Storage**.
 
-![File management interface showing Home Folder and Temporary Files with Add Storage option.](/images/appstream2/latest/developerguide/images/AddStorage.png) 3. Choose **OneDrive**.
+![File management interface showing Home Folder and Temporary Files with Add Storage option.](images/AddStorage.png) 3. Choose **OneDrive**.
 
 ![OneDrive option highlighted in cloud storage selection menu.](images/AddOneDrive1.png) 4. Under **Login accounts**, choose the domain for your
 OneDrive account.
@@ -67,7 +67,7 @@ OneDrive
      to download, choose the down arrow to the right of the file name,
      and choose **Download**.
 
-   ![File management interface showing PDF file with options to upload, download, and rename.](/images/appstream2/latest/developerguide/images/GoogleDrive_FileUploadDownload.png)
+   ![File management interface showing PDF file with options to upload, download, and rename.](images/GoogleDrive_FileUploadDownload.png)
 
 ###### To remove OneDrive permissions from WorkSpaces Applications
 
