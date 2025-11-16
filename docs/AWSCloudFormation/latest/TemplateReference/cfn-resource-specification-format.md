@@ -9,12 +9,12 @@ within the specification.
 
 ###### Topics
 
-- [Specification sections](#w2307aac37b9c23b7 "#w2307aac37b9c23b7")
+- [Specification sections](#w2308aac37b9c23b7 "#w2308aac37b9c23b7")
 - [Property
   specification](#cfn-resource-specification-format-propertytypes "#cfn-resource-specification-format-propertytypes")
 - [Resource
   specification](#cfn-resource-specification-format-resourcetype "#cfn-resource-specification-format-resourcetype")
-- [Example resource specification](#w2307aac37b9c23c13 "#w2307aac37b9c23c13")
+- [Example resource specification](#w2308aac37b9c23c13 "#w2308aac37b9c23c13")
 
 ## Specification sections
 

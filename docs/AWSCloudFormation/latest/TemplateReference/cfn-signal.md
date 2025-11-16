@@ -19,7 +19,7 @@ you track each signal.
 
 ###### Topics
 
-- [Syntax for resource signaling (recommended)](#w2307aac32c29b9 "#w2307aac32c29b9")
+- [Syntax for resource signaling (recommended)](#w2308aac32c29b9 "#w2308aac32c29b9")
 - [Syntax for use with wait condition
   handle](#cfn-signal-Syntaxwaitcondition "#cfn-signal-Syntaxwaitcondition")
 - [Options](#cfn-signal-options "#cfn-signal-options")
