@@ -9,10 +9,10 @@ your rendering tasks, check the box for **Create fleet**.
    2. Review the fleet type and operating system for awareness.
 
 2. In the **Instance market type** section, choose either
-   **Spot Instance** or **On-demand
-   Instance**. Amazon EC2 On-demand instances provide faster
-   availability and Amazon EC2 Spot instances are better for cost saving
-   efforts.
+   **Spot**, **On-demand**, or
+   **Wait and Save Instance**. Amazon EC2 On-demand instances
+   provide faster availability and Amazon EC2 Spot and Wait and Save instances are
+   better for cost saving efforts.
 3. For **Auto scaling** the number of instances in your
    fleet, choose both a **Minimum** number of instances and a
    **Maximum** number of instances.

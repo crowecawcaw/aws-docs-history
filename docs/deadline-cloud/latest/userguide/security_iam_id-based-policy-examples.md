@@ -10,7 +10,7 @@ To learn how to create an IAM identity-based policy by using these example JSON 
 documents, see [Create IAM policies (console)](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") in the
 _IAM User Guide_.
 
-For details about actions and resource types defined by Deadline Cloud, including the format of the ARNs for each of the resource types, see [Actions, resources, and condition keys for AWS Deadline Cloud](../../../service-authorization/latest/reference/list_awsdeadlinecloud.md "../../../service-authorization/latest/reference/list_awsdeadlinecloud.md") in the _Service Authorization Reference_.
+For details about actions and resource types defined by Deadline Cloud, including the format of the ARNs for each of the resource types, see [Actions, resources, and condition keys for AWS Deadline Cloud](../../../service-authorization/latest/reference/list_deadline.md "../../../service-authorization/latest/reference/list_deadline.md") in the _Service Authorization Reference_.
 
 ###### Topics
 
