@@ -35,10 +35,10 @@ _AWS Elastic Beanstalk Developer Guide_ for more information about the Docker pl
 
 | Platform Version and _Solution Stack Name_                                         | AMI             | ECS Agent | Docker  | Docker Compose | Proxy Server |
 | ---------------------------------------------------------------------------------- | --------------- | --------- | ------- | -------------- | ------------ |
-| **Docker AL2023 version 4.7.4**<br>_64bit Amazon Linux 2023 v4.7.4 running Docker_ | 2023.9.20251027 |           | 25.0.13 | 2.40.0         | nginx 1.28.0 |
-| **ECS AL2023 version 4.2.8**<br>_64bit Amazon Linux 2023 v4.2.8 running ECS_       | 2023.9.20251027 | 1.100.0   | 25.0.13 |                |              |
-| **Docker AL2 version 4.3.4**<br>_64bit Amazon Linux 2 v4.3.4 running Docker_       | 2.0.20251027    |           | 25.0.13 | 2.40.0         | nginx 1.28.0 |
-| **ECS AL2 version 3.5.8**<br>_64bit Amazon Linux 2 v3.5.8 running ECS_             | 2.0.20251027    | 1.100.0   | 25.0.13 |                |              |
+| **Docker AL2023 version 4.7.5**<br>_64bit Amazon Linux 2023 v4.7.5 running Docker_ | 2023.9.20251105 |           | 25.0.13 | 2.40.0         | nginx 1.28.0 |
+| **ECS AL2023 version 4.2.9**<br>_64bit Amazon Linux 2023 v4.2.9 running ECS_       | 2023.9.20251105 | 1.100.0   | 25.0.13 |                |              |
+| **Docker AL2 version 4.3.5**<br>_64bit Amazon Linux 2 v4.3.5 running Docker_       | 2.0.20251105    |           | 25.0.13 | 2.40.0         | nginx 1.28.0 |
+| **ECS AL2 version 3.5.9**<br>_64bit Amazon Linux 2 v3.5.9 running ECS_             | 2.0.20251105    | 1.100.0   | 25.0.13 |                |              |
 
 For information about previous platform versions, see [Docker platform history](platform-history-docker.md "platform-history-docker.md").
 
