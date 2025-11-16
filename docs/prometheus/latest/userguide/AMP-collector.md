@@ -29,7 +29,9 @@ your Amazon EKS cluster, and about the collected metrics.
 
 ###### Topics
 
-- [Using an AWS managed collector](AMP-collector-how-to.md "AMP-collector-how-to.md")
+- [Set up managed collectors for Amazon EKS](AMP-collector-how-to.md "AMP-collector-how-to.md")
+- [Set up managed Prometheus collectors for
+  Amazon MSK](prom-msk-integration.md "prom-msk-integration.md")
 - [What are Prometheus-compatible
   metrics?](prom-compatible-metrics.md "prom-compatible-metrics.md")
 - [Monitor collectors with vended logs](AMP-collector-vended-logs.md "AMP-collector-vended-logs.md")

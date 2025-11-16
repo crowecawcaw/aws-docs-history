@@ -20,4 +20,4 @@ For more information, see the following topics:
   own code, see [Writing
   exporters](https://prometheus.io/docs/instrumenting/writing_exporters/ "https://prometheus.io/docs/instrumenting/writing_exporters/") in the Prometheus documentation.
 - For more information about how to set up an Amazon Managed Service for Prometheus collector to scrape
-  metrics from your Amazon EKS clusters automatically, see [Using an AWS managed collector](AMP-collector-how-to.md "AMP-collector-how-to.md").
+  metrics from your Amazon EKS clusters automatically, see [Set up managed collectors for Amazon EKS](AMP-collector-how-to.md "AMP-collector-how-to.md").

@@ -1,7 +1,9 @@
-# Using an AWS managed collector
+# Set up managed collectors for Amazon EKS
 
-To use an Amazon Managed Service for Prometheus collector, you must create a scraper that discovers and pulls
-metrics in your Amazon EKS cluster.
+To use an Amazon Managed Service for Prometheus collector, you create a scraper that discovers and pulls metrics
+in your Amazon EKS cluster. You can also create a scraper that integrates with Amazon Managed Streaming for Apache Kafka. For
+more information, see [Integrate
+Amazon MSK](prom-msk-integration.md "prom-msk-integration.md").
 
 - You can create a scraper as part of your Amazon EKS cluster creation. For more
   information about creating an Amazon EKS cluster, including creating a scraper, see
@@ -134,7 +136,7 @@ AWS CLI
 AWS CLI**
 
 Use the `create-scraper` command to create a scraper with
-the the AWS CLI. The following example creates a scraper in the
+the AWS CLI. The following example creates a scraper in the
 `us-west-2` Region. You need to replace the
 AWS account, workspace, security, and Amazon EKS cluster information with
 your own IDs, and provide the configuration to use for your
