@@ -1,9 +1,5 @@
 # Deploy Rust Lambda functions with .zip file archives
 
-###### Note
-
-The [Rust runtime client](https://github.com/awslabs/aws-lambda-rust-runtime "https://github.com/awslabs/aws-lambda-rust-runtime") is an experimental package. It is subject to change and intended only for evaluation purposes.
-
 This page describes how to compile your Rust function, and then deploy the compiled binary to AWS Lambda using [Cargo
 Lambda](https://www.cargo-lambda.info/guide/what-is-cargo-lambda.html "https://www.cargo-lambda.info/guide/what-is-cargo-lambda.html"). It also shows how to deploy the compiled binary with the AWS Command Line Interface and the AWS Serverless Application Model CLI.
 
@@ -26,31 +22,15 @@ Lambda](https://www.cargo-lambda.info/guide/what-is-cargo-lambda.html "https://w
 Linux
 
 The following steps demonstrate how to create the project for your first Lambda function with
-Rust and compile it with [Cargo Lambda](https://www.cargo-lambda.info/ "https://www.cargo-lambda.info/").
+Rust and compile it with [Cargo Lambda](https://www.cargo-lambda.info/ "https://www.cargo-lambda.info/"), a third-party open-source extension to the Cargo command-line tool that simplifies building and deploying Rust Lambda functions.
 
-1. Install Cargo Lambda, a Cargo subcommand, that compiles Rust functions for Lambda on macOS, Windows, and Linux.
-
-To install Cargo Lambda on any system that has Python 3 installed, use pip:
+1. Install [Cargo Lambda](https://www.cargo-lambda.info/guide/what-is-cargo-lambda.html "https://www.cargo-lambda.info/guide/what-is-cargo-lambda.html"), a third-party open-source extension to the Cargo command-line tool that simplifies building and deploying Rust Lambda functions:
 
 ```
-pip3 install cargo-lambda
+cargo install cargo-lambda
 ```
 
-To install Cargo Lambda on macOS or Linux, use Homebrew:
-
-```
-brew tap cargo-lambda/cargo-lambda
-brew install cargo-lambda
-```
-
-To install Cargo Lambda on Windows, use [Scoop](https://scoop.sh/ "https://scoop.sh/"):
-
-```
-scoop bucket add cargo-lambda
-scoop install cargo-lambda/cargo-lambda
-```
-
-For other options,
+For other installation options,
 see [Installation](https://www.cargo-lambda.info/guide/installation.html "https://www.cargo-lambda.info/guide/installation.html")
 in the Cargo Lambda documentation. 2. Create the package structure. This command creates some basic function code in `src/main.rs`. You can use this code for testing or replace it with your own.
 

@@ -16,7 +16,7 @@ Lambda provides the following runtimes for .NET languages:
 
 | Name                    | Identifier | Operating system  | Deprecation date | Block function create | Block function update |
 | ----------------------- | ---------- | ----------------- | ---------------- | --------------------- | --------------------- |
-| .NET 9 (container only) | `dotnet9`  | Amazon Linux 2023 | Not scheduled    | Not scheduled         | Not scheduled         |
+| .NET 9 (container only) | `dotnet9`  | Amazon Linux 2023 | Nov 10, 2026     | Not scheduled         | Not scheduled         |
 | .NET 8                  | `dotnet8`  | Amazon Linux 2023 | Nov 10, 2026     | Dec 10, 2026          | Jan 11, 2027          |
 
 ###### Topics

@@ -7,7 +7,7 @@ tagging strategies](../../../tag-editor/latest/userguide/best-practices-and-stra
 
 Event source mappings are associated with functions, which can have their own tags. Event source mappings do
 not automatically inherit tags from functions. You can use the AWS Lambda API to view and update tags. You can also
-view and update tags while managing a specific event source mapping in the Lambda console.
+view and update tags while managing a specific event source mapping in the Lambda console, including those using Provisioned Mode for Amazon SQS.
 
 ## Permissions required for working with tags
 
@@ -28,7 +28,7 @@ For more information, see [Identity-based IAM policies for Lambda](access-contro
 ## Using tags with the Lambda console
 
 You can use the Lambda console to create event source mappings that have tags, add tags to existing event source mappings, and filter
-event source mappings by tag.
+event source mappings by tag, including those configured in Provisioned Mode for Amazon SQS.
 
 When you add a trigger for supported stream and queue-based services using the Lambda console, Lambda
 automatically creates an event source mapping. For more information about these event sources, see [How Lambda processes records from stream and queue-based event sources](invocation-eventsourcemapping.md "invocation-eventsourcemapping.md"). To create an event source mapping in the console,

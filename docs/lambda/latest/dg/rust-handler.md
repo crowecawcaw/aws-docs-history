@@ -1,9 +1,5 @@
 # Define Lambda function handlers in Rust
 
-###### Note
-
-The [Rust runtime client](https://github.com/awslabs/aws-lambda-rust-runtime "https://github.com/awslabs/aws-lambda-rust-runtime") is an experimental package. It is subject to change and intended only for evaluation purposes.
-
 The Lambda function _handler_ is the method in your function code that processes events. When your function is
 invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
@@ -31,13 +27,13 @@ about how to deploy your function after writing it, see [Deploy Rust Lambda func
 When working with Lambda functions in Rust, the process involves writing your
 code, compiling it, and deploying the compiled artifacts to Lambda. The simplest way
 to set up a Lambda handler project in Rust is to use the
-[AWS Lambda Runtime for Rust](https://github.com/awslabs/aws-lambda-rust-runtime "https://github.com/awslabs/aws-lambda-rust-runtime").
+[AWS Lambda Runtime for Rust](https://github.com/aws/aws-lambda-rust-runtime "https://github.com/aws/aws-lambda-rust-runtime").
 Despite its name, the AWS Lambda Runtime for Rust is not a managed runtime in the same sense as
 it is in Lambda for Python, Java, or Node.js. Instead, the AWS Lambda Runtime for Rust is a crate
 (`lambda_runtime`) that supports writing Lambda functions in Rust and interfacing
 with AWS Lambda's execution environment.
 
-Use the following command to install the AWS Lambda Runtime for Rust:
+Use the following command to install [Cargo Lambda](https://www.cargo-lambda.info/guide/what-is-cargo-lambda.html "https://www.cargo-lambda.info/guide/what-is-cargo-lambda.html"), a third-party open-source extension to the Cargo command-line tool that simplifies building and deploying Rust Lambda functions:
 
 ```
 cargo install cargo-lambda

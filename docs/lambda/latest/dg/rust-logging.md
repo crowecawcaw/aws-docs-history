@@ -1,10 +1,6 @@
 # Log and monitor Rust Lambda functions
 
-###### Note
-
-The [Rust runtime client](https://github.com/awslabs/aws-lambda-rust-runtime "https://github.com/awslabs/aws-lambda-rust-runtime") is an experimental package. It is subject to change and intended only for evaluation purposes.
-
-AWS Lambda automatically monitors Lambda functions on your behalf and sends logs to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation to the log stream, and relays logs and other output from your function's code. For more information, see [Sending Lambda function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md "monitoring-cloudwatchlogs.md"). This page describes how to produce log output from your Lambda function's code.
+AWS Lambda automatically monitors Lambda functions on your behalf and sends logs to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation to the log stream, and relays logs and other output from your function's code. For more information, see [Sending Lambda function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md "monitoring-cloudwatchlogs.md"). For information about configuring log formats, see [Configuring JSON and plain text log formats](monitoring-cloudwatchlogs-logformat.md "monitoring-cloudwatchlogs-logformat.md"). This page describes how to produce log output from your Lambda function's code.
 
 ## Creating a function that writes logs
 

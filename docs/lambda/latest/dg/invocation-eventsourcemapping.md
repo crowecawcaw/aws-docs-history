@@ -113,33 +113,50 @@ attempts. You can also configure the event source mapping to send an invocation 
 ## Provisioned mode
 
 Lambda event source mappings use event pollers to poll your event source for new messages. By default,
-Lambda manages the autoscaling of these pollers depending on message volume. When message traffic increases,
+Lambda manages the autoscaling of these pollers based on message volume. When message traffic increases,
 Lambda automatically increases the number of event pollers to handle the load, and reduces them when
 traffic decreases.
 
-In provisioned mode, you can fine-tune the throughput of your event source mapping by defining
-minimum and maximum limits for the number of provisioned event pollers. Lambda then scales your event
-source mapping between the minimum and maximum number of event pollers in a responsive manner. These
-provisioned event pollers are dedicated to your event source mapping, enhancing your ability to handle
-unpredictable spikes in events.
+In provisioned mode, you can fine-tune the throughput of your event source mapping by defining minimum and maximum limits for dedicated polling resources that remain ready to handle expected traffic patterns. These resources auto-scale 3 times faster to handle sudden spikes in event traffic and provide 16 times higher capacity to process millions of events. This helps you build highly responsive event-driven workloads with stringent performance requirements.
 
-In Lambda, an event poller is a compute unit capable of handling up to 5 MBps of throughput.
-For reference, suppose your event source produces an average payload of 1MB, and the average function duration is 1 sec.
-If the payload doesn’t undergo any transformation (such as filtering), a single poller can support 5 MBps throughput,
-and 5 concurrent Lambda invocations. Using provisioned mode incurs additional costs. For pricing estimates,
-see [AWS Lambda pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/").
+In Lambda, an event poller is a compute unit with throughput capabilities that vary by event source type.
+For Amazon MSK and self-managed Apache Kafka, each event poller can handle up to 5 MB/sec of throughput or up to 5 concurrent invocations.
+For example, if your event source produces an average payload of 1 MB and the average duration of your function
+is 1 second, a single Kafka event poller can support 5 MB/sec throughput and 5 concurrent Lambda invocations
+(assuming no payload transformation). For Amazon SQS, each event poller can handle up to 1 MB/sec of throughput or up to 10 concurrent invocations.
+Using provisioned mode incurs additional costs based on your event poller usage. For pricing details, see
+[AWS Lambda pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/").
 
-Provisioned mode is supported only for Amazon MSK and self-managed Apache Kafka event sources. While concurrency settings
+Provisioned mode is available for Amazon MSK, self-managed Apache Kafka, and Amazon SQS event sources. While concurrency settings
 give you control over the scaling of your function, provisioned mode gives you control over the
 throughput of your event source mapping. To ensure maximum performance, you may need to adjust both
-settings independently. For details about configuring provisioned mode, see the following sections:
+settings independently.
+
+Provisioned mode is ideal for real-time applications requiring consistent
+event processing latency, such as financial services firms processing market data feeds, e-commerce platforms
+providing real-time personalized recommendations, and gaming companies managing live player interactions.
+
+Each event poller supports different throughput capacity:
+
+- For Amazon MSK and self-managed Apache Kafka: up to 5 MB/sec of throughput or up to 5 concurrent invokes
+- For Amazon SQS: up to 1 MB/sec of throughput or up to 10 concurrent invokes or up to 10 SQS polling API calls per second.
+
+For Amazon SQS event source mappings, you can set the minimum number of pollers between 2 and 200 with a default of 2, and the maximum number between 2 and 2,000 with a default of 200. Lambda scales the number of event pollers between your configured minimum and maximum, quickly adding up to 1,000 concurrency per minute to provide consistent, low-latency processing of your events.
+
+For Kafka event source mappings, you can set the minimum number of pollers between 1 and 200 with default of 1, and the maximum number between 1 and 2,000 with default of 200. Lambda scales the number of event pollers between your configured minimum and maximum based on your event backlog in your topic to provide low-latency processing of your events.
+
+Note that for Amazon SQS event sources, the maximum concurrency setting cannot be used with provisioned mode.
+When using provisioned mode, you control concurrency through the maximum event pollers setting.
+
+For details about configuring provisioned mode, see the following sections:
 
 - [Configuring provisioned mode for Amazon MSK
   event source mappings](kafka-scaling-modes.md "kafka-scaling-modes.md")
 - [Configuring provisioned mode for self-managed Apache Kafka
   event source mappings](kafka-scaling-modes.md#kafka-provisioned-mode "kafka-scaling-modes.md#kafka-provisioned-mode")
+- [Using provisioned mode with Amazon SQS event source mappings](with-sqs.md#sqs-provisioned-mode "with-sqs.md#sqs-provisioned-mode")
 
-To minimize latency when using Kafka event source mappings in provisioned mode, set `MaximumBatchingWindowInSeconds` to 0.
+To minimize latency in provisioned mode, set `MaximumBatchingWindowInSeconds` to 0.
 This setting ensures that Lambda will start processing the next batch
 immediately after completing the current function invocation. For additional information on low
 latency processing, see [Low latency Apache Kafka](with-kafka-low-latency.md "with-kafka-low-latency.md").

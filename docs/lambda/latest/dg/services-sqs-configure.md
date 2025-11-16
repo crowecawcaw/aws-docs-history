@@ -3,6 +3,12 @@
 To process Amazon SQS messages with Lambda, configure your queue with the appropriate settings,
 then create a Lambda event source mapping.
 
+###### Topics
+
+- [Configuring a queue to use with Lambda](#events-sqs-queueconfig "#events-sqs-queueconfig")
+- [Setting up Lambda execution role permissions](#events-sqs-permissions "#events-sqs-permissions")
+- [Creating an SQS event source mapping](#events-sqs-eventsource "#events-sqs-eventsource")
+
 ## Configuring a queue to use with Lambda
 
 If you don't already have an existing Amazon SQS queue, [create one](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-create-queue.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-create-queue.md")
@@ -111,19 +117,27 @@ batch of events and to retry in the event of a throttling error.
 
 When messages become available, Lambda starts processing messages in batches. Lambda starts
 processing five batches at a time with five concurrent invocations of your function. If messages
-are still available, Lambda adds up to 300 more instances of your function a minute, up to a
-maximum of 1,000 function instances. To learn more about function scaling and concurrency,
-see [Lambda function scaling](lambda-concurrency.md "lambda-concurrency.md").
+are still available, Lambda adds up to 300 concurrent invokes of your function a minute, up to a
+maximum of 1,250 concurrent invokes. When using provisioned mode, each event poller can handle up to 1 MB/s of throughput, up to 10 concurrent invokes, or up to 10 Amazon SQS polling API calls per second. Lambda scales the number of event pollers between your configured minimum and maximum, quickly adding up to 1,000 concurrent invokes per minute to provide low-latency processing of your Amazon SQS events. You control scaling and concurrency through these minimum and maximum event poller settings. To learn more about function scaling and concurrency, see [Understanding Lambda function scaling](lambda-concurrency.md "lambda-concurrency.md").
 
 To process more messages, you can optimize your Lambda function for higher throughput.
 For more information, see [Understanding how AWS Lambda scales with Amazon SQS standard queues](https://aws.amazon.com/blogs/compute/understanding-how-aws-lambda-scales-when-subscribed-to-amazon-sqs-queues/#:~:text=If there are more messages,messages from the SQS queue. "https://aws.amazon.com/blogs/compute/understanding-how-aws-lambda-scales-when-subscribed-to-amazon-sqs-queues/#:~:text=If there are more messages,messages from the SQS queue.").
-
-**Maximum concurrency**
-
-The maximum number of concurrent functions that the event source can invoke. For more information,
-see [Configuring maximum concurrency for Amazon SQS event sources](services-sqs-scaling.md#events-sqs-max-concurrency "services-sqs-scaling.md#events-sqs-max-concurrency").
 
 **Filter criteria**
 
 Add filter criteria to control which events Lambda sends to your function for processing.
 For more information, see [Control which events Lambda sends to your function](invocation-eventfiltering.md "invocation-eventfiltering.md").
+
+**Maximum concurrency**
+
+The maximum number of concurrent functions that the event source can invoke. Cannot be used with Provisioned Mode enabled. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](services-sqs-scaling.md#events-sqs-max-concurrency "services-sqs-scaling.md#events-sqs-max-concurrency").
+
+**Provisioned Mode**
+
+When enabled, allocates dedicated polling resources for your event source mapping. You can configure the minimum (2-200) and maximum (2-2000)
+number of event pollers. Each event poller can handle up to 1 MB/sec of throughput, up to 10 concurrent invokes, or up to 10 Amazon SQS polling API calls per second.
+
+###### Note
+
+Note: You cannot use Provisioned Mode and Maximum concurrency together.
+When Provisioned Mode is enabled, use the maximum pollers setting to control concurrency.

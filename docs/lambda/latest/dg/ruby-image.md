@@ -30,11 +30,11 @@ This page explains how to build, test, and deploy container images for Lambda.
 
 AWS provides the following base images for Ruby:
 
-| Tags | Runtime  | Operating system  | Dockerfile                                                                                                                                                                                            | Deprecation   |
-| ---- | -------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| 3.4  | Ruby 3.4 | Amazon Linux 2023 | [Dockerfile<br>for Ruby 3.4 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/ruby3.4/Dockerfile.ruby3.4 "https://github.com/aws/aws-lambda-base-images/blob/ruby3.4/Dockerfile.ruby3.4") | Not scheduled |
-| 3.3  | Ruby 3.3 | Amazon Linux 2023 | [Dockerfile<br>for Ruby 3.3 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/ruby3.3/Dockerfile.ruby3.3 "https://github.com/aws/aws-lambda-base-images/blob/ruby3.3/Dockerfile.ruby3.3") | Mar 31, 2027  |
-| 3.2  | Ruby 3.2 | Amazon Linux 2    | [Dockerfile<br>for Ruby 3.2 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/ruby3.2/Dockerfile.ruby3.2 "https://github.com/aws/aws-lambda-base-images/blob/ruby3.2/Dockerfile.ruby3.2") | Mar 31, 2026  |
+| Tags | Runtime  | Operating system  | Dockerfile                                                                                                                                                                                            | Deprecation  |
+| ---- | -------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| 3.4  | Ruby 3.4 | Amazon Linux 2023 | [Dockerfile<br>for Ruby 3.4 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/ruby3.4/Dockerfile.ruby3.4 "https://github.com/aws/aws-lambda-base-images/blob/ruby3.4/Dockerfile.ruby3.4") | Mar 31, 2028 |
+| 3.3  | Ruby 3.3 | Amazon Linux 2023 | [Dockerfile<br>for Ruby 3.3 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/ruby3.3/Dockerfile.ruby3.3 "https://github.com/aws/aws-lambda-base-images/blob/ruby3.3/Dockerfile.ruby3.3") | Mar 31, 2027 |
+| 3.2  | Ruby 3.2 | Amazon Linux 2    | [Dockerfile<br>for Ruby 3.2 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/ruby3.2/Dockerfile.ruby3.2 "https://github.com/aws/aws-lambda-base-images/blob/ruby3.2/Dockerfile.ruby3.2") | Mar 31, 2026 |
 
 Amazon ECR repository: [gallery.ecr.aws/lambda/ruby](https://gallery.ecr.aws/lambda/ruby "https://gallery.ecr.aws/lambda/ruby")
 

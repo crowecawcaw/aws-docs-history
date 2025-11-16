@@ -7,6 +7,10 @@ container images and .zip file archives.
 This page describes how to create your deployment package as a .zip file or Jar file, and then use the
 deployment package to deploy your function code to AWS Lambda using the AWS Command Line Interface (AWS CLI).
 
+###### Important
+
+Java 25 introduced support for Ahead-of-Time (AOT) caches. We strongly recommend not using AOT caches when deploying your functions as .zip or JAR file archives, since the caches may cause unexpected behavior when Lambda updates the managed runtime. For further information, see [Ahead-of-Time (AOT) and CDS caches](java-customization.md#aot-cds-caches "java-customization.md#aot-cds-caches").
+
 ###### Sections
 
 - [Prerequisites](#java-package-prereqs "#java-package-prereqs")

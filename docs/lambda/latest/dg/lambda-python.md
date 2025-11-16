@@ -8,11 +8,12 @@ Lambda supports the following Python runtimes.
 
 | Name        | Identifier   | Operating system  | Deprecation date | Block function create | Block function update |
 | ----------- | ------------ | ----------------- | ---------------- | --------------------- | --------------------- |
+| Python 3.14 | `python3.14` | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
 | Python 3.13 | `python3.13` | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
 | Python 3.12 | `python3.12` | Amazon Linux 2023 | Oct 31, 2028     | Nov 30, 2028          | Jan 10, 2029          |
 | Python 3.11 | `python3.11` | Amazon Linux 2    | Jun 30, 2026     | Jul 31, 2026          | Aug 31, 2026          |
 | Python 3.10 | `python3.10` | Amazon Linux 2    | Jun 30, 2026     | Jul 31, 2026          | Aug 31, 2026          |
-| Python 3.9  | `python3.9`  | Amazon Linux 2    | Dec 15, 2025     | Feb 3, 2026           | Mar 9, 2026           |
+| Python 3.9  | `python3.9`  | Amazon Linux 2    | Dec 15, 2025     | Jun 1, 2026           | Jul 1, 2026           |
 
 ###### To create a Python function
 
@@ -33,7 +34,7 @@ invoker.
 ###### Topics
 
 - [Runtime-included SDK versions](#python-sdk-included "#python-sdk-included")
-- [Experimental features in Python 3.13](#python-experimental-features "#python-experimental-features")
+- [Disabled Python features](#python-disabled-features "#python-disabled-features")
 - [Response format](#python-response-format "#python-response-format")
 - [Graceful shutdown for extensions](#python-graceful-shutdown "#python-graceful-shutdown")
 - [Define Lambda function handler in Python](python-handler.md "python-handler.md")
@@ -59,12 +60,14 @@ def lambda_handler(event, context):
    print(f'botocore version: {botocore.__version__}')
 ```
 
-## Experimental features in Python 3.13
+## Disabled Python features
 
-The Python 3.13 managed runtime and base images do not support the following experimental features. You cannot enable these features using runtime flags. To use these features in a Lambda function, you must deploy a [custom runtime](runtimes-custom.md "runtimes-custom.md") or [container image](python-image.md#python-image-clients "python-image.md#python-image-clients") containing your own build of Python 3.13.
+The following table lists Python features which are disabled in the Lambda managed runtimes and container base images for Python. These features must be enabled when the Python runtime executable is compiled and cannot be enabled by using an execution-time flag. To use these features in Lambda, you can deploy your own Python runtime build with these features enabled, using a [container image](python-image.md#python-image-clients "python-image.md#python-image-clients") or [custom runtime](runtimes-custom.md "runtimes-custom.md").
 
-- [Free-threaded CPython](https://docs.python.org/3/howto/free-threading-python.html "https://docs.python.org/3/howto/free-threading-python.html"): You cannot disable the global interpreter lock.
-- [Just-in-time (JIT) compiler](https://docs.python.org/3.13/whatsnew/3.13.html#an-experimental-just-in-time-jit-compiler "https://docs.python.org/3.13/whatsnew/3.13.html#an-experimental-just-in-time-jit-compiler"): You cannot enable the JIT compiler.
+| Python feature              | Affected Python versions | Status                                                                                                                                                    |
+| --------------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Just-in-Time (JIT) compiler | Python 3.13 and later    | The JIT compiler is experimental and is not recommended for production workloads. It is therefore disabled in the Lambda Python runtimes.                 |
+| Free-threading              | Python 3.13 and later    | Free threading (option to disable the global interpreter lock) is disabled in Lambda Python builds due to the performance impact on single-threaded code. |
 
 ## Response format
 

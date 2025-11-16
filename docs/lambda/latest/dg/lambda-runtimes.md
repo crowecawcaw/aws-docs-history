@@ -38,20 +38,22 @@ subject to change.
 | ----------------------- | ----------------- | ----------------- | ---------------- | --------------------- | --------------------- |
 | Node.js 22              | `nodejs22.x`      | Amazon Linux 2023 | Apr 30, 2027     | Jun 1, 2027           | Jul 1, 2027           |
 | Node.js 20              | `nodejs20.x`      | Amazon Linux 2023 | Apr 30, 2026     | Jun 1, 2026           | Jul 1, 2026           |
+| Python 3.14             | `python3.14`      | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
 | Python 3.13             | `python3.13`      | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
 | Python 3.12             | `python3.12`      | Amazon Linux 2023 | Oct 31, 2028     | Nov 30, 2028          | Jan 10, 2029          |
 | Python 3.11             | `python3.11`      | Amazon Linux 2    | Jun 30, 2026     | Jul 31, 2026          | Aug 31, 2026          |
 | Python 3.10             | `python3.10`      | Amazon Linux 2    | Jun 30, 2026     | Jul 31, 2026          | Aug 31, 2026          |
-| Python 3.9              | `python3.9`       | Amazon Linux 2    | Dec 15, 2025     | Feb 3, 2026           | Mar 9, 2026           |
+| Python 3.9              | `python3.9`       | Amazon Linux 2    | Dec 15, 2025     | Jun 1, 2026           | Jul 1, 2026           |
+| Java 25                 | `java25`          | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
 | Java 21                 | `java21`          | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
 | Java 17                 | `java17`          | Amazon Linux 2    | Jun 30, 2026     | Jul 31, 2026          | Aug 31, 2026          |
 | Java 11                 | `java11`          | Amazon Linux 2    | Jun 30, 2026     | Jul 31, 2026          | Aug 31, 2026          |
 | Java 8                  | `java8.al2`       | Amazon Linux 2    | Jun 30, 2026     | Jul 31, 2026          | Aug 31, 2026          |
-| .NET 9 (container only) | `dotnet9`         | Amazon Linux 2023 | Not scheduled    | Not scheduled         | Not scheduled         |
+| .NET 9 (container only) | `dotnet9`         | Amazon Linux 2023 | Nov 10, 2026     | Not scheduled         | Not scheduled         |
 | .NET 8                  | `dotnet8`         | Amazon Linux 2023 | Nov 10, 2026     | Dec 10, 2026          | Jan 11, 2027          |
-| Ruby 3.4                | `ruby3.4`         | Amazon Linux 2023 | Not scheduled    | Not scheduled         | Not scheduled         |
+| Ruby 3.4                | `ruby3.4`         | Amazon Linux 2023 | Mar 31, 2028     | Apr 30, 2028          | May 31, 2028          |
 | Ruby 3.3                | `ruby3.3`         | Amazon Linux 2023 | Mar 31, 2027     | Apr 30, 2027          | May 31, 2027          |
-| Ruby 3.2                | `ruby3.2`         | Amazon Linux 2    | Mar 31, 2026     | Apr 30, 2026          | May 31, 2026          |
+| Ruby 3.2                | `ruby3.2`         | Amazon Linux 2    | Mar 31, 2026     | Jun 1, 2026           | Jul 1, 2026           |
 | OS-only Runtime         | `provided.al2023` | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
 | OS-only Runtime         | `provided.al2`    | Amazon Linux 2    | Jun 30, 2026     | Jul 31, 2026          | Aug 31, 2026          |
 
@@ -96,8 +98,6 @@ Lambda doesn't provide managed runtimes for language versions which aren't sched
 
 The following list shows the target launch month for upcoming Lambda runtimes. These dates are indicative only and subject to change.
 
-- **Java 25** - November 2025
-- **Python 3.14** - November 2025
 - **Node.js 24** - November 2025
 - **.NET 10** - January 2026
 
@@ -207,14 +207,14 @@ The following runtimes have reached end of support:
 | Name                    | Identifier       | Operating system | Deprecation date | Block function create | Block function update |
 | ----------------------- | ---------------- | ---------------- | ---------------- | --------------------- | --------------------- |
 | Node.js 18              | `nodejs18.x`     | Amazon Linux 2   | Sep 1, 2025      | Feb 3, 2026           | Mar 9, 2026           |
-| .NET 6                  | `dotnet6`        | Amazon Linux 2   | Dec 20, 2024     | Feb 3, 2026           | Mar 9, 2026           |
-| Python 3.8              | `python3.8`      | Amazon Linux 2   | Oct 14, 2024     | Feb 3, 2026           | Mar 9, 2026           |
+| .NET 6                  | `dotnet6`        | Amazon Linux 2   | Dec 20, 2024     | Jun 1, 2026           | Jul 1, 2026           |
+| Python 3.8              | `python3.8`      | Amazon Linux 2   | Oct 14, 2024     | Jun 1, 2026           | Jul 1, 2026           |
 | Node.js 16              | `nodejs16.x`     | Amazon Linux 2   | Jun 12, 2024     | Feb 3, 2026           | Mar 9, 2026           |
 | .NET 7 (container only) | `dotnet7`        | Amazon Linux 2   | May 14, 2024     | N/A                   | N/A                   |
-| Java 8                  | `java8`          | Amazon Linux     | Jan 8, 2024      | Feb 8, 2024           | Mar 9, 2026           |
-| Go 1.x                  | `go1.x`          | Amazon Linux     | Jan 8, 2024      | Feb 8, 2024           | Mar 9, 2026           |
-| OS-only Runtime         | `provided`       | Amazon Linux     | Jan 8, 2024      | Feb 8, 2024           | Mar 9, 2026           |
-| Ruby 2.7                | `ruby2.7`        | Amazon Linux 2   | Dec 7, 2023      | Jan 9, 2024           | Mar 9, 2026           |
+| Java 8                  | `java8`          | Amazon Linux     | Jan 8, 2024      | Feb 8, 2024           | Jul 1, 2026           |
+| Go 1.x                  | `go1.x`          | Amazon Linux     | Jan 8, 2024      | Feb 8, 2024           | Jul 1, 2026           |
+| OS-only Runtime         | `provided`       | Amazon Linux     | Jan 8, 2024      | Feb 8, 2024           | Jul 1, 2026           |
+| Ruby 2.7                | `ruby2.7`        | Amazon Linux 2   | Dec 7, 2023      | Jan 9, 2024           | Jul 1, 2026           |
 | Node.js 14              | `nodejs14.x`     | Amazon Linux 2   | Dec 4, 2023      | Jan 9, 2024           | Mar 9, 2026           |
 | Python 3.7              | `python3.7`      | Amazon Linux     | Dec 4, 2023      | Jan 9, 2024           | Mar 9, 2026           |
 | .NET Core 3.1           | `dotnetcore3.1`  | Amazon Linux 2   | Apr 3, 2023      | Apr 3, 2023           | May 3, 2023           |

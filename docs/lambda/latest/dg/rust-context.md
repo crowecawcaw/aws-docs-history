@@ -1,9 +1,5 @@
 # Using the Lambda context object to retrieve Rust function information
 
-###### Note
-
-The [Rust runtime client](https://github.com/awslabs/aws-lambda-rust-runtime "https://github.com/awslabs/aws-lambda-rust-runtime") is an experimental package. It is subject to change and intended only for evaluation purposes.
-
 When Lambda runs your function, it adds a context object to the LambdaEvent that the [handler](rust-handler.md "rust-handler.md")
 receives. This object provides properties with information about the invocation, function, and
 execution environment.

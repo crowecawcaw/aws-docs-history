@@ -29,11 +29,13 @@ provisioned event pollers. These provisioned event pollers are dedicated to your
 and can handle unexpected message spikes through responsive autoscaling. We recommend that you use
 provisioned mode for Kafka workloads that have strict performance requirements.
 
-In Lambda, an event poller is a compute unit capable of handling up to 5 MBps of throughput.
-For reference, suppose your event source produces an average payload of 1MB, and the average function duration is 1 sec.
-If the payload doesn’t undergo any transformation (such as filtering), a single poller can support 5 MBps throughput,
-and 5 concurrent Lambda invocations. Using provisioned mode incurs additional costs. For pricing estimates,
-see [AWS Lambda pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/").
+In Lambda, an event poller is a compute unit with throughput capabilities that vary by event source type.
+For Amazon MSK and self-managed Apache Kafka, each event poller can handle up to 5 MB/sec of throughput or up to 5 concurrent invocations.
+For example, if your event source produces an average payload of 1 MB and the average duration of your function
+is 1 second, a single Kafka event poller can support 5 MB/sec throughput and 5 concurrent Lambda invocations
+(assuming no payload transformation). For Amazon SQS, each event poller can handle up to 1 MB/sec of throughput or up to 10 concurrent invocations.
+Using provisioned mode incurs additional costs based on your event poller usage. For pricing details, see
+[AWS Lambda pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/").
 
 ###### Note
 

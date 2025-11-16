@@ -134,7 +134,7 @@ If you use an [OS-only base image](#runtimes-images-provided "#runtimes-images-p
 - [.NET](csharp-image.md#csharp-image-clients "csharp-image.md#csharp-image-clients")
 - [Go](go-image.md#go-image-clients "go-image.md#go-image-clients")
 - [Ruby](ruby-image.md#ruby-image-clients "ruby-image.md#ruby-image-clients")
-- [Rust](lambda-rust.md "lambda-rust.md") – The [Rust runtime client](https://github.com/awslabs/aws-lambda-rust-runtime "https://github.com/awslabs/aws-lambda-rust-runtime") is an experimental package. It is subject to change and intended only for evaluation purposes.
+- [Rust](lambda-rust.md "lambda-rust.md") –
 
 If you're using a language that doesn't have an AWS-provided runtime interface client, you must create your own.
 

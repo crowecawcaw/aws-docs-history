@@ -130,8 +130,7 @@ AWS CLI
 
 In the following [create-function](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html") example:
 
-- `--zip-file`: Specifies the local path to the .zip deployment package.
-- `--source-kms-key-arn`: Specifies the customer managed key to encrypt the zipped version of the deployment package.
+- `--code`: Specifies the local path to the .zip deployment package (`ZipFile`) and the customer managed key to encrypt it (`SourceKMSKeyArn`).
 - `--kms-key-arn`: Specifies the customer managed key to encrypt the environment variables and the unzipped version of the deployment package.
 
 ```
@@ -140,15 +139,13 @@ aws lambda create-function \
   --runtime nodejs22.x \
   --handler index.handler \
   --role arn:aws:iam::111122223333:role/service-role/my-lambda-role \
-  `--zip-file` fileb://`myFunction.zip` \
-  `--source-kms-key-arn` `arn:aws:kms:us-east-1:111122223333:key/key-id` \
+  `--code` ZipFile=fileb://`myFunction.zip`,SourceKMSKeyArn=`arn:aws:kms:us-east-1:111122223333:key/key-id` \
   `--kms-key-arn` `arn:aws:kms:us-east-1:111122223333:key/key2-id`
 ```
 
 In the following [create-function](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html") example:
 
-- `--code`: Specifies the location of .zip file in an Amazon S3 bucket. You only need to use the `S3ObjectVersion` parameter for versioned objects.
-- `--source-kms-key-arn`: Specifies the customer managed key to encrypt the zipped version of the deployment package.
+- `--code`: Specifies the location of the .zip file in an Amazon S3 bucket (`S3Bucket`, `S3Key`, `S3ObjectVersion`) and the customer managed key to encrypt it (`SourceKMSKeyArn`).
 - `--kms-key-arn`: Specifies the customer managed key to encrypt the environment variables and the unzipped version of the deployment package.
 
 ```
@@ -156,8 +153,7 @@ aws lambda create-function \
   --function-name myFunction \
   --runtime nodejs22.x --handler index.handler \
   --role arn:aws:iam::111122223333:role/service-role/my-lambda-role \
-  `--code` S3Bucket=`amzn-s3-demo-bucket`,S3Key=`myFileName.zip`,S3ObjectVersion=`myObjectVersion` \
-  `--source-kms-key-arn` `arn:aws:kms:us-east-1:111122223333:key/key-id` \
+  `--code` S3Bucket=`amzn-s3-demo-bucket`,S3Key=`myFileName.zip`,S3ObjectVersion=`myObjectVersion`,SourceKMSKeyArn=`arn:aws:kms:us-east-1:111122223333:key/key-id` \
   `--kms-key-arn` `arn:aws:kms:us-east-1:111122223333:key/key2-id`
 ```
 

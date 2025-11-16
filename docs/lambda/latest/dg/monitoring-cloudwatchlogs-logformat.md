@@ -24,24 +24,23 @@ Because of this, the size of your function's log messages can increase.
 
 Lambda currently supports the option to output JSON structured application logs for the following runtimes.
 
-| Runtime | Supported versions                                |
-| ------- | ------------------------------------------------- |
-| Java    | All Java runtimes except Java 8 on Amazon Linux 1 |
-| .NET    | .NET 8                                            |
-| Node.js | Node.js 16 and later                              |
-| Python  | Python 3.8 and later                              |
+| Language | Supported versions                                |
+| -------- | ------------------------------------------------- |
+| Java     | All Java runtimes except Java 8 on Amazon Linux 1 |
+| .NET     | .NET 8                                            |
+| Node.js  | Node.js 16 and later                              |
+| Python   | Python 3.8 and later                              |
+| Rust     | n/a                                               |
 
 For Lambda to send your function's application logs to CloudWatch in structured JSON format, your function must use the following built-in
 logging tools to output logs:
 
-- **Java** - the `LambdaLogger` logger or Log4j2.
-- **.NET** - the `ILambdaLogger` instance on the context object.
+- **Java**: The `LambdaLogger` logger or Log4j2. For more information, see [Log and monitor Java Lambda functions](java-logging.md "java-logging.md").
+- **.NET**: The `ILambdaLogger` instance on the context object. For more information, see [Log and monitor C# Lambda functions](csharp-logging.md "csharp-logging.md").
 - **Node.js** - The console methods `console.trace`, `console.debug`,
-  `console.log`, `console.info`, `console.error`, and `console.warn`
-- **Python** - the standard Python `logging` library
-
-For more information about using advanced logging controls with supported runtimes, see [Log and monitor Java Lambda functions](java-logging.md "java-logging.md"),
-[Log and monitor Node.js Lambda functions](nodejs-logging.md "nodejs-logging.md"), and [Log and monitor Python Lambda functions](python-logging.md "python-logging.md").
+  `console.log`, `console.info`, `console.error`, and `console.warn`. For more information, see [Log and monitor Node.js Lambda functions](nodejs-logging.md "nodejs-logging.md").
+- **Python**: The standard Python `logging` library. For more information, see [Log and monitor Python Lambda functions](python-logging.md "python-logging.md").
+- **Rust**: The `tracing` crate. For more information, see [Log and monitor Rust Lambda functions](rust-logging.md "rust-logging.md").
 
 For other managed Lambda runtimes, Lambda currently only natively supports capturing system logs in structured JSON format. However, you
 can still capture application logs in structured JSON format in any runtime by using logging tools such as Powertools for AWS Lambda that output
