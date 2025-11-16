@@ -1,87 +1,125 @@
-# Oracle local and global partitioned indexes and PostgreSQL partitioned indexes
+# Overall Oracle and PostgreSQL indexes summary
 
-With AWS DMS, you can migrate partitioned tables from Oracle and PostgreSQL databases to Amazon Aurora. Oracle local and global partitioned indexes and PostgreSQL partitioned indexes are database objects that improve query performance by dividing large tables into smaller, more manageable pieces called partitions.
+With AWS DMS, you can assess the indexing strategies of your Oracle and PostgreSQL databases before migrating them to a new environment. Overall Oracle and PostgreSQL indexes summary provides a comprehensive analysis of the indexes in your source databases, including their types, usage statistics, and potential redundancies.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                | Key differences |
-| ------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| Four star feature compatibility | No automation                      | [Indexes](chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.indexes "chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.indexes") | N/A             |
+## Usage
 
-## Oracle usage
+PostgreSQL supports multiple types of Indexes using different indexing algorithms that can provide performance benefits for different types of queries. The built-in PostgreSQL Index types include:
 
-Local and global indexes are used for partitioned tables in Oracle databases. Each index created on a partitioned table can be specified as either local or global.
+- **B-Tree** — Default indexes that you can use for equality and range for the majority of queries. These indexes can operate against all datatypes. You can use B-Tree indexes to retrieve NULL values. B-Tree index values are sorted in ascending order by default.
+- **Hash** — Hash Indexes are practical for equality operators. These types of indexes are rarely used because they aren’t transaction-safe. They need to be rebuilt manually in case of failures.
+- **GIN** (Generalized Inverted Indexes) — GIN indexes are useful when an index needs to map a large amount of values to one row, while B-Tree indexes are optimized for cases when a row has a single key value. GIN indexes work well for indexing fulltext search and for indexing array values.
+- **GiST** (Generalized Search Tree) — GiST indexes aren’t viewed as a single type of index but rather as an index infrastructure; a base to create different indexing strategies. GiST indexes enable building general B-Tree structures that you can use for operations more complex than equality and range comparisons. They are mainly used to create indexes for geometric data types and they support full-text search indexing.
+- **BRIN** (Block Range Indexes) — BRIN Indexes store summary data for values stored in sequential physical table block ranges. A BRIN index contains only the minimum and maximum values contained in a group of database pages. Its main advantage is that it can rule out the presence of certain records and therefore reduce query run time.
 
-- **Local partitioned index** maintains a one-to-one relationship between the index partitions and the table partitions. For each table partition, Oracle creates a separate index partition. This type of index is created using the `LOCAL` clause. Because each index partition is independent, index maintenance operations are easier and can be performed independently. Local partitioned indexes are managed automatically by Oracle during creation or deletion of table partitions.
-- **Global partitioned index** contains keys from multiple table partitions in a single index partition. This type of index is created using the `GLOBAL` clause during index creation. A global index can be partitioned or non-partitioned (default). Certain restrictions exist when creating global partitioned indexes on partitioned tables, specifically for index management and maintenance. For example, dropping a table partition causes the global index to become unusable without an index rebuild.
+Additional PostgreSQL indexes (such as SP-GiST) exist but are currently not supported because they require a loadable extension not currently available in Amazon Aurora PostgreSQL.
+
+Starting with PostgreSQL 12 it is now possible to monitor progress of `CREATE INDEX` and `REINDEX` operartions by querying system view `pg_stat_progress_create_index`.
+
+## CREATE INDEX synopsis
+
+```
+CREATE [ UNIQUE ] INDEX [ CONCURRENTLY ] [ [ IF NOT EXISTS ] name ]
+ON table_name [ USING method ]
+( { column_name | ( expression ) } [ COLLATE collation ] [ opclass ] [ ASC | DESC
+] [ NULLS { FIRST | LAST } ] [, ...] )
+[ WITH ( storage_parameter = value [, ... ] ) ]
+[ TABLESPACE tablespace_name ]
+[ WHERE predicate ]
+```
+
+By default, the `CREATE INDEX` statement creates a B-Tree index.
 
 **Examples**
 
-Create a local index on a partitioned table.
+Oracle `CREATE/DROP` Index.
 
 ```
-CREATE INDEX IDX_SYS_LOGS_LOC ON SYSTEM_LOGS (EVENT_DATE)
-  LOCAL
-    (PARTITION EVENT_DATE_1,
-    PARTITION EVENT_DATE_2,
-    PARTITION EVENT_DATE_3);
+CREATE UNIQUE INDEX IDX_EMP_ID ON EMPLOYEES (EMPLOYEE_ID DESC);
+DROP INDEX IDX_EMP_ID;
 ```
 
-Create a global index on a partitioned table.
+PostgreSQL `CREATE/DROP` Index.
 
 ```
-CREATE INDEX IDX_SYS_LOGS_GLOB ON SYSTEM_LOGS (EVENT_DATE)
-  GLOBAL PARTITION BY RANGE (EVENT_DATE) (
-    PARTITION EVENT_DATE_1 VALUES LESS THAN (TO_DATE('01/01/2015','DD/MM/YYYY')),
-    PARTITION EVENT_DATE_2 VALUES LESS THAN (TO_DATE('01/01/2016','DD/MM/YYYY')),
-    PARTITION EVENT_DATE_3 VALUES LESS THAN (TO_DATE('01/01/2017','DD/MM/YYYY')),
-    PARTITION EVENT_DATE_4 VALUES LESS THAN (MAXVALUE);
+demo=> CREATE UNIQUE INDEX IDX_EMP_ID ON EMPLOYEES (EMPLOYEE_ID DESC);
+demo=> DROP INDEX IDX_EMP_ID;
 ```
 
-For more information, see [Partitioning Concepts](https://docs.oracle.com/en/database/oracle/oracle-database/19/vldbg/partition-concepts.html#GUID-EA7EF5CB-DD49-43AF-889A-F83AAC0D7D51 "https://docs.oracle.com/en/database/oracle/oracle-database/19/vldbg/partition-concepts.html#GUID-EA7EF5CB-DD49-43AF-889A-F83AAC0D7D51") and [Index Partitioning](https://docs.oracle.com/en/database/oracle/oracle-database/19/vldbg/index-partitioning.html#GUID-569F94D0-E6E5-45BB-9626-5506DE18FF00 "https://docs.oracle.com/en/database/oracle/oracle-database/19/vldbg/index-partitioning.html#GUID-569F94D0-E6E5-45BB-9626-5506DE18FF00") in the _Oracle documentation_.
-
-## PostgreSQL usage
-
-The table partitioning mechanism in PostgreSQL is different when compared to Oracle. There is no direct equivalent for Oracle local and global indexes. The implementation of partitioning in PostgreSQL (table inheritance) includes the use of a parent table with child tables used as the table partitions. Also, when using declarative partitions, global index is still not supported while creating a global index will create an index for each partition, there is a parent index referring to all sub indexes but there is no actual global indexes.
-
-Indexes created on the child tables behave similarly to local indexes in the Oracle database, with portable indexes (partitions). Creating an index on the parent table, such as a global index in Oracle, has no effect.
-
-While concurrent indexes on partitioned tables build are currently not supported, you may concurrently build the index on each partition individually and then finally create the partitioned index non-concurrently in order to reduce the time where writes to the partitioned table will be locked out. In this case, building the partitioned index is a meta-data only operation.
-
-A `CREATE INDEX` command invoked on a partitioned table, will `RECURSE` (default) to all partitions to ensure they all have matching indexes. Each partition is first checked to determine whether an equivalent index already exists, and if so, that index will become attached as a partition index to the index being created, which will become its parent index. If no matching index exists, a new index will be created and automatically attached.
-
-**Examples**
-
-Create the parent table.
+Oracle `ALTER INDEX …​ RENAME`.
 
 ```
-CREATE TABLE SYSTEM_LOGS
-  (EVENT_NO NUMERIC NOT NULL,
-  EVENT_DATE DATE NOT NULL,
-  EVENT_STR VARCHAR(500),
-  ERROR_CODE VARCHAR(10));
+ALTER INDEX IDX_EMP_ID RENAME TO IDX_EMP_ID_OLD;
 ```
 
-Create child tables (partitions) with a check constraint.
+PostgreSQL `ALTER INDEX …​ RENAME`.
 
 ```
-CREATE TABLE SYSTEM_LOGS_WARNING (
-  CHECK (ERROR_CODE IN('err1', 'err2', 'err3')))
-  INHERITS (SYSTEM_LOGS);
-
-CREATE TABLE SYSTEM_LOGS_CRITICAL (
-CHECK (ERROR_CODE IN('err4', 'err5', 'err6')))
-  INHERITS (SYSTEM_LOGS);
+demo=> ALTER INDEX IDX_EMP_ID RENAME TO IDX_EMP_ID_OLD;
 ```
 
-Create Indexes on all child tables (partitions).
+Oracle `ALTER INDEX …​ TABLESPACE`.
 
 ```
-CREATE INDEX IDX_SYSTEM_LOGS_WARNING ON
-  SYSTEM_LOGS_WARNING(ERROR_CODE);
-
-CREATE INDEX IDX_SYSTEM_LOGS_CRITICAL ON
-  SYSTEM_LOGS_CRITICAL(ERROR_CODE);
+ALTER INDEX IDX_EMP_ID REBUILD TABLESPACE USER_IDX;
 ```
 
-PostgreSQL doesn’t have direct equivalents for local and global indexes in Oracle. However, indexes that have been created on the child tables behave similarly to local indexes in Oracle.
+PostgreSQL `ALTER INDEX …​ TABLESPACE`.
 
-For more information, see [Table Partitioning](https://www.postgresql.org/docs/13/ddl-partitioning.html "https://www.postgresql.org/docs/13/ddl-partitioning.html") in the _PostgreSQL documentation_.
+```
+demo=> CREATE TABLESPACE PGIDX LOCATION '/data/indexes';
+demo=> ALTER INDEX IDX_EMP_ID SET TABLESPACE PGIDX;
+```
+
+Oracle `REBUILD INDEX`.
+
+```
+ALTER INDEX IDX_EMP_ID REBUILD;
+```
+
+PostgreSQL `REINDEX (REBUILD) INDEX`.
+
+```
+demo=> REINDEX INDEX IDX_EMP_ID;
+```
+
+Oracle `REBUILD INDEX ONLINE`.
+
+```
+ALTER INDEX IDX_EMP_ID REBUILD ONLINE;
+```
+
+PostgreSQL `REINDEX (REBUILD) INDEX ONLINE`.
+
+```
+demo=> CREATE INDEX CONCURRENTLY IDX_EMP_ID1 ON EMPLOYEES(EMPLOYEE_ID);
+demo=> DROP INDEX CONCURRENTLY IDX_EMP_ID;
+```
+
+For more information, see [Building Indexes Concurrently](https://www.postgresql.org/docs/13/sql-createindex.html#SQL-CREATEINDEX-CONCURRENTLY "https://www.postgresql.org/docs/13/sql-createindex.html#SQL-CREATEINDEX-CONCURRENTLY"), [ALTER INDEX](https://www.postgresql.org/docs/13/sql-alterindex.html "https://www.postgresql.org/docs/13/sql-alterindex.html"), and [REINDEX](https://www.postgresql.org/docs/13/sql-reindex.html "https://www.postgresql.org/docs/13/sql-reindex.html") in the _PostgreSQL documentation_.
+
+## Summary
+
+| Oracle indexes types and features                   | PostgreSQL compatibility                                                           | PostgreSQL equivalent                      |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------ |
+| B-Tree Index                                        | Supported                                                                          | B-Tree Index                               |
+| Index-Organized Tables                              | Supported                                                                          | PostgreSQL CLUSTER                         |
+| Reverse key indexes                                 | Not supported                                                                      | N/A                                        |
+| Descending indexes                                  | Supported                                                                          | ASC (default) / DESC                       |
+| B-tree cluster indexes                              | Not supported                                                                      | N/A                                        |
+| Unique / non-unique indexes                         | Supported                                                                          | Syntax is identical                        |
+| Function-based indexes                              | Supported                                                                          | PostgreSQL expression indexes              |
+| Application domain indexes                          | Not supported                                                                      | N/A                                        |
+| BITMAP index / Bitmap join indexes                  | Not supported                                                                      | Consider BRIN index                        |
+| Composite indexes                                   | Supported                                                                          | Multicolumn indexes                        |
+| Invisible indexes                                   | Not supported                                                                      | Extension hypopg isn’t currently supported |
+| Local and global indexes                            | Not supported                                                                      | N/A                                        |
+| Partial Indexes for Partitioned Tables (Oracle 12c) | Not supported                                                                      | N/A                                        |
+| CREATE INDEX… / DROP INDEX…                         | Supported                                                                          | High percentage of syntax similarity       |
+| ALTER INDEX… (General Definitions)                  | Supported                                                                          | N/A                                        |
+| ALTER INDEX… REBUILD                                | Supported                                                                          | REINDEX                                    |
+| ALTER INDEX… REBUILD ONLINE                         | Limited support                                                                    | CONCURRENTLY                               |
+| Index metadata                                      | PG_INDEXES (Oracle USER_INDEXES)                                                   | N/A                                        |
+| Index tablespace allocation                         | Supported                                                                          | SET TABLESPACE                             |
+| Index Parallel Operations                           | Not supported                                                                      | N/A                                        |
+| Index compression                                   | No direct equivalent to Oracle index key compression or advanced index compression | N/A                                        |
