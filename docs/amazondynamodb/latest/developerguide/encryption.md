@@ -1,257 +1,111 @@
-# Managing encrypted tables in DynamoDB
+# DynamoDB encryption at rest: How it works
 
-You can use the AWS Management Console or the AWS Command Line Interface (AWS CLI) to specify the encryption key on new
-tables and update the encryption keys on existing tables in Amazon DynamoDB.
+Amazon DynamoDB encryption at rest encrypts your data using 256-bit Advanced Encryption Standard
+(AES-256), which helps secure your data from unauthorized access to the underlying
+storage.
 
-###### Topics
-
-- [Specifying the encryption key for a new
-  table](#encryption.tutorial-creating "#encryption.tutorial-creating")
-- [Updating an encryption key](#encryption.tutorial-update "#encryption.tutorial-update")
-
-## Specifying the encryption key for a new
-
-table
-
-Follow these steps to specify the encryption key on a new table using the Amazon DynamoDB
-console or the AWS CLI.
-
-### Creating an encrypted table
-
-(console)
-
-1. Sign in to the AWS Management Console and open the DynamoDB console at
-   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2. In the navigation pane on the left side of the console, choose
-   **Tables**.
-3. Choose **Create Table**. For the **Table
-   name**, enter `Music`. For the primary
-   key, enter `Artist`, and for the sort key, enter
-   `SongTitle`, both as strings.
-4. In **Settings**, make sure that **Customize settings**
-   is selected.
+Encryption at rest integrates with AWS Key Management Service (AWS KMS) for managing the encryption keys that
+are used to encrypt your tables.
 
 ###### Note
 
-If **Use default settings** is selected, tables are
-encrypted at rest with the AWS owned key at no additional cost. 5. Under **Encryption at rest**, choose an encryption
-type - AWS owned key, AWS managed key, or customer managed key.
+In May 2022, AWS KMS changed the rotation schedule for AWS managed keys from every three years
+(approximately 1,095 days) to every year (approximately 365 days).
 
-    * **Owned by Amazon DynamoDB.** AWS owned key, specifically
-     owned and managed by DynamoDB. You are not charged an additional
-     fee for using this key.
-    * **AWS managed key**. Key alias: `aws/dynamodb`.
-     The key is stored in your account and is managed by AWS Key Management Service (AWS KMS). AWS KMS charges
-     apply.
-    * **Stored in your account, and owned and managed by you.**
-     Customer managed key. The key is stored in your account and is managed by AWS Key Management Service (AWS KMS). AWS KMS charges
-     apply.
+New AWS managed keys are automatically rotated one year after they are created, and approximately
+every year thereafter.
 
+Existing AWS managed keys are automatically rotated one year after their most recent rotation,
+and every year thereafter.
 
-    ###### Note
+## AWS owned keys
 
-    If you select to own and manage your own key, make sure the KMS Key Policy is appropriately set.
-     For more information including examples, see
-     [Key policy for a customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk").
+AWS owned keys are not stored in your AWS account. They are part of a collection
+of KMS keys that AWS owns and manages for use in multiple AWS accounts. AWS
+services can use AWS owned keys to protect your data. AWS owned keys used by DynamoDB
+are rotated every year (approximately 365 days).
 
-6. Choose **Create table** to create the encrypted table. To
-   confirm the encryption type, select the table details on the
-   **Overview** tab and review the **Additional details** section.
+You cannot view, manage, or use AWS owned keys, or audit their use. However, you do
+not need to do any work or change any programs to protect the keys that encrypt your
+data.
 
-### Creating an encrypted table
+You are not charged a monthly fee or a usage fee for use of AWS owned keys, and they
+do not count against AWS KMS quotas for your account.
 
-(AWS CLI)
+## AWS managed keys
 
-Use the AWS CLI to create a table with the default AWS owned key, the
-AWS managed key, or a customer managed key for Amazon DynamoDB.
+AWS managed keys are KMS keys in your account that are created, managed, and used
+on your behalf by an AWS service that is integrated with AWS KMS. You can view the
+AWS managed keys in your account, view their key policies, and audit their use in
+AWS CloudTrail logs. However, you cannot manage these KMS keys or change their
+permissions.
 
-###### To create an encrypted table with the default AWS owned key
+Encryption at rest automatically integrates with AWS KMS for managing the
+AWS managed keys for DynamoDB (`aws/dynamodb`) that are used to encrypt your
+tables. If an AWS managed key doesn't exist when you create your encrypted DynamoDB
+table, AWS KMS automatically creates a new key for you. This key is used with encrypted
+tables that are created in the future. AWS KMS combines secure, highly available hardware
+and software to provide a key management system scaled for the cloud.
 
-- Create the encrypted `Music` table as follows.
+For more information about managing permissions of the AWS managed key, see [Authorizing use of the
+AWS managed key](../../../kms/latest/developerguide/services-dynamodb.md#dynamodb-authz "../../../kms/latest/developerguide/services-dynamodb.md#dynamodb-authz") in the _AWS Key Management Service Developer Guide_.
 
-```
-aws dynamodb create-table \
-  --table-name Music \
-  --attribute-definitions \
-      AttributeName=Artist,AttributeType=S \
-      AttributeName=SongTitle,AttributeType=S \
-  --key-schema \
-      AttributeName=Artist,KeyType=HASH \
-      AttributeName=SongTitle,KeyType=RANGE \
-  --provisioned-throughput \
-      ReadCapacityUnits=10,WriteCapacityUnits=5
-```
+## Customer managed keys
 
-###### Note
+Customer managed keys are KMS keys in your AWS account that you create, own, and manage.
+You have full control over these KMS keys, including establishing and maintaining
+their key policies, IAM policies, and grants; enabling and disabling them; rotating
+their cryptographic material; adding tags; creating aliases that refer to them; and
+scheduling them for deletion. For more information about managing permissions of a
+customer managed key, see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk").
 
-This table is now encrypted using the default AWS owned key in the
-DynamoDB service account.
+When you specify a customer managed key as the table-level encryption key, the DynamoDB table,
+local and global secondary indexes, and streams are encrypted with the same customer managed key.
+On-demand backups are encrypted with the table-level encryption key that is specified at
+the time the backup is created. Updating the table-level encryption key does not change
+the encryption key that is associated with existing on-demand backups.
 
-###### To create an encrypted table with the AWS managed key for DynamoDB
+Setting the state of the customer managed key to disabled or scheduling it for deletion prevents
+all users and the DynamoDB service from being able to encrypt or decrypt data and to
+perform read and write operations on the table. DynamoDB must have access to your
+encryption key to ensure that you can continue to access your table and to prevent data
+loss.
 
-- Create the encrypted `Music` table as follows.
-
-```
-aws dynamodb create-table \
-  --table-name Music \
-  --attribute-definitions \
-      AttributeName=Artist,AttributeType=S \
-      AttributeName=SongTitle,AttributeType=S \
-  --key-schema \
-      AttributeName=Artist,KeyType=HASH \
-      AttributeName=SongTitle,KeyType=RANGE \
-  --provisioned-throughput \
-      ReadCapacityUnits=10,WriteCapacityUnits=5 \
-  --sse-specification Enabled=true,SSEType=KMS
-```
-
-The `SSEDescription` status of the table description is set to
-`ENABLED` and the `SSEType` is `KMS`.
-
-```
-"SSEDescription": {
-  "SSEType": "KMS",
-  "Status": "ENABLED",
-  "KMSMasterKeyArn": "arn:aws:kms:us-east-1:123456789012:key/abcd1234-abcd-1234-a123-ab1234a1b234",
-}
-```
-
-###### To create an encrypted table with a customer managed key for DynamoDB
-
-- Create the encrypted `Music` table as follows.
-
-```
-aws dynamodb create-table \
-  --table-name Music \
-  --attribute-definitions \
-      AttributeName=Artist,AttributeType=S \
-      AttributeName=SongTitle,AttributeType=S \
-  --key-schema \
-      AttributeName=Artist,KeyType=HASH \
-      AttributeName=SongTitle,KeyType=RANGE \
-  --provisioned-throughput \
-      ReadCapacityUnits=10,WriteCapacityUnits=5 \
-  --sse-specification Enabled=true,SSEType=KMS,KMSMasterKeyId=abcd1234-abcd-1234-a123-ab1234a1b234
-```
-
-The `SSEDescription` status of the table description is set to
-`ENABLED` and the `SSEType` is
-`KMS`.
-
-```
-"SSEDescription": {
-  "SSEType": "KMS",
-  "Status": "ENABLED",
-  "KMSMasterKeyArn": "arn:aws:kms:us-east-1:123456789012:key/abcd1234-abcd-1234-a123-ab1234a1b234",
-}
-```
-
-## Updating an encryption key
-
-You can also use the DynamoDB console or the AWS CLI to update the encryption keys of an
-existing table between an AWS owned key, AWS managed key, and customer managed key at any
-time.
-
-### Updating an encryption key
-
-(console)
-
-1.  Sign in to the AWS Management Console and open the DynamoDB console at
-    [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2.  In the navigation pane on the left side of the console, choose
-    **Tables**.
-3.  Choose the table that you want to update.
-4.  Select the **Actions** dropdown,
-    and then select the **Update settings** option.
-5.  Go to the **Additional settings** tab.
-6.  Under **Encryption**, choose **Manage encryption**.
-7.  Choose an encryption type:
-
-        * **Owned by Amazon DynamoDB.** The AWS KMS key is
-         owned and managed by DynamoDB. You are not charged an additional
-         fee for using this key.
-        * **AWS managed key** Key alias: `aws/dynamodb`.
-         The key is stored in your account and is managed by AWS Key Management Service. (AWS KMS). AWS KMS charges
-         apply.
-        * **Stored in your account, and owned and managed by you.**
-         The key is stored in your account and is managed by AWS Key Management Service. (AWS KMS). AWS KMS charges
-         apply.
-
-
-        ###### Note
-
-        If you select to own and manage your own key, make sure the KMS Key Policy is appropriately set.
-         For more information see
-         [Key policy for a customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk").
-
-    Then choose **Save** to update the encrypted table. To
-    confirm the encryption type, check the table details under the
-    **Overview** tab.
-
-### Updating an encryption key
-
-(AWS CLI)
-
-The following examples show how to update an encrypted table using the
-AWS CLI.
-
-###### To update an encrypted table with the default AWS owned key
-
-- Update the encrypted `Music` table, as in the following
-  example.
-
-```
-aws dynamodb update-table \
-  --table-name Music \
-  --sse-specification Enabled=false
-```
+If you disable your customer managed key or schedule it for deletion, your table status becomes
+**Inaccessible**. To ensure that you can continue working with the
+table, you must provide DynamoDB access to the specified encryption key within seven days.
+As soon as the service detects that your encryption key is inaccessible, DynamoDB sends you
+an email notification to alert you.
 
 ###### Note
 
-This table is now encrypted using the default AWS owned key in the
-DynamoDB service account.
+- If your customer managed key remains inaccessible to the DynamoDB service for longer
+  than seven days, the table is archived and can no longer be accessed. DynamoDB
+  creates an on-demand backup of your table, and you are billed for it. You
+  can use this on-demand backup to restore your data to a new table. To
+  initiate the restore, the last customer managed key on the table must be enabled, and
+  DynamoDB must have access to it.
+- If your customer managed key that was used to encrypt a global table replica is
+  inaccessible DynamoDB will remove this replica from the replication group. The
+  replica will not be deleted and replication will stop from and to this
+  region, 20 hours after detecting the customer managed key as inaccessible.
 
-###### To update an encrypted table with the AWS managed key for DynamoDB
+For more information, see [enabling keys](../../../kms/latest/developerguide/enabling-keys.md "../../../kms/latest/developerguide/enabling-keys.md") and [deleting keys.](../../../kms/latest/developerguide/deleting-keys.md "../../../kms/latest/developerguide/deleting-keys.md")
 
-- Update the encrypted `Music` table, as in the following
-  example.
+## Notes on using AWS managed keys
 
-```
-aws dynamodb update-table \
-  --table-name Music \
-  --sse-specification Enabled=true
-```
+Amazon DynamoDB can't read your table data unless it has access to the KMS key stored in
+your AWS KMS account. DynamoDB uses envelope encryption and key hierarchy to encrypt data.
+Your AWS KMS encryption key is used to encrypt the root key of this key hierarchy. For
+more information, see [Envelope
+encryption](../../../kms/latest/developerguide/concepts.md#enveloping "../../../kms/latest/developerguide/concepts.md#enveloping") in the _AWS Key Management Service Developer Guide_.
 
-The `SSEDescription` status of the table description is set to
-`ENABLED` and the `SSEType` is
-`KMS`.
+DynamoDB doesn't call AWS KMS for every DynamoDB operation. The key is refreshed once every 5
+minutes per caller with active traffic.
 
-```
-"SSEDescription": {
-  "SSEType": "KMS",
-  "Status": "ENABLED",
-  "KMSMasterKeyArn": "arn:aws:kms:us-east-1:123456789012:key/abcd1234-abcd-1234-a123-ab1234a1b234",
-}
-```
-
-###### To update an encrypted table with a customer managed key for DynamoDB
-
-- Update the encrypted `Music` table, as in the following
-  example.
-
-```
-aws dynamodb update-table \
-  --table-name Music \
-  --sse-specification Enabled=true,SSEType=KMS,KMSMasterKeyId=abcd1234-abcd-1234-a123-ab1234a1b234
-```
-
-The `SSEDescription` status of the table description is set to
-`ENABLED` and the `SSEType` is `KMS`.
-
-```
-"SSEDescription": {
-  "SSEType": "KMS",
-  "Status": "ENABLED",
-  "KMSMasterKeyArn": "arn:aws:kms:us-east-1:123456789012:key/abcd1234-abcd-1234-a123-ab1234a1b234",
-}
-```
+Ensure that you have configured the SDK to reuse connections. Otherwise, you will
+experience latencies from DynamoDB having to reestablish new AWS KMS cache entries for each
+DynamoDB operation. In addition, you might potentially have to face higher AWS KMS and CloudTrail
+costs. For example, to do this using the Node.js SDK, you can create a new HTTPS agent
+with `keepAlive` turned on. For more information, see [Configuring keepAlive in Node.js](../../../sdk-for-javascript/v2/developer-guide/node-reusing-connections.md "../../../sdk-for-javascript/v2/developer-guide/node-reusing-connections.md") in the _AWS SDK for JavaScript Developer
+Guide_.

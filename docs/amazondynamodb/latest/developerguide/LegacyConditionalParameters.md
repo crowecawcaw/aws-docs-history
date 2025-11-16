@@ -1,148 +1,50 @@
-# AttributeUpdates (legacy)
+# Legacy DynamoDB conditional parameters
 
-###### Note
+This document provides an overview of legacy conditional parameters in DynamoDB and recommends
+using the new expression parameters instead. It covers details on parameters like AttributesToGet,
+AttributeUpdates, ConditionalOperator, Expected, KeyConditions, QueryFilter, and ScanFilter, and
+provides examples of how to use the new expression parameters as replacements.
+
+###### Important
 
 We recommend that you use the new expression parameters instead of these legacy parameters whenever possible.
 For more information, see [Using expressions in DynamoDB](Expressions.md "Expressions.md").
-For specific information on the new parameter replacing this one,
-[use UpdateExpression instead.](#UpdateExpression.instead "#UpdateExpression.instead").
 
-In an `UpdateItem` operation, the legacy conditional parameter `AttributeUpdates`
-contains the names of attributes to be modified, the action to perform on each, and the new
-value for each. If you are updating an attribute that is an index key attribute for any
-indexes on that table, the attribute type must match the index key type defined in the
-`AttributesDefinition` of the table description. You can use
-`UpdateItem` to update any non-key attributes.
+Additionally, DynamoDB does not allow mixing legacy conditional parameters and expression parameters in
+a single call. For example, calling the `Query` operation with
+`AttributesToGet` and `ConditionExpression` will result in an
+error.
 
-Attribute values cannot be null. String and Binary type attributes must have lengths
-greater than zero. Set type attributes must not be empty. Requests with empty values
-will be rejected with a `ValidationException` exception.
+The following table shows the DynamoDB API operations that still support these legacy
+parameters, and which expression parameter to use instead. This table can be helpful if you
+are considering updating your applications so that they use expression parameters
+instead.
 
-Each `AttributeUpdates` element consists of an attribute name to
-modify, along with the following:
+| If you use this API operation... | With these legacy parameters... | Use this expression parameter instead |
+| -------------------------------- | ------------------------------- | ------------------------------------- |
+| `BatchGetItem`                   | `AttributesToGet`               | `ProjectionExpression`                |
+| `DeleteItem`                     | `Expected`                      | `ConditionExpression`                 |
+| `GetItem`                        | `AttributesToGet`               | `ProjectionExpression`                |
+| `PutItem`                        | `Expected`                      | `ConditionExpression`                 |
+| `Query`                          | `AttributesToGet`               | `ProjectionExpression`                |
+| `KeyConditions`                  | `KeyConditionExpression`        |
+| `QueryFilter`                    | `FilterExpression`              |
+| `Scan`                           | `AttributesToGet`               | `ProjectionExpression`                |
+| `ScanFilter`                     | `FilterExpression`              |
+| `UpdateItem`                     | `AttributeUpdates`              | `UpdateExpression`                    |
+| `Expected`                       | `ConditionExpression`           |
 
-- `Value` - The new value, if applicable, for this
-  attribute.
-- `Action` - A value that specifies how to perform the update.
-  This action is only valid for an existing attribute whose data type is Number or
-  is a set; do not use `ADD` for other data types.
+The following sections provide more information about legacy conditional
+parameters.
 
-If an item with the specified primary key is found in the table, the following
-values perform the following actions:
+###### Topics
 
-    + `PUT` - Adds the specified attribute to the item. If the
-     attribute already exists, it is replaced by the new value.
-    + `DELETE` - Removes the attribute and its value, if no value
-     is specified for `DELETE`. The data type of the specified
-     value must match the existing value's data type.
-
-
-    If a set of values is specified, then those values are subtracted from
-     the old set. For example, if the attribute value was the set
-     `[a,b,c]` and the `DELETE` action specifies
-     `[a,c]`, then the final attribute value is
-     `[b]`. Specifying an empty set is an error.
-    + `ADD` - Adds the specified value to the item, if the
-     attribute does not already exist. If the attribute does exist, then the
-     behavior of `ADD` depends on the data type of the
-     attribute:
-
-
-
-
-    	- If the existing attribute is a number, and if
-    	 `Value` is also a number, then
-    	 `Value` is mathematically added to the
-    	 existing attribute. If `Value` is a negative
-    	 number, then it is subtracted from the existing
-    	 attribute.
-
-
-    	###### Note
-
-    	If you use `ADD` to increment or decrement a
-    	 number value for an item that doesn't exist before the
-    	 update, DynamoDB uses 0 as the initial value.
-
-    	Similarly, if you use `ADD` for an existing
-    	 item to increment or decrement an attribute value that
-    	 doesn't exist before the update, DynamoDB uses
-    	 `0` as the initial value. For example,
-    	 suppose that the item you want to update doesn't have an
-    	 attribute named *itemcount*, but you
-    	 decide to `ADD` the number `3` to this
-    	 attribute anyway. DynamoDB will create the
-    	 *itemcount* attribute, set its
-    	 initial value to `0`, and finally add
-    	 `3` to it. The result will be a new
-    	 *itemcount* attribute, with a value
-    	 of `3`.
-    	- If the existing data type is a set, and if
-    	 `Value` is also a set, then
-    	 `Value` is appended to the existing set.
-    	 For example, if the attribute value is the set
-    	 `[1,2]`, and the `ADD` action
-    	 specified `[3]`, then the final attribute value is
-    	 `[1,2,3]`. An error occurs if an `ADD`
-    	 action is specified for a set attribute and the attribute type
-    	 specified does not match the existing set type.
-
-
-    	Both sets must have the same primitive data type. For example,
-    	 if the existing data type is a set of strings,
-    	 `Value` must also be a set of
-    	 strings.
-
-If no item with the specified key is found in the table, the following values
-perform the following actions:
-
-    + `PUT` - Causes DynamoDB to create a new item with the
-     specified primary key, and then adds the attribute.
-    + `DELETE` - Nothing happens, because attributes cannot be
-     deleted from a nonexistent item. The operation succeeds, but DynamoDB
-     does not create a new item.
-    + `ADD` - Causes DynamoDB to create an item with the supplied
-     primary key and number (or set of numbers) for the attribute value. The
-     only data types allowed are Number and Number Set.
-
-If you provide any attributes that are part of an index key, then the data types for
-those attributes must match those of the schema in the table's attribute
-definition.
-
-## Use _UpdateExpression_ instead – Example
-
-Suppose you wanted to modify an item in the _Music_ table. You
-could use an `UpdateItem` request with an `AttributeUpdates`
-parameter, as in this AWS CLI example:
-
-```
-aws dynamodb update-item \
-    --table-name Music \
-    --key '{
-        "SongTitle": {"S":"Call Me Today"},
-        "Artist": {"S":"No One You Know"}
-    }' \
-    --attribute-updates '{
-        "Genre": {
-            "Action": "PUT",
-            "Value": {"S":"Rock"}
-        }
-    }'
-
-```
-
-You can use a `UpdateExpression` instead:
-
-```
-aws dynamodb update-item \
-    --table-name Music \
-    --key '{
-        "SongTitle": {"S":"Call Me Today"},
-        "Artist": {"S":"No One You Know"}
-    }' \
-    --update-expression 'SET Genre = :g' \
-    --expression-attribute-values '{
-        ":g": {"S":"Rock"}
-    }'
-
-```
+- [AttributesToGet (legacy)](LegacyConditionalParameters.md "LegacyConditionalParameters.md")
+- [AttributeUpdates (legacy)](LegacyConditionalParameters.md "LegacyConditionalParameters.md")
+- [ConditionalOperator (legacy)](LegacyConditionalParameters.md "LegacyConditionalParameters.md")
+- [Expected (legacy)](LegacyConditionalParameters.md "LegacyConditionalParameters.md")
+- [KeyConditions (legacy)](LegacyConditionalParameters.md "LegacyConditionalParameters.md")
+- [QueryFilter (legacy)](LegacyConditionalParameters.md "LegacyConditionalParameters.md")
+- [ScanFilter (legacy)](LegacyConditionalParameters.md "LegacyConditionalParameters.md")
+- [Writing conditions with legacy
+  parameters](LegacyConditionalParameters.md "LegacyConditionalParameters.md")

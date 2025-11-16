@@ -1,110 +1,58 @@
-# Building PartiQL statements
+# Cloning tables with NoSQL
 
-To use NoSQL Workbench to build [PartiQL for
-DynamoDB](ql-reference.md "ql-reference.md") statements, choose **PartiQL editor** near the
-top of the NoSQL Workbench UI.
+Workbench
 
-You can build the following PartiQL statement types in the operation
-builder.
+Cloning tables will copy a table’s key schema (and optionally GSI schema and items)
+between your development environments. You can clone a table between DynamoDB local to an
+Amazon DynamoDB account, and even clone a table from one account to another in different
+Regions for faster experimentation.
 
-###### Topics
+###### To clone a table
 
-- [Singleton
-  statements](#workbench.querybuilder.partiql.single "#workbench.querybuilder.partiql.single")
-- [Transactions](#workbench.querybuilder.partiql.transaction "#workbench.querybuilder.partiql.transaction")
-- [Batch](#workbench.querybuilder.partiql.batch "#workbench.querybuilder.partiql.batch")
+1. In the **Operation Builder**, select your
+   connection and Region (Region selection is not available for DynamoDB local).
+2. Once you are connected to DynamoDB, browse your tables and select the table you
+   want to clone.
+3. From the horizontal ellipsis menu, select the **Clone** option.
+4. Input your clone destination details:
+   1. Select a connection.
+   2. Select a Region (Region is not available for DynamoDB local).
+   3. Enter a new table name.
+   4. Choose a clone option:
+      1. **Key schema** is selected by
+         default and cannot be unselected. By default, cloning a table
+         will copy your primary key and sort key if they are
+         available.
+      2. **GSI schema** is selected by
+         default if your table to be cloned has a GSI. Cloning a table
+         will copy your GSI primary key and sort key if they are
+         available. You have the option to deselect GSI schema to skip
+         cloning the GSI schema. Cloning a table will copy your base
+         table’s capacity settings as the GSI’s capacity settings. You
+         can use the `UpdateTable` operation in Operation
+         Builder to update the table’s GSI capacity setting after cloning
+         is complete.
 
-## Singleton
+5. Enter the number of items to clone. To only clone the key schema and
+   optionally the GSI schema, you can keep the **Items to
+   clone** value at 0. The maximum number of items that can be cloned
+   is 5000.
+6. Choose a capacity mode:
+   1. **On-demand mode** is selected by
+      default. DynamoDB on-demand offers pay-per-request pricing for read and
+      write requests so that you pay only for what you use. To learn more, see
+      [DynamoDB On-demand mode](capacity-mode.md#capacity-mode-on-demand "capacity-mode.md#capacity-mode-on-demand")
+      .
+   2. **Provisioned mode** lets you specify the
+      number of reads and writes per second that you require for your
+      application. You can use auto scaling to adjust your table’s provisioned
+      capacity automatically in response to traffic changes. To learn more,
+      see [DynamoDB
+      Provisioned mode](provisioned-capacity-mode.md "provisioned-capacity-mode.md").
 
-statements
-
-To run or generate code for a PartiQL statement, do the following.
-
-1. Choose **PartiQL editor** near the top of the
-   window.
-2. Enter a valid [PartiQL statement](ql-reference.md "ql-reference.md").
-3. If your statement uses parameters:
-   1. Choose **Optional request
-      parameters**.
-   2. Choose **Add new parameters**.
-   3. Enter the attribute type and value.
-   4. If you want to add additional parameters, repeat steps b and
-      c.
-
-4. If you want to generate code, choose **Generate
-   code**.
-
-Select your desired language from the displayed tabs. You can now copy
-this code and use it in your application. 5. If you want the operation to be run immediately, choose
-**Run**. 6. If you want to save this operation for later use, choose
-**Save operation**. Then enter a name for your
-operation and choose **Save**.
-
-## Transactions
-
-To run or generate code for a PartiQL transaction, do the following.
-
-1. Choose **PartiQLTransaction** from the **More
-   operations** dropdown.
-2. Choose **Add a new statement**.
-3. Enter a valid [PartiQL statement](ql-reference.md "ql-reference.md").
-
-###### Note
-
-Read and write operations are not supported in the same PartiQL
-transaction request. A SELECT statement cannot be in the same
-request with INSERT, UPDATE, and DELETE statements. See [Performing transactions with PartiQL for DynamoDB](ql-reference.multiplestatements.md "ql-reference.multiplestatements.md") for
-more details. 4. If your statement uses parameters
-
-    1. Choose **Optional request
-     parameters**.
-    2. Choose **Add new parameters**.
-    3. Enter the attribute type and value.
-    4. If you want to add additional parameters, repeat steps b and
-     c.
-
-5. If you want to add more statements, repeat steps 2 to 4.
-6. If you want to generate code, choose **Generate
-   code**.
-
-Select your desired language from the displayed tabs. You can now copy
-this code and use it in your application. 7. If you want the operation to be run immediately, choose
-**Run**. 8. If you want to save this operation for later use, choose
-**Save operation**. Then enter a name for your
-operation and choose **Save**.
-
-## Batch
-
-To run or generate code for a PartiQL batch, do the following.
-
-1. Choose **PartiQLBatch** from the **More
-   operations** dropdown.
-2. Choose **Add a new statement**.
-3. Enter a valid [PartiQL statement](ql-reference.md "ql-reference.md").
-
-###### Note
-
-Read and write operations are not supported in the same PartiQL
-batch request, which means a SELECT statement cannot be in the same
-request with INSERT, UPDATE, and DELETE statements. Write operations
-to the same item are not allowed. As with the BatchGetItem
-operation, only singleton read operations are supported. Scan and
-query operations are not supported. See [Running batch operations with PartiQL for DynamoDB](ql-reference.multiplestatements.md "ql-reference.multiplestatements.md") for
-more details. 4. If your statement uses parameters:
-
-    1. Choose **Optional request
-     parameters**.
-    2. Choose **Add new parameters**.
-    3. Enter the attribute type and value.
-    4. If you want to add additional parameters, repeat steps b and
-     c.
-
-5. If you want to add more statements, repeat steps 2 to 4.
-6. If you want to generate code, choose **Generate
-   code**.
-
-Select your desired language from the displayed tabs. You can now copy
-this code and use it in your application. 7. If you want the operation to be run immediately, choose
-**Run**. 8. If you want to save this operation for later use, choose
-**Save operation**. Then enter a name for your
-operation and choose **Save**.
+7. Select **Clone** to begin cloning.
+8. The cloning process will run in the background. The **Operation builder** tab will show a notification when there is a
+   change in the cloning table status. You can access this status by selecting the
+   **Operation builder** tab and then selecting
+   the arrow button. The arrow button is located on the cloning table status widget
+   located near the bottom of the menu sidebar.

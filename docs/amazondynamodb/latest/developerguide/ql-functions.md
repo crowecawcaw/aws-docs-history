@@ -1,24 +1,22 @@
-# Using the ATTRIBUTE_TYPE function with PartiQL for DynamoDB
+# Using the BEGINS_WITH function with PartiQL for DynamoDB
 
-Returns `TRUE` if the attribute at the specified path is of a particular
-data type.
+Returns `TRUE` if the attribute specified begins with a particular substring.
 
 ## Syntax
 
 ```
-attribute_type( `attributename`, `type` )
+begins_with(`path`, `value` )
 ```
 
 ## Arguments
 
-`attributename`
+`path`
 
-(Required) The attribute name to use.
+(Required) The attribute name or document path to use.
 
-`type`
+`value`
 
-(Required) The attribute type to check for. For a list of valid
-values, see DynamoDB [attribute_type](Expressions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.md#Expressions.OperatorsAndFunctions.Functions").
+(Required) The string to search for.
 
 ## Return type
 
@@ -27,5 +25,5 @@ values, see DynamoDB [attribute_type](Expressions.md#Expressions.OperatorsAndFun
 ## Examples
 
 ```
-SELECT * FROM "Music" WHERE attribute_type("Artist", 'S')
+SELECT * FROM "Orders" WHERE "OrderID"=1 AND begins_with("Address", '7834 24th')
 ```

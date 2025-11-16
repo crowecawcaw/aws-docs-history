@@ -1,186 +1,97 @@
-# Condition and filter expressions,
+# Using projection expressions in
 
-operators, and functions in DynamoDB
+DynamoDB
 
-To manipulate data in an DynamoDB table, you use the `PutItem`, `UpdateItem`, and
-`DeleteItem` operations. For these data manipulation operations, you can specify a condition
-expression to determine which items should be modified. If the condition expression
-evaluates to true, the operation succeeds. Otherwise, the operation fails.
+To read data from a table, you use operations such as `GetItem`,
+`Query`, or `Scan`. Amazon DynamoDB returns all the item attributes
+by default. To get only some, rather than all of the attributes, use a projection
+expression.
 
-This section covers the built-in functions and keywords for writing filter expressions and
-condition expressions in Amazon DynamoDB. For more detailed information on functions and
-programming with DynamoDB, see [Programming with DynamoDB and the AWS SDKs](Programming.md "Programming.md") and
-the [DynamoDB API
-Reference](../APIReference.md "../APIReference.md").
+A _projection expression_ is a string that identifies the
+attributes that you want. To retrieve a single attribute, specify its name. For multiple
+attributes, the names must be comma-separated.
 
-###### Topics
+The following are some examples of projection expressions, based on the
+`ProductCatalog` item from [Referring to item attributes when using
+expressions in DynamoDB](Expressions.md "Expressions.md"):
 
-- [Syntax for filter and
-  condition expressions](#Expressions.OperatorsAndFunctions.Syntax "#Expressions.OperatorsAndFunctions.Syntax")
-- [Making
-  comparisons](#Expressions.OperatorsAndFunctions.Comparators "#Expressions.OperatorsAndFunctions.Comparators")
-- [Functions](#Expressions.OperatorsAndFunctions.Functions "#Expressions.OperatorsAndFunctions.Functions")
-- [Logical
-  evaluations](#Expressions.OperatorsAndFunctions.LogicalEvaluations "#Expressions.OperatorsAndFunctions.LogicalEvaluations")
-- [Parentheses](#Expressions.OperatorsAndFunctions.Parentheses "#Expressions.OperatorsAndFunctions.Parentheses")
-- [Precedence in
-  conditions](#Expressions.OperatorsAndFunctions.Precedence "#Expressions.OperatorsAndFunctions.Precedence")
+- A single top-level attribute.
 
-## Syntax for filter and
+`Title`
 
-condition expressions
+- Three top-level attributes. DynamoDB retrieves the entire `Color`
+  set.
 
-In the following syntax summary, an `operand` can be the
-following:
+`Title, Price, Color`
 
-- A top-level attribute name, such as `Id`, `Title`,
-  `Description`, or `ProductCategory`
-- A document path that references a nested attribute
+- Four top-level attributes. DynamoDB returns the entire contents of
+  `RelatedItems` and `ProductReviews`.
 
-```
-**condition-expression** ::=
-      `operand` comparator `operand`
-    | `operand` BETWEEN `operand` AND `operand`
-    | `operand` IN ( `operand` (',' `operand` (, ...) ))
-    | function
-    | `condition` AND `condition`
-    | `condition` OR `condition`
-    | NOT `condition`
-    | ( `condition` )
-
-**comparator** ::=
-    =
-    | <>
-    | <
-    | <=
-    | >
-    | >=
-
-**function** ::=
-    attribute_exists (`path`)
-    | attribute_not_exists (`path`)
-    | attribute_type (`path`, `type`)
-    | begins_with (`path`, `substr`)
-    | contains (`path`, `operand`)
-    | size (`path`)
-```
-
-## Making
-
-comparisons
-
-Use these comparators to compare an operand against a single value:
-
-- ``a` = `b``
-  – True if `a` is equal to
-  `b`.
-- ``a` <>
-`b`` – True if
-  `a` is not equal to
-  `b`.
-- ``a` < `b``
-  – True if `a` is less than
-  `b`.
-- ``a` <= `b``
-  – True if `a` is less than or equal to
-  `b`.
-- ``a` > `b``
-  – True if `a` is greater than
-  `b`.
-- ``a` >= `b``
-  – True if `a` is greater than or equal to
-  `b`.
-
-Use the `BETWEEN` and `IN` keywords to compare an operand
-against a range of values or an enumerated list of values:
-
-- ``a` BETWEEN `b` AND
-`c`` – True if
-  `a` is greater than or equal to
-  `b`, and less than or equal to
-  `c`.
-- ``a` IN (`b`,
-  `c`, `d`)`
-– True if`a`is equal to any value in the
-list—for example, any of`b`,
-`c`, or `d`. The list can
-  contain up to 100 values, separated by commas.
-
-## Functions
-
-Use the following functions to determine whether an attribute exists in an item, or to
-evaluate the value of an attribute. These function names are case sensitive. For a
-nested attribute, you must provide its full document path.
-
-| Function                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `attribute_exists<br>(`path`)`       | True if the item contains the attribute specified by<br>`path`.<br>Example: Check whether an item in the `Product` table<br>has a side view picture.<br>• `attribute_exists (#Pictures.#SideView)`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `attribute_not_exists<br>(`path`)`   | True if the attribute specified by `path` does not<br>exist in the item.<br>Example: Check whether an item has a `Manufacturer`<br>attribute.<br>• `attribute_not_exists (Manufacturer)`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `attribute_type (`path`,<br>`type`)` | True if the attribute at the specified path is of a particular<br>data type. The `type` parameter must be one of the<br>following:<br>• `S` – String<br>• `SS` – String set<br>• `N` – Number<br>• `NS` – Number set<br>• `B` – Binary<br>• `BS` – Binary set<br>• `BOOL` – Boolean<br>• `NULL` – Null<br>• `L` – List<br>• `M` – Map<br>You must use an expression attribute value for the<br>`type` parameter.<br>Example: Check whether the `QuantityOnHand` attribute<br>is of type List. In this example, `:v_sub` is a<br>placeholder for the string `L`.<br>• `attribute_type (ProductReviews.FiveStar,<br>:v_sub)`<br>You must use an expression attribute value for the<br>`type` parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `begins_with (`path`,<br>`substr`)`  | True if the attribute specified by `path` begins with a<br>particular substring.<br>Example: Check whether the first few characters of the front view<br>picture URL are `http://`.<br>• `begins_with (Pictures.FrontView,<br>:v_sub)`<br>The expression attribute value `:v_sub` is a<br>placeholder for `http://`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `contains (`path`,<br>`operand`)`    | True if the attribute specified by `path` is one of<br>the following:<br>• A `String` that contains a particular<br>substring.<br>• A `Set` that contains a particular element<br>within the set.<br>• A `List` that contains a particular element<br>within the list.<br>If the attribute specified by `path` is a<br>`String`, the `operand` must be a<br>`String`. If the attribute specified by<br>`path` is a `Set`, the<br>`operand` must be the set's element type.<br>The path and the operand must be distinct. That is, `contains<br>(a, a)` returns an error.<br>Example: Check whether the `Brand` attribute contains<br>the substring `Company`.<br>• `contains (Brand, :v_sub)`<br>The expression attribute value `:v_sub` is a<br>placeholder for `Company`.<br>Example: Check whether the product is available in red.<br>• `contains (Color, :v_sub)`<br>The expression attribute value `:v_sub` is a<br>placeholder for `Red`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `size (`path`)`                      | Returns a number that represents an attribute's size. The<br>following are valid data types for use with<br>`size`.<br>If the attribute is of type `String`, `size`<br>returns the length of the string.<br>Example: Check whether the string `Brand` is less than<br>or equal to 20 characters. The expression attribute value<br>`:v_sub` is a placeholder for `20`.<br>• `size (Brand) <= :v_sub`<br>If the attribute is of type `Binary`, `size`<br>returns the number of bytes in the attribute value.<br>Example: Suppose that the `ProductCatalog` item has a<br>binary attribute named `VideoClip` that contains a short<br>video of the product in use. The following expression checks whether<br>`VideoClip` exceeds 64,000 bytes. The expression<br>attribute value `:v_sub` is a placeholder for<br>`64000`.<br>• `size(VideoClip) > :v_sub`<br>If the attribute is a `Set` data type,<br>`size` returns the number of elements in the set.<br>Example: Check whether the product is available in more than one<br>color. The expression attribute value `:v_sub` is a<br>placeholder for `1`.<br>• `size (Color) < :v_sub`<br>If the attribute is of type `List` or `Map`,<br>`size` returns the number of child elements.<br>Example: Check whether the number of `OneStar` reviews<br>has exceeded a certain threshold. The expression attribute value<br>`:v_sub` is a placeholder for `3`.<br>• `size(ProductReviews.OneStar) ><br>:v_sub` |
-
-## Logical
-
-evaluations
-
-Use the `AND`, `OR`, and `NOT` keywords to perform
-logical evaluations. In the following list, `a` and
-`b` represent conditions to be evaluated.
-
-- ``a` AND `b``
-  – True if `a` and `b`
-  are both true.
-- ``a` OR `b``
-  – True if either `a` or
-  `b` (or both) are true.
-- `NOT `a``– True if`a`is false. False if`a`
-  is true.
-
-The following is a code example of AND in an operation.
-
-`dynamodb-local (*)> select * from exprtest where a > 3 and a <
- 5;`
-
-## Parentheses
-
-Use parentheses to change the precedence of a logical evaluation. For example, suppose
-that conditions `a` and `b` are true,
-and that condition `c` is false. The following expression
-evaluates to true:
-
-- ``a` OR `b` AND
-`c``
-
-However, if you enclose a condition in parentheses, it is evaluated first. For
-example, the following evaluates to false:
-
-- `(`a`OR`b`) AND
-`c``
+`Title, Description, RelatedItems, ProductReviews`
 
 ###### Note
 
-You can nest parentheses in an expression. The innermost ones are evaluated
-first.
+Projection expression has no effect on provisioned throughput consumption. DynamoDB
+determines capacity units consumed based on item size, instead of the amount of data
+that is returned to an application.
 
-The following is a code example with parentheses in a logical evaluation.
+**Reserved words and special characters**
 
-`dynamodb-local (*)> select * from exprtest where attribute_type(b, string) or
- ( a = 5 and c = “coffee”);`
+DynamoDB has reserved words and special characters. DynamoDB allows you to use these
+reserved words and special characters for names, but we recommend that you avoid doing
+so because you have to use aliases for them whenever you use these names in an
+expression. For a complete list, see [Reserved words in DynamoDB](ReservedWords.md "ReservedWords.md").
 
-## Precedence in
+You'll need to use expression attribute names in place of the actual name if:
 
-conditions
+- The attribute name is on the list of reserved words in DynamoDB.
+- The attribute name does not meet the requirement that the first character is
+  `a-z` or `A-Z` and that the second character (if
+  present) is `a-Z`, `A-Z`, or `0-9`.
+- The attribute name contains a **#** (hash) or
+  **:** (colon).
+  The following AWS CLI example shows how to use a projection expression with a
+  `GetItem` operation. This projection expression retrieves a top-level
+  scalar attribute (`Description`), the first element in a list
+  (`RelatedItems[0]`), and a list nested within a map
+  (`ProductReviews.FiveStar`).
 
-DynamoDB evaluates conditions from left to right using the following precedence
-rules:
+```
+aws dynamodb get-item \
+    --table-name ProductCatalog \
+    --key '"Id": { "N": "123" } \
+    --projection-expression "Description, RelatedItems[0], ProductReviews.FiveStar"
+```
 
-- `= <> < <= > >=`
-- `IN`
-- `BETWEEN`
-- `attribute_exists attribute_not_exists begins_with contains`
-- Parentheses
-- `NOT`
-- `AND`
-- `OR`
+The following JSON would be returned for this example.
+
+```
+{
+    "Item": {
+        "Description": {
+            "S": "123 description"
+        },
+        "ProductReviews": {
+            "M": {
+                "FiveStar": {
+                    "L": [
+                        {
+                            "S": "Excellent! Can't recommend it highly enough! Buy it!"
+                        },
+                        {
+                            "S": "Do yourself a favor and buy this."
+                        }
+                    ]
+                }
+            }
+        },
+        "RelatedItems": {
+            "L": [
+                {
+                    "N": "341"
+                }
+            ]
+        }
+    }
+}
+```
