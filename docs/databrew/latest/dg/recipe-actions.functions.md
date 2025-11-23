@@ -1,23 +1,28 @@
-# TODAY
+# MONTH_NAME
 
-Creates a new column containing the current date in the format
-`yyyy-mm-dd`.
+Creates a new column containing the name of the month, from a string that represents a
+date.
 
 ###### Parameters
 
-- `timeZone` – The name of a time zone. If no time zone is specified,
-  then the default is Universal Coordinated Time (UTC).
+- `sourceColumn` – The name of an existing column.
+- `value` – A character string to evaluate.
 - `targetColumn` – A name for the newly created column.
+
+###### Note
+
+You can specify either `sourceColumn` or `value`, but not
+both.
 
 ###### Example
 
 ```
 {
     "RecipeAction": {
-        "Operation": "TODAY",
+        "Operation": "MONTH_NAME",
         "Parameters": {
-            "timeZone": "US/Pacific",
-            "targetColumn": "TODAY Column 1"
+            "value": "2018-05-27",
+            "targetColumn": "MONTHNAME Column 1"
         }
     }
 }

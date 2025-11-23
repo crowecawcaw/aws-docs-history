@@ -1,10 +1,10 @@
 # AWS managed policies for AWS Glue DataBrew
 
 To add permissions to users, groups, and roles, it is easier to use AWS managed policies
-than to write policies yourself. It takes time and expertise to create [IAM customer managed policies](../../../https:/docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.md "../../../https:/docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.md")
+than to write policies yourself. It takes time and expertise to create [IAM customer managed policies](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md")
 that provide your team with only the permissions they need. To get started quickly, you
 can use our AWS managed policies. These policies cover common use cases and are available
-in your AWS account. For more information about AWS managed policies, see [AWS managed policies](../../../https:/docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../https:/docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies")
+in your AWS account. For more information about AWS managed policies, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies")
 in the IAM User Guide.
 
 AWS services maintain and update AWS managed policies. You can't change the permissions
@@ -20,7 +20,7 @@ For example, the _ReadOnlyAccess_ AWS managed policy provides read-only access t
 AWS services and resources. When a service launches a new feature, AWS adds read-only
 permissions for new operations and resources. For a list and descriptions of job
 function policies, see [AWS
-managed policies for job functions](../../../https:/docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.md "../../../https:/docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.md") in the IAM User Guide.
+managed policies for job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the IAM User Guide.
 
 ## DataBrew updates to AWS managed policies
 
