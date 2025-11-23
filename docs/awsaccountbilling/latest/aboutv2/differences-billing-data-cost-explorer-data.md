@@ -4,6 +4,10 @@ between Billing and Cost Explorer data
 
 Once you have active data in your Billing and Cost Management console, there are key differences to note between when you see in the **Billing** and **Payments** pages, compared to your Cost Explorer data. This section explains in detail how each data sets are used, and the benefits of each.
 
+###### Note
+
+When you sign in to the Billing and Cost Management console with a bill source account, you see the same differences in Billing and Cost Explorer data, even though the bill transfer account controls the cost data.
+
 ## Billing data
 
 Your billing data appears on the **Bills** and
@@ -89,3 +93,5 @@ For example, let's say that a portion of your taxes was refunded. On the
 **Bills** page, the **Taxes by service** tab
 will continue to show the full tax amount. The Cost Explorer data will show the post-refund
 tax amount.
+
+If you use billing transfer and sign in to the Billing and Cost Management console with a bill source account, you can't view credits, refunds, or taxes in the **Bills** page, Cost Explorer, or AWS Cost and Usage Report."

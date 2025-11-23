@@ -75,7 +75,7 @@ after the following events.
 
 | AWS Product                                     | API or Console Event                  | Resource Type          |
 | ----------------------------------------------- | ------------------------------------- | ---------------------- |
-| AWS CloudFormation (AWS CloudFormation)         | `CreateStack`                         | Stack                  |
+| AWS CloudFormation (CloudFormation)             | `CreateStack`                         | Stack                  |
 | AWS Data Pipeline (AWS Data Pipeline)           | `CreatePipeline`                      | Pipeline               |
 | Amazon Elastic Compute Cloud (Amazon EC2)       | `CreateCustomerGateway`               | Customer gateway       |
 |                                                 | `CreateDhcpOptions`                   | DHCP options           |
@@ -99,7 +99,7 @@ after the following events.
 |                                                 | `CreateCacheCluster`                  | Cluster                |
 | AWS Elastic Beanstalk (Elastic Beanstalk)       | `CreateEnvironment`                   | Environment            |
 |                                                 | `CreateApplication`                   | Application            |
-| Elastic Load Balancing (Elastic Load Balancing) | `CreateLoadBalancer`                  | Loadbalancer           |
+| Elastic Load Balancing (ELB)                    | `CreateLoadBalancer`                  | Loadbalancer           |
 | Amazon Glacier (Amazon Glacier)                 | `CreateVault`                         | Vault                  |
 | Amazon Kinesis (Kinesis)                        | `CreateStream`                        | Stream                 |
 | Amazon Relational Database Service (Amazon RDS) | `CreateDBInstanceReadReplica`         | Database               |

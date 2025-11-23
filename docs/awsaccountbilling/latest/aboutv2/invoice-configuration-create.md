@@ -27,7 +27,9 @@ There are currently some limitations when creating invoice units:
 Prerequisite: To add invoice receivers, see [Adding additional billing contact
 email addresses](manage-payment-method.md#manage-billing-contact-emails "manage-payment-method.md#manage-billing-contact-emails").
 
-###### To create invoice units
+###### To create invoice units within your
+
+management account (standard invoice configuration)
 
 1. Open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
@@ -67,3 +69,24 @@ console.
    the invoice unit.
 10. Choose **Create invoice unit**.
     The configuration is effective immediately once you create an invoice unit.
+
+###### To create invoice units across external management accounts (Billing Transfer)
+
+1. Open the AWS Billing and Cost Management console at
+   [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
+2. In the navigation pane, choose **Invoice
+   configuration**.
+3. In the **Invoice units** section, choose **Create
+   invoice unit**.
+4. For **Invoice unit name**, enter a unique name that's
+   distinctive within your AWS account. For details on allowed characters, see
+   [AWS invoice configuration](billing-limits.md#limits-invoicing "billing-limits.md#limits-invoicing").
+5. In the **Invoice receiver** section, choose the account
+   receives invoices related to this invoice unit. Choose either the payer or
+   member account as the invoice receiver.
+6. Under the **Invoice units content** table choose **Add contents**.
+
+This opens a panel where you can see both accounts and billing transfers. 7. Choose the **Billing transfers** tile, and choose the transfers to include in your invoice unit.
+
+You can remove items individually or in bulk from the contents table. 8. Choose **Create invoice unit**.
+You can find the new invoice unit on the **invoice configuration** page. Choose the unit name to view its details or choose **Edit** to make changes. The invoice configuration page includes a snapshot history that shows billing transfers within each invoice unit for specific date ranges. The **Billing Transfers** tab displays all transfers and their associated invoice units.

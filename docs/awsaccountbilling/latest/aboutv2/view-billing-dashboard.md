@@ -252,6 +252,8 @@ To view the savings opportunities in this widget, you can opt in by visiting the
 page or using the [Cost
 Management preferences](https://console.aws.amazon.com/cost-management/home?#/settings "https://console.aws.amazon.com/cost-management/home?#/settings") page.
 
+When you use billing transfer, savings opportunities are calculated based on On-Demand costs (costs without negotiated discounts, AWS Partner Network program discounts, or Reserved Instance and Savings Plans discounts). To learn about cost optimization best practices while billing transfer is active, see [Transfer billing management to external accounts](orgs_transfer_billing.md "orgs_transfer_billing.md").
+
 ## Top trends
 
 This widget provides a quick overview of your most significant cost changes between the previous two months.

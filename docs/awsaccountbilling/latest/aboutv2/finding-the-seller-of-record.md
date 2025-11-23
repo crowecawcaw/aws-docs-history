@@ -26,6 +26,10 @@ AWS uses this information to prepare and issue your invoices with proper header
 information, such as your preferred payment currency, tax settings, business legal name and
 address. For more information, see the [Reviewing your monthly billing best practices](monthly-billing-checklist.md "monthly-billing-checklist.md").
 
+###### Note
+
+If you use billing transfer to send your billing to an external management account (bill transfer account), the SOR information for your invoice charges is available in the bill transfer account because it's responsible for paying your charges.
+
 ## Current SORs
 
 Use this table to find the SORs for the following countries.

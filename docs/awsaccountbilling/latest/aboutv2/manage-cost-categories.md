@@ -86,6 +86,7 @@ costs across specified cost category values.
   usage since Oct 1 will use your updated rules.
 - Only the management account in AWS Organizations or individual accounts can create and
   manage cost categories.
+- If you use billing transfer and you sign in as a bill source account, you manage the cost categories for your AWS Organizations. You can view your cost categories metadata in your pro forma Cost Explorer and AWS Cost and Usage Report. The bill transfer account can view your cost categories metadata in the AWS Cost and Usage Report reflecting your usage. When you sign in as a bill transfer account, you can configure cost categories only to categorize costs for your own AWS Organizations.
 
 ###### Topics
 

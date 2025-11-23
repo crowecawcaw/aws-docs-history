@@ -8,6 +8,8 @@ available for a select group of customers. Your use of advance pay
 is subject to the Betas and Previews terms of the [AWS Service
 Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/") (Section 2)._
 
+When you use billing transfer, Advance Pay funds from your bill source account don't apply to bill transfer account payments. Contact Support for help with Advance Pay while billing transfer is active.
+
 Use _Advance Pay_ to pay for your AWS usage in advance.
 AWS uses the funds to pay for your invoices automatically when they're due. Your default payment method is used when you don't have Advance Pay balance available.
 

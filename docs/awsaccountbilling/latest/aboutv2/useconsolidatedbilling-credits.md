@@ -8,7 +8,7 @@ Credit](https://aws.amazon.com/awscredits/ "https://aws.amazon.com/awscredits/")
 For any questions about AWS credits in general or any credits that have already
 expired, contact Support. For more information about how to contact Support, see [Getting help with your bills and payments](billing-get-answers.md "billing-get-answers.md").
 
-###### Viewing AWS credits
+Viewing AWS credits
 
 - To view your credit balance since the last billing date, navigate to the
   **Credits** page in the **Billing**
@@ -23,6 +23,15 @@ expired, contact Support. For more information about how to contact Support, see
   console, and then choose the **Savings** tab. This credit
   balance is updated every 24 hours and shows your latest estimated credit
   balance.
+  Viewing AWS credits for billing transfer users
+
+- When you sign in as a bill source account, your credits apply to the standard AWS bill sent
+  to your bill transfer account. These credits don't appear in your pro forma billing
+  artifacts (Bills page, Cost Explorer, or AWS Cost and Usage Report) unless the bill transfer
+  account enables credits in the pro forma domain. Your **Credits**
+  page no longer displays your credit balance. The page shows the total amount of
+  credit redeemed as a static value until all credits are redeemed.
+- When you sign in as a bill transfer account, you can view credit applications for each AWS Organizations that transfers bills to you by using billing view functionality in chargeable billing views in Cost Explorer, AWS Cost and Usage Report, and the **Bills** page. The **Credits** page doesn't support billing view functionality. You can only view credits redeemed in your own AWS Organizations and credits from bill source organizations when you have an IAM role in those organizations.
 
 ###### Topics
 
@@ -101,6 +110,10 @@ which expires in January, to the Amazon EC2 charge, which leaves him with a 90-d
 Amazon EC2 charge and a 50-dollar Amazon S3 charge. AWS applies credit two to the remaining
 90 dollars of Amazon EC2 usage, and Jorge has to pay 85 dollars for Amazon EC2 and 50 dollars
 for Amazon S3. He has now used all of his credits.
+
+###### Note
+
+When you sign in as a bill source account, you are responsible for managing credit sharing for accounts in your AWS Organizations. The bill transfer account can't control credit sharing unless you provide them with a cross-organization role to modify these preferences.
 
 ## Step 3: Applying AWS credits across single and
 
@@ -186,6 +199,8 @@ accounts.
 
 This section is only available for the management account (payer account)
 as part of AWS Organizations.
+
+When you use billing transfer and sign in as a bill transfer account, you can control sharing preferences only for accounts in your AWS Organizations. Each bill source account controls sharing preferences for accounts in their own AWS Organizations.
 
 ###### To manage credit sharing for member accounts
 

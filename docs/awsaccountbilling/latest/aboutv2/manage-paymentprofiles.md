@@ -23,6 +23,9 @@ available for all providers. If your default payment method isn't valid for diff
 service providers, create payment profiles by using the payment methods that are accepted by
 your service provider. For more information, see [Creating your payment profiles](#manage-paymentprofiles-setup "#manage-paymentprofiles-setup").
 
+When you use billing transfer and sign in as a bill transfer account, you can use payment profiles to pay invoices from bill source accounts if you used invoice configuration to assign different tax profiles to these invoices. For more information, see [Customizing your invoice preferences with
+AWS invoice configuration](invoice-configuration.md "invoice-configuration.md").
+
 ###### Topics
 
 - [Creating your payment profiles](#manage-paymentprofiles-setup "#manage-paymentprofiles-setup")

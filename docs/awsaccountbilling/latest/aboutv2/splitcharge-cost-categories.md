@@ -38,6 +38,10 @@ your defined allocation percentage.
 **Even split** - Allocates costs evenly across all
 targets.
 
+###### Note
+
+If you use transfer billing and you sign in as a bill source account, split charge functionality isn't available.
+
 ## Prerequisites
 
 Before you define your split charge rules, you must categorize your costs into the

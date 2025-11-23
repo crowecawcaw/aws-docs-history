@@ -54,6 +54,10 @@ the out of balance line items. If line items that belong to multiple purchase or
 all criteria precisely, we use the purchase order that was most recently updated to match
 the invoice.
 
+###### Note
+
+If you use billing transfer and you sign in as a bill transfer account, you can assign one purchase order number to all AWS invoices from organizations that transfer their bills to you.
+
 ###### Topics
 
 - [Setting up purchase order configurations](setup-po-lineitem.md "setup-po-lineitem.md")

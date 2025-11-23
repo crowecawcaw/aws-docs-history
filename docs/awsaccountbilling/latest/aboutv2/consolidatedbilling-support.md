@@ -11,3 +11,9 @@ subject to a monthly minimum. Support fees associated with Reserved Instance and
 Savings Plan purchases apply to the member accounts that made the purchase. For more
 information, see [Support Plan
 Pricing](https://aws.amazon.com/premiumsupport/pricing/ "https://aws.amazon.com/premiumsupport/pricing/").
+
+###### Note
+
+When you sign in as a bill source account, your support plan charges don't appear in your pro forma Cost Explorer, AWS Cost and Usage Report, or Bills page by default. The bill transfer account must enable you to view support plan charges by modeling these charges using Billing Conductor custom line items.
+
+Billing transfer doesn't affect how your support charges are calculated.

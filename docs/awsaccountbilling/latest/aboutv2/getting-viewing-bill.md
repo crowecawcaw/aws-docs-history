@@ -4,6 +4,10 @@
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **_For questions about your AWS bills or to appeal your charges, contact Support to address your inquiries immediately. To get help, see [Getting help with your bills and payments](billing-get-answers.md "billing-get-answers.md"). To understand your bills page contents, see [Using the Bills page to understand your monthly charges and<br>invoice](#invoice "#invoice")._** |
 
+###### Note
+
+If your AWS organization uses billing transfer, contact the bill transfer account owner first because they control your cost data and receive your AWS invoices. To find the bill transfer account information, go to the **billing transfer** page, **Outbound billing** tab.
+
 You receive AWS invoices monthly for usage charges and recurring fees. For one-time
 fees, such as fees for purchasing an All Upfront Reserved Instance, you're charged
 immediately.
@@ -67,6 +71,8 @@ card that you have on file at this time.
 To download invoices and view your monthly charge details, you can use the
 **Bills** page in the AWS Billing and Cost Management console.
 
+If you use billing transfer and sign in to the **Bills** page with a bill source account or its linked accounts, the bill transfer account controls the cost data. The **Bills** page doesn't show invoices for the bill source account or its linked accounts because these are sent to the bill transfer account. The bill transfer account sees separate invoices for each bill source account on the **Bills** page.
+
 ###### Note
 
 IAM users need explicit permission to access some of the pages in the Billing and Cost Management
@@ -88,10 +94,9 @@ the consolidated charges for your member accounts. You can use the
 **Charges by account** to also view account-level
 details.
 
-Say you're an AWS Billing Conductor user and are
-signed in as a management account. You can turn on a [pro
-forma](../../../billingconductor/latest/userguide/understanding-abc.md "../../../billingconductor/latest/userguide/understanding-abc.md") view by choosing the gear icon on the top of the page.
-Choose the month and year to specify your billing period.
+When you sign in as a management account that uses AWS Billing Conductor, you can view pro forma costs for your billing groups by activating billing view mode and selecting a billing group view. If you use billing transfer and you sign in as a bill transfer account, you can view pro forma costs for AWS Organizations that transfer their billing to your account by enabling billing view mode and selecting a billing transfer showback or chargeback view. When you sign in as a bill source account, the bill transfer account controls the cost data shown on the **Bills** page.
+
+For more information about pro forma data, see [What is pro forma billing data?](../../../billingconductor/latest/userguide/understanding-proforma.md "../../../billingconductor/latest/userguide/understanding-proforma.md") in the _AWS Billing Conductor User Guide_.
 
 To customize the visible sections, choose the gear icon at the top of the
 page. These preferences are saved for ongoing visits to the
@@ -157,6 +162,8 @@ selected billing period. This includes details such as charge type, invoice
 date, and total in USD. If your invoices are issued in another currency, the
 total in the other currency is also shown. To view and download a PDF format
 for individual invoices, choose the **Invoice ID**.
+
+When you sign in as a bill transfer account, you can view invoices for AWS Organizations that transfer their bills to you. You receive one invoice for each organization. When you sign in as a bill source account, the bill transfer account controls the cost data shown on the **Bills** page. You don't receive AWS invoices while billing transfer is active.
 
 **Savings**
 
@@ -226,6 +233,27 @@ Follow this procedure to download a PDF of your monthly invoice.
    choose the **Invoice <invoiceID>** in the
    **Amazon Web Services EMEA SARL – Service Charges**
    section.
+
+When you sign in as a bill transfer account:
+
+- You can download invoices for AWS Organizations that transfer their bills to you. You receive one invoice for each organization.
+- To download billing transfer invoices, disable billing view mode, go to the **Bills** page, and select the **Invoices** tab.
+- Each invoice ID includes the bill source account ID that generated the charges.
+
+When you sign in as a bill source account:
+
+- Your invoices are sent to the bill transfer account, which is responsible for paying them.
+- You don't receive AWS invoices while billing transfer is active.
+- You continue to receive invoices for periods before billing transfer was active.
+- You are responsible for paying charges that occurred before billing transfer was active, even if you receive the invoice after billing transfer is active.
+- The bill transfer account isn't responsible for charges from before billing transfer was active or after it's withdrawn.
+
+Billing transfer invoices include two additional metadata fields:
+
+- Bill source account ID
+- Billing transfer name
+
+These fields help you associate invoices with the AWS Organizations that generated the charges.
 
 ## Downloading a monthly report
 

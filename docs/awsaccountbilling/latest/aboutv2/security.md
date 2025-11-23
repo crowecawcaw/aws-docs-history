@@ -29,3 +29,7 @@ _of_ the cloud and security _in_ the cloud:
 - [Compliance validation for AWS Billing and Cost Management](Billing-compliance.md "Billing-compliance.md")
 - [Resilience in AWS Billing and Cost Management](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS Billing and Cost Management](infrastructure-security.md "infrastructure-security.md")
+
+###### Note
+
+When you use billing transfer as a bill source account, your billing and cost management data transfers to an external management account (bill transfer account). The bill transfer account controls your billing and cost management experience. The bill source account can't override billing transfer effects using IAM policies. To regain control of your billing and cost management data, you must withdraw from billing transfer. For more information, see [Transfer billing management to external accounts](orgs_transfer_billing.md "orgs_transfer_billing.md").

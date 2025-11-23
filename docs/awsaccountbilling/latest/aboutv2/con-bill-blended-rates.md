@@ -2,6 +2,12 @@
 
 If you manage an organization in AWS Organizations, you can use consolidated billing to view aggregated usage costs for accounts in the organization. Consolidated billing can also help you reduce those costs. For example, to ensure that you pay the lowest available prices for AWS products and services, AWS offers pricing tiers that reward higher usage with lower prices and discounted rates for purchasing instances in advance (known as _reservations_ or _Reserved Instances_). Using consolidated billing, you can combine usage from multiple accounts into a single invoice, allowing you to reach the tiers with lower prices faster. You can also apply unused reservations from one account to another account's instance usage.
 
+###### Note
+
+You can use billing transfer to get centralized access to cost management data and individual consolidated bills from multiple AWS Organizations.
+
+When you transfer billing to an external management account, the computation boundary of each AWS Organizations remains unchanged. Charges and discounts (including Reserved Instances and Savings Plans) are calculated at the individual AWS Organizations level. For more information, see [Transfer billing management to external accounts](orgs_transfer_billing.md "orgs_transfer_billing.md").
+
 ###### Topics
 
 - [Calculating Consolidated Bills](#Calculating "#Calculating")
@@ -177,16 +183,26 @@ next smallest, and so on. AWS applies an RI or a fraction of an RI
 based on the [normalization factor](../../../AWSEC2/latest/UserGuide/apply_ri.md#apply-regional-ri "../../../AWSEC2/latest/UserGuide/apply_ri.md#apply-regional-ri") of the instance. The order in
 which AWS applies RIs doesn't result in a price difference.
 
+When you transfer billing to an external management account, the computation boundary of each AWS Organizations remains unchanged. Charges and discounts (including Reserved Instances and Savings Plans) are calculated at the individual AWS Organizations level. For more information, see [Transfer billing management to external accounts](orgs_transfer_billing.md "orgs_transfer_billing.md").
+
 ## Savings Plans
 
 Savings Plans is a flexible pricing model that can help you reduce your AWS usage bill.
 Compute Savings Plans enables you to commit to an amount each hour, and receive discounted Amazon EC2, Fargate, and AWS Lambda usage up to that amount.
+
+###### Note
+
+When you use billing transfer, Savings Plans apply only to the AWS Organizations where they're purchased, regardless of which account pays the bill. You can't purchase or share Savings Plans across multiple AWS Organizations.
 
 ### Calculating Costs with Savings Plans
 
 AWS calculates the charges for Amazon EC2, Fargate, and AWS Lambda by aggregating all usage that's not covered by Reserved Instances, and applying the Savings Plans rates starting with the highest discount.
 
 The Savings Plans are applied to the account that owns the Savings Plans. Then, it is shared with other accounts in the AWS organization. For more information, see [Understanding How Savings Plans are Applied to Your Usage](../../../savingsplans/latest/userguide/sp-applying.md "../../../savingsplans/latest/userguide/sp-applying.md") in the _Savings Plans User Guide_.
+
+###### Note
+
+When you transfer billing to an external management account, the computation boundary of each AWS Organizations remains unchanged. Charges and discounts (including Reserved Instances and Savings Plans) are calculated at the individual AWS Organizations level. For more information, see [Transfer billing management to external accounts](orgs_transfer_billing.md "orgs_transfer_billing.md").
 
 ## Blended Rates and Costs
 

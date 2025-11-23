@@ -3,7 +3,13 @@
 AWS invoice configuration
 
 You can use **AWS invoice configuration** to configure your invoice preferences
-so that certain member accounts in your AWS Organization receive invoices corresponding to their, or other member account's charges. You can use invoice configuration so that member accounts receiving invoices accurately represent your organization's business model. As a result, invoice configuration can save you time on manual overhead of chargebacks to your
+so that certain member accounts in your AWS Organization receive invoices corresponding to their, or other member account's charges.
+
+If you use Billing Transfers, you can use invoice configuration to support multiple tax settings and systems of record (SOR) for each organization that transfers bills to you.
+
+**For standard invoice configuration use cases**
+
+You can use invoice configuration so that member accounts receiving invoices accurately represent your organization's business model. As a result, invoice configuration can save you time on manual overhead of chargebacks to your
 business entities. You can create groups of accounts that match your AWS
 costs to your business entities, and model the billing relationship between your entities,
 furthermore streamlining procurement of your AWS services. You have the flexibility to
@@ -24,6 +30,10 @@ To view the invoices, payer account and invoice receiver accounts can download i
 from the **Bills** page in the Billing and Cost Management console. Invoices are also emailed to
 the billing contacts that you configure in the invoice unit. Any refunds or credit memos are
 issued to the original account that the invoice is issued to.
+
+**For Billing Transfer invoice configuration use cases**
+
+To use invoice configuration to support multiple tax settings and seller of record (SOR) in billing transfers, create a member account in your Bill Transfer account. Then map one or more transferring organizations (including bill source accounts and all member accounts) to your member accounts under the bill transfer account.
 
 ## Key points
 

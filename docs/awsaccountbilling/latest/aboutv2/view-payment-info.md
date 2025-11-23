@@ -4,6 +4,8 @@ payment history
 
 You can use the **Payments account summary** page in your Billing and Cost Management console to see your AWS account's financial status. This section outlines what each console component represents.
 
+If you use transfer billing and you sign in as a bill transfer account, you see payments for charges from AWS Organizations that transfer their bills to you. When you sign in as a bill source account, you see payments for usage that occurred before billing transfer was active.
+
 **Payments account summary**
 
 This page shows your consolidated view of your AWS account's financial status. This includes what you owe AWS and the funds you have available to use. This is a simplified view to understand your payment obligations and manage your available balances.

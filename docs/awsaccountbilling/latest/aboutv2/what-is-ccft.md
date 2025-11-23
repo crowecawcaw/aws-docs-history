@@ -2,6 +2,12 @@
 
 You can use the Customer Carbon Footprint Tool (CCFT) to view estimates of the carbon emissions associated with your AWS products and services.
 
+###### Note
+
+CCFT isn't supported when using billing transfer in the following scenarios:
+
+When signed in as the management account transferring its bills (bill source account) or a linked account under the bill source account, you can't access CCFT. Additionally, when signed in as the bill transfer account, you can't view CCFT data that reflects emissions from your bill source accounts.
+
 ###### Topics
 
 - [Getting started with the Customer Carbon Footprint Tool (CCFT)](#ccft-gettingstarted "#ccft-gettingstarted")

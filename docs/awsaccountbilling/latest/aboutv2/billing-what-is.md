@@ -12,6 +12,8 @@ For larger organizations, you can use AWS Organizations to consolidate your char
 AWS accounts. You can then configure invoicing, tax, purchase order, and payment methods
 to match your organization’s procurement processes.
 
+If you have multiple AWS Organizations, use billing transfer to centrally manage and pay for all your organizations from a single account.
+
 You can allocate your costs to teams, applications, or environments by using cost
 categories or cost allocation tags, or using AWS Cost Explorer. You can also export data to your
 preferred data warehouse or business intelligence tool.
@@ -49,6 +51,7 @@ for billing, invoices, tax, and payments.
 - **Billing preferences** – Enable invoice delivery
   by email and your preferences for credit sharing, alerts, and discount
   sharing.
+- **Billing transfer** – Separates billing and financial management from security and governance management. This enables a single AWS organization to get centralized access to cost data and AWS invoices across multiple AWS organizations.
 
 ### Cost analysis
 
@@ -114,7 +117,7 @@ Optimize resource usage and use flexible pricing models to lower your bill.
 ### AWS Billing Conductor
 
 Billing Conductor is a custom billing service that supports the showback and chargeback
-workflows of AWS Solution Providers and AWS Enterprise customers. You can
+workflows of AWS Partners reselling AWS services, solutions, and AWS customers purchasing cloud services directly through AWS. You can
 customize a second, alternative version of your monthly billing data. The service
 models the billing relationship between you and your customers or business units.
 
@@ -124,11 +127,13 @@ over a given billing period. You can also use it to analyze the difference betwe
 the rates that you apply to your groupings relative to the actual rates for those
 same accounts from AWS.
 
-As a result of your Billing Conductor configuration, the payer account (management account) can
+As a result of your Billing Conductor configuration, the management account can
 also see the custom rate that's applied on the billing details page of the [AWS Billing and Cost Management console](https://console.aws.amazon.com/billing/home#/bills "https://console.aws.amazon.com/billing/home#/bills"). The
-payer account can also configure AWS Cost and Usage Reports per billing group.
+management account can also configure AWS Cost and Usage Reports per billing group.
 
-For more information about Billing Conductor, see the [AWS Billing Conductor User Guide](../../../billingconductor/latest/userguide/what-is-billingconductor.md "../../../billingconductor/latest/userguide/what-is-billingconductor.md").
+When billing transfer users sign in to the bill transfer account, Billing Conductor enables the management account of the AWS organization that transfers their bills (bill source account) to view only their usage priced with the rates from the bill transfer account.
+
+For more information about Billing Conductor, see the [AWS Billing Conductor User Guide](../../../billingconductor/latest/userguide/what-is-billingconductor.md "../../../billingconductor/latest/userguide/what-is-billingconductor.md"). For more information about billing transfer, see [Transfer billing management to external accounts](orgs_transfer_billing.md "orgs_transfer_billing.md").
 
 ### IAM
 
@@ -181,6 +186,14 @@ Consolidated billing has the following benefits:
 
 For more information about Organizations, see the [AWS Organizations User
 Guide](../../../organizations/latest/userguide.md "../../../organizations/latest/userguide.md").
+
+### Billing transfer
+
+You can use billing transfer to centrally manage and pay for multiple AWS Organizations from a single account.
+
+Billing transfer allows a management account to designate an external management account to manage and pay for its consolidated bill. This centralizes billing while maintaining security management autonomy. To set up billing transfer, an external account (bill transfer account) sends a billing transfer invitation to a management account (bill source account). If the invitation is accepted, the external account becomes the bill transfer account. The bill transfer account then manages and pays for the bill source account's consolidated bill, starting on the date specified in the invitation.
+
+For more information, see [Transfer billing management to external accounts](orgs_transfer_billing.md "orgs_transfer_billing.md").
 
 ### AWS Price List API
 

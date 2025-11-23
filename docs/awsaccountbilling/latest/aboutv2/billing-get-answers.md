@@ -36,6 +36,8 @@ or have IAM permissions to open a support case. For more information, see [Acces
 
 If you have closed your AWS account, you can still sign in to Support and view past bills.
 
+If you transferred your billing to a management account external to your AWS organization (bill transfer account), first reach out to the billing transfer account owner. That account controls the cost data available in your account, and receives the AWS invoice reflecting your usage. To find the bill transfer account information, go to the **Billing transfer** page, **Outbound billing** tab
+
 ###### To contact Support
 
 1. Sign in and navigate to the [Support
@@ -64,6 +66,8 @@ Cost Explorer is available 24 hours after you activate the feature.
 
 For more information about Cost Explorer, see [Analyzing your costs with AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md").
 
+If your AWS Organizations uses billing transfer, the bill transfer account controls the cost data shown in Cost Explorer.
+
 ## Monitoring your Free Tier usage
 
 You can track your AWS Free Tier usage to keep you under the Free Tier limits. You can set up alerts on your AWS account when your Free Tier limits reach a threshold, and monitor your usage through the Billing and Cost Management console.
@@ -71,6 +75,10 @@ You can track your AWS Free Tier usage to keep you under the Free Tier limits. Y
 For more information about using these features, see [Trying services using AWS Free Tier (before July 15, 2025)](billing-free-tier.md "billing-free-tier.md").
 
 To see details for usage that was charged beyond your Free Tier limit, see the [Understanding your charged usage](#billing-support-usage "#billing-support-usage") section.
+
+###### Note
+
+If your AWS organization uses billing transfer, you can track your Free Tier usage on the **Free Tier** page. However, you can't view your Free Tier credits in Cost Explorer, AWS Cost and Usage Report (CUR), or on the **Bills** page unless the bill transfer account enables this access. The Free Tier page doesn't process pro forma data, so there might be discrepancies. For example, the page might show usage covered by Free Tier that was removed from the pro forma bill.
 
 ## Closing your AWS account
 

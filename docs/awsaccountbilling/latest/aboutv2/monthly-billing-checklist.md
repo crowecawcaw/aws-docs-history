@@ -62,6 +62,10 @@ registration number.
    choose **Edit**.
 4. Enter your updated information and then choose **Update**.
 
+###### Note
+
+If you use billing transfer, the bill transfer account controls the tax settings of AWS Organizations that transfer their bills.
+
 For more information, see [Updating and deleting
 tax registration numbers](manage-account-payment.md#manage-account-payment-update-delete-tax-numbers "manage-account-payment.md#manage-account-payment-update-delete-tax-numbers").
 
@@ -86,6 +90,10 @@ consolidate to a single tax invoice.
 2. Under **Tax registrations**, select **Enable tax
    settings inheritance**.
 3. In the dialog box, choose **Enable**.
+
+###### Note
+
+If you use billing transfer, AWS Organizations that transfer their bills inherit the tax settings of the bill transfer account by default. For information about managing tax settings and tax inheritance with billing transfer, see [Setting up your tax information](manage-account-payment.md "manage-account-payment.md").
 
 For information about how to manage documents required for US tax exemptions, see
 [Managing your US tax
@@ -126,6 +134,10 @@ invoice, and payment issues.
 The alternate contact doesn't have to be a specific person. For example, you can add
 an email distribution list if you have a team that manages billing, operations, and
 security related issues.
+
+###### Note
+
+If you use billing transfer, AWS Organizations that transfer their bills can update their billing contacts. However, while billing transfer is active, this information isn't used because bills are sent to the bill transfer account using its billing contact information.
 
 ###### To update alternate contact information from the Accounts page
 

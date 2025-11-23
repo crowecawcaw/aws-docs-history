@@ -2,6 +2,8 @@
 
 You can use the **Tax settings** page under **Preferences and Settings** in the left navigation of your AWS Billing and Cost Management console. Use this page to manage your tax registration numbers, turn on tax setting inheritance so your tax registration information is aligned across your Organizations accounts, and manage your tax exemptions. This page also shows how you can set up your Amazon S3 buckets to use your Tax Settings API.
 
+When you use billing transfer, the bill transfer account controls the tax settings of the AWS Organizations (management and linked accounts) that transfer their bill. The management account of the AWS organization that transfers its bill (bill source account) can still configure tax settings for its AWS organization. However, these settings don't apply while billing transfer is active.
+
 ## Updating and deleting
 
 tax registration numbers
@@ -57,6 +59,7 @@ invoice.
 - If you turn off tax inheritance, the member accounts revert to the
   account's original TRN setting. If there was no TRN originally set for the
   account, no TRN will be assigned.
+- If you use billing transfer, tax inheritance works across multiple AWS Organizations. By default, the bill transfer account's tax information applies to invoices of AWS Organizations that transfer their bills. The bill transfer account can use the invoice configuration functionality to assign different tax settings to AWS Organizations that transfer their bills.
 
 Tax registration information includes:
 
@@ -105,10 +108,15 @@ tax exemption
       only the linked account.
    2. If you're logged in as a payer account, you can add tax exemptions to
       both payer and linked accounts.
+   3. If you use billing transfer and logged in as the billing transfer account, you can add a tax exemption that applies to all AWS Organizations that transfer their bills by adding the exemption to your bill transfer account. To apply a tax exemption to only some AWS Organizations that transfer their bills, use invoice configuration to assign a linked account under your bill transfer account as the invoice receiver. Then add a tax exemption to that linked account.
 
 5. Specify your exemption type and jurisdiction.
 6. Upload certificate documents.
 7. Review your information, and choose **Submit**.
+
+###### Note
+
+Billing transfer currently doesn't support tax exemption for individual linked accounts in AWS Organizations that transfer their bills. To add a tax exemption for a specific linked account, the bill source account owner must remove the account from its AWS organization and create a separate AWS organization with that account. After creating the new AWS organization, the owner can set up billing transfer and add the tax exemption using the standard billing transfer process.
 
 Within 24 hours, Support will notify you through a support case if they need additional
 information, or if any of your documents weren't valid.
@@ -121,7 +129,7 @@ rejected.
 
 ## Setting up your Amazon S3 to use your Tax Settings API
 
-Follow this procedure so that the [Tax Settings API](../../../aws-cost-management/latest/APIReference/API_Operations_Tax_Settings.md "../../../aws-cost-management/latest/APIReference/API_Operations_Tax_Settings.md") has permission to send your tax documents to an Amazon S3 bucket. You can then download the tax document from your Amazon S3 bucket. You only need to do this procedure for the following countries that require a tax registration document:
+Follow this procedure so that the [Tax Settings API](../../../aws-cost-management/latest/APIReference/API_Operations_Tax_Settings.md "../../../aws-cost-management/latest/APIReference/API_Operations_Tax_Settings.md") has permission to send your tax documents to an Amazon S3 bucket. If you use billing transfer, you can use the tax settings API with your bill transfer account to send tax documents to your Amazon S3 bucket for AWS Organizations that transfer their bills. You can then download the tax document from your Amazon S3 bucket. You only need to do this procedure for the following countries that require a tax registration document:
 
 - BD: Bangladesh
 - KE: Kenya

@@ -54,6 +54,7 @@ All tags can take up to 24 hours to appear in the Billing and Cost Management co
 - Only the management account in an organization and single accounts that aren't
   members of an organization have access to the
   **cost allocation tags** manager in the Billing console.
+- If you use billing transfer and you sign in as a bill source account, you manage the cost allocation tags for your AWS Organizations. You can view your cost allocation tags in the AWS Cost and Usage Report. The bill transfer account can also see your cost allocation tags in the AWS Cost and Usage Report that shows usage from AWS Organizations that transfer their bills.
 - To create and update tags, use AWS Tag Editor. For more information about
   Tag Editor, see [Using Tag Editor](../../../tag-editor/latest/userguide/tag-editor.md "../../../tag-editor/latest/userguide/tag-editor.md") in the _Tagging AWS
   Resources User Guide_.

@@ -9,6 +9,10 @@ You can turn off Reserved Instance discount sharing on the
 **Preferences** page on the Billing and Cost Management console. For more information, see
 [Reserved Instances and Savings Plans discount sharing](ri-turn-off.md "ri-turn-off.md").
 
+###### Note
+
+When you use billing transfer, Reserved Instances and Savings Plans apply only to the AWS Organizations where they're purchased, regardless of which account pays the bill. You can't purchase or share Reserved Instances and Savings Plans across multiple AWS Organizations.
+
 ###### Topics
 
 - [Billing examples for specific

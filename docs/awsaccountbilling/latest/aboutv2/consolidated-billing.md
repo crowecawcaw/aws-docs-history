@@ -39,6 +39,8 @@ data isn't deleted, and the management account in the organization can still acc
 data. If the member account rejoins the organization, the member account can access the
 data again.
 
+You can use billing transfer to get centralized access to cost management data and individual consolidated bills from multiple AWS Organizations. For more information, see [Transfer billing management to external accounts](orgs_transfer_billing.md "orgs_transfer_billing.md").
+
 ###### Topics
 
 - [Consolidated billing process](useconsolidatedbilling-procedure.md "useconsolidatedbilling-procedure.md")

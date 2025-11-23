@@ -255,10 +255,6 @@ the page.
 
 ## Set up automatic payments using Unified Payments Interface (UPI)
 
-###### Note
-
-The functionality is in preview release and is subject to change.
-
 You can make automatic recurring payments for your AWS India
 bills using Unified Payments Interface (UPI). Your UPI AutoPay can be used to pay your future AWS invoices.
 

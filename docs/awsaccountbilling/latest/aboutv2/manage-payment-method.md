@@ -24,6 +24,7 @@ For a full list of supported currencies, see [What currencies does AWS currently
   Billing console. For more information, see [Overview of managing access permissions](control-access-billing.md "control-access-billing.md").
 - You can also use the **Payment preferences** page to manage
   your credit cards and direct debit accounts. For more information, see [Managing credit card and ACH direct debit](manage-cc.md "manage-cc.md") and [Manage ACH direct debit payment methods](manage-cc.md#manage-debit "manage-cc.md#manage-debit").
+- If you use billing transfer, the bill transfer account controls the payment preferences for invoices of AWS Organizations that transfer their bills. The bill source account can configure and change existing payment preferences. However, these preferences don't take effect while billing transfer is active.
 
 ## View your payment methods
 

@@ -12,15 +12,12 @@ line item best matching the invoice being generated.
 
 1. Sign in to the AWS Management Console and open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
-2. In the navigation pane, choose **Purchase orders**.
-3. Choose **Add purchase order**.
-4. For **Purchase order ID**, enter a unique identifier for your
-   purchase order ID. Purchase order IDs must be unique within your account. For
-   details about character restrictions for your purchase ID, see [Purchase orders](billing-limits.md#limits-po "billing-limits.md#limits-po").
-5. (Optional) For **Description**, describe your purchase order,
-   including any notes for your reference.
-6. For **Bill from**, choose the AWS billing entity that you
-   are invoiced from.
+
+If you use billing transfer, sign in to your bill transfer account to add a purchase order number to invoices. You can assign one purchase order number to all AWS invoices from organizations that transfer their bills to you. 2. In the navigation pane, choose **Purchase orders**. 3. Choose **Add purchase order**. 4. For **Purchase order ID**, enter a unique identifier for your
+purchase order ID. Purchase order IDs must be unique within your account. For
+details about character restrictions for your purchase ID, see [Purchase orders](billing-limits.md#limits-po "billing-limits.md#limits-po"). 5. (Optional) For **Description**, describe your purchase order,
+including any notes for your reference. 6. For **Bill from**, choose the AWS billing entity that you
+are invoiced from.
 
 ###### Note
 

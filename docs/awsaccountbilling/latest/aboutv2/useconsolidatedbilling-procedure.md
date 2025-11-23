@@ -38,3 +38,7 @@ and a strong password that has a minimum of eight characters with both uppercase
 lowercase letters, at least one digit, and at least one special character. You can
 change your password on the [AWS
 Security Credentials](https://aws.amazon.com/security-credentials "https://aws.amazon.com/security-credentials") page.
+
+###### Note
+
+You can use billing transfer to maintain root access to your management account while transferring billing to another management account outside your AWS Organizations. For more information, see [Transfer billing management to external accounts](orgs_transfer_billing.md "orgs_transfer_billing.md").

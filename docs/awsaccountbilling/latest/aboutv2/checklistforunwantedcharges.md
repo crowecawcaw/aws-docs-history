@@ -4,6 +4,10 @@
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **_For questions about your AWS bills or to appeal your charges, contact Support to address your inquiries immediately. To get help, see [Getting help with your bills and payments](billing-get-answers.md "billing-get-answers.md"). To understand your bills page contents, see [Using the Bills page to understand your monthly charges and<br>invoice](getting-viewing-bill.md#invoice "getting-viewing-bill.md#invoice")._** |
 
+###### Note
+
+If your AWS organization uses billing transfer, contact the bill transfer account owner first because they control your cost data and receive your AWS invoices. To find the bill transfer account information, go to the **billing transfer** page, **Outbound billing** tab.
+
 Here are examples to help you avoid unexpected charges on your bill. This page lists
 specific features or behaviors within individual services from AWS that can sometimes
 result in unexpected charges, particularly if you unsubscribe from the service or close your
@@ -31,6 +35,7 @@ appropriate steps for every AWS Region you've allocated AWS resources.
 - [Charges incurred by Elastic IP
   addresses](#checkelasticipaddresses "#checkelasticipaddresses")
 - [Charges incurred by storage services](#servicestorage "#servicestorage")
+- [Charges incurred for AWS Organizations that use billing transfer](#billingtransfer-charges "#billingtransfer-charges")
 - [Contacting Support](#all-other-charges "#all-other-charges")
 
 ## Usage exceeds AWS Free Tier
@@ -45,6 +50,10 @@ AWS account.
 - For information about terminating resources, go to the resource documentation
   for that service. For example, if you have unused Amazon Elastic Compute Cloud instances, see [Terminate your instance](#checkec2instances "#checkec2instances").
 - For information about closing your AWS account, see [Close your account](../../../accounts/latest/reference/manage-acct-closing.md "../../../accounts/latest/reference/manage-acct-closing.md") in the _AWS Account Management Reference Guide_.
+
+###### Note
+
+When you use billing transfer, you can't view your Free Tier benefits in Cost Explorer, the **Bills** page, or AWS Cost and Usage Report unless your bill transfer account enables this access. Contact your bill transfer account owner with questions about Free Tier benefits.
 
 ## Charges received after account closure
 
@@ -118,7 +127,7 @@ this, you must terminate your Elastic Beanstalk environment before you terminate
 Elastic Beanstalk has created. For more information, see [Terminating an
 Environment](../../../elasticbeanstalk/latest/dg/using-features.md "../../../elasticbeanstalk/latest/dg/using-features.md") in the _AWS Elastic Beanstalk Developer Guide_.
 
-### Charges incurred from Elastic Load Balancing (ELB) load
+### Charges incurred from ELB (ELB) load
 
 balancers
 
@@ -138,7 +147,7 @@ more information, see the [AWS OpsWorks User Guide](../../../opsworks/latest/use
 
 ## Charges incurred by Amazon EC2 instances
 
-After you remove load balancers and Elastic Load Balancing environments, you can stop or terminate
+After you remove load balancers and ELB environments, you can stop or terminate
 Amazon EC2 instances. Stopping an instance allows you to start it again later, but you might
 be charged for storage. Terminating an instance permanently deletes it. For more
 information, see [Instance
@@ -245,6 +254,10 @@ anymore, release it to avoid additional charges. For more information, see [Rele
 When you're minimizing costs for AWS resources, keep in mind that many services
 might incur storage costs, such as Amazon RDS and Amazon S3. For more information about storage
 pricing, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/") and [Amazon RDS pricing](https://aws.amazon.com/rds/pricing/ "https://aws.amazon.com/rds/pricing/").
+
+## Charges incurred for AWS Organizations that use billing transfer
+
+When you sign in as a bill transfer account, you are responsible for paying charges for AWS Organizations that transfer their bills to you.
 
 ## Contacting Support
 

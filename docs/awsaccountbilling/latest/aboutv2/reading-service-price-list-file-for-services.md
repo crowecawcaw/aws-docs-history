@@ -20,12 +20,20 @@ information:
 
 - [CSV file](reading-service-price-list-file-for-services.md#reading-service-price-list-file-csv "reading-service-price-list-file-for-services.md#reading-service-price-list-file-csv")
 - [JSON file](reading-service-price-list-file-for-services.md#reading-service-price-list-file-json "reading-service-price-list-file-for-services.md#reading-service-price-list-file-json")
+- [Term definitions](reading-service-price-list-file-for-services.md#term-definitions "reading-service-price-list-file-for-services.md#term-definitions")
+  - [OnDemand and Reserved
+    term definition](reading-service-price-list-file-for-services.md#on-demand-reserved-term-definition "reading-service-price-list-file-for-services.md#on-demand-reserved-term-definition")
+  - [FlatRate term](reading-service-price-list-file-for-services.md#flat-rate-term "reading-service-price-list-file-for-services.md#flat-rate-term")
+
 - [Service price list
   definitions](reading-service-price-list-file-for-services.md#service-price-list-files-details "reading-service-price-list-file-for-services.md#service-price-list-files-details")
 - [Product details (products)
   definitions](reading-service-price-list-file-for-services.md#product-details-terms "reading-service-price-list-file-for-services.md#product-details-terms")
 - [Product details (terms)
   definitions](reading-service-price-list-file-for-services.md#product-details-metadata "reading-service-price-list-file-for-services.md#product-details-metadata")
+- [OnDemand and Reserved
+  definitions](reading-service-price-list-file-for-services.md#ondemand-reserved-definitions "reading-service-price-list-file-for-services.md#ondemand-reserved-definitions")
+- [FlatRate definitions](reading-service-price-list-file-for-services.md#flatrate-definitions "reading-service-price-list-file-for-services.md#flatrate-definitions")
 
 ## CSV file
 
@@ -42,13 +50,11 @@ service.
 
 The product details and pricing details are in separate sections. The same
 product can be offered under multiple terms, and the same term can apply to
-multiple products.
-
-For example, an Amazon Elastic Compute Cloud (Amazon EC2) instance is available for an
-`Hourly` or `Reserved` term. You can use the SKU of a
+multiple products. For example, an Amazon Elastic Compute Cloud (Amazon EC2) instance is available for
+an `Hourly` or `Reserved` term. You can use the SKU of a
 product to identify the terms that are available for that product.
 
-###### Example: JSON
+###### Example: General JSON structure
 
 ```
 {
@@ -62,36 +68,76 @@ product to identify the terms that are available for that product.
          "sku":"The SKU of the product",
          "productFamily":"The product family of the product",
          "attributes": {
-            "attributeName":"attributeValue",
+            "attributeName":"attributeValue"
          }
       }
    },
-   "terms": {
-      "termType": {
-         "sku": {
-            "sku": {
-               "offerTermCode":"The term code of the product",
-               "sku":"The SKU of the product",
-               "effectiveDate":"The effective date of the pricing details",
-               "termAttributesType":"The attribute type of the terms",
-               "termAttributes": {
-                  "attributeName":"attributeValue",
-               },
-               "priceDimensions": {
-                  "rateCode": {
-                     "rateCode":"The rate code of the price",
-                     "description":"The description of the term",
-                     "unit":"The usage measurement unit for the price",
-                     "startingRange":"The start range for the term",
-                     "endingRange":"The end range for the term",
-                     "pricePerUnit": {
-                        "currencyCode":"currencyRate",
-                     }
+   "terms": TermDefinitions
+}
+```
+
+## Term definitions
+
+Different term types have different structures within the terms object.
+
+### OnDemand and Reserved
+
+term definition
+
+```
+{
+   "OnDemand|Reserved": {
+      "sku": {
+         "sku.offerTermCode": {
+            "offerTermCode":"The term code of the product",
+            "sku":"The SKU of the product",
+            "effectiveDate":"The effective date of the pricing details",
+            "termAttributesType":"The attribute type of the terms",
+            "termAttributes": {
+               "attributeName":"attributeValue"
+            },
+            "priceDimensions": {
+               "rateCode": {
+                  "rateCode":"The rate code of the price",
+                  "description":"The description of the term",
+                  "unit":"The usage measurement unit for the price",
+                  "startingRange":"The start range for the term",
+                  "endingRange":"The end range for the term",
+                  "pricePerUnit": {
+                     "currencyCode":"currencyRate"
                   }
                }
             }
          }
       }
+   }
+}
+```
+
+### FlatRate term
+
+```
+{
+   "FlatRate": {
+      "plans": [{
+         "planCode": "Plan identifier (for example, Free, Pro, Business)",
+         "sku": "The SKU associated with this plan",
+         "features": [{
+            "featureCode": "Unique feature identifier",
+            "featureName": "Human-readable feature name",
+            "usageQuota": {
+               "value": "Usage limit (for quantitative features)",
+               "unit": "Unit of measurement (for example, requests, GB)"
+            }
+         }],
+         "subscriptionPrice": {
+            "rateCode": "The rate code of the price",
+            "description": "The description of the term",
+            "pricePerUnit": {
+               "currencyCode": "currencyRate"
+            }
+         }
+      }]
    }
 }
 ```
@@ -174,16 +220,20 @@ processor), or `Linux` (type of OS).
 definitions
 
 This section provides information about the prices for products in a service
-price list file for an AWS service.
-
-Prices are indexed first by the terms (`onDemand` and
-`reserved`), and then by SKU.
+price list file for an AWS service. Prices are indexed by the terms.
 
 **terms:termType**
 
 The specific type of term that a term definition describes. The
-valid term types are `reserved` and
-`onDemand`.
+valid term types are `Reserved`, `OnDemand`,
+and `FlatRate`.
+
+## OnDemand and Reserved
+
+definitions
+
+In this section, `termType` refers to `OnDemand` or
+`Reserved`.
 
 **terms:termType:SKU**
 
@@ -282,3 +332,70 @@ Rate**
 
 The rate for a product in various supported currencies. For
 example, $1.2536 per unit.
+
+## FlatRate definitions
+
+In this section, `termType` refers to `FlatRate`.
+
+**terms:termType:plans**
+
+An array of flat-rate pricing plans available. Each plan represents a complete pricing tier with bundled features and fixed subscription cost.
+
+**terms:termType:plans:planCode**
+
+A unique identifier for the flat-rate plan (for examle, "Free",
+"Pro").
+
+**terms:termType:plans:sku**
+
+The SKU associated with this specific plan. Links the plan to the corresponding product in the products section.
+
+**terms:termType:plans:features**
+
+An array of features included in the flat-rate plan.
+
+**terms:termType:plans:features:featureCode**
+
+A unique identifier for the feature (for example, "Requests",
+"DataTransfer", "S3Storage").
+
+**terms:termType:plans:features:featureName**
+
+Human-readable name of the feature (for example, "Requests", "Data Transfer").
+
+**terms:termType:plans:features:usageQuota**
+
+Usage limits for quantitative features. This object is optional and only present for features that have measurable limits.
+
+**terms:termType:plans:features:usageQuota:value**
+
+The numeric limit for the feature (for example, "1000000" for 1 million requests, "100" for 100 GB).
+
+**terms:termType:plans:features:usageQuota:unit**
+
+The unit of measurement for the usage limit (for example, "requests", "GB").
+
+**terms:termType:plans:subscriptionPrice**
+
+The subscription pricing details for the flat-rate plan.
+
+**terms:termType:plans:subscriptionPrice:rateCode**
+
+A unique code for a product, offer, and pricing-tier combination.
+
+**terms:termType:plans:subscriptionPrice:Description**
+
+The description for a price or rate.
+
+**terms:termType:plans:subscriptionPrice:Price Per Unit**
+
+A calculation of how much a single measured unit for a service costs.
+
+**terms:termType:plans:subscriptionPrice:Price Per Unit:Currency Code**
+
+A code that indicates the currency for prices for a specific product.
+
+**terms:termType:plans:subscriptionPrice:Price Per Unit:Currency Rate**
+
+The rate for a product in various supported currencies (for
+example, $1.2536 per unit).

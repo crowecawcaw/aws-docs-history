@@ -6,6 +6,17 @@ AWS charges your default payment method automatically at the beginning of
 each month. If that charge doesn't process successfully, you can use the console to
 update your payment method and make a payment.
 
+When you sign in as a bill transfer account:
+
+- You are responsible for paying charges for AWS Organizations that transfer their bills to you.
+- You can pay these charges using standard payment processes.
+- You aren't responsible for charges from before billing transfer was active or after it's withdrawn.
+  When you sign in as a bill source account:
+
+- You might see payments due for usage that occurred before billing transfer was active.
+- You are responsible for all charges from before billing transfer was active, even if you receive the invoice after activation.
+  For example, if you accept a billing transfer invitation on November 15, the billing transfer becomes active on December 1. In early December, you receive invoices for usage through November 30. If you have unpaid November bills, you continue to receive payment requests after December, even while billing transfer is active.
+
 ###### Note
 
 If you pay by ACH direct debit, AWS provides you with your invoice and

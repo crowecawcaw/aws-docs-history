@@ -25,6 +25,16 @@ that scale beyond the initial credit amount. When you usage exceeds your credit 
 when you use a service where credits don't apply, you pay standard pay-as-you-go pricing.
 For more information about each plan, see [Choosing an AWS Free Tier plan](free-tier-plans.md "free-tier-plans.md").
 
+###### Note
+
+If you use billing transfer and you sign in as a bill source account or its linked
+account, your Free Tier credits apply to the chargeable bill sent to your bill transfer
+account. These credits don't appear in your pro forma billing artifacts (Bills page,
+Cost Explorer, or AWS Cost and Usage Report) unless AWS Cost and Usage Report, and the **Bills** page.
+The **Credits** page doesn't support billing view functionality. You
+can only view credits redeemed in your own AWS organization. To view credits from bill
+source organizations, you need an IAM role in those organizations.
+
 ## Getting started with AWS Free Tier
 
 ###### To start with AWS Free Tier
