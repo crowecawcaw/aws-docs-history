@@ -270,6 +270,7 @@ The locale for the pool should be one of the following:
 - An AWS Region where you want this IPAM pool to be available for allocations.
 - The network border group for an AWS Local Zone where you want this IPAM pool to be available for allocations ([supported Local Zones](../../../AWSEC2/latest/UserGuide/ec2-byoip.md#byoip-zone-avail "../../../AWSEC2/latest/UserGuide/ec2-byoip.md#byoip-zone-avail")). This option is only available for IPAM IPv4 pools in the public scope.
 - An [AWS Dedicated Local Zone](https://aws.amazon.com/dedicatedlocalzones/ "https://aws.amazon.com/dedicatedlocalzones/"). To create a pool within an AWS Dedicated Local Zone, enter the AWS Dedicated Local Zone in the selector input.
+- `Global` when you want to use IP addresses globally across all AWS Regions, such as CloudFront locations. The `Global` locale is only available for public IPv4 pools.
 
 For example, you can only allocate a CIDR for a VPC from an IPAM pool that shares a locale with the VPC’s Region. Note that when you have chosen a locale for a pool, you cannot modify it. If the home Region of the IPAM is unavailable due to an outage and the pool has a locale different than the home Region of the IPAM, the pool can still be used to allocate IP addresses.
 

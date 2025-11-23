@@ -19,3 +19,4 @@ Managing public IP address space with IPAM has the following benefits:
   control](tutorials-byoip-ipam-domain-verification-methods.md "tutorials-byoip-ipam-domain-verification-methods.md")
 - [Bring your own IP to IPAM using both the AWS Management Console and the AWS CLI](tutorials-byoip-ipam-console-intro.md "tutorials-byoip-ipam-console-intro.md")
 - [Bring your own IP CIDR to IPAM using only the AWS CLI](tutorials-byoip-ipam-cli-only-intro.md "tutorials-byoip-ipam-cli-only-intro.md")
+- [Bring your own IP to CloudFront using IPAM](tutorials-byoip-cloudfront.md "tutorials-byoip-cloudfront.md")

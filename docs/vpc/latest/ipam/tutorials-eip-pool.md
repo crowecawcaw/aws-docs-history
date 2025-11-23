@@ -33,7 +33,7 @@ the following ways:
 ###### Note
 
 - There are charges associated with provisioning Amazon-owned public IPv4 CIDR
-  blocks. For more information, see the **Amazon-provided contiguous IPv4 block** tab on the [Amazon VPC pricing page](https://aws.amazon.com/vpc/pricing/ "https://aws.amazon.com/vpc/pricing/").
+  blocks. For more information, see the **Amazon-provided contiguous IPv4 block** tab on the [Amazon VPC pricing page](https://aws.amazon.com//vpc/pricing/ "https://aws.amazon.com//vpc/pricing/").
 - This tutorial assumes you want to create an IPAM [using IPAM with a single account](enable-single-user-ipam.md "enable-single-user-ipam.md").
   If you want to share Amazon-owned contiguous public IPv4 blocks across accounts,
   first [Integrate IPAM with accounts in an AWS Organization](enable-integ-ipam.md "enable-integ-ipam.md") and
@@ -81,7 +81,7 @@ AWS Management Console
 5. Choose an **IPAM tier**. For more information
    about the features available in each tier and the costs
    associated with the tiers, see the IPAM tab on the [Amazon VPC pricing
-   page](https://aws.amazon.com/vpc/pricing/ "https://aws.amazon.com/vpc/pricing/").
+   page](https://aws.amazon.com//vpc/pricing/ "https://aws.amazon.com//vpc/pricing/").
 6. Under **Operating regions**, select the AWS
    Regions in which this IPAM can manage and discover resources.
    The AWS Region in which you are creating your IPAM is selected

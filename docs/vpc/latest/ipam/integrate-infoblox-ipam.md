@@ -26,18 +26,22 @@ Before configuring this integration, ensure you have:
 - **Required IAM permissions**: listed below
 - **Infoblox resource identifier**: from your Infoblox administrator
 
-## Required IAM permissions
+## IAM role for Infoblox
 
-To use this feature, you need the following IAM permissions:
+Create an IAM role for the Infoblox principal to assume, or use an existing role. The role needs these permissions:
 
+- `ec2:DescribeIpamPools`
 - `ec2:DescribeIpams`
 - `ec2:DescribeIpamScopes`
-- `ec2:DescribeIpamPools`
-- `ec2:GetIpamResourceCidrs`
 - `ec2:GetIpamPoolAllocations`
 - `ec2:GetIpamPoolCidrs`
+- `ec2:GetIpamResourceCidrs`
 
 For instructions on how to add these permissions to an IAM role or policy, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _IAM User Guide_.
+
+###### Note
+
+Infoblox may require permissions for VPC IPAM discovery in addition to these permissions required to enable this integration.
 
 ## Configure Infoblox integration in the VPC IPAM
 

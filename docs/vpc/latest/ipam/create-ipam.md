@@ -69,7 +69,7 @@ AWS Management Console
 5. Choose an **IPAM tier**. For more information about
    the features available in each tier and the costs associated with the
    tiers, see the IPAM tab on the [Amazon VPC
-   pricing page](https://aws.amazon.com/vpc/pricing/ "https://aws.amazon.com/vpc/pricing/").
+   pricing page](https://aws.amazon.com//vpc/pricing/ "https://aws.amazon.com//vpc/pricing/").
 6. Under **Operating regions**, select the AWS Regions
    in which this IPAM can manage and discover resources. The AWS Region
    in which you are creating your IPAM is selected as one of the operating
