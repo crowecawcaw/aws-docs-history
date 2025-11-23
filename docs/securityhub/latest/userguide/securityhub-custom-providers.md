@@ -81,7 +81,7 @@ your own custom solutions:
 
 **Sending findings from Chef InSpec scans to Security Hub CSPM**
 
-You can create an AWS CloudFormation template that runs a Chef
+You can create an CloudFormation template that runs a Chef
 InSpec compliance scan and then sends findings to
 Security Hub CSPM.
 
@@ -91,7 +91,7 @@ AWS Security Hub CSPM](https://aws.amazon.com/blogs/security/continuous-complian
 **Sending container vulnerabilities detected by Trivy to
 Security Hub CSPM**
 
-You can create an AWS CloudFormation template that uses AquaSecurity
+You can create an CloudFormation template that uses AquaSecurity
 Trivy to scan containers for vulnerabilities, and
 then sends those vulnerability findings to Security Hub CSPM.
 

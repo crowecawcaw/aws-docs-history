@@ -65,7 +65,7 @@ control.
 - [[AppSync.4] AWS AppSync GraphQL APIs should be tagged](appsync-controls.md#appsync-4 "appsync-controls.md#appsync-4")
 - [[Athena.2] Athena data catalogs should be tagged](athena-controls.md#athena-2 "athena-controls.md#athena-2")
 - [[Athena.3] Athena workgroups should be tagged](athena-controls.md#athena-3 "athena-controls.md#athena-3")
-- [[AutoScaling.10] EC2 Auto Scaling groups should be tagged](autoscaling-controls.md#autoscaling-10 "autoscaling-controls.md#autoscaling-10")
+- [[AutoScaling.10] EC2 Amazon EC2 Auto Scaling groups should be tagged](autoscaling-controls.md#autoscaling-10 "autoscaling-controls.md#autoscaling-10")
 - [[Backup.2] AWS Backup recovery points should be tagged](backup-controls.md#backup-2 "backup-controls.md#backup-2")
 - [[Backup.3] AWS Backup vaults should be tagged](backup-controls.md#backup-3 "backup-controls.md#backup-3")
 - [[Backup.4] AWS Backup report plans should be tagged](backup-controls.md#backup-4 "backup-controls.md#backup-4")

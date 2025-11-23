@@ -26,9 +26,13 @@ The remediation guidance provided in this topic might require additional consult
   - [The Amazon EKS cluster uses an unsupported Kubernetes version](exposure-eks-cluster.md#unsupported-kubernetes-version "exposure-eks-cluster.md#unsupported-kubernetes-version")
   - [The Amazon EKS cluster uses unencrypted Kubernetes secrets](exposure-eks-cluster.md#unencrypted-kubernetes-secrets "exposure-eks-cluster.md#unencrypted-kubernetes-secrets")
 
-- [Vulnerabilitiy traits for Amazon EKS clusters](exposure-eks-cluster.md#w63aab7c29c19c19c17 "exposure-eks-cluster.md#w63aab7c29c19c19c17")
+- [Vulnerability traits for Amazon EKS clusters](exposure-eks-cluster.md#vulnerability "exposure-eks-cluster.md#vulnerability")
   - [The Amazon EKS cluster has a container with network-exploitable software vulnerabilities with a high likelihood of exploitation](exposure-eks-cluster.md#high-priority-vulnerability "exposure-eks-cluster.md#high-priority-vulnerability")
-  - [The Amazon EKS cluster has a container with software vulnerabilities](exposure-eks-cluster.md#w63aab7c29c19c19c17b9 "exposure-eks-cluster.md#w63aab7c29c19c19c17b9")
+  - [The Amazon EKS cluster has a container with software vulnerabilities](exposure-eks-cluster.md#low-priority-vulnerability "exposure-eks-cluster.md#low-priority-vulnerability")
+
+- [The Amazon EKS cluster has a container with an End-Of-Life operating system](exposure-eks-cluster.md#end-of-life-operating-system "exposure-eks-cluster.md#end-of-life-operating-system")
+- [The Amazon EKS cluster has a container with malicious software packages](exposure-eks-cluster.md#malicious-package "exposure-eks-cluster.md#malicious-package")
+- [The EKS cluster has malicious files](exposure-eks-cluster.md#malicious-file "exposure-eks-cluster.md#malicious-file")
 
 ## Misconfiguration traits for Amazon EKS clusters
 
@@ -81,7 +85,7 @@ Amazon EKS supports the encryption of Kubernetes secrets using KMS keys through 
 
 To enable encryption of Kubernetes secrets for your EKS cluster, see [Encrypt Kubernetes secrets with KMS on existing clusters](../../../eks/latest/userguide/enable-kms.md "../../../eks/latest/userguide/enable-kms.md") in the _Amazon EKS User Guide_.
 
-## Vulnerabilitiy traits for Amazon EKS clusters
+## Vulnerability traits for Amazon EKS clusters
 
 Here are the vulnerability traits for Amazon EKS clusters.
 
@@ -109,3 +113,47 @@ Following security best practices, AWS recommends patching these vulnerabilities
 
 Update your container images to newer versions that include security fixes for the identified vulnerabilities.
 This typically involves rebuilding your container images with updated base images or dependencies, then deploying the new images to your Amazon EKS cluster.
+
+## The Amazon EKS cluster has a container with an End-Of-Life operating system
+
+The Amazon EKS container image relies on an end-of-life operating system that is no longer supported or maintained by the original developer.
+This exposes the container to security vulnerabilities and potential attacks.
+When operating systems reach end-of-life, vendors typically stop releasing new security advisories.
+Existing security advisories may also be removed from vendor feeds.
+As a result, Amazon Inspector could potentially stop generating findings for known CVEs, creating further gaps in security coverage.
+
+See [Discontinued operating systems](../../../inspector/latest/user/supported.md#formerly-supported-os "../../../inspector/latest/user/supported.md#formerly-supported-os") in the _Amazon Inspector User Guide_ for information about operating systems that have reached end of life that can be detected by Amazon Inspector.
+
+###### Update to a supported operating system version
+
+We recommend updating to a supported version of the operating system.
+In the exposure finding, open the resource to access the affected resource.
+Before updating the operating system version in your container image, review available versions in [Supported Operating Systems](../../../inspector/latest/user/supported.md#supported-os "../../../inspector/latest/user/supported.md#supported-os") in the _Amazon Inspector User Guide_ for a list of currently supported OS versions.
+After updating your container image, rebuild and redeploy your containers to the Amazon EKS cluster.
+
+## The Amazon EKS cluster has a container with malicious software packages
+
+Malicious packages are software components that contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
+Malicious packages pose an active and critical threat to your Amazon EKS cluster, as attackers can execute malicious code automatically without exploiting a vulnerability.
+Following security best practices, AWS recommends removing malicious packages to protect your cluster from potential attacks.
+
+###### Remove malicious packages
+
+Review the malicious package details in the **References** section of the **Vulnerability** tab of the trait to understand the threat.
+Remove the identified malicious packages from your container images.
+Then, delete the pods with the compromised image.
+Update your Kubernetes deployments to use the updated container images.
+Then, deploy your changes and redeploy your pods.
+
+## The EKS cluster has malicious files
+
+Malicious files contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
+Malicious files pose an active and critical threat to your cluster, as attackers can execute malicious code automatically without exploiting a vulnerability.
+Following security best practices, AWS recommends removing malicious files to protect your cluster from potential attacks.
+
+###### Remove malicious files
+
+To identify the specific Amazon Elastic Block Store (Amazon EBS) volume that has malicious files, review the **Resources** section of the trait's finding details.
+Once you have identified the volume with the malicious file, remove the identified malicious files.
+After removing the malicious files, consider performing a scan to ensure that all files that may have been installed by the malicious file have been removed.
+For more information, see [Starting On-demand malware scan in GuardDuty](../../../guardduty/latest/ug/malware-protection-getting-started-on-demand-scan.md "../../../guardduty/latest/ug/malware-protection-getting-started-on-demand-scan.md") in the .

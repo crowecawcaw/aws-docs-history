@@ -24,5 +24,11 @@ For more information, see [What is EventBridge?](../../../eventbridge/latest/use
 
 ###### Note
 
+If you have EventBridge rules defined for findings in Security Hub CSPM, the rules could overlap with rules defined for Security Hub.
+To avoid sending duplicate findings, evaluate the rules you have defined for Security Hub CSPM to determine if they overlap with rules you are have defined for Security Hub.
+Where applicable disable any Security Hub CSPM rules that are replaced by Security Hub rules.
+
+###### Note
+
 As a best practice, make sure users with permission to access EventBridge use AWS Identity and Access Management policies that grant the minimum required permissions.
 For more information, see [EventBridge and AWS Identity and Access Management](../../../eventbridge/latest/userguide/eb-iam.md "../../../eventbridge/latest/userguide/eb-iam.md") in the _EventBridge User Guide_.

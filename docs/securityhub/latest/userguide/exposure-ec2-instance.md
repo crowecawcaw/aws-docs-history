@@ -27,8 +27,7 @@ The remediation guidance provided in this topic might require additional consult
   - [The IAM role associated with the Amazon EC2 instance has an administrative access policy](exposure-ec2-instance.md#administrative-access-policy "exposure-ec2-instance.md#administrative-access-policy")
   - [The IAM role associated with the Amazon EC2 instance has a service admin policy](exposure-ec2-instance.md#service-administrative-policy "exposure-ec2-instance.md#service-administrative-policy")
   - [The Amazon EC2 instance has a security group or network ACL that allows SSH or RDP access](exposure-ec2-instance.md#remote-access-allowed "exposure-ec2-instance.md#remote-access-allowed")
-  - [The Amazon EC2 instance has an open security group](exposure-ec2-instance.md#w63aab7c29c19c15c15c15 "exposure-ec2-instance.md#w63aab7c29c19c15c15c15")
-  - [The Amazon EC2 instance has a public IP address](exposure-ec2-instance.md#w63aab7c29c19c15c15c17 "exposure-ec2-instance.md#w63aab7c29c19c15c15c17")
+  - [The Amazon EC2 instance has an open security group](exposure-ec2-instance.md#open-security-group "exposure-ec2-instance.md#open-security-group")
 
 - [Reachability traits for EC2 instances](exposure-ec2-instance.md#reachability "exposure-ec2-instance.md#reachability")
   - [The EC2 instance is reachable over the internet](exposure-ec2-instance.md#internet-reachable "exposure-ec2-instance.md#internet-reachable")
@@ -37,6 +36,10 @@ The remediation guidance provided in this topic might require additional consult
 - [Vulnerability traits for EC2 instances](exposure-ec2-instance.md#vulnerability "exposure-ec2-instance.md#vulnerability")
   - [EC2 instance has network-exploitable software vulnerabilities with a high likelihood of exploitation](exposure-ec2-instance.md#high-priority-vulnerability "exposure-ec2-instance.md#high-priority-vulnerability")
   - [The Amazon EC2 instance has software vulnerabilities](exposure-ec2-instance.md#low-priority-vulnerability "exposure-ec2-instance.md#low-priority-vulnerability")
+  - [The EC2 instance has an End-Of-Life operating system](exposure-ec2-instance.md#end-of-life-operating-system "exposure-ec2-instance.md#end-of-life-operating-system")
+
+- [The EC2 instance has malicious software packages](exposure-ec2-instance.md#malicious-package "exposure-ec2-instance.md#malicious-package")
+- [The EC2 instance has malicious files](exposure-ec2-instance.md#malicious-file "exposure-ec2-instance.md#malicious-file")
 
 ## Misconfiguration traits for
 
@@ -65,7 +68,7 @@ For more information, see [Modify instance metadata options for existing instanc
 
 ###### Apply updates to instances in an Auto Scaling group
 
-If your instance is part of an Auto Scaling group, update your launch template or launch configuration with a new configuration, and perform an instance refresh.
+If your instance is part of an Amazon EC2 Auto Scaling group, update your launch template or launch configuration with a new configuration, and perform an instance refresh.
 
 ### The IAM role associated with the Amazon EC2 instance has an administrative access policy
 
@@ -158,7 +161,7 @@ If service-level administrative permissions are necessary for the instance, cons
   Permission boundaries establish the maximum permissions a role can have, providing guardrails for roles with administrative access.
   For more information, see [Use permissions boundaries to delegate permissions management within an account](../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries "../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries") in the _AWS Identity and Access Management User Guide_.
 
-###### Apply updates to instances in Auto Scaling group
+###### Apply updates to instances in Amazon EC2 Auto Scaling group
 
 For Amazon EC2 instances in an AWS auto scaling group, update the launch template or launch configuration with the new instance profile, and perform an instance refresh.
 For information about updating a launch template, see [Modify a launch template (manage launch template versions)](../../../AWSEC2/latest/UserGuide/manage-launch-template-versions.md "../../../AWSEC2/latest/UserGuide/manage-launch-template-versions.md") in the _Amazon Elastic Compute Cloud User Guide_.
@@ -194,40 +197,6 @@ Modify your security group rules to restrict access to specific trusted IP addre
 When updating your security group rules, consider separating access requirements for different network segments by creating rules for each required source IP range or restricting access to specific ports.
 To modify security group rules, see [Configure security group rules](../../../AWSEC2/latest/UserGuide/changing-security-group.md#add-remove-security-group-rules "../../../AWSEC2/latest/UserGuide/changing-security-group.md#add-remove-security-group-rules") in the _Amazon EC2 User Guide_.
 
-### The Amazon EC2 instance has a public IP address
-
-Amazon EC2 instances with public IP addresses are publicly accessible from the internet.
-While public IP addresses are sometimes necessary for instances that provide services to external customers, this can be used as a potential by attack unauthorized principals.
-Following standard security principles, AWS recommends that you limit public exposure of resources when possible.
-
-###### Move the instance to a private subnet
-
-If the instance does not require direct internet access, consider moving it to a private subnet within your VPC.
-This will remove its public IP address while still allowing it to communicate with other resources within your VPC.
-For more information, see [How do I move my Amazon EC2 instance to another subnet, Availability Zone, or VPC?](https://repost.aws/knowledge-center/move-ec2-instance "https://repost.aws/knowledge-center/move-ec2-instance") in the AWS Knowledge Center.
-
-###### Configure instances to launch without public IP addresses
-
-If the instance was launched in a public subnet that doesn’t require public IP addresses, the launch configuration can be modified to prevent the automatic assignment of public IP addresses.
-This can be disabled at the subnet level or when launching individual instances.
-For more information, see [Modify the IP addressing attributes of your subnet](../../../vpc/latest/userguide/subnet-public-ip.md "../../../vpc/latest/userguide/subnet-public-ip.md") in the _Amazon Virtual Private Cloud User Guide_ and [Amazon Amazon EC2instance IP addressing](../../../AWSEC2/latest/UserGuide/using-instance-addressing.md "../../../AWSEC2/latest/UserGuide/using-instance-addressing.md") in the _Amazon Elastic Compute Cloud User Guide_.
-
-###### Alternative access methods
-
-Consider the following options for alternative access methods:
-
-- **Use a NAT Gateway for outbound internet connectivity** –
-
-For instances in private subnets that require access to the internet (e.g., to download updates), consider using a NAT Gateway instead of assigning a public IP address.
-A NAT Gateway allows instances in private subnets to initiate outbound connections to the internet while preventing inbound connections from the internet.
-For more information, see [NAT gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") in the _Amazon Virtual Private Cloud User Guide_.
-
-- **Use Elastic Load Balancing** –
-  For instances that are running web applications, consider using an Elastic Load Balancer (LB).
-  LBs can be configured to allow your instances to run in private subnets while the LB runs in a public subnet and handles internet traffic.
-  For more information, see What is Elastic Load Balancing? in the AWSELB User Guide.
-  See [Load balancer subnets](../../../prescriptive-guidance/latest/load-balancer-stickiness/subnets-routing.md "../../../prescriptive-guidance/latest/load-balancer-stickiness/subnets-routing.md") in _AWS Prescriptive Guidance_ for guidance on how to choose a stickiness strategy for your LB.
-
 ## Reachability traits for EC2 instances
 
 Here are reachability traits for EC2 instances and suggested remediation steps.
@@ -261,7 +230,7 @@ Consider the following options for alternative access methods:
   s
 - **Use Systems Manager Session Manager** –
   Session Manager provides secure shell access to your Amazon EC2 instances without the need for inbound ports, managing SSH keys, or maintaining bastion hosts.
-- **Use WAF and Elastic Load Balancing or Application Load Balancer** –
+- **Use WAF and ELB or Application Load Balancer** –
   For instances that are running web applications, consider using an LB combined with AWS Web Application Firewall (WAF).
   LBs can be configured to allow your instances to run in private subnets while the LB runs in a public subnet and handles internet traffic.
   Adding a WAF to your load balancer provides additional protection against web exploits and bots.
@@ -274,7 +243,7 @@ Following security best practices, AWS recommends implementing network segmentat
 
 ###### Review Amazon VPC network connectivity patterns
 
-In the the exposure finding, identify the security group ID in the ARN.
+In the exposure finding, identify the security group ID in the ARN.
 Identify which instances need to communicate with each other and on which ports.
 You can use Amazon VPC Flow Logs to analyze existing traffic patterns in your Amazon VPC to help identify which ports are being used.
 
@@ -283,7 +252,7 @@ You can use Amazon VPC Flow Logs to analyze existing traffic patterns in your Am
 Modify your security group rules to restrict access to specific trusted IP addresses or ranges.
 For example, instead of allowing all traffic from the entire VPC CIDR range (e.g., 10.0.0.0/16), restrict access to specific security groups or IP ranges.
 When updating your security group rules, consider separating access requirements for different network segments by creating rules for each required source IP range or restricting access to specific ports.
-To modify security group rules, see Configure security group rules in the Amazon EC2User Guide.
+To modify security group rules, see [Configure security group rules](../../../vpc/latest/userguide/working-with-security-group-rules.md "../../../vpc/latest/userguide/working-with-security-group-rules.md") in the Amazon EC2 User Guide.
 
 Consider organizing your Amazon VPC resources into subnets based on security requirements or function.
 For example, place web servers and database servers in separate subnets.
@@ -353,10 +322,10 @@ Consider implementing a regular patching schedule using Systems Manager Maintena
 
 ### The Amazon EC2 instance has software vulnerabilities
 
-Software packages that are installed on Amazon EC2instances can be exposed to Common Vulnerabilities and Exposures (CVEs).
+Software packages that are installed on Amazon EC2 instances can be exposed to Common Vulnerabilities and Exposures (CVEs).
 Noncritical CVEs represent security weaknesses with lower severity or exploitability compared to critical CVEs.
 While these vulnerabilities pose less immediate risk, attackers can still exploit these unpatched vulnerabilities to compromise the confidentiality, integrity, or availability of data, or to access other systems.
-Following security best practices, AWSrecommends patching these vulnerabilities to protect your instance from attack.
+Following security best practices, AWS recommends patching these vulnerabilities to protect your instance from attack.
 
 ###### Update affected instances
 
@@ -384,3 +353,46 @@ Amazon Inspector can be configured to automatically scan for CVEs on your instan
 Amazon Inspector can also be integrated with Security Hub for automatic remediations.
 
 Consider implementing a regular patching schedule using Systems Manager Maintenance Windows to minimize disruption to your instances.
+
+### The EC2 instance has an End-Of-Life operating system
+
+The EC2 instance runs an end-of-life operating system that is no longer supported or maintained by the original developer.
+This exposes the instance to security vulnerabilities and potential attacks.
+When operating systems reach end-of-life, vendors typically stop releasing new security advisories.
+Existing security advisories may also be removed from vendor feeds.
+As a result, Amazon Inspector could potentially stop generating findings for known CVEs, creating further gaps in security coverage.
+
+See [Discontinued operating systems](../../../inspector/latest/user/supported.md#formerly-supported-os "../../../inspector/latest/user/supported.md#formerly-supported-os") in the _Amazon Inspector User Guide_ for information about operating systems that have reached end of life that can be detected by Amazon Inspector.
+
+###### Update to a supported operating system version
+
+We recommend updating to a supported version of the operating system.
+In the exposure finding, open the resource to access the affected resource.
+Before updating the operating system version on your instance, review available versions in [Supported Operating Systems](../../../inspector/latest/user/supported.md#supported-os "../../../inspector/latest/user/supported.md#supported-os") in the _Amazon Inspector User Guide_ for a list of currently supported OS versions.
+
+## The EC2 instance has malicious software packages
+
+Malicious packages are software components that contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
+Malicious packages pose an active and critical threat to your instance, as attackers can execute malicious code automatically without exploiting a vulnerability.
+Following security best practices, AWS recommends removing malicious packages to protect your instance from potential attacks.
+
+###### Remove malicious packages
+
+Review the malicious package details in the **References** section of the **Vulnerability** tab of the trait to understand the threat.
+Remove the identified malicious packages using the appropriate package manager.
+See [Package management tool](../../../linux/al2023/ug/package-management.md "../../../linux/al2023/ug/package-management.md") in the _Amazon Linux 2023 User Guide_ for an example.
+After removing the malicious packages, consider performing a scan to ensure that all packages that may have been installed by the malicious code have been removed.
+For more information, see [Starting On-demand malware scan in GuardDuty](../../../guardduty/latest/ug/malware-protection-getting-started-on-demand-scan.md "../../../guardduty/latest/ug/malware-protection-getting-started-on-demand-scan.md") in the .
+
+## The EC2 instance has malicious files
+
+Malicious files contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
+Malicious files pose an active and critical threat to your instance, as attackers can execute malicious code automatically without exploiting a vulnerability.
+Following security best practices, AWS recommends removing malicious files to protect your instance from potential attacks.
+
+###### Remove malicious files
+
+To identify the specific Amazon Elastic Block Store (Amazon EBS) volume that has malicious files, review the **Resources** section of the trait's finding details.
+Once you have identified the volume with the malicious file, remove the identified malicious files.
+After removing the malicious files, consider performing a scan to ensure that all files that may have been installed by the malicious file have been removed.
+For more information, see [Starting On-demand malware scan in GuardDuty](../../../guardduty/latest/ug/malware-protection-getting-started-on-demand-scan.md "../../../guardduty/latest/ug/malware-protection-getting-started-on-demand-scan.md") in the .

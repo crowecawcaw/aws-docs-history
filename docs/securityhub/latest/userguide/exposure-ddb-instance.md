@@ -63,7 +63,7 @@ Following data protection best practices, we recommend enabling data protection 
 
 ###### Enable deletion protection
 
-If you manage multiple tables, consider using AWS CloudFormation to update table properties in bulk.
-You can modify your AWS CloudFormation templates to include `DeletionProtectionEnabled` property and update your stacks.
+If you manage multiple tables, consider using CloudFormation to update table properties in bulk.
+You can modify your CloudFormation templates to include `DeletionProtectionEnabled` property and update your stacks.
 
 After completing remediation, verify deletion protection is enabled in the **Additional** info dropdown in the table **Settings** tab.

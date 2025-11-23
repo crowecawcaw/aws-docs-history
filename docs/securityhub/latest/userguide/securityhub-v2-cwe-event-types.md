@@ -15,7 +15,7 @@ Security Hub automatically sends all new findings and all updates to existing fi
 to EventBridge as **Findings Imported V2** events.
 Each **Findings Imported V2** event contains a single finding.
 
-Every finding that's imported and every finding updated through a `BatchUpdateFindingsV2` request triggers a **Findings Imported V2** event.
+Every finding that's imported and every finding updated through a [`BatchUpdateFindingsV2`](../../../index.md "../../../index.md") request triggers a **Findings Imported V2** event.
 
 For administrator accounts, the event feed in EventBridge includes events for findings
 from both their account and from their member accounts.
@@ -30,3 +30,8 @@ only apply the rule if the finding has specific attribute values.
 
 You use this method to automatically send all findings, or all findings that have
 specific characteristics, to a response or remediation workflow.
+
+###### Note
+
+Security Hub and Security Hub CSPM both send findings to EventBridge under the source of `aws.securityhub`.
+Ensure that your EventBridge rules use the detail-type that is specific to Security Hub in order to avoid duplicate notifications related to Security Hub CSPM findings.

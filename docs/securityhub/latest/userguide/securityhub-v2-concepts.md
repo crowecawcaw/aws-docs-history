@@ -51,7 +51,8 @@ Third-party ticketing integrations can only be configured in the aggregation reg
 A finding with a status of `ARCHIVED`.
 These findings indicate the finding provider or customer investigating the finding believes the finding is no longer relevant.
 
-Finding providers can archive findings they create.
+Finding providers can archive ﬁndings they create.
+Customers can archive any findings that they believe are no longer relevant using the [BatchUpdateFindingsV2](../../1.0/APIReference/API_BatchUpdateFindingsV2.md "../../1.0/APIReference/API_BatchUpdateFindingsV2.md") operation of the Security Hub API or by updating the status in the Security Hub console.
 
 In the Security Hub console, default filter settings exclude archived findings from finding lists and tables.
 You can update the filters to include archived findings.
@@ -94,17 +95,24 @@ administrator account as the Security Hub administrator account in all Regions.
 
 **Exposure**
 
-A potential security scenario in your account that may be due to vulnerabilities, exploitable resources, or misconfigurations.
+Exposures are broader weaknesses in security controls, misconfigurations, or other areas that could be exploited by active threats.
+
+Examples of exposures include:
+
+- Mis-configured control plane for a resource.
+- Presence of a software vulnerability that has a high potential for exploitability.
+- Publicly accessible resource (network or API).
 
 **Exposure finding**
 
 A type of finding that describes an exposure present in your environment.
 An exposure finding includes traits and signals.
 A signal can include one or more types of exposure traits.
-Security Hub generates an exposure finding when signals from Security Hub CSPM control findings or other AWS services, such as Amazon Inspector, indicate the presence of an exposure.
-A resource can have at most one exposure finding.
-Security Hub generates an exposure finding when a resource is exposed.
+AWS Security Hub generates an exposure finding when signals from AWS Security Hub CSPM, Amazon Inspector, Amazon GuardDuty, Amazon Macie, or other AWS services, indicate the presence of an exposure.
+A resource can be involved in one or more exposure findings.
 If a resource doesn't have any exposure traits or has insufficient traits, Security Hub doesn't generate an exposure finding for that resource.
+
+An example of an exposure finding is: An EC2 instance that is reachable from the internet and has software vulnerabilities which have a high liklihood of exploitation.
 
 **Finding**
 

@@ -1,14 +1,14 @@
 #
 
-Remediating exposures for Amazon RDS functions
+Remediating exposures for Amazon RDS instances and clusters
 
 ###### Note
 
 Security Hub is in preview release and is subject to change.
 
-AWS Security Hub can generate exposure findings for Amazon RDS functions.
+AWS Security Hub can generate exposure findings for Amazon RDS instances and clusters.
 
-On the Security Hub console, the Amazon RDS function involved in an exposure finding and its identifying information are listed in the **Resources** section of the finding details.
+On the Security Hub console, the Amazon RDS instance or cluster involved in an exposure finding and its identifying information are listed in the **Resources** section of the finding details.
 Programmatically, you can retrieve resource details with the [GetFindingsV2](../../1.0/APIReference/API_GetFindingsV2.md "../../1.0/APIReference/API_GetFindingsV2.md") operation of the Security Hub API.
 
 After identifying the resource involved in an exposure finding, you can delete the resource if you don't need it.
@@ -26,7 +26,7 @@ The remediation guidance provided in this topic might require additional consult
 
 ###### Contents
 
-- [Misconfiguration traits for Amazon RDS functions](exposure-rds.md#rds-function-misconfiguration "exposure-rds.md#rds-function-misconfiguration")
+- [Misconfiguration traits for Amazon RDS instances and clusters](exposure-rds.md#rds-instance-cluster-misconfiguration "exposure-rds.md#rds-instance-cluster-misconfiguration")
   - [The Amazon RDS DB instance is configured with public access](exposure-rds.md#public-access-configured "exposure-rds.md#public-access-configured")
   - [The Amazon RDS DB cluster has a snapshot that's shared publicly](exposure-rds.md#publicly-available-rds-cluster-snapshot "exposure-rds.md#publicly-available-rds-cluster-snapshot")
   - [The Amazon RDS DB instance has a snapshot that is not encrypted at rest](exposure-rds.md#unencrypted-rds-database-snapshot "exposure-rds.md#unencrypted-rds-database-snapshot")
@@ -34,17 +34,17 @@ The remediation guidance provided in this topic might require additional consult
   - [The Amazon RDS DB instance has an open security group](exposure-rds.md#open-security-group "exposure-rds.md#open-security-group")
   - [The Amazon RDS DB instance has IAM database authentication disabled](exposure-rds.md#rds-instance-iam-authentication-disabled "exposure-rds.md#rds-instance-iam-authentication-disabled")
   - [The Amazon RDS DB instance uses the default admin username](exposure-rds.md#rds-instance-default-admin-name-used "exposure-rds.md#rds-instance-default-admin-name-used")
-  - [The Amazon RDS DB cluster uses the default admin username](exposure-rds.md#rds-function-misconfiguration-db-cluster-uses-default-admin-username "exposure-rds.md#rds-function-misconfiguration-db-cluster-uses-default-admin-username")
+  - [The Amazon RDS DB cluster uses the default admin username](exposure-rds.md#rds-cluster-misconfiguration-db-cluster-uses-default-admin-username "exposure-rds.md#rds-cluster-misconfiguration-db-cluster-uses-default-admin-username")
   - [The Amazon RDS DB instance has automatic minor version upgrades disabled](exposure-rds.md#rds-instance-minor-version-upgrades-disabled "exposure-rds.md#rds-instance-minor-version-upgrades-disabled")
   - [The Amazon RDS DB instance has automated backups disabled](exposure-rds.md#rds-instance-backups-disabled "exposure-rds.md#rds-instance-backups-disabled")
   - [The Amazon RDS DB instance has deletion protection disabled](exposure-rds.md#rds-instance-deletion-protection-disabled "exposure-rds.md#rds-instance-deletion-protection-disabled")
-  - [The Amazon RDS DB cluster has deletion protection disabled](exposure-rds.md#rds-function-misconfiguration-db-cluster-deletion-protection-disabled "exposure-rds.md#rds-function-misconfiguration-db-cluster-deletion-protection-disabled")
+  - [The Amazon RDS DB cluster has deletion protection disabled](exposure-rds.md#rds-cluster-misconfiguration-db-cluster-deletion-protection-disabled "exposure-rds.md#rds-cluster-misconfiguration-db-cluster-deletion-protection-disabled")
   - [The Amazon RDS DB instance uses the default port for the database engine](exposure-rds.md#rds-instance-default-port-in-use "exposure-rds.md#rds-instance-default-port-in-use")
   - [The Amazon RDS DB instance is not covered by a backup plan](exposure-rds.md#rds-instance-not-in-backup-plan "exposure-rds.md#rds-instance-not-in-backup-plan")
 
-## Misconfiguration traits for Amazon RDS functions
+## Misconfiguration traits for Amazon RDS instances and clusters
 
-The following describes the misconfiguration traits and remediation steps for Amazon RDS functions.
+The following describes the misconfiguration traits and remediation steps for Amazon RDS instances and clusters.
 
 ### The Amazon RDS DB instance is configured with public access
 
@@ -71,7 +71,7 @@ Following security best practices, we recommend restricting access to your Amazo
 1.  Configure an Amazon RDS snapshot for private access
 
 In the exposure finding, open the resource through the hyperlink.
-For information how about how to modify snapshot sharing settings, see [Sharing a snapshot](../../../AmazonRDS/latest/AuroraUserGuide/aurora-share-snapshot.md#aurora-share-snapshot.Sharing "../../../AmazonRDS/latest/AuroraUserGuide/aurora-share-snapshot.md#aurora-share-snapshot.Sharing") in the _Amazon Aurora User Guide._
+For information about how to modify snapshot sharing settings, see [Sharing a snapshot](../../../AmazonRDS/latest/AuroraUserGuide/aurora-share-snapshot.md#aurora-share-snapshot.Sharing "../../../AmazonRDS/latest/AuroraUserGuide/aurora-share-snapshot.md#aurora-share-snapshot.Sharing") in the _Amazon Aurora User Guide._
 For information about how to stop sharing snapshots, see [Stopping snapshot sharing](../../../AmazonRDS/latest/AuroraUserGuide/share-snapshot-stop.md "../../../AmazonRDS/latest/AuroraUserGuide/share-snapshot-stop.md") in the _Amazon Aurora User Guide._.
 
 ### The Amazon RDS DB instance has a snapshot that is not encrypted at rest
@@ -179,7 +179,7 @@ Following security best practices, we recommend enabling automatic minor version
 In the exposure finding, open the resource with the hyperlink.
 This will open the affected DB instance.
 You can view automatic minor upgrade settings in the **Maintenance & backups** tab.
-For more information, see [Automatic minor version upgrades for Amazon RDS for MySQL](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MySQL.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MySQL.md")
+For more information, see [Automatic minor version upgrades for Amazon RDS for MySQL](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MySQL.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MySQL.md").
 You can also configure your maintenance window to occur during periods of low database activity.
 
 ### The Amazon RDS DB instance has automated backups disabled

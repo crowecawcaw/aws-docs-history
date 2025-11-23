@@ -28,7 +28,7 @@ The following sections specify which controls apply to PCI DSS v3.2.1 and PCI DS
 The following list specifies which Security Hub CSPM controls apply to PCI DSS v3.2.1. To review the
 details of a control, choose the control.
 
-[[AutoScaling.1] Auto Scaling groups associated with a load balancer should use ELB health checks](autoscaling-controls.md#autoscaling-1 "autoscaling-controls.md#autoscaling-1")
+[[AutoScaling.1] Amazon EC2 Auto Scaling groups associated with a load balancer should use ELB health checks](autoscaling-controls.md#autoscaling-1 "autoscaling-controls.md#autoscaling-1")
 
 [[CloudTrail.2] CloudTrail should have encryption at-rest enabled](cloudtrail-controls.md#cloudtrail-2 "cloudtrail-controls.md#cloudtrail-2")
 
@@ -143,9 +143,9 @@ Stages](apigateway-controls.md#apigateway-9 "apigateway-controls.md#apigateway-9
 
 [[AppSync.2] AWS AppSync should have field-level logging enabled](appsync-controls.md#appsync-2 "appsync-controls.md#appsync-2")
 
-[[AutoScaling.3] Auto Scaling group launch configurations should configure EC2 instances to require Instance Metadata Service Version 2 (IMDSv2)](autoscaling-controls.md#autoscaling-3 "autoscaling-controls.md#autoscaling-3")
+[[AutoScaling.3] Amazon EC2 Auto Scaling group launch configurations should configure EC2 instances to require Instance Metadata Service Version 2 (IMDSv2)](autoscaling-controls.md#autoscaling-3 "autoscaling-controls.md#autoscaling-3")
 
-[[Autoscaling.5] Amazon EC2 instances launched using Auto Scaling group launch configurations should not have Public IP addresses](autoscaling-controls.md#autoscaling-5 "autoscaling-controls.md#autoscaling-5")
+[[Autoscaling.5] Amazon EC2 instances launched using Amazon EC2 Auto Scaling group launch configurations should not have Public IP addresses](autoscaling-controls.md#autoscaling-5 "autoscaling-controls.md#autoscaling-5")
 
 [[CloudFront.1] CloudFront distributions should have a default
 root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")

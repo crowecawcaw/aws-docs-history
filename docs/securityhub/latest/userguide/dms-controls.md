@@ -28,7 +28,7 @@ the value of the `PubliclyAccessible` field.
 A private replication instance has a private IP address that you cannot access outside of
 the replication network. A replication instance should have a private IP address when the source
 and target databases are in the same network. The network must also be connected to the
-replication instance's VPC using a VPN, AWS Direct Connect, or VPC peering. To learn more about public and
+replication instance's VPC using a VPN, Direct Connect, or VPC peering. To learn more about public and
 private replication instances, see [Public and private replication instances](../../../dms/latest/userguide/CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.PublicPrivate "../../../dms/latest/userguide/CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.PublicPrivate") in the _AWS Database Migration Service User Guide_.
 
 You should also ensure that access to your AWS DMS instance configuration is limited to only

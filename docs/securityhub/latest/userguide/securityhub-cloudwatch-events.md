@@ -30,7 +30,7 @@ For more information, see [Identity and access management in Amazon EventBridge]
 
 A set of templates for cross-account automated response and remediation is also available
 in AWS Solutions. The templates leverage EventBridge event rules and Lambda functions. You deploy
-the solution using AWS CloudFormation and AWS Systems Manager. The solution can create fully automated response and
+the solution using CloudFormation and AWS Systems Manager. The solution can create fully automated response and
 remediation actions. It can also use Security Hub CSPM custom actions to create user-triggered response
 and remediation actions. For details on how to configure and use the solution, see the
 [Automated Security Response on AWS](https://aws.amazon.com/solutions/implementations/aws-security-hub-automated-response-and-remediation/ "https://aws.amazon.com/solutions/implementations/aws-security-hub-automated-response-and-remediation/") solution page.

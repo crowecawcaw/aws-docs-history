@@ -70,7 +70,7 @@ Following security best practices, we recommend you enable Object Lock to preven
    Before you lock any objects, you must also enable Amazon S3 Versioning and Object Lock on a bucket.
    Since Object Lock can only be enabled on new buckets, you’ll need to migrate existing data to a new bucket with Object Lock enabled.
    **Configure Amazon S3 Object Lock** –
-   For information about how to configure Object Lock on a bucket, see [ConfiguringAmazon S3Object Lock](../../../AmazonS3/latest/userguide/object-lock-configure.md "../../../AmazonS3/latest/userguide/object-lock-configure.md") in the _Amazon Simple Storage Service User Guide_.
+   For information about how to configure Object Lock on a bucket, see [Configuring Amazon S3 Object Lock](../../../AmazonS3/latest/userguide/object-lock-configure.md "../../../AmazonS3/latest/userguide/object-lock-configure.md") in the _Amazon Simple Storage Service User Guide_.
    After setting up Object Lock, choose an appropriate retention mode according to your environment.
 
 ### Amazon S3 bucket is not encrypted at rest with AWS KMS keys
@@ -124,12 +124,12 @@ For more information, see [Configuring MFA delete](../../../AmazonS3/latest/user
 
 Amazon S3 bucket policies control access to buckets and objects.
 When bucket policies allow principals from other AWS accounts to modify bucket permissions, unauthorized users can reconfigure your bucket.
-If external principal credentials are compromised, unathorized users can gain control over your bucket, leading to data breaches or service disruptions.
+If external principal credentials are compromised, unauthorized users can gain control over your bucket, leading to data breaches or service disruptions.
 Following standard security principles, AWS recommends that you restrict permission management actions to trusted principals only.
 
 1. **Review and identify bucket policies**
 
-In the the exposure, identify the Amazon S3 bucket in the ARN field.
+In the exposure, identify the Amazon S3 bucket in the ARN field.
 In the Amazon S3 console, select the bucket, and navigate to the **Permissions** tab to review the bucket policy.
 Review the permissions policy attached to the bucket.
 Look for policy statements that grant actions like `s3:PutBucketPolicy, s3:PutBucketAcl, s3:DeleteBucketPolicy, s3:*` or policy statements that allow access to principals outside your account, as denoted in the principal statement. 2. **Modify the bucket policy**
@@ -139,7 +139,7 @@ Modify the bucket policy to remove or restrict actions granted to other AWS acco
     * Remove policy statements that grant external accounts permission management actions.
     * If cross-account access is required, replace broad permissions `(s3:*)` with specific actions that don't include bucket permission management.
 
-For information about modifying a bucket policy, see [Adding a bucket policy by using the Amazon S3 console](../../../AmazonS3/latest/userguide/add-bucket-policy.md "../../../AmazonS3/latest/userguide/add-bucket-policy.md") in the _Amazon S3 User Guide_.
+For information about modifying a bucket policy, see [Adding a bucket policy by using the Amazon S3 console](../../../AmazonS3/latest/userguide/add-bucket-policy.md "../../../AmazonS3/latest/userguide/add-bucket-policy.md") in the _Amazon Simple Storage Service User Guide_.
 
 ## Reachability traits for Amazon S3 buckets
 
@@ -161,9 +161,9 @@ Choose one of the following options to configure private access for your Amazon 
 
     * **Account level** – To block public access for all buckets in your account using account-level settings, see [Configuring block public access settings for your account](../../../AmazonS3/latest/userguide/configuring-block-public-access-account.md "../../../AmazonS3/latest/userguide/configuring-block-public-access-account.md") in the
      *Amazon Simple Storage Service User Guide*.
-    * **Bucket level** –To block public access for a specific bucket, see [Configuring block public access settings for yourAmazon S3buckets](../../../AmazonS3/latest/userguide/configuring-block-public-access-bucket.md "../../../AmazonS3/latest/userguide/configuring-block-public-access-bucket.md") in the
+    * **Bucket level** – To block public access for a specific bucket, see [Configuring block public access settings for yourAmazon S3buckets](../../../AmazonS3/latest/userguide/configuring-block-public-access-bucket.md "../../../AmazonS3/latest/userguide/configuring-block-public-access-bucket.md") in the
      *Amazon Simple Storage Service User Guide*.
-    * **Bucket ACL or policies** –To modify the bucket access control list (ACL), bucket policy, Multi-Region Access Point (MRAP) policy, or
+    * **Bucket ACL or policies** – To modify the bucket access control list (ACL), bucket policy, Multi-Region Access Point (MRAP) policy, or
      access point policy to remove public access to the bucket, see [Reviewing and changing bucket access](../../../AmazonS3/latest/userguide/access-analyzer.md#changing-bucket-access "../../../AmazonS3/latest/userguide/access-analyzer.md#changing-bucket-access") in the
      *Amazon Simple Storage Service User Guide*. If you block public access at the account level or bucket level, those blocks
      take precedence over a policy that permits public access.
@@ -188,10 +188,10 @@ If public read access is required, consider these more secure alternatives:
     * **CloudFront** –
      Use CloudFront with an Origin Access Identity (OAI) or Origin Access Control (OAC) to allow read access from a private Amazon S3 bucket.
      This alternative restricts direct access to your Amazon S3 bucket while allowing content to be publicly accessible through CloudFront.
-     For more information, see [Restricting access to an Amazon Amazon S3 origin](../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.md "../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.md") in the *Amazon CloudFront Developer Guide*.
+     For more information, see [Restricting access to an Amazon S3 origin](../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.md "../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.md") in the *Amazon CloudFront Developer Guide*.
     * **Presigned URLs** –
      Use presigned URLs for temporary access to specific objects.
-     For more information, see [Sharing objects with presigned URLs](../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.md "../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.md") in the *AWSAmazon S3User Guide*.
+     For more information, see [Sharing objects with presigned URLs](../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.md "../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.md") in the *Amazon CloudFront Developer Guide*.
 
 ### The Amazon S3 bucket has write access
 
@@ -208,6 +208,7 @@ For more information, see [Blocking public access to your Amazon S3 storage](../
 For a more granular approach to remove public write access, review the bucket policy.
 You can look for `s3:PutObject`, `s3:DeleteObject`, or `s3:*`.
 For more information on managing bucket policies, see [Bucket policies for Amazon S3](../../../AmazonS3/latest/userguide/bucket-policies.md "../../../AmazonS3/latest/userguide/bucket-policies.md") in the _Amazon Simple Storage Service User Guide_. 3. **Alternative access methods**
+
 If public read access is required, consider these more secure alternatives:
 
     * **CloudFront** –
@@ -221,14 +222,14 @@ If public read access is required, consider these more secure alternatives:
 ### The Amazon S3 access point has public access settings enabled
 
 Amazon S3 access points provide customized access to shared datasets in Amazon S3 buckets.
-When you enable public access for an access point, anyone on the internet to access to your data.
+When you enable public access for an access point, it could allow anyone on the internet to access your data.
 Following standard security principles, AWS recommends restricting public access to Amazon S3 access points.
 
 1. **Create a new access point with block public access enabled**
 
 Amazon S3 doesn't support changing an access point’s public access settings after an access point has been created.
-For information about creating an access point, see [Managing public access to access points for general purpose buckets](../../../AmazonS3/latest/userguide/creating-access-points.md "../../../AmazonS3/latest/userguide/creating-access-points.md") in the _Amazon S3 User Guide_.
-For more information about managing public access to access points, see [Creating access points for general purpose buckets](../../../AmazonS3/latest/userguide/access-points-bpa-settings.md "../../../AmazonS3/latest/userguide/access-points-bpa-settings.md") in the _Amazon S3 User Guide_.
+For information about creating an access point, see [Managing public access to access points for general purpose buckets](../../../AmazonS3/latest/userguide/creating-access-points.md "../../../AmazonS3/latest/userguide/creating-access-points.md") in the _Amazon Simple Storage Service User Guide_.
+For more information about managing public access to access points, see [Creating access points for general purpose buckets](../../../AmazonS3/latest/userguide/access-points-bpa-settings.md "../../../AmazonS3/latest/userguide/access-points-bpa-settings.md") in the _Amazon Simple Storage Service User Guide_.
 
 ## Sensitive data traits for Amazon S3 buckets
 

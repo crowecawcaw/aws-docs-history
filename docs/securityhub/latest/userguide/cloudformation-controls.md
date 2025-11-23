@@ -1,4 +1,4 @@
-# Security Hub controls for AWS CloudFormation
+# Security Hub controls for CloudFormation
 
 These Security Hub controls evaluate the AWS CloudFormation service and resources.
 
@@ -28,7 +28,7 @@ For more information, see [Change log for Security Hub CSPM controls](controls-c
 
 **Parameters:** None
 
-This control checks whether an Amazon Simple Notification Service notification is integrated with an AWS CloudFormation
+This control checks whether an Amazon Simple Notification Service notification is integrated with an CloudFormation
 stack. The control fails for a CloudFormation stack if no SNS notification is associated with
 it.
 

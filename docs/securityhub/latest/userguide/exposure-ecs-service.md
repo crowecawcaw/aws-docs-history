@@ -22,25 +22,28 @@ The remediation guidance provided in this topic might require additional consult
 ###### Contents
 
 - [Misconfiguration traits for Amazon ECS services](exposure-ecs-service.md#ecs-service-misconfiguration "exposure-ecs-service.md#ecs-service-misconfiguration")
-  - [The Amazon ECS service use a task definition configured with elevated privileges](exposure-ecs-service.md#task-definition-privileged "exposure-ecs-service.md#task-definition-privileged")
-  - [The Amazon ECS service has a container that can assume an IAM role](exposure-ecs-service.md#aws-role-access-granted "exposure-ecs-service.md#aws-role-access-granted")
+  - [The Amazon ECS service uses a task definition configured with elevated privileges](exposure-ecs-service.md#task-definition-privileged "exposure-ecs-service.md#task-definition-privileged")
   - [The Amazon ECS service uses a task definition that allows containers to access the root file systems](exposure-ecs-service.md#root-access-to-filesystem "exposure-ecs-service.md#root-access-to-filesystem")
   - [The Amazon ECS service uses a task definition configured to share a host's process namespace](exposure-ecs-service.md#exposed-name-space "exposure-ecs-service.md#exposed-name-space")
   - [The Amazon ECS service uses a task definition configured with cleartext credentials in the environment variables](exposure-ecs-service.md#cleartext-credentials-present "exposure-ecs-service.md#cleartext-credentials-present")
   - [The Amazon ECS service has an open security group](exposure-ecs-service.md#open-security-group "exposure-ecs-service.md#open-security-group")
-  - [The Amazon ECS service has a public IP addresses](exposure-ecs-service.md#public-ip-assigned "exposure-ecs-service.md#public-ip-assigned")
+  - [The Amazon ECS service has public IP addresses](exposure-ecs-service.md#public-ip-assigned "exposure-ecs-service.md#public-ip-assigned")
   - [The Amazon ECS service uses a task definition that is configured with host networking mode enabled](exposure-ecs-service.md#host-networking-mode-enabled "exposure-ecs-service.md#host-networking-mode-enabled")
   - [The IAM role associated with the Amazon ECS service has an administrative access policy](exposure-ecs-service.md#administrative-access-policy "exposure-ecs-service.md#administrative-access-policy")
+  - [The IAM Role associated with the ECS service has a Service Admin Policy](exposure-ecs-service.md#service-administrative-policy "exposure-ecs-service.md#service-administrative-policy")
 
 - [Vulnerability traits for Amazon ECS services](exposure-ecs-service.md#vulnerability "exposure-ecs-service.md#vulnerability")
   - [The Amazon ECS service has a container with network-exploitable software vulnerabilities with a high likelihood of exploitation](exposure-ecs-service.md#high-priority-vulnerability "exposure-ecs-service.md#high-priority-vulnerability")
   - [The Amazon ECS service has a container with software vulnerabilities](exposure-ecs-service.md#low-priority-vulnerability "exposure-ecs-service.md#low-priority-vulnerability")
+  - [The Amazon ECS service has a container with an End-Of-Life operating system](exposure-ecs-service.md#end-of-life-operating-system "exposure-ecs-service.md#end-of-life-operating-system")
+
+- [The Amazon ECS service has a container with malicious software packages](exposure-ecs-service.md#malicious-package "exposure-ecs-service.md#malicious-package")
 
 ## Misconfiguration traits for Amazon ECS services
 
 Here are misconfiguration traits for Amazon ECS services and suggested remediation steps.
 
-### The Amazon ECS service use a task definition configured with elevated privileges
+### The Amazon ECS service uses a task definition configured with elevated privileges
 
 Amazon ECS containers running with elevated privileges have similar capabilities to the
 host system, potentially allowing access to host resources and other containers.
@@ -62,28 +65,6 @@ without the privileged flag.
 
 If privileged mode is required, consider configuring the container to use a
 read-only file system to prevent unauthorized modifications.
-
-### The Amazon ECS service has a container that can assume an IAM role
-
-IAM roles enable Amazon ECS tasks to securely access other AWS services using
-temporary credentials. Task execution roles may be required for Amazon ECS tasks where
-the container needs to interact with other AWS resources. While this is sometimes
-necessary for container functionality, improperly configured roles can grant
-excessive privileges that can be exploited by attackers if a container is
-compromised, potentially allowing unauthorized access to AWS resources, data
-theft, or unauthorized modification of your infrastructure. Following standard
-security principles, AWS recommends implementing least privilege access and
-reviewing IAM roles attached to your Amazon ECS tasks.
-
-###### Review attached roles
-
-Go to the IAM dashboard, and select the identified role. Review the
-permissions policy attached to the IAM role.
-
-If the task requires interaction with other AWS services, keep the task
-execution role and consider applying least-privilege
-permissions. Otherwise,
-create a new task definition revision without the execution role.
 
 ### The Amazon ECS service uses a task definition that allows containers to access the root file systems
 
@@ -191,7 +172,7 @@ Consider the following options for alternative access methods:
   security groups, NACLs are stateless and require both inbound and outbound
   rules to be explicitly defined.
 
-### The Amazon ECS service has a public IP addresses
+### The Amazon ECS service has public IP addresses
 
 Amazon ECS services with public IP addresses assigned to their tasks are directly
 accessible from the internet. While this may be necessary for services that need to
@@ -288,6 +269,44 @@ Create a new revision of your task definition that references the new or
 updated IAM roles. Then update your Amazon ECS service to use the new task
 definition revision.
 
+### The IAM Role associated with the ECS service has a Service Admin Policy
+
+Service admin policies provide Amazon ECS tasks and services with permissions to perform all actions within specific AWS services.
+These policies typically include permissions that are required for Amazon ECS task functionality.
+Providing an IAM role with a service admin policy for Amazon ECS tasks, instead of the minimum set of permissions needed, can increase the scope of an attack if a container is compromised.
+Following standard security principles, AWS recommends that you grant least privileges, which means granting only the permissions required to perform a task.
+
+###### Review and identify administrative policies
+
+In the **Resource ID**, identify the Amazon ECS task role and execution role names.
+Go to the [IAM dashboard](https://console.aws.amazon.com/iam/home/#roles "https://console.aws.amazon.com/iam/home/#roles") and select the identified roles.
+Review the permissions policies attached to these IAM roles.
+Look for policy statements that grant full access to services (e.g., `"s3": "*", "ecr": "*"`).
+For instructions on editing IAM policies, see [Edit IAM policies](../../../IAM/latest/UserGuide/access_policies_manage-edit.md#edit-policy-details "../../../IAM/latest/UserGuide/access_policies_manage-edit.md#edit-policy-details") in the _IAM User Guide_.
+
+###### Implement least privilege access
+
+Replace service admin policies with those that grant only the specific permissions required for Amazon ECS tasks to function.
+To identify unnecessary permissions, you can use IAM Access Analyzer to understand how to modify your policy based on access history.
+Alternatively, you can create a new IAM role to avoid impacting other applications that are using the existing role.
+In this scenario, create a new IAM role, then associate the new IAM role with the instance.
+
+###### Secure configuration considerations
+
+If service-level administrative permissions are necessary for Amazon ECS tasks, consider implementing these additional security controls:
+
+- **IAM conditions** –
+  Set up condition elements to restrict when and how administrative permissions can be used based on factors like VPC endpoints or specific Amazon ECS clusters.
+  For more information, see [Use conditions in IAM policies to further restrict access](../../../IAM/latest/UserGuide/best-practices.md#use-policy-conditions "../../../IAM/latest/UserGuide/best-practices.md#use-policy-conditions") in the _IAM User Guide_.
+- **Permission boundaries** –
+  Establish maximum permissions a role can have, providing guardrails for roles with administrative access.
+  For more information, see [Use permissions boundaries to delegate permissions management within an account](../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries "../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries") in the _IAM User Guide_.
+
+###### Update task definitions
+
+Create a new revision of your task definition that references the new or updated IAM roles.
+Then update your Amazon ECS service to use the new task definition revision.
+
 ## Vulnerability traits for Amazon ECS services
 
 Here are vulnerability traits for Amazon ECS and suggested remediation steps.
@@ -355,3 +374,34 @@ Amazon Inspector can also be integrated with Security Hub for automatic remediat
 
 Consider implementing a regular patching schedule using Systems Manager Maintenance
 Windows to minimize disruption to your containers.
+
+### The Amazon ECS service has a container with an End-Of-Life operating system
+
+The Amazon ECS container relies on an end-of-life operating system that is no longer supported or maintained by the original developer.
+This exposes the container to security vulnerabilities and potential attacks.
+When operating systems reach end-of-life, vendors typically stop releasing new security advisories.
+Existing security advisories may also be removed from vendor feeds.
+As a result, Amazon Inspector could potentially stop generating findings for known CVEs, creating further gaps in security coverage.
+
+See [Discontinued operating systems](../../../inspector/latest/user/supported.md#formerly-supported-os "../../../inspector/latest/user/supported.md#formerly-supported-os") in the _Amazon Inspector User Guide_ for information about operating systems that have reached end of life that can be detected by Amazon Inspector.
+
+###### Update to a supported operating system version
+
+We recommend updating to a supported version of the operating system.
+In the exposure finding, open the resource to access the affected resource.
+Before updating the operating system version in your container image, review available versions in [Supported Operating Systems](../../../inspector/latest/user/supported.md#supported-os "../../../inspector/latest/user/supported.md#supported-os") in the _Amazon Inspector User Guide_ for a list of currently supported OS versions.
+After updating your container image, push it to your container registry and update your Amazon ECS task definition to use the new image.
+
+## The Amazon ECS service has a container with malicious software packages
+
+Malicious packages are software components that contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
+Malicious packages pose an active and critical threat to your Amazon ECS container images, as attackers can execute malicious code automatically without exploiting a vulnerability.
+Following security best practices, AWS recommends removing malicious packages to protect your containers from potential attacks.
+
+###### Remove malicious packages
+
+Review the malicious package details in the **References** section of the **Vulnerability** tab of the trait to understand the threat.
+Remove the identified malicious packages from your container images then rebuild them.
+For more information, see [ContainerDependency](../../../AmazonECS/latest/APIReference/API_ContainerDependency.md "../../../AmazonECS/latest/APIReference/API_ContainerDependency.md") in the _AWS Amazon ECS API Reference_.
+After updating your container image, push it to your container registry and update your Amazon ECS task definition to use the new image.
+For more information, see [Updating an Amazon ECS task definition using the console](../../../AmazonECS/latest/developerguide/update-task-definition-console-v2.md "../../../AmazonECS/latest/developerguide/update-task-definition-console-v2.md") in the _AWS Amazon ECS Developer Guide_.

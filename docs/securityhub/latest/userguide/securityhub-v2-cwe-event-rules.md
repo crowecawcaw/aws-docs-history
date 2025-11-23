@@ -141,3 +141,9 @@ specify filter values for the following finding attributes:
     For details about creating rules, see [Creating Amazon EventBridge
     rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _Amazon EventBridge User
     Guide_.
+
+###### Note
+
+If you have EventBridge rules defined for findings in Security Hub CSPM, the rules could overlap with rules defined for Security Hub.
+To avoid sending duplicate findings, evaluate the rules you have defined for Security Hub CSPM to determine if they overlap with rules you are have defined for Security Hub.
+Where applicable disable any Security Hub CSPM rules that are replaced by Security Hub rules.

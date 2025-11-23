@@ -23,10 +23,6 @@ depends on your organizational requirements and workloads.
 
 The remediation guidance provided in this topic might require additional consultation in other AWS resources.
 
-###### Note
-
-The remediation guidance provided in this topic might require additional consultation in other AWS resources.
-
 ###### Contents
 
 - [Misconfiguration traits for Lambda functions](exposure-lambda-function.md#lambda-function-misconfiguration "exposure-lambda-function.md#lambda-function-misconfiguration")
@@ -41,7 +37,9 @@ The remediation guidance provided in this topic might require additional consult
 
 - [Vulnerability traits for Lambda functions](exposure-lambda-function.md#lambda-function-vulnerability "exposure-lambda-function.md#lambda-function-vulnerability")
   - [The Lambda function has network-exploitable software vulnerabilities](exposure-lambda-function.md#high-priority-vulnerability "exposure-lambda-function.md#high-priority-vulnerability")
-  - [The Lambda function has software vulnerabilites](exposure-lambda-function.md#low-priority-vulnerability "exposure-lambda-function.md#low-priority-vulnerability")
+  - [The Lambda function has software vulnerabilities](exposure-lambda-function.md#low-priority-vulnerability "exposure-lambda-function.md#low-priority-vulnerability")
+
+- [The Lambda function has malicious software packages](exposure-lambda-function.md#malicious-package "exposure-lambda-function.md#malicious-package")
 
 ## Misconfiguration traits for Lambda functions
 
@@ -218,7 +216,7 @@ After updating the libraries, update the Lambda function code to use the fixed v
 
 Afterwards, deploy the updated version.
 
-### The Lambda function has software vulnerabilites
+### The Lambda function has software vulnerabilities
 
 Lambda functions often use third-party libraries and dependencies that may contain security vulnerabilities with lower severity or exploitability compared to critical CVEs.
 While these non-critical vulnerabilities might not be as immediately exploitable, they still represent security weaknesses that could be chained together with other vulnerabilities to compromise your function.
@@ -234,3 +232,17 @@ Typically, the remediation workflow depends on whether you deployed the Lambda p
 After updating the libraries, update the Lambda function code to use the fixed version.
 
 Afterwards, deploy the updated version.
+
+## The Lambda function has malicious software packages
+
+Malicious packages are software components that contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
+Malicious packages pose an active and critical threat to your Lambda function, as attackers can execute malicious code automatically without exploiting a vulnerability.
+Following security best practices, AWS recommends removing malicious packages to protect your Lambda function from potential attacks.
+
+###### Remove malicious packages
+
+Review the malicious package details in the **References** section of the **Vulnerability** tab of the trait to understand the threat.
+Remove the identified malicious packages from your function code and dependencies.
+For functions using layers, check if the malicious packages are installed in any layers and remove them.
+Update your deployment package or container image to exclude the malicious packages, then deploy the updated version.
+For instructions, see [Deploying Lambda functions as .zip file archives](../../../lambda/latest/dg/configuration-function-zip.md "../../../lambda/latest/dg/configuration-function-zip.md") for .zip file archives or [Create a Lambda function using a container image](../../../lambda/latest/dg/images-create.md "../../../lambda/latest/dg/images-create.md") for container images.

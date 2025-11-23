@@ -1,4 +1,4 @@
-# Security Hub controls for Elastic Load Balancing
+# Security Hub controls for ELB
 
 These AWS Security Hub controls evaluate the Elastic Load Balancing service and resources. The controls might
 not be available in all AWS Regions. For more information, see [Availability of controls by
@@ -240,7 +240,7 @@ SC-7(9), NIST.800-53.r5 SI-7(8)
 This control checks whether the Application Load Balancer and the Classic Load Balancerhave logging enabled. The control
 fails if `access_logs.s3.enabled` is `false`.
 
-Elastic Load Balancing provides access logs that capture detailed information about requests sent to
+ELB provides access logs that capture detailed information about requests sent to
 your load balancer. Each log contains information such as the time the request was
 received, the client's IP address, latencies, request paths, and server responses. You
 can use these access logs to analyze traffic patterns and to troubleshoot issues.
@@ -321,7 +321,7 @@ This control checks whether Classic Load Balancers have connection draining enab
 
 Enabling connection draining on Classic Load Balancers ensures that the load balancer stops sending
 requests to instances that are de-registering or unhealthy. It keeps the existing
-connections open. This is particularly useful for instances in Auto Scaling groups, to ensure
+connections open. This is particularly useful for instances in Amazon EC2 Auto Scaling groups, to ensure
 that connections aren't severed abruptly.
 
 ### Remediation
@@ -406,7 +406,7 @@ number of registered targets is not same across the Availability Zones, traffic 
 distributed evenly and the instances in one zone may end up over utilized compared to
 the instances in another zone. With cross-zone load balancing enabled, each load
 balancer node for your Classic Load Balancer distributes requests evenly across the registered instances
-in all enabled Availability Zones. For details see [Cross-zone load balancing](../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#cross-zone-load-balancing "../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#cross-zone-load-balancing") in the Elastic Load Balancing User Guide.
+in all enabled Availability Zones. For details see [Cross-zone load balancing](../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#cross-zone-load-balancing "../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#cross-zone-load-balancing") in the ELB User Guide.
 
 ### Remediation
 
@@ -523,8 +523,8 @@ registered in at least the specified number of AZs. Unless you provide a custom
 parameter value for the minimum number of AZs, Security Hub uses a default value of two
 AZs.
 
-Elastic Load Balancing automatically distributes your incoming traffic across multiple targets, such as
-EC2 instances, containers, and IP addresses, in one or more Availability Zones. Elastic Load Balancing
+ELB automatically distributes your incoming traffic across multiple targets, such as
+EC2 instances, containers, and IP addresses, in one or more Availability Zones. ELB
 scales your load balancer as your incoming traffic changes over time. It is recommended
 to configure at least two availability zones to ensure availability of services, as the
 Elastic Load Balancer will be able to direct traffic to another availability zone if one

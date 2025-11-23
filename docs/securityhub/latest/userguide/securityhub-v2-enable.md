@@ -16,6 +16,10 @@ In Step 3, the delegated administrator for the organization creates a policy tha
 
 ### Step 1. Enable Security Hub in the AWS organization management account
 
+###### Note
+
+This step only needs to be completed in one region of the organization management account.
+
 This step includes two procedures.
 The first procedure describes how to enable Security Hub if you enabled Security Hub CSPM and designated a delegated administrator in Security Hub CSPM.
 The second procedure describes how to enable Security Hub if you have not enabled Security Hub CSPM and designated a delegated administrator in Security Hub CSPM.
@@ -73,7 +77,8 @@ After you enable Security Hub, a service-linked role called [AWSServiceRoleForSe
 The service-linked recorder is a type of AWS Config recorder managed by an AWS service that can record configuration data on service-specific resources.
 With a service-linked recorder, Security Hub enables an event-driven approach for obtaining resource configuration items required for exposure analysis coverage and reporting resource inventory.
 A service-linked recorder is configured per AWS account and AWS Region.
-For more information, see [Considerations for service-linked configuration recorders](../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked "../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked").
+For global resource types, an additional service-linked recorder is automatically created in the home region to record configuration changes for global resources, as AWS Config only records global resource types in their designated home region.
+For more information, see [Considerations for service-linked configuration recorders](../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked "../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked") and [Recording regional and global resources](../../../config/latest/developerguide/select-resources.md#select-resources-all "../../../config/latest/developerguide/select-resources.md#select-resources-all").
 
 ### Step 2. Enable Security Hub in the delegated administrator account
 
@@ -93,7 +98,8 @@ After you enable Security Hub, a service-linked role called [AWSServiceRoleForSe
 The service-linked recorder is a type of AWS Config recorder managed by an AWS service that can record configuration data on service-specific resources.
 With a service-linked recorder, Security Hub enables an event-driven approach for obtaining resource configuration items required for exposure analysis coverage and reporting resource inventory.
 A service-linked recorder is configured per AWS account and AWS Region.
-For more information, see [Considerations for service-linked configuration recorders](../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked "../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked").
+For global resource types, an additional service-linked recorder is automatically created in the home region to record configuration changes for global resources, as AWS Config only records global resource types in their designated home region.
+For more information, see [Considerations for service-linked configuration recorders](../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked "../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked") and [Recording regional and global resources](../../../config/latest/developerguide/select-resources.md#select-resources-all "../../../config/latest/developerguide/select-resources.md#select-resources-all").
 
 ### Step 3. Create a policy that enables Security Hub in all member accounts
 
@@ -117,4 +123,5 @@ After you enable Security Hub, a service-linked role called [AWSServiceRoleForSe
 The service-linked recorder is a type of AWS Config recorder managed by an AWS service that can record configuration data on service-specific resources.
 With a service-linked recorder, Security Hub enables an event-driven approach for obtaining resource configuration items required for exposure analysis coverage and reporting resource inventory.
 A service-linked recorder is configured per AWS account and AWS Region.
-For more information, see [Considerations for service-linked configuration recorders](../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked "../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked").
+For global resource types, an additional service-linked recorder is automatically created in the home region to record configuration changes for global resources, as AWS Config only records global resource types in their designated home region.
+For more information, see [Considerations for service-linked configuration recorders](../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked "../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked") and [Recording regional and global resources](../../../config/latest/developerguide/select-resources.md#select-resources-all "../../../config/latest/developerguide/select-resources.md#select-resources-all").

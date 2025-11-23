@@ -196,7 +196,7 @@ Following security best practices, AWS recommends implementing least privilege b
 
 ###### Implement least-privilege access
 
-In exposure finding, open the resource.
+In the exposure finding, open the resource.
 This will open the IAM Policy window.
 Look for permissions in KMS that allow kms:Decrypt or `kms:ReEncryptFrom` or `KMS:*` with a resource specification of `"*"`.
 Update the policy to restrict AWS KMS decryption permissions to only the specific keys needed.

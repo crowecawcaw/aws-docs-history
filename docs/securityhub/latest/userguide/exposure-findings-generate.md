@@ -4,13 +4,9 @@
 
 AWS Security Hub is in preview release and is subject to change.
 
-AWS Security Hub generates exposure findings every 6 hours. During each 6-hour period,
-Security Hub considers the available exposure traits for a resource. It produces at most one
-exposure finding per resource ID. The uniqueness of a finding is determined by finding
-ID, AWS Region, exposure type, and account. This means you can have two resources with
-the same ID. However, the resources might have different types of exposures. This
-exposure finding aggregates all of the applicable exposure traits that apply to the
-resource.
+Security Hub generates exposure findings in near real-time.
+As new security findings are ingested and existing findings are updated, Security Hub generates or updates exposure findings in near real time.
+Security Hub generates one exposure finding per resource ID.
 
 If a resource doesn't have any exposure traits or has insufficient traits, Security Hub
 doesn't generate an exposure finding for that resource. Security Hub doesn't publish
