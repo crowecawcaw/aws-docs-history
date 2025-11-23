@@ -36,6 +36,14 @@ Type: Array of [AdvancedBackupSetting](API_AdvancedBackupSetting.md "API_Advance
 
 Required: No
 
+**ScanSettings**
+
+Contains your scanning configuration for the backup plan and includes the Malware scanner, your selected resources, and scanner role.
+
+Type: Array of [ScanSetting](API_ScanSetting.md "API_ScanSetting.md") objects
+
+Required: No
+
 ## See Also
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:

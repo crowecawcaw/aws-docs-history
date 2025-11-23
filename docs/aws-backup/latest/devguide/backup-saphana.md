@@ -353,7 +353,7 @@ do not, backups will fail.
 **Confirm the registration status:**
 
     1. Log into the [SSM
-     console](https://console.aws.amazon.com/systems-manager "https://console.aws.amazon.com/systems-manager")
+     console](https://console.aws.amazon.com//systems-manager "https://console.aws.amazon.com//systems-manager")
     2. Select **Run Command** from the left side navigation.
     3. Under text field **Command history**, input `Instance
      ID:Equal:`, with the value equal to the instance you used for

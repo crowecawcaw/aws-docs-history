@@ -5,7 +5,7 @@ Returns metadata about your copy jobs.
 ## Request Syntax
 
 ```
-GET /copy-jobs/?accountId=`ByAccountId`&completeAfter=`ByCompleteAfter`&completeBefore=`ByCompleteBefore`&createdAfter=`ByCreatedAfter`&createdBefore=`ByCreatedBefore`&destinationVaultArn=`ByDestinationVaultArn`&maxResults=`MaxResults`&messageCategory=`ByMessageCategory`&nextToken=`NextToken`&parentJobId=`ByParentJobId`&resourceArn=`ByResourceArn`&resourceType=`ByResourceType`&state=`ByState` HTTP/1.1
+GET /copy-jobs/?accountId=`ByAccountId`&completeAfter=`ByCompleteAfter`&completeBefore=`ByCompleteBefore`&createdAfter=`ByCreatedAfter`&createdBefore=`ByCreatedBefore`&destinationVaultArn=`ByDestinationVaultArn`&maxResults=`MaxResults`&messageCategory=`ByMessageCategory`&nextToken=`NextToken`&parentJobId=`ByParentJobId`&resourceArn=`ByResourceArn`&resourceType=`ByResourceType`&sourceRecoveryPointArn=`BySourceRecoveryPointArn`&state=`ByState` HTTP/1.1
 
 ```
 
@@ -94,6 +94,10 @@ Returns only backup jobs for the specified resources:
 
 Pattern: `^[a-zA-Z0-9\-\_\.]{1,50}$`
 
+**[BySourceRecoveryPointArn](#API_ListCopyJobs_RequestSyntax "#API_ListCopyJobs_RequestSyntax")**
+
+Filters copy jobs by the specified source recovery point ARN.
+
 **[ByState](#API_ListCopyJobs_RequestSyntax "#API_ListCopyJobs_RequestSyntax")**
 
 Returns only copy jobs that are in the specified state.
@@ -143,12 +147,14 @@ Content-type: application/json
             "BackupRuleName": "***string***",
             "BackupRuleTimezone": "***string***"
          },
+         "CreatedByBackupJobId": "***string***",
          "CreationDate": ***number***,
          "DestinationBackupVaultArn": "***string***",
          "DestinationEncryptionKeyArn": "***string***",
          "DestinationRecoveryPointArn": "***string***",
          "DestinationRecoveryPointLifecycle": {
             "DeleteAfterDays": ***number***,
+            "DeleteAfterEvent": "***string***",
             "MoveToColdStorageAfterDays": ***number***,
             "OptInToArchiveForSupportedResources": ***boolean***
          },

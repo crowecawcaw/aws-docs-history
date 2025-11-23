@@ -25,7 +25,7 @@ view the steps for setting up private endpoints in [AWS Backup through VPC](#bac
 You can establish a private connection between your virtual private cloud (VPC) and AWS Backup
 by creating an interface VPC endpoint. Interface endpoints are powered by [AWS PrivateLink](../../../vpc/latest/privatelink.md "../../../vpc/latest/privatelink.md"), a technology that
 enables you to access the AWS Backup API without using an internet gateway, NAT device, VPN
-connection, or AWS Direct Connect connection. Instances in your VPC don't need public IP addresses to
+connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to
 communicate with AWS Backup API endpoints. Your instances also don't need public IP addresses to
 use any of the available AWS Backup API and Backup gateway API operations.
 

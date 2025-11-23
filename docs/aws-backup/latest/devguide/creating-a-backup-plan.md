@@ -10,7 +10,7 @@ template.
 - [Create backup plans using the AWS CLI](#create-backup-plan-cli "#create-backup-plan-cli")
 - [Backup plan options and
   configuration](plan-options-and-configuration.md "plan-options-and-configuration.md")
-- [AWS CloudFormation templates for backup plans](plan-cfn.md "plan-cfn.md")
+- [CloudFormation templates for backup plans](plan-cfn.md "plan-cfn.md")
 - [Delete a backup plan](deleting-a-backup-plan.md "deleting-a-backup-plan.md")
 - [Update a backup plan](updating-a-backup-plan.md "updating-a-backup-plan.md")
 
@@ -85,9 +85,13 @@ backup created, also. This will allow that particular backup to be included in a
 future search.
 
 Place a check next to the resource type(s) for which you want to have indexes
-created. 9. (_Optional_) Use **Copy to destination** to
+created. 9. (_Optional_) Enable malware scanning to automatically scan backups after they are created. When configuring malware protection, specify which resource types to scan (Amazon EC2, Amazon EBS, Amazon S3, or all supported resources) and the scanning types (full or incremental). Malware scanning applies only to your selected resource types. For example, if your backup plan includes both Amazon S3 and Amazon EC2 resources, but you enable malware scanning only for Amazon EC2, the service will scan only your EC2 backups. For each backup rule, you can configure which scanning type to use. The schedule of the backup rule will determine how frequently the scanning type takes place.
+
+###### Important
+
+Before enabling malware protection, ensure your backup role and scanner role have the required permissions. For more information, see [the permissions documentation](malware-protection.md#malware-access "malware-protection.md#malware-access"). 10. (_Optional_) Use **Copy to destination** to
 create a cross-Region copy of eligible resources if you want to store a copy of a backup
-in a different AWS Region. 10. (_Optional_) Tags added to recovery points. 11. When all sections are set to your specifications, choose **Save Backup
+in a different AWS Region. 11. (_Optional_) Tags added to recovery points. 12. When all sections are set to your specifications, choose **Save Backup
 rule**.
 
 ## Create backup plans using the AWS CLI

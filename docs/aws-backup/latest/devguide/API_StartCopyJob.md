@@ -20,6 +20,7 @@ Content-type: application/json
    "IdempotencyToken": "`string`",
    "Lifecycle": {
       "DeleteAfterDays": `number`,
+      "DeleteAfterEvent": "`string`",
       "MoveToColdStorageAfterDays": `number`,
       "OptInToArchiveForSupportedResources": `boolean`
    },

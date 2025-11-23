@@ -1,6 +1,6 @@
-# Assign AWS Backup resources through AWS CloudFormation
+# Assign AWS Backup resources through CloudFormation
 
-This end-to-end AWS CloudFormation template creates a resource assignment, a backup plan, and a
+This end-to-end CloudFormation template creates a resource assignment, a backup plan, and a
 destination backup vault:
 
 - A backup vault named

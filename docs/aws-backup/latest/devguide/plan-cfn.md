@@ -1,6 +1,6 @@
-# AWS CloudFormation templates for backup plans
+# CloudFormation templates for backup plans
 
-We provide two sample AWS CloudFormation templates for your reference. The first template creates a
+We provide two sample CloudFormation templates for your reference. The first template creates a
 simple backup plan. The second template enables VSS backups in a backup plan.
 
 ###### Note

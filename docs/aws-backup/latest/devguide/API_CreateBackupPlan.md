@@ -32,6 +32,7 @@ Content-type: application/json
                   "DestinationBackupVaultArn": "`string`",
                   "Lifecycle": {
                      "DeleteAfterDays": `number`,
+                     "DeleteAfterEvent": "`string`",
                      "MoveToColdStorageAfterDays": `number`,
                      "OptInToArchiveForSupportedResources": `boolean`
                   }
@@ -45,6 +46,7 @@ Content-type: application/json
             ],
             "Lifecycle": {
                "DeleteAfterDays": `number`,
+               "DeleteAfterEvent": "`string`",
                "MoveToColdStorageAfterDays": `number`,
                "OptInToArchiveForSupportedResources": `boolean`
             },
@@ -52,10 +54,24 @@ Content-type: application/json
                "`string`" : "`string`"
             },
             "RuleName": "`string`",
+            "ScanActions": [
+               {
+                  "MalwareScanner": "`string`",
+                  "ScanMode": "`string`"
+               }
+            ],
             "ScheduleExpression": "`string`",
             "ScheduleExpressionTimezone": "`string`",
             "StartWindowMinutes": `number`,
-            "TargetBackupVaultName": "`string`"
+            "TargetBackupVaultName": "`string`",
+            "TargetLogicallyAirGappedBackupVaultArn": "`string`"
+         }
+      ],
+      "ScanSettings": [
+         {
+            "MalwareScanner": "`string`",
+            "ResourceTypes": [ "`string`" ],
+            "ScannerRoleArn": "`string`"
          }
       ]
    },

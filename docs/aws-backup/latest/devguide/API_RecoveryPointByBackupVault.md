@@ -4,6 +4,15 @@ Contains detailed information about the recovery points stored in a backup vault
 
 ## Contents
 
+**AggregatedScanResult**
+
+Contains the latest scanning results against the recovery point and currently include
+`FailedScan`, `Findings`, `LastComputed`.
+
+Type: [AggregatedScanResult](API_AggregatedScanResult.md "API_AggregatedScanResult.md") object
+
+Required: No
+
 **BackupSizeInBytes**
 
 The size, in bytes, of a backup.

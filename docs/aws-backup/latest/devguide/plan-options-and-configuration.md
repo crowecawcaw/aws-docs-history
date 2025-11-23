@@ -300,3 +300,28 @@ appropriate object ownership configuration.
 When a continuous backup job is running for an Amazon S3 bucket and you initiate a
 snapshot backup job, the snapshot will use the same ACL and object tag settings as
 the continuous backup, regardless of the settings specified for the snapshot job.
+
+## Malware scanning
+
+AWS Backup integrates with Amazon GuardDuty to provide automated malware scanning of your recovery points.
+When you enable malware scanning in your backup plan, AWS Backup automatically scans your backups for
+malware and provides scan results to help you make informed decisions about restoring your data.
+
+To configure malware scanning for your backup plan:
+
+1. Create an IAM role that trusts `malware-protection.guardduty.amazonaws.com`
+   and attach the AWS managed policy `AWSBackupGuardDutyRolePolicyForScans`.
+2. Attach the AWS managed policy `AWSBackupServiceRolePolicyForScans` to your
+   backup selection's IAM role.
+3. In your backup plan configuration, add scanning settings that specify:
+   - The scan service (GuardDuty)
+   - The resource types to scan (Amazon EC2, Amazon EBS, Amazon S3)
+   - The IAM role ARN for GuardDuty to assume
+
+4. Configure scan actions in your backup rules to specify:
+   - The scan service (GuardDuty)
+   - The scan type (incremental or full scan)
+
+For more information about the managed policies, see
+[AWSBackupGuardDutyRolePolicyForScans](security-iam-awsmanpol.md#AWSBackupGuardDutyRolePolicyForScans "security-iam-awsmanpol.md#AWSBackupGuardDutyRolePolicyForScans") and
+[AWSBackupServiceRolePolicyForScans](security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForScans "security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForScans").

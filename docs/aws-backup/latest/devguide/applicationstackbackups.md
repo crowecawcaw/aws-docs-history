@@ -1,10 +1,10 @@
-# AWS CloudFormation stack backups
+# CloudFormation stack backups
 
 A CloudFormation stack consists of multiple stateful
 and stateless resources that you can back up as a single unit. In other words, you can backup
 and restore an application containing multiple resources by backing up a stack
 and restoring the resources within it. All the resources in a stack are defined by the stack's
-AWS CloudFormation template.
+CloudFormation template.
 
 When a CloudFormation
 stack is backed up, recovery points are created for the CloudFormation template and for each additional
@@ -25,14 +25,14 @@ composite backup using the console or the AWS CLI.
 - **Composite job**: A backup, copy, or restore job for a CloudFormation
   stack which can trigger other backup jobs for individual resources within the stack.
 - **Nested job**: A backup, copy, or restore job for a resource within
-  a AWS CloudFormation stack.
+  a CloudFormation stack.
 
 ## CloudFormation stack backup jobs
 
 The process of a backup creation is called a backup job. A CloudFormation stack backup
 job has a
 [status](creating-a-backup.md#backup-job-statuses "creating-a-backup.md#backup-job-statuses"). When a backup job has finished, it has the status of `Completed`. This
-signifies a [AWS CloudFormation recovery point](#cfnrecoverypoints "#cfnrecoverypoints")
+signifies a [CloudFormation recovery point](#cfnrecoverypoints "#cfnrecoverypoints")
 (a backup) has been created.
 
 CloudFormation stacks can be backed up using the console or backed up programatically. To
@@ -52,7 +52,7 @@ types contained within the CloudFormation template will be included within a bac
 you have not opted into to a particular service (toggling a service to “Enabled” in
 console Settings).
 
-## AWS CloudFormation recovery point
+## CloudFormation recovery point
 
 ### Recovery point status
 
@@ -163,7 +163,7 @@ As part of each backup of an application defined using CloudFormation, the templ
 the processed value of each parameter in the template, and the nested resources
 supported by AWS Backup are backed up. A nested resource is backed up in the same way
 as an individual resource not part of a CloudFormation stack is backed up. Note that
-values of parameters marked as `no-echo` will not be backed up. 2. _"Can I back up my AWS CloudFormation stack that has nested stacks?"_
+values of parameters marked as `no-echo` will not be backed up. 2. _"Can I back up my CloudFormation stack that has nested stacks?"_
 
 Yes. Your CloudFormation stacks which contain nested stacks can be in your backup. 3. _"Does a `Partial` status mean the creation of my backup failed?"_
 
@@ -203,7 +203,7 @@ which kind of backup is supported by AWS Backup for these resources. For more in
 see [How incremental backups work](creating-a-backup.md#how-incremental-backup-works "creating-a-backup.md#how-incremental-backup-works"). However, note that PITR (point-in-time restore)
 is [not supported](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource") for Amazon S3 and Amazon RDS nested resources. 6. _"Are change sets that are part of the CloudFormation stack backed up?"_
 
-No. Change sets are not backed up as part of CloudFormation stack backup. 7. _"How does the status of the AWS CloudFormation stack impact the backup?"_
+No. Change sets are not backed up as part of CloudFormation stack backup. 7. _"How does the status of the CloudFormation stack impact the backup?"_
 
 The status of the CloudFormation stack may impact the backup. A stack with a status
 that includes `COMPLETE` can be backed up, such as statuses

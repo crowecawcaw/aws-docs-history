@@ -79,6 +79,7 @@ Content-type: application/json
    "LastRestoreTime": ***number***,
    "Lifecycle": {
       "DeleteAfterDays": ***number***,
+      "DeleteAfterEvent": "***string***",
       "MoveToColdStorageAfterDays": ***number***,
       "OptInToArchiveForSupportedResources": ***boolean***
    },
@@ -87,6 +88,14 @@ Content-type: application/json
    "ResourceArn": "***string***",
    "ResourceName": "***string***",
    "ResourceType": "***string***",
+   "ScanResults": [
+      {
+         "Findings": [ "***string***" ],
+         "LastScanTimestamp": ***number***,
+         "MalwareScanner": "***string***",
+         "ScanJobState": "***string***"
+      }
+   ],
    "SourceBackupVaultArn": "***string***",
    "Status": "***string***",
    "StatusMessage": "***string***",
@@ -289,6 +298,14 @@ Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database 
 Type: String
 
 Pattern: `^[a-zA-Z0-9\-\_\.]{1,50}$`
+
+**[ScanResults](#API_DescribeRecoveryPoint_ResponseSyntax "#API_DescribeRecoveryPoint_ResponseSyntax")**
+
+Contains the latest scanning results against the recovery point and currently include `MalwareScanner`, `ScanJobState`, `Findings`, and `LastScanTimestamp`
+
+Type: Array of [ScanResult](API_ScanResult.md "API_ScanResult.md") objects
+
+Array Members: Minimum number of 0 items. Maximum number of 5 items.
 
 **[SourceBackupVaultArn](#API_DescribeRecoveryPoint_ResponseSyntax "#API_DescribeRecoveryPoint_ResponseSyntax")**
 

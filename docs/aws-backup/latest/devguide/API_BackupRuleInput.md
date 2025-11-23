@@ -97,6 +97,14 @@ Type: String to string map
 
 Required: No
 
+**ScanActions**
+
+Contains your scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+
+Type: Array of [ScanAction](API_ScanAction.md "API_ScanAction.md") objects
+
+Required: No
+
 **ScheduleExpression**
 
 A CRON expression in UTC specifying when AWS Backup initiates a backup
@@ -133,6 +141,18 @@ successfully begins (the job status changes to `RUNNING`) or until the job statu
 changes to `EXPIRED` (which is expected to occur when the start window time is over).
 
 Type: Long
+
+Required: No
+
+**TargetLogicallyAirGappedBackupVaultArn**
+
+The ARN of a logically air-gapped vault. ARN must be in the same account and Region.
+If provided, supported fully managed resources back up directly to logically air-gapped vault,
+while other supported resources create a temporary (billable) snapshot in backup vault,
+then copy it to logically air-gapped vault. Unsupported resources only back up to the specified
+backup vault.
+
+Type: String
 
 Required: No
 

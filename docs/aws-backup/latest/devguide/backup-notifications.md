@@ -9,7 +9,7 @@ There are two ways to receive notifications about AWS Backup:
 ## User Notifications and AWS Backup
 
 AWS Backup supports management of your backup notifications from the [User Notifications
-console](https://console.aws.amazon.com/notifications/home?notifications#/notifications "https://console.aws.amazon.com/notifications/home?notifications#/notifications"). With [User Notifications](../../../notifications/latest/userguide/getting-started.md "../../../notifications/latest/userguide/getting-started.md"), you can view the progress of your backup, copy, and restore jobs
+console](https://console.aws.amazon.com//notifications/home?notifications#/notifications "https://console.aws.amazon.com//notifications/home?notifications#/notifications"). With [User Notifications](../../../notifications/latest/userguide/getting-started.md "../../../notifications/latest/userguide/getting-started.md"), you can view the progress of your backup, copy, and restore jobs
 and changes to your backup policies, vaults, recovery points, and settings from the User
 Notifications Notification Center.
 

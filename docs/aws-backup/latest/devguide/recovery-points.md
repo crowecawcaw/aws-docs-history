@@ -33,6 +33,7 @@ AWS Backup.
 - [Backup deletion](deleting-backups.md "deleting-backups.md")
 - [Backup and tag edits](editing-a-backup.md "editing-a-backup.md")
 - [Backup search](backup-search.md "backup-search.md")
+- [Backup tiering](backup-tiering.md "backup-tiering.md")
 - [Restore a backup by resource type](restoring-a-backup.md "restoring-a-backup.md")
 - [Restore testing](restore-testing.md "restore-testing.md")
 - [Stop a backup job](stopping-a-backup-job.md "stopping-a-backup-job.md")

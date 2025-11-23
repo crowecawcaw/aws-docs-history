@@ -26,6 +26,18 @@ Type: Long
 
 Required: No
 
+**DeleteAfterEvent**
+
+The event after which a recovery point is deleted. A recovery point with both
+`DeleteAfterDays` and `DeleteAfterEvent` will delete after
+whichever condition is satisfied first. Not valid as an input.
+
+Type: String
+
+Valid Values: `DELETE_AFTER_COPY`
+
+Required: No
+
 **MoveToColdStorageAfterDays**
 
 The number of days after creation that a recovery point is moved to cold

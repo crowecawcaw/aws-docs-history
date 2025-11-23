@@ -7,11 +7,13 @@ The following quotas apply when working with AWS Backup.
 - [Backup](#aws-backup-quotas-table "#aws-backup-quotas-table")
 - [Backup index and search quotas](#aws-backup-search-quotas-table "#aws-backup-search-quotas-table")
 - [Policy quotas](#aws-backup-policies-quotas-table "#aws-backup-policies-quotas-table")
+- [Malware scanning quotas](#backup-scanning-quotas-table "#backup-scanning-quotas-table")
 - [Amazon Timestream resource quotas](#backup-timestream-quotas-table "#backup-timestream-quotas-table")
 - [AWS Backup Audit Manager quotas](#backup-audit-manager-quotas-table "#backup-audit-manager-quotas-table")
 - [Restore testing plan quotas](#backup-restore-testing-quotas-table "#backup-restore-testing-quotas-table")
 - [AWS Backup gateway quotas](#backup-gateway-quotas-table "#backup-gateway-quotas-table")
 - [Amazon EKS quotas](#backup-eks-quotas-table "#backup-eks-quotas-table")
+- [Logically air-gapped vault quotas](#lag-vault-quotas-table "#lag-vault-quotas-table")
 - [Related quotas](#backup-related-quotas "#backup-related-quotas")
 
 ## Backup
@@ -65,6 +67,24 @@ can begin, up to a maximum of 5 concurrently.
 | Tags added to a recovery point                       | 10      | No         |
 | Copy actions per backup rule                         | 5       | No         |
 | Conditions in a resource assignment in a backup plan | 30      | No         |
+
+## Malware scanning quotas
+
+The following table lists quotas for AWS Backup malware scanning with Amazon GuardDuty.
+
+| Name                                             | Default | Adjustable |
+| ------------------------------------------------ | ------- | ---------- |
+| Running scan jobs per resource per account       | 5       | Yes        |
+| Running scan jobs per recovery point per account | 1       | No         |
+| Running scan jobs per account                    | 150     | Yes        |
+| Created scan jobs per resource per account       | 10      | No         |
+| Incremental scan base constraint                 | 1       | No         |
+
+When you hit your created scan jobs per resource per account limit, we will fail oldest queued job.
+
+You might also encounter quotas imposed by Amazon GuardDuty. For more information, see
+[Amazon GuardDuty quotas](../../../guardduty/latest/ug/guardduty_limits.md "../../../guardduty/latest/ug/guardduty_limits.md")
+in the _AWS General Reference_.
 
 ## Amazon Timestream resource quotas
 
@@ -142,6 +162,18 @@ resource types, you may request an increase in the quota limit.
 | Persistent Storage backups per EKS cluster backup | 1000    | Yes        |
 | Restore jobs per target EKS cluster               | 1       | No         |
 | EKS Restore jobs per account                      | 5       | Yes        |
+
+## Logically air-gapped vault quotas
+
+| Resource type   | Maximum number of concurrent copies                                                         |
+| --------------- | ------------------------------------------------------------------------------------------- |
+| EC2             | The EBS concurrent copy limit applies to any snapshots being copied as part of an AMI copy. |
+| EBS             | 20                                                                                          |
+| Aurora          | 20                                                                                          |
+| DocumentDB      | 20                                                                                          |
+| Neptune         | 20                                                                                          |
+| Storage Gateway | 5                                                                                           |
+| FSx             | 5                                                                                           |
 
 ## Related quotas
 

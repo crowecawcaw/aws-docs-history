@@ -68,6 +68,7 @@ Content-type: application/json
    "RecoveryPointArn": "***string***",
    "RecoveryPointLifecycle": {
       "DeleteAfterDays": ***number***,
+      "DeleteAfterEvent": "***string***",
       "MoveToColdStorageAfterDays": ***number***,
       "OptInToArchiveForSupportedResources": ***boolean***
    },

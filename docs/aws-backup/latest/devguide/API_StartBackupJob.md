@@ -19,9 +19,11 @@ Content-type: application/json
    "Index": "`string`",
    "Lifecycle": {
       "DeleteAfterDays": `number`,
+      "DeleteAfterEvent": "`string`",
       "MoveToColdStorageAfterDays": `number`,
       "OptInToArchiveForSupportedResources": `boolean`
    },
+   "LogicallyAirGappedBackupVaultArn": "`string`",
    "RecoveryPointTags": {
       "`string`" : "`string`"
    },
@@ -143,6 +145,18 @@ other resource types.
 This parameter has a maximum value of 100 years (36,500 days).
 
 Type: [Lifecycle](API_Lifecycle.md "API_Lifecycle.md") object
+
+Required: No
+
+**[LogicallyAirGappedBackupVaultArn](#API_StartBackupJob_RequestSyntax "#API_StartBackupJob_RequestSyntax")**
+
+The ARN of a logically air-gapped vault. ARN must be in the same account and Region.
+If provided, supported fully managed resources back up directly to logically air-gapped vault,
+while other supported resources create a temporary (billable) snapshot in backup vault,
+then copy it to logically air-gapped vault. Unsupported resources only back up to the specified
+backup vault.
+
+Type: String
 
 Required: No
 

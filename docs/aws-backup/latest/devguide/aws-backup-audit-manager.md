@@ -49,7 +49,7 @@ billing](metering-and-billing.md "metering-and-billing.md").
 
 - [Working with audit frameworks](working-with-audit-frameworks.md "working-with-audit-frameworks.md")
 - [Working with audit reports](working-with-audit-reports.md "working-with-audit-reports.md")
-- [Using AWS Backup Audit Manager with AWS CloudFormation](bam-cfn-integration.md "bam-cfn-integration.md")
+- [Using AWS Backup Audit Manager with CloudFormation](bam-cfn-integration.md "bam-cfn-integration.md")
 - [Using AWS Backup Audit Manager with
   AWS Audit Manager](aws-audit-manager-integration.md "aws-audit-manager-integration.md")
 - [Controls and

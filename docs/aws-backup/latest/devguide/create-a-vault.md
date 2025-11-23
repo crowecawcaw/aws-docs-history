@@ -6,7 +6,7 @@ job.
 When you first use the **Backup Vaults** page of the AWS Backup console in an
 AWS Region, the console automatically creates a default vault for the Region.
 
-However, if you use AWS Backup through the AWS CLI, AWS SDK, or AWS CloudFormation, a default vault is not
+However, if you use AWS Backup through the AWS CLI, AWS SDK, or CloudFormation, a default vault is not
 created. You must create your own vault.
 
 ## Required permissions

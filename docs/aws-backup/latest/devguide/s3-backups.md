@@ -15,6 +15,11 @@ centralized experience. For S3, you can create continuous backups and restore yo
 application data stored in S3 and restore the backups to a point-in-time with a single
 click.
 
+## Backup tiering
+
+Amazon S3 is the only resource that supports backup tiering to a lower cost warm storage tier.
+For more information, see [Backup tiering](backup-tiering.md "backup-tiering.md").
+
 ## Prerequisites for S3 backups
 
 ### Permissions and policies for Amazon S3 backup and
@@ -375,7 +380,7 @@ Console
 
 ###### Configure ACL and tag options using the console
 
-1. Open the AWS Backup console at [https://console.aws.amazon.com/backup/](https://console.aws.amazon.com/backup/home "https://console.aws.amazon.com/backup/home").
+1. Open the AWS Backup console at [https://console.aws.amazon.com/backup/](https://console.aws.amazon.com//backup/home "https://console.aws.amazon.com//backup/home").
 2. In the navigation pane, choose **Backup plans**, then
    choose **Create backup plan**.
 3. In your backup plan settings, expand **Advanced backup

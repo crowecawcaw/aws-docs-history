@@ -16,7 +16,7 @@ billing](metering-and-billing.md "metering-and-billing.md").
 - [Turning on resource tracking using the
   AWS Command Line Interface (AWS CLI)](#turning-on-resource-tracking-cli "#turning-on-resource-tracking-cli")
 - [Turning on resource tracking using a
-  AWS CloudFormation template](#turning-on-resource-tracking-cfn "#turning-on-resource-tracking-cfn")
+  CloudFormation template](#turning-on-resource-tracking-cfn "#turning-on-resource-tracking-cfn")
 
 ## Turning on resource tracking using
 
@@ -292,7 +292,7 @@ $ aws backup describe-framework --framework-name `test` --region `us-east-1`
 
 ## Turning on resource tracking using a
 
-AWS CloudFormation template
+CloudFormation template
 
-For a AWS CloudFormation template that turns on resource tracking, see [Using AWS Backup Audit Manager
-with AWS CloudFormation](bam-cfn-integration.md "bam-cfn-integration.md").
+For a CloudFormation template that turns on resource tracking, see [Using AWS Backup Audit Manager
+with CloudFormation](bam-cfn-integration.md "bam-cfn-integration.md").

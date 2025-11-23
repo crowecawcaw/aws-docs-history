@@ -87,7 +87,7 @@ regardless of the health of your source resource.
 
 ###### Topics
 
-- [AWS CloudFormation stack backups](applicationstackbackups.md "applicationstackbackups.md")
+- [CloudFormation stack backups](applicationstackbackups.md "applicationstackbackups.md")
 - [Amazon Aurora DSQL backups](backup-aurora.md "backup-aurora.md")
 - [Advanced DynamoDB backup](advanced-ddb-backup.md "advanced-ddb-backup.md")
 - [Amazon EBS and AWS Backup](multi-volume-crash-consistent.md "multi-volume-crash-consistent.md")

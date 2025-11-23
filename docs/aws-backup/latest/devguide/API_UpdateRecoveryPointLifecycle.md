@@ -31,6 +31,7 @@ Content-type: application/json
 {
    "Lifecycle": {
       "DeleteAfterDays": `number`,
+      "DeleteAfterEvent": "`string`",
       "MoveToColdStorageAfterDays": `number`,
       "OptInToArchiveForSupportedResources": `boolean`
    }
@@ -91,6 +92,7 @@ Content-type: application/json
    },
    "Lifecycle": {
       "DeleteAfterDays": ***number***,
+      "DeleteAfterEvent": "***string***",
       "MoveToColdStorageAfterDays": ***number***,
       "OptInToArchiveForSupportedResources": ***boolean***
    },

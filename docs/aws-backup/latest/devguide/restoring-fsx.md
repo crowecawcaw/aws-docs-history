@@ -4,6 +4,10 @@ The restore options that are available when you use AWS Backup to restore Amazon
 are the same as using the native Amazon FSx backup. You can use a backup's recovery point to
 create a new file system and restore a point-in-time snapshot of another file system.
 
+AWS Backup supports restoring file systems that use Intelligent Tiering storage for both
+FSx for Lustre and FSx for OpenZFS file systems. Intelligent Tiering file systems have specific
+configuration requirements during restore operations.
+
 When restoring Amazon FSx file systems, AWS Backup creates a new file system and populates it with
 the data (Amazon FSx for NetApp ONTAP allows restoring a volume to an existing file system). This is
 similar to how native Amazon FSx backs up and restores file systems. Restoring a backup to a new
@@ -87,6 +91,13 @@ Backup**.
 AWS Backup supports Amazon FSx for Lustre file systems that have persistent storage
 deployment type and are not linked to a data repository like Amazon S3.
 
+###### Note
+
+You can only restore your backup to a file system of the same deployment type, storage
+class, throughput capacity, storage capacity, data compression type, and AWS Region
+as the original. You can increase your restored file system's storage capacity after
+it becomes available.
+
 ###### To restore an Amazon FSx for Lustre file system
 
 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
@@ -101,23 +112,36 @@ deployment type and are not linked to a data repository like Amazon S3.
    under **Backup ID**, and the file system type is shown under
    **File system type**. **File system type**
    should be **Lustre**.
-6. (Optional) Enter a name for your file system.
-7. Choose a **Deployment type**. AWS Backup only supports the
+6. Choose a **Deployment type**. AWS Backup only supports the
    persistent deployment type. You can't change the deployment type of a file system
    during restore.
 
 Persistent deployment type is for long-term storage. For detailed information
 about FSx for Lustre deployment options, see [Using Available Deployment
 Options for Amazon FSx for Lustre File Systems](../../../fsx/latest/LustreGuide/using-fsx-lustre.md "../../../fsx/latest/LustreGuide/using-fsx-lustre.md") in the
-_Amazon FSx for Lustre User Guide_. 8. Choose the **Throughput per unit storage** that you want to
-use. 9. Specify the **Storage capacity** to use. Enter a capacity
-between 32 GiB and 64,436 GiB. 10. In the **Network and security** section, provide the required
-information. 11. (Optional) In the **Backup and maintenance** section, provide
-the information to set your backup preferences. 12. In the **Restore role** section, choose the IAM role that
+_Amazon FSx for Lustre User Guide_. 7. Choose the **Throughput per unit storage** that you want to
+use.
+
+###### Note
+
+Throughput per unit storage cannot be configured for file systems using
+Intelligent-Tiering storage class. 8. (Optional) For file systems using Intelligent-Tiering storage class, choose
+the SSD read cache sizing mode and capacity. For more information, see the FSx
+documentation for [managing provisioned SSD read cache](../../../fsx/latest/LustreGuide/managing-ssd-read-cache.md "../../../fsx/latest/LustreGuide/managing-ssd-read-cache.md"). 9. (Optional) For file systems using Intelligent-Tiering storage class, choose whether
+to enable EFA (Elastic Fabric Adapter). To enable EFA, make sure that your security
+group allows all inbound and outbound traffic within the security group. 10. Specify the **Storage capacity** to use. Enter a capacity
+between 32 GiB and 64,436 GiB.
+
+###### Note
+
+For Intelligent Tiering file systems, storage capacity is elastic and cannot be
+specified during restore. The capacity will automatically scale based on your data usage. 11. In the **Network and security** section, provide the required
+information. 12. (Optional) In the **Backup and maintenance** section, provide
+the information to set your backup preferences. 13. In the **Restore role** section, choose the IAM role that
 AWS Backup will use to create and manage your backups on your behalf. We recommend that
 you choose the **Default role**. If there is no default role, one
 is created for you with the correct permissions. You can also provide your IAM
-role. 13. Verify all your entries, and choose **Restore
+role. 14. Verify all your entries, and choose **Restore
 Backup**.
 
 ###### To restore Amazon FSx for NetApp ONTAP volumes:
@@ -140,6 +164,11 @@ efficiency** by checking the box. This will allow deduplication,
 compression, and compaction. 11. In the **Capacity pool tiering policy** dropdown menu, select
 the tiering preference. 12. In the **Restore permissions**, choose the IAM role that AWS Backup
 will use to restore backups. 13. Verify all your entries, and choose **Restore Backup**.
+
+###### Note
+
+Restoring from a backup with a given storage class to a file system with a
+different storage class is not supported.
 
 ###### To restore an FSx for OpenZFS file system
 
@@ -165,9 +194,16 @@ configurations:
     1. **Provisioned SSD IOPS**: You can choose the
      **Automatic radio button** or you can choose the
      **User-provisioned option** if available.
+
+
+    ###### Note
+
+    SSD IOPS cannot be set for file systems using Intelling-Tiering storage
+     class
     2. **Throughput capacity**: You can choose the
-     **Recommended throughput capacity** of 64 MB/sec or you can
-     choose to **Specify throughput capacity**.
+     **Recommended throughput capacity** of 64 MB/sec (for SSD
+     storage class), and 160 MB/sec (for Intelligent-Tiering storage class), or you
+     can choose to **Specify throughput capacity**.
     3. (*Optional*) **VPC security groups**:
      You can specify VPC security groups to associate with your file system’s network
      interface.
@@ -183,19 +219,22 @@ configurations:
      section. You may choose the backup window, hour and minute, retention period,
      and weekly maintenance window.
 
-6. (_Optional_) You may enter a name for your volume.
-7. The **SSD Storage capacity** will display the file system’s
+6. The **SSD Storage capacity** will display the file system’s
    storage capacity.
-8. Choose the **Virtual Private Cloud** (VPC) from which your file
-   system can be accessed.
-9. In the **Subnet** dropdown menu, choose the subnet in which
-   your file system’s network interface resides.
-10. In the **Restore role** section, choose the IAM role that AWS Backup
-    will use to create and manage your backups on your behalf. We recommend that you
-    choose the **Default role**. If there is no default role, one is
-    created for you with the correct permissions. You can also choose an IAM
-    role.
-11. Verify all your entries, and choose **Restore Backup**.
+
+###### Note
+
+For Intelligent Tiering file systems, storage capacity is elastic and cannot
+be specified during restore. The capacity will automatically scale based on your
+data usage. 7. (Optional) For file systems using Intelligent-Tiering storage class, choose
+the SSD read cache sizing mode and capacity. For more information, see the FSx
+documentation for [managing provisioned SSD read cache](../../../fsx/latest/OpenZFSGuide/managing-ssd-read-cache.md "../../../fsx/latest/OpenZFSGuide/managing-ssd-read-cache.md"). 8. Choose the **Virtual Private Cloud** (VPC) from which your file
+system can be accessed. 9. In the **Subnet** dropdown menu, choose the subnet in which
+your file system’s network interface resides. 10. In the **Restore role** section, choose the IAM role that AWS Backup
+will use to create and manage your backups on your behalf. We recommend that you
+choose the **Default role**. If there is no default role, one is
+created for you with the correct permissions. You can also choose an IAM
+role. 11. Verify all your entries, and choose **Restore Backup**.
 
 ## Use the AWS Backup API, CLI, or SDK to restore Amazon FSx recovery
 

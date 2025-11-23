@@ -27,7 +27,7 @@ steps:
 
 Console
 
-1. Open the [AWS Backup console](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
+1. Open the [AWS Backup console](https://console.aws.amazon.com//backup "https://console.aws.amazon.com//backup").
 2. On the dashboard, choose **Create an on-demand
    backup**.
 3. Choose **Redshift Serverless** in the resource type
@@ -88,7 +88,7 @@ Console
 To opt into protecting Redshift Serverless in the AWS Backup console, complete the following
 steps:
 
-1. Open the [AWS Backup console](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
+1. Open the [AWS Backup console](https://console.aws.amazon.com//backup "https://console.aws.amazon.com//backup").
 2. Using the navigation pane, choose **Protected
    resources**.
 3. Toggle **Amazon Redshift Serverless** to **On**.

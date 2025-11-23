@@ -126,6 +126,8 @@ are as follows:
   specified, or if the value provided is misspelled or doesn't match a valid region, the
   command will default to the `us-east-1` region.
 
+###### Dual-stack endpoints (IPv6 support)
+
 IPv4:
 
 ```

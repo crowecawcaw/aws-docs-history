@@ -71,6 +71,15 @@ Type: [RecoveryPointCreator](API_RecoveryPointCreator.md "API_RecoveryPointCreat
 
 Required: No
 
+**CreatedByBackupJobId**
+
+The backup job ID that initiated this copy job. Only applicable to scheduled copy
+jobs and automatic copy jobs to logically air-gapped vault.
+
+Type: String
+
+Required: No
+
 **CreationDate**
 
 The date and time a copy job is created, in Unix format and Coordinated Universal Time

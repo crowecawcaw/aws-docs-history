@@ -15,7 +15,7 @@ To track events using EventBridge, see the following:
  COMPLETED`. This is consistent with the AWS Backup API. Some statuses are specific to the
   AWS Backup console: the status `Completed with issues` status is a representation of
   `Completed` jobs with status messages. To monitor `Completed with
- issues` events, monitor `COMPLETED` jobs that have a status message.
+ issues` events, monitor `COMPLETED` jobs that have a status message. Please note this is only specific to backup jobs.
 
 You can alternatively use the AWS Backup notification API to track AWS Backup events with Amazon Simple Notification Service
 (Amazon SNS). However, EventBridge tracks more changes than the notification API does, including changes
@@ -32,6 +32,7 @@ points.
 - [Region Settings events](#aws-backup-events-region-settings "#aws-backup-events-region-settings")
 - [Restore Job events](#aws-backup-events-restore-job "#aws-backup-events-restore-job")
 - [Recovery point indexing events](#aws-backup-recovery-point-indexing "#aws-backup-recovery-point-indexing")
+- [Malware scan Job events](#aws-backup-events-malware-scan-job "#aws-backup-events-malware-scan-job")
 
 ## Backup Job events
 
@@ -872,5 +873,266 @@ The following are example events.
     "backupCreationTime":"2023-12-15T21:38:00.000Z",
     "indexStatusMessage":"An AWS Backup recovery point index failed to create. Indexed recovery point arn : arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456",
   }
+}
+```
+
+## Malware scan Job events
+
+The following are example events.
+
+###### State
+
+- [CREATED](#malware-scan-job-state-change-created "#malware-scan-job-state-change-created")
+- [RUNNING](#malware-scan-job-state-change-running "#malware-scan-job-state-change-running")
+- [COMPLETED](#malware-scan-job-state-change-completed "#malware-scan-job-state-change-completed")
+- [COMPLETED WITH ISSUES](#malware-scan-job-state-change-completed-with-issues "#malware-scan-job-state-change-completed-with-issues")
+- [FAILED](#malware-scan-job-state-change-failed "#malware-scan-job-state-change-failed")
+- [CANCELED](#malware-scan-job-state-change-canceled "#malware-scan-job-state-change-canceled")
+
+### State: CREATED
+
+```
+{
+    "version": "0",
+    "id": "60ce181d-67c7-496b-90fb-69636b42daee",
+    "detail-type": "Scan Job State Change",
+    "source": "aws.backup",
+    "account": "1112233445566",
+    "time": "2025-12-12T12:12:12Z",
+    "region": "us-west-2",
+    "resources": [
+        "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
+    ],
+    "detail": {
+        "accountId": "1112233445566",
+        "backupVaultArn": "arn:aws:backup:us-west-2:1112233445566:backup-vault:9ab3e749-82c6-4342-9320-5edbf4918b86",
+        "backupVaultName": "9ab3e749-82c6-4342-9320-5edbf4918b86",
+        "createdBy": {
+            "backupPlanArn": "arn:aws:backup:us-west-2:1112233445566:backup-plan:5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
+            "backupPlanId": "5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
+            "backupPlanVersion": "Mjc4ZTRhMzUtMGE5Ni00NmQ5LWE1YmMtOWMwY2IwMTY4NWQ4",
+            "backupRuleId": "256ad167-f523-4cb9-93f3-f0c933efd97f"
+        },
+        "creationDate": "2025-12-12T12:12:00Z",
+        "iamRoleArn": "arn:aws:iam::1112233445566:role/RoleForEc2BackupWithNoDescribeTagsPermissions",
+        "scannerRoleArn": "arn:aws:iam::1112233445566:role/RoleForAwsBackupGuarddutyScanner",
+        "recoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456",
+        "resourceArn": "arn:aws:ec2:us-west-2:1112233445566:instance/i-0515aee7de03f58e1",
+        "resourceType": "EC2",
+        "scanId": "43bc14a6-03e0-436a-abf5-8825d3aa6835",
+        "scanJobId": "4d5fc12e-7e33-4336-a981-bbe43c300298",
+        "scanBaseRecoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:46bd3edb-a499-4db1-8f8f-269a2ff76fab",
+        "malwareScanner": "GUARDDUTY",
+        "state": "CREATED"
+    }
+}
+```
+
+### State: RUNNING
+
+```
+{
+    "version": "0",
+    "id": "60ce181d-67c7-496b-90fb-69636b42daee",
+    "detail-type": "Scan Job State Change",
+    "source": "aws.backup",
+    "account": "1112233445566",
+    "time": "2025-12-12T12:12:12Z",
+    "region": "us-west-2",
+    "resources": [
+        "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
+    ],
+    "detail": {
+        "accountId": "1112233445566",
+        "backupVaultArn": "arn:aws:backup:us-west-2:1112233445566:backup-vault:9ab3e749-82c6-4342-9320-5edbf4918b86",
+        "backupVaultName": "9ab3e749-82c6-4342-9320-5edbf4918b86",
+        "createdBy": {
+            "backupPlanArn": "arn:aws:backup:us-west-2:1112233445566:backup-plan:5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
+            "backupPlanId": "5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
+            "backupPlanVersion": "Mjc4ZTRhMzUtMGE5Ni00NmQ5LWE1YmMtOWMwY2IwMTY4NWQ4",
+            "backupRuleId": "256ad167-f523-4cb9-93f3-f0c933efd97f"
+        },
+        "creationDate": "2025-12-12T12:12:00Z",
+        "iamRoleArn": "arn:aws:iam::1112233445566:role/RoleForEc2BackupWithNoDescribeTagsPermissions",
+        "scannerRoleArn": "arn:aws:iam::1112233445566:role/RoleForAwsBackupGuarddutyScanner",
+        "recoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456",
+        "resourceArn": "arn:aws:ec2:us-west-2:1112233445566:instance/i-0515aee7de03f58e1",
+        "resourceType": "EC2",
+        "scanId": "43bc14a6-03e0-436a-abf5-8825d3aa6835",
+        "scanJobId": "4d5fc12e-7e33-4336-a981-bbe43c300298",
+        "scanBaseRecoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:46bd3edb-a499-4db1-8f8f-269a2ff76fab",
+        "malwareScanner": "GUARDDUTY",
+        "state": "RUNNING"
+    }
+}
+```
+
+### State: COMPLETED
+
+```
+{
+    "version": "0",
+    "id": "60ce181d-67c7-496b-90fb-69636b42daee",
+    "detail-type": "Scan Job State Change",
+    "source": "aws.backup",
+    "account": "1112233445566",
+    "time": "2025-12-12T12:12:12Z",
+    "region": "us-west-2",
+    "resources": [
+        "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
+    ],
+    "detail": {
+        "accountId": "1112233445566",
+        "backupVaultArn": "arn:aws:backup:us-west-2:1112233445566:backup-vault:9ab3e749-82c6-4342-9320-5edbf4918b86",
+        "backupVaultName": "9ab3e749-82c6-4342-9320-5edbf4918b86",
+        "completionDate": "2025-12-12T12:12:12Z",
+        "createdBy": {
+            "backupPlanArn": "arn:aws:backup:us-west-2:1112233445566:backup-plan:5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
+            "backupPlanId": "5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
+            "backupPlanVersion": "Mjc4ZTRhMzUtMGE5Ni00NmQ5LWE1YmMtOWMwY2IwMTY4NWQ4",
+            "backupRuleId": "256ad167-f523-4cb9-93f3-f0c933efd97f"
+        },
+        "creationDate": "2025-12-12T12:12:00Z",
+        "iamRoleArn": "arn:aws:iam::1112233445566:role/RoleForEc2BackupWithNoDescribeTagsPermissions",
+        "scannerRoleArn": "arn:aws:iam::1112233445566:role/RoleForAwsBackupGuarddutyScanner",
+        "recoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456",
+        "resourceArn": "arn:aws:ec2:us-west-2:1112233445566:instance/i-0515aee7de03f58e1",
+        "resourceType": "EC2",
+        "scanId": "43bc14a6-03e0-436a-abf5-8825d3aa6835",
+        "scanJobId": "4d5fc12e-7e33-4336-a981-bbe43c300298",
+        "scanBaseRecoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:46bd3edb-a499-4db1-8f8f-269a2ff76fab",
+        "malwareScanner": "GUARDDUTY",
+        "scanResult": {
+            "scanResultStatus": "THREATS_FOUND"
+        },
+        "state": "COMPLETED",
+        "statusMessage": "An AWS Backup scan job was successful completed."
+    }
+}
+```
+
+### State: COMPLETED WITH ISSUES
+
+```
+{
+    "version": "0",
+    "id": "60ce181d-67c7-496b-90fb-69636b42daee",
+    "detail-type": "Scan Job State Change",
+    "source": "aws.backup",
+    "account": "1112233445566",
+    "time": "2025-12-12T12:12:12Z",
+    "region": "us-west-2",
+    "resources": [
+        "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
+    ],
+    "detail": {
+        "accountId": "1112233445566",
+        "backupVaultArn": "arn:aws:backup:us-west-2:1112233445566:backup-vault:9ab3e749-82c6-4342-9320-5edbf4918b86",
+        "backupVaultName": "9ab3e749-82c6-4342-9320-5edbf4918b86",
+        "completionDate": "2025-12-12T12:12:12Z",
+        "createdBy": {
+            "backupPlanArn": "arn:aws:backup:us-west-2:1112233445566:backup-plan:5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
+            "backupPlanId": "5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
+            "backupPlanVersion": "Mjc4ZTRhMzUtMGE5Ni00NmQ5LWE1YmMtOWMwY2IwMTY4NWQ4",
+            "backupRuleId": "256ad167-f523-4cb9-93f3-f0c933efd97f"
+        },
+        "creationDate": "2025-12-12T12:12:00Z",
+        "iamRoleArn": "arn:aws:iam::1112233445566:role/RoleForEc2BackupWithNoDescribeTagsPermissions",
+        "scannerRoleArn": "arn:aws:iam::1112233445566:role/RoleForAwsBackupGuarddutyScanner",
+        "recoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456",
+        "resourceArn": "arn:aws:ec2:us-west-2:1112233445566:instance/i-0515aee7de03f58e1",
+        "resourceType": "EC2",
+        "scanId": "43bc14a6-03e0-436a-abf5-8825d3aa6835",
+        "scanJobId": "4d5fc12e-7e33-4336-a981-bbe43c300298",
+        "scanBaseRecoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:46bd3edb-a499-4db1-8f8f-269a2ff76fab",
+        "malwareScanner": "GUARDDUTY",
+        "scanResult": {
+            "scanResultStatus": "NO_THREATS_FOUND"
+        },
+        "state": "COMPLETED_WITH_ISSUES",
+        "statusMessage": "Scan job partially completed. View more details in Amazon GuardDuty"
+    }
+}
+```
+
+### State: FAILED
+
+```
+{
+    "version": "0",
+    "id": "60ce181d-67c7-496b-90fb-69636b42daee",
+    "detail-type": "Scan Job State Change",
+    "source": "aws.backup",
+    "account": "1112233445566",
+    "time": "2025-12-12T12:12:12Z",
+    "region": "us-west-2",
+    "resources": [
+        "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
+    ],
+    "detail": {
+        "accountId": "1112233445566",
+        "backupVaultArn": "arn:aws:backup:us-west-2:1112233445566:backup-vault:9ab3e749-82c6-4342-9320-5edbf4918b86",
+        "backupVaultName": "9ab3e749-82c6-4342-9320-5edbf4918b86",
+        "completionDate": "2025-12-12T12:12:12Z",
+        "createdBy": {
+            "backupPlanArn": "arn:aws:backup:us-west-2:1112233445566:backup-plan:5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
+            "backupPlanId": "5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
+            "backupPlanVersion": "Mjc4ZTRhMzUtMGE5Ni00NmQ5LWE1YmMtOWMwY2IwMTY4NWQ4",
+            "backupRuleId": "256ad167-f523-4cb9-93f3-f0c933efd97f"
+        },
+        "creationDate": "2025-12-12T12:12:00Z",
+        "iamRoleArn": "arn:aws:iam::1112233445566:role/RoleForEc2BackupWithNoDescribeTagsPermissions",
+        "scannerRoleArn": "arn:aws:iam::1112233445566:role/RoleForAwsBackupGuarddutyScanner",
+        "recoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456",
+        "resourceArn": "arn:aws:ec2:us-west-2:1112233445566:instance/i-0515aee7de03f58e1",
+        "resourceType": "EC2",
+        "scanId": "43bc14a6-03e0-436a-abf5-8825d3aa6835",
+        "scanJobId": "4d5fc12e-7e33-4336-a981-bbe43c300298",
+        "scanBaseRecoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:46bd3edb-a499-4db1-8f8f-269a2ff76fab",
+        "malwareScanner": "GUARDDUTY",
+        "state": "FAILED",
+        "statusMessage": "<failure reason>"
+    }
+}
+```
+
+### State: CANCELED
+
+```
+{
+    "version": "0",
+    "id": "60ce181d-67c7-496b-90fb-69636b42daee",
+    "detail-type": "Scan Job State Change",
+    "source": "aws.backup",
+    "account": "1112233445566",
+    "time": "2025-12-12T12:12:12Z",
+    "region": "us-west-2",
+    "resources": [
+        "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
+    ],
+    "detail": {
+        "accountId": "1112233445566",
+        "backupVaultArn": "arn:aws:backup:us-west-2:1112233445566:backup-vault:9ab3e749-82c6-4342-9320-5edbf4918b86",
+        "backupVaultName": "9ab3e749-82c6-4342-9320-5edbf4918b86",
+        "completionDate": "2025-12-12T12:12:12Z",
+        "createdBy": {
+            "backupPlanArn": "arn:aws:backup:us-west-2:1112233445566:backup-plan:5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
+            "backupPlanId": "5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
+            "backupPlanVersion": "Mjc4ZTRhMzUtMGE5Ni00NmQ5LWE1YmMtOWMwY2IwMTY4NWQ4",
+            "backupRuleId": "256ad167-f523-4cb9-93f3-f0c933efd97f"
+        },
+        "creationDate": "2025-12-12T12:12:00Z",
+        "iamRoleArn": "arn:aws:iam::1112233445566:role/RoleForEc2BackupWithNoDescribeTagsPermissions",
+        "scannerRoleArn": "arn:aws:iam::1112233445566:role/RoleForAwsBackupGuarddutyScanner",
+        "recoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456",
+        "resourceArn": "arn:aws:ec2:us-west-2:1112233445566:instance/i-0515aee7de03f58e1",
+        "resourceType": "EC2",
+        "scanId": "43bc14a6-03e0-436a-abf5-8825d3aa6835",
+        "scanJobId": "4d5fc12e-7e33-4336-a981-bbe43c300298",
+        "scanBaseRecoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:46bd3edb-a499-4db1-8f8f-269a2ff76fab",
+        "malwareScanner": "GUARDDUTY",
+        "state": "CANCELED",
+        "statusMessage": "Scan job was stopped by user."
+    }
 }
 ```

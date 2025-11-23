@@ -4,6 +4,15 @@ Contains detailed information about a saved recovery point.
 
 ## Contents
 
+**AggregatedScanResult**
+
+Contains the latest scanning results against the recovery point and currently include
+`FailedScan`, `Findings`, `LastComputed`.
+
+Type: [AggregatedScanResult](API_AggregatedScanResult.md "API_AggregatedScanResult.md") object
+
+Required: No
+
 **BackupSizeBytes**
 
 The size, in bytes, of a backup.

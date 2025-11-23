@@ -58,7 +58,7 @@ This signifies a recovery point (a backup) has been created.
 Console
 To create an on-demand backup of your Amazon EKS cluster:
 
-1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
+1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com//backup "https://console.aws.amazon.com//backup").
 2. In the navigation pane, choose **Protected resources**.
 3. Under **Resource type**, select **Amazon EKS**.
 4. Select the checkbox next to the Amazon EKS cluster you want to back up.
@@ -132,7 +132,7 @@ You can delete a recovery point using the console or using the AWS CLI.
 
 To delete recovery points using the console:
 
-Open the AWS Backup console at [https://console.aws.amazon.com/backup/](https://console.aws.amazon.com/backup/home "https://console.aws.amazon.com/backup/home").
+Open the AWS Backup console at [https://console.aws.amazon.com/backup/](https://console.aws.amazon.com//backup/home "https://console.aws.amazon.com//backup/home").
 
 1. Click on Protected Resources in the left-hand navigation. In the text box, type EKS to display only your Amazon EKS clusters.
 2. Composite recovery points will be displayed in the Recovery points pane. The plus sign (+) to the left of each recovery point ID can be clicked to expand each composite recovery point, showing all nested recovery points contained in the composite. You can check the box to the left of any recovery point to include it in your selection of recovery points you wish to delete.
@@ -156,7 +156,7 @@ You can copy a composite recovery point, or you can copy a nested recovery point
 
 To copy recovery points using the AWS Backup console:
 
-1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
+1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com//backup "https://console.aws.amazon.com//backup").
 2. Click on **Protected Resources** in the left-hand navigation. In the text box, type `EKS` to display only your Amazon EKS clusters.
 3. Composite recovery points will be displayed in the Recovery points pane. The plus sign (+) to the left of each recovery point ID can be clicked to expand each composite recovery point, showing all nested recovery points contained in the composite. You can click the radial circle button to the left of any recovery point to copy it.
 4. Once it is selected, click the **Copy** button in the top-right corner of the pane.
@@ -195,20 +195,20 @@ There are two conditions to check if you were expecting a `Completed` backup res
 3. _"Do I need to have an agent or Amazon EKS Add-on installed on my Amazon EKS cluster before backup?"_
 
 No. AWS Backup does not require any agents or add-ons to be installed on your Amazon EKS cluster. The only
-pre-requisite is to have your EKS Cluster's [authorization mode](../../../https:/docs.aws.amazon.com/eks/latest/userguide/setting-up-access-entries.md "../../../https:/docs.aws.amazon.com/eks/latest/userguide/setting-up-access-entries.md")
-set to API or API_AND_CONFIG_MAP for AWS Backup to create [Access Entries](../../../https:/docs.aws.amazon.com/eks/latest/userguide/access-entries.md "../../../https:/docs.aws.amazon.com/eks/latest/userguide/access-entries.md")
+pre-requisite is to have your EKS Cluster's [authorization mode](../../../eks/latest/userguide/setting-up-access-entries.md "../../../eks/latest/userguide/setting-up-access-entries.md")
+set to API or API_AND_CONFIG_MAP for AWS Backup to create [Access Entries](../../../eks/latest/userguide/access-entries.md "../../../eks/latest/userguide/access-entries.md")
 to access the EKS cluster. 4. _"Does Amazon EKS Backups include Amazon EKS infrastructure components or Amazon ECR images?"_
 
 No. Amazon EKS backups focus on the EKS cluster state and application workloads, not the underlying
 infrastructure components or container images. 5. _"Can I lifecycle my EKS Composite Recovery Point to cold storage?"_
 
 You can transition to cold storage for underlying child recovery points that support cold storage tiers.
-See the [AWS Backup feature availability matrix](../../../https:/docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.md#features-by-resource "../../../https:/docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.md#features-by-resource")
+See the [AWS Backup feature availability matrix](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource")
 for full list of support. 6. _"Are my EKS backups incremental?"_
 
 AWS Backup will take incremental backups of each child recovery point where supported today, this includes
 EBS volumes, EFS Filesystems and S3 buckets. The EKS cluster state child recovery point will be a full
-backup. See the [AWS Backup feature availability matrix](../../../https:/docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.md#features-by-resource "../../../https:/docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.md#features-by-resource"). 7. _"Can I create an index and search my EKS backups?"_
+backup. See the [AWS Backup feature availability matrix](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource"). 7. _"Can I create an index and search my EKS backups?"_
 
 No, however you can create on-demand indexes and search persistent volumes where the underlying
-storage type supports this capability through AWS Backup. See the [AWS Backup feature availability matrix](../../../https:/docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.md#features-by-resource "../../../https:/docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.md#features-by-resource").
+storage type supports this capability through AWS Backup. See the [AWS Backup feature availability matrix](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource").

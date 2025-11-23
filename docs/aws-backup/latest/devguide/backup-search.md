@@ -427,7 +427,7 @@ export jobs.
 
 Each backup index creation and each search job incurs a charge. Each backup index has a
 storage charge. Each restore from search results (as with all other all restore jobs) is
-charged. Learn more at [AWS Backup pricing](https://aws.amazon.com/backup/pricing/ "https://aws.amazon.com/backup/pricing/").
+charged. Learn more at [AWS Backup pricing](https://aws.amazon.com//backup/pricing/ "https://aws.amazon.com//backup/pricing/").
 
 You can narrow the possible returned results of a search job by including multiple
 backup and item properties; this may result in a lower cost than a search than spans all

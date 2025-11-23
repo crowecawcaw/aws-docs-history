@@ -31,9 +31,10 @@ choosing which services (resource types) you want to back up.
 - [Working with Amazon Redshift and Amazon Redshift Serverless](#working-with-redshift "#working-with-redshift")
 - [Working with Amazon Timestream](#working-with-timestream "#working-with-timestream")
 - [Working with AWS Organizations](#working-with-orgs "#working-with-orgs")
-- [Working with AWS CloudFormation](#working-with-cloudformation "#working-with-cloudformation")
+- [Working with CloudFormation](#working-with-cloudformation "#working-with-cloudformation")
 - [Working with AWS BackInt, AWS Systems Manager for SAP, and SAP HANA](#working-with-saphana-and-backint-and-ssm "#working-with-saphana-and-backint-and-ssm")
 - [Working with Amazon EKS](#working-with-eks "#working-with-eks")
+- [Working with Amazon GuardDuty](#working-with-guardduty "#working-with-guardduty")
 - [How AWS services back up their own resources](#services-backup "#services-backup")
 
 ## Working with Amazon S3 data
@@ -319,11 +320,11 @@ AWS Backup works with AWS Organizations to simplify cross-account monitoring and
 - Designate
   [delegated administrator accounts and delegate policies](manage-cross-account.md#backup-delegatedadmin "manage-cross-account.md#backup-delegatedadmin").
 
-## Working with AWS CloudFormation
+## Working with CloudFormation
 
-AWS Backup support AWS CloudFormation templates and application stacks
+AWS Backup support CloudFormation templates and application stacks
 
-- [AWS CloudFormation stack backups](applicationstackbackups.md "applicationstackbackups.md")
+- [CloudFormation stack backups](applicationstackbackups.md "applicationstackbackups.md")
 
 ## Working with AWS BackInt, AWS Systems Manager for SAP, and SAP HANA
 
@@ -344,6 +345,17 @@ An Amazon EKS backup will create a composite recovery point, where a child recov
 - How to restore Amazon EKS clusters: [Restore an Amazon EKS cluster](restoring-eks.md "restoring-eks.md")
 
 For detailed information about Amazon EKS, see [What is Amazon EKS?](../../../eks/latest/userguide/what-is-eks.md "../../../eks/latest/userguide/what-is-eks.md") in the _Amazon EKS User Guide_.
+
+## Working with Amazon GuardDuty
+
+AWS Backup integrates with Amazon GuardDuty to provide automated malware scanning of your recovery points. This integration helps you detect potential malware in your EC2, EBS, and S3 backups.
+
+- **Automated scanning** - Configure backup plans to automatically scan recovery points as they are created
+- **On-demand scanning** - Manually initiate scans of specific recovery points using the StartScanJob API
+- **Incremental scanning** - Scan only changed data since the last scan to reduce costs
+- **Scan results** - View scan status and results in the AWS Backup console and APIs
+
+To enable malware scanning, you must configure IAM roles that allow GuardDuty to read your recovery points and AWS Backup to initiate scans. For more information, see [Managed policies for AWS Backup](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
 ## How AWS services back up their own resources
 

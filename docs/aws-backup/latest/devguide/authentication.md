@@ -40,7 +40,7 @@ _AWS General Reference_.
   obtain temporary access keys that can be used to access AWS services and resources.
   IAM roles with temporary credentials are useful in the following situations:
   - Federated user access – Instead of creating an IAM user, you can use
-    pre-existing user identities from AWS Directory Service, your enterprise user directory, or a web
+    pre-existing user identities from Directory Service, your enterprise user directory, or a web
     identity provider. These are known as _federated users_. AWS
     assigns a role to a federated user when access is requested through an [identity provider](../../../IAM/latest/UserGuide/id_roles_providers.md "../../../IAM/latest/UserGuide/id_roles_providers.md"). For more
     information about federated users, see [Federated Users and Roles](../../../IAM/latest/UserGuide/introduction_access-management.md#intro-access-roles "../../../IAM/latest/UserGuide/introduction_access-management.md#intro-access-roles") in the

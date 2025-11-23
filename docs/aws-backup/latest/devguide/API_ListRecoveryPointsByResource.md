@@ -70,6 +70,11 @@ Content-type: application/json
    "NextToken": "***string***",
    "RecoveryPoints": [
       {
+         "AggregatedScanResult": {
+            "FailedScan": ***boolean***,
+            "Findings": [ "***string***" ],
+            "LastComputed": ***number***
+         },
          "BackupSizeBytes": ***number***,
          "BackupVaultName": "***string***",
          "CreationDate": ***number***,

@@ -48,4 +48,5 @@ cloud:
 - [Infrastructure security](infrastructure-security.md "infrastructure-security.md")
 - [Integrity](backup-integrity.md "backup-integrity.md")
 - [Legal holds](legalhold.md "legalhold.md")
+- [Malware protection](malware-protection.md "malware-protection.md")
 - [Resilience](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")

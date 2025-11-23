@@ -3,6 +3,7 @@
 The following data types are supported by AWS Backup:
 
 - [AdvancedBackupSetting](API_AdvancedBackupSetting.md "API_AdvancedBackupSetting.md")
+- [AggregatedScanResult](API_AggregatedScanResult.md "API_AggregatedScanResult.md")
 - [BackupJob](API_BackupJob.md "API_BackupJob.md")
 - [BackupJobSummary](API_BackupJobSummary.md "API_BackupJobSummary.md")
 - [BackupPlan](API_BackupPlan.md "API_BackupPlan.md")
@@ -45,6 +46,7 @@ The following data types are supported by AWS Backup:
 - [ReportJob](API_ReportJob.md "API_ReportJob.md")
 - [ReportPlan](API_ReportPlan.md "API_ReportPlan.md")
 - [ReportSetting](API_ReportSetting.md "API_ReportSetting.md")
+- [ResourceSelection](API_ResourceSelection.md "API_ResourceSelection.md")
 - [RestoreAccessBackupVaultListMember](API_RestoreAccessBackupVaultListMember.md "API_RestoreAccessBackupVaultListMember.md")
 - [RestoreJobCreator](API_RestoreJobCreator.md "API_RestoreJobCreator.md")
 - [RestoreJobsListMember](API_RestoreJobsListMember.md "API_RestoreJobsListMember.md")
@@ -58,7 +60,18 @@ The following data types are supported by AWS Backup:
 - [RestoreTestingSelectionForGet](API_RestoreTestingSelectionForGet.md "API_RestoreTestingSelectionForGet.md")
 - [RestoreTestingSelectionForList](API_RestoreTestingSelectionForList.md "API_RestoreTestingSelectionForList.md")
 - [RestoreTestingSelectionForUpdate](API_RestoreTestingSelectionForUpdate.md "API_RestoreTestingSelectionForUpdate.md")
+- [ScanAction](API_ScanAction.md "API_ScanAction.md")
+- [ScanJob](API_ScanJob.md "API_ScanJob.md")
+- [ScanJobCreator](API_ScanJobCreator.md "API_ScanJobCreator.md")
+- [ScanJobSummary](API_ScanJobSummary.md "API_ScanJobSummary.md")
+- [ScanResult](API_ScanResult.md "API_ScanResult.md")
+- [ScanResultInfo](API_ScanResultInfo.md "API_ScanResultInfo.md")
+- [ScanSetting](API_ScanSetting.md "API_ScanSetting.md")
 - [ScheduledPlanExecutionMember](API_ScheduledPlanExecutionMember.md "API_ScheduledPlanExecutionMember.md")
+- [TieringConfiguration](API_TieringConfiguration.md "API_TieringConfiguration.md")
+- [TieringConfigurationInputForCreate](API_TieringConfigurationInputForCreate.md "API_TieringConfigurationInputForCreate.md")
+- [TieringConfigurationInputForUpdate](API_TieringConfigurationInputForUpdate.md "API_TieringConfigurationInputForUpdate.md")
+- [TieringConfigurationsListMember](API_TieringConfigurationsListMember.md "API_TieringConfigurationsListMember.md")
   The following data types are supported by AWS Backup gateway:
 
 - [BandwidthRateLimitInterval](API_BGW_BandwidthRateLimitInterval.md "API_BGW_BandwidthRateLimitInterval.md")

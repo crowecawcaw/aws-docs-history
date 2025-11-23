@@ -27,6 +27,7 @@ Content-type: application/json
                   "DestinationBackupVaultArn": "`string`",
                   "Lifecycle": {
                      "DeleteAfterDays": `number`,
+                     "DeleteAfterEvent": "`string`",
                      "MoveToColdStorageAfterDays": `number`,
                      "OptInToArchiveForSupportedResources": `boolean`
                   }
@@ -40,6 +41,7 @@ Content-type: application/json
             ],
             "Lifecycle": {
                "DeleteAfterDays": `number`,
+               "DeleteAfterEvent": "`string`",
                "MoveToColdStorageAfterDays": `number`,
                "OptInToArchiveForSupportedResources": `boolean`
             },
@@ -47,10 +49,24 @@ Content-type: application/json
                "`string`" : "`string`"
             },
             "RuleName": "`string`",
+            "ScanActions": [
+               {
+                  "MalwareScanner": "`string`",
+                  "ScanMode": "`string`"
+               }
+            ],
             "ScheduleExpression": "`string`",
             "ScheduleExpressionTimezone": "`string`",
             "StartWindowMinutes": `number`,
-            "TargetBackupVaultName": "`string`"
+            "TargetBackupVaultName": "`string`",
+            "TargetLogicallyAirGappedBackupVaultArn": "`string`"
+         }
+      ],
+      "ScanSettings": [
+         {
+            "MalwareScanner": "`string`",
+            "ResourceTypes": [ "`string`" ],
+            "ScannerRoleArn": "`string`"
          }
       ]
    }
@@ -98,6 +114,13 @@ Content-type: application/json
    "BackupPlanArn": "***string***",
    "BackupPlanId": "***string***",
    "CreationDate": ***number***,
+   "ScanSettings": [
+      {
+         "MalwareScanner": "***string***",
+         "ResourceTypes": [ "***string***" ],
+         "ScannerRoleArn": "***string***"
+      }
+   ],
    "VersionId": "***string***"
 }
 ```
@@ -135,6 +158,12 @@ example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.0
 AM.
 
 Type: Timestamp
+
+**[ScanSettings](#API_UpdateBackupPlan_ResponseSyntax "#API_UpdateBackupPlan_ResponseSyntax")**
+
+Contains your scanning configuration for the backup plan and includes the Malware scanner, your selected resources, and scanner role.
+
+Type: Array of [ScanSetting](API_ScanSetting.md "API_ScanSetting.md") objects
 
 **[VersionId](#API_UpdateBackupPlan_ResponseSyntax "#API_UpdateBackupPlan_ResponseSyntax")**
 

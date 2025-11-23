@@ -2,7 +2,7 @@
 
 ## Overview of logically air-gapped vaults
 
-AWS Backup offers a secondary type of vault which can store copies of backups in a container
+AWS Backup offers a secondary type of vault which can store backups in a container
 with additional security features. A **logically air-gapped vault** is a
 specialized vault which provides increased security beyond a standard backup vault, as well
 as the ability to share vault access to other accounts so that recovery
@@ -23,6 +23,10 @@ logically air-gapped vault stores its backups in an AWS Backup service owned acc
 results in backups shown as shared outside your organization in modify attribute items in
 AWS CloudTrail logs).
 
+For greater resiliency, we recommend creating cross-Region copies in logically air-gapped vaults in same or separate accounts.
+However, if you want to reduce storage costs by maintaining just a single copy, you can use
+[Primary backups to logically air-gapped vaults](lag-vault-primary-backup.md "lag-vault-primary-backup.md"), after onboarding to AWS MPA.
+
 You can view the storage pricing for backups of supported services in a logically
 air-gapped vault on the [AWS Backup pricing](https://aws.amazon.com/backup/pricing/ "https://aws.amazon.com/backup/pricing/")
 page.
@@ -37,7 +41,7 @@ resource types you can copy to a logically air-gapped vault.
   vault](#lag-compare-and-contrast "#lag-compare-and-contrast")
 - [Create a logically air-gapped vault](#lag-create "#lag-create")
 - [View logically air-gapped vault details](#lag-view "#lag-view")
-- [Copy to a logically air-gapped vault](#lag-copy "#lag-copy")
+- [Creating backups in a logically air-gapped vault](#lag-creation "#lag-creation")
 - [Share a logically air-gapped vault](#lag-share "#lag-share")
 - [Restore a backup from a logically air-gapped vault](#lag-restore "#lag-restore")
 - [Delete a logically air-gapped vault](#lag-delete "#lag-delete")
@@ -45,6 +49,7 @@ resource types you can copy to a logically air-gapped vault.
   vaults](#lag-programmatic "#lag-programmatic")
 - [Understanding encryption key types for logically air-gapped vaults](#lag-encryption-key-types "#lag-encryption-key-types")
 - [Troubleshoot a logically air-gapped vault issue](#lag-troubleshoot "#lag-troubleshoot")
+- [Primary backups to logically air-gapped vaults](lag-vault-primary-backup.md "lag-vault-primary-backup.md")
 - [Multi-party approval for logically air-gapped
   vaults](multipartyapproval.md "multipartyapproval.md")
 
@@ -95,8 +100,8 @@ resource-based policies to manage backups stored in the vault, such as the lifec
 backups stored within the vault.
 
 A **logically air-gapped vault** is a specialized vault with additional
-security and flexible sharing for faster recovery time (RTO). This vault stores copies of
-backups that were initially created and stored within a standard backup vault.
+security and flexible sharing for faster recovery time (RTO). This vault stores primary backups or
+copies of backups that were initially created and stored within a standard backup vault.
 
 Backup vaults are encrypted with a key, a security mechanism
 that limits access to intended users. These keys can be customer managed or AWS managed.
@@ -110,17 +115,15 @@ Similar to backup vaults, logically air-gapped vaults also support
 [restricted tags](../../../AWSEC2/latest/UserGuide/Using_Tags.md#tag-restrictions "../../../AWSEC2/latest/UserGuide/Using_Tags.md#tag-restrictions")
 for Amazon EC2 backups.
 
-| Feature                                                                                | Backup vault                                                                                                                                                                                                                                                                                                                      | Logically air-gapped vault                                                                                                                                                                                                                                                                                                                                                                   |
-| -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [AWS Backup Audit Manager](aws-backup-audit-manager.md "aws-backup-audit-manager.md")  | You can use AWS Backup Audit Manager [Controls and<br>remediation](controls-and-remediation.md "controls-and-remediation.md") to monitor your backup vaults.                                                                                                                                                                      | Ensure a copy of a backup of a specific resource has been copied to<br>[at least one logically air-gapped<br>vault](controls-and-remediation.md#resources-in-lag-vault-control "controls-and-remediation.md#resources-in-lag-vault-control") on a schedule you determine, in addition to controls available to<br>standard vaults.                                                           |
-| [Backup<br>creation](creating-a-backup.md "creating-a-backup.md")                      | When a backup is created, it is stored as a recovery<br>point.                                                                                                                                                                                                                                                                    | Backups are not stored in this vault upon creation.                                                                                                                                                                                                                                                                                                                                          |
-| [Backup storage](vaults.md "vaults.md")                                                | Can store initial backups of resources and copies of<br>backups                                                                                                                                                                                                                                                                   | Can store copies of backups from other vaults                                                                                                                                                                                                                                                                                                                                                |
-| Billing                                                                                | Storage and data transfer charges for resources fully managed by AWS Backup<br>occur under "AWS Backup". Other resource type storage and data transfer charges will<br>occur under their respective services.<br>For example, Amazon EBS backups will show under "Amazon EBS"; Amazon S3 backups will show<br>under "AWS Backup". | All billing charges from these vaults (storage or data transfer) occur<br>under "AWS Backup".                                                                                                                                                                                                                                                                                                |
-| [Regions](whatisbackup.md#features-by-region "whatisbackup.md#features-by-region")     | Available in all Regions in which AWS Backup operates                                                                                                                                                                                                                                                                             | Available in most Regions supported by AWS Backup. Not currently available in<br>Asia Pacific (Malaysia), Canada West (Calgary), China (Beijing), China (Ningxia),<br>AWS GovCloud (US-East), or AWS GovCloud (US-West).                                                                                                                                                                     |
-| [Resources](whatisbackup.md#supported-resources "whatisbackup.md#supported-resources") | Can store copies of backups for most resource types that support<br>cross-account copy.                                                                                                                                                                                                                                           | See the logically air-gapped vault column in<br>[Feature availability by resource](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource")<br>for resources that can be copied to<br>this vault.                                                                                                                                          |
-| [Restore](restoring-a-backup.md "restoring-a-backup.md")                               | Backups can be restored by the same account to which the<br>vault belongs.                                                                                                                                                                                                                                                        | Backups can be restored by a different account than the one to<br>which the vault belongs if the vault is shared with that separate account.                                                                                                                                                                                                                                                 |
-| [Security](security-considerations.md "security-considerations.md")                    | Can optionally be encrypted with a key (customer managed or AWS<br>managed)<br>Can optionally use a vault lock in compliance or governance<br>mode                                                                                                                                                                                | Can be encrypted with an [AWS owned key](../../../kms/latest/developerguide/concepts.md#key-mgmt "../../../kms/latest/developerguide/concepts.md#key-mgmt") or a customer managed key<br>Is always locked with a [vault lock](vault-lock.md "vault-lock.md") in<br>compliance mode<br>Encryption key type information is preserved and visible when vaults are shared through AWS RAM or MPA |
-| [Sharing](#lag-share "#lag-share")                                                     | Access can be managed through policies and [AWS Organizations](manage-cross-account.md "manage-cross-account.md")<br>Not compatible with AWS RAM                                                                                                                                                                                  | Can optionally be shared across accounts using [AWS RAM](../../../ram/latest/userguide/working-with-sharing-create.md "../../../ram/latest/userguide/working-with-sharing-create.md")                                                                                                                                                                                                        |
+| Feature                                                                                    | Backup vault                                                                                                                                                                                                                                                                                                                      | Logically air-gapped vault                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [AWS Backup Audit Manager](aws-backup-audit-manager.md "aws-backup-audit-manager.md")      | You can use AWS Backup Audit Manager [Controls and<br>remediation](controls-and-remediation.md "controls-and-remediation.md") to monitor your backup vaults.                                                                                                                                                                      | Ensure a backup of a specific resource is stored in<br>[at least one logically air-gapped<br>vault](controls-and-remediation.md#resources-in-lag-vault-control "controls-and-remediation.md#resources-in-lag-vault-control") on a schedule you determine, in addition to controls available to<br>standard vaults.                                                                           |
+| [Billing](https://aws.amazon.com/backup/pricing/ "https://aws.amazon.com/backup/pricing/") | Storage and data transfer charges for resources fully managed by AWS Backup<br>occur under "AWS Backup". Other resource type storage and data transfer charges will<br>occur under their respective services.<br>For example, Amazon EBS backups will show under "Amazon EBS"; Amazon S3 backups will show<br>under "AWS Backup". | All billing charges from these vaults (storage or data transfer) occur<br>under "AWS Backup".                                                                                                                                                                                                                                                                                                |
+| [Regions](whatisbackup.md#features-by-region "whatisbackup.md#features-by-region")         | Available in all Regions in which AWS Backup operates                                                                                                                                                                                                                                                                             | Available in most Regions supported by AWS Backup. Not currently available in<br>Asia Pacific (Malaysia), Canada West (Calgary), Mexico (Central),<br>Asia Pacific (Thailand), Asia Pacific (Taipei), Asia Pacific (New Zealand), China (Beijing),<br>China (Ningxia), AWS GovCloud (US-East), or AWS GovCloud (US-West).                                                                    |
+| [Resources](whatisbackup.md#supported-resources "whatisbackup.md#supported-resources")     | Can store copies of backups for most resource types that support<br>cross-account copy.                                                                                                                                                                                                                                           | See the logically air-gapped vault column in<br>[Feature availability by resource](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource")<br>for resources that can be copied to<br>this vault.                                                                                                                                          |
+| [Restore](restoring-a-backup.md "restoring-a-backup.md")                                   | Backups can be restored by the same account to which the<br>vault belongs.                                                                                                                                                                                                                                                        | Backups can be restored by a different account than the one to<br>which the vault belongs if the vault is shared with that separate account.                                                                                                                                                                                                                                                 |
+| [Security](security-considerations.md "security-considerations.md")                        | Can optionally be encrypted with a key (customer managed or AWS<br>managed)<br>Can optionally use a vault lock in compliance or governance<br>mode                                                                                                                                                                                | Can be encrypted with an [AWS owned key](../../../kms/latest/developerguide/concepts.md#key-mgmt "../../../kms/latest/developerguide/concepts.md#key-mgmt") or a customer managed key<br>Is always locked with a [vault lock](vault-lock.md "vault-lock.md") in<br>compliance mode<br>Encryption key type information is preserved and visible when vaults are shared through AWS RAM or MPA |
+| [Sharing](#lag-share "#lag-share")                                                         | Access can be managed through policies and [AWS Organizations](manage-cross-account.md "manage-cross-account.md")<br>Not compatible with AWS RAM                                                                                                                                                                                  | Can optionally be shared across accounts using [AWS RAM](../../../ram/latest/userguide/working-with-sharing-create.md "../../../ram/latest/userguide/working-with-sharing-create.md")                                                                                                                                                                                                        |
 
 ## Create a logically air-gapped vault
 
@@ -154,11 +157,15 @@ and years meet this minimum. 8. Set the **Maximum retention period**.
 
 This value (in days, months, or years) is the longest amount of time a backup
 can be retained in this vault. Backups with retention periods greater than this
-value cannot be copied to this vault. 9. _(Optional)_ Add tags that will help you search for and
+value cannot be copied to this vault. 9. _(Optional)_ Set the **Encryption key**.
+
+Specify the key to use with your vault. You can choose an **AWS owned key (managed by AWS Backup)**
+or enter the ARN for a **Customer managed key** that preferably belongs to a different account to which
+you have access. AWS Backup recommends using an AWS owned key. 10. _(Optional)_ Add tags that will help you search for and
 identify your logically air-gapped vault. For example, you could add a
-`BackupType:Financial` tag. 10. Select **Create vault**. 11. Review the settings. If all settings show as you intended, select
-**Create logically air-gapped vault**. 12. The console will take you to the details page of your new vault. Verify the
-vault details are as expected. 13. Select **Vaults** to view vaults in your account. Your logically air-gapped vault
+`BackupType:Financial` tag. 11. Select **Create vault**. 12. Review the settings. If all settings show as you intended, select
+**Create logically air-gapped vault**. 13. The console will take you to the details page of your new vault. Verify the
+vault details are as expected. 14. Select **Vaults** to view vaults in your account. Your logically air-gapped vault
 will be displayed. The KMS key will be available approximately 1 to 3 minutes
 after the vault creation. Refresh the page to see the associated key. Once the key
 is visible, the vault is in an available state and can be used.
@@ -227,9 +234,10 @@ Console
 
 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
 2. Select **Vaults** from the left-hand navigation.
-3. Below the descriptions of vaults will be two lists, **Vaults owned by
-   this account** and **Vaults shared with this
-   account**. Select the desired tab to view the vaults.
+3. Below the descriptions of vaults will be three lists, **Vaults created by
+   this account**, **Vaults shared through RAM**, and
+   **Vaults accessible through Multi-party approval**.
+   Select the desired tab to view the vaults.
 4. Under **Vault name**, click on the name of the vault to open
    the details page. You can see the summary, the recovery points, the protected
    resources, account sharing, access policy, and tag details.
@@ -269,29 +277,32 @@ Example of response:
 }
 ```
 
-## Copy to a logically air-gapped vault
+## Creating backups in a logically air-gapped vault
 
-Logically air-gapped vaults can only be a copy job destination target in a backup plan
-or a target for an on-demand copy job.
+Logically air-gapped vaults can be a copy job destination target in a backup plan
+or a target for an on-demand copy job. It can also be used as a primary backup target. See
+[Primary backups to logically air-gapped vaults](lag-vault-primary-backup.md "lag-vault-primary-backup.md").
 
 **Compatible encryption**
 
 A successful copy job from a backup vault to a logically air-gapped vault requires
 an encryption key that is determined by the resource type being copied.
 
-When you copy a backup of a [fully managed
-resource type](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource"), the source backup in the (standard backup vault) can be
-encrypted by a customer managed key or by an AWS managed key.
+When you create or copy a backup of a [fully managed
+resource type](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource"), the source resource can be encrypted by a customer managed key or by an AWS managed key.
 
-When you copy a backup of other resource types (ones [not fully managed](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource")), the backup must be encrypted with a customer managed key. AWS managed keys
-for the resource types are not supported for copies.
+When you create or copy a backup of other resource types (ones [not fully managed](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource")), the source must be encrypted with a customer managed key. AWS managed keys
+for not fully managed resources are not supported.
 
-**Copy to a logically air-gapped vault through a backup plan**
+**Create or copy backups to a logically air-gapped vault through a backup plan**
 
 You can copy a backup (recovery point) from a standard backup vault to a logically
 air-gapped vault by [creating a new backup plan](creating-a-backup-plan.md "creating-a-backup-plan.md")
 or [updating an existing one](updating-a-backup-plan.md "updating-a-backup-plan.md") in the AWS Backup
-console or through the AWS CLI commands [`create-backup-plan`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/create-backup-plan.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/create-backup-plan.html") and [`update-backup-plan`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/update-backup-plan.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/update-backup-plan.html").
+console or through the AWS CLI commands [`create-backup-plan`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/create-backup-plan.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/create-backup-plan.html") and [`update-backup-plan`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/update-backup-plan.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/update-backup-plan.html"). You can also create backups directly in a logically air-gapped vault
+by using it as a primary target. See
+[Primary backups to logically air-gapped vaults](lag-vault-primary-backup.md "lag-vault-primary-backup.md")
+for more details.
 
 You can copy a backup from one logically air-gapped vault to another logically
 air-gapped vault on-demand (this type of backup cannot be scheduled in a backup plan). You

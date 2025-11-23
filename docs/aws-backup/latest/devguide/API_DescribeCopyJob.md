@@ -49,12 +49,14 @@ Content-type: application/json
          "BackupRuleName": "***string***",
          "BackupRuleTimezone": "***string***"
       },
+      "CreatedByBackupJobId": "***string***",
       "CreationDate": ***number***,
       "DestinationBackupVaultArn": "***string***",
       "DestinationEncryptionKeyArn": "***string***",
       "DestinationRecoveryPointArn": "***string***",
       "DestinationRecoveryPointLifecycle": {
          "DeleteAfterDays": ***number***,
+         "DeleteAfterEvent": "***string***",
          "MoveToColdStorageAfterDays": ***number***,
          "OptInToArchiveForSupportedResources": ***boolean***
       },

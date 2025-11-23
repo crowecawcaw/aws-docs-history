@@ -107,6 +107,11 @@ Content-type: application/json
    "NextToken": "***string***",
    "RecoveryPoints": [
       {
+         "AggregatedScanResult": {
+            "FailedScan": ***boolean***,
+            "Findings": [ "***string***" ],
+            "LastComputed": ***number***
+         },
          "BackupSizeInBytes": ***number***,
          "BackupVaultArn": "***string***",
          "BackupVaultName": "***string***",
@@ -138,6 +143,7 @@ Content-type: application/json
          "LastRestoreTime": ***number***,
          "Lifecycle": {
             "DeleteAfterDays": ***number***,
+            "DeleteAfterEvent": "***string***",
             "MoveToColdStorageAfterDays": ***number***,
             "OptInToArchiveForSupportedResources": ***boolean***
          },

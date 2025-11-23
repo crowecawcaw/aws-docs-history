@@ -64,15 +64,7 @@ AWS CLI
 aws backup start-restore-job \
     --recovery-point-arn "arn:aws:dsql:us-east-1:123456789012:cluster/example-cluster/backup/example-backup" \
     --iam-role-arn "arn:aws:iam::123456789012:role/service-role/AWSBackupDefaultServiceRole" \
-    --metadata '{
-        "regionalConfig": [
-            {
-                "region": "us-east-1",
-                "isDeletionProtectionEnabled": true,
-                "kmsKeyId": "my_key"
-            }
-        ]
-    }' \
+    --metadata '{"regionalConfig":"[{\"region\":\"us-east-1\",\"isDeletionProtectionEnabled\":true,\"kmsKeyId\":\"my_key\"}]"}' \
     --copy-source-tags-to-restored-resource
 ```
 
@@ -184,12 +176,14 @@ start-restore-job` with the new multi-Region orchestration
 ```
 aws backup start-restore-job \
 --recovery-point-arn "arn:aws:backup:us-east-1:123456789012:recovery-point:abcd1234" \
+--iam-role-arn "arn:aws:iam::123456789012:role/service-role/AWSBackupDefaultServiceRole" \
 --metadata '{
-    "witnessRegion": "us-west-1",
-    "useMultiRegionOrchestration": true,
-    "peerRegion": ["us-east-2"],
-    "regionalConfig": "[{\"region\":\"us-east-1\",\"isDeletionProtectionEnabled\":true,\"kmsKeyId\":\"arn:aws:kms:us-east-1:123456789012:key/ba4b3773-4bb8-4a7a-994c-46ede70202f5\"},{\"region\":\"us-west-2\",\"isDeletionProtectionEnabled\":true,\"kmsKeyId\":\"arn:aws:kms:us-west-2:123456789012:key/ba4b3773-4bb8-4a7a-994c-46ede70202f5\"}]"
-}'
+    "witnessRegion":"us-west-1",
+    "useMultiRegionOrchestration":"true",
+    "peerRegion":"[\"us-east-2\"]",
+    "regionalConfig":"[{\"region\":\"us-east-1\",\"isDeletionProtectionEnabled\":true,\"kmsKeyId\":\"arn:aws:kms:us-east-1:123456789012:key/ba4b3773-4bb8-4a7a-994c-46ede70202f5\"},{\"region\":\"us-west-2\",\"isDeletionProtectionEnabled\":true,\"kmsKeyId\":\"arn:aws:kms:us-west-2:123456789012:key/ba4b3773-4bb8-4a7a-994c-46ede70202f5\"}]"
+}' \
+--copy-source-tags-to-restored-resource
 
 ```
 
