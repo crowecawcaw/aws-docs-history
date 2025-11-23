@@ -3,19 +3,19 @@
 Amazon EC2 is integrated with AWS CloudFormation, a service that helps you to model and set up your
 AWS resources so that you can spend less time creating and managing your resources and
 infrastructure. You create a template that describes the AWS resources that you need (such as
-instances and subnets), and AWS CloudFormation provisions and configures those resources for you.
+instances and subnets), and CloudFormation provisions and configures those resources for you.
 
-When you use AWS CloudFormation, you can reuse your template to set up your Amazon EC2 resources
+When you use CloudFormation, you can reuse your template to set up your Amazon EC2 resources
 consistently and repeatedly. Describe your resources once, and then provision the same
 resources over and over in multiple AWS accounts and Regions.
 
-## Amazon EC2 and AWS CloudFormation templates
+## Amazon EC2 and CloudFormation templates
 
 To provision and configure resources for Amazon EC2 and related services, you must understand
-[AWS CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md"). Templates are
+[CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md"). Templates are
 formatted text files in JSON or YAML. These templates describe the resources you'll
-provision in your AWS CloudFormation stacks. If you're unfamiliar with JSON or YAML, you can use AWS CloudFormation
-Designer to help you get started with AWS CloudFormation templates. For more information, see [What is AWS CloudFormation Designer?](../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md "../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md") in the _AWS CloudFormation User Guide_.
+provision in your CloudFormation stacks. If you're unfamiliar with JSON or YAML, you can use CloudFormation
+Designer to help you get started with CloudFormation templates. For more information, see [What is CloudFormation Designer?](../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md "../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md") in the _AWS CloudFormation User Guide_.
 
 ## Resources for Amazon EC2
 
@@ -116,9 +116,9 @@ Designer to help you get started with AWS CloudFormation templates. For more inf
 - [AWS::EC2::Volume](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.md")
 - [AWS::EC2::VolumeAttachment](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volumeattachment.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volumeattachment.md")
 
-## Learn more about AWS CloudFormation
+## Learn more about CloudFormation
 
-To learn more about AWS CloudFormation, see the following resources:
+To learn more about CloudFormation, see the following resources:
 
 - [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/")
 - [AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md")

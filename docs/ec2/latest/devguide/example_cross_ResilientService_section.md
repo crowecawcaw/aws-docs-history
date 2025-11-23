@@ -420,7 +420,7 @@ Run the interactive scenario at a command prompt.
 
 ```
 
-Create a class that wraps Auto Scaling and Amazon EC2 actions.
+Create a class that wraps Amazon EC2 Auto Scaling and Amazon EC2 actions.
 
 ```
 /// <summary>
@@ -1314,7 +1314,7 @@ public class AutoScalerWrapper
 
 ```
 
-Create a class that wraps Elastic Load Balancing actions.
+Create a class that wraps ELB actions.
 
 ```
 /// <summary>
@@ -2291,7 +2291,7 @@ public class Main {
 
 ```
 
-Create a class that wraps Auto Scaling and Amazon EC2 actions.
+Create a class that wraps Amazon EC2 Auto Scaling and Amazon EC2 actions.
 
 ```
 public class AutoScaler {
@@ -2787,7 +2787,7 @@ public class AutoScaler {
 
 ```
 
-Create a class that wraps Elastic Load Balancing actions.
+Create a class that wraps ELB actions.
 
 ```
 public class LoadBalancer {
@@ -5330,7 +5330,7 @@ if __name__ == "__main__":
 
 ```
 
-Create a class that wraps Auto Scaling and Amazon EC2 actions.
+Create a class that wraps Amazon EC2 Auto Scaling and Amazon EC2 actions.
 
 ```
 class AutoScalingWrapper:
@@ -6148,7 +6148,7 @@ class AutoScalingWrapper:
 
 ```
 
-Create a class that wraps Elastic Load Balancing actions.
+Create a class that wraps ELB actions.
 
 ```
 class ElasticLoadBalancerWrapper:

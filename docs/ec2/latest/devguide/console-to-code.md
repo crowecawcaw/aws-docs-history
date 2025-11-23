@@ -13,8 +13,8 @@ compatible parameter values. You can use the code as a starting point, and then 
 to make it production-ready for your specific use case.
 
 For example, with Console-to-Code, you can record launching an Amazon EC2 instance and choose to generate
-code in AWS CloudFormation JSON format. Then, you can copy that code and customize it for use in your
-AWS CloudFormation template.
+code in CloudFormation JSON format. Then, you can copy that code and customize it for use in your
+CloudFormation template.
 
 Console-to-Code can currently generate infrastructure-as-code (IaC) in the following languages and formats:
 
