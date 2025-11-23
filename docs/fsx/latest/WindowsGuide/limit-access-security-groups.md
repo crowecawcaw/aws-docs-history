@@ -5,7 +5,7 @@ interface resides in the virtual private cloud (VPC) based on the Amazon Virtual
 service that you associate with your file system. You connect to your Amazon FSx file system
 through its Domain Name Service (DNS) name. The DNS name maps to the private IP address
 of the file system's elastic network interface in your VPC. Only resources within the
-associated VPC, resources connected with the associated VPC by AWS Direct Connect or VPN, or
+associated VPC, resources connected with the associated VPC by Direct Connect or VPN, or
 resources within peered VPCs can access your file system's network interface. For more
 information, see [What is
 Amazon VPC?](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") in the _Amazon VPC User Guide._

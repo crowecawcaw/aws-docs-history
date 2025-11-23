@@ -66,7 +66,7 @@ Make sure that you have completed the [Prerequisites](self-managed-AD.md#self-ma
 You can modify the throughput
 capacity as needed at any time after you create the file system. For more information, see
 [Managing throughput capacity](managing-throughput-capacity.md "managing-throughput-capacity.md"). 7. Choose the VPC that you want to associate with your file system. For the purposes of this
-getting started exercise, choose the same VPC as for your AWS Directory Service directory and Amazon EC2
+getting started exercise, choose the same VPC as for your Directory Service directory and Amazon EC2
 instance. 8. Choose any value for **Availability Zones** and
 **Subnet**. 9. For **VPC security groups**, the default security group for your default
 Amazon VPC is already added to your file system in the console. Please ensure that the security

@@ -4,7 +4,7 @@ Following, you can learn how to get started using FSx for Windows File Server.
 This getting started exercise includes the following steps.
 
 1. Sign up for an AWS account and create an administrative user in the account.
-2. Create an AWS Managed Microsoft AD Active Directory using the AWS Directory Service. You will join your file system and compute instance to the Active Directory.
+2. Create an AWS Managed Microsoft AD Active Directory using the Directory Service. You will join your file system and compute instance to the Active Directory.
 3. Create an Amazon Elastic Compute Cloud compute instance running Microsoft Windows Server. You will use this instance to access your file system.
 4. Create an Amazon FSx for Windows File Server file system using the Amazon FSx console.
 5. Map your file system to your EC2 instance
@@ -18,7 +18,7 @@ This getting started exercise includes the following steps.
 - [Step 1. Setting up an Active Directory](#prereq-step1 "#prereq-step1")
 - [Step 2: Launch a Windows instance in the Amazon EC2 console](#prereqs-step2 "#prereqs-step2")
 - [Step 3: Connect to your instance](#prereqs-step3 "#prereqs-step3")
-- [Step 4: Join your instance to your AWS Directory Service directory](#prereqs-step4 "#prereqs-step4")
+- [Step 4: Join your instance to your Directory Service directory](#prereqs-step4 "#prereqs-step4")
 - [Step 5. Create your file system](#getting-started-step1 "#getting-started-step1")
 - [Step 6. Map your file share to an EC2 instance running
   Windows Server](#getting-started-step2 "#getting-started-step2")
@@ -96,14 +96,14 @@ For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgro
 ## Step 1. Setting up an Active Directory
 
 With Amazon FSx, you can operate fully managed file storage for Windows-based workloads.
-Likewise, AWS Directory Service provides fully managed directories to use in your workload deployment. If you
+Likewise, Directory Service provides fully managed directories to use in your workload deployment. If you
 have an existing corporate Active Directory domain running in AWS in a virtual private cloud (VPC) using EC2
 instances, you can enable user-based authentication and access control. You do this by
 establishing a trust relationship between your AWS Managed Microsoft Active Directory and your corporate
 domain. For Windows authentication in Amazon FSx, you only need a one-way directional forest trust,
 where the AWS managed forest trusts the corporate domain forest.
 
-Your corporate domain takes the role of the trusted domain, and the AWS Directory Service managed domain
+Your corporate domain takes the role of the trusted domain, and the Directory Service managed domain
 takes the role of the trusting domain. Validated authentication requests travel between the
 domains in only one direction—allowing accounts in your corporate domain to authenticate
 against resources shared in the managed domain. In this case, Amazon FSx interacts only with the
@@ -119,7 +119,7 @@ security group.
 
 ###### To create an AWS Directory Services for Microsoft Active Directory
 
-- If you don't already have one, use the AWS Directory Service to create your AWS Managed Microsoft
+- If you don't already have one, use the Directory Service to create your AWS Managed Microsoft
   Active Directory directory. For more information, see [Create Your AWS Managed
   Microsoft Active Directory](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_create_directory.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_create_directory.md") in the _AWS Directory Service Administration Guide_.
 
@@ -127,7 +127,7 @@ security group.
 
 Remember the password you assign to your Admin user; you need it later in this getting
 started exercise. If you forget the password, you need to repeat steps in this exercise with
-the new AWS Directory Service directory and Admin user.
+the new Directory Service directory and Admin user.
 
 - If you have an existing Active Directory, create a trust relationship between your AWS Managed Microsoft
   Active Directory and your existing Active Directory. For more information, see [When to Create a Trust Relationship](../../../directoryservice/latest/admin-guide/ms_ad_setup_trust.md "../../../directoryservice/latest/admin-guide/ms_ad_setup_trust.md") in the
@@ -211,7 +211,7 @@ Portuguese it's Administrador. For more information, see [Localized Names for Ad
 Wiki.
 
 If you joined your instance to a domain, you can connect to your instance using domain
-credentials you defined in AWS Directory Service. On the Remote Desktop login screen, don't use the local
+credentials you defined in Directory Service. On the Remote Desktop login screen, don't use the local
 computer name and the generated password. Instead, use the fully qualified user name for the
 administrator and the password for this account. An example is
 `corp.example.com\Admin`.
@@ -283,15 +283,15 @@ continue if you trust the certificate.
     6. [Windows] Choose **Yes** in the **Remote Desktop
      Connection** window to connect to your instance.
 
-Now that you're connected to your instance, you can join the instance to your AWS Directory Service
+Now that you're connected to your instance, you can join the instance to your Directory Service
 directory.
 
-## Step 4: Join your instance to your AWS Directory Service directory
+## Step 4: Join your instance to your Directory Service directory
 
 The following procedure shows you how to manually join an existing Amazon EC2 Windows instance to
-your AWS Directory Service directory.
+your Directory Service directory.
 
-###### To join a Windows instance to your AWS Directory Service directory
+###### To join a Windows instance to your Directory Service directory
 
 1. Connect to the instance using any Remote Desktop Protocol client.
 2. Open the TCP/IPv4 or IPv6 properties dialog box on the instance.
@@ -313,7 +313,7 @@ your AWS Directory Service directory.
 
 3. (Optional) Select **Use the following DNS server addresses**, change the
    **Preferred DNS server** and **Alternate DNS server**
-   addresses to the IPv4 or IPv6 addresses of the AWS Directory Service–provided DNS servers, and choose
+   addresses to the IPv4 or IPv6 addresses of the Directory Service–provided DNS servers, and choose
    **OK**.
 4. Open the **System Properties** dialog box for the instance, choose the
    **Computer Name** tab, and choose **Change**.
@@ -328,7 +328,7 @@ the following from a command prompt on the instance.
 ```
 
 5. In the **Member of** box, choose **Domain**, enter the
-   fully qualified name of your AWS Directory Service directory, and choose **OK**.
+   fully qualified name of your Directory Service directory, and choose **OK**.
 6. When prompted for the name and password for the domain administrator, enter the user name
    and password of the Admin account.
 
@@ -339,7 +339,7 @@ followed by a backslash (\), and then the user name, in this case, **Admin**.
 For example, **corp.example.com\Admin** or
 **corp\Admin**. 7. After you receive the message welcoming you to the domain, restart the instance to have
 the changes take effect. 8. Reconnect to your instance over RDP, and sign into the instance using the user name and
-password for your AWS Directory Service directory's Admin user.
+password for your Directory Service directory's Admin user.
 
 Now that your instance has been joined to the domain, you're ready to create your Amazon FSx file
 system.
@@ -410,7 +410,7 @@ system. For more information, see [Managing throughput capacity](managing-throug
 
 1.  In the **Network & security** section, choose the Amazon VPC that you
     want to associate with your file system. For this getting started exercise, choose the
-    same Amazon VPC that you chose for your AWS Directory Service directory and your Amazon EC2 instance.
+    same Amazon VPC that you chose for your Directory Service directory and your Amazon EC2 instance.
 2.  For **VPC Security Groups**, the default security group for your
     default Amazon VPC is already added to your file system in the console. If you're not
     using the default security group, make sure that the security group you choose is in
@@ -463,7 +463,7 @@ _Amazon Virtual Private Cloud User Guide_.
 
 Choose **AWS Managed Microsoft Active Directory** if you want
 to join your file system to a Microsoft Active Directory domain that is
-managed by AWS, and then choose your AWS Directory Service directory from the list. For more information, see [Working with Microsoft Active Directory](aws-ad-integration-fsxW.md "aws-ad-integration-fsxW.md").
+managed by AWS, and then choose your Directory Service directory from the list. For more information, see [Working with Microsoft Active Directory](aws-ad-integration-fsxW.md "aws-ad-integration-fsxW.md").
 
 Choose **Self-managed Microsoft Active Directory** if you want
 to join your file system to a self-managed Microsoft Active Directory
@@ -477,12 +477,12 @@ For more information see
     ###### Important
 
     For Single-AZ 2 and all Multi-AZ file systems, the Active Directory domain name
-     cannot exceed 47 characters. This limitation applies to both AWS Directory Service and
+     cannot exceed 47 characters. This limitation applies to both Directory Service and
      self-managed Active Directory domain names.
 
     Amazon FSx requires a direct connection for internal traffic to your DNS IP address.
      Connection via an internet gateway is not supported. Instead, use AWS Virtual Private Network, VPC peering,
-     AWS Direct Connect, or AWS Transit Gateway association.
+     Direct Connect, or AWS Transit Gateway association.
     + **DNS server IP addresses**—the IPv4 or IPv6 addresses of the DNS
      servers for your domain.
 
@@ -561,7 +561,7 @@ Choose **Next**.
 Windows Server
 
 You can now mount your Amazon FSx file system to your Microsoft Windows–based Amazon EC2
-instance joined to your AWS Directory Service directory. The name of your file share is not the same as the
+instance joined to your Directory Service directory. The name of your file share is not the same as the
 name of your file system.
 
 ###### To map a file share on an Amazon EC2 Windows instance using the GUI
@@ -687,5 +687,5 @@ resources and protect your AWS account.
    checked for the ID of the backup you selected, and choose **Delete
    backups**.Your Amazon FSx file system and related automatic backups are now deleted.
 
-3. To delete the AWS Directory Service directory you created for this exercise, see
+3. To delete the Directory Service directory you created for this exercise, see
    [Delete your directory](../../../directoryservice/latest/admin-guide/simple_ad_delete.md "../../../directoryservice/latest/admin-guide/simple_ad_delete.md") in the AWS Directory Service Administration Guide.

@@ -58,7 +58,7 @@ Linux. You can map your Amazon FSx file shares on Amazon Elastic Compute Cloud (
 WorkSpaces instances, Amazon AppStream 2.0 instances, and VMware Cloud on AWS VMs.
 
 You can access your file shares from on-premises compute instances using
-AWS Direct Connect or AWS VPN. In addition to accessing file shares that are in the same
+AWS Direct Connect or Site-to-Site VPN. In addition to accessing file shares that are in the same
 VPC, AWS account, and AWS Region as the file system, you can also access your shares
 from compute instances that are in a different Amazon VPC, account, or AWS Region. You do so
 using VPC peering or transit gateways. For more information, see [Accessing data from within the AWS Cloud](supported-fsx-clients.md#access-environments "supported-fsx-clients.md#access-environments").

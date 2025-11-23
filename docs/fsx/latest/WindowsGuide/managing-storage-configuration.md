@@ -138,7 +138,7 @@ and might introduce data inconsistencies.
 
 You can automatically increase your file system's storage capacity when the
 amount of free storage capacity falls below a defined threshold that you specify. Use
-the AWS‐developed custom AWS CloudFormation template to deploy all of the components required
+the AWS‐developed custom CloudFormation template to deploy all of the components required
 to implement the automated solution. For more information, see [Increasing storage
 capacity dynamically](automate-storage-capacity-increase.md "automate-storage-capacity-increase.md").
 

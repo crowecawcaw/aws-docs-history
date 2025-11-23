@@ -93,18 +93,18 @@ within the associated VPC.
 
 ## Accessing data from on-premises
 
-FSx for Windows File Server supports the use of AWS Direct Connect or AWS VPN to access your file
+FSx for Windows File Server supports the use of AWS Direct Connect or Site-to-Site VPN to access your file
 systems from your on-premises compute instances. With support for AWS Direct Connect, FSx for Windows File Server
 enables you to access your file system over a dedicated network connection from your
-on-premises environment. With support for AWS VPN, FSx for Windows File Server enables you to access
+on-premises environment. With support for Site-to-Site VPN, FSx for Windows File Server enables you to access
 your file system from your on-premises devices over a secure and private
 tunnel.
 
 After you connect your on-premises environment to the VPC associated with your
 Amazon FSx file system, you can access your file system using its DNS name or a DNS alias. You do so
 just as you do from compute instances within the VPC. For more information on
-AWS Direct Connect, see the _[AWS Direct Connect User Guide](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")_. For more information on setting up
-AWS VPN connections, see [VPN
+Direct Connect, see the _[Direct Connect User Guide](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")_. For more information on setting up
+Site-to-Site VPN connections, see [VPN
 Connections](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md") in the _Amazon VPC User Guide_.
 
 ###### Note

@@ -94,7 +94,7 @@ compute instances.
 
 ## Can't access a file system using an on-premises client
 
-You're using your Amazon FSx file system from on-premises using AWS Direct Connect or VPN,
+You're using your Amazon FSx file system from on-premises using Direct Connect or VPN,
 and you're using a non-private IP address range for the on-premises client.
 
 Amazon FSx only supports access from on-premises clients with non-private IP addresses on file systems created after December 17, 2020.

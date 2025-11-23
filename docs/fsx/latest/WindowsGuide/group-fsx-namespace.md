@@ -13,7 +13,7 @@ Amazon FSx cannot be added to the root of the DFS share path.
 ###### To group multiple file systems into a common DFS namespace
 
 1. If you don't already have DFS Namespace servers running, you can launch a pair of highly
-   available DFS Namespace servers using the [setup-DFSN-servers.template](https://solution-references.s3.amazonaws.com/fsx/dfs/setup-DFSN-servers.template "https://solution-references.s3.amazonaws.com/fsx/dfs/setup-DFSN-servers.template") AWS CloudFormation template. For more information on creating an AWS CloudFormation
+   available DFS Namespace servers using the [setup-DFSN-servers.template](https://solution-references.s3.amazonaws.com/fsx/dfs/setup-DFSN-servers.template "https://solution-references.s3.amazonaws.com/fsx/dfs/setup-DFSN-servers.template") CloudFormation template. For more information on creating an CloudFormation
    stack, see [Creating a Stack on the AWS
    CloudFormation Console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the _AWS CloudFormation User Guide_.
 2. Connect to one of the DFS Namespace servers launched in the previous step as a user in the

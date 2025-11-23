@@ -16,7 +16,7 @@ The workflow for joining your file system to an AWS Managed Microsoft AD that's 
 2. Share your directory.
 3. Join your file system to the shared directory.
    For more information, see [Share your directory](../../../directoryservice/latest/admin-guide/ms_ad_directory_sharing.md "../../../directoryservice/latest/admin-guide/ms_ad_directory_sharing.md")
-   in the _AWS Directory Service Administration Guide_.
+   in the _Directory Service Administration Guide_.
 
 To set up your networking environment you can use AWS Transit Gateway or Amazon VPC and create a VPC peering connection.
 In addition, make sure that network traffic is allowed between the two VPCs.

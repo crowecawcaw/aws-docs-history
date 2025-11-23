@@ -3,7 +3,7 @@
 an FSx for Windows File Server file system dynamically
 
 As an alternative to manually increasing your FSx for Windows File Server file system's storage capacity as the amount of data stored increases,
-you can use a AWS CloudFormation template to increase storage automatically. The solution presented in the this section dynamically increases
+you can use a CloudFormation template to increase storage automatically. The solution presented in the this section dynamically increases
 a file system's storage capacity when the amount of free storage capacity falls below a defined
 threshold that you specify.
 
@@ -24,9 +24,9 @@ The solution takes in the following parameters:
 ###### Topics
 
 - [Architecture overview](#storage-inc-architecture "#storage-inc-architecture")
-- [AWS CloudFormation template](#storage-capacity-CFN-template "#storage-capacity-CFN-template")
+- [CloudFormation template](#storage-capacity-CFN-template "#storage-capacity-CFN-template")
 - [Automated deployment with
-  AWS CloudFormation](#fsx-dynamic-storage-increase-deployment "#fsx-dynamic-storage-increase-deployment")
+  CloudFormation](#fsx-dynamic-storage-increase-deployment "#fsx-dynamic-storage-increase-deployment")
 
 ## Architecture overview
 
@@ -36,7 +36,7 @@ Deploying this solution builds the following resources in the AWS Cloud.
 
 The diagram illustrates the following steps:
 
-1. The AWS CloudFormation template deploys a CloudWatch alarm, an AWS Lambda function, an
+1. The CloudFormation template deploys a CloudWatch alarm, an AWS Lambda function, an
    Amazon Simple Notification Service (Amazon SNS) queue, and all required AWS Identity and Access Management (IAM) roles. The IAM
    role gives the Lambda function permission to invoke the Amazon FSx API
    operations.
@@ -58,11 +58,11 @@ To receive notifications about the actions that are performed as a response to t
 CloudWatch alarm, you must confirm the Amazon SNS topic subscription by following the link
 provided in the **Subscription Confirmation** email.
 
-## AWS CloudFormation template
+## CloudFormation template
 
-This solution uses AWS CloudFormation to automate deploying the components that are used to
+This solution uses CloudFormation to automate deploying the components that are used to
 automatically increase the storage capacity of an FSx for Windows File Server file system. To use
-this solution, download the [IncreaseFSxSize](https://s3.amazonaws.com/solution-references/fsx/DynamicScaling/IncreaseFSxSize.yaml "https://s3.amazonaws.com/solution-references/fsx/DynamicScaling/IncreaseFSxSize.yaml") AWS CloudFormation template.
+this solution, download the [IncreaseFSxSize](https://s3.amazonaws.com/solution-references/fsx/DynamicScaling/IncreaseFSxSize.yaml "https://s3.amazonaws.com/solution-references/fsx/DynamicScaling/IncreaseFSxSize.yaml") CloudFormation template.
 
 The template uses the **Parameters** described as follows. Review
 the template parameters and their default values, and modify them for the needs of
@@ -114,9 +114,9 @@ capacity.
 
 ## Automated deployment with
 
-AWS CloudFormation
+CloudFormation
 
-The following procedure configures and deploys an AWS CloudFormation stack to automatically
+The following procedure configures and deploys an CloudFormation stack to automatically
 increase the storage capacity of an FSx for Windows File Server file system. It takes about 5
 minutes to deploy.
 
@@ -131,7 +131,7 @@ resources, see [Getting started with Amazon FSx for Windows File Server](getting
 
 ###### To launch the automatic storage capacity increase solution stack
 
-1. Download the [IncreaseFSxSize](https://s3.amazonaws.com/solution-references/fsx/DynamicScaling/IncreaseFSxSize.yaml "https://s3.amazonaws.com/solution-references/fsx/DynamicScaling/IncreaseFSxSize.yaml") AWS CloudFormation template. For more information about
+1. Download the [IncreaseFSxSize](https://s3.amazonaws.com/solution-references/fsx/DynamicScaling/IncreaseFSxSize.yaml "https://s3.amazonaws.com/solution-references/fsx/DynamicScaling/IncreaseFSxSize.yaml") CloudFormation template. For more information about
    creating a CloudFormation stack, see [Creating a stack on
    the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the
    _AWS CloudFormation User Guide_.
@@ -151,7 +151,7 @@ custom solution, and then choose **Next**. 6. For **Review**, review and confirm
 You must select the check box acknowledging that the template creates IAM
 resources. 7. Choose **Create** to deploy the stack.
 
-You can view the status of the stack in the AWS CloudFormation console in the
+You can view the status of the stack in the CloudFormation console in the
 **Status** column. You should see a status of
 **CREATE_COMPLETE** in about 5 minutes.
 

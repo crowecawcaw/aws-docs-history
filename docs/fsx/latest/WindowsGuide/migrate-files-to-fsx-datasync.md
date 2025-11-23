@@ -5,7 +5,7 @@ AWS DataSync
 We recommend using AWS DataSync to transfer data between FSx for Windows File Server file systems. DataSync is a
 data transfer service that simplifies, automates, and accelerates moving and replicating data
 between on-premises storage systems and other AWS storage services over the internet or
-AWS Direct Connect. DataSync can transfer your file system data and metadata, such as ownership, timestamps,
+Direct Connect. DataSync can transfer your file system data and metadata, such as ownership, timestamps,
 and access permissions.
 
 DataSync supports copying NTFS access control lists (ACLs), and also supports copying file

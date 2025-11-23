@@ -29,6 +29,7 @@ for remote management on PowerShell, and native Microsoft Windows Server graphic
 - [Changing the weekly maintenance window](update-maintenance-window.md "update-maintenance-window.md")
 - [Managing DNS aliases](managing-dns-aliases.md "managing-dns-aliases.md")
 - [User sessions and open files](manage-sessions-and-files.md "manage-sessions-and-files.md")
+- [File Server Resource Manager on FSx for Windows File Server](managing-files-fsrm.md "managing-files-fsrm.md")
 - [Managing storage on FSx for Windows File Server](managing-storage-configuration.md "managing-storage-configuration.md")
 - [Using DFS Namespaces](using-dfs-namespaces.md "using-dfs-namespaces.md")
 - [Managing throughput capacity](managing-throughput-capacity.md "managing-throughput-capacity.md")

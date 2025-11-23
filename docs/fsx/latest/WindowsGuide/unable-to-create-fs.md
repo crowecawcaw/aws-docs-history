@@ -8,17 +8,17 @@ as described in the following section.
 ###### Topics
 
 - [Misconfigured VPC security group and network ACLs](#network-acls-sg-config "#network-acls-sg-config")
-- [Duplicate file system administrators group names](#w62aac37c11c15 "#w62aac37c11c15")
-- [DNS servers or domain controllers unreachable](#w62aac37c11c17 "#w62aac37c11c17")
-- [Invalid service account credentials](#w62aac37c11c19 "#w62aac37c11c19")
+- [Duplicate file system administrators group names](#w2aac37c11c15 "#w2aac37c11c15")
+- [DNS servers or domain controllers unreachable](#w2aac37c11c17 "#w2aac37c11c17")
+- [Invalid service account credentials](#w2aac37c11c19 "#w2aac37c11c19")
 - [Amazon FSx can't access your Active Directory service account credentials in AWS Secrets Manager](#fsx-cant-access-ad-account-creds "#fsx-cant-access-ad-account-creds")
-- [Insufficient service account permissions](#w62aac37c11c23 "#w62aac37c11c23")
-- [Service account capacity exceeded](#w62aac37c11c25 "#w62aac37c11c25")
-- [Amazon FSx can't access the organizational unit (OU)](#w62aac37c11c27 "#w62aac37c11c27")
-- [Service account can't access the administrators group](#w62aac37c11c29 "#w62aac37c11c29")
-- [Amazon FSx lost connectivity in domain](#w62aac37c11c31 "#w62aac37c11c31")
-- [Service account does not have correct permissions](#w62aac37c11c33 "#w62aac37c11c33")
-- [Unicode characters used in creation parameters](#w62aac37c11c35 "#w62aac37c11c35")
+- [Insufficient service account permissions](#w2aac37c11c23 "#w2aac37c11c23")
+- [Service account capacity exceeded](#w2aac37c11c25 "#w2aac37c11c25")
+- [Amazon FSx can't access the organizational unit (OU)](#w2aac37c11c27 "#w2aac37c11c27")
+- [Service account can't access the administrators group](#w2aac37c11c29 "#w2aac37c11c29")
+- [Amazon FSx lost connectivity in domain](#w2aac37c11c31 "#w2aac37c11c31")
+- [Service account does not have correct permissions](#w2aac37c11c33 "#w2aac37c11c33")
+- [Unicode characters used in creation parameters](#w2aac37c11c35 "#w2aac37c11c35")
 - [Switching storage type to HDD while restoring a backup fails](#create-fs-from-backup-fails "#create-fs-from-backup-fails")
 
 ## Misconfigured VPC security group and network ACLs

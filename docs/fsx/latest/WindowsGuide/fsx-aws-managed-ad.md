@@ -85,7 +85,7 @@ setup. You then establish a one-way forest trust relationship between an AWS Man
 you create and your existing self-managed Active Directory domain. For Windows authentication in Amazon FSx, you only
 need a one-way directional forest trust, where the AWS managed forest trusts the corporate domain forest.
 
-Your corporate domain takes the role of the trusted domain, and the AWS Directory Service managed domain
+Your corporate domain takes the role of the trusted domain, and the Directory Service managed domain
 takes the role of the trusting domain. Validated authentication requests travel between the
 domains in only one direction—allowing accounts in your corporate domain to authenticate
 against resources shared in the managed domain. In this case, Amazon FSx interacts only with the
@@ -103,7 +103,7 @@ using the Amazon FSx Network Validation tool. For more information, see [Validat
 The following related resources can help you as you use AWS Directory Service for Microsoft Active Directory with
 FSx for Windows File Server:
 
-- [What is AWS Directory Service](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md") in the _AWS Directory Service Administration Guide_
+- [What is Directory Service](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md") in the _AWS Directory Service Administration Guide_
 - [Create your AWS Managed Active Directory](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_create_directory.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_create_directory.md") in the _AWS Directory Service Administration Guide_
 - [When to Create a Trust Relationship](../../../directoryservice/latest/admin-guide/ms_ad_setup_trust.md "../../../directoryservice/latest/admin-guide/ms_ad_setup_trust.md") in the
   _AWS Directory Service Administration Guide_

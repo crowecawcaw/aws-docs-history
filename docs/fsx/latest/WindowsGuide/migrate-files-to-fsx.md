@@ -17,7 +17,7 @@ your self-managed file servers on Amazon EC2.
 
 Before you begin, make sure that you do the following:
 
-- Establish network connectivity (by using AWS Direct Connect or VPN) between your on-premises Active
+- Establish network connectivity (by using Direct Connect or VPN) between your on-premises Active
   Directory and the VPC where you want to create the Amazon FSx file system.
 - Create a service account on your Active Directory with delegated permissions to join
   computers to the domain. For more information, see

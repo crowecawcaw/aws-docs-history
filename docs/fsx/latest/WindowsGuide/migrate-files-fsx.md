@@ -3,7 +3,7 @@
 To migrate your existing files to FSx for Windows File Server file systems, we recommend using AWS DataSync,
 an online data transfer service designed to simplify, automate, and accelerate copying large
 amounts of data to and from AWS storage services. DataSync copies data over the internet or
-AWS Direct Connect. As a fully managed service, DataSync removes much of the need to modify applications,
+Direct Connect. As a fully managed service, DataSync removes much of the need to modify applications,
 develop scripts, or manage infrastructure. For more information, see [Migrating existing files to FSx for Windows File Server using
 AWS DataSync](migrate-files-to-fsx-datasync.md "migrate-files-to-fsx-datasync.md").
 
