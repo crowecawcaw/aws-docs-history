@@ -15,8 +15,8 @@ workload.
 Use [AWS PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.com/privatelink/") to establish connectivity between Amazon VPCs
 and other services without exposing the data to the public
 internet. If you have on-premises resources, consider using
-[AWS Direct Connect](https://aws.amazon.com/directconnect/ "https://aws.amazon.com/directconnect/"). AWS Direct Connect can make it easy to
+[AWS Direct Connect](https://aws.amazon.com/directconnect/ "https://aws.amazon.com/directconnect/"). Direct Connect can make it easy to
 establish private connectivity between an AWS datacenter and
 your internal network. Implementing MACsec security on your
-AWS Direct Connect connection provides point-to-point encryption for
+Direct Connect connection provides point-to-point encryption for
 your traffic.

@@ -13,7 +13,7 @@ operational resilience in the face of challenges.
 ## Implementation guidance
 
 Use auto scaling and load balancing features provided by AWS
-services like Amazon EC2 Auto Scaling and Elastic Load Balancing
+services like Amazon EC2 Auto Scaling and ELB
 (ELB) to handle sudden traffic spikes and provide high
 availability.
 
