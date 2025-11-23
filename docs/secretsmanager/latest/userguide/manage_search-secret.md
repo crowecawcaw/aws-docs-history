@@ -59,7 +59,8 @@ Matches the beginning of the managing service ID prefix, not
 case-sensitive. For example, `my-ser` matches secrets
 managed by services with the prefix `my-serv`
 and `my-service`. For more information, see
-[Secrets managed by other services](service-linked-secrets.md "service-linked-secrets.md").
+[Secrets managed by other
+services](service-linked-secrets.md "service-linked-secrets.md").
 
 **Replicated secrets**
 
@@ -111,7 +112,8 @@ aws secretsmanager list-secrets \
 ###### Example Find secrets that are managed by other AWS services
 
 The following [`list-secrets`](../../../cli/latest/reference/secretsmanager/list-secrets.md "../../../cli/latest/reference/secretsmanager/list-secrets.md") example gets a list of secrets managed by
-a service. You specify the service by ID. For more information, see [Secrets managed by other services](service-linked-secrets.md "service-linked-secrets.md").
+a service. You specify the service by ID. For more information, see [Secrets managed by other
+services](service-linked-secrets.md "service-linked-secrets.md").
 
 ```
 aws secretsmanager list-secrets \

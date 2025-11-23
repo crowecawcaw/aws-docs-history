@@ -1,6 +1,6 @@
 # Create an AWS Secrets Manager secret and an
 
-Amazon DocumentDB instance with AWS CloudFormation
+Amazon DocumentDB instance with CloudFormation
 
 This example creates a secret and an Amazon DocumentDB instance using the credentials in the secret
 as the user and password. The secret has a resource-based policy attached that defines who can
@@ -14,7 +14,7 @@ This example uses the following CloudFormation resources for Secrets Manager:
 - [`AWS::SecretsManager::Secret`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.md")
 - [`AWS::SecretsManager::SecretTargetAttachment`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.md")
 - [`AWS::SecretsManager::RotationSchedule`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.md")
-  For information about creating resources with AWS CloudFormation, see [Learn template basics](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md") in the AWS CloudFormation User Guide.
+  For information about creating resources with CloudFormation, see [Learn template basics](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md") in the CloudFormation User Guide.
 
 ## JSON
 

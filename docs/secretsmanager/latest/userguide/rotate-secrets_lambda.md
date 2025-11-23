@@ -2,7 +2,8 @@
 
 For many types of secrets, Secrets Manager uses an AWS Lambda function to update the secret and the database or service. For information about the costs of using a Lambda function, see [Pricing](intro.md#asm_pricing "intro.md#asm_pricing").
 
-For some [Secrets managed by other services](service-linked-secrets.md "service-linked-secrets.md"), you use _managed rotation_. To use [Managed rotation](rotate-secrets_managed.md "rotate-secrets_managed.md"), you first create the secret through the managing service.
+For some [Secrets managed by other
+services](service-linked-secrets.md "service-linked-secrets.md"), you use _managed rotation_. To use [Managed rotation](rotate-secrets_managed.md "rotate-secrets_managed.md"), you first create the secret through the managing service.
 
 During rotation, Secrets Manager logs events that indicate the state of rotation. For more information, see [Log AWS Secrets Manager events with AWS CloudTrail](monitoring-cloudtrail.md "monitoring-cloudtrail.md").
 

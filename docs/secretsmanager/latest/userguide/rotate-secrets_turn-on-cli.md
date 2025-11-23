@@ -14,10 +14,10 @@ To set up rotation using the AWS CLI, if you are rotating a database secret, you
   rotation strategy](#rotate-secrets_turn-on-cli_step1 "#rotate-secrets_turn-on-cli_step1")
 - [Step 1: Write the rotation function
   code](#rotate-secrets_turn-on-cli_write "#rotate-secrets_turn-on-cli_write")
-- [Step 2: Create the Lambda function](#w21aac21b9c25c15 "#w21aac21b9c25c15")
-- [Step 3: Set up network access](#w21aac21b9c25c17 "#w21aac21b9c25c17")
-- [Step 4: Configure the secret for rotation](#w21aac21b9c25c19 "#w21aac21b9c25c19")
-- [Next steps](#w21aac21b9c25c21 "#w21aac21b9c25c21")
+- [Step 2: Create the Lambda function](#w2aac21c11c25c15 "#w2aac21c11c25c15")
+- [Step 3: Set up network access](#w2aac21c11c25c17 "#w2aac21c11c25c17")
+- [Step 4: Configure the secret for rotation](#w2aac21c11c25c19 "#w2aac21c11c25c19")
+- [Next steps](#w2aac21c11c25c21 "#w2aac21c11c25c21")
 
 ## Prerequisite for database secrets: Choose a
 

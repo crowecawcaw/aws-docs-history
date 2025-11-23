@@ -1,11 +1,15 @@
-# How Amazon Redshift uses AWS Secrets Manager
+# How Amazon Redshift uses
 
-Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud.
+AWS Secrets Manager
 
-To manage admin credentials for Amazon Redshift, Amazon Redshift can create a [managed secret](service-linked-secrets.md "service-linked-secrets.md") for you. You are charged for that
-secret. Amazon Redshift also [manages rotation](rotate-secrets_managed.md "rotate-secrets_managed.md") for these
-credentials. For more information, see [Managing Amazon Redshift admin
-passwords using AWS Secrets Manager](../../../redshift/latest/mgmt/redshift-secrets-manager-integration.md "../../../redshift/latest/mgmt/redshift-secrets-manager-integration.md") in the _Amazon Redshift Management Guide_.
+Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the
+cloud.
+
+To manage admin credentials for Amazon Redshift, Amazon Redshift can create a [managed secret](service-linked-secrets.md "service-linked-secrets.md") for you. You are charged for
+that secret. Amazon Redshift also [manages rotation](rotate-secrets_managed.md "rotate-secrets_managed.md")
+for these credentials. For more information, see [Managing
+Amazon Redshift admin passwords using AWS Secrets Manager](../../../redshift/latest/mgmt/redshift-secrets-manager-integration.md "../../../redshift/latest/mgmt/redshift-secrets-manager-integration.md") in the _Amazon Redshift Management
+Guide_.
 
 For other Amazon Redshift credentials, see [Create an AWS Secrets Manager secret](create_secret.md "create_secret.md").
 

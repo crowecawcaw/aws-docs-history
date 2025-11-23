@@ -133,7 +133,8 @@ might not find the secret.
 you must use that service to update it.
 
 If you encounter this message while trying to modify a secret, the secret can only be
-updated by using the managing service listed in the message. For more information, see [AWS Secrets Manager secrets managed by other AWS services](service-linked-secrets.md "service-linked-secrets.md").
+updated by using the managing service listed in the message. For more information, see [AWS Secrets Manager secrets managed by other AWS
+services](service-linked-secrets.md "service-linked-secrets.md").
 
 To determine who manages a secret, you can review the secret name. Secrets managed by
 other services are prefixed with the ID of that service. Or, in the AWS CLI, call [describe-secret](../../../cli/latest/reference/secretsmanager/describe-secret.md "../../../cli/latest/reference/secretsmanager/describe-secret.md"), and then review the field `OwningService`.

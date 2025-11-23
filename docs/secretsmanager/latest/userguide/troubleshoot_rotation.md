@@ -319,23 +319,23 @@ or recreate the rotation function.
 ###### To upgrade to Python 3.9:
 
 - [Option 1: Recreate the rotation function using
-  AWS CloudFormation](#update-python-opt-1 "#update-python-opt-1")
+  CloudFormation](#update-python-opt-1 "#update-python-opt-1")
 - [Option 2: Update the runtime for the existing rotation
-  function using AWS CloudFormation](#update-python-opt-2 "#update-python-opt-2")
+  function using CloudFormation](#update-python-opt-2 "#update-python-opt-2")
 - [Option 3: For AWS CDK users, upgrade the CDK
   library](#update-python-opt-3 "#update-python-opt-3")
 
 ### Option 1: Recreate the rotation function using
 
-AWS CloudFormation
+CloudFormation
 
-When you use the Secrets Manager console to turn on rotation, Secrets Manager uses AWS CloudFormation to create the
+When you use the Secrets Manager console to turn on rotation, Secrets Manager uses CloudFormation to create the
 necessary resources, including the Lambda rotation function. If you used the console to turn
-on rotation, or you created the rotation function using a AWS CloudFormation stack, you can use the same
-AWS CloudFormation stack to recreate the rotation function with a new name. The new function uses the
+on rotation, or you created the rotation function using a CloudFormation stack, you can use the same
+CloudFormation stack to recreate the rotation function with a new name. The new function uses the
 more recent version of Python.
 
-###### To find the AWS CloudFormation stack that created the rotation function
+###### To find the CloudFormation stack that created the rotation function
 
 - On the Lambda function details page, on the **Configuration** tab, choose **Tags**. View the ARN next to **aws:cloudformation:stack-id**.
 
@@ -344,9 +344,9 @@ The stack name is embedded in the ARN, as shown in the following example.
     + ARN: `arn:aws:cloudformation:us-west-2:408736277230:stack/`SecretsManagerRDSMySQLRotationSingleUser5c2-SecretRotationScheduleHostedRotationLambda`-3CUDHZMDMBO8/79fc9050-2eef-11ed-80f0-021fb13c0537`
     + Stack name: `SecretsManagerRDSMySQLRotationSingleUser5c2-SecretRotationScheduleHostedRotationLambda`
 
-###### To recreate a rotation function (AWS CloudFormation)
+###### To recreate a rotation function (CloudFormation)
 
-1. In AWS CloudFormation, search for the stack by name, and then choose **Update**.
+1. In CloudFormation, search for the stack by name, and then choose **Update**.
 
 If a dialog box appears recommending you update the root stack, choose **Go
 to root stack**, and then choose **Update**. 2. On the **Update stack** page, under **Prepare
@@ -360,22 +360,22 @@ then under **Edit template in Application Composer**, choose the button
      name, for example in JSON, ``"functionName":
      "SecretsManagerTestRotationRDSupdated"``
     2. Choose **Update template**.
-    3. In the **Continue to AWS CloudFormation** dialog box, choose
-     **Confirm and continue to AWS CloudFormation**.
+    3. In the **Continue to CloudFormation** dialog box, choose
+     **Confirm and continue to CloudFormation**.
 
-4. Continue through the AWS CloudFormation stack workflow and then choose
+4. Continue through the CloudFormation stack workflow and then choose
    **Submit**.
 
 ### Option 2: Update the runtime for the existing rotation
 
-function using AWS CloudFormation
+function using CloudFormation
 
-When you use the Secrets Manager console to turn on rotation, Secrets Manager uses AWS CloudFormation to create the
+When you use the Secrets Manager console to turn on rotation, Secrets Manager uses CloudFormation to create the
 necessary resources, including the Lambda rotation function. If you used the console to turn
-on rotation, or you created the rotation function using a AWS CloudFormation stack, you can use the same
-AWS CloudFormation stack to update the runtime for the rotation function.
+on rotation, or you created the rotation function using a CloudFormation stack, you can use the same
+CloudFormation stack to update the runtime for the rotation function.
 
-###### To find the AWS CloudFormation stack that created the rotation function
+###### To find the CloudFormation stack that created the rotation function
 
 - On the Lambda function details page, on the **Configuration** tab, choose **Tags**. View the ARN next to **aws:cloudformation:stack-id**.
 
@@ -384,9 +384,9 @@ The stack name is embedded in the ARN, as shown in the following example.
     + ARN: `arn:aws:cloudformation:us-west-2:408736277230:stack/`SecretsManagerRDSMySQLRotationSingleUser5c2-SecretRotationScheduleHostedRotationLambda`-3CUDHZMDMBO8/79fc9050-2eef-11ed-80f0-021fb13c0537`
     + Stack name: `SecretsManagerRDSMySQLRotationSingleUser5c2-SecretRotationScheduleHostedRotationLambda`
 
-###### To update the runtime for a rotation function (AWS CloudFormation)
+###### To update the runtime for a rotation function (CloudFormation)
 
-1. In AWS CloudFormation, search for the stack by name, and then choose **Update**.
+1. In CloudFormation, search for the stack by name, and then choose **Update**.
 
 If a dialog box appears recommending you update the root stack, choose **Go
 to root stack**, and then choose **Update**. 2. On the **Update stack** page, under **Prepare
@@ -399,10 +399,10 @@ then under **Edit template in Application Composer**, choose the button
      `Properties`, under `Parameters`, add `"runtime":
      "python3.9"`.
     2. Choose **Update template**.
-    3. In the **Continue to AWS CloudFormation** dialog box, choose
-     **Confirm and continue to AWS CloudFormation**.
+    3. In the **Continue to CloudFormation** dialog box, choose
+     **Confirm and continue to CloudFormation**.
 
-4. Continue through the AWS CloudFormation stack workflow and then choose
+4. Continue through the CloudFormation stack workflow and then choose
    **Submit**.
 
 ### Option 3: For AWS CDK users, upgrade the CDK
@@ -435,7 +435,7 @@ version and the underlying dependencies.
 ### Update paths by deployment method
 
 The Lambda rotation functions identified in this list can be deployed through Secrets Manager
-console, AWS Serverless Application Repository apps, or AWS CloudFormation transforms. Each of these deployment strategies have a
+console, AWS Serverless Application Repository apps, or CloudFormation transforms. Each of these deployment strategies have a
 distinct update path.
 
 Use one of the following procedures to update your Lambda rotation functions, depending
@@ -513,9 +513,9 @@ AWS::SecretsManager-2024-09-16 transform macro
 If the Lambda function is deployed through this transform, [updating the stacks using existing template](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-direct.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-direct.md") will allow you to use the
 updated Lambda runtime.
 
-Use the following procedure to update AWS CloudFormation stack using existing template.
+Use the following procedure to update CloudFormation stack using existing template.
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the **Stacks** page, select the stack that you want to
    update.
@@ -527,7 +527,7 @@ Use the following procedure to update AWS CloudFormation stack using existing te
 6. Keep all other options at their default values, and then choose
    **Update stack**.
 
-If you experience issues updating the stack, see [Determine the cause of a stack failure](../../../AWSCloudFormation/latest/UserGuide/determine-root-cause-for-stack-failures.md "../../../AWSCloudFormation/latest/UserGuide/determine-root-cause-for-stack-failures.md") in the _AWS CloudFormation User
+If you experience issues updating the stack, see [Determine the cause of a stack failure](../../../AWSCloudFormation/latest/UserGuide/determine-root-cause-for-stack-failures.md "../../../AWSCloudFormation/latest/UserGuide/determine-root-cause-for-stack-failures.md") in the _CloudFormation User
 Guide_.
 
 AWS::SecretsManager-2020-07-23 transform macro
@@ -538,9 +538,9 @@ Blog_ for more information. If you continue to use
 `AWS::SecretsManager-2020-07-23`, you can experience a mismatch error
 between your runtime version and the Lambda function code artifacts. For more
 information, see [AWS::SecretsManager::RotationSchedule HostedRotationLambda](../../../AWSCloudFormation/latest/TemplateReference/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.md#cfn-secretsmanager-rotationschedule-hostedrotationlambda-runtime "../../../AWSCloudFormation/latest/TemplateReference/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.md#cfn-secretsmanager-rotationschedule-hostedrotationlambda-runtime") in the
-_AWS CloudFormation Template Reference_.
+_CloudFormation Template Reference_.
 
-If you experience issues updating the stack, [Determine the cause of a stack failure](../../../AWSCloudFormation/latest/UserGuide/determine-root-cause-for-stack-failures.md "../../../AWSCloudFormation/latest/UserGuide/determine-root-cause-for-stack-failures.md") in the _AWS CloudFormation User
+If you experience issues updating the stack, [Determine the cause of a stack failure](../../../AWSCloudFormation/latest/UserGuide/determine-root-cause-for-stack-failures.md "../../../AWSCloudFormation/latest/UserGuide/determine-root-cause-for-stack-failures.md") in the _CloudFormation User
 Guide_.
 
 ###### Verify Python upgrade

@@ -20,7 +20,7 @@ Secrets Manager generates a CloudTrail log entry when you retrieve a secret. For
 - [AWS CLI](retrieving-secrets_cli.md "retrieving-secrets_cli.md")
 - [AWS console](retrieving-secrets-console.md "retrieving-secrets-console.md")
 - [AWS Batch](integrating_BATCH.md "integrating_BATCH.md")
-- [AWS CloudFormation](cfn-example_reference-secret.md "cfn-example_reference-secret.md")
+- [CloudFormation](cfn-example_reference-secret.md "cfn-example_reference-secret.md")
 - [GitHub jobs](retrieving-secrets_github.md "retrieving-secrets_github.md")
 - [GitLab](integrating_gitlab.md "integrating_gitlab.md")
 - [AWS IoT Greengrass](integrating-greengrass.md "integrating-greengrass.md")

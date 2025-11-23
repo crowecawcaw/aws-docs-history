@@ -21,6 +21,15 @@ files for creating and mounting a secret.
 During installation, you can configure the ASCP to use a FIPS endpoint. For a list of
 endpoints, see [AWS Secrets Manager endpoints](asm_access.md#endpoints "asm_access.md#endpoints").
 
+###### To install the ASCP as an EKS add-on
+
+1. Install `eksctl` ([installation instructions](../../../eks/latest/eksctl/installation.md "../../../eks/latest/eksctl/installation.md"))
+2. Run the following command:
+
+```
+eksctl create addon --cluster <your_cluster> --name aws-secrets-store-csi-driver-provider
+```
+
 ###### To install the ASCP by using Helm
 
 1. To make sure the repo is pointing to the latest charts, use `helm repo

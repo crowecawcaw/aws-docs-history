@@ -28,8 +28,8 @@ rotation](rotating-secrets-required-permissions-function.md "rotating-secrets-re
 This policy includes the following permissions.
 
 - `secretsmanager` – Allows principals to perform all Secrets Manager actions.
-- `cloudformation` – Allows principals to create AWS CloudFormation stacks. This is
-  required so that principals using the console to turn on rotation can create Lambda rotation functions through AWS CloudFormation stacks. For more information, see [How Secrets Manager uses AWS CloudFormation](cloudformation.md#how-asm-uses-cfn "cloudformation.md#how-asm-uses-cfn").
+- `cloudformation` – Allows principals to create CloudFormation stacks. This is
+  required so that principals using the console to turn on rotation can create Lambda rotation functions through CloudFormation stacks. For more information, see [How Secrets Manager uses AWS CloudFormation](cloudformation.md#how-asm-uses-cfn "cloudformation.md#how-asm-uses-cfn").
 - `ec2` – Allows principals to describe Amazon EC2 VPCs. This is required so that principals using the console can create rotation functions in the same VPC as the database of the credentials they are storing in a secret.
 - `kms` – Allows principals to use AWS KMS keys for cryptographic operations. This is required so that Secrets Manager can encrypt and decrypt secrets. For more information, see [Secret encryption and decryption in AWS Secrets Manager](security-encryption.md "security-encryption.md").
 - `lambda` – Allows principals to list Lambda rotation functions. This is required so that principals using the console can choose existing rotation functions.
@@ -41,7 +41,7 @@ This policy includes the following permissions.
   Amazon Redshift Serverless. This is required so that principals using the console can choose Amazon Redshift Serverless namespaces.
 - `docdb-elastic` – Allows principals to describe elastic clusters in Amazon DocumentDB. This is required so that principals using the console can choose Amazon DocumentDB elastic clusters.
 - `tag` – Allows principals to get all resources in the account that are tagged.
-- `serverlessrepo` – Allows principals to create AWS CloudFormation change sets. This is required so that principals using the console can create Lambda rotation functions. For more information, see [How Secrets Manager uses AWS CloudFormation](cloudformation.md#how-asm-uses-cfn "cloudformation.md#how-asm-uses-cfn").
+- `serverlessrepo` – Allows principals to create CloudFormation change sets. This is required so that principals using the console can create Lambda rotation functions. For more information, see [How Secrets Manager uses AWS CloudFormation](cloudformation.md#how-asm-uses-cfn "cloudformation.md#how-asm-uses-cfn").
 - `s3` – Allows principals to get objects from an Amazon S3 bucket that is managed by AWS. This bucket contains Lambda [Rotation function
   templates](reference_available-rotation-templates.md "reference_available-rotation-templates.md"). This permission is required so that principals using the console can create Lambda rotation functions based on the templates in the bucket. For more information, see [How Secrets Manager uses AWS CloudFormation](cloudformation.md#how-asm-uses-cfn "cloudformation.md#how-asm-uses-cfn").
 

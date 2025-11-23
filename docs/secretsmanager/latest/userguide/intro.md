@@ -52,7 +52,7 @@ AWS charges you at the current AWS KMS rate. For more information, see [AWS Key 
 
 When you turn on automatic rotation (except [managed
 rotation](rotate-secrets_managed.md "rotate-secrets_managed.md")), Secrets Manager uses an AWS Lambda function to rotate the secret, and you are charged
-for the rotation function at the current Lambda rate. For more information, see [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/").
+for the rotation function at the current Lambda rate. For more information, see [AWS Lambda Pricing](https://aws.amazon.com//lambda/pricing/ "https://aws.amazon.com//lambda/pricing/").
 
 If you enable AWS CloudTrail on your account, you can obtain logs of the API calls that Secrets Manager
 sends out. Secrets Manager logs all events as management events. AWS CloudTrail stores the first copy of all

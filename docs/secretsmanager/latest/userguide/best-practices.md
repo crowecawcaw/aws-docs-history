@@ -8,15 +8,15 @@ as helpful considerations rather than prescriptions.
 ###### Consider the following best practices for storing and managing secrets:
 
 - [Store credentials and other sensitive information in AWS Secrets Manager](#best-practices-store-secrets-safely "#best-practices-store-secrets-safely")
-- [Find unprotected secrets in your code](#w21aab9b9 "#w21aab9b9")
-- [Choose an encryption key for your secret](#w21aab9c11 "#w21aab9c11")
-- [Use caching to retrieve secrets](#w21aab9c13 "#w21aab9c13")
-- [Rotate your secrets](#w21aab9c15 "#w21aab9c15")
-- [Mitigate risks of using CLI](#w21aab9c17 "#w21aab9c17")
-- [Limit access to secrets](#w21aab9c19 "#w21aab9c19")
-- [Replicate secrets](#w21aab9c21 "#w21aab9c21")
-- [Monitor secrets](#w21aab9c23 "#w21aab9c23")
-- [Run your infrastructure on private networks](#w21aab9c25 "#w21aab9c25")
+- [Find unprotected secrets in your code](#w2aab9b9 "#w2aab9b9")
+- [Choose an encryption key for your secret](#w2aab9c11 "#w2aab9c11")
+- [Use caching to retrieve secrets](#w2aab9c13 "#w2aab9c13")
+- [Rotate your secrets](#w2aab9c15 "#w2aab9c15")
+- [Mitigate risks of using CLI](#w2aab9c17 "#w2aab9c17")
+- [Limit access to secrets](#w2aab9c19 "#w2aab9c19")
+- [Replicate secrets](#w2aab9c21 "#w2aab9c21")
+- [Monitor secrets](#w2aab9c23 "#w2aab9c23")
+- [Run your infrastructure on private networks](#w2aab9c25 "#w2aab9c25")
 
 ## Store credentials and other sensitive information in AWS Secrets Manager
 

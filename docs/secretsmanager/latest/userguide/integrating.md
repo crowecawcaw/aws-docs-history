@@ -16,7 +16,7 @@ integrate with Secrets Manager.
 - [Amazon Data Firehose](integrating_how-services-use-secrets_AKF.md "integrating_how-services-use-secrets_AKF.md")
 - [AWS DataSync](integrating_how-services-use-secrets_datasync.md "integrating_how-services-use-secrets_datasync.md")
 - [Amazon DataZone](integrating_how-services-use-secrets_datazone.md "integrating_how-services-use-secrets_datazone.md")
-- [AWS Direct Connect](integrating_how-services-use-secrets_directconnect.md "integrating_how-services-use-secrets_directconnect.md")
+- [Direct Connect](integrating_how-services-use-secrets_directconnect.md "integrating_how-services-use-secrets_directconnect.md")
 - [AWS Directory Service](integrating_how-services-use-secrets_Dir.md "integrating_how-services-use-secrets_Dir.md")
 - [Amazon DocumentDB](integrating_how-services-use-secrets_DocDBlong.md "integrating_how-services-use-secrets_DocDBlong.md")
 - [AWS Elastic Beanstalk](integrating_AEB.md "integrating_AEB.md")

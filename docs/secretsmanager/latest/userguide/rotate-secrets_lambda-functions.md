@@ -41,10 +41,10 @@ function
 
 ###### Topics
 
-- [createSecret: Create a new version of the secret](#w21aac21b9c29c11b5 "#w21aac21b9c29c11b5")
-- [setSecret: Change the credentials in the database or service](#w21aac21b9c29c11b7 "#w21aac21b9c29c11b7")
-- [testSecret: Test the new secret version](#w21aac21b9c29c11b9 "#w21aac21b9c29c11b9")
-- [finishSecret: Finish the rotation](#w21aac21b9c29c11c11 "#w21aac21b9c29c11c11")
+- [createSecret: Create a new version of the secret](#w2aac21c11c29c11b5 "#w2aac21c11c29c11b5")
+- [setSecret: Change the credentials in the database or service](#w2aac21c11c29c11b7 "#w2aac21c11c29c11b7")
+- [testSecret: Test the new secret version](#w2aac21c11c29c11b9 "#w2aac21c11c29c11b9")
+- [finishSecret: Finish the rotation](#w2aac21c11c29c11c11 "#w2aac21c11c29c11c11")
 
 ### `createSecret`: Create a new version of the secret
 
