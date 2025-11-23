@@ -82,6 +82,36 @@ aws rtbfabric create-link \
 
 ## Creating external links
 
+Using the AWS Management Console, you can create outbound external links in your RTB Fabric requester gateway. Outbound external links allow connectivity with external responders (such as DSPs).
+
+###### To create an outbound external link
+
+1. Sign in to the AWS Management Console and open the RTB Fabric console at [https://console.aws.amazon.com/rtbfabric/](https://console.aws.amazon.com/rtbfabric/ "https://console.aws.amazon.com/rtbfabric/").
+2. In the navigation pane, choose **Requester gateways**.
+3. Select an RTB application from the list.
+4. On the application details page, choose the **Associated links** tab.
+5. Choose **Create link**.
+6. On the **Create link** screen, review the **Requester Gateway details** section, which displays information about the source gateway for this external outbound link:
+   - **Gateway ID** – The unique identifier of the source gateway.
+   - **Gateway name** – The name of the source gateway.
+   - **Gateway created on** – The date and time when the gateway was created.
+
+7. Choose **Outbound external link** in the **Link settings**.
+8. In the **Target details** section, enter the **Target endpoint** of the target responder you want to link with. Enter a valid HTTPS or HTTP public endpoint that accepts RTB requests (for example: `https://example.com`).
+9. (Optional) In the **Link information** section, enter a **Correlation ID**. This is a unique identifier you can assign to your link for your own tracking purposes and is not visible to other RTB Fabric users. The correlation ID can have up to 64 characters.
+10. In the **Application logs configuration** section, configure the sampling rates to capture exceptions, failures, and unexpected system behaviors:
+    1. For **Error logs sampling rate**, enter the percentage (0.0-100.0) of error logs to deliver to your destination. These logs capture exceptions, failures, and unexpected system behaviors. Higher percentages incur additional storage costs.
+    2. For **Filter logs sampling rate**, enter the percentage (0.0-100.0) of filter logs to deliver to your destination. These logs are generated from your other RTB Fabric filter modules. Higher percentages incur additional storage costs.
+    3. Note the following:
+       1. Logs are delivered via [Amazon CloudWatch Vended Logs](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md"), which provides delivery directly to Amazon S3, Amazon Data Firehose, or Amazon CloudWatch Logs.
+       2. To configure log delivery destinations, you must use the RTB Fabric API. For more information, see the [AWS RTB Fabric API Reference](../api.md "../api.md").
+       3. AWS does not access or read your log data.
+
+11. Choose **Create link** to send the link request.
+12. The link starts in **Pending Creation** status and becomes **Active** within 3 minutes.
+
+Once the link status changes to **Active**, it begins facilitating communication between your RTB application and the external target endpoint. You can monitor link performance and make configuration changes as needed.
+
 External links enable connectivity between your RTB Fabric gateways and external partners over the public internet, extending your RTB infrastructure beyond private VPC connections. This feature supports integration with external supply-side platforms (SSPs), demand-side platforms (DSPs), and other RTB partners who are not using RTB Fabric infrastructure.
 
 External links differ from standard RTB Fabric links in several key ways:
