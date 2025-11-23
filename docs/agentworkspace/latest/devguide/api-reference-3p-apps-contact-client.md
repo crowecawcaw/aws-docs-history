@@ -65,21 +65,24 @@ The following sections describe API calls for working with the Contact API.
   (Unsubscribing)](3p-apps-contact-events-connected-unsub.md "3p-apps-contact-events-connected-unsub.md")
 - [Destroyed(Subscribing) - Deprecated](3p-apps-contact-requests-destroyedsubscribing-deprecated.md "3p-apps-contact-requests-destroyedsubscribing-deprecated.md")
 - [Destroyed(Unsubscribing) - Deprecated](3p-apps-contact-requests-destroyedunsubscribing-deprecated.md "3p-apps-contact-requests-destroyedunsubscribing-deprecated.md")
+- [engagePreviewContact()](3p-apps-contact-requests-engagepreviewcontact.md "3p-apps-contact-requests-engagepreviewcontact.md")
 - [getAttribute()](3p-apps-contact-requests-getattribute.md "3p-apps-contact-requests-getattribute.md")
 - [getAttributes()](3p-apps-contact-requests-getattributes.md "3p-apps-contact-requests-getattributes.md")
 - [getChannelType()](3p-apps-contact-requests-getchanneltype.md "3p-apps-contact-requests-getchanneltype.md")
 - [getInitialContactId()](3p-apps-contact-requests-getinitialcontactid.md "3p-apps-contact-requests-getinitialcontactid.md")
+- [getPreviewConfiguration()](3p-apps-contact-requests-getpreviewconfiguration.md "3p-apps-contact-requests-getpreviewconfiguration.md")
 - [getQueue()](3p-apps-contact-requests-getqueue.md "3p-apps-contact-requests-getqueue.md")
 - [getQueueTimestamp()](3p-apps-contact-requests-getqueuetimestamp.md "3p-apps-contact-requests-getqueuetimestamp.md")
 - [getStateDuration()](3p-apps-contact-requests-getstateduration.md "3p-apps-contact-requests-getstateduration.md")
 - [getType() -
   Deprecated](3p-apps-contact-requests-gettype.md "3p-apps-contact-requests-gettype.md")
+- [isPreviewMode()](3p-apps-contact-requests-ispreviewmode.md "3p-apps-contact-requests-ispreviewmode.md")
 - [Missed
   (Subscribing)](3p-apps-contact-events-missed-sub.md "3p-apps-contact-events-missed-sub.md")
 - [Missed
   (Unsubscribing)](3p-apps-contact-events-missed-unsub.md "3p-apps-contact-events-missed-unsub.md")
-- [offCleared(Subscribing)](3p-apps-contact-requests-offcleared-sub.md "3p-apps-contact-requests-offcleared-sub.md")
-- [onCleared(Subscribing)](3p-apps-contact-requests-oncleared-sub.md "3p-apps-contact-requests-oncleared-sub.md")
+- [Incoming(Subscribing)](3p-apps-contact-requests-on-incoming.md "3p-apps-contact-requests-on-incoming.md")
+- [Incoming(Unsubscribing)](3p-apps-contact-requests-off-incoming.md "3p-apps-contact-requests-off-incoming.md")
 - [StartingAcw
   (Subscribing)](3p-apps-contact-events-startingacw-sub.md "3p-apps-contact-events-startingacw-sub.md")
 - [StartingAcw

@@ -7,6 +7,7 @@ events, and contact requests that are supported by the [AmazonConnectSDK](https:
 
 ###### Contents
 
+- [Activity](api-reference-3p-apps-activity-client.md "api-reference-3p-apps-activity-client.md")
 - [Agent](api-reference-3p-apps-agent-client.md "api-reference-3p-apps-agent-client.md")
 - [App
   Controller](api-reference-3p-apps-app-controller.md "api-reference-3p-apps-app-controller.md")

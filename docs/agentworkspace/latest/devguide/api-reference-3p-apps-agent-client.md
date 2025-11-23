@@ -53,6 +53,8 @@ The following sections describe API calls for working with the Agent API.
 
 ###### Contents
 
+- [EnabledChannelListChanged(Subscribing)](3p-apps-agent-requests-on-enabledchannellistchanged.md "3p-apps-agent-requests-on-enabledchannellistchanged.md")
+- [EnabledChannelListChanged(Unsubscribing)](3p-apps-agent-requests-off-enabledchannellistchanged.md "3p-apps-agent-requests-off-enabledchannellistchanged.md")
 - [getARN()](3p-apps-agent-requests-getarn.md "3p-apps-agent-requests-getarn.md")
 - [getChannelConcurrency()](3p-apps-agent-requests-getchannelconcurrency.md "3p-apps-agent-requests-getchannelconcurrency.md")
 - [getDialableCountries() - Deprecated](3p-apps-agent-requests-getdialablecountries.md "3p-apps-agent-requests-getdialablecountries.md")
@@ -62,6 +64,8 @@ The following sections describe API calls for working with the Agent API.
 - [getState()](3p-apps-agent-requests-getstate.md "3p-apps-agent-requests-getstate.md")
 - [listAvailabilityStates()](3p-apps-agent-requests-listavailabilitystates.md "3p-apps-agent-requests-listavailabilitystates.md")
 - [listQuickConnects()](3p-apps-agent-requests-listquickconnects.md "3p-apps-agent-requests-listquickconnects.md")
+- [RoutingProfileChanged(Subscribing)](3p-apps-agent-requests-on-routingprofile-changed.md "3p-apps-agent-requests-on-routingprofile-changed.md")
+- [RoutingProfileChanged(Unsubscribing)](3p-apps-agent-requests-off-routingprofilechanged.md "3p-apps-agent-requests-off-routingprofilechanged.md")
 - [setAvailabilityState()](3p-apps-agent-requests-setavailabilitystate.md "3p-apps-agent-requests-setavailabilitystate.md")
 - [setAvailabilityStateByName()](3p-apps-agent-requests-setavailabilitystatebyname.md "3p-apps-agent-requests-setavailabilitystatebyname.md")
 - [setOffline()](3p-apps-agent-requests-setoffline.md "3p-apps-agent-requests-setoffline.md")
