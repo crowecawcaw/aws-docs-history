@@ -477,7 +477,7 @@ Prevent the deletion of AWS Security Hub.
 
 ## SCP-AMS-025: Prevent deletion under Directory Service
 
-Prevent the deletion of resources under AWS Directory Service.
+Prevent the deletion of resources under Directory Service.
 
 ```
 {

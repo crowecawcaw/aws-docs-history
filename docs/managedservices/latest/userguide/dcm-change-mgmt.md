@@ -34,7 +34,7 @@ see the "Additional Information" section for the relevant change type in the _AM
 | AWS Key Management Service (AWS KMS)                | Update                    |
 | AWS Certificate Manager                             | Create                    |
 | AWS Identity and Access Management (IAM)            | Any                       |
-| AWS VPN                                             | Any                       |
+| Site-to-Site VPN                                    | Any                       |
 | AMS Resource Scheduler                              |
 | AWS Backup                                          | Create backup plan        |
 | AMS Workload Ingestion (WIGs)                       | Any                       |

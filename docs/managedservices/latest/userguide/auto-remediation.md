@@ -19,7 +19,7 @@ Before AWS Managed Services (AMS) auto-remediation performs remediation on Amazo
 the automation carries out the following pre-checks and creates an incident report for further investigation:
 
 - Validates that the Amazon EC2 instance SSM status is "Online."
-- Validates whether the Amazon EC2 instance is part of an Auto Scaling group and whether all instances in the Auto Scaling group have the same hostname.
+- Validates whether the Amazon EC2 instance is part of an Amazon EC2 Auto Scaling group and whether all instances in the Amazon EC2 Auto Scaling group have the same hostname.
 - Checks if the Amazon EC2 instance is part of the CloudFormation stack that was used to provision it. If the instance has been removed from the CloudFormation stack,
   the automation verifies whether the associated Active Directory Organizational Unit (OU) is still referencing the stack.
 

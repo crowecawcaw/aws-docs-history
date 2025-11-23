@@ -44,9 +44,9 @@ an Update change type for the type of stack that you want to update.
 ### RFC delete stack errors
 
 RFC delete stack failures: If you use the Management | Standard stacks | Stack | Delete CT, you will see
-the detailed events in the AWS CloudFormation Console for the stack with the AMS stack name. You can identify your
+the detailed events in the CloudFormation Console for the stack with the AMS stack name. You can identify your
 stack by checking it against the name it has in the AMS Console.
-The AWS CloudFormation Console provides more details about failure causes.
+The CloudFormation Console provides more details about failure causes.
 
 Before deleting a stack, you should consider how the stack was created. If you created the stack using
 an AMS CT and did not add or edit the stack resources, then you can expect to delete it without issue.
@@ -188,14 +188,14 @@ To request support for a feature or service, please reach out to your CSDM.
 
 AMS "Deployment" Category change types (CTs) allow you to request various AMS-supported resources be added to your account.
 
-Most AMS CTs that create a resource are based on AWS CloudFormation templates. As a customer you have read-only access to all AWS services including AWS CloudFormation, you can quickly identify
-the AWS CloudFormation stack that represents your stack based on the stack description using the AWS CloudFormation Console. The failed stack will likely be in
-a state of DELETE_COMPLETE. Once you have identified the AWS CloudFormation stack, the events will show you the specific resource that failed to
+Most AMS CTs that create a resource are based on CloudFormation templates. As a customer you have read-only access to all AWS services including CloudFormation, you can quickly identify
+the CloudFormation stack that represents your stack based on the stack description using the CloudFormation Console. The failed stack will likely be in
+a state of DELETE_COMPLETE. Once you have identified the CloudFormation stack, the events will show you the specific resource that failed to
 create, and why.
 
 ### Using CloudFormation documentation to troubleshoot
 
-Most AMS provisioning RFCs use a CloudFormation template and that documentation can be helpful for troubleshooting. See documentation for that AWS CloudFormation template:
+Most AMS provisioning RFCs use a CloudFormation template and that documentation can be helpful for troubleshooting. See documentation for that CloudFormation template:
 
 - Create application load balancer failure:
   [AWS::ElasticLoadBalancingV2::LoadBalancer (Application Load Balancer)](../../../AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.md")
@@ -263,7 +263,7 @@ To learn more about Amazon RDS in general, including size recommendations, see
 
 One common error when creating an S3 storage bucket is not using a unique name for the bucket. If you submitted an S3 bucket
 Create CT with the same name as one previously submitted, it would fail because an
-S3 bucket would already exist with that BucketName. This would be detailed in the AWS CloudFormation Console, where you will see that the stack event
+S3 bucket would already exist with that BucketName. This would be detailed in the CloudFormation Console, where you will see that the stack event
 shows that the bucket name is already in use.
 
 ## RFC validation versus execution errors

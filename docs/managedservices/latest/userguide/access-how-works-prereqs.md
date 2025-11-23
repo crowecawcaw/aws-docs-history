@@ -7,7 +7,7 @@ Accessing your Amazon EC2 instances.
 
 Submit access request:
 
-![How your organization's users interact with your application account via AAMS change management, and with your shared service account through Management Host and AWS Directory Service.](images/malz-access-cust-instance.png)
+![How your organization's users interact with your application account via AAMS change management, and with your shared service account through Management Host and Directory Service.](images/malz-access-cust-instance.png)
 Logging into your AMS Amazon EC2 instances:
 
 ![The relationship between your organization's users, SSH/RDP bastions within your cloud shared service account, and an instance within your application account.](images/malz-access-cust-instance-logon.png)

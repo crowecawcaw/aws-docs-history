@@ -36,7 +36,7 @@
   **Scheduling Amazon RDS instances**
 
 - The scheduler can take a snapshot before stopping the RDS instances (does not apply to Aurora DB cluster).
-  This feature is turned on by default with the **Create RDS Instance Snapshot** AWS CloudFormation template parameter set to **true**.
+  This feature is turned on by default with the **Create RDS Instance Snapshot** CloudFormation template parameter set to **true**.
   The snapshot is kept until the next time the Amazon RDS instance is stopped and a new snapshot is created.
 
 Scheduler can start/stop Amazon RDS instance that are part of a cluster or Amazon RDS Aurora database or in a multi availability zone (Multi-AZ) configuration.

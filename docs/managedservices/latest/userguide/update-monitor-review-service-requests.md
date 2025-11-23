@@ -11,7 +11,7 @@ To monitor a case, incident or service request, using the AMS console, follow th
 
 ![Incident detail card showing type, status, subject, ID, creation date, and priority.](images/guiIncidentDetail.png)
 
-![Service request detail showing type, subject, creation date, ID, and resolved status.](/images/managedservices/latest/userguide/images/guiSRdetail.png)
+![Service request detail showing type, subject, creation date, ID, and resolved status.](images/guiSRdetail.png)
 
 When a reported incident or service request case is updated by the AMS operations team, you receive an email and a link to the incident in the AMS
 console so you can respond. You can't respond to incident correspondence by replying to the email.

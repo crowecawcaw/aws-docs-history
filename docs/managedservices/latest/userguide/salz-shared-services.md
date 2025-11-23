@@ -9,7 +9,7 @@ Creates an Active Directory in AMS accounts, creates the AMS domain, joins manag
 
 - Management hosts = AMS Management Host (automate provisioning and common tasks)
 
-Act as an API endpoint to modify AWS Directory Service, interact with AWS Directory Service domain controllers.
+Act as an API endpoint to modify Directory Service, interact with Directory Service domain controllers.
 
 - Security services: Antivirus (TrendMicro) management server = EPS DSM + EPS Relay
 

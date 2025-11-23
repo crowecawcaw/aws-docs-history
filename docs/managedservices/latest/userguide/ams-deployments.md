@@ -12,7 +12,7 @@ _AMS Application Developer's_ guide provides detailed descriptions and walkthrou
 For details, see the _AMS Application Developer's_ guide at
 [Workload Ingest](../appguide/ams-workload-ingest.md "../appguide/ams-workload-ingest.md").
 
-- The AWS CloudFormation ingest change type (ct-36cn2avfrrj9v) feature allows you to easily use
+- The CloudFormation ingest change type (ct-36cn2avfrrj9v) feature allows you to easily use
   an existing CloudFormation template to deploy custom stacks in an AMS-managed VPC.
 
 For details, see the _AMS Application Developer's_ guide at

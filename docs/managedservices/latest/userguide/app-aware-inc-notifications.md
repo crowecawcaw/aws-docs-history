@@ -15,7 +15,7 @@ After provisioning AppRegistry, use one of the following methods to create appli
 1. **AWS console:** To learn more about creating an application in AppRegistry through the AWS console,
    see [Creating Applications](../../../servicecatalog/latest/arguide/create-apps.md "../../../servicecatalog/latest/arguide/create-apps.md") in the _AWS Service Catalog AppRegistry Administrator Guide_.
 2. **CloudFormation:** You can define your AppRegistry application just like you define any other resource. For more information,
-   see [AWS Service Catalog AppRegistry resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalogAppRegistry.md "../../../AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalogAppRegistry.md") in the _AWS CloudFormation User Guide_.
+   see [AWS Service Catalog AppRegistry resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalogAppRegistry.md "../../../AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalogAppRegistry.md") in the _CloudFormation User Guide_.
 
 ## Create tags to enable case enrichment
 

@@ -25,7 +25,7 @@ For definitions of patching terms, see [AMS key terms](key-terms.md "key-terms.m
   patch management, if the AMS template from which the stack is created is
   compatible with patch management. Currently, patching is compatible with the following stack templates:
   - Amazon EC2 stack | Create, and Amazon EC2 stack | Create (with additional volumes)
-  - Amazon EC2 instance launched with AWS CloudFormation ingest
+  - Amazon EC2 instance launched with CloudFormation ingest
   - Auto Scaling group | Create (the Amazon EC2 instances in the group are patched)
   - High Availability One-Tier stack | Create, and High Availability Two-Tier stack | Create
 

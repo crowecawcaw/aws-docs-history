@@ -3,7 +3,7 @@
 All access to resources inside AMS-managed accounts, for both customers and AMS operators, is gated by the use of
 bastion hosts. We maintain both Linux and Windows RDP bastions for access for both Multi-account landing zone (MALZ) and Single-account landing zone (SALZ) AMS Advanced accounts.
 
-Your bastions are accessible only over your private connection (VPN or AWS Direct Connect)DX.
+Your bastions are accessible only over your private connection (VPN or Direct Connect)DX.
 In addition to firewalling to prevent inbound traffic, bastions are regularly re-provisioned (with existing credentials) on a fixed schedule.
 
 ###### Note

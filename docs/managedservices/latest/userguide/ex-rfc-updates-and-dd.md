@@ -1,6 +1,6 @@
 # Understand RFC update CTs and CloudFormation template drift detection
 
-Resources provisioned in AMS use a modified AWS CloudFormation template. If a
+Resources provisioned in AMS use a modified CloudFormation template. If a
 resource has a parameter changed directly through a service's AWS Management Console, then the
 CloudFormation creation record of that resource becomes out of sync. If this
 happens and you attempt to use an AMS update change type to update

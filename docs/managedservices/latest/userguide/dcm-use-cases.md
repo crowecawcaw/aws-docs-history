@@ -2,7 +2,7 @@
 
 The following are uses cases for Direct Change Mode:
 
-###### Resource provision and management through AWS CloudFormation
+###### Resource provision and management through CloudFormation
 
 - Integrate existing CloudFormation-based tooling and processes.
 

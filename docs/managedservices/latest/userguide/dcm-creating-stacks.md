@@ -9,7 +9,7 @@ There are two requirements when launching stacks in CloudFormation using the
 ###### Note
 
 To successfully use the `AmsStackTransform`, you must acknowledge that your stack template contains the `CAPABILITY_AUTO_EXPAND`
-capability in order for AWS CloudFormation (CFN) to create or update the stack. You do this by passing the `CAPABILITY_AUTO_EXPAND` as part of your
+capability in order for CloudFormation (CFN) to create or update the stack. You do this by passing the `CAPABILITY_AUTO_EXPAND` as part of your
 create-stack request. CFN rejects the request if this capability is not acknowledged when the `AmsStackTransform`
 is included in the template. The CFN console ensures that you pass this capability if you have the transform in your template, but this can be missed
 when you are interacting with CFN via their APIs.
@@ -21,7 +21,7 @@ You must pass this capability whenever you use the following CFN API calls:
 - [UpdateStack](../../../AWSCloudFormation/latest/APIReference/API_UpdateStack.md "../../../AWSCloudFormation/latest/APIReference/API_UpdateStack.md")
   When creating or updating a stack with DCM, the same validations and augmentations of CFN Ingest and Stack Update CTs are performed on the stack,
   for more information see
-  [AWS CloudFormation Ingest Guidelines, Best Practices, and Limitations](../appguide/cfn-author-templates.md "../appguide/cfn-author-templates.md").
+  [CloudFormation Ingest Guidelines, Best Practices, and Limitations](../appguide/cfn-author-templates.md "../appguide/cfn-author-templates.md").
   The exception to this is that the AMS default security groups (SGs) will not be attached to any stand-alone EC2 instances or EC2 instances in Auto Scaling groups (ASGs).
   When you create your CloudFormation template, with stand-alone EC2 instances or ASGs, you can attach the default SGs.
 
