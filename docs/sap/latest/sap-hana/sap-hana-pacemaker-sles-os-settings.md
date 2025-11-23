@@ -11,7 +11,7 @@ Consider using configuration management tools or automated deployment scripts to
 - [Update and Check Operating System Versions](#_update_and_check_operating_system_versions "#_update_and_check_operating_system_versions")
 - [System Logging](#_system_logging "#_system_logging")
 - [Time Synchronization Services](#_time_synchronization_services "#_time_synchronization_services")
-- [AWS CLI Profile](#_cli_profile "#_cli_profile")
+- [AWS CLI Profile](#shared_aws_cli_profile "#shared_aws_cli_profile")
 - [Pacemaker Proxy Settings (Optional)](#_pacemaker_proxy_settings_optional "#_pacemaker_proxy_settings_optional")
 - [Add Overlay IP for Initial Database Access](#_add_overlay_ip_for_initial_database_access "#_add_overlay_ip_for_initial_database_access")
 - [Hostname Resolution](#_hostname_resolution "#_hostname_resolution")

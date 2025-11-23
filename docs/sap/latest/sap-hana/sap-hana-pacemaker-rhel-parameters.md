@@ -4,7 +4,7 @@ The cluster setup uses parameters, including SID and System Number that are uniq
 
 ###### Topics
 
-- [Global AWS Parameters](#_global_parameters "#_global_parameters")
+- [Global AWS Parameters](#global_shared_aws_parameters "#global_shared_aws_parameters")
 - [Amazon EC2 Instance Parameters](#_amazon_ec2_instance_parameters "#_amazon_ec2_instance_parameters")
 - [SAP and Pacemaker Resource Parameters](#_sap_and_pacemaker_resource_parameters "#_sap_and_pacemaker_resource_parameters")
 - [Red Hat Cluster Parameters](#_red_hat_cluster_parameters "#_red_hat_cluster_parameters")
