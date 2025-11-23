@@ -3008,8 +3008,8 @@ call [CreateDataSource](API_CreateDataSource.md "API_CreateDataSource.md").
 
 ###### Important
 
-Web Crawler v2.0 connector creation is not supported by AWS CloudFormation. Use the Web
-Crawler v1.0 connector if you need AWS CloudFormation support.
+Web Crawler v2.0 connector creation is not supported by CloudFormation. Use the Web
+Crawler v1.0 connector if you need CloudFormation support.
 
 _When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/ "https://aws.amazon.com/aup/") and all other
 Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your

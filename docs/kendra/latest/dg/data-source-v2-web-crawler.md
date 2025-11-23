@@ -33,8 +33,8 @@ server-side encryption with Amazon S3 managed keys.
 
 ###### Important
 
-Web Crawler v2.0 connector creation is not supported by AWS CloudFormation. Use
-the Web Crawler v1.0 connector if you need AWS CloudFormation support.
+Web Crawler v2.0 connector creation is not supported by CloudFormation. Use
+the Web Crawler v1.0 connector if you need CloudFormation support.
 
 ###### Topics
 

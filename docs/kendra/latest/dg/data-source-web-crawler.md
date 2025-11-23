@@ -38,8 +38,8 @@ Supported features of each version include:
 
 ###### Important
 
-Web Crawler v2.0 connector creation is not supported by AWS CloudFormation. Use the
-Web Crawler v1.0 connector if you need AWS CloudFormation support.
+Web Crawler v2.0 connector creation is not supported by CloudFormation. Use the
+Web Crawler v1.0 connector if you need CloudFormation support.
 
 For troubleshooting your Amazon Kendra web crawler data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md "troubleshooting-data-sources.md").
 

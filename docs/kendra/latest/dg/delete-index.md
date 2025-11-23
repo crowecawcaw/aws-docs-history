@@ -11,7 +11,7 @@ For example, delete an index when:
 - You have reached the maximum number of indexes in your account and don't want to
   exceed your quota. Delete an existing index and add a new one. For information about
   the maximum number of indexes that you can create, see [Quotas](quotas.md "quotas.md").
-  To delete an index, use the console, the AWS Command Line Interface, the AWS CloudFormation
+  To delete an index, use the console, the AWS Command Line Interface, the CloudFormation
   script, or the `DeleteIndex` API. Deleting an index removes the index and all
   associated data sources and document data. Deleting an index doesn't remove the original
   documents from your storage.

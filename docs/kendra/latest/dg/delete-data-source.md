@@ -11,7 +11,7 @@ when:
 - You have reached the limit of data sources for an index. Delete one of the
   existing data sources and add a new one. For more information about the number
   of data sources that you can create, see [Quotas](quotas.md#quota-details "quotas.md#quota-details").
-  To delete a data source, use the console, the AWS Command Line Interface (AWS CLI), the `DeleteDataSource` API, or a AWS CloudFormation script. Deleting a
+  To delete a data source, use the console, the AWS Command Line Interface (AWS CLI), the `DeleteDataSource` API, or a CloudFormation script. Deleting a
   data source removes all of the information about the data source from the index. If you
   only want to stop synching the data source, change the synchronization schedule for the
   data source to "run on demand".
