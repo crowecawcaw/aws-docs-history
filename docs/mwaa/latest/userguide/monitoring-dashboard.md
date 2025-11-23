@@ -12,7 +12,7 @@ Apache Airflow exposes metrics for several processes, including the number of DA
   - [About these metrics](monitoring-dashboard.md#monitoring-dashboard-custom-about "monitoring-dashboard.md#monitoring-dashboard-custom-about")
   - [About the dashboard](monitoring-dashboard.md#monitoring-dashboard-custom-about-dash "monitoring-dashboard.md#monitoring-dashboard-custom-about-dash")
   - [Using AWS tutorials](monitoring-dashboard.md#monitoring-dashboard-tutorials "monitoring-dashboard.md#monitoring-dashboard-tutorials")
-  - [Using AWS CloudFormation](monitoring-dashboard.md#monitoring-dashboard-cfn "monitoring-dashboard.md#monitoring-dashboard-cfn")
+  - [Using CloudFormation](monitoring-dashboard.md#monitoring-dashboard-cfn "monitoring-dashboard.md#monitoring-dashboard-cfn")
 
 - [Deleting metrics and dashboards](monitoring-dashboard.md#monitoring-dashboard-delete "monitoring-dashboard.md#monitoring-dashboard-delete")
 - [What's next?](monitoring-dashboard.md#monitoring-dashboard-next-up "monitoring-dashboard.md#monitoring-dashboard-next-up")
@@ -64,9 +64,9 @@ You can use the following AWS tutorial to automatically create a health status d
 
 - [CloudWatch Dashboard Automation for Amazon MWAA](https://github.com/aws-samples/mwaa-dashboard "https://github.com/aws-samples/mwaa-dashboard")
 
-### Using AWS CloudFormation
+### Using CloudFormation
 
-You can use the AWS CloudFormation template definition in this section to create a monitoring dashboard in CloudWatch, then add alarms on the CloudWatch console to receive notifications when a metric surpasses a particular threshold. To create the stack using this template definition, refer to [Creating a stack on the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md"). To add an alarm to the dashboard, refer to [Using alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md").
+You can use the CloudFormation template definition in this section to create a monitoring dashboard in CloudWatch, then add alarms on the CloudWatch console to receive notifications when a metric surpasses a particular threshold. To create the stack using this template definition, refer to [Creating a stack on the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md"). To add an alarm to the dashboard, refer to [Using alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md").
 
 ```
 AWSTemplateFormatVersion: "2010-09-09"

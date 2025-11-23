@@ -47,7 +47,7 @@ You can use this tutorial after you've created an Amazon MWAA environment. You m
 
 In this tutorial, you'll do the following:
 
-1. Create a Linux Bastion Host instance using a [AWS CloudFormation template for an existing VPC](https://fwd.aws/vWMxm "https://fwd.aws/vWMxm").
+1. Create a Linux Bastion Host instance using a [CloudFormation template for an existing VPC](https://fwd.aws/vWMxm "https://fwd.aws/vWMxm").
 2. Authorize inbound traffic to the bastion instance's security group using an ingress rule on port `22`.
 3. Authorize inbound traffic from an Amazon MWAA environment's security group to the bastion instance's security group.
 4. Create an SSH tunnel to the bastion instance.
@@ -55,11 +55,11 @@ In this tutorial, you'll do the following:
 
 ## Step one: Create the bastion instance
 
-The following section describes the steps to create the linux bastion instance using a [AWS CloudFormation template for an existing VPC](https://fwd.aws/vWMxm "https://fwd.aws/vWMxm") on the AWS CloudFormation console.
+The following section describes the steps to create the linux bastion instance using a [CloudFormation template for an existing VPC](https://fwd.aws/vWMxm "https://fwd.aws/vWMxm") on the CloudFormation console.
 
 ###### To create the Linux Bastion Host
 
-1. Open the [Deploy Quick Start](https://fwd.aws/Jwzqv "https://fwd.aws/Jwzqv") page on the AWS CloudFormation console.
+1. Open the [Deploy Quick Start](https://fwd.aws/Jwzqv "https://fwd.aws/Jwzqv") page on the CloudFormation console.
 2. Use the region selector in the navigation bar to choose the same AWS Region as your Amazon MWAA environment.
 3. Choose **Next**.
 4. Enter a name in the **Stack name** text field, such as `mwaa-linux-bastion`.
@@ -71,7 +71,7 @@ The following section describes the steps to create the linux bastion instance u
 
    ###### Note
 
-   The simplest way to identify a range is to use the same CIDR range as your public subnets. For example, the public subnets in the AWS CloudFormation template on the [Create the VPC network](vpc-create.md "vpc-create.md") page are `10.192.10.0/24` and `10.192.11.0/24`.
+   The simplest way to identify a range is to use the same CIDR range as your public subnets. For example, the public subnets in the CloudFormation template on the [Create the VPC network](vpc-create.md "vpc-create.md") page are `10.192.10.0/24` and `10.192.11.0/24`.
 
 6. On the **Amazon EC2 configuration** pane, choose the following:
    1. Choose your SSH key in the dropdown list in **Key pair name**.

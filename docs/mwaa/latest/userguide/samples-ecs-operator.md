@@ -1,7 +1,7 @@
 # Connecting to Amazon ECS using the `ECSOperator`
 
 This topic describes how you can use the `ECSOperator` to connect to an Amazon Elastic Container Service (Amazon ECS) container from Amazon MWAA.
-In the following steps, you'll add the required permissions to your environment's execution role, use a AWS CloudFormation template
+In the following steps, you'll add the required permissions to your environment's execution role, use a CloudFormation template
 to create an Amazon ECS Fargate cluster, and finally create and upload a DAG that connects to your new cluster.
 
 ###### Topics
@@ -61,7 +61,7 @@ JSON
 ```
 
 - In addition to adding the required premissions to run tasks in Amazon ECS, you must also modify the CloudWatch Logs policy statement in your Amazon MWAA execution role
-  to allow access to the Amazon ECS task log group as listed in the following. The Amazon ECS log group is created by the AWS CloudFormation template in
+  to allow access to the Amazon ECS task log group as listed in the following. The Amazon ECS log group is created by the CloudFormation template in
   [Create an Amazon ECS cluster](#create-cfn-template "#create-cfn-template").
 
 ```
@@ -87,7 +87,7 @@ For more information about the Amazon MWAA execution role, and how to attach a p
 
 ## Create an Amazon ECS cluster
 
-Using the following AWS CloudFormation template, you will build an Amazon ECS Fargate cluster to use with your Amazon MWAA workflow.
+Using the following CloudFormation template, you will build an Amazon ECS Fargate cluster to use with your Amazon MWAA workflow.
 For more information, refer to [Creating a task definition](../../../AmazonECS/latest/developerguide/create-task-definition.md "../../../AmazonECS/latest/developerguide/create-task-definition.md")
 in the _Amazon Elastic Container Service Developer Guide_.
 
@@ -240,7 +240,7 @@ security groups, and subnets using the
 `get-environment` AWS CLI command,
 then creates the stack accordingly. To run the script, do the following.
 
-    1. Copy, and save the script as `ecs-stack-helper.sh` in the same directory as your AWS CloudFormation template.
+    1. Copy, and save the script as `ecs-stack-helper.sh` in the same directory as your CloudFormation template.
 
 
 
@@ -272,7 +272,7 @@ then creates the stack accordingly. To run the script, do the following.
     ```
     `chmod +x ecs-stack-helper.sh`
     `./ecs-stack-helper.bash `environment-name` `stack-name``
-    ```If successful, you'll refer to the following output showing your new AWS CloudFormation stack ID.
+    ```If successful, you'll refer to the following output showing your new CloudFormation stack ID.
 
 ```
 {
@@ -280,7 +280,7 @@ then creates the stack accordingly. To run the script, do the following.
 }
 ```
 
-After your AWS CloudFormation stack is completed and AWS has provisioned your Amazon ECS resources, you're ready to create and upload your DAG.
+After your CloudFormation stack is completed and AWS has provisioned your Amazon ECS resources, you're ready to create and upload your DAG.
 
 ## Code sample
 

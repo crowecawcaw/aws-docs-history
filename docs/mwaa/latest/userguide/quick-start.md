@@ -6,7 +6,7 @@ This quick start tutorial uses an AWS CloudFormation template that creates the A
 
 - [In this tutorial](#quick-start-overview "#quick-start-overview")
 - [Prerequisites](#quick-start-before "#quick-start-before")
-- [Step one: Save the AWS CloudFormation template locally](#quick-start-template "#quick-start-template")
+- [Step one: Save the CloudFormation template locally](#quick-start-template "#quick-start-template")
 - [Step two: Create the stack using the AWS CLI](#quick-start-createstack "#quick-start-createstack")
 - [Step three: Upload a DAG to Amazon S3 and run in the Apache Airflow UI](#quick-start-upload-dag "#quick-start-upload-dag")
 - [Step four: access logs in CloudWatch Logs](#quick-start-logs "#quick-start-logs")
@@ -18,9 +18,9 @@ Use this tutorial to upload a DAG to Amazon S3, run the DAG in Apache Airflow, a
 
 ###### Note
 
-The AWS CloudFormation template on this page creates an Amazon Managed Workflows for Apache Airflow environment for the latest version of Apache Airflow available in AWS CloudFormation. The latest available version is Apache Airflow v3.0.6.
+The CloudFormation template on this page creates an Amazon Managed Workflows for Apache Airflow environment for the latest version of Apache Airflow available in CloudFormation. The latest available version is Apache Airflow v3.0.6.
 
-The AWS CloudFormation template creates the following:
+The CloudFormation template creates the following:
 
 - **VPC infrastructure**. The template uses [Public routing over the internet](networking-about.md#networking-about-overview-public "networking-about.md#networking-about-overview-public"). It uses the [Public network access mode](configuring-networking.md#access-overview-public "configuring-networking.md#access-overview-public") for the Apache Airflow webserver in `WebserverAccessMode: PUBLIC_ONLY`.
 - **Amazon S3 bucket**. The template creates an Amazon S3 bucket with a `dags` folder. It's configured to **Block all public access**, with **Bucket Versioning** enabled, as defined in [Create an Amazon S3 bucket for Amazon MWAA](mwaa-s3-bucket.md "mwaa-s3-bucket.md").
@@ -44,7 +44,7 @@ The AWS Command Line Interface (AWS CLI) is an open source tool that you can use
 - [AWS CLI – Install version 2](../../../cli/latest/userguide/install-cliv2.md "../../../cli/latest/userguide/install-cliv2.md").
 - [AWS CLI – Quick configuration with `aws configure`](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md").
 
-## Step one: Save the AWS CloudFormation template locally
+## Step one: Save the CloudFormation template locally
 
 - Copy the contents of the following template and save locally as `mwaa-public-network.yml`. You can also [download the template](samples/mwaa-public-network.md "samples/mwaa-public-network.md").
 
@@ -511,7 +511,7 @@ aws s3 cp tutorial.py s3://`amzn-s3-demo-bucket`/dags/
 
 ## Step four: access logs in CloudWatch Logs
 
-You can access Apache Airflow logs in the CloudWatch console for all of the Apache Airflow logs that were turned on by the AWS CloudFormation stack. The following section explains how to access logs for the _Airflow webserver log group_.
+You can access Apache Airflow logs in the CloudWatch console for all of the Apache Airflow logs that were turned on by the CloudFormation stack. The following section explains how to access logs for the _Airflow webserver log group_.
 
 1. Open the [Environments](https://console.aws.amazon.com/mwaa/home#/environments "https://console.aws.amazon.com/mwaa/home#/environments") page on the Amazon MWAA console.
 2. Choose an environment.

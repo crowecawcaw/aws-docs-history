@@ -155,7 +155,7 @@ Register the IP addresses using the `register-targets` command.
 ```
 
 If you use a Network Load Balancer in a private subnet, set up a [bastion host](tutorials-private-network-bastion.md "tutorials-private-network-bastion.md") or
-[AWS VPN tunnel](tutorials-private-network-vpn-client.md "tutorials-private-network-vpn-client.md") to access the webserver. 7. Create a hosted zone using Route 53 for the domain.
+[Site-to-Site VPN tunnel](tutorials-private-network-vpn-client.md "tutorials-private-network-vpn-client.md") to access the webserver. 7. Create a hosted zone using Route 53 for the domain.
 
 ```
 `aws route53 create-hosted-zone --name my-custom-domain.com \

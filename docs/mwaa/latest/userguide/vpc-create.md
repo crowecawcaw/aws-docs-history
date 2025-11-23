@@ -40,7 +40,7 @@ The following section describes the options available to create the Amazon VPC n
 
 Amazon MWAA does not support the use of `use1-az3` Availability Zone (AZ) in the
 US East (N. Virginia) Region. When creating the VPC for Amazon MWAA in the US East (N. Virginia)
-region, you must explicitly assign the `AvailabilityZone` in the AWS CloudFormation (CFN)
+region, you must explicitly assign the `AvailabilityZone` in the CloudFormation (CFN)
 template. The assigned availability zone name must not be mapped to `use1-az3`.
 You can retrieve the detailed mapping of AZ names to their corresponding AZ IDs by running
 the following command:
@@ -59,7 +59,7 @@ The following image depicts where you can find the **Create MWAA VPC** button on
 
 ### Option two: Creating an Amazon VPC network _with_ internet access
 
-The following AWS CloudFormation template creates an Amazon VPC network with internet access in your default AWS Region. This option uses [Public routing over the internet](networking-about.md#networking-about-overview-public "networking-about.md#networking-about-overview-public"). This template can be used for an Apache Airflow webserver with the **Private network** or **Public network** access modes.
+The following CloudFormation template creates an Amazon VPC network with internet access in your default AWS Region. This option uses [Public routing over the internet](networking-about.md#networking-about-overview-public "networking-about.md#networking-about-overview-public"). This template can be used for an Apache Airflow webserver with the **Private network** or **Public network** access modes.
 
 1. Copy the contents of the following template and save locally as `cfn-vpc-public-private.yaml`. You can also [download the template](samples/cfn-vpc-public-private.md "samples/cfn-vpc-public-private.md").
 
@@ -329,7 +329,7 @@ It takes about 30 minutes to create the Amazon VPC infrastructure.
 
 ### Option three: Creating an Amazon VPC network _without_ internet access
 
-The following AWS CloudFormation template creates an Amazon VPC network _without internet access_ in your default AWS Region.
+The following CloudFormation template creates an Amazon VPC network _without internet access_ in your default AWS Region.
 
 This option uses [Private routing without internet access](networking-about.md#networking-about-overview-private "networking-about.md#networking-about-overview-private").
 This template can be used for an Apache Airflow webserver with the **Private network** access mode only. It creates the required

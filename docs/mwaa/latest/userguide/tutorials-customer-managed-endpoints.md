@@ -33,10 +33,10 @@ To complete the steps in this tutorial, you will need the following:
 
 ## Create the Amazon VPC
 
-Use the following AWS CloudFormation template and AWS CLI command to create a new Amazon VPC. The template sets up the Amazon VPC resources and
+Use the following CloudFormation template and AWS CLI command to create a new Amazon VPC. The template sets up the Amazon VPC resources and
 modifies the endpoint policy to restrict access to a specific queue.
 
-1. Download the AWS CloudFormation [template](samples/cfn-vpc-private-network.md "samples/cfn-vpc-private-network.md"), then unzip the `.yml` file.
+1. Download the CloudFormation [template](samples/cfn-vpc-private-network.md "samples/cfn-vpc-private-network.md"), then unzip the `.yml` file.
 2. In a new command prompt window, navigate to the folder where you saved the template, then use
    [`create-stack`](../../../cli/latest/reference/cloudformation/create-stack.md "../../../cli/latest/reference/cloudformation/create-stack.md")
    to create the stack. The `--template-body` flag specifies the path to the template.
@@ -117,7 +117,7 @@ Use the Amazon MWAA console to create a new environment with customer-managed Am
 5. On the **Configure advanced settings** page, do the following:
    1. For **Virtual Private Cloud**, choose the Amazon VPC you created in the [previous step](#tutorials-customer-managed-endpoints-create-vpc "#tutorials-customer-managed-endpoints-create-vpc").
    2. For **webserver access**, choose **Public network (internet accessible)**.
-   3. For **Security groups**, choose the security group you created with AWS CloudFormation. Because the security groups for the
+   3. For **Security groups**, choose the security group you created with CloudFormation. Because the security groups for the
       AWS PrivateLink endpoints from the earlier step are self-referencing, you must choose the same security group for your environment.
    4. For **Endpoint management**, choose **Customer managed endpoints**.
 

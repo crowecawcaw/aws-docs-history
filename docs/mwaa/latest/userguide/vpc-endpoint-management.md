@@ -57,7 +57,7 @@ when sharing resources in Amazon VPC.
 
 First, create a new Amazon VPC that the owner and participant accounts will share:
 
-1. Sign in to the console using `Owner`, then, open the AWS CloudFormation console. Use the following template to create a stack. This stack
+1. Sign in to the console using `Owner`, then, open the CloudFormation console. Use the following template to create a stack. This stack
    provisions a number of networking resources including a Amazon VPC, and the subnets that the two accounts will share in this scenario.
 
 ```

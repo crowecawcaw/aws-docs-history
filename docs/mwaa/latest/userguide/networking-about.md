@@ -122,7 +122,7 @@ If internet access in your VPC is allowed by your organization, _and_ you would 
 
 1. Create an Amazon VPC network with internet access.
 2. Create an environment with the **Public network** access mode for your Apache Airflow webserver.
-3. **What we recommend**: We recommend using the AWS CloudFormation quick-start template that creates the Amazon VPC infrastructure, an Amazon S3 bucket, and an Amazon MWAA environment at the same time. To learn more, refer to [Quick start tutorial for Amazon Managed Workflows for Apache Airflow](quick-start.md "quick-start.md").
+3. **What we recommend**: We recommend using the CloudFormation quick-start template that creates the Amazon VPC infrastructure, an Amazon S3 bucket, and an Amazon MWAA environment at the same time. To learn more, refer to [Quick start tutorial for Amazon Managed Workflows for Apache Airflow](quick-start.md "quick-start.md").
 
 If internet access in your VPC is allowed by your organization, _and_ you would like to limit Apache Airflow webserver access to users within your VPC:
 
@@ -130,7 +130,7 @@ If internet access in your VPC is allowed by your organization, _and_ you would 
 2. Create a mechanism to access the VPC interface endpoint for your Apache Airflow webserver from your computer.
 3. Create an environment with the **Private network** access mode for your Apache Airflow webserver.
 4. **What we recommend**:
-   1. We recommend using the Amazon MWAA console in [Option one: Creating the VPC network on the Amazon MWAA console](vpc-create.md#vpc-create-mwaa-console "vpc-create.md#vpc-create-mwaa-console"), or the AWS CloudFormation template in [Option two: Creating an Amazon VPC network with internet access](vpc-create.md#vpc-create-template-private-or-public "vpc-create.md#vpc-create-template-private-or-public").
+   1. We recommend using the Amazon MWAA console in [Option one: Creating the VPC network on the Amazon MWAA console](vpc-create.md#vpc-create-mwaa-console "vpc-create.md#vpc-create-mwaa-console"), or the CloudFormation template in [Option two: Creating an Amazon VPC network with internet access](vpc-create.md#vpc-create-template-private-or-public "vpc-create.md#vpc-create-template-private-or-public").
    2. We recommend configuring access using an AWS Client VPN to your Apache Airflow webserver in [Tutorial: Configuring private network access using an AWS Client VPN](tutorials-private-network-vpn-client.md "tutorials-private-network-vpn-client.md").
 
 ### Internet access is not allowed - new Amazon VPC network
@@ -142,7 +142,7 @@ If internet access in your VPC is **not allowed** by your organization:
 3. Create VPC endpoints for each AWS service used by your environment.
 4. Create an environment with the **Private network** access mode for your Apache Airflow webserver.
 5. **What we recommend**:
-   1. We recommend using the AWS CloudFormation template to create an Amazon VPC without internet access and the VPC endpoints for each AWS service used by Amazon MWAA in [Option three: Creating an Amazon VPC network without internet access](vpc-create.md#vpc-create-template-private-only "vpc-create.md#vpc-create-template-private-only").
+   1. We recommend using the CloudFormation template to create an Amazon VPC without internet access and the VPC endpoints for each AWS service used by Amazon MWAA in [Option three: Creating an Amazon VPC network without internet access](vpc-create.md#vpc-create-template-private-only "vpc-create.md#vpc-create-template-private-only").
    2. We recommend configuring access using an AWS Client VPN to your Apache Airflow webserver in [Tutorial: Configuring private network access using an AWS Client VPN](tutorials-private-network-vpn-client.md "tutorials-private-network-vpn-client.md").
 
 ### Internet access is not allowed - existing Amazon VPC network

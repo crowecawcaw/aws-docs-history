@@ -10,8 +10,8 @@ This tutorial walks you through the steps to create a VPN tunnel from your compu
 - [Objectives](#private-network-vpn-objectives "#private-network-vpn-objectives")
 - [(Optional) Step one: Identify your VPC, CIDR rules, and VPC security](#private-network-vpn-optional "#private-network-vpn-optional")
 - [Step two: Create the server and client certificates](#private-network-vpn-certs "#private-network-vpn-certs")
-- [Step three: Save the AWS CloudFormation template locally](#private-network-vpn-template "#private-network-vpn-template")
-- [Step four: Create the Client VPN AWS CloudFormation stack](#private-network-vpn-create "#private-network-vpn-create")
+- [Step three: Save the CloudFormation template locally](#private-network-vpn-template "#private-network-vpn-template")
+- [Step four: Create the Client VPN CloudFormation stack](#private-network-vpn-create "#private-network-vpn-create")
 - [Step five: Associate subnets to your Client VPN](#private-network-vpn-associate "#private-network-vpn-associate")
 - [Step six: Add an authorization ingress rule to your Client VPN](#private-network-vpn-autho "#private-network-vpn-autho")
 - [Step seven: Download the Client VPN endpoint configuration file](#private-network-vpn-download "#private-network-vpn-download")
@@ -33,7 +33,7 @@ using wheel, refer to [Managing dependencies using Python wheel](best-practices-
 
 The following image depicts where to find the **Private network** option on the Amazon MWAA console.
 
-![This image depicts where to find the Private network option on the Amazon MWAA console.](/images/mwaa/latest/userguide/images/mwaa-console-private-network.png)
+![This image depicts where to find the Private network option on the Amazon MWAA console.](images/mwaa-console-private-network.png)
 
 ## Use cases
 
@@ -42,13 +42,13 @@ You can use this tutorial before or after you've created an Amazon MWAA environm
 ## Before you begin
 
 1. Check for user permissions. Be sure that your account in AWS Identity and Access Management (IAM) has sufficient permissions to create and manage VPC resources.
-2. Use your Amazon MWAA VPC. This tutorial assumes that you are associating the Client VPN to an existing VPC. The Amazon VPC must be in the same AWS Region as an Amazon MWAA environment and have two private subnets. If you haven't created an Amazon VPC, use the AWS CloudFormation template in [Option three: Creating an Amazon VPC network without internet access](vpc-create.md#vpc-create-template-private-only "vpc-create.md#vpc-create-template-private-only").
+2. Use your Amazon MWAA VPC. This tutorial assumes that you are associating the Client VPN to an existing VPC. The Amazon VPC must be in the same AWS Region as an Amazon MWAA environment and have two private subnets. If you haven't created an Amazon VPC, use the CloudFormation template in [Option three: Creating an Amazon VPC network without internet access](vpc-create.md#vpc-create-template-private-only "vpc-create.md#vpc-create-template-private-only").
 
 ## Objectives
 
 In this tutorial, you'll do the following:
 
-1. Create a AWS Client VPN endpoint using a AWS CloudFormation template for an existing Amazon VPC.
+1. Create a AWS Client VPN endpoint using a CloudFormation template for an existing Amazon VPC.
 2. Generate server and client certificates and keys, and then upload the server certificate and key to AWS Certificate Manager in the same AWS Region as an Amazon MWAA environment.
 3. Download and modify a Client VPN endpoint configuration file for your Client VPN, and use the file to create a VPN profile to connect using the Client VPN for Desktop.
 
@@ -109,7 +109,7 @@ A Client VPN endpoint supports 1024-bit and 2048-bit RSA key sizes only. The fol
    aws acm import-certificate --certificate fileb://client1.domain.tld.crt --private-key fileb://client1.domain.tld.key --certificate-chain fileb://ca.crt `--region us-west-2`
    ```
 
-   3. After these steps, save the value returned in the AWS CLI response for the server certificate and client certificate ARNs. You'll be specifying these ARNs in your AWS CloudFormation template to create the Client VPN.
+   3. After these steps, save the value returned in the AWS CLI response for the server certificate and client certificate ARNs. You'll be specifying these ARNs in your CloudFormation template to create the Client VPN.
 
 3. In these steps, a client certificate and a private key are saved to your computer. Here's an example of where to find these credentials:
    1. ###### Example on macOS
@@ -128,9 +128,9 @@ A Client VPN endpoint supports 1024-bit and 2048-bit RSA key sizes only. The fol
 
    2. After these steps, save the contents or note the location of the client certificate in `client1.domain.tld.crt`, and the private key in `client1.domain.tld.key`. You'll be adding these values to the configuration file for your Client VPN.
 
-## Step three: Save the AWS CloudFormation template locally
+## Step three: Save the CloudFormation template locally
 
-The following section contains the AWS CloudFormation template to create the Client VPN. You must specify the same Amazon VPC, VPC security groups, and private subnets as your Amazon MWAA environment.
+The following section contains the CloudFormation template to create the Client VPN. You must specify the same Amazon VPC, VPC security groups, and private subnets as your Amazon MWAA environment.
 
 - Copy the contents of the following template and save locally as `mwaa_vpn_client.yaml`. You can also [download the template](samples/mwaa_vpn_client.md "samples/mwaa_vpn_client.md").
 
@@ -185,7 +185,7 @@ SecurityGroupIds:
  - sg-0223344556677889f
 ```
 
-## Step four: Create the Client VPN AWS CloudFormation stack
+## Step four: Create the Client VPN CloudFormation stack
 
 ###### To create the AWS Client VPN
 

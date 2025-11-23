@@ -81,9 +81,9 @@ watchtower==1.0.6
 Invalid request provided: Provided role does not have sufficient permissions for s3 location airflow-xxx-xxx/dags
 ```
 
-If you're creating an Amazon MWAA environment and an Amazon S3 bucket using the same AWS CloudFormation template, you need to add a `DependsOn` section within your AWS CloudFormation template. The two resources (_MWAA Environment_ and _MWAA Execution Policy_) have a dependency in AWS CloudFormation. We recommend the following steps:
+If you're creating an Amazon MWAA environment and an Amazon S3 bucket using the same CloudFormation template, you need to add a `DependsOn` section within your CloudFormation template. The two resources (_MWAA Environment_ and _MWAA Execution Policy_) have a dependency in CloudFormation. We recommend the following steps:
 
-- Add the following `DependsOn` statement to your AWS CloudFormation template.
+- Add the following `DependsOn` statement to your CloudFormation template.
 
 ```
 ...
