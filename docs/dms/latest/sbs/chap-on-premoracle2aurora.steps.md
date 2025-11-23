@@ -1,7 +1,16 @@
-# Step 7: Monitor Your Migration Task
+# Troubleshooting
 
-Three sections in the console provide visibility into what your migration task is doing:
+The two most common areas people have issues with when working with Oracle as a source and Aurora MySQL as a target are: supplemental logging and case sensitivity.
 
-- Task monitoring — The **Task Monitoring** tab provides insight into your full load throughput and also your change capture and apply latencies.
-- Table statistics — The **Table Statistics** tab provides detailed information on the number of rows processed, type and number of transactions processed, and also information on DDL operations.
-- Logs — From the **Logs** tab you can view your task’s log file, (assuming you turned logging on.) If for some reason your task fails, search this file for errors. Additionally, you can look in the file for any warnings. Any data truncation in your task appears as a warning in the log file. If you need to, you can increase the logging level by using the AWS Command Line Interface (AWS CLI).
+- Supplemental logging — With Oracle, in order to replication change data supplemental logging must be enabled. However, if you enable supplemental logging at the database level, it sometimes still need to enable it when creating new tables. The best remedy for this is to allow DMS to enable supplemental logging for you using the extra connection attribute:
+
+```
+addSupplementalLogging=Y
+```
+
+- Case sensitivity — Oracle is case-insensitive (unless you use quotes around your object names). However, text appears in the upper case. Thus, AWS DMS defaults to naming your target objects in the upper case. In most cases, you’ll want to use transformations to change schema, table and column names to lower case.
+  For more tips, see the AWS DMS troubleshooting section in the [Troubleshooting migration tasks in Database Migration Service](../userguide/CHAP_Troubleshooting.md "../userguide/CHAP_Troubleshooting.md").
+
+To troubleshoot issues specific to Oracle, see the Oracle troubleshooting section: [Troubleshooting issues with Oracle](../userguide/CHAP_Troubleshooting.md#CHAP_Troubleshooting.Oracle "../userguide/CHAP_Troubleshooting.md#CHAP_Troubleshooting.Oracle").
+
+To troubleshoot Aurora MySQL issues, see the MySQL troubleshooting section: [Troubleshooting issues with MySQL](../userguide/CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL "../userguide/CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL").
