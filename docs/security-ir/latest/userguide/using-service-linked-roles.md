@@ -49,6 +49,10 @@ The service uses the role to perform actions on the following resources:
 
 - _AWS Organizations:_ Allows the service to lookup membership accounts for use with the service.
 - _CreateCase:_ Allows the service create service cases on behalf of membership accounts.
+- _ListCases:_ Allows the service’s AI agent to view cases for the purposes of security investigation.
+- _UpdateCase:_ Allows the service’s AI agent to update case metadata.
+- _CreateCaseComment:_ Allows the service’s AI agent to post its results as a case comment.
+- _ListComments:_ Allows the service’s AI agent to view case comments needed to perform automated investigations.
 - _TagResource:_ Allows the service tag resources configured as part of the service.
 
 ### Managing the role

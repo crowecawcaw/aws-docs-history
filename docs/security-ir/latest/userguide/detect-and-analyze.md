@@ -13,10 +13,6 @@ or use of other AWS services. Please refer to individual feature or service page
 
 _Amazon GuardDuty_
 
-GuardDuty is a threat detection service that continuously monitors, analyzes, and processes data sources
-and logs in your AWS environment. Enabling GuardDuty is not required to use AWS Security Incident Response; however,
-to use the proactive response and alert triaging feature Amazon GuardDuty must be enabled.
-
 To enable GuardDuty across your organization, please see the `Setting up GuardDuty` section of the [Amazon GuardDuty User Guide](../../../guardduty/latest/ug/guardduty_settingup.md#guardduty_enable-gd "../../../guardduty/latest/ug/guardduty_settingup.md#guardduty_enable-gd").
 
 We highly recommend that you enable GuardDuty in all supported AWS Regions. This enables GuardDuty to generate

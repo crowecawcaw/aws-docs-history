@@ -1,10 +1,10 @@
-# Working with AWS CloudFormation stacksets
+# Working with CloudFormation stacksets
 
 ###### Important
 
 AWS Security Incident Response does not enable containment capabilities by default, to execute these containment actions,
 you must first grant the necessary permissions to the service using roles. You can create these roles
-individually per account or across your entire organization by deploying AWS CloudFormation StackSets,
+individually per account or across your entire organization by deploying CloudFormation StackSets,
 which create the required roles.
 
 You can find specific instructions on how to [Create a stack set with service-managed permissions](../../../AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.md").
@@ -13,6 +13,14 @@ Following are template stacksets to create the _AWSSecurityIncidentResponseConta
 _AWSSecurityIncidentResponseContainmentExecution_ roles.
 
 ```
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        ...
+    ]
+}
+
 
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'Template for AWS Security Incident Response containment roles'

@@ -6,29 +6,14 @@ cancel the membership from the console, the API, or AWS Command Line Interface.
 ###### Important
 
 Once a membership has been canceled, you will be unable to view
-historic case data.
-If you cancel during the month, your membership will be available until
-the end of the month. Any resources or investigations that are `Active`
-or `ready to close` will be terminated upon final membership
-cancellation at the end of the billing cycle.
+historic case data. When you cancel a membership, your membership will be deleted immediately
+and you will not have further access to the cases on the membership. Any resources or investigations
+that are `Active` or `ready to close` will also be terminated upon membership
+cancellation.
 
 When you cancel a membership:
 
-- You will be billed until the end of the current billing cycle (end of month)
-- We will continue monitoring alerts during this period to prevent security gaps
-- Example: Your membership cancellation will take effect on 2025-08-29. You will be billed until this date.
-  After 2025-08-29, your membership and associated case resources will no longer be available.
-  This helps protect your organization by ensuring continuous security monitoring and provides time to respond
-  to unauthorized users disabling your security services without proper authorization.
-
-###### Important
-
-AWS Security Incident Response does not follow standard anniversary billing cycle
-that happens every month. Service billing runs month to month. Some examples:
-
-- Dec 29, Jan 29
-- Jan 29, Feb 26 (Non leap year)
-- Feb 26, March 29
+Your membership will be deleted and you will not have further access to the cases on the membership.
 
 ###### Important
 

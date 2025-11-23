@@ -16,10 +16,4 @@ Administrator from the Management Account.
 4. Log into the delegated administrator account
 5. Enter membership details and associate accounts
 
-![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge sends the event to the targets specified for that rule.](images/Define_Membership_Details.png) 6. Enable proactive response
-
-###### Note
-
-Enabling proactive response creates a service-linked role allowing our CIRT to ingest GuardDuty findings and create proactive investigation cases.
-
-![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge sends the event to the targets specified for that rule.](images/Permissions_for_Proactive_Response.png)
+![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge sends the event to the targets specified for that rule.](images/Define_Membership_Details.png)

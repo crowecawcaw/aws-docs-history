@@ -21,6 +21,7 @@ remediation and containment activities, and provides post-incident reporting.
 
 - [Prepare](prepare.md "prepare.md")
 - [Detect and Analyze](detect-and-analyze.md "detect-and-analyze.md")
+- [AI Investigative Agent](ai-investigative-agent.md "ai-investigative-agent.md")
 - [Contain](contain.md "contain.md")
 - [Eradicate](eradicate.md "eradicate.md")
 - [Recover](recover.md "recover.md")

@@ -76,3 +76,31 @@ The following example covers use of the console.
 
 After a AWS supported case has been created, the AWS CIRT and your
 incident response team are immediately notified.
+
+**To create an AWS-supported case with AI investigation**
+
+1. Open the AWS Security Incident Response console at [console.aws.amazon.com/security-ir/](../../../console.aws.amazon.com/security-ir.md "../../../console.aws.amazon.com/security-ir.md").
+2. Choose **Cases** from the navigation pane.
+3. Choose **Create case**.
+4. For **Case type**, select **AWS-supported
+   case**.
+5. Provide case details including title, incident start date, and affected AWS account ID.
+6. In the **Describe the security event** section, provide a thorough
+   description of the incident.
+7. Provide additional information about affected AWS services, regions, and other relevant details.
+8. Choose **Create case**.
+
+After case creation, both the CIRT team and AI agent begin working simultaneously.
+
+**To respond to AI clarifying questions (optional)**
+
+1. Navigate to the **Investigation** tab in your case.
+2. Review any clarifying questions presented by the AI agent.
+3. Respond to the questions or choose **Skip** if you prefer not to answer.
+4. Choose **Submit** to continue. All fields are optional.
+
+**Responsible AI disclosure**
+
+Investigation summaries are generated using AWS Generative AI capabilities. You are responsible for evaluating
+AI-generated recommendations in your specific context, implementing appropriate oversight mechanisms, verifying
+findings independently, and maintaining human oversight of all security decisions.

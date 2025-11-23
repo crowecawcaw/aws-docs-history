@@ -1,22 +1,10 @@
 # Communication Preferences
 
-Configure your communication preferences to control how you receive notifications and interact with the Security Incident Response system. AWS Security Incident Response now provides customizable communication preferences so you can focus on the updates that matter most to your role.
+Configure your communication preferences to control how you receive notifications and interact with the incident response system during security incidents.
 
-You can choose from various notification types including case changes, membership updates, and AWS Organizations changes, giving you granular control over communications rather than receiving every update regardless of relevance. You can manage communication settings for your incident response team members.
+###### Manage Team Communication Preferences
 
-Follow these steps to customize your personal communication settings:
-
-1. In the top-right corner, choose your name to open the user settings menu
-2. In the left navigation panel, choose **Communications**
-3. Select the checkboxes for communications you want to receive
-4. Clear the checkboxes for communications you do not want to receive
-5. Choose **Save** to apply your changes
-
-![](images/Permissions_for_Proactive_Response.png)
-
-![](images/checkboxes.png)
-
-You can also configure communication preferences for individuals in your incident response team from the dashboard page.
+You can configure communication preferences for individuals in your incident response team from the dashboard page.
 
 Follow these steps to manage team member communication settings:
 
@@ -28,7 +16,24 @@ Follow these steps to manage team member communication settings:
 
 ![](images/Dashboard.jpg)
 
+###### Configure Your Personal Communication Preferences
+
+Follow these steps to customize your personal communication settings:
+
+1. Navigate to the Incident Response Team page
+2. Select either a member to Edit or Add to create a new team member
+3. At the bottom of the form you will see Communications
+4. Select the checkboxes for communications you want to receive
+5. Clear the checkboxes for communications you do not want to receive
+6. Choose Save to apply your changes
+
+![](images/CommPref.png)
+
+###### Default Communication Settings
+
 By default, the two contacts configured during initial sign-up will have all communications enabled in the incident response team page. You can modify these settings at any time using the steps above.
+
+###### Communication Options
 
 Your communication preferences control how you interact with the incident response system and how notifications are delivered to you during security incidents.
 
