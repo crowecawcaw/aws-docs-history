@@ -3,27 +3,27 @@
 Publication date: **November 9, 2023 ([Diagram history](#diagram-history "#diagram-history"))**
 
 This architecture shows traffic segmentation options in AWS Direct Connect, include using several
-private VIFs in the VPC or AWS Direct Connect gateway, using AWS Transit Gateway Connect attachments over
+private VIFs in the VPC or Direct Connect gateway, using AWS Transit Gateway Connect attachments over
 transit VIF, and using AWS Site-to-Site VPN connections over transit VIF.
 
-## Segment Your Traffic over AWS Direct Connect by Using Several Private VIFs in the VPC or AWS Direct Connect Gateway Diagram
+## Segment Your Traffic over AWS Direct Connect by Using Several Private VIFs in the VPC or Direct Connect Gateway Diagram
 
-![Reference architecture diagram showing how to segment your traffic over AWS Direct Connect by using several private VIFs in the VPC or AWS Direct Connect Gateway.](images/1-several-private-vifs.png)
+![Reference architecture diagram showing how to segment your traffic over AWS Direct Connect by using several private VIFs in the VPC or Direct Connect Gateway.](images/1-several-private-vifs.png)
 
 Private virtual interfaces (VIFs) are used to access Amazon Virtual Private Cloud (Amazon VPC) using private IP addresses.
 Each VIF is configured with an unique virtual local area network (VLAN) tag, which
 means you can segment your traffic by using one VIF per virtual routing and
 forwarding (VRF) you have in your data center. Take into account the limits in
-the number of VIFs, depending the type of AWS Direct Connect connection you have. You can
+the number of VIFs, depending the type of Direct Connect connection you have. You can
 have 50 private or public VIFs with a dedicated connection, and one private
 or public VIF with a hosted connection. In addition, you can have 30 private
-VIFs associated to the same AWS Direct Connect gateway. You can check the quotas in the
-[AWS Direct Connect user guide](../../../directconnect/latest/UserGuide/limits.md "../../../directconnect/latest/UserGuide/limits.md").
+VIFs associated to the same Direct Connect gateway. You can check the quotas in the
+[Direct Connect user guide](../../../directconnect/latest/UserGuide/limits.md "../../../directconnect/latest/UserGuide/limits.md").
 
 1. Traffic initiated from an instance in Spoke VPC A and destined for the
    corporate data center server (in VRF A) is routed to the virtual private
    gateway according to the Spoke VPC A route table.
-2. The virtual private gateway is associated with the **AWS Direct Connect**
+2. The virtual private gateway is associated with the **Direct Connect**
    gateway, which uses a private VIF (VLAN) to connect to the corporate data center. To achieve
    segmentation, use several private VIFs. The on-premises router must be configured to
    use a different VIF (VLAN) connection per VRF configured.
@@ -31,32 +31,32 @@ VIFs associated to the same AWS Direct Connect gateway. You can check the quotas
    VRF A and the destination server.
 4. Traffic from the corporate data center’s VRF B destined for Spoke VPC B
    is first sent to the customer gateway located in the data center.
-5. The customer gateway uses private VIF B – over the AWS Direct Connect link – to
+5. The customer gateway uses private VIF B – over the Direct Connect link – to
    send the traffic to the virtual private gateway in VPC B.
 6. Traffic is forwarded to the destination according to the Spoke VPC B
    route table.
 
-## Segment Your Traffic over AWS Direct Connect by Using Several Transit VIFs and AWS Direct Connect Gateways Diagram
+## Segment Your Traffic over AWS Direct Connect by Using Several Transit VIFs and Direct Connect Gateways Diagram
 
-![Reference architecture diagram showing how to segment your traffic over AWS Direct Connect by using several transit VIFs and AWS Direct Connect gateways.](images/2-several-transit-vifs.png)
+![Reference architecture diagram showing how to segment your traffic over AWS Direct Connect by using several transit VIFs and Direct Connect gateways.](images/2-several-transit-vifs.png)
 
 Transit Virtual Interfaces (VIFs) are used to access AWS Transit Gateway by way of
-an AWS Direct Connect gateway. Each VIF is configured with an unique virtual local
+an Direct Connect gateway. Each VIF is configured with an unique virtual local
 area network (VLAN) tag, which means you can segment your traffic by using
 one VIF per virtual routing and forwarding (VRF) you have in your data
 center. Take into account the limits in the number of VIFs, depending
-the type of AWS Direct Connect connection you have. You can have four transit VIFs
+the type of Direct Connect connection you have. You can have four transit VIFs
 with a max combination of 51 private, public, and transit VIFs per
 dedicated connection. For hosted connections, you can have only
 one transit VIF. In addition, you can have 30 transit VIFs associated
-with the same AWS Direct Connect gateway. You can check the quotas in the
-[AWS Direct Connect user guide](../../../directconnect/latest/UserGuide/limits.md "../../../directconnect/latest/UserGuide/limits.md").
+with the same Direct Connect gateway. You can check the quotas in the
+[Direct Connect user guide](../../../directconnect/latest/UserGuide/limits.md "../../../directconnect/latest/UserGuide/limits.md").
 
 1. Traffic initiated from an instance in Spoke VPC A and destined for
    the corporate data center server (in VRF A) is routed to
    **AWS Transit Gateway** according to
    the Spoke VPC A route table.
-2. Transit Gateway is associated with several AWS Direct Connect gateways (DXGW), each one
+2. Transit Gateway is associated with several Direct Connect gateways (DXGW), each one
    of them using a transit VIF (VLAN) to connect to the corporate
    data center, achieving traffic segmentation. The on-premises
    router must be configured to use a different VIF (VLAN) connection
@@ -68,7 +68,7 @@ with the same AWS Direct Connect gateway. You can check the quotas in the
 5. Traffic from the corporate data center’s VRF B destined for
    Spoke VPC B is first sent to the customer gateway located
    in the data center.
-6. The customer gateway uses transit VIF B – over the **AWS Direct Connect**
+6. The customer gateway uses transit VIF B – over the **Direct Connect**
    link – to send the traffic to **Transit Gateway** Segment B.
 7. Traffic is forwarded to VPC B according to the Segment
    B **Transit Gateway** route table.
@@ -94,7 +94,7 @@ Connect to extend VRFs and increase IP prefix advertisement](https://aws.amazon.
    then routed to the corporate data center through the **Transit Gateway**
    Connect attachment A according to the Segment A route table.
 3. The **Transit Gateway** Connect attachment uses
-   the **AWS Direct Connect** connection as transport and connects **Transit Gateway**
+   the **Direct Connect** connection as transport and connects **Transit Gateway**
    to the corporate data center router using Generic Routing Encapsulation (GRE)
    tunneling and Border Gateway Protocol (BGP). The on-premises router must
    be configured to use a different connect attachment per VRF configured.
@@ -103,7 +103,7 @@ Connect to extend VRFs and increase IP prefix advertisement](https://aws.amazon.
 5. Traffic from the corporate data center’s VRF B destined for Spoke VPC B is first
    sent to the customer gateway located in the data center.
 6. The customer gateway uses the GRE tunnel of the **Transit Gateway**
-   Connect attachment B – over the **AWS Direct Connect** link – to
+   Connect attachment B – over the **Direct Connect** link – to
    send the traffic to **Transit Gateway**.
 7. Traffic is forwarded to the Spoke VPC B attachment according to
    the **Transit Gateway** Segment B route table.
@@ -133,7 +133,7 @@ connection per each VRF you have in your data center. You can use a public VIF a
    sent to the customer gateway located in the data center.
 6. The customer gateway chooses **Site-to-Site VPN** connection B to
    send the traffic to the **Transit Gateway** over
-   the **AWS Direct Connect** link.
+   the **Direct Connect** link.
 7. Traffic is forwarded to the Spoke VPC B attachment according to
    the **Transit Gateway** Segment B route table.
 8. The TGW ENI of Spoke VPC B forwards the traffic to the destination.
@@ -155,7 +155,7 @@ IPs with the AWS Direct Connect gateway and transit VIF as underlying transport.
    then routed to the corporate data center through **Transit Gateway**
    VPN attachment A according to the Segment A route table.
 3. The **Transit Gateway** **Site-to-Site VPN**
-   attachment uses the **AWS Direct Connect** connection as transport,
+   attachment uses the **Direct Connect** connection as transport,
    and connects **Transit Gateway** to the corporate data center
    router using one IPSec VPN connection (with two tunnels). The on-premises
    router must be configured to use a different VPN attachment per VRF configured.
@@ -164,7 +164,7 @@ IPs with the AWS Direct Connect gateway and transit VIF as underlying transport.
 5. Traffic from the corporate data center’s VRF B destined for Spoke VPC B is
    first sent to the customer gateway located in the data center.
 6. The customer gateway uses **Site-to-Site VPN**
-   connection B – over the **AWS Direct Connect**
+   connection B – over the **Direct Connect**
    link – to send the traffic to **Transit Gateway**.
 7. Traffic is forwarded to the Spoke VPC B attachment according to
    the **Transit Gateway** Segment B route table.
@@ -189,7 +189,7 @@ For additional information, refer to
   Icons](https://aws.amazon.com/architecture/icons "https://aws.amazon.com/architecture/icons")
 - [AWS Architecture Center](https://aws.amazon.com/architecture "https://aws.amazon.com/architecture")
 - [AWS Well-Architected](https://aws.amazon.com/architecture/well-architected "https://aws.amazon.com/architecture/well-architected")
-- [AWS Direct Connect user guide](../../../directconnect/latest/UserGuide/limits.md "../../../directconnect/latest/UserGuide/limits.md")
+- [Direct Connect user guide](../../../directconnect/latest/UserGuide/limits.md "../../../directconnect/latest/UserGuide/limits.md")
 
 ## Contributors
 
@@ -202,10 +202,10 @@ Contributors to this reference architecture diagram include:
 
 To be notified about updates to this reference architecture diagram, subscribe to the RSS feed.
 
-| Change              | Description                                                                                                        | Date             |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------ | ---------------- |
-| Diagram updated     | Added _Segment Your Traffic over AWS Direct Connect by Using Several Transit VIFs and AWS Direct Connect Gateways_ | November 9, 2023 |
-| Initial publication | Reference architecture diagram first published.                                                                    | June 30, 2022    |
+| Change              | Description                                                                                                    | Date             |
+| ------------------- | -------------------------------------------------------------------------------------------------------------- | ---------------- |
+| Diagram updated     | Added _Segment Your Traffic over AWS Direct Connect by Using Several Transit VIFs and Direct Connect Gateways_ | November 9, 2023 |
+| Initial publication | Reference architecture diagram first published.                                                                | June 30, 2022    |
 
 ###### Note
 
