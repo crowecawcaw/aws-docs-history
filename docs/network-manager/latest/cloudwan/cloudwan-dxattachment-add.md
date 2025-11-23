@@ -56,7 +56,7 @@ console.
 ###### Note
 
 A Direct Connect gateway can be used for only one core network, and can't
-be used for any other Direct Connect gateway type. 10. Choose **Create attachment**.
+be used for any other Direct Connect gateway type. 10. (Optional) For **Routing policy label**, provide a label that will be used to map this policy to attachments. The policy will automatically be applied to any attachment tagged with the same label. 11. Choose **Create attachment**.
 
 ## Create a Direct Connect gateway attachment using
 

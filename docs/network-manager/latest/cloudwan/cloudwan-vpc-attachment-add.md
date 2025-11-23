@@ -33,12 +33,13 @@ The following steps create a VPC attachment for a core network using the console
     network VPC attachment. The Availability Zones that are listed are those edge
     locations that you chose when you created your core network. You must choose at
     least one Availability Zone and subnet ID.
-15. (Optional) In the **Tags** section, add
+15. (Optional) For **Routing policy label**, provide a label that will be used to map this policy to attachments. The policy will automatically be applied to any attachment tagged with the same label.
+16. (Optional) In the **Tags** section, add
     **Key** and **Value** pairs to further
     help identify this resource. You can add multiple tags by choosing **Add
     tag**, or remove any tag by choosing **Remove
     tag**.
-16. Choose **Create attachment**.
+17. Choose **Create attachment**.
 
 ## Create a VPC attachment using the command line
 

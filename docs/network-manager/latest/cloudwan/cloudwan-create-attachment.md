@@ -51,7 +51,7 @@ Cloud WAN evaluates routes at each core network edge in the following order:
    4. For dynamic routes received at the core network with
       _equal_ AS path length and MED BGP attributes,
       Cloud WAN evaluates them in the following order:
-      1. AWS Direct Connect gateway-propagated routes.
+      1. Direct Connect gateway-propagated routes.
       2. Cloud WAN Connect-propagates routes in the same
          Region.
       3. Site-to-Site VPN-propagated routes in the same

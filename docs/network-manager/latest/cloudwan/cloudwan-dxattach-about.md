@@ -1,6 +1,6 @@
 # Direct Connect gateway attachments in AWS Cloud WAN
 
-AWS Cloud WAN now supports native integration with AWS Direct Connect, simplifying connectivity between
+AWS Cloud WAN now supports native integration with Direct Connect, simplifying connectivity between
 your on-premises networks and the AWS cloud. The new capability enables you to directly
 attach your Direct Connect gateways to Cloud WAN without the need for an intermediate
 AWS Transit Gateway, allowing seamless connectivity between your data centers or offices with

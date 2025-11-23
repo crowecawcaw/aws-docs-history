@@ -65,6 +65,7 @@ to set threshold alarms on these metrics.
 - [Core network policy versions](cloudwan-create-policy-version.md "cloudwan-create-policy-version.md")
 - [Devices](cloudwan-devices.md "cloudwan-devices.md")
 - [Peerings](cloudwan-peerings.md "cloudwan-peerings.md")
+- [Prefix list associations](cloudwan-prefix-lists.md "cloudwan-prefix-lists.md")
 - [Shared attachments](cloudwan-shared-attachments.md "cloudwan-shared-attachments.md")
 - [Shared core network](cloudwan-share-network.md "cloudwan-share-network.md")
 - [Shared peerings](cloudwan-shared-peerings.md "cloudwan-shared-peerings.md")

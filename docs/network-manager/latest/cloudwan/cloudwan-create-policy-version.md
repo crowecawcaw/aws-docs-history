@@ -45,7 +45,8 @@ Change set states can be any of the following:
 ###### Topics
 
 - [Core network policy sections](#cloudwan-policy-sections "#cloudwan-policy-sections")
-- [Cloud WAN service insertion](cloudwan-policy-service-insertion.md "cloudwan-policy-service-insertion.md")
+- [Service insertion](cloudwan-policy-service-insertion.md "cloudwan-policy-service-insertion.md")
+- [Routing policies](cloudwan-routing-policies.md "cloudwan-routing-policies.md")
 - [Create a policy version using the console](cloudwan-create-policy-console.md "cloudwan-create-policy-console.md")
 - [Create a policy version using JSON](cloudwan-create-policy-json.md "cloudwan-create-policy-json.md")
 - [View a core network policy change set](cloudwan-policy-version-view.md "cloudwan-policy-version-view.md")
@@ -66,6 +67,8 @@ The following are the parts of a core network policy and describe how each of th
 - [Network function groups](#cloudwan-core-network-function "#cloudwan-core-network-function")
 - [Segment actions](#cloudwan-policy-create-action "#cloudwan-policy-create-action")
 - [Attachment policies](#cloudwan-policy-create-attachment "#cloudwan-policy-create-attachment")
+- [Routing policies](#cloudwan-policy-routing-policies "#cloudwan-policy-routing-policies")
+- [Attachment routing policies](#cloudwan-policy-create-attachment-routing-policy "#cloudwan-policy-create-attachment-routing-policy")
 
 ### Network configuration
 
@@ -137,7 +140,10 @@ a service insertion action for a network functions group.
   segment to the other, but not vice versa. Using the previous example, you could
   make a deny list filter that prevents routes from `test` being
   advertised to `dev`. For more information on creating the deny
-  list for a segment, see [Add a segment to an AWS Cloud WAN core network policy version](cloudwan-policy-segments.md "cloudwan-policy-segments.md").
+  list for a segment, see [Add a segment to an AWS Cloud WAN core network policy version](cloudwan-policy-segments.md "cloudwan-policy-segments.md"). In addition,
+  you can optionally associate routing policies that will apply to the segment share.
+- **Edge location routing policy association** — Associate routing policies
+  to pair of edge locations for a particular segment.
 - **Segment routes** — Create a segment route to define a
   static route within a segment.
 - **Service insertion** — Create a service insertion action
@@ -151,7 +157,8 @@ a service insertion action for a network functions group.
 
 See the following for the steps to set segment actions:
 
-- To add a segment using the console, see [Add a segment action in an AWS Cloud WAN core network policy version](cloudwan-policy-network-actions-routes.md "cloudwan-policy-network-actions-routes.md").
+- To add a segment using the console, see [Add segment actions in an AWS Cloud WAN
+  core network policy version](cloudwan-policy-network-actions-routes.md "cloudwan-policy-network-actions-routes.md").
 - To add a segment using a JSON file, see [segments](cloudwan-policies-json.md#cloudwan-segments-json-about "cloudwan-policies-json.md#cloudwan-segments-json-about") in [segment-actions](cloudwan-policies-json.md#cloudwan-segment-actions-json "cloudwan-policies-json.md#cloudwan-segment-actions-json") in [Core network policy version parameters in
   AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
 
@@ -167,3 +174,26 @@ policy:
 - To add an attachment policy using the console, see [Create an attachment policy in an AWS Cloud WAN core
   network policy version](cloudwan-policy-attachments.md "cloudwan-policy-attachments.md").
 - To add an attachment policy using a JSON file, see [attachment-policies](cloudwan-policies-json.md#cloudwan-attach-policies-json "cloudwan-policies-json.md#cloudwan-attach-policies-json") in [segment-actions](cloudwan-policies-json.md#cloudwan-segment-actions-json "cloudwan-policies-json.md#cloudwan-segment-actions-json").
+
+### Routing policies
+
+Routing policies provide new routing capabilities that allow you to implement fine-grained routing controls, route filtering, summarization, and path preferences. You can create routing policy associations to apply policies to specific segment shares, edge location pairs, and attachments with rules that define how routes are processed.
+
+Routing policy associations can be broken down into two main components:
+
+- **Segment Share/Edge Location Pairs** — Associate routing policies with specific segment shares or edge location pairs to control traffic flow between different parts of your network.
+- **Attachment routing policies** — Create rules-based policies that determine which routing policies are associated with attachments.
+
+See the following for the steps to configure routing policies:
+
+- To configure routing policies using the console, see [Create a routing policy and rule](cloudwan-route-policy.md "cloudwan-route-policy.md").
+
+### Attachment routing policies
+
+Attachment routing policies control how your attachments map to your routing policies.
+Attachment routing policies are separate from the attachment policy section and only control associating attachments with
+routing policies via a label on the attachment.
+
+See the following for the steps to create an attachment routing policy:
+
+- To add an attachment routing policy using the console, see [Create an AWS Cloud WAN attachment routing policy](cloudwan-policy-attachment-routing.md "cloudwan-policy-attachment-routing.md").

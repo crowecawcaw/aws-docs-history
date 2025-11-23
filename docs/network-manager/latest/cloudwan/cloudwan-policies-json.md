@@ -11,11 +11,27 @@ For example JSON policies, see [AWS Cloud WAN core network policy examples](clou
 
 ###### Topics
 
+- [version](#cloudwan-version-json "#cloudwan-version-json")
 - [core-network-configuration](#cloudwan-network-config-json "#cloudwan-network-config-json")
 - [segments](#cloudwan-segments-json-about "#cloudwan-segments-json-about")
 - [network-function-groups](#cloudwan-network-functions-json "#cloudwan-network-functions-json")
 - [segment-actions](#cloudwan-segment-actions-json "#cloudwan-segment-actions-json")
 - [attachment-policies](#cloudwan-attach-policies-json "#cloudwan-attach-policies-json")
+- [attachment-routing-policy-rules](#cloudwan-attachment-routing-policy-rules-json "#cloudwan-attachment-routing-policy-rules-json")
+- [routing-policies](#cloudwan-routing-policies-json "#cloudwan-routing-policies-json")
+
+## `version`
+
+You must select a version for your core network from the following options:
+
+- `2021.12`
+- `2025.11`
+
+###### Note
+
+You must select version 2025.11 to use route policies in your core network policy. Using version 2025.11 will also enable BGP community support on your core network, meaning
+community tags coming from BGP capable attachments will begin to be propagated through your core network. We will drop the subtype information of community tags propagated through the core network
+and for community tags propagated outbound of the core network the subtype will be set to Route Target.
 
 ## `core-network-configuration`
 
@@ -255,7 +271,7 @@ attachments can only communicate with other attachments in the same segment. You
 
 - `share` attachments across segments. Use the `share`
   action so that attachments from two different segments can reach each other. For
-  example, if you’ve set a segment to `isolate-attachments`, the
+  example, if you've set a segment to `isolate-attachments`, the
   segment can't reach anything unless it has a `share` relationship
   with other segments. The `share` statement creates routes between
   attachments in the provided segments. If you're creating a share between one
@@ -294,6 +310,8 @@ The following parameters are used in `segment-actions`:
       + `send-to` for service insertion, indicating that
        traffic is sent out from the cloud and doesn't re-enter
        (north-south).
+      + `associate-routing-policy` for associating routing
+       policies with edge location pairs within a segment.
 
   The following parameters are described for these
   actions.
@@ -315,9 +333,9 @@ The following parameters are used in `segment-actions`:
     and the defined segment attachments.
 
   For example, if you create a `share` between a segment
-  named `shared-services` and share-with “A” and “B”,
-  this allows the attachments from “A” and “B” to reach “Shared
-  services”. “A” and “B” cannot reach each other, and any static
+  named `shared-services` and share-with "A" and "B",
+  this allows the attachments from "A" and "B" to reach "Shared
+  services". "A" and "B" cannot reach each other, and any static
   routes or routes propagated from other segments are not shared among
   these segments.
 
@@ -339,6 +357,10 @@ The following parameters are used in `segment-actions`:
         }
       }
   ```
+
+  - `routing-policy-names` — (Optional) An array of routing
+    policy names to apply to the segment sharing. The routing policies
+    control how routes are propagated between the shared segments.
 
 - `create-route` parameters. If the action is
   `create-route`, the following are the required and optional
@@ -375,6 +397,38 @@ The following parameters are used in `segment-actions`:
 
   - `description` — (Optional) A user-defined description to
     help further identify this route.
+
+- `associate-routing-policy` parameters. If the action is
+  `associate-routing-policy`, the following parameters are required:
+
+      + `segment` — The name of the segment where the routing
+       policy association will be applied.
+      + `edge-location-association` — Defines the edge location
+       pair and routing policies to associate:
+
+
+
+
+      	- `edge-location` — The primary edge location.
+      	- `peer-edge-location` — The peer edge location
+      	 that forms the edge location pair.
+      	- `routing-policy-names` — An array of routing
+      	 policy names to apply to traffic between these edge locations.
+
+  The following example shows associating a routing policy with an edge
+  location pair:
+
+```
+{
+  "action": "associate-routing-policy",
+  "segment": "prod",
+  "edge-location-association": {
+    "edge-location": "us-east-1",
+    "peer-edge-location": "us-west-2",
+    "routing-policy-names": ["inboundRoutingFilter"]
+  }
+}
+```
 
 - `send-via` and `send-to` parameters. If the network
   function group segment `action` is either `send-via`
@@ -467,11 +521,11 @@ network function group named `inspection-vpc`.
 
 ```
 {
-      “action”: “send-to”,
-      “segment”: “development”,
-      “via”: {
-        “network-function-groups”: [
-          “inspetion-vpc”
+      "action": "send-to",
+      "segment": "development",
+      "via": {
+        "network-function-groups": [
+          "inspetion-vpc"
         ]
       }
     }
@@ -496,8 +550,8 @@ For example, to attach a VPC to a core network, either the VPC owner or the core
 network owner would create a core network attachment in the core network using either
 the AWS Cloud WAN console or the Network Manager `create-attachment` command line or API. The
 attachment itself will have tags analyzed by the attachment policy, and not the tags
-associated with the VPC resource. A tag on the attachment such as `“environment” :
- “development”` would then map to a `development` segment.
+associated with the VPC resource. A tag on the attachment such as `"environment" :
+ "development"` would then map to a `development` segment.
 Attachment policy rules can also use available metadata from within the conditions, such
 as `account ID`, `type` of attachment, the `resource
  ID` (for example, `vpc-id`), or the AWS Region.
@@ -512,7 +566,7 @@ When an attachment matches a rule, the attachment attaches to the segment define
 `segment`. Each attachment can either be associated without acceptance or
 require a separate action to approve the attachment association. By default, every
 segment requires all attachments to be accepted. The acceptance requirement can be
-turned off with `“require-attachment-acceptance” : false` in the
+turned off with `"require-attachment-acceptance" : false` in the
 `segment` definition. When `require-acceptance` is
 `false`, any attachment that maps to the segment is automatically added.
 For example, a developer `sandbox` segment might want to allow any attachment
@@ -520,13 +574,13 @@ with the correct tag to be added to the network. With the
 `attachment-policies`, you can add additional controls on a per-rule
 basis. For example, if attachments from the `us-east-2`
 Region require acceptance but other Regions do not, you
-can set the `“require-acceptance” : true` setting on a rule that is specific
+can set the `"require-acceptance" : true` setting on a rule that is specific
 to `us-east-2` .
 
 You can apply multiple conditions using either `and` or `or`
 logic to create a single rule. For example, you can state that if the account is
-`111122223333` and includes the tag `“stage” :
- “development”` it should map to a specified segment. If you don't want to use
+`111122223333` and includes the tag `"stage" :
+ "development"` it should map to a specified segment. If you don't want to use
 tags to map attachments, you could use the `resource-id` to manually map each
 incoming connection to a segment. However, this approach requires changing the policy
 document every time new attachments are added and can reduce the operability of your
@@ -550,149 +604,370 @@ The following parameters are used in `attachment-policies`:
 - `description` — (Optional) A user-defined description that
   further helps identify the rule.
 - `condition-logic` — Evaluates a condition on either
-  `and` or `or`. This is a mandatory parameter only
-  if you have more than one condition. The conditions themselves are
-  unordered, so the `condition-logic` applies to all of the
-  conditions for a rule, which also means nested conditions of
-  `and` or `or` are not supported. Use
-  `and` if you want to the rule to match on all of the
-  conditions, or use `or` if you want the rule to match on one of
-  the conditions.
+  `and` or `or`.
+
+This is a mandatory parameter only if you have more than one condition.
+The conditions themselves are unordered, so the `condition-logic`
+applies to all of the conditions for a rule, which also means nested
+conditions of `and` or `or` are not supported. Use
+`and` if you want to the rule to match on all of the
+conditions, or use `or` if you want the rule to match on one of
+the conditions.
 
 If you're creating a JSON policy for a network function group
 `and` and `or` are the only supported
 `condition-logic` options.
 
-- `conditions` — An array composed of one of the four following
-  types:
-  1.  `type` where the `value` is `any` —
-      This matches any request. For example, you could use any if you're
-      only using one segment that everything should map to. Or, you could
-      use this as a fallback segment if you want all attachments that
-      don't match a rule to map to a known segment.
-  2.  `type` where
+- `conditions` — An array composed of one of the following types:
+  - `type` - Specifies the kind of condition to evaluate
+    for matching attachments. The type determines what attribute of the
+    attachment will be examined and how the matching logic is
+    applied.
+    - `any` — This matches any request. For example,
+      you could use any if you're only using one segment that
+      everything should map to. Or, you could use this as a
+      fallback segment if you want all attachments that don't
+      match a rule to map to a known segment.
+    - `resource-id` uses the resource associated with
+      the attachment (for example,
+      `vpc-1234567890123456`). Supports additional
+      parameters:
+      - `operator` — The operation to perform.
+        Must be one of `equals` |
+        `not-equals` | `contains` |
+        `begins-with`.
+      - `value` — The resource ID value to
+        match against.
 
-          + `value` = `resource-id` |
-           `account-id` | `region` |
-           `attachment-type`
-          + `operator` = `equals` |
-           `not-equals` | `contains` |
-           `begins-with`
+    - `region` — Matches based on the AWS region
+      where the attachment is located. Supports additional
+      parameters:
+      - `operator` — The operation to perform.
+        Must be one of `equals` |
+        `not-equals` | `contains` |
+        `begins-with`.
+      - `value` — The Region to match against
+        (for example, `us-east-1`).
 
-      This type is the `value` compared against the
-      `operator`. For example, you might use the
-      `condition`
-      `type` in the following way:
+    - `attachment-type` — Matches based on the type
+      of attachment. Supports additional parameters:
+      - `operator` — The operation to perform.
+        Must be one of `equals` |
+        `not-equals` | `contains` |
+        `begins-with`.
+      - `value` — The attachment type to match
+        against. Supported values are: `vpc`,
+        `site-to-site-vpn`,
+        `connect`,
+        `transit-gateway-route-table`.
 
-          + where the `resource-id` uses the resource
-           associated with the attachment (for example,
-           `vpc-1234567890123456`)
-          + where the `account-id` uses the account ID of
-           the requesting attachment (for example,
-           `111122223333`)
-          + where the `Region` uses the
-           Region code for the requesting attachment
-           (for example, `us-east-1`), and
-          + where the `attachment-type` uses
-           `vpc`, `site-to-site-vpn`,
-           `connect`, or
-           `transit-gateway-route-table` strings
+    - `account` — Uses the account ID of the
+      requesting attachment (for example,
+      `111122223333`). Supports additional
+      parameters:
+      - `operator` — The operation to perform.
+        Must be one of `equals` |
+        `not-equals` | `contains` |
+        `begins-with`.
+      - `value` — The account ID value to match
+        against.
 
-  3.  `type` where the `value` is
-      `tag-exists` — A string that matches against any of
-      the keys defined on the attachment. Use this type when the value of
-      the tag is not important, or if there is only a key without a
-      value.
+    - `tag-name` — Match attachments based on the
+      presence of specific tag names without evaluating their
+      values.
+    - `tag-value` — Match attachments based on the
+      presence of specific tag values. Supports additional
+      parameters:
+      - `operator` — The operation to perform.
+        Must be one of `equals` |
+        `not-equals` | `contains` |
+        `begins-with`.
+      - `value` — The tag key value to match
+        against.
 
-  A network function group attachment policy requires that you use
-  the `tag-exists` type and then either `tag-name` or `tag-value`. 4. `type` where the `value` is
-  `tag-value` — Evaluates the following key value
-  parameters:
+  - `action` — One of the following actions to when a
+    condition is true:
+    - `association-method` — Defines how a segment is
+      mapped. Values can be `constant` or
+      `tag`. `constant` statically
+      defines the segment to associate the attachment to.
+      `tag` uses the value of a tag to dynamically
+      try to map to a segment.
+    - `segment` — The name of the segment to share as
+      defined in the `segments` section. This is used
+      only when the `association-method` is
+      constant.
+    - `tag-value-of-key` — Maps the attachment to the
+      value of a known key. This is used with the
+      `association-method` is `tag`.
+      For example a tag of `"stage" : "test",` will map
+      to a segment named `test`. The value must exactly
+      match the name of a segment. This allows you to have many
+      segments, but use only a single rule without having to
+      define multiple nearly identical conditions. This prevents
+      creating many similar conditions that all use the same keys
+      to map to segments.
+    - `require-acceptance` — Determines if this
+      mapping should override the segment value for
+      `require-attachment-acceptance`. You can only
+      set this to `true`, indicating that this setting
+      applies only to segments that have
+      `require-attachment-acceptance` set to
+      `false`. If the segment already has the
+      default `require-attachment-acceptance`, you can
+      set this to inherit segment's acceptance value.
+    - `add-to-network-function-group` — The name of
+      the network function group to attach to the attachment
+      policy. The network function group must use `and`
+      for the `condition-logic` and have an associated
+      `Conditions` tag.
 
-      + `key` — A string that matches against any of
-       the keys defined on the attachment. It must be an exact
-       match of the key.
-      + `operator` — The operation to perform against
-       the key value. Must be one of `equals` |
-       `not-equals` | `contains` |
-       `begins-with`.
+    A network function group attachment policy requires that
+    you use the `condition` option
+    `tag-exists`, and then either
+    `tag-name` or `tag-value`.
 
+    This following example attachment policy routes any
+    attachment that has a `Location` tag to the
+    `SendToInspectionVPC` network function group
+    for traffic inspection, requiring manual acceptance before
+    the attachment is processed:
 
-      `operator` is not supported for tag-name in a
-       network function group policy version.
-      + `value` — The value of the key to be evaluated
-       for the operator.
-
-  In this example,
-
-  `“type” : “tag-value”,`
-
-  `“key” : “project”,`
-
-  `“operator” : “begins-with”,`
-
-  `“value” : “sta”`
-
-  Any condition where the value of `project` begins with
-  `sta` is matched against the condition. This would
-  return `staging`, `stage`, etc.
-
-- `description` — A user-defined description to help further
-  identify the attachment policy.
-- `action` — The action to take when a condition is true.
-  - `association-method` — Defines how a segment is mapped.
-    Values can be `constant` or `tag`.
-    `constant` statically defines the segment to
-    associate the attachment to. `tag` uses the value of a
-    tag to dynamically try to map to a segment.
-  - `segment` — The name of the segment to share as defined
-    in the `segments` section. This is used only when the
-    `association-method` is constant.
-  - `tag-value-of-key` — Maps the attachment to the value
-    of a known key. This is used with the `association-method` is `tag`. For example a tag of `“stage” :
-“test”,` will map to a segment named `test`.
-    The value must exactly match the name of a segment. This allows you
-    to have many segments, but use only a single rule without having to
-    define multiple nearly identical conditions. This prevents creating
-    many similar conditions that all use the same keys to map to
-    segments.
-  - `require-acceptance` — Determines if this mapping
-    should override the segment value for
-    `require-attachment-acceptance`. You can only set
-    this to `true`, indicating that this setting applies only
-    to segments that have `require-attachment-acceptance` set
-    to `false`. If the segment already has the default
-    `require-attachment-acceptance`, you can set this to
-    inherit segment’s acceptance value.
-  - `add-to-network-function-group` — The name of the
-    network function group to attach to the attachment policy. The
-    network function group must use `and` for the
-    `condition-logic` and have an associated
-    `Conditions` tag.
-
-  The following shows an example policy adding a network function
-  group named `SendToInspectionVPC`. The rule-number for
-  the service insertion policy `125`. It uses the and
-  condition-logic with a `tag` type of
-  `tag-exists` type and a `key` value of
-  `Location`.
-
-  ```
-  "attachment-policies": [
-      {
-        "rule-number": 125,
-        "description": "Sends to Inspection VPC",
-        "condition-logic": "and",
-        "conditions": [
-          {
-            "type": "tag-exists",
-            "key": "Location"
+    ```
+    {
+      "attachment-policies": [
+        {
+          "rule-number": 125,
+          "description": "Send traffic to inspection VPC",
+          "condition-logic": "and",
+          "conditions": [
+            {
+              "type": "tag-exists",
+              "key": "Location"
+            }
+          ],
+          "action": {
+            "add-to-network-function-group": "SendToInspectionVPC"
+            "require-acceptance": true
           }
-        ],
-        "action": {
-          "add-to-network-function-group": "SendToInspectionVPC"
         }
+    ```
+
+## `attachment-routing-policy-rules`
+
+`attachment-routing-policy-rules` defines how routing policies are associated
+with attachments using routing policy labels. This section works similarly to attachment
+policies but uses a new form of metadata called routing-policy-label instead of tags to
+map attachments to routing policies.
+
+This approach provides separation between segment association (via tags) and routing
+policy association (via labels), and ensures only the core network owner can manage
+routing policy associations.
+
+Before you can create an attachment routing policy rule, you must have routing
+policies already defined in the `routing-policies` section, as the rules
+reference these policies by the routing policy names.
+
+`attachment-routing-policy-rules` is an optional section.
+
+### Parameters
+
+The following parameters are used in `attachment-routing-policy-rules`:
+
+- `rule-number` — An integer from `1` to
+  `65535` indicating the rule's processing order. Rules are
+  processed from lowest to highest number.
+- `description` — (Optional) A user-defined description
+  that helps identify the rule.
+- `edge-locations` — (Optional) An array of edge locations where
+  the routing policy should be applied. This only works with Direct
+  Connect attachments to apply policies to specific regions.
+- `conditions` — An array of conditions that must be
+  met. (since attachments can only have a single routing policy label the conditions
+  are always applied with an or operator)
+  - `type` — The type of condition to evaluate. Only
+    `routing-policy-label` is supported. This condition
+    type enables the core network owner to control routing policy
+    associations independently from segment associations, providing more
+    granular control over how routing policies are applied to
+    attachments without relying on potentially changeable tag
+    values.
+  - `value` — The specific routing policy label identifier
+    that attachments must have to match this condition.
+
+- `action` — Defines the action to take when conditions are met:
+  - `associate-routing-policies` — The list of routing
+    policy names to be associated with the attachment label.
+
+The following example applies the outbound routing policy `routingPolicyName` only to attachments in
+us-west-2 that have an `Environment` label:
+
+```
+
+"attachment-routing-policy-rules": [
+  {
+    "rule-number": 145,
+    "description": "Apply outbound routing policy to production attachments",
+    "edge-locations": [
+      "us-west-2"
+    ],
+    "conditions": [
+      {
+        "type": "routing-policy-label",
+        "value": "Environment"
       }
-    ]
+    ],
+    "action": {
+      "associate-routing-policies": [
+        "routingPolicyName"
+      ]
+    }
   }
-  ```
+]
+```
+
+## `routing-policies`
+
+`routing-policies` defines advanced routing controls that allow you to
+filter, modify, and control how routes are propagated throughout your core network.
+Routing policies provide fine-grained control over route advertisements between
+segments, edge locations, and attachments, enabling you to implement complex routing
+scenarios such as route filtering, path preferences, and route summarization.
+
+Each routing policy contains rules that specify match conditions and actions to take on
+matching routes. Routing policies are directional (inbound or outbound) and can be associated
+with attachments, cross-region edge locations, and shared segments.
+
+`routing-policies` is an optional section.
+
+### Parameters
+
+The following parameters are used in `routing-policies`:
+
+- `routing-policy-name` — A unique identifier for the routing
+  policy. Must contain no more than 100 characters and use only alphanumeric
+  characters (a-z, A-Z, 0-9).
+- `routing-policy-description` — (Optional) A user-defined
+  description that helps identify the purpose of the routing policy.
+- `routing-policy-direction` — Specifies the direction of route
+  processing. Must be either `inbound` (for routes being learned
+  from external sources) or `outbound` (for routes being advertised
+  to external destinations).
+- `routing-policy-number` — An integer from `1` to
+  `9999` that determines the priority order when multiple
+  routing policies are associated with the same resource. Lower numbers have
+  higher priority and are processed first.
+- `routing-policy-rules` — An array of rules that define the
+  match conditions and actions for the routing policy. Each rule contains:
+  - `rule-number` — An integer from `1` to
+    `9999` that determines the processing order within the
+    policy. Rules are processed from lowest to highest number.
+  - `rule-definition` — Contains the match conditions and
+    actions for the rule:
+    - `match-conditions` — An array of conditions
+      that routes must match. Supported condition types include:
+      - `type` — Specifies the type of match condition.
+        - `prefix-equals` — Match specific IPv4
+          or IPv6 prefixes
+        - `prefix-in-cidr` — Match prefixes
+          within a CIDR range
+        - `prefix-in-prefix-list` — Match
+          prefixes defined in a managed prefix list (must be tied to an existing prefix list alias for a core network prefix list association,
+          see [AWS Cloud WAN prefix list associations](cloudwan-prefix-lists.md "cloudwan-prefix-lists.md"))
+        - `asn-in-as-path` — Match ASN in
+          the AS path
+        - `community-in-list` — Match BGP
+          communities
+        - `med-equals` — Match MED
+          (Multi-Exit Discriminator) values
+
+      - `value` — The value to match against for the specified condition type.
+
+    - `condition-logic` — Specifies how multiple
+      conditions are evaluated. Must be either `and`
+      (all conditions must match) or `or` (any
+      condition must match).
+    - `action` — Defines the action to take on
+      matching routes.
+      - `type` — The type of action to take for
+        the condition logic. Supported actions
+        include:
+        - `drop` — Drop matched routes
+        - `allow` — Allow only matched
+          routes
+        - `summarize` — Summarize routes
+          (outbound only)
+        - `prepend-asn-list` — Add ASNs to
+          the beginning of the AS path to influence route
+          selection
+        - `remove-asn-list` — Remove specific
+          ASNs in the AS path
+        - `replace-asn-list` — Replace
+          specific ASNs in the AS path with different
+          values
+        - `add-community` — Add BGP community values to routes
+        - `remove-community` — Remove BGP community values from routes
+        - `set-med` — Set the MED
+          value
+        - `set-local-preference` — Set
+          local preference
+
+The following example shows two inbound routing policies: `RP1` is a
+routing policy that matches on the prefix list alias `prefixListAlias`,
+drops any cidr that matches the cidrs in that prefix list, and has
+priority `100`, and `RP2` with priority 26
+includes a rule that allows routes withing the cidr block `10.0.0.0/24` using
+`and` condition logic.
+
+```
+{
+  "routing-policies": [
+    {
+      "routing-policy-name": "RP1",
+      "routing-policy-description": "My routing policy",
+      "routing-policy-direction": "inbound",
+      "routing-policy-number": 100,
+      "routing-policy-rules": [
+        {
+          "rule-number": 5,
+          "rule-definition": {
+            "match-conditions": [
+              {
+                "type": "prefix-in-prefix-list",
+                "value": "prefixListAlias"
+              }
+            ],
+            "condition-logic": "and",
+            "action": {
+              "type": "drop"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "routing-policy-name": "RP2",
+      "routing-policy-description": "My second routing policy",
+      "routing-policy-direction": "inbound",
+      "routing-policy-number": 26,
+      "routing-policy-rules": [
+        {
+          "rule-number": 32,
+          "rule-definition": {
+            "match-conditions": [
+              {
+                "type": "prefix-in-cidr",
+                "value": "10.0.0.0/24"
+              }
+            ],
+            "condition-logic": "and",
+            "action": {
+              "type": "allow"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+```

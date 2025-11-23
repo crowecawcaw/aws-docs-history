@@ -37,12 +37,13 @@ The following steps create a Connect attachment for a core network using the con
 
 10. Choose the **Transport Attachment ID** that will be used for
     the Connect attachment.
-11. (Optional) In the **Tags** section, add
+11. (Optional) For **Routing policy label**, provide a label that will be used to map this policy to attachments. The policy will automatically be applied to any attachment tagged with the same label.
+12. (Optional) In the **Tags** section, add
     **Key** and **Value** tags to further help
     identify this resource. You can add multiple tags by choosing **Add
     tag**, or remove any tag by choosing **Remove
     tag**.
-12. Choose **Create attachment**.
+13. Choose **Create attachment**.
 
 ## Create a Connect attachment or Connect
 

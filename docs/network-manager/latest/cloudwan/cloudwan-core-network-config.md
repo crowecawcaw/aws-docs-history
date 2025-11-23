@@ -18,8 +18,10 @@ information about a core network in a policy version, see [Network configuration
 7. The **Network configuration** displays general settings for the
    policy.
 8. In **General settings,** choose **Edit**.
-   1. The **Version** can't be changed for a policy
-      version.
+   1. The **Version** choose any of the following:
+      - **2021.12** this version does not support routing policies or bgp community tag propagation through your core network
+      - **2025.11** this version enables support for routing policies and bgp community tag propagation through your core network
+
    2. Choose any of the following:
       - **VPN ECMP support** if the core network should
         forward traffic over multiple-cost routes using VPN.

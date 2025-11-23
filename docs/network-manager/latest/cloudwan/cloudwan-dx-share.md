@@ -1,4 +1,4 @@
-# Create a shared AWS Direct Connect gateway attachment in an AWS Cloud WAN core network
+# Create a shared Direct Connect gateway attachment in an AWS Cloud WAN core network
 
 The following steps guide you through creating a shared Direct Connect gateway attachment.
 

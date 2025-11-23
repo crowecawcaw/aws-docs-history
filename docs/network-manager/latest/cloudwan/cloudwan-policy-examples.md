@@ -14,3 +14,4 @@ AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
 - [Example: Distributed WAN](cloudwan-policy-examples-distributed-wan.md "cloudwan-policy-examples-distributed-wan.md")
 - [Example: Insert firewalls](cloudwan-policy-examples-firewalls.md "cloudwan-policy-examples-firewalls.md")
 - [Example: Service insertion](cloudwan-policy-examples-service-insertion.md "cloudwan-policy-examples-service-insertion.md")
+- [Example: Routing Policies](cloudwan-policy-examples-routing-policies.md "cloudwan-policy-examples-routing-policies.md")

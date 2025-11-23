@@ -1,9 +1,19 @@
-# Add a segment action in an AWS Cloud WAN core network policy version
+# Add segment actions in an AWS Cloud WAN
+
+core network policy version
 
 The following steps guide you through optionally setting segment actions for a core network
 for a policy version using the **Policy versions** link on the AWS Network Manager
 console. Before setting segment actions you must first configure your [network settings](cloudwan-core-network-config.md "cloudwan-core-network-config.md") and [add one or more segments](cloudwan-policy-segments.md "cloudwan-policy-segments.md"). For more
 information, about segment actions, see [Segment actions](cloudwan-create-policy-version.md#cloudwan-policy-create-action "cloudwan-create-policy-version.md#cloudwan-policy-create-action").
+
+###### Topics
+
+- [Segment sharing](#cloudwan-policy-network-actions-sharing "#cloudwan-policy-network-actions-sharing")
+- [Segment routes](#cloudwan-policy-version-routes "#cloudwan-policy-version-routes")
+- [Edge location routing
+  policy associations](#cloudwan-policy-routing-associations-console "#cloudwan-policy-routing-associations-console")
+- [Service insertion](#cloudwan-policy-service-insertion "#cloudwan-policy-service-insertion")
 
 ## Segment sharing
 
@@ -33,14 +43,25 @@ Static routes are not propagated between shared segments when using attachment-r
 6. Choose **Segment actions - optional**.
 7. (Optional) In the **Sharing** section, choose
    **Create**, and then do the following:
-   1. From the **Segment** dropdown list, choose the core
-      network segment that you want to share.
-   2. For the **Segment filter**, choose if you want to
+   1. From the **Segment from** dropdown list, choose the
+      core network segment that you want to share.
+   2. For the **Segment to**, choose if you want to
       **Allow all** shared routes from other segments, to
       **Allowed selected** segments, or to **Deny
       selected** segments. The default value is to
       **Allow all** segments.
-   3. Choose **Create sharing**.
+   3. Do one of the following:
+      - If you chose **Allow selected**, choose the
+        segments to allow from the **Allow segment
+        list**.
+      - If you chose **Deny selected**, choose the
+        segments to disallow from the **Deny segment
+        list**.
+
+   4. (Optional) If you've created a routing policy, select the
+      **Routing policy** to choose the routing policies
+      to apply this segment sharing to.
+   5. Choose **Create sharing**.
 
 ## Segment routes
 
@@ -75,6 +96,56 @@ Create a segment route for a policy version.
    see [Create an attachment policy in an AWS Cloud WAN core
    network policy version](cloudwan-policy-attachments.md "cloudwan-policy-attachments.md").
 9. Choose **Create route**.
+
+## Edge location routing
+
+policy associations
+
+Associating a routing policy to an edge location pair allows you to control how
+traffic flows between two specific geographic locations in your network, overriding
+default routing behavior. This provides control for performance optimization, cost
+management, failover scenarios, and compliance requirements between those specific
+locations.
+
+###### To create routing policy associations
+
+1. Access the Network Manager console at [https://console.aws.amazon.com/networkmanager/home/](https://console.aws.amazon.com/networkmanager/home "https://console.aws.amazon.com/networkmanager/home").
+2. Under **Connectivity** choose **Cloud WAN**.
+3. On the **Global networks** page, choose the global network ID that for the core network you want to create a policy version for, and then choose **Core network**.
+4. In the navigation pane, choose **Policy versions**.
+5. Choose **Create policy version**.
+6. Choose **Segment actions - optional**.
+7. (Optional) In the **Edge location routing policy
+   associations** section, choose **Associate**, and
+   then do the following:
+   1. From the **Segment from** dropdown list, choose the
+      segment for the routing policy association.
+   2. From the **Edge location** dropdown list, choose the
+      source edge location.
+   3. From the **Peer edge location** dropdown list, choose the
+      destination edge location.
+   4. From the **Routing policy name** dropdown list, choose the
+      routing policy to associate with this segment and edge location pair.
+   5. Choose **Associate**.
+
+For more information on the parameters used in the JSON file, see [Core network policy version parameters in
+AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
+
+```
+{
+    "segment-actions": [
+        {
+            "action": "associate-routing-policy",
+            "segment": "prod",
+            "edge-location-association": {
+                "edge-location": "us-east-1",
+                "peer-edge-location": "us-west-2",
+                "routing-policy-names": ["routingFilter"]
+            }
+        }
+    ]
+}
+```
 
 ## Service insertion
 

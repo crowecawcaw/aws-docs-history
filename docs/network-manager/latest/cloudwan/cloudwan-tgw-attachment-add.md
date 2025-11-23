@@ -28,11 +28,12 @@ console.
     the route table to be used for the peering. For information about
     creating a transit gateway route table, see [Transit gateway route tables](../../../vpc/latest/tgw/tgw-route-tables.md "../../../vpc/latest/tgw/tgw-route-tables.md")
     in the _AWS Transit Gateway Guide_.
-11. (Optional) In the **Tags** section, add **Key**
+11. (Optional) For **Routing policy label**, provide a label that will be used to map this policy to attachments. The policy will automatically be applied to any attachment tagged with the same label.
+12. (Optional) In the **Tags** section, add **Key**
     and **Value** tags to help identify this resource. You can add
     multiple tags by choosing **Add tag**, or remove any tag by
     choosing **Remove tag**.
-12. Choose **Create attachment**.
+13. Choose **Create attachment**.
 
 ## Create a transit gateway route table attachment
 

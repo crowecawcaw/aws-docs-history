@@ -30,12 +30,13 @@ console
 8. Choose **VPN**.
 9. From the **VPN attachment** section, choose the VPN ID to be
    used for the VPN attachment.
-10. (Optional) In the **Tags** section, add
+10. (Optional) For **Routing policy label**, provide a label that will be used to map this policy to attachments. The policy will automatically be applied to any attachment tagged with the same label.
+11. (Optional) In the **Tags** section, add
     **Key** and **Value** pairs to further
     help identify this resource. You can add multiple tags by choosing **Add
     tag**, or remove any tag by choosing **Remove
     tag**.
-11. Choose **Create attachment**.
+12. Choose **Create attachment**.
 
 ## Create a Site-to-Site VPN attachment using the command
 
