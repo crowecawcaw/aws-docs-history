@@ -66,7 +66,7 @@ For example, the model returns the labels _mediterranean_spurge_ and _with_leave
 For more information,
 see [Find objects, scenes, and concepts](md-dataset-purpose.md#md-dataset-purpose-classification "md-dataset-purpose.md#md-dataset-purpose-classification").
 
-![Close-up of a vibrant green flower with tightly packed petals forming a spherical shape.](/images/rekognition/latest/customlabels-dg/images/multi-label-classification.jpg)
+![Close-up of a vibrant green flower with tightly packed petals forming a spherical shape.](images/multi-label-classification.jpg)
 
 ### Brand detection
 
