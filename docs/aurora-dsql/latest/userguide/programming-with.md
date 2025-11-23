@@ -23,12 +23,12 @@ This API is another programming interface for Aurora DSQL. When using this API,
 you must format every HTTPS request correctly and add a valid digital
 signature to every request. For more information, see [Aurora DSQL API reference](CHAP_api_reference.md "CHAP_api_reference.md").
 
-**AWS CloudFormation**
+**CloudFormation**
 
-The [AWS::DSQL::Cluster](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.md") is an AWS CloudFormation resource that enables you to
+The [AWS::DSQL::Cluster](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.md") is an CloudFormation resource that enables you to
 create and manage Aurora DSQL clusters as part of your infrastructure as code.
-AWS CloudFormation helps you define your entire AWS environment in code, making it
+CloudFormation helps you define your entire AWS environment in code, making it
 easier to provision, update, and replicate your infrastructure in a
 consistent and reliable way.
 
-When you use the AWS::DSQL::Cluster resource in your AWS CloudFormation templates, you can declaratively provision Aurora DSQL clusters alongside your other cloud resources. This helps ensure that your data infrastructure deploys and manages alongside the rest of your application stack.
+When you use the AWS::DSQL::Cluster resource in your CloudFormation templates, you can declaratively provision Aurora DSQL clusters alongside your other cloud resources. This helps ensure that your data infrastructure deploys and manages alongside the rest of your application stack.

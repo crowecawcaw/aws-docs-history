@@ -44,11 +44,12 @@ token from the console.
 2. Choose the cluster ID of the cluster for which you want to generate an
    authentication token. If you haven't yet created a cluster, follow the steps in
    [Step 1: Create an Aurora DSQL single-Region
-   cluster](getting-started.md#getting-started-create-cluster "getting-started.md#getting-started-create-cluster") or [Step 4: Create a multi-Region cluster](getting-started.md#getting-started-multi-region "getting-started.md#getting-started-multi-region").
+   cluster](getting-started.md#getting-started-create-cluster "getting-started.md#getting-started-create-cluster") or [Step 4 (Optional): Create a multi-Region
+   cluster](getting-started.md#getting-started-multi-region "getting-started.md#getting-started-multi-region").
 3. Choose **Connect** and then select **Get
    Token**.
 4. Choose whether you want to connect as an `admin` or with a [custom database role](authentication-authorization.md#authentication-authorization-iam-role-connect "authentication-authorization.md#authentication-authorization-iam-role-connect").
-5. Copy the generated authentication token and use it for [Accessing Aurora DSQL using SQL clients](getting-started.md#accessing-sql-clients "getting-started.md#accessing-sql-clients").
+5. Copy the generated authentication token and use it for [Access Aurora DSQL using SQL clients](accessing.md#accessing-sql-clients "accessing.md#accessing-sql-clients").
 
 To learn more about custom database roles and IAM in Aurora DSQL, see [Authentication and authorization for
 Aurora DSQL](authentication-authorization.md "authentication-authorization.md").

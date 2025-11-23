@@ -1,7 +1,7 @@
 # Infrastructure Security in Amazon Aurora DSQL
 
 As a managed service, Amazon Aurora DSQL is protected by the AWS global network security
-procedures that are described in [Best Practices for Security, Identity, & Compliance](https://aws.amazon.com/https://aws.amazon.com/architecture/security-identity-compliance "https://aws.amazon.com/https://aws.amazon.com/architecture/security-identity-compliance").
+procedures that are described in [Best Practices for Security, Identity, & Compliance](https://aws.amazon.com/architecture/security-identity-compliance "https://aws.amazon.com/architecture/security-identity-compliance").
 
 You use AWS published API calls to access Aurora DSQL through the network. Clients must
 support Transport Layer Security (TLS) 1.2 or later. Clients must also support cipher suites

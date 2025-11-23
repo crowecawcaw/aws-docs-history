@@ -147,5 +147,5 @@ the following:
 - [Getting started with Aurora DSQL](getting-started.md "getting-started.md")
 - [SQL feature compatibility in
   Aurora DSQL](working-with-postgresql-compatibility.md "working-with-postgresql-compatibility.md")
-- [Accessing Aurora DSQL](getting-started.md#accessing "getting-started.md#accessing")
+- [Accessing Aurora DSQL with PostgreSQL-compatible clients](accessing.md "accessing.md")
 - [Aurora DSQL and PostgreSQL](working-with.md "working-with.md")

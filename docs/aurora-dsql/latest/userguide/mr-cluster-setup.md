@@ -1,6 +1,6 @@
 # Configuring Aurora DSQL clusters using AWS CloudFormation
 
-You can use the same AWS CloudFormation resource `AWS::DSQL::Cluster` to deploy and manage
+You can use the same CloudFormation resource `AWS::DSQL::Cluster` to deploy and manage
 single-Region and multi-Region Aurora DSQL clusters.
 
 See the [Amazon Aurora DSQL resource type
