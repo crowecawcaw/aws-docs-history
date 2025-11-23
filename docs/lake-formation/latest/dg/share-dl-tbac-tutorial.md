@@ -92,7 +92,7 @@ The CloudFormation template for the producer account generates the following
 resources:
 
 - An Amazon S3 bucket to serve as the data lake.
-- A Lambda function (for Lambda-backed AWS CloudFormation custom resources). We use the function to copy sample data files from the public Amazon S3 bucket to your Amazon S3 bucket.
+- A Lambda function (for Lambda-backed CloudFormation custom resources). We use the function to copy sample data files from the public Amazon S3 bucket to your Amazon S3 bucket.
 - IAM users and policies: DataLakeAdminProducer.
 - The appropriate Lake Formation settings and permissions including:
   - Defining the Lake Formation data lake administrator in the producer account
@@ -100,7 +100,7 @@ resources:
 
 - An AWS Glue Data Catalog database, table, and partition. Since there are two options for sharing resources across AWS accounts, this template creates two separate sets of database and table.
 
-The AWS CloudFormation template for the consumer account generates the following
+The CloudFormation template for the consumer account generates the following
 resources:
 
 - IAM users and policies:
@@ -146,7 +146,7 @@ The stack creation can take up to one minutes.
 
 ###### Note
 
-After completing the tutorial, delete the stack in AWS CloudFormation to avoid incurring charges. Verify that the resources are successfully deleted in the event status for the stack.
+After completing the tutorial, delete the stack in CloudFormation to avoid incurring charges. Verify that the resources are successfully deleted in the event status for the stack.
 
 ## Step 2: Lake Formation cross-account sharing prerequisites
 
@@ -261,7 +261,7 @@ following steps.
 
 1. Sign into the producer account as the data lake administrator at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/"). Use the
    producer account number, IAM user name (the default is
-   `DatalakeAdminProducer`), and password that you specified during AWS CloudFormation
+   `DatalakeAdminProducer`), and password that you specified during CloudFormation
    stack creation.
 2. On the Lake Formation console ([https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/")), in the navigation pane, under
    **Permissions**, choose **LF-Tags and
@@ -372,10 +372,10 @@ A resource link is a Data Catalog object that is a link to a local or shared dat
   To create a resource link, complete the following steps:
 
 1. If you are signed into your consumer account, sign out.
-2. Sign in as the consumer account data lake administrator. Use the consumer account ID, IAM user name (default DatalakeAdminConsumer) and password that you specified during AWS CloudFormation stack creation.
+2. Sign in as the consumer account data lake administrator. Use the consumer account ID, IAM user name (default DatalakeAdminConsumer) and password that you specified during CloudFormation stack creation.
 3. On the Lake Formation console ([https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/")), in the navigation pane, under **Data Catalog, Databases**, choose the shared database `lakeformation_tutorial_cross_account_database_tbac`.
 
-If you don’t see the database, revisit the previous steps to see if everything is properly configured. 4. Choose **View Tables**. 5. Choose the shared table `amazon_reviews_table_tbac`. 6. On the **Actions** menu, choose **Create resource link**. 7. For **Resource link name**, enter a name (for this tutorial, `amazon_reviews_table_tbac_resource_link`). 8. Under **Database**, select the database that the resource link is created in (for this post, the AWS CloudFormationn stack created the database `lakeformation_tutorial_cross_account_database_consumer`). 9. Choose **Create**.
+If you don’t see the database, revisit the previous steps to see if everything is properly configured. 4. Choose **View Tables**. 5. Choose the shared table `amazon_reviews_table_tbac`. 6. On the **Actions** menu, choose **Create resource link**. 7. For **Resource link name**, enter a name (for this tutorial, `amazon_reviews_table_tbac_resource_link`). 8. Under **Database**, select the database that the resource link is created in (for this post, the CloudFormationn stack created the database `lakeformation_tutorial_cross_account_database_consumer`). 9. Choose **Create**.
 
 The resource link appears under **Data catalog**, **Tables**.
 
@@ -433,7 +433,7 @@ To use the named resource method, we walk you through the following high-level s
 If you’re signed in to producer account as another user, sign out first.
 
 Sign into the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") using the producer account data lake administrator using the AWS account ID, IAM user name
-(default is `DatalakeAdminProducer`), and password specified during AWS CloudFormation stack creation. 2. On the **Permissions** page, under **Data lake Permissions** choose **Grant**. 3. Under **Principals**, choose **External accounts**, and enter one or more AWS account IDs or AWS organizations IDs.
+(default is `DatalakeAdminProducer`), and password specified during CloudFormation stack creation. 2. On the **Permissions** page, under **Data lake Permissions** choose **Grant**. 3. Under **Principals**, choose **External accounts**, and enter one or more AWS account IDs or AWS organizations IDs.
 For more information see: [AWS Organizations](https://aws.amazon.com/organizations/ "https://aws.amazon.com/organizations/").
 
 Organizations that the producer account belongs to and AWS accounts within the same organization appear automatically. Otherwise, manually enter the account ID or organization ID. 4. For **LF-Tags or catalog resources**, choose `Named data catalog
@@ -448,7 +448,7 @@ At this point, you should see the target table being shared via AWS RAM with the
 
 This step is required only for AWS account-based sharing, not for organization-based sharing.
 
-1. Sign into the AWS console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/") using the consumer account data lake administrator using the IAM user name (default is DatalakeAdminConsumer) and password specified during AWS CloudFormation stack creation.
+1. Sign into the AWS console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/") using the consumer account data lake administrator using the IAM user name (default is DatalakeAdminConsumer) and password specified during CloudFormation stack creation.
 2. On the AWS RAM console, in the navigation pane, under **Shared with me, Resource shares**, choose the shared Lake Formation resource. The **Status** should be **Pending**.
 3. Choose **Action** and **Grant**.
 4. Confirm the resource details, and choose **Accept resource share**.
@@ -506,10 +506,10 @@ To prevent unwanted charges to your AWS account, you can delete the AWS resource
 1. Sign into Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") using the producer account and delete or change the following:
    - AWS Resource Access Manager resource share
    - Lake Formation tags
-   - AWS CloudFormation stack
+   - CloudFormation stack
    - Lake Formation settings
    - AWS Glue Data Catalog
 
 2. Sign into Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") using the consumer account and delete or change the following:
    - Lake Formation tags
-   - AWS CloudFormation stack
+   - CloudFormation stack

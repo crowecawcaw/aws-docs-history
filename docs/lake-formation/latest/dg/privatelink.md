@@ -12,7 +12,7 @@ the resources in your VPC without going through the public internet.
 
 You can establish a private connection between your VPC and AWS Lake Formation by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you to
-privately access Lake Formation APIs without an internet gateway, NAT device, VPN connection, or AWS Direct Connect
+privately access Lake Formation APIs without an internet gateway, NAT device, VPN connection, or Direct Connect
 connection. Instances in your VPC don't need public IP addresses to communicate with Lake Formation APIs.
 Traffic between your VPC and Lake Formation does not leave the Amazon network.
 

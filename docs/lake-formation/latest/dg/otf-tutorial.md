@@ -74,9 +74,9 @@ You need to set up the following AWS resources to complete this tutorial:
 
 ## Step 1: Provision your resources
 
-This section shows you how to set up the AWS resources using an AWS CloudFormation template.
+This section shows you how to set up the AWS resources using an CloudFormation template.
 
-###### To create your resources using AWS CloudFormation template
+###### To create your resources using CloudFormation template
 
 1. Sign into the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/") as an IAM administrator in the
    US East (N. Virginia) Region.
@@ -191,10 +191,10 @@ result location](../../../athena/latest/ug/querying.md#query-results-specify-loc
 
 1. Sign out as the data lake administrator user and sign in as
    `lf-consumer-analystuser` in US East (N. Virginia) Region using the password
-   noted earlier from the AWS CloudFormation output.
+   noted earlier from the CloudFormation output.
 2. Open the Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
 3. Choose **Settings** and select **Manage**.
-4. In the **Location of query result** box, enter the path to the bucket that you created in AWS CloudFormation outputs. Copy the value of `AthenaQueryResultLocation` (s3://lf-otf-tutorial-123456789012/athena-results/) and choose **Save**.
+4. In the **Location of query result** box, enter the path to the bucket that you created in CloudFormation outputs. Copy the value of `AthenaQueryResultLocation` (s3://lf-otf-tutorial-123456789012/athena-results/) and choose **Save**.
 5. Run the following query to preview 10 records stored in the Iceberg table:
 
 ```
@@ -261,10 +261,10 @@ result location](../../../athena/latest/ug/querying.md#query-results-specify-loc
 
 1. Sign out as the data lake administrator user and sign in as
    `lf-consumer-analystuser` in US East (N. Virginia) Region using the password
-   noted earlier from the AWS CloudFormation output.
+   noted earlier from the CloudFormation output.
 2. Open the Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
 3. Choose **Settings** and select **Manage**.
-4. In the **Location of query result** box, enter the path to the bucket that you created in AWS CloudFormation outputs. Copy the value of `AthenaQueryResultLocation` (s3://lf-otf-tutorial-123456789012/athena-results/) and **Save**.
+4. In the **Location of query result** box, enter the path to the bucket that you created in CloudFormation outputs. Copy the value of `AthenaQueryResultLocation` (s3://lf-otf-tutorial-123456789012/athena-results/) and **Save**.
 5. Run the following query to preview 10 records stored in the Hudi table:
 
 ```
@@ -328,10 +328,10 @@ time running queries in Athena, you need to configure a query result location. F
 information, see [Specifying a query
 result location](../../../athena/latest/ug/querying.md#query-results-specify-location "../../../athena/latest/ug/querying.md#query-results-specify-location").
 
-1. Log out as the data lake administrator user and login as `BusinessAnalystUser` in US East (N. Virginia) Region using the password noted earlier from the AWS CloudFormation output.
+1. Log out as the data lake administrator user and login as `BusinessAnalystUser` in US East (N. Virginia) Region using the password noted earlier from the CloudFormation output.
 2. Open the Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
 3. Choose **Settings** and select **Manage**.
-4. In the **Location of query result** box, enter the path to the bucket that you created in AWS CloudFormation outputs. Copy the value of `AthenaQueryResultLocation` (s3://lf-otf-tutorial-123456789012/athena-results/) and **Save**.
+4. In the **Location of query result** box, enter the path to the bucket that you created in CloudFormation outputs. Copy the value of `AthenaQueryResultLocation` (s3://lf-otf-tutorial-123456789012/athena-results/) and **Save**.
 5. Run the following query to preview 10 records stored in the Delta Lake table:
 
 ```
@@ -347,6 +347,6 @@ For more information on querying Delta Lake tables, see the [Querying Delta Lake
 To prevent unwanted charges to your AWS account, delete the AWS resources that
 you used for this tutorial.
 
-1. Sign in to the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/") as the IAM administrator.
+1. Sign in to the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/") as the IAM administrator.
 2. [Delete the cloud formation stack](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md"). The tables you created are automatically
    deleted with the stack.

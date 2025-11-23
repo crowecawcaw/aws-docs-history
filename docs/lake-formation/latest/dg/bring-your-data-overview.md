@@ -20,6 +20,9 @@ consistent access controls across analytics and machine learning services includ
 The Data Catalog provides the following methods to manage data and permissions on external
 datasets and external metastores:
 
+- **Integrate Amazon S3 Table buckets with Data Catalog**
+  – You can publish and catalog Amazon S3 Tables as Data Catalog objects and register the catalog
+  as a Lake Formation data location from Lake Formation console or using AWS Glue API operations.
 - **Bring data in Amazon Redshift data warehouses into the AWS Glue Data Catalog**
   – Register an existing [Amazon Redshift](../../../redshift/index.md "../../../redshift/index.md") namespace or a cluster with the Data Catalog, and create a multi-level federated
   catalog in the Data Catalog.
@@ -27,13 +30,12 @@ datasets and external metastores:
 You can access your data using any query engine compatible with Apache Iceberg REST
 catalog OpenAPI specification, such as Amazon EMR Serverless, and Amazon Athena.
 
+- **Federate remote Iceberg REST catalogs to Data Catalog**
+  – Federate remote Iceberg REST catalogs to Data Catalog and securely access remote Iceberg tables stored in Amazon S3 using AWS analytics engines.
 - **Federate into the Data Catalog from external data sources**
   – Connect the Data Catalog to external data sources using AWS Glue connections, and create
   federated catalogs to centrally manage access permissions on datasets using Lake Formation. No
   migration of metadata into the Data Catalog is necessary.
-- **Integrate Amazon S3 Table buckets with Data Catalog (Preview)**
-  – You can publish and catalog Amazon S3 Tables as Data Catalog objects and register the catalog
-  as a Lake Formation data location from Lake Formation console or using AWS Glue API operations.
 - **Create catalogs to manage Amazon Redshift tables in the Data Catalog**
   – You might not have an Amazon Redshift producer cluster or an Amazon Redshift datashare available today,
   but want to create and manage Amazon Redshift tables using Data Catalog. You can get started by creating an
@@ -56,6 +58,7 @@ You can query your data using Amazon Redshift Spectrum.
 
 ###### Topics
 
+- [Catalog federation to remote Iceberg catalogs](catalog-federation.md "catalog-federation.md")
 - [Bringing Amazon Redshift data into the
   AWS Glue Data Catalog](managing-namespaces-datacatalog.md "managing-namespaces-datacatalog.md")
 - [Federating into external data sources in the

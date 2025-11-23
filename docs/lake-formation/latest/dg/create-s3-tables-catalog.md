@@ -23,7 +23,7 @@ analytics services](../../../AmazonS3/latest/userguide/s3-tables-integrating-aws
 
 ###### Topics
 
-- [How Data Catalog and Lake Formation integration works](#w76aac13c25c15 "#w76aac13c25c15")
+- [How Data Catalog and Lake Formation integration works](#w2aac13c27c15 "#w2aac13c27c15")
 - [Prerequisites for integrating Amazon S3 tables catalog with the Data Catalog and Lake Formation](s3tables-catalog-prerequisites.md "s3tables-catalog-prerequisites.md")
 - [Enabling Amazon S3 Tables integration](enable-s3-tables-catalog-integration.md "enable-s3-tables-catalog-integration.md")
 - [Creating databases and tables in the S3 tables catalog](create-databases-tables-s3-catalog.md "create-databases-tables-s3-catalog.md")

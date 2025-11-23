@@ -90,7 +90,7 @@ The stack creation can take up to five minutes.
 
 ###### Note
 
-After you complete the tutorial, you might want to delete the stack in AWS CloudFormation to avoid continuing to incur charges.
+After you complete the tutorial, you might want to delete the stack in CloudFormation to avoid continuing to incur charges.
 Verify that the resources are successfully deleted in the event status for the stack.
 
 ## Step 2: Register your data location, create an LF-Tag ontology, and grant permissions
@@ -103,7 +103,7 @@ the ability to attach newly created LF-Tags to resources.
 
 1. Perform the first step as the data steward user (`lf-data-steward`) to verify the data in Amazon S3 and the Data Catalog in Lake Formation.
    1. Sign in to the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") as `lf-data-steward` with the
-      password used while deploying the AWS CloudFormation stack.
+      password used while deploying the CloudFormation stack.
    2. In the navigation pane, under **Permissions**¸ choose **Administrative roles and tasks**.
    3. Choose **Add** in the **Data lake administrators** section.
    4. On the **Add administrator** page, for **IAM users and roles**, choose the user `lf-data-steward`.
@@ -155,7 +155,7 @@ the ability to attach newly created LF-Tags to resources.
    2. Choose **Grant**.
    3. Select **My account**.
    4. For **IAM users and roles**, choose the `lf-data-engineer` role.
-   5. For **Storage locations**, enter the Amazon S3 bucket created by the AWS CloudFormation template `(s3://lf-tagbased-demo-`Account-ID`)`.
+   5. For **Storage locations**, enter the Amazon S3 bucket created by the CloudFormation template `(s3://lf-tagbased-demo-`Account-ID`)`.
    6. Choose **Grant**.
 
 4. Next, grant `lf-data-engineer` grantable permissions on resources associated with the **LF-Tag** expression `Confidential=True`.
@@ -208,7 +208,7 @@ columns for testing purposes.
    1. On the Lake Formation console ([https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/")), under **Data Catalog**, choose **Databases**.
    2. Choose **Create database**.
    3. For **Name**, enter `tag_database`.
-   4. For **Location**, enter the Amazon S3 location created by the AWS CloudFormation template `(s3://lf-tagbased-demo-`Account-ID`/tag_database/)`.
+   4. For **Location**, enter the Amazon S3 location created by the CloudFormation template `(s3://lf-tagbased-demo-`Account-ID`/tag_database/)`.
    5. Deselect **Use only IAM access control for new tables in this database**.
    6. Choose **Create database**.
 
@@ -219,7 +219,7 @@ columns for testing purposes.
    4. For **Database**, choose the database `tag_database`.
    5. For **Table format**, choose **Standard AWS Glue table**.
    6. For **Data is located in**, select **Specified path in my account**.
-   7. For Include path, enter the path to `tag_database` created by the AWS CloudFormation template `(s3://lf-tagbased-demo`Account-ID`/tag_database/)`.
+   7. For Include path, enter the path to `tag_database` created by the CloudFormation template `(s3://lf-tagbased-demo`Account-ID`/tag_database/)`.
    8. For **Data format**, select **CSV**.
    9. Under **Upload schema**, enter the following JSON array of column structure to create a schema:
 
@@ -334,7 +334,7 @@ Repeat the following steps to create the database `col_tag_database` and table `
 
 1. On the **Databases** page, choose **Create database**.
 2. For **Name**, enter `col_tag_database`.
-3. For **Location**, enter the Amazon S3 location created by the AWS CloudFormation template `(s3://lf-tagbased-demo-`Account-ID`/col_tag_database/)`.
+3. For **Location**, enter the Amazon S3 location created by the CloudFormation template `(s3://lf-tagbased-demo-`Account-ID`/col_tag_database/)`.
 4. Deselect **Use only IAM access control for new tables in this database**.
 5. Choose **Create database**.
 6. On the **Databases** page, select your new database `(col_tag_database)`.
@@ -559,9 +559,9 @@ To prevent unwanted charges to your AWS account, you can delete the AWS resource
 1. Sign into Lake Formation console as `lf-data-engineer` and delete the databases `tag_database` and `col_tag_database`.
 2. Next, sign in as `lf-data-steward` and clean up all the **LF-tag Permissions**,
    **Data Permissions** and **Data Location Permissions** that were granted above that were granted `lf-data-engineer` and `lf-data-analyst.`.
-3. Sign into the Amazon S3 console as the account owner using the IAM credentials you used to deploy the AWS CloudFormation stack.
+3. Sign into the Amazon S3 console as the account owner using the IAM credentials you used to deploy the CloudFormation stack.
 4. Delete the following buckets:
    - lf-tagbased-demo-accesslogs-`acct-id`
    - lf-tagbased-demo-`acct-id`
 
-5. Sign into AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"), and delete the stack you created. Wait for the stack status to change to `DELETE_COMPLETE`.
+5. Sign into CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"), and delete the stack you created. Wait for the stack status to change to `DELETE_COMPLETE`.

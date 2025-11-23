@@ -42,7 +42,7 @@ The tutorial assumes that you are familiar with IAM. For information about IAM, 
 
 ###### Important
 
-Before launching the AWS CloudFormation template, disable the option **Use only IAM access control for new databases/tables** in Lake Formation by following the steps below:
+Before launching the CloudFormation template, disable the option **Use only IAM access control for new databases/tables** in Lake Formation by following the steps below:
 
 1. Sign into the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") in the US East (N. Virginia) region or US West (Oregon) region.
 2. Under Data Catalog, choose **Settings**.
@@ -51,8 +51,8 @@ Before launching the AWS CloudFormation template, disable the option **Use only 
 
 ## Step 1: Provision your resources
 
-This tutorial includes an AWS CloudFormation template for a quick setup. You can review and customize it to suit your needs.
-The AWS CloudFormation template generates the following resources:
+This tutorial includes an CloudFormation template for a quick setup. You can review and customize it to suit your needs.
+The CloudFormation template generates the following resources:
 
 - Users and policies for:
   - DataLakeAdmin
@@ -60,15 +60,15 @@ The AWS CloudFormation template generates the following resources:
   - DataAnalystJP
 
 - Lake Formation data lake settings and permissions
-- A Lambda function (for Lambda-backed AWS CloudFormation custom resources) used to copy sample data files from the public Amazon S3 bucket to your Amazon S3 bucket
+- A Lambda function (for Lambda-backed CloudFormation custom resources) used to copy sample data files from the public Amazon S3 bucket to your Amazon S3 bucket
 - An Amazon S3 bucket to serve as our data lake
 - An AWS Glue Data Catalog database, table, and partition
 
 ###### Create your resources
 
-Follow these steps to create your resources using the AWS CloudFormation template.
+Follow these steps to create your resources using the CloudFormation template.
 
-1. Sign into the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/") in the US East (N. Virginia) region.
+1. Sign into the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/") in the US East (N. Virginia) region.
 2. Choose [Launch Stack](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create?templateURL=https://aws-bigdata-blog.s3.amazonaws.com/artifacts/lakeformation_row_security/lakeformation_tutorial_row_security.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create?templateURL=https://aws-bigdata-blog.s3.amazonaws.com/artifacts/lakeformation_row_security/lakeformation_tutorial_row_security.yaml").
 3. Choose **Next** on the **Create stack** screen.
 4. Enter a **Stack name.**
@@ -79,7 +79,7 @@ Follow these steps to create your resources using the AWS CloudFormation templat
 9. For **DatabaseName**, and **TableName** leave as the default.
 10. Choose **Next**
 11. On the next page, choose **Next**.
-12. Review the details on the final page and select **I acknowledge that AWS CloudFormation might create IAM resources.**
+12. Review the details on the final page and select **I acknowledge that CloudFormation might create IAM resources.**
 13. Choose **Create**.
 
 The stack creation can take one minute to complete.

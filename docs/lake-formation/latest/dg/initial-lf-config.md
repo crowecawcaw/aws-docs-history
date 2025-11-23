@@ -20,11 +20,11 @@ You can use the instructions to set up the Lake Formation permissions model to m
 - Using the Lake Formation console
   To set up Lake Formation using AWS console, go to [Create a data lake administrator](#create-data-lake-admin "#create-data-lake-admin").
 
-## Set up Lake Formation resources using AWS CloudFormation template
+## Set up Lake Formation resources using CloudFormation template
 
 ###### Note
 
-The AWS CloudFormation stack performs steps 1 to 6 of the above, except step 2 and 5. Perform
+The CloudFormation stack performs steps 1 to 6 of the above, except step 2 and 5. Perform
 [Change the default permission model or use
 hybrid access mode](#setup-change-cat-settings "#setup-change-cat-settings") and [Integrating IAM Identity Center](identity-center-integration.md "identity-center-integration.md") manually from the Lake Formation
 console.
@@ -40,7 +40,7 @@ console.
    enter your user name and password for data lake analyst user.
 7. For **DataLakeBucketName**, enter your new bucket name that will be created.
 8. Choose **Next**.
-9. On the next page, choose `I acknowledge that AWS CloudFormation might create IAM resources with custom names` and choose **Next**.
+9. On the next page, choose `I acknowledge that CloudFormation might create IAM resources with custom names` and choose **Next**.
 10. Review the details on the final page and select **I acknowledge that AWS CloudFormation might create IAM resources.**
 11. Choose **Create.**
 
@@ -48,10 +48,10 @@ The stack creation can take up to two minutes.
 
 ###### Clean up resources
 
-If you like to clean up the AWS CloudFormation stack resources:
+If you like to clean up the CloudFormation stack resources:
 
 1. De-register the Amazon S3 bucket that your stack created and registered as a data lake location.
-2. Delete the AWS CloudFormation Stack. This will delete all the resources created by the stack.
+2. Delete the CloudFormation Stack. This will delete all the resources created by the stack.
 
 ## Create a data lake administrator
 
