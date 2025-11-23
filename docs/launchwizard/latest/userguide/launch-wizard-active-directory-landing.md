@@ -125,7 +125,7 @@ components:
 - **Elastic IP addresses** associated with the NAT
   gateway and RDGW instances. For more information about Elastic IP addresses, see
   [Elastic IP Addresses](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md "../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md").
-- **AWS CloudFormation** templates and **PowerShell** configuration scripts to perform the domain
+- **CloudFormation** templates and **PowerShell** configuration scripts to perform the domain
   controller configuration steps.
 - **Security groups** to ensure the secure flow of
   traffic between the instances deployed in the VPC. For more information, see
@@ -133,7 +133,7 @@ components:
 - **AWS Secrets Manager** to protect secrets required to
   generate and store your Active Directory Administrator credentials.
 - **Amazon CloudWatch Logs** to monitor, store, and access your
-  log files produced by AWS CloudFormation.
+  log files produced by CloudFormation.
 - Amazon Kinesis Agent for Microsoft Windows to gather, parse, transform, and stream
   logs, events, and metrics to Amazon CloudWatch Logs. For more information, see [What Is Amazon Kinesis Agent for Microsoft Windows?](../../../kinesis-agent-windows/latest/userguide/what-is-kinesis-agent-windows.md "../../../kinesis-agent-windows/latest/userguide/what-is-kinesis-agent-windows.md")
 
@@ -170,21 +170,21 @@ quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/lates
 
 controllers with AWS Launch Wizard:
 
-- [AWS CloudFormation](#launch-wizard-ad-related-services-cloudformation "#launch-wizard-ad-related-services-cloudformation")
+- [CloudFormation](#launch-wizard-ad-related-services-cloudformation "#launch-wizard-ad-related-services-cloudformation")
 - [Amazon Simple Notification
   Service (SNS)](#launch-wizard-ad-related-services-sns "#launch-wizard-ad-related-services-sns")
 - [Amazon CloudWatch Logs](#launch-wizard-ad-related-services-cloudwatch-logs "#launch-wizard-ad-related-services-cloudwatch-logs")
 - [AWS Secrets Manager](#launch-wizard-ad-related-services-secrets-manager "#launch-wizard-ad-related-services-secrets-manager")
 
-### AWS CloudFormation
+### CloudFormation
 
-[AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") is a service for modeling and setting up your AWS resources, enabling you
+[CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") is a service for modeling and setting up your AWS resources, enabling you
 to spend more time focusing on your applications that run in AWS . You create a
 template that describes all of the AWS resources that you want to use (for
-example, EC2 instances), and AWS CloudFormation provisions and configures those resources for
+example, EC2 instances), and CloudFormation provisions and configures those resources for
 you. With Launch Wizard, you don’t have to sift through CloudFormation templates to deploy
 your application. Instead, Launch Wizard combines infrastructure provisioning and
-configuration (with an AWS CloudFormation template and PowerShell scripts) to provision a new
+configuration (with an CloudFormation template and PowerShell scripts) to provision a new
 Active Directory infrastructure or additional domain controllers in your account.
 For more information, see the _[AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md")_.
 

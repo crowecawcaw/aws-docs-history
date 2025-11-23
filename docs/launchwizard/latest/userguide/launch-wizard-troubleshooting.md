@@ -16,7 +16,7 @@ deployments on Linux do not support block devices on Xen-virtualized instances.
   clean up (deployment on Windows)](#launch-wizard-ad-dns-clean "#launch-wizard-ad-dns-clean")
 - [Launch Wizard provisioning events](#launch-wizard-provisioning "#launch-wizard-provisioning")
 - [CloudWatch Logs](#launch-wizard-logs "#launch-wizard-logs")
-- [AWS CloudFormation stack](#launch-wizard-cloudformation "#launch-wizard-cloudformation")
+- [CloudFormation stack](#launch-wizard-cloudformation "#launch-wizard-cloudformation")
 - [Pacemaker on Ubuntu (deployment on
   Linux)](#launch-wizard-pacemaker "#launch-wizard-pacemaker")
 - [SQL Server Management Studio](#launch-wizard-troubleshooting-ssms "#launch-wizard-troubleshooting-ssms")
@@ -83,7 +83,7 @@ removal.
 
 ## Launch Wizard provisioning events
 
-Launch Wizard captures events from SSM Automation and AWS CloudFormation to track the status of an
+Launch Wizard captures events from SSM Automation and CloudFormation to track the status of an
 ongoing application deployment. If an application deployment fails, you can view the
 deployment events for this application by selecting **Deployments**
 from the navigation pane. A failed event shows a status of **Failed**
@@ -92,14 +92,14 @@ along with a failure message.
 ## CloudWatch Logs
 
 Launch Wizard streams provisioning logs from all of the AWS log sources, such as
-AWS CloudFormation, SSM, and CloudWatch Logs. CloudWatch Logs for a given application name can be viewed on the CloudWatch
+CloudFormation, SSM, and CloudWatch Logs. CloudWatch Logs for a given application name can be viewed on the CloudWatch
 console for the log group name
 `LaunchWizard-`APPLICATION_NAME``and log
  stream`ApplicationLaunchLog`.
 
-## AWS CloudFormation stack
+## CloudFormation stack
 
-Launch Wizard uses AWS CloudFormation to provision the infrastructure resources of an application.
+Launch Wizard uses CloudFormation to provision the infrastructure resources of an application.
 CloudFormation stacks can be found in your account using the CloudFormation
 `describe-stacks` API. Launch Wizard launches various stacks in your
 account for validation and application resource creation. The following are the relevant

@@ -19,7 +19,7 @@ the products in a portfolio, grant users access to products, and apply
 3. Choose the portfolio named **AWS Launch Wizard Products**, which is
    the default portfolio created by Launch Wizard.
 4. Choose **AWS Launch Wizard products**.
-5. The product created by Launch Wizard using AWS CloudFormation templates and user inputs is named
+5. The product created by Launch Wizard using CloudFormation templates and user inputs is named
    **[LW Deployment Name]-[Deployment Type]**. You can create
    a new version by choosing **Create new version**.
 6. You can associate tags or apply product-specific tags as needed.
@@ -34,8 +34,8 @@ the products in a portfolio, grant users access to products, and apply
    access to it. To grant access to the product, see [Granting Access to Users](../../../servicecatalog/latest/adminguide/catalogs_portfolios_users.md "../../../servicecatalog/latest/adminguide/catalogs_portfolios_users.md").
 4. Choose **Launch product**.
 5. You will be directed to the AWS Service Catalog
-   **Launching** page, which resembles AWS CloudFormation. Most of the
+   **Launching** page, which resembles CloudFormation. Most of the
    parameters are specified using your defaults. Enter or replace the default
    values as you require, including passwords and SAPSIDs.
 6. After you verify the parameters, choose **Launch product** to
-   start the creation of the AWS CloudFormation stack.
+   start the creation of the CloudFormation stack.

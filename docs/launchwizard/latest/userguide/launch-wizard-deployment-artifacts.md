@@ -18,7 +18,7 @@ and AWS CloudFormation templates.
   AWS Service Catalog products with Jira](launch-wizard-sap-service-catalog-jira.md "launch-wizard-sap-service-catalog-jira.md")
 - [Launch
   AWS Service Catalog products with Terraform](launch-wizard-sap-service-catalog-terraform.md "launch-wizard-sap-service-catalog-terraform.md")
-- [Launch AWS CloudFormation
+- [Launch CloudFormation
   templates created in Launch Wizard](launch-wizard-sap-launch-artifacts-cloudformation.md "launch-wizard-sap-launch-artifacts-cloudformation.md")
 
 ## How AWS Launch Wizard
@@ -26,15 +26,15 @@ and AWS CloudFormation templates.
 integration with AWS Service Catalog works
 
 AWS Launch Wizard creates AWS Service Catalog products from successful deployments.
-The AWS Service Catalog products contain AWS CloudFormation templates and associated
+The AWS Service Catalog products contain CloudFormation templates and associated
 application configuration scripts, which are stored in Amazon S3. You can use the
 AWS Service Catalog products, along with integrations offered by AWS Service Catalog,
 with third-party products, such as ServiceNow, Jira, or Terraform. Or, you can use the
-AWS CloudFormation templates and application configuration scripts saved in Amazon S3 to deploy SAP
+CloudFormation templates and application configuration scripts saved in Amazon S3 to deploy SAP
 applications that meet the requirements of organizational deployment and governance
 policies.
 
-In addition to supporting deployments using AWS CloudFormation templates,
+In addition to supporting deployments using CloudFormation templates,
 AWS Service Catalog, and multiple deployment tools supported by
 AWS Service Catalog, AWS Launch Wizard creates a point-in-time snapshot of the code
 used to deploy and configure SAP applications at the time of the deployment. You can use
@@ -45,6 +45,6 @@ AWS Launch Wizard creates a default Launch Wizard portfolio and products within 
 AWS Service Catalog product is created for each deployment and given a name
 that corresponds to the Launch Wizard deployment name.
 
-![Deploying SAP applications with Launch Wizard, AWS CloudFormation, AWS Service Catalog, and third-party applications](images/lw-sc-architecture.png)
-Deploying SAP applications with Launch Wizard, AWS CloudFormation, AWS Service Catalog, and
+![Deploying SAP applications with Launch Wizard, CloudFormation, AWS Service Catalog, and third-party applications](images/lw-sc-architecture.png)
+Deploying SAP applications with Launch Wizard, CloudFormation, AWS Service Catalog, and
 third-party applications

@@ -57,13 +57,13 @@ deployment name and infrastructure settings.
      check box.
    - **Create an
      AWS Service Catalog product**. Select
-     the check box to package and export AWS CloudFormation templates and
+     the check box to package and export CloudFormation templates and
      associated application configuration scripts to Amazon S3 and
      create an AWS Service Catalog product. You use
      these scripts to deploy and configure AWS infrastructure
      resources for SAP applications. If you select this option,
      the templates and scripts are saved to the specified Amazon S3
-     path. You can use the saved AWS CloudFormation templates and
+     path. You can use the saved CloudFormation templates and
      AWS Service Catalog products for repeated
      deployments of the SAP applications using CloudFormation,
      AWS Service Catalog, and third-party applications
@@ -154,7 +154,7 @@ following information.
      which you want to deploy your SAP systems and
      choose the private subnets. The private subnets
      must have outbound connectivity to the internet
-     and to other AWS services, such as Amazon S3, AWS CloudFormation,
+     and to other AWS services, such as Amazon S3, CloudFormation,
      and CloudWatch Logs. They must also be able to access the
      Linux repositories required for instance
      configuration.

@@ -19,7 +19,7 @@ these steps.
    4. **View your CloudFormation template**. This
       is the CloudFormation template created by your most recent deployment, and
       it can be accessed through the CloudFormation console. For help with finding
-      and using your CloudFormation template, see [Viewing AWS CloudFormation Stack Data and Resources on the AWS Management
+      and using your CloudFormation template, see [Viewing CloudFormation Stack Data and Resources on the AWS Management
       Console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md").
 
 3. To delete a deployment, select the application that you want to delete and select

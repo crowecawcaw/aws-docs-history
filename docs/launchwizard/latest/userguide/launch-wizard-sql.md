@@ -237,7 +237,7 @@ ONTAP.
 
 application with AWS Launch Wizard:
 
-- [AWS CloudFormation](#launch-wizard-related-services-cloudformation "#launch-wizard-related-services-cloudformation")
+- [CloudFormation](#launch-wizard-related-services-cloudformation "#launch-wizard-related-services-cloudformation")
 - [Amazon Simple Notification
   Service (SNS)](#launch-wizard-related-services-sns "#launch-wizard-related-services-sns")
 - [Amazon CloudWatch
@@ -245,12 +245,12 @@ application with AWS Launch Wizard:
 - [Linux-only
   technologies](#launch-wizard-related-services-linux "#launch-wizard-related-services-linux")
 
-### AWS CloudFormation
+### CloudFormation
 
-[AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") is a service for modeling and setting up your AWS resources,
+[CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") is a service for modeling and setting up your AWS resources,
 enabling you to spend more time focusing on your applications that run in AWS. You
 create a template that describes all of the AWS resources that you want to use
-(for example, Amazon EC2 instances or Amazon RDS DB instances), and AWS CloudFormation takes care of
+(for example, Amazon EC2 instances or Amazon RDS DB instances), and CloudFormation takes care of
 provisioning and configuring those resources for you. With Launch Wizard, you don’t have to
 sift through CloudFormation templates to deploy your application. Instead, Launch Wizard
 combines infrastructure provisioning and configuration (with a CloudFormation

@@ -87,7 +87,7 @@ following AWS best practices:
   to provide high availability.
 - Domain controllers and other non-internet facing servers must be placed in
   private subnets.
-- Launched instances require internet access to connect to the AWS CloudFormation
+- Launched instances require internet access to connect to the CloudFormation
   endpoint during the bootstrapping process. To support this configuration,
   public subnets are used to host NAT gateways for outbound internet access.
   Remote Desktop Gateways are also deployed into the public subnets for remote
@@ -135,7 +135,7 @@ services. These rules include AD DS replication, user authentication, Windows Ti
 services, and Distributed File System (DFS). You should also consider restricting
 these rules to specific IP subnets that are used within your VPC.
 
-For a detailed list of port mappings used by AWS CloudFormation, see the [Security best practices](launch-wizard-ad-best-practices.md#launch-wizard-ad-security "launch-wizard-ad-best-practices.md#launch-wizard-ad-security") in this guide.
+For a detailed list of port mappings used by CloudFormation, see the [Security best practices](launch-wizard-ad-best-practices.md#launch-wizard-ad-security "launch-wizard-ad-best-practices.md#launch-wizard-ad-security") in this guide.
 
 For a complete list of ports, see [Active
 Directory and Active Directory Domain Services Port Requirements](<http://technet.microsoft.com/library/dd772723(v=ws.10).aspx> "http://technet.microsoft.com/library/dd772723(v=ws.10).aspx") in the
@@ -212,7 +212,7 @@ DHCP server.
 
 The VPC also provides an internal DNS server. This DNS provides instances with
 basic name resolution services for internet access and is crucial for access to
-AWS service endpoints, such as AWS CloudFormation and Amazon S3 during bootstrapping.
+AWS service endpoints, such as CloudFormation and Amazon S3 during bootstrapping.
 
 Amazon-provided DNS server settings will be assigned to instances launched
 into the VPC based on a DHCP options set. DHCP options sets are used within an

@@ -1121,7 +1121,7 @@ General
      deployment fails, select the check box.
     * **AWS Service Catalog product
      creation**. Select the check box to
-     export the AWS CloudFormation template to create AWS Service Catalog for
+     export the CloudFormation template to create AWS Service Catalog for
      this deployment. When enabled, you must specify an
      S3 bucket location to store the CloudFormation
      templates and application configuration scripts for

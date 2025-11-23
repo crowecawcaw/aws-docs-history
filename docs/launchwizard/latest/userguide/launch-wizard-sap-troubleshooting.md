@@ -8,7 +8,7 @@ to view the details related to the application launch.
 
 - [Launch Wizard provisioning events](#launch-wizard-sap-provisioning "#launch-wizard-sap-provisioning")
 - [CloudWatch Logs](#launch-wizard-sap-logs "#launch-wizard-sap-logs")
-- [AWS CloudFormation stack](#launch-wizard-sap-cloudformation "#launch-wizard-sap-cloudformation")
+- [CloudFormation stack](#launch-wizard-sap-cloudformation "#launch-wizard-sap-cloudformation")
 - [Pre- and post-deployment
   configuration scripts](#launch-wizard-sap-troubleshooting-scripts "#launch-wizard-sap-troubleshooting-scripts")
 - [Application launch quotas](#launch-wizard-sap-quotas "#launch-wizard-sap-quotas")
@@ -21,7 +21,7 @@ to view the details related to the application launch.
 
 ## Launch Wizard provisioning events
 
-Launch Wizard captures events from SSM Automation and AWS CloudFormation to track the status of an ongoing
+Launch Wizard captures events from SSM Automation and CloudFormation to track the status of an ongoing
 application deployment. If an application deployment fails, you can view the deployment
 events for this application by selecting **Deployments** from the
 navigation pane. A failed event shows a status of **Failed** along with
@@ -29,7 +29,7 @@ a failure message.
 
 ## CloudWatch Logs
 
-Launch Wizard streams provisioning logs from all of the AWS log sources, such as AWS CloudFormation, SSM,
+Launch Wizard streams provisioning logs from all of the AWS log sources, such as CloudFormation, SSM,
 and CloudWatch Logs. You can access CloudWatch logs for your SAP deployment with the following
 steps.
 
@@ -44,9 +44,9 @@ steps.
 5. You can now view the detailed logs and log streams that provide additional
    information on the SAP application type that failed during deployment.
 
-## AWS CloudFormation stack
+## CloudFormation stack
 
-Launch Wizard uses AWS CloudFormation to provision the infrastructure resources of an application. Launch Wizard
+Launch Wizard uses CloudFormation to provision the infrastructure resources of an application. Launch Wizard
 launches various stacks in your account for validation and application resource
 creation. You can verify the stacks via AWS console or AWS CLI.
 
@@ -68,14 +68,14 @@ Console
    bar to view the cause of the failure.
 
 CLI
-AWS CloudFormation stacks can be found in your account using the AWS CloudFormation [describe-stacks](../../../AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.md") API. The following are the relevant filters for
+CloudFormation stacks can be found in your account using the CloudFormation [describe-stacks](../../../AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.md") API. The following are the relevant filters for
 the [describe-stacks](../../../AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.md") API.
 
 - **Application resources**
 
 `LaunchWizard-`APPLICATION_NAME``.
 
-You can view the status of these AWS CloudFormation stacks. If any of them fail, you
+You can view the status of these CloudFormation stacks. If any of them fail, you
 can view the cause of the failure.
 
 ## Pre- and post-deployment

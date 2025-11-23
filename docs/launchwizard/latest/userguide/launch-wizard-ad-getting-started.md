@@ -140,14 +140,14 @@ Active Directory.
 
 ### On-premises Active Directory through
 
-AWS Direct Connect
+Direct Connect
 
 If you are deploying domain controllers to extend an on-premises Active Directory
 into an existing VPC, ensure that the following prerequisites are in place.
 
 - Make sure that you have connectivity between your AWS account and your
   on-premises network. You can establish a dedicated network connection from
-  your on-premises network to your AWS account with AWS Direct Connect. For more
+  your on-premises network to your AWS account with Direct Connect. For more
   information, see [the
   AWS Direct Connect documentation](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md").
 - The domain functional level of your Active Directory domain controller
@@ -164,5 +164,5 @@ You can optionally perform the following step.
 
 - Establish DNS resolution across your environments. For options on how to
   set this up, see [How to Set Up DNS Resolution Between On-Premises Networks and AWS
-  using AWS Directory Service and Amazon Route 53](https://aws.amazon.com/blogs/security/how-to-set-up-dns-resolution-between-on-premises-networks-and-aws-using-aws-directory-service-and-amazon-route-53/ "https://aws.amazon.com/blogs/security/how-to-set-up-dns-resolution-between-on-premises-networks-and-aws-using-aws-directory-service-and-amazon-route-53/") or [How to Set Up DNS Resolution Between On-Premises Networks and AWS
-  Using AWS Directory Service and Microsoft Active Directory](https://aws.amazon.com/blogs/security/how-to-set-up-dns-resolution-between-on-premises-networks-and-aws-using-aws-directory-service-and-microsoft-active-directory/ "https://aws.amazon.com/blogs/security/how-to-set-up-dns-resolution-between-on-premises-networks-and-aws-using-aws-directory-service-and-microsoft-active-directory/").
+  using Directory Service and Amazon Route 53](https://aws.amazon.com/blogs/security/how-to-set-up-dns-resolution-between-on-premises-networks-and-aws-using-aws-directory-service-and-amazon-route-53/ "https://aws.amazon.com/blogs/security/how-to-set-up-dns-resolution-between-on-premises-networks-and-aws-using-aws-directory-service-and-amazon-route-53/") or [How to Set Up DNS Resolution Between On-Premises Networks and AWS
+  Using Directory Service and Microsoft Active Directory](https://aws.amazon.com/blogs/security/how-to-set-up-dns-resolution-between-on-premises-networks-and-aws-using-aws-directory-service-and-microsoft-active-directory/ "https://aws.amazon.com/blogs/security/how-to-set-up-dns-resolution-between-on-premises-networks-and-aws-using-aws-directory-service-and-microsoft-active-directory/").

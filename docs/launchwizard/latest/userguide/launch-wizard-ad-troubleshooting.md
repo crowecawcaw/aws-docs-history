@@ -15,13 +15,13 @@ Launch Wizard for Active Directory.
 - [Launch Wizard provisioning
   events](#launch-wizard-ad-provisioning "#launch-wizard-ad-provisioning")
 - [CloudWatch Logs](#launch-wizard-ad-logs "#launch-wizard-ad-logs")
-- [AWS CloudFormation stack](#launch-wizard-ad-cloudformation "#launch-wizard-ad-cloudformation")
+- [CloudFormation stack](#launch-wizard-ad-cloudformation "#launch-wizard-ad-cloudformation")
 
 ## Launch Wizard provisioning
 
 events
 
-Launch Wizard captures events from AWS CloudFormation to track the status of an ongoing application
+Launch Wizard captures events from CloudFormation to track the status of an ongoing application
 deployment. If an application deployment fails, you can view the deployment events for
 this application by selecting **Deployments** from the navigation pane.
 A failed event shows a status of **Failed** along with a failure
@@ -30,14 +30,14 @@ message.
 ## CloudWatch Logs
 
 Launch Wizard streams provisioning logs from all of the AWS log sources, such as
-AWS CloudFormation and PowerShell DSC scripts to CloudWatch Logs. You can view the CloudWatch Logs for a given
+CloudFormation and PowerShell DSC scripts to CloudWatch Logs. You can view the CloudWatch Logs for a given
 application name on the CloudWatch console for the log group name
 `LaunchWizard-`APPLICATION_NAME``and log
  stream`ApplicationLaunchLog`.
 
-## AWS CloudFormation stack
+## CloudFormation stack
 
-Launch Wizard uses AWS CloudFormation to provision the infrastructure resources of an application.
+Launch Wizard uses CloudFormation to provision the infrastructure resources of an application.
 CloudFormation stacks can be found in your account using the CloudFormation
 `describe-stacks` API. Launch Wizard launches various stacks in your account for
 validation and application resource creation. The following are the relevant filters for

@@ -102,7 +102,7 @@ level:
 An RD Gateway application deployed with Launch Wizard includes the following components:
 
 - A highly available architecture that spans two Availability Zones.
-- In each public subnet, up to four RD Gateway instances in an Auto Scaling group to provide secure
+- In each public subnet, up to four RD Gateway instances in an Amazon EC2 Auto Scaling group to provide secure
   remote access to instances in the private subnets. Each instance is assigned an Elastic IP
   address so it’s reachable directly from the internet.
 - A Network Load Balancer to provide RDP access to the RD Gateway instances.
@@ -114,7 +114,7 @@ An RD Gateway application deployed with Launch Wizard includes the following com
   you can create additional private subnets with unique CIDR ranges.
 - AWS Systems Manager Parameter Store to securely store credentials used for accessing the RD
   Gateway instances.
-- AWS Systems Manager to automate the deployment of the RD Gateway Auto Scaling group.
+- AWS Systems Manager to automate the deployment of the RD Gateway Amazon EC2 Auto Scaling group.
 - Self-signed SSL certificate and configuration of Remote Desktop Connection Authorization
   Policies (RD CAPs) and RD Gateway.
 - Resource Groups that contain all the resources created with Launch Wizard.

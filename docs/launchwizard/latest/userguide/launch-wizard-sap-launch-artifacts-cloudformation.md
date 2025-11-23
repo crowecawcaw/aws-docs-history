@@ -1,9 +1,9 @@
-# Launch AWS CloudFormation
+# Launch CloudFormation
 
 templates created in Launch Wizard
 
-You can launch AWS CloudFormation stacks from the AWS CloudFormation templates that you saved from your
-successful Launch Wizard deployments. Perform the following steps to find and launch your AWS CloudFormation
+You can launch CloudFormation stacks from the CloudFormation templates that you saved from your
+successful Launch Wizard deployments. Perform the following steps to find and launch your CloudFormation
 templates created with Launch Wizard.
 
 To create a launch constraint, complete the steps in the following procedure. Perform
@@ -556,7 +556,7 @@ JSON
 
 ```
 
-1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam").
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com//iam "https://console.aws.amazon.com//iam").
 2. Perform the following substeps for each of the three policies listed
    above.
    1. In the left navigation pane, choose **Policies** >
@@ -573,7 +573,7 @@ JSON
    6. Choose **Create policy**.
 
 3. Attach the three policies you just created to the IAM user you use to launch
-   AWS CloudFormation templates.
+   CloudFormation templates.
 
 ###### Find and launch your templates
 
@@ -583,14 +583,14 @@ JSON
    for your Launch Wizard deployment](launch-wizard-sap-deploying-console.md#launch-wizard-sap-infrastructure "launch-wizard-sap-deploying-console.md#launch-wizard-sap-infrastructure").
 3. Under the folder that you specified, locate and choose a new folder named
    ``<LaunchWizardDeploymentName>`-`<TimeStamp>``.
-   This is the folder to which the Launch Wizard service copies the AWS CloudFormation templates and
+   This is the folder to which the Launch Wizard service copies the CloudFormation templates and
    deployment artifacts.
 4. After you choose the new folder, you will see an `sap/` folder and
    a JSON file named
    ``<LaunchWizardDeploymentName>`-`<DeploymentType>`-template.json`.
-   This is the root AWS CloudFormation template file. Select the check box next to this file and
+   This is the root CloudFormation template file. Select the check box next to this file and
    choose **Copy URL**.
-5. Navigate to the [AWS CloudFormation
+5. Navigate to the [CloudFormation
    console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation") to create a stack with the URL that you copied.
    For more information about CloudFormation templates, see [Working with AWS CloudFormation
    templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") in the _AWS CloudFormation User Guide_.

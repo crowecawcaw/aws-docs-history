@@ -210,15 +210,15 @@ available for AWS Launch Wizard to deploy SAP](launch-wizard-sap-software-instal
 AWS Service Catalog products
 
 AWS Launch Wizard can create AWS Service Catalog products from successful
-deployments. The AWS Service Catalog products contain AWS CloudFormation templates and
+deployments. The AWS Service Catalog products contain CloudFormation templates and
 associated application configuration scripts, which are stored in Amazon S3. You can use
 the AWS Service Catalog products, along with integrations offered by
 AWS Service Catalog, with third-party products, such as ServiceNow, Jira, or Terraform. Or, you
-can use the AWS CloudFormation templates and application configuration scripts saved in Amazon S3 to
+can use the CloudFormation templates and application configuration scripts saved in Amazon S3 to
 deploy SAP applications that meet the requirements of organizational deployment and
 governance policies.
 
-In addition to supporting deployments using AWS CloudFormation templates,
+In addition to supporting deployments using CloudFormation templates,
 AWS Service Catalog, and multiple deployment tools supported by
 AWS Service Catalog, AWS Launch Wizard creates a point-in-time snapshot of the code
 used to deploy and configure SAP applications at the time of the deployment. You can
@@ -301,7 +301,7 @@ AWS Launch Wizard.
 
 ###### Services
 
-- [AWS CloudFormation](#launch-wizard-sap-related-services-cloudformation "#launch-wizard-sap-related-services-cloudformation")
+- [CloudFormation](#launch-wizard-sap-related-services-cloudformation "#launch-wizard-sap-related-services-cloudformation")
 - [Amazon Virtual Private Cloud security
   groups](#launch-wizard-sap-related-services-vpc "#launch-wizard-sap-related-services-vpc")
 - [Amazon Elastic File System](#launch-wizard-sap-related-services-efs "#launch-wizard-sap-related-services-efs")
@@ -316,17 +316,17 @@ AWS Launch Wizard.
 - [Elastic Load Balancing](#launch-wizard-sap-related-services-alb "#launch-wizard-sap-related-services-alb")
 - [AWS Systems Manager for SAP](#launch-wizard-sap-related-services-ssm "#launch-wizard-sap-related-services-ssm")
 
-### AWS CloudFormation
+### CloudFormation
 
-[AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") is a service that helps you model and set up your AWS
+[CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") is a service that helps you model and set up your AWS
 resources, and lets you spend more time focusing on your applications that run in
 AWS. You create a template that describes all of the AWS resources that you want
-(for example, Amazon EC2 instances or Amazon RDS DB instances), and AWS CloudFormation takes care of
+(for example, Amazon EC2 instances or Amazon RDS DB instances), and CloudFormation takes care of
 provisioning and configuring those resources for you. With AWS Launch Wizard for SAP, you
-don’t need to build AWS CloudFormation templates to deploy your application. Instead, AWS Launch Wizard
+don’t need to build CloudFormation templates to deploy your application. Instead, AWS Launch Wizard
 combines infrastructure provisioning and application configuration (code that runs
-on EC2 instances to configure the application) into a unified AWS CloudFormation template. The
-AWS CloudFormation template is then invoked by AWS Launch Wizard’s backend service to provision an
+on EC2 instances to configure the application) into a unified CloudFormation template. The
+CloudFormation template is then invoked by AWS Launch Wizard’s backend service to provision an
 application in your account.
 
 ### Amazon Virtual Private Cloud security
@@ -416,10 +416,10 @@ NetApp ONTAP. For more information, see [Amazon FSx for NetApp ONTAP](https://aw
 
 ### Elastic Load Balancing
 
-Elastic Load Balancing can be deployed as an optional component to load balance internet or
+ELB can be deployed as an optional component to load balance internet or
 intranet traffic between one or more SAP Web Dispatcher instances. Launch Wizard for SAP
 supports both Application Load Balancer and Network Load Balancer resources. For more information, see [What is
-Elastic Load Balancing?](../../../elasticloadbalancing/latest/userguide/what-is-load-balancing.md "../../../elasticloadbalancing/latest/userguide/what-is-load-balancing.md") in the Elastic Load Balancing User Guide.
+ELB?](../../../elasticloadbalancing/latest/userguide/what-is-load-balancing.md "../../../elasticloadbalancing/latest/userguide/what-is-load-balancing.md") in the Elastic Load Balancing User Guide.
 
 ### AWS Systems Manager for SAP
 

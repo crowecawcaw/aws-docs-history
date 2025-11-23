@@ -137,7 +137,7 @@ applications
 When you deploy an application with Launch Wizard, the resource groups that make up the
 application are automatically assigned metadata showing that they are provisioned by
 Launch Wizard. Application Manager uses this metadata to display all of your resource groups and
-AWS CloudFormation stacks created by Launch Wizard on one page. When you deploy an application, Launch Wizard calls the
+CloudFormation stacks created by Launch Wizard on one page. When you deploy an application, Launch Wizard calls the
 `CreateOpsMetadata` API to assign the provisioning metadata.
 
 ###### Onboard existing applications

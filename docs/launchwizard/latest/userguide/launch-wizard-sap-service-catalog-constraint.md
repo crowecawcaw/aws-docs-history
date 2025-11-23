@@ -5,7 +5,7 @@ constraint
 A launch constraint specifies the AWS Identity and Access Management role that AWS Service Catalog
 assumes when a user launches a product. It is associated with products in the portfolio.
 If you do not use launch constraints, you must launch and manage products using your own
-IAM credentials. These credentials must have permissions to use AWS CloudFormation,
+IAM credentials. These credentials must have permissions to use CloudFormation,
 AWS Service Catalog, and any other AWS services used by the products. Using
 a launch constraint allows you to limit the permissions of a user to the minimum
 required for a product.
@@ -560,7 +560,7 @@ JSON
 
 ```
 
-1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam").
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com//iam "https://console.aws.amazon.com//iam").
 2. Perform the following substeps individually for each of the three policies
    previously listed.
    1. In the left navigation pane, choose **Policies** >

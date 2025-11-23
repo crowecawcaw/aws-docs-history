@@ -10,7 +10,7 @@ the details related to the application launch.
 
 - [Launch Wizard provisioning
   events](#launch-wizard-remote-desktop-gateway-provisioning "#launch-wizard-remote-desktop-gateway-provisioning")
-- [AWS CloudFormation stack](#launch-wizard-remote-desktop-gateway-cloudformation "#launch-wizard-remote-desktop-gateway-cloudformation")
+- [CloudFormation stack](#launch-wizard-remote-desktop-gateway-cloudformation "#launch-wizard-remote-desktop-gateway-cloudformation")
 - [Application launch quotas](#launch-wizard-remote-desktop-gateway-quotas "#launch-wizard-remote-desktop-gateway-quotas")
 - [Enable termination
   protection](#launch-wizard-remote-desktop-gateway-terminate-protection "#launch-wizard-remote-desktop-gateway-terminate-protection")
@@ -20,16 +20,16 @@ the details related to the application launch.
 
 events
 
-Launch Wizard captures events from AWS CloudFormation to track the status of an ongoing application deployment. If
-an application deployment fails, you can access the AWS CloudFormation console to view the deployment events
+Launch Wizard captures events from CloudFormation to track the status of an ongoing application deployment. If
+an application deployment fails, you can access the CloudFormation console to view the deployment events
 for this application by selecting **Deployments** from the navigation pane. A
 failed event shows a status of **Failed** along with a failure message.
 
-## AWS CloudFormation stack
+## CloudFormation stack
 
-Launch Wizard uses AWS CloudFormation to provision the infrastructure resources of an application. You can view
-the status of these AWS CloudFormation stacks, and if any of the stacks fail, you can view the cause of the
-failure. AWS CloudFormation stacks can be found in your account using the AWS CloudFormation [describe-stacks](../../../AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.md") API or by accessing the stack in the AWS CloudFormation console. The following can
+Launch Wizard uses CloudFormation to provision the infrastructure resources of an application. You can view
+the status of these CloudFormation stacks, and if any of the stacks fail, you can view the cause of the
+failure. CloudFormation stacks can be found in your account using the CloudFormation [describe-stacks](../../../AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.md") API or by accessing the stack in the CloudFormation console. The following can
 be used with the `describe-stacks` API for the `--stack-name`
 argument:
 
@@ -50,9 +50,9 @@ applications is 25 for any given application type. If you want to increase this 
 protection
 
 If you encounter errors when you deploy Remote Desktop Gateway with Launch Wizard, and the log
-information provided by Launch Wizard or AWS CloudFormation is not sufficient to determine your issue, you must [connect to the instance](../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md "../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md") within the Amazon EC2 Auto Scaling group to determine the cause of the
+information provided by Launch Wizard or CloudFormation is not sufficient to determine your issue, you must [connect to the instance](../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md "../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md") within the Amazon EC2 Auto Scaling group to determine the cause of the
 failure. When you connect to an instance to troubleshoot deployment failures, a common cause is
-the deployment scripts failing on the operating system. The following error messages in AWS CloudFormation can
+the deployment scripts failing on the operating system. The following error messages in CloudFormation can
 indicate that the deployment scripts failed:
 
 - ```
@@ -77,7 +77,7 @@ You can only connect to an EC2 instance if it is not terminated. Launch Wizard t
 on stack creation failure by default. You can enable the **Deactivate rollback on failed
 deployment** setting during deployment to prevent this behavior. If the setting was not
 enabled, you can still prevent the instance from getting terminated by updating the termination
-settings of that instance from the EC2 console before the AWS CloudFormation stack gets rolled back.
+settings of that instance from the EC2 console before the CloudFormation stack gets rolled back.
 
 ###### Note
 
@@ -87,8 +87,8 @@ troubleshooting.
 
 ###### To find the EC2 instances from the Launch Wizard deployment
 
-1. Access the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2. Choose the AWS CloudFormation stack of the Launch Wizard deployment, and choose the **Resources
+1. Access the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+2. Choose the CloudFormation stack of the Launch Wizard deployment, and choose the **Resources
    tab**.
 3. Choose the resource with type
    **AWS::AutoScaling::AutoScalingGroup**.
@@ -115,7 +115,7 @@ delete the deployment in Launch Wizard.
 ###### EC2 instance stabilization error
 
 - **Cause:** Failure can occur if an EC2 instance fails to
-  stabilize. When this happens, the EC2 instance is unable to communicate to the AWS CloudFormation service to
+  stabilize. When this happens, the EC2 instance is unable to communicate to the CloudFormation service to
   signal completions, resulting in `WaitCondition` errors.
 - **Solution:**
   `WaitCondition` errors are often transient EC2 failures and retrying the deployment

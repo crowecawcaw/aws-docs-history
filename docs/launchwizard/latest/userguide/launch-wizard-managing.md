@@ -32,7 +32,7 @@ these steps.
    6. **View your CloudFormation template**. This
       is the CloudFormation template created by your most recent deployment, and
       it can be accessed through the CloudFormation console. For help with finding
-      and using your CloudFormation template, see [Viewing AWS CloudFormation Stack Data and Resources on the AWS Management Console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md").
+      and using your CloudFormation template, see [Viewing CloudFormation Stack Data and Resources on the AWS Management Console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md").
    7. If you have not set up monitoring for your application on CloudWatch
       Application Insights, you have the option to **Set up
       monitoring on CloudWatch Application Insights**. You are taken
