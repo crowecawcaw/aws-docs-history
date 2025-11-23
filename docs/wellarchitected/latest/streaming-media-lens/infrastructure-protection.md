@@ -104,7 +104,7 @@ protects AWS resources such as **Amazon CloudFront** distributions and
 content can be located and reached globally.
 **AWS Shield Advanced** protects
 resources built upon services such as
-**Elastic Load Balancing, Amazon EC2**, and **AWS Global Accelerator** against common and most frequently
+**ELB, Amazon EC2**, and **AWS Global Accelerator** against common and most frequently
 occurring infrastructure (layer 3 and 4) attacks like SYN/UDP
 floods, reflection attacks, and others to support high
 availability of your applications on AWS. If you need to protect
