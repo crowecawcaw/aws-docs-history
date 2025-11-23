@@ -1,93 +1,23 @@
-# Working with replication
+# Public and private replication
 
-engine versions
+instances
 
-The _replication engine_ is the core AWS DMS software
-that runs on your replication instance and performs the migration tasks you specify. AWS
-periodically releases new versions of the AWS DMS replication engine software, with new
-features and performance improvements. Each version of the replication engine software
-has its own version number, to distinguish it from other versions.
+You can specify if a replication instance has a public or private IP address that the
+instance uses to connect to the source and target databases.
 
-When you launch a new replication instance, it runs the latest AWS DMS engine version
-unless you specify otherwise. For more information, see [Working with an AWS DMS replication
-instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
+A _private replication instance_ has a private IP
+address that you can't access outside the replication network. You use a private
+instance when both source and target databases are in the same network that is connected
+to the virtual private cloud (VPC) of the replication instance. The network can be
+connected to the VPC by using a virtual private network (VPN), Direct Connect, or VPC
+peering.
 
-If you have a replication instance that is currently running, you can upgrade it to a
-more recent engine version. (AWS DMS doesn't support engine version downgrades.) For
-more information about replication engine versions, see [AWS DMS release notes](CHAP_ReleaseNotes.md "CHAP_ReleaseNotes.md").
+A _VPC peering_ connection is a networking connection between two
+VPCs. It allows routing using each VPC's private IP addresses as if they were in
+the same network. For more information about VPC peering, see [VPC peering](../../../vpc/latest/userguide/vpc-peering.md "../../../vpc/latest/userguide/vpc-peering.md") in the _Amazon VPC
+User Guide_.
 
-## Upgrading the engine version using the
-
-console
-
-You can upgrade an AWS DMS replication instance using the AWS Management Console.
-
-###### To upgrade a replication instance using the console
-
-1. Open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
-2. In the navigation pane, choose **Replication instances**.
-3. Choose your replication engine, and then choose
-   **Modify**.
-4. For **Engine version**, choose the version
-   number you want, and then choose **Modify**.
-
-###### Note
-
-We recommend that you stop all tasks before upgrading the Replication Instance.
-If you don't stop the task, AWS DMS will stop the task automatically before the upgrade. If you stop
-the task manually, you will need to start the task manually after the upgrade is complete. Upgrading the
-replication instance takes several minutes. When the instance is
-ready, its status changes to **available**.
-
-## Upgrading the engine version using the AWS CLI
-
-You can upgrade an AWS DMS replication instance using the AWS CLI, as follows.
-
-###### To upgrade a replication instance using the AWS CLI
-
-1. Determine the Amazon Resource Name (ARN) of your replication instance by
-   using the following command.
-
-```
-aws dms describe-replication-instances \
---query "ReplicationInstances[*].[ReplicationInstanceIdentifier,ReplicationInstanceArn,ReplicationInstanceClass]"
-```
-
-In the output, take note of the ARN for the replication instance you want
-to upgrade, for example:
-`arn:aws:dms:us-east-1:123456789012:rep:6EFQQO6U6EDPRCPKLNPL2SCEEY` 2. Determine which replication instance versions are available by using the
-following command.
-
-```
-aws dms describe-orderable-replication-instances \
---query "OrderableReplicationInstances[*].[ReplicationInstanceClass,EngineVersion]"
-```
-
-In the output, note the engine version number or numbers that are
-available for your replication instance class. You should see this
-information in the output from step 1. 3. Upgrade the replication instance by using the following command.
-
-```
-aws dms modify-replication-instance \
---replication-instance-arn `arn` \
---engine-version `n.n.n`
-```
-
-Replace `arn` in the preceding with the actual
-replication instance ARN from the previous step.
-
-Replace `n.n.n` with the engine version number
-that you want, for example: `3.4.5`
-
-###### Note
-
-Upgrading the replication instance takes several minutes. You can view the
-replication instance status using the following command.
-
-```
-aws dms describe-replication-instances \
---query "ReplicationInstances[*].[ReplicationInstanceIdentifier,ReplicationInstanceStatus]"
-```
-
-When the replication instance is ready, its status changes to
-**available**.
+A _public replication instance_ can use the VPC
+security group of the replication instance, and the replication instance's public
+IP address or the NAT gateway's public IP address. These connections form a network
+that you use for data migration.

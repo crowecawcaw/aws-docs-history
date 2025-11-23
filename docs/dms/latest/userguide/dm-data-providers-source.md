@@ -1,7 +1,6 @@
 # Creating source data providers for homogeneous data migrations in AWS DMS
 
-You can use MySQL-compatible, PostgreSQL, and MongoDB-compatible databases as a source data provider
-for [Homogeneous data migrations](data-migrations.md "data-migrations.md") in AWS DMS.
+AWS DMS Schema Conversion supports the following databases as source data providers for [Homogeneous data migrations](data-migrations.md "data-migrations.md") projects: Microsoft SQL Server, Oracle, PostgreSQL, MySQL, IBM DB2 for z/OS, and SAP ASE (Sybase ASE).
 
 For supported database versions, see [Source data providers for DMS homogeneous data migrations](CHAP_Introduction.md#CHAP_Introduction.Sources.HomogeneousDataMigrations "CHAP_Introduction.md#CHAP_Introduction.Sources.HomogeneousDataMigrations").
 

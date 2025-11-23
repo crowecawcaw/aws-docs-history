@@ -17,7 +17,7 @@ uses the capacity and utilization metrics collected from your source databases.
 
 ###### To generate target recommendations
 
-1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/https://console.aws.amazon.com/dms/v2/").
+1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
 
 Make sure that you choose the AWS Region where you use the DMS Fleet Advisor. 2. In the navigation pane, choose **Recommendations** under
 **Assess**, and then choose **Generate recommendations**. 3. In the **Select source databases** panel, select the check boxes

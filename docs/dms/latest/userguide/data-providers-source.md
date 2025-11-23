@@ -1,6 +1,6 @@
 # Creating source data providers in DMS Schema Conversion
 
-You can use a Microsoft SQL Server, Oracle, PostgreSQL, MySQL and IBM DB2 for z/OS
+You can use a Microsoft SQL Server, Oracle, PostgreSQL, MySQL, IBM DB2 for z/OS and SAP ASE (Sybase ASE)
 database as a source data provider in migration projects for DMS Schema Conversion.
 
 Make sure that you configure the network to permit interaction between your source
@@ -15,3 +15,4 @@ data provider and DMS Schema Conversion. For more information, see [Setting up a
 - [Using a MySQL database as a source in DMS Schema Conversion](sc-data-providers-mysql.md "sc-data-providers-mysql.md")
 - [Using an IBM Db2 for z/OS database as a source in
   DMS Schema Conversion](sc-data-providers-db2.md "sc-data-providers-db2.md")
+- [Using a SAP ASE (Sybase ASE) database as a source in AWS DMS Schema Conversion](dm-data-providers-source-sybase-ASE.md "dm-data-providers-source-sybase-ASE.md")

@@ -14,7 +14,7 @@ descriptions of common network configurations.
 
 - [Using a single VPC for source and target data providers](#instance-profiles-network-one-vpc "#instance-profiles-network-one-vpc")
 - [Using multiple VPCs for source and target data providers](#instance-profiles-network-multiple-vpc "#instance-profiles-network-multiple-vpc")
-- [Using AWS Direct Connect or a VPN to configure a network to a VPC](#instance-profiles-network-vpn "#instance-profiles-network-vpn")
+- [Using Direct Connect or a VPN to configure a network to a VPC](#instance-profiles-network-vpn "#instance-profiles-network-vpn")
 - [Using an internet connection to a VPC](#instance-profiles-network-internet "#instance-profiles-network-internet")
 
 ## Using a single VPC for source and target data providers
@@ -51,9 +51,9 @@ the route table of VPC B must contain 10.0.0.0/16. For more detailed information
 see [Update your route tables for VPC peering connection](../../../vpc/latest/peering/vpc-peering-routing.md "../../../vpc/latest/peering/vpc-peering-routing.md") in the
 _Amazon VPC Peering Guide_.
 
-## Using AWS Direct Connect or a VPN to configure a network to a VPC
+## Using Direct Connect or a VPN to configure a network to a VPC
 
-Remote networks can connect to a VPC using several options, such as AWS Direct Connect or a
+Remote networks can connect to a VPC using several options, such as Direct Connect or a
 software or hardware VPN connection. You can use these options to integrate existing
 on-site services by extending an internal network into the AWS Cloud. You might
 integrate on-site services such as monitoring, authentication, security, data, or
@@ -71,7 +71,7 @@ _AWS Site-to-Site VPN User Guide_.
 
 ## Using an internet connection to a VPC
 
-If you don't use a VPN or AWS Direct Connect to connect to AWS resources, you can use
+If you don't use a VPN or Direct Connect to connect to AWS resources, you can use
 an internet connection. This configuration involves a private subnet in
 a VPC with an internet gateway. The gateway contains the target data provider and
 the instance profile. You can use this configuration to convert your source

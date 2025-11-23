@@ -404,7 +404,7 @@ information, see [AWS DMS Serverless components](CHAP_Serverless.md "CHAP_Server
 1. Navigate to the DMS console to create a serverless instance. For more
    information, see [Creating a serverless replication](CHAP_Serverless.md#CHAP_Serverless.create "CHAP_Serverless.md#CHAP_Serverless.create"). To
    understand more choosing, sizing, and configuring serverless instances, see
-   [Working with AWS DMS serverless](../../../https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Serverless.md "../../../https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Serverless.md").
+   [Working with AWS DMS serverless](CHAP_Serverless.md "CHAP_Serverless.md").
 2. In the **Connectivity and security** section, select the
    VPC from the **Virtual private cloud (VPC)** dropdown menu
    where you want to create the AWS DMS serverless instance . For more

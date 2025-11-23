@@ -367,6 +367,34 @@ aws iam get-policy-version --policy-arn arn:aws:iam::aws:policy/service-role/Ama
 
 The information returned from the command is as follows.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ExampleStatementID",
+ "Effect": "Allow",
+ "Action": [
+ "ec2:CreateNetworkInterface",
+ "ec2:DeleteNetworkInterface",
+ "ec2:DescribeAvailabilityZones",
+ "ec2:DescribeDhcpOptions",
+ "ec2:DescribeInternetGateways",
+ "ec2:DescribeNetworkInterfaces",
+ "ec2:DescribeSecurityGroups",
+ "ec2:DescribeSubnets",
+ "ec2:DescribeVpcs",
+ "ec2:ModifyNetworkInterfaceAttribute"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
 You can use the same commands to get information about
 `AmazonDMSCloudWatchLogsRole` and the
 `AmazonDMSRedshiftS3Role` managed policy.

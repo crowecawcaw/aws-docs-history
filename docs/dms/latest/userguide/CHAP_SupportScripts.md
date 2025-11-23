@@ -1,99 +1,106 @@
-# Diagnostic support scripts for MySQL-compatible
+# PostgreSQL diagnostic support
 
-databases
+scripts
 
-Following, you can find the diagnostic support scripts available to analyze an on-premises
-or Amazon RDS for MySQL-compatible database in your AWS DMS migration configuration. These scripts
-work with either a source or target endpoint. The scripts are all written to run on the MySQL
-SQL command line.
+Following, you can find the diagnostic support scripts available to analyze any PostgreSQL
+RDBMS (on-premises, Amazon RDS, or Aurora PostgreSQL) in your AWS DMS migration configuration. These
+scripts work with either a source or target endpoint. The scripts are all written to run in
+the psql command-line utility.
 
-For information about installing the MySQL client, see [Installing
-MySQL Shell](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html "https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html") in the MySQL documentation. For information about using the MySQL
-client, see [Using MySQL
-Shell Commands](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-configuring.html "https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-configuring.html") in the MySQL documentation.
+Before running these scripts, ensure that the user account that you use has the following necessary
+permissions to access any PostgreSQL RDBMS:
 
-Before running a script, ensure that the user account that you use has the necessary
-permissions to access your MySQL-compatible database. Use the following procedure to create a
-user account and provide the minimum permissions needed to run this script.
+- PostgreSQL 10.x or higher – A user account with execute permission on the
+  `pg_catalog.pg_ls_waldir` function.
+- PostgreSQL 9.x or earlier – A user account with default permissions.
+  We recommend using an existing account with the appropriate permissions to run these
+  scripts.
 
-###### To set up a user account with the minimum permissions to run these scripts
+If you need to create a new user account or grant permissions to an existing account to
+run these scripts, you can execute the following SQL commands for any PostgreSQL RDBMS based
+on the PostgreSQL version.
 
-1. Create the user to run the scripts.
+###### To grant account permissions to run these scripts for a PostgreSQL databases version 10.x or higher
 
-```
-create user '`username`'@'`hostname`' identified by `password`;
-```
+- Do one of the following:
+  - For a new user account, run the following.
 
-2. Grant the `select` command on databases to analyze them.
+  ```
+  CREATE USER `script_user` WITH PASSWORD '`password`';
+  GRANT EXECUTE ON FUNCTION pg_catalog.pg_ls_waldir TO `script_user`;
+  ```
 
-```
-grant select on `database-name`.* to `username`;
-grant replication client on *.* to `username`;
-```
+  - For an existing user account, run the following.
 
-3. ```
-   grant execute on procedure mysql.rds_show_configuration to `username`;
-   ```
+  ```
+  GRANT EXECUTE ON FUNCTION pg_catalog.pg_ls_waldir TO `script_user`;
+  ```
 
-```
-The following topics describe how to download, review, and run each support script
- available for a MySQL-compatible database. They also describe how to review and upload the
- script output to your AWS Support case.
+###### To grant account permissions to run these scripts for a PostgreSQL 9.x or earlier
 
-###### Topics
+database
 
-* [awsdms\_support\_collector\_MySQL.sql script](#CHAP_SupportScripts.MySQL.Awsdms_Support_Collector_MySQL_Script "#CHAP_SupportScripts.MySQL.Awsdms_Support_Collector_MySQL_Script")
+- Do one of the following:
+  - For a new user account, run the following with default permissions.
 
-## awsdms\_support\_collector\_MySQL.sql script
+  ```
+  CREATE USER `script_user` WITH PASSWORD `password`;
+  ```
 
-
-Download the [`awsdms_support_collector_MySQL.sql`](https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_MySQL.sql "https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_MySQL.sql") script.
-
-
-This script collects information about your MySQL-compatible database configuration.
- Remember to verify the checksum on the script, and if the checksum verifies, review the SQL
- code in the script to comment out any of the code that you are uncomfortable running. After
- you are satisfied with the integrity and content of the script, you can run it.
-
-
-Run the script after connecting to your database environment using the command
- line.
-
-
-###### To run this script and upload the results to your support case
-
-1. Connect to your database using the following `mysql` command.
-
-
-
-```
-
-mysql -p -h `hostname` -P port -u `username` `database-name`
-
-```
-2. Run the script using the following mysql `source` command.
-
-
-
-```
-
-source awsdms_support_collector_MySQL.sql
-
-```
-
-Review the generated report and remove any information that you are uncomfortable
- sharing. When the content is acceptable for you to share, upload the file to your AWS
- Support case. For more information on uploading this file, see [Working with diagnostic support scripts in AWS DMS](CHAP_SupportScripts.md "CHAP_SupportScripts.md").
+  - For an existing user account, use the existing permissions.
 
 ###### Note
 
+These scripts do not support certain functionality related to finding WAL size for
+PostgreSQL 9.x and earlier databases. For more information, work with AWS Support.
 
-* If you already have a user account with required privileges described in [Diagnostic support scripts for MySQL-compatible
- databases](CHAP_SupportScripts.md "CHAP_SupportScripts.md") , you
- can use the existing user account as well to run the script.
-* Remember to connect to your database before running the script.
-* The script generates its output in text format.
-* Keeping security best practices in mind, if you create a new user account only to
- execute this MySQL diagnostic support script, we recommend that you delete this user
- account after successful execution of the script.
-```
+The following topics describe how to download, review, and run each support script
+available for PostgreSQL They also describe how to review and upload the script output to your
+AWS Support case.
+
+###### Topics
+
+- [awsdms_support_collector_postgres.sql script](#CHAP_SupportScripts.PostgreSQL.Awsdms_Support_Collector_PostgreSQL_Script "#CHAP_SupportScripts.PostgreSQL.Awsdms_Support_Collector_PostgreSQL_Script")
+
+## awsdms_support_collector_postgres.sql script
+
+Download the [`awsdms_support_collector_postgres.sql`](https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_postgres.sql "https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_postgres.sql") script.
+
+This script collects information about your PostgreSQL database configuration. Remember
+to verify the checksum on the script. If the checksum verifies, review the SQL code in the
+script to comment out any of the code that you are uncomfortable running. After you are
+satisfied with the integrity and content of the script, you can run it.
+
+###### Note
+
+You can run this script with psql client version 10 or higher.
+
+You can use the following procedures to run this script either from your database
+environment or from the command line. In either case, you can then upload your file to AWS
+Support later.
+
+###### To run this script and upload the results to your support case
+
+1. Do one of the following:
+   - Run the script from your database environment using the following psql command line.
+
+   ```
+   dbname=# \i awsdms_support_collector_postgres.sql
+   ```
+
+   At the following prompt, enter the name of only one of the schemas that you want
+   to migrate.
+
+   At the following prompt, enter the name of the user
+   (`script_user`) that you have defined to
+   connect to the database.
+   - Run the following script directly from the command line. This
+     option avoids any prompts prior to script execution.
+
+   ```
+   psql -h `database-hostname` -p `port` -U `script_user` -d `database-name` -f awsdms_support_collector_postgres.sql
+   ```
+
+2. Review the output HTML file and remove any information that you are uncomfortable
+   sharing. When the HTML is acceptable for you to share, upload the file to your AWS
+   Support case. For more information on uploading this file, see [Working with diagnostic support scripts in AWS DMS](CHAP_SupportScripts.md "CHAP_SupportScripts.md").

@@ -16,24 +16,24 @@ time, complete the following prerequisites.
 To configure your Amazon S3 bucket and IAM resources, do one of the following:
 
 - [Configure Amazon S3 and IAM resources using
-  AWS CloudFormation](#fa-resources-cf "#fa-resources-cf") (recommended).
+  CloudFormation](#fa-resources-cf "#fa-resources-cf") (recommended).
 - [Configure Amazon S3 and IAM resources in the AWS Management Console](#fa-resources-manual "#fa-resources-manual")
 
 ## Configure Amazon S3 and IAM resources using
 
-AWS CloudFormation
+CloudFormation
 
 A _CloudFormation stack_ is a collection of AWS resources that
 you can manage as a single unit. To simplify creating required resources for
-DMS Fleet Advisor, you can use the AWS CloudFormation template files to create CloudFormation stacks. For more
-information, see [Creating a stack on the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in _AWS CloudFormation User
+DMS Fleet Advisor, you can use the CloudFormation template files to create CloudFormation stacks. For more
+information, see [Creating a stack on the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in _CloudFormation User
 Guide_.
 
 ###### Note
 
 This section only applies to using the standalone DMS Fleet Advisor collector. For
 information about using a single on-premises collector for gathering information
-about both databases and servers, see [Application Discovery Service Agentless Collector](../../../application-discovery/latest/userguide/agentless-collector.md "../../../application-discovery/latest/userguide/agentless-collector.md") in the _AWS Application Discovery Service User Guide_.
+about both databases and servers, see [Application Discovery Service Agentless Collector](../../../application-discovery/latest/userguide/agentless-collector.md "../../../application-discovery/latest/userguide/agentless-collector.md") in the [_AWS Application Discovery Service User Guide_](../../../index.md "../../../index.md").
 
 ### Amazon S3 and IAM resources created by
 
@@ -126,7 +126,7 @@ resources listed previously.
    dms-fleetadvisor-ads-iam-s3** page, do the
    following:
    1. Select the \***\*I acknowledge that
-      AWS CloudFormation might create IAM resources with custom
+      CloudFormation might create IAM resources with custom
       names\*\*** check box.
    2. Choose **Submit**.CloudFormation creates the S3 bucket and IAM roles and user that
       DMS Fleet Advisor requires. In the left panel, when

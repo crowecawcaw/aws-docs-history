@@ -17,7 +17,7 @@ AWS DMS Fleet Advisor](slr-services-fa.md#create-slr-fa "slr-services-fa.md#crea
 
 ###### To create and download a data collector
 
-1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/https://console.aws.amazon.com/dms/v2/").
+1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
 
 Choose the Region where you use the DMS Fleet Advisor. 2. In the navigation pane, choose **Data collectors** under
 **Discover**. The **Data collectors** page opens. 3. Choose **Create data collector**. The **Create

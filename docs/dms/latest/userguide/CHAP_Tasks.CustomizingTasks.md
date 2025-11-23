@@ -1,326 +1,223 @@
-# Using source filters
+# Specifying task settings
 
-You can use source filters to limit the number and type of records transferred
-from your source to your target. For example, you can specify that only employees
-with a location of headquarters are moved to the target database. Filters are part
-of a selection rule. You apply filters on a column of data.
+for AWS Database Migration Service tasks
 
-Source filters must follow these constraints:
+Each task has settings that you can configure according to the needs of your
+database migration. You create these settings in a JSON file or, with some settings,
+you can specify the settings using the AWS DMS console. For information about how to use a task configuration file to set task settings, see [Task settings example](#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
 
-- A selection rule can have no filters or one or more filters.
-- Every filter can have one or more filter conditions.
-- If more than one filter is used, the list of filters is combined as if
-  using an AND operator between the filters.
-- If more than one filter condition is used within a single filter, the list
-  of filter conditions is combined as if using an OR operator between the
-  filter conditions.
-- Filters are only applied when `rule-action = 'include'`.
-- Filters require a column name and a list of filter conditions. Filter
-  conditions must have a filter operator that is associated with either one
-  value, two values, or no value, depending on the operator.
-- Column names, table names, view names, and schema names are
-  case-sensitive. Oracle and Db2 should always use UPPER case.
-- Filters only support tables with exact names. Filters do not support
-  wildcards.
-  The following limitations apply to using source filters:
+There are several main types of task settings, as listed following.
 
-- Filters don't calculate columns of right-to-left languages.
-- Don't apply filters to LOB columns.
-- Apply filters only to _immutable_ columns, which aren't
-  updated after creation. If source filters are applied to
-  _mutable_ columns, which can be updated after
-  creation, adverse behavior can result.
+###### Topics
 
-For example, a filter to exclude or include specific rows in a column
-always excludes or includes the specified rows even if the rows are later
-changed. Suppose that you exclude or include rows 1–10 in column A,
-and they later change to become rows 11–20. In this case, they
-continue to be excluded or included even when the data is no longer the
-same.
+- [Task settings example](#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "#CHAP_Tasks.CustomizingTasks.TaskSettings.Example")
+- [Target
+  metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md")
+- [Full-load
+  task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md")
+- [Time Travel task
+  settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md")
+- [Logging task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md")
+- [Control
+  table task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md")
+- [Stream
+  buffer task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md")
+- [Change processing tuning settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md")
+- [Data
+  validation task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md")
+- [Data
+  resync settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md")
+- [Task
+  settings for change processing DDL handling](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md")
+- [Character substitution task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md")
+- [Before
+  image task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md")
+- [Error
+  handling task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md")
+- [Saving task
+  settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md")
 
-Similarly, suppose that a row outside of the filter's scope is later
-updated (or updated and deleted), and should then be excluded or included as
-defined by the filter. In this case, it's replicated at the
-target.
-The following additional concerns apply when using source filters:
+| Task settings                                                                                                                                                                                                                                                                                                 | Relevant documentation                                                                                                                                                                                                                                                                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Creating a task assessment report**<br>You can create a task assessment report that shows any<br>unsupported data types that could cause problems during<br>migration. You can run this report on your task before running<br>the task to find out potential issues.                                        | [Enabling and working with premigration<br>assessments for a task](CHAP_Tasks.md "CHAP_Tasks.md")                                                                                                                                                                                                                                                                                                    |
+| **Creating a task**<br>When you create a task, you specify the source, target, and<br>replication instance, along with any migration settings.                                                                                                                                                                | [Creating a task](CHAP_Tasks.md "CHAP_Tasks.md")                                                                                                                                                                                                                                                                                                                                                     |
+| **Creating an ongoing replication task**<br>You can set up a task to provide continuous replication<br>between the source and target.                                                                                                                                                                         | [Creating tasks for ongoing replication using<br>AWS DMS](CHAP_Task.md "CHAP_Task.md")                                                                                                                                                                                                                                                                                                               |
+| **Applying task settings**<br>Each task has settings that you can configure according to the<br>needs of your database migration. You create these settings in a<br>JSON file or, with some settings, you can specify the settings<br>using the AWS DMS console.                                              | Specifying task settings<br>for AWS Database Migration Service tasks                                                                                                                                                                                                                                                                                                                                 |
+| **Data validation**<br>Use data validation to have AWS DMS compare the data on your<br>target data store with the data from your source data<br>store.                                                                                                                                                        | [AWS DMS data validation](CHAP_Validating.md "CHAP_Validating.md")                                                                                                                                                                                                                                                                                                                                   |
+| **Modifying a task**<br>When a task is stopped, you can modify the settings for the<br>task.                                                                                                                                                                                                                  | [Modifying a task](CHAP_Tasks.md "CHAP_Tasks.md")                                                                                                                                                                                                                                                                                                                                                    |
+| **Reloading tables during a task**<br>You can reload a table during a task if an error occurs during<br>the task.                                                                                                                                                                                             | [Reloading tables during a task](CHAP_Tasks.md "CHAP_Tasks.md")                                                                                                                                                                                                                                                                                                                                      |
+| **Using table mapping**<br>Table mapping uses several types of rules to specify task<br>settings for the data source, source schema, data, and any<br>transformations that should occur during the task.                                                                                                      | Selection Rules<br>[Selection rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md")<br>Transformation Rules<br>[Transformation rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md") |
+| **Applying filters**<br>You can use source filters to limit the number and type of<br>records transferred from your source to your target. For<br>example, you can specify that only employees with a location of<br>headquarters are moved to the target database. You apply filters<br>on a column of data. | [Using source filters](CHAP_Tasks.CustomizingTasks.md "CHAP_Tasks.CustomizingTasks.md")                                                                                                                                                                                                                                                                                                              |
+| **Monitoring a task**<br>There are several ways to get information on the performance<br>of a task and the tables used by the task.                                                                                                                                                                           | [Monitoring AWS DMS tasks](CHAP_Monitoring.md "CHAP_Monitoring.md")                                                                                                                                                                                                                                                                                                                                  |
+| **Managing task logs**<br>You can view and delete task logs using the AWS DMS API or<br>AWS CLI.                                                                                                                                                                                                              | [Viewing and managing AWS DMS task logs](CHAP_Monitoring.md#CHAP_Monitoring.ManagingLogs "CHAP_Monitoring.md#CHAP_Monitoring.ManagingLogs")                                                                                                                                                                                                                                                          |
 
-- We recommend that you create an index using the columns included in the filtering definition and the primary key.
+## Task settings example
 
-## Creating source
+You can use either the AWS Management Console or the AWS CLI to create a replication task. If you
+use the AWS CLI, you set task settings by creating a JSON file, then specifying the
+file:// URI of the JSON file as the [ReplicationTaskSettings](../APIReference/API_CreateReplicationTask.md#DMS-CreateReplicationTask-request-ReplicationTaskSettings "../APIReference/API_CreateReplicationTask.md#DMS-CreateReplicationTask-request-ReplicationTaskSettings") parameter of the [CreateReplicationTask](../APIReference/API_CreateReplicationTask.md "../APIReference/API_CreateReplicationTask.md") operation.
 
-filter rules in JSON
-
-You can create source filters using the JSON `filters` parameter of
-a selection rule. The `filters` parameter specifies an array of one
-or more JSON objects. Each object has parameters that specify the source filter
-type, column name, and filter conditions. These filter conditions include one or
-more filter operators and filter values.
-
-The following table shows the parameters for specifying source filtering in a
-`filters` object.
-
-| Parameter                                                      | Value                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `filter-type`                                                  | `source`                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `column-name`                                                  | A parameter with the name of the source column to which<br>you want the filter applied. The name is<br>case-sensitive.                                                                                                                                                                                                                                                                                                                                                  |
-| `filter-conditions`                                            | An array of one or more objects containing a<br>`filter-operator` parameter and zero or more<br>associated value parameters, depending on the<br>`filter-operator` value.                                                                                                                                                                                                                                                                                               |
-| `filter-operator`                                              | A parameter with one of the following values:<br>• `lte` – less than or equal to<br>one value<br>• `ste` – less than or equal to<br>one value (`lte` alias)<br>• `gte` – greater than or equal to<br>one value<br>• `eq` – equal to one value<br>• `noteq` – not equal to one<br>value<br>• `between` – equal to or between<br>two values<br>• `notbetween` – not equal to or<br>between two values<br>• `null` – `NULL`<br>values<br>• `notnull` – no `NULL`<br>values |
-| `value` or<br>`start-value` and `end-value`<br>or<br>no values | Zero or more value parameters associated with<br>`filter-operator`:<br>• If `filter-operator` is<br>`lte`, `ste`,<br>`gte`, `eq`, or<br>`noteq`, use `value` to<br>specify one value parameter.<br>• If `filter-operator` is<br>`between` or `notbetween`,<br>use `start-value` and<br>`end-value` to specify two value<br>parameters.<br>• If `filter-operator` is<br>`null` or `notnull`, specify<br>no value parameters.                                             |
-
-The following examples show some common ways to use source filters.
-
-###### Example Single filter
-
-The following filter replicates all employees where `empid >=
- 100` to the target database.
+The following example shows how to use the AWS CLI to call the
+`CreateReplicationTask` operation:
 
 ```
- {
-     "rules": [{
-         "rule-type": "selection",
-         "rule-id": "1",
-         "rule-name": "1",
-         "object-locator": {
-             "schema-name": "test",
-             "table-name": "employee"
-         },
-         "rule-action": "include",
-         "filters": [{
-             "filter-type": "source",
-             "column-name": "empid",
-             "filter-conditions": [{
-                "filter-operator": "gte",
-                "value": "100"
-             }]
-         }]
-     }]
- }
+aws dms create-replication-task \
+--replication-task-identifier MyTask \
+--source-endpoint-arn arn:aws:dms:us-west-2:123456789012:endpoint:ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890ABC \
+--target-endpoint-arn arn:aws:dms:us-west-2:123456789012:endpoint:ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890ABC \
+--replication-instance-arn arn:aws:dms:us-west-2:123456789012:rep:ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890ABC \
+--migration-type cdc \
+--table-mappings file://tablemappings.json \
+--replication-task-settings file://settings.json
+
+
 ```
 
-###### Example Multiple filter operators
+The preceding example uses a table mapping file called `tablemappings.json`. For table
+mapping examples, see [Using table mapping to
+specify task settings](CHAP_Tasks.CustomizingTasks.md "CHAP_Tasks.CustomizingTasks.md").
 
-The following filter applies multiple filter operators to a single column
-of data. The filter replicates all employees where `(empid <=
- 10)` OR `(empid is between 50 and 75)` OR `(empid
-
-> = 100)` to the target database.
+A task settings JSON file can look like the following.
 
 ```
 
 {
-    "rules": [{
-        "rule-type": "selection",
-        "rule-id": "1",
-        "rule-name": "1",
-        "object-locator": {
-            "schema-name": "test",
-            "table-name": "employee"
-        },
-        "rule-action": "include",
-        "filters": [{
-            "filter-type": "source",
-            "column-name": "empid",
-            "filter-conditions": [{
-                "filter-operator": "lte",
-                "value": "10"
-            }, {
-                "filter-operator": "between",
-                "start-value": "50",
-                "end-value": "75"
-            }, {
-                "filter-operator": "gte",
-                "value": "100"
-            }]
-        }]
-    }]
+  "TargetMetadata": {
+    "TargetSchema": "",
+    "SupportLobs": true,
+    "FullLobMode": false,
+    "LobChunkSize": 64,
+    "LimitedSizeLobMode": true,
+    "LobMaxSize": 32,
+    "InlineLobMaxSize": 0,
+    "LoadMaxFileSize": 0,
+    "ParallelLoadThreads": 0,
+    "ParallelLoadBufferSize":0,
+    "ParallelLoadQueuesPerThread": 1,
+    "ParallelApplyThreads": 0,
+    "ParallelApplyBufferSize": 100,
+    "ParallelApplyQueuesPerThread": 1,
+    "BatchApplyEnabled": false,
+    "TaskRecoveryTableEnabled": false
+  },
+  "FullLoadSettings": {
+    "TargetTablePrepMode": "DO_NOTHING",
+    "CreatePkAfterFullLoad": false,
+    "StopTaskCachedChangesApplied": false,
+    "StopTaskCachedChangesNotApplied": false,
+    "MaxFullLoadSubTasks": 8,
+    "TransactionConsistencyTimeout": 600,
+    "CommitRate": 10000
+  },
+    "TTSettings" : {
+    "EnableTT" : true,
+    "TTS3Settings": {
+        "EncryptionMode": "SSE_KMS",
+        "ServerSideEncryptionKmsKeyId": "arn:aws:kms:us-west-2:112233445566:key/myKMSKey",
+        "ServiceAccessRoleArn": "arn:aws:iam::112233445566:role/dms-tt-s3-access-role",
+        "BucketName": "myttbucket",
+        "BucketFolder": "myttfolder",
+        "EnableDeletingFromS3OnTaskDelete": false
+      },
+    "TTRecordSettings": {
+        "EnableRawData" : true,
+        "OperationsToLog": "DELETE,UPDATE",
+        "MaxRecordSize": 64
+      }
+  },
+  "Logging": {
+    "EnableLogging": false
+  },
+  "ControlTablesSettings": {
+    "ControlSchema":"",
+    "HistoryTimeslotInMinutes":5,
+    "HistoryTableEnabled": false,
+    "SuspendedTablesTableEnabled": false,
+    "StatusTableEnabled": false
+  },
+  "StreamBufferSettings": {
+    "StreamBufferCount": 3,
+    "StreamBufferSizeInMB": 8
+  },
+  "ChangeProcessingTuning": {
+    "BatchApplyPreserveTransaction": true,
+    "BatchApplyTimeoutMin": 1,
+    "BatchApplyTimeoutMax": 30,
+    "BatchApplyMemoryLimit": 500,
+    "BatchSplitSize": 0,
+    "MinTransactionSize": 1000,
+    "CommitTimeout": 1,
+    "MemoryLimitTotal": 1024,
+    "MemoryKeepTime": 60,
+    "StatementCacheSize": 50
+  },
+  "ChangeProcessingDdlHandlingPolicy": {
+    "HandleSourceTableDropped": true,
+    "HandleSourceTableTruncated": true,
+    "HandleSourceTableAltered": true
+  },
+  "LoopbackPreventionSettings": {
+    "EnableLoopbackPrevention": true,
+    "SourceSchema": "LOOP-DATA",
+    "TargetSchema": "loop-data"
+  },
+
+  "CharacterSetSettings": {
+    "CharacterReplacements": [ {
+        "SourceCharacterCodePoint": 35,
+        "TargetCharacterCodePoint": 52
+      }, {
+        "SourceCharacterCodePoint": 37,
+        "TargetCharacterCodePoint": 103
+      }
+    ],
+    "CharacterSetSupport": {
+      "CharacterSet": "UTF16_PlatformEndian",
+      "ReplaceWithCharacterCodePoint": 0
+    }
+  },
+  "BeforeImageSettings": {
+    "EnableBeforeImage": false,
+    "FieldName": "",
+    "ColumnFilter": "pk-only"
+  },
+  "ErrorBehavior": {
+    "DataErrorPolicy": "LOG_ERROR",
+    "DataTruncationErrorPolicy":"LOG_ERROR",
+    "DataMaskingErrorPolicy": "STOP_TASK",
+    "DataErrorEscalationPolicy":"SUSPEND_TABLE",
+    "DataErrorEscalationCount": 50,
+    "TableErrorPolicy":"SUSPEND_TABLE",
+    "TableErrorEscalationPolicy":"STOP_TASK",
+    "TableErrorEscalationCount": 50,
+    "RecoverableErrorCount": 0,
+    "RecoverableErrorInterval": 5,
+    "RecoverableErrorThrottling": true,
+    "RecoverableErrorThrottlingMax": 1800,
+    "ApplyErrorDeletePolicy":"IGNORE_RECORD",
+    "ApplyErrorInsertPolicy":"LOG_ERROR",
+    "ApplyErrorUpdatePolicy":"LOG_ERROR",
+    "ApplyErrorEscalationPolicy":"LOG_ERROR",
+    "ApplyErrorEscalationCount": 0,
+    "FullLoadIgnoreConflicts": true
+  },
+  "ValidationSettings": {
+    "EnableValidation": false,
+    "ValidationMode": "ROW_LEVEL",
+    "ThreadCount": 5,
+    "PartitionSize": 10000,
+    "FailureMaxCount": 1000,
+    "RecordFailureDelayInMinutes": 5,
+    "RecordSuspendDelayInMinutes": 30,
+    "MaxKeyColumnSize": 8096,
+    "TableFailureMaxCount": 10000,
+    "ValidationOnly": false,
+    "HandleCollationDiff": false,
+    "RecordFailureDelayLimitInMinutes": 1,
+    "SkipLobColumns": false,
+    "ValidationPartialLobSize": 0,
+    "ValidationQueryCdcDelaySeconds": 0
+  }
 }
 
-```
-
-###### Example Multiple filters
-
-The following filters apply multiple filters to two columns in a table.
-The filter replicates all employees where `(empid <= 100)` AND
-`(dept = tech)` to the target database.
-
-```
-
-{
-    "rules": [{
-        "rule-type": "selection",
-        "rule-id": "1",
-        "rule-name": "1",
-        "object-locator": {
-            "schema-name": "test",
-            "table-name": "employee"
-        },
-        "rule-action": "include",
-        "filters": [{
-            "filter-type": "source",
-            "column-name": "empid",
-            "filter-conditions": [{
-                "filter-operator": "lte",
-                "value": "100"
-            }]
-        }, {
-            "filter-type": "source",
-            "column-name": "dept",
-            "filter-conditions": [{
-                "filter-operator": "eq",
-                "value": "tech"
-            }]
-        }]
-    }]
-}
-
-```
-
-###### Example Filtering NULL values
-
-The following filter shows how to filter on empty values. It replicates
-all employees where `dept = NULL` to the target database.
-
-```
-
-{
-    "rules": [{
-        "rule-type": "selection",
-        "rule-id": "1",
-        "rule-name": "1",
-        "object-locator": {
-            "schema-name": "test",
-            "table-name": "employee"
-        },
-        "rule-action": "include",
-        "filters": [{
-            "filter-type": "source",
-            "column-name": "dept",
-            "filter-conditions": [{
-                "filter-operator": "null"
-            }]
-        }]
-    }]
-}
-
-```
-
-###### Example Filtering using NOT operators
-
-Some of the operators can be used in the negative form. The following filter
-replicates all employees where `(empid is < 50) OR (empid
- is > 75)` to the target database.
-
-```
-
-{
-    "rules": [{
-        "rule-type": "selection",
-        "rule-id": "1",
-        "rule-name": "1",
-        "object-locator": {
-            "schema-name": "test",
-            "table-name": "employee"
-        },
-        "rule-action": "include",
-        "filters": [{
-            "filter-type": "source",
-            "column-name": "empid",
-            "filter-conditions": [{
-                "filter-operator": "notbetween",
-                "start-value": "50",
-                "end-value": "75"
-            }]
-        }]
-    }]
-}
-
-```
-
-###### Example Using Mixed filters operators
-
-Start with AWS DMS version 3.5.0, you can mix inclusive operators and negative operators.
-
-The following filter
-replicates all employees where `(empid != 50) AND (dept is not
- NULL)` to the target database.
-
-```
-
-{
-    "rules": [{
-        "rule-type": "selection",
-        "rule-id": "1",
-        "rule-name": "1",
-        "object-locator": {
-            "schema-name": "test",
-            "table-name": "employee"
-        },
-        "rule-action": "include",
-        "filters": [{
-            "filter-type": "source",
-            "column-name": "empid",
-            "filter-conditions": [{
-                "filter-operator": "noteq",
-                "value": "50"
-            }]
-        }, {
-            "filter-type": "source",
-            "column-name": "dept",
-            "filter-conditions": [{
-                "filter-operator": "notnull"
-            }]
-        }]
-    }]
-}
-
-```
-
-Note the following when using `null` with other filter operators:
-
-- Using inclusive, negative and `null` filter conditions together
-  within the same filter will not replicate records with `NULL` values.
-- Using negative and `null` filter conditions together without inclusive filter
-  conditions within the same filter will not replicate any data.
-- Using negative filter conditions without a `null` filter condition set explicitly
-  will not replicate records with `NULL` values.
-
-## Filtering by time
-
-and date
-
-When selecting data to import, you can specify a date or time as part of your
-filter criteria. AWS DMS uses the date format YYYY-MM-DD and the time format
-YYYY-MM-DD HH:MM:SS for filtering. The AWS DMS comparison functions follow the
-SQLite conventions. For more information about SQLite data types and date
-comparisons, see [Datatypes in
-SQLite version 3](https://sqlite.org/datatype3.html "https://sqlite.org/datatype3.html") in the SQLite documentation.
-
-The following filter shows how to filter on a date. It replicates all
-employees where `empstartdate >= January 1, 2002` to the target
-database.
-
-###### Example Single date filter
-
-```
-
-{
-    "rules": [{
-        "rule-type": "selection",
-        "rule-id": "1",
-        "rule-name": "1",
-        "object-locator": {
-            "schema-name": "test",
-            "table-name": "employee"
-        },
-        "rule-action": "include",
-        "filters": [{
-            "filter-type": "source",
-            "column-name": "empstartdate",
-            "filter-conditions": [{
-                "filter-operator": "gte",
-                "value": "2002-01-01"
-            }]
-        }]
-    }]
-}
 ```

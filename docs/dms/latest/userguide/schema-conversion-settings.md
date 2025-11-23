@@ -45,5 +45,5 @@ databases.
   to PostgreSQL conversion settings](schema-conversion-sql-server-postgresql.md "schema-conversion-sql-server-postgresql.md")
 - [Understanding PostgreSQL to
   MySQL conversion settings](schema-conversion-postgresql-mysql.md "schema-conversion-postgresql-mysql.md")
-- [Using an IBM Db2 for z/OS to
-  Amazon RDS for Db2 conversion settings](schema-conversion-db2-zos-db2.md "schema-conversion-db2-zos-db2.md")
+- [Understanding IBM Db2 for z/OS to Amazon RDS for Db2 conversion settings](schema-conversion-db2-zos-db2.md "schema-conversion-db2-zos-db2.md")
+- [Understanding SAP ASE (Sybase ASE) to PostgreSQL conversion settings](schema-conversion--sybase-ASE.md "schema-conversion--sybase-ASE.md")

@@ -20,7 +20,7 @@ common network configurations.
   private cloud (VPC)](#dm-network-one-vpc "#dm-network-one-vpc")
 - [Configuring a network using different
   virtual private clouds (VPCs)](#dm-network-different-vpc "#dm-network-different-vpc")
-- [Using AWS Direct Connect or a VPN to
+- [Using Direct Connect or a VPN to
   configure a network to a VPC](#dm-networking_Direct_Connect "#dm-networking_Direct_Connect")
 - [Resolving domain endpoints using
   DNS](#dm-networking-resolving_endpoints "#dm-networking-resolving_endpoints")
@@ -104,11 +104,11 @@ the data migration:
 5. Allow access from the public IP address of your NAT Gateway in your
    database security group. For more information, see [Controlling access with security groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md").
 
-## Using AWS Direct Connect or a VPN to
+## Using Direct Connect or a VPN to
 
 configure a network to a VPC
 
-You can connect remote networks to your VPC through AWS Direct Connect or VPN connections
+You can connect remote networks to your VPC through Direct Connect or VPN connections
 (software or hardware). These options enable you to extend your internal network
 into AWS Cloud and integrate existing on-premises services such as monitoring,
 authentication, security, and data systems with your AWS resources. For this

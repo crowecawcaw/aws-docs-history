@@ -14,7 +14,7 @@ a comma-separated value (CSV) file.
 
 ###### To generate target recommendations
 
-1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/https://console.aws.amazon.com/dms/v2/").
+1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
 
 Make sure that you choose the AWS Region where you use the DMS Fleet Advisor. 2. In the navigation pane, choose **Recommendations** under
 **Assess**, and then select the recommendations to include in your CSV file. 3. Choose **Export to CSV**, enter the file name and choose the folder on your PC
