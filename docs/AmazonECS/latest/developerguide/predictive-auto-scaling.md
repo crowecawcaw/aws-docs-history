@@ -30,7 +30,7 @@ to schedule the right amount of tasks using scheduled scaling.
 Predictive scaling is a service-level capability that scales the task of your service
 independently from the scaling of the underlying compute capacity (for example, EC2 or
 Fargate). For Fargate, AWS manages and automatically scales the underlying capacity
-based on task requirements. For EC2 capacity, you can use Auto Scaling group capacity providers to
+based on task requirements. For EC2 capacity, you can use Amazon EC2 Auto Scaling group capacity providers to
 automatically scale underlying EC2 instances based on the scaling requirements of your
 tasks.
 

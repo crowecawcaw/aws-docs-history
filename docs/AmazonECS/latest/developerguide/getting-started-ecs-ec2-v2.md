@@ -69,25 +69,25 @@ operations:
 
 7. To add Amazon EC2 instances to your cluster, expand
    **Infrastructure**, and then select **Amazon EC2
-   instances**. Next, configure the Auto Scaling group which acts as the capacity
+   instances**. Next, configure the Amazon EC2 Auto Scaling group which acts as the capacity
    provider:
-   1. To using an existing Auto Scaling group, from **Auto Scaling group
+   1. To using an existing Amazon EC2 Auto Scaling group, from **Auto Scaling group
       (ASG)**, select the group.
-   2. To create a Auto Scaling group, from **Auto Scaling group
+   2. To create a Amazon EC2 Auto Scaling group, from **Auto Scaling group
       (ASG)**, select **Create new group**, and then
       provide the following details about the group:
       - For **Operating system/Architecture**, choose the
-        Amazon ECS-optimized AMI for the Auto Scaling group instances.
+        Amazon ECS-optimized AMI for the Amazon EC2 Auto Scaling group instances.
       - For **EC2 instance type**, choose the instance
         type for your workloads. For more information about
         the different instance types, see [Amazon EC2 Instances](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
 
-      Managed scaling works best if your Auto Scaling group uses the same or
+      Managed scaling works best if your Amazon EC2 Auto Scaling group uses the same or
       similar instance types.
       - For **SSH key pair**, choose the pair that proves
         your identity when you connect to the instance.
       - For **Capacity**, enter the minimum number and
-        the maximum number of instances to launch in the Auto Scaling group. Amazon EC2 instances incur costs while they exist
+        the maximum number of instances to launch in the Amazon EC2 Auto Scaling group. Amazon EC2 instances incur costs while they exist
         in your AWS resources. For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/").
 
 8. (Optional) To turn on Container Insights, expand **Monitoring**, and then
@@ -210,8 +210,8 @@ using.
 
 Some Amazon ECS resources, such as tasks, services, clusters, and container instances,
 are cleaned up using the Amazon ECS console. Other resources, such as Amazon EC2 instances,
-Elastic Load Balancing load balancers, and Auto Scaling groups, must be cleaned up manually in the Amazon EC2
-console or by deleting the AWS CloudFormation stack that created them.
+ELB load balancers, and Amazon EC2 Auto Scaling groups, must be cleaned up manually in the Amazon EC2
+console or by deleting the CloudFormation stack that created them.
 
 1. In the navigation pane, choose **Clusters**.
 2. On the **Clusters** page, select the cluster cluster you
@@ -224,5 +224,5 @@ console or by deleting the AWS CloudFormation stack that created them.
 Wait until the service is deleted. 6. Choose **Delete Cluster**. At the confirmation prompt, enter
 **delete `cluster-name`**, and
 then choose **Delete**. Deleting the cluster cleans up the
-associated resources that were created with the cluster, including Auto Scaling groups,
+associated resources that were created with the cluster, including Amazon EC2 Auto Scaling groups,
 VPCs, or load balancers.

@@ -50,5 +50,5 @@ Common causes of task failures that trigger throttling include:
 The following scenarios do NOT trigger throttle logic:
 
 - Tasks that stop after reaching `RUNNING` state
-- Tasks stopped due to failed Elastic Load Balancing health checks
+- Tasks stopped due to failed ELB health checks
 - Tasks where the container command exits with a non-zero code after reaching `RUNNING` state

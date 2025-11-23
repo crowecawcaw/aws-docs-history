@@ -2,7 +2,7 @@
 
 Canary deployments first route a small percentage of traffic to the new revision for
 initial testing, then shift all remaining traffic at once after the canary phase completes
-successfully.. With Amazon ECS canary deployments, validate new service revisions with real user
+successfully. With Amazon ECS canary deployments, validate new service revisions with real user
 traffic while minimizing risk exposure. This approach provides a controlled way to deploy
 changes with the ability to monitor performance and roll back quickly if issues are
 detected.
@@ -19,11 +19,11 @@ The following are resources involved in Amazon ECS canary deployments:
 - Deployment bake time - The time, in minutes, Amazon ECS waits after shifting all production traffic to the new service revision, before it terminates the old service revision. This is the duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
 - Lifecycle stages - A series of events in the deployment operation, such as "after production traffic shift".
 - Lifecycle hook - A Lambda function that runs at a specific lifecycle stage. You can create a function that verifies the deployment.
-- Target group - An Elastic Load Balancing resource used to route requests to one or more registered targets (for example, EC2 instances). When you create a listener, you specify a target group for its default action. Traffic is forwarded to the target group specified in the listener rule.
-- Listener - A Elastic Load Balancing resource that checks for connection requests using the
+- Target group - An ELB resource used to route requests to one or more registered targets (for example, EC2 instances). When you create a listener, you specify a target group for its default action. Traffic is forwarded to the target group specified in the listener rule.
+- Listener - A ELB resource that checks for connection requests using the
   protocol and port that you configure. The rules that you define for a listener
   determine how Amazon ECS routes requests to its registered targets.
-- Rule - An Elastic Load Balancing resource associated with a listener. A rule defines how requests are routed and consists of an action, condition, and priority.
+- Rule - An ELB resource associated with a listener. A rule defines how requests are routed and consists of an action, condition, and priority.
 
 ## Considerations
 
@@ -55,7 +55,7 @@ The canary traffic shift phase follows these steps:
   - Step 2: 100.0% to green, 0.0% to blue
 
 - Canary bake time - Waits for a configurable duration (canary bake time) after canary traffic shift to allow monitoring and validation of the new revision's performance with the increased traffic load.
-- Lifecycle hooks - Optional Lambda functions can be executed at various stages during the deployment to perform automated validation, monitoring, or custom logic. Lambda functions or lifecycle hooks configured for PRODUCTION_TRAFFIC_SHIFT will be invoked at every production traffic shift step.
+- Lifecycle hooks - Optional Lambda functions can be executed at various lifecycle stages during the deployment to perform automated validation, monitoring, or custom logic. Lambda functions or lifecycle hooks configured for PRODUCTION_TRAFFIC_SHIFT will be invoked at every production traffic shift step.
 
 ### Deployment lifecycle stages
 
@@ -63,20 +63,20 @@ The canary deployment process progresses through distinct lifecycle stages, each
 
 Each lifecycle stage can last up to 24 hours and in addition each traffic shift step in PRODUCTION_TRAFFIC_SHIFT can last upto 24 hours. We recommend that the value remains below the 24-hour mark. This is because asynchronous processes need time to trigger the hooks. The system times out, fails the deployment, and then initiates a rollback after a stage reaches 24 hours.
 
-AWS CloudFormation deployments have additional timeout restrictions. While the 24-hour stage limit remains in effect, AWS CloudFormation enforces a 36-hour limit on the entire deployment. AWS CloudFormation fails the deployment, and then initiates a rollback if the process doesn't complete within 36 hours.
+CloudFormation deployments have additional timeout restrictions. While the 24-hour stage limit remains in effect, CloudFormation enforces a 36-hour limit on the entire deployment. CloudFormation fails the deployment, and then initiates a rollback if the process doesn't complete within 36 hours.
 
-| Lifecycle stages              | Lifecycle stages                                                                                                                                                                             | Description |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| RECONCILE_SERVICE             | This stage only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.                                                                        |
-| PRE_SCALE_UP                  | The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.                                                  |
-| SCALE_UP                      | The time when the green service revision scales up to 100% and launches new tasks. The green service revision is not serving any traffic at this point.                                      |
-| POST_SCALE_UP                 | The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.                                                      |
-| TEST_TRAFFIC_SHIFT            | The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic. |
-| POST_TEST_TRAFFIC_SHIFT       | The test traffic shift is complete. The green service revision handles 100% of the test traffic.                                                                                             |
-| PRODUCTION_TRAFFIC_SHIFT      | Traffic is gradually shifted from blue to green in equal percentage increments until green receives 100% of traffic. Each traffic shift step can last upto 24 hours.                         |
-| POST_PRODUCTION_TRAFFIC_SHIFT | The production traffic shift is complete.                                                                                                                                                    |
-| BAKE_TIME                     | The duration when both blue and green service revisions are running simultaneously.                                                                                                          |
-| CLEAN_UP                      | The blue service revision has completely scaled down to 0 running tasks. The green service revision is now the production service revision after this stage.                                 |
+| Lifecycle stages              | Lifecycle stages                                                                                                                                                                             | Description | Lifecycle hook support |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------------------- |
+| RECONCILE_SERVICE             | This stage only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.                                                                        | Yes         |
+| PRE_SCALE_UP                  | The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.                                                  | Yes         |
+| SCALE_UP                      | The time when the green service revision scales up to 100% and launches new tasks. The green service revision is not serving any traffic at this point.                                      | No          |
+| POST_SCALE_UP                 | The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.                                                      | Yes         |
+| TEST_TRAFFIC_SHIFT            | The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic. | Yes         |
+| POST_TEST_TRAFFIC_SHIFT       | The test traffic shift is complete. The green service revision handles 100% of the test traffic.                                                                                             | Yes         |
+| PRODUCTION_TRAFFIC_SHIFT      | Canary production traffic is routed to green revision and lifecycle hook is invoked with 24 hours timeout. The second step shifts remaining production traffic to green revision.            | Yes         |
+| POST_PRODUCTION_TRAFFIC_SHIFT | The production traffic shift is complete.                                                                                                                                                    | Yes         |
+| BAKE_TIME                     | The duration when both blue and green service revisions are running simultaneously.                                                                                                          | No          |
+| CLEAN_UP                      | The blue service revision has completely scaled down to 0 running tasks. The green service revision is now the production service revision after this stage.                                 | No          |
 
 ### Configuration parameters
 

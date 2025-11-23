@@ -2,13 +2,13 @@
 
 traffic
 
-Your service can optionally be configured to use Elastic Load Balancing to distribute traffic evenly across
+Your service can optionally be configured to use ELB to distribute traffic evenly across
 the tasks in your service.
 
 ###### Note
 
-When you use tasks sets, all the tasks in the set must all be configured to use Elastic Load Balancing
-or to not use Elastic Load Balancing.
+When you use tasks sets, all the tasks in the set must all be configured to use ELB
+or to not use ELB.
 
 Amazon ECS services hosted on AWS Fargate support the Application Load Balancers, Network Load Balancers, and Gateway Load Balancers. Use the
 following table to learn about what type of load balancer to use.
@@ -21,7 +21,7 @@ following table to learn about what type of load balancer to use.
 
 We recommend that you use Application Load Balancers for your Amazon ECS services so that you can take advantage of
 these latest features, unless your service requires a feature that is only available with
-Network Load Balancers or Gateway Load Balancers. For more information about Elastic Load Balancing and the differences between the load
+Network Load Balancers or Gateway Load Balancers. For more information about ELB and the differences between the load
 balancer types, see the [Elastic Load Balancing User Guide](../../../elasticloadbalancing/latest/userguide.md "../../../elasticloadbalancing/latest/userguide.md").
 
 With your load balancer, you pay only for what you use. For more information, see [Elastic Load Balancing

@@ -191,7 +191,7 @@ In addition to the standard Amazon ECS permissions required to run tasks and
 services, users also require `iam:PassRole` permissions to use
 IAM roles for tasks.
 
-CodeDeploy needs permissions to call Amazon ECS APIs, modify your Elastic Load Balancing, invoke Lambda
+CodeDeploy needs permissions to call Amazon ECS APIs, modify your ELB, invoke Lambda
 functions, and describe CloudWatch alarms, as well as permissions to modify your
 service's desired count on your behalf. Before creating an Amazon ECS service that
 uses the blue/green deployment type, you must create an IAM role

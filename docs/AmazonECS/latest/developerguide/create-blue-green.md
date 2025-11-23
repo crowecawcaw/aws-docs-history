@@ -11,9 +11,9 @@ Fargate task that uses the blue/green deployment type with the AWS CLI.
 
 ###### Note
 
-Support for performing a blue/green deployment has been added for AWS CloudFormation. For more
+Support for performing a blue/green deployment has been added for CloudFormation. For more
 information, see [Perform Amazon ECS blue/green
-deployments through CodeDeploy using AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/blue-green.md "../../../AWSCloudFormation/latest/UserGuide/blue-green.md") in the
+deployments through CodeDeploy using CloudFormation](../../../AWSCloudFormation/latest/UserGuide/blue-green.md "../../../AWSCloudFormation/latest/UserGuide/blue-green.md") in the
 _AWS CloudFormation User Guide_.
 
 ## Prerequisites

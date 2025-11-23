@@ -43,7 +43,7 @@ For information about how to configure centralized logging for Windows container
 see [Centralized logging for Windows containers on Amazon ECS using Fluent
 Bit](https://aws.amazon.com/blogs/containers/centralized-logging-for-windows-containers-on-amazon-ecs-using-fluent-bit/ "https://aws.amazon.com/blogs/containers/centralized-logging-for-windows-containers-on-amazon-ecs-using-fluent-bit/").
 
-- You can use AWS CloudFormation templates to configure FireLens for Amazon ECS. For
+- You can use CloudFormation templates to configure FireLens for Amazon ECS. For
   more information, see [AWS::ECS::TaskDefinition FirelensConfiguration](../../../AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.md") in the
   _AWS CloudFormation User Guide_
 - FireLens listens on port `24224`, so to ensure that the

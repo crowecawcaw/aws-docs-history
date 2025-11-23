@@ -100,7 +100,7 @@ rotation](../../../secretsmanager/latest/userguide/rotate-secrets_managed.md "..
 come with the following possible consequences.
 
 - Shorter Rotation Frequency ‐ A shorter rotation frequency incurs
-  higher costs due to AWS Private CA, AWS KMS and Secrets Manager, and Auto Scaling experiencing an
+  higher costs due to AWS Private CA, AWS KMS and Secrets Manager, and Amazon EC2 Auto Scaling experiencing an
   increased workload for rotation.
 - Longer Rotation Frequency ‐ Your applications’ communications fail if
   the rotation frequency exceeds **seven**

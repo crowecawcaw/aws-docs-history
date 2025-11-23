@@ -1,4 +1,4 @@
-# Permissions required for the Amazon ECS console with AWS CloudFormation
+# Permissions required for the Amazon ECS console with CloudFormation
 
 Before using the AWS Management Console to create your resources, you'll need to make sure to have the correct
 IAM permissions. For information on how to set up permissions for the Amazon ECS console in general first,
@@ -17,17 +17,17 @@ the following cases:
 ## Permissions required for creating a cluster
 
 When you create a cluster in the console, you need additional permissions that grant
-you permissions to manage AWS CloudFormation stacks.
+you permissions to manage CloudFormation stacks.
 
 The following additional permissions are required:
 
 - `cloudformation` – Allows principals to create and manage
-  AWS CloudFormation stacks. This is required when creating Amazon ECS clusters using the AWS Management Console
+  CloudFormation stacks. This is required when creating Amazon ECS clusters using the AWS Management Console
   and the subsequent managing of those clusters.
-- `ssm` – Allows AWS CloudFormation to reference latest Amazon ECS-optimized AMI.
+- `ssm` – Allows CloudFormation to reference latest Amazon ECS-optimized AMI.
   This is required when creating Amazon ECS clusters using the AWS Management Console.
 
-The following policy contains the required AWS CloudFormation permissions, and limits the actions to
+The following policy contains the required CloudFormation permissions, and limits the actions to
 resources created in the Amazon ECS console.
 
 JSON
@@ -64,7 +64,7 @@ If you have not created the Amazon ECS container instance role
 (`ecsInstanceRole`), and you are creating a cluster that uses Amazon EC2
 instances, then the console will create the role on your behalf.
 
-In addition, if you use Auto Scaling groups, then you need additional permissions so that the
+In addition, if you use Amazon EC2 Auto Scaling groups, then you need additional permissions so that the
 console can add tags to the auto scaling groups when using the cluster auto scaling
 feature.
 
@@ -82,7 +82,7 @@ The following additional permissions are required:
 The following policy contains the required IAM permissions, and limits the actions
 to the `ecsInstanceRole` role.
 
-The Auto Scaling permissions are not limited.
+The Amazon EC2 Auto Scaling permissions are not limited.
 
 JSON
 
@@ -116,11 +116,11 @@ JSON
 service
 
 When you create a service in the console, you need additional permissions that grant
-you permissions to manage AWS CloudFormation stacks. The following additional permissions are
+you permissions to manage CloudFormation stacks. The following additional permissions are
 required:
 
 - `cloudformation` – Allows principals to create and manage
-  AWS CloudFormation stacks. This is required when creating Amazon ECS services using the AWS Management Console
+  CloudFormation stacks. This is required when creating Amazon ECS services using the AWS Management Console
   and the subsequent managing of those services.
 
 The following policy contains the required permissions, and limits the actions to

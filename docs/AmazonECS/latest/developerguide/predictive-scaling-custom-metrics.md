@@ -38,7 +38,7 @@ practices
 The following best practices can help you use custom metrics more effectively:
 
 - The most useful metric for the load metric specification is a metric that represents the load
-  on an Auto Scaling group as a whole.
+  on an Amazon EC2 Auto Scaling group as a whole.
 - The most useful metric for the scaling metric specification to scale by is an average
   throughput or utilization per task metric.
 - The target utilization must match the type of scaling metric. For a policy configuration that
@@ -63,7 +63,7 @@ If an issue occurs while using custom metrics, we recommend that you do the foll
 
 - If you encounter an issue in a blue/green deployment while using a search expression, make
   sure you created an search expression that's looking for a partial match and not an exact
-  match. You should also check that the query is only finding Auto Scaling groups running in the specific
+  match. You should also check that the query is only finding Amazon EC2 Auto Scaling groups running in the specific
   application. For more information about the search expression syntax, see [CloudWatch search expression syntax](../../../AmazonCloudWatch/latest/monitoring/search-expression-syntax.md "../../../AmazonCloudWatch/latest/monitoring/search-expression-syntax.md") in the _Amazon CloudWatch User Guide_.
 - The [put-scaling-policy](../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md "../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md")
   command validates an expression when you create your scaling policy. However, there's a

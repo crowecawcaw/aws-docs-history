@@ -21,7 +21,7 @@ The Amazon ECS console JSON editor validates the following in the JSON file:
 - The file contains the `familyName` parameter.
 - There is at least one entry under `containerDefinitions`.
 
-## AWS CloudFormation stacks
+## CloudFormation stacks
 
 The following behavior applies to task definitions that were
 created in the new Amazon ECS console before January 12, 2023.
@@ -30,7 +30,7 @@ When you create a task definition, the Amazon ECS console automatically creates 
 stack that has a name that begins with `ECS-Console-V2-TaskDefinition-`. If you used the
 AWS CLI or an AWS SDK to deregister the task definition, then you must manually delete the task
 definition stack. For more information, see [Deleting a
-stack](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the _AWS CloudFormation User Guide_.
+stack](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the _CloudFormation User Guide_.
 
 Task definitions created after January 12, 2023, do not have a CloudFormation stack
 automatically created for them.

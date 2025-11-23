@@ -15,8 +15,7 @@ underlying infrastructure fails, the service scheduler reschedules a task. You c
 task placement strategies and constraints to customize how the scheduler places and
 terminates tasks. If a task in a service stops, the scheduler launches a new task to
 replace it. This process continues until your service reaches your desired number of
-tasks based on the scheduling strategy that the service uses. The scheduling strategy of
-the service is also referred to as the _service type_.
+tasks based on the scheduling strategy that the service uses.
 
 The service scheduler also replaces tasks determined to be unhealthy after a container health check or a load balancer target group health check fails. This replacement depends on the `maximumPercent` and `desiredCount` service definition parameters.
 If a task is marked unhealthy, the service scheduler will first start a replacement task. Then, the following happens.
@@ -54,7 +53,7 @@ to select a default:
      cluster, a custom capacity provider strategy that uses the
      `FARGATE` capacity provider is selected.
     + If your cluster doesn't have a default capacity provider strategy defined
-     but you have one or more Auto Scaling group capacity providers added to the cluster, the
+     but you have one or more Amazon EC2 Auto Scaling group capacity providers added to the cluster, the
      **Use custom (Advanced)** option is selected and you
      need to manually define the strategy.
     + If your cluster doesn't have a default capacity provider strategy defined

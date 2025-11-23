@@ -486,7 +486,7 @@ command.
 (`targetGroup-ARN)`) due to `TARGET GROUP IS NOT FOUND`.
 
 The task set for the service is failing health checks because the target group isn't found. The message includes the task ID to help identify which specific task is failing health checks. You should
-delete and recreate the service. Don't delete any Elastic Load Balancing target group unless the corresponding Amazon ECS service
+delete and recreate the service. Don't delete any ELB target group unless the corresponding Amazon ECS service
 is already deleted.
 
 ## service (`service-name`) task set

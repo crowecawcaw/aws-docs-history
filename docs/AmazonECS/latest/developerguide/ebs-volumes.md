@@ -58,7 +58,7 @@ configurations.
 Consider the following when using Amazon EBS volumes:
 
 - You can't configure Amazon EBS volumes for attachment to Fargate
-  Amazon ECS tasks in the `us-east-1c` Availability Zone.
+  Amazon ECS tasks in the `use1-az3` Availability Zone.
 - The magnetic (`standard`) Amazon EBS volume type is not supported for
   tasks hosted on Fargate. For more information about Amazon EBS volume
   types, see [Amazon EBS volumes](../../../ebs/latest/userguide/ebs-volume-types.md "../../../ebs/latest/userguide/ebs-volume-types.md") in

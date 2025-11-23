@@ -1,11 +1,11 @@
 # Creating Amazon ECS resources using AWS CLI commands
 
-for AWS CloudFormation
+for CloudFormation
 
-Another way to use Amazon ECS with AWS CloudFormation is through the AWS CLI. You can use commands to
-create your AWS CloudFormation stacks for Amazon ECS components like task definitions, clusters, and
+Another way to use Amazon ECS with CloudFormation is through the AWS CLI. You can use commands to
+create your CloudFormation stacks for Amazon ECS components like task definitions, clusters, and
 services and deploy them. The following tutorial shows how you can use the AWS CLI to
-create Amazon ECS resources using an AWS CloudFormation template.
+create Amazon ECS resources using an CloudFormation template.
 
 ## Prerequisites
 
@@ -665,7 +665,7 @@ To clean up the resources you created, run the following command.
  --stack-name `ecs-stack``
 ```
 
-The `delete-stack` command initiates deletion of the AWS CloudFormation stack that
+The `delete-stack` command initiates deletion of the CloudFormation stack that
 was created in this tutorial, deleting all the resources in the stack. To verify
 deletion, you can repeat the procedure in [Step 2: Verify Amazon ECS resource
 creation](#ecs-cloudformation-cli-verify "#ecs-cloudformation-cli-verify"). The list of ARNs in the outputs

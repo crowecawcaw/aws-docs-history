@@ -44,7 +44,7 @@ on-premises networks without exposing your traffic to the public internet.
 A VPC endpoint allows private connections between your VPC and supported AWS
 services and VPC endpoint services. Traffic between your VPC and the other service
 doesn't leave the Amazon network. A VPC endpoint doesn't require an internet gateway,
-virtual private gateway, NAT device, VPN connection, or AWS Direct Connect connection. Amazon EC2
+virtual private gateway, NAT device, VPN connection, or Direct Connect connection. Amazon EC2
 instances in your VPC don't require public IP addresses to communicate with resources in
 the service.
 

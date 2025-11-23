@@ -146,7 +146,7 @@ strategy is first.
 You need to enable Availability Zone rebalancing for new and existing services.
 
 You can enable and disable Availability Zone rebalancing using the console, APIs, AWS CLI, and
-AWS CloudFormation.
+CloudFormation.
 
 The default behavior of `AvailabilityZoneRebalancing` differs between create and update requests:
 

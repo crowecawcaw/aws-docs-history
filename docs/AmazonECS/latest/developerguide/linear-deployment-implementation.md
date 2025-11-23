@@ -10,15 +10,13 @@ one of the following features:
 
 Linear deployments do not support Network Load Balancer. For Network Load Balancer support, use blue/green deployments instead.
 
-Linear deployments do not support Network Load Balancers. For Network Load Balancer configurations, use blue/green deployments instead.
-
 The following list provides a high-level overview of what you need to configure for
 Amazon ECS linear deployments:
 
 - Your service uses an Application Load Balancer or Service Connect. Configure the appropriate
   resources.
-  - Application Load Balancer - For more information, see .
-  - Service Connect - For more information, see .
+  - Application Load Balancer - For more information, see [Application Load Balancer resources for blue/green, linear, and canary deployments](alb-resources-for-blue-green.md "alb-resources-for-blue-green.md").
+  - Service Connect - For more information, see [Service Connect resources for Amazon ECS blue/green, linear, and canary deployments](service-connect-blue-green.md "service-connect-blue-green.md").
 
 - Set the service deployment controller to `ECS`.
 - Configure the deployment strategy as `linear` in your service

@@ -1010,7 +1010,7 @@ For the `InferenceAccelerator` type, the `value`
 matches the `deviceName` for an
 `InferenceAccelerator` specified in a task definition.
 For more information, see [Elastic Inference accelerator
-name](task_definition_parameters.md#elastic-Inference-accelerator "task_definition_parameters.md#elastic-Inference-accelerator").
+name (deprecated)](task_definition_parameters.md#elastic-Inference-accelerator "task_definition_parameters.md#elastic-Inference-accelerator").
 
 ###### Note
 
@@ -2695,7 +2695,7 @@ The default is `false`.
 
 ## Elastic Inference accelerator
 
-name
+name (deprecated)
 
 The Elastic Inference accelerator resource requirement for your task definition.
 

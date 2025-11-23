@@ -134,7 +134,7 @@ API Gateway supports the following features.
   capabilities unique to API management
 - The API Gateway provides additional capabilities around client authorization,
   usage tiers, and request/response modification. For more information, see
-  [Amazon API Gateway features](https://aws.amazon.com/api-gateway/features/ "https://aws.amazon.com/api-gateway/features/").
+  [Amazon API Gateway features](https://aws.amazon.com//api-gateway/features/ "https://aws.amazon.com//api-gateway/features/").
 - The API Gateway can support edge, regional, and private API gateway endpoints. Edge
   endpoints are available through a managed CloudFront distribution. Regional and
   private endpoints are both local to a Region.

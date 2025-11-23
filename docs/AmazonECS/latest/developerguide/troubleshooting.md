@@ -79,3 +79,9 @@ For information about API errors, see one of the following.
 | Action              | Learn more                                                                            |
 | ------------------- | ------------------------------------------------------------------------------------- |
 | Resolve API errors. | [Amazon ECS API failure reasons](api_failures_messages.md "api_failures_messages.md") |
+
+For information about AI-powered troubleshooting with Amazon Q Developer in the console, see the following:
+
+| Action                                               | Learn more                                                                                       |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Troubleshoot with Amazon Q Developer in the console. | [Troubleshooting with Amazon Q Developer](troubleshooting-with-Q.md "troubleshooting-with-Q.md") |

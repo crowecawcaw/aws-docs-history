@@ -86,19 +86,13 @@ Required: No
 
 Default: `awsvpc`
 
-The Docker networking mode to use for the containers in the task. For
+The networking mode to use for the containers in the task. For
 Amazon ECS tasks that are hosted on Amazon ECS Managed Instances, the valid values are
 `awsvpc` and `host`. If no network mode is
 specified, the default network mode is `awsvpc`.
 
-If the network mode is `host`, the task uses
-the host's network which bypasses Docker's built-in virtual network
-by mapping container ports directly to the ENI of the Amazon EC2 instance that hosts
-the task. Dynamic port mappings can’t be used in this network mode. A container
-in a task definition that uses this mode must specify a specific
-`hostPort` number. A port number on a host can’t be used by multiple
-tasks. As a result, you can’t run multiple tasks of the same task definition
-on a single Amazon EC2 instance.
+If the network mode is `host`, the task bypasses network
+isolation and containers use the host's network stack directly.
 
 ###### Important
 
@@ -228,7 +222,7 @@ console](create-task-definition.md "create-task-definition.md").
 - [Proxy configuration](#proxyConfiguration-managed-instances "#proxyConfiguration-managed-instances")
 - [Tags](#tags-managed-instances "#tags-managed-instances")
 - [Elastic Inference
-  accelerator](#elastic-Inference-accelerator-managed-instances "#elastic-Inference-accelerator-managed-instances")
+  accelerator (deprecated)](#elastic-Inference-accelerator-managed-instances "#elastic-Inference-accelerator-managed-instances")
 - [Placement constraints](#constraints-managed-instances "#constraints-managed-instances")
 - [Volumes](#volumes-managed-instances "#volumes-managed-instances")
 
@@ -276,7 +270,7 @@ the same IPC resources. If `none` is specified, then IPC
 resources within the containers of a task are private and not shared
 with other containers in a task or on the container instance. If no
 value is specified, then the IPC resource namespace sharing depends on
-the Docker daemon setting on the container instance.
+the container runtime configuration.
 
 ### PID mode
 
@@ -357,7 +351,11 @@ as a descriptor within a tag category (key).
 
 ### Elastic Inference
 
-accelerator
+accelerator (deprecated)
+
+###### Note
+
+Amazon Elastic Inference (EI) is no longer available to customers.
 
 `inferenceAccelerator`
 
@@ -402,8 +400,7 @@ instances Amazon ECS uses for tasks](task-placement-constraints.md "task-placeme
 ### Volumes
 
 When you register a task definition, you can optionally specify a list of volumes
-that are passed to the Docker daemon on a container instance. This allows you to use
-data volumes in your tasks.
+for your tasks. This allows you to use data volumes in your tasks.
 
 For more information about volume types and other parameters, see [Storage options for Amazon ECS tasks](using_data_volumes.md "using_data_volumes.md").
 
@@ -428,7 +425,7 @@ This parameter is specified when you're using bind mount host volumes.
 The contents of the `host` parameter determine whether your
 bind mount host volume persists on the host container instance and where
 it's stored. If the `host` parameter is empty, then the
-Docker daemon assigns a host path for your data volume. However, the
+system assigns a host path for your data volume. However, the
 data isn't guaranteed to persist after the containers that are
 associated with it stop running.
 
@@ -1282,7 +1279,7 @@ For the `InferenceAccelerator` type, the `value`
 matches the `deviceName` for an
 `InferenceAccelerator` specified in a task definition.
 For more information, see [Elastic Inference accelerator
-name](task_definition_parameters.md#elastic-Inference-accelerator "task_definition_parameters.md#elastic-Inference-accelerator").
+name (deprecated)](task_definition_parameters.md#elastic-Inference-accelerator "task_definition_parameters.md#elastic-Inference-accelerator").
 
 `essential`
 

@@ -11,9 +11,9 @@ retrieved programmatically. For more information, see [Retrieving Amazon ECS-opt
 AMI metadata](retrieve-ecs-optimized_windows_AMI.md "retrieve-ecs-optimized_windows_AMI.md").
 
 The following tabs display a list of Windows Amazon ECS-optimized AMIs versions. For
-details on referencing the Systems Manager Parameter Store parameter in an AWS CloudFormation template, see
+details on referencing the Systems Manager Parameter Store parameter in an CloudFormation template, see
 [Using the latest
-recommended Amazon ECS-optimized AMI in an AWS CloudFormation template](retrieve-ecs-optimized_AMI.md#ecs-optimized-ami-parameter-examples-5 "retrieve-ecs-optimized_AMI.md#ecs-optimized-ami-parameter-examples-5").
+recommended Amazon ECS-optimized AMI in an CloudFormation template](retrieve-ecs-optimized_AMI.md#ecs-optimized-ami-parameter-examples-5 "retrieve-ecs-optimized_AMI.md#ecs-optimized-ami-parameter-examples-5").
 
 ###### Important
 

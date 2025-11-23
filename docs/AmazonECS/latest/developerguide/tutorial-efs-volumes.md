@@ -35,9 +35,9 @@ Before you begin, assign the appropriate IAM permission. For more information, s
 
 7. To add Amazon EC2 instances to your cluster, expand
    **Infrastructure**, and then select **Amazon EC2
-   instances**. Next, configure the Auto Scaling group which acts as the
+   instances**. Next, configure the Amazon EC2 Auto Scaling group which acts as the
    capacity provider:
-   1. To create a Auto Scaling group, from **Auto Scaling group
+   1. To create a Amazon EC2 Auto Scaling group, from **Auto Scaling group
       (ASG)**, select **Create new group**, and
       then provide the following details about the group:
       - For **Operating system/Architecture**, choose

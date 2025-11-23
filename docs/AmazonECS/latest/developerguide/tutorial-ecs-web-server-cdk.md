@@ -5,7 +5,7 @@ AWS CDK
 The AWS Cloud Development Kit (AWS CDK) is an Infrastructure-as-Code (IAC) framework that you can use to define
 AWS cloud infrastructure by using a programming language of your choosing. To define your
 own cloud infrastructure, you first write an app (in one of the CDK's supported
-languages) that contains one or more stacks. Then, you synthesize it to an AWS CloudFormation template
+languages) that contains one or more stacks. Then, you synthesize it to an CloudFormation template
 and deploy your resources to your AWS account. Follow the steps in this topic to deploy a
 containerized web server with Amazon Elastic Container Service (Amazon ECS) and the AWS CDK on Fargate.
 
@@ -432,7 +432,7 @@ Some automatically provisioned resources are shared by all Amazon ECS services d
 the stack.
 
 Save the source file, then run the `cdk synth` command in your
-application's main directory. The AWS CDK runs the app and synthesizes an AWS CloudFormation template
+application's main directory. The AWS CDK runs the app and synthesizes an CloudFormation template
 from it, and then displays the template. The template is an approximately 600-line YAML
 file. The beginning of the file is shown here. Your template might differ from this
 example.

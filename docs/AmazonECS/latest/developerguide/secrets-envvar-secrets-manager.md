@@ -49,7 +49,7 @@ secret into a container.
   subnet. You must create the interface VPC endpoints for Secrets Manager. For information about the
   VPC endpoint, see [Create VPC
   endpoints](../../../secretsmanager/latest/userguide/setup-create-vpc.md "../../../secretsmanager/latest/userguide/setup-create-vpc.md") in the _AWS Secrets Manager User Guide_. For more information
-  about using Secrets Manager and Amazon VPC, see [How to connect to Secrets Manager service within a Amazon VPC](https://aws.amazon.com/blogs/security/how-to-connect-to-aws-secrets-manager-service-within-a-virtual-private-cloud/ "https://aws.amazon.com/blogs/security/how-to-connect-to-aws-secrets-manager-service-within-a-virtual-private-cloud/").
+  about using Secrets Manager and Amazon VPC, see [How to connect to Secrets Manager service within a Amazon VPC](https://aws.amazon.com/blogs//security/how-to-connect-to-aws-secrets-manager-service-within-a-virtual-private-cloud/ "https://aws.amazon.com/blogs//security/how-to-connect-to-aws-secrets-manager-service-within-a-virtual-private-cloud/").
 - For Windows tasks that are configured to use the `awslogs` logging driver,
   you must also set the `ECS_ENABLE_AWSLOGS_EXECUTIONROLE_OVERRIDE`
   environment variable on your container instance. Use the following

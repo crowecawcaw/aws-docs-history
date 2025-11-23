@@ -2,7 +2,7 @@
 
 An Amazon ECS container instance is an Amazon EC2 instance that run the Amazon ECS container
 agent and is registered to a cluster. When you run tasks with Amazon ECS using the
-capacity provider, External capacity provider or an Auto Scaling group capacity
+capacity provider, External capacity provider or an Amazon EC2 Auto Scaling group capacity
 provider, your tasks are placed on your active container instances. You are
 responsible for the container instance management and maintenance.
 
@@ -15,8 +15,8 @@ AWS quickly.
 When you create a cluster using the console, Amazon ECS creates a launch template for
 your instances with the latest AMI associated with the selected operating system.
 
-When you use AWS CloudFormation to create a cluster, the SSM parameter is part of the Amazon EC2
-launch template for the Auto Scaling group instances. You can configure the template to use a
+When you use CloudFormation to create a cluster, the SSM parameter is part of the Amazon EC2
+launch template for the Amazon EC2 Auto Scaling group instances. You can configure the template to use a
 dynamic Systems Manager parameter to determine what Amazon ECS Optimized AMI to deploy. This
 parameter ensures that each time you deploy the stack it will check to see if there
 is available update that needs to be applied to the EC2 instances. For an example of
@@ -32,7 +32,7 @@ how to use the Systems Manager parameter, see [Create an Amazon ECS cluster with
   With larger instances, you can launch more tasks at the same time. With smaller
   instances, you can scale out in a more fine-grained way to save costs. You don't
   need to choose a single Amazon EC2 instance type that to fit all the applications in your
-  cluster. Instead, you can create multiple Auto Scaling groups where each group has a
+  cluster. Instead, you can create multiple Amazon EC2 Auto Scaling groups where each group has a
   different instance type. Then, you can create an Amazon EC2 capacity provider for each
   one of these groups.
 
@@ -60,7 +60,7 @@ available all the time.
 
 - During periods of extremely high demand, Spot capacity might be unavailable.
   This can cause Amazon EC2 Spot instance launches to be delayed. In these events,
-  Amazon ECS services retry launching tasks, and Amazon EC2 Auto Scaling groups also retry launching
+  Amazon ECS services retry launching tasks, and Amazon EC2 Amazon EC2 Auto Scaling groups also retry launching
   instances, until the required capacity becomes available. Amazon EC2 doesn't replace
   Spot capacity with on-demand capacity.
 - When the overall demand for capacity increases, Spot Instances and tasks might
@@ -78,7 +78,7 @@ To help minimize Spot capacity shortages, consider the following recommendations
   subnets in all the Availability Zones in the Regions
   where you run your tasks and instances.
 - Use multiple Amazon EC2 instance types - When you use Mixed Instance Policies with
-  Amazon EC2 Auto Scaling, multiple instance types are launched into your Auto Scaling Group. This
+  Amazon EC2 Amazon EC2 Auto Scaling, multiple instance types are launched into your Amazon EC2 Auto Scaling Group. This
   ensures that a request for Spot capacity can be fulfilled when needed. To
   maximize reliability and minimize complexity, use instance types with roughly
   the same amount of CPU and memory in your Mixed Instances Policy. These
@@ -86,7 +86,7 @@ To help minimize Spot capacity shortages, consider the following recommendations
   instance type. Note that they might come with additional features that you might
   not require. An example of such a list could include m4.large, m5.large,
   m5a.large, m5d.large, m5n.large, m5dn.large, and m5ad.large. For more
-  information, see [Auto Scaling groups with multiple instance types and purchase options](../../../autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.md") in the
+  information, see [Amazon EC2 Auto Scaling groups with multiple instance types and purchase options](../../../autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.md") in the
   _Amazon EC2 Auto Scaling User Guide_.
 - Use the capacity-optimized Spot allocation strategy - With Amazon EC2 Spot, you can
   choose between the capacity- and cost-optimized allocation strategies. If you

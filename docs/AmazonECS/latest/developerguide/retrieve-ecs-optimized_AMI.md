@@ -9,8 +9,8 @@ includes the Docker version.
 When you create a cluster using the console, Amazon ECS creates a launch template for
 your instances with the latest AMI associated with the selected operating system.
 
-When you use AWS CloudFormation to create a cluster, the SSM parameter is part of the Amazon EC2
-launch template for the Auto Scaling group instances. You can configure the template to use a
+When you use CloudFormation to create a cluster, the SSM parameter is part of the Amazon EC2
+launch template for the Amazon EC2 Auto Scaling group instances. You can configure the template to use a
 dynamic Systems Manager parameter to determine what Amazon ECS Optimized AMI to deploy. This
 parameter ensures that each time you deploy the stack it will check to see if there
 is available update that needs to be applied to the EC2 instances. For an example of
@@ -281,9 +281,9 @@ parameter value; for example:
 
 ### Using the latest
 
-recommended Amazon ECS-optimized AMI in an AWS CloudFormation template
+recommended Amazon ECS-optimized AMI in an CloudFormation template
 
-You can reference the latest recommended Amazon ECS-optimized AMI in an AWS CloudFormation
+You can reference the latest recommended Amazon ECS-optimized AMI in an CloudFormation
 template by referencing the Systems Manager parameter store name.
 
 **Linux example**

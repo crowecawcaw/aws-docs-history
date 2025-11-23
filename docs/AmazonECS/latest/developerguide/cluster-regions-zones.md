@@ -75,7 +75,7 @@ accounts](../../../vpc/latest/userguide/vpc-sharing.md#vpc-share-limitations "..
 
 A _Local Zone_ is an extension of an AWS Region in close
 geographic proximity to your users. Local Zones have their own connections to the
-internet and support AWS Direct Connect. Resources that are created in a Local Zone can serve
+internet and support Direct Connect. Resources that are created in a Local Zone can serve
 local users with low-latency communications. For more information, see [AWS Local
 Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/ "https://aws.amazon.com/about-aws/global-infrastructure/localzones/").
 

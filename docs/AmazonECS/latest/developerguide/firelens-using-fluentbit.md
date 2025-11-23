@@ -151,7 +151,7 @@ following command to query the Systems Manager Parameter Store parameter.
  --region `us-east-1``
 ```
 
-The newest stable AWS for Fluent Bit image can be referenced in an AWS CloudFormation
+The newest stable AWS for Fluent Bit image can be referenced in an CloudFormation
 template by referencing the Systems Manager parameter store name. The
 following is an example:
 
@@ -187,7 +187,7 @@ following command to query the Systems Manager Parameter Store parameter.
  --region `us-east-1``
 ```
 
-The latest stable AWS for Fluent Bit image can be referenced in an AWS CloudFormation
+The latest stable AWS for Fluent Bit image can be referenced in an CloudFormation
 template by referencing the Systems Manager parameter store name. The
 following is an example:
 

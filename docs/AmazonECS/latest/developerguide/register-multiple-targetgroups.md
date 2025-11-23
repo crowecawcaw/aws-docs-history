@@ -7,7 +7,7 @@ load balanced ports when you specify multiple target groups in a service
 definition.
 
 To create a service specifying multiple target groups, you must create the service
-using the Amazon ECS API, SDK, AWS CLI, or an AWS CloudFormation template. After the service is created, you
+using the Amazon ECS API, SDK, AWS CLI, or an CloudFormation template. After the service is created, you
 can view the service and the target groups registered to it with the AWS Management Console. You must
 use `UpdateService` to modify the load balancer configuration of an
 existing service.
@@ -49,7 +49,7 @@ service definition.
 - When creating a service that specifies multiple target groups, the Amazon ECS
   service-linked role must be created. The role is created by omitting the
   `role` parameter in API requests, or the `Role`
-  property in AWS CloudFormation. For more information, see [Using service-linked roles for
+  property in CloudFormation. For more information, see [Using service-linked roles for
   Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ## Example service definitions

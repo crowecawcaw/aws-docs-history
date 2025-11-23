@@ -25,7 +25,7 @@ configurable.
 ## Asynchronous throttling
 
 Asynchronous throttling occurs because of asynchronous workflows where Amazon ECS or
-AWS CloudFormation might be calling APIs on your behalf to provision resources. It's important to
+CloudFormation might be calling APIs on your behalf to provision resources. It's important to
 know which AWS APIs that Amazon ECS invokes on your behalf. For example, the
 `CreateNetworkInterface` API is invoked for tasks that use the
 `awsvpc` network mode, and the `DescribeTargetHealth` API
@@ -37,11 +37,11 @@ throttled. That is, they might be throttled enough to breach the limits enforced
 Amazon ECS or the AWS service that is being called. For example, if you deploy hundreds
 of services, each having hundreds of tasks concurrently that use the
 `awsvpc` network mode, Amazon ECS invokes Amazon EC2 API operations such as
-`CreateNetworkInterface` and Elastic Load Balancing API operations such as
+`CreateNetworkInterface` and ELB API operations such as
 `RegisterTarget` or `DescribeTargetHealth` to register the
 elastic network interface and load balancer, respectively. These API calls can
 exceed the API limits, resulting in throttling errors. The following is an example
-of an Elastic Load Balancing throttling error that's included in the service event message.
+of an ELB throttling error that's included in the service event message.
 
 ```
 {

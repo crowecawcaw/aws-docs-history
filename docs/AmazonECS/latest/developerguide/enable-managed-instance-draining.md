@@ -2,7 +2,7 @@
 
 down instances
 
-You can turn on managed instance draining when you create or update your Auto Scaling group capacity providers
+You can turn on managed instance draining when you create or update your Amazon EC2 Auto Scaling group capacity providers
 using the Amazon ECS console and AWS CLI.
 
 ###### Note

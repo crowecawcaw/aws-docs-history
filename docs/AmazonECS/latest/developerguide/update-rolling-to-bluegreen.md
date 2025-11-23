@@ -16,16 +16,16 @@ Before migrating your service from rolling to blue/green deployments, ensure you
   might need to manually update your service to use a single revision before
   migrating.
 - Configure the appropriate permissions.
-  - For information about Elastic Load Balancing permissions, see [Amazon ECS infrastructure
+  - For information about ELB permissions, see [Amazon ECS infrastructure
     IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md").
   - For information about Lambda permissions, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](blue-green-permissions.md "blue-green-permissions.md").
 
 - Depending on configuration, you need to perform one of the following:
-  - If your service uses Elastic Load Balancing, update your service with the new
+  - If your service uses ELB, update your service with the new
     `advancedConfiguration` and start a rolling deployment.
   - If your service uses Service Connect, update your service and start a rolling
     deployment.
-  - If your service uses both Elastic Load Balancing and Service Connect, perform both steps above
+  - If your service uses both ELB and Service Connect, perform both steps above
     (you can use a single UpdateService request).
   - If your service uses none of the above, then no additional operation is
     needed.

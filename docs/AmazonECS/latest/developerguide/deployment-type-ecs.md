@@ -8,27 +8,30 @@ service during a rolling update is controlled by the service deployment configur
 Amazon ECS uses the following parameters to determine the number of tasks:
 
 - The `minimumHealthyPercent` represents the lower limit on the number of
-  tasks that should be running for a service during a deployment or when a container
+  tasks that should be running and healthy for a service during a rolling deployment or when a container
   instance is draining, as a percent of the desired number of tasks for the service.
   This value is rounded up. For example if the minimum healthy percent is
   `50` and the desired task count is four, then the scheduler can stop
   two existing tasks before starting two new tasks. Likewise, if the minimum healthy
   percent is 75% and the desired task count is two, then the scheduler can't stop any
   tasks due to the resulting value also being two.
-
-If tasks become unhealthy, the Amazon ECS service scheduler will start replacement
-tasks first and maintain `minimumHealthyPercent` tasks until the
-replacement tasks become healthy. As the replacement tasks launch and become
-healthy, the unhealthy tasks will gradually be stopped.
-
 - The `maximumPercent` represents the upper limit on the number of tasks
-  that should be running for a service during a deployment or when a container
+  that should be running for a service during a rolling deployment or when a container
   instance is draining, as a percent of the desired number of tasks for a service.
   This value is rounded down. For example if the maximum percent is `200`
-  and the desired task count is four then the scheduler can start four new tasks
+  and the desired task count is four, then the scheduler can start four new tasks
   before stopping four existing tasks. Likewise, if the maximum percent is
   `125` and the desired task count is three, the scheduler can't start
   any tasks due to the resulting value also being three.
+  During a rolling deployment, when tasks become unhealthy, Amazon ECS replaces them to
+  maintain your service's `minimumHealthyPercent` and protect availability.
+  Unhealthy tasks are replaced using the same service revision they belong to. This
+  ensures that unhealthy task replacement in the source revision is independent from
+  task failures in the target revision. When the `maximumPercent` setting
+  allows, the scheduler launches replacement tasks before stopping unhealthy ones. If
+  the `maximumPercent` parameter limits the scheduler from starting a
+  replacement task first, the scheduler stops one unhealthy task at a time to free
+  capacity before launching a replacement task.
 
 ###### Important
 

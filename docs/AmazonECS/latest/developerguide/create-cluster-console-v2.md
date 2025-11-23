@@ -4,7 +4,7 @@ You create a cluster to define the infrastructure your tasks and services run on
 
 Before you begin, be sure that you've completed the steps in [Set up to use Amazon ECS](get-set-up-for-amazon-ecs.md "get-set-up-for-amazon-ecs.md") and
 assign the appropriate IAM permission. For more information, see [Amazon ECS cluster examples](security_iam_id-based-policy-examples.md#IAM_cluster_policies "security_iam_id-based-policy-examples.md#IAM_cluster_policies"). The Amazon ECS console creates the resources that are
-needed by an Amazon ECS cluster by creating a AWS CloudFormation stack.
+needed by an Amazon ECS cluster by creating a CloudFormation stack.
 
 The console automatically associates the Fargate and Fargate Spot capacity providers
 with the cluster.

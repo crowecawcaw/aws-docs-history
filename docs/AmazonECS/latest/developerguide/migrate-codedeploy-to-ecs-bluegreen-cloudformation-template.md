@@ -1,10 +1,10 @@
-# Migrating an AWS CloudFormation
+# Migrating an CloudFormation
 
-CodeDeploy blue/green deployment template to an Amazon ECS blue/green AWS CloudFormation template
+CodeDeploy blue/green deployment template to an Amazon ECS blue/green CloudFormation template
 
-Migrate a AWS CloudFormation template that uses CodeDeploy blue/green deployments for Amazon ECS
+Migrate a CloudFormation template that uses CodeDeploy blue/green deployments for Amazon ECS
 services to one that uses the native Amazon ECS blue/green deployment strategy. The migration
-follows the "Reuse the same Elastic Load Balancing resources used for CodeDeploy" approach. For more information,
+follows the "Reuse the same ELB resources used for CodeDeploy" approach. For more information,
 see [Migrate CodeDeploy blue/green deployments to Amazon ECS blue/green deployments](migrate-codedeploy-to-ecs-bluegreen.md "migrate-codedeploy-to-ecs-bluegreen.md").
 
 ## Source template
@@ -13,7 +13,7 @@ This template uses the `AWS::CodeDeployBlueGreen` transform and
 `AWS::CodeDeploy::BlueGreen` hook to implement blue/green deployments for
 an Amazon ECS service.
 
-This is the complete AWS CloudFormation template using CodeDeploy blue/green deployment. For
+This is the complete CloudFormation template using CodeDeploy blue/green deployment. For
 more information, see [Blue/green deployment template example](../../../AWSCloudFormation/latest/UserGuide/blue-green-template-example.md#blue-green-template-example.json "../../../AWSCloudFormation/latest/UserGuide/blue-green-template-example.md#blue-green-template-example.json") in the _AWS CloudFormation
 User Guide_:
 
@@ -449,7 +449,7 @@ IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.m
 
 ## Template after migration
 
-This is the complete AWS CloudFormation template using an Amazon ECS blue/green deployment:
+This is the complete CloudFormation template using an Amazon ECS blue/green deployment:
 
 ```
 {

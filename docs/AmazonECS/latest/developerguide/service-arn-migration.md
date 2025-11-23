@@ -22,8 +22,8 @@ The migration process is seamless and ensures zero downtime for your service. Du
 - **Running tasks**: Existing tasks continue to run without disruption. New tasks launched after migration will use the long ARN format if the `taskLongArnFormat` account setting is enabled.
 - **Container instances**: Container instances are not affected by the service ARN migration and continue to operate normally.
 - **Service configuration**: All service settings, including task definition, networking, and load balancer configurations, remain unchanged.
-  If you want to use AWS CloudFormation to tag a service with short ARN format, you must migrate the
-  service using the API, CLI, or console. After the migration completes you can use AWS CloudFormation to
+  If you want to use CloudFormation to tag a service with short ARN format, you must migrate the
+  service using the API, CLI, or console. After the migration completes you can use CloudFormation to
   tag the service.
 
 If you want to use Terraform to tag a service with short ARN format, you must migrate
@@ -42,7 +42,7 @@ After the migration is complete, the service has the following changes:
 
 This tag counts toward your tag quota.
 
-- When the `PhysicalResourceId` in a AWS CloudFormation stack represents a service
+- When the `PhysicalResourceId` in a CloudFormation stack represents a service
   ARN, the value does not change and will continue to be the short service ARN.
 
 ## Prerequisites

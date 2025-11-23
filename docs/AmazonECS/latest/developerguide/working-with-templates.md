@@ -1,13 +1,13 @@
-# AWS CloudFormation example templates for Amazon ECS
+# CloudFormation example templates for Amazon ECS
 
 You can create Amazon ECS clusters, task definitions, and services
-using AWS CloudFormation. The following topics include templates that demonstrate
+using CloudFormation. The following topics include templates that demonstrate
 how to create resources with different configurations. You can create these resources
-with these templates by using the AWS CloudFormation console or the AWS CLI.
+with these templates by using the CloudFormation console or the AWS CLI.
 
-AWS CloudFormation templates are text files in the JSON or YAML format that describe the resources
-that you want to provision in your AWS CloudFormation stacks. If you're unfamiliar with either the
-JSON or YAML format, or both, you can use AWS Infrastructure Composer to get started using AWS CloudFormation
+CloudFormation templates are text files in the JSON or YAML format that describe the resources
+that you want to provision in your CloudFormation stacks. If you're unfamiliar with either the
+JSON or YAML format, or both, you can use AWS Infrastructure Composer to get started using CloudFormation
 templates. For more information, see [Create templates visually with Infrastructure Composer](../../../AWSCloudFormation/latest/UserGuide/infrastructure-composer-for-cloudformation.md "../../../AWSCloudFormation/latest/UserGuide/infrastructure-composer-for-cloudformation.md") in the
 _AWS CloudFormation User Guide_.
 
@@ -26,7 +26,7 @@ services.
 
 A task definition is a blueprint for your application that describes the
 parameters and one or more containers that form your application. The following are
-example AWS CloudFormation templates for Amazon ECS task definitions. For more information about Amazon ECS
+example CloudFormation templates for Amazon ECS task definitions. For more information about Amazon ECS
 task definitions, see [Amazon ECS task definitions](task_definitions.md "task_definitions.md").
 
 ### Fargate Linux task
@@ -4428,7 +4428,7 @@ Resources:
 
 ## IAM roles for Amazon ECS
 
-You can use AWS CloudFormation templates to create IAM roles for use with Amazon ECS. For more
+You can use CloudFormation templates to create IAM roles for use with Amazon ECS. For more
 information about IAM roles for Amazon ECS, see [IAM roles for Amazon ECS](security-ecs-iam-role-overview.md "security-ecs-iam-role-overview.md").
 
 ### Amazon ECS task execution

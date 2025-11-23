@@ -101,10 +101,10 @@ not rely on `INACTIVE` clusters persisting.
   Amazon ECS Managed Instances, Fargate or EC2 infrastructure as
   a launch type or a capacity provider strategy. If you use EC2 capacity providers, Amazon ECS doesn't track and scale the capacity of Amazon EC2 Auto Scaling
   groups.
-- A cluster can contain a mix of Amazon ECS Managed Instances capacity providers, Auto Scaling group capacity providers, and Fargate
-  capacity providers. A capacity provider strategy can only contain Amazon ECS Managed Instances capacity providers, Auto Scaling group
+- A cluster can contain a mix of Amazon ECS Managed Instances capacity providers, Amazon EC2 Auto Scaling group capacity providers, and Fargate
+  capacity providers. A capacity provider strategy can only contain Amazon ECS Managed Instances capacity providers, Amazon EC2 Auto Scaling group
   capacity providers, or Fargate capacity providers.
-- You can use different instance types for the Amazon ECS Managed Instances and EC2, or Auto Scaling
+- You can use different instance types for the Amazon ECS Managed Instances and EC2, or Amazon EC2 Auto Scaling
   group capacity providers. An instance can only be registered to one cluster at a
   time.
 - You can restrict access to clusters by creating custom IAM policies. For
@@ -146,9 +146,9 @@ Fargate capacity providers
 
 Serverless compute where you pay only for the resources your tasks use without managing any infrastructure. You just need to associate the pre-defined capacity providers (Fargate and Fargate Spot) with the cluster.
 
-Auto Scaling group capacity providers
+Amazon EC2 Auto Scaling group capacity providers
 
-When you use Amazon EC2 instances for your capacity, you use Auto Scaling group to manage the Amazon EC2 instances. Auto Scaling helps ensure that you have the correct number of Amazon EC2 instances available to handle the application load. You have full control over the underlying infrastructure.
+When you use Amazon EC2 instances for your capacity, you use Amazon EC2 Auto Scaling group to manage the Amazon EC2 instances. Amazon EC2 Auto Scaling helps ensure that you have the correct number of Amazon EC2 instances available to handle the application load. You have full control over the underlying infrastructure.
 
 A cluster can contain a mix of tasks that are hosted on Amazon ECS Managed Instances,
 AWS Fargate, Amazon EC2 instances, or external instances. Tasks can run on
@@ -156,6 +156,6 @@ Amazon ECS Managed Instances, Fargate or EC2 infrastructure as a
 launch type or a capacity provider strategy. If you use EC2 as a launch
 type, Amazon ECS doesn't track and scale the capacity of Amazon EC2 Auto Scaling groups.
 
-A cluster can contain a mix of Amazon ECS Managed Instances capacity providers, Auto Scaling group capacity providers, and Fargate
-capacity providers. A capacity provider strategy can only contain Amazon ECS Managed Instances capacity providers, Auto Scaling group capacity
+A cluster can contain a mix of Amazon ECS Managed Instances capacity providers, Amazon EC2 Auto Scaling group capacity providers, and Fargate
+capacity providers. A capacity provider strategy can only contain Amazon ECS Managed Instances capacity providers, Amazon EC2 Auto Scaling group capacity
 providers, or Fargate capacity providers.

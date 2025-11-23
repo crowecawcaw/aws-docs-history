@@ -84,3 +84,15 @@ the Service Connect service and endpoint. To override those values, you can use 
 other parameters **Discovery**, **DNS**, and
 **Port** in the console, or `discoveryName` and
 `clientAliases`, respectively in the Amazon ECS API.
+
+## Initial Health Check configuration
+
+Service Connect ensures tasks are healthy before routing traffic to them. When a task launches (during deployments, scaling, or replacements), Service Connect monitors the health of your task to ensure it is ready to accept traffic. You must define health checks for the essential container in your task definition to enable this behavior.
+
+The behavior of the initial health check accounts for potential delays with reaching the state when a task is ready to accept traffic:
+
+- If a task is `HEALTHY`, it's immediately available for traffic.
+- If a task's health is `UNKNOWN`, Service Connect follows the container health check configuration (see [Health check](task_definition_parameters.md#container_definition_healthcheck "task_definition_parameters.md#container_definition_healthcheck")) of the task's essential containers to calculate a timeout, up to `8 minutes`, before making it available to traffic, even if it remains `UNKNOWN`.
+- If a task is `UNHEALTHY`, Service Connect delays traffic routing for up to `8 minutes`. During this time, Amazon ECS may launch replacement tasks. If no healthy tasks are available, your deployment might be rolled back based on your service's configuration.
+
+For all ongoing traffic, Service Connect uses passive health checks based on outlier detection to route traffic efficiently.

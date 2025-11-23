@@ -4,7 +4,7 @@ Amazon ECS
 
 Learn how to launch an Amazon ECS-Optimized Windows instance that hosts an FSx for Windows File Server
 file system and containers that can access the file system. To do this, you first create an
-AWS Directory Service AWS Managed Microsoft Active Directory. Then, you create an FSx for Windows File Server
+Directory Service AWS Managed Microsoft Active Directory. Then, you create an FSx for Windows File Server
 File Server file system and cluster with an Amazon EC2 instance and a task
 definition. You configure the task definition for your containers to use the FSx for Windows File Server
 file system. Finally, you test the file system.
@@ -21,7 +21,7 @@ tutorial or complete the tutorial over a few sessions.
   to create key pairs, see [Amazon EC2 key pairs and
   Amazon EC2 instances](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md") in the _Amazon EC2 User Guide_.
 - A VPC with at least one public and one private subnet, and one security group.
-  You can use your default VPC. You don't need a NAT gateway or device. AWS Directory Service
+  You can use your default VPC. You don't need a NAT gateway or device. Directory Service
   doesn't support Network Address Translation (NAT) with Active Directory. For
   this to work, the Active Directory, FSx for Windows File Server file system, ECS Cluster, and
   EC2 instance must be located within your VPC. For more information
@@ -50,7 +50,7 @@ tutorial or complete the tutorial over a few sessions.
     To attach AWS managed policies.
 
         1. Open the [IAM
-         console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+         console](https://console.aws.amazon.com//iam/ "https://console.aws.amazon.com//iam/").
         2. In the navigation pane, choose **Roles.**
         3. Choose an **AWS managed role**.
         4. Choose **Permissions, Attach policies**.
@@ -88,7 +88,7 @@ policies.
    with Secrets Manager](../../../secretsmanager/latest/userguide/intro.md#get-started "../../../secretsmanager/latest/userguide/intro.md#get-started") in the AWS _Secrets Manager
    User Guide_.
    1. Open the [Secrets Manager
-      console](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
+      console](https://console.aws.amazon.com//secretsmanager/ "https://console.aws.amazon.com//secretsmanager/").
    2. Click **Store a new secret**.
    3. Select **Other type of secrets**.
    4. For **Secret key/value**, in the first row, create a
@@ -144,7 +144,7 @@ this tutorial.
 | ----------- | -------- | ---------- | ----------- |
 | All traffic | All      | All        | 0.0.0.0/0   |
 
-1. Open the [EC2 console](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/")
+1. Open the [EC2 console](https://console.aws.amazon.com//ec2/ "https://console.aws.amazon.com//ec2/")
    and select **Security Groups** from the left-hand menu.
 2. From the list of security groups now displayed, select check the check-box to
    the left of the security group that you are using for this tutorial.
@@ -168,7 +168,7 @@ Windows tasks.
 
 ###### Create your first file system.
 
-1. Open the [Amazon FSx console](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
+1. Open the [Amazon FSx console](https://console.aws.amazon.com//fsx/ "https://console.aws.amazon.com//fsx/").
 2. On the dashboard, choose **Create file system** to start the
    file system creation wizard.
 3. On the **Select file system type** page, choose
@@ -191,12 +191,12 @@ Windows tasks.
 8. Keep **Throughput capacity** at its default
    setting.
 9. In the **Network & security** section, choose the same
-   Amazon VPC that you chose for your AWS Directory Service directory.
+   Amazon VPC that you chose for your Directory Service directory.
 10. For **VPC Security Groups**, choose the security group that
     you verified in _Step 3: Verify and update your security
     group_.
 11. For **Windows authentication**, choose **AWS
-    Managed Microsoft Active Directory**, and then choose your AWS Directory Service
+    Managed Microsoft Active Directory**, and then choose your Directory Service
     directory from the
     list.
 12. For **Encryption**, keep the default **Encryption
@@ -227,7 +227,7 @@ instance while the FSx for Windows File Server file system is being created.
    name**, enter **windows-fsx-cluster**.
 6. Expand **Infrastructure**, clear AWS Fargate (serverless)
    and then select **Amazon EC2 instances**.
-   1. To create a Auto Scaling group, from **Auto Scaling group
+   1. To create a Amazon EC2 Auto Scaling group, from **Auto Scaling group
       (ASG)**, select **Create new group**, and
       then provide the following details about the group:
       - For **Operating system/Architecture**, choose
@@ -449,7 +449,7 @@ starting the AD delete operations.
 
 ###### Delete FSx for Windows File Server file system.
 
-1. Open the [Amazon FSx console](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/")
+1. Open the [Amazon FSx console](https://console.aws.amazon.com//fsx/ "https://console.aws.amazon.com//fsx/")
 2. Choose the radio button to the left of the FSx for Windows File Server file system that you
    just created.
 3. Choose **Actions**.
@@ -457,8 +457,8 @@ starting the AD delete operations.
 
 ###### Delete AD.
 
-1. Open the [AWS Directory Service
-   console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
+1. Open the [Directory Service
+   console](https://console.aws.amazon.com//directoryservicev2/ "https://console.aws.amazon.com//directoryservicev2/").
 2. Choose the radio button to the left of the AD you just created.
 3. Choose **Actions**.
 4. Select **Delete directory**.
@@ -474,7 +474,7 @@ starting the AD delete operations.
 
 ###### Terminate EC2 instance.
 
-1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+1. Open the [Amazon EC2 console](https://console.aws.amazon.com//ec2/ "https://console.aws.amazon.com//ec2/").
 2. From the left-hand menu, select **Instances**.
 3. Check the box to the left of the EC2 instance you created.
 4. Click the **Instance state**, **Terminate
@@ -483,7 +483,7 @@ starting the AD delete operations.
 ###### Delete secret.
 
 1. Open the [Secrets Manager
-   console](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
+   console](https://console.aws.amazon.com//secretsmanager/ "https://console.aws.amazon.com//secretsmanager/").
 2. Select the secret you created for this walk through.
 3. Click **Actions**.
 4. Select **Delete secret**.

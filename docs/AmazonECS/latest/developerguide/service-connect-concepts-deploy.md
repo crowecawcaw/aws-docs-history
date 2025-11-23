@@ -28,12 +28,12 @@ behave the same as they did after the most recent deployment.
 Consider the following examples.
 
 First, assume that you are creating an application that is available to the public
-internet in a single AWS CloudFormation template and single AWS CloudFormation stack. The public discovery and
-reachability should be created last by AWS CloudFormation, including the frontend client service. The
+internet in a single AWS CloudFormation template and single CloudFormation stack. The public discovery and
+reachability should be created last by CloudFormation, including the frontend client service. The
 services need to be created in this order to prevent an time period when the frontend client
 service is running and available the public, but a backend isn't. This eliminates error
 messages from being sent to the public during that time period. In AWS CloudFormation, you must use
-the `dependsOn` to indicate to AWS CloudFormation that multiple Amazon ECS services can't be made
+the `dependsOn` to indicate to CloudFormation that multiple Amazon ECS services can't be made
 in parallel or simultaneously. You should add the `dependsOn` to the frontend
 client service for each backend client-server service that the client tasks connect
 to.

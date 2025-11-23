@@ -2,7 +2,7 @@
 
 limits
 
-Amazon ECS is integrated with several AWS services, including Elastic Load Balancing, AWS Cloud Map, and Amazon EC2. With
+Amazon ECS is integrated with several AWS services, including ELB, AWS Cloud Map, and Amazon EC2. With
 this tight integration, Amazon ECS includes several features such as service load balancing,
 Service Connect, task networking, and cluster auto scaling. Amazon ECS and the other
 AWS services that it integrates with all maintain service quotas and API rate limits to
@@ -23,11 +23,11 @@ service quota.
   service quota also includes any Amazon EKS pods that you run on Fargate.
 - For tasks that run on Amazon EC2 instances, the maximum number of Amazon EC2 instances
   that you can register for each cluster is 5,000. If you use Amazon ECS cluster auto
-  scaling with an Auto Scaling group capacity provider, or if you manage Amazon EC2 instances
+  scaling with an Amazon EC2 Auto Scaling group capacity provider, or if you manage Amazon EC2 instances
   for your cluster on your own, this quota might become a deployment bottleneck.
   If you require more capacity, you can create more clusters or request a service
   quota increase.
-- If you use Amazon ECS cluster auto scaling with an Auto Scaling group capacity provider,
+- If you use Amazon ECS cluster auto scaling with an Amazon EC2 Auto Scaling group capacity provider,
   when scaling your services consider the `Tasks in the PROVISIONING state per
  cluster` quota. This quota is the maximum number of tasks in the
   `PROVISIONING` state for each cluster for which capacity
@@ -48,17 +48,17 @@ service quota.
   In addition to considering Amazon ECS service quota when scaling your workloads, consider also
   the service quota for the other AWS services that are integrated with Amazon ECS.
 
-## Elastic Load Balancing
+## ELB
 
-You can configure your Amazon ECS services to use Elastic Load Balancing to distribute traffic evenly
+You can configure your Amazon ECS services to use ELB to distribute traffic evenly
 across the tasks. For more information and recommended best practices for how to
 choose a load balancer, see [Use load balancing to distribute Amazon ECS service
 traffic](service-load-balancing.md "service-load-balancing.md").
 
-### Elastic Load Balancing service quotas
+### ELB service quotas
 
-When you scale your workloads, consider the following Elastic Load Balancing service quotas.
-Most Elastic Load Balancing service quotas are adjustable, and you can request an increase in the
+When you scale your workloads, consider the following ELB service quotas.
+Most ELB service quotas are adjustable, and you can request an increase in the
 Service Quotas console.
 
 **Application Load Balancer**
@@ -83,15 +83,15 @@ comes with additional scaling limitations on `Targets per Availability Zone Per
 For more information, see [Quotas for
 your Network Load Balancers](../../../elasticloadbalancing/latest/network/load-balancer-limits.md "../../../elasticloadbalancing/latest/network/load-balancer-limits.md") iin the _User Guide for Network Load Balancers_.
 
-### Elastic Load Balancing API throttling
+### ELB API throttling
 
 When you configure an Amazon ECS service to use a load balancer, the target group
 health checks must pass before the service is considered healthy. For performing
-these health checks, Amazon ECS invokes Elastic Load Balancing API operations on your behalf. If you
+these health checks, Amazon ECS invokes ELB API operations on your behalf. If you
 have a large number of services configured with load balancers in your account,
 you might slower service deployments because of potential throttling
 specifically for the `RegisterTarget`, `DeregisterTarget`,
-and `DescribeTargetHealth` Elastic Load Balancing API operations. When throttling
+and `DescribeTargetHealth` ELB API operations. When throttling
 occurs, throttling errors occur in your Amazon ECS service event messages.
 
 If you experience AWS Cloud Map API throttling, you can contact Support for guidance on
@@ -103,7 +103,7 @@ issues](operating-at-scale-dealing-with-throttles.md "operating-at-scale-dealing
 
 With your tasks use the `awsvpc` network mode, Amazon ECS provisions a
 unique elastic network interface (ENI) for each task. When your Amazon ECS services use
-an Elastic Load Balancing load balancer, these network interfaces are also registered as targets to
+an ELB load balancer, these network interfaces are also registered as targets to
 the appropriate target group defined in the service.
 
 ### Elastic network interface service

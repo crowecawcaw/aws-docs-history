@@ -48,7 +48,7 @@ following options:
 - You must use kernel version `5.10` or later.
 - For information about the supported Linux operating systems and
   architectures, see [Which operating models and workloads does GuardDuty Runtime Monitoring
-  support](https://aws.amazon.com/guardduty/faqs/?nc1=h_ls#product-faqs#guardduty-faqs#guardduty-ecs-runtime-monitoring "https://aws.amazon.com/guardduty/faqs/?nc1=h_ls#product-faqs#guardduty-faqs#guardduty-ecs-runtime-monitoring").
+  support](https://aws.amazon.com//guardduty/faqs/?nc1=h_ls#product-faqs#guardduty-faqs#guardduty-ecs-runtime-monitoring "https://aws.amazon.com//guardduty/faqs/?nc1=h_ls#product-faqs#guardduty-faqs#guardduty-ecs-runtime-monitoring").
 - You can use Systems Manager to manage your container instances. For more
   information, see [Setting up Systems Manager for EC2 instances](../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md "../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md") in the _AWS Systems Manager Session Manager User Guide_.
   You turn on Runtime Monitoring in GuardDuty. For information about how to enable the feature,

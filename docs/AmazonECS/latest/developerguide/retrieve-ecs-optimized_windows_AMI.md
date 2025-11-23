@@ -177,9 +177,9 @@ following AWS CLI commands.
 
 ### Using the
 
-latest recommended Amazon ECS-optimized AMI in an AWS CloudFormation template
+latest recommended Amazon ECS-optimized AMI in an CloudFormation template
 
-You can reference the latest recommended Amazon ECS-optimized AMI in an AWS CloudFormation
+You can reference the latest recommended Amazon ECS-optimized AMI in an CloudFormation
 template by referencing the Systems Manager parameter store name.
 
 ```

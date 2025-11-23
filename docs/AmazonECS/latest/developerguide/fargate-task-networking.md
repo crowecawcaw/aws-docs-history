@@ -32,8 +32,8 @@ network traffic between your VPC and Amazon ECS to the Amazon network. You don't
 gateway, a NAT device, or a virtual private gateway. For more information, see [Amazon ECS
 interface VPC endpoints (AWS PrivateLink)](vpc-endpoints.md "vpc-endpoints.md").
 
-For examples of how to use the `NetworkConfiguration` resource with AWS CloudFormation, see
-[AWS CloudFormation example templates for Amazon ECS](working-with-templates.md "working-with-templates.md").
+For examples of how to use the `NetworkConfiguration` resource with CloudFormation, see
+[CloudFormation example templates for Amazon ECS](working-with-templates.md "working-with-templates.md").
 
 The ENIs that are created are fully managed by AWS Fargate. Moreover, there's an
 associated IAM policy that's used to grant permissions for Fargate. For
@@ -135,11 +135,9 @@ address:
 - The task or service uses Fargate platform version `1.4.0` or
   later for Linux.
 
-If you configure your VPC with an internet gateway or an outbound-only internet
-gateway, Amazon ECS tasks on Fargate that are assigned an IPv6 address can access the
-internet. NAT gateways aren't needed. For more information, see [Internet
-gateways](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md") and [Egress-only internet
-gateways](../../../vpc/latest/userguide/egress-only-internet-gateway.md "../../../vpc/latest/userguide/egress-only-internet-gateway.md") in the _Amazon VPC User Guide_.
+Amazon ECS tasks on Fargate running in a VPC in dual-stack mode need IPv4 (0.0.0.0/0) routes to an internet gateway or NAT gateway.
+For more information, see [Internet
+gateways](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md") in the _Amazon VPC User Guide_.
 
 ## Using a VPC in IPv6-only
 

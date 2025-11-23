@@ -54,7 +54,7 @@ You can use dual-stack service endpoints to interact with Amazon ECS from the AW
 
 - You set up an Active Directory domain with the resources that you want your containers
   to access. Amazon ECS supports the following setups:
-  - An AWS Directory Service Active Directory. AWS Directory Service is an AWS managed Active Directory that's
+  - An Directory Service Active Directory. Directory Service is an AWS managed Active Directory that's
     hosted on Amazon EC2. For more information, see [Getting Started
     with AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/ms_ad_getting_started.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started.md") in the
     _AWS Directory Service Administration Guide_.
@@ -105,7 +105,7 @@ These accounts serve different purposes and should have different names.
 
 ###### Note
 
-If you are using AWS Directory Service, then you can skip this step.
+If you are using Directory Service, then you can skip this step.
 
 The KDS root key and gMSA permissions are configured with your AWS
 managed Microsoft AD.
@@ -301,10 +301,10 @@ s3://`MyBucket/ecs-domainless-gmsa-credspec``
 cluster
 
 By default, your account has an Amazon ECS cluster named `default`. This cluster is
-used by default in the AWS CLI, SDKs, and AWS CloudFormation. You can use additional clusters to group and
+used by default in the AWS CLI, SDKs, and CloudFormation. You can use additional clusters to group and
 organize tasks and infrastructure, and assign defaults for some configuration.
 
-You can create a cluster from the AWS Management Console, AWS CLI, SDKs, or AWS CloudFormation. The settings and
+You can create a cluster from the AWS Management Console, AWS CLI, SDKs, or CloudFormation. The settings and
 configuration in the cluster don't affect gMSA.
 
 This step uses the AWS CLI. You can run these commands in

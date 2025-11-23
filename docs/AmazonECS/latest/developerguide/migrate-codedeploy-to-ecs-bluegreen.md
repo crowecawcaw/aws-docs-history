@@ -22,7 +22,7 @@ When creating an Amazon ECS service using CodeDeploy, you:
    listeners, two target groups (the primary target group used in the
    production listener rule, and a secondary target group to be used for
    replacement tasks), a service role (to grant CodeDeploy permissions to manipulate
-   Amazon ECS and Elastic Load Balancing resources) and various parameters that control the
+   Amazon ECS and ELB resources) and various parameters that control the
    deployment behavior.
 
 With CodeDeploy, new versions of a service are deployed using
@@ -48,7 +48,7 @@ Amazon ECS service itself:
    resources:
    - The ARN of this listener rule
    - The two target groups
-   - An IAM role to grant Amazon ECS permission to call the Elastic Load Balancing
+   - An IAM role to grant Amazon ECS permission to call the ELB
      APIs
    - An optional IAM role to run Lambda functions
    - Set `deploymentController` type to `ECS` and
@@ -96,7 +96,7 @@ Amazon ECS, the Lambda response is used to indicate the hook status.
 
 There are three main approaches to migrating from CodeDeploy blue/green to Amazon ECS blue/green deployments. Each approach has different characteristics in terms of complexity, risk, rollback capability, and potential downtime.
 
-### Reuse the same Elastic Load Balancing resources used for CodeDeploy
+### Reuse the same ELB resources used for CodeDeploy
 
 You update the existing Amazon ECS service to use the Amazon ECS deployment controller with
 blue/green deployment strategy instead of CodeDeploy deployment controller. Consider the
@@ -110,8 +110,8 @@ following when using this approach:
   configuration.
 
 You use the same load balancer listener and target groups that are used for CodeDeploy.
-If you are using AWS CloudFormation, see [Migrating an AWS CloudFormation
-CodeDeploy blue/green deployment template to an Amazon ECS blue/green AWS CloudFormation template](migrate-codedeploy-to-ecs-bluegreen-cloudformation-template.md "migrate-codedeploy-to-ecs-bluegreen-cloudformation-template.md").
+If you are using CloudFormation, see [Migrating an CloudFormation
+CodeDeploy blue/green deployment template to an Amazon ECS blue/green CloudFormation template](migrate-codedeploy-to-ecs-bluegreen-cloudformation-template.md "migrate-codedeploy-to-ecs-bluegreen-cloudformation-template.md").
 
 1. Modify the default rule of the production/test listeners to include the
    alternate target group and set the weight of the primary target group to 1
@@ -131,9 +131,9 @@ This approach uses the blue/green strategy for the migration.
 Consider the
 following when using this approach:
 
-- There is minimal disruption. It occurs only during the Elastic Load Balancing port
+- There is minimal disruption. It occurs only during the ELB port
   swap.
-- A rollback requires that you revert the Elastic Load Balancing port swap.
+- A rollback requires that you revert the ELB port swap.
 - The risk is low because there are parallel configurations. Therefore
   you can test before the traffic shift.
 
@@ -160,7 +160,7 @@ following when using this approach:
 - This requires a reverse proxy layer.
 - The migration procedure is more complex because you need to update the
   existing Amazon ECS service deployment controller and deployment strategy.
-- There is minimal disruption. It occurs only during the Elastic Load Balancing port
+- There is minimal disruption. It occurs only during the ELB port
   swap.
 - A rollback requires that you reverse the proxy configuration
   changes.

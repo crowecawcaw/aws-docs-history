@@ -51,9 +51,9 @@ that issues a Certificate Signing Request (CSR) to ACM and then mounts the resul
 shared volume.
 
     + [Maintaining transport layer security all the way to your
-     containers using the Network Load Balancer with Amazon ECS part 1](https://aws.amazon.com/blogs/compute/maintaining-transport-layer-security-all-the-way-to-your-container-using-the-network-load-balancer-with-amazon-ecs/ "https://aws.amazon.com/blogs/compute/maintaining-transport-layer-security-all-the-way-to-your-container-using-the-network-load-balancer-with-amazon-ecs/")
+     containers using the Network Load Balancer with Amazon ECS part 1](https://aws.amazon.com/blogs//compute/maintaining-transport-layer-security-all-the-way-to-your-container-using-the-network-load-balancer-with-amazon-ecs/ "https://aws.amazon.com/blogs//compute/maintaining-transport-layer-security-all-the-way-to-your-container-using-the-network-load-balancer-with-amazon-ecs/")
     + [Maintaining Transport Layer Security (TLS) all the way to your container part 2:
-     Using AWS Private Certificate Authority](https://aws.amazon.com/blogs/compute/maintaining-transport-layer-security-all-the-way-to-your-container-part-2-using-aws-certificate-manager-private-certificate-authority/ "https://aws.amazon.com/blogs/compute/maintaining-transport-layer-security-all-the-way-to-your-container-part-2-using-aws-certificate-manager-private-certificate-authority/")
+     Using AWS Private Certificate Authority](https://aws.amazon.com/blogs//compute/maintaining-transport-layer-security-all-the-way-to-your-container-part-2-using-aws-certificate-manager-private-certificate-authority/ "https://aws.amazon.com/blogs//compute/maintaining-transport-layer-security-all-the-way-to-your-container-part-2-using-aws-certificate-manager-private-certificate-authority/")
 
 ## Task networking
 

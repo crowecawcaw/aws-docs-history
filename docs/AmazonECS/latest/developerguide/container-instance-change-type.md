@@ -1,4 +1,4 @@
-# Changing the instance type or size outside of the Auto Scaling group
+# Changing the instance type or size outside of the Amazon EC2 Auto Scaling group
 
 AWS recommends that you keep your infrastructure immutable. If you need to change
 instance sizes, you can either:

@@ -177,8 +177,8 @@ using.
 
 Some Amazon ECS resources, such as tasks, services, clusters, and container instances,
 are cleaned up using the Amazon ECS console. Other resources, such as Amazon EC2 instances,
-Elastic Load Balancing load balancers, and Auto Scaling groups, must be cleaned up manually in the Amazon EC2
-console or by deleting the AWS CloudFormation stack that created them.
+ELB load balancers, and Amazon EC2 Auto Scaling groups, must be cleaned up manually in the Amazon EC2
+console or by deleting the CloudFormation stack that created them.
 
 1. In the navigation pane, choose **Clusters**.
 2. On the **Clusters** page, select the cluster you created for
@@ -191,5 +191,5 @@ console or by deleting the AWS CloudFormation stack that created them.
 Wait until the service is deleted. 6. Choose **Delete Cluster**. At the confirmation prompt, enter
 **delete `cluster-name`**, and
 then choose **Delete**. Deleting the cluster cleans up the
-associated resources that were created with the cluster, including Auto Scaling groups,
+associated resources that were created with the cluster, including Amazon EC2 Auto Scaling groups,
 VPCs, or load balancers.

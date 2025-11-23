@@ -3,7 +3,7 @@
 Amazon ECS Anywhere provides support for registering an _external instance_
 such as an on-premises server or virtual machine (VM), to your Amazon ECS cluster. External
 instances are optimized for running applications that generate outbound traffic or process
-data. If your application requires inbound traffic, the lack of Elastic Load Balancing support makes running
+data. If your application requires inbound traffic, the lack of ELB support makes running
 these workloads less efficient. Amazon ECS added a new `EXTERNAL` launch type that you
 can use to create services or run tasks on your external instances.
 
@@ -116,7 +116,7 @@ $ iptables -t nat -A OUTPUT -d 169.254.170.2 -p tcp -m tcp --dport 80 -j REDIREC
 
 Amazon ECS external instances are optimized for running applications that generate
 outbound traffic or process data. If your application requires inbound traffic, such
-as a web service, the lack of Elastic Load Balancing support makes running these workloads less
+as a web service, the lack of ELB support makes running these workloads less
 efficient because there isn't support for placing these workloads behind a load
 balancer.
 

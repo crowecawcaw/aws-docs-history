@@ -41,7 +41,7 @@ complete the following:
 
 - You set up an Active Directory domain with the resources that you want your
   containers to access. Amazon ECS supports the following setups:
-  - An AWS Directory Service Active Directory. AWS Directory Service is an AWS managed Active Directory
+  - An Directory Service Active Directory. Directory Service is an AWS managed Active Directory
     that's hosted on Amazon EC2. For more information, see [Getting Started with AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/ms_ad_getting_started.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started.md") in the
     _AWS Directory Service Administration Guide_.
   - An on-premises Active Directory. You must ensure that the Amazon ECS Linux

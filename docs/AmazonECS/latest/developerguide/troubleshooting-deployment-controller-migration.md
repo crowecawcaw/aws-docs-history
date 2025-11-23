@@ -333,9 +333,9 @@ For more information, see [Amazon ECS service deployment controllers and strateg
 
 If you decide that you want to return to the previous deployment controller, you can do one of the following:
 
-- If you used AWS CloudFormation, you can use the previous template to create a new stack. For more
+- If you used CloudFormation, you can use the previous template to create a new stack. For more
   information, see [Create a stack
-  from](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the _AWS CloudFormation User Guide_.
+  from](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the _CloudFormation User Guide_.
 - If you used the Amazon ECS console, or the AWS CLI, you can update the service. For more
   information, see [Updating an Amazon ECS service](update-service-console-v2.md "update-service-console-v2.md").
 

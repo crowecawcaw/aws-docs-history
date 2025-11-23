@@ -90,7 +90,7 @@ Center.
 (IaC)
 
 You can configure the recipe using the EC2 Image Builder console, or infrastructure as code (for
-example, AWS CloudFormation), or the AWS SDK. When you specify a parent image in your recipe, you
+example, CloudFormation), or the AWS SDK. When you specify a parent image in your recipe, you
 can specify an EC2 AMI ID, Image Builder image ARN, AWS Marketplace product ID, or container image. AWS
 publishes both AMI IDs and Image Builder image ARNs of Amazon ECS-Optimized AMIs publicly. The
 following is the ARN format for the image:
@@ -196,7 +196,7 @@ if __name__ == "__main__":
     main()
 ```
 
-## Using the image ARN with AWS CloudFormation
+## Using the image ARN with CloudFormation
 
 An Image Builder image recipe is a blueprint that specifies the parent image and components
 required to achieve the intended configuration of the output image. You use the

@@ -1,6 +1,6 @@
 # Amazon ECS managed scaling behavior
 
-When you have Auto Scaling group capacity providers that use managed scaling, Amazon ECS estimates the
+When you have Amazon EC2 Auto Scaling group capacity providers that use managed scaling, Amazon ECS estimates the
 optimal number of instances to add to your cluster and uses the value to determine
 how many instances to request or release.
 
@@ -19,8 +19,8 @@ The following describes the scale-out behavior in more detail.
 
 - Group all of the provisioning tasks for this capacity provider so that each
   group has the same exact resource requirements.
-- When you use multiple instance types in an Auto Scaling group, the instance types in the
-  Auto Scaling group are sorted by their parameters. These parameters include vCPU, memory,
+- When you use multiple instance types in an Amazon EC2 Auto Scaling group, the instance types in the
+  Amazon EC2 Auto Scaling group are sorted by their parameters. These parameters include vCPU, memory,
   elastic network interfaces (ENIs), ports, and GPUs. The smallest and the largest
   instance types for each parameter are selected. For more information about how
   to choose the instance type, see [Amazon EC2 container instances for Amazon ECS](create-capacity.md "create-capacity.md").
@@ -28,17 +28,17 @@ The following describes the scale-out behavior in more detail.
 ###### Important
 
 If a group of tasks have resource requirements that are greater than the
-smallest instance type in the Auto Scaling group, then that group of tasks can’t run
+smallest instance type in the Amazon EC2 Auto Scaling group, then that group of tasks can’t run
 with this capacity provider. The capacity provider doesn’t scale the
-Auto Scaling group. The tasks remain in the `PROVISIONING`
+Amazon EC2 Auto Scaling group. The tasks remain in the `PROVISIONING`
 state.
 
 To prevent tasks from staying in the `PROVISIONING` state, we
-recommend that you create separate Auto Scaling groups and capacity providers
+recommend that you create separate Amazon EC2 Auto Scaling groups and capacity providers
 for different minimum resource requirements. When you run tasks or
 create services, only add capacity providers to the capacity provider
 strategy that can run the task on the smallest instance type in the
-Auto Scaling group. For other parameters, you can use placement constraints
+Amazon EC2 Auto Scaling group. For other parameters, you can use placement constraints
 
 - For each group of tasks, Amazon ECS calculates the number of instances that are
   required to run the unplaced tasks. This calculation uses a `binpack`
@@ -63,14 +63,14 @@ Auto Scaling group. For other parameters, you can use placement constraints
 - CloudWatch alarms use the `CapacityProviderReservation` metric for
   capacity providers. When the `CapacityProviderReservation` metric is
   greater than the `targetCapacity` value, alarms also increase the
-  `DesiredCapacity` of the Auto Scaling group. The `targetCapacity`
+  `DesiredCapacity` of the Amazon EC2 Auto Scaling group. The `targetCapacity`
   value is a capacity provider setting that's sent to the CloudWatch alarm during the
   cluster auto scaling activation phase.
 
 The default `targetCapacity` is 100%.
 
-- The Auto Scaling group launches additional EC2 instances. To prevent over-provisioning, Auto Scaling makes sure that recently launched EC2 instance
-  capacity is stabilized before it launches new instances. Auto Scaling checks if all
+- The Amazon EC2 Auto Scaling group launches additional EC2 instances. To prevent over-provisioning, Amazon EC2 Auto Scaling makes sure that recently launched EC2 instance
+  capacity is stabilized before it launches new instances. Amazon EC2 Auto Scaling checks if all
   existing instances have passed the `instanceWarmupPeriod` (now
   minus the instance launch time). The scale-out is blocked for instances that
   are within the `instanceWarmupPeriod`.
@@ -88,7 +88,7 @@ Consider the following for the scale-out process:
   prevents the scale-out process from stopping because you're using a
   placement constraint that's not compatible with the sampled
   instances.
-- Managed scaling works best if your Auto Scaling group uses the same or similar
+- Managed scaling works best if your Amazon EC2 Auto Scaling group uses the same or similar
   instance types.
 - When a scale-out process is required and there are no currently running
   container instances, Amazon ECS always scales-out to two instances initially, and
@@ -103,13 +103,13 @@ Consider the following for the scale-out process:
   instance to launch and start the Amazon ECS agent (which prevents over
   provisioning).
 - Cluster auto scaling supports Launch Configuration, Launch Templates, and multiple
-  instance types in the capacity provider Auto Scaling group. You can also use
+  instance types in the capacity provider Amazon EC2 Auto Scaling group. You can also use
   attribute-based instance type selection without multiple instances
   types.
-- When using an Auto Scaling group with On-Demand instances and multiple instance types
+- When using an Amazon EC2 Auto Scaling group with On-Demand instances and multiple instance types
   or Spot Instances, place the larger instance types higher in the priority list and
   don't specify a weight. Specifying a weight isn't supported at this time.
-  For more information, see [Auto Scaling groups
+  For more information, see [Amazon EC2 Auto Scaling groups
   with multiple instance types](../../../autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.md") in the
   _AWS Auto Scaling User Guide_.
 - Amazon ECS then launch either the `minimumScalingStepSize`, if the
@@ -129,8 +129,8 @@ container instance isn't running any tasks, the container instance is considered
 empty and Amazon ECS starts the scale-in process.
 
 CloudWatch scale-in alarms require 15 data points (15 minutes) before the scale-in
-process for the Auto Scaling group starts. After the scale-in process starts until Amazon ECS needs to
-reduce the number of registered container instances, the Auto Scaling group sets the
+process for the Amazon EC2 Auto Scaling group starts. After the scale-in process starts until Amazon ECS needs to
+reduce the number of registered container instances, the Amazon EC2 Auto Scaling group sets the
 `DesireCapacity` value to be greater than one instance and less than
 50% each minute.
 
@@ -144,7 +144,7 @@ The following describes the scale-in behavior in more detail:
    instance is considered empty even when daemon tasks are running.
 2. Amazon ECS sets the `CapacityProviderReservation` value to a number
    between 0-100 that uses the following formula to represent the ratio of how big
-   the Auto Scaling group needs to be relative to how big it actually is, expressed as a
+   the Amazon EC2 Auto Scaling group needs to be relative to how big it actually is, expressed as a
    percentage. Then, Amazon ECS publishes the metric to CloudWatch. For more information about
    how the metric is calculated, see [Deep Dive on
    Amazon ECS Cluster Auto Scaling](https://aws.amazon.com/blogs/containers/deep-dive-on-amazon-ecs-cluster-auto-scaling/ "https://aws.amazon.com/blogs/containers/deep-dive-on-amazon-ecs-cluster-auto-scaling/")
@@ -154,14 +154,14 @@ CapacityProviderReservation = (number of instances needed) / (number of running 
 ```
 
 3. The `CapacityProviderReservation` metric generates a CloudWatch alarm.
-   This alarm updates the `DesiredCapacity` value for the Auto Scaling group. Then,
+   This alarm updates the `DesiredCapacity` value for the Amazon EC2 Auto Scaling group. Then,
    one of the following actions occurs:
-   - If you don't use capacity provider managed termination, the Auto Scaling group
-     selects EC2 instances using the Auto Scaling group termination policy and terminates
+   - If you don't use capacity provider managed termination, the Amazon EC2 Auto Scaling group
+     selects EC2 instances using the Amazon EC2 Auto Scaling group termination policy and terminates
      the instances until the number of EC2 instances reaches the
      `DesiredCapacity`. The container instances are then
      deregistered from the cluster.
    - If all the container instances use managed termination protection,
      Amazon ECS removes the scale-in protection on the container instances that
-     are empty. The Auto Scaling group will then be able to terminate the EC2 instances.
+     are empty. The Amazon EC2 Auto Scaling group will then be able to terminate the EC2 instances.
      The container instances are then deregistered from the cluster.

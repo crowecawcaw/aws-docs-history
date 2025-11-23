@@ -231,9 +231,9 @@ aws ecs create-cluster --cluster `clusterName` \
 }
 ```
 
-AWS CloudFormation
+CloudFormation
 The following is an example template of creating a cluster and configuring your Fargate
-ephemeral storage using the AWS CloudFormation (replace the `red` values with your
+ephemeral storage using the CloudFormation (replace the `red` values with your
 own):
 
 ```

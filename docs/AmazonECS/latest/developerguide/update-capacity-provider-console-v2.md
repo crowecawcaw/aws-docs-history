@@ -2,7 +2,7 @@
 
 provider
 
-When you use an Auto Scaling group as a capacity provider, you can modify the group's scaling
+When you use an Amazon EC2 Auto Scaling group as a capacity provider, you can modify the group's scaling
 policy.
 
 ###### To update a capacity provider for the cluster (Amazon ECS console)
@@ -16,7 +16,7 @@ policy.
    **Update**.
 5. On the **Create capacity providers** page, configure the
    following options.
-   1. Under **Auto Scaling group**, under **Scaling
+   1. Under **Amazon EC2 Auto Scaling group**, under **Scaling
       policies**, configure the following options.
       - To have Amazon ECS manage the scale-in and scale-out actions, select
         **Turn on managed scaling**.

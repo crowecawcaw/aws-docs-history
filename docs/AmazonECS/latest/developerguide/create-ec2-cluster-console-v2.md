@@ -4,7 +4,7 @@ You create a cluster to define the infrastructure your tasks and services run on
 
 Before you begin, be sure that you've completed the steps in [Set up to use Amazon ECS](get-set-up-for-amazon-ecs.md "get-set-up-for-amazon-ecs.md") and
 assign the appropriate IAM permission. For more information, see [Amazon ECS cluster examples](security_iam_id-based-policy-examples.md#IAM_cluster_policies "security_iam_id-based-policy-examples.md#IAM_cluster_policies"). The Amazon ECS console provides a simple way to create the
-resources that are needed by an Amazon ECS cluster by creating a AWS CloudFormation stack.
+resources that are needed by an Amazon ECS cluster by creating a CloudFormation stack.
 
 To make the cluster creation process as easy as possible, the console has default
 selections for many choices which we describe below. There are also help panels available
@@ -34,20 +34,20 @@ information, see [Interconnect Amazon ECS services](interconnecting-services.md 
 - Configure the AWS KMS key and logging for ECS Exec.
 - Add tags to help you identify your cluster.
 
-## Auto Scaling group options
+## Amazon EC2 Auto Scaling group options
 
-When you use Amazon EC2 instances, you must specify an Auto Scaling group to manage the infrastructure
+When you use Amazon EC2 instances, you must specify an Amazon EC2 Auto Scaling group to manage the infrastructure
 that your tasks and services run on.
 
-When you choose to create a new Auto Scaling group, it is automatically configured for the
+When you choose to create a new Amazon EC2 Auto Scaling group, it is automatically configured for the
 following behavior:
 
-- Amazon ECS manages the scale-in and scale-out actions of the Auto Scaling group.
-- Amazon ECS will not prevent Amazon EC2 instances that contain tasks and that are in an Auto Scaling
+- Amazon ECS manages the scale-in and scale-out actions of the Amazon EC2 Auto Scaling group.
+- Amazon ECS will not prevent Amazon EC2 instances that contain tasks and that are in an Amazon EC2 Auto Scaling
   group from being terminated during a scale-in action. For more information, see
   [Instance Protection](../../../autoscaling/ec2/userguide/as-instance-termination.md#instance-protection "../../../autoscaling/ec2/userguide/as-instance-termination.md#instance-protection") in the
   _AWS Auto Scaling User Guide_.
-  You configure the following Auto Scaling group properties which determine the type and number of
+  You configure the following Amazon EC2 Auto Scaling group properties which determine the type and number of
   instances to launch for the group:
 
 - The Amazon ECS-optimized AMI.
@@ -55,18 +55,18 @@ following behavior:
 - The SSH key pair that proves your identity when you connect to the instance. For
   information about how to create SSH keys, see [Amazon EC2 key pairs and Linux
   instances](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md") in the _Amazon EC2 User Guide_.
-- The minimum number of instances to launch for the Auto Scaling group.
-- The maximum number of instances that are started for the Auto Scaling group.
+- The minimum number of instances to launch for the Amazon EC2 Auto Scaling group.
+- The maximum number of instances that are started for the Amazon EC2 Auto Scaling group.
 
 In order for the group to scale out, the maximum must be greater than 0.
-Amazon ECS creates an Amazon EC2 Auto Scaling launch template and Auto Scaling group on your behalf as part of the AWS CloudFormation
+Amazon ECS creates an Amazon EC2 Amazon EC2 Auto Scaling launch template and Amazon EC2 Auto Scaling group on your behalf as part of the CloudFormation
 stack. The values that you specified for the AMI, the instance types, and the SSH key pair
 are part of the launch template. The templates are prefixed with
 `EC2ContainerService-<`ClusterName`>`, which
-makes them easy to identify. The Auto Scaling groups are prefixed with
+makes them easy to identify. The Amazon EC2 Auto Scaling groups are prefixed with
 `<`ClusterName`>-ECS-Infra-ECSAutoScalingGroup`.
 
-Instances launched for the Auto Scaling group use the launch template.
+Instances launched for the Amazon EC2 Auto Scaling group use the launch template.
 
 ## Networking options
 
@@ -123,11 +123,11 @@ Before you begin, assign the appropriate IAM permission. For more information, s
 6. Add Amazon EC2 instances to your cluster, expand **Infrastructure**
    and then select **Fargate and Self-managed instances**.
 
-Next, configure the Auto Scaling group which acts as the capacity provider:
+Next, configure the Amazon EC2 Auto Scaling group which acts as the capacity provider:
 
-    1. To using an existing Auto Scaling group, from **Auto Scaling group
+    1. To using an existing Amazon EC2 Auto Scaling group, from **Auto Scaling group
      (ASG)**, select the group.
-    2. To create a Auto Scaling group, from **Auto Scaling group
+    2. To create a Amazon EC2 Auto Scaling group, from **Auto Scaling group
      (ASG)**, select **Create new group**, and then
      provide the following details about the group:
 
@@ -148,13 +148,13 @@ Next, configure the Auto Scaling group which acts as the capacity provider:
 
     	For more information, see [Allocation strategies for Spot Instances](../../../AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.md "../../../AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.md") in the *Amazon EC2 User Guide*.
     	* For **Container instance Amazon Machine Image
-    	 (AMI)**, choose the Amazon ECS-optimized AMI for the Auto Scaling
+    	 (AMI)**, choose the Amazon ECS-optimized AMI for the Amazon EC2 Auto Scaling
     	 group instances.
     	* For **EC2 instance type**, choose the instance
     	 type for your workloads.
 
 
-    	 Managed scaling works best if your Auto Scaling group uses the same or
+    	 Managed scaling works best if your Amazon EC2 Auto Scaling group uses the same or
     	 similar instance types.
     	* For **EC2 instance role**, choose an existing
     	 container instance role, or you can create a new one.
@@ -162,7 +162,7 @@ Next, configure the Auto Scaling group which acts as the capacity provider:
 
     	For more information, see [Amazon ECS container instance IAM role](instance_IAM_role.md "instance_IAM_role.md").
     	* For **Capacity**, enter the minimum number and
-    	 the maximum number of instances to launch in the Auto Scaling group.
+    	 the maximum number of instances to launch in the Amazon EC2 Auto Scaling group.
     	* For **SSH key pair**, choose the pair that proves
     	 your identity when you connect to the instance.
     	* To allow for larger image and storage, for **Root EBS

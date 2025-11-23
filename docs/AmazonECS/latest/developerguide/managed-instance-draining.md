@@ -6,48 +6,48 @@ performed without worrying about disruption to workloads. By using managed insta
 your infrastructure management workflows that require replacement of Amazon EC2 instances while you ensure
 resilience and availability of your applications.
 
-Amazon ECS managed instance draining works with Auto Scaling group instance replacements. Based on instance refresh and
+Amazon ECS managed instance draining works with Amazon EC2 Auto Scaling group instance replacements. Based on instance refresh and
 maximum instance lifetime, customers can ensure that they stay compliant with the latest OS and security
 mandates for their capacity.
 
 Managed instance draining can only be used with Amazon ECS capacity providers. You can turn on managed
-instance draining when you create or update your Auto Scaling group capacity providers using the Amazon ECS console, AWS CLI,
+instance draining when you create or update your Amazon EC2 Auto Scaling group capacity providers using the Amazon ECS console, AWS CLI,
 or SDK.
 
 The following events are covered by Amazon ECS managed instance draining.
 
-- [Auto Scaling group
+- [Amazon EC2 Auto Scaling group
   instance refresh](../../../autoscaling/ec2/userguide/asg-instance-refresh.md "../../../autoscaling/ec2/userguide/asg-instance-refresh.md") ‐ Use instance refresh to perform rolling replacement of your
-  Amazon EC2 instances in your Auto Scaling group instead of manually doing it in batches. This is useful when you need
+  Amazon EC2 instances in your Amazon EC2 Auto Scaling group instead of manually doing it in batches. This is useful when you need
   to replace a large number of instances. An instance refresh is initiated through the Amazon EC2 console
   or the `StartInstanceRefresh` API. Make sure you select `Replace` for
   Scale-in protection when calling `StartInstanceRefresh` if you're using managed
   termination protection.
 - [Maximum instance lifetime](../../../autoscaling/ec2/userguide/asg-max-instance-lifetime.md "../../../autoscaling/ec2/userguide/asg-max-instance-lifetime.md") ‐ You can define a maximum lifetime when it comes to
-  replacing Auto Scaling group instances. This is helpful for scheduling replacement instances based on internal
+  replacing Amazon EC2 Auto Scaling group instances. This is helpful for scheduling replacement instances based on internal
   security policies or compliance.
-- Auto Scaling group scale-in ‐ Based on scaling policies and scheduled scaling actions, Auto Scaling group supports
-  automatic scaling of instances. By using an Auto Scaling group as an Amazon ECS capacity provider, you can scale-in
-  Auto Scaling group instances when no tasks are running in them.
-- [Auto Scaling group health checks](../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md") ‐ Auto Scaling group supports many health checks to manage termination of
+- Amazon EC2 Auto Scaling group scale-in ‐ Based on scaling policies and scheduled scaling actions, Amazon EC2 Auto Scaling group supports
+  automatic scaling of instances. By using an Amazon EC2 Auto Scaling group as an Amazon ECS capacity provider, you can scale-in
+  Amazon EC2 Auto Scaling group instances when no tasks are running in them.
+- [Amazon EC2 Auto Scaling group health checks](../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md") ‐ Amazon EC2 Auto Scaling group supports many health checks to manage termination of
   unhealthy instances.
-- [AWS CloudFormation stack
-  updates](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-direct.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-direct.md") ‐ You can add an `UpdatePolicy` attribute to your AWS CloudFormation stack
+- [CloudFormation stack
+  updates](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-direct.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-direct.md") ‐ You can add an `UpdatePolicy` attribute to your CloudFormation stack
   to perform rolling updates when group changes.
 - [Spot capacity
-  rebalancing](../../../AWSEC2/latest/UserGuide/spot-interruptions.md "../../../AWSEC2/latest/UserGuide/spot-interruptions.md") ‐ The Auto Scaling group tries to proactively replace Spot Instances that have a higher risk
-  of interruption based on Amazon EC2 capacity rebalance notice. The Auto Scaling group terminates the old instance
+  rebalancing](../../../AWSEC2/latest/UserGuide/spot-interruptions.md "../../../AWSEC2/latest/UserGuide/spot-interruptions.md") ‐ The Amazon EC2 Auto Scaling group tries to proactively replace Spot Instances that have a higher risk
+  of interruption based on Amazon EC2 capacity rebalance notice. The Amazon EC2 Auto Scaling group terminates the old instance
   when the replacement is launched and healthy. Amazon ECS managed instance draining drains the Spot Instance the
   same way it drains a non-Spot Instance.
 - [Spot
   interruption](../../../autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.md") ‐ Spot Instances are terminated with a two minute notice. Amazon ECS-managed
   instance draining puts the instance in draining state in response.
 
-###### Amazon EC2 Auto Scaling lifecycle hooks with managed instance draining
+###### Amazon EC2 Amazon EC2 Auto Scaling lifecycle hooks with managed instance draining
 
-Auto Scaling group lifecycle hooks enable customer to create solutions that are triggered by certain events in the
-instance lifecycle and perform a custom action when that certain event occurs. An Auto Scaling group allows for up
-to 50 hooks. Multiple termination hooks can exist and are performed in parallel, and Auto Scaling group waits for
+Amazon EC2 Auto Scaling group lifecycle hooks enable customer to create solutions that are triggered by certain events in the
+instance lifecycle and perform a custom action when that certain event occurs. An Amazon EC2 Auto Scaling group allows for up
+to 50 hooks. Multiple termination hooks can exist and are performed in parallel, and Amazon EC2 Auto Scaling group waits for
 all hooks to finish before terminating an instance.
 
 In addition to the Amazon ECS-managed hook termination, you can also configure your own lifecycle termination
@@ -55,14 +55,14 @@ hooks. Lifecycle hooks have a `default action`, and we recommend setting `contin
 as the default to ensure other hooks, such as the Amazon ECS managed hook, aren't impacted by any errors from
 custom hooks.
 
-If you've already configured an Auto Scaling group termination lifecycle hook and also enabled Amazon ECS managed instance
+If you've already configured an Amazon EC2 Auto Scaling group termination lifecycle hook and also enabled Amazon ECS managed instance
 draining, both lifecycle hooks are performed. The relative timings, however, are not guaranteed. Lifecycle
 hooks have a `default action` setting to specify the action to take when timeout elapses. In
 case of failures we recommend using `continue` as the default result in your custom hook. This
 ensures other hooks, particularly the Amazon ECS managed hooks, aren't impacted by any errors in your custom
 lifecycle hook. The alternative result of `abandon` causes all other hooks to be skipped and
-should be avoided. For more information about Auto Scaling group lifecycle hooks see [Amazon EC2 Auto Scaling lifecycle hooks](../../../autoscaling/ec2/userguide/lifecycle-hooks.md "../../../autoscaling/ec2/userguide/lifecycle-hooks.md") in the
-_Amazon EC2_ Auto Scaling User Guide.
+should be avoided. For more information about Amazon EC2 Auto Scaling group lifecycle hooks see [Amazon EC2 Amazon EC2 Auto Scaling lifecycle hooks](../../../autoscaling/ec2/userguide/lifecycle-hooks.md "../../../autoscaling/ec2/userguide/lifecycle-hooks.md") in the
+_Amazon EC2_ Amazon EC2 Auto Scaling User Guide.
 
 ###### Tasks and managed instance draining
 
@@ -95,10 +95,10 @@ With Spot Instance draining, you can set an environment variable
 `ECS_ENABLE_SPOT_INSTANCE_DRAINING` on the Amazon ECS agent which enables Amazon ECS to place an
 instance in the draining status in response to the two-minute Spot interruption. Amazon ECS managed instance
 draining facilitates graceful shutdown of Amazon EC2 instances undergoing termination due to many reasons,
-not just Spot interruption. For instance, you can use Amazon EC2 Auto Scaling capacity rebalancing to proactively
+not just Spot interruption. For instance, you can use Amazon EC2 Amazon EC2 Auto Scaling capacity rebalancing to proactively
 replace Spot Instance at elevated risk of interruption, and managed instance draining performs graceful shutdown
 of Spot Instance being replaced. When you use managed instance draining, you don't need to enable Spot instance
-draining separately, so `ECS_ENABLE_SPOT_INSTANCE_DRAINING` in Auto Scaling group user data is redundant.
+draining separately, so `ECS_ENABLE_SPOT_INSTANCE_DRAINING` in Amazon EC2 Auto Scaling group user data is redundant.
 For more information about Spot Instance draining, see [Spot Instances](create-capacity.md#container-instance-spot "create-capacity.md#container-instance-spot").
 
 ## How managed instance draining works with
@@ -109,7 +109,7 @@ Amazon ECS managed instance draining events are published to Amazon EventBridge,
 rule in your account’s default bus to support managed instance draining. You can filter these events to
 other AWS services like Lambda, Amazon SNS, and Amazon SQS to monitor and troubleshoot.
 
-- Amazon EC2 Auto Scaling sends an event to EventBridge when a lifecycle hook is invoked.
+- Amazon EC2 Amazon EC2 Auto Scaling sends an event to EventBridge when a lifecycle hook is invoked.
 - Spot interruption notices are published to EventBridge.
 - Amazon ECS generates error messages that you can retrieve through the Amazon ECS console and
   APIs.

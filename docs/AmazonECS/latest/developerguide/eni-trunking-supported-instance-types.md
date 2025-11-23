@@ -892,6 +892,7 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | p5e.48xlarge       | 63                              | 242                          |
 | p5en.48xlarge      | 63                              | 242                          |
 | p6-b200.48xlarge   | 31                              | 242                          |
+| p6-b300.48xlarge   | 67                              | 242                          |
 | p6e-gb200.36xlarge | 38                              | 120                          |
 | trn1.2xlarge       | 3                               | 19                           |
 | trn1.32xlarge      | 39                              | 120                          |

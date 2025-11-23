@@ -3,9 +3,9 @@
 To use a blue/green deployment with managed traffic shifting, your service must use
 one of the following features:
 
-- Elastic Load Balancing
+- ELB
 - Service Connect
-  Services that don't use Service Discovery, Service Connect, VPC Lattice or Elastic Load Balancing can also
+  Services that don't use Service Discovery, Service Connect, VPC Lattice or ELB can also
   use blue/green deployments, but don't get any of the managed traffic shifting
   benefits.
 

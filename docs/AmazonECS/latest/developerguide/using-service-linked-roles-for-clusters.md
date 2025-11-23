@@ -42,7 +42,7 @@ the following actions on the specified resources:
   registration and deregistration of resources with the load balancer.
 - Action: When using Amazon ECS service discovery, Amazon ECS manages the required Route 53 and
   AWS Cloud Map resources for service discovery to work.
-- Action: When using Amazon ECS service auto scaling, Amazon ECS manages the required Auto Scaling
+- Action: When using Amazon ECS service auto scaling, Amazon ECS manages the required Amazon EC2 Auto Scaling
   resources.
 - Action: Amazon ECS creates and manages CloudWatch alarms and log streams that assist in the
   monitoring of your Amazon ECS resources.
@@ -51,10 +51,12 @@ the following actions on the specified resources:
 - Action: When using Amazon ECS Service Connect, Amazon ECS manages the required AWS Cloud Map
   resources to use the feature.
 - Action: When using Amazon ECS capacity providers, Amazon ECS manages the permissions required
-  to modify the Auto Scaling group and its Amazon EC2 instances.
+  to modify the Amazon EC2 Auto Scaling group and its Amazon EC2 instances.
 - Action: Amazon ECS can update AWS Cloud Map service attributes for services that Amazon ECS
   manages.
 - Action: Amazon ECS can invoke Amazon EC2 provision and de-provision ENI when starting and stopping tasks.
+- Action: Amazon ECS can fetch Amazon EC2 Event Windows for services and clusters associated
+  with Event Windows.
 
 You must configure permissions to allow your users, groups, or roles to create, edit, or
 delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the

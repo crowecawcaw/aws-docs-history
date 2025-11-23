@@ -56,7 +56,7 @@ A capacity provider strategy can only contain one capacity provider type from th
 following list:
 
 - Amazon ECS Managed Instances
-- Auto Scaling group
+- Amazon EC2 Auto Scaling group
 - Fargate/Fargate_SPOT
 
 ## Instance selection and
@@ -249,7 +249,7 @@ available task-level storage options, see [Storage options for Amazon ECS tasks]
 
 ## Service load balancing
 
-Your Amazon ECS services using Amazon ECS Managed Instances can be configured to use Elastic Load Balancing to
+Your Amazon ECS services using Amazon ECS Managed Instances can be configured to use ELB to
 distribute traffic evenly across the tasks in your service.
 
 Amazon ECS services on Amazon ECS Managed Instances support Application Load Balancer, Network Load Balancer, and Gateway Load Balancer load balancer
@@ -328,3 +328,5 @@ The following limitations apply to Amazon ECS Managed Instances:
 - SSH access - Not available for security
   reasons. Use Amazon ECS Exec for debugging and troubleshooting. Management operations
   through Amazon ECS APIs only.
+- Service Connect isn't available for services running on
+  Amazon ECS Managed Instances.

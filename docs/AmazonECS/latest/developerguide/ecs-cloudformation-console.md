@@ -1,11 +1,11 @@
-# Creating Amazon ECS resources using the AWS CloudFormation
+# Creating Amazon ECS resources using the CloudFormation
 
 console
 
-One way to use Amazon ECS with AWS CloudFormation is through the AWS Management Console. Here you can create your
-AWS CloudFormation stacks for Amazon ECS components like task definitions, clusters, and services and
+One way to use Amazon ECS with CloudFormation is through the AWS Management Console. Here you can create your
+CloudFormation stacks for Amazon ECS components like task definitions, clusters, and services and
 deploy them directly from the console. The following tutorial shows how you can use the
-AWS CloudFormation console to create Amazon ECS resources using a template.
+CloudFormation console to create Amazon ECS resources using a template.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ This tutorial assumes that the following prerequisites have ben completed.
 
 template
 
-Use the following steps to create an AWS CloudFormation stack template for an Amazon ECS service and
+Use the following steps to create an CloudFormation stack template for an Amazon ECS service and
 other related resources.
 
 1. Using a text editor of your choice, create a file called
@@ -558,20 +558,20 @@ auto scaling, see [Automatically scale your Amazon ECS service](service-auto-sca
 resources
 
 After creating a file for the template, you can follow these steps to create a
-stack with the template by using the AWS CloudFormation console.
+stack with the template by using the CloudFormation console.
 
-For information about how to create a stack using the AWS CloudFormation console, see [Creating
-a stack on the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the _AWS CloudFormation User Guide_ and use the following table to determine what
+For information about how to create a stack using the CloudFormation console, see [Creating
+a stack on the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the _AWS CloudFormation User Guide_ and use the following table to determine what
 options to specify.
 
-| Option                             | Value                                                                                                                                     |
-| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Prerequisite<br>• Prepare template | Choose an existing template                                                                                                               |
-| Specify template                   | Upload a template file                                                                                                                    |
-| Choose file                        | ecs-tutorial-template.yaml                                                                                                                |
-| Stack name                         | ecs-tutorial-stack                                                                                                                        |
-| Parameters                         | Leave all parameter values as defaults.                                                                                                   |
-| Capabilities                       | Choose \*_I acknowledge that this template may create<br>IAM resources_<br>• to acknowledge AWS CloudFormation creating<br>IAM resources. |
+| Option                             | Value                                                                                                                                 |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Prerequisite<br>• Prepare template | Choose an existing template                                                                                                           |
+| Specify template                   | Upload a template file                                                                                                                |
+| Choose file                        | ecs-tutorial-template.yaml                                                                                                            |
+| Stack name                         | ecs-tutorial-stack                                                                                                                    |
+| Parameters                         | Leave all parameter values as defaults.                                                                                               |
+| Capabilities                       | Choose \*_I acknowledge that this template may create<br>IAM resources_<br>• to acknowledge CloudFormation creating<br>IAM resources. |
 
 ## Step 3: Verify
 
@@ -593,4 +593,4 @@ resources
 
 To clean up resources and avoid incurring further costs, follow the steps in
 [Delete a stack from the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the
-_AWS CloudFormation user guide_.
+_CloudFormation user guide_.

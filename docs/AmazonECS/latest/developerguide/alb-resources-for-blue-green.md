@@ -4,7 +4,7 @@ To use Application Load Balancers with Amazon ECS blue/green deployments, you ne
 
 ## Target groups
 
-For blue/green deployments with Elastic Load Balancing, you need to create two target groups:
+For blue/green deployments with ELB, you need to create two target groups:
 
 - A primary target group for the blue service revision (current production traffic)
 - An alternate target group for the green service revision (new version)
@@ -146,7 +146,7 @@ aws elbv2 create-rule \
 You must have permissions to allow Amazon ECS to manage load balancer resources in your clusters on your behalf. For more information, see [Amazon ECS infrastructure
 IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md").
 
-When creating or updating an Amazon ECS service for blue/green deployments with Elastic Load Balancing, you
+When creating or updating an Amazon ECS service for blue/green deployments with ELB, you
 need to specify the following configuration.
 
 Replace the `user-input` with your values.
@@ -159,7 +159,7 @@ The key components in this configuration are:
   (green service revision).
 - `productionListenerRule`: The ARN of the listener rule for
   production traffic.
-- `roleArn`: The ARN of the role that allows Amazon ECS to manage Elastic Load Balancing
+- `roleArn`: The ARN of the role that allows Amazon ECS to manage ELB
   resources.
 - `strategy`: Set to `BLUE_GREEN` to enable blue/green
   deployments.
@@ -194,7 +194,7 @@ The key components in this configuration are:
 
 ## Traffic flow during deployment
 
-During a blue/green deployment with Elastic Load Balancing, traffic flows through the system as follows:
+During a blue/green deployment with ELB, traffic flows through the system as follows:
 
 1. _Initial state_: All production traffic is routed to the primary target group (blue service revision).
 2. _Green service revision deployment_: Amazon ECS deploys the new tasks and registers them with the alternate target group.

@@ -1,4 +1,4 @@
-# Configuring pre-initialized instances for your Amazon ECS Auto Scaling
+# Configuring pre-initialized instances for your Amazon ECS Amazon EC2 Auto Scaling
 
 group
 
@@ -7,11 +7,11 @@ ready to be placed into service. Whenever your application needs to scale out, A
 the pre-initialized instances from the warm pool rather than launching cold instances, allows
 for any final initialization process to run, and then places the instance into service.
 
-To learn more about warm pools and how to add a warm pool to your Auto Scaling group, see [Warm
+To learn more about warm pools and how to add a warm pool to your Amazon EC2 Auto Scaling group, see [Warm
 pools for Amazon EC2 Auto Scaling](../../../autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.md")
 _in the Amazon EC2 Auto Scaling User Guide_.
 
-When you create or update a warm pool for an Auto Scaling group for Amazon ECS , you cannot set the option
+When you create or update a warm pool for an Amazon EC2 Auto Scaling group for Amazon ECS , you cannot set the option
 that returns instances to the warm pool on scale in (`ReuseOnScaleIn`). For more
 information, see [put-warm-pool](../../../cli/latest/reference/autoscaling/put-warm-pool.md "../../../cli/latest/reference/autoscaling/put-warm-pool.md") in the
 _AWS Command Line Interface Reference_.
