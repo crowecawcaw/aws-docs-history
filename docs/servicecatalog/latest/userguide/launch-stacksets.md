@@ -29,7 +29,7 @@ as a percentage or a range from a minimum of zero to a maximum of the total numb
 that the administrator defined in the stack set constraint.
 
 This tolerance value is the number of accounts per Region that fail to
-deploy before AWS CloudFormation stops deployment. You can set the maximum tolerance of the
+deploy before CloudFormation stops deployment. You can set the maximum tolerance of the
 total number of accounts that the administrator has defined in the stack set
 constraint.
 
@@ -46,7 +46,7 @@ the new instance type.
 **Using stack sets versus stack instances**
 
 A stack set enables you to create stacks in AWS accounts across Regions by using a single
-AWS CloudFormation template.
+CloudFormation template.
 
 A stack instance refers to a stack in a target account in a Region. It
 associates with only one stack set.

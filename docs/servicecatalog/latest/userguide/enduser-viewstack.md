@@ -13,7 +13,7 @@ until the deletion of the provisioned product.
 
 If the provisioned product you launch is a stack set, you own the stack set.
 Ownership of individual stacks depends whether or not you have access to the accounts
-where the stacks were deployed. For more information, see [Working with AWS CloudFormation StackSets](../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md "../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md").
+where the stacks were deployed. For more information, see [Working with CloudFormation StackSets](../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md "../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md").
 
 ## Viewing Provisioned Product Status
 
@@ -50,23 +50,23 @@ example, if the product launches an EC2 instance, the provisioned product might 
 IP address of the instance. You could use the IP address to connect to the instance with a
 Remote Desktop Connection or SSH.
 
-## Viewing AWS CloudFormation Events
+## Viewing CloudFormation Events
 
-AWS CloudFormation provides information during each step of the launch and update processes. You can
-obtain the information using an AWS CloudFormation ARN.
+CloudFormation provides information during each step of the launch and update processes. You can
+obtain the information using an CloudFormation ARN.
 
 If the provisioned product uses an AWS CloudFormation stack, you can find the ARN in the
 Provisioned product details page. (Expand the **Events** tab to find the current list of
 events.)
 
-When an AWS CloudFormation stack's status changes, such as new resources or errors, AWS CloudFormation logs an event with the following information:
+When an AWS CloudFormation stack's status changes, such as new resources or errors, CloudFormation logs an event with the following information:
 
 - **Date** – The time that the event occurred, in local time.
 - **Status** – The condition of a resource in a provisioned product, as
   opposed to the [Viewing Provisioned Product Status](#enduser-viewstack-status "#enduser-viewstack-status").
 - **Type** – The type of resource the event registers. For
   details on resource types, see [Resource Types](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") in the
-  _AWS CloudFormation User Guide_.
+  _CloudFormation User Guide_.
 - **Logical ID** – The name of the resource, as defined in the
   template.
 - **Status reason** – Additional information about the provisioned product's

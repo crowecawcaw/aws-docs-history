@@ -3,7 +3,7 @@
 You can launch any product that appears in your AWS Service Catalog products list.
 
 When you launch a product, you create a provisioned product, usually an instance of the
-product in an AWS CloudFormation stack.
+product in an CloudFormation stack.
 
 A provisioned product in AWS is one or more cloud resources that you manage as a single
 unit such as compute instances, databases, or networking components.
@@ -31,7 +31,7 @@ If you define parameter rules for the product, AWS Service Catalog displays thos
 you identify resources in your provisioned product.
 
 **Note**: For information about tag limits, see [AWS Service Catalog Limits](../adminguide/limits.md "../adminguide/limits.md"). AWS Service Catalog automatically adds AutoTags to provisioned
-resources. You cannot update or change AutoTags. AWS CloudFormation adds tags to some resources,
+resources. You cannot update or change AutoTags. CloudFormation adds tags to some resources,
 but these do not apply toward the limit and do not appear on this page. 6. You can optionally enable event notifications to send to an Amazon SNS topic. 7. Review your data and then choose **Launch**.
 
 In the Provisioned product details page, choose **Refresh** to see

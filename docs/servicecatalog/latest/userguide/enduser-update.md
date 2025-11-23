@@ -15,7 +15,7 @@ status.
 
 If the provisioned product you launch is a stack set, you own the stack set.
 Ownership of individual stacks depends whether or not you have access to the accounts
-where the stacks were deployed. For more information, see [Working with AWS CloudFormation StackSets](../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md "../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md").
+where the stacks were deployed. For more information, see [Working with CloudFormation StackSets](../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md "../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md").
 
 ###### To update a provisioned product
 
