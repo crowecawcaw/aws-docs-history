@@ -110,9 +110,9 @@ Default: false
 
 **externalSort.threshold**
 
-Optional. The sort threshold: when to switch to external (merge) sort.
+Optional. The sort threshold: determines when the system should switch from in-memory to external merge sorting (using temporary files on the file system). If not specified (default=`null`), the threshold is set to half of the available memory at each new sort task. To estimate the available memory, a call to System.gc() is performed.
 
-Type: string
+Type: datasize
 
 Default: null
 
@@ -236,6 +236,14 @@ If set to `true`, interrupts the run if a program is not found.
 Type: boolean
 
 Default: true
+
+**system.date.format**
+
+Optional. Specifies the system date format.
+
+Type: string
+
+Default: MDY
 
 **uppercaseUserInput**
 

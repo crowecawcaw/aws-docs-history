@@ -423,7 +423,9 @@ generation and deployment processes. These updates are managed as part of the
 AWS Mainframe Modernization lifecycle, which includes version upgrades and
 support from the AWS Blu Age team or certified partners. For detailed
 information on versioning, upgrade processes, and support timelines, please
-refer to the [AWS Mainframe Modernization lifecycle documentation](lifecycle-m2.md "lifecycle-m2.md").
+refer to the [AWS Mainframe Modernization lifecycle documentation](lifecycle-m2.md "lifecycle-m2.md"). 43. **What are the supported version of tools (Tomcat, Postgres, Oracle, MQ, etc.) and dependencies (Spring, Angular, etc.) the AWS Blu Age Runtime uses ?**
+
+See details in [Release Notes](ba-release-notes.md "ba-release-notes.md").
 
 ## Data
 

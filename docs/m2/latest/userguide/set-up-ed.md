@@ -13,7 +13,7 @@ Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md").
 
 ###### Important
 
-The steps in this tutorial assume that you set up WorkSpaces Applications using the downloadable AWS CloudFormation
+The steps in this tutorial assume that you set up WorkSpaces Applications using the downloadable CloudFormation
 template [cfn-m2-appstream-fleet-ea-ed.yaml](https://d1vi4vxke6c2hu.cloudfront.net/tutorial/cfn-m2-appstream-fleet-ea-ed.yaml "https://d1vi4vxke6c2hu.cloudfront.net/tutorial/cfn-m2-appstream-fleet-ea-ed.yaml"). For more information, see [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and
 Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md").
 

@@ -27,8 +27,8 @@ Before you begin, make sure you meet the following prerequisites.
   SSM.
 - Download the version of the AWS Blu Age Runtime that you want to upgrade to. For more information, see
   [Set up AWS Blu Age Runtime (non-managed)](ba-runtime-setup.md "ba-runtime-setup.md") The framework consists of two binary files:
-  `aws-bluage-runtime-x.x.x.x.tar.gz` and
-  `aws-bluage-webapps-x.x.x.x.tar.gz`.
+  `aws-bluage-runtime-x.y.z.zip` and
+  `aws-bluage-webapps-x.y.z.zip`.
 
 ## Upgrade the AWS Blu Age Runtime in the Amazon EC2
 
@@ -53,8 +53,8 @@ content. 5. To extract the binaries, use the following commands. Run the command
 folder.
 
 ```
-tar xvf aws-bluage-runtime-x.x.x.x.tar.gz
-tar xvf aws-bluage-webapps-x.x.x.x.tar.gz
+unzip aws-bluage-runtime-x.y.z.zip
+unzip aws-bluage-webapps-x.y.z.zip
 ```
 
 6. Stop the Apache Tomcat services by using the following commands.
@@ -65,12 +65,12 @@ systemctl stop tomcat-webapps.service
 ```
 
 7. Replace the content of `<your-tomcat-path>/shared/` with the content
-   of `aws-bluage-runtime-x.x.x.x/velocity/shared/`.
+   of `aws-bluage-runtime-x.y.z/velocity/shared/`.
 8. Replace `<your-tomcat-path>/webapps/gapwalk-application.war` with
-   `aws-bluage-runtime-x.x.x.x/velocity/webapps/gapwalk-application.war`.
+   `aws-bluage-runtime-x.y.z/velocity/webapps/gapwalk-application.war`.
 9. Replace the war files in `<your-tomcat-path>/webapps/`, namely
    `bac.war` and `jac.war`, with the same files from
-   `aws-bluage-webapps-x.x.x.x/velocity/webapps/`.
+   `aws-bluage-webapps-x.y.z/velocity/webapps/`.
 10. Start the Apache Tomcat services by running the following commands.
 
 ```

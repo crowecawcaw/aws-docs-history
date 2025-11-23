@@ -40,7 +40,7 @@ organization, see [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "
 
 In both Release and Pre-release buckets, you'll find:
 
-**aws-bluage-runtime-x.y.z.tar.gz**
+**aws-bluage-runtime-x.y.z.zip**
 
 This archive, where x.y.z represents the version number (`major.minor.patch` as
 per semantic versioning, see [AWS Blu Age versioning](ba-versioning.md "ba-versioning.md")), and contains the core
@@ -57,7 +57,7 @@ AWS Blu Age Runtime components essential for executing AWS Blu Age applications,
 - All necessary libraries and supporting files for the AWS Blu Age Runtime
   operation.
 
-**aws-bluage-webapps-x.y.z.tar.gz**
+**aws-bluage-webapps-x.y.z.zip**
 
 This archive, where x.y.z follows the same versioning scheme as above, includes
 web applications and libraries necessary for managing and controlling AWS Blu Age
@@ -69,21 +69,23 @@ deployments:
   monitoring the JICS database.
 - Necessary supporting libraries.
 
-### Additional files
+### Package Signature Verification
 
-- Checksum files that let you verify integrity for both Blu Age archives
-  following the naming convention:
-  - For Runtime:
-    `aws-bluage-runtime-x.y.z.tar.gz.checksumSHA256`
-  - For Webapps:
-    `aws-bluage-webapps-x.y.z.tar.gz.checksumSHA256`
+The released zip files are provided as digitally signed ZIP archives to ensure security and authenticity.
+Digital signatures help verify that the files you download are genuine, unaltered, and officially released
+by our organization. This prevents tampering and protects against malware or compromised files that could
+be maliciously distributed.
 
-- CVE report files (For the release versions only) list the present CVEs on
-  this version and follow the naming convention:
-  - For Runtime:
-    `Bluage-Runtime-x.y.z-CVEs.txt`
-  - For Webapps:
-    `Bluage-Webapps-x.y.z-CVEs.txt`
+To verify the signature of the ZIP file before using it, you can use the following command:
+
+`jarsigner -verify -certs -verbose aws-bluage-runtime-x.y.z.zip`
+
+Here the result example for a cerfified file :
+
+```
+...
+jar verified.
+```
 
 For details on how security vulnerabilities are addressed, see [AWS Mainframe Modernization Refactor with AWS Blu Age release
 overview](lifecycle-m2.md#lifecycle-ba-overview "lifecycle-m2.md#lifecycle-ba-overview").
@@ -91,8 +93,7 @@ overview](lifecycle-m2.md#lifecycle-ba-overview "lifecycle-m2.md#lifecycle-ba-ov
 ###### Note
 
 While we strive to release our products without CVEs, new CVEs may appear
-later on. The CVE report file is updated regularly to reflect the latest
-status.
+later on.
 
 ## Developer AWS Blu Age Runtime artifacts
 
@@ -111,8 +112,8 @@ AWS account specified in your request.
 The main bucket for the Developer Runtime is:
 `s3://toolbox-dev-runtime`
 
-For more detailed information on requesting access and understanding the bucket
-structure, see [Dev and Special AWS Blu Age Runtimes](https://bluinsights.aws/docs/dev-special-bluage-runtime "https://bluinsights.aws/docs/dev-special-bluage-runtime") documentation.
+For more detailed information on requesting access see
+[Blu Age Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction") documentation.
 
 ### Artifact
 
@@ -120,21 +121,8 @@ contents
 
 Developer runtime artifacts typically include:
 
-**gapwalk-x.y.z-dev.tar.gz**
+**gapwalk-x.y.z.zip**
 
 This archive contains the development version of the Gapwalk component, which is a
 crucial part of the AWS Blu Age Runtime. It's designed to bridge legacy applications
 with modern cloud-native environments.
-
-**gapwalk-runtime-x.y.z-javadoc.zip**
-
-This zip file contains the JavaDoc documentation for the Gapwalk runtime. JavaDoc
-provides detailed API documentation, which is especially useful for developers working
-on integrating or extending the Gapwalk runtime.
-
-**gapwalk-webapps-x.y.z-javadoc.zip**
-
-Similar to the runtime JavaDoc, this zip file contains the JavaDoc documentation
-specifically for the Gapwalk web applications. This documentation is crucial for
-developers working with or customizing the web-based components of the Gapwalk
-system.

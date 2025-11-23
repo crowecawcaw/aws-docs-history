@@ -66,7 +66,7 @@ role so that CodeBuild can access the container image and access your Amazon S3 
 
 Along with the [Tutorial: Convert code from Assembler to COBOL
 in AWS Mainframe Modernization](assembler-conversion-steps.md "assembler-conversion-steps.md"), here are some additional
-resources where you can learn about creating the AWS CloudFormation templates and other information
+resources where you can learn about creating the CloudFormation templates and other information
 about converting Assembler to COBOL.
 
 - Workshop link for Automated Code conversion from Assembler to COBOL: [https://catalog.workshops.aws/awsm2ccm-assembler-cobol/en-US](https://catalog.workshops.aws/awsm2ccm-assembler-cobol/en-US "https://catalog.workshops.aws/awsm2ccm-assembler-cobol/en-US").

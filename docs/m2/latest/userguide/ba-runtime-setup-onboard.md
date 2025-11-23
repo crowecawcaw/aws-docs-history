@@ -62,18 +62,18 @@ Replace `bucket-name` with the name of the bucket for your AWS Region from the
 previous table.
 
 This command returns a list of folders that correspond to different versions of the AWS Blu Age Runtime (non-managed)
-runtime, such as the following for a release bucket:
+runtime, such as the following for a Release bucket:
 
 ```
-PRE 3.10.0/
 PRE 4.0.0/
+PRE 4.10.0/
 ```
 
 Or the following for a build bucket:
 
 ```
-PRE 4.1.0-alpha.8/
-PRE 4.1.0-alpha.9/
+PRE 4.11.0/
+PRE 4.13.0/
 ```
 
 We recommend that you use the latest version available. If that isn't possible, then use the
@@ -89,29 +89,25 @@ Replace `bucket-name` with the name of the bucket for your AWS Region and
 For a release bucket:
 
 `aws s3 ls
- s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/`
+ s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.10.0/Framework/`
 
-The command returns a list of frameworks, such as:
+The command returns a list of zip files, such as:
 
 ```
-2024-04-08 16:11:19  152040176 aws-bluage-runtime-4.0.0.tar.gz
-2024-04-08 16:11:50         45 aws-bluage-runtime-4.0.0.tar.gz.checksumSHA256
-2024-04-08 16:11:52  176518889 aws-bluage-webapps-4.0.0.tar.gz
-2024-04-08 16:12:28         45 aws-bluage-webapps-4.0.0.tar.gz.checksumSHA256
+2025-04-08 16:11:19  152040176 aws-bluage-runtime-4.10.0.zip
+2025-04-08 16:11:52  176518889 aws-bluage-webapps-4.10.0.zip
 ```
 
-For a build bucket:
+For a Alpha pre-release bucket:
 
 `aws s3 ls
- s3://aws-bluage-runtime-artifacts-dev-139023371234-us-east-1/4.1.0-alpha.9/Framework/`
+ s3://aws-bluage-runtime-artifacts-dev-139023371234-us-east-1/4.11.0/Framework/`
 
-The command returns a list of frameworks, such as:
+The command returns a list of zip files, such as:
 
 ```
-2024-04-09 20:23:34  152304534 aws-bluage-runtime-4.1.0-alpha.9.tar.gz
-2024-04-09 20:24:05         45 aws-bluage-runtime-4.1.0-alpha.9.tar.gz.checksumSHA256
-2024-04-09 20:24:07  176262381 aws-bluage-webapps-4.1.0-alpha.9.tar.gz
-2024-04-09 20:24:42         45 aws-bluage-webapps-4.1.0-alpha.9.tar.gz.checksumSHA256
+2025-04-09 20:23:34  152304534 aws-bluage-runtime-4.11.0.zip
+2025-04-09 20:24:07  176262381 aws-bluage-webapps-4.11.0.zip
 ```
 
 ## Download the framework
@@ -136,10 +132,8 @@ For example: `aws s3 cp
 This command produces the following output:
 
 ```
-download: s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/aws-bluage-runtime-4.0.0.tar.gz.checksumSHA256 to ./aws-bluage-runtime-4.0.0.tar.gz.checksumSHA256
-download: s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/aws-bluage-webapps-4.0.0.tar.gz.checksumSHA256 to ./aws-bluage-webapps-4.0.0.tar.gz.checksumSHA256
-download: s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/aws-bluage-webapps-4.0.0.tar.gz to ./aws-bluage-webapps-4.0.0.tar.gz
-download: s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/aws-bluage-runtime-4.0.0.tar.gz to ./aws-bluage-runtime-4.0.0.tar.gz
+download: s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/aws-bluage-webapps-4.0.0.zip to ./aws-bluage-webapps-4.0.0.zip
+download: s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/aws-bluage-runtime-4.0.0.zip to ./aws-bluage-runtime-4.0.0.zip
 ```
 
 You can list the framework files as follows:
@@ -150,10 +144,8 @@ This command produces the following output:
 
 ```
 total 230928
--rw-rw-r-- 1 cloudshell-user cloudshell-user 152040176 Apr  8 16:11 aws-bluage-runtime-4.0.0.tar.gz
--rw-rw-r-- 1 cloudshell-user cloudshell-user        45 Apr  8 16:11 aws-bluage-runtime-4.0.0.tar.gz.checksumSHA256
--rw-rw-r-- 1 cloudshell-user cloudshell-user 176518889 Apr  8 16:11 aws-bluage-webapps-4.0.0.tar.gz
--rw-rw-r-- 1 cloudshell-user cloudshell-user        45 Apr  8 16:12 aws-bluage-webapps-4.0.0.tar.gz.checksumSHA256
+-rw-rw-r-- 1 cloudshell-user cloudshell-user 152040176 Apr  8 16:11 aws-bluage-runtime-4.0.0.zip
+-rw-rw-r-- 1 cloudshell-user cloudshell-user 176518889 Apr  8 16:11 aws-bluage-webapps-4.0.0.zip
 ```
 
 ###### Note

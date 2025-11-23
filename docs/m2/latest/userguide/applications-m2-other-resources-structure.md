@@ -8,7 +8,7 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 applications
 
 If you use the AWS Blu Age refactoring pattern, the AWS Blu Age runtime engine expects the following
-structure inside the `application-name` folder in your S3 bucket:
+structure in the folder specified by `app-location` in your application definition:
 
 ![The expected structure within the application-name folder.](images/ba-app-structure.png)
 
@@ -54,19 +54,10 @@ Contains jars that can provide additional capabilities for the modernized applic
 
 options
 
-To manage
-some
-java options for the application, add a properties file named
-`tomcat.properties` to the `application-name` folder. This
-file can have
-three
-properties: `xms`, which specifies the minimum Java memory consumption,
-`xmx`,
-which specifies the maximum Java memory
-consumption, and
-`dnscachettl`, that manages the cache duration for dns resolutions.
-The following is an example of the contents of a valid `tomcat.properties`
-file.
+To manage certain Java options for the application, add a properties file named `tomcat.properties`
+to the folder specified by `app-location`. This file can have three properties: `xms`, which specifies the minimum
+Java memory consumption, `xmx`, which specifies the maximum Java memory consumption, and `dnscachettl`,
+that manages the cache duration for dns resolutions. The following is an example of the contents of a valid `tomcat.properties` file.
 
 ```
 xms=512M
@@ -75,8 +66,10 @@ dnscachettl=5
 ```
 
 The values that you specify for
+
 the
-first two properties can be in any of the following units:
+first
+two properties can be in any of the following units:
 
 - Bytes: don't specify a unit.
 - Kilobytes: append a K to the value.

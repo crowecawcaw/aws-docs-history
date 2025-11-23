@@ -522,9 +522,9 @@ Lambda execution role associated with the Create Environment workflow.
 ```
 
 The following example event records the `CreateGrant` operation for the
-Auto Scaling group service-linked role. The Lambda execution role associated with the Create
+Amazon EC2 Auto Scaling group service-linked role. The Lambda execution role associated with the Create
 Environment workflow calls this `CreateGrant` operation. It grants
-permission for the execution role to create a subgrant against the Auto Scaling group's
+permission for the execution role to create a subgrant against the Amazon EC2 Auto Scaling group's
 service-linked role.
 
 ```
@@ -600,7 +600,7 @@ service-linked role.
 ```
 
 GenerateDataKey
-When you enable an AWS KMS customer managed key for your runtime environment resource, Auto Scaling
+When you enable an AWS KMS customer managed key for your runtime environment resource, Amazon EC2 Auto Scaling
 creates a unique key for encrypting the Amazon EBS volume associated with the runtime
 environment. It sends a `GenerateDataKey` request to AWS KMS that specifies
 the AWS KMS customer managed key for the resource.

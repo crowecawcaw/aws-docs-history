@@ -84,7 +84,7 @@ COPY PlanetsDemo-v1.zip /workdir/apps/
 
 # Copy resources (tomcat, blu age runtime) to installation dir
 COPY tomcat.tar.gz /usr/local/velocity/installation/tomcat.tar.gz
-COPY aws-bluage-runtime-4.x.x.tar.gz /usr/local/velocity/installation/gapwalk/gapwalk.tar.gz
+COPY aws-bluage-runtime-4.x.x.zip /usr/local/velocity/installation/gapwalk/gapwalk.zip
 
 # run relevant installation scripts
 RUN ./install-gapwalk.sh
@@ -111,7 +111,7 @@ echo "Installing Gapwalk and Tomcat"
 sudo rm -rf /bluage-on-fargate
 mkdir -p ${TEMP_DIR}
 # Copy Blu Age runtime and tomcat archives to temporary extraction dir
-sudo cp /usr/local/velocity/installation/gapwalk/gapwalk.tar.gz ${TEMP_DIR}
+sudo cp /usr/local/velocity/installation/gapwalk/gapwalk.zip ${TEMP_DIR}
 sudo cp /usr/local/velocity/installation/tomcat.tar.gz ${TEMP_DIR}
 # Create velocity dir
 mkdir -p /bluage/tomcat.gapwalk/velocity
@@ -122,7 +122,7 @@ cp -fr ${TEMP_DIR}/apache-tomcat-10.x.x/* /bluage/tomcat.gapwalk/velocity
 # Remove default webapps of Tomcat
 rm -f /bluage-on-fargate/tomcat.gapwalk/velocity/webapps/*
 # Extract Blu Age runtime at velocity dir
-tar -xvf ${TEMP_DIR}/gapwalk.tar.gz -C /bluage/tomcat.gapwalk
+unzip ${TEMP_DIR}/gapwalk.zip -d /bluage/tomcat.gapwalk
 # Remove temporary extraction dir
 sudo rm -rf ${TEMP_DIR}
 ```

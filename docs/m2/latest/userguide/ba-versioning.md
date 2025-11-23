@@ -24,10 +24,7 @@ For details on the new features available in each version, see [AWS Blu Age rele
 ## Alpha pre-releases
 
 Each _alpha pre-release_ is identified with a
-**`[Major].[Next_Minor].0-alpha.[pre-release]`** pattern. For
-example, in the pre-release `4.2.0-alpha.1`, the changes available in
-`alpha.1` will be released in the next minor version
-`4.2.0`.
+**`[Major].[Minor].0`** pattern.
 
 Alpha pre-releases are frequent short-lived versions that are intended and available
 for quick iteration during the modernization projects. There is no fixed release cadence

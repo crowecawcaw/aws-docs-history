@@ -8,6 +8,10 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 This section contains the release notes of AWS Blu Age Runtime and Modernization Tools from version
 3.5.0 onward, most recent first, organized by version number.
 
+For each release, AWS Blu Age Runtime has been validated on specific versions of tools
+(Tomcat, Postgres, Oracle, MQ, etc.) and dependencies (Spring, Angular, etc.). Using other versions
+(e.g., upgrading to newer versions) requires thorough customer testing and validation.
+
 ###### Note
 
 For release notes predating this document, contact AWS Blu Age delivery services. For information

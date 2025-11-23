@@ -43,7 +43,7 @@ The role permissions policy named AWSM2ServicePolicy allows AWS Mainframe Modern
 specified resources:
 
 - Create, delete, describe, and attach permissions to Amazon EC2 network interfaces for the AWS Mainframe Modernization environment to establish connectivity to the customer VPC.
-- Register or de-register entries from Elastic Load Balancing, which is how customers connect to the AWS Mainframe Modernization environment.
+- Register or de-register entries from ELB, which is how customers connect to the AWS Mainframe Modernization environment.
 - Describe the Amazon EFS or Amazon FSx file system, if used.
 - Emit metrics to the customer's CloudWatch from the runtime environment.
 

@@ -184,7 +184,7 @@ sample
 required
 
 Specify the port you will use to access the application through the AWS Mainframe Modernization-created
-Elastic Load Balancing. Use the following structure:
+ELB. Use the following structure:
 
 ```
 "listeners": [{

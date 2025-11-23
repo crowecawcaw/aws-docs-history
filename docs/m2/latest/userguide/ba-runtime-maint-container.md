@@ -20,8 +20,8 @@ Before you begin, make sure you meet the following prerequisites.
 - Complete [AWS Blu Age Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md") and [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md") .
 - Download the version of the AWS Blu Age Runtime that you want to upgrade to. For more information, see
   [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md") . The framework consists of two binary files:
-  `aws-bluage-runtime-x.x.x.x.tar.gz` and
-  `aws-bluage-webapps-x.x.x.x.tar.gz`.
+  `aws-bluage-runtime-x.y.z.zip` and
+  `aws-bluage-webapps-x.y.z.zip`.
 
 ## Upgrade the AWS Blu Age Runtime
 

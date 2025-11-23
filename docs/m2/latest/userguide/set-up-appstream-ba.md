@@ -26,8 +26,8 @@ This document describes how to set up AWS Blu Age Developer IDE on an WorkSpaces
 - [Step 2: Attach a policy to the S3
   bucket](#set-up-aas2-ba-create-bucket-policy "#set-up-aas2-ba-create-bucket-policy")
 - [Step 3: Upload files to the Amazon S3 bucket](#set-up-aas2-ba-upload "#set-up-aas2-ba-upload")
-- [Step 4: Download AWS CloudFormation templates](#set-up-aas2-ba-download-templates "#set-up-aas2-ba-download-templates")
-- [Step 5: Create the fleet with AWS CloudFormation](#set-up-appstream-ba-cfn "#set-up-appstream-ba-cfn")
+- [Step 4: Download CloudFormation templates](#set-up-aas2-ba-download-templates "#set-up-aas2-ba-download-templates")
+- [Step 5: Create the fleet with CloudFormation](#set-up-appstream-ba-cfn "#set-up-appstream-ba-cfn")
 - [Step 6: Access an instance](#set-up-appstream-ba-access "#set-up-appstream-ba-access")
 - [Clean up resources](#set-up-appstream-ba-clean "#set-up-appstream-ba-clean")
 
@@ -94,9 +94,9 @@ Unzip the files you downloaded in the Prerequisite and upload the
 correct structure in your bucket. For more information, see [Uploading objects](../../../AmazonS3/latest/userguide/upload-objects.md "../../../AmazonS3/latest/userguide/upload-objects.md") in the
 _Amazon S3 User Guide_.
 
-## Step 4: Download AWS CloudFormation templates
+## Step 4: Download CloudFormation templates
 
-Download the following AWS CloudFormation templates. You need these templates to create and populate the
+Download the following CloudFormation templates. You need these templates to create and populate the
 WorkSpaces Applications fleet.
 
 - [cfn-m2-appstream-elastic-fleet-linux.yaml](https://d3lkpej5ajcpac.cloudfront.net/appstream/bluage/developer-ide/CloudFormation/cfn-m2-appstream-elastic-fleet-linux.yaml "https://d3lkpej5ajcpac.cloudfront.net/appstream/bluage/developer-ide/CloudFormation/cfn-m2-appstream-elastic-fleet-linux.yaml")
@@ -106,22 +106,22 @@ WorkSpaces Applications fleet.
 - [cfn-m2-appstream-eclipse-jee-linux.yaml](https://d3lkpej5ajcpac.cloudfront.net/appstream/bluage/developer-ide/CloudFormation/cfn-m2-appstream-eclipse-jee-linux.yaml "https://d3lkpej5ajcpac.cloudfront.net/appstream/bluage/developer-ide/CloudFormation/cfn-m2-appstream-eclipse-jee-linux.yaml")
 - [cfn-m2-appstream-pgadmin-linux.yaml](https://d3lkpej5ajcpac.cloudfront.net/appstream/bluage/developer-ide/CloudFormation/cfn-m2-appstream-pgadmin-linux.yaml "https://d3lkpej5ajcpac.cloudfront.net/appstream/bluage/developer-ide/CloudFormation/cfn-m2-appstream-pgadmin-linux.yaml")
 
-## Step 5: Create the fleet with AWS CloudFormation
+## Step 5: Create the fleet with CloudFormation
 
 In this step, you use the `cfn-m2-appstream-elastic-fleet-linux.yaml`
-AWS CloudFormation template to create an WorkSpaces Applications fleet and stack to host the AWS Blu Age Developer IDE. After you
-create the fleet and stack, you will run the other AWS CloudFormation templates you downloaded in the
+CloudFormation template to create an WorkSpaces Applications fleet and stack to host the AWS Blu Age Developer IDE. After you
+create the fleet and stack, you will run the other CloudFormation templates you downloaded in the
 previous step to install the Developer IDE and other required tools.
 
-1. Navigate to AWS CloudFormation in the AWS Management console, and choose
+1. Navigate to CloudFormation in the AWS Management console, and choose
    **Stacks**.
 2. In **Stacks**, choose **Create stack** and
    **With new Resources (standard)**:
 
-![The Stacks page in AWS CloudFormation with Create Stack and with new resources selected.](images/cfn-ba-stacks.png) 3. In **Create stack**, choose **Choose an existing
+![The Stacks page in CloudFormation with Create Stack and with new resources selected.](images/cfn-ba-stacks.png) 3. In **Create stack**, choose **Choose an existing
 template** and **Upload a template file**:
 
-![The AWS CloudFormation create stack page with template ready to upload selected file.](images/cfn-ba-create-stack.png) 4. Choose **Choose file**, and navigate to file
+![The CloudFormation create stack page with template ready to upload selected file.](images/cfn-ba-create-stack.png) 4. Choose **Choose file**, and navigate to file
 `cfn-m2-appstream-elastic-fleet-linux.yaml`. Choose
 **Next**. 5. In **Specify stack details**, provide the following
 information:
@@ -135,7 +135,7 @@ information:
     The two subnets of security group need to be in different availability zones.
 
 6. Choose **Next**.
-7. Navigate down the page and choose **I acknowledge that AWS CloudFormation might create
+7. Navigate down the page and choose **I acknowledge that CloudFormation might create
    IAM resources with custom names.**.
 8. Choose **Next**.
 9. Review the details, and choose **Submit**.

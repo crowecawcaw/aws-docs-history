@@ -122,7 +122,7 @@ AWS Mainframe Modernization.
 - Amazon S3 for storing application binaries and definition files
 - Amazon FSx or Amazon EFS for storing application data
 - Amazon AppStream for access to the Rocket Enterprise Analyzer and Rocket Enterprise Developer tools
-- AWS CloudFormation for the automated DevOps pipeline that you can use to set up CI/CD for your migrated
+- CloudFormation for the automated DevOps pipeline that you can use to set up CI/CD for your migrated
   applications
 - AWS Migration Hub
 - AWS DMS for migrating your databases

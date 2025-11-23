@@ -28,14 +28,14 @@ their licensing terms are different.
 
 ###### Important
 
-The steps in this tutorial are based on the downloadable AWS CloudFormation template
+The steps in this tutorial are based on the downloadable CloudFormation template
 [cfn-m2-appstream-fleet-ea-ed.yml](https://drm0z31ua8gi7.cloudfront.net/tutorials/mf/appstream/cfn-m2-appstream-fleet-ea-ed.yml "https://drm0z31ua8gi7.cloudfront.net/tutorials/mf/appstream/cfn-m2-appstream-fleet-ea-ed.yml").
 
 ###### Topics
 
 - [Prerequisites](#tutorial-aas-prerequisites "#tutorial-aas-prerequisites")
 - [Step 1: Get the WorkSpaces Applications images](#tutorial-aas-step1 "#tutorial-aas-step1")
-- [Step 2: Create the stack using the AWS CloudFormation template](#tutorial-aas-step2 "#tutorial-aas-step2")
+- [Step 2: Create the stack using the CloudFormation template](#tutorial-aas-step2 "#tutorial-aas-step2")
 - [Step 3: Create a user in WorkSpaces Applications](#tutorial-aas-step3 "#tutorial-aas-step3")
 - [Step 4: Log in to WorkSpaces Applications](#tutorial-aas-step4 "#tutorial-aas-step4")
 - [Step 5: Verify buckets in Amazon S3 (optional)](#tutorial-aas-step5 "#tutorial-aas-step5")
@@ -52,7 +52,7 @@ The steps in this tutorial are based on the downloadable AWS CloudFormation temp
   security groups](../../../AWSEC2/latest/UserGuide/default-custom-security-groups.md "../../../AWSEC2/latest/UserGuide/default-custom-security-groups.md") in the _Amazon EC2 User Guide_.
 - Make sure you have the following permissions:
   - create stacks, fleets, and users in WorkSpaces Applications.
-  - create stacks in AWS CloudFormation using a template.
+  - create stacks in CloudFormation using a template.
   - create buckets and upload files to buckets in Amazon S3.
   - download credentials (`access_key_id` and
     `secret_access_key`) from IAM.
@@ -65,12 +65,12 @@ In this step, you share the WorkSpaces Applications images for Enterprise Analyz
 2. In the left navigation, choose **Tools**.
 3. In **Analysis, development, and build assets**, choose **Share assets with my AWS account**.
 
-## Step 2: Create the stack using the AWS CloudFormation template
+## Step 2: Create the stack using the CloudFormation template
 
-In this step, you use the downloaded AWS CloudFormation template to create an WorkSpaces Applications stack and fleet
+In this step, you use the downloaded CloudFormation template to create an WorkSpaces Applications stack and fleet
 for running Rocket Enterprise Analyzer. You can repeat this step later to create another WorkSpaces Applications stack and fleet for
 running Rocket Enterprise Developer, since each tool requires its own fleet and stack in WorkSpaces Applications. For more
-information on AWS CloudFormation stacks, see [Working with stacks](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md") in the
+information on CloudFormation stacks, see [Working with stacks](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md") in the
 _AWS CloudFormation User Guide_.
 
 ###### Note
@@ -79,7 +79,7 @@ AWS Mainframe Modernization adds an additional fee to the standard WorkSpaces Ap
 Enterprise Developer. For more information, see [AWS Mainframe Modernization Pricing](https://aws.amazon.com/mainframe-modernization/pricing/ "https://aws.amazon.com/mainframe-modernization/pricing/").
 
 1. Download the [cfn-m2-appstream-fleet-ea-ed.yml](https://drm0z31ua8gi7.cloudfront.net/tutorials/mf/appstream/cfn-m2-appstream-fleet-ea-ed.yml "https://drm0z31ua8gi7.cloudfront.net/tutorials/mf/appstream/cfn-m2-appstream-fleet-ea-ed.yml") template, if necessary.
-2. Open the AWS CloudFormation console and choose **Create Stack** and **with new resources (standard)**.
+2. Open the CloudFormation console and choose **Create Stack** and **with new resources (standard)**.
 3. In **Prerequisite - Prepare template**, choose **Template is
    ready**.
 4. In **Specify Template**, choose **Upload a template
@@ -88,7 +88,7 @@ Enterprise Developer. For more information, see [AWS Mainframe Modernization Pri
    file** and upload the [cfn-m2-appstream-fleet-ea-ed.yml](https://drm0z31ua8gi7.cloudfront.net/tutorials/mf/appstream/cfn-m2-appstream-fleet-ea-ed.yml "https://drm0z31ua8gi7.cloudfront.net/tutorials/mf/appstream/cfn-m2-appstream-fleet-ea-ed.yml") template.
 6. Choose **Next**.
 
-![The AWS CloudFormation Create stack page with selected cfn-m2-appstream-fleet-ea-ed.yml template.](images/cfn-create-stack.png) 7. On **Specify stack details**, enter the following information:
+![The CloudFormation Create stack page with selected cfn-m2-appstream-fleet-ea-ed.yml template.](images/cfn-create-stack.png) 7. On **Specify stack details**, enter the following information:
 
     * In **Stack name**, enter a name of your choice. For example,
      `m2-ea`.
@@ -104,17 +104,17 @@ Enterprise Developer. For more information, see [AWS Mainframe Modernization Pri
     * Accept the defaults for the other fields, then choose
      **Next**.
 
-![The AWS CloudFormation specify stack details page with Enterprise Analyzer options filled in.](images/cfn-specify-stack-details.png) 8. Accept all defaults, then choose **Next** again. 9. On **Review**, make sure all the parameters are what you
+![The CloudFormation specify stack details page with Enterprise Analyzer options filled in.](images/cfn-specify-stack-details.png) 8. Accept all defaults, then choose **Next** again. 9. On **Review**, make sure all the parameters are what you
 intend. 10. Scroll to the bottom, choose **I acknowledge that AWS CloudFormation might
 create IAM resources with custom names**, and choose **Create
 Stack**.
 
 It takes between 20 and 30 minutes for the stack and fleet to be created. You can choose
-**Refresh** to see the AWS CloudFormation events as they occur.
+**Refresh** to see the CloudFormation events as they occur.
 
 ## Step 3: Create a user in WorkSpaces Applications
 
-While you are waiting for AWS CloudFormation to finish creating the stack, you can create one or more
+While you are waiting for CloudFormation to finish creating the stack, you can create one or more
 users in WorkSpaces Applications. These users are those who will be using Enterprise Analyzer in WorkSpaces Applications. You will need to
 specify an email address for each user, and ensure that each user has sufficient permissions to create buckets in Amazon S3, upload files to a bucket, and link to a
 bucket to map its contents.
@@ -130,7 +130,7 @@ bucket to map its contents.
 For more information on creating WorkSpaces Applications users, see [WorkSpaces Applications User Pools](../../../appstream2/latest/developerguide/user-pool.md "../../../appstream2/latest/developerguide/user-pool.md") in
 the _Amazon WorkSpaces Applications Administration Guide_.
 
-When AWS CloudFormation finishes creating the stack, you can assign the user you created to the stack,
+When CloudFormation finishes creating the stack, you can assign the user you created to the stack,
 as follows:
 
 1. Open the WorkSpaces Applications console.
@@ -176,7 +176,7 @@ This process can take around 10 minutes.
 
 ## Step 5: Verify buckets in Amazon S3 (optional)
 
-One of the tasks completed by the AWS CloudFormation template you used to create the stack was to
+One of the tasks completed by the CloudFormation template you used to create the stack was to
 create two buckets in Amazon S3, which are necessary to save and restore user data and application
 settings across work sessions. These buckets are as follows:
 
@@ -203,8 +203,8 @@ To verify that the buckets were created, follow these steps:
    to filter the list.
 
 If you see the buckets, no further action is necessary. Just be aware that the buckets
-exist. If you do not see the buckets, then either the AWS CloudFormation template is not finished running,
-or an error occurred. Go to the AWS CloudFormation console and review the stack creation messages.
+exist. If you do not see the buckets, then either the CloudFormation template is not finished running,
+or an error occurred. Go to the CloudFormation console and review the stack creation messages.
 
 ## Next steps
 
