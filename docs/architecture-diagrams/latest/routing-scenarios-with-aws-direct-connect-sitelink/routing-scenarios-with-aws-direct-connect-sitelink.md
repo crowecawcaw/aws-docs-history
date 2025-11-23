@@ -4,28 +4,28 @@ Publication date: **July 25, 2023 ([Diagram history](#diagram-history "#diagram-
 
 ## Traffic Flow Between On-Premises Locations Diagram
 
-With AWS Direct Connect SiteLink, route traffic between AWS Direct Connect locations through the AWS global
+With AWS Direct Connect SiteLink, route traffic between Direct Connect locations through the AWS global
 network backbone without traversing any AWS Region. Associate your private or transit
-virtual interfaces (VIFs) to a common AWS Direct Connect gateway and enable SiteLink in those VIFs.
+virtual interfaces (VIFs) to a common Direct Connect gateway and enable SiteLink in those VIFs.
 
-![Reference architecture diagram showing how to route traffic between AWS Direct Connect locations through the AWS global network backbone without traversing any AWS Region with AWS Direct Connect SiteLink. Associate your private or transit virtual interfaces (VIFs) to a common AWS Direct Connect gateway and enable SiteLink in those VIFs.](images/1-traffic-flow-between-on-premises-locations.png)
+![Reference architecture diagram showing how to route traffic between AWS Direct Connect locations through the AWS global network backbone without traversing any AWS Region with Direct Connect SiteLink. Associate your private or transit virtual interfaces (VIFs) to a common Direct Connect gateway and enable SiteLink in those VIFs.](images/1-traffic-flow-between-on-premises-locations.png)
 
 1. The customer gateway in corporate data center A advertises its CIDR block (10.0.1.0/24)
    to the **AWS Direct Connect** logical device (not
    shown in the diagram) when configuring the virtual interface.
-2. Once the VIF is attached to the **AWS Direct Connect** gateway (DXGW),
+2. Once the VIF is attached to the **Direct Connect** gateway (DXGW),
    it announces the CIDR block to any resource associated with it (such as
    **Amazon Virtual Private Cloud** (Amazon VPC) or **AWS Transit Gateway**).
    If SiteLink is enabled on this VIF, the CIDR block will also be announced to any other
-   VIF that is attached to this **AWS Direct Connect** gateway and has SiteLink enabled.
+   VIF that is attached to this **Direct Connect** gateway and has SiteLink enabled.
 3. The customer gateway in the corporate data center B configures its VIF and it is associated
-   with the **AWS Direct Connect** gateway. It receives the 10.0.1.0/24 block
+   with the **Direct Connect** gateway. It receives the 10.0.1.0/24 block
    with AS PATH 65001 650011 65512. The block 10.0.2.0/24 will also be
    announced to corporate data center A through the gateway with AS PATH 65001 65001 65513.
    Now both locations will be able to route traffic between each other.
 
-1 When connecting two AWS Direct Connect connections to the same AWS device,
-you get +1 AS prepended (AWS Direct Connect gateway ASN) when using SiteLink. However, when these connections
+1 When connecting two Direct Connect connections to the same AWS device,
+you get +1 AS prepended (Direct Connect gateway ASN) when using SiteLink. However, when these connections
 are in different sites, you get this ASN twice (+2 AS prepended) – one for each AWS router.
 
 ## Traffic Flow Between On-Premises Locations – Backup
@@ -44,20 +44,20 @@ without traversing any AWS Region.
    corporate data center A also receives the CIDR block of corporate data center B with
    the AS PATH 65001 65001 65513.
 3. In the case of an outage of the WAN network, traffic from corporate data center A to
-   data center B is routed directly between **AWS Direct Connect** locations
+   data center B is routed directly between **Direct Connect** locations
    without traversing any AWS Region.
 
 For more information about how to influence path preference using BGP, refer to
 [Creating
-active/passive BGP connections over AWS Direct Connect.](https://aws.amazon.com/blogs/networking-and-content-delivery/creating-active-passive-bgp-connections-over-aws-direct-connect/ "https://aws.amazon.com/blogs/networking-and-content-delivery/creating-active-passive-bgp-connections-over-aws-direct-connect/")
+active/passive BGP connections over Direct Connect.](https://aws.amazon.com/blogs/networking-and-content-delivery/creating-active-passive-bgp-connections-over-aws-direct-connect/ "https://aws.amazon.com/blogs/networking-and-content-delivery/creating-active-passive-bgp-connections-over-aws-direct-connect/")
 
 ## Traffic Flow Between On-Premises Locations – Extension
 
-You can use AWS Direct Connect SiteLink as an extension of your private network to route
+You can use Direct Connect SiteLink as an extension of your private network to route
 traffic between on-premises locations using AWS global network backbone without traversing
 any AWS Region. Not all of your datacenters need to have a direct connection.
 
-![Reference architecture diagram showing how to use AWS Direct Connect SiteLink as an extension of your private network to route traffic between on-premises locations using AWS global network backbone without traversing any AWS Region.](images/3-traffic-flow-between-on-premises-locations-extension.png)
+![Reference architecture diagram showing how to use Direct Connect SiteLink as an extension of your private network to route traffic between on-premises locations using AWS global network backbone without traversing any AWS Region.](images/3-traffic-flow-between-on-premises-locations-extension.png)
 
 1. The customer gateway in corporate data center A receives the CIDR block of corporate data
    center C with the AS PATH 65513 65001 65514 from corporate data center B.
@@ -65,14 +65,14 @@ any AWS Region. Not all of your datacenters need to have a direct connection.
    A with AS PATH 65512. Because SiteLink is enabled on the VIFs associated with customer
    gateways in data centers B and C, the customer gateway in data center C can receive the
    CIDR from data center A with AS Path 65001 65001 65513 65512.
-3. Traffic between corporate data centers A and C is routed directly between **AWS Direct Connect**
+3. Traffic between corporate data centers A and C is routed directly between **Direct Connect**
    locations without traversing any AWS Region.
 
 ## Full Mesh Connectivity Between On-Premises Locations and AWS
 
-With a common AWS Direct Connect gateway, you can use the AWS backbone as the transit network
+With a common Direct Connect gateway, you can use the AWS backbone as the transit network
 to connect between on-premises and AWS resources worldwide. Enable SiteLink on your
-VIFs and attach them to a common AWS Direct Connect gateway, connected to your AWS resource
+VIFs and attach them to a common Direct Connect gateway, connected to your AWS resource
 (for example, AWS Transit Gateway or Amazon Virtual Private Cloud).
 
 ![Reference architecture diagram showing how to use the AWS backbone as the transit network to connect between on-premises and AWS resources worldwide.](images/4-full-mesh-connectivity.png)
@@ -83,16 +83,16 @@ VIFs and attach them to a common AWS Direct Connect gateway, connected to your A
    **AWS Direct Connect** locations without traversing any AWS Region.
 3. The customer gateway in corporate data center A receives the CIDR blocks of the
    resources in AWS (Regions 1 and 2) with the AS PATH 65001 from the
-   **AWS Direct Connect** gateway.
+   **Direct Connect** gateway.
 4. Traffic sent to AWS from corporate data center A arrives at the gateway,
    which routes it to the corresponding **AWS Transit Gateway**
    (in this case the one located in Region 2).
 5. **Transit Gateway** in Region 2 routes the traffic to
    the corresponding **Amazon Virtual Private Cloud** (Amazon VPC) according
    to the **Transit Gateway** route table associated with
-   the **AWS Direct Connect** gateway association.
+   the **Direct Connect** gateway association.
 
-## Traffic Segmentation with Several AWS Direct Connect Gateways
+## Traffic Segmentation with Several Direct Connect Gateways
 
 You can take advantage of several AWS Direct Connect gateways and multiple VIFs to
 segment the traffic between your locations. Common use cases can be segmenting
