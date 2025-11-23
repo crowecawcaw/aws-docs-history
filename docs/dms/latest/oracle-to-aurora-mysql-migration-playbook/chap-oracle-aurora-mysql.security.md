@@ -1,105 +1,278 @@
-# Oracle roles and MySQL privileges
+# Oracle transparent data encryption and Amazon Aurora MySQL encryption and column encryption
 
-With AWS DMS, you can manage access control and security for your databases during migration. Oracle roles and MySQL privileges define permissions and access levels for database users, allowing you to restrict or grant specific operations and data access.
+With AWS DMS, you can migrate databases that use Oracle transparent data encryption or Amazon Aurora MySQL encryption and column encryption to maintain data security during and after the migration process. Oracle transparent data encryption and Aurora MySQL encryption and column encryption provide data-at-rest encryption to protect sensitive information stored in databases.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                               |
-| -------------------------------- | ---------------------------------- | ------------------------- | --------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | There are no roles in MySQL, only privileges. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                                                                                 |
+| -------------------------------- | ---------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Three star feature compatibility | N/A                                | N/A                       | For more information, see [Encrypting Amazon RDS resources](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md"). |
 
 ## Oracle usage
 
-Oracle roles are groups of privileges granted to database users. A database role can contain individual system and object permissions as well as other roles. Database roles enable you to grant multiple database privileges to users in one operation. It is convenient to group permissions together to ease the management of privileges.
+Oracle uses Transparent Data Encryption (TDE) to encrypt data stored on media in order to provide data at rest protection. Although Oracle uses authentication, authorization, and auditing to secure data in the database, TDE provides additional security at the operating system level.
 
-Oracle 12c introduces a new multi-tenant database architecture that supports the creation of common and local roles:
+As the name implies, encryption operations are performed automatically and are transparent to client applications. However, TDE does not address data in transit, which must be handled by network security protocols.
 
-- **Common** — Roles created at the container database (CDB) level. A common role is a database role that exists in the root and in every existing and future pluggable database (PDB). Common roles are useful for cross-container operations such as ensuring a common user has a role in every container.
-- **Local** — Roles created in a specific pluggable database (PDB). A local role exists only in a single pluggable database and can only contain roles and privileges that apply within the pluggable database in which the role exists.
+Characteristics of TDE include:
 
-Common role names must start with a `c##` prefix. Starting from Oracle 12.1.0.2, you can change these prefixes using the `COMMON_USER_PREFIX` parameter.
-
-A `CONTAINER` clause can be added to `CREATE ROLE` statement to choose the container applicable for the role.
+- The `ADMINISTER KEY MANAGEMENT` system privilege is required to configure TDE.
+- Data can be encrypted at the column level or the tablespace level.
+- Key encryption is managed in the external TDE Master Encryption Module.
+- There is one root key for each database.
 
 ### Examples
 
-Create a common role.
+**Configure the root encryption key**
+
+Specify the location of the encryption wallet using the `ENCRYPTION_WALLET_LOCATION` parameter. Use one of the following options:
+
+- Regular filesystem.
+- Multiple databases share the same file.
+- ASM file system.
+- ASM disk group.
+
+Register the key file in the ASM disk group.
 
 ```
-show con_name
-
-CON_NAME
-CDB$ROOT
-
-CREATE ROLE c##common_role;
-
-Role created.
+ENCRYPTION_WALLET_LOCATION=
+    (SOURCE=
+        (METHOD=FILE)
+            (METHOD_DATA=
+                (DIRECTORY=+ASM_file_path_of_the_diskgroup)))
 ```
 
-Create a local role.
+**Create a software keystore**
+
+Use one of the following three types of software keystores:
+
+- Password-based.
+- Auto-login.
+- Local auto-login.
+
+Create a password-based software keystore. The user must have the `ADMINISTER KEY MANAGEMENT` or `SYSKM` privilege.
 
 ```
-show con_name
+sqlplus c##sec_admin as syskm
+Enter password: password
+Connected.
 
-CON_NAME
-ORCLPDB
+ADMINISTER KEY MANAGEMENT CREATE KEYSTORE '/etc/ORACLE/WALLETS/orcl' IDENTIFIED BY password;
 
-CREATE ROLE local_role;
-
-Role created.
+keystore altered.
 ```
 
-Grant privileges and roles to the `local_role` database role.
+**Open a keystore**
+
+When you use a password-based keystore, make sure that you open it before creating TDE master encryption keys or accessing the keystore. Keystores are automatically opened when using auto-login or local auto login.
 
 ```
-GRANT RESOURCE, ALTER SYSTEM, SELECT ANY DICTIONARY TO local_role;
+sqlplus c##sec_admin as syskm
+Enter password: password
+Connected.
+
+ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY password;
+
+keystore altered.
 ```
 
-Database users to which the `local_role` role is granted now have all privileges that were granted to the role.
+**Set the software root encryption key**
 
-Revoke privileges and roles from the `local_role` database role.
+The master encryption key protects the TDE table and tablespace encryption keys. By default, the master encryption key is generated by TDE. To set the master encryption key, ensure the database is open in `READ WRITE` mode, connect with a user account having the required privileges (see the preceding example), and create the master key.
 
 ```
-REVOKE RESOURCE, ALTER SYSTEM, SELECT ANY DICTIONARY FROM local_role;
+sqlplus c##sec_admin as syskm
+Enter password: password
+Connected.
+
+ADMINISTER KEY MANAGEMENT SET KEY IDENTIFIED BY keystore_password WITH BACKUP USING 'emp_key_backup';
+
+keystore altered.
 ```
 
-For more information, see [Overview of PL/SQL](https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/overview.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/overview.html") in the _Oracle documentation_.
+**Encrypt data**
+
+Create an encrypted column.
+
+```
+CREATE TABLE employee (
+    FIRST_NAME VARCHAR2(128),
+    LAST_NAME VARCHAR2(128),
+    EMP_ID NUMBER,
+    SALARY NUMBER(6) ENCRYPT);
+```
+
+Column data types support for encryption include `BINARY_DOUBLE`, `BINARY_FLOAT`, `CHAR`, `DATE`, `INTERVAL DAY TO SECOND`, `INTERVAL YEAR TO MONTH`, `NCHAR`, `NUMBER`, `NVARCHAR2`, `RAW` (legacy or extended), `TIMESTAMP` (includes `TIMESTAMP WITH TIME ZONE` and `TIMESTAMP WITH LOCAL TIME ZONE`), `VARCHAR2` (legacy or extended).
+
+Column encryption can’t be used with the following features:
+
+- Index types other than B-tree.
+- Range scan search through an index.
+- Synchronous change data capture.
+- Transportable tablespaces.
+- Columns used in foreign key constraints.
+
+You can change the encryption algorithm using the `NO SALT` clause to encrypt without an algorithm or the `USING` clause to specify an algorithm.
+
+```
+CREATE TABLE EMPLOYEE (
+    FIRST_NAME VARCHAR2(128),
+    LAST_NAME VARCHAR2(128),
+    EMP_ID NUMBER ENCRYPT NO SALT,
+    SALARY NUMBER(6) ENCRYPT USING '3DES168');
+```
+
+Change the algorithm on an existing table.
+
+```
+ALTER TABLE EMPLOYEE REKEY USING 'SHA-1';
+```
+
+Remove column encryption.
+
+```
+ALTER TABLE employee MODIFY (SALARY DECRYPT);
+```
+
+- Make sure that the `COMPATIBLE` initialization parameter is set to at least 11.2.0.0.
+- Log in to your database.
+- Create the tablespace. You can’t modify an existing tablespace; you can only create a new one. In the following example, the first tablespace is created with AES256 algorithm and the second is created with the default algorithm.
+
+```
+sqlplus sec_admin@hrpdb
+Enter password: password
+Connected.
+
+CREATE TABLESPACE encrypt_ts
+DATAFILE '$ORACLE_HOME/dbs/encrypt_df.dbf' SIZE 1M
+ENCRYPTION USING 'AES256'
+DEFAULT STORAGE (ENCRYPT);
+CREATE TABLESPACE securespace_2
+DATAFILE '/home/user/oradata/secure01.dbf'
+SIZE 150M
+
+ENCRYPTION
+DEFAULT STORAGE(ENCRYPT);
+```
+
+For more information, see [Introduction to Transparent Data Encryption](https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/introduction-to-transparent-data-encryption.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/introduction-to-transparent-data-encryption.html") in the _Oracle documentation_.
 
 ## MySQL usage
 
-Currently in MySQL 5.7, there is no ROLE feature. You must specify required privileges. However, there is an option when granting privileges to use wild-card characters to specify multiple privileges on one or more objects.
+Amazon provides the ability to encrypt data at rest (data stored in persistent storage). When data encryption is turned on, it automatically encrypts the database server storage, automated backups, read replicas, and snapshots using the AES-256 encryption algorithm. AWS Key Management Service (AWS KMS) performs the encryption. For more information, see [AWS Key Management Service](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
+
+Once enabled, AWS transparently encrypts and decrypts the data without any impact on performance or any user intervention. There is no need to modify clients to support encryption.
 
 ###### Note
 
-Amazon Relational Database Service (Amazon RDS) for MySQL version 8 supports roles which are named collections of privileges. Roles can be created and dropped. Roles can have privileges granted to and revoked from them. Roles can be granted to and revoked from user accounts. The active applicable roles for an account can be selected from among those granted to the account and can be changed during sessions for that account.
+Amazon Relational Database Service (Amazon RDS) for MySQL version 8 supports FIPS mode if compiled using OpenSSL and an OpenSSL library and FIPS Object Module are available at runtime. FIPS mode imposes conditions on cryptographic operations such as restrictions on acceptable encryption algorithms or requirements for longer key lengths. For more information, see [FIPS Support](https://dev.mysql.com/doc/refman/8.0/en/fips-mode.html "https://dev.mysql.com/doc/refman/8.0/en/fips-mode.html") in the _MySQL documentation_.
 
-For more information, see [Using Roles](https://dev.mysql.com/doc/refman/8.0/en/roles.html "https://dev.mysql.com/doc/refman/8.0/en/roles.html") in the _MySQL documentation_.
+Table encryption can now be managed globally by defining and enforcing encryption defaults. The `default_table_encryption` variable defines an encryption default for newly created schemas and general tablespace. The encryption default for a schema can also be defined using the `DEFAULT ENCRYPTION` clause when creating a schema. By default a table inherits the encryption of the schema or general tablespace it is created in.
+
+Encryption defaults are enforced by enabling the `table_encryption_privilege_check` variable. The privilege check occurs when creating or altering a schema or general tablespace with an encryption setting that differs from the `default_table_encryption` setting or when creating or altering a table with an encryption setting that differs from the default schema encryption. The `TABLE_ENCRYPTION_ADMIN` privilege permits overriding default encryption settings when `table_encryption_privilege_check` is enabled. For more information, see [Defining an Encryption Default for Schemas and General Tablespaces](https://dev.mysql.com/doc/refman/8.0/en/innodb-data-encryption.html#innodb-schema-tablespace-encryption-default "https://dev.mysql.com/doc/refman/8.0/en/innodb-data-encryption.html#innodb-schema-tablespace-encryption-default") in the _MySQL documentation_.
+
+### Create an encryption key
+
+To create your own key, follow these steps.
+
+1. Sign in to the AWS Management Console and choose **Key Management Service**.
+2. Choose **Customer managed keys**, and then choose **Create key**.
+3. For **Key type**, choose **Symmetric**. Expand **Advanced options**. For **Key material origin**, choose **KMS**, and then choose **Next**.
+4. For **Alias**, enter the name of your key. Choose **Next**.
+5. On the **Define key administrative permissions** tab, choose **Next**.
+6. On the next step, make sure that you assign the key to the relevant users who will need to interact with Amazon Aurora. Choose **Next**.
+7. Review the key settings and choose **Finish** to create the key.
+8. Set the Master encryption key. Use the ARN of the key that you created or choose this key from the list.
+
+Now you can launch your instance.
+
+### Enabling encryption
+
+As part of the database settings, you will be prompted to enable encryption and select a master key.
+
+You can turn on encryption for an Amazon RDS DB instance only during the instance creation.
+
+![Turn on encryption for an Amazon RDS DB instance](images/oracle-aurora-mysql-encryption.png)
+
+You can select the default key provided for the account or define a specific key based on an IAM KMS ARN from your account or a different account.
+
+### SSE-S3 encryption feature overview
+
+Server-side encryption with Amazon S3-managed encryption keys (SSE-S3) uses multi-factor encryption. Amazon S3 encrypts its objects with a unique key and it also encrypts the key itself with a master key that rotates periodically.
+
+SSE-S3 uses AES-256 as its encryption standard.
+
+After you turn on the server-side encryption for an Amazon S3 bucket, the data will be encrypted at rest. Make sure that all API calls now include the special header as shown following: `-x-amz-server-side-encryption`.
+
+For more information, see [Specifying Amazon S3 encryption](../../../AmazonS3/latest/userguide/specifying-s3-encryption.md "../../../AmazonS3/latest/userguide/specifying-s3-encryption.md") and [s3](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/index.html").
+
+**To turn on SSE-S3**
+
+1. Create an AWS Glue job.
+2. Define the role, bucket, and script and then open **Script libraries and job parameters (optional)**.
+3. Turn on **Server-side encryption**.
+4. Submit and run the job.
+
+From this point forward, the only way to access the files is to use AWS CLI s3 with the `--sse` switch, or by adding `x-amz-server-side-encryption` to your API calls.
+
+### Usage of column encryption
+
+Aurora MySQL provides encryption and decryption functions similar to Oracle with a much less elaborate security hierarchy that is easier to manage.
+
+The encryption functions require the actual key as a string, so you must take extra measures to protect the data. For example, hashing the key values on the client.
+
+Aurora MySQL supports the AES and DES encryption algorithms. You can use the following functions for data encryption and decryption:
+
+- `AES_DECRYPT`
+- `AES_ENCRYPT`
+- `DES_DECRYPT`
+- `DEC_ENCRYPT`
+
+### Syntax
+
+General syntax for the encryption functions is shown following:
 
 ```
-CREATE ROLE 'app_developer', 'app_read', 'app_write';
+[A|D]ES_ENCRYPT(<string to be encrypted>, <key string> [,<initialization vector>])
+[A|D]ES_DECRYPT(<encrypted string>, <key string> [,<initialization vector>])
 ```
 
-###### Note
+For more information, see [AES_ENCRYPT](https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html#function_aes-encrypt "https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html#function_aes-encrypt") in the _MySQL documentation_.
 
-Amazon RDS for MySQL version 8 incorporates the concept of user account categories with system and regular users distinguished according to whether they have the `SYSTEM_USER` privilege. For more information, see [Account Categories](https://dev.mysql.com/doc/refman/8.0/en/account-categories.html "https://dev.mysql.com/doc/refman/8.0/en/account-categories.html") in the _MySQL documentation_.
+It is highly recommended to use the optional initialization vector to circumvent whole value replacement attacks. When encrypting column data, it is common to use an immutable key as the initialization vector. With this approach, decryption fails if a whole value moves to another row.
 
-```
-CREATE USER u1 IDENTIFIED BY 'password';
-
-GRANT ALL ON *.* TO u1 WITH GRANT OPTION;
-
--- GRANT ALL includes SYSTEM_USER, so at this point
-
--- u1 can manipulate system or regular accounts
-```
+Consider using SHA2 instead of SHA1 or MD5 because there are known exploits available for the SHA1 and MD5. Passwords, keys, or any sensitive data passed to these functions from the client are not encrypted unless you are using an SSL connection. One benefit of using AWS Identity and Access Management (IAM) is that database connections are encrypted with SSL by default. For more information, see [Users](chap-oracle-aurora-mysql.security.md "chap-oracle-aurora-mysql.security.md") and [Roles](chap-oracle-aurora-mysql.security.md "chap-oracle-aurora-mysql.security.md").
 
 ### Examples
 
-Grant privileges using a wild-card.
+The following example demonstrates how to encrypt an employee social security number.
+
+Create an employees table.
 
 ```
-GRANT ALL ON test_db.* to 'testuser';
-GRANT CREATE USER on *.* to 'testuser';
-GRANT SELECT ON db2.* TO 'testuser';
-GRANT EXECUTE ON PROCEDURE mydb.myproc TO
+CREATE TABLE Employees (
+    EmployeeID INT NOT NULL PRIMARY KEY,
+    SSN_Encrypted BINARY(32) NOT NULL);
 ```
 
-For more information, see [GRANT Statement](https://dev.mysql.com/doc/refman/5.7/en/grant.html "https://dev.mysql.com/doc/refman/5.7/en/grant.html") in the _MySQL documentation_.
+Insert the encrypted data.
+
+```
+INSERT INTO Employees (EmployeeID, SSN_Encrypted)
+VALUES (1, AES_ENCRYPT('1112223333', UNHEX(SHA2('MyPassword',512)), 1));
+```
+
+###### Note
+
+Use the `UNHEX` function for more efficient storage and comparisons.
+
+Verify decryption.
+
+```
+SELECT EmployeeID, SSN_Encrypted,
+    AES_DECRYPT(SSN_Encrypted, UNHEX(SHA2('MyPassword', 512)), EmployeeID) AS SSN
+    FROM Employees
+
+EmployeeID  SSN_Encrypted     SSN
+1           ` ©> +yp°øýNZ~Gø  1112223333
+```
+
+For more information, see [Encryption and Compression Functions](https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html "https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html") in the _MySQL documentation_.

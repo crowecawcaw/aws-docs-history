@@ -1,107 +1,54 @@
-# Oracle EXECUTE IMMEDIATE and MySQL EXECUTE and PREPARE statements
+# Oracle and MySQL CREATE TABLE AS SELECT statement
 
-With AWS DMS, you can migrate databases between different database platforms, including Oracle and MySQL, by leveraging features, such as Oracle’s `EXECUTE IMMEDIATE` statement and MySQL’s `EXECUTE` and `PREPARE` statements.
+With AWS DMS, you can create a new table in a target database by selecting data from one or more tables in a source database using the Oracle and MySQL `CREATE TABLE AS SELECT` statement. This statement defines a new table by querying data from existing tables, providing a way to replicate table structures and data from a source to a target database.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                          | Key differences                                                                                                                                               |
-| ------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Four star feature compatibility | Two star automation level          | [EXECUTE IMMEDIATE](chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.immediate "chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.immediate") | Make sure that you use the `PREPARE` command in MySQL. MySQL doesn’t support running SQL with results and bind variables or anonymous blocks using `EXECUTE`. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
+| ------------------------------- | ---------------------------------- | ------------------------- | --------------- |
+| Five star feature compatibility | Five star automation level         | N/A                       | N/A             |
 
 ## Oracle usage
 
-You can use Oracle `EXECUTE IMMEDIATE` statement to parse and run a dynamic SQL statement or an anonymous PL/SQL block. It also supports bind variables.
+The Create Table As Select (CTAS) statement creates a new table based on an existing table. It copies the table DDL definitions (column names and column datatypes) and data to a new table. The new table is populated from the columns specified in the `SELECT` statement, or all columns if you use `SELECT * FROM`. You can filter specific data using the `WHERE` and `AND` statements. Additionally, you can create a new table having a different structure using joins, `GROUP BY`, and `ORDER BY`.
 
 ### Examples
 
-Run a dynamic SQL statement from within a PL/SQL procedure:
-
-1. Create a PL/SQL procedure named `raise_sal`.
-2. Define a SQL statement with a dynamic value for the column name included in the `WHERE` statement.
-3. Use the `EXECUTE IMMEDIATE` command supplying the two bind variables to be used as part of the `SELECT` statement: `amount` and `col_val`.
+The following example creates a table based on an existing table and include data from all columns.
 
 ```
-CREATE OR REPLACE PROCEDURE raise_sal (col_val NUMBER,
-emp_col VARCHAR2, amount NUMBER) IS
-  col_name VARCHAR2(30);
-  sql_stmt VARCHAR2(350);
-BEGIN
-  -- determine if a valid column name has been given as input
-  SELECT COLUMN_NAME INTO col_name FROM USER_TAB_COLS
-  WHERE TABLE_NAME = 'EMPLOYEES' AND COLUMN_NAME = emp_col;
-
-  -- define the SQL statment (with bind variables)
-  sql_stmt := 'UPDATE employees SET salary = salary + :1 WHERE ' ||
-  col_name || ' = :2';
-
-  -- Run the command
-  EXECUTE IMMEDIATE sql_stmt USING amount, col_val;
-END raise_sal;
-/
+CREATE TABLE EMPS
+AS
+SELECT * FROM EMPLOYEES;
 ```
 
-4. Run the DDL operation from within an `EXECUTE IMMEDIATE` command.
+The following example creates a table based on an existing table with select columns.
 
 ```
-EXECUTE IMMEDIATE 'CREATE TABLE link_emp (idemp1 NUMBER, idemp2 NUMBER)';
-EXECUTE IMMEDIATE 'ALTER SESSION SET SQL_TRACE TRUE';
+CREATE TABLE EMPS
+AS
+SELECT EMPLOYEE_ID, FIRST_NAME, SALARY FROM EMPLOYEES
+ORDER BY 3 DESC
 ```
 
-5. Run an anonymous block with bind variables using `EXECUTE IMMEDIATE`.
-
-```
-EXECUTE IMMEDIATE 'BEGIN raise_sal (:col_val, :col_name, :amount); END;'
-  USING 134, 'EMPLOYEE_ID', 10;
-```
-
-For more information, see [EXECUTE IMMEDIATE Statement](https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/EXECUTE-IMMEDIATE-statement.html#GUID-C3245A95-B85B-4280-A01F-12307B108DC8 "https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/EXECUTE-IMMEDIATE-statement.html#GUID-C3245A95-B85B-4280-A01F-12307B108DC8") in the _Oracle documentation_.
+For more information, see [CREATE TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html#GUID-F9CE0CC3-13AE-4744-A43C-EAC7A71AAAB6 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html#GUID-F9CE0CC3-13AE-4744-A43C-EAC7A71AAAB6") in the _Oracle documentation_.
 
 ## MySQL usage
 
-The `EXECUTE` command in MySQL runs commands that were prepared by the `PREPARE` command. It can also run DDL statements and retrieve data using SQL commands. Similar to Oracle, you can use the MySQL `EXECUTE` command with bind variables.
+MySQL conforms to the ANSI/SQL standard for CTAS functionality and is compatible with an Oracle CTAS statement. For MySQL, the following CTAS standard elements are optional:
 
-The `PREPARE` command can receive a `SELECT`, `INSERT`, `UPDATE`, `DELETE`, or `VALUES` statement and parse it with a user-specified qualifying name so that you can use the `EXECUTE` command later without the need to re-parse the SQL statement for each run.
-
-- Statement names are not case-sensitive. A Statement name is either a string literal or a user variable containing the text of the SQL statement.
-- If a prepared statement with the given name already exists, it is deallocated implicitly before the new statement is prepared.
-- The scope of a prepared statement is the session in which it is created.
+- The standard requires parentheses around the `SELECT` statement; MySQL doesn’t.
+- The standard requires the `WITH [ NO ] DATA` clause; MySQL doesn’t.
 
 ### Examples
 
-Run a SQL `SELECT` query with the table name as a dynamic variable using bind variables. This query returns the number of employees under a manager with a specific ID.
+The following example creates a table based on an existing table and include data from all columns.
 
 ```
-PREPARE stmt1 FROM 'SELECT count(*) FROM employees WHERE ID=?';
-SET @man_id = 3;
-EXECUTE stmt1 USING @a;
-
-count(*)
-2
+CREATE TABLE EMPS AS SELECT * FROM EMPLOYEES;
 ```
 
-Run a DML command with no variables and then with variables.
+The following example creates a table based on an existing table with select columns.
 
 ```
-PREPARE stmt1 FROM 'INSERT INTO numbers (a) VALUES (1)';
-EXECUTE stmt1;
-
-PREPARE stmt1 FROM 'INSERT INTO numbers (a) VALUES (?)';
-SET @man_id = 3;
-EXECUTE stmt1 USING @a;
+CREATE TABLE EMPS AS SELECT EMPLOYEE_ID, FIRST_NAME, SALARY FROM EMPLOYEES ORDER BY 3
+DESC;
 ```
-
-Run a DDL command.
-
-```
-PREPARE stmt1 FROM 'CREATE TABLE numbers (num integer)';
-EXECUTE stmt1;
-```
-
-## Summary
-
-| Functionality                             | Oracle EXECUTE IMMEDIATE                                                                  | MySQL EXECUTE and PREPARE                                                                                     |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | -------- | --- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| Run SQL with results and bind variables   | ```<br>EXECUTE IMMEDIATE 'select salary<br>from employees WHERE '                         |                                                                                                               | col_name |     | <br>' = :1' INTO amount USING col_val;<br>``` | N/A                                                                                                                                        |
-| Run DML with variables and bind variables | ```<br>EXECUTE IMMEDIATE 'UPDATE<br>employees SET salary = salary + :1<br>WHERE '         |                                                                                                               | col_name |     | ' = :2'<br>USING amount, col_val;<br>```      | `<br>PREPARE stmt1 FROM 'UPDATE<br>employees SET salary = salary + ?<br>WHERE ? = ?'<br>EXECUTE stmt1 USING @amount,@<br>col,@colval;<br>` |
-| Run DDL                                   | `<br>EXECUTE IMMEDIATE 'CREATE<br>TABLE link_emp (idemp1 NUMBER,<br>idemp2 NUMBER)';<br>` | `<br>PREPARE stmt1 FROM 'CREATE<br>TABLE link_emp (idemp1 INTEGER,<br>idemp2 INTEGER)'<br>EXECUTE stmt1;<br>` |
-| Run an anonymous block                    | `<br>EXECUTE IMMEDIATE 'BEGIN<br>DBMS_OUTPUT.PUT_LINE<br>("Anonymous Block"); END;';<br>` | N/A                                                                                                           |
-
-For more information, see [EXECUTE Statement](https://dev.mysql.com/doc/refman/5.7/en/execute.html "https://dev.mysql.com/doc/refman/5.7/en/execute.html") and [PREPARE Statement](https://dev.mysql.com/doc/refman/5.7/en/prepare.html "https://dev.mysql.com/doc/refman/5.7/en/prepare.html") in the _MySQL documentation_.
