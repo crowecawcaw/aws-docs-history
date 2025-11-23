@@ -1,6 +1,6 @@
-# Create and configure API keys and usage plans with AWS CloudFormation
+# Create and configure API keys and usage plans with CloudFormation
 
-You can use AWS CloudFormation to require API keys on API methods and create a usage plan for an API. The example AWS CloudFormation template does the following:
+You can use CloudFormation to require API keys on API methods and create a usage plan for an API. The example CloudFormation template does the following:
 
 - Creates an API Gateway API with `GET` and `POST` methods.
 - Requires an API key for the `GET` and `POST` methods. This API receives keys from the `X-API-KEY` header of each incoming request.

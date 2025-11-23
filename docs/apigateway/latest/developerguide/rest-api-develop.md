@@ -120,6 +120,7 @@ can perform using the API Gateway console, the API Gateway REST API, the AWS CLI
 ###### Topics
 
 - [API endpoint types for REST APIs in API Gateway](api-gateway-api-endpoint-types.md "api-gateway-api-endpoint-types.md")
+- [Security policies for REST APIs in API Gateway](apigateway-security-policies.md "apigateway-security-policies.md")
 - [IP address types for REST APIs in API Gateway](api-gateway-ip-address-type.md "api-gateway-ip-address-type.md")
 - [Methods for REST APIs in API Gateway](how-to-method-settings.md "how-to-method-settings.md")
 - [Control and manage access to

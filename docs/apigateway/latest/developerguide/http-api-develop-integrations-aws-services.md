@@ -61,9 +61,9 @@ aws apigatewayv2 create-integration \
 
 ## Create a
 
-first-class integration using AWS CloudFormation
+first-class integration using CloudFormation
 
-The following example shows an AWS CloudFormation snippet that creates a `/{source}/{detailType}` route with a first-class integration with Amazon EventBridge.
+The following example shows an CloudFormation snippet that creates a `/{source}/{detailType}` route with a first-class integration with Amazon EventBridge.
 
 The
 `Source` parameter is mapped to the `{source}` path parameter, the `DetailType` is mapped to the `{DetailType}` path parameter, and the `Detail` parameter is mapped to the request body.

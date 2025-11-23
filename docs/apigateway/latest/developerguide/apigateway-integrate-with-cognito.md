@@ -61,4 +61,4 @@ the user pool, and how to invoke an API that's integrated with the user pool.
   integrated with an Amazon Cognito user pool](apigateway-invoke-api-integrated-with-cognito-user-pool.md "apigateway-invoke-api-integrated-with-cognito-user-pool.md")
 - [Configure cross-account
   Amazon Cognito authorizer for a REST API using the API Gateway console](apigateway-cross-account-cognito-authorizer.md "apigateway-cross-account-cognito-authorizer.md")
-- [Create an Amazon Cognito authorizer for a REST API using AWS CloudFormation](apigateway-cognito-authorizer-cfn.md "apigateway-cognito-authorizer-cfn.md")
+- [Create an Amazon Cognito authorizer for a REST API using CloudFormation](apigateway-cognito-authorizer-cfn.md "apigateway-cognito-authorizer-cfn.md")

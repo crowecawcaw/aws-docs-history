@@ -10,7 +10,7 @@ of creating an HTTP API, see [Create an HTTP API](http-api-develop.md#http-api-e
 
 The payload format version specifies the format of the event that API Gateway sends to a Lambda integration, and how
 API Gateway interprets the response from Lambda. If you don't specify a payload format version, the AWS Management Console uses the
-latest version by default. If you create a Lambda integration by using the AWS CLI, AWS CloudFormation, or an SDK, you must
+latest version by default. If you create a Lambda integration by using the AWS CLI, CloudFormation, or an SDK, you must
 specify a `payloadFormatVersion`. The supported values are `1.0` and `2.0`.
 
 For more information about how to set the `payloadFormatVersion`, see

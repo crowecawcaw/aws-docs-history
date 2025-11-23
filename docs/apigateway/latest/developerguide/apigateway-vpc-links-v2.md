@@ -1,16 +1,13 @@
-# Set up VPC links for HTTP APIs in API Gateway
+# Set up VPC links V2 in API Gateway
 
-VPC links enable you to create private integrations that connect your HTTP API routes to
-private resources in a VPC, such as Application Load Balancers or Amazon ECS container-based applications. To learn
-more about creating private integrations, see [Create private integrations
-for HTTP APIs in API Gateway](http-api-develop-integrations-private.md "http-api-develop-integrations-private.md").
-
-A private integration uses a VPC link to encapsulate connections between API Gateway and
-targeted VPC resources. You can reuse VPC links across different routes and APIs.
+VPC links enable you to create private integrations that connect your API routes to
+private resources in a VPC, such as Application Load Balancers or Amazon ECS container-based applications.
+A private integration uses a VPC link V2 to encapsulate connections between API Gateway and
+targeted VPC resources. You can reuse VPC links across different resources and APIs.
 
 When you create a VPC link, API Gateway creates and manages [elastic network
-interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") for the VPC link in your account. This process can take a few
-minutes. When a VPC link is ready to use, its state transitions from `PENDING` to
+interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") for the VPC link V2 in your account. This process can take a few
+minutes. When a VPC link V2 is ready to use, its state transitions from `PENDING` to
 `AVAILABLE`.
 
 ###### Note
@@ -22,22 +19,22 @@ If API requests resume, API Gateway reprovisions network interfaces. It can take
 to create the network interfaces and reactivate the VPC link. You can use the VPC link
 status to monitor the state of your VPC link.
 
-## Create a VPC link by using the AWS CLI
+## Create a VPC link V2 by using the AWS CLI
 
-To create a VPC link, all resources involved must be owned by the same AWS account. The following [create-vpc-link](../../../cli/latest/reference/apigatewayv2/create-vpc-link.md "../../../cli/latest/reference/apigatewayv2/create-vpc-link.md") command creates a VPC link:
+To create a VPC link V2, all resources involved must be owned by the same AWS account. The following [create-vpc-link](../../../cli/latest/reference/apigatewayv2/create-vpc-link.md "../../../cli/latest/reference/apigatewayv2/create-vpc-link.md") command creates a VPC link:
 
 ```
-aws apigatewayv2 create-vpc-link --name `MyVpcLink` \
-    --subnet-ids `subnet-aaaa` `subnet-bbbb` \
-    --security-group-ids `sg1234` `sg5678`
+aws apigatewayv2 create-vpc-link --name MyVpcLink \
+    --subnet-ids subnet-aaaa subnet-bbbb \
+    --security-group-ids sg1234 sg5678
 ```
 
 ###### Note
 
-VPC links are immutable. After you create a VPC link, you can’t change its subnets or
+VPC links V2 are immutable. After you create a VPC link V2, you can’t change its subnets or
 security groups.
 
-## Delete a VPC link by using the AWS CLI
+## Delete a VPC link V2 by using the AWS CLI
 
 The following [delete-vpc-link](../../../cli/latest/reference/apigatewayv2/delete-vpc-link.md "../../../cli/latest/reference/apigatewayv2/delete-vpc-link.md") command deletes a VPC link.
 
@@ -47,7 +44,7 @@ aws apigatewayv2 delete-vpc-link --vpc-link-id `abcd123`
 
 ## Availability by Region
 
-VPC links for HTTP APIs are supported in the following Regions and Availability Zones:
+VPC links V2 are supported in the following Regions and Availability Zones:
 
 | Region name               | Region         | Supported Availability Zones                     |
 | ------------------------- | -------------- | ------------------------------------------------ |

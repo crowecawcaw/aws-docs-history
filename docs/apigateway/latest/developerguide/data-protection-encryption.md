@@ -78,7 +78,7 @@ custom domain name, [you specify the certificate for the domain name](how-to-cus
 For greater security, you can choose a minimum Transport Layer Security (TLS) protocol version to be
 enforced for your API Gateway custom domain. WebSocket APIs and HTTP APIs support only TLS 1.2. To learn more, see
 [Choose a security policy for
-your REST API custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md").
+your custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md").
 
 You can also set up a Amazon CloudFront distribution with a custom SSL certificate in your
 account and use it with Regional APIs. You can then configure the security policy for the

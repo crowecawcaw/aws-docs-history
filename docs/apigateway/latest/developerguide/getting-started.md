@@ -105,7 +105,7 @@ API.
 2. Choose your API.
 3. Note your API's invoke URL.
 
-![After you create your API, the console shows your API's invoke URL.](images/getting-started-invoke-url.png) 4. Copy your API's invoke URL, and enter it in a web browser. Append the name of your Lambda function to your
+![After you create your API, the console shows your API's invoke URL.](/images/apigateway/latest/developerguide/images/getting-started-invoke-url.png) 4. Copy your API's invoke URL, and enter it in a web browser. Append the name of your Lambda function to your
 invoke URL to call your Lambda function. By default, the API Gateway console creates a route with the same name as
 your Lambda function, `my-function`.
 
@@ -152,9 +152,9 @@ The following steps delete your HTTP API, your Lambda function, and associated r
 3. Choose **Delete role**.
 4. Choose **Yes, delete**.
 
-You can automate the creation and cleanup of AWS resources by using AWS CloudFormation or AWS SAM. For example AWS CloudFormation
+You can automate the creation and cleanup of AWS resources by using CloudFormation or AWS SAM. For example CloudFormation
 templates, see [example
-AWS CloudFormation templates](https://github.com/awsdocs/amazon-api-gateway-developer-guide/tree/main/cloudformation-templates "https://github.com/awsdocs/amazon-api-gateway-developer-guide/tree/main/cloudformation-templates").
+CloudFormation templates](https://github.com/awsdocs/amazon-api-gateway-developer-guide/tree/main/cloudformation-templates "https://github.com/awsdocs/amazon-api-gateway-developer-guide/tree/main/cloudformation-templates").
 
 ## Next steps
 

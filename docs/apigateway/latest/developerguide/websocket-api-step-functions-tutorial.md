@@ -7,7 +7,7 @@ This tutorial shows how to broadcast messages to connected clients and includes 
 authorizer, a mock integration, and a non-proxy integration to Step Functions.
 
 ![Architectural overview of the API that you create in this tutorial.](images/ws-sfn-app.png)
-After you create your resources using a AWS CloudFormation template, you'll use the API Gateway console to create a WebSocket API that integrates with
+After you create your resources using a CloudFormation template, you'll use the API Gateway console to create a WebSocket API that integrates with
 your AWS resources. You'll attach a Lambda authorizer to your API and create an AWS service integration with
 Step Functions to start a state machine execution. The Step Functions state machine will invoke a Lambda function that sends a message
 to all connected clients.
@@ -43,16 +43,16 @@ DynamoDB](websocket-api-chat-app.md "websocket-api-chat-app.md").
 
 ## Step 1: Create resources
 
-Download and unzip [the app creation template for AWS CloudFormation](samples/ws-sfn-starter.md "samples/ws-sfn-starter.md"). You'll
+Download and unzip [the app creation template for CloudFormation](samples/ws-sfn-starter.md "samples/ws-sfn-starter.md"). You'll
 use this template to create the following:
 
 - Lambda functions that handle API requests and authorize access to your API.
 - A DynamoDB table to store client IDs and the principal user identification returned by the Lambda authorizer.
 - A Step Functions state machine to send messages to connected clients.
 
-###### To create an AWS CloudFormation stack
+###### To create an CloudFormation stack
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Choose **Create stack** and then choose **With new resources
    (standard)**.
@@ -62,12 +62,12 @@ use this template to create the following:
 6. For **Stack name**, enter `websocket-step-functions-tutorial` and then choose
    **Next**.
 7. For **Configure stack options**, choose **Next**.
-8. For **Capabilities**, acknowledge that AWS CloudFormation can create IAM resources in your
+8. For **Capabilities**, acknowledge that CloudFormation can create IAM resources in your
    account.
-9. Choose **Submit**.
+9. Choose **Next**, and then choose **Submit**.
 
-AWS CloudFormation provisions the resources specified in the template. It can take a few minutes to finish provisioning
-your resources. Choose the **Outputs** tab to see your created resources and their ARNs. When the status of your AWS CloudFormation stack is **CREATE_COMPLETE**, you're ready to move
+CloudFormation provisions the resources specified in the template. It can take a few minutes to finish provisioning
+your resources. Choose the **Outputs** tab to see your created resources and their ARNs. When the status of your CloudFormation stack is **CREATE_COMPLETE**, you're ready to move
 on to the next step.
 
 ## Step 2: Create a WebSocket API
@@ -91,13 +91,13 @@ connect to Step Functions after you create your API. 8. Choose **Next**. 9. For 
 
     1. For **Integration type**, choose **Lambda**.
     2. For **Lambda function**, choose the corresponding **$connect** Lambda
-     function that you created with AWS CloudFormation in Step 1. The Lambda function name should start with
+     function that you created with CloudFormation in Step 1. The Lambda function name should start with
      `websocket-step`.
 
 10. For **Integration for $disconnect**, do the following:
     1.  For **Integration type**, choose **Lambda**.
     2.  For **Lambda function**, choose the corresponding **$disconnect** Lambda
-        function that you created with AWS CloudFormation in Step 1. The Lambda function name should start with
+        function that you created with CloudFormation in Step 1. The Lambda function name should start with
         `websocket-step`.
 
 11. For **Integration for $default**, choose **mock**.
@@ -108,7 +108,7 @@ In a mock integration, API Gateway manages the route response without an integra
 
 ## Step 3: Create a Lambda authorizer
 
-To control access to your WebSocket API, you create a Lambda authorizer. The AWS CloudFormation template created the Lambda
+To control access to your WebSocket API, you create a Lambda authorizer. The CloudFormation template created the Lambda
 authorizer function for you. You can see the Lambda function in the Lambda console. The name should start with
 `websocket-step-functions-tutorial-AuthorizerHandler`. This Lambda function denies all calls
 to the WebSocket API unless the `Authorization` header is `Allow`. The Lambda function also
@@ -124,7 +124,7 @@ authorizer.
 2. In the main navigation pane, choose **Authorizers**.
 3. Choose **Create an authorizer**.
 4. For **Authorizer name**, enter `LambdaAuthorizer`.
-5. For **Authorizer ARN**, enter the name of the authorizer created by the AWS CloudFormation template. The name should start with `websocket-step-functions-tutorial-AuthorizerHandler`.
+5. For **Authorizer ARN**, enter the name of the authorizer created by the CloudFormation template. The name should start with `websocket-step-functions-tutorial-AuthorizerHandler`.
 
 ###### Note
 
@@ -185,7 +185,7 @@ The result should look like the following:
 Next, you create a **sendmessage** route. Clients can invoke the
 **sendmessage** route to broadcast a message to all connected clients. The
 **sendmessage** route has a non-proxy AWS service integration with AWS Step Functions. The
-integration invokes the [StartExecution](../../../step-functions/latest/apireference/API_StartExecution.md "../../../step-functions/latest/apireference/API_StartExecution.md") command for the Step Functions state machine that the AWS CloudFormation template
+integration invokes the [StartExecution](../../../step-functions/latest/apireference/API_StartExecution.md "../../../step-functions/latest/apireference/API_StartExecution.md") command for the Step Functions state machine that the CloudFormation template
 created for you.
 
 ###### To create a non-proxy integration
@@ -194,11 +194,11 @@ created for you.
 2. Choose **Create route**.
 3. For **Route key**, enter `sendmessage`.
 4. For **Integration type**, choose **AWS service**.
-5. For **AWS Region**, enter the Region where you deployed your AWS CloudFormation template.
+5. For **AWS Region**, enter the Region where you deployed your CloudFormation template.
 6. For **AWS service**, choose **Step Functions**.
 7. For **HTTP method**, choose **POST**.
 8. For **Action name**, enter `StartExecution`.
-9. For **Execution role**, enter the execution role created by the AWS CloudFormation template. The name should be **WebsocketTutorialApiRole**.
+9. For **Execution role**, enter the execution role created by the CloudFormation template. The name should be **WebsocketTutorialApiRole**.
 10. Choose **Create route**.
 
 Next, you create a mapping template to send request parameters to the Step Functions state machine.
@@ -225,7 +225,7 @@ Next, you create a mapping template to send request parameters to the Step Funct
 }
 ```
 
-Replace the `stateMachineArn` with the ARN of the state machine created by AWS CloudFormation.
+Replace the `stateMachineArn` with the ARN of the state machine created by CloudFormation.
 
 The mapping template does the following:
 
@@ -339,7 +339,7 @@ your API's **$disconnect** route. The Lambda integration for your API's
 ## Step 7: Clean up
 
 To prevent unnecessary costs, delete the resources that you created as part of this tutorial. The following
-steps delete your AWS CloudFormation stack and WebSocket API.
+steps delete your CloudFormation stack and WebSocket API.
 
 ###### To delete a WebSocket API
 
@@ -347,14 +347,14 @@ steps delete your AWS CloudFormation stack and WebSocket API.
 2. On the **APIs** page, select your **websocket-api**.
 3. Choose **Actions**, choose **Delete**, and then confirm your choice.
 
-###### To delete an AWS CloudFormation stack
+###### To delete an CloudFormation stack
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2. Select your AWS CloudFormation stack.
+2. Select your CloudFormation stack.
 3. Choose **Delete** and then confirm your choice.
 
 ## Next steps
 
 You can automate the creation and cleanup of all the AWS resources involved in this tutorial. For an example
-of an AWS CloudFormation template that automates these actions for this tutorial, see [ws-sfn.zip](samples/ws-sfn-complete.md "samples/ws-sfn-complete.md").
+of an CloudFormation template that automates these actions for this tutorial, see [ws-sfn.zip](samples/ws-sfn-complete.md "samples/ws-sfn-complete.md").

@@ -123,7 +123,7 @@ name
 To configure mutual TLS for a REST API, you must use a Regional custom domain
 name for your API, with a `TLS_1_2` security policy. For more information about choosing a security policy,
 see [Choose a security policy for
-your REST API custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md").
+your custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md").
 
 ###### Note
 

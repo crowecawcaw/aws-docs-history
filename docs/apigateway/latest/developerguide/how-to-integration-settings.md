@@ -41,5 +41,6 @@ method response. You then configure how to map backend output to the method resp
   integration response in API Gateway](api-gateway-integration-settings-integration-response.md "api-gateway-integration-settings-integration-response.md")
 - [Lambda integrations for REST APIs in API Gateway](set-up-lambda-integrations.md "set-up-lambda-integrations.md")
 - [HTTP integrations for REST APIs in API Gateway](setup-http-integrations.md "setup-http-integrations.md")
-- [Private integrations for REST APIs in API Gateway](set-up-private-integration.md "set-up-private-integration.md")
+- [Stream the integration response for your proxy integrations in API Gateway](response-transfer-mode.md "response-transfer-mode.md")
+- [Private integrations for REST APIs in API Gateway](private-integration.md "private-integration.md")
 - [Mock integrations for REST APIs in API Gateway](how-to-mock-integration.md "how-to-mock-integration.md")

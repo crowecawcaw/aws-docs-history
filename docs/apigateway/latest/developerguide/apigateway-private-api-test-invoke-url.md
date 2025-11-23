@@ -5,6 +5,11 @@ API
 You can only invoke a private API from within a VPC using a VPC endpoint. Your private API must have a resource policy that allows
 specific VPCs and VPC endpoints to invoke your API.
 
+If you invoke a private API without using a custom domain name or private DNS
+names and your APIs or domain name uses a security policy that starts with
+`SecurityPolicy_`, you must set the endpoint access mode to `BASIC`. For more information,
+see [Endpoint access mode](apigateway-security-policies.md#apigateway-security-policies-endpoint-access-mode "apigateway-security-policies.md#apigateway-security-policies-endpoint-access-mode").
+
 ## Invoke a private API using a custom domain name
 
 To invoke a private API using a custom domain name, your VPC endpoint needs a domain name access association
@@ -120,9 +125,9 @@ If you enable private DNS for your
 VPC endpoint, you won't be able to access the default endpoint for public APIs. For more information, see
 [Why can't I connect to my public API from an API Gateway VPC endpoint?](https://repost.aws/knowledge-center/api-gateway-vpc-connections "https://repost.aws/knowledge-center/api-gateway-vpc-connections").
 
-### Invoke a private API using AWS Direct Connect
+### Invoke a private API using Direct Connect
 
-You can use AWS Direct Connect to establish a dedicated private connection from an
+You can use Direct Connect to establish a dedicated private connection from an
 on-premises network to Amazon VPC and access your private API endpoint over that
 connection by using public DNS names.
 

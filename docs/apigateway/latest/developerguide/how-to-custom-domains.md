@@ -50,7 +50,7 @@ The following considerations might impact your use of a custom domain name:
   wildcard certificate. For more information, see [Wildcard custom domain names](#wildcard-custom-domain-names "#wildcard-custom-domain-names").
 - You can choose a security policy for your custom domain name. For more
   information, see [Choose a security policy for
-  your REST API custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md").
+  your custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md").
 - To configure API mappings with multiple levels, you must use a Regional custom domain name and use the TLS
   1.2 security policy.
 
@@ -143,7 +143,7 @@ The following are next steps for custom domain names.
 - To learn how to connect API stages to a custom domain name, see [Send traffic
   to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md").
 - To learn how to choose a security policy for your custom domain name, see [Choose a security policy for
-  your REST API custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md").
+  your custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md").
 - To learn how to turn off the default endpoint for your custom domain name, see [Disable the default endpoint for REST APIs](rest-api-disable-default-endpoint.md "rest-api-disable-default-endpoint.md").
 - To learn how to use Route 53 health checks to control DNS failover from an API Gateway API, see
   [Configure custom health checks for DNS failover for an API Gateway API](dns-failover.md "dns-failover.md").

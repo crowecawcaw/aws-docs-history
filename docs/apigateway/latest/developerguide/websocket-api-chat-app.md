@@ -6,7 +6,7 @@ In this tutorial, you'll create a serverless chat application with a WebSocket A
 you can support two-way communication between clients. Clients can receive messages without having to poll for
 updates.
 
-This tutorial takes approximately 30 minutes to complete. First, you'll use an AWS CloudFormation template to create Lambda
+This tutorial takes approximately 30 minutes to complete. First, you'll use an CloudFormation template to create Lambda
 functions that will handle API requests, as well as a DynamoDB table that stores your client IDs. Then, you'll use the
 API Gateway console to create a WebSocket API that integrates with your Lambda functions. Lastly, you'll test your API to
 verify that messages are sent and received.
@@ -25,21 +25,21 @@ connect to a WebSocket API and send messages to it](apigateway-how-to-call-webso
 - [Step 2: Create a WebSocket API](#websocket-api-chat-app-create-api "#websocket-api-chat-app-create-api")
 - [Step 3: Test your API](#websocket-api-chat-app-invoke-api "#websocket-api-chat-app-invoke-api")
 - [Step 4: Clean up](#websocket-api-chat-app-cleanup "#websocket-api-chat-app-cleanup")
-- [Next steps: Automate with AWS CloudFormation](#websocket-api-chat-app-next-steps "#websocket-api-chat-app-next-steps")
+- [Next steps: Automate with CloudFormation](#websocket-api-chat-app-next-steps "#websocket-api-chat-app-next-steps")
 
 ## Step 1: Create Lambda functions and a DynamoDB
 
 table
 
 Download and unzip [the app creation template
-for AWS CloudFormation](samples/ws-chat-app-starter.md "samples/ws-chat-app-starter.md"). You'll use this template to create a Amazon DynamoDB table to store your app's
+for CloudFormation](samples/ws-chat-app-starter.md "samples/ws-chat-app-starter.md"). You'll use this template to create a Amazon DynamoDB table to store your app's
 client IDs. Each connected client has a unique ID which we will use as the table's partition key. This template
 also creates Lambda functions that update your client connections in DynamoDB and handle sending messages to
 connected clients.
 
-###### To create an AWS CloudFormation stack
+###### To create an CloudFormation stack
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Choose **Create stack** and then choose **With new resources
    (standard)**.
@@ -49,12 +49,12 @@ connected clients.
 6. For **Stack name**, enter `websocket-api-chat-app-tutorial` and then choose
    **Next**.
 7. For **Configure stack options**, choose **Next**.
-8. For **Capabilities**, acknowledge that AWS CloudFormation can create IAM resources in your
+8. For **Capabilities**, acknowledge that CloudFormation can create IAM resources in your
    account.
-9. Choose **Submit**.
+9. Choose **Next**, and then choose **Submit**.
 
-AWS CloudFormation provisions the resources specified in the template. It can take a few minutes to finish provisioning
-your resources. When the status of your AWS CloudFormation stack is **CREATE_COMPLETE**, you're ready to move
+CloudFormation provisions the resources specified in the template. It can take a few minutes to finish provisioning
+your resources. When the status of your CloudFormation stack is **CREATE_COMPLETE**, you're ready to move
 on to the next step.
 
 ## Step 2: Create a WebSocket API
@@ -84,7 +84,7 @@ created in Step 1.
 10. Under **Attach integrations**, for each route and **Integration type**,
     choose Lambda.
 
-For **Lambda**, choose the corresponding Lambda function that you created with AWS CloudFormation in
+For **Lambda**, choose the corresponding Lambda function that you created with CloudFormation in
 Step 1. Each function's name matches a route. For example, for the **$connect** route, choose
 the function named `websocket-chat-app-tutorial-ConnectHandler`. 11. Review the stage that API Gateway creates for you. By default, API Gateway creates a stage name
 `production` and automatically deploys your API to that stage. Choose
@@ -171,7 +171,7 @@ Use the sendmessage route to send a message. Your info: {"ConnectedAt":"2022-01-
 ## Step 4: Clean up
 
 To prevent unnecessary costs, delete the resources that you created as part of this tutorial. The following
-steps delete your AWS CloudFormation stack and WebSocket API.
+steps delete your CloudFormation stack and WebSocket API.
 
 ###### To delete a WebSocket API
 
@@ -179,14 +179,14 @@ steps delete your AWS CloudFormation stack and WebSocket API.
 2. On the **APIs** page, select your `websocket-chat-app-tutorial` API. Choose
    **Actions**, choose **Delete**, and then confirm your choice.
 
-###### To delete an AWS CloudFormation stack
+###### To delete an CloudFormation stack
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2. Select your AWS CloudFormation stack.
+2. Select your CloudFormation stack.
 3. Choose **Delete** and then confirm your choice.
 
-## Next steps: Automate with AWS CloudFormation
+## Next steps: Automate with CloudFormation
 
-You can automate the creation and cleanup of all of the AWS resources involved in this tutorial. For an AWS CloudFormation template that creates this API and all related resources,
+You can automate the creation and cleanup of all of the AWS resources involved in this tutorial. For an CloudFormation template that creates this API and all related resources,
 see [ws-chat-app.yaml](samples/ws-chat-app.md "samples/ws-chat-app.md").

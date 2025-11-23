@@ -8,32 +8,34 @@ VPC, such as Application Load Balancers or Amazon ECS container-based applicatio
 You can expose your resources in a VPC for access by clients outside of the VPC by using
 private integrations. You can control access to your API by using any of the [authorization methods](http-api-access-control.md "http-api-access-control.md") that API Gateway supports.
 
-To create a private integration, you must first create a VPC link. To learn more about VPC
-links, see [Set up VPC links for HTTP APIs in API Gateway](http-api-vpc-links.md "http-api-vpc-links.md").
-
-After you’ve created a VPC link, you can set up private integrations that connect to an
-Application Load Balancer, Network Load Balancer, or resources registered with an AWS Cloud Map service.
-
-To create a private integration, all resources must be owned by the same AWS account
-(including the load balancer or AWS Cloud Map service, VPC link and HTTP API).
-
-By default, private integration traffic uses the HTTP protocol. You can specify a [`tlsConfig`](../../../apigatewayv2/latest/api-reference/apis-apiid-integrations-integrationid.md "../../../apigatewayv2/latest/api-reference/apis-apiid-integrations-integrationid.md")
-if you require private integration traffic to use HTTPS. To do this using the AWS Management Console, when you create your private
-integration, choose **Advanced settings** and then enter a secure server name.
-
 ###### Note
 
-For private integrations, API Gateway includes the [stage](http-api-stages.md "http-api-stages.md") portion of the API
-endpoint in the request to your backend resources. For example, a request to the `test` stage of an API
-includes `test/`route-path``in the request to your private integration. To
- remove the stage name from the request to your backend resources, use [parameter mapping](http-api-parameter-mapping.md "http-api-parameter-mapping.md") to overwrite the request path to`$request.path`.
+To create a private integration, you must first create a VPC link. VPC links V2 are now supported for both
+HTTP and REST APIs. To learn more about VPC links V2, see [Set up VPC links V2 in API Gateway](apigateway-vpc-links-v2.md "apigateway-vpc-links-v2.md").
+
+After you’ve created a VPC link V2, you can set up private integrations that connect to an
+Application Load Balancer, Network Load Balancer, or resources registered with an AWS Cloud Map service.
+
+## Considerations
+
+The following considerations might impact your use of private integrations:
+
+- All resources must be owned by the same AWS account. This includes the load balancer or AWS Cloud Map service,
+  VPC link and HTTP API.
+- By default, private integration traffic uses the HTTP protocol. To use HTTPS, specify a [`tlsConfig`](../../../apigatewayv2/latest/api-reference/apis-apiid-integrations-integrationid.md "../../../apigatewayv2/latest/api-reference/apis-apiid-integrations-integrationid.md").
+  To do this using the AWS Management Console, when you create your private
+  integration, choose **Advanced settings** and then enter a secure server name.
+- For private integrations, API Gateway includes the [stage](http-api-stages.md "http-api-stages.md") portion of the API
+  endpoint in the request to your backend resources. For example, a request to the `test` stage of an API
+  includes `test/`route-path``in the request to your private integration. To
+remove the stage name from the request to your backend resources, use [parameter mapping](http-api-parameter-mapping.md "http-api-parameter-mapping.md") to overwrite the request path to`$request.path`.
 
 ## Create a private integration
 
 using an Application Load Balancer or Network Load Balancer
 
-Before you create a private integration, you must create a VPC link. To learn more
-about VPC links, see [Set up VPC links for HTTP APIs in API Gateway](http-api-vpc-links.md "http-api-vpc-links.md").
+Before you create a private integration, you must create a VPC link V2. To learn more
+about VPC links V2, see [Set up VPC links V2 in API Gateway](apigateway-vpc-links-v2.md "apigateway-vpc-links-v2.md").
 
 To create a private integration with an Application Load Balancer or Network Load Balancer, create an HTTP proxy
 integration, specify the VPC link to use, and provide the listener ARN of the load
@@ -54,8 +56,8 @@ aws apigatewayv2 create-integration --api-id `api-id` --integration-type HTTP_PR
 
 integration using AWS Cloud Map service discovery
 
-Before you create a private integration, you must create a VPC link. To learn more
-about VPC links, see [Set up VPC links for HTTP APIs in API Gateway](http-api-vpc-links.md "http-api-vpc-links.md").
+Before you create a private integration, you must create a VPC link V2. To learn more
+about VPC links, see [Set up VPC links V2 in API Gateway](apigateway-vpc-links-v2.md "apigateway-vpc-links-v2.md").
 
 For integrations with AWS Cloud Map, API Gateway uses `DiscoverInstances` to identify
 resources. You can use query parameters to target specific resources. The registered

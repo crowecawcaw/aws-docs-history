@@ -46,7 +46,7 @@ In this example, you create the following resources to configure DNS failover fo
 
 First, make sure that you have all of the required resources in the primary and secondary Regions. The
 secondary Region should contain the alarm and health check. This way, you don't depend on the primary Region to
-perform failover. For example AWS CloudFormation templates that create these resources, see [`primary.yaml`](samples/primary.md "samples/primary.md") and [`secondary.yaml`](samples/secondary.md "samples/secondary.md").
+perform failover. For example CloudFormation templates that create these resources, see [`primary.yaml`](samples/primary.md "samples/primary.md") and [`secondary.yaml`](samples/secondary.md "samples/secondary.md").
 
 ###### Important
 

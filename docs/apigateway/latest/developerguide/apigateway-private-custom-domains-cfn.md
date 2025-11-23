@@ -1,17 +1,17 @@
-# Create a custom domain name for private APIs using AWS CloudFormation
+# Create a custom domain name for private APIs using CloudFormation
 
-The following example AWS CloudFormation template creates a private API and a private custom domain name, maps the private
+The following example CloudFormation template creates a private API and a private custom domain name, maps the private
 API to the custom domain name, and then creates a domain name access association. You need to provide your own VPC
 endpoint, domain name, and certificate ARN.
 
-The following considerations might impact your use of AWS CloudFormation to create a private
+The following considerations might impact your use of CloudFormation to create a private
 custom domain name:
 
-- You can't reject a domain name access association using AWS CloudFormation. To reject a domain name access association,
+- You can't reject a domain name access association using CloudFormation. To reject a domain name access association,
   use the AWS CLI.
-- Use the `AWS::ApiGateway::DomainNameV2` AWS CloudFormation property to create a private custom domain
+- Use the `AWS::ApiGateway::DomainNameV2` CloudFormation property to create a private custom domain
   name.
-- Use the `AWS::ApiGateway:BasePathMappingV2` AWS CloudFormation property to create a base path mapping.
+- Use the `AWS::ApiGateway:BasePathMappingV2` CloudFormation property to create a base path mapping.
 
 ```
 AWSTemplateFormatVersion: 2010-09-09

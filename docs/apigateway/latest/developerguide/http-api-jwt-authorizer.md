@@ -98,10 +98,10 @@ aws apigatewayv2 create-authorizer \
 
 ##### Create a JWT authorizer using AWS CloudFormation
 
-The following AWS CloudFormation template creates an HTTP API with a JWT authorizer that uses Amazon Cognito as an
+The following CloudFormation template creates an HTTP API with a JWT authorizer that uses Amazon Cognito as an
 identity provider.
 
-The output of the AWS CloudFormation template is a URL for an Amazon Cognito hosted UI where clients can sign up and sign in to
+The output of the CloudFormation template is a URL for an Amazon Cognito hosted UI where clients can sign up and sign in to
 receive a JWT. After a client signs in, the client is redirected to your HTTP API with an access token in the URL.
 To invoke the API with the access token, change the `#` in the URL to a `?` to use the token
 as a query string parameter.

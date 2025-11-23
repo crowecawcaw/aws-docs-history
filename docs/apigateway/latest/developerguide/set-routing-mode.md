@@ -21,7 +21,7 @@ are supported:
 This is the default routing mode for all your existing domain names, and any new domain names you create.
 When you create a custom domain name using `apigateway`, `API_MAPPING_ONLY` is called
 `BASE_PATH_MAPPING_ONLY` and `ROUTING_RULE_THEN_API_MAPPING` is called
-`ROUTING_RULE_THEN_BASE_PATH_MAPPING`. This behavior is only present for the AWS CLI, AWS CloudFormation, or any
+`ROUTING_RULE_THEN_BASE_PATH_MAPPING`. This behavior is only present for the AWS CLI, CloudFormation, or any
 SDKs, not in the AWS Management Console.
 
 The following procedure shows how to change the routing mode for an existing custom domain name. When you

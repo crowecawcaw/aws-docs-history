@@ -6,7 +6,7 @@ interface that you create in your VPC. Interface endpoints are powered by
 AWS PrivateLink, a technology that enables you to privately access AWS services by using
 private IP addresses.
 
-You can also use AWS Direct Connect to establish a connection from an on-premises network to Amazon VPC and then access your
+You can also use Direct Connect to establish a connection from an on-premises network to Amazon VPC and then access your
 private API over that connection. In all cases, traffic to your private API uses secure connections and is isolated
 from the public internet. Traffic doesn't leave the Amazon network.
 
@@ -54,4 +54,4 @@ The following considerations might impact your use of private APIs:
 ## Next steps for private APIs
 
 To
-learn how to create a private API and associate a VPC endpoint see, [Create a private API](apigateway-private-api-create.md "apigateway-private-api-create.md"). To follow a tutorial where you create dependencies in AWS CloudFormation and a private API in the AWS Management Console, see [Tutorial: Create a private REST API](private-api-tutorial.md "private-api-tutorial.md").
+learn how to create a private API and associate a VPC endpoint see, [Create a private API](apigateway-private-api-create.md "apigateway-private-api-create.md"). To follow a tutorial where you create dependencies in CloudFormation and a private API in the AWS Management Console, see [Tutorial: Create a private REST API](private-api-tutorial.md "private-api-tutorial.md").

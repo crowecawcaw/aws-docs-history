@@ -26,7 +26,7 @@ request:
 When you apply one of the validators on an API method, the API Gateway console adds the validator to the API's
 [RequestValidators](../api/API_RequestValidator.md "../api/API_RequestValidator.md") map.
 
-To follow this tutorial, you'll use an AWS CloudFormation template to create an incomplete API Gateway API. This API
+To follow this tutorial, you'll use an CloudFormation template to create an incomplete API Gateway API. This API
 has a `/validator` resource with `GET` and `POST` methods. Both methods are
 integrated with the `http://petstore-demo-endpoint.execute-api.com/petstore/pets` HTTP endpoint. You
 will configure two kinds of request validation:
@@ -37,13 +37,13 @@ will configure two kinds of request validation:
 
 This will allow only certain API calls to pass through to the API.
 
-Download and unzip [the app creation template for AWS CloudFormation](samples/request-validation-tutorial-console.md "samples/request-validation-tutorial-console.md").
+Download and unzip [the app creation template for CloudFormation](samples/request-validation-tutorial-console.md "samples/request-validation-tutorial-console.md").
 You'll use this template to create an incomplete API. You will finish the
 rest of the steps in the API Gateway console.
 
-###### To create an AWS CloudFormation stack
+###### To create an CloudFormation stack
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Choose **Create stack** and then choose **With new resources
    (standard)**.
@@ -53,12 +53,12 @@ rest of the steps in the API Gateway console.
 6. For **Stack name**, enter `request-validation-tutorial-console` and then choose
    **Next**.
 7. For **Configure stack options**, choose **Next**.
-8. For **Capabilities**, acknowledge that AWS CloudFormation can create IAM resources in your
+8. For **Capabilities**, acknowledge that CloudFormation can create IAM resources in your
    account.
-9. Choose **Submit**.
+9. Choose **Next**, and then choose **Submit**.
 
-AWS CloudFormation provisions the resources specified in the template. It can take a few minutes to finish provisioning
-your resources. When the status of your AWS CloudFormation stack is **CREATE_COMPLETE**, you're ready to move
+CloudFormation provisions the resources specified in the template. It can take a few minutes to finish provisioning
+your resources. When the status of your CloudFormation stack is **CREATE_COMPLETE**, you're ready to move
 on to the next step.
 
 ###### To select your newly created API
@@ -196,11 +196,11 @@ Choose **Test**. 5. The method test will return a `400` error with the following
 At the bottom of the test logs, the reason for the invalid request body is returned. In this case, the
 price of the pet was outside the maximum specified in the model.
 
-###### To delete an AWS CloudFormation stack
+###### To delete an CloudFormation stack
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2. Select your AWS CloudFormation stack.
+2. Select your CloudFormation stack.
 3. Choose **Delete** and then confirm your choice.
 
 ### Next steps
@@ -210,11 +210,11 @@ price of the pet was outside the maximum specified in the model.
 
 ## Set up basic request validation using the AWS CLI
 
-You can create a validator to set up request validation using the AWS CLI. To follow this tutorial, you'll use an AWS CloudFormation template to create an incomplete API Gateway API.
+You can create a validator to set up request validation using the AWS CLI. To follow this tutorial, you'll use an CloudFormation template to create an incomplete API Gateway API.
 
 ###### Note
 
-This is not the same AWS CloudFormation template as the console tutorial.
+This is not the same CloudFormation template as the console tutorial.
 
 Using a pre-exposed `/validator`resource, you will create `GET` and
 `POST` methods. Both methods will be integrated with the
@@ -229,9 +229,9 @@ following two request validations:
 This will allow only certain API
 calls to pass through to the API.
 
-###### To create an AWS CloudFormation stack
+###### To create an CloudFormation stack
 
-Download and unzip [the app creation template for AWS CloudFormation](samples/request-validation-tutorial-cli.md "samples/request-validation-tutorial-cli.md").
+Download and unzip [the app creation template for CloudFormation](samples/request-validation-tutorial-cli.md "samples/request-validation-tutorial-cli.md").
 
 To complete the following tutorial, you need the [AWS Command Line Interface (AWS CLI) version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 
@@ -243,20 +243,20 @@ In Windows, some Bash CLI commands that you commonly use (such as `zip`) are not
 To get a Windows-integrated version of Ubuntu and Bash, [install the Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install "https://learn.microsoft.com/en-us/windows/wsl/install").
 Example CLI commands in this guide use Linux formatting. Commands which include inline JSON documents must be reformatted if you are using the Windows CLI.
 
-1. Use the following command to create the AWS CloudFormation stack.
+1. Use the following command to create the CloudFormation stack.
 
 ```
 aws cloudformation create-stack --stack-name request-validation-tutorial-cli --template-body file://request-validation-tutorial-cli.zip --capabilities CAPABILITY_NAMED_IAM
 ```
 
-2. AWS CloudFormation provisions the resources specified in the template. It can take a few minutes to finish provisioning
-   your resources. Use the following command to see the status of your AWS CloudFormation stack.
+2. CloudFormation provisions the resources specified in the template. It can take a few minutes to finish provisioning
+   your resources. Use the following command to see the status of your CloudFormation stack.
 
 ```
 aws cloudformation describe-stacks --stack-name request-validation-tutorial-cli
 ```
 
-3. When the status of your AWS CloudFormation stack is `StackStatus: "CREATE_COMPLETE"`, use the following
+3. When the status of your CloudFormation stack is `StackStatus: "CREATE_COMPLETE"`, use the following
    command to retrieve relevant output values for future steps.
 
 ```
@@ -435,9 +435,9 @@ The result will return a `200 OK` and a success message. 4. Use the following co
 
 The result will return a `400` error, as the price of the dog is over the maximum price defined by the model.
 
-###### To delete an AWS CloudFormation stack
+###### To delete an CloudFormation stack
 
-- Use the following command to delete your AWS CloudFormation resources.
+- Use the following command to delete your CloudFormation resources.
 
 ```
 aws cloudformation delete-stack  --stack-name request-validation-tutorial-cli

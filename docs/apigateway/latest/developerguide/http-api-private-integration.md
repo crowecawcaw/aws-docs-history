@@ -5,7 +5,7 @@ service
 In this tutorial, you create a serverless API that connects to an Amazon ECS service that runs in an Amazon VPC. Clients
 outside of your Amazon VPC can use the API to access your Amazon ECS service.
 
-This tutorial takes approximately an hour to complete. First, you use an AWS CloudFormation template to create a Amazon VPC and
+This tutorial takes approximately an hour to complete. First, you use an CloudFormation template to create a Amazon VPC and
 Amazon ECS service. Then you use the API Gateway console to create a VPC link. The VPC link allows API Gateway to access the Amazon ECS
 service that runs in your Amazon VPC. Next, you create an HTTP API that uses the VPC link to connect to your Amazon ECS
 service. Lastly, you test your API.
@@ -17,7 +17,7 @@ returns the response from the service.
 To complete this tutorial, you need an AWS account and an AWS Identity and Access Management user with console access. For more
 information, see [Set up to use API Gateway](setting-up.md "setting-up.md").
 
-In this tutorial, you use the AWS Management Console. For an AWS CloudFormation template that creates this API and all related
+In this tutorial, you use the AWS Management Console. For an CloudFormation template that creates this API and all related
 resources, see [template.yaml](samples/private-integration-full-template.md "samples/private-integration-full-template.md").
 
 ###### Topics
@@ -29,20 +29,20 @@ resources, see [template.yaml](samples/private-integration-full-template.md "sam
 - [Step 5: Create an integration](#http-api-private-integration-create-integration "#http-api-private-integration-create-integration")
 - [Step 6: Test your API](#http-api-private-integration-invoke-api "#http-api-private-integration-invoke-api")
 - [Step 7: Clean up](#http-api-private-integration-cleanup "#http-api-private-integration-cleanup")
-- [Next steps: Automate with AWS CloudFormation](#http-api-private-integration-next-steps "#http-api-private-integration-next-steps")
+- [Next steps: Automate with CloudFormation](#http-api-private-integration-next-steps "#http-api-private-integration-next-steps")
 
 ## Step 1: Create an Amazon ECS service
 
 Amazon ECS is a container management service that makes it easy to run, stop, and manage Docker containers on a
 cluster. In this tutorial, you run your cluster on a serverless infrastructure that's managed by Amazon ECS.
 
-Download and unzip [this AWS CloudFormation template](samples/private-integration-cfn.md "samples/private-integration-cfn.md"), which creates
+Download and unzip [this CloudFormation template](samples/private-integration-cfn.md "samples/private-integration-cfn.md"), which creates
 all of the dependencies for the service, including an Amazon VPC. You use the template to create an Amazon ECS service that
 uses an Application Load Balancer.
 
-###### To create an AWS CloudFormation stack
+###### To create an CloudFormation stack
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Choose **Create stack** and then choose **With new resources
    (standard)**.
@@ -52,11 +52,11 @@ uses an Application Load Balancer.
 6. For **Stack name**, enter `http-api-private-integrations-tutorial` and then choose
    **Next**.
 7. For **Configure stack options**, choose **Next**.
-8. For **Capabilities**, acknowledge that AWS CloudFormation can create IAM resources in your
+8. For **Capabilities**, acknowledge that CloudFormation can create IAM resources in your
    account.
-9. Choose **Submit**.
+9. Choose **Next**, and then choose **Submit**.
 
-AWS CloudFormation provisions the ECS service, which can take a few minutes. When the status of your AWS CloudFormation stack is
+CloudFormation provisions the ECS service, which can take a few minutes. When the status of your CloudFormation stack is
 **CREATE_COMPLETE**, you're ready to move on to the next step.
 
 ## Step 2: Create a VPC link
@@ -130,7 +130,7 @@ You create an integration to connect a route to backend resources.
 6. For **Integration type**, choose **Private resource**.
 7. For **Integration details**, choose **Select manually**.
 8. For **Target service**, choose **ALB/NLB**.
-9. For **Load balancer**, choose the load balancer that you created with the AWS CloudFormation
+9. For **Load balancer**, choose the load balancer that you created with the CloudFormation
    template in Step 1. It's name should start with **http-Priva**.
 10. For **Listener**, choose `HTTP 80`.
 11. For **VPC link**, choose the VPC link that you created in Step 2. It's name should be
@@ -170,7 +170,7 @@ used an API Gateway HTTP API with a VPC link to access the Amazon ECS service.
 ## Step 7: Clean up
 
 To prevent unnecessary costs, delete the resources that you created as part of this tutorial. The following
-steps delete your VPC link, AWS CloudFormation stack, and HTTP API.
+steps delete your VPC link, CloudFormation stack, and HTTP API.
 
 ###### To delete an HTTP API
 
@@ -184,14 +184,14 @@ steps delete your VPC link, AWS CloudFormation stack, and HTTP API.
 2. Choose **VPC link**.
 3. Select your VPC link, choose **Delete**, and then confirm your choice.
 
-###### To delete an AWS CloudFormation stack
+###### To delete an CloudFormation stack
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2. Select your AWS CloudFormation stack.
+2. Select your CloudFormation stack.
 3. Choose **Delete** and then confirm your choice.
 
-## Next steps: Automate with AWS CloudFormation
+## Next steps: Automate with CloudFormation
 
 You can automate the creation and cleanup of all AWS resources involved in this tutorial. For a full example
-AWS CloudFormation template, see [template.yaml](samples/private-integration-full-template.md "samples/private-integration-full-template.md").
+CloudFormation template, see [template.yaml](samples/private-integration-full-template.md "samples/private-integration-full-template.md").

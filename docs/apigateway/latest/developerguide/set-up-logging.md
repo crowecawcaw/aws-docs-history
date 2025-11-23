@@ -159,9 +159,9 @@ other.
 API Gateway is now ready to log requests to your API. You don't need to redeploy the API
 when you update the stage settings, logs, or stage variables.
 
-## Set up CloudWatch API logging using AWS CloudFormation
+## Set up CloudWatch API logging using CloudFormation
 
-Use the following example AWS CloudFormation template to create an Amazon CloudWatch Logs log group and configure execution and access
+Use the following example CloudFormation template to create an Amazon CloudWatch Logs log group and configure execution and access
 logging for a stage. To enable CloudWatch Logs, you must grant API Gateway permission to read and write logs to CloudWatch for your
 account. To learn more, see [Associate account with IAM role](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.md#aws-resource-apigateway-account--examples "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.md#aws-resource-apigateway-account--examples") in the _AWS CloudFormation User Guide_.
 

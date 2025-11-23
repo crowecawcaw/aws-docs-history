@@ -27,7 +27,7 @@ see [`template.yaml`](samples/http-dynamo-tutorial.md "samples/http-dynamo-tutor
 - [Step 6: Attach your integration to routes](#http-api-dynamo-db-attach-integrations "#http-api-dynamo-db-attach-integrations")
 - [Step 7: Test your API](#http-api-dynamo-db-invoke-api "#http-api-dynamo-db-invoke-api")
 - [Step 8: Clean up](#http-api-dynamo-db-cleanup "#http-api-dynamo-db-cleanup")
-- [Next steps: Automate with AWS SAM or AWS CloudFormation](#http-api-dynamo-db-next-steps "#http-api-dynamo-db-next-steps")
+- [Next steps: Automate with AWS SAM or CloudFormation](#http-api-dynamo-db-next-steps "#http-api-dynamo-db-next-steps")
 
 ## Step 1: Create a DynamoDB table
 
@@ -409,10 +409,10 @@ The following steps delete your HTTP API, your Lambda function, and associated r
 3. Choose **Delete role**.
 4. Choose **Yes, delete**.
 
-## Next steps: Automate with AWS SAM or AWS CloudFormation
+## Next steps: Automate with AWS SAM or CloudFormation
 
-You can automate the creation and cleanup of AWS resources by using AWS CloudFormation or AWS SAM. For an example AWS SAM
+You can automate the creation and cleanup of AWS resources by using CloudFormation or AWS SAM. For an example AWS SAM
 template for this tutorial, see [`template.yaml`](samples/http-dynamo-tutorial.md "samples/http-dynamo-tutorial.md").
 
-For example AWS CloudFormation templates, see [example
-AWS CloudFormation templates](https://github.com/awsdocs/amazon-api-gateway-developer-guide/tree/main/cloudformation-templates "https://github.com/awsdocs/amazon-api-gateway-developer-guide/tree/main/cloudformation-templates").
+For example CloudFormation templates, see [example
+CloudFormation templates](https://github.com/awsdocs/amazon-api-gateway-developer-guide/tree/main/cloudformation-templates "https://github.com/awsdocs/amazon-api-gateway-developer-guide/tree/main/cloudformation-templates").

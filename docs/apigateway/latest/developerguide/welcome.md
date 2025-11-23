@@ -69,7 +69,7 @@ Amazon API Gateway offers features such as the following:
   alarms. For more information, see [Monitor REST API execution with Amazon CloudWatch metrics](monitoring-cloudwatch.md "monitoring-cloudwatch.md") and
   [Monitor WebSocket API execution
   with CloudWatch metrics](apigateway-websocket-api-logging.md "apigateway-websocket-api-logging.md").
-- Ability to use AWS CloudFormation templates to enable API creation. For more information,
+- Ability to use CloudFormation templates to enable API creation. For more information,
   see [Amazon API Gateway Resource
   Types Reference](../../../AWSCloudFormation/latest/UserGuide/AWS_ApiGateway.md "../../../AWSCloudFormation/latest/UserGuide/AWS_ApiGateway.md") and [Amazon API Gateway V2 Resource
   Types Reference](../../../AWSCloudFormation/latest/UserGuide/AWS_ApiGatewayV2.md "../../../AWSCloudFormation/latest/UserGuide/AWS_ApiGatewayV2.md").

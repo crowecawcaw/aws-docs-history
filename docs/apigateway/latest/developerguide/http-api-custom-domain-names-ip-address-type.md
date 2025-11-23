@@ -17,7 +17,7 @@ The following considerations might impact your use of IP address types.
 ## Change the IP address type of a custom domain name
 
 You can change the IP address type by updating the domain’s endpoint configuration. You can update the domain's
-endpoint configuration by using the AWS Management Console, the AWS CLI, AWS CloudFormation, or an AWS SDK.
+endpoint configuration by using the AWS Management Console, the AWS CLI, CloudFormation, or an AWS SDK.
 
 AWS Management Console###### To change the IP address type of a custom domain name
 

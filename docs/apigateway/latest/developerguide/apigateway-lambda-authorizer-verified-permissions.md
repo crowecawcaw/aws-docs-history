@@ -44,14 +44,14 @@ app integration** page, choose **Later**.
 Verified Permissions still creates a Lambda authorizer for you. The Lambda authorizer starts with `AVPAuthorizerLambda-`. For more instructions on how to attach
 your authorizer on a method, see [Configure a method to use a Lambda authorizer (console)](configure-api-gateway-lambda-authorization.md#configure-api-gateway-lambda-authorization-method-console "configure-api-gateway-lambda-authorization.md#configure-api-gateway-lambda-authorization-method-console").
 
-**Attach the authorizer for you (AWS CloudFormation)**
+**Attach the authorizer for you (CloudFormation)**
 
-In the Verified Permissions-generated AWS CloudFormation template, in the `Conditions` section, set `"Ref":
+In the Verified Permissions-generated CloudFormation template, in the `Conditions` section, set `"Ref":
  "shouldAttachAuthorizer"` to `true`.
 
-**Don't attach the authorizer for you (AWS CloudFormation)**
+**Don't attach the authorizer for you (CloudFormation)**
 
-In the Verified Permissions-generated AWS CloudFormation template, in the `Conditions` section, set `"Ref":
+In the Verified Permissions-generated CloudFormation template, in the `Conditions` section, set `"Ref":
  "shouldAttachAuthorizer"` to `false`.
 
 Verified Permissions still creates a Lambda authorizer for you. The Lambda authorizer starts with `AVPAuthorizerLambda-`. For more instructions on how to attach

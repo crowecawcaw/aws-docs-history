@@ -1,20 +1,22 @@
 # Set up a Network Load Balancer
 
-for API Gateway private integrations
+for API Gateway private integrations (legacy)
+
+###### Note
+
+The following implementation of private integrations uses VPC links V1. VPC links V1 are legacy resources. We recommend
+that you use [VPC links V2 for REST APIs](apigateway-vpc-links-v2.md "apigateway-vpc-links-v2.md").
 
 The following procedure outlines the steps to set up a Network Load Balancer (NLB)
 for API Gateway private integrations using the Amazon EC2 console and provides references for
 detailed instructions for each step.
 
-For each VPC you have resources in, you only need to configure one NLB and one
-VPCLink. The NLB supports multiple [listeners](../../../elasticloadbalancing/latest/network/load-balancer-listeners.md "../../../elasticloadbalancing/latest/network/load-balancer-listeners.md") and [target groups](../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md "../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md") per NLB. You can configure each service as a specific
-listener on the NLB and use a single VPCLink to connect to the NLB. When creating the
-private integration in API Gateway you then define each service using the
-specific port that is assigned for each service. For more information, see [Tutorial: Create a REST API with a private integration](getting-started-with-private-integration.md "getting-started-with-private-integration.md").
-
-###### Note
-
-The Network Load Balancer and API must be owned by the same AWS account.
+For each VPC you have resources in, you only need to configure one NLB and one VPCLink. The NLB supports
+multiple [listeners](../../../elasticloadbalancing/latest/network/load-balancer-listeners.md "../../../elasticloadbalancing/latest/network/load-balancer-listeners.md") and [target
+groups](../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md "../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md") per NLB. You can configure each service as a specific listener on the NLB and use a single
+VPCLink to connect to the NLB. When creating the private integration in API Gateway you then define each service using
+the specific port that is assigned for each service. For more information, see [Tutorial: Create a REST API with a private integration](getting-started-with-private-integration.md "getting-started-with-private-integration.md"). The Network Load Balancer and API must be owned by the
+same AWS account.
 
 ###### To create a Network Load Balancer for private integration using the API Gateway
 

@@ -1229,7 +1229,7 @@ API Gateway using AWS SDKs](../../../code-library/latest/ug/api-gateway_code_exa
 ## Automate the setup of your API
 
 Instead of creating your API step-by-step, you can automate the creation and cleanup of AWS resources by
-using OpenAPI, AWS CloudFormation, or Terraform to create your API.
+using OpenAPI, CloudFormation, or Terraform to create your API.
 
 You can import an OpenAPI defintion into API Gateway. For more information, see [Develop REST APIs using
 OpenAPI in API Gateway](api-gateway-import-api.md "api-gateway-import-api.md").
@@ -1311,7 +1311,7 @@ OpenAPI in API Gateway](api-gateway-import-api.md "api-gateway-import-api.md").
 }
 ```
 
-To deploy your AWS CloudFormation template, see [Creating a stack on the AWS CloudFormation
+To deploy your CloudFormation template, see [Creating a stack on the AWS CloudFormation
 console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
 
 ```

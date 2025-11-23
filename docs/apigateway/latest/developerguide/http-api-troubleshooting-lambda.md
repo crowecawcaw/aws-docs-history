@@ -73,7 +73,7 @@ In this case, the logs show that API Gateway didn't have the required permission
 the Lambda function.
 
 When you create a Lambda integration in the API Gateway console, API Gateway automatically configures permissions to invoke
-the Lambda function. When you create a Lambda integration by using the AWS CLI, AWS CloudFormation, or an SDK, you must grant
+the Lambda function. When you create a Lambda integration by using the AWS CLI, CloudFormation, or an SDK, you must grant
 permissions for API Gateway to invoke the function. The following [add-permission](../../../cli/latest/reference/lambda/add-permission.md "../../../cli/latest/reference/lambda/add-permission.md") commands grant permission for different HTTP API routes to invoke a Lambda
 function.
 

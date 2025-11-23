@@ -43,10 +43,10 @@ RFC cipher names
 
 OpenSSL and IETF RFC 5246, use different names for the same ciphers. For a list of the cipher names, see
 [OpenSSL and
-RFC cipher names](apigateway-custom-domain-tls-version.md#apigateway-secure-connections-openssl-rfc-cipher-names "apigateway-custom-domain-tls-version.md#apigateway-secure-connections-openssl-rfc-cipher-names").
+RFC cipher names](apigateway-security-policies-list.md#apigateway-secure-connections-openssl-rfc-cipher-names "apigateway-security-policies-list.md#apigateway-secure-connections-openssl-rfc-cipher-names").
 
 ## Information about REST APIs and HTTP APIs
 
 For more information about REST APIs and HTTP APIs, see [Choose a security policy for
-your REST API custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md") and
+your custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md") and
 [Security policy for HTTP APIs in API Gateway](http-api-ciphers.md "http-api-ciphers.md").

@@ -9,7 +9,7 @@ console and AWS CLI.
 
 - [Set up data transformation using the API Gateway console](#mapping-example-console "#mapping-example-console")
 - [Set up data transformation using the AWS CLI](#mapping-example-cli "#mapping-example-cli")
-- [Completed data transformation AWS CloudFormation template](#api-gateway-data-transformations-full-cfn-stack "#api-gateway-data-transformations-full-cfn-stack")
+- [Completed data transformation CloudFormation template](#api-gateway-data-transformations-full-cfn-stack "#api-gateway-data-transformations-full-cfn-stack")
 
 ## Set up data transformation using the API Gateway console
 
@@ -20,13 +20,13 @@ In this tutorial, you will create an incomplete API and DynamoDB table using the
   will be transformed according to the mapping template in [Mapping template transformations for REST APIs in API Gateway](models-mappings.md "models-mappings.md").
 - The `POST` method will allow the user to `POST` pet information to a Amazon DynamoDB table using a mapping template.
 
-Download and unzip [the app creation template for AWS CloudFormation](samples/data-transformation-tutorial-console.md "samples/data-transformation-tutorial-console.md").
+Download and unzip [the app creation template for CloudFormation](samples/data-transformation-tutorial-console.md "samples/data-transformation-tutorial-console.md").
 You'll use this template to create a DynamoDB table to post pet information and an incomplete API. You will finish the
 rest of the steps in the API Gateway console.
 
-###### To create an AWS CloudFormation stack
+###### To create an CloudFormation stack
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Choose **Create stack** and then choose **With new resources
    (standard)**.
@@ -36,17 +36,17 @@ rest of the steps in the API Gateway console.
 6. For **Stack name**, enter `data-transformation-tutorial-console` and then choose
    **Next**.
 7. For **Configure stack options**, choose **Next**.
-8. For **Capabilities**, acknowledge that AWS CloudFormation can create IAM resources in your
+8. For **Capabilities**, acknowledge that CloudFormation can create IAM resources in your
    account.
-9. Choose **Submit**.
+9. Choose **Next**, and then choose **Submit**.
 
-AWS CloudFormation provisions the resources specified in the template. It can take a few minutes to finish provisioning
-your resources. When the status of your AWS CloudFormation stack is **CREATE_COMPLETE**, you're ready to move
+CloudFormation provisions the resources specified in the template. It can take a few minutes to finish provisioning
+your resources. When the status of your CloudFormation stack is **CREATE_COMPLETE**, you're ready to move
 on to the next step.
 
 ###### To test the `GET` integration response
 
-1. On the **Resources** tab of the AWS CloudFormation stack for
+1. On the **Resources** tab of the CloudFormation stack for
    `data-transformation-tutorial-console`, select the physical ID of your API.
 2. In the main navigation pane, choose **Resources**, and then select the **GET** method.
 3. Choose the **Test** tab. You might need to choose the right arrow button to show the tab.
@@ -128,14 +128,14 @@ The output of the test will show the transformed response.
 1. Choose the **POST** method.
 2. Choose the **Integration request** tab, and then for **Integration request settings**, choose **Edit**.
 
-The AWS CloudFormation template has populated some of the integration request fields.
+The CloudFormation template has populated some of the integration request fields.
 
     * The integration type is AWS service.
     * The AWS service is DynamoDB.
     * The HTTP method is `POST`.
     * The Action is `PutItem`.
     * The Execution role allowing API Gateway to put an item into the DynamoDB table is
-     `data-transformation-tutorial-console-APIGatewayRole`. AWS CloudFormation created this role to allow API Gateway to have the minimal
+     `data-transformation-tutorial-console-APIGatewayRole`. CloudFormation created this role to allow API Gateway to have the minimal
      permissions for interacting with DynamoDB.
 
 The name of the DynamoDB table has not been specified. You will specify the name in the following steps. 3. For **Request body passthrough**, select **Never**.
@@ -168,7 +168,7 @@ For more information, see [Request validation for REST APIs in API Gateway](api-
 
 ###### To add a method and integration response from the `POST` method
 
-The AWS CloudFormation created a blank method and integration response. You will edit this response to provide more
+The CloudFormation created a blank method and integration response. You will edit this response to provide more
 information. For more information about how to edit responses, see [Parameter mapping examples for REST APIs in API Gateway](request-response-data-mappings.md "request-response-data-mappings.md").
 
 1. On the **Integration response** tab, for **Default - Response**, choose **Edit**.
@@ -203,11 +203,11 @@ The output should show your success message.
 You can open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/") to verify that the example item is in your
 table.
 
-###### To delete an AWS CloudFormation stack
+###### To delete an CloudFormation stack
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2. Select your AWS CloudFormation stack.
+2. Select your CloudFormation stack.
 3. Choose **Delete** and then confirm your choice.
 
 ## Set up data transformation using the AWS CLI
@@ -221,9 +221,9 @@ In this tutorial, you will create an incomplete API and DynamoDB table using the
 - You will create a `POST` method to allow the user to `POST` pet information to a
   Amazon DynamoDB table using a mapping template.
 
-###### To create an AWS CloudFormation stack
+###### To create an CloudFormation stack
 
-Download and unzip [the app creation template for AWS CloudFormation](samples/data-transformation-tutorial-cli.md "samples/data-transformation-tutorial-cli.md").
+Download and unzip [the app creation template for CloudFormation](samples/data-transformation-tutorial-cli.md "samples/data-transformation-tutorial-cli.md").
 
 To complete the following tutorial, you need the [AWS Command Line Interface (AWS CLI) version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 
@@ -235,20 +235,20 @@ In Windows, some Bash CLI commands that you commonly use (such as `zip`) are not
 To get a Windows-integrated version of Ubuntu and Bash, [install the Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install "https://learn.microsoft.com/en-us/windows/wsl/install").
 Example CLI commands in this guide use Linux formatting. Commands which include inline JSON documents must be reformatted if you are using the Windows CLI.
 
-1. Use the following command to create the AWS CloudFormation stack.
+1. Use the following command to create the CloudFormation stack.
 
 ```
 aws cloudformation create-stack --stack-name data-transformation-tutorial-cli --template-body file://data-transformation-tutorial-cli.zip --capabilities CAPABILITY_NAMED_IAM
 ```
 
-2. AWS CloudFormation provisions the resources specified in the template. It can take a few minutes to finish provisioning
-   your resources. Use the following command to see the status of your AWS CloudFormation stack.
+2. CloudFormation provisions the resources specified in the template. It can take a few minutes to finish provisioning
+   your resources. Use the following command to see the status of your CloudFormation stack.
 
 ```
 aws cloudformation describe-stacks --stack-name data-transformation-tutorial-cli
 ```
 
-3. When the status of your AWS CloudFormation stack is `StackStatus: "CREATE_COMPLETE"`, use the following
+3. When the status of your CloudFormation stack is `StackStatus: "CREATE_COMPLETE"`, use the following
    command to retrieve relevant output values for future steps.
 
 ```
@@ -356,7 +356,7 @@ aws apigateway put-method --rest-api-id `abc123` \
 
 ```
 
-This method will allow you to send pet information to the DynamoDB table that your created in the AWS CloudFormation stack. 2. Use the following command to create an AWS service integration on the `POST` method.
+This method will allow you to send pet information to the DynamoDB table that your created in the CloudFormation stack. 2. Use the following command to create an AWS service integration on the `POST` method.
 
 ```
 aws apigateway put-integration --rest-api-id `abc123` \
@@ -405,17 +405,17 @@ aws apigateway test-invoke-method --rest-api-id `abc123` \
 
 The output will show the successful message.
 
-###### To delete an AWS CloudFormation stack
+###### To delete an CloudFormation stack
 
-- Use the following command to delete your AWS CloudFormation resources.
+- Use the following command to delete your CloudFormation resources.
 
 ```
 aws cloudformation delete-stack  --stack-name data-transformation-tutorial-cli
 ```
 
-## Completed data transformation AWS CloudFormation template
+## Completed data transformation CloudFormation template
 
-The following example is a completed AWS CloudFormation template, which creates an API and a DynamoDB table with a
+The following example is a completed CloudFormation template, which creates an API and a DynamoDB table with a
 `/pets` resource with `GET` and `POST` methods.
 
 - The `GET` method will get data from the

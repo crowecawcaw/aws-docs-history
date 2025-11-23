@@ -84,7 +84,7 @@ status code to `400` if the integration response contains the string `error`. 14
 However, the last line under **Logs** now ends with: `Method completed with
  status: 400`.
 
-AWS CloudFormation
+CloudFormation
 
 In this example, you use the
 [body](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.md#cfn-apigateway-restapi-body "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.md#cfn-apigateway-restapi-body") property to import an OpenAPI definition file into API Gateway.
@@ -294,7 +294,7 @@ header2=header2Val, header1=pets, x-amzn-apigateway-api-id=`api-id`,
 Accept=application/json, multivalueheader=pets,header1Valheader2Val}
 ```
 
-AWS CloudFormation
+CloudFormation
 
 In this example, you use the
 [body](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.md#cfn-apigateway-restapi-body "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.md#cfn-apigateway-restapi-body") property to import an OpenAPI definition file into API Gateway.

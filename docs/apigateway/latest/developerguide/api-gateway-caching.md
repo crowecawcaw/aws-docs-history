@@ -426,9 +426,9 @@ aws apigateway update-stage /
     --patch-operations 'op=replace,path=/*/*/caching/unauthorizedCacheControlHeaderStrategy,value="FAIL_WITH_403"'
 ```
 
-## AWS CloudFormation example of a stage with a cache
+## CloudFormation example of a stage with a cache
 
-The following AWS CloudFormation template creates an example API, provisions a `0.5` GB cache for the
+The following CloudFormation template creates an example API, provisions a `0.5` GB cache for the
 `Prod` stage, and turns on
 method-level caching for all `GET` methods.
 

@@ -100,7 +100,7 @@ The following headers are reserved. You can't configure request or response mapp
 
 ## Examples
 
-The following AWS CLI examples configure parameter mappings. For example AWS CloudFormation templates, see [GitHub](https://github.com/awsdocs/amazon-api-gateway-developer-guide/tree/main/cloudformation-templates "https://github.com/awsdocs/amazon-api-gateway-developer-guide/tree/main/cloudformation-templates").
+The following AWS CLI examples configure parameter mappings. For example CloudFormation templates, see [GitHub](https://github.com/awsdocs/amazon-api-gateway-developer-guide/tree/main/cloudformation-templates "https://github.com/awsdocs/amazon-api-gateway-developer-guide/tree/main/cloudformation-templates").
 
 ### Add a header to an API request
 

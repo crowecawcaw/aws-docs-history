@@ -64,6 +64,7 @@ REST APIs in API Gateway](how-to-custom-domains.md "how-to-custom-domains.md"), 
 | [API keys](api-gateway-api-usage-plans.md "api-gateway-api-usage-plans.md")                       | Yes                                                        | No                                                                       |
 | [Per-client rate limiting](api-gateway-request-throttling.md "api-gateway-request-throttling.md") | Yes                                                        | No                                                                       |
 | [Per-client usage throttling](api-gateway-api-usage-plans.md "api-gateway-api-usage-plans.md")    | Yes                                                        | No                                                                       |
+| [Developer portal](apigateway-portals.md "apigateway-portals.md")                                 | Yes                                                        | No                                                                       |
 
 ## Development
 
@@ -110,3 +111,4 @@ in API Gateway](how-to-integration-settings.md "how-to-integration-settings.md")
 | [Private integrations with Application Load Balancers](http-api-develop-integrations-private.md "http-api-develop-integrations-private.md") | No                                                                                 | Yes                                                                                                  |
 | [Private integrations with AWS Cloud Map](http-api-develop-integrations-private.md "http-api-develop-integrations-private.md")              | No                                                                                 | Yes                                                                                                  |
 | [Mock integrations](how-to-mock-integration.md "how-to-mock-integration.md")                                                                | Yes                                                                                | No                                                                                                   |
+| [Response streaming](response-transfer-mode.md "response-transfer-mode.md")                                                                 | Yes                                                                                | No                                                                                                   |

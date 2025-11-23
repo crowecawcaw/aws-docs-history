@@ -20,6 +20,7 @@ OpenAPI definition file. For more information on how to export an API, see [Expo
 - [x-amazon-apigateway-authtype property](api-gateway-swagger-extensions-authtype.md "api-gateway-swagger-extensions-authtype.md")
 - [x-amazon-apigateway-binary-media-types property](api-gateway-swagger-extensions-binary-media-types.md "api-gateway-swagger-extensions-binary-media-types.md")
 - [x-amazon-apigateway-documentation object](api-gateway-swagger-extensions-documentation.md "api-gateway-swagger-extensions-documentation.md")
+- [x-amazon-apigateway-endpoint-access-mode](openapi-extensions-endpoint-access-mode.md "openapi-extensions-endpoint-access-mode.md")
 - [x-amazon-apigateway-endpoint-configuration object](api-gateway-swagger-extensions-endpoint-configuration.md "api-gateway-swagger-extensions-endpoint-configuration.md")
 - [x-amazon-apigateway-gateway-responses object](api-gateway-swagger-extensions-gateway-responses.md "api-gateway-swagger-extensions-gateway-responses.md")
 - [x-amazon-apigateway-gateway-responses.gatewayResponse object](api-gateway-swagger-extensions-gateway-responses.md "api-gateway-swagger-extensions-gateway-responses.md")
@@ -40,4 +41,5 @@ OpenAPI definition file. For more information on how to export an API, see [Expo
 - [x-amazon-apigateway-request-validator property](api-gateway-swagger-extensions-request-validator.md "api-gateway-swagger-extensions-request-validator.md")
 - [x-amazon-apigateway-request-validators object](api-gateway-swagger-extensions-request-validators.md "api-gateway-swagger-extensions-request-validators.md")
 - [x-amazon-apigateway-request-validators.requestValidator object](api-gateway-swagger-extensions-request-validators.md "api-gateway-swagger-extensions-request-validators.md")
+- [x-amazon-apigateway-security-policy](openapi-extensions-security-policy.md "openapi-extensions-security-policy.md")
 - [x-amazon-apigateway-tag-value property](api-gateway-openapi-extensions-x-amazon-apigateway-tag-value.md "api-gateway-openapi-extensions-x-amazon-apigateway-tag-value.md")

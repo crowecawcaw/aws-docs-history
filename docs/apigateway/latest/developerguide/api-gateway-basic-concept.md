@@ -99,9 +99,11 @@ system.
 
 **Developer portal**
 
-An application that allows your customers to register, discover, and subscribe
-to your API products (API Gateway usage plans), manage their API keys, and view
-their usage metrics for your APIs.
+An application where API providers can share their APIs and API documentation to API consumers. APIs are
+grouped into products, which are a collection of REST API endpoints, API documentation, and supplemental
+product documentation.
+
+See [API Gateway portals](apigateway-portals.md "apigateway-portals.md").
 
 **Edge-optimized API endpoint**
 
@@ -166,6 +168,20 @@ A model is required for generating a strongly typed SDK of an API. It is also
 used to validate payloads. A model is convenient for generating a sample mapping
 template to initiate creation of a production mapping template. Although useful,
 a model is not required for creating a mapping template.
+
+**Portal**
+
+See [Developer portal](#apigateway-definition-developer-portal "#apigateway-definition-developer-portal").
+
+**Portal Product**
+
+A service or functionality that you want to share. Your portal product is a
+collection of product REST endpoints and product pages. Product REST endpoints are the access points to your
+portal product, and they consist of the path and method of a REST API and the stage it's deployed to. Product
+pages are documentation that you provide to explain how API consumers can use your product endpoints. You can
+share products across AWS accounts to add them to portals.
+
+See [Create a product](apigateway-portals-create-portal-product.md "apigateway-portals-create-portal-product.md").
 
 **Private API**
 

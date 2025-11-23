@@ -52,7 +52,7 @@ console
      integrated with an AWS service.
    - Choose **VPC link** if your API will use a
      `VpcLink` as a private integration endpoint. For more
-     information, see [Private integrations for REST APIs in API Gateway](set-up-private-integration.md "set-up-private-integration.md").
+     information, see [Set up a private integration](set-up-private-integration.md "set-up-private-integration.md").
 
 5. If you chose **Lambda function**, do the following:
    1. For **Use Lambda proxy integration**, choose the

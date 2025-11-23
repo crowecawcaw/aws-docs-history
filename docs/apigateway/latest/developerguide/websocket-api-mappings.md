@@ -51,8 +51,8 @@ aws apigatewayv2 create-api-mapping \
     --stage test
 ```
 
-AWS CloudFormation
-The following AWS CloudFormation example creates an API mapping.
+CloudFormation
+The following CloudFormation example creates an API mapping.
 
 ```
 MyApiMapping:

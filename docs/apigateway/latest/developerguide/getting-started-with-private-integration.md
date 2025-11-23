@@ -1,94 +1,180 @@
 # Tutorial: Create a REST API with a private integration
 
-You can create an API Gateway API with private integration to provide your customers access to
-HTTP/HTTPS resources within your Amazon Virtual Private Cloud (Amazon VPC). Such VPC resources are HTTP/HTTPS
-endpoints on an EC2 instance behind a Network Load Balancer in the VPC. The Network Load Balancer encapsulates the VPC
-resource and routes incoming requests to the targeted resource.
+In this tutorial, you create a REST API that connects to an Amazon ECS service that runs in an Amazon VPC. Clients
+outside of your Amazon VPC can use the API to access your Amazon ECS service.
 
-When a client calls the API, API Gateway connects to the Network Load Balancer through the
-pre-configured VPC link. A VPC link is encapsulated by an API Gateway resource of [VpcLink](../api/API_VpcLink.md "../api/API_VpcLink.md"). It is responsible for forwarding
-API method requests to the VPC resources and returns backend responses to the caller. For an
-API developer, a `VpcLink` is functionally equivalent to an integration endpoint.
+This tutorial takes approximately an hour to complete. First, you use an CloudFormation template to create a Amazon VPC and
+Amazon ECS service. Then you use the API Gateway console to create a VPC link V2. The VPC link allows API Gateway to access the Amazon ECS
+service that runs in your Amazon VPC. Next, you create a REST API that uses the VPC link V2 to connect to your Amazon ECS
+service. Lastly, you test your API.
 
-To create an API with private integration, you must create a new
-`VpcLink`, or choose an existing one, that is connected to a Network Load Balancer that targets the desired VPC
-resources. You must have [appropriate
-permissions](grant-permissions-to-create-vpclink.md "grant-permissions-to-create-vpclink.md") to create and manage a `VpcLink`. You then set up an API
-[method](../api/API_Method.md "../api/API_Method.md") and integrate it with the
-`VpcLink` by setting either `HTTP` or `HTTP_PROXY` as
-the [integration type](../api/API_Integration.md#type "../api/API_Integration.md#type"), setting
-`VPC_LINK` as the integration [connection type](../api/API_Integration.md#connectionType "../api/API_Integration.md#connectionType"), and
-setting the `VpcLink` identifier on the integration [`connectionId`](../api/API_Integration.md#connectionId "../api/API_Integration.md#connectionId").
+When you invoke your REST API, API Gateway routes the request to your Amazon ECS service through your VPC link V2, and then
+returns the response from the service.
 
 ###### Note
 
-The Network Load Balancer and API must be owned by the same AWS account.
+This tutorial was previously supported for HTTP APIs, and now is supported
+for REST APIs using VPC link V2.
 
-To quickly get started creating an API to access VPC resources, we walk through the
-essential steps for building an API with the private integration, using the API Gateway console.
-Before creating the API, do the following:
+![Overview of the REST API you create in this tutorial.](images/private-integration-rest.png)
+To complete this tutorial, you need an AWS account and an AWS Identity and Access Management user with console access. For more
+information, see [Set up to use API Gateway](setting-up.md "setting-up.md").
 
-1. Create a VPC resource, create or choose a Network Load Balancer under your
-   account in the same region, and add the EC2 instance hosting the resource as a
-   target of the Network Load Balancer. For more information, see [Set up a Network Load Balancer
-   for API Gateway private integrations](set-up-nlb-for-vpclink-using-console.md "set-up-nlb-for-vpclink-using-console.md").
-2. Grant permissions to create the VPC links for private integrations. For more
-   information, see [Grant permissions for API Gateway to create a VPC
-   link](grant-permissions-to-create-vpclink.md "grant-permissions-to-create-vpclink.md").
-   After creating your VPC resource and your Network Load Balancer with your VPC resource
-   configured in its target groups, follow the instructions below to create an API and
-   integrate it with the VPC resource via a `VpcLink` in a private integration.
+###### Topics
 
-###### To create an API with a private integration
+- [Step 1: Create an Amazon ECS service](#rest-api-private-integration-create-ecs-service "#rest-api-private-integration-create-ecs-service")
+- [Step 2: Create a VPC link](#http-api-private-integration-vpc-link "#http-api-private-integration-vpc-link")
+- [Step 3: Create a REST API](#http-api-private-integration-create-api "#http-api-private-integration-create-api")
+- [Step 4: Test your API](#rest-api-private-integration-test-api "#rest-api-private-integration-test-api")
+- [Step 5: Deploy your API](#rest-api-private-integration-deploy-api "#rest-api-private-integration-deploy-api")
+- [Step 6: Call your API](#rest-api-private-integration-call "#rest-api-private-integration-call")
+- [Step 7: Clean up](#rest-api-private-integration-cleanup "#rest-api-private-integration-cleanup")
+
+## Step 1: Create an Amazon ECS service
+
+Amazon ECS is a container management service that makes it easy to run, stop, and manage Docker containers on a
+cluster. In this tutorial, you run your cluster on a serverless infrastructure that's managed by Amazon ECS.
+
+Download and unzip [this CloudFormation template](samples/rest-private-integration-tutorial.md "samples/rest-private-integration-tutorial.md"), which creates
+all of the dependencies for the service, including an Amazon VPC. You use the template to create an Amazon ECS service that
+uses an Application Load Balancer.
+
+###### To create an CloudFormation stack
+
+1. Open the CloudFormation console at
+   [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+2. Choose **Create stack** and then choose **With new resources
+   (standard)**.
+3. For **Specify template**, choose **Upload a template file**.
+4. Select the template that you downloaded.
+5. Choose **Next**.
+6. For **Stack name**, enter `rest-api-private-integrations-tutorial` and then choose
+   **Next**.
+7. For **Configure stack options**, choose **Next**.
+8. For **Capabilities**, acknowledge that CloudFormation can create IAM resources in your
+   account.
+9. Choose **Next**, and then choose **Submit**.
+
+CloudFormation provisions the ECS service, which can take a few minutes. When the status of your CloudFormation stack is
+**CREATE_COMPLETE**, you're ready to move on to the next step.
+
+## Step 2: Create a VPC link
+
+A VPC link allows API Gateway to access private resources in an Amazon VPC. You use a VPC link to allow clients to access
+your Amazon ECS service through your REST API.
+
+###### To create a VPC link
 
 1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
-2. If this is your first time using API Gateway, you see a page that introduces you to
-   the features of the service. Under **REST API**, choose **Build**. When the
-   **Create Example API** popup appears, choose
-   **OK**.
+2. On the main navigation pane, choose **VPC links** and then choose **Create**.
 
-If this is not your first time using API Gateway, choose **Create
-API**. Under **REST API**, choose **Build**. 3. Create an edge-optimized or Regional REST API. For **IP address type**, use
-**IPv4**. 4. Select your API. 5. Choose **Create method**, and then do the following:
+You might need to choose the menu icon to open the main navigation pane. 3. For **Choose a VPC link version**, select **VPC link V2**. 4. For **Name**, enter `private-integrations-tutorial`. 5. For **VPC**, choose the VPC that you created in step 1. The name should start with
+**RestApiStack**. 6. For **Subnets**, select the two private subnets in your VPC. Their names end with
+`PrivateSubnet`. 7. For **Security groups**, select the Group ID that starts with
+`private-integrations-tutorial` and has the description of
+`RestApiStack/RestApiTutorialService/Service/SecurityGroup`. 8. Choose **Create**.
+
+After you create your VPC link V2, API Gateway provisions Elastic Network Interfaces to access your VPC. The process
+can take a few minutes. In the meantime, you can create your API.
+
+## Step 3: Create a REST API
+
+The REST API provides an HTTP endpoint for your Amazon ECS service.
+
+###### To create a REST API
+
+1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
+2. Choose **Create API**, and then for **REST API**, choose
+   **Build**.
+3. For **Name**, enter `private-integration-api`.
+4. For **IP address type**, select **IPv4**.
+5. Choose **Create API**.
+
+After you create your API, you create a method. 6. Choose **Create method**, and then do the following:
 
     1. For **Method type**, select `GET`.
     2. For **Integration type**, select **VPC link**.
     3. Turn on **VPC proxy integration**.
     4. For **HTTP method**, select `GET`.
-    5. For **VPC link**, select **[Use stage variable]** and enter `${stageVariables.vpcLinkId}` in the text box below.
+    5. For **VPC link**, choose the VPC link V2 you created in the previous step.
+    6. For **Integration target**, enter the load balancer that you created with the CloudFormation
+     template in Step 1. It's name should start with **rest-**.
+    7. For **Endpoint URL**, enter
+     `http://private-integrations-tutorial.com`.
 
 
-    You define the `vpcLinkId` stage variable after
-     deploying the API to a stage and set its value to the ID of the
-     `VpcLink`.
-    6. For **Endpoint URL**, enter a URL, for example, `http://myApi.example.com`.
+    The URL
+     is used to set the `Host` header of the integration request. In this case, the host header is
+     `private-integrations-tutorial`.
+    8. Choose **Create method**.
 
 
-    The URL must be a valid top-level domain and the host name (for example, `myApi.example.com`)
-     is used to set the `Host` header of the integration request.
-    7. Choose **Create method**.
+    With the proxy integration, the API is ready to test.
 
+## Step 4: Test your API
 
-    With the proxy integration, the API is ready for deployment. Otherwise, you need to proceed to set up appropriate method responses and integration responses.
+Next, you test invoking the API method.
 
-6. Choose **Deploy API**, and then do the following:
-   1. For **Stage**, select **New stage**.
-   2. For **Stage name**, enter a stage name.
-   3. (Optional) For **Description**, enter a description.
-   4. Choose **Deploy**.
+###### To test your API
 
-7. Under the **Stage details** section, note the resulting **Invoke URL**. You need it to invoke
-   the API. Before doing that, you must set up the `vpcLinkId` stage
-   variable.
-8. In the **Stages** pane, choose the
-   **Stage variables** tab, and then do the following:
-   1. Choose **Manage variables**, and then choose **Add stage variable**.
-   2. For **Name**, enter
-      `vpcLinkId`.
-   3. For **Value**, enter the ID
-      of `VPC_LINK`, for example,
-      `gix6s7`.
-   4. Choose **Save**.
+1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
+2. Choose your API.
+3. Choose the
+   **Test** tab. You might need to choose the right arrow button to show the tab.
+4. Choose **Test**
 
-   Using the stage variable, you can easily switch to different VPC
-   links for the API by changing the stage variable value.
+Verify that your API's response is a welcome message that tells you that your app is running on
+Amazon ECS.
+
+## Step 5: Deploy your API
+
+Next, you deploy your API.
+
+###### To deploy your API
+
+1. Choose **Deploy API**.
+2. For **Stage**, select **New stage**.
+3. For **Stage name**, enter `Prod`.
+4. (Optional) For **Description**, enter a description.
+5. Choose **Deploy**.
+
+## Step 6: Call your API
+
+After your API is deployed, you can call it.
+
+###### To call your API
+
+1. Enter the invoke URL in a web browser.
+
+The full URL should look like
+`https://`abcd123`.execute-api.`us-east-2`.amazonaws.com/Prod`.
+
+Your browser sends a `GET` request to the API. 2. Verify that your API's response is a welcome message that tells you that your app is running on
+Amazon ECS.
+
+If you see the welcome message, you successfully created an Amazon ECS service that runs in an Amazon VPC, and you
+used an API Gateway REST API with a VPC link V2 to access the Amazon ECS service.
+
+## Step 7: Clean up
+
+To prevent unnecessary costs, delete the resources that you created as part of this tutorial. The following
+steps delete your VPC link V2, CloudFormation stack, and REST API.
+
+###### To delete a REST API
+
+1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
+2. On the **APIs** page, select an API. Choose **Actions**, choose
+   **Delete**, and then confirm your choice.
+
+###### To delete a VPC link
+
+1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
+2. Choose **VPC link**.
+3. Select your VPC link, choose **Delete**, and then confirm your choice.
+
+###### To delete an CloudFormation stack
+
+1. Open the CloudFormation console at
+   [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+2. Select your CloudFormation stack.
+3. Choose **Delete** and then confirm your choice.

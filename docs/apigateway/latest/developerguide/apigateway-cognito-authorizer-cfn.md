@@ -1,6 +1,6 @@
-# Create an Amazon Cognito authorizer for a REST API using AWS CloudFormation
+# Create an Amazon Cognito authorizer for a REST API using CloudFormation
 
-You can use AWS CloudFormation to create an Amazon Cognito user pool and an Amazon Cognito authorizer. The example AWS CloudFormation template does the following:
+You can use CloudFormation to create an Amazon Cognito user pool and an Amazon Cognito authorizer. The example CloudFormation template does the following:
 
 - Create an Amazon Cognito user pool. The client must first sign the user in to the user pool and obtain an [identity or access token](../../../cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.md "../../../cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.md"). If you're using access tokens to authorize API method calls, be sure to
   configure the app integration with the user pool to set up the custom scopes that you want on a given

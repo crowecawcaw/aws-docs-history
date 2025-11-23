@@ -21,7 +21,7 @@ The following considerations might impact your use of IP address types:
 ## Change the IP address type of an WebSocket API
 
 You can change the IP address type by updating the API’s configuration. You can update the API's configuration
-by using the AWS Management Console, the AWS CLI, AWS CloudFormation, or an AWS SDK. If you change the API’s IP address type, you don't redeploy
+by using the AWS Management Console, the AWS CLI, CloudFormation, or an AWS SDK. If you change the API’s IP address type, you don't redeploy
 your API for the changes to take effect.
 
 AWS Management Console###### To change the IP address type of a WebSocket API

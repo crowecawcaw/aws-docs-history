@@ -83,7 +83,7 @@ aws apigateway create-rest-api \
 Deny API traffic based on source IP address or range](apigateway-resource-policies-examples.md#apigateway-resource-policies-source-ip-address-example "apigateway-resource-policies-examples.md#apigateway-resource-policies-source-ip-address-example").
 
 AWS CloudFormation
-You can use AWS CloudFormation to create an API with a resource policy. The following example creates a REST API
+You can use CloudFormation to create an API with a resource policy. The following example creates a REST API
 with the example resource policy, [Example:
 Deny API traffic based on source IP address or range](apigateway-resource-policies-examples.md#apigateway-resource-policies-source-ip-address-example "apigateway-resource-policies-examples.md#apigateway-resource-policies-source-ip-address-example").
 

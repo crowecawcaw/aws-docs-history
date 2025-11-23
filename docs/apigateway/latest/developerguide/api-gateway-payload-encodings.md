@@ -3,10 +3,12 @@
 REST APIs in API Gateway
 
 In API Gateway, the API request and response have a text or binary payload. A text payload is a
-`UTF-8`-encoded JSON string. A binary payload is anything other than a text
-payload. The binary payload can be, for example, a JPEG file, a GZip file, or an XML file.
-The API configuration required to support binary media depends on whether your API uses
-proxy or non-proxy integrations.
+`UTF-8`-encoded JSON string. A binary payload is anything other than a text payload. The binary payload
+can be, for example, a JPEG file, a GZip file, or an XML file. The API configuration required to support binary
+media depends on whether your API uses proxy or non-proxy integrations.
+
+If you use a proxy integration with payload
+response streaming, you don't need to configure your binary media types. For more information, see [Stream the integration response for your proxy integrations in API Gateway](response-transfer-mode.md "response-transfer-mode.md").
 
 ## AWS Lambda proxy integrations
 
@@ -23,6 +25,9 @@ values, such as requests from a browser, set your API's binary media types to `*
 For example code, see [Return binary media from a Lambda proxy
 integration in API Gateway](lambda-proxy-binary-media.md "lambda-proxy-binary-media.md").
 
+If you use a Lambda proxy integration with payload response streaming, you don't need to configure your binary
+media types. For more information, see [Set up a Lambda proxy integration with payload response streaming in API Gateway](response-transfer-mode-lambda.md "response-transfer-mode-lambda.md").
+
 ## Non-proxy integrations
 
 To handle binary payloads for non-proxy integrations, you add the media types to the
@@ -36,7 +41,7 @@ undefined.
 ###### Note
 
 For `MOCK` or private integrations, setting the `contentHandling` properties isn't supported in the AWS Management Console. You must use the
-AWS CLI, AWS CloudFormation, or an SDK to set the `contentHandling` properties.
+AWS CLI, CloudFormation, or an SDK to set the `contentHandling` properties.
 
 Depending on the `contentHandling` value, and whether the
 `Content-Type` header of the response or the `Accept` header of the incoming request matches an entry in the

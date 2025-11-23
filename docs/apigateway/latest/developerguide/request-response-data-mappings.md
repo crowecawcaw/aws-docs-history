@@ -1,7 +1,7 @@
 # Parameter mapping examples for REST APIs in API Gateway
 
 The following examples show how to create parameter mapping expressions using the API Gateway console, OpenAPI, and
-AWS CloudFormation templates. For an example of how to use parameter mapping to create the required CORS headers, see [CORS for REST APIs in API Gateway](how-to-cors.md "how-to-cors.md").
+CloudFormation templates. For an example of how to use parameter mapping to create the required CORS headers, see [CORS for REST APIs in API Gateway](how-to-cors.md "how-to-cors.md").
 
 ## Example 1: Map a method request parameter to an
 
@@ -44,7 +44,7 @@ Tue Feb 04 00:28:36 UTC 2025 : Endpoint request headers: {DogsAge0=true, x-amzn-
 The request header parameter has changed from
 `puppies` to `DogsAge0`.
 
-AWS CloudFormation
+CloudFormation
 
 In this example, you use the
 [body](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.md#cfn-apigateway-restapi-body "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.md#cfn-apigateway-restapi-body") property to import an OpenAPI definition file into API Gateway.
@@ -173,7 +173,7 @@ path parameter. 17. Choose **URL query string parameters**. 18. Choose **Add que
 This maps the multivalue query string parameter to a new single valued integration request query
 string parameter. 21. Choose **Save**. 22. Redeploy your API for the changes to take effect.
 
-AWS CloudFormation
+CloudFormation
 In this example, you use the
 [body](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.md#cfn-apigateway-restapi-body "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.md#cfn-apigateway-restapi-body") property to import an OpenAPI definition file into API Gateway.
 
@@ -344,7 +344,7 @@ This maps the method request body to a new integration request header parameter.
 
 This maps a part of the method request body to a new integration request header parameter. 12. Choose **Save**. 13. Redeploy your API for the changes to take effect.
 
-AWS CloudFormation
+CloudFormation
 
 In this example, you use the
 [body](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.md#cfn-apigateway-restapi-body "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.md#cfn-apigateway-restapi-body") property to import an OpenAPI definition file into API Gateway.
@@ -468,7 +468,7 @@ Your method must have a non-proxy integration. 4. Choose the **Method response**
 10. Choose **Save**.
 11. Redeploy your API for the changes to take effect.
 
-AWS CloudFormation
+CloudFormation
 
 In this example, you use the
 [body](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.md#cfn-apigateway-restapi-body "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.md#cfn-apigateway-restapi-body") property to import an OpenAPI definition file into API Gateway.

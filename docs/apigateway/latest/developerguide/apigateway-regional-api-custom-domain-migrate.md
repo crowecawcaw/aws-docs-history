@@ -21,6 +21,13 @@ The following are considerations for migrating your custom domain between a Regi
   API.
 - It might take up to 60 seconds to complete a migration between an edge-optimized custom domain name and a
   Regional custom domain name. The migration time also depends on when you update your DNS records.
+- You can only add an additional endpoint configuration if the endpoint access mode is set to
+  `BASIC`. Once you have two endpoint configurations, you can't change the endpoint access mode.
+  For more information, see [Endpoint access mode](apigateway-security-policies.md#apigateway-security-policies-endpoint-access-mode "apigateway-security-policies.md#apigateway-security-policies-endpoint-access-mode").
+- If your custom domain name uses a security policy that starts with `SecurityPolicy_`, when you
+  add a new endpoint configuration type, the endpoint access mode is the same across both endpoint types, and
+  you must choose a security policy that starts with `SecurityPolicy_` for the new endpoint
+  configuration type.
 
 ## Migrate custom
 
@@ -69,6 +76,74 @@ The output will look like the following:
             "REGIONAL"
         ]
     },
+    "regionalCertificateArn": "arn:aws:acm:us-west-2:123456789012:certificate/cd833b28-58d2-407e-83e9-dce3fd852149",
+    "regionalDomainName": "d-fdisjghyn6.execute-api.us-west-2.amazonaws.com"
+}
+```
+
+For the migrated Regional custom domain name, the resulting
+`regionalDomainName` property returns the Regional API hostname. You
+must set up a DNS record to point the Regional custom domain name to this Regional
+hostname. This enables the traffic that is bound to the custom domain name to be
+routed to the Regional host.
+
+After the DNS record is set, you can remove the edge-optimized custom domain name. The following [update-domain-name](../../../cli/latest/reference/apigateway/update-domain-name.md "../../../cli/latest/reference/apigateway/update-domain-name.md") command removes the
+edge-optimized custom domain name:
+
+```
+aws apigateway update-domain-name \
+    --domain-name api.example.com \
+    --patch-operations '[
+            {"op":"remove", "path":"/endpointConfiguration/types", "value":"EDGE"},
+            {"op":"remove", "path":"certificateName"},
+            {"op":"remove", "path":"certificateArn"}
+        ]'
+```
+
+The following procedure shows how to migrate an edge-optimized custom domain name that uses an enhanced
+security policy to a Regional custom domain name that also uses an enhanced security policy.
+
+AWS Management Console1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway"). 2. Choose **Custom domain names** from the main navigation
+pane. 3. Choose an edge-optimized custom domain name. 4. For **Endpoint configuration**, choose **Edit**. 5. Choose **Add Regional endpoint**. 6. For **ACM certificate**, choose a certificate.
+
+The Regional certificate must be in the same Region as the Regional API. 7. For **Security policy**, choose a security policy that starts with
+`SecurityPolicy_`. 8. For **Endpoint access mode**, choose **Basic**. 9. Choose **Save changes**. 10. Set up a DNS record to point the Regional custom domain name to this Regional hostname. For more information, see [configuring Route 53 to route traffic to API Gateway](../../../Route53/latest/DeveloperGuide/routing-to-api-gateway.md "../../../Route53/latest/DeveloperGuide/routing-to-api-gateway.md"). 11. After you confirm that your DNS configuration is using the correct endpoint, you delete the
+edge-optimized endpoint configuration. Choose your custom domain name, and then for
+**Edge-optimized endpoint configuration**, choose **Delete**. 12. Confirm your choice and delete the endpoint.
+
+AWS CLI
+The following [update-domain-name](../../../cli/latest/reference/apigateway/update-domain-name.md "../../../cli/latest/reference/apigateway/update-domain-name.md")
+command migrates an edge-optmized custom domain name to a Regional custom domain name:
+
+```
+aws apigateway update-domain-name \
+    --domain-name 'api.example.com' \
+    --patch-operations  '[
+        { "op":"add", "path": "/endpointConfiguration/types","value": "REGIONAL" },
+        { "op":"replace", "path": "/securityPolicy", "value":"SecurityPolicy_TLS13_1_3_2025_09"},
+        { "op":"add", "path": "/regionalCertificateArn", "value": "arn:aws:acm:us-west-2:123456789012:certificate/cd833b28-58d2-407e-83e9-dce3fd852149" }
+      ]'
+```
+
+The Regional certificate must be of the same Region as the Regional API.
+
+The output will look like the following:
+
+```
+{
+    "certificateArn": "arn:aws:acm:us-east-1:123456789012:certificate/34a95aa1-77fa-427c-aa07-3a88bd9f3c0a",
+    "certificateName": "edge-cert",
+    "certificateUploadDate": "2017-10-16T23:22:57Z",
+    "distributionDomainName": "d1frvgze7vy1bf.cloudfront.net",
+    "domainName": "api.example.com",
+    "endpointConfiguration": {
+        "types": [
+            "EDGE",
+            "REGIONAL"
+        ]
+    },
+    "securityPolicy": "SecurityPolicy_TLS13_1_3_2025_09",
+    "endpointAccessMode": "BASIC",
     "regionalCertificateArn": "arn:aws:acm:us-west-2:123456789012:certificate/cd833b28-58d2-407e-83e9-dce3fd852149",
     "regionalDomainName": "d-fdisjghyn6.execute-api.us-west-2.amazonaws.com"
 }

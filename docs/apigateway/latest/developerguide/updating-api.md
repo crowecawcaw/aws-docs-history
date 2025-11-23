@@ -3,7 +3,7 @@
 redeployment
 
 Maintaining an API amounts to viewing, updating and deleting the existing API setups. You
-can maintain an API using the API Gateway console, AWS CLI, AWS CloudFormation, an SDK or the API Gateway REST API. Updating
+can maintain an API using the API Gateway console, AWS CLI, CloudFormation, an SDK or the API Gateway REST API. Updating
 an API involves modifying certain resource properties or configuration settings of the API.
 Resource updates require redeploying the API, where configuration updates do not.
 

@@ -169,5 +169,5 @@ resources.
 ###### Tip
 
 You can automate the creation and cleanup of AWS resources by using AWS CloudFormation or AWS Serverless Application Model (AWS SAM). For
-some example AWS CloudFormation templates, see the [example
+some example CloudFormation templates, see the [example
 templates for API Gateway](https://github.com/awsdocs/amazon-api-gateway-developer-guide/tree/main/cloudformation-templates "https://github.com/awsdocs/amazon-api-gateway-developer-guide/tree/main/cloudformation-templates") in the **awsdocs** GitHub repository.

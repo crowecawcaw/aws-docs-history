@@ -93,9 +93,9 @@ For clients to decide if invocations are asynchronous or synchronous:
    requests for asynchronous invocations or `InvocationType:
 RequestResponse` for synchronous invocations.
 
-## Configure Lambda asynchronous invocation using AWS CloudFormation
+## Configure Lambda asynchronous invocation using CloudFormation
 
-The following AWS CloudFormation templates show how to configure the `AWS::ApiGateway::Method` for
+The following CloudFormation templates show how to configure the `AWS::ApiGateway::Method` for
 asynchronous invocations.
 
 For all invocations to be asynchronous:

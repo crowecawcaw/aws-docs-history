@@ -11,7 +11,7 @@ The following example Lambda function returns the `Sec-WebSocket-Protocol`
 header to clients. The function establishes a connection to your API only if the client specifies the
 `myprotocol` subprotocol.
 
-For an AWS CloudFormation template that creates this example API and Lambda proxy integration, see
+For an CloudFormation template that creates this example API and Lambda proxy integration, see
 [`ws-subprotocol.yaml`](samples/ws-subprotocol.md "samples/ws-subprotocol.md").
 
 ```

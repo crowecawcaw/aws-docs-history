@@ -12,7 +12,7 @@ version
 The authorizer payload format version specifies the format of the data that API Gateway
 sends to a Lambda authorizer, and how API Gateway interprets the response from Lambda. If you
 don't specify a payload format version, the AWS Management Console uses the latest version by
-default. If you create a Lambda authorizer by using the AWS CLI, AWS CloudFormation, or an SDK, you must
+default. If you create a Lambda authorizer by using the AWS CLI, CloudFormation, or an SDK, you must
 specify an `authorizerPayloadFormatVersion`. The supported values are
 `1.0` and `2.0`.
 

@@ -3,7 +3,7 @@
 In this tutorial, you create a private REST API. Clients can access the API only from within your Amazon VPC. The API
 is isolated from the public internet, which is a common security requirement.
 
-This tutorial takes approximately 30 minutes to complete. First, you use an AWS CloudFormation template to create an Amazon VPC, a
+This tutorial takes approximately 30 minutes to complete. First, you use an CloudFormation template to create an Amazon VPC, a
 VPC endpoint, an AWS Lambda function, and launch an Amazon EC2 instance that you'll use to test your API. Next, you use
 the AWS Management Console to create a private API and attach a resource policy that allows access only from your VPC endpoint.
 Lastly, you test your API.
@@ -12,7 +12,7 @@ Lastly, you test your API.
 To complete this tutorial, you need an AWS account and an AWS Identity and Access Management user with console access. For more
 information, see [Set up to use API Gateway](setting-up.md "setting-up.md").
 
-In this tutorial, you use the AWS Management Console. For an AWS CloudFormation template that creates this API and all related resources,
+In this tutorial, you use the AWS Management Console. For an CloudFormation template that creates this API and all related resources,
 see [template.yaml](samples/private-api-full-template.md "samples/private-api-full-template.md").
 
 ###### Topics
@@ -27,17 +27,17 @@ see [template.yaml](samples/private-api-full-template.md "samples/private-api-fu
 - [Step 7: Connect to an instance in your VPC and invoke
   your API](#private-api-tutorial-connect-to-instance "#private-api-tutorial-connect-to-instance")
 - [Step 8: Clean up](#private-api-tutorial-cleanup "#private-api-tutorial-cleanup")
-- [Next steps: Automate with AWS CloudFormation](#private-api-tutorial-next-steps "#private-api-tutorial-next-steps")
+- [Next steps: Automate with CloudFormation](#private-api-tutorial-next-steps "#private-api-tutorial-next-steps")
 
 ## Step 1: Create dependencies
 
-Download and unzip [this AWS CloudFormation template](samples/private-api-starter-template.md "samples/private-api-starter-template.md"). You use
+Download and unzip [this CloudFormation template](samples/private-api-starter-template.md "samples/private-api-starter-template.md"). You use
 the template to create all of the dependencies for your private API, including an Amazon VPC, a VPC endpoint, and a
 Lambda function that serves as the backend of your API. You create the private API later.
 
-###### To create an AWS CloudFormation stack
+###### To create an CloudFormation stack
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Choose **Create stack** and then choose **With new resources
    (standard)**.
@@ -47,11 +47,11 @@ Lambda function that serves as the backend of your API. You create the private A
 6. For **Stack name**, enter `private-api-tutorial` and then choose
    **Next**.
 7. For **Configure stack options**, choose **Next**.
-8. For **Capabilities**, acknowledge that AWS CloudFormation can create IAM resources in your
+8. For **Capabilities**, acknowledge that CloudFormation can create IAM resources in your
    account.
-9. Choose **Submit**.
-   AWS CloudFormation provisions the dependencies for your API, which can take a few minutes. When
-   the status of your AWS CloudFormation stack is **CREATE_COMPLETE**, choose **Outputs**. Note
+9. Choose **Next**, and then choose **Submit**.
+   CloudFormation provisions the dependencies for your API, which can take a few minutes. When
+   the status of your CloudFormation stack is **CREATE_COMPLETE**, choose **Outputs**. Note
    your VPC endpoint ID. You need it for later steps in this tutorial.
 
 ## Step 2: Create a private API
@@ -66,7 +66,7 @@ You create a private API to allow only clients within your VPC to access it.
 3. For **API name**, enter `private-api-tutorial`.
 4. For **API endpoint type**, select **Private**.
 5. For **VPC endpoint IDs**, enter the VPC endpoint ID from the **Outputs**
-   of your AWS CloudFormation stack.
+   of your CloudFormation stack.
 6. For **IP address type**, choose **Dualstack**.
 7. Choose **Create API**.
 
@@ -86,7 +86,7 @@ returns a response to the client.
 6. Turn on **Lambda proxy integration**. With a Lambda proxy integration, API Gateway sends an
    event to Lambda with a defined structure, and transforms the response from your Lambda function to an HTTP
    response.
-7. For **Lambda function**, choose the function that you created with the AWS CloudFormation template in
+7. For **Lambda function**, choose the function that you created with the CloudFormation template in
    Step 1. The function's name begins with `private-api-tutorial`.
 8. Choose **Create method**.
 
@@ -103,7 +103,7 @@ but that's not necessary for this tutorial.
 2. Choose your API.
 3. Choose **Resource policy**, and then choose **Create policy**.
 4. Enter the following policy. Replace `vpceID` with your VPC endpoint ID from the
-   **Outputs** of your AWS CloudFormation stack.
+   **Outputs** of your CloudFormation stack.
 
 JSON
 
@@ -194,7 +194,7 @@ browser.
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. Choose **Instances**.
-3. Choose the instance named **private-api-tutorial** that you created with the AWS CloudFormation
+3. Choose the instance named **private-api-tutorial** that you created with the CloudFormation
    template in Step 1.
 4. Choose **Connect** and then choose **Session Manager**.
 5. Choose **Connect** to launch a browser-based session to your instance.
@@ -215,7 +215,7 @@ works.
 ## Step 8: Clean up
 
 To prevent unnecessary costs, delete the resources that you created as part of this tutorial. The following
-steps delete your REST API and your AWS CloudFormation stack.
+steps delete your REST API and your CloudFormation stack.
 
 ###### To delete a REST API
 
@@ -223,14 +223,14 @@ steps delete your REST API and your AWS CloudFormation stack.
 2. On the **APIs** page, select an API. Choose **API actions**, choose
    **Delete API**, and then confirm your choice.
 
-###### To delete an AWS CloudFormation stack
+###### To delete an CloudFormation stack
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2. Select your AWS CloudFormation stack.
+2. Select your CloudFormation stack.
 3. Choose **Delete** and then confirm your choice.
 
-## Next steps: Automate with AWS CloudFormation
+## Next steps: Automate with CloudFormation
 
 You can automate the creation and cleanup of all AWS resources involved in this tutorial. For a full example
-AWS CloudFormation template, see [template.yaml](samples/private-api-full-template.md "samples/private-api-full-template.md").
+CloudFormation template, see [template.yaml](samples/private-api-full-template.md "samples/private-api-full-template.md").

@@ -21,7 +21,7 @@ query (`version`), header (`x-user-id`), and path
 
 ###### Note
 
-If you're creating resources through OpenAPI or AWS CloudFormation, static values should be
+If you're creating resources through OpenAPI or CloudFormation, static values should be
 enclosed in single quotes.
 
 To add this value from the console, enter `application/json` in the box, without quotation marks.

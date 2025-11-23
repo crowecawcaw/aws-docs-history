@@ -14,7 +14,7 @@ HTTP APIs support [OpenID Connect](https://openid.net/developers/how-connect-wor
 built-in support for cross-origin resource sharing (CORS) and automatic deployments.
 
 You can create HTTP APIs by using the AWS Management Console, the AWS CLI, APIs,
-AWS CloudFormation, or SDKs.
+CloudFormation, or SDKs.
 
 ###### Topics
 
