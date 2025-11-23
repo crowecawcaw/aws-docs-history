@@ -74,8 +74,8 @@ preferences.
 ###### Solution
 
 Add the required permissions to the user who will view or edit recommendation
-preferences. For more information, see [Policies to grant access
-to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
+preferences. For more information, see [Policies to grant
+access to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
 
 ## Troubleshooting failed export jobs
 

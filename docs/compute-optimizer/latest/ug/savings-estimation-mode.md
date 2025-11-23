@@ -4,7 +4,7 @@ The savings estimation mode preference allows Compute Optimizer to analyze speci
 when generating the estimated cost savings of rightsizing recommendations. Compute Optimizer offers the
 savings estimation mode for the following pricing discounts per AWS resource:
 
-- Amazon EC2 and EC2 Auto Scaling group instances — Savings Plans and Reserved Instances pricing discounts.
+- Amazon EC2 and EC2 Amazon EC2 Auto Scaling group instances — Savings Plans and Reserved Instances pricing discounts.
 - AWS Lambda functions and Amazon ECS services — Saving Plans pricing discounts.
 - Amazon EBS volumes — other specific pricing discounts.
 - Aurora and RDS databases — Reserved Instances pricing discounts and other specific pricing discounts.

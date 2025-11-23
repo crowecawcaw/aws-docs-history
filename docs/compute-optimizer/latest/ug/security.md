@@ -23,3 +23,4 @@ _of_ the cloud and security _in_ the cloud:
 
 - [Data protection in AWS Compute Optimizer](data-protection.md "data-protection.md")
 - [Compliance validation for AWS Compute Optimizer](co-compliance.md "co-compliance.md")
+- [Monitoring Compute Optimizer Automation](monitoring-overview.md "monitoring-overview.md")

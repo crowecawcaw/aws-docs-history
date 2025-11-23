@@ -62,7 +62,19 @@ specified resources:
   resources.
 - Action: `ec2:DescribeInstances` on all AWS
   resources.
-- Action: `ec2:DescribeVolumes` on all AWS
+- Action: `ec2:DescribeSnapshots` on all AWS
+  resources.
+- Action: `ec2:DescribeVolumesModifications` on all AWS
+  resources.
+- Action: `ec2:CreateVolume` on all AWS
+  resources.
+- Action: `ec2:ModifyVolume` on all AWS
+  resources.
+- Action: `ec2:DeleteVolume` on all AWS
+  resources.
+- Action: `ec2:CreateSnapshot` on all AWS
+  resources.
+- Action: `ec2:createTags` on all AWS
   resources.
 
 ## Service-linked role permissions
@@ -151,6 +163,12 @@ policy attaches a policy to the role.
     "Resource": "arn:aws:iam::*:role/aws-service-role/*"
 }
 ```
+
+**To allow Compute Optimizer to perform recommended actions on behalf of customers**
+
+Add a statement to the permissions policy for the IAM entity that needs to
+create a service-linked role, or any service role that includes the needed policies. This
+policy attaches a policy to the role. For more information, see [AWS managed policy: ComputeOptimizerAutomationServiceRolePolicy](managed-policies.md#security-iam-awsmanpol-ComputeOptimizerAutomationServiceRolePolicy "managed-policies.md#security-iam-awsmanpol-ComputeOptimizerAutomationServiceRolePolicy") on the managed policy page.
 
 ## Creating a Service-Linked Role for Compute Optimizer
 

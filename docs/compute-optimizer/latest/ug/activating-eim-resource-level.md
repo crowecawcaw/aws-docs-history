@@ -9,8 +9,8 @@ the individual resource.
 ## Prerequisites
 
 Make sure that you have the appropriate permissions to activate and deactivate enhanced
-infrastructure metrics. For more information, see [Policies to grant access
-to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
+infrastructure metrics. For more information, see [Policies to grant
+access to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
 
 ## Procedure
 
@@ -24,7 +24,7 @@ resource level
 
 ###### Note
 
-For an EC2 instance that's part of an EC2 Auto Scaling group, the EC2 Auto Scaling group
+For an EC2 instance that's part of an EC2 Amazon EC2 Auto Scaling group, the EC2 Amazon EC2 Auto Scaling group
 recommendation preference overrides the preference of the individual
 instance. 3. In the resource recommendations page, select the resource for which you
 want to activate or deactivate enhanced infrastructure metrics.

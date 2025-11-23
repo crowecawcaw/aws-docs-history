@@ -14,6 +14,6 @@ in the _AWS Lambda Developer Guide_.
 
 In addition to these metrics, Compute Optimizer analyzes the memory utilization of
 your function during the look-back period. For more information about memory utilization for
-Lambda functions, see [Understanding AWS Lambda behavior using Amazon CloudWatch Logs Insights](https://aws.amazon.com/blogs/mt/understanding-aws-lambda-behavior-using-amazon-cloudwatch-logs-insights/ "https://aws.amazon.com/blogs/mt/understanding-aws-lambda-behavior-using-amazon-cloudwatch-logs-insights/") in the
+Lambda functions, see [Understanding AWS Lambda behavior using Amazon CloudWatch Logs Insights](https://aws.amazon.com//blogs/mt/understanding-aws-lambda-behavior-using-amazon-cloudwatch-logs-insights/ "https://aws.amazon.com//blogs/mt/understanding-aws-lambda-behavior-using-amazon-cloudwatch-logs-insights/") in the
 _AWS Management & Governance Blog_ and [Using Lambda Insights in CloudWatch](../../../lambda/latest/dg/monitoring-insights.md "../../../lambda/latest/dg/monitoring-insights.md") in the
 _AWS Lambda Developer Guide_.

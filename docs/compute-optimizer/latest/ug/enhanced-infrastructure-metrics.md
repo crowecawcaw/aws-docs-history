@@ -1,7 +1,7 @@
 # Enhanced infrastructure metrics
 
 Enhanced infrastructure metrics is a paid feature of Compute Optimizer that applies to
-Amazon EC2 instances, instances that are part of EC2 Auto Scaling groups, and Amazon RDS DB instances. This
+Amazon EC2 instances, instances that are part of EC2 Amazon EC2 Auto Scaling groups, and Amazon RDS DB instances. This
 recommendation preference extends the utilization metrics analysis lookback period to up to 93
 days, compared to the default 14-day period. This gives Compute Optimizer a longer history of utilization
 metrics data to analyze. You need to activate the enhanced infrastructure metrics preference.
@@ -12,8 +12,8 @@ For more information, see [Organization, account, and resource level](#activatin
 permissions
 
 You must have the appropriate permissions to activate and deactivate enhanced
-infrastructure metrics. For more information, see [Policies to grant access
-to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
+infrastructure metrics. For more information, see [Policies to grant
+access to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
 
 ## Organization, account, and resource level
 
@@ -32,20 +32,20 @@ areas, with each providing a different level of activation.
 
 Resource-level preferences override account-level preferences, and account-level
 preferences override organization-level preferences. For an EC2 instance that is part
-of an EC2 Auto Scaling group, the EC2 Auto Scaling group recommendation preference overrides that of the
+of an EC2 Amazon EC2 Auto Scaling group, the EC2 Amazon EC2 Auto Scaling group recommendation preference overrides that of the
 individual instance.
 
 - For an individual AWS account holder, you can activate
   the enhanced infrastructure metrics feature for all EC2 instances in the account that
   meet your resource type and AWS Region criteria. EC2 instance preferences at the
-  account level apply to standalone instances and instances that are part of EC2 Auto Scaling groups.
+  account level apply to standalone instances and instances that are part of EC2 Amazon EC2 Auto Scaling groups.
   For more information, see [Activating enhanced infrastructure metrics
   at the organization or account level](activating-eim-level.md "activating-eim-level.md") later in this guide.
 - The account manager or the delegated administrator of an AWS Organization
   can activate the enhanced infrastructure metrics feature for all resources in all member
   accounts of the organization that meet your resource type and AWS Region criteria. EC2
   instance preferences at the organization level apply to standalone instances and
-  instances that are part of EC2 Auto Scaling groups in all member accounts. For more information, see
+  instances that are part of EC2 Amazon EC2 Auto Scaling groups in all member accounts. For more information, see
   [Activating enhanced infrastructure metrics
   at the organization or account level](activating-eim-level.md "activating-eim-level.md") later in this guide.
 

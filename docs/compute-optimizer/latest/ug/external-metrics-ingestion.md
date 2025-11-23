@@ -10,7 +10,7 @@ ingestion](configure-external-metrics-ingestion.md "configure-external-metrics-i
 
 ###### Note
 
-External metrics ingestion doesn't support EC2 instances that are part of EC2 Auto Scaling groups.
+External metrics ingestion doesn't support EC2 instances that are part of EC2 Amazon EC2 Auto Scaling groups.
 
 ## Metric requirements
 

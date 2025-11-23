@@ -5,7 +5,7 @@ account that you’re signed in with. Before you can use the service, you must o
 addition, you can also opt in or opt out using the Compute Optimizer API, AWS Command Line Interface (AWS CLI), or SDKs.
 
 By opting in, you're authorizing Compute Optimizer to analyze the specifications and utilization metrics
-of your AWS resources. Examples include EC2 instances and EC2 Auto Scaling groups.
+of your AWS resources. Examples include EC2 instances and EC2 Amazon EC2 Auto Scaling groups.
 
 ###### Note
 
@@ -28,20 +28,20 @@ The following AWS account types can opt in to Compute Optimizer:
 
 - **Standalone AWS account**
 
-A standalone AWS account that doesn't have AWS Organizations enabled. If you opt in to Compute Optimizer while
-signed in to a standalone account, Compute Optimizer analyzes the resources in the account
-and generates optimization recommendations for those resources.
+A standalone AWS account that doesn't have AWS Organizations enabled. If you opt in to Compute Optimizer
+while signed in to a standalone account, Compute Optimizer analyzes the resources in the account and
+generates optimization recommendations for those resources.
 
 - **Member account of an organization**
 
-An AWS account that's a member of an organization. If you opt in to Compute Optimizer while signed in to a member
-account of an organization, Compute Optimizer only analyzes the resources in the member account
-and generates optimization recommendations for those resources.
+An AWS account that's a member of an organization. If you opt in to Compute Optimizer while
+signed in to a member account of an organization, Compute Optimizer only analyzes the resources in the
+member account and generates optimization recommendations for those resources.
 
 - **Management account of an organization**
 
-An AWS account that administers an organization. If you opt in to Compute Optimizer while signed in to a
-management account of an organization, Compute Optimizer gives you the option to opt in the
+An AWS account that administers an organization. If you opt in to Compute Optimizer while signed
+in to a management account of an organization, Compute Optimizer gives you the option to opt in the
 management account only, or the management account and all member accounts of the
 organization.
 
@@ -57,7 +57,8 @@ organization account. For more information, see [Trusted access for AWS Organiza
 
 ## Next steps
 
-For instructions on how to opt in your account, or the accounts within your organization, to AWS Compute Optimizer, see [Opting in to AWS Compute Optimizer](account-opt-in.md "account-opt-in.md").
+For instructions on how to opt in your account, or the accounts within your organization,
+to AWS Compute Optimizer, see [Opting in to AWS Compute Optimizer](account-opt-in.md "account-opt-in.md").
 
 ## Additional resources
 

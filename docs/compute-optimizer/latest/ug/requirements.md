@@ -13,7 +13,7 @@ appear in the Compute Optimizer console.
 
 ###### Topics
 
-- [Amazon EC2 instance and EC2 Auto Scaling group requirements](#requirements-ec2-instances "#requirements-ec2-instances")
+- [Amazon EC2 instance and EC2 Amazon EC2 Auto Scaling group requirements](#requirements-ec2-instances "#requirements-ec2-instances")
 - [Amazon EBS volume requirements](#requirements-ebs-volumes "#requirements-ebs-volumes")
 - [Lambda function requirements](#requirements-lambda-functions "#requirements-lambda-functions")
 - [Requirements for Amazon ECS services on Fargate](#requirements-ecs-fargate "#requirements-ecs-fargate")
@@ -21,15 +21,15 @@ appear in the Compute Optimizer console.
 - [Amazon Aurora and RDS database requirements](#requirements-rds "#requirements-rds")
 - [Additional resources](#requirements-resources "#requirements-resources")
 
-## Amazon EC2 instance and EC2 Auto Scaling group requirements
+## Amazon EC2 instance and EC2 Amazon EC2 Auto Scaling group requirements
 
-Amazon EC2 instances and EC2 Auto Scaling groups both require at least 30 hours of CloudWatch metric data in the past 14 days.
+Amazon EC2 instances and EC2 Amazon EC2 Auto Scaling groups both require at least 30 hours of CloudWatch metric data in the past 14 days.
 
-If you enabled the enhanced infrastructure metrics feature, both EC2 instances and EC2 Auto Scaling require at least 30 hours of
+If you enabled the enhanced infrastructure metrics feature, both EC2 instances and EC2 Amazon EC2 Auto Scaling require at least 30 hours of
 CloudWatch metric data over the past 93 days. For more information, see [Enhanced infrastructure metrics](enhanced-infrastructure-metrics.md "enhanced-infrastructure-metrics.md").
 
 For a list of the instance types supported by Compute Optimizer, see [Supported Amazon EC2 instance types](supported-resources.md#supported-ec2-instances "supported-resources.md#supported-ec2-instances").
-For information about the EC2 Auto Scaling groups that Compute Optimizer supports, see [Supported Amazon EC2 Auto Scaling groups](supported-resources.md#supported-asg "supported-resources.md#supported-asg").
+For information about the EC2 Amazon EC2 Auto Scaling groups that Compute Optimizer supports, see [Supported Amazon EC2 Amazon EC2 Auto Scaling groups](supported-resources.md#supported-asg "supported-resources.md#supported-asg").
 
 ###### Important
 
@@ -101,7 +101,8 @@ For more information about how to enable CloudWatch Application Insights, see [S
 Amazon CloudWatch Application Insights for monitoring](../../../AmazonCloudWatch/latest/monitoring/appinsights-setting-up.md "../../../AmazonCloudWatch/latest/monitoring/appinsights-setting-up.md") in the _Amazon CloudWatch User Guide_.
 
 - Attach the required instance role and policy for CloudWatch Application Insights. For more information,
-  see [Policies to enable commercial software license recommendations](security-iam.md#license-access "security-iam.md#license-access").
+  see [Policies to enable commercial software license
+  recommendations](security-iam.md#license-access "security-iam.md#license-access").
 
 For more information about the metrics analyzed, see [Metrics for commercial software licenses](license-metrics-analyzed.md "license-metrics-analyzed.md").
 
@@ -126,7 +127,7 @@ To generate recommendations for your Aurora and RDS DB instances, Compute Optimi
 
 To generate recommendations for your Aurora DB clusters, Compute Optimizer requires the following:
 
-- No application Auto Scaling policy is attached to the Aurora DB cluster. For more information about Aurora
+- No application Amazon EC2 Auto Scaling policy is attached to the Aurora DB cluster. For more information about Aurora
   Auto Scaling, see [Amazon Aurora Auto Scaling
   with Aurora Replicas](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Integrations.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Integrations.md") in the _Amazon Aurora User Guide_.
 - The Aurora DB cluster has at least 14 days of cost usage data.

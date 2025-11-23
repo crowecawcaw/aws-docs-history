@@ -8,8 +8,8 @@ for member accounts of an AWS Organization or an individual AWS account holder.
 ## Prerequisites
 
 Make sure that you have the appropriate permissions to activate and deactivate enhanced
-infrastructure metrics. For more information, see [Policies to grant access
-to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
+infrastructure metrics. For more information, see [Policies to grant
+access to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
 
 ## Procedure
 
