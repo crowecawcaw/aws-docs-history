@@ -10,9 +10,9 @@ References:
 
 ###### Topics
 
-- [Actions defined by AWS SageMaker Unified Studio MCP is a managed MCP solution for AWS data processing services like EMR, Glue, Athena](#awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr-glue-athena-actions-as-permissions "#awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr-glue-athena-actions-as-permissions")
-- [Resource types defined by AWS SageMaker Unified Studio MCP is a managed MCP solution for AWS data processing services like EMR, Glue, Athena](#awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr-glue-athena-resources-for-iam-policies "#awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr-glue-athena-resources-for-iam-policies")
-- [Condition keys for AWS SageMaker Unified Studio MCP is a managed MCP solution for AWS data processing services like EMR, Glue, Athena](#awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr-glue-athena-policy-keys "#awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr-glue-athena-policy-keys")
+- [Actions defined by AWS SageMaker Unified Studio MCP is a managed MCP solution for AWS data processing services like EMR, Glue, Athena](#awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr_glue_athena-actions-as-permissions "#awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr_glue_athena-actions-as-permissions")
+- [Resource types defined by AWS SageMaker Unified Studio MCP is a managed MCP solution for AWS data processing services like EMR, Glue, Athena](#awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr_glue_athena-resources-for-iam-policies "#awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr_glue_athena-resources-for-iam-policies")
+- [Condition keys for AWS SageMaker Unified Studio MCP is a managed MCP solution for AWS data processing services like EMR, Glue, Athena](#awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr_glue_athena-policy-keys "#awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr_glue_athena-policy-keys")
 
 ## Actions defined by AWS SageMaker Unified Studio MCP is a managed MCP solution for AWS data processing services like EMR, Glue, Athena
 
@@ -28,7 +28,7 @@ The **Dependent actions** column of the Actions table shows additional permissio
 
 ###### Note
 
-Resource condition keys are listed in the [Resource types](#awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr-glue-athena-resources-for-iam-policies "#awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr-glue-athena-resources-for-iam-policies") table. You can find a link to the resource type that applies to an action in the **Resource types (\*required)** column of the Actions table. The resource type in the Resource types table includes the **Condition keys** column, which are the resource condition keys that apply to an action in the Actions table.
+Resource condition keys are listed in the [Resource types](#awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr_glue_athena-resources-for-iam-policies "#awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr_glue_athena-resources-for-iam-policies") table. You can find a link to the resource type that applies to an action in the **Resource types (\*required)** column of the Actions table. The resource type in the Resource types table includes the **Condition keys** column, which are the resource condition keys that apply to an action in the Actions table.
 
 For details about the columns in the following table, see [Actions table](reference_policies_actions-resources-contextkeys.md#actions_table "reference_policies_actions-resources-contextkeys.md#actions_table").
 
