@@ -78,7 +78,7 @@ level:
   [`SetSubscriptionAttributes`](../api/API_SetSubscriptionAttributes.md "../api/API_SetSubscriptionAttributes.md") API action to set this
   policy.
 
-Alternatively, you can also use the [AWS::SNS::Subscription](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.md") resource in your AWS CloudFormation templates.
+Alternatively, you can also use the [AWS::SNS::Subscription](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.md") resource in your CloudFormation templates.
 
 You should customize your delivery policy based on your HTTP/S server's
 capacity:

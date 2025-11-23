@@ -10,7 +10,7 @@ endpoints and quotas](../../../general/latest/gr/sns.md "../../../general/latest
 
 (CloudFormation)
 
-Create an Amazon SNS data protection policy using AWS CloudFormation.
+Create an Amazon SNS data protection policy using CloudFormation.
 
 ###### To create a data protection policy together with an Amazon SNS topic
 

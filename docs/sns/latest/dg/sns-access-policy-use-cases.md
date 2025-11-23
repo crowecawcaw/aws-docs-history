@@ -264,7 +264,7 @@ snsClient.setTopicAttributes(SetTopicAttributesRequest.builder()
   - Amazon SES
   - Amazon Simple Storage Service
   - AWS CodeCommit
-  - AWS Directory Service
+  - Directory Service
   - AWS Lambda
   - AWS Systems Manager Incident Manager
 
@@ -328,7 +328,7 @@ When publishing events to Amazon SNS, the following services support
 - Amazon Redshift
 - Amazon SES
 - AWS CodeCommit
-- AWS Directory Service
+- Directory Service
 - AWS Lambda
 - AWS Systems Manager Incident Manager
 

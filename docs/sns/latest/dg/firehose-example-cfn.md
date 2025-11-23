@@ -1,4 +1,4 @@
-# Automating Amazon SNS message archiving with an AWS CloudFormation
+# Automating Amazon SNS message archiving with an CloudFormation
 
 template
 

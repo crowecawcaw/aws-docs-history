@@ -24,7 +24,7 @@ trace through, even if X-Ray tracing isn't enabled on the API.
 Amazon SNS supports X-Ray tracing for both standard and FIFO topics. You can enable X-Ray for
 an Amazon SNS topic by using the [Amazon SNS
 console](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home"), [Amazon SNS `SetTopicAttributes`
-API](../api/API_SetTopicAttributes.md "../api/API_SetTopicAttributes.md"), [Amazon Simple Notification Service CLI Reference](../../../cli/latest/reference/sns.md "../../../cli/latest/reference/sns.md"), or [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md").
+API](../api/API_SetTopicAttributes.md "../api/API_SetTopicAttributes.md"), [Amazon Simple Notification Service CLI Reference](../../../cli/latest/reference/sns.md "../../../cli/latest/reference/sns.md"), or [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md").
 
 To learn more about using Amazon SNS with X-Ray, see [Amazon SNS and AWS X-Ray](../../../xray/latest/devguide/xray-services-sns.md "../../../xray/latest/devguide/xray-services-sns.md") in the
 AWS X-Ray Developer Guide.
@@ -109,9 +109,9 @@ aws sns set-topic-attributes \
 
 ## Enabling active tracing on an Amazon SNS topic
 
-using AWS CloudFormation
+using CloudFormation
 
-The following AWS CloudFormation stack shows how to enable active tracing on an Amazon SNS topic.
+The following CloudFormation stack shows how to enable active tracing on an Amazon SNS topic.
 
 ```
 AWSTemplateFormatVersion: 2010-09-09

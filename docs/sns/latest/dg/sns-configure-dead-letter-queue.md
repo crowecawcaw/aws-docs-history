@@ -6,7 +6,7 @@ A dead-letter queue is an Amazon SQS queue that an Amazon SNS subscription can t
 for messages that can't be delivered to subscribers successfully. Messages that can't be delivered
 due to client errors or server errors are held in the dead-letter queue for further analysis or reprocessing. For more information, see [Amazon SNS dead-letter queues](sns-dead-letter-queues.md "sns-dead-letter-queues.md") and [Amazon SNS message delivery retries](sns-message-delivery-retries.md "sns-message-delivery-retries.md").
 
-This page shows how you can use the AWS Management Console, an AWS SDK, the AWS CLI, and AWS CloudFormation to
+This page shows how you can use the AWS Management Console, an AWS SDK, the AWS CLI, and CloudFormation to
 configure a dead-letter queue for an Amazon SNS subscription.
 
 ###### Note
@@ -24,7 +24,7 @@ Before you configure a dead-letter queue, complete the following prerequisites:
 2. [Create an Amazon SQS queue](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-create-queue.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-create-queue.md")
    named `MyEndpoint`, to be used as the endpoint for the Amazon SNS
    subscription.
-3. (Skip for AWS CloudFormation) [Subscribe the queue to
+3. (Skip for CloudFormation) [Subscribe the queue to
    the topic](sns-sqs-as-subscriber.md "sns-sqs-as-subscriber.md").
 4. [Create another Amazon SQS
    queue](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-create-queue.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-create-queue.md") named `MyDeadLetterQueue`, to be used as the
@@ -146,7 +146,7 @@ aws sns set-subscription-attributes \
 
 ## To configure a
 
-dead-letter queue for an Amazon SNS subscription using AWS CloudFormation
+dead-letter queue for an Amazon SNS subscription using CloudFormation
 
 Before your begin this tutorial, make sure you complete the [prerequisites](#dead-letter-queue-prerequisites "#dead-letter-queue-prerequisites").
 
@@ -172,7 +172,7 @@ Before your begin this tutorial, make sure you complete the [prerequisites](#dea
 }
 ```
 
-2. Sign in to the [AWS CloudFormation
+2. Sign in to the [CloudFormation
    console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 3. On the **Select Template** page, choose **Upload a
    template to Amazon S3**, choose your `MyDeadLetterQueue.json`
@@ -185,6 +185,6 @@ Before your begin this tutorial, make sure you complete the [prerequisites](#dea
 6. On the **Review** page, choose
    **Create**.
 
-AWS CloudFormation begins to create the `MyDeadLetterQueue` stack and displays
+CloudFormation begins to create the `MyDeadLetterQueue` stack and displays
 the **CREATE_IN_PROGRESS** status. When the process is
-complete, AWS CloudFormation displays the **CREATE_COMPLETE** status.
+complete, CloudFormation displays the **CREATE_COMPLETE** status.

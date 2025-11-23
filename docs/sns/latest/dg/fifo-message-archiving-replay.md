@@ -12,7 +12,7 @@ directly within the topic archive for up to 365 days and replay them to subscrib
 needed. Message archiving and replay are essential for recovering lost messages and
 synchronizing applications across regions or systems by replicating states.
 
-This functionality can be accessed through the AWS API, SDK, AWS CloudFormation, and
+This functionality can be accessed through the AWS API, SDK, CloudFormation, and
 AWS Management Console.
 
 **Key use cases**

@@ -97,14 +97,14 @@ your private key file so that only you can read it:
 
 ## Step 2: Create the AWS resources
 
-To set up the infrastructure, you use an AWS CloudFormation _template_. A template is a file that acts as a blueprint for building
+To set up the infrastructure, you use an CloudFormation _template_. A template is a file that acts as a blueprint for building
 AWS resources, such as Amazon EC2 instances and Amazon SNS topics. The template for this process
 is provided on GitHub for you to download.
 
-You provide the template to AWS CloudFormation, and AWS CloudFormation provisions the resources that you need as
+You provide the template to CloudFormation, and CloudFormation provisions the resources that you need as
 a _stack_ in your AWS account. A stack is a
 collection of resources that you manage as a single unit. When you finish these steps,
-you can use AWS CloudFormation to delete all of the resources in the stack at once. These resources
+you can use CloudFormation to delete all of the resources in the stack at once. These resources
 don't remain in your AWS account, unless you want them to.
 
 The stack for this process includes the following resources:
@@ -122,7 +122,7 @@ The stack for this process includes the following resources:
 ###### To create the AWS resources
 
 1. Download the [template file](https://github.com/aws-samples/aws-sns-samples/blob/master/templates/SNS-VPCE-Tutorial-CloudFormation.template "https://github.com/aws-samples/aws-sns-samples/blob/master/templates/SNS-VPCE-Tutorial-CloudFormation.template") from the GitHub website.
-2. Sign in to the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
+2. Sign in to the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
 3. Choose **Create Stack**.
 4. On the **Select Template** page, choose **Upload a
    template to Amazon S3**, choose the file, and choose
@@ -141,16 +141,16 @@ The stack for this process includes the following resources:
 6. On the **Options** page, keep all of the default values, and
    choose **Next**.
 7. On the **Review** page, verify the stack details.
-8. Under **Capabilities**, acknowledge that AWS CloudFormation might create
+8. Under **Capabilities**, acknowledge that CloudFormation might create
    IAM resources with custom names.
 9. Choose **Create**.
 
-The AWS CloudFormation console opens the **Stacks** page. The
+The CloudFormation console opens the **Stacks** page. The
 VPCE-Tutorial-Stack has a status of **CREATE_IN_PROGRESS**. In
 a few minutes, after the creation process completes, the status changes to
 **CREATE_COMPLETE**.
 
-![The AWS CloudFormation stack with a status of CREATE_COMPLETE.](images/vpce-tutorial-stack-create-complete.png)
+![The CloudFormation stack with a status of CREATE_COMPLETE.](images/vpce-tutorial-stack-create-complete.png)
 
 ###### Tip
 
@@ -178,7 +178,7 @@ endpoint for Amazon SNS, your publish attempt succeeds.
    **VPCE-Tutorial-EC2Instance**.
 4. Copy the hostname that's provided in the **Public DNS** column.
 
-![Details about the Amazon EC2 instance launched by AWS CloudFormation.](images/vpce-tutorial-instance-details.png) 5. Open a terminal. From the directory that contains the key pair, connect to the
+![Details about the Amazon EC2 instance launched by CloudFormation.](images/vpce-tutorial-instance-details.png) 5. Open a terminal. From the directory that contains the key pair, connect to the
 instance using the following command, where
 `instance-hostname` is the hostname that you copied
 from the Amazon EC2 console:
@@ -334,7 +334,7 @@ deleting AWS resources that you're no longer using, you prevent unnecessary char
 your AWS account.
 
 First, delete your VPC endpoint using the Amazon VPC console. Then, delete the other resources
-that you created by deleting the stack in the AWS CloudFormation console. When you delete a stack, AWS CloudFormation
+that you created by deleting the stack in the CloudFormation console. When you delete a stack, CloudFormation
 removes the stack's resources from your AWS account.
 
 ###### To delete your VPC endpoint
@@ -350,9 +350,9 @@ removes the stack's resources from your AWS account.
 The endpoint status changes to **deleting**. When the deletion
 completes, the endpoint is removed from the page.
 
-###### To delete your AWS CloudFormation stack
+###### To delete your CloudFormation stack
 
-1. Open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Select the stack **VPCE-Tutorial-Stack**.
 3. Choose **Actions**, and then choose **Delete
    Stack**.
@@ -371,5 +371,5 @@ For more information, see the following resources.
 - [What Is Amazon VPC?](../../../vpc/latest/userguide/VPC_Introduction.md "../../../vpc/latest/userguide/VPC_Introduction.md")
 - [VPC Endpoints](../../../vpc/latest/userguide/vpc-endpoints.md "../../../vpc/latest/userguide/vpc-endpoints.md")
 - [What Is Amazon EC2?](../../../AWSEC2/latest/UserGuide/concepts.md "../../../AWSEC2/latest/UserGuide/concepts.md")
-- [AWS CloudFormation
+- [CloudFormation
   Concepts](../../../AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.md "../../../AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.md")

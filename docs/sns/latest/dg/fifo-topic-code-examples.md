@@ -529,7 +529,7 @@ _Amazon Simple Queue Service Developer Guide_ and [ReceiveMessage](../../../AWSS
 
 ## Using AWS CloudFormation
 
-AWS CloudFormation allows you to use a template file to create and configure a collection of AWS resources together as a single unit. This section has an example template that
+CloudFormation allows you to use a template file to create and configure a collection of AWS resources together as a single unit. This section has an example template that
 creates the following:
 
 - The Amazon SNS FIFO topic that distributes the price updates
@@ -686,5 +686,5 @@ message is filtered out and not delivered to the subscribed queues.
 }
 ```
 
-For more information about deploying AWS resources using an AWS CloudFormation template, see [Get Started](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md") in the
-_AWS CloudFormation User Guide_.
+For more information about deploying AWS resources using an CloudFormation template, see [Get Started](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md") in the
+_CloudFormation User Guide_.

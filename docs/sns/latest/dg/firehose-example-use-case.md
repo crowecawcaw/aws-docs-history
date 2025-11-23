@@ -21,7 +21,7 @@ To run analytics and gain insights on ticket sales, the company runs SQL queries
 Amazon Athena. For example, the company can query to learn about the most popular destinations and
 the most frequent flyers.
 
-To create the AWS resources for this use case, you can use the AWS Management Console or an AWS CloudFormation
+To create the AWS resources for this use case, you can use the AWS Management Console or an CloudFormation
 template.
 
 ###### Topics
@@ -31,4 +31,4 @@ template.
 - [Setting-up a Firehose delivery stream for message archiving](firehose-example-create-delivery-stream.md "firehose-example-create-delivery-stream.md")
 - [Subscribing the delivery stream to the topic](firehose-example-subscribe-delivery-stream-to-topic.md "firehose-example-subscribe-delivery-stream-to-topic.md")
 - [Testing and querying a configuration for effective data management](firehose-example-test-and-query.md "firehose-example-test-and-query.md")
-- [Automating message archiving with an AWS CloudFormation template](firehose-example-cfn.md "firehose-example-cfn.md")
+- [Automating message archiving with an CloudFormation template](firehose-example-cfn.md "firehose-example-cfn.md")

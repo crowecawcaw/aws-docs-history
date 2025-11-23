@@ -13,5 +13,5 @@ sample application.
 ###### Important
 
 To avoid incurring unwanted costs after you finish deploying the AWS Event Fork Pipelines
-sample application, delete its AWS CloudFormation stack. For more information, see [Deleting a Stack on the AWS CloudFormation
+sample application, delete its CloudFormation stack. For more information, see [Deleting a Stack on the CloudFormation
 Console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the _AWS CloudFormation User Guide_.

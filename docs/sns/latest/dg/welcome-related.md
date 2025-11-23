@@ -46,11 +46,11 @@ integrates with Amazon SNS in the following ways:
   topics but do not guarantee ordered message delivery or
   deduplication.
 
-**AWS CloudFormation**
+**CloudFormation**
 
-AWS CloudFormation automates the provisioning and management of AWS resources,
+CloudFormation automates the provisioning and management of AWS resources,
 including Amazon SNS topics and subscriptions, using infrastructure as code
-(IaC). With AWS CloudFormation, you can:
+(IaC). With CloudFormation, you can:
 
 - **Define Amazon SNS topics, subscriptions, and
   permissions** in a reusable, version-controlled

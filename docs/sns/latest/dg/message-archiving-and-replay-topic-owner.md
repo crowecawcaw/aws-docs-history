@@ -128,9 +128,9 @@ sns.setTopicAttributes(request);
 
 ## Create a message archive
 
-policy using AWS CloudFormation
+policy using CloudFormation
 
-To create an archive policy using AWS CloudFormation see [`AWS::SNS::Topic`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md") in the
+To create an archive policy using CloudFormation see [`AWS::SNS::Topic`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md") in the
 _AWS CloudFormation User Guide_.
 
 ## Grant access to an

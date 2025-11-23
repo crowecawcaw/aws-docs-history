@@ -8,7 +8,7 @@ Event Storage and Backup Pipeline to Amazon SNS
 
 This page shows how to deploy the [Event Storage and Backup
 Pipeline](sns-fork-pipeline-as-subscriber.md#sns-fork-event-storage-and-backup-pipeline "sns-fork-pipeline-as-subscriber.md#sns-fork-event-storage-and-backup-pipeline") and subscribe it to an Amazon SNS topic. This process automatically turns
-the AWS SAM template associated with the pipeline into an AWS CloudFormation stack, and then deploys
+the AWS SAM template associated with the pipeline into an CloudFormation stack, and then deploys
 the stack into your AWS account. This process also creates and configures the set of
 resources that comprise the Event Storage and Backup Pipeline, including the
 following:
@@ -53,7 +53,7 @@ policies](sns-subscription-filter-policies.md "sns-subscription-filter-policies.
 
         	* For each deployment, the application name must be unique.
         	 If you reuse an application name, the deployment will update
-        	 only the previously deployed AWS CloudFormation stack (rather than create
+        	 only the previously deployed CloudFormation stack (rather than create
         	 a new one).
         2. (Optional) For **BucketArn**, enter the ARN of the Amazon S3
          bucket into which incoming events are loaded. If you don't enter a
@@ -109,9 +109,9 @@ policies](sns-subscription-filter-policies.md "sns-subscription-filter-policies.
     page, Lambda displays the **Your application is being deployed**
     status.
 
-In the **Resources** section, AWS CloudFormation begins to create the stack and
+In the **Resources** section, CloudFormation begins to create the stack and
 displays the **CREATE_IN_PROGRESS** status for each resource. When the
-process is complete, AWS CloudFormation displays the **CREATE_COMPLETE**
+process is complete, CloudFormation displays the **CREATE_COMPLETE**
 status.
 
 When the deployment is complete, Lambda displays the **Your application has

@@ -318,12 +318,12 @@ filtering, you can use the [`SetSubscriptionAttributes`](../api/API_SetSubscript
 
 ## AWS CloudFormation
 
-To apply a filter policy using AWS CloudFormation, use a JSON or YAML template to create a AWS CloudFormation
+To apply a filter policy using CloudFormation, use a JSON or YAML template to create a CloudFormation
 stack. For more information, see the [`FilterPolicy` property](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.md#cfn-sns-subscription-filterpolicy "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.md#cfn-sns-subscription-filterpolicy") of the
 `AWS::SNS::Subscription` resource in the
-_AWS CloudFormation User Guide_ and the [example AWS CloudFormation template](https://github.com/aws-samples/aws-sns-samples/blob/master/templates/SNS-Subscription-Attributes-Tutorial-CloudFormation.template "https://github.com/aws-samples/aws-sns-samples/blob/master/templates/SNS-Subscription-Attributes-Tutorial-CloudFormation.template").
+_AWS CloudFormation User Guide_ and the [example CloudFormation template](https://github.com/aws-samples/aws-sns-samples/blob/master/templates/SNS-Subscription-Attributes-Tutorial-CloudFormation.template "https://github.com/aws-samples/aws-sns-samples/blob/master/templates/SNS-Subscription-Attributes-Tutorial-CloudFormation.template").
 
-1. Sign in to the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
+1. Sign in to the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
 2. Choose **Create Stack**.
 3. On the **Select Template** page, choose **Upload a
    template to Amazon S3**, choose the file, and choose

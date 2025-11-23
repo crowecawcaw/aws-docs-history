@@ -3,7 +3,7 @@
 & compliance services
 
 The following table describes how Amazon SNS integrates with AWS security,
-identity, and compliance services, such as AWS Directory Service, Amazon GuardDuty, Amazon Inspector, and AWS Security Hub, to
+identity, and compliance services, such as Directory Service, Amazon GuardDuty, Amazon Inspector, and AWS Security Hub, to
 provide notifications for directory status changes, security findings, Inspector events,
 and security hub announcements.
 

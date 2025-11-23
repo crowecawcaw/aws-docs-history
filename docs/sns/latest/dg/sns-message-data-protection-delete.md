@@ -3,7 +3,7 @@
 Amazon SNS
 
 You can **delete** Amazon SNS data protection policies using the
-AWS API, AWS CLI, AWS CloudFormation, or AWS Management Console.
+AWS API, AWS CLI, CloudFormation, or AWS Management Console.
 
 For general information about Amazon SNS data protection policies, see [Understanding Amazon SNS data protection
 policies](sns-message-data-protection-policies.md "sns-message-data-protection-policies.md").

@@ -12,7 +12,7 @@ form, and only decrypted when they are sent.
   `KmsMasterKeyId` attribute using the `CreateTopic` and `SetTopicAttributes` API
   actions), see [Setting up Amazon SNS topic encryption with
   server-side encryption](sns-enable-encryption-for-topic.md "sns-enable-encryption-for-topic.md").
-- For information about creating encrypted topics using AWS CloudFormation (by setting the
+- For information about creating encrypted topics using CloudFormation (by setting the
   `KmsMasterKeyId` property using the `AWS::SNS::Topic`
   resource), see the _AWS CloudFormation User Guide_.
 

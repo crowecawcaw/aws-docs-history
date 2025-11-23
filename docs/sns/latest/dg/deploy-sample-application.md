@@ -25,7 +25,7 @@ application
          `fork-example-ecommerce`.
         * For each deployment, the application name must be unique.
          If you reuse an application name, the deployment will update
-         only the previously deployed AWS CloudFormation stack (rather than create
+         only the previously deployed CloudFormation stack (rather than create
          a new one).
 
     2. (Optional) Enter one of the following **LogLevel**
@@ -42,9 +42,9 @@ application
     fork-example-ecommerce-`my-app`** page, Lambda
     displays the **Your application is being deployed** status.
 
-In the **Resources** section, AWS CloudFormation begins to create the stack and
+In the **Resources** section, CloudFormation begins to create the stack and
 displays the **CREATE_IN_PROGRESS** status for each resource. When the
-process is complete, AWS CloudFormation displays the **CREATE_COMPLETE**
+process is complete, CloudFormation displays the **CREATE_COMPLETE**
 status.
 
 ###### Note

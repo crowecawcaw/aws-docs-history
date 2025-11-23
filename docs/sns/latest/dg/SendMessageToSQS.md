@@ -2,17 +2,17 @@
 
 AWS CloudFormation
 
-AWS CloudFormation enables you to use a template file to create and configure a collection of AWS
+CloudFormation enables you to use a template file to create and configure a collection of AWS
 resources together as a single unit. This section has an example template that makes it easy to
 deploy topics that publish to queues. The templates take care of the setup steps for you by
 creating two queues, creating a topic with subscriptions to the queues, adding a policy to the
 queues so that the topic can send messages to the queues, and creating IAM users and groups to
 control access to those resources.
 
-For more information about deploying AWS resources using an AWS CloudFormation template, see [Get Started](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md") in the _AWS CloudFormation
+For more information about deploying AWS resources using an CloudFormation template, see [Get Started](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md") in the _CloudFormation
 User Guide_.
 
-## Using an AWS CloudFormation template to set up topics
+## Using an CloudFormation template to set up topics
 
 and queues within an AWS account
 
@@ -43,7 +43,7 @@ AddUserToMyQueueGroup adds MyQueueUser to the MyRDMessageQueueGroup so that the 
 the permissions assigned to the group. MyQueuePolicy assigns permission for MySNSTopic to
 publish its notifications to the two queues.
 
-The following listing shows the AWS CloudFormation template contents.
+The following listing shows the CloudFormation template contents.
 
 ```
 {
