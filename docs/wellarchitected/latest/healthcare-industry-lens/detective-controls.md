@@ -51,7 +51,7 @@ configurations over time.
 
 Capture network layer logs to track the transport layer
 activity going to and from network interfaces in your VPC
-using VPC Flow Logs. When using Elastic Load Balancing, enable
+using VPC Flow Logs. When using ELB, enable
 access logs to capture detailed information about the requests
 received and processed by one or more load balancers,
 including client IP addresses, request paths, and server

@@ -14,7 +14,7 @@ medical imaging solutions._
   application servers, databases, and storage for the imaging
   data. Where possible, each tier of the solution should be
   able to auto scale independently. Containerization or
-  serverless can simplify operations. Auto Scaling based on
+  serverless can simplify operations. Amazon EC2 Auto Scaling based on
   load provides performance during peak demand and minimize
   costs during periods of low demand.
 - Images may be programmatically retrieved using the DICOM
