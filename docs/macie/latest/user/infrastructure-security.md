@@ -17,7 +17,7 @@ support the following:
   (Amazon VPC) to host your AWS resources, you can establish a private connection between your VPC
   and Macie by creating an interface endpoint. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.com/privatelink/"), a technology that enables you to
   privately access Macie without an internet gateway, NAT device, VPN connection, or
-  AWS Direct Connect connection. We create an endpoint network interface in each subnet that you enable
+  Direct Connect connection. We create an endpoint network interface in each subnet that you enable
   for an interface endpoint. These are requester-managed network interfaces that can serve as
   the entry point for traffic destined for Macie. For more information, see [Access AWS services
   through AWS PrivateLink](../../../vpc/latest/privatelink/privatelink-access-aws-services.md "../../../vpc/latest/privatelink/privatelink-access-aws-services.md") in the _AWS PrivateLink Guide_.

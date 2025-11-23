@@ -71,7 +71,7 @@ using the table view (
 ![The table view button, which is a button that displays three black horizontal lines.](images/btn-s3-table-view.png)
 ) or the interactive map
 (
-![The map view button, which is a button that displays four black squares.](/images/macie/latest/user/images/btn-s3-map-view.png)
+![The map view button, which is a button that displays four black squares.](images/btn-s3-map-view.png)
 ). 4. In the details panel, do any of the following:
 
     * To override the calculated sensitivity score and manually assign a score, turn on
