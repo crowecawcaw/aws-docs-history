@@ -104,7 +104,7 @@ keys and values in an IAM policy.
 
 The condition context keys and values in an IAM policy apply only to those AWS IoT actions
 where an identifier for a resource capable of being tagged is a required parameter. For
-example, the use of [DescribeEndpoint](../../../https:/docs.aws.amazon.com/iot-wireless/latest/apireference/API_DescribeEndpoint.md "../../../https:/docs.aws.amazon.com/iot-wireless/latest/apireference/API_DescribeEndpoint.md") is not
+example, the use of [DescribeEndpoint](../apireference/API_DescribeEndpoint.md "../apireference/API_DescribeEndpoint.md") is not
 allowed or denied on the basis of condition context keys and values because no taggable
 resource is referenced in this request.
 

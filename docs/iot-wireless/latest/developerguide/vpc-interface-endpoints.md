@@ -69,7 +69,7 @@ Configuration and Update Server (CUPS) endpoints that you can use to
 interact with the AWS IoT Core for LoRaWAN LNS and
 CUPS
 endpoints. These endpoints can be accessed from your LoRa
-gateways on premises by using AWS VPN or AWS Direct Connect. You get
+gateways on premises by using Site-to-Site VPN or AWS Direct Connect. You get
 these endpoints when onboarding your gateway to AWS IoT Core for LoRaWAN. For more
 information, see [Add a gateway to AWS IoT Core for LoRaWAN](lorawan-onboard-gateway-add.md "lorawan-onboard-gateway-add.md").
 

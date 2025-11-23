@@ -7,7 +7,7 @@ available LoRaWAN networks. AWS IoT Core for LoRaWAN now supports Everynet’s n
 the US, UK, Ireland, and Spain. When using the public network, you'll be charged a
 public network connectivity charge for each device every month. The pricing applies to
 all AWS Regions where public network connectivity is offered. For information about
-pricing for this feature, see the [AWS IoT Core pricing page](https://aws.amazon.com/iot-core/pricing/ "https://aws.amazon.com/iot-core/pricing/").
+pricing for this feature, see the [AWS IoT Core pricing page](https://aws.amazon.com//iot-core/pricing/ "https://aws.amazon.com//iot-core/pricing/").
 
 ###### Important
 

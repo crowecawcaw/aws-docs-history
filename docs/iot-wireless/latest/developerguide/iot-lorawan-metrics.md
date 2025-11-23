@@ -41,7 +41,7 @@ with hourly, daily, or weekly information for your resources.
 The LoRaWAN metrics dashboard uses the compute API to display information for your
 LoRaWAN resources. When you activate summary metrics, charges might be incurred for
 using the LoRaWAN dashboard. To avoid incurring additional charges, you can deactivate
-summary metrics. For information about pricing, see [https://aws.amazon.com/iot-core/pricing](https://aws.amazon.com/iot-core/pricing "https://aws.amazon.com/iot-core/pricing") AWS IoT Core pricing.
+summary metrics. For information about pricing, see [https://aws.amazon.com//iot-core/pricing](https://aws.amazon.com//iot-core/pricing "https://aws.amazon.com//iot-core/pricing") AWS IoT Core pricing.
 
 ###### Note
 

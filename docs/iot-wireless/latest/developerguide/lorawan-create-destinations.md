@@ -47,7 +47,7 @@ publishing to the AWS IoT message broker.
      name, and then choose **Copy** to copy the
      rule name that you'll enter when creating the AWS IoT rule. You
      can either choose **Create rule** to create
-     the rule now or navigate to the [Rules](https://console.aws.amazon.com/https://console.aws.amazon.com/iot/home#/create/rule "https://console.aws.amazon.com/https://console.aws.amazon.com/iot/home#/create/rule") Hub of the AWS IoT console and create a rule
+     the rule now or navigate to the [Rules](https://console.aws.amazon.com/iot/home#/create/rule "https://console.aws.amazon.com/iot/home#/create/rule") Hub of the AWS IoT console and create a rule
      with that name.
 
 

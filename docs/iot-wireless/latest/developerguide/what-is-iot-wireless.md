@@ -103,7 +103,7 @@ Sidewalk devices.
 
 - ###### Using the AWS IoT console
 
-To onboard your wireless devices, use the [AWS IoT Wireless](https://console.aws.amazon.com/https://console.aws.amazon.com/iot/home#/wireless/landing "https://console.aws.amazon.com/https://console.aws.amazon.com/iot/home#/wireless/landing") page of
+To onboard your wireless devices, use the [AWS IoT Wireless](https://console.aws.amazon.com/iot/home#/wireless/landing "https://console.aws.amazon.com/iot/home#/wireless/landing") page of
 the AWS Management Console.
 
 - ###### Using the AWS IoT Wireless API

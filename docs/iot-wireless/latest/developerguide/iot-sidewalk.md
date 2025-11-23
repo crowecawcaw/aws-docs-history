@@ -59,7 +59,7 @@ Cloud, which uses the data from your Amazon Sidewalk end devices.
 ###### Using the console
 
 To onboard your Sidewalk end devices, sign in to the AWS Management Console and navigate to the
-[Devices](https://console.aws.amazon.com/iot/home#/wireless/devices "https://console.aws.amazon.com/iot/home#/wireless/devices") page on
+[Devices](https://console.aws.amazon.com//iot/home#/wireless/devices "https://console.aws.amazon.com//iot/home#/wireless/devices") page on
 the AWS IoT console. After your devices are onboarded, you can view and manage them on
 this page of the IoT console.
 

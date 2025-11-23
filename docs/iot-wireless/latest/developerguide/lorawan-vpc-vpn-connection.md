@@ -115,7 +115,7 @@ To establish a VPN connection to a Client VPN endpoint:
 ###### Note
 
 For this example, we use OpenVPN. You can use other VPN clients
-such as AWS VPN or AWS Direct Connect to set up your Client VPN
+such as Site-to-Site VPN or AWS Direct Connect to set up your Client VPN
 connection. 6. Configure the OpenVPN client based on information from the client
 configuration and how you can use [OpenVPN client using LuCi](https://openwrt.org/docs/guide-user/services/vpn/openvpn/client-luci "https://openwrt.org/docs/guide-user/services/vpn/openvpn/client-luci"). 7. SSH to your on-premises network and update the
 `/etc/resolv.conf` file by adding the IP address of the
