@@ -105,7 +105,7 @@ aws quicksight start-asset-bundle-export-job
 --export-format CLOUDFORMATION_JSON
 ```
 
-The following example uses a `StartAssetBundleExportJob` API call to include permissions information. By default, permission information is not exported. Permission overrides are not supported for the AWS CloudFormation format. To import permissions for a AWS CloudFormation format file, make sure that the source and target accounts are the same or have the same principal names for users, groups, and namespaces.
+The following example uses a `StartAssetBundleExportJob` API call to include permissions information. By default, permission information is not exported. Permission overrides are not supported for the CloudFormation format. To import permissions for a CloudFormation format file, make sure that the source and target accounts are the same or have the same principal names for users, groups, and namespaces.
 
 ```
 # Export in QuickSight format
