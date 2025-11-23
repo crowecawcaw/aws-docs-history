@@ -36,4 +36,4 @@ Regions that support Infrastructure Performance, see [Region availability](how-n
 ###### Note
 
 Infrastructure Performance does not incorporate performance metrics for paths through VPC networking resources,
-such as transit gateways, NAT gateways, VPC endpoints, Elastic Load Balancing, or Amazon EC2 network interfaces.
+such as transit gateways, NAT gateways, VPC endpoints, ELB, or Amazon EC2 network interfaces.
