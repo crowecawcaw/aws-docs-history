@@ -1,4 +1,4 @@
-# Troubleshoot common AWS CloudFormation deployment
+# Troubleshoot common CloudFormation deployment
 
 issues for CDN and MediaTailor integrations
 
@@ -6,10 +6,10 @@ AWS Elemental MediaTailor deployment issues can occur even with automation durin
 professional, understanding how to troubleshoot these issues will help you maintain a
 reliable streaming service with ad insertion.
 
-If you encounter issues with your AWS CloudFormation deployment or the resulting MediaTailor and CloudFront
+If you encounter issues with your CloudFormation deployment or the resulting MediaTailor and CloudFront
 integration, refer to these common problems and solutions:
 
-## AWS CloudFormation deployment issues
+## CloudFormation deployment issues
 
 Stack creation fails with "Resource creation failed" error
 
@@ -19,7 +19,7 @@ Stack creation fails with "Resource creation failed" error
 - Insufficient permissions to create resources
 
 **Solution:** Check the specific resource
-error in the AWS CloudFormation events tab. Verify that the content origin domain
+error in the CloudFormation events tab. Verify that the content origin domain
 name is correctly formatted without protocol prefixes or paths. Ensure
 your IAM role has sufficient permissions to create all required
 resources.

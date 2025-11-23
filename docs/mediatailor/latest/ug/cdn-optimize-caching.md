@@ -58,6 +58,43 @@ These settings ensure:
   optimal caching for segments that don't have explicit cache-control
   headers
 
+## Server-guided ad insertion (SGAI)
+
+caching
+
+Server-guided ad insertion (SGAI) enables efficient CDN caching through cacheable
+media manifests that use predictable URL patterns. This section focuses on CDN-specific
+configuration requirements for optimal SGAI performance.
+
+### CDN caching configuration for
+
+SGAI
+
+Configure your CDN with these SGAI-specific caching behaviors:
+
+| SGAI CDN caching settings                  | Content type                      | TTL                  | Path pattern                         | Cache key elements |
+| ------------------------------------------ | --------------------------------- | -------------------- | ------------------------------------ | ------------------ |
+| SGAI multivariant playlists (do not cache) | 0 seconds (do not cache)          | /v1/master/\*        | URL path + selected query parameters |
+| SGAI media playlists                       | 1-4 seconds (half segment length) | /v1/i-media/\*       | URL path + selected query parameters |
+| Asset list responses (do not cache)        | 0 seconds (do not cache)          | /v1/interstitials/\* | URL path + all query parameters      |
+| Ad segments                                | 24+ hours                         | Ad-specific paths    | URL path only                        |
+
+### Cache behavior configuration
+
+Set up dedicated cache behaviors for SGAI content:
+
+- **SGAI manifest behavior** - Create a
+  cache behavior for `/v1/i-media/*` paths with 1-4 second
+  TTL
+- **Asset list behavior** - Create a cache
+  behavior for `/v1/interstitials/*` paths with 0 second
+  TTL
+- **Query parameter handling** - Include
+  only essential targeting parameters in cache keys to maximize cache
+  efficiency
+- **Origin request headers** - Forward
+  necessary headers for ad targeting while maintaining cacheability
+
 ## Channel assembly
 
 caching
@@ -92,12 +129,14 @@ caching
 When implementing both channel assembly and SSAI, ensure your caching strategy is
 consistent for both services to avoid conflicts and optimize performance:
 
-| Combined workflow caching settings comparison | Content type | Channel assembly | SSAI                              | Combined recommendation |
-| --------------------------------------------- | ------------ | ---------------- | --------------------------------- | ----------------------- |
-| VOD manifests                                 | 5-30 minutes | 0 seconds        | 0 seconds (SSAI takes precedence) |
-| Live manifests                                | 2-10 seconds | 0 seconds        | 0 seconds (SSAI takes precedence) |
-| Content segments                              | 24+ hours    | 24+ hours        | 24+ hours (consistent)            |
-| Ad segments                                   | 24+ hours    | 24+ hours        | 24+ hours (consistent)            |
+| Combined workflow caching settings comparison | Content type | Channel assembly | SSAI                               | Combined recommendation |
+| --------------------------------------------- | ------------ | ---------------- | ---------------------------------- | ----------------------- |
+| VOD manifests                                 | 5-30 minutes | 0 seconds        | (use a separate config)            |
+| Live manifests                                | 2-10 seconds | 0 seconds        | (use a separate config)            |
+| SGAI VOD manifests                            | 5-30 minutes | 5-30 minutes     | 5-30 minutes (cacheable manifests) |
+| SGAI Live manifests                           | 2-4 seconds  | 2-4 seconds      | 2-4 seconds (cacheable manifests)  |
+| Content segments                              | 24+ hours    | 24+ hours        | 24+ hours (consistent)             |
+| Ad segments                                   | 24+ hours    | 24+ hours        | 24+ hours (consistent)             |
 
 This configuration maximizes cache efficiency while ensuring viewers receive
 up-to-date manifests for personalized ad insertion.

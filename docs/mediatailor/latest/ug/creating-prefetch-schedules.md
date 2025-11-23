@@ -46,7 +46,8 @@ variables are mapped in the ADS template URL.
           + For *server-side tracking*, include the
            `?aws.streamId` query parameter and value in your client's `GET
            HTTP` request to your MediaTailor endpoint. For general information about server-side
-           tracking see [Server-side ad tracking](ad-reporting-server-side.md "ad-reporting-server-side.md"). A manifest request to an HLS endpoint that
+           tracking see [MediaTailor server-side ad tracking and
+           reporting](ad-reporting-server-side.md "ad-reporting-server-side.md"). A manifest request to an HLS endpoint that
            includes a stream ID looks like the following, where
            ``myStreamId`` is the name of your stream ID:
 

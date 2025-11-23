@@ -46,7 +46,7 @@ AWS Service Health Dashboard
 Check current MediaTailor service status and any ongoing service events
 
 Access: [AWS
-Service Health Dashboard](https://aws.amazon.com/https://status.aws.amazon.com/ "https://aws.amazon.com/https://status.aws.amazon.com/")
+Service Health Dashboard](https://status.aws.amazon.com/ "https://status.aws.amazon.com/")
 
 Use this when: You see widespread 5xx errors or service timeouts in CDN
 logs

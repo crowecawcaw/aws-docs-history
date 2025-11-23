@@ -4,6 +4,13 @@ AWS Elemental MediaTailor performs server side ad stitching when transitioning f
 breaks. MediaTailor can condition the manifest with metadata associated with the ads that have
 been stitched. Doing so can provide the following benefits:
 
+###### Important
+
+Ad-ID decoration is not compatible with server-guided ad insertion (SGAI) methods
+because the fields that populate `X-AD-CREATIVE-SIGNALING` headers are only
+known when the asset list is fetched during ad playback, not when the cacheable manifest
+is initially written.
+
 - _Video start time_ (VST) improves
 - MediaTailor can support a hybrid model of server side ad insertion and server guided ad
   insertion

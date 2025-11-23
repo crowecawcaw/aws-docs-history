@@ -135,4 +135,4 @@ After implementing MQAR, consider these next steps:
 
 - Set up monitoring and troubleshooting for your MQAR configuration (see [Monitor and troubleshoot your CloudFront and
   MediaTailor integration](monitoring-and-troubleshooting.md "monitoring-and-troubleshooting.md"))
-- Implement automated deployment using AWS CloudFormation (see [Automate MediaTailor and CDN with AWS CloudFormation](automating-cdn-integration.md "automating-cdn-integration.md"))
+- Implement automated deployment using AWS CloudFormation (see [Automate MediaTailor and CDN with CloudFormation](automating-cdn-integration.md "automating-cdn-integration.md"))

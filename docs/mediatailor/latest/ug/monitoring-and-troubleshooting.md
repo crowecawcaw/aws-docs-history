@@ -185,7 +185,7 @@ integration:
 After setting up monitoring and troubleshooting for your CloudFront and MediaTailor integration,
 consider these next steps:
 
-- Implement automated deployment using AWS CloudFormation (see [Automate MediaTailor and CDN with AWS CloudFormation](automating-cdn-integration.md "automating-cdn-integration.md"))
+- Implement automated deployment using AWS CloudFormation (see [Automate MediaTailor and CDN with CloudFormation](automating-cdn-integration.md "automating-cdn-integration.md"))
 - Create runbooks for common operational scenarios and troubleshooting
   procedures
 - Set up automated remediation for common issues

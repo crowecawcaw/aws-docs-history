@@ -186,7 +186,8 @@ but the underlying principles remain the same.
 
 behavior
 
-This behavior handles [Understanding AWS Elemental MediaTailor server-guided ad insertion](server-guided.md "server-guided.md") (SGAI) requests when customers configure guided mode, which provides cacheable
+This behavior handles [MediaTailor server-guided ad insertion overview and
+implementation](server-guided.md "server-guided.md") (SGAI) requests when customers configure guided mode, which provides cacheable
 manifests. CloudFront applies the following behaviors to all requests with a
 `/v1/i-media/*` path pattern. SGAI allows for better caching performance
 because the manifests are not viewer-specific.
@@ -291,8 +292,7 @@ The following is how MediaTailor handles the `Accept-Encoding` header.
 
 behavior
 
-This behavior handles requests to MediaTailor that result in redirects for [Server-side
-tracking](ad-reporting-server-side.md "ad-reporting-server-side.md"). These requests are essential
+This behavior handles requests to MediaTailor that result in redirects for [Server-side tracking](ad-reporting-server-side.md "ad-reporting-server-side.md"). These requests are essential
 for tracking beacons, so every request must be processed by MediaTailor. CloudFront applies the
 following behaviors to all requests with a `/segment/*` path pattern.
 

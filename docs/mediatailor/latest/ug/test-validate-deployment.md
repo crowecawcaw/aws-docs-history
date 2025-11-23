@@ -1,14 +1,14 @@
-# Test and validate your AWS CloudFormation deployment for CDN and MediaTailor integration
+# Test and validate your CloudFormation deployment for CDN and MediaTailor integration
 
 AWS Elemental MediaTailor deployment validation is a critical step for broadcast professionals before going live. This section guides you through testing your deployment to
 ensure ads are being inserted properly and content is delivered smoothly.
 
-After deploying the AWS CloudFormation template, follow these steps to verify that your setup is
+After deploying the CloudFormation template, follow these steps to verify that your setup is
 working correctly:
 
 ###### To test your MediaTailor and CloudFront integration
 
-1. Verify that all resources were created successfully in the AWS CloudFormation
+1. Verify that all resources were created successfully in the CloudFormation
    console.
 2. Check that the MediaTailor playback configuration is active in the [MediaTailor console](https://console.aws.amazon.com/mediatailor/home "https://console.aws.amazon.com/mediatailor/home").
 3. Verify that the CloudFront distribution is deployed and enabled in the [CloudFront console](https://console.aws.amazon.com/CloudFront/home "https://console.aws.amazon.com/CloudFront/home").

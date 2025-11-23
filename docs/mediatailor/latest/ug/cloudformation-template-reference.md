@@ -7,7 +7,7 @@ AWS Elemental MediaTailor integration with Amazon CloudFront can be automated us
 ```
 AWSTemplateFormatVersion: '2010-09-09'
 Description: |
-  AWS CloudFormation template that sets up AWS Elemental MediaTailor integration with CloudFront Distribution
+  CloudFormation template that sets up AWS Elemental MediaTailor integration with CloudFront Distribution
   for server-side ad insertion. This template supports various content origins including MediaPackage, Amazon S3,
   and custom origins, making it versatile for different streaming architectures.
 

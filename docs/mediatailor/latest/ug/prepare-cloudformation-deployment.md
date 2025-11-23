@@ -1,16 +1,16 @@
-# Prepare for AWS CloudFormation deployment of
+# Prepare for CloudFormation deployment of
 
 CDN and MediaTailor integrations
 
-AWS Elemental MediaTailor deployment with AWS CloudFormation requires specific prerequisites and preparation steps. Before you begin working with AWS CloudFormation to integrate MediaTailor and Amazon CloudFront, make sure
+AWS Elemental MediaTailor deployment with AWS CloudFormation requires specific prerequisites and preparation steps. Before you begin working with CloudFormation to integrate MediaTailor and Amazon CloudFront, make sure
 you have the following.
 
-- An AWS account with permissions to create MediaTailor, CloudFront, and AWS CloudFormation
+- An AWS account with permissions to create MediaTailor, CloudFront, and CloudFormation
   resources
 - A content origin where your video content is hosted (such as AWS Elemental MediaPackage, Amazon S3,
   or another origin server)
 - An ad decision server (ADS) that can respond to VAST requests
-  Before deploying the AWS CloudFormation template, gather these required parameters:
+  Before deploying the CloudFormation template, gather these required parameters:
 
 `AdServerUrl`
 

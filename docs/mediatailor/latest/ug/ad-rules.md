@@ -1,9 +1,17 @@
-# Customizing ad break behavior with ad suppression
+# Customizing ad break behavior with ad break suppression
 
 When you create a configuration in AWS Elemental MediaTailor, you can specify optional ad break
 configuration settings that govern the behavior of ad breaks, including the ability to
 configure ad break suppression. This allows you to tailor the ad break experiences for your
 video content to meet your specific requirements.
+
+###### Compatibility restrictions
+
+You can't use ad break suppression with the following:
+
+- VOD and live-to-VOD workflows. Only live workflows are supported.
+- Server-guided ad insertion (SGAI) methods. Server-guided methods handle ad
+  decisioning differently and don't require suppression configuration.
 
 ###### Topics
 
@@ -11,16 +19,12 @@ video content to meet your specific requirements.
 
 ## Configuring ad break suppression
 
-###### Note
-
-Ad suppression is only available for live workflows.
-
 You can configure MediaTailor to skip ad break personalization for live content.
-This is known as _ad suppression_, or _avail
+This is known as _ad break suppression_, or _avail
 suppression_. This topic shows you how, and it also explains how
-configuring ad suppression works.
+configuring ad break suppression works.
 
-Ad suppression can be used for the following use cases:
+Ad break suppression can be used for the following use cases:
 
 - **Large manifest lookback window** – If a viewer
   starts playback at the live edge of a manifest but the lookback window is large,
@@ -69,12 +73,14 @@ The following are the ad suppression configuration parameters:
     personalizes all ad breaks.
   - `BEHIND_LIVE_EDGE`: MediaTailor doesn't
     personalize ad breaks that start before the live edge, minus the
-    **Avail suppression
-    value**. This affects the entire ad break, not just individual ad avails.
+    **Avail suppression value**.
+    This affects the entire ad break, not just individual ad
+    avails.
   - `AFTER_LIVE_EDGE`: MediaTailor doesn't
     personalize ad breaks that are within the live edge, plus the
-    **Avail suppression
-    value**. This can be configured to affect either entire ad breaks or allow partial filling of ad avails.
+    **Avail suppression value**.
+    This can be configured to affect either entire ad breaks or
+    allow partial filling of ad avails.
 
 - **Avail suppression value** – A time
   relative to the live edge in a live stream. **Accepted value**: A time value in
@@ -338,7 +344,8 @@ followed by optional parameter name and value pairs. To construct the query,
 append `aws.availSuppression=` to the end of the playback session
 request to MediaTailor, followed by parameter names and values. For more
 information about how to construct a server-side playback session request,
-see [Server-side ad tracking](ad-reporting-server-side.md "ad-reporting-server-side.md").
+see [MediaTailor server-side ad tracking and
+reporting](ad-reporting-server-side.md "ad-reporting-server-side.md").
 
 **Example**: HLS
 

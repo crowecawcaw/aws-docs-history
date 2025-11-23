@@ -1,4 +1,6 @@
-# AWS Elemental MediaTailor ad insertion event flow
+# AWS Elemental MediaTailor ad insertion event
+
+flow
 
 AWS Elemental MediaTailor processes manifest personalization for server-side ad insertion through a
 predictable sequence of events. Understanding this event flow helps you comprehend how

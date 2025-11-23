@@ -7,8 +7,7 @@ ad insertion issues. By analyzing the sequence, timing, and patterns of events, 
 quickly identify where problems occur and implement targeted solutions.
 
 This section provides practical guidance for using event flow analysis to diagnose
-issues. For understanding the basic event flow concepts, see [Ad insertion event
-flow](mediatailor-event-flow.md "mediatailor-event-flow.md").
+issues. For understanding the basic event flow concepts, see [Ad insertion event flow](mediatailor-event-flow.md "mediatailor-event-flow.md").
 
 ## Identifying incomplete event
 

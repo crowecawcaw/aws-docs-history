@@ -1,11 +1,11 @@
-# Use the AWS CloudFormation deployed resources for CDN and MediaTailor integration
+# Use the CloudFormation deployed resources for CDN and MediaTailor integration
 
-AWS Elemental MediaTailor resources deployed by the AWS CloudFormation stack provide several important outputs that you'll use to access your content with ad insertion. After the AWS CloudFormation stack is created successfully, you'll need to understand how to use
+AWS Elemental MediaTailor resources deployed by the AWS CloudFormation stack provide several important outputs that you'll use to access your content with ad insertion. After the CloudFormation stack is created successfully, you'll need to understand how to use
 the outputs to access your content with ads inserted. This is similar to how you would
-use MediaTailor URLs in a manual setup, but the AWS CloudFormation deployment provides these URLs
+use MediaTailor URLs in a manual setup, but the CloudFormation deployment provides these URLs
 automatically.
 
-After successful deployment, the AWS CloudFormation stack provides several important outputs that
+After successful deployment, the CloudFormation stack provides several important outputs that
 you'll use to access your content with ad insertion:
 
 `CloudFrontDomainName`
@@ -31,7 +31,7 @@ Name of the created MediaTailor playback configuration (such as
 ## Construct playback URLs
 
 To create the complete playback URL for your content with ads, you'll need to
-combine the base URL from the AWS CloudFormation outputs with your specific manifest path. This
+combine the base URL from the CloudFormation outputs with your specific manifest path. This
 is a critical step for broadcast professionals to understand, as it connects your
 existing content with the ad insertion system.
 

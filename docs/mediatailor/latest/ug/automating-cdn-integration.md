@@ -1,20 +1,20 @@
-# Automate MediaTailor and CDN with AWS CloudFormation
+# Automate MediaTailor and CDN with CloudFormation
 
 Automating AWS Elemental MediaTailor with a content delivery network (CDN) using AWS CloudFormation streamlines
 your ad insertion workflow and improves reliability.
 
 This section shows you how to use AWS CloudFormation (AWS infrastructure as code service) to
 automatically set up AWS Elemental MediaTailor with a content delivery network (CDN). Although you can
-manually configure this integration as described in previous sections, using AWS CloudFormation saves
+manually configure this integration as described in previous sections, using CloudFormation saves
 time and reduces errors by automating the entire process with a single template.
 
-If you're new to AWS CloudFormation, it's a service that lets you create a template file that defines
-all of the AWS resources that you need. When you deploy this template, AWS CloudFormation automatically
+If you're new to CloudFormation, it's a service that lets you create a template file that defines
+all of the AWS resources that you need. When you deploy this template, CloudFormation automatically
 creates and configures those resources for you, ensuring that they work together
 correctly.
 
-For more information about AWS CloudFormation, see the [AWS CloudFormation
-User Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md"). For information about MediaTailor resource types in AWS CloudFormation, see [AWS::MediaTailor Resource Type Reference](../../../AWSCloudFormation/latest/UserGuide/AWS_MediaTailor.md "../../../AWSCloudFormation/latest/UserGuide/AWS_MediaTailor.md").
+For more information about CloudFormation, see the [CloudFormation
+User Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md"). For information about MediaTailor resource types in CloudFormation, see [AWS::MediaTailor Resource Type Reference](../../../AWSCloudFormation/latest/UserGuide/AWS_MediaTailor.md "../../../AWSCloudFormation/latest/UserGuide/AWS_MediaTailor.md").
 
 ###### Topics
 

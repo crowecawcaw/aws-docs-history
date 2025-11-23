@@ -1,4 +1,6 @@
-# Personalizing DASH manifests with ad metadata
+# Personalizing DASH manifests with ad
+
+metadata
 
 MediaTailor personalizes the manifest with creatives returned by the Ad Decision Server
 (ADS). For each ad, MediaTailor also includes an `EventStream` element that

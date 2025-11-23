@@ -1,8 +1,8 @@
 # Client-side tracking API
 
-The following example shows how a player SDK links the ad metadata in
-the manifest with the full tracking event data in the client-side tracking response
-payload with `creativeId` and `adId`.
+The following example shows how a player SDK links the ad metadata in the manifest
+with the full tracking event data in the client-side tracking response payload with
+`creativeId` and `adId`.
 
 ###### Example JSON message:
 

@@ -23,7 +23,7 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
   available FIPS endpoints, see [Federal
   Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
   We strongly recommend that you never put confidential or sensitive information, such as your
-  customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with or other AWS services
+  customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with MediaTailor or other AWS services
   using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into
   tags or free-form text fields used for names may be used for billing or diagnostic logs. If you
   provide a URL to an external server, we strongly recommend that you do not include credentials

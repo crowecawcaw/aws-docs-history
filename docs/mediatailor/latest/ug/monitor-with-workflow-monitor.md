@@ -23,7 +23,7 @@ You can create custom CloudWatch alarm and EventBridge rule templates to monitor
 status of your media workflows. Best practice alarm templates are available to import
 into your workflow monitor environment. You can use the best practice alarm templates as they are,
 or edit them to better fit your workflow. Any templates you create are transformed into
-AWS CloudFormation templates for repeatable deployment.
+CloudFormation templates for repeatable deployment.
 
 ![Workflow monitor monitoring components.](images/workflowmonitor-monitoring.png)
 

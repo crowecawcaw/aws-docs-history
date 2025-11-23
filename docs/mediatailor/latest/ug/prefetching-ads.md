@@ -7,6 +7,13 @@ insertion before they’re needed for an ad break. During live streams, prefetch
 mitigate decreased ad fill rates and missed monetization opportunities because of ad request and
 transcoding timeouts or other network delays.
 
+###### Note
+
+Ad prefetching does not work with server-guided ad insertion (SGAI) methods, including
+traditional server-guided and HLS Interstitials. SGAI methods do not require prefetching because
+players only fetch ads they are going to play, and manifests can be served by CDNs without MediaTailor
+seeing individual session requests.
+
 To set up ad prefetching, you create one or more _prefetch
 schedules_ on your playback configuration. A prefetch schedule tells MediaTailor how and when
 to retrieve and prepare ads for an upcoming ad break.

@@ -281,6 +281,25 @@ manifest containing media, you only need to call the tracking endpoint once.
 
 ![Call flow for VOD workflows. Call the client-side tracking endpoint after the session initializes and MediaTailor receives the first manifest that contains media.](images/vod-workflow-best-practice.png)
 
+### Server-guided ad
+
+insertion
+
+Server-guided ad insertion (SGAI) sessions do not use the `GetTracking`
+API. Instead, tracking information is provided in the `TRACKING` section
+of each asset list response when players request ad content.
+
+When implementing client-side tracking for SGAI methods:
+
+- Parse the `TRACKING` section from asset list responses rather
+  than calling `GetTracking`
+- Use the tracking URLs provided in the asset list for ad event
+  reporting
+- Fire tracking beacons based on actual ad playback events in the
+  player
+- Handle tracking for each ad break independently as asset lists are
+  fetched
+
 ## Paging through ad beacons with GetTracking
 
 Use the `GetTracking` endpoint to narrow the number of ad returned to a player.

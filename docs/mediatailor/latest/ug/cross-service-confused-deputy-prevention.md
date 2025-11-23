@@ -18,7 +18,7 @@ both global condition context keys, the `aws:SourceAccount` value and the accoun
 in the `aws:SourceArn` value must use the same account ID when used in the same
 policy statement.
 
-The value of `aws:SourceArn` must be the playback configuration that publishes CloudWatch logs for in your Region and account. However, this only
+The value of `aws:SourceArn` must be the playback configuration that MediaTailor publishes CloudWatch logs for in your Region and account. However, this only
 applies if you use the [MediaTailorLogger](monitoring-permissions.md "monitoring-permissions.md") role that lets MediaTailor publish Amazon CloudWatch logs to your
 account. This doesn't apply if you use a [service-linked role](using-service-linked-roles.md "using-service-linked-roles.md") to let MediaTailor publish the CloudWatch logs.
 
@@ -30,5 +30,5 @@ resources, use the `aws:SourceArn` global context condition key with wildcards
 `arn:aws:`servicename`::`123456789012`:*`.
 
 The following example shows how you can use the `aws:SourceArn` and
-`aws:SourceAccount` global condition context keys in to prevent
+`aws:SourceAccount` global condition context keys in MediaTailor to prevent
 the confused deputy problem.

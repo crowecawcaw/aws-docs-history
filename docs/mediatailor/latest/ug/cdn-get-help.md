@@ -16,7 +16,7 @@ through self-service troubleshooting.
 - Search [AWS re:Post](https://repost.aws/ "https://repost.aws/") for similar issues and
   community solutions
 - Review [AWS Knowledge
-  Center](https://aws.amazon.com/https://aws.amazon.com/premiumsupport/knowledge-center/ "https://aws.amazon.com/https://aws.amazon.com/premiumsupport/knowledge-center/") for common integration patterns
+  Center](https://aws.amazon.com/premiumsupport/knowledge-center/ "https://aws.amazon.com/premiumsupport/knowledge-center/") for common integration patterns
 
 ###### Topics
 

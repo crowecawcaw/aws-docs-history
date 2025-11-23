@@ -6,10 +6,10 @@ depends on how the ad breaks are configured in the origin manifest, and whether 
 is VOD or live. An ad break is the time period during programming when commercials are shown, while
 ad avails are the specific units of advertising time within an ad break that can be filled with ads.
 
-- With ad replacement, MediaTailor replaces content segments
-  with ads.
-- With ad insertion, MediaTailor inserts ad content where
-  segments don't exist.
+- With _ad replacement_, MediaTailor replaces
+  content segments with ads.
+- With _ad insertion_, MediaTailor inserts ad
+  content where segments don't exist.
   For information about how MediaTailor stitches ads into live and VOD content, select the
   applicable topic.
 
@@ -143,6 +143,11 @@ VMAP, then ensure that there are ad markers in the manifest.
 MediaTailor inserts ads at the markers, as described in the following
 sections.
 
+###### Note
+
+For server-guided ad insertion methods, MediaTailor inserts pre-roll ads at the top
+of the manifest and the player plays them before other ad types.
+
 ## Live ad stitching behavior
 
 In live streams, AWS Elemental MediaTailor always performs ad replacement, preserving the
@@ -185,6 +190,57 @@ AWS Elemental MediaTailor adheres to the following guidelines during live ad rep
 You can define the limit of unfilled ad time allowed in an break with
 the personalization threshold configuration setting. For more
 information, see the [PlaybackConfiguration reference](../apireference/API_PutPlaybackConfiguration.md#mediatailor-PutPlaybackConfiguration-request-PersonalizationThresholdSeconds "../apireference/API_PutPlaybackConfiguration.md#mediatailor-PutPlaybackConfiguration-request-PersonalizationThresholdSeconds").
+
+### Live preroll for server-guided ad
+
+insertion
+
+Live preroll works differently for server-guided ad insertion methods compared to
+server-side ad insertion:
+
+Server-side ad insertion (stitched mode)
+
+Preroll ads replace part of the live content at the beginning of each
+viewer's session. Each viewer sees preroll at different times based on
+when they join the stream.
+
+Server-guided ad insertion methods
+
+MediaTailor places a preroll daterange tag at the top of all media manifests
+with `CUE="PRE,ONCE"` attributes. This causes players to
+request and play preroll ads once at the start of playback, despite
+sharing the same non-personalized manifest.
+
+**Configuration requirements:**
+
+- **Live preroll ad decision server:**
+  Configure a VAST endpoint for preroll ads (can be different from mid-roll
+  ads)
+- **Live preroll maximum allowed duration:**
+  Set the maximum duration for preroll ads (optional - if omitted, all
+  returned ads will be used)
+
+**Technical implementation:**
+
+- Preroll daterange tag uses
+  `START-DATE="1970-01-01T00:00:00.000Z"` (Unix epoch)
+- Asset list requests for preroll use the configured preroll ad decision
+  server instead of the regular ADS
+- Players identify preroll requests through the
+  `availId="aws-mediatailor-preroll-1"` in the asset list
+  data
+
+###### Important
+
+For live streams, preroll ads cover content rather than delaying it. Future
+versions may support content delay mode through additional configuration
+options.
+
+###### Note
+
+Preroll behavior varies between live and VOD content for server-guided ad
+insertion. Live content requires explicit preroll configuration, while VOD
+content includes preroll by default using the regular ad decision server.
 
 ### Examples
 

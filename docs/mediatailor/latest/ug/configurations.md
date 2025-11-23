@@ -14,13 +14,14 @@ content delivery](integrating-cdn.md "integrating-cdn.md").
 
 - [Supported audio and video codecs](#supportedcodecs "#supportedcodecs")
 - [Understanding AWS Elemental MediaTailor ad insertion behavior](ad-behavior.md "ad-behavior.md")
-- [Understanding AWS Elemental MediaTailor server-guided ad insertion](server-guided.md "server-guided.md")
+- [MediaTailor server-guided ad insertion overview and
+  implementation](server-guided.md "server-guided.md")
 - [MediaTailor ad server integration requirements](vast.md "vast.md")
 - [MediaTailor playback configuration
   management](working-with-configurations.md "working-with-configurations.md")
 - [Integrating a content source for MediaTailor ad insertion](integrating-origin.md "integrating-origin.md")
 - [Integrating AWS Elemental MediaTailor with Google Ad Manager](gam-integration.md "gam-integration.md")
-- [Customizing ad break behavior with ad suppression](ad-rules.md "ad-rules.md")
+- [Customizing ad break behavior with ad break suppression](ad-rules.md "ad-rules.md")
 - [MediaTailor bumper ad insertion](bumpers.md "bumpers.md")
 - [MediaTailor pre-roll ad insertion](ad-behavior-preroll.md "ad-behavior-preroll.md")
 - [MediaTailor slate ad insertion](slate-management.md "slate-management.md")

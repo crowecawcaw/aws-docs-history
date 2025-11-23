@@ -7,7 +7,8 @@ session initialization).
 
 ###### To enable ad ID for the session using HLS/DASH playback prefixes
 
-- From the player, initialize a new MediaTailor playback session using a request in one of the following formats, according to your protocol:
+- From the player, initialize a new MediaTailor playback session using a request in
+  one of the following formats, according to your protocol:
   - Example: HLS format
 
   ```
@@ -22,8 +23,12 @@ session initialization).
 
 ###### To enable ad ID for the session using the session initialization prefix
 
-- On the player, construct a JSON message body for the session initialization request to MediaTailor:
-  - Inside an `adsParams` object, provide any parameters that MediaTailor should pass to the ADS. These parameters correspond to `[player_params.param]` settings in the ADS template URL of the MediaTailor configuration.
+- On the player, construct a JSON message body for the session initialization
+  request to MediaTailor:
+  - Inside an `adsParams` object, provide any parameters that
+    MediaTailor should pass to the ADS. These parameters correspond to
+    `[player_params.param]` settings in the ADS template URL
+    of the MediaTailor configuration.
   - To enable ad ID signaling, add an `adSignaling` object as a
     top level object, and inside, add a parameter called
     `enabled` and value of `true`. The default

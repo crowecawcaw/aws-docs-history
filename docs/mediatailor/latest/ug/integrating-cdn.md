@@ -56,7 +56,7 @@ Placing a CDN between your viewers and MediaTailor provides the following benefi
 - [Troubleshoot CDN integration](cdn-troubleshooting.md "cdn-troubleshooting.md")
 - [CDN integration log analysis
   reference](cdn-log-error-reference.md "cdn-log-error-reference.md")
-- [AWS CloudFormation automation](automating-cdn-integration.md "automating-cdn-integration.md")
+- [CloudFormation automation](automating-cdn-integration.md "automating-cdn-integration.md")
 - [Production CloudFront
   configuration](cf-comprehensive-configuration.md "cf-comprehensive-configuration.md")
 - [Get CDN integration support](cdn-get-help.md "cdn-get-help.md")

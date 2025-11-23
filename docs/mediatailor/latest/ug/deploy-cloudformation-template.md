@@ -1,17 +1,17 @@
-# Deploy the AWS CloudFormation template for CDN and MediaTailor integrations
+# Deploy the CloudFormation template for CDN and MediaTailor integrations
 
 AWS Elemental MediaTailor deployment using the AWS CloudFormation template is straightforward once you understand what the template will create. This
 process takes about 15-30 minutes, with most of the time spent waiting for the CloudFront
 distribution to deploy.
 
-To deploy the AWS CloudFormation template and set up your automated ad insertion workflow:
+To deploy the CloudFormation template and set up your automated ad insertion workflow:
 
-###### To deploy the MediaTailor AWS CloudFormation template
+###### To deploy the MediaTailor CloudFormation template
 
-1. Download the AWS CloudFormation template from the AWS Elemental MediaTailor GitHub repository or copy it
+1. Download the CloudFormation template from the AWS Elemental MediaTailor GitHub repository or copy it
    from the [AWS CloudFormation template reference for
    AWS Elemental MediaTailor and Amazon CloudFront integration](cloudformation-template-reference.md "cloudformation-template-reference.md").
-2. Open the [AWS CloudFormation
+2. Open the [CloudFormation
    console](https://console.aws.amazon.com/cloudformation/home "https://console.aws.amazon.com/cloudformation/home").
 3. Choose **Create stack** > **With new resources
    (standard)**.

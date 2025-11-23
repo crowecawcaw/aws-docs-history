@@ -1,4 +1,6 @@
-# Personalizing HLS manifests with ad metadata
+# Personalizing HLS manifests with ad
+
+metadata
 
 For a live HLS stream, MediaTailor only adds metadata when the stream contains
 `PROGRAM-DATA-TIME` tags, at least once per manifest duration. For a
