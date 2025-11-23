@@ -72,7 +72,7 @@ repository for source changes. We recommend that you use CloudWatch Events to de
 source changes instead. For more information about configuring CloudWatch Events, see
 [Migrate polling pipelines
 (CodeCommit source) (CLI)](update-change-detection.md#update-change-detection-cli-codecommit "update-change-detection.md#update-change-detection-cli-codecommit") or [Migrate polling pipelines
-(CodeCommit source) (AWS CloudFormation template)](update-change-detection.md#update-change-detection-cfn-codecommit "update-change-detection.md#update-change-detection-cfn-codecommit").
+(CodeCommit source) (CloudFormation template)](update-change-detection.md#update-change-detection-cfn-codecommit "update-change-detection.md#update-change-detection-cfn-codecommit").
 
 ###### Important
 

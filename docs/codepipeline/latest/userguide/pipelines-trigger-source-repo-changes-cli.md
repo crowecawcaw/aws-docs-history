@@ -84,7 +84,7 @@ source and CodePipeline as the target
    `--event-pattern` , and`--role-arn` parameters.
 
 **Why am I making this change?** This command enables
-AWS CloudFormation to create the event.
+CloudFormation to create the event.
 
 The following sample command creates a rule called
 `MyCodeCommitRepoRule`.

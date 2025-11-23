@@ -1,13 +1,13 @@
-# AWS CloudFormation deploy action reference
+# CloudFormation deploy action reference
 
-Executes an operation on an AWS CloudFormation stack. A stack is a collection of AWS resources that
-you can manage as a single unit. The resources in a stack are defined by the stack's AWS CloudFormation
+Executes an operation on an CloudFormation stack. A stack is a collection of AWS resources that
+you can manage as a single unit. The resources in a stack are defined by the stack's CloudFormation
 template. A change set creates a comparison that can be viewed without altering the original
-stack. For information about the types of AWS CloudFormation actions that can be performed on stacks and
+stack. For information about the types of CloudFormation actions that can be performed on stacks and
 change sets, see the `ActionMode` parameter.
 
-To construct an error message for an AWS CloudFormation action where a stack operation has failed,
-CodePipeline calls the AWS CloudFormation `DescribeStackEvents` API. If an action IAM role has
+To construct an error message for an CloudFormation action where a stack operation has failed,
+CodePipeline calls the CloudFormation `DescribeStackEvents` API. If an action IAM role has
 permission to access that API, the details about the first failed resource will be included
 in the CodePipeline error message. Otherwise, if the role policy does not have the appropriate
 permission, CodePipeline will ignore accessing the API and show a generic error message instead. To
@@ -25,7 +25,7 @@ revoke this permission for the action IAM role by removing the
 - [Input artifacts](#action-reference-CloudFormation-input "#action-reference-CloudFormation-input")
 - [Output artifacts](#action-reference-CloudFormation-output "#action-reference-CloudFormation-output")
 - [Output variables](#action-reference-CloudFormation-variables "#action-reference-CloudFormation-variables")
-- [Service role permissions: AWS CloudFormation
+- [Service role permissions: CloudFormation
   action](#edit-role-cloudformation "#edit-role-cloudformation")
 - [Action declaration](#action-reference-CloudFormation-example "#action-reference-CloudFormation-example")
 - [See also](#action-reference-CloudFormation-links "#action-reference-CloudFormation-links")
@@ -43,18 +43,18 @@ revoke this permission for the action IAM role by removing the
 
 Required: Yes
 
-`ActionMode` is the name of the action AWS CloudFormation performs on a
+`ActionMode` is the name of the action CloudFormation performs on a
 stack or change set. The following action modes are available:
 
 - `CHANGE_SET_EXECUTE` executes a change set for the
   resource stack that is based on a set of specified resource updates.
-  With this action, AWS CloudFormation starts to alter the stack.
+  With this action, CloudFormation starts to alter the stack.
 - `CHANGE_SET_REPLACE` creates the change set, if it
   doesn't exist, based on the stack name and template that you submit.
-  If the change set exists, AWS CloudFormation deletes it, and then creates a new
+  If the change set exists, CloudFormation deletes it, and then creates a new
   one.
 - `CREATE_UPDATE` creates the stack if it doesn't exist.
-  If the stack exists, AWS CloudFormation updates the stack. Use this action to
+  If the stack exists, CloudFormation updates the stack. Use this action to
   update existing stacks. Unlike `REPLACE_ON_FAILURE`, if
   the stack exists and is in a failed state, CodePipeline won't delete and
   replace the stack.
@@ -62,12 +62,12 @@ stack or change set. The following action modes are available:
   that doesn't exist, the action is completed successfully without
   deleting a stack.
 - `REPLACE_ON_FAILURE` creates a stack, if it doesn't
-  exist. If the stack exists and is in a failed state, AWS CloudFormation deletes
+  exist. If the stack exists and is in a failed state, CloudFormation deletes
   the stack, and then creates a new stack. If the stack isn't in a
-  failed state, AWS CloudFormation updates it.
+  failed state, CloudFormation updates it.
 
 The stack is in a failed state when any of the following status
-types are displayed in AWS CloudFormation:
+types are displayed in CloudFormation:
 
     + `ROLLBACK_FAILED`
     + `CREATE_FAILED`
@@ -100,7 +100,7 @@ template.
 
 This property is required if you have IAM resources in your stack template
 or you create a stack directly from a template containing macros. In order
-for the AWS CloudFormation action to successfully operate in this way, you must
+for the CloudFormation action to successfully operate in this way, you must
 explicitly acknowledge that you would like it to do so with one of the
 following capabilities:
 
@@ -131,7 +131,7 @@ property is ignored.
 
 Required: Conditional
 
-The `RoleArn` is the ARN of the IAM service role that AWS CloudFormation
+The `RoleArn` is the ARN of the IAM service role that CloudFormation
 assumes when it operates on resources in the specified stack.
 `RoleArn` is not applied when executing a change set. If you
 do not use CodePipeline to create the change set, make sure that the change set or
@@ -152,7 +152,7 @@ This property is required for the following action modes:
 
 ###### Note
 
-AWS CloudFormation is given an S3-signed URL to the template; therefore, this
+CloudFormation is given an S3-signed URL to the template; therefore, this
 `RoleArn` does not need permission to access the artifact
 bucket. However, the action `RoleArn`
 _does_ need permission to access the
@@ -162,7 +162,7 @@ artifact bucket, in order to generate the signed URL.
 
 Required: Conditional
 
-`TemplatePath` represents the AWS CloudFormation template file. You include
+`TemplatePath` represents the CloudFormation template file. You include
 the file in an input artifact to this action. The file name follows this
 format:
 
@@ -188,11 +188,11 @@ For all other action modes, this property is ignored.
 
 ###### Note
 
-The AWS CloudFormation template file containing the template body has a minimum
-length of 1 byte and a maximum length of 1 MB. For AWS CloudFormation deployment
+The CloudFormation template file containing the template body has a minimum
+length of 1 byte and a maximum length of 1 MB. For CloudFormation deployment
 actions in CodePipeline, the maximum input artifact size is always 256 MB. For
 more information, see [Quotas in AWS CodePipeline](limits.md "limits.md")
-and [AWS CloudFormation
+and [CloudFormation
 Limits](../../../AWSCloudFormation/latest/UserGuide/cloudformation-limits.md "../../../AWSCloudFormation/latest/UserGuide/cloudformation-limits.md").
 
 **OutputFileName**
@@ -202,7 +202,7 @@ Required: No
 Use `OutputFileName` to specify an output file name, such as
 `CreateStackOutput.json`, that CodePipeline adds to the
 pipeline output artifact for this action. The JSON file contains the
-contents of the `Outputs` section from the AWS CloudFormation stack.
+contents of the `Outputs` section from the CloudFormation stack.
 
 If you don't specify a name, CodePipeline doesn't generate an output file or
 artifact.
@@ -253,7 +253,7 @@ CodePipeline. For example, a source stage with the artifact name of
 
 - **Number of artifacts:**
   `0 to 10`
-- **Description:** As input, the AWS CloudFormation action
+- **Description:** As input, the CloudFormation action
   optionally accepts artifacts for these purposes:
   - To provide the stack template file to execute. (See the
     `TemplatePath` parameter.)
@@ -261,7 +261,7 @@ CodePipeline. For example, a source stage with the artifact name of
     `TemplateConfiguration` parameter.) For more information
     about the template configuration file format, see [AWS CloudFormation Artifacts](../../../AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-cfn-artifacts.md "../../../AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-cfn-artifacts.md").
   - To provide the artifact for a Lambda function to be deployed as part
-    of the AWS CloudFormation stack.
+    of the CloudFormation stack.
 
 ## Output artifacts
 
@@ -270,10 +270,10 @@ CodePipeline. For example, a source stage with the artifact name of
 - **Description:** If the
   `OutputFileName` parameter is specified, there is an output
   artifact produced by this action that contains a JSON file with the specified
-  name. The JSON file contains the contents of the Outputs section from the AWS CloudFormation
+  name. The JSON file contains the contents of the Outputs section from the CloudFormation
   stack.
 
-For more information about the outputs section you can create for your AWS CloudFormation
+For more information about the outputs section you can create for your CloudFormation
 action, see [Outputs](../../../AWSCloudFormation/latest/UserGuide/outputs-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/outputs-section-structure.md").
 
 ## Output variables
@@ -283,7 +283,7 @@ configuration of a downstream action in the pipeline. You configure an action wi
 namespace to make those variables available to the configuration of downstream
 actions.
 
-For AWS CloudFormation actions, variables are produced from any values designated in the
+For CloudFormation actions, variables are produced from any values designated in the
 `Outputs` section of a stack template. Note that the only CloudFormation
 action modes that generate outputs are those that result in creating or updating a
 stack, such as stack creation, stack updates, and change set execution. The
@@ -299,7 +299,7 @@ pipeline with a CloudFormation deployment action in a pipeline that uses CloudFo
 output variables, see [Tutorial: Create a pipeline that uses
 variables from AWS CloudFormation deployment actions](tutorials-cloudformation-action.md "tutorials-cloudformation-action.md").
 
-## Service role permissions: AWS CloudFormation
+## Service role permissions: CloudFormation
 
 action
 
@@ -365,7 +365,7 @@ JSON
 ```
 
 Note that the `cloudformation:DescribeStackEvents` permission is optional.
-It allows the AWS CloudFormation action to show a more detailed error message. This permission can be
+It allows the CloudFormation action to show a more detailed error message. This permission can be
 revoked from the IAM role if you don't want resource details surfaced in the pipeline
 error messages.
 
@@ -434,5 +434,5 @@ The following related resources can help you as you work with this action.
   in the _AWS CloudFormation User Guide_ provides more descriptions and
   examples for these CodePipeline parameters.
 - [AWS CloudFormation API Reference](../../../AWSCloudFormation/latest/APIReference.md "../../../AWSCloudFormation/latest/APIReference.md") – The [CreateStack](../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md "../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md") parameter in the
-  _AWS CloudFormation API Reference_ describes stack parameters for AWS CloudFormation
+  _AWS CloudFormation API Reference_ describes stack parameters for CloudFormation
   templates.

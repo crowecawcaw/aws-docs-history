@@ -14,7 +14,7 @@ To see step-by-step examples of using variables:
 - For a tutorial with a Lambda action that uses variables from an upstream action
   (CodeCommit) and generates output variables, see [Tutorial: Using variables with Lambda invoke
   actions](tutorials-lambda-variables.md "tutorials-lambda-variables.md").
-- For a tutorial with a AWS CloudFormation action that references stack output variables from an
+- For a tutorial with a CloudFormation action that references stack output variables from an
   upstream CloudFormation action, see [Tutorial: Create a pipeline that uses
   variables from AWS CloudFormation deployment actions](tutorials-cloudformation-action.md "tutorials-cloudformation-action.md").
 - For an example manual approval action with message text that references output

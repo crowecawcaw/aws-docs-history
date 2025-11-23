@@ -73,7 +73,7 @@ Developer Guide](../../../kms/latest/developerguide.md "../../../kms/latest/deve
 
 - [View your AWS managed key](#S3-view-default-keys "#S3-view-default-keys")
 - [Configure server-side encryption for S3
-  buckets using AWS CloudFormation or the AWS CLI](#S3-rotate-customer-key "#S3-rotate-customer-key")
+  buckets using CloudFormation or the AWS CLI](#S3-rotate-customer-key "#S3-rotate-customer-key")
 
 ## View your AWS managed key
 
@@ -103,9 +103,9 @@ displayed.
 
 ## Configure server-side encryption for S3
 
-buckets using AWS CloudFormation or the AWS CLI
+buckets using CloudFormation or the AWS CLI
 
-When you use AWS CloudFormation or the AWS CLI to create a pipeline, you must configure
+When you use CloudFormation or the AWS CLI to create a pipeline, you must configure
 server-side encryption manually. Use the sample bucket policy above, and then create
 your own customer managed key. You can also use your own keys instead of the
 AWS managed key. Some reasons to choose your own key include:

@@ -1,14 +1,14 @@
 # Create an EventBridge rule for an Amazon S3
 
-source (AWS CloudFormation template)
+source (CloudFormation template)
 
-To use AWS CloudFormation to create a rule, update your template as shown here.
+To use CloudFormation to create a rule, update your template as shown here.
 
 ###### To create an EventBridge rule with Amazon S3 as the event
 
 source and CodePipeline as the target and apply the permissions policy
 
-1.  In the template, under `Resources`, use the `AWS::IAM::Role` AWS CloudFormation
+1.  In the template, under `Resources`, use the `AWS::IAM::Role` CloudFormation
     resource to configure the IAM role that allows your event to start your pipeline. This entry
     creates a role that uses two policies:
 
@@ -16,8 +16,8 @@ source and CodePipeline as the target and apply the permissions policy
         * The second policy provides permissions to start the pipeline.
 
     **Why am I making this change?** Adding
-    `AWS::IAM::Role` resource enables AWS CloudFormation to create permissions for EventBridge. This
-    resource is added to your AWS CloudFormation stack.
+    `AWS::IAM::Role` resource enables CloudFormation to create permissions for EventBridge. This
+    resource is added to your CloudFormation stack.
 
 YAML
 
@@ -102,7 +102,7 @@ JSON
 ...
 ```
 
-2. Use the `AWS::Events::Rule` AWS CloudFormation resource to add an EventBridge rule. This event
+2. Use the `AWS::Events::Rule` CloudFormation resource to add an EventBridge rule. This event
    pattern creates an event that monitors `CopyObject`, `PutObject` and
    `CompleteMultipartUpload` on your Amazon S3 source bucket. In addition, include a
    target of your pipeline. When `CopyObject`, `PutObject`, or
@@ -110,8 +110,8 @@ JSON
    `StartPipelineExecution` on your target pipeline.
 
 **Why am I making this change?** Adding the
-`AWS::Events::Rule` resource enables AWS CloudFormation to create the event. This resource is
-added to your AWS CloudFormation stack.
+`AWS::Events::Rule` resource enables CloudFormation to create the event. This resource is
+added to your CloudFormation stack.
 
 YAML
 
@@ -276,10 +276,10 @@ Targets:
 
 ```
 
-5. Save your updated template to your local computer, and open the AWS CloudFormation console.
+5. Save your updated template to your local computer, and open the CloudFormation console.
 6. Choose your stack, and then choose **Create Change Set for Current
    Stack**.
-7. Upload your updated template, and then view the changes listed in AWS CloudFormation. These are the
+7. Upload your updated template, and then view the changes listed in CloudFormation. These are the
    changes that will be made to the stack. You should see your new resources in the list.
 8. Choose **Execute**.
 
@@ -361,7 +361,7 @@ pipeline's CloudTrail resources
 
 - In a separate template, under `Resources`, use the
   `AWS::S3::Bucket`, `AWS::S3::BucketPolicy`, and
-  `AWS::CloudTrail::Trail` AWS CloudFormation resources to provide a simple bucket
+  `AWS::CloudTrail::Trail` CloudFormation resources to provide a simple bucket
   definition and trail for CloudTrail.
 
 **Why am I making this change?** Given the current limit

@@ -292,9 +292,9 @@ commands to create or update a pipeline as detailed in [Create a pipeline, stage
 
 ### Configure a stage for automatic retry
 
-(AWS CloudFormation)
+(CloudFormation)
 
-To use AWS CloudFormation to configure a stage for automatic retry on failure, use the
+To use CloudFormation to configure a stage for automatic retry on failure, use the
 `OnFailure` stage lifecycle parameter. Use the
 `RetryConfiguration` parameter to configure the retry mode.
 
@@ -377,4 +377,4 @@ AppPipeline:
 
 ```
 
-For more information about configuring stage retry on failure, see [OnFailure](../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.md#cfn-codepipeline-pipeline-stagedeclaration-onfailure "../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.md#cfn-codepipeline-pipeline-stagedeclaration-onfailure") under `StageDeclaration` in the _AWS CloudFormation User Guide_.
+For more information about configuring stage retry on failure, see [OnFailure](../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.md#cfn-codepipeline-pipeline-stagedeclaration-onfailure "../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.md#cfn-codepipeline-pipeline-stagedeclaration-onfailure") under `StageDeclaration` in the _CloudFormation User Guide_.

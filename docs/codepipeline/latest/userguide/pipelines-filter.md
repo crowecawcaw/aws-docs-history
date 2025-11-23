@@ -60,7 +60,7 @@ field definitions, see [triggers](pipeline-requirements.md#pipeline.triggers "pi
 - [Add filters for push and pull request event types
   (CLI)](#pipelines-filter-cli "#pipelines-filter-cli")
 - [Add filters for push and pull request event types
-  (AWS CloudFormation templates)](#pipelines-filter-cfn "#pipelines-filter-cfn")
+  (CloudFormation templates)](#pipelines-filter-cfn "#pipelines-filter-cfn")
 
 ## Add filters for push and pull request event
 
@@ -272,16 +272,16 @@ guide.
 
 ## Add filters for push and pull request event types
 
-(AWS CloudFormation templates)
+(CloudFormation templates)
 
-You can update the pipeline resource in AWS CloudFormation to add trigger filtering.
+You can update the pipeline resource in CloudFormation to add trigger filtering.
 
 The following example template snippet provides a YAML reference for triggers field
 definitions. For a list of field definitions, see [triggers](pipeline-requirements.md#pipeline.triggers "pipeline-requirements.md#pipeline.triggers") in the _Pipeline structure
 reference_ in this guide.
 
 For a full template example for a connection source and trigger filter configuration,
-see [Pipeline with two stages and trigger configuration](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.md#aws-resource-codepipeline-pipeline--examples--Pipeline_with_two_stages_and_trigger_configuration "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.md#aws-resource-codepipeline-pipeline--examples--Pipeline_with_two_stages_and_trigger_configuration") in the _AWS CloudFormation User Guide_.
+see [Pipeline with two stages and trigger configuration](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.md#aws-resource-codepipeline-pipeline--examples--Pipeline_with_two_stages_and_trigger_configuration "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.md#aws-resource-codepipeline-pipeline--examples--Pipeline_with_two_stages_and_trigger_configuration") in the _CloudFormation User Guide_.
 
 ```
 pipeline:

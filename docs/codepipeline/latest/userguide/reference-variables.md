@@ -21,7 +21,7 @@ To see step-by-step examples of using variables:
 - For a tutorial with a Lambda action that uses variables from an upstream action
   (CodeCommit) and generates output variables, see [Tutorial: Using variables with Lambda invoke
   actions](tutorials-lambda-variables.md "tutorials-lambda-variables.md").
-- For a tutorial with a AWS CloudFormation action that references stack output variables from an
+- For a tutorial with a CloudFormation action that references stack output variables from an
   upstream CloudFormation action, see [Tutorial: Create a pipeline that uses
   variables from AWS CloudFormation deployment actions](tutorials-cloudformation-action.md "tutorials-cloudformation-action.md").
 - For an example manual approval action with message text that references output variables
@@ -344,9 +344,9 @@ action in the pipeline.
 
 ###### Topics
 
-- [CodePipeline execution ID variable](#w21aac63c33b7b9 "#w21aac63c33b7b9")
+- [CodePipeline execution ID variable](#w2aac63c33b7b9 "#w2aac63c33b7b9")
 - [Amazon ECR action output variables](#reference-variables-output-ECR "#reference-variables-output-ECR")
-- [AWS CloudFormation StackSets action output variables](#reference-variables-output-StackSets "#reference-variables-output-StackSets")
+- [CloudFormation StackSets action output variables](#reference-variables-output-StackSets "#reference-variables-output-StackSets")
 - [CodeCommit action output variables](#reference-variables-output-CodeCommit "#reference-variables-output-CodeCommit")
 - [CodeStarSourceConnection action output variables](#reference-variables-output-CodeConnections "#reference-variables-output-CodeConnections")
 - [GitHub action output variables (GitHub (via OAuth app) action)](#reference-variables-output-GitHub-version1 "#reference-variables-output-GitHub-version1")
@@ -368,12 +368,12 @@ action in the pipeline.
 | `RegistryId`         | EXAMPLE12233                                                 | `#{SourceVariables.RegistryId}`     |
 | `RepositoryName`     | my-image-repo                                                | `#{SourceVariables.RepositoryName}` |
 
-#### AWS CloudFormation StackSets action output variables
+#### CloudFormation StackSets action output variables
 
-| AWS CloudFormation StackSets variables | Variable key                                     | Example value                    | Example variable syntax |
-| -------------------------------------- | ------------------------------------------------ | -------------------------------- | ----------------------- |
-| `OperationId`                          | 11111111-2bbb-111-2bbb-11111example              | `#{DeployVariables.OperationId}` |
-| `StackSetId`                           | my-stackset:1111aaaa-1111-2222-2bbb-11111example | `#{DeployVariables.StackSetId}`  |
+| CloudFormation StackSets variables | Variable key                                     | Example value                    | Example variable syntax |
+| ---------------------------------- | ------------------------------------------------ | -------------------------------- | ----------------------- |
+| `OperationId`                      | 11111111-2bbb-111-2bbb-11111example              | `#{DeployVariables.OperationId}` |
+| `StackSetId`                       | my-stackset:1111aaaa-1111-2222-2bbb-11111example | `#{DeployVariables.StackSetId}`  |
 
 #### CodeCommit action output variables
 
@@ -421,21 +421,21 @@ Enterprise Repository, and GitLab.com)| Variable key | Example value | Example v
 
 keys
 
-For CodeBuild, AWS CloudFormation, and Lambda actions, the variable keys are configured by the
+For CodeBuild, CloudFormation, and Lambda actions, the variable keys are configured by the
 user.
 
 ###### Topics
 
-- [CloudFormation action output variables](#w21aac63c33b9b7 "#w21aac63c33b9b7")
+- [CloudFormation action output variables](#w2aac63c33b9b7 "#w2aac63c33b9b7")
 - [CodeBuild action output
   variables](#reference-variables-list-configured-codebuild "#reference-variables-list-configured-codebuild")
-- [Lambda action output variables](#w21aac63c33b9c11 "#w21aac63c33b9c11")
+- [Lambda action output variables](#w2aac63c33b9c11 "#w2aac63c33b9c11")
 
 #### CloudFormation action output variables
 
-| AWS CloudFormation variables                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Variable key                   | Example variable syntax |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------ | ----------------------- |
-| For AWS CloudFormation actions, variables are produced from any values designated in<br>the `Outputs` section of a stack template. Note that the only<br>CloudFormation action modes that generate outputs are those that result in<br>creating or updating a stack, such as stack creation, stack updates, and change<br>set execution. The corresponding action modes that generate variables<br>are:<br>• CREATE_UPDATE<br>• CHANGE_SET_EXECUTE<br>• CHANGE_SET_REPLACE<br>• REPLACE_ON_FAILURE<br>For more information about these action modes, see [AWS CloudFormation deploy action reference](action-reference-CloudFormation.md "action-reference-CloudFormation.md"). For a tutorial that shows you<br>how to create a pipeline with an AWS CloudFormation deployment action in a pipeline that uses<br>AWS CloudFormation output variables, see [Tutorial: Create a pipeline that uses<br>variables from AWS CloudFormation deployment actions](tutorials-cloudformation-action.md "tutorials-cloudformation-action.md"). | `#{DeployVariables.StackName}` |
+| CloudFormation variables                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Variable key                   | Example variable syntax |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ----------------------- |
+| For CloudFormation actions, variables are produced from any values designated in<br>the `Outputs` section of a stack template. Note that the only<br>CloudFormation action modes that generate outputs are those that result in<br>creating or updating a stack, such as stack creation, stack updates, and change<br>set execution. The corresponding action modes that generate variables<br>are:<br>• CREATE_UPDATE<br>• CHANGE_SET_EXECUTE<br>• CHANGE_SET_REPLACE<br>• REPLACE_ON_FAILURE<br>For more information about these action modes, see [CloudFormation deploy action reference](action-reference-CloudFormation.md "action-reference-CloudFormation.md"). For a tutorial that shows you<br>how to create a pipeline with an CloudFormation deployment action in a pipeline that uses<br>CloudFormation output variables, see [Tutorial: Create a pipeline that uses<br>variables from AWS CloudFormation deployment actions](tutorials-cloudformation-action.md "tutorials-cloudformation-action.md"). | `#{DeployVariables.StackName}` |
 
 #### CodeBuild action output
 

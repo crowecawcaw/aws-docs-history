@@ -175,7 +175,7 @@ Choose **Next**. 5. In **Step 6: Add deploy stage**, complete the following:
      Service Catalog console.
     4. In **Template file path**, enter the relative path where the
      template file is stored.
-    5. In **Product type**, choose **AWS CloudFormation
+    5. In **Product type**, choose **CloudFormation
      template**.
     6. In **Product version name**, enter the name of the product
      version you specified in Service Catalog. If you want to have the template change deployed to a

@@ -27,7 +27,7 @@ For a full list of integrations with CodePipeline organized by action type, see 
   web applications to the cloud](#use-cases-elasticbeanstalk "#use-cases-elasticbeanstalk")
 - [Use CodePipeline with AWS Lambda for continuous delivery of
   Lambda-based and serverless applications](#use-cases-lambda "#use-cases-lambda")
-- [Use CodePipeline with AWS CloudFormation templates for continuous
+- [Use CodePipeline with CloudFormation templates for continuous
   delivery to the cloud](#use-cases-cloudformation "#use-cases-cloudformation")
 
 ### Use CodePipeline with Amazon S3, AWS CodeCommit, and
@@ -108,11 +108,11 @@ You can use AWS Lambda with CodePipeline for invoking an AWS Lambda function, as
 Applications](../../../lambda/latest/dg/automating-deployment.md "../../../lambda/latest/dg/automating-deployment.md"). You can also use AWS Lambda and AWS CodeStar to create a pipeline for
 deploying serverless applications.
 
-### Use CodePipeline with AWS CloudFormation templates for continuous
+### Use CodePipeline with CloudFormation templates for continuous
 
 delivery to the cloud
 
-You can use AWS CloudFormation with CodePipeline for continuous delivery and automation. For more
+You can use CloudFormation with CodePipeline for continuous delivery and automation. For more
 information, see [Continuous
-Delivery with CodePipeline](../../../AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline.md "../../../AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline.md"). AWS CloudFormation is also used to create the templates for pipelines
+Delivery with CodePipeline](../../../AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline.md "../../../AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline.md"). CloudFormation is also used to create the templates for pipelines
 created in AWS CodeStar.

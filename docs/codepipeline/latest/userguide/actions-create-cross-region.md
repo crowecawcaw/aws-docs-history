@@ -11,7 +11,7 @@ pipeline, this is a cross-Region action.
 Cross-region actions are supported and can only be created in those AWS Regions
 where CodePipeline is supported. For a list of the supported AWS Regions for CodePipeline, see [Quotas in AWS CodePipeline](limits.md "limits.md").
 
-You can use the console, AWS CLI, or AWS CloudFormation to add cross-Region actions in pipelines.
+You can use the console, AWS CLI, or CloudFormation to add cross-Region actions in pipelines.
 
 ###### Note
 
@@ -30,7 +30,7 @@ performing cross-region actions.
 
 If you use the console to create a pipeline or cross-Region actions, default artifact
 buckets are configured by CodePipeline in the Regions where you have actions. When you use the
-AWS CLI, AWS CloudFormation, or an SDK to create a pipeline or cross-Region actions, you provide the
+AWS CLI, CloudFormation, or an SDK to create a pipeline or cross-Region actions, you provide the
 artifact bucket for each Region where you have actions.
 
 ###### Note
@@ -423,11 +423,11 @@ the console.
 
 ## Add a cross-Region action to a
 
-pipeline (AWS CloudFormation)
+pipeline (CloudFormation)
 
-You can use AWS CloudFormation to add a cross-Region action to an existing pipeline.
+You can use CloudFormation to add a cross-Region action to an existing pipeline.
 
-###### To add a cross-Region action with AWS CloudFormation
+###### To add a cross-Region action with CloudFormation
 
 1. Add the `Region` parameter to the `ActionDeclaration`
    resource in your template, as shown in this example:
@@ -520,11 +520,11 @@ Mappings:
                   Location: test-cross-region-artifact-store-bucket-us-west-2
 ```
 
-3. Save the updated template to your local computer, and then open the AWS CloudFormation
+3. Save the updated template to your local computer, and then open the CloudFormation
    console.
 4. Choose your stack, and then choose **Create Change Set for Current
    Stack**.
-5. Upload the template, and then view the changes listed in AWS CloudFormation. These are the
+5. Upload the template, and then view the changes listed in CloudFormation. These are the
    changes to be made to the stack. You should see your new resources in the
    list.
 6. Choose **Execute**.

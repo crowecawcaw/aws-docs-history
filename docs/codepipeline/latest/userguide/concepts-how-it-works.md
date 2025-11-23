@@ -193,7 +193,7 @@ execution**
 We recommend that you use the stop and wait option to stop a pipeline execution.
 This option is safer because it avoids possible failed or out-of-sequence tasks in
 your pipeline. When an action is abandoned in CodePipeline, the action provider continues
-any tasks related to the action. In the case of an AWS CloudFormation action, the deployment
+any tasks related to the action. In the case of an CloudFormation action, the deployment
 action in the pipeline is abandoned, but the stack update might continue and result
 in a failed update.
 

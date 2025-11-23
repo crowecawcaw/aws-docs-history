@@ -66,7 +66,7 @@ returns an error message: "Deployment failed. The provided role does not have su
 permissions: Service:AmazonElasticLoadBalancing"
 
 **Problem:** The service role for CodePipeline does not have
-sufficient permissions for AWS Elastic Beanstalk, including, but not limited to, some operations in Elastic Load Balancing.
+sufficient permissions for AWS Elastic Beanstalk, including, but not limited to, some operations in ELB.
 The service role for CodePipeline was updated on August 6, 2015 to address this issue. Customers who
 created their service role before this date must modify the policy statement for their service
 role to add the required permissions.
@@ -520,7 +520,7 @@ end of the name, such as `release-branch-2`.
 `myRepo/myBranch` to `myDeployRepo/myDeployBranch`. Avoid a
 change at the end of the name, such as `myRepo/myBranch*2*`.
 
-- Instead of the console, use the CLI or AWS CloudFormation to create and update your
+- Instead of the console, use the CLI or CloudFormation to create and update your
   change-detection event rules. For instructions on creating event rules for an S3 source
   action, see [Connecting to Amazon S3 source actions that use
   EventBridge and AWS CloudTrail](create-cloudtrail-S3-source.md "create-cloudtrail-S3-source.md"). For instructions on creating event rules

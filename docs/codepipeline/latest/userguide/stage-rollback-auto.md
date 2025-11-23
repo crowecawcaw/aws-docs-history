@@ -80,9 +80,9 @@ Reference_.
 
 ## Configure a stage for automatic rollback
 
-(AWS CloudFormation)
+(CloudFormation)
 
-To use AWS CloudFormation to configure a stage to roll back automatically on failure, use the
+To use CloudFormation to configure a stage to roll back automatically on failure, use the
 `OnFailure` parameter. On failure, the stage will automatically roll
 back to the most recent successful execution.
 
@@ -162,5 +162,5 @@ AppPipeline:
 ```
 
 For more information about configuring failure conditions for stage
-rollback, see [OnFailure](../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.md#cfn-codepipeline-pipeline-stagedeclaration-onfailure "../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.md#cfn-codepipeline-pipeline-stagedeclaration-onfailure") under `StageDeclaration` in the _AWS CloudFormation User
+rollback, see [OnFailure](../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.md#cfn-codepipeline-pipeline-stagedeclaration-onfailure "../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.md#cfn-codepipeline-pipeline-stagedeclaration-onfailure") under `StageDeclaration` in the _CloudFormation User
 Guide_.

@@ -1,13 +1,13 @@
 # Create an EventBridge rule for an Amazon ECR source
 
-(AWS CloudFormation template)
+(CloudFormation template)
 
-To use AWS CloudFormation to create a rule, use the template snippet as shown here.
+To use CloudFormation to create a rule, use the template snippet as shown here.
 
-###### To update your pipeline AWS CloudFormation template and create EventBridge rule
+###### To update your pipeline CloudFormation template and create EventBridge rule
 
 1.  In the template, under `Resources`, use the
-    `AWS::IAM::Role` AWS CloudFormation resource to configure the IAM role
+    `AWS::IAM::Role` CloudFormation resource to configure the IAM role
     that allows your event to start your pipeline. This entry creates a role
     that uses two policies:
 
@@ -93,7 +93,7 @@ JSON
 ```
 
 2. In the template, under `Resources`, use the
-   `AWS::Events::Rule` AWS CloudFormation resource to add an EventBridge rule for
+   `AWS::Events::Rule` CloudFormation resource to add an EventBridge rule for
    the Amazon ECR source. This event pattern creates an event that monitors commits
    to your repository. When EventBridge detects a repository state change, the rule
    invokes `StartPipelineExecution` on your target pipeline.
@@ -211,11 +211,11 @@ Targets:
 
 ```
 
-4. Save the updated template to your local computer, and then open the AWS CloudFormation
+4. Save the updated template to your local computer, and then open the CloudFormation
    console.
 5. Choose your stack, and then choose **Create Change Set for Current
    Stack**.
-6. Upload the template, and then view the changes listed in AWS CloudFormation. These are
+6. Upload the template, and then view the changes listed in CloudFormation. These are
    the changes to be made to the stack. You should see your new resources in
    the list.
 7. Choose **Execute**.

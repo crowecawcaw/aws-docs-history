@@ -16,7 +16,7 @@ To add a CodeCommit source action in CodePipeline, you can choose either to:
     [Create an EventBridge rule for
     a CodeCommit source (CLI)](pipelines-trigger-source-repo-changes-cli.md "pipelines-trigger-source-repo-changes-cli.md"), or
     [Create an EventBridge rule for
-    a CodeCommit source (AWS CloudFormation template)](pipelines-trigger-source-repo-changes-cfn.md "pipelines-trigger-source-repo-changes-cfn.md") .
+    a CodeCommit source (CloudFormation template)](pipelines-trigger-source-repo-changes-cfn.md "pipelines-trigger-source-repo-changes-cfn.md") .
 
 ###### Topics
 
@@ -25,4 +25,4 @@ To add a CodeCommit source action in CodePipeline, you can choose either to:
 - [Create an EventBridge rule for
   a CodeCommit source (CLI)](pipelines-trigger-source-repo-changes-cli.md "pipelines-trigger-source-repo-changes-cli.md")
 - [Create an EventBridge rule for
-  a CodeCommit source (AWS CloudFormation template)](pipelines-trigger-source-repo-changes-cfn.md "pipelines-trigger-source-repo-changes-cfn.md")
+  a CodeCommit source (CloudFormation template)](pipelines-trigger-source-repo-changes-cfn.md "pipelines-trigger-source-repo-changes-cfn.md")

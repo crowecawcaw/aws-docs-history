@@ -2,7 +2,7 @@
 
 (CLI)
 
-Before you create a pipeline with the AWS CLI or AWS CloudFormation, you must create a CodePipeline
+Before you create a pipeline with the AWS CLI or CloudFormation, you must create a CodePipeline
 service role for your pipeline and attach the service role policy and the trust policy.
 To use the CLI to create your service role, use the steps below to first create a trust
 policy JSON and the role policy JSON as separate files in the directory where you will
@@ -102,4 +102,4 @@ aws iam get-role --role-name MyRole
 ```
 
 8. Use the service role ARN when you create your pipeline with the AWS CLI or
-   AWS CloudFormation.
+   CloudFormation.

@@ -335,8 +335,8 @@ CodePipeline to integrate with the following deploy action providers.
 - [Amazon Elastic Kubernetes Service EKS deploy actions](#integrations-deploy-EKS "#integrations-deploy-EKS")
 - [Amazon S3 deploy actions](#integrations-deploy-S3 "#integrations-deploy-S3")
 - [AWS AppConfig deploy actions](#integrations-deploy-AppConfig "#integrations-deploy-AppConfig")
-- [AWS CloudFormation deploy actions](#integrations-deploy-CloudFormation "#integrations-deploy-CloudFormation")
-- [AWS CloudFormation StackSets deploy actions](#integrations-deploy-StackSets "#integrations-deploy-StackSets")
+- [CloudFormation deploy actions](#integrations-deploy-CloudFormation "#integrations-deploy-CloudFormation")
+- [CloudFormation StackSets deploy actions](#integrations-deploy-StackSets "#integrations-deploy-StackSets")
 - [Amazon ECS deploy actions](#integrations-deploy-ECS "#integrations-deploy-ECS")
 - [Elastic Beanstalk deploy actions](#integrations-deploy-beanstalk "#integrations-deploy-beanstalk")
 - [OpsWorks deploy actions](#integrations-deploy-opsworks "#integrations-deploy-opsworks")
@@ -398,43 +398,43 @@ Learn more:
 - [Tutorial: Create a pipeline that uses AWS AppConfig
   as a deployment provider](tutorials-AppConfig.md "tutorials-AppConfig.md")
 
-### AWS CloudFormation deploy actions
+### CloudFormation deploy actions
 
-[AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md") gives developers and systems administrators
+[CloudFormation](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md") gives developers and systems administrators
 an easy way to create and manage a collection of related AWS resources, using templates
 to provision and update those resources. You can use the service’s sample templates or
 create your own. Templates describe the AWS resources and any dependencies or runtime
 parameters required to run your application.
 
-The AWS Serverless Application Model (AWS SAM) extends AWS CloudFormation to provide a
+The AWS Serverless Application Model (AWS SAM) extends CloudFormation to provide a
 simplified way to define and deploy serverless applications. AWS SAM supports Amazon API
-Gateway APIs, AWS Lambda functions, and Amazon DynamoDB tables. You can use CodePipeline with AWS CloudFormation
+Gateway APIs, AWS Lambda functions, and Amazon DynamoDB tables. You can use CodePipeline with CloudFormation
 and the AWS SAM to continuously deliver your serverless applications.
 
 You can add an action to a pipeline that uses AWS CloudFormation as a deployment provider. When
-you use AWS CloudFormation as a deployment provider, you can take action on AWS CloudFormation stacks and change
-sets as part of a pipeline execution. AWS CloudFormation can create, update, replace, and delete stacks
+you use AWS CloudFormation as a deployment provider, you can take action on CloudFormation stacks and change
+sets as part of a pipeline execution. CloudFormation can create, update, replace, and delete stacks
 and change sets when a pipeline runs. As a result, AWS and custom resources can be
 created, provisioned, updated, or terminated during a pipeline execution according to the
-specifications you provide in AWS CloudFormation templates and parameter definitions.
+specifications you provide in CloudFormation templates and parameter definitions.
 
 Learn more:
 
-- CodePipeline Action Configuration Reference for [AWS CloudFormation deploy action reference](action-reference-CloudFormation.md "action-reference-CloudFormation.md")
+- CodePipeline Action Configuration Reference for [CloudFormation deploy action reference](action-reference-CloudFormation.md "action-reference-CloudFormation.md")
 - [Continuous
   Delivery with CodePipeline](../../../AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline.md "../../../AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline.md") — Learn how to use CodePipeline to build a continuous
-  delivery workflow for AWS CloudFormation.
+  delivery workflow for CloudFormation.
 - [Automating Deployment of
   Lambda-based Applications](../../../lambda/latest/dg/automating-deployment.md "../../../lambda/latest/dg/automating-deployment.md") — Learn how to use the AWS Serverless
-  Application Model and AWS CloudFormation to build a continuous delivery workflow for your
+  Application Model and CloudFormation to build a continuous delivery workflow for your
   Lambda-based application.
 
-### AWS CloudFormation StackSets deploy actions
+### CloudFormation StackSets deploy actions
 
-[AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md") gives you a way to deploy resources across
+[CloudFormation](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md") gives you a way to deploy resources across
 multiple accounts and AWS Regions.
 
-You can use CodePipeline with AWS CloudFormation to update your stack set definition and deploy updates to
+You can use CodePipeline with CloudFormation to update your stack set definition and deploy updates to
 your instances.
 
 You can add the following actions to a pipeline to use AWS CloudFormation StackSets as a
@@ -445,7 +445,7 @@ deployment provider.
 
 Learn more:
 
-- CodePipeline Action Configuration Reference for [AWS CloudFormation StackSets deploy action reference](action-reference-StackSets.md "action-reference-StackSets.md")
+- CodePipeline Action Configuration Reference for [CloudFormation StackSets deploy action reference](action-reference-StackSets.md "action-reference-StackSets.md")
 - [Tutorial: Create a pipeline with AWS CloudFormation
   StackSets deployment actions](tutorials-stackset-deployment.md "tutorials-stackset-deployment.md")
 
@@ -606,7 +606,7 @@ CodePipeline to integrate with the following invoke action providers.
 
 - [Amazon Inspector invoke actions](#integrations-invoke-InspectorScan "#integrations-invoke-InspectorScan")
 - [Lambda invoke actions](#integrations-invoke-Lambda "#integrations-invoke-Lambda")
-- [Step Functions invoke actions](#w21aac11b9c17c11 "#w21aac11b9c17c11")
+- [Step Functions invoke actions](#w2aac11b9c17c11 "#w2aac11b9c17c11")
 
 ### Amazon Inspector invoke actions
 

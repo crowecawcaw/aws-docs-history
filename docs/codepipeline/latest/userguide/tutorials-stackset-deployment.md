@@ -19,7 +19,7 @@ There are two ways to manage permissions for a stack set: self-managed and AWS-m
 roles. This tutorial provides examples with self-managed permissions.
 
 To most effectively use Stacksets in CodePipeline, you should have a clear understanding of the
-concepts behind AWS CloudFormation StackSets and how they work. See [StackSets concepts](../../../AWSCloudFormation/latest/UserGuide/stacksets-concepts.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-concepts.md") in the _AWS CloudFormation User Guide_.
+concepts behind CloudFormation StackSets and how they work. See [StackSets concepts](../../../AWSCloudFormation/latest/UserGuide/stacksets-concepts.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-concepts.md") in the _AWS CloudFormation User Guide_.
 
 ###### Topics
 
@@ -141,9 +141,9 @@ In this section, you create a pipeline with the following actions:
 
 - A source stage with an S3 source action where the source artifact is your template
   file and any supporting source files.
-- A deployment stage with an AWS CloudFormation stack set deployment action that creates the stack
+- A deployment stage with an CloudFormation stack set deployment action that creates the stack
   set.
-- A deployment stage with an AWS CloudFormation stack instances deployment action that creates the
+- A deployment stage with an CloudFormation stack instances deployment action that creates the
   stacks and instances within the target accounts.
 
 ###### To create a pipeline with a CloudFormationStackSet action
@@ -265,9 +265,9 @@ successfully created your stack set, you can add the second action to your
 2. Under **Pipelines**, choose your pipeline and choose
    **View**. The diagram shows your pipeline source and deployment
    stages.
-3. Choose the AWS CloudFormation action on the **CloudFormationStackSet**
+3. Choose the CloudFormation action on the **CloudFormationStackSet**
    action in your pipeline. The template, resources, and events for your stack set are shown
-   in the AWS CloudFormation console.
+   in the CloudFormation console.
 4. In the left navigation panel, choose **StackSets**. In the list,
    choose the new stack set.
 5. Choose the **Stack instances** tab. Verify that one stack instance
@@ -278,7 +278,7 @@ successfully created your stack set, you can add the second action to your
 
 action
 
-Create a next action in your pipeline that will allow AWS CloudFormation StackSets to create the
+Create a next action in your pipeline that will allow CloudFormation StackSets to create the
 remainingstack instances.
 
 ###### To create a next action in your pipeline
@@ -337,9 +337,9 @@ You can view the resources and status for your stack set deployment.
 2. Under **Pipelines**, choose your pipeline and then choose
    **View**. The diagram shows your pipeline source and deployment
    stages.
-3. Choose the AWS CloudFormation action on the **`AWS CloudFormation Stack
+3. Choose the CloudFormation action on the **`AWS CloudFormation Stack
 Instances`** action in your pipeline. The template, resources, and
-   events for your stack set are shown in the AWS CloudFormation console.
+   events for your stack set are shown in the CloudFormation console.
 4. In the left navigation panel, choose **StackSets**. In the list,
    choose your stack set.
 5. Choose the **Stack instances** tab. Verify that all remaining stack
@@ -365,7 +365,7 @@ that are not part of the update move to an outdated status.
    `us-east-2` value that was entered when the action was created.
 5. Save the changes. Choose **Release change** to run your
    pipeline.
-6. Open your action in AWS CloudFormation. Choose the **StackSet info** tab. In
+6. Open your action in CloudFormation. Choose the **StackSet info** tab. In
    **StackSet description**, verify that the new description is
    shown.
 7. Choose the **Stack instances** tab. Under

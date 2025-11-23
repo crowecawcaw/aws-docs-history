@@ -13,7 +13,7 @@ source enabled for events](update-change-detection.md#update-change-detection-S3
 
 For a pipeline with an Amazon S3 source, modify the pipeline so that change detection is
 automated through EventBridge and with a source bucket that is enabled for event notifications.
-This is the recommend method if you are using the CLI or AWS CloudFormation to migrate your
+This is the recommend method if you are using the CLI or CloudFormation to migrate your
 pipeline.
 
 ###### Note
@@ -25,5 +25,5 @@ and CloudTrail trail](update-change-detection.md#update-change-detection-S3 "upd
 
 - **CLI:** [Migrate polling pipelines with an
   S3 source and CloudTrail trail (CLI)](update-change-detection.md#update-change-detection-cli-S3 "update-change-detection.md#update-change-detection-cli-S3")
-- **AWS CloudFormation:** [Migrate polling pipelines with an
-  S3 source and CloudTrail trail (AWS CloudFormation template)](update-change-detection.md#update-change-detection-cfn-s3 "update-change-detection.md#update-change-detection-cfn-s3")
+- **CloudFormation:** [Migrate polling pipelines with an
+  S3 source and CloudTrail trail (CloudFormation template)](update-change-detection.md#update-change-detection-cfn-s3 "update-change-detection.md#update-change-detection-cfn-s3")

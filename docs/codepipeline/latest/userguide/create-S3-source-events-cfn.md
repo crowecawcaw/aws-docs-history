@@ -1,6 +1,6 @@
 # Create pipelines with an S3 source
 
-enabled for events (AWS CloudFormation template)
+enabled for events (CloudFormation template)
 
 This procedure is for a pipeline where the source bucket has events
 enabled.
@@ -14,7 +14,7 @@ following resources to your template:
 
 - EventBridge rule and IAM role to allow this event to start your
   pipeline.
-  If you use AWS CloudFormation to create and manage your pipelines, your template includes
+  If you use CloudFormation to create and manage your pipelines, your template includes
   content like the following.
 
 ###### Note
@@ -104,7 +104,7 @@ JSON
 and apply the permissions policy
 
 1.  In the template, under `Resources`, use the
-    `AWS::IAM::Role` AWS CloudFormation resource to configure the IAM role
+    `AWS::IAM::Role` CloudFormation resource to configure the IAM role
     that allows your event to start your pipeline. This entry creates a role
     that uses two policies:
 
@@ -113,8 +113,8 @@ and apply the permissions policy
          pipeline.
 
     **Why am I making this change?** Adding
-    `AWS::IAM::Role` resource enables AWS CloudFormation to create permissions
-    for EventBridge. This resource is added to your AWS CloudFormation stack.
+    `AWS::IAM::Role` resource enables CloudFormation to create permissions
+    for EventBridge. This resource is added to your CloudFormation stack.
 
 YAML
 
@@ -199,15 +199,15 @@ JSON
 ...
 ```
 
-2. Use the `AWS::Events::Rule` AWS CloudFormation resource to add an
+2. Use the `AWS::Events::Rule` CloudFormation resource to add an
    EventBridge rule. This event pattern creates an event that monitors creation
    or deletion of objects in your Amazon S3 source bucket. In addition, include a
    target of your pipeline. When an object is created, this rule invokes
    `StartPipelineExecution` on your target pipeline.
 
 **Why am I making this change?** Adding the
-`AWS::Events::Rule` resource enables AWS CloudFormation to create the
-event. This resource is added to your AWS CloudFormation stack.
+`AWS::Events::Rule` resource enables CloudFormation to create the
+event. This resource is added to your CloudFormation stack.
 
 YAML
 
@@ -300,11 +300,11 @@ JSON
 ...
 ```
 
-3. Save your updated template to your local computer, and open the AWS CloudFormation
+3. Save your updated template to your local computer, and open the CloudFormation
    console.
 4. Choose your stack, and then choose **Create Change Set for Current
    Stack**.
-5. Upload your updated template, and then view the changes listed in AWS CloudFormation.
+5. Upload your updated template, and then view the changes listed in CloudFormation.
    These are the changes that will be made to the stack. You should see your
    new resources in the list.
 6. Choose **Execute**.
@@ -381,13 +381,13 @@ JSON
 
 ```
 
-When you use AWS CloudFormation to create these resources, your pipeline is triggered when
+When you use CloudFormation to create these resources, your pipeline is triggered when
 files in your repository are created or updated.
 
 ###### Note
 
 Do not stop here. Although your pipeline is created, you must create a
-second AWS CloudFormation template for your Amazon S3 pipeline. If you do not create the
+second CloudFormation template for your Amazon S3 pipeline. If you do not create the
 second template, your pipeline does not have any change detection
 functionality.
 

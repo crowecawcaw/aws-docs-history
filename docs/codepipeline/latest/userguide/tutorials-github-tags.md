@@ -29,10 +29,10 @@ actions](action-reference-CodestarConnectionSource.md "action-reference-Codestar
 ###### Topics
 
 - [Prerequisites](#tutorials-github-tags-prereq "#tutorials-github-tags-prereq")
-- [Step 1: Open CloudShell and clone your repository](#w21aac13c16c15 "#w21aac13c16c15")
+- [Step 1: Open CloudShell and clone your repository](#w2aac13c16c15 "#w2aac13c16c15")
 - [Step 2: Create a pipeline to trigger on Git
   tags](#tutorials-github-tags-pipeline "#tutorials-github-tags-pipeline")
-- [Step 3: Tag your commits for release](#w21aac13c16c19 "#w21aac13c16c19")
+- [Step 3: Tag your commits for release](#w2aac13c16c19 "#w2aac13c16c19")
 - [Step 4: Release change and view logs](#tutorials-github-tags-view "#tutorials-github-tags-view")
 
 ## Prerequisites

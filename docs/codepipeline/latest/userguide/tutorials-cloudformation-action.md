@@ -30,7 +30,7 @@ dependable.
   the sample AWS CloudFormation template](#tutorials-cloudformation-action-upload "#tutorials-cloudformation-action-upload")
 - [Step 2: Create your
   pipeline](#tutorials-cloudformation-action-pipeline "#tutorials-cloudformation-action-pipeline")
-- [Step 3: Add an AWS CloudFormation deployment
+- [Step 3: Add an CloudFormation deployment
   action to create the change set](#tutorials-cloudformation-action-changeset "#tutorials-cloudformation-action-changeset")
 - [Step 4: Add a manual approval
   action](#tutorials-cloudformation-action-approval "#tutorials-cloudformation-action-approval")
@@ -115,7 +115,7 @@ In this section, you create a pipeline with the following actions:
 
 - A source stage with a CodeCommit action where the source artifact is your template
   file.
-- A deployment stage with an AWS CloudFormation deployment action.
+- A deployment stage with an CloudFormation deployment action.
 
 Each action in the source and deployment stages created by the wizard is assigned a
 variable namespace, `SourceVariables` and `DeployVariables`,
@@ -212,11 +212,11 @@ Choose **Next**. 11. In **Step 6: Add deploy stage**:
      your pipeline to run. Your two-stage pipeline is complete and ready for the additional
      stages to be added.
 
-## Step 3: Add an AWS CloudFormation deployment
+## Step 3: Add an CloudFormation deployment
 
 action to create the change set
 
-Create a next action in your pipeline that will allow AWS CloudFormation to create the change set
+Create a next action in your pipeline that will allow CloudFormation to create the change set
 before the manual approval action.
 
 1. Open the CodePipeline console at
@@ -276,14 +276,14 @@ Create a manual approval action in your pipeline.
    **Edit** mode.
 2. Choose to edit the **Deploy** stage.
 3. Add a manual approval action after the deploy action that creates the change set. This
-   action allows you to verify the created resource change set in AWS CloudFormation before the pipeline
+   action allows you to verify the created resource change set in CloudFormation before the pipeline
    executes the change set.
 
 ## Step 5: Add a CloudFormation
 
 deployment action to execute the change set
 
-Create a next action in your pipeline that allows AWS CloudFormation to execute the change set after
+Create a next action in your pipeline that allows CloudFormation to execute the change set after
 the manual approval action.
 
 1. Open the CodePipeline console at
@@ -325,7 +325,7 @@ previous manual action:
 
 deployment action to delete the stack
 
-Create a final action in your pipeline that allows AWS CloudFormation to get the stack name from the
+Create a final action in your pipeline that allows CloudFormation to get the stack name from the
 variable in the outputs file and delete the stack.
 
 1. Open the CodePipeline console at

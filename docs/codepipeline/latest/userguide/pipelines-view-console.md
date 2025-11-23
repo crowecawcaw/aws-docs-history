@@ -83,7 +83,7 @@ each stage:
 
     ###### Note
 
-    The **Logs** tab is available for CodeBuild and AWS CloudFormation
+    The **Logs** tab is available for CodeBuild and CloudFormation
      actions that have run in the account of the pipeline.
 
 4. To view the details of the provider of the action, choose the provider. For

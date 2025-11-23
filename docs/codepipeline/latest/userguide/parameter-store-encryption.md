@@ -10,7 +10,7 @@ see [What Is AWS Secrets Manager?](../../../secretsmanager/latest/userguide/intr
 Manager User Guide_.
 
 For pipelines where you pass parameters that are secrets (such as OAuth credentials)
-in an AWS CloudFormation template, you should include dynamic references in your template that access
+in an CloudFormation template, you should include dynamic references in your template that access
 the secrets you have stored in Secrets Manager. For the reference ID pattern and examples,
 see [Secrets Manager Secrets](../../../AWSCloudFormation/latest/UserGuide/dynamic-references.md#dynamic-references-secretsmanager "../../../AWSCloudFormation/latest/UserGuide/dynamic-references.md#dynamic-references-secretsmanager") in the _AWS CloudFormation User Guide_. For
 an example that uses dynamic references in a template snippet for GitHub webhook in a
@@ -24,4 +24,4 @@ secrets.
 - Secrets Manager can rotate database credentials automatically, such as for
   rotation of Amazon RDS secrets. For more information, see [Rotating Your AWS Secrets Manager Secrets](../../../secretsmanager/latest/userguide/rotating-secrets.md "../../../secretsmanager/latest/userguide/rotating-secrets.md") in the _AWS Secrets Manager User Guide_.
 - To view instructions for adding Secrets Manager dynamic references to your
-  AWS CloudFormation templates, see [https://aws.amazon.com/blogs/security/how-to-create-and-retrieve-secrets-managed-in-aws-secrets-manager-using-aws-cloudformation-template/](https://aws.amazon.com/blogs/security/how-to-create-and-retrieve-secrets-managed-in-aws-secrets-manager-using-aws-cloudformation-template/ "https://aws.amazon.com/blogs/security/how-to-create-and-retrieve-secrets-managed-in-aws-secrets-manager-using-aws-cloudformation-template/").
+  CloudFormation templates, see [https://aws.amazon.com/blogs/security/how-to-create-and-retrieve-secrets-managed-in-aws-secrets-manager-using-aws-cloudformation-template/](https://aws.amazon.com/blogs/security/how-to-create-and-retrieve-secrets-managed-in-aws-secrets-manager-using-aws-cloudformation-template/ "https://aws.amazon.com/blogs/security/how-to-create-and-retrieve-secrets-managed-in-aws-secrets-manager-using-aws-cloudformation-template/").

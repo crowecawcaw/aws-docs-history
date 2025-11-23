@@ -83,13 +83,13 @@ pipeline:
 }
 ```
 
-7. In AWS CloudFormation, in the **Resources** tab for your stack, view
+7. In CloudFormation, in the **Resources** tab for your stack, view
    the resources that were created for your stack.
 
 ###### Note
 
 To view the pipeline that was created, find the **Logical ID**
-column under the **Resources** tab for your stack in AWS CloudFormation. Note the
+column under the **Resources** tab for your stack in CloudFormation. Note the
 name in the **Physical ID** column for the pipeline. In
 CodePipeline, you can view the pipeline with the same Physical ID (pipeline name) in the Region
 where you created your stack.
@@ -98,7 +98,7 @@ Choose the S3 bucket with a `sourcebucket` label in the name, such as
 `s3-cfn-codepipeline-sourcebucket-y04EXAMPLE.` Do not choose the pipeline
 artifact bucket.
 
-The source bucket is empty because the resource is newly created by AWS CloudFormation. Open the
+The source bucket is empty because the resource is newly created by CloudFormation. Open the
 Amazon S3 console and locate your `sourcebucket` bucket. Choose **Upload**, and follow the instructions to upload your
 `SampleApp_Linux.zip` .zip file.
 

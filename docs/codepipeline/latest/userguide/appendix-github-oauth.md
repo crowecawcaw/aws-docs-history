@@ -23,9 +23,9 @@ source action.
 
 ###### Note
 
-When you configure a GitHub (via GitHub App) source action in AWS CloudFormation, you do not include
+When you configure a GitHub (via GitHub App) source action in CloudFormation, you do not include
 any GitHub token information or add a webhook resource. You configure a connections resource
-as shown in [AWS::CodeStarConnections::Connection](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.md") in the _AWS CloudFormation User
+as shown in [AWS::CodeStarConnections::Connection](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.md") in the _CloudFormation User
 Guide._
 
 This reference contains the following sections for the GitHub (via OAuth app) action:
@@ -163,7 +163,7 @@ mask of four asterisks. It represents one of the following values:
   (\*\*\*\*) with your personal access token copied from GitHub. When you
   run `get-pipeline` to view the action configuration, the
   four-asterisk mask is displayed for this value.
-- When you use an AWS CloudFormation template to create the pipeline, you must
+- When you use an CloudFormation template to create the pipeline, you must
   first store the token as a secret in AWS Secrets Manager. You include the
   value for this field as a dynamic reference to the stored secret in
   Secrets Manager, such as
@@ -181,7 +181,7 @@ repository for source changes. We recommend that you use webhooks to detect
 source changes instead. For more information about configuring webhooks, see
 [Migrate polling pipelines to
 webhooks (GitHub (via OAuth app) source actions) (CLI)](update-change-detection.md#update-change-detection-cli-github "update-change-detection.md#update-change-detection-cli-github") or [Update pipelines for push
-events (GitHub (via OAuth app) source actions) (AWS CloudFormation template)](update-change-detection.md#update-change-detection-cfn-github "update-change-detection.md#update-change-detection-cfn-github").
+events (GitHub (via OAuth app) source actions) (CloudFormation template)](update-change-detection.md#update-change-detection-cfn-github "update-change-detection.md#update-change-detection-cfn-github").
 
 ###### Important
 
@@ -337,7 +337,7 @@ GitHub scopes:
 - The `admin:repo_hook` scope, which is used for full control of
   repository hooks.
 
-When you use the CLI or an AWS CloudFormation template, you must provide the value for a personal
+When you use the CLI or an CloudFormation template, you must provide the value for a personal
 access token that you have already created in GitHub.
 
 ### See also
@@ -346,10 +346,10 @@ The following related resources can help you as you work with this action.
 
 - Resource reference for the [AWS CloudFormation User Guide
   AWS::CodePipeline::Webhook](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.md") – This includes field definitions,
-  examples, and snippets for the resource in AWS CloudFormation.
+  examples, and snippets for the resource in CloudFormation.
 - Resource reference for the [AWS CloudFormation User Guide AWS::CodeStar::GitHubRepository](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.md") – This
   includes field definitions, examples, and snippets for the resource in
-  AWS CloudFormation.
+  CloudFormation.
 - [Tutorial: Create a pipeline that builds and
   tests your Android app with AWS Device Farm](tutorials-codebuild-devicefarm.md "tutorials-codebuild-devicefarm.md") – This tutorial
   provides a sample build spec file and sample application to create a pipeline

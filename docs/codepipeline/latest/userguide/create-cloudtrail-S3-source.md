@@ -32,7 +32,7 @@ To add an Amazon S3 source action in CodePipeline, you choose either to:
        methods: [Create an EventBridge rule for an
        Amazon S3 source (console)](create-cloudtrail-S3-source-console.md "create-cloudtrail-S3-source-console.md"), [Create an EventBridge rule for an Amazon S3
        source (CLI)](create-cloudtrail-S3-source-cli.md "create-cloudtrail-S3-source-cli.md"), or [Create an EventBridge rule for an Amazon S3
-       source (AWS CloudFormation template)](create-cloudtrail-S3-source-cfn.md "create-cloudtrail-S3-source-cfn.md") .
+       source (CloudFormation template)](create-cloudtrail-S3-source-cfn.md "create-cloudtrail-S3-source-cfn.md") .
 
   AWS CloudTrail is a service that logs and filters events on your Amazon S3 source bucket. The
   trail sends the filtered source changes to the EventBridge rule. The EventBridge rule detects the

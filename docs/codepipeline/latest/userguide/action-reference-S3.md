@@ -120,7 +120,7 @@ source bucket for source changes. We recommend that you use CloudWatch Events an
 to detect source changes instead. For more information about configuring
 CloudWatch Events, see [Migrate polling pipelines with an
 S3 source and CloudTrail trail (CLI)](update-change-detection.md#update-change-detection-cli-S3 "update-change-detection.md#update-change-detection-cli-S3") or [Migrate polling pipelines with an
-S3 source and CloudTrail trail (AWS CloudFormation template)](update-change-detection.md#update-change-detection-cfn-s3 "update-change-detection.md#update-change-detection-cfn-s3").
+S3 source and CloudTrail trail (CloudFormation template)](update-change-detection.md#update-change-detection-cfn-s3 "update-change-detection.md#update-change-detection-cfn-s3").
 
 ###### Important
 

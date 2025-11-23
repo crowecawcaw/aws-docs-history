@@ -27,7 +27,7 @@ recommended event-based change detection method:
 - In the table, find your pipeline source type and then choose the procedure
   with the implementation you want to use to migrate your polling pipeline. Each
   section contains multiple methods for migration, such as using the CLI or
-  AWS CloudFormation.
+  CloudFormation.
 
 | How to migrate pipelines to the<br>recommended change detection method |
 | ---------------------------------------------------------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -282,9 +282,9 @@ following methods to implement the migration:
   pipelines (CodeCommit or Amazon S3 source) (console)](#update-change-detection-console-codecommit-S3 "#update-change-detection-console-codecommit-S3")
 - **CLI:** [Migrate polling pipelines
   (CodeCommit source) (CLI)](#update-change-detection-cli-codecommit "#update-change-detection-cli-codecommit")
-- **AWS CloudFormation:**
+- **CloudFormation:**
   [Migrate polling pipelines
-  (CodeCommit source) (AWS CloudFormation template)](#update-change-detection-cfn-codecommit "#update-change-detection-cfn-codecommit")
+  (CodeCommit source) (CloudFormation template)](#update-change-detection-cfn-codecommit "#update-change-detection-cfn-codecommit")
 
 ### Migrate polling
 
@@ -490,7 +490,7 @@ source and CodePipeline as the target
    `--event-pattern` , and`--role-arn` parameters.
 
 **Why am I making this change?** This command enables
-AWS CloudFormation to create the event.
+CloudFormation to create the event.
 
 The following sample command creates a rule called
 `MyCodeCommitRepoRule`.
@@ -557,7 +557,7 @@ aws events put-targets --rule MyCodeCommitRepoRule --targets Id=1,Arn=arn:aws:co
 
 ### Migrate polling pipelines
 
-(CodeCommit source) (AWS CloudFormation template)
+(CodeCommit source) (CloudFormation template)
 
 To build an event-driven pipeline with AWS CodeCommit, you edit the
 `PollForSourceChanges` parameter of your pipeline and then add the
@@ -566,7 +566,7 @@ following resources to your template:
 - An EventBridge rule
 - An IAM role for your EventBridge rule
 
-If you use AWS CloudFormation to create and manage your pipelines, your template includes
+If you use CloudFormation to create and manage your pipelines, your template includes
 content like the following.
 
 ###### Note
@@ -637,11 +637,11 @@ JSON
     },
 ```
 
-###### To update your pipeline AWS CloudFormation template and create EventBridge
+###### To update your pipeline CloudFormation template and create EventBridge
 
 rule
 
-1.  In the template, under `Resources`, use the `AWS::IAM::Role` AWS CloudFormation
+1.  In the template, under `Resources`, use the `AWS::IAM::Role` CloudFormation
     resource to configure the IAM role that allows your event to start your pipeline. This entry
     creates a role that uses two policies:
 
@@ -649,8 +649,8 @@ rule
         * The second policy provides permissions to start the pipeline.
 
     **Why am I making this change?** Adding the
-    `AWS::IAM::Role` resource enables AWS CloudFormation to create permissions for EventBridge. This
-    resource is added to your AWS CloudFormation stack.
+    `AWS::IAM::Role` resource enables CloudFormation to create permissions for EventBridge. This
+    resource is added to your CloudFormation stack.
 
 YAML
 
@@ -732,13 +732,13 @@ JSON
 ```
 
 2. In the template, under `Resources`, use the `AWS::Events::Rule`
-   AWS CloudFormation resource to add an EventBridge rule. This event pattern creates an event that monitors push
+   CloudFormation resource to add an EventBridge rule. This event pattern creates an event that monitors push
    changes to your repository. When EventBridge detects a repository state change, the rule invokes
    `StartPipelineExecution` on your target pipeline.
 
 **Why am I making this change?** Adding the
-`AWS::Events::Rule` resource enables AWS CloudFormation to create the event. This resource is
-added to your AWS CloudFormation stack.
+`AWS::Events::Rule` resource enables CloudFormation to create the event. This resource is
+added to your CloudFormation stack.
 
 YAML
 
@@ -878,10 +878,10 @@ Targets:
       value: `value`
 ```
 
-4. Save the updated template to your local computer, and then open the AWS CloudFormation console.
+4. Save the updated template to your local computer, and then open the CloudFormation console.
 5. Choose your stack, and then choose **Create Change Set for Current
    Stack**.
-6. Upload the template, and then view the changes listed in AWS CloudFormation. These are the changes to
+6. Upload the template, and then view the changes listed in CloudFormation. These are the changes to
    be made to the stack. You should see your new resources in the list.
 7. Choose **Execute**.
 
@@ -961,7 +961,7 @@ JSON
 
 ```
 
-When you create these resources with AWS CloudFormation, your pipeline is triggered when
+When you create these resources with CloudFormation, your pipeline is triggered when
 files in your repository are created or updated. Here is the final template
 snippet:
 
@@ -1231,7 +1231,7 @@ source enabled for events
 
 For a pipeline with an Amazon S3 source, modify the pipeline so that change detection is
 automated through EventBridge and with a source bucket that is enabled for event notifications.
-This is the recommend method if you are using the CLI or AWS CloudFormation to migrate your
+This is the recommend method if you are using the CLI or CloudFormation to migrate your
 pipeline.
 
 ###### Note
@@ -1243,8 +1243,8 @@ and CloudTrail trail](#update-change-detection-S3 "#update-change-detection-S3")
 
 - **CLI:** [Migrate polling pipelines with an
   S3 source and CloudTrail trail (CLI)](#update-change-detection-cli-S3 "#update-change-detection-cli-S3")
-- **AWS CloudFormation:** [Migrate polling pipelines with an
-  S3 source and CloudTrail trail (AWS CloudFormation template)](#update-change-detection-cfn-s3 "#update-change-detection-cfn-s3")
+- **CloudFormation:** [Migrate polling pipelines with an
+  S3 source and CloudTrail trail (CloudFormation template)](#update-change-detection-cfn-s3 "#update-change-detection-cfn-s3")
 
 ### Migrate polling pipelines
 
@@ -1439,7 +1439,7 @@ pipeline.
 
 ### Migrate polling pipelines
 
-with an S3 source enabled for events (AWS CloudFormation template)
+with an S3 source enabled for events (CloudFormation template)
 
 This procedure is for a pipeline where the source bucket has events
 enabled.
@@ -1454,7 +1454,7 @@ following resources to your template:
 - EventBridge rule and IAM role to allow this event to start your
   pipeline.
 
-If you use AWS CloudFormation to create and manage your pipelines, your template includes
+If you use CloudFormation to create and manage your pipelines, your template includes
 content like the following.
 
 ###### Note
@@ -1544,7 +1544,7 @@ JSON
 and apply the permissions policy
 
 1.  In the template, under `Resources`, use the
-    `AWS::IAM::Role` AWS CloudFormation resource to configure the IAM role
+    `AWS::IAM::Role` CloudFormation resource to configure the IAM role
     that allows your event to start your pipeline. This entry creates a role
     that uses two policies:
 
@@ -1553,8 +1553,8 @@ and apply the permissions policy
          pipeline.
 
     **Why am I making this change?** Adding
-    `AWS::IAM::Role` resource enables AWS CloudFormation to create permissions
-    for EventBridge. This resource is added to your AWS CloudFormation stack.
+    `AWS::IAM::Role` resource enables CloudFormation to create permissions
+    for EventBridge. This resource is added to your CloudFormation stack.
 
 YAML
 
@@ -1639,15 +1639,15 @@ JSON
 ...
 ```
 
-2. Use the `AWS::Events::Rule` AWS CloudFormation resource to add an
+2. Use the `AWS::Events::Rule` CloudFormation resource to add an
    EventBridge rule. This event pattern creates an event that monitors creation
    or deletion of objects in your Amazon S3 source bucket. In addition, include a
    target of your pipeline. When an object is created, this rule invokes
    `StartPipelineExecution` on your target pipeline.
 
 **Why am I making this change?** Adding the
-`AWS::Events::Rule` resource enables AWS CloudFormation to create the
-event. This resource is added to your AWS CloudFormation stack.
+`AWS::Events::Rule` resource enables CloudFormation to create the
+event. This resource is added to your CloudFormation stack.
 
 YAML
 
@@ -1740,11 +1740,11 @@ JSON
 ...
 ```
 
-3. Save your updated template to your local computer, and open the AWS CloudFormation
+3. Save your updated template to your local computer, and open the CloudFormation
    console.
 4. Choose your stack, and then choose **Create Change Set for Current
    Stack**.
-5. Upload your updated template, and then view the changes listed in AWS CloudFormation.
+5. Upload your updated template, and then view the changes listed in CloudFormation.
    These are the changes that will be made to the stack. You should see your
    new resources in the list.
 6. Choose **Execute**.
@@ -1821,13 +1821,13 @@ JSON
 
 ```
 
-When you use AWS CloudFormation to create these resources, your pipeline is triggered when
+When you use CloudFormation to create these resources, your pipeline is triggered when
 files in your repository are created or updated.
 
 ###### Note
 
 Do not stop here. Although your pipeline is created, you must create a
-second AWS CloudFormation template for your Amazon S3 pipeline. If you do not create the
+second CloudFormation template for your Amazon S3 pipeline. If you do not create the
 second template, your pipeline does not have any change detection
 functionality.
 
@@ -2090,8 +2090,8 @@ migration:
   pipelines (CodeCommit or Amazon S3 source) (console)](#update-change-detection-console-codecommit-S3 "#update-change-detection-console-codecommit-S3")
 - **CLI:** [Migrate polling pipelines with an
   S3 source and CloudTrail trail (CLI)](#update-change-detection-cli-S3 "#update-change-detection-cli-S3")
-- **AWS CloudFormation:** [Migrate polling pipelines with an
-  S3 source and CloudTrail trail (AWS CloudFormation template)](#update-change-detection-cfn-s3 "#update-change-detection-cfn-s3")
+- **CloudFormation:** [Migrate polling pipelines with an
+  S3 source and CloudTrail trail (CloudFormation template)](#update-change-detection-cfn-s3 "#update-change-detection-cfn-s3")
 
 ### Migrate polling pipelines with an
 
@@ -2375,7 +2375,7 @@ pipeline.
 
 ### Migrate polling pipelines with an
 
-S3 source and CloudTrail trail (AWS CloudFormation template)
+S3 source and CloudTrail trail (CloudFormation template)
 
 Use these steps to edit your pipeline with an Amazon S3 source from polling to
 event-based change detection.
@@ -2390,7 +2390,7 @@ following resources to your template:
   events for trails](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md") and [Logging management events for trails](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md").
 - EventBridge rule and IAM role to allow this event to start our pipeline.
 
-If you use AWS CloudFormation to create and manage your pipelines, your template includes
+If you use CloudFormation to create and manage your pipelines, your template includes
 content like the following.
 
 ###### Note
@@ -2479,7 +2479,7 @@ JSON
 
 source and CodePipeline as the target and apply the permissions policy
 
-1.  In the template, under `Resources`, use the `AWS::IAM::Role` AWS CloudFormation
+1.  In the template, under `Resources`, use the `AWS::IAM::Role` CloudFormation
     resource to configure the IAM role that allows your event to start your pipeline. This entry
     creates a role that uses two policies:
 
@@ -2487,8 +2487,8 @@ source and CodePipeline as the target and apply the permissions policy
         * The second policy provides permissions to start the pipeline.
 
     **Why am I making this change?** Adding
-    `AWS::IAM::Role` resource enables AWS CloudFormation to create permissions for EventBridge. This
-    resource is added to your AWS CloudFormation stack.
+    `AWS::IAM::Role` resource enables CloudFormation to create permissions for EventBridge. This
+    resource is added to your CloudFormation stack.
 
 YAML
 
@@ -2573,7 +2573,7 @@ JSON
 ...
 ```
 
-2. Use the `AWS::Events::Rule` AWS CloudFormation resource to add an EventBridge rule. This event
+2. Use the `AWS::Events::Rule` CloudFormation resource to add an EventBridge rule. This event
    pattern creates an event that monitors `CopyObject`, `PutObject` and
    `CompleteMultipartUpload` on your Amazon S3 source bucket. In addition, include a
    target of your pipeline. When `CopyObject`, `PutObject`, or
@@ -2581,8 +2581,8 @@ JSON
    `StartPipelineExecution` on your target pipeline.
 
 **Why am I making this change?** Adding the
-`AWS::Events::Rule` resource enables AWS CloudFormation to create the event. This resource is
-added to your AWS CloudFormation stack.
+`AWS::Events::Rule` resource enables CloudFormation to create the event. This resource is
+added to your CloudFormation stack.
 
 YAML
 
@@ -2747,10 +2747,10 @@ Targets:
 
 ```
 
-5. Save your updated template to your local computer, and open the AWS CloudFormation console.
+5. Save your updated template to your local computer, and open the CloudFormation console.
 6. Choose your stack, and then choose **Create Change Set for Current
    Stack**.
-7. Upload your updated template, and then view the changes listed in AWS CloudFormation. These are the
+7. Upload your updated template, and then view the changes listed in CloudFormation. These are the
    changes that will be made to the stack. You should see your new resources in the list.
 8. Choose **Execute**.
 
@@ -2832,7 +2832,7 @@ pipeline's CloudTrail resources
 
 - In a separate template, under `Resources`, use the
   `AWS::S3::Bucket`, `AWS::S3::BucketPolicy`, and
-  `AWS::CloudTrail::Trail` AWS CloudFormation resources to provide a simple bucket
+  `AWS::CloudTrail::Trail` CloudFormation resources to provide a simple bucket
   definition and trail for CloudTrail.
 
 **Why am I making this change?** Given the current limit
@@ -3033,13 +3033,13 @@ JSON
 ...
 ```
 
-When you use AWS CloudFormation to create these resources, your pipeline is triggered when
+When you use CloudFormation to create these resources, your pipeline is triggered when
 files in your repository are created or updated.
 
 ###### Note
 
 Do not stop here. Although your pipeline is created, you must create a
-second AWS CloudFormation template for your Amazon S3 pipeline. If you do not create the
+second CloudFormation template for your Amazon S3 pipeline. If you do not create the
 second template, your pipeline does not have any change detection
 functionality.
 
@@ -3793,7 +3793,7 @@ To do this, use the **create-connection** command.
 ###### Important
 
 A connection created through the AWS CLI or AWS CloudFormation is in `PENDING`
-status by default. After you create a connection with the CLI or AWS CloudFormation, use the
+status by default. After you create a connection with the CLI or CloudFormation, use the
 console to edit the connection to make its status `AVAILABLE`.
 
 ###### To create a connection to GitHub
@@ -3832,9 +3832,9 @@ only.
   to webhooks (GitHub (via OAuth app) source actions) (console)](#update-change-detection-console-github "#update-change-detection-console-github")
 - **CLI:** [Migrate polling pipelines to
   webhooks (GitHub (via OAuth app) source actions) (CLI)](#update-change-detection-cli-github "#update-change-detection-cli-github")
-- **AWS CloudFormation:**
+- **CloudFormation:**
   [Update pipelines for push
-  events (GitHub (via OAuth app) source actions) (AWS CloudFormation template)](#update-change-detection-cfn-github "#update-change-detection-cfn-github")
+  events (GitHub (via OAuth app) source actions) (CloudFormation template)](#update-change-detection-cfn-github "#update-change-detection-cfn-github")
 
 ###### Important
 
@@ -3909,10 +3909,10 @@ parameter of your pipeline and then create the following resources manually:
 
 ###### Note
 
-When you use the CLI or AWS CloudFormation to create a pipeline and add a webhook, you must disable
+When you use the CLI or CloudFormation to create a pipeline and add a webhook, you must disable
 periodic checks. To disable periodic checks, you must explicitly add the
 `PollForSourceChanges` parameter and set it to false, as detailed in the
-final procedure below. Otherwise, the default for a CLI or AWS CloudFormation pipeline is that
+final procedure below. Otherwise, the default for a CLI or CloudFormation pipeline is that
 `PollForSourceChanges` defaults to true and does not display in the
 pipeline structure output. For more information about PollForSourceChanges defaults, see
 [Valid settings for the
@@ -4073,7 +4073,7 @@ pipeline.
 
 ### Update pipelines for push
 
-events (GitHub (via OAuth app) source actions) (AWS CloudFormation template)
+events (GitHub (via OAuth app) source actions) (CloudFormation template)
 
 Follow these steps to update your pipeline (with a GitHub source) from periodic
 checks (polling) to event-based change detection using webhooks.
@@ -4082,7 +4082,7 @@ To build an event-driven pipeline with AWS CodeCommit, you edit the
 `PollForSourceChanges` parameter of your pipeline and then add a
 GitHub webhook resource to your template.
 
-If you use AWS CloudFormation to create and manage your pipelines, your template has content
+If you use CloudFormation to create and manage your pipelines, your template has content
 like the following.
 
 ###### Note
@@ -4192,16 +4192,16 @@ Dynamic References to Specify Template Values](../../../AWSCloudFormation/latest
 
 When passing secret parameters, do not enter the value directly into the template. The
 value is rendered as plaintext and is therefore readable. For security reasons, do not
-use plaintext in your AWS CloudFormation template to store your credentials.
+use plaintext in your CloudFormation template to store your credentials.
 
-When you use the CLI or AWS CloudFormation to create a pipeline and add a webhook, you must disable
+When you use the CLI or CloudFormation to create a pipeline and add a webhook, you must disable
 periodic checks.
 
 ###### Note
 
 To disable periodic checks, you must explicitly add the
 `PollForSourceChanges` parameter and set it to false, as detailed in the
-final procedure below. Otherwise, the default for a CLI or AWS CloudFormation pipeline is that
+final procedure below. Otherwise, the default for a CLI or CloudFormation pipeline is that
 `PollForSourceChanges` defaults to true and does not display in the
 pipeline structure output. For more information about PollForSourceChanges defaults, see
 [Valid settings for the
@@ -4236,7 +4236,7 @@ JSON
 ...
 ```
 
-2. Use the `AWS::CodePipeline::Webhook` AWS CloudFormation resource to add a
+2. Use the `AWS::CodePipeline::Webhook` CloudFormation resource to add a
    webhook.
 
 ###### Note
@@ -4311,10 +4311,10 @@ JSON
 ...
 ```
 
-3. Save the updated template to your local computer, and then open the AWS CloudFormation console.
+3. Save the updated template to your local computer, and then open the CloudFormation console.
 4. Choose your stack, and then choose **Create Change Set for Current
    Stack**.
-5. Upload the template, and then view the changes listed in AWS CloudFormation. These are the changes
+5. Upload the template, and then view the changes listed in CloudFormation. These are the changes
    to be made to the stack. You should see your new resources in the list.
 6. Choose **Execute**.
 
@@ -4395,7 +4395,7 @@ JSON
     }]
 ```
 
-When you create these resources with AWS CloudFormation, the webhook defined is created in
+When you create these resources with CloudFormation, the webhook defined is created in
 the specified GitHub repository. Your pipeline is triggered on commit.
 
 YAML

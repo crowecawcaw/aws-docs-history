@@ -50,11 +50,11 @@ editor options anytime. However, if you make changes or choose **Next**
 in the **Visual** editor, IAM might restructure your policy to
 optimize it for the visual editor. For more information, see [Policy restructuring](../../../IAM/latest/UserGuide/troubleshoot_policies.md#troubleshoot_viseditor-restructure "../../../IAM/latest/UserGuide/troubleshoot_policies.md#troubleshoot_viseditor-restructure")
 in the _IAM User Guide_. 7. (Optional) When you create or edit a policy in the AWS Management Console, you can generate a JSON
-or YAML policy template that you can use in AWS CloudFormation templates.
+or YAML policy template that you can use in CloudFormation templates.
 
 To do this, in the **Policy editor** choose
 **Actions**, and then choose **Generate CloudFormation
-template**. To learn more about AWS CloudFormation, see [AWS Identity and Access Management resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md "../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md") in the
+template**. To learn more about CloudFormation, see [AWS Identity and Access Management resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md "../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md") in the
 _AWS CloudFormation User Guide_. 8. When you are finished adding permissions to the policy, choose
 **Next**. 9. On the **Review and create** page, enter a **Policy
 name** and a **Description** (optional) for the policy that

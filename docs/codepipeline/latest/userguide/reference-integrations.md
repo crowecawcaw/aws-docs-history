@@ -443,7 +443,7 @@ permissions to invoke the integrator Lambda function at runtime
 
 You add permissions to your integrator Lambda function to provide the CodePipeline service with
 permissions to invoke it using the CodePipeline service principal:
-`codepipeline.amazonaws.com`. You can add permissions by using AWS CloudFormation or the
+`codepipeline.amazonaws.com`. You can add permissions by using CloudFormation or the
 command line. For an example, see [Working with action types](action-types.md "action-types.md").
 
 ## Job worker integration model

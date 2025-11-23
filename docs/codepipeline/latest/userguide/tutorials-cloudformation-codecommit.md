@@ -100,7 +100,7 @@ stages.
 ###### Note
 
 To view the pipeline that was created, find the **Logical ID**
-column under the **Resources** tab for your stack in AWS CloudFormation. Note the
+column under the **Resources** tab for your stack in CloudFormation. Note the
 name in the **Physical ID** column for the pipeline. In
 CodePipeline, you can view the pipeline with the same Physical ID (pipeline name) in the Region
 where you created your stack. 9. In your source repository, commit and push a change. Your change-detection resources

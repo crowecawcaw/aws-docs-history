@@ -15,7 +15,7 @@ need permissions from one or more of the following:
 
 - AWS CodeCommit
 - CodeBuild
-- AWS CloudFormation
+- CloudFormation
 - AWS CodeDeploy
 - AWS Elastic Beanstalk
 - AWS Lambda

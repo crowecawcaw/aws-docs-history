@@ -183,7 +183,7 @@ You must deploy the application to the same AWS Region as your pipeline.
 2. Select **I acknowledge that this app creates custom IAM
    roles**.
 3. Choose **Deploy**.
-4. Choose **View AWS CloudFormation Stack** to open the AWS CloudFormation console.
+4. Choose **View CloudFormation Stack** to open the CloudFormation console.
 5. Expand the **Resources** section. You see
    **ServerlessRepoPublish**, which is of the type
    **AWS::Lambda::Function**. Make a note of the physical ID

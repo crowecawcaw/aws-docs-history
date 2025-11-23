@@ -33,12 +33,12 @@ improve the security posture of your AWS accounts.
 
 _Published March 2017_
 
-- [Continuous Deployment to Amazon ECS Using CodePipeline, CodeBuild, Amazon ECR, and AWS CloudFormation](https://aws.amazon.com/blogs/compute/continuous-deployment-to-amazon-ecs-using-aws-codepipeline-aws-codebuild-amazon-ecr-and-aws-cloudformation/ "https://aws.amazon.com/blogs/compute/continuous-deployment-to-amazon-ecs-using-aws-codepipeline-aws-codebuild-amazon-ecr-and-aws-cloudformation/")
+- [Continuous Deployment to Amazon ECS Using CodePipeline, CodeBuild, Amazon ECR, and CloudFormation](https://aws.amazon.com/blogs/compute/continuous-deployment-to-amazon-ecs-using-aws-codepipeline-aws-codebuild-amazon-ecr-and-aws-cloudformation/ "https://aws.amazon.com/blogs/compute/continuous-deployment-to-amazon-ecs-using-aws-codepipeline-aws-codebuild-amazon-ecr-and-aws-cloudformation/")
 
 Learn how to create a continuous deployment pipeline to Amazon Elastic Container Service (Amazon ECS). Applications are
-delivered as Docker containers using CodePipeline, CodeBuild, Amazon ECR, and AWS CloudFormation.
+delivered as Docker containers using CodePipeline, CodeBuild, Amazon ECR, and CloudFormation.
 
-    + Download a sample AWS CloudFormation template and instructions for using it to create your
+    + Download a sample CloudFormation template and instructions for using it to create your
      own continuous deployment pipeline from the [ECS Reference
      Architecture: Continuous Deployment](https://github.com/awslabs/ecs-refarch-continuous-deployment "https://github.com/awslabs/ecs-refarch-continuous-deployment") repo on GitHub.
 
@@ -68,14 +68,14 @@ _Published November 2016_
   CodeCommit](http://www.stelligent.com/automation/create-a-pipeline-for-elastic-beanstalk-in-codepipeline-using-cloudformation-and-codecommit/ "http://www.stelligent.com/automation/create-a-pipeline-for-elastic-beanstalk-in-codepipeline-using-cloudformation-and-codecommit/")
 
 Learn how to implement continuous delivery in a CodePipeline pipeline for an application in
-AWS Elastic Beanstalk. All AWS resources are provisioned automatically through the use of an AWS CloudFormation
+AWS Elastic Beanstalk. All AWS resources are provisioned automatically through the use of an CloudFormation
 template. This walkthrough also incorporates CodeCommit and AWS Identity and Access Management (IAM).
 
 _Published May 2016_
 
-- [Automate CodeCommit and CodePipeline in AWS CloudFormation](http://www.stelligent.com/automation/automate-codecommit-and-codepipeline-in-aws-cloudformation/ "http://www.stelligent.com/automation/automate-codecommit-and-codepipeline-in-aws-cloudformation/")
+- [Automate CodeCommit and CodePipeline in CloudFormation](http://www.stelligent.com/automation/automate-codecommit-and-codepipeline-in-aws-cloudformation/ "http://www.stelligent.com/automation/automate-codecommit-and-codepipeline-in-aws-cloudformation/")
 
-Use AWS CloudFormation to automate the provisioning of AWS resources for a continuous delivery
+Use CloudFormation to automate the provisioning of AWS resources for a continuous delivery
 pipeline that uses CodeCommit, CodePipeline, CodeDeploy, and AWS Identity and Access Management.
 
 _Published April 2016_
@@ -83,7 +83,7 @@ _Published April 2016_
 - [Create a Cross-Account Pipeline in AWS CodePipeline](http://www.stelligent.com/automation/create-a-cross-account-pipeline-in-aws-cloudformation/ "http://www.stelligent.com/automation/create-a-cross-account-pipeline-in-aws-cloudformation/")
 
 Learn how to automate the provisioning of cross-account access to pipelines in
-AWS CodePipeline by using AWS Identity and Access Management. Includes examples in an AWS CloudFormation template.
+AWS CodePipeline by using AWS Identity and Access Management. Includes examples in an CloudFormation template.
 
 _Published March 2016_
 

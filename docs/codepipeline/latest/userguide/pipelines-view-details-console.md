@@ -26,7 +26,7 @@ with details about the action execution, logs, and action configuration.
 
 ###### Note
 
-The **Logs** tab is available for CodeBuild and AWS CloudFormation
+The **Logs** tab is available for CodeBuild and CloudFormation
 actions. 3. To see the
 action summary
 for

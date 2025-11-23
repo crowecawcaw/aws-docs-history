@@ -196,7 +196,7 @@ To do this, use the **create-connection** command.
 ###### Important
 
 A connection created through the AWS CLI or AWS CloudFormation is in `PENDING`
-status by default. After you create a connection with the CLI or AWS CloudFormation, use the
+status by default. After you create a connection with the CLI or CloudFormation, use the
 console to edit the connection to make its status `AVAILABLE`.
 
 ###### To create a connection

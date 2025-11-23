@@ -12,7 +12,7 @@ CloudTrail so the events are logged. CloudTrail requires an S3 bucket where it c
 access the log files for your CloudWatch Events resources from the custom bucket, but you cannot access the
 data from the placeholder bucket.
 
-- If you used the CLI or AWS CloudFormation to set up the CloudWatch Events resources, you can find your CloudTrail files in the bucket that
+- If you used the CLI or CloudFormation to set up the CloudWatch Events resources, you can find your CloudTrail files in the bucket that
   you specified when you set up your pipeline.
 - If you used the console to set up your pipeline with an S3 source, the console uses a
   CloudTrail placeholder bucket when it creates your CloudWatch Events resources for you. CloudTrail digests are

@@ -1,14 +1,14 @@
-# AWS CloudFormation StackSets deploy action reference
+# CloudFormation StackSets deploy action reference
 
-CodePipeline offers the ability to perform AWS CloudFormation StackSets operations as part of your CI/CD
+CodePipeline offers the ability to perform CloudFormation StackSets operations as part of your CI/CD
 process. You use a stack set to create stacks in AWS accounts across AWS Regions by
-using a single AWS CloudFormation template. All the resources included in each stack are defined by the
-stack set’s AWS CloudFormation template. When you create the stack set, you specify the template to use,
+using a single CloudFormation template. All the resources included in each stack are defined by the
+stack set’s CloudFormation template. When you create the stack set, you specify the template to use,
 as well as any parameters and capabilities that the template requires.
 
-For more information about concepts for AWS CloudFormation StackSets, see [StackSets concepts](../../../AWSCloudFormation/latest/UserGuide/stacksets-concepts.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-concepts.md") in the _AWS CloudFormation User Guide_.
+For more information about concepts for CloudFormation StackSets, see [StackSets concepts](../../../AWSCloudFormation/latest/UserGuide/stacksets-concepts.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-concepts.md") in the _AWS CloudFormation User Guide_.
 
-You integrate your pipeline with AWS CloudFormation StackSets through two distinct action types that
+You integrate your pipeline with CloudFormation StackSets through two distinct action types that
 you use together:
 
 - The `CloudFormationStackSet` action creates or updates a stack set or
@@ -31,7 +31,7 @@ the service-managed permissions model, you must enable trusted access between AW
 
 ###### Topics
 
-- [How AWS CloudFormation StackSets actions work](#action-reference-StackSets-concepts "#action-reference-StackSets-concepts")
+- [How CloudFormation StackSets actions work](#action-reference-StackSets-concepts "#action-reference-StackSets-concepts")
 - [How to structure StackSets
   actions in a pipeline](#action-reference-StackSets-bestpractices "#action-reference-StackSets-bestpractices")
 - [The CloudFormationStackSet
@@ -48,7 +48,7 @@ the service-managed permissions model, you must enable trusted access between AW
   types](#action-reference-StackSets-datatypes "#action-reference-StackSets-datatypes")
 - [See also](#action-reference-CloudFormation-links "#action-reference-CloudFormation-links")
 
-## How AWS CloudFormation StackSets actions work
+## How CloudFormation StackSets actions work
 
 A `CloudFormationStackSet` action creates or updates resources depending on
 whether the action is running for the first time.
@@ -322,7 +322,7 @@ on the types of resources in the template.
 
 You must use this property if you have IAM resources in your stack
 template or you create a stack directly from a template containing
-macros. For the AWS CloudFormation action to successfully operate in this way, you
+macros. For the CloudFormation action to successfully operate in this way, you
 must use one of the following capabilities:
 
 - `CAPABILITY_IAM`
@@ -345,7 +345,7 @@ Valid values are:
 - `SELF_MANAGED` (default): You must create
   administrator and execution roles to deploy to target
   accounts.
-- `SERVICE_MANAGED`: AWS CloudFormation StackSets automatically
+- `SERVICE_MANAGED`: CloudFormation StackSets automatically
   creates the IAM roles required to deploy to accounts managed by
   AWS Organizations. This requires an account to be a member of
   an Organization.
@@ -359,7 +359,7 @@ in the stack set.
 
 ###### Note
 
-Because AWS CloudFormation StackSets performs operations across multiple
+Because CloudFormation StackSets performs operations across multiple
 accounts, you must define the necessary permissions in those
 accounts before you can create the stack set.
 
@@ -386,7 +386,7 @@ ServiceManaged, you must not define a role name.
 
 ###### Note
 
-Because AWS CloudFormation StackSets performs operations across multiple
+Because CloudFormation StackSets performs operations across multiple
 accounts, you must define the necessary permissions in those
 accounts before you can create the stack set.
 
@@ -417,7 +417,7 @@ Required: No
 This parameter is optional for the SERVICE_MANAGED permissions
 model and is not used for the SELF_MANAGED permissions model.
 
-Describes whether AWS CloudFormation StackSets automatically deploys to AWS
+Describes whether CloudFormation StackSets automatically deploys to AWS
 Organizations accounts that are added to a target organization or
 organizational unit (OU). If `OrganizationsAutoDeployment` is
 specified, do not specify `DeploymentTargets` and
@@ -437,7 +437,7 @@ StackSets automatically deploys additional stack instances to
 AWS Organizations accounts that are added to a target
 organization or organizational unit (OU) in the specified
 Regions. If an account is removed from a target organization or
-OU, AWS CloudFormation StackSets deletes stack instances from the account in
+OU, CloudFormation StackSets deletes stack instances from the account in
 the specified Regions.
 
 - `Disabled`. Required: No.
@@ -601,10 +601,10 @@ us-west-2,us-east-1
 Required: No
 
 The percentage of accounts per Region for which this stack operation
-can fail before AWS CloudFormation stops the operation in that Region. If the
-operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in
+can fail before CloudFormation stops the operation in that Region. If the
+operation is stopped in a Region, CloudFormation doesn't attempt the operation in
 subsequent Regions. When calculating the number of accounts based on the
-specified percentage, AWS CloudFormation rounds _down_ to the next whole number.
+specified percentage, CloudFormation rounds _down_ to the next whole number.
 
 \***\*MaxConcurrentPercentage\*\***
 
@@ -612,8 +612,8 @@ Required: No
 
 The maximum percentage of accounts in which to perform this operation
 at one time. When calculating the number of accounts based on the
-specified percentage, AWS CloudFormation rounds _down_ to the next whole number. If rounding down would
-result in zero, AWS CloudFormation sets the number as one instead. Although you use
+specified percentage, CloudFormation rounds _down_ to the next whole number. If rounding down would
+result in zero, CloudFormation sets the number as one instead. Although you use
 this setting to specify the _maximum_,
 for large deployments the actual number of accounts acted upon
 concurrently may be lower due to service throttling.
@@ -647,7 +647,7 @@ behaves during stack set operations, whether with strict or soft failure
 tolerance. **Strict Failure Tolerance**
 lowers the deployment speed as stack set operation failures occur
 because concurrency decreases for each failure. **Soft Failure Tolerance** prioritizes deployment speed
-while still leveraging AWS CloudFormation safety capabilities.
+while still leveraging CloudFormation safety capabilities.
 
 - `STRICT_FAILURE_TOLERANCE`: This option dynamically
   lowers the concurrency level to ensure the number of failed
@@ -1119,10 +1119,10 @@ The following example shows the file contents for
 Required: No
 
 The percentage of accounts per Region for which this stack operation
-can fail before AWS CloudFormation stops the operation in that Region. If the
-operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in
+can fail before CloudFormation stops the operation in that Region. If the
+operation is stopped in a Region, CloudFormation doesn't attempt the operation in
 subsequent Regions. When calculating the number of accounts based on the
-specified percentage, AWS CloudFormation rounds _down_ to the next whole number.
+specified percentage, CloudFormation rounds _down_ to the next whole number.
 
 \***\*MaxConcurrentPercentage\*\***
 
@@ -1130,8 +1130,8 @@ Required: No
 
 The maximum percentage of accounts on which to perform this operation
 at one time. When calculating the number of accounts based on the
-specified percentage, AWS CloudFormation rounds _down_ to the next whole number. If rounding down would
-result in zero, AWS CloudFormation sets the number as one instead. Although you
+specified percentage, CloudFormation rounds _down_ to the next whole number. If rounding down would
+result in zero, CloudFormation sets the number as one instead. Although you
 specify the _maximum_, for large
 deployments the actual number of accounts acted upon concurrently may be
 lower due to service throttling.
@@ -1165,7 +1165,7 @@ behaves during stack set operations, whether with strict or soft failure
 tolerance. **Strict Failure Tolerance**
 lowers the deployment speed as stack set operation failures occur
 because concurrency decreases for each failure. **Soft Failure Tolerance** prioritizes deployment speed
-while still leveraging AWS CloudFormation safety capabilities.
+while still leveraging CloudFormation safety capabilities.
 
 - `STRICT_FAILURE_TOLERANCE`: This option dynamically
   lowers the concurrency level to ensure the number of failed
@@ -1358,7 +1358,7 @@ JSON
 
 `CloudFormationStackSet` action
 
-For AWS CloudFormation StackSets actions, the following minimum permissions are
+For CloudFormation StackSets actions, the following minimum permissions are
 required.
 
 For the `CloudFormationStackSet` action, add the following to your
@@ -1401,7 +1401,7 @@ your policy statement:
 
 set operations
 
-Because AWS CloudFormation StackSets performs operations across multiple accounts, you must define
+Because CloudFormation StackSets performs operations across multiple accounts, you must define
 the necessary permissions in those accounts before you can create the stack set. You can
 define permissions through self-managed permissions or service-managed
 permissions.
@@ -1417,7 +1417,7 @@ permissions](../../../AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-
 
 ###### Note
 
-Because AWS CloudFormation StackSets performs operations across multiple accounts, you must
+Because CloudFormation StackSets performs operations across multiple accounts, you must
 define the necessary permissions in those accounts before you can create the stack
 set.
 

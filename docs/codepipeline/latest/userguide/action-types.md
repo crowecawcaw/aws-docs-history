@@ -92,8 +92,8 @@ resources.
   permissions. Add permissions to your integrator Lambda function to provide
   the CodePipeline service with permissions to invoke it using the CodePipeline service
   principal: `codepipeline.amazonaws.com`. The permissions can be
-  added using AWS CloudFormation or the command line.
-  - Example for adding permissions using AWS CloudFormation:
+  added using CloudFormation or the command line.
+  - Example for adding permissions using CloudFormation:
 
   ```
     CodePipelineLambdaBasedActionPermission:

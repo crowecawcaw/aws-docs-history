@@ -117,9 +117,9 @@ execution.
 - [Pipeline STARTED event](#detect-state-events-pipeline-started "#detect-state-events-pipeline-started")
 - [Pipeline STOPPING event](#detect-state-events-pipeline-stopping "#detect-state-events-pipeline-stopping")
 - [Pipeline SUCCEEDED event](#detect-state-events-pipeline-succeeded "#detect-state-events-pipeline-succeeded")
-- [Pipeline SUCCEEDED (example with Git tags)](#w21aac42c13c29c15 "#w21aac42c13c29c15")
+- [Pipeline SUCCEEDED (example with Git tags)](#w2aac42c13c29c15 "#w2aac42c13c29c15")
 - [Pipeline FAILED event](#detect-state-events-pipeline-failed "#detect-state-events-pipeline-failed")
-- [Pipeline FAILED (example with Git tags)](#w21aac42c13c29c23 "#w21aac42c13c29c23")
+- [Pipeline FAILED (example with Git tags)](#w2aac42c13c29c23 "#w2aac42c13c29c23")
 
 ### Pipeline STARTED event
 
@@ -488,7 +488,7 @@ Stage-level events are emitted when there is a state change for a stage executio
 - [Stage STARTED event](#detect-state-events-stage-started "#detect-state-events-stage-started")
 - [Stage STOPPING event](#detect-state-events-stage-stopping "#detect-state-events-stage-stopping")
 - [Stage STOPPED event](#detect-state-events-stage-stopped "#detect-state-events-stage-stopped")
-- [Stage RESUMED after stage retry event](#w21aac42c13c31c15 "#w21aac42c13c31c15")
+- [Stage RESUMED after stage retry event](#w2aac42c13c31c15 "#w2aac42c13c31c15")
 
 ### Stage STARTED event
 

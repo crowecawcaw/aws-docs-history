@@ -303,7 +303,7 @@ Reference_.
 
 ### Creating Entry conditions (CFN)
 
-To use AWS CloudFormation to configure an Entry condition, use the `beforeEntry`
+To use CloudFormation to configure an Entry condition, use the `beforeEntry`
 parameter. On entry, the stage will run the rule and perform the result.
 
 ```
@@ -352,7 +352,7 @@ BeforeEntry:
 ```
 
 For more information about configuring beforeEntry conditions, see [AWS::CodePipeline::Pipeline BeforeEntryConditions](../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-beforeentryconditions.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-beforeentryconditions.md") under
-`StageDeclaration` in the _AWS CloudFormation User
+`StageDeclaration` in the _CloudFormation User
 Guide_.
 
 ## Creating On Failure conditions
@@ -529,7 +529,7 @@ Reference_.
 
 (CFN)
 
-To use AWS CloudFormation to configure an On Failure condition, use the `OnFailure`
+To use CloudFormation to configure an On Failure condition, use the `OnFailure`
 parameter. On success, the stage will run the rule and perform the result.
 
 ```
@@ -579,7 +579,7 @@ OnFailure:
 
 ```
 
-For more information about configuring failure conditions, see [OnFailure](../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.md#cfn-codepipeline-pipeline-stagedeclaration-onfailure "../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.md#cfn-codepipeline-pipeline-stagedeclaration-onfailure") under `StageDeclaration` in the _AWS CloudFormation User Guide_.
+For more information about configuring failure conditions, see [OnFailure](../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.md#cfn-codepipeline-pipeline-stagedeclaration-onfailure "../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.md#cfn-codepipeline-pipeline-stagedeclaration-onfailure") under `StageDeclaration` in the _CloudFormation User Guide_.
 
 ## Creating On Success conditions
 
@@ -714,7 +714,7 @@ Reference_.
 
 (CFN)
 
-To use AWS CloudFormation to configure an On Success condition, use the `OnSuccess`
+To use CloudFormation to configure an On Success condition, use the `OnSuccess`
 parameter. On success, the stage will run the rule and perform the result.
 
 ```
@@ -762,7 +762,7 @@ actions:
 ```
 
 For more information about configuring failure conditions for stage
-rollback, see [OnFailure](../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.md#cfn-codepipeline-pipeline-stagedeclaration-onfailure "../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.md#cfn-codepipeline-pipeline-stagedeclaration-onfailure") under `StageDeclaration` in the _AWS CloudFormation User Guide_.
+rollback, see [OnFailure](../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.md#cfn-codepipeline-pipeline-stagedeclaration-onfailure "../../../AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.md#cfn-codepipeline-pipeline-stagedeclaration-onfailure") under `StageDeclaration` in the _CloudFormation User Guide_.
 
 ## Deleting stage conditions
 

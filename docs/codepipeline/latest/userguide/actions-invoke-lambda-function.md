@@ -17,7 +17,7 @@ event](#actions-invoke-lambda-function-json-event-example "#actions-invoke-lambd
 
 Here are some ways Lambda functions can be used in pipelines:
 
-- To create resources on demand in one stage of a pipeline using AWS CloudFormation and delete
+- To create resources on demand in one stage of a pipeline using CloudFormation and delete
   them in another stage.
 - To deploy application versions with zero downtime in AWS Elastic Beanstalk with a Lambda
   function that swaps CNAME values.
@@ -481,7 +481,7 @@ for the Lambda execution role, as noted in the introduction for each sample.
 ### Sample Python function that uses an AWS CloudFormation template
 
 The following sample shows a function that creates or updates a stack based on a
-supplied AWS CloudFormation template. The template creates an Amazon S3 bucket. It is for
+supplied CloudFormation template. The template creates an Amazon S3 bucket. It is for
 demonstration purposes only, to minimize costs. Ideally, you should delete the stack
 before you upload anything to the bucket. If you upload files to the bucket, you
 cannot delete the bucket when you delete the stack. You must manually delete
@@ -489,7 +489,7 @@ everything in the bucket before you can delete the bucket itself.
 
 This Python sample assumes you have a pipeline that uses an Amazon S3 bucket as a
 source action, or that you have access to a versioned Amazon S3 bucket you can use with
-the pipeline. You create the AWS CloudFormation template, compress it, and upload it to that
+the pipeline. You create the CloudFormation template, compress it, and upload it to that
 bucket as a .zip file. You must then add a source action to your pipeline that
 retrieves this .zip file from the bucket.
 
@@ -512,7 +512,7 @@ This sample demonstrates:
   runtime (a limit in Lambda).
 
 To use this sample Lambda function, the policy for the Lambda execution role must
-have `Allow` permissions in AWS CloudFormation, Amazon S3, and CodePipeline, as shown in this
+have `Allow` permissions in CloudFormation, Amazon S3, and CodePipeline, as shown in this
 sample policy:
 
 JSON
@@ -557,7 +557,7 @@ JSON
 
 ```
 
-To create the AWS CloudFormation template, open any plain-text editor and copy and paste the
+To create the CloudFormation template, open any plain-text editor and copy and paste the
 following code:
 
 ```
@@ -591,9 +591,9 @@ a source action that retrieves the .zip file. Name the output for this action
 ###### Note
 
 The sample Lambda function expects these file names and compressed structure.
-However, you can substitute your own AWS CloudFormation template for this sample. If you use
+However, you can substitute your own CloudFormation template for this sample. If you use
 your own template, make sure you modify the policy for the Lambda execution role
-to allow any additional functionality required by your AWS CloudFormation template.
+to allow any additional functionality required by your CloudFormation template.
 
 ###### To add the following code as a function in Lambda
 
@@ -1008,7 +1008,7 @@ Under **Input artifacts**, choose
 provide a JSON string with three parameters:
 
     * Stack name
-    * AWS CloudFormation template name and path to the file
+    * CloudFormation template name and path to the file
     * Input artifact
 
 Use curly brackets ({ }) and separate the parameters with commas. For

@@ -12,7 +12,7 @@ the CodePipeline best practices for security:
 
 - If you create a pipeline or action configuration that needs to include secrets,
   such as tokens or passwords, do not enter secrets directly in the action
-  configuration, or default values of variables defined at pipeline level or AWS CloudFormation
+  configuration, or default values of variables defined at pipeline level or CloudFormation
   configuration,
   because the information will display in logs. Use Secrets Manager to set up and store secrets,
   and then use the referenced secret in the

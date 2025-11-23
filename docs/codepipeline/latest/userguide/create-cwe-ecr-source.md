@@ -13,7 +13,7 @@ To add an Amazon ECR source action in CodePipeline, you can choose either to:
     change detection rule manually. Use one of the following methods: [Create an EventBridge rule for an Amazon ECR
     source (console)](create-cwe-ecr-source-console.md "create-cwe-ecr-source-console.md"), [Create an EventBridge rule for an Amazon ECR source
     (CLI)](create-cwe-ecr-source-cli.md "create-cwe-ecr-source-cli.md"), or [Create an EventBridge rule for an Amazon ECR source
-    (AWS CloudFormation template)](create-cwe-ecr-source-cfn.md "create-cwe-ecr-source-cfn.md") .
+    (CloudFormation template)](create-cwe-ecr-source-cfn.md "create-cwe-ecr-source-cfn.md") .
 
 ###### Topics
 
@@ -22,4 +22,4 @@ To add an Amazon ECR source action in CodePipeline, you can choose either to:
 - [Create an EventBridge rule for an Amazon ECR source
   (CLI)](create-cwe-ecr-source-cli.md "create-cwe-ecr-source-cli.md")
 - [Create an EventBridge rule for an Amazon ECR source
-  (AWS CloudFormation template)](create-cwe-ecr-source-cfn.md "create-cwe-ecr-source-cfn.md")
+  (CloudFormation template)](create-cwe-ecr-source-cfn.md "create-cwe-ecr-source-cfn.md")

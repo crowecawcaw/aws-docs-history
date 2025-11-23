@@ -383,7 +383,7 @@ repository, you must authorize CodePipeline access to your repositories. You cho
 an installation app that helps you connect to the account where you have created your
 third-party code repository.
 
-When you use the AWS CLI or an AWS CloudFormation template, you must provide the connection ARN of a
+When you use the AWS CLI or an CloudFormation template, you must provide the connection ARN of a
 connection that has already gone through the installation handshake. Otherwise, the
 pipeline is not triggered.
 
@@ -397,9 +397,9 @@ change detection for you.
 
 The following related resources can help you as you work with this action.
 
-- [AWS::CodeStarConnections::Connection](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.md") – The AWS CloudFormation template
+- [AWS::CodeStarConnections::Connection](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.md") – The CloudFormation template
   reference for the AWS CodeStar Connections resource provides parameters and
-  examples for connections in AWS CloudFormation templates.
+  examples for connections in CloudFormation templates.
 - [AWS CodeStar
   Connections API Reference](../../../codestar-connections/latest/APIReference/Welcome.md "../../../codestar-connections/latest/APIReference/Welcome.md") – The _AWS
   CodeStar Connections API Reference_ provides reference information

@@ -8,7 +8,7 @@ is required to create a pipeline, and the pipeline is always associated to that 
 role.
 
 Before you create a pipeline with the AWS CLI, you must create a CodePipeline service role for
-your pipeline. For an example AWS CloudFormation template with the service role and policy specified, see
+your pipeline. For an example CloudFormation template with the service role and policy specified, see
 the tutorials in [Tutorial: Create a pipeline that uses
 variables from AWS CloudFormation deployment actions](tutorials-cloudformation-action.md "tutorials-cloudformation-action.md").
 

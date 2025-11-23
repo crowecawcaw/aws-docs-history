@@ -887,7 +887,7 @@ location and information about the source providers you will use for your action
 can specify a source action for Amazon ECR or any third-party repository supoorted by CodeConnections,
 such as GitHub.
 
-The template will create a stack in AWS CloudFormation for your pipeline that includes the
+The template will create a stack in CloudFormation for your pipeline that includes the
 following resources:
 
 - A pipeline is created with the V2 pipeline type. In **Pipeline
@@ -904,14 +904,14 @@ template creation wizard, see the repository at [https://github.com/aws/codepipe
 
 When you use static templates to create a pipeline, the pipeline structure is
 configured in each template according to the needs of the use case. For example, the
-template for a deployment to AWS CloudFormation is used as an example in this procedure. The template
+template for a deployment to CloudFormation is used as an example in this procedure. The template
 generates a pipeline named **DeployToCloudFormationService** with the
 following structure:
 
 - A build stage that contains a source action with configuration that you
   specify in the wizard.
 - A deployment stage with a deploy action and associated resource stack in
-  AWS CloudFormation.
+  CloudFormation.
 
 When you use a static template to create a pipeline, CodePipeline creates the names of stages
 (source, build, staging). These names cannot be changed. You can use more specific names
@@ -1049,6 +1049,6 @@ View the pipeline
 
 - Now that you've created your pipeline, you can view it in the CodePipeline
   console and view the stack in
-  AWS CloudFormation.
+  CloudFormation.
   The pipeline starts to run after you create it. For more information, see [View pipelines and details in CodePipeline](pipelines-view.md "pipelines-view.md"). For more
   information about making changes to your pipeline, see [Edit a pipeline in CodePipeline](pipelines-edit.md "pipelines-edit.md").

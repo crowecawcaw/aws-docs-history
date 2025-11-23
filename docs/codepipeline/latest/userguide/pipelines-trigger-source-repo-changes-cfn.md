@@ -1,14 +1,14 @@
 # Create an EventBridge rule for
 
-a CodeCommit source (AWS CloudFormation template)
+a CodeCommit source (CloudFormation template)
 
-To use AWS CloudFormation to create a rule, update your template as shown here.
+To use CloudFormation to create a rule, update your template as shown here.
 
-###### To update your pipeline AWS CloudFormation template and create EventBridge
+###### To update your pipeline CloudFormation template and create EventBridge
 
 rule
 
-1.  In the template, under `Resources`, use the `AWS::IAM::Role` AWS CloudFormation
+1.  In the template, under `Resources`, use the `AWS::IAM::Role` CloudFormation
     resource to configure the IAM role that allows your event to start your pipeline. This entry
     creates a role that uses two policies:
 
@@ -16,8 +16,8 @@ rule
         * The second policy provides permissions to start the pipeline.
 
     **Why am I making this change?** Adding the
-    `AWS::IAM::Role` resource enables AWS CloudFormation to create permissions for EventBridge. This
-    resource is added to your AWS CloudFormation stack.
+    `AWS::IAM::Role` resource enables CloudFormation to create permissions for EventBridge. This
+    resource is added to your CloudFormation stack.
 
 YAML
 
@@ -99,13 +99,13 @@ JSON
 ```
 
 2. In the template, under `Resources`, use the `AWS::Events::Rule`
-   AWS CloudFormation resource to add an EventBridge rule. This event pattern creates an event that monitors push
+   CloudFormation resource to add an EventBridge rule. This event pattern creates an event that monitors push
    changes to your repository. When EventBridge detects a repository state change, the rule invokes
    `StartPipelineExecution` on your target pipeline.
 
 **Why am I making this change?** Adding the
-`AWS::Events::Rule` resource enables AWS CloudFormation to create the event. This resource is
-added to your AWS CloudFormation stack.
+`AWS::Events::Rule` resource enables CloudFormation to create the event. This resource is
+added to your CloudFormation stack.
 
 YAML
 
@@ -245,10 +245,10 @@ Targets:
       value: `value`
 ```
 
-4. Save the updated template to your local computer, and then open the AWS CloudFormation console.
+4. Save the updated template to your local computer, and then open the CloudFormation console.
 5. Choose your stack, and then choose **Create Change Set for Current
    Stack**.
-6. Upload the template, and then view the changes listed in AWS CloudFormation. These are the changes to
+6. Upload the template, and then view the changes listed in CloudFormation. These are the changes to
    be made to the stack. You should see your new resources in the list.
 7. Choose **Execute**.
 
