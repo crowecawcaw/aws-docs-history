@@ -1,33 +1,30 @@
-# [DL.CD.1] Deploy changes to production frequently
+# [DL.CD.2] Deploy exclusively from trusted artifact repositories
 
 **Category:** FOUNDATIONAL
 
-Frequent deployments to production encourages small, rapid, and iterative changes to
-the code base. Deploying small and validated changes regularly helps mitigate the risk
-associated with each deployment. Frequent deployments not only streamlines the testing and
-validation process, but also expedites the feedback loop, leading to quicker resolution of
-issues.
+All artifacts involved in the delivery process should
+originate from a trusted artifact repository. These
+repositories contain validated, tested, and integrated
+artifacts that have been deemed safe for deployment. By using
+trusted artifact repositories, teams can ensure the security
+of deployed workloads, maintain quality and security
+standards, and promote trust in the delivery pipeline.
 
-Use a pipeline to automate the deployment of validated changes across various
-environments, including production. This pipeline should be automatically triggered, such as
-by the completion of continuous integration or an updated artifact in an artifact
-repository. Once invoked, the pipeline should automatically begin to deploy changes to
-non-production environments for further testing and validation. Upon successful validation,
-changes can be deployed to the production environment.
+The delivery pipeline should be restricted to using only
+trusted artifact repositories, which could be enforced through
+mechanisms such as allow lists, IP restrictions, or
+authentication controls. Additionally, we recommend using
+cryptographic signing to validate artifacts and including a
+validation stage in the pipeline to verify that the artifacts
+meet the necessary standards before deployment. In this way,
+the integrity and security of the deployed workloads are
+maintained consistently.
 
-When working in a DevOps environment, it is important to distinguish between
-_deploying_ and _releasing_. Even after deploying
-changes to production, these changes might not necessarily be visible or accessible to all
-users. By using advanced deployment strategies and employing [feature flags](https://aws.amazon.com/systems-manager/features/appconfig/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc#Feature_flags"), teams can deploy code to production and decide when to release or
-rollback specific features in real time, offering more granular control over releasing new
-features to end users.
+**Related information:**
 
-Teams should focus on deploying small changes rather than
-bundling multiple changes into a single, large batch
-deployment. Accumulating changes complicates testing and
-validation, and it becomes challenging to ensure that all
-components interact correctly. The practice of deploying small
-changes demands discipline and commitment, but it improves
-deployment frequency, security, and enhanced collaboration
-while ensuring that the code base remains up-to-date and
-releasable at all times.
+- [Artifact
+  Repository - AWS CodeArtifact](https://aws.amazon.com/codeartifact/ "https://aws.amazon.com/codeartifact/")
+- [Fully
+  Managed Container Registry - Amazon Elastic Container Registry](https://aws.amazon.com/ecr/ "https://aws.amazon.com/ecr/")
+- [Code
+  Repositories and Artifact Management | AWS Marketplace](https://aws.amazon.com/marketplace/solutions/devops/code-repositories-and-artifact-management?aws-marketplace-cards.sort-by=item.additionalFields.headline&aws-marketplace-cards.sort-order=asc&awsf.aws-marketplace-devops-store-use-cases=*all "https://aws.amazon.com/marketplace/solutions/devops/code-repositories-and-artifact-management?aws-marketplace-cards.sort-by=item.additionalFields.headline&aws-marketplace-cards.sort-order=asc&awsf.aws-marketplace-devops-store-use-cases=*all")

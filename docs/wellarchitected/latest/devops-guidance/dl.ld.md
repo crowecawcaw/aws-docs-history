@@ -1,35 +1,28 @@
-# [DL.LD.8] Generate mock datasets for local development
+# [DL.LD.10] Manage unused development environments
 
 **Category:** OPTIONAL
 
-Mock datasets are synthetic or modified datasets that
-developers can use during the development process, eliminating
-the need to interact with real, sensitive production
-data. Using mock datasets ensures tests are thorough and
-realistic, without compromising security.
+Properly managing unused environments prevents unnecessary
+resource utilization and potential security threats. When
+development environments are not in use, the environment and
+associated resources should be disabled or deleted.
 
-Use data generating tools to create mock datasets. These tools
-can range from random data generators to more advanced methods
-like generative AI. Generative AI can be used to generate
-synthetic datasets that can be used to test applications and
-is especially useful for generating data that is not often
-included in testing datasets, such as defects or edge cases.
+Managing unused development environments requires tracking,
+disabling, or removing development setups that are dormant or
+no longer in active use. Regularly audit the active and
+inactive development environments. Implement automated tools
+or scripts that monitor activity and provide notifications
+regarding dormant environments.
 
-If using real-world data is necessary for local development, ensure it is obfuscated.
-Methods such as masking, encrypting, or tokenizing production datasets can transform real
-datasets into mock datasets that are safe for local development. It might be useful to
-store already prepared mock datasets that can be shared between teams or systems to
-perform testing with. This approach creates a realistic local testing environment without
-risking developers handling actual production data.
+Once identified, these environments should be archived,
+disabled, or removed, depending on the future needs of the
+project. Treat development environments as ephemeral
+environments to reduces the risk of incurring unexpected cost
+and leaving potentially insecure resources running.
 
 **Related information:**
 
-- [Testing
-  software and systems at Amazon: Developer
-  environment](https://youtu.be/o1sc3cK9bMU?t=1017 "https://youtu.be/o1sc3cK9bMU?t=1017")
-- [Generate
-  test data using an AWS Glue job and Python](../../../prescriptive-guidance/latest/patterns/generate-test-data-using-an-aws-glue-job-and-python.md "../../../prescriptive-guidance/latest/patterns/generate-test-data-using-an-aws-glue-job-and-python.md")
-- [Foundation
-  Model API Service - Amazon Bedrock](https://aws.amazon.com/bedrock/ "https://aws.amazon.com/bedrock/")
-- [What
-  is Generative AI?](https://aws.amazon.com/what-is/generative-ai/ "https://aws.amazon.com/what-is/generative-ai/")
+- [AWS Well-Architected Sustainability Pillar: SUS02-BP03 Stop
+  the creation and maintenance of unused assets](../sustainability-pillar/sus_sus_user_a4.md "../sustainability-pillar/sus_sus_user_a4.md")
+- [AWS Well-Architected Cost Optimization Pillar: COST04-BP03
+  Decommission resources](../cost-optimization-pillar/cost_decomissioning_resources_decommission.md "../cost-optimization-pillar/cost_decomissioning_resources_decommission.md")

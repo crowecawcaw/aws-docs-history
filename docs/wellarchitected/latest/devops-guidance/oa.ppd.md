@@ -1,27 +1,24 @@
-# [OA.PPD.6] Promote knowledge sharing through inter-team interest groups
+# [OA.PPD.2] Allocate time and budget for targeted training
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Facilitate and support knowledge-sharing opportunities and interest groups, often
-called _skills guilds_, that allow individuals to interact with other
-like-minded people within the organization on topics of interest. These groups
-can partake in activities such as internal blogging, hosting internal conferences,
-attending external events, or group discussions. These opportunities allow for
-individuals to share their experiences, discuss industry trends, and collaborate on
-projects with others outside of their immediate team.
+Allocate dedicated time and budget for internal and external
+training, specifically targeting areas that are necessary for
+achieving business objectives and driving transformation. This
+could include leadership training, new employee training,
+or continuous training for already
+experienced individual contributors. Identify relevant skills
+and knowledge gaps, develop a comprehensive training plan, and
+dedicate resources and time to
+complete the training. Implement feedback and evaluation
+mechanisms to measure training outcomes and identify areas for
+improvement. Exemplary organizations tend to provide financial
+support or reimbursements for costs associated with taking
+certifications or course registration fees.
 
-Allocate time and resources to support these opportunities and groups tailored based on
-your organization's unique needs and circumstances. This can range from dedicating
-specific hours each week, providing meeting spaces, or assigning budget for professional
-development courses and symposiums. Hosting _lunch and learns_ or
-_tech talks_, where passionate individuals or teams discuss specific
-topics or showcase their projects, can be a great start to facilitating inter-team
-collaboration.
+**Related information:**
 
-We recommend creating groups which focus on each of the DevOps
-Sagas presented in this guidance. Groups may choose to further
-expand into sub-groups to focus on individual capabilities,
-such as continuous deployment, everything-as-code, monitoring,
-or security testing, as they see fit. These opportunities and
-groups help to break down silos and improve cross-team
-collaboration, which can hasten DevOps adoption.
+- [AWS Well-Architected Cost Optimization Pillar: COST01-BP03
+  Establish cloud budgets and forecasts](../cost-optimization-pillar/cost_cloud_financial_management_budget_forecast.md "../cost-optimization-pillar/cost_cloud_financial_management_budget_forecast.md")
+- [AWS Certification Paths](https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf")
+- [AWS Learning Needs Analysis](https://aws.amazon.com/training/teams/learning-needs-analysis/ "https://aws.amazon.com/training/teams/learning-needs-analysis/")

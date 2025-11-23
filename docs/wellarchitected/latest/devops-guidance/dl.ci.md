@@ -1,45 +1,51 @@
-# [DL.CI.7] Validate the reproducibility of builds
+# [DL.CI.3] Ensure automated quality assurance for every build
 
-**Category:** OPTIONAL
+**Category:** FOUNDATIONAL
 
-Every build for a specific version of source code should
-ideally be able to generate the same outputs from the same
-inputs. The implementation of reproducible builds primarily
-involves the creation of an immutable and consistently created
-build environment and controlling the inputs for each and
-every build.
+As code changes become more frequent in a DevOps environment,
+it becomes important to reduce the time it takes to get
+feedback on those changes. Adding automated quality assurance
+(QA) tests into the continuous integration pipeline enables
+rapidly validating changes and receiving fast feedback.
 
-Between each build, the environment should be destroyed and recreated so that it is
-immutable. Use infrastructure as code (IaC) and containerization to help with automating
-the creation of the environment in a repeatable and consistent way. Have controls in place
-to detect and prevent configuration drift that may alter the build environment
-post-creation. All dependencies and software components used to create the environment and
-perform the build should be version pinned and recorded.
+Add stages to the pipeline which run pre-deployment checks to
+validate that code changes work alongside the existing code
+base. These checks should automatically trigger functional,
+non-functional, and security tests against the integrated code
+base and build artifacts.
 
-Any manual intervention during the build can introduce
-variability. Every step in the build process needs to be
-automated. Factors that can render the build nondeterministic,
-such as unrestricted network access and the use of random
-generators or timestamps that modify the build artifact, must
-be limited.
+_Breaking-the-build_, which stops the integration pipeline process
+due to test failures, is a powerful feedback mechanism. However, it should be used
+judiciously. Reserve breaking-the-build for critical issues, such as actual build failures,
+high severity security findings, or non-negotiable compliance findings, that demand
+immediate developer attention. Overuse can disrupt the continuous flow of development,
+leading to unforeseen delays, bottlenecks, and poor developer experience.  Instead, continue
+to provide feedback to developers in tools they already use, such as IDEs, chat clients, or
+email, and let them decide if they should stop the process.
 
-Verify the reproducibility by establishing processes that
-regularly check the reproducibility of the builds. This can
-involve triggering builds from the same source code in
-different environments and comparing the results. Adopt
-mechanisms like binary diffing or checksum comparison to
-validate the reproducibility of the build. Set up alarms that
-raise alerts when discrepancies occur to provide fast feedback
-when there are inconsistencies.
-
-Having reproducible builds is optional and not recommended for
-all organizations or workloads. While striving for
-reproducibility is encouraged, it may not be achievable in
-every context. For example, some builds may depend on specific
-environmental parameters or timing elements that make
-reproducibility difficult.
+It is often more practical to automate enforcement of quality
+assurance findings as part of the continuous delivery process.
+This allows enforcement to be objectively targeted based on
+the environment to which the build is being deployed into.
+Have an exception mechanism and escalation plans prepared that
+developers can use if the continuous integration or continuous
+deployment prevent deployments which they do not agree with.
 
 **Related information:**
 
-- [Reproducible
-  builds](https://reproducible-builds.org/ "https://reproducible-builds.org/")
+- [AWS Well-Architected Reliability Pillar: REL08-BP02 Integrate
+  functional testing as part of your deployment](../reliability-pillar/rel_tracking_change_management_functional_testing.md "../reliability-pillar/rel_tracking_change_management_functional_testing.md")
+- [AWS Well-Architected Security Pillar: SEC11-BP02 Automate
+  testing throughout the development and release lifecycle](../framework/sec_appsec_automate_testing_throughout_lifecycle.md "../framework/sec_appsec_automate_testing_throughout_lifecycle.md")
+- [Testing
+  stages in continuous integration and continuous
+  delivery](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/testing-stages-in-continuous-integration-and-continuous-delivery.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/testing-stages-in-continuous-integration-and-continuous-delivery.md")
+- [Amazon's
+  approach to high-availability deployment: Release guidance
+  lifecycle](https://youtu.be/bCgD2bX1LI4?t=855 "https://youtu.be/bCgD2bX1LI4?t=855")
+- [Testing
+  software and systems at Amazon: Continuous integration and
+  deployment](https://youtu.be/o1sc3cK9bMU?t=1206 "https://youtu.be/o1sc3cK9bMU?t=1206")
+- [The
+  Amazon Software Development Process: Automated
+  Testing](https://youtu.be/52SC80SFPOw?t=1340 "https://youtu.be/52SC80SFPOw?t=1340")

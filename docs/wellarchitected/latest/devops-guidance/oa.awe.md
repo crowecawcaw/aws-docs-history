@@ -1,21 +1,17 @@
-# [OA.AWE.3] Balance work schedules for diverse global teams
+# [OA.AWE.2] Offer inclusive options for both virtual and on-site collaboration
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Flexible work policies for appropriate roles are recommended
-because they help organizations attract and retain skilled employees,
-while also promoting a healthy work-life balance, improving
-employee satisfaction, and facilitating global collaboration.
-Establish policies and guidelines that facilitate remote work and
-flexible schedules, while fostering communication and
-collaboration among team members across different time zones
-and locations.
+Create a more inclusive and high-performing work environment by accommodating
+employees with diverse needs. To improve the organization's capability to accommodate
+employees with special needs, conduct assessments of existing facilities and identify
+areas that require improvement.
 
-Use techniques such as _follow-the-sun_ support models and
-handovers to promote seamless collaboration across different time zones. Schedule meetings
-that are convenient for all team members or record and share information if such
-scheduling is not feasible. Provide employees with the necessary technology and tools to
-effectively work remotely, while protecting company information through
-appropriate security measures. Seek feedback from employees to refine and
-improve the organization's remote work and flexible schedule policies to better meet the
-needs and preferences of its workforce.
+Collaboration tools should include accessibility features such
+as closed captioning, screen readers, and speech-to-text
+capabilities. Promote an inclusive culture throughout the
+organization by providing training for employees on topics
+such as diversity, inclusion, and accessibility. Gather
+feedback from employees with special must identify areas
+for improvement and make necessary adjustments to create a
+more inclusive and accessible work environment.

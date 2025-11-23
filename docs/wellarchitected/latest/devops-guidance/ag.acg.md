@@ -1,46 +1,22 @@
-# [AG.ACG.9] Integrate software provenance tracking throughout the development lifecycle
+# [AG.ACG.10] Automate resolution of findings in tracking systems
 
 **Category:** RECOMMENDED
 
-Software provenance tracking inspects the origin and evolution
-of software components throughout their lifecycle to
-understand where a piece of software originated, its
-development and update history, and its distribution.
-Provenance tracking ensures the integrity of software,
-maintains compliance, and enhances the security of the
-software supply chain throughout the development
-lifecycle. Effective provenance tracking can prevent the
-introduction of insecure components, offer early detection of
-potential vulnerabilities, and provide insights for timely
-remediation.
+Automating the resolution of findings in tracking systems can
+accelerate the security incident response process, prevent
+untracked mitigation activities, and ensure accuracy in
+reporting processes. It also allows teams to focus more on
+development, resolving issues, and innovation, while
+automation handles the routine tracking and resolution tasks. 
 
-Developers are encouraged to use the best tools for the task
-at hand, often including third-party software components.
-These third-party elements can introduce an additional layer
-of complexity and potential risk. Implementing software
-provenance tracking mitigates these risks by promoting better
-visibility into the lifecycle of software components, thereby
-increasing accountability, transparency, and trust.
-
-Provenance tracking should be integrated into all stages of
-the development lifecycle. For instance, source code
-provenance should be tracked at the time of code check-in or
-commit into Version Control Systems like Git, while the
-provenance of third-party components should be verified at the
-time of component acquisition and usage using tools like
-Software Composition Analysis (SCA). A
-[Software
-Bill of Materials (SBOM)](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md") can be used as a detailed list
-of all components within your software, including the exact
-version, digital signatures, and origin of each one.
-
-Verify provenance at build and deploy time. Use digital signatures and hashing
-algorithms to verify the integrity and provenance of software artifacts as part of the
-deployment pipeline, validating the signature of an artifact against a trusted source
-before it is used. It can also be useful to check running software continuously to
-identify compromised or outdated software components post-deployment.
+Use tools that support automated tracking and resolution capabilities. When an issue
+is detected, a ticket should be created automatically in the tracking system. Once the
+issue is resolved, the system should be able to automatically validate the resolution and
+close the corresponding ticket. This approach reduces the chances of human error, ensures
+a faster response to issues, and is capable of providing comprehensive reporting and
+analytics capabilities to support continuous improvement of the security posture.
 
 **Related information:**
 
-- [SLSA
-  specification](https://slsa.dev/spec/v1.0/ "https://slsa.dev/spec/v1.0/")
+- [Automation
+  rules - AWS Security Hub](../../../securityhub/latest/userguide/automation-rules.md "../../../securityhub/latest/userguide/automation-rules.md")

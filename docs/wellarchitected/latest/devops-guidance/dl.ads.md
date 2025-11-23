@@ -1,39 +1,46 @@
-# [DL.ADS.1] Test deployments in pre-production environments
+# [DL.ADS.5] Ensure backwards compatibility for data store and schema changes
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Progressively validate software changes across multiple environments, including
-development (alpha) and testing (beta) before deploying into production. Additional staging
-environments can be introduced as needed, such as staging (gamma). These additional
-environments help to prevent the introduction of bugs in production environments, validates
-backwards compatibility, and increases the confidence in the quality of the deployment.
+Backwards compatibility in data stores and schemas ensures
+that as changes are made, previous versions of the system
+continue to operate as expected. This requires careful
+planning, thorough testing, and detailed monitoring. As
+modifications, additions, or deletions are made to data
+structures and schemas, these changes should be designed to
+coexist with previous data structures, allowing both old and
+new versions to operate concurrently. Maintaining backwards
+compatibility helps to avoid breaking changes that could
+disrupt continuous integration and delivery pipelines.
 
-Each non-production deployment serves as a gate, only allowing changes to progress to
-the next stage after they pass all validations. Early issue detection and isolation prevent
-propagation to later stages or production. A controlled deployment process includes
-strategies to manage risk and support rollback if issues are identified during these test
-deployments.
+One way to achieve backwards compatibility is by implementing
+versioning in your data schemas. With this method, new changes
+are incorporated into a new version, while older versions
+remain functional for existing applications.
+[Feature
+flags](https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags") can also be used to conceal new alterations until
+they're fully ready, facilitating testing and phased rollout
+of updates without affecting existing users.
 
-One-box testing can be used to test backward compatibility to ensure new code changes
-coexist with and function properly with the existing code base. One-box refers to the
-testing of changes in a single unit of deployment, such as a single container or instance,
-which is configured to use production endpoints. This form of testing can be used to help
-ensure the changes interact efficiently with production endpoints of other services. This
-can be done by creating a dedicated staging environment for cross-service backward
-compatibility (zeta) testing. Services deployed to the zeta stage interact exclusively with
-production endpoints to identify potential integration issues before the code reaches the
-production stage.
+To ensure the safe implementation of these changes, they
+should be thoroughly tested in a non-production
+environment. Testing typically involves three stages to detect
+potential issues: initially, the change is deployed to a
+fraction of the servers to verify coexistence of software
+versions; next, the deployment is completed across all
+servers; and finally, a rollback deployment is initiated. If
+no errors or unexpected behavior occur during these stages,
+the test is considered successful.
+
+In scenarios involving changes that require coordination between different
+microservices, it is important to maintain consistency in the order of deployments across
+environments. For example, in serialization contexts, readers are typically deployed
+before writers during roll-forward, while writers precede readers during rollbacks.
 
 **Related information:**
 
-- [What
-  is Continuous Integration?](https://aws.amazon.com/devops/continuous-integration/ "https://aws.amazon.com/devops/continuous-integration/")
-- [What
-  is Continuous Delivery?](https://aws.amazon.com/devops/continuous-delivery/ "https://aws.amazon.com/devops/continuous-delivery/")
-- [Going
-  faster with continuous delivery](https://aws.amazon.com/builders-library/going-faster-with-continuous-delivery?did=ba_card&trk=ba_card "https://aws.amazon.com/builders-library/going-faster-with-continuous-delivery?did=ba_card&trk=ba_card")
-- [Automating
-  safe, hands-off deployments: Test deployments in
-  pre-production environments](https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/#Test_deployments_in_pre-production_environments "https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/#Test_deployments_in_pre-production_environments")
-- [Amazon's
-  approach to high-availability deployment](https://youtu.be/bCgD2bX1LI4 "https://youtu.be/bCgD2bX1LI4")
+- [Ensuring
+  rollback safety during deployments](https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments/ "https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments/")
+- [Using
+  Amazon RDS Blue/Green Deployments for database
+  updates](../../../AmazonRDS/latest/UserGuide/blue-green-deployments.md "../../../AmazonRDS/latest/UserGuide/blue-green-deployments.md")

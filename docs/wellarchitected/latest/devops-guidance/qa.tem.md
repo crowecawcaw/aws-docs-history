@@ -1,53 +1,58 @@
-# [QA.TEM.6] Enhance developer experience through scalable quality assurance platforms
+# [QA.TEM.4] Implement a unified test data repository for enhanced test efficiency
 
 **Category:** RECOMMENDED
 
-As team structures and operating models change within the organization to support
-distributed teams with value stream ownership, the roles and responsibility of quality
-assurance teams also evolve. In a DevOps environment with supportive team dynamics,
-individual stream-aligned teams take ownership of quality assurance and security within
-their value stream and products. This approach removes the handoff of responsibility and
-accountability to centralized quality assurance or testing teams within the organization.
-These quality assurance functions are still extremely important to sustainably practicing
-DevOps and can be distributed to make them more effective in supporting stream-aligned
-teams. 
+Test data refers to specific input datasets designed for
+testing purposes to simulate real-world scenarios.
+Centralizing test datasets in a unified storage location, such
+as a data lake or source code repository, ensures they are
+stored, normalized, and managed effectively. 
 
-One method of distributing a centralized quality assurance function is to form
-platform teams. These platform teams offer scalable testing services to stream-aligned
-teams to enhance the developer experience and expedite test environment set up. Platforms
-managed by these teams can feature self-service options, automated test environment
-management, test bed provisioning, and equipping teams with the tools to produce, manage,
-and use test data and infrastructure. Additionally, these platforms can integrate device
-farms, allowing for testing across a variety of devices such as mobile phones or web
-browsers such as Chrome and Firefox on diverse operating systems.
+Test data might be stored differently depending on your specific use case. It can be
+stored centrally for a single team who maintains multiple microservices or related
+products, or centrally governed for multiple teams to source test data from. By
+centralizing, teams can reuse the same test data across different test cases, minimizing
+the time and effort spent preparing test data for usage.
 
-Quality assurance platforms can also be created to provide
-security related capabilities which enable continuous
-visibility into the security posture of applications
-throughout the development lifecycle, such as Application
-Security Posture Management (ASPM). Stream-aligned teams can
-leverage these capabilities to prioritize and address
-vulnerabilities identified during testing, contributing to
-overall risk reduction and improved application security. By
-providing a platform for consistent testing procedures and
-security controls, quality assurance platform teams can help
-support the organization's observability and automated
-governance goals.
+Create a centralized, version-controlled system to store test
+datasets, such as a data lake or source code
+repository. Ensure the data in this central repository is
+sanitized and approved for non-production environments. When
+test environments are set up and test cases are run, use
+delivery pipelines and automated tools to source test data
+directly from this centralized source.
 
-Another method of distributing quality assurance teams is to
-form enabling teams. These teams can help stream-aligned teams
-onboard to quality assurance platforms and teach teams to
-become self-sufficient with test design and execution. It is
-important that enabling teams do not take ownership over
-testing for a value stream or product. They provide
-just-in-time guidance and knowledge sharing, but ultimately
-move on to help other teams. If long-term quality assurance
-support is needed within a development team, cross-train the
-quality assurance member so that they gain development skills
-and permanently embed them into the stream-aligned team.
+Outdated test datasets can result in ineffective tests and inaccurate results.
+Regularly maintain the centralized test data source by updating it either periodically or
+when there are changes in systems data schemas, features, functions, or dependencies.
+Treat the test data as a shared resource with contracts in place to prevent disrupting
+other teams or systems. Document any changes made to test data and notify any dependent
+teams of these changes. Maintaining up-to-date test data allows for more effective issue
+identification and resolution, leading to higher-quality software.
+
+We recommend automating the update process where feasible using data pipelines, for
+example, by pulling recent production data and obfuscating it as changes are made. Protect
+sensitive data by implementing a data obfuscation plan that transforms sensitive
+production data into similar, but non-sensitive, test data. Use obfuscation techniques,
+such as masking, encrypting, or tokenizing, to sanitize the production data prior to it
+being used in non-production environments. This approach helps uphold data privacy and
+mitigates potential security risks during testing.
 
 **Related information:**
 
-- [The
-  Amazon Software Development Process: Self-Service
-  Tools](https://youtu.be/52SC80SFPOw?t=579 "https://youtu.be/52SC80SFPOw?t=579")
+- [AWS Well-Architected Sustainability Pillar: SUS04-BP06 Use
+  shared file systems or storage to access common data](../sustainability-pillar/sus_sus_data_a7.md "../sustainability-pillar/sus_sus_data_a7.md")
+- [AWS Well-Architected Sustainability Pillar: SUS04-BP07
+  Minimize data movement across networks](../sustainability-pillar/sus_sus_data_a8.md "../sustainability-pillar/sus_sus_data_a8.md")
+- [AWS Well-Architected Cost Optimization Pillar: COST08-BP02
+  Select components to optimize data transfer cost](../cost-optimization-pillar/cost_data_transfer_optimized_components.md "../cost-optimization-pillar/cost_data_transfer_optimized_components.md")
+- [AWS Glue DataBrew](https://aws.amazon.com/glue/features/databrew/ "https://aws.amazon.com/glue/features/databrew/")
+- [Identifying
+  and handling personally identifiable information
+  (PII)](../../../databrew/latest/dg/personal-information-protection.md "../../../databrew/latest/dg/personal-information-protection.md")
+- [Data
+  Obfuscation](https://www.imperva.com/learn/data-security/data-obfuscation/ "https://www.imperva.com/learn/data-security/data-obfuscation/")
+- [Data
+  Masking using AWS DMS (AWS Data Migration Service)](https://aws.amazon.com/blogs/database/data-masking-using-aws-dms/ "https://aws.amazon.com/blogs/database/data-masking-using-aws-dms/")
+- [Data
+  Lake Governance - AWS Lake Formation](https://aws.amazon.com/lake-formation/ "https://aws.amazon.com/lake-formation/")
