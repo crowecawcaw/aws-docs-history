@@ -20,5 +20,5 @@ up the following environment:
 2. Navigate to the output location of the extracted service.
 3. From the Dockerfile, manually create a Docker container image.
 4. Push the Docker container image to Amazon Elastic Container Registry (Amazon ECR).
-5. Use AWS CloudFormation to deploy the container image hosted in Amazon ECR to Amazon Elastic Container Service
-   (ECS). For more information, see [Using Amazon ECR with Amazon ECS](../../../AmazonECS/latest/developerguide/ecr-repositories.md "../../../AmazonECS/latest/developerguide/ecr-repositories.md") and [Creating Amazon ECS resources with AWS CloudFormation](../../../AmazonECS/latest/developerguide/creating-resources-with-cloudformation.md "../../../AmazonECS/latest/developerguide/creating-resources-with-cloudformation.md").
+5. Use CloudFormation to deploy the container image hosted in Amazon ECR to Amazon Elastic Container Service
+   (ECS). For more information, see [Using Amazon ECR with Amazon ECS](../../../AmazonECS/latest/developerguide/ecr-repositories.md "../../../AmazonECS/latest/developerguide/ecr-repositories.md") and [Creating Amazon ECS resources with CloudFormation](../../../AmazonECS/latest/developerguide/creating-resources-with-cloudformation.md "../../../AmazonECS/latest/developerguide/creating-resources-with-cloudformation.md").

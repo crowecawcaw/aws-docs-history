@@ -106,7 +106,7 @@ tool.
 
 There are additional charges for using AWS KMS keys. For more information, see
 [AWS KMS
-key concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") in the AWS Key Management Service Developer Guide and [AWS KMS pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
+key concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") in the AWS Key Management Service Developer Guide and [AWS KMS pricing](https://aws.amazon.com//kms/pricing/ "https://aws.amazon.com//kms/pricing/").
 
 ###### Encryption in transit
 
