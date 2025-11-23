@@ -6,7 +6,7 @@ AWS Elastic Beanstalk started using Amazon Elastic Compute Cloud (Amazon EC2) la
 
 ## Changes
 
-Until now, the Auto Scaling group in your Elastic Beanstalk environment used a launch configuration attached to the group when it launched Amazon EC2 instances, for example,
+Until now, the Amazon EC2 Auto Scaling group in your Elastic Beanstalk environment used a launch configuration attached to the group when it launched Amazon EC2 instances, for example,
 during scaling actions or during deployments and updates.
 
 Today we released support for [Spot Instances](release-2019-11-25-spot.md "release-2019-11-25-spot.md"), and enabling Spot Instances requires using Amazon EC2 launch

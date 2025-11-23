@@ -13,4 +13,4 @@ at steep discounts. When you enable Spot for your environment, Elastic Beanstalk
 Instances, using criteria that you provide.
 
 For more information about Spot Instances, see [Spot Instances](../../../AWSEC2/latest/UserGuide/using-spot-instances.md "../../../AWSEC2/latest/UserGuide/using-spot-instances.md") in the
-_Amazon EC2 User Guide_. For more information about Spot support in Elastic Beanstalk, see [Auto Scaling Group for Your Elastic Beanstalk Environment](../dg/using-features.managing.md "../dg/using-features.managing.md") in the _AWS Elastic Beanstalk Developer Guide_.
+_Amazon EC2 User Guide_. For more information about Spot support in Elastic Beanstalk, see [Amazon EC2 Auto Scaling Group for Your Elastic Beanstalk Environment](../dg/using-features.managing.md "../dg/using-features.managing.md") in the _AWS Elastic Beanstalk Developer Guide_.

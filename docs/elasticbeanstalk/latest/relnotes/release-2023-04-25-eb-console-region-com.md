@@ -20,7 +20,7 @@ in a final review panel.
 To manage and monitor the environments of your existing applications, the **Environment overview** page shows a tabbed view of main
 environment details, including a list of recent environment-generated events, environment health, and monitoring metrics.
 
-![Environment overview panel.](/images/elasticbeanstalk/latest/relnotes/images/2023-03-22a-environemnt-overview-events-tab.png)
+![Environment overview panel.](images/2023-03-22a-environemnt-overview-events-tab.png)
 
 ###### Notes
 

@@ -10,8 +10,8 @@ Elastic Beanstalk has released a change that allows your managed platform update
 wait condition timeout causes an unsuccessful status for a managed platform update, including immutable updates. This allows more time for the new EC2
 instances launched as part of the update to complete their bootstrapping process.
 
-The Elastic Beanstalk service coordinates resource creation with AWS CloudFormation, and it sends the CloudFormation service a signal when your EC2 instance and application
-successfully start up. Managed platform updates that may have required more time than originally provided by the previous setting for the [AWS CloudFormation wait condition](../../../AWSCloudFormation/latest/UserGuide/using-cfn-waitcondition.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-waitcondition.md") timeout will now have more
+The Elastic Beanstalk service coordinates resource creation with CloudFormation, and it sends the CloudFormation service a signal when your EC2 instance and application
+successfully start up. Managed platform updates that may have required more time than originally provided by the previous setting for the [CloudFormation wait condition](../../../AWSCloudFormation/latest/UserGuide/using-cfn-waitcondition.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-waitcondition.md") timeout will now have more
 time to complete successfully.
 
 For more information about platform updates see [Managed platform updates](../dg/environment-platform-update-managed.md "../dg/environment-platform-update-managed.md") in the _AWS Elastic Beanstalk Developer Guide_.

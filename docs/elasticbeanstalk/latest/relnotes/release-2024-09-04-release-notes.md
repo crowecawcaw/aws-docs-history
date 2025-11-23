@@ -6,10 +6,10 @@ AWS Elastic Beanstalk adds support for inbound Internet Protocol Version 6 (IPv6
 
 ## Changes
 
-Elastic Beanstalk now supports dual-stack public service endpoints and dual-stack VPC endpoints, including VPC endpoints integrated with [AWS PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.com/privatelink/").
+Elastic Beanstalk now supports dual-stack public service endpoints and dual-stack VPC endpoints, including VPC endpoints integrated with [AWS PrivateLink](https://aws.amazon.com//privatelink/ "https://aws.amazon.com//privatelink/").
 
 This capability allows you to configure your Elastic Beanstalk VPC endpoints to accept dual-stack incoming traffic (via IPv6 and IPV4). You can also send requests
-to the Elastic Beanstalk service using the [AWS CLI](../../../cli/latest/reference/elasticbeanstalk.md "../../../cli/latest/reference/elasticbeanstalk.md") or the [AWS SDK](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/") specifying an IPv4 endpoint or a dual-stack endpoint. For a list of public endpoints, see [Elastic Beanstalk service endpoints](../../../general/latest/gr/elasticbeanstalk.md "../../../general/latest/gr/elasticbeanstalk.md") in the
+to the Elastic Beanstalk service using the [AWS CLI](../../../cli/latest/reference/elasticbeanstalk.md "../../../cli/latest/reference/elasticbeanstalk.md") or the [AWS SDK](https://aws.amazon.com//developer/tools/ "https://aws.amazon.com//developer/tools/") specifying an IPv4 endpoint or a dual-stack endpoint. For a list of public endpoints, see [Elastic Beanstalk service endpoints](../../../general/latest/gr/elasticbeanstalk.md "../../../general/latest/gr/elasticbeanstalk.md") in the
 _Amazon Web Services General Reference_.
 
 This functionality is available in all of the AWS Commercial Regions and AWS GovCloud (US) Regions that Elastic Beanstalk supports. At this time Elastic Beanstalk dual-stack
