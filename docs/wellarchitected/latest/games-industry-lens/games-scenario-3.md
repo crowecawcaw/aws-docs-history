@@ -1,39 +1,47 @@
-# Game production in the cloud – CI/CD
+# Game production in the cloud –
 
-You must have CI/CD infrastructure when developing games. A game development CI/CD
-pipeline is typically comprised of highly available source control servers and storage,
-compute resources to run your builds, and software to perform automated testing, along
-with the proper network connectivity from your development machines. The following
-reference architecture demonstrates how to offload game builds from remote or on-premises
-game development environments to the AWS Cloud to aid developers in migrating or
-building new build farms.
+Workstations
 
-![Reference architecture diagram showing how to offload game builds to the cloud.](images/game-production-in-the-cloud-cicd.png)
-_Offload game builds to the cloud_
+The game development process can be highly distributed with teams working on various
+aspects of the game from many locations, and it is important that they have access to
+workstations and shared storage in order to be productive. In a simple scenario, a game
+can be developed by a single game development studio located in a specific office
+location. However, in practice, it is more common for developers to contribute to a game
+project from many geographic locations, such as a single game studio with many globally
+distributed teams in different cities or countries, or work-for-hire studios, contractors,
+and co-development studio partners who may support a project by bringing specific
+expertise such as art development or game testing, QA, and localization specialization to
+the project. Game development also must be able to support remote work so that developers
+can be productive from home or other locations. An increasingly popular trend in the games
+industry is for newly developed studios to be fully remote without the expectation of
+working in an office environment.
 
-1. **AWS Direct Connect** provides a low latency,
-   private dedicated connected to AWS for in-office developers. Remote developers use
-   **AWS Client VPN**.
-2. **AWS Transit Gateway** simplifies network management for
-   connectivity between VPCs and from on-premises networks.
-3. Perforce manages source and version control (CI) backed by **Amazon EBS** storage for quickly accessed, persistent data. Perforce Helix
-   Core (P4D) is available in the **AWS
-   Marketplace**.
-4. Commits start a build (CD) in Jenkins when developers push changes to Perforce
-   tied to a branch. Perforce triggers POST a JSON payload to Jenkins. The Jenkins
-   controller calls engine “headless” CLI commands to run and parallelize the build
-   process across ephemeral, Docker nodes (such as **Amazon EC2 Spot
-   Instances**), or **Amazon EC2 On-Demand
-   Instances**. Developers can increase availability by using two Jenkins
-   controllers, one in each Availability Zone, behind a load balancer. For some engines,
-   developers might need additional licensing infrastructure configured in additional
-   subnets to vend licenses for the build context each time a concurrent build is
-   run.
-5. The Xcode portion of iOS builds is offloaded to **Amazon EC2
-   Mac instances** to sign, build, and export the `.IPA` file,
-   splitting the process and reducing build times. **AWS Secrets
-   Manager** holds provisioning profiles, private keys, and
-   certificates.
-6. Build artifacts are delivered to **Amazon S3**, which
-   sends notifications of success or failure. **AWS Device
-   Farm** enables automated testing.
+The following reference architecture demonstrates how to use AWS for hosting remote
+game development workstations using the NICE DCV protocol.
+
+![Reference architecture diagram showing stream game development from anywhere with NICE DCV.](images/game-production-in-the-cloud-workstations.jpg)
+_Stream game development from anywhere with NICE
+DCV_
+
+1. **NICE DCV** is a streaming protocol that supports
+   4K, 60-FPS streaming. Developers using a browser connect via TCP connections whereas
+   desktop clients can use QUIC UDP over port 8443 for increased performance.
+2. Developers use **AWS Client VPN** for a secure
+   connection to network interfaces in the workstation subnets with source network
+   address translation (SNAT).
+3. **Amazon Route 53** provides private DNS for the
+   resources in the VPC as well as inbound and outbound DNS forwarding.
+4. **AWS Directory Service** provides managed
+   Microsoft Active Directory to enable local game project storage mapped to individual
+   users.
+5. Workstations are created using an **Amazon Machine Image (AMI)** built with **Image Builder**. Images include
+   NICE DCV Server, developer software, registry changes, and drivers such as GPU gaming
+   drivers or peripheral drivers. **AWS Marketplace**
+   includes common AMIs used for workstations.
+6. Fleets of workstations use graphics **Amazon EC2**
+   instance types that provide GPUs and are scaled using EC2 Auto Scaling
+   groups.
+7. A Session Manager Broker enables management of NICE DCV sessions.
+8. Local file storage of projects is hosted in **Amazon FSx for
+   Windows File Server**. Developers commit to a separate CI/CD pipeline by
+   pushing from local storage to source control.
