@@ -43,7 +43,7 @@ individual connections to multiple locations (each on-premises
 location connected to a single Direct Connect location). This
 approach protects against connectivity disruptions caused by fiber
 cuts or device failures and helps mitigate complete location
-failures. The AWS Direct Connect Resiliency Toolkit can assist in
+failures. The Direct Connect Resiliency Toolkit can assist in
 designing your AWS Direct Connect topology.
 
 You can also consider AWS Site-to-Site VPN ending on an AWS Transit Gateway as a cost-effective backup to your primary AWS Direct Connect connection. This setup enables equal-cost multipath
@@ -80,7 +80,7 @@ resilience and reliability.
   your on-premises environment.
   - Use multiple AWS Direct Connect connections or VPN
     tunnels between separately deployed private networks.
-  - Use multiple AWS Direct Connect locations for high
+  - Use multiple Direct Connect locations for high
     availability.
   - If using multiple AWS Regions, create redundancy in at
     least two of them.
@@ -98,7 +98,7 @@ resilience and reliability.
   environment.
   - You may need redundant connections to multiple AWS Regions to achieve your availability needs.
   - Use the
-    [AWS Direct Connect Resiliency Toolkit](../../../directconnect/latest/UserGuide/resilency_toolkit.md "../../../directconnect/latest/UserGuide/resilency_toolkit.md") to get started.
+    [Direct Connect Resiliency Toolkit](../../../directconnect/latest/UserGuide/resilency_toolkit.md "../../../directconnect/latest/UserGuide/resilency_toolkit.md") to get started.
 
 ## Resources
 
@@ -122,7 +122,7 @@ resilience and reliability.
 - [Using redundant
   Site-to-Site VPN connections to provide failover](../../../vpn/latest/s2svpn/VPNConnections.md "../../../vpn/latest/s2svpn/VPNConnections.md")
 - [Using
-  the AWS Direct Connect Resiliency Toolkit to get started](../../../directconnect/latest/UserGuide/resilency_toolkit.md "../../../directconnect/latest/UserGuide/resilency_toolkit.md")
+  the Direct Connect Resiliency Toolkit to get started](../../../directconnect/latest/UserGuide/resilency_toolkit.md "../../../directconnect/latest/UserGuide/resilency_toolkit.md")
 - [VPC
   Endpoints and VPC Endpoint Services (AWS PrivateLink)](../../../vpc/latest/userguide/endpoint-services-overview.md "../../../vpc/latest/userguide/endpoint-services-overview.md")
 - [What

@@ -52,7 +52,7 @@ Fail fast strategies can be coded into software solutions as well as configured 
 - [Fail
   Fast](https://www.martinfowler.com/ieeeSoftware/failFast.pdf "https://www.martinfowler.com/ieeeSoftware/failFast.pdf")
 - [How can I prevent an increasing backlog of messages in my Amazon SQS queue?](https://repost.aws/knowledge-center/sqs-message-backlog "https://repost.aws/knowledge-center/sqs-message-backlog")
-- [Elastic Load Balancing: Zonal Shift](../../../elasticloadbalancing/latest/network/zonal-shift.md "../../../elasticloadbalancing/latest/network/zonal-shift.md")
+- [ELB: Zonal Shift](../../../elasticloadbalancing/latest/network/zonal-shift.md "../../../elasticloadbalancing/latest/network/zonal-shift.md")
 - [Amazon Application Recovery Controller: Routing control for traffic failover](../../../r53recovery/latest/dg/getting-started-routing-controls.md "../../../r53recovery/latest/dg/getting-started-routing-controls.md")
 
 **Related examples:**

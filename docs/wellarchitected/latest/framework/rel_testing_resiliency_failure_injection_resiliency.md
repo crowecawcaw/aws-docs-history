@@ -166,7 +166,7 @@ _Chaos engineering and continuous resilience flywheel, using the scientific meth
     	* If 20% of the nodes in the Amazon EKS node-group are taken down, the Transaction Create API continues to serve the 99th percentile of
     	 requests in under 100 ms (steady state). The Amazon EKS nodes will recover within five minutes, and pods will get scheduled and process
     	 traffic within eight minutes after the initiation of the experiment. Alerts will fire within three minutes.
-    	* If a single Amazon EC2 instance failure occurs, the order system’s Elastic Load Balancing health check will cause the Elastic Load Balancing
+    	* If a single Amazon EC2 instance failure occurs, the order system’s Elastic Load Balancing health check will cause the ELB
     	 to only send requests to the remaining healthy instances while the Amazon EC2 Auto Scaling replaces the failed instance, maintaining a
     	 less than 0.01% increase in server-side (5xx) errors (steady state).
     	* If the primary Amazon RDS database instance fails, the Supply Chain data collection workload will failover and connect to the standby

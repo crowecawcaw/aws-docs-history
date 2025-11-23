@@ -93,8 +93,8 @@ recovering from security events as it is for operational events.
 1. Capture data storage configuration in IaC templates.  Use
    automated checks in your CI/CD pipelines to detect
    misconfigurations.
-   1. You can use for [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") your IaC templates, and
-      [AWS CloudFormation
+   1. You can use for [CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") your IaC templates, and
+      [CloudFormation
       Guard](../../../cfn-guard/latest/ug/what-is-guard.md "../../../cfn-guard/latest/ug/what-is-guard.md") for checking templates for misconfiguration.
    2. Use [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/") to run rules in a proactive evaluation mode.
       Use this setting to check the compliance of a resource as

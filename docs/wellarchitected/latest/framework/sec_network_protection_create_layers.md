@@ -96,7 +96,7 @@ internet gateways.
 2. For components responding to requests from the internet,
    consider using load balancers or other proxies to provide
    public endpoints. Explore shifting security controls by
-   using managed services, such as CloudFront, [Amazon API Gateway](https://aws.amazon.com/api-gateway/ "https://aws.amazon.com/api-gateway/"), Elastic Load Balancing, and [AWS Amplify](https://aws.amazon.com/amplify/ "https://aws.amazon.com/amplify/") to host
+   using managed services, such as CloudFront, [Amazon API Gateway](https://aws.amazon.com/api-gateway/ "https://aws.amazon.com/api-gateway/"), ELB, and [AWS Amplify](https://aws.amazon.com/amplify/ "https://aws.amazon.com/amplify/") to host
    public endpoints.
 3. For components running in compute environments, such as
    Amazon EC2 instances, [AWS Fargate](https://aws.amazon.com/fargate/ "https://aws.amazon.com/fargate/") containers, or Lambda

@@ -31,7 +31,7 @@ Use the following decommission steps to guide you on what should be checked as p
      AZ, VPC, Subnet, and Security Groups) and create backups (such as Amazon Elastic Block Store snapshots or taking AMI, keys export, and
      Certificate export) if it is required for the resources in the production environment or if they are critical resources.
     + **Validate infrastructure-as-code:** Determine whether resources were deployed
-     with AWS CloudFormation, Terraform, AWS Cloud Development Kit (AWS CDK), or any other infrastructure-as-code deployment tool so they can be re-deployed if necessary.
+     with CloudFormation, Terraform, AWS Cloud Development Kit (AWS CDK), or any other infrastructure-as-code deployment tool so they can be re-deployed if necessary.
     + **Prevent access:** Apply restrictive controls for a period of time, to prevent
      the use of resources while you determine if the resource is required. Verify that the resource environment
      can be reverted to its original state if required.
@@ -47,7 +47,7 @@ If the resource is an Amazon EC2 instance, consult the following list.
      Amazon EC2 instances are visible in the console for a short time after
      they're terminated. You aren't billed for any instances that aren't
      in the running state
-    + Delete your Auto Scaling infrastructure.
+    + Delete your Amazon EC2 Auto Scaling infrastructure.
     + Release all Dedicated Hosts.
     + Delete all Amazon EBS volumes and Amazon EBS snapshots.
     + Release all Elastic IP addresses.

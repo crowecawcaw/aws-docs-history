@@ -98,7 +98,7 @@ to your external identity provider_](../../../singlesignon/latest/userguide/mana
 provisioning](../../../singlesignon/latest/userguide/provision-automatically.md "../../../singlesignon/latest/userguide/provision-automatically.md") users and groups using SCIM, or
 [_connecting
 to your Microsoft AD Directory_](../../../singlesignon/latest/userguide/manage-your-identity-source-ad.md "../../../singlesignon/latest/userguide/manage-your-identity-source-ad.md") using
-[AWS Directory Service](https://aws.amazon.com/directoryservice/ "https://aws.amazon.com/directoryservice/"). Once an identity source is configured,
+[Directory Service](https://aws.amazon.com/directoryservice/ "https://aws.amazon.com/directoryservice/"). Once an identity source is configured,
 you can assign access to users and groups to AWS accounts by
 defining least-privilege policies in your
 [permission

@@ -73,7 +73,7 @@ opportunities, and track the improvements to completion.
 
 Over time, these procedures should be evolved to be run as code,
 reducing the need for human intervention. For example, procedures
-can be initiated as AWS Lambda functions, AWS CloudFormation
+can be initiated as AWS Lambda functions, CloudFormation
 templates, or AWS Systems Manager Automation documents. Verify
 that these procedures are version-controlled in appropriate
 repositories, and include suitable resource tagging so that teams

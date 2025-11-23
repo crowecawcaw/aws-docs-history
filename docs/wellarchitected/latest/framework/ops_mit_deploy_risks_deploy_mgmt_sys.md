@@ -54,13 +54,13 @@ AnyCompany Retail is on a mission to achieve minimal to zero downtime deployment
 
 - [AWS Builders Library | Automating safe, hands-off deployments | Production deployments](https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/?did=ba_card&trk=ba_card#Production_deployments "https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/?did=ba_card&trk=ba_card#Production_deployments")
 - [AWS Builders Library | My CI/CD pipeline is my release captain | Safe, automatic
-  production releases](https://aws.amazon.com/builders-library/cicd-pipeline/#Safe.2C_automatic_production_releases "https://aws.amazon.com/builders-library/cicd-pipeline/#Safe.2C_automatic_production_releases")
+  production releases](https://aws.amazon.com//builders-library/cicd-pipeline/#Safe.2C_automatic_production_releases "https://aws.amazon.com//builders-library/cicd-pipeline/#Safe.2C_automatic_production_releases")
 - [AWS Whitepaper | Practicing Continuous Integration and Continuous Delivery on AWS |
   Deployment methods](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/deployment-methods.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/deployment-methods.md")
 - [AWS CodeDeploy User Guide](../../../codedeploy/latest/userguide/welcome.md "../../../codedeploy/latest/userguide/welcome.md")
 - [Working with deployment configurations in AWS CodeDeploy](../../../codedeploy/latest/userguide/deployment-configurations.md "../../../codedeploy/latest/userguide/deployment-configurations.md")
 - [Set up an API Gateway canary release deployment](../../../apigateway/latest/developerguide/canary-release.md "../../../apigateway/latest/developerguide/canary-release.md")
-- [Amazon ECS Deployment Types](../../../https:/docs.aws.amazon.md "../../../https:/docs.aws.amazon.md")
+- [Amazon ECS Deployment Types](../../../index.md "../../../index.md")
 - [Fully Managed Blue/Green Deployments in Amazon Aurora and Amazon RDS](https://aws.amazon.com/blogs/aws/new-fully-managed-blue-green-deployments-in-amazon-aurora-and-amazon-rds/ "https://aws.amazon.com/blogs/aws/new-fully-managed-blue-green-deployments-in-amazon-aurora-and-amazon-rds/")
 - [Blue/Green deployments with AWS Elastic Beanstalk](../../../elasticbeanstalk/latest/dg/using-features.md "../../../elasticbeanstalk/latest/dg/using-features.md")
 

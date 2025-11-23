@@ -32,7 +32,7 @@ on the cloud.
   dedicated network connection to AWS. This can reduce network
   costs, increase bandwidth, and provide a more consistent
   network experience than internet-based connections.
-- [AWS VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/") allows you to establish a secure and
+- [Site-to-Site VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/") allows you to establish a secure and
   private connection between your private network and the AWS
   global network. It is ideal for small offices or business
   partners because it provides simplified connectivity, and it

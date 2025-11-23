@@ -83,7 +83,7 @@ IoT devices](../../../whitepapers/latest/device-manufacturing-provisioning/devic
 
 Some AWS services, such as
 [Amazon API Gateway](../../../apigateway/latest/developerguide/welcome.md "../../../apigateway/latest/developerguide/welcome.md") and
-[Elastic Load Balancing](../../../elasticloadbalancing/latest/userguide/what-is-load-balancing.md "../../../elasticloadbalancing/latest/userguide/what-is-load-balancing.md"), offer their own capabilities for using
+[ELB](../../../elasticloadbalancing/latest/userguide/what-is-load-balancing.md "../../../elasticloadbalancing/latest/userguide/what-is-load-balancing.md"), offer their own capabilities for using
 certificates to secure application connections. For example, both
 API Gateway and Application Load Balancer (ALB) support mutual TLS
 (mTLS) using client certificates that you create and export using

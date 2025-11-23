@@ -137,7 +137,7 @@ and ready to take over in the event of an incident.
 
 **Related examples:**
 
-- [AWS CloudFormation
+- [CloudFormation
   Registry](https://aws.amazon.com/blogs/devops/identify-regional-feature-parity-using-the-aws-cloudformation-registry/ "https://aws.amazon.com/blogs/devops/identify-regional-feature-parity-using-the-aws-cloudformation-registry/")
 - [Quota
   Monitor for AWS](https://aws.amazon.com/solutions/implementations/quota-monitor/ "https://aws.amazon.com/solutions/implementations/quota-monitor/")
