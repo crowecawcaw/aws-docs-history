@@ -2,7 +2,7 @@ AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md "service-r
 
 # Troubleshooting Amazon Q Developer in chat applications
 
-Amazon Q Developer in chat applications operates with multiple AWS services, including Amazon CloudWatch, Amazon GuardDuty, and AWS CloudFormation. If
+Amazon Q Developer in chat applications operates with multiple AWS services, including Amazon CloudWatch, Amazon GuardDuty, and CloudFormation. If
 you encounter issues when trying to receive notifications, see the following topic for
 troubleshooting help.
 

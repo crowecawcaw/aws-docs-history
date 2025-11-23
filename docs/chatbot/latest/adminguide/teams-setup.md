@@ -177,7 +177,7 @@ using CloudWatch](test-notifications-cw.md "test-notifications-cw.md").
 
 ## Configuring Microsoft Teams channels using AWS CloudFormation
 
-You can automate Microsoft Teams channel configuration by using an AWS CloudFormation template. To use an AWS CloudFormation template, you need the **Team ID** and **Tenant ID** found under **Team details** in the Amazon Q Developer in chat applications console.
+You can automate Microsoft Teams channel configuration by using an CloudFormation template. To use an CloudFormation template, you need the **Team ID** and **Tenant ID** found under **Team details** in the Amazon Q Developer in chat applications console.
 For more information, see [AWS::Chatbot::MicrosoftTeamsChannelConfiguration](../../../AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.md")
 in the _AWS CloudFormation User Guide_.
 

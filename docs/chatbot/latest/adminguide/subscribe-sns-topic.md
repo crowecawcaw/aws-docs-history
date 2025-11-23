@@ -14,7 +14,7 @@ Amazon Q Developer in chat applications.
 
 You can set up each supported AWS service to _target_ one or more
 Amazon SNS topics to send notifications to Amazon Q Developer in chat applications. You do this using each relevant AWS service
-console, or using AWS CloudFormation. If you already have Amazon SNS topics set as targets for supported
+console, or using CloudFormation. If you already have Amazon SNS topics set as targets for supported
 services, you can configure Amazon Q Developer in chat applications to use those topics. Notifications from subscribed
 topics will automatically appear in your chat channels without further configuration.
 

@@ -10,7 +10,7 @@ All features of AWS Chatbot are moving to Amazon Q Developer. Your code and Regi
 
 ###### Note
 
-Mentions of the name AWS Chatbot may persist in the AWS CloudFormation guide, AWS General Reference entry, and user guide page URLs.
+Mentions of the name AWS Chatbot may persist in the CloudFormation guide, AWS General Reference entry, and user guide page URLs.
 Service principals, IAM permissions, console urls, organizations policy schemas, namespace, endpoints, and service-linked role names will remain unchanged.
 
 ###### Topics

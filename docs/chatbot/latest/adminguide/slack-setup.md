@@ -187,7 +187,7 @@ notifications by using CloudWatch. For more information, see [Test notifications
 
 ## Configuring Slack channels using AWS CloudFormation
 
-You can automate Slack channel configuration by using an AWS CloudFormation template. To use an AWS CloudFormation template, you need the **Workspace ID** found under **Workspace details** in the Amazon Q Developer in chat applications console.
+You can automate Slack channel configuration by using an CloudFormation template. To use an CloudFormation template, you need the **Workspace ID** found under **Workspace details** in the Amazon Q Developer in chat applications console.
 For more information, see [AWS::Chatbot::SlackChannelConfiguration](../../../AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.md")
 in the _AWS CloudFormation User Guide_.
 

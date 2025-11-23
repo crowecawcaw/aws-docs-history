@@ -56,15 +56,15 @@ applications that you run in AWS. You create a template that describes all of th
 resources (for example, Amazon EC2 instances or Amazon RDS DB instances) that you want, and AWS CloudFormation
 provisions and configures those resources for you.
 
-Amazon Q Developer in chat applications supports AWS CloudFormation notifications through Amazon SNS topics. You enable support for SNS
-topics that are enabled for use with Amazon Q Developer in chat applications by selecting them in each AWS CloudFormation stack
+Amazon Q Developer in chat applications supports CloudFormation notifications through Amazon SNS topics. You enable support for SNS
+topics that are enabled for use with Amazon Q Developer in chat applications by selecting them in each CloudFormation stack
 configuration. For more information, see [Setting AWS CloudFormation Stack Options](../../../AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.md") in the _AWS CloudFormation User Guide_.
 
 ## Notifications for AWS developer tools
 
 AWS provides a suite of cloud-based developer tools for creating, managing, and working
 with software development projects. The AWS development tools suite includes AWS services such
-as AWS CloudFormation stacks, AWS CodeBuild, AWS CodeCommit, AWS CodeDeploy, AWS CodePipeline, and more. You can redirect Amazon SNS
+as CloudFormation stacks, AWS CodeBuild, AWS CodeCommit, AWS CodeDeploy, AWS CodePipeline, and more. You can redirect Amazon SNS
 topic subscriptions for these services to Amazon Q Developer in chat applications. For example, if you want notifications about
 events in an AWS CodeCommit repository or in a pipeline in AWS CodePipeline to appear in a Microsoft Teams or Slack channel for
 your development teams, you can set up notifications for those resources in the Developer Tools
