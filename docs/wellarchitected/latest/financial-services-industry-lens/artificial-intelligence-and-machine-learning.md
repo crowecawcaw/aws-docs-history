@@ -87,7 +87,7 @@ workflows:
 SageMaker AI MLOps capability automates deploying and delivering
 machine learning models into production in a consistent manner. ML
 operations teams can leverage AWS continuous integration
-capabilities using AWS CloudFormation, CodeBuild, and
+capabilities using CloudFormation, CodeBuild, and
 CodeDeploy to automate model deployment workflows. Amazon SageMaker AI
 model monitoring allows customers to monitor ML applications for
 potential data drifts, model drifts, and bias drifts.

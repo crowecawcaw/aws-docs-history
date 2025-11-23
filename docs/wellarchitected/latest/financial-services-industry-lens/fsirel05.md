@@ -10,7 +10,7 @@ Understand the characteristics of your application components and how each compo
 
 resiliency
 
-Use AWS Direct Connect to provide a consistent network experience rather than
+Use Direct Connect to provide a consistent network experience rather than
 internet-based connections. Achieve highly resilient network connections between
 Amazon Virtual Private Cloud (Amazon VPC) and your on-premises infrastructure by using multiple redundant
 Direct Connect connections. Use AWS Direct Connect Resiliency Toolkit to help you choose

@@ -20,7 +20,7 @@ include resource-level decisions based on performance (for example, selecting an
 `XL` instead of a `2XL` resource size).
 
 Product designs take the pricing structure of AWS services into account (for
-example, Elastic Load Balancing charges for elasticity and inter-Availability Zone data transfer
+example, ELB charges for elasticity and inter-Availability Zone data transfer
 charges). Design activities also include cost estimation for the services being built
 using the AWS Pricing Calculator, AWS Price List API, or third-party pricing tools, or they might
 involve building and deploying proof of concepts to measure actual costs.
