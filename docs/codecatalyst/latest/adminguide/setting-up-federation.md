@@ -162,7 +162,7 @@ choose a different Region, this might impact connectivity and latency.
 
 ###### Topics
 
-- [Enable IAM Identity Center](#w6aac15c24c29b9 "#w6aac15c24c29b9")
+- [Enable IAM Identity Center](#w2aac15c24c29b9 "#w2aac15c24c29b9")
 
 ### Enable IAM Identity Center
 

@@ -39,7 +39,7 @@ connections](../userguide/ipa-connect-account.md "../userguide/ipa-connect-accou
 
 ###### Topics
 
-- [Adding an account connection for a space (in AWS)](#w6aac29c21 "#w6aac29c21")
+- [Adding an account connection for a space (in AWS)](#w2aac29c21 "#w2aac29c21")
 - [Removing an account from a space (in
   AWS)](managing-accounts-remove.md "managing-accounts-remove.md")
 - [Tagging account connections](managing-accounts-tag.md "managing-accounts-tag.md")
