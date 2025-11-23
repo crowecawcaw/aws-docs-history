@@ -3,7 +3,7 @@
 In this section, you use the MQTT client in the AWS IoT console to monitor the communication
 between your evaluation kit and the AWS Cloud.
 
-1. Navigate to the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home").
+1. Navigate to the [AWS IoT console](https://console.aws.amazon.com//iot/home "https://console.aws.amazon.com//iot/home").
 2. In the navigation pane, choose **Test** and then
    **MQTT Test Client**.
 3. In **Subscribe to a topic**, enter `#`, and
