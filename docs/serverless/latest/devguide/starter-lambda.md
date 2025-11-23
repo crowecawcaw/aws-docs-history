@@ -59,7 +59,7 @@ The Lambda learning path forks into two paths. The conceptual path focuses on th
 **Create & Deploy**
 
 - Management Console
-- Infrastructure as Code (IaC) - AWS CloudFormation (CFN), AWS SAM (SAM), AWS Cloud Development Kit (AWS CDK)
+- Infrastructure as Code (IaC) - CloudFormation (CFN), AWS SAM (SAM), AWS Cloud Development Kit (AWS CDK)
 - [Deploy .zip file archives](../../../lambda/latest/dg/nodejs-package.md "../../../lambda/latest/dg/nodejs-package.md") — when you need additional libraries, or compiled languages.
 - [Versions](../../../lambda/latest/dg/configuration-versions.md "../../../lambda/latest/dg/configuration-versions.md") - by publishing a version of your function, you can store your code and configuration as separate stable resources
 

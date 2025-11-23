@@ -85,7 +85,7 @@ The following diagram shows AWS services commonly used together to build serverl
   serverless application infrastructure and code. AWS SAM templates provide a shorthand syntax to declare
   functions, APIs, databases, and event source mappings. With just a few lines of configuration per resource,
   you can define the application infrastructure components. During deployment, AWS SAM transforms and expands
-  the template into verbose AWS CloudFormation templates.
+  the template into verbose CloudFormation templates.
 - **AWS Cloud Development Kit (AWS CDK)** - an open-source software development framework to define
   your cloud application resources using familiar programming languages. Instead of configuration files,
   you write code that creates infrastructure. Your IDE can validate the definition and even provide

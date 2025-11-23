@@ -242,7 +242,7 @@ WebSocket APIs are a connection of WebSocket routes that are integrated with bac
 **Related resource(s):**
 
 - [About WebSocket APIs in API Gateway](../../../apigateway/latest/developerguide/apigateway-websocket-api-overview.md "../../../apigateway/latest/developerguide/apigateway-websocket-api-overview.md") - Get started with WebSocket APIs
-- [Tutorial: Building a serverless chat app with a WebSocket API, Lambda, and DynamoDB](../../../apigateway/latest/developerguide/websocket-api-chat-app.md "../../../apigateway/latest/developerguide/websocket-api-chat-app.md") - Intermediate level WebSocket API tutorial using AWS CloudFormation
+- [Tutorial: Building a serverless chat app with a WebSocket API, Lambda, and DynamoDB](../../../apigateway/latest/developerguide/websocket-api-chat-app.md "../../../apigateway/latest/developerguide/websocket-api-chat-app.md") - Intermediate level WebSocket API tutorial using CloudFormation
 
 ### OpenAPI
 
