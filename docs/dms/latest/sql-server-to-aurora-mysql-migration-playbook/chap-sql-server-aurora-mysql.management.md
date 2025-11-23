@@ -1,196 +1,151 @@
-# Maintenance plans
+# ETL features
 
-This topic provides reference information about migrating maintenance tasks from Microsoft SQL Server 2019 to Amazon Aurora MySQL. You can understand the key differences in how routine database maintenance is handled between these two systems.
+This topic provides reference content comparing SQL Server’s ETL capabilities with those of Amazon Aurora MySQL. You can understand the evolution of SQL Server’s ETL tools from DTS to SSIS, and learn about AWS Glue as the recommended ETL solution for Aurora MySQL.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                            |
-| -------------------------------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | Use Amazon RDS for backups. Use SQL for table maintenance. |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences       |
+| ------------------------------ | ---------------------------------- | ------------------------- | --------------------- |
+| One star feature compatibility | N/A                                | N/A                       | Use AWS Glue for ETL. |
 
 ## SQL Server Usage
 
-A _maintenance plan_ is a set of automated tasks used to optimize a database, performs regular backups, and ensure it is free of inconsistencies. Maintenance plans are implemented as SQL Server Integration Services (SSIS) packages and are run by SQL Server Agent jobs. You can run them manually or automatically at scheduled time intervals.
+SQL Server offers a native Extract, Transform, and Load (ETL) framework of tools and services to support enterprise ETL requirements. The legacy Data Transformation Services (DTS) has been deprecated as of SQL Server 2008 and replaced with SQL Server Integration Services (SSIS), which was introduced with SQL Server 2005. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)") in the _SQL Server documentation_.
 
-SQL Server provides a variety of pre-configured maintenance tasks. You can create custom tasks using TSQL scripts or operating system batch files.
+### DTS
 
-Maintenance plans are typically used for the following tasks:
+DTS was introduced in SQL Server version 7 in 1998. It was significantly expanded in SQL Server 2000 with features such as FTP, database level operations, and Microsoft Message Queuing (MSMQ) integration. It included a set of objects, utilities, and services that enabled easy, visual construction of complex ETL operations across heterogeneous data sources and targets.
 
-- Backing up database and transaction log files.
-- Performing cleanup of database backup files in accordance with retention policies.
-- Performing database consistency checks.
-- Rebuilding or reorganizing indexes.
-- Decreasing data file size by removing empty pages (shrink a database).
-- Updating statistics to help the query optimizer obtain updated data distributions.
-- Running SQL Server Agent jobs for custom actions.
-- Running a T-SQL task.
+DTS supported OLE DB, ODBC, and text file drivers. It allowed transformations to be scheduled using SQL Server Agent. DTS also provided version control and backup capabilities with version control systems such as Microsoft Visual SourceSafe.
 
-Maintenance plans can include tasks for operator notifications and history or maintenance cleanup. They can also generate reports and output the contents to a text file or the maintenance plan tables in the `msdb` database.
+The fundamental entity in DTS was the DTS Package. Packages were the logical containers for DTS objects such as connections, data transfers, transformations, and notifications. The DTS framework also included the following tools:
 
-You can create and manage maintenance plans using the maintenance plan wizard in SQL Server Management Studio, Maintenance Plan Design Surface (provides enhanced functionality over the wizard), Management Studio Object Explorer, and T-SQL system stored procedures.
+- DTS Wizards
+- DTS Package Designers
+- DTS Query Designer
+- DTS Run Utility
 
-For more information, see [SQL Server Agent and MySQL Agent](chap-sql-server-aurora-mysql.management.md "chap-sql-server-aurora-mysql.management.md").
+### SSIS
 
-### Deprecated DBCC Index and Table Maintenance Commands
+The SSIS framework was introduced in SQL Server 2005, but was limited to the top-tier editions only, unlike DTS which was available with all editions.
 
-The DBCC DBREINDEX, INDEXDEFRAG, and SHOWCONTIG commands have been deprecated as of SQL Server 2008R2. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)") in the _SQL Server documentation_.
+SSIS has evolved over DTS to offer a true modern, enterprise class, heterogeneous platform for a broad range of data migration and processing tasks. It provides a rich workflow oriented design with features for all types of enterprise data warehousing. It also supports scheduling capabilities for multi-dimensional cubes management.
 
-In place of the deprecated DBCC, SQL Server provides newer syntax alternatives as detailed in the following table.
+SSIS provides the following tools:
 
-| Deprecated DBCC command | Use instead                      |
-| ----------------------- | -------------------------------- |
-| `DBCC DBREINDEX`        | `ALTER INDEX …​ REBUILD`         |
-| `DBCC INDEXDEFRAG`      | `ALTER INDEX …​ REORGANIZE`      |
-| `DBCC SHOWCONTIG`       | `sys.dm_db_index_physical_stats` |
+- SSIS Import/Export Wizard is an SQL Server Management Studio extension that enables quick creation of packages for moving data between a wide array of sources and destinations. However, it has limited transformation capabilities.
+- SQL Server Business Intelligence Development Studio (BIDS) is a developer tool for creating complex packages and transformations. It provides the ability to integrate procedural code into package transformations and provides a scripting environment. Recently, BIDS has been replaced by SQL Server Data Tools — Business Intelligence (SSDT-BI).
 
-For the Aurora MySQL alternatives to these maintenance commands, see [Aurora MySQL Maintenance Plans](#chap-sql-server-aurora-mysql.management.maintenanceplans.mysql "#chap-sql-server-aurora-mysql.management.maintenanceplans.mysql").
+SSIS objects include:
 
-### Examples
+- Connections
+- Event handlers
+- Workflows
+- Error handlers
+- Parameters (Beginning with SQL Server 2012)
+- Precedence constraints
+- Tasks
+- Variables
 
-Enable Agent XPs, which are turned off by default.
+SSIS packages are constructed as XML documents and can be saved to the file system or stored within a SQL Server instance using a hierarchical name space.
 
-```
-EXEC [sys].[sp_configure] @configname = 'show advanced options', @configvalue = 1 RECONFIGURE ;
-```
-
-```
-EXEC [sys].[sp_configure] @configname = 'agent xps', @configvalue = 1 RECONFIGURE;
-```
-
-Create a T-SQL maintenance plan for a single index rebuild.
-
-```
-USE msdb;
-```
-
-Add the Index Maintenance `IDX1` job to SQL Server Agent.
-
-```
-EXEC dbo.sp_add_job @job_name = N'Index Maintenance IDX1', @enabled = 1, @description = N'Optimize IDX1 for INSERT' ;
-```
-
-Add the T-SQL job step `Rebuild IDX1 to 50 percent fill`.
-
-```
-EXEC dbo.sp_add_jobstep @job_name = N'Index Maintenance IDX1', @step_name = N'Rebuild IDX1 to 50 percent fill', @subsystem = N'TSQL',
-@command = N'Use MyDatabase; ALTER INDEX IDX1 ON Shcema.Table REBUILD WITH ( FILL_FACTOR = 50), @retry_attempts = 5, @retry_interval = 5;
-```
-
-Add a schedule to run every day at 01:00 AM.
-
-```
-EXEC dbo.sp_add_schedule @schedule_name = N'Daily0100', @freq_type = 4, @freq_interval = 1, @active_start_time = 010000;
-```
-
-Associate the schedule `Daily0100` with the job index maintenance `IDX1`.
-
-```
-EXEC sp_attach_schedule @job_name = N'Index Maintenance IDX1' @schedule_name = N'Daily0100' ;
-```
-
-For more information, see [Maintenance Plans](https://docs.microsoft.com/en-us/sql/relational-databases/maintenance-plans/maintenance-plans?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/maintenance-plans/maintenance-plans?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [SQL Server Integration Services](https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services?view=sql-server-ver15") in the _SQL Server documentation_ and [Data Transformation Services](https://en.wikipedia.org/wiki/Data_Transformation_Services "https://en.wikipedia.org/wiki/Data_Transformation_Services") in the _Wikipedia_.
 
 ## MySQL Usage
 
-Amazon Relational Database Service (Amazon RDS) performs automated database backups by creating storage volume snapshots that back up entire instances, not individual databases.
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) provides AWS Glue for enterprise class Extract, Transform, and Load (ETL). It is a fully-managed service that performs data cataloging, cleansing, enriching, and movement between heterogeneous data sources and destinations. Being a fully managed service, the user doesn’t need to be concerned with infrastructure management.
 
-Amazon RDS creates snapshots during the backup window for individual database instances and retains snapshots in accordance with the backup retention period. You can use the snapshots to restore a database to any point in time within the backup retention period.
+AWS Glue key features include the following.
 
-###### Note
+### Integrated Data Catalog
 
-The state of a database instance must be ACTIVE for automated backups to occur.
+The AWS Glue Data Catalog is a persistent meta-data store, that can be used to store all data assets, whether in the cloud or on-premises. It stores table schemas, job steps, and additional meta data information for managing these processes. AWS Glue can automatically calculate statistics and register partitions to make queries more efficient. It maintains a comprehensive schema version history for tracking changes over time.
 
-You can backup database instances manually by creating an explicit database snapshot. Use the AWS console, the AWS CLI, or the AWS API to take manual snapshots.
+### Automatic Schema Discovery
+
+AWS Glue provides automatic crawlers that can connect to source or target data providers. The crawler uses a prioritized list of classifiers to determine the schema for your data and then generates and stores the metadata in the AWS Glue Data Catalog. You can schedule crawlers or run them on-demand. You can also trigger a crawler when an event occurs to keep meta-data current.
+
+### Code Generation
+
+AWS Glue automatically generates the code to extract, transform, and load data. All you need to do is point Glue to your data source and target. The ETL scripts to transform, flatten, and enrich data are created automatically. AWS Glue scripts can be generated in Scala or Python and are written for Apache Spark.
+
+### Developer Endpoints
+
+When interactively developing Glue ETL code, AWS Glue provides development endpoints for editing, debugging, and testing. You can use any IDE or text editor for ETL development. Custom readers, writers, and transformations can be imported into Glue ETL jobs as libraries. You can also use and share code with other developers in the AWS Glue GitHub repository. For more information, see [this repository](https://github.com/awslabs/aws-glue-libs "https://github.com/awslabs/aws-glue-libs") on _GitHub_.
+
+### Flexible Job Scheduler
+
+AWS Glue jobs can be triggered for running either on a pre-defined schedule, on-demand, or as a response to an event.
+
+Multiple jobs can be started in parallel and dependencies can be explicitly defined across jobs to build complex ETL pipelines. Glue handles all inter-job dependencies, filters bad data, and retries failed jobs. All logs and notifications are pushed to Amazon CloudWatch; you can monitor and get alerts from a central service.
+
+### Migration Considerations
+
+Currently, there are no automatic tools for migrating ETL packages from DTS or SSIS into AWS Glue. Migration from SQL Server to Aurora MySQL requires rewriting ETL processes to use AWS Glue.
+
+Alternatively, consider using an EC2 SQL Server instance to run the SSIS service as an interim solution. The connectors and tasks must be revised to support Aurora MySQL instead of SQL Server, but this approach allows gradual migration to AWS Glue.
 
 ### Examples
 
-**Create a manual database snapshot using the Amazon RDS console**
+The following walkthrough describes how to create an AWS Glue job to upload a comma-separated values (CSV) file from Amazon S3 to Aurora MySQL.
 
-1. In the AWS console, choose **RDS**, and then choose **Databases**.
-2. Choose your Aurora PostgreSQL instance, and for **Instance actions** choose **Take snapshot**.
+The source file for this walkthrough is a simple Visits table in CSV format. The objective is to upload this file to an Amazon S3 bucket and create an AWS Glue job to discover and copy it into an Aurora MySQL database.
 
-![Take snapshot](images/pb-sql-server-aurora-mysql-take-snapshot.png)
+#### Step 1 — Create a Bucket in Amazon S3 and Upload the CSV File
 
-**Restore a database from a snapshot**
-
-1. In the AWS console, choose **RDS**, and then choose **Snapshots**.
-2. Choose the snapshot to restore, and for **Actions** choose **Restore snapshot**.
-
-This action creates a new instance. 3. Enter the required configuration options in the wizard for creating a new Amazon Aurora database instance. Choose **Restore DB Instance**.
-
-You can also restore a database instance to a point-in-time. For more information, see [Backup and Restore](chap-sql-server-aurora-mysql.hadr.md "chap-sql-server-aurora-mysql.hadr.md").
-
-For all other tasks, use a third-party or a custom application scheduler.
-
-**Rebuild and reorganize an index**
-
-Aurora MySQL supports the `OPTIMIZE TABLE` command, which is similar to the `REORGANIZE` option of SQL Server indexes.
-
-```
-OPTIMIZE TABLE MyTable;
-```
-
-To perform a full table rebuild with all secondary indexes, perform a null altering action using either `ALTER TABLE <table> FORCE` or `ALTER TABLE <table> ENGINE = <current engine>`.
-
-```
-ALTER TABLE MyTable FORCE;
-```
-
-```
-ALTER TABLE MyTable ENGINE = InnoDB
-```
-
-### Perform Database Consistency Checks
-
-Use the `CHECK TABLE` command to perform a database consistency check.
-
-```
-CHECK TABLE <table name> [FOR UPGRADE | QUICK]
-```
-
-The `FOR UPGRADE` option checks if the table is compatible with the current version of MySQL to determine whether there have been any incompatible changes in any of the table’s data types or indexes since the table was created. The `QUICK` options doesn’t scan the rows to check for incorrect links.
-
-For routine checks of a table, use the `QUICK` option.
+1. In the AWS console, choose **S3**, and then choose **Create bucket**.
 
 ###### Note
 
-In most cases, Aurora MySQL will find all errors in the data file. When an error is found, the table is marked as corrupted and can’t be used until it is repaired.
+This walkthrough demonstrates how to create the buckets and upload the files manually, which is automated using the Amazon S3 API for production ETLs. Using the console to manually run all the settings will help you get familiar with the terminology, concepts, and workflow. 2. Enter a unique name for the bucket, select a region, and define the level of access. 3. Turn on versioning, add tags, turn on server-side encryption, and choose **Create bucket**. 4. On the Amazon S3 Management Console, choose the newly created bucket. 5. On the bucket page, choose **Upload**. 6. Choose **Add files**, select your CSV file, and choose **Upload**.
 
-### Converting Deprecated DBCC Index and Table Maintenance Commands
+#### Step 2 — Add an Amazon Glue Crawler to Discover and Catalog the Visits File
 
-| Deprecated DBCC command | Aurora MySQL equivalent |
-| ----------------------- | ----------------------- |
-| `DBCC DBREINDEX`        | `ALTER TABLE …​ FORCE`  |
-| `DBCC INDEXDEFRAG`      | `OPTIMIZE TABLE`        |
-| `DBCC SHOWCONTIG`       | `CHECK TABLE`           |
+1. In the AWS console, choose **AWS Glue**.
+2. Choose **Tables**, and then choose **Add tables using a crawler**.
+3. Enter the name of the crawler and choose **Next**.
+4. On the **Specify crawler source type** page, leave the default values, and choose **Next**.
+5. On the **Add a data store** page, specify a valid Amazon S3 path, and choose **Next**.
+6. On the **Choose an IAM role** page, choose an existing IAM role, or create a new IAM role. Choose **Next**.
+7. On the **Create a schedule for this crawler** page, choose **Run on demand**, and choose **Next**.
+8. On the **Configure the crawler’s output** page, choose a database for the crawler’s output, enter an optional table prefix for easy reference, and choose **Next**.
+9. Review the information that you provided and choose **Finish** to create the crawler.
 
-### Decrease Data File Size by Removing Empty Pages
+![Crawler](images/pb-sql-server-aurora-mysql-crawler.png)
 
-Unlike SQL Server that uses a single set of files for an entire database, Aurora MySQL uses one file for each database table. Therefore you don’t need to shrink an entire database.
+#### Step 3 — Run the Amazon Glue Crawler
 
-### Update Statistics to Help the Query Optimizer Get Updated Data Distribution
+1. In the AWS console, choose **AWS Glue**, and then choose **Crawlers**.
+2. Choose the crawler that you created on the previous step, and choose **Run crawler**.
 
-Aurora MySQL uses both persistent and non-persistent table statistics. Non-persistent statistics are deleted on server restart and after some operations. The statistics are then recomputed on the next table access. Therefore, different estimates could be produced when recomputing statistics leading to different choices in run plans and variations in query performance.
+After the crawler completes, the table should be discovered and recorded in the catalog in the table specified.
 
-Persistent optimizer statistics survive server restarts and provide better plan stability resulting in more consistent query performance. Persistent optimizer statistics provide the following control and flexibility options:
+Click the link to get to the table that was just discovered and then click the table name.
 
-- Set the `innodb_stats_auto_recalc` configuration option to control whether statistics are updated automatically when changes to a table cross a threshold.
-- Set the `STATS_PERSISTENT`, `STATS_AUTO_RECALC`, and `STATS_SAMPLE_PAGES` clauses with `CREATE TABLE` and `ALTER TABLE` statements to configure custom statistics settings for individual tables.
-- View optimizer statistics in the `mysql.innodb_table_stats` and `mysql.innodb_index_stats` tables.
-- View the `last_update` column of the `mysql.innodb_table_stats` and `mysql.innodb_index_stats` tables to see when statistics were last updated.
-- Modify the `mysql.innodb_table_stats` and `mysql.innodb_index_stats` tables to force a specific query optimization plan or to test alternative plans without modifying the database.
+Verify the crawler identified the table’s properties and schema correctly.
 
-For more information, see [Managing Statistics](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
+###### Note
 
-## Summary
+You can manually adjust the properties and schema JSON files using the buttons on the top right.
 
-The following table summarizes the key tasks that use SQL Server maintenance plans and a comparable Aurora MySQL solutions.
+If you don’t want to add a crawler, you can add tables manually.
 
-| Task                                                                        | SQL Server                                | Aurora MySQL                                                                             | Comments                                                                                                                     |
-| --------------------------------------------------------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Rebuild or reorganize indexes                                               | `ALTER INDEX` / `ALTER TABLE`             | `OPTIMIZE TABLE` / `ALTER TABLE`                                                         |                                                                                                                              |
-| Decrease data file size by removing empty pages                             | `DBCC SHRINKDATABASE` / `DBCC SHRINKFILE` | Files are for each table; not for each database. Rebuilding a table optimizes file size. | Not needed                                                                                                                   |
-| Update statistics to help the query optimizer get updated data distribution | `UPDATE STATISTICS` / `sp_updatestats`    | Set `innodb_stats_auto_recalc` to `ON` in the instance global parameter group.           |                                                                                                                              |
-| Perform database consistency checks                                         | `DBCC CHECKDB` / `DBCC CHECKTABLE`        | `CHECK TABLE`                                                                            |                                                                                                                              |
-| Back up the database and transaction log files                              | `BACKUP DATABASE` / `BACKUP LOG`          | Automated backups and snapshots                                                          | For more information, see [Backup and Restore](chap-sql-server-aurora-mysql.hadr.md "chap-sql-server-aurora-mysql.hadr.md"). |
-| Run SQL Server Agent jobs for custom actions                                | `sp_start_job`, `scheduled`               | Not supported                                                                            |                                                                                                                              |
+1. In the AWS console, choose **AWS Glue**.
+2. Choose **Tables**, and then choose **Add table manually**.
 
-For more information, see [CHECK TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/check-table.html "https://dev.mysql.com/doc/refman/5.7/en/check-table.html") in the _MySQL documentation_ and [Working with backups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md") in the _Amazon Relational Database Service User Guide_.
+#### Step 4 — Create an ETL Job to Copy the Visits Table to an Aurora MySQL Database
+
+1. In the AWS console, choose **AWS Glue**.
+2. Choose **Jobs (legacy)**, and then choose **Add job**.
+3. Enter a name for the ETL job and pick a role for the security context. For this example, use the same role created for the crawler. The job may consist of a pre-existing ETL script, a manually-authored script, or an automatic script generated by Amazon Glue. For this example, use Amazon Glue. Enter a name for the script file or accept the default, which is also the job’s name. Configure advanced properties and parameters if needed and choose **Next**.
+4. Select the data source for the job and choose **Next**.
+5. On the **Choose a transform type** page, choose **Change schema**.
+6. On the **Choose a data target** page, choose **Create tables in your data target**, use the JDBC Data store, and the `gluerds` connection type. Choose **Add connection**.
+7. On the **Add connection** page, enter the access details for the Amazon Aurora Instance and choose **Add**.
+8. Choose **Next** to display the column mapping between the source and target. Leave the default mapping and data types, and choose **Next**.
+9. Review the job properties and choose **Save job and edit script**.
+10. Review the generated script and make manual changes if needed. You can use the built-in templates for source, target, target location, transform, and spigot using the buttons at the top right section of the screen.
+11. Choose **Run job**.
+12. In the AWS console, choose **AWS Glue**, and then choose **Jobs (legacy)**.
+13. On the history tab, verify that the job status is set to **Succeeded**.
+14. Open your query IDE, connect to the Aurora MySQL cluster, and query the visits database to make sure the data has been transferred successfully.
+
+For more information, see [AWS Glue Developer Guide](../../../glue/latest/dg/what-is-glue.md "../../../glue/latest/dg/what-is-glue.md") and [AWS Glue resources](https://aws.amazon.com/glue/resources "https://aws.amazon.com/glue/resources").

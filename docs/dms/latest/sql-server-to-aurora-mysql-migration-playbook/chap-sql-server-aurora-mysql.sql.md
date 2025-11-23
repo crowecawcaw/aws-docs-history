@@ -1,408 +1,337 @@
-# Table JOIN for ANSI SQL
+# GROUP BY for ANSI SQL
 
-This topic provides reference content comparing table join functionality between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the similarities and differences in join syntax and support between these two database systems.
+This topic provides reference content comparing the GROUP BY functionality in Microsoft SQL Server 2019 and Amazon Aurora MySQL. It explores the similarities and differences in syntax, supported features, and aggregate functions between the two database systems.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                      | Key differences                                                                                          |
-| ------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| Four star feature compatibility | Four star automation level         | [Table Joins](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.tablejoins "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.tablejoins") | Basic syntax compatible. `FULL OUTER`, `APPLY`, and `ANSI SQL 89` outer joins will need to be rewritten. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                             | Key differences                                                                                                                              |
+| ------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Four star feature compatibility | Four star automation level         | [GROUP BY](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.groupby "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.groupby") | Basic syntax compatible. Advanced options such as `ALL`, `CUBE`, `GROUPING SETS` will require rewrites to use multiple queries with `UNION`. |
 
 ## SQL Server Usage
 
-SQL Server supports the standard ANSI join types:
-
-- `<Set A> CROSS JOIN <Set B>` — Results in a Cartesian product of the two sets. Every `JOIN` starts as a Cartesian product.
-- `<Set A> INNER JOIN <Set B> ON <Join Condition>` — Filters the cartesian product to only the rows where the join predicate evaluates to `TRUE`.
-- `<Set A> LEFT OUTER JOIN <Set B> ON <Join Condition>` — Adds to the `INNER JOIN` all the rows from the reserved left set with NULL for all the columns that come from the right set.
-- `<Set A> RIGHT OUTER JOIN <Set B> ON <Join Condition>` — Adds to the `INNER JOIN` all the rows from the reserved right set with NULL for all the columns that come from the left set.
-- `<Set A> FULL OUTER JOIN <Set B> ON <Join Condition>` — Designates both sets as reserved and adds non matching rows from both, similar to a `LEFT OUTER JOIN` and a `RIGHT OUTER JOIN`.
-
-### APPLY
-
-SQL Server also supports the `APPLY` operator, which is somewhat similar to a join. However, `APPLY` operators enable the creation of a correlation between `<Set A>` and `<Set B>` such as that `<Set B>` may consist of a subquery, a `VALUES` row value constructor, or a table valued function that is evaluated for each row of `<Set A>` where the `<Set B>` query can reference columns from the current row in `<Set A>`. This functionality isn’t possible with any type of standard `JOIN` operator.
-
-There are two `APPLY` types:
-
-- `<Set A> CROSS APPLY <Set B>` — Similar to a `CROSS JOIN` in the sense that every row from `<Set A>` is matched with every row from `<Set B>`.
-- `<Set A> OUTER APPLY <Set B>` — Similar to a `LEFT OUTER JOIN` in the sense that rows from `<Set A>` are returned even if the sub query for `<Set B>` produces an empty set. In that case, NULL is assigned to all columns of `<Set B>`.
-
-### ANSI SQL 89 JOIN Syntax
-
-Up until SQL Server version 2008 R2, SQL Server also supported the old style `JOIN` syntax including `LEFT` and` RIGHT OUTER JOIN`.
-
-The ANSI syntax for a `CROSS JOIN` operator was to list the sets in the `FROM` clause using commas as separators. Consider the following example:
-
-```
-SELECT *
-FROM Table1,
-    Table2,
-    Table3...
-```
-
-To perform an `INNER JOIN`, you only needed to add the `JOIN` predicate as part of the `WHERE` clause. Consider the following example:
-
-```
-SELECT *
-FROM Table1,
-    Table2
-WHERE Table1.Column1 = Table2.Column1
-```
-
-Although the ANSI standard didn’t specify outer joins at the time, most RDBMS supported them in one way or another. T-SQL supported outer joins by adding an asterisk to the left or the right of equality sign of the join predicate to designate the reserved table. Consider the following example:
-
-```
-SELECT *
-FROM Table1,
-    Table2
-WHERE Table1.Column1 *= Table2.Column1
-```
-
-To perform a `FULL OUTER JOIN`, asterisks were placed on both sides of the equality sign of the join predicate.
-
-As of SQL Server 2008R2, outer joins using this syntax have been deprecated. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)") in the _SQL Server documentation_.
-
-###### Note
-
-Even though inner joins using the ANSI SQL 89 syntax are still supported, they are highly discouraged due to being notorious for introducing hard to catch programming bugs.
+`GROUP BY` is an ANSI SQL query clause used to group individual rows that have passed the `WHERE` filter clause into groups to be passed on to the `HAVING` filter and then to the `SELECT` list. This grouping supports the use of aggregate functions such as `SUM`, `MAX`, `AVG` and others.
 
 ### Syntax
 
-**CROSS JOIN**
+ANSI compliant `GROUP BY` syntax:
 
 ```
-FROM <Table Source 1>
-    CROSS JOIN
-    <Table Source 2>
+GROUP BY
+[ROLLUP | CUBE]
+<Column Expression> ...n
+[GROUPING SETS (<Grouping Set>)...n
 ```
 
-```
--- ANSI 89
-FROM <Table Source 1>,
-    <Table Source 2>
-```
-
-**INNER / OUTER JOIN**
+Backward compatibility syntax:
 
 ```
-FROM <Table Source 1>
-    [ { INNER | { { LEFT | RIGHT | FULL } [ OUTER ] } }] JOIN
-    <Table Source 2>
-    ON <JOIN Predicate>
+GROUP BY
+    [ ALL ] <Column Expression> ...n
+    [ WITH CUBE | ROLLUP ]
 ```
 
-```
--- ANSI 89
-FROM <Table Source 1>,
-    <Table Source 2>
-WHERE <Join Predicate>
-<Join Predicate>:: <Table Source 1 Expression> | = | *= | =* | *=* <Table Source 2 Expression>
-```
+The basic ANSI syntax for `GROUP BY` supports multiple grouping expressions, the `CUBE` and ROLLUP keywords, and the `GROUPING SETS` clause; all used to add super-aggregate rows to the output.
 
-**APPLY**
+Up to SQL Server 2008 R2, the database engine supported a legacy, proprietary, and not ANSI-compliant syntax using the `WITH CUBE` and `WITH ROLLUP` clauses. These clauses added super-aggregates to the output.
 
-```
-FROM <Table Source 1>
-    { CROSS | OUTER } APPLY
-    <Table Source 2>
-<Table Source 2>:: <SELECT sub-query> | <Table Valued UDF> | <VALUES clause>
-```
+Also, up to SQL Server 2008 R2, SQL Server supported the `GROUP BY ALL` syntax, which was used to create an empty group for rows that failed the `WHERE` clause.
+
+SQL Server supports the following aggregate functions: `AVG`, `CHECKSUM_AGG`, `COUNT`, `COUNT_BIG`, `GROUPING`, `GROUPING_ID`, `STDEV`, `STDEVP`, `STRING_AGG`, `SUM`, `MIN`, `MAX`, `VAR`, `VARP`.
 
 ### Examples
 
-Create the `Orders` and `Items` tables.
+**Legacy CUBE and ROLLUP Syntax**
 
 ```
-CREATE TABLE Items
+CREATE TABLE Orders
 (
-Item VARCHAR(20) NOT NULL
-    PRIMARY KEY
-Category VARCHAR(20) NOT NULL,
-Material VARCHAR(20) NOT NULL
+    OrderID INT IDENTITY(1,1) NOT NULL
+    PRIMARY KEY,
+    Customer VARCHAR(20) NOT NULL,
+    OrderDate DATE NOT NULL
 );
 ```
 
 ```
-INSERT INTO Items (Item, Category, Material)
-VALUES
-('M8 Bolt', 'Metric Bolts', 'Stainless Steel'),
-('M8 Nut', 'Metric Nuts', 'Stainless Steel'),
-('M8 Washer', 'Metric Washers', 'Stainless Steel'),
-('3/8" Bolt', 'Imperial Bolts', 'Brass')
+INSERT INTO Orders(Customer, OrderDate)
+VALUES ('John', '20180501'), ('John', '20180502'), ('John', '20180503'),
+    ('Jim', '20180501'), ('Jim', '20180503'), ('Jim', '20180504')
 ```
 
 ```
-CREATE TABLE OrderItems
-(
-    OrderID INT NOT NULL,
-    Item VARCHAR(20) NOT NULL
-    REFERENCES Items(Item),
-    Quantity SMALLINT NOT NULL,
-    PRIMARY KEY(OrderID, Item)
-);
+SELECT Customer,
+    OrderDate,
+    COUNT(*) AS NumOrders
+FROM Orders AS O
+GROUP BY Customer, OrderDate
+WITH ROLLUP
 ```
 
 ```
-INSERT INTO OrderItems (OrderID, Item, Quantity)
-VALUES
-(1, 'M8 Bolt', 100),
-(2, 'M8 Nut', 100),
-(3, 'M8 Washer', 200)
+Customer  OrderDate   NumOrders
+Jim       2018-05-01  1
+Jim       2018-05-03  1
+Jim       2018-05-04  1
+Jim       NULL        3
+John      2018-05-01  1
+John      2018-05-02  1
+John      2018-05-03  1
+John      NULL        3
+NULL      NULL        6
 ```
 
-**INNER JOIN**
+The rows with NULL values were added as a result of the `WITH ROLLUP` clause and contain super aggregates for the following:
+
+- All orders for Jim and John regardless of `OrderDate`.
+- A super aggregated for all customers and all dates.
+
+Using `CUBE` instead of `ROLLUP` adds super aggregates in all possible combinations, not only in group by expression order.
 
 ```
-SELECT *
-FROM Items AS I
-    INNER JOIN
-    OrderItems AS OI
-    ON I.Item = OI.Item;
-
--- ANSI SQL 89
-SELECT *
-FROM Items AS I,
-    OrderItems AS OI
-WHERE I.Item = OI.Item;
-```
-
-**LEFT OUTER JOIN**
-
-Find Items that were never ordered.
-
-```
-SELECT Item
-FROM Items AS I
-    LEFT OUTER JOIN
-    OrderItems AS OI
-    ON I.Item = OI.Item
-WHERE OI.OrderID IS NULL;
-
--- ANSI SQL 89
-SELECT Item
-FROM
-(
-    SELECT I.Item, O.OrderID
-    FROM Items AS I,
-        OrderItems AS OI
-    WHERE I.Item *= OI.Item
-) AS LeftJoined
-WHERE LeftJoined.OrderID IS NULL;
-```
-
-**FULL OUTER JOIN**
-
-```
-CREATE TABLE T1(Col1 INT, COl2 CHAR(2));
-CREATE TABLE T2(Col1 INT, COl2 CHAR(2));
-
-INSERT INTO T1 (Col1, Col2)
-VALUES (1, 'A'), (2,'B');
-
-INSERT INTO T2 (Col1, Col2)
-VALUES (2,'BB'), (3,'CC');
-
-SELECT *
-FROM T1
-    FULL OUTER JOIN
-    T2
-    ON T1.Col1 = T2.Col1;
+SELECT Customer,
+    OrderDate,
+    COUNT(*) AS NumOrders
+FROM Orders AS O
+GROUP BY Customer, OrderDate
+WITH CUBE
 ```
 
 ```
-Result:
-Col1  COl2  Col1  COl2
-1     A     NULL  NULL
-2     B     2     BB
-NULL NULL 3 CC
+Customer  OrderDate   NumOrders
+Jim       2018-05-01  1
+John      2018-05-01  1
+NULL      2018-05-01  2
+John      2018-05-02  1
+NULL      2018-05-02  1
+Jim       2018-05-03  1
+John      2018-05-03  1
+NULL      2018-05-03  2
+Jim       2018-05-04  1
+NULL      2018-05-04  1
+NULL      NULL        6
+Jim       NULL        3
+John      NULL        3
 ```
 
-For more information, see [FROM clause plus JOIN, APPLY, PIVOT (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+The additional four rows where the value for Customer is set to NULL, were added by `CUBE`. These rows provide super aggregates for every date for all customers that were not part of the `ROLLUP` results.
+
+**Legacy GROUP BY ALL**
+
+Use the Orders table from the preceding example.
+
+```
+SELECT Customer,
+    OrderDate,
+    COUNT(*) AS NumOrders
+FROM Orders AS O
+WHERE OrderDate <= '20180503'
+GROUP BY ALL Customer, OrderDate
+```
+
+```
+Customer  OrderDate   NumOrders
+Jim       2018-05-01  1
+John      2018-05-01  1
+John      2018-05-02  1
+Jim       2018-05-03  1
+John      2018-05-03  1
+Jim       2018-05-04  0
+Warning: Null value is eliminated by an aggregate or other SET operation.
+```
+
+The last row for 2018-05-04 failed the `WHERE` clause and was returned as an empty group as indicated by the warning for the empty `COUNT(*) = 0`.
+
+**Use GROUPING SETS**
+
+The following query uses the ANSI compliant `GROUPING SETS` syntax to provide all possible aggregate combinations for the `Orders` table, similar to the result of the `CUBE` syntax. This syntax requires specifying each dimension that needs to be aggregated.
+
+```
+SELECT Customer,
+    OrderDate,
+    COUNT(*) AS NumOrders
+FROM Orders AS O
+GROUP BY GROUPING SETS (
+    (Customer, OrderDate),
+    (Customer),
+    (OrderDate),
+    ()
+    )
+```
+
+```
+Customer  OrderDate   NumOrders
+Jim       2018-05-01  1
+John      2018-05-01  1
+NULL      2018-05-01  2
+John      2018-05-02  1
+NULL      2018-05-02  1
+Jim       2018-05-03  1
+John      2018-05-03  1
+NULL      2018-05-03  2
+Jim       2018-05-04  1
+NULL      2018-05-04  1
+NULL      NULL        6
+Jim       NULL        3
+John      NULL        3
+```
+
+For more information, see [Aggregate Functions (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/functions/aggregate-functions-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/functions/aggregate-functions-transact-sql?view=sql-server-ver15") and [SELECT - GROUP BY- Transact-SQL](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-group-by-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/select-group-by-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports the following types of joins in the same way as SQL Server, except for `FULL OUTER JOIN`:
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports only the basic ANSI syntax for `GROUP BY` and doesn’t support `GROUPING SETS` or the standard `GROUP BY CUBE` and `GROUP BY ROLLUP`. Aurora MySQL supports the `WITH ROLLUP` non-ANSI syntax like SQL Server, but not the `CUBE` option.
 
-- `<Set A> CROSS JOIN <Set B>` — Results in a Cartesian product of the two sets. Every `JOIN` starts as a Cartesian product.
-- `<Set A> INNER JOIN <Set B> ON <Join Condition>` — Filters the Cartesian product to only the rows where the join predicate evaluates to `TRUE`.
-- `<Set A> LEFT OUTER JOIN <Set B> ON <Join Condition>` — Adds to the `INNER JOIN` all the rows from the reserved left set with NULL for all the columns that come from the right set.
-- `<Set A> RIGHT OUTER JOIN <Set B> ON <Join Condition>` — Adds to the `INNER JOIN` all the rows from the reserved right set with NULL for all the columns that come from the left set.
+Aurora MySQL supports a wider range of aggregate functions than SQL Server: `AVG`, `BIT_AND`, `BIT_OR`, `BIT_XOR`, `COUNT`, `GROUP_CONCAT`, `JSON_ARRAYAGG`, `JSON_OBJECTAGG`, `MAX`, `MIN`, `STD`, `STDDEV`, `STDDEV_POP`, `STDDEV_SAMP`, `SUM`, `VAR_POP`, `VAR_SAMP`, `VARIANCE`.
 
-In addition, Aurora MySQL supports the following join types not supported by SQL Server:
+The bitwise aggregates and the JSON aggregates not available in SQL Server may prove to be very useful in many scenarios. For more information, see [MySQL Handling of GROUP BY](https://dev.mysql.com/doc/refman/5.7/en/group-by-handling.html "https://dev.mysql.com/doc/refman/5.7/en/group-by-handling.html") in the _MySQL documentation_.
 
-- `<Set A> NATURAL [INNER | LEFT OUTER | RIGHT OUTER ] JOIN <Set B>` — Implicitly assumes that the join predicate consists of all columns with the same name from `<Set A>` and `<Set B>`.
-- `<Set A> STRAIGHT_JOIN <Set B>` — Forces `<Set A>` to be read before `<Set B>` and is used as an optimizer hint.
-
-Aurora MySQL also supports the `USING` clause as an alternative to the `ON` clause. The `USING` clause consists of a list of comma separated columns that must appear in both tables. The join predicate is the equivalent of an `AND` logical operator for equality predicates of each column. For example, the following two joins are equivalent:
+Unlike SQL Server, in Aurora MySQL you can’t use `ROLLUP` and `ORDER BY` clauses in the same query. As a workaround, encapsulate the `ROLLUP` query as a derived table and add the `ORDER BY` clause to the outer query.
 
 ```
-FROM Table1
-    INNER JOIN
-    Table2
-    ON Table1.Column1 = Table2.column1;
+SELECT *
+FROM (
+    SELECT Customer,
+        OrderDate,
+        COUNT(*) AS NumOrders
+    FROM Orders AS O
+    GROUP BY Customer, OrderDate
+    WITH ROLLUP
+)
+ORDER BY OrderDate, Customer;
 ```
 
-```
-FROM Table1
-    INNER JOIN
-    Table2
-    USING (Column1);
-```
+Additionally, rows produced by `ROLLUP` can’t be referenced in a `WHERE` clause or in a `FROM` clause as a join condition because the super aggregates are added late in the processing phase.
 
-If `Column1` is the only column with a common name between `Table1` and `Table2`, the following statement is also equivalent:
+Even more problematic is the lack of a function equivalent to the `GROUPING_ID` function in SQL Server, which can be used to distinguish super aggregate rows from the base groups. Unfortunately, it is currently not possible to distinguish rows that have NULLs due to being super aggregates from rows where the NULL is from the base set.
+
+Until SQL92, column expressions not appearing in the `GROUP BY` list were not allowed in the `HAVING`, `SELECT`, and `ORDER BY` clauses. This limitation still applies in SQL Server today. For example, the following query isn’t legal in SQL Serve since a customer group may contain multiple order dates.
 
 ```
-FROM Table1
-    NATURAL JOIN
-    Table2
+SELECT Customer,
+    OrderDate,
+    COUNT(*) AS NumOrders
+FROM Orders AS O
+GROUP BY Customer
 ```
+
+However, in some cases, when the columns that don’t appear in the GROUP BY clause are functionally dependent on the `GROUP BY` columns, it does make sense to allow it and ANSI SQL optional feature T301 does allow it. Aurora MySQL can detect such functional dependencies and allows such queries to run.
 
 ###### Note
 
-Aurora MySQL supports the ANSI SQL 89 syntax for joins using commas in the `FROM` clause, but only for inner joins.
-
-###### Note
-
-Aurora MySQL supports neither `APPLY` nor the equivalent `LATERAL JOIN` used by some other database engines.
+To use non-aggregate columns in the `HAVING`, `SELECT`, and `ORDER BY` clauses, turn on the `ONLY_FULL_GROUP_BY` SQL mode.
 
 ### Syntax
 
 ```
-FROM
-    <Table Source 1> CROSS JOIN <Table Source 2>
-    | <Table Source 1> INNER JOIN <Table Source 2>
-        ON <Join Predicate> | USING (Equality Comparison Column List)
-    | <Table Source 1> {LEFT|RIGHT} [OUTER] JOIN <Table Source 2>
-        ON <Join Predicate> | USING (Equality Comparison Column List)
-    | <Table Source 1> NATURAL [INNER | {LEFT|RIGHT} [OUTER]] JOIN <Table Source 2>
-    | <Table Source 1> STRAIGHT_JOIN <Table Source 2>
-    | <Table Source 1> STRAIGHT_JOIN <Table Source 2>
-        ON <Join Predicate>
+SELECT <Select List>
+FROM <Table Source>
+WHERE <Row Filter>
+GROUP BY <Column Name> | <Expression> | <Position>
+    [ASC | DESC], ...
+    [WITH ROLLUP]]
 ```
 
 ### Migration Considerations
 
-For most joins, the syntax should be equivalent and no rewrites should be needed.
+For most aggregate queries that use only grouping expressions without modifiers, the migration should be straightforward. Even the `WITH ROLLUP` syntax is supported as is in Aurora MySQL. For more complicated aggregates such as `CUBE` and `GROUPING SETS`, a rewrite to include all sub-aggregate queries as `UNION ALL` sets is required.
 
-- `CROSS JOIN` using either ANSI SQL 89 or ANSI SQL 92 syntax.
-- `INNER JOIN` using either ANSI SQL 89 or ANSI SQL 92 syntax.
-- `OUTER JOIN` using the ANSI SQL 92 syntax only.
+Because Aurora MySQL supports a wider range of aggregate functions, the migration shouldn’t present major challenges. Some minor syntax changes, for example replacing `STDEVP` with `STDDEV_POP`, can be performed automatically by the AWS Schema Conversion Tool (AWS SCT. Some may need manual intervention such as rewriting the `STRING_AGG` syntax to `GROUP_CONCAT`. Also consider using Aurora MySQL additional aggregate functions for query optimizations.
 
-`FULL OUTER JOIN` and `OUTER JOIN` using the pre-ANSI SQL 92 syntax aren’t supported, but they can be easily worked around.
-
-`CROSS APPLY` and `OUTER APPLY` aren’t supported and need to be rewritten.
+If you plan to keep using the `WITH ROLLUP` groupings, you must consider how to handle NULLS since Aurora MySQL doesn’t support an equivalent function to `GROUPING_ID` in SQL Server.
 
 ### Examples
 
-Create the `Orders` and `Items` tables.
+Rewrite SQL Server WITH CUBE modifier for migration.
 
 ```
-CREATE TABLE Items
+CREATE TABLE Orders
 (
-    Item VARCHAR(20) NOT NULL
-    PRIMARY KEY
-    Category VARCHAR(20) NOT NULL,
-    Material VARCHAR(20) NOT NULL
+    OrderID INT NOT NULL AUTO_INCREMENT
+    PRIMARY KEY,
+    Customer VARCHAR(20) NOT NULL,
+    OrderDate DATE NOT NULL
 );
 ```
 
 ```
-INSERT INTO Items (Item, Category, Material)
-VALUES
-('M8 Bolt', 'Metric Bolts', 'Stainless Steel'),
-('M8 Nut', 'Metric Nuts', 'Stainless Steel'),
-('M8 Washer', 'Metric Washers', 'Stainless Steel'),
-('3/8" Bolt', 'Imperial Bolts', 'Brass')
+INSERT INTO Orders(Customer, OrderDate)
+VALUES ('John', '20180501'), ('John', '20180502'), ('John', '20180503'),
+    ('Jim', '20180501'), ('Jim', '20180503'), ('Jim', '20180504')
 ```
 
 ```
-CREATE TABLE OrderItems
-(
-    OrderID INT NOT NULL,
-    Item VARCHAR(20) NOT NULL
-    REFERENCES Items(Item),
-    Quantity SMALLINT NOT NULL,
-    PRIMARY KEY(OrderID, Item)
-);
+SELECT Customer,
+    OrderDate,
+    COUNT(*) AS NumOrders
+FROM Orders AS O
+GROUP BY Customer, OrderDate
+WITH ROLLUP
+UNION ALL -- Add the super aggregate rows for each OrderDate
+SELECT NULL,
+    OrderDate,
+    COUNT(*) AS NumOrders
+FROM Orders AS O
+GROUP BY OrderDate
 ```
 
 ```
-INSERT INTO OrderItems (OrderID, Item, Quantity)
-VALUES
-(1, 'M8 Bolt', 100),
-(2, 'M8 Nut', 100),
-(3, 'M8 Washer', 200)
+Customer  OrderDate   NumOrders
+Jim       2018-05-01  1
+Jim       2018-05-03  1
+Jim       2018-05-04  1
+Jim       NULL        3
+John      2018-05-01  1
+John      2018-05-02  1
+John      2018-05-03  1
+John      NULL        3
+NULL      NULL        6
+NULL      2018-05-01  2
+NULL      2018-05-02  1
+NULL      2018-05-03  2
+NULL      2018-05-04  1
 ```
 
-**INNER JOIN and OUTER JOIN**
+Rewrite SQL Server `GROUP BY ALL` for migration.
 
 ```
-SELECT *
-FROM Items AS I
-    INNER JOIN
-    OrderItems AS OI
-    ON I.Item = OI.Item;
-
--- ANSI SQL 89
-SELECT *
-FROM Items AS I,
-    Orders AS O
-WHERE I.Item = OI.Item;
-```
-
-**LEFT OUTER JOIN**
-
-```
-SELECT Item
-FROM Items AS I
-    LEFT OUTER JOIN
-    OrderItems AS OI
-    ON I.Item = OI.Item
-WHERE OI.OrderID IS NULL;
-```
-
-**Rewrite for FULL OUTER JOIN**
-
-```
-CREATE TABLE T1(Col1 INT, COl2 CHAR(2));
-CREATE TABLE T2(Col1 INT, COl2 CHAR(2));
-
-INSERT INTO T1 (Col1, Col2)
-VALUES (1, 'A'), (2,'B');
-
-INSERT INTO T2 (Col1, Col2)
-VALUES (2,'BB'), (3,'CC');
-
-SELECT *
-FROM T1
-    LEFT OUTER JOIN
-    T2
-    ON T1.Col1 = T2.Col1
-UNION ALL
-SELECT NULL, NULL, Col1, Col2
-FROM T2
-WHERE Col1 NOT IN (SELECT Col1 FROM T1);
+SELECT Customer,
+    OrderDate,
+    COUNT(*) AS NumOrders
+FROM Orders AS O
+WHERE OrderDate <= '20180503'
+GROUP BY Customer, OrderDate
+UNION ALL -- Add the empty groups
+SELECT DISTINCT Customer,
+    OrderDate,
+    NULL
+FROM Orders AS O
+WHERE OrderDate > '20180503';
 ```
 
 ```
-Result:
-Col1  COl2  Col1  COl2
-1     A     NULL  NULL
-2     B     2     BB
-NULL  NULL  3     CC
+Customer  OrderDate   NumOrders
+Jim       2018-05-01  1
+Jim       2018-05-03  1
+John      2018-05-01  1
+John      2018-05-02  1
+John      2018-05-03  1
+Jim       2018-05-04  NULL
 ```
 
 ## Summary
 
 Table of similarities, differences, and key migration considerations.
 
-| SQL Server                              | Aurora MySQL    | Comments                                                                 |
-| --------------------------------------- | --------------- | ------------------------------------------------------------------------ |
-| `INNER JOIN` with `ON` clause or commas | Supported       |                                                                          |
-| `OUTER JOIN` with `ON` clause           | Supported       |                                                                          |
-| `OUTER JOIN` with commas                | Not supported   | Requires T-SQL rewrite post SQL Server 2008 R2.                          |
-| `CROSS JOIN` or using commas            | Supported       |                                                                          |
-| `CROSS APPLY` and `OUTER APPLY`         | Not Supported   | Rewrite required.                                                        |
-| Not Supported                           | `NATURAL JOIN`  | Not recommended, may cause unexpected issues if table structure changes. |
-| Not Supported                           | `STRAIGHT_JOIN` |                                                                          |
-| Not Supported                           | `USING` clause  |                                                                          |
+| SQL Server feature                        | Aurora MySQL feature                                    | Comments                                                                                                     |
+| ----------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `MAX`, `MIN`, `AVG`, `COUNT`, `COUNT_BIG` | `MAX`, `MIN`, `AVG`, `COUNT`                            | In Aurora MySQL, `COUNT` returns a `BIGINT` and is compatible with `COUNT` and `COUNT_BIG` in SQL Server.    |
+| `CHECKSUM_AGG`                            | N/A                                                     | Use a loop to calculate checksums.                                                                           |
+| `GROUPING`, `GROUPING_ID`                 | N/A                                                     | Reconsider query logic to avoid having NULL groups that are ambiguous with the super aggregates.             |
+| `STDEV`, `STDEVP`, `VAR`, `VARP`          | `STDDEV`, `STDDEV_POP`, `VARIANCE`, `VAR_POP`           | Rewrite keywords only.                                                                                       |
+| `STRING_AGG`                              | `GROUP_CONCAT`                                          | Rewrite syntax.                                                                                              |
+| `WITH ROLLUP`                             | `WITH ROLLUP`                                           | Compatible                                                                                                   |
+| `WITH CUBE`                               | N/A                                                     | Rewrite using UNION ALL.                                                                                     |
+| `ANSI CUBE` / `ROLLUP`                    | N/A                                                     | Rewrite using `WITH ROLLUP` and using `UNION ALL` queries.                                                   |
+| `GROUPING SETS`                           | N/A                                                     | Rewrite using `UNION ALL` queries.                                                                           |
+| N/A                                       | Non-aggregate columns in `HAVING`, `SELECT`, `ORDER BY` | Requires to turn off the `ONLY_FULL_GROUP_BY` SQL mode. Functional dependencies are evaluated by the engine. |
 
-For more information, see [JOIN Clause](https://dev.mysql.com/doc/refman/5.7/en/join.html "https://dev.mysql.com/doc/refman/5.7/en/join.html") in the _MySQL documentation_.
+For more information, see [MySQL Handling of GROUP BY](https://dev.mysql.com/doc/refman/5.7/en/group-by-handling.html "https://dev.mysql.com/doc/refman/5.7/en/group-by-handling.html") in the _MySQL documentation_.
