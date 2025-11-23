@@ -38,15 +38,14 @@ cross-account discovery to search inventory across your AWS accounts.
 
 ###### Contents
 
+- [License asset groups](license-asset-groups-overview.md "license-asset-groups-overview.md")
 - [Self-managed licenses](license-configurations.md "license-configurations.md")
-- [License rules](license-rules.md "license-rules.md")
-- [Usage reports](license-reporting.md "license-reporting.md")
+- [Granted licenses](granted-licenses.md "granted-licenses.md")
+- [License analytics](analytics.md "analytics.md")
+- [Inventory search](inventory.md "inventory.md")
 - [License type conversions](license-conversion.md "license-conversion.md")
 - [Host resource groups](host-resource-groups.md "host-resource-groups.md")
-- [Inventory search](inventory.md "inventory.md")
-- [Granted licenses](granted-licenses.md "granted-licenses.md")
-- [Seller issued licenses](seller-issued-licenses.md "seller-issued-licenses.md")
 - [User-based subscriptions](user-based-subscriptions.md "user-based-subscriptions.md")
 - [Manage Linux subscriptions](linux-subscriptions.md "linux-subscriptions.md")
+- [Seller issued licenses](seller-issued-licenses.md "seller-issued-licenses.md")
 - [Settings](settings.md "settings.md")
-- [Dashboard](dashboard.md "dashboard.md")

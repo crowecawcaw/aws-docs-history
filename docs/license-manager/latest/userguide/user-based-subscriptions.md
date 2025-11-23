@@ -265,7 +265,7 @@ permissions:
   - `ec2:CreateNetworkInterfacePermission`
   - `ec2:DescribeSubnets`
 
-- **AWS Directory Service** – Administer Active
+- **Directory Service** – Administer Active
   Directories.
   - `ds:DescribeDirectories`
   - `ds:AuthorizeApplication`
@@ -362,7 +362,7 @@ your AWS account. Shared subnets are not supported.
 
 AWS managed Active Directories have the following restrictions.
 
-- Directories that are shared with you aren't supported.
+- Directories that are shared with you are only supported if the directory is onboarded in the primary account first, then you can onboard it in a shared account.
 - Multi-factor authentication is not supported
 
 ###### Prerequisite for tag-based filters
@@ -422,7 +422,15 @@ _AWS PrivateLink Guide_.
 ###### Security group for Active Directory domain controllers
 
 Ensure that the security group that you use for your AD domain controllers allows
-outbound traffic to each domain controller's network interface IPv4 address.
+outbound traffic to each domain controller's network interface IPv4 address. In addition, the domain controller security group should allow communication on all Active Directory related ports including TCP 9389. Port 9389 is required for Active Directory Web Services (ADWS), which is used by the Active Directory PowerShell module and other management tools to communicate with domain controllers.
+
+###### Security group requirements for "Register your Active Directory" step
+
+During onboarding your Active Directory to License Manager, we create a network interface in your supplied subnets which gets tagged with the default security group of the VPC. Please make sure that this security group is allowed access to your Active Directory domain controllers. This can be replaced with a group of your choice after onboarding is complete but will still require network access to the domain controllers.
+
+###### Security group requirements for "Configure RDS license server" step
+
+During license server configuration, License Manager creates two network interfaces in the subnets you provide. These network interfaces are automatically tagged with a newly created security group that includes all required port configurations. Ensure that your Active Directory domain controller security groups allow bidirectional traffic from the subnet CIDRs on all Active Directory related ports, including TCP port 9389. Port 9389 is required for Active Directory Web Services (ADWS), which is used by the Active Directory PowerShell module and other management tools to communicate with domain controllers.
 
 ###### Security group for user-based subscription instances
 
@@ -659,7 +667,7 @@ You can install additional software on your instances that aren't available as
 user-based subscriptions. Additional software installations aren't tracked by License Manager.
 These installations must be performed using the administrative account for your
 Active Directory. If you use an AWS Managed Microsoft AD, the administrative account (Admin) is
-created by default in your directory. For more information, see [Admin account](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_admin_account.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_admin_account.md") in the _AWS Directory Service Administration Guide_.
+created by default in your directory. For more information, see [Admin account](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_admin_account.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_admin_account.md") in the _Directory Service Administration Guide_.
 
 To install additional software with the Active Directory administrative account, you must:
 

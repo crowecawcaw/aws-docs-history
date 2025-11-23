@@ -10,7 +10,7 @@ tenancies:
 - Host resource groups
   Your account must have a Dedicated Host with available capacity to start the instance in order
   to switch to the Dedicated Host tenancy type. For more information about working with dedicated
-  hosts, see Work with Dedicated Hosts in the
+  hosts, see [Work with Dedicated Hosts](../../../index.md "../../../index.md") in the
   _Amazon Elastic Compute Cloud User Guide_.
 
 To move to the host resource groups tenancy type, you must have at least one host resource group in your account.

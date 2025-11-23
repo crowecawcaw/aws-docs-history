@@ -98,7 +98,7 @@ Your product configuration may be failing due to issues with outbound network ac
   - License Manager creates two network interfaces which use the default security group of the VPC where your AWS Managed Microsoft AD is provisioned.
     These interfaces are used for required service functionality with your directory. Ensure that your default security group allows outbound traffic to each
     domain controller's network interface IPv4 address, or the security group used by the domain controllers.
-    For more information, see [Prerequisites to create user-based subscriptions](user-based-subscriptions.md#usubs-prerequisites "user-based-subscriptions.md#usubs-prerequisites") and [What gets created](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.md") in the AWS Directory Service Administration Guide.
+    For more information, see [Prerequisites to create user-based subscriptions](user-based-subscriptions.md#usubs-prerequisites "user-based-subscriptions.md#usubs-prerequisites") and [What gets created](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.md") in the Directory Service Administration Guide.
 
 - Configure outbound internet access from instances providing user-based subscriptions or VPC endpoints.
   - Outbound internet access from the instances providing user-based subscriptions, or VPC endpoints, must be configured for your instances to communicate with SSM.
@@ -157,6 +157,30 @@ Your account must have a subscription to Windows Server Remote Desktop Services 
 
 But if this has been unsubscribed or removed due to other compliance reasons, you might have to resubscribe. If you are already subscribed, you can try unsubscribing and resubscribing, which will not affect your License Manager user subscriptions.
 
+## License counts not showing up correctly
+
+After initial setup or configuration changes, it can take up to 24 hours for the license server to display accurate license counts for all license types in the License Diagnoser.
+
+What to do:
+
+- Wait up to 24 hours after setup before expecting accurate license count reporting
+
+This delay is normal and allows the license server sufficient time to properly synchronize and update all license information across different license types. If you run into an error please refer [Troubleshooting RDS License Diagnoser Issues](#rds_licensing_mode_error "#rds_licensing_mode_error").
+
+## Troubleshooting RDS License Diagnoser Issues
+
+These errors are typically caused by credential or permission issues. To resolve:
+
+1. **Verify user credentials:** Ensure you are using the same user account that was provided to License Manager during onboarding
+2. **Check session credentials:** If you see **"Credentials not available"** against the server in the summary section:
+   1. Click on the license server in the summary section that shows **"Credentials not available"**
+   2. In the right-hand side menu that opens, add the credentials of the user that was onboarded to License Manager
+   3. Click **"Refresh"**
+
+If the issue persists, follow the additional troubleshooting steps outlined in Microsoft's documentation: [Cannot connect to RDS - No license server](https://learn.microsoft.com/en-us/troubleshoot/windows-server/remote/cannot-connect-rds-no-license-server "https://learn.microsoft.com/en-us/troubleshoot/windows-server/remote/cannot-connect-rds-no-license-server")
+
+This should resolve most credential and permission-related issues with the License Diagnoser.
+
 ## Troubleshooting trusts
 
 Based on our experience working with many customers, the vast majority of trust
@@ -165,7 +189,7 @@ troubleshooting steps to help you resolve common issues:
 
 - Check whether you allowed outbound networking traffic on the AWS Managed Microsoft AD.
 - If the DNS server or the network for your on-premises domain uses a public (non-RFC 1918) IP address space, follow these steps:
-  - In the AWS Directory Service console, go to the IP routing section for your directory, choose **Actions**, and then choose **Add route**.
+  - In the Directory Service console, go to the IP routing section for your directory, choose **Actions**, and then choose **Add route**.
   - Enter the IP address block of your DNS server or on-premises network using CIDR format, for example 203.0.113.0/24.
   - This step isn't necessary if both your DNS server and your on-premises network are using RFC 1918 private IP address spaces.
 
@@ -178,7 +202,7 @@ troubleshooting steps to help you resolve common issues:
   Resolve-DnsName -Name 'example.local' -DnsOnly
   ```
 
-You should also look through the message explanations in the [Trust creation status reasons guide](../../../directoryservice/latest/admin-guide/ms_ad_troubleshooting_trust_creation.md "../../../directoryservice/latest/admin-guide/ms_ad_troubleshooting_trust_creation.md") in the AWS Directory Service documentation.
+You should also look through the message explanations in the [Trust creation status reasons guide](../../../directoryservice/latest/admin-guide/ms_ad_troubleshooting_trust_creation.md "../../../directoryservice/latest/admin-guide/ms_ad_troubleshooting_trust_creation.md") in the Directory Service documentation.
 
 ## Billing issues for user subscriptions
 
@@ -229,7 +253,7 @@ There is a limit of 25 instances per user. In case you need adjustment, please r
 instances
 
 You can install additional software on your instances that aren't available as user-based subscriptions. Additional software installations aren't tracked by License Manager. These installations must be performed using the Admin account which is created by default in your AWS Managed Microsoft AD directory.
-For more information, see [Admin account](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_admin_account.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_admin_account.md") in the AWS Directory Service Administration Guide.
+For more information, see [Admin account](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_admin_account.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_admin_account.md") in the Directory Service Administration Guide.
 
 To install additional software with the Admin account, you must:
 
@@ -323,7 +347,7 @@ products
 
 To associate users in your self-managed directory, you must establish a two-way forest trust between your self-managed directory and your AWS Managed Microsoft AD directory.
 For more information, see [Tutorial:
-Create a trust relationship between your AWS Managed Microsoft AD and your self-managed Active Directory domain](../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md "../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md") in the AWS Directory Service Administration Guide.
+Create a trust relationship between your AWS Managed Microsoft AD and your self-managed Active Directory domain](../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md "../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md") in the Directory Service Administration Guide.
 
 ## Tips for contacting AWS Support
 

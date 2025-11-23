@@ -9,6 +9,9 @@ The following settings are configurable for managed licenses:
 - Distribution of managed entitlements and self-managed licenses to your organization
 - Cross-account resource discovery
 - Amazon SNS notification
+- License asset discovery and ruleset configuration for License asset groups
+
+For organizations using License asset groups, additional settings are available for cross-region discovery and organization-wide license management across multiple AWS regions and accounts.
 
 For more information, see [Managed license settings in License Manager](settings-managed-licenses.md "settings-managed-licenses.md").
 
@@ -39,6 +42,7 @@ from the AWS CLI or AWS Management Console. For more information, see [Delegated
 
 - [Edit License Manager settings](settings.md#settings-edit "settings.md#settings-edit")
 - [Managed license settings in License Manager](settings-managed-licenses.md "settings-managed-licenses.md")
+  - [License asset discovery and ruleset settings](settings-managed-licenses.md#settings-license-asset-groups "settings-managed-licenses.md#settings-license-asset-groups")
   - [Account details](settings-managed-licenses.md#settings-account-details "settings-managed-licenses.md#settings-account-details")
   - [Cross-account resource discovery](settings-managed-licenses.md#settings-resource-discovery "settings-managed-licenses.md#settings-resource-discovery")
   - [Simple Notification Service (SNS)](settings-managed-licenses.md#settings-sns "settings-managed-licenses.md#settings-sns")

@@ -6,6 +6,8 @@ of your enterprise agreements. The rules that you create determine how AWS proce
 commands that consume licenses. While creating self-managed licenses, work closely with your
 organization's compliance team to review your enterprise agreements.
 
+Self-managed licenses can be used independently within a single AWS account or cross AWS account or integrated with License asset groups for centralized management across multiple AWS accounts and regions across AWS organization. This integration provides enhanced governance, and compliance tracking for enterprise environments.
+
 AWS services such as License Manager have service quotas that define the maximum number of
 resources or operations per Region that are available to your AWS account for that service.
 For example, with License Manager, you can have a maximum of `10` self-managed licenses per
@@ -25,5 +27,7 @@ licenses.
 - [Create a self-managed license](create-license-configuration.md "create-license-configuration.md")
 - [Share a self-managed license](share-license-configuration.md "share-license-configuration.md")
 - [Edit a self-managed license](modify-license-configuration.md "modify-license-configuration.md")
+- [View self-managed licenses](view-license-configuration.md "view-license-configuration.md")
 - [Deactivate a self-managed license](deactivate-license-configuration.md "deactivate-license-configuration.md")
 - [Delete a self-managed license](delete-license-configuration.md "delete-license-configuration.md")
+- [Self Managed License Rules](license-rules.md "license-rules.md")

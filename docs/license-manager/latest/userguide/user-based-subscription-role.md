@@ -9,7 +9,7 @@ License Manager requires a service-linked role for managing AWS resources that w
 The service-linked role named
 `AWSServiceRoleForAWSLicenseManagerUserSubscriptionsService` allows License Manager to
 utilize AWS Systems Manager and manage Amazon EC2 resources providing user-based subscriptions, as well as
-describe AWS Directory Service resources.
+describe Directory Service resources.
 
 To review permissions for the **AWSLicenseManagerUserSubscriptionsServiceRolePolicy**,
 see [AWS managed policy:

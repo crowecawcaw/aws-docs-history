@@ -4,6 +4,8 @@ License Manager allows you to discover on-premises applications using [Systems M
 then to attach licensing rules to them. After licensing rules are attached to these servers, you
 can track them along with your AWS servers in the License Manager dashboard.
 
+For organizations using License asset groups, inventory search results can be consolidated across multiple AWS regions and accounts within your AWS Organizations, providing a unified view of discovered resources regardless of which regions or accounts they reside in.
+
 License Manager cannot, however, validate licensing rules for these servers at launch or termination
 time. To keep information about non AWS servers up-to-date, you must periodically refresh
 the inventory information using the **Inventory search** section of the

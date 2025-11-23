@@ -8,6 +8,13 @@ vCPUs or number of instances). It also specifies limits on your usage, so that y
 usage from going over the number of allocated licenses. Additionally, it can also specify other
 constraints on your licenses, such as the tenancy type.
 
+###### Note
+
+Before creating a self-managed license, consider your organizational structure:
+
+- Single account usage: Create self-managed licenses directly in your account
+- Multi-account usage: Consider creating License asset groups first, then associate self-managed licenses for centralized management
+
 ###### Considerations for Amazon RDS for Oracle and Amazon RDS for Db2 databases
 
 When you add product information to configure automated discovery of Amazon RDS for Oracle or
@@ -30,6 +37,8 @@ Amazon RDS for Db2 databases, the following requirements apply:
    - **Self-managed license name** – A name for the self-managed
      license.
    - **Description** – An optional description of the self-managed
+     license.
+   - **Expiry Date** – An optional expiry date of the self-managed
      license.
    - **License type** – The counting model for this license
      (**vCPUs**, **Cores**, **Sockets**, or
@@ -61,6 +70,10 @@ Amazon RDS for Db2 databases, the following requirements apply:
    - **Value** – The value for the key.
 
 7. Choose **Submit**.
+
+###### Note
+
+Once the License Expiry Date is set, License Manager can send notifications on 120 days, 90 days, 60 days, 30 days, 0 day to the Amazon SNS topic that's configured in [Managed license settings in License Manager](settings-managed-licenses.md "settings-managed-licenses.md").
 
 ###### To create a self-managed license using the command line
 

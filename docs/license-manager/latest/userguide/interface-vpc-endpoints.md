@@ -5,7 +5,7 @@ AWS PrivateLink
 You can establish a private connection between your virtual private cloud (VPC) and
 AWS License Manager by creating an interface VPC endpoint. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that you can use
 to privately access the License Manager API without an internet gateway, NAT device, VPN connection,
-or AWS Direct Connect connection. Instances in your VPC don't need public IP addresses to communicate
+or Direct Connect connection. Instances in your VPC don't need public IP addresses to communicate
 with License Manager. Traffic between your VPC and License Manager does not leave the Amazon network.
 
 Each interface endpoint is represented by one or more [Elastic Network Interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") in your

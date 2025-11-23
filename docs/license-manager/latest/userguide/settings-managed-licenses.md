@@ -2,6 +2,15 @@
 
 The following settings are available for managed licenses.
 
+## License asset discovery and ruleset settings
+
+For organizations using License asset groups, you can configure license asset discovery and ruleset settings to enable cross-region discovery and organization-wide license management across multiple AWS regions and accounts within your AWS Organizations.
+
+License asset discovery settings include:
+
+- Region discovery configuration to select source AWS regions for software discovery
+- Organization-wide discovery settings for organization owners
+
 ## Account details
 
 You can review your account details to see information such as the account type, whether
@@ -15,8 +24,8 @@ service-linked role to the [management](management-role.md "management-role.md")
 
 ###### Note
 
-To enable this option, you must be signed in to your management account and all features
-must be enabled in AWS Organizations. For more information, see [Enabling all
+To enable this option, sign in to your management account and enable all features
+in AWS Organizations. For more information, see [Enabling all
 features in your organization](../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md "../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md") in the _AWS Organizations User Guide_.
 
 This selection also creates an AWS Resource Access Manager resource share in your management account, which
@@ -31,7 +40,7 @@ of your accounts in AWS Organizations.
 
 To enable cross-account resource discovery in your organization, choose **Turn
 on** for cross-account resource discovery. When you turn on the cross-account resource
-discovery, AWS Organizations will automatically be linked to perform resource discovery across all of your
+discovery, AWS Organizations is automatically linked to perform resource discovery across all of your
 accounts.
 
 License Manager uses [Systems Manager inventory](../../../systems-manager/latest/userguide/systems-manager-inventory.md "../../../systems-manager/latest/userguide/systems-manager-inventory.md")
@@ -47,11 +56,7 @@ resources. Querying Systems Manager inventory requires the following:
 
 ###### Note
 
-The following AWS Regions don't require Amazon Athena or AWS Glue to query or
-aggregate inventory data for Systems Manager inventory to discover software usage:
-
-- Asia Pacific (Jakarta)
-- Israel (Tel Aviv)
+Commercial AWS partition regions (aws) do not require Amazon Athena or AWS Glue to query or aggregate inventory data for Systems Manager inventory to discover software usage. However, Amazon Athena and AWS Glue are still required for other partitions such as aws-us-gov, aws-cn, and aws-iso regions.
 
 ## Simple Notification Service (SNS)
 

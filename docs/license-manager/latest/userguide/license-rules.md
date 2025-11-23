@@ -1,4 +1,4 @@
-# License rules in License Manager
+# Self Managed License Rules in License Manager
 
 After self-managed license rules are in place, they can be attached to the relevant launch
 mechanisms, where they can directly prevent the deployment of new resources that are
@@ -31,8 +31,8 @@ multiple launch mechanisms:
   [Systems Manager Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md"), [VM Import/Export](../../../vm-import/latest/userguide.md "../../../vm-import/latest/userguide.md"), and [Packer](https://www.packer.io/docs/builders/amazon.html "https://www.packer.io/docs/builders/amazon.html").
 - **Amazon EC2 launch templates and AWS CloudFormation** – If attaching
   licensing rules to AMIs is not a preferred option, you can specify them as optional parameters
-  in [EC2 launch templates](../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md "../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md") or [AWS CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md"). Deployments using these templates are tracked
-  using License Manager. You can enforce rules on EC2 launch templates or AWS CloudFormation templates by specifying one
+  in [EC2 launch templates](../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md "../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md") or [CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md"). Deployments using these templates are tracked
+  using License Manager. You can enforce rules on EC2 launch templates or CloudFormation templates by specifying one
   or more self-managed license IDs in the **self-managed licenses** field.
   AWS treats license-tracking data as sensitive customer data accessible only through the
   AWS account that owns it. AWS does not have access to your license-tracking data. You

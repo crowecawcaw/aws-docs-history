@@ -7,6 +7,8 @@ parameter values. You can also add tags to your self-managed licenses. After you
 self-managed license, an administrator can modify the number of licenses and the usage limit to
 reflect changing resource needs.
 
+For organizations managing licenses across multiple AWS accounts, consider using License asset groups which provide centralized governance and policy enforcement. Self-managed licenses work within individual accounts and can be integrated with License asset groups for organization-wide visibility.
+
 Available parameters and rules include the following:
 
 - Self-managed license name – The name of the
@@ -19,6 +21,7 @@ Available parameters and rules include the following:
 - (Optional) Number of <option> – The number of licenses used by a resource.
 - Status – Indicates whether the configuration is
   active.
+- (Optional) Expiry Date – Indicates when this license configuration will expire. Customer can enter this date based on expiration date on the terms on of their BYOL Licenses.
 - Product information – The names and versions of
   the products for [automated discovery](automated-discovery.md "automated-discovery.md"). The supported
   products are Windows Server, SQL Server, Amazon RDS for Oracle, and Amazon RDS for Db2.
