@@ -25,4 +25,4 @@
 - [Github -
   Cost Optimizer for Amazon WorkSpaces Applications](https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2 "https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2")
 - [Cost
-  Optimizer for Amazon WorkSpaces](https://aws.amazon.com/solutions/implementations/cost-optimizer-for-amazon-workspaces/?nc1=h_ls "https://aws.amazon.com/solutions/implementations/cost-optimizer-for-amazon-workspaces/?nc1=h_ls")
+  Optimizer for Amazon WorkSpaces](https://aws.amazon.com//solutions/implementations/cost-optimizer-for-amazon-workspaces/?nc1=h_ls "https://aws.amazon.com//solutions/implementations/cost-optimizer-for-amazon-workspaces/?nc1=h_ls")

@@ -8,7 +8,7 @@
   business continuity with Amazon WorkSpaces Multi-Region
   Resilience](https://aws.amazon.com/blogs/desktop-and-application-streaming/advancing-business-continuity-with-amazon-workspaces-multi-region-resilience/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/advancing-business-continuity-with-amazon-workspaces-multi-region-resilience/")
 - [Building
-  for business continuity with Amazon WorkSpaces and AWS Directory Services](https://aws.amazon.com/blogs/desktop-and-application-streaming/building-for-business-continuity-with-amazon-workspaces-and-aws-directory-services/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/building-for-business-continuity-with-amazon-workspaces-and-aws-directory-services/")
+  for business continuity with Amazon WorkSpaces and Directory Services](https://aws.amazon.com/blogs/desktop-and-application-streaming/building-for-business-continuity-with-amazon-workspaces-and-aws-directory-services/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/building-for-business-continuity-with-amazon-workspaces-and-aws-directory-services/")
 - [Creating
   custom Amazon CloudWatch dashboards and widgets for Amazon WorkSpaces](https://aws.amazon.com/blogs/desktop-and-application-streaming/creating-custom-amazon-cloudwatch-dashboards-and-widgets-for-amazon-workspaces/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/creating-custom-amazon-cloudwatch-dashboards-and-widgets-for-amazon-workspaces/")
 - [VPC

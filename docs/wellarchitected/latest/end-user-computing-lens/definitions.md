@@ -70,7 +70,7 @@ Well-Architected Framework and EUC workloads.
     which you can redirect directory requests to your
     on-premises Microsoft Active Directory without caching any
     information in the cloud.
-  - **[AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md"):** AWS Directory Service lets you run Microsoft Active Directory (AD) as a
+  - **[AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md"):** Directory Service lets you run Microsoft Active Directory (AD) as a
     managed service.
   - **[Simple
     AD](../../../directoryservice/latest/admin-guide/directory_simple_ad.md "../../../directoryservice/latest/admin-guide/directory_simple_ad.md"):** Provides a subset of the features

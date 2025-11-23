@@ -10,4 +10,4 @@
 - [Amazon S3](../../../AmazonS3/latest/userguide/Welcome.md "../../../AmazonS3/latest/userguide/Welcome.md")
 - [Amazon FSx for Windows Server](../../../fsx/latest/WindowsGuide/what-is.md "../../../fsx/latest/WindowsGuide/what-is.md")
 - [Amazon Kinesis Agent for Microsoft Windows](../../../kinesis-agent-windows/latest/userguide/what-is-kinesis-agent-windows.md "../../../kinesis-agent-windows/latest/userguide/what-is-kinesis-agent-windows.md")
-- [AWS Directory Service](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md")
+- [Directory Service](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md")
