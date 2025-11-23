@@ -43,7 +43,7 @@ _not_ part of Service Quotas:
 - `autoscaling:DescribeAccountLimits` – Allows Service Quotas to
   retrieve applied quota value for AWS Auto Scaling quotas.
 - `cloudformation:DescribeAccountLimits` – Allows Service Quotas to
-  retrieve applied quota value for AWS CloudFormation quotas.
+  retrieve applied quota value for CloudFormation quotas.
 - `cloudwatch:DescribeAlarmsForMetric` – Allows you to
   retrieve alarms for specified metrics from Service Quotas that were created for
   notifying automatically whenever a specified quota reaches a percentage of the
@@ -59,7 +59,7 @@ _not_ part of Service Quotas:
 - `dynamodb:DescribeLimits` – Allows Service Quotas to retrieve
   applied quota value for DynamoDB quotas.
 - `elasticloadbalancing:DescribeAccountLimits` – Allows
-  Service Quotas to retrieve applied quota value for Elastic Load Balancing quotas.
+  Service Quotas to retrieve applied quota value for ELB quotas.
 - `iam:GetAccountSummary` – Allows Service Quotas to retrieve
   applied quota value for IAM.
 - `kinesis:DescribeLimits` – Allows Service Quotas to retrieve
@@ -121,7 +121,7 @@ _not_ part of Service Quotas:
 - `autoscaling:DescribeAccountLimits` – Allows Service Quotas to
   retrieve applied quota value for AWS Auto Scaling quotas.
 - `cloudformation:DescribeAccountLimits` – Allows Service Quotas to
-  retrieve applied quota value for AWS CloudFormation quotas.
+  retrieve applied quota value for CloudFormation quotas.
 - `cloudwatch:DescribeAlarmsForMetric` – Allows you to
   retrieve alarms for specified metrics from Service Quotas that were created for
   notifying automatically whenever a specified quota reaches a percentage of the
@@ -137,7 +137,7 @@ _not_ part of Service Quotas:
 - `dynamodb:DescribeLimits` – Allows Service Quotas to retrieve
   applied quota value for DynamoDB quotas.
 - `elasticloadbalancing:DescribeAccountLimits` – Allows
-  Service Quotas to retrieve applied quota value for Elastic Load Balancing quotas.
+  Service Quotas to retrieve applied quota value for ELB quotas.
 - `iam:GetAccountSummary` – Allows Service Quotas to retrieve
   applied quota value for IAM.
 - `kinesis:DescribeLimits` – Allows Service Quotas to retrieve
