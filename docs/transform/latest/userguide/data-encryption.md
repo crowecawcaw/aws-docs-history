@@ -107,7 +107,7 @@ operations must be permitted in the key policy:
 
 kms:CreateGrant – Adds a grant to a customer managed key. Grants control access to
 a specified KMS key, which allows access to grant operations AWS Transform requires. For more
-information about Using Grants, see the
+information about [Using Grants](../../../index.md "../../../index.md"), see the
 _AWS Key Management Service Developer Guide_.
 
 This allows AWS Transform to do the following:

@@ -17,7 +17,7 @@ account.
   - Making cross-region API calls
   - Installing replication agents on VMware servers
   - Creating network infrastructure (VPCs, subnets, routing)
-  - Launching Amazon EC2 instances and deploying AWS CloudFormation stacks
+  - Launching Amazon EC2 instances and deploying CloudFormation stacks
   - Executing migration workflows through Migration Hub
 
 - **Approval Process:** You must approve

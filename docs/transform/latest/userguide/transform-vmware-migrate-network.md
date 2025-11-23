@@ -56,7 +56,7 @@ interfaces based on VM external IDs and IP addresses. In this case you will not 
 for your target instances because IP
 addresses aren't known until instance launch.
 
-AWS Transform then creates AWS CloudFormation templates and AWS Cloud Development Kit (AWS CDK) templates.
+AWS Transform then creates CloudFormation templates and AWS Cloud Development Kit (AWS CDK) templates.
 
 Once the target network is generated, review the generated network configuration.
 You can either deploy it on your own or ask AWS Transform to deploy it for you. If
@@ -65,6 +65,46 @@ such as [Reachability Analyzer](../../../vpc/latest/reachability/what-is-reachab
 between subnets across multiple VPCs and under the same VPC. If you choose to make
 changes to the generated configuration, you must deploy the modified configuration
 yourself.
+
+## Source Network Convergence
+
+During end-to-end migration or network-only migration jobs, AWS Transform
+creates AWS Virtual Private Clouds (VPCs) from all source network segments in
+the **Generate VPC Configuration** stage. Each
+detected network segment becomes its own distinct VPC.
+
+Network segmentation by source type:
+
+- For vNetwork: AWS Transform groups VMs by vSwitch and VLAN, with VLAN presented under multiple vSwitches (except for VLAN 0).
+- For NSX networks: AWS Transform segments the network based on Tier-1 routers by grouping the routers and collecting the segments.
+
+## Network Topologies
+
+During the migration to the target network you can choose the Isolated VPCs topology or the Hub and Spoke topology.
+
+###### Important
+
+For both topologies, AWS Transform does not open the communication to the internet. You must open it manually after taking appropriate security precautions.
+
+### Isolated VPCs
+
+These are independent network environments that operate as separate units within AWS . VPCs maintain complete network isolation, with no built-in communication pathways between them. This separation provides the highest level of network boundary protection. You can connect the VPCs through specific networking configurations if needed.
+
+### Hub and Spoke
+
+In this model, an AWS Transit Gateway created by AWS Transform acts as the hub that connects to multiple workload VPCs (the spokes). During network convergence, AWS Transform creates a spoke VPC for each detected source network segment.
+
+AWS Transform creates three specialized VPCs for traffic management and security:
+
+- Inspection VPC: Where you establish the firewall that inspects the traffic. You can create firewall rule configurations here to modify VPC connections.
+- Inbound VPC: For all traffic from the public internet (north-south). Includes an internet gateway.
+- Outbound VPC: For all traffic to the public internet. Has an internet gateway, a Network Address Translation (NAT) gateway and an [elastic IP address](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md "../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md").
+
+AWS Transform automatically associates all spoke VPCs with the default association route table and propagates routes from all spoke VPCs to the default propagation route table. This automation creates routing paths without manual configuration, though traffic flow remains subject to security group permissions.
+
+If you want fine-grained control over the communication between the VPCs, choose the
+**Isolated VPCs** option and modify the generated network to create the specific communication
+paths your require.
 
 ## Network configuration generators
 
@@ -75,7 +115,7 @@ configuration** and **Review generated VPC
 configuration**. When you choose the **Deploy on my
 own** option AWS Transform for VMware gives you the option to generate Infrastructure-as-Code (IaC) templates in four formats:
 
-- **AWS CloudFormation** templates that you can use to provision your network
+- **CloudFormation** templates that you can use to provision your network
   resources.
 - **CDK project** - AWS Cloud Development Kit (AWS CDK) templates generated in TypeScript for programmatic infrastructure deployment
 - **HashiCorp Terraform** - Infrastructure as Code (IaC) templates generated in HashiCorp Configuration Language (HCL) for managing network resources
@@ -110,9 +150,9 @@ The network configuration generators generate these key components:
 
 ### Hub and Spoke Network Architecture
 
-- **Transit Gateway Hub:** Central routing point connecting all VPC segments
-- **Multiple VPC Spokes:** Network segments for different workload types
-- **Centralized Traffic Control:** Inspection, outbound, and inbound VPCs for traffic filtering
+For details see [Hub and spoke](#hub-and-spoke "#hub-and-spoke") in
+the [Network topologies](#network-topologies "#network-topologies")
+section.
 
 ### Network Segments Configuration
 
@@ -134,33 +174,6 @@ The infrastructure creates VPC segments for organizing workloads and managing ne
 
 The generated configuration includes a modular structure for
 maintainability and reusability
-
-## Network topologies
-
-During the migration, you can choose one of two network topologies for the target
-network:
-
-- **Isolated VPCs** — Each VPC serves as
-  its own unit with no intercommunication among VPCs.
-- **Hub and Spoke** — AWS Transform creates
-  a transit gateway and connects all VPCs using route tables. It also creates
-  3 additional VPCs:
-  - **Inspection VPC** — A
-    placeholder for the firewall to inspect the traffic.
-  - **Inbound VPC** — For all
-    traffic from the public internet (North-South). It has an internet
-    gateway.
-  - **Outbound VPC** — For all
-    traffic to the public internet. It has a NAT gateway and an elastic
-    IP.
-
-By default AWS Transform doesn’t open the communication to the internet for either topology. Once you are ready to use your new network and have configured security precautions
-according to your company policies, you can manually open the network to the
-internet
-
-If you want fine-grained control over the communication between the VPCs, choose the
-**Isolated VPCs** option and modify the generated network to create the specific communication
-paths your require.
 
 ## IP migration approaches
 

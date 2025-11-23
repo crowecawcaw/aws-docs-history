@@ -5,7 +5,7 @@
 You can establish a private connection between your VPC and AWS Transform by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you
 to privately access the AWS Transform console without an internet gateway, NAT device, VPN connection, or
-AWS Direct Connect connection. Traffic between your VPC and AWS Transform does not leave the Amazon
+Direct Connect connection. Traffic between your VPC and AWS Transform does not leave the Amazon
 network.
 
 Each interface endpoint is represented by one or more [Elastic Network Interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") in your

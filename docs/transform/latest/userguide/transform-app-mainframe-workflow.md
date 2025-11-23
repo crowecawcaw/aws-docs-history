@@ -982,7 +982,7 @@ AWS Transform helps you set up cloud environments for modernized mainframe appli
 providing ready-to-use Infrastructure as Code (IaC) templates. Through the AWS Transform
 chat interface, you can access pre-built templates that create essential components
 like compute resources, databases, storage, and security controls. The templates are
-available in popular formats including AWS CloudFormation (CFN), AWS Cloud Development Kit (AWS CDK), and Terraform, giving
+available in popular formats including CloudFormation (CFN), AWS Cloud Development Kit (AWS CDK), and Terraform, giving
 you flexibility to deploy your infrastructure.
 
 These templates serve as building blocks that reduce the time and expertise needed
