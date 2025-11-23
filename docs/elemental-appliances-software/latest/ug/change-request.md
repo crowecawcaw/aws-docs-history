@@ -4,7 +4,7 @@ When your quote is in **Pending Confirmation** status, you can request changes t
 
 ###### To request changes to a quote
 
-1. Sign in to the AWS Management Console and open the AWS Elemental Appliances and Software Quote Confirmation console at [https://console.aws.amazon.com/elemental-appliances-software/home](https://console.aws.amazon.com/elemental-appliances-software/home "https://console.aws.amazon.com/elemental-appliances-software/home").
+1. Sign in to the AWS Management Console and open the AWS Elemental Appliances and Software Quote Confirmation console at [https://console.aws.amazon.com/elemental-appliances-software/home](https://console.aws.amazon.com//elemental-appliances-software/home "https://console.aws.amazon.com//elemental-appliances-software/home").
 2. On the quote details page, choose **Request changes**.
 3. On the **Request changes** page, select a change category, and
    then enter details about the necessary changes. If

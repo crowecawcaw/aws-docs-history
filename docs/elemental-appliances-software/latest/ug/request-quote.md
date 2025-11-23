@@ -11,7 +11,7 @@ use your active AWS account to contact Sales.
   view those quotes in the AWS Management Console.
 
 If you don’t have an account manager and are interested in receiving quotes, visit
-[https://console.aws.amazon.com/elemental-appliances-software/home](https://console.aws.amazon.com/elemental-appliances-software/home "https://console.aws.amazon.com/elemental-appliances-software/home"), and
+[https://console.aws.amazon.com/elemental-appliances-software/home](https://console.aws.amazon.com//elemental-appliances-software/home "https://console.aws.amazon.com//elemental-appliances-software/home"), and
 then select **Contact Sales**.
 
 ## Next steps
