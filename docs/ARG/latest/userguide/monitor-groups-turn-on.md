@@ -21,7 +21,7 @@ principal with the following permissions:
 - `tag:GetResources`
   When you initially turn on group lifecycle events in an AWS account, Resource Groups creates a [service-linked role named
   AWSServiceRoleForResourceGroups](security_iam_service-linked-roles.md "security_iam_service-linked-roles.md"). This managed role has permission to use a Resource Groups
-  managed EventBridge rule. The rule monitors the tags attached to your resources and the AWS CloudFormation
+  managed EventBridge rule. The rule monitors the tags attached to your resources and the CloudFormation
   stacks in your account for any changes. Resource Groups then publishes those changes to the default
   event bus in Amazon EventBridge. The service also creates an EventBridge managed rule named
   `Managed.ResourceGroups.TagChangeEvents`. This rule captures the details of tag changes of your

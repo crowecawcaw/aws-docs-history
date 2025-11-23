@@ -1,4 +1,4 @@
-# Create an AWS CloudFormation stack-based
+# Create an CloudFormation stack-based
 
 group
 
@@ -25,7 +25,7 @@ Console
    [Resource types you can use with AWS Resource Groups and
    Tag Editor](supported-resources.md "supported-resources.md").
 6. Choose **View group resources** to return the
-   list of resources in the AWS CloudFormation stack that match your selected
+   list of resources in the CloudFormation stack that match your selected
    resource types.
 7. After you have the results that you want, create a group based on
    this query.
@@ -53,7 +53,7 @@ Console
    group**.
 
 AWS CLI & AWS SDKs
-An AWS CloudFormation stack-based group is based on a query of type
+An CloudFormation stack-based group is based on a query of type
 `CLOUDFORMATION_STACK_1_0`.
 
 1. Run the following command, replacing the values for group name,

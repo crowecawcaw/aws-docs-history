@@ -65,12 +65,12 @@ confidential or sensitive information in tags. We use tags to provide you
 with billing and administration services. Tags are not intended to be used
 for private or sensitive data.
 
-- **AWS CloudFormation stack-based**
+- **CloudFormation stack-based**
 
-An AWS CloudFormation stack-based resource group bases its membership on a query that
-specifies an AWS CloudFormation stack in your account in the current region. You can
+An CloudFormation stack-based resource group bases its membership on a query that
+specifies an CloudFormation stack in your account in the current region. You can
 optionally choose resource types within the stack that you want to be in the
-group. You can base your query on only one AWS CloudFormation stack.
+group. You can base your query on only one CloudFormation stack.
 
 **Service-linked resource groups**
 
@@ -88,7 +88,7 @@ groups
 
 By default, the AWS Management Console is organized by AWS service. But with Resource Groups, you can
 create a custom console that organizes and consolidates information based on
-criteria specified in tags, or the resources in an AWS CloudFormation stack. The following list
+criteria specified in tags, or the resources in an CloudFormation stack. The following list
 describes some of the cases in which resource grouping can help organize your
 resources.
 

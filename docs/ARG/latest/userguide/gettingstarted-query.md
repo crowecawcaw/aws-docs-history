@@ -119,21 +119,21 @@ shown here, as a CLI command parameter:
 --resource-query '{"Type":"TAG_FILTERS_1_0","Query":"{\"ResourceTypeFilters\":[\"AWS::AllSupported\"],\"TagFilters\":[{\"Key\":\"Stage\",\"Values\":[\"Test\"]}]}"}'
 ```
 
-**AWS CloudFormation stack-based**
+**CloudFormation stack-based**
 
-In an AWS CloudFormation stack-based query, you choose an AWS CloudFormation stack in your account
+In an CloudFormation stack-based query, you choose an CloudFormation stack in your account
 in the current region, and then choose resource types in the stack that you
-want to be in the group. You can base your query on only one AWS CloudFormation stack.
+want to be in the group. You can base your query on only one CloudFormation stack.
 
 ###### Note
 
-An AWS CloudFormation stack can contain other AWS CloudFormation "child" stacks. However, a
+An CloudFormation stack can contain other CloudFormation "child" stacks. However, a
 resource group based on a "parent" stack doesn't get all of the child
 stacks' resources as group members. Resource groups adds the child
 stacks to the parent stack's resource group as single group members and
 doesn't expand them.
 
-Resource Groups supports queries based on AWS CloudFormation stacks that have one of the
+Resource Groups supports queries based on CloudFormation stacks that have one of the
 following statuses.
 
 - `CREATE_COMPLETE`
@@ -146,15 +146,15 @@ following statuses.
 
 Only resources that are directly created as part of the stack in the
 query are included in the resource group. Resources created later by
-members of the AWS CloudFormation stack do not become members of the group. For
-example, if an auto-scaling group is created by AWS CloudFormation as part of the
+members of the CloudFormation stack do not become members of the group. For
+example, if an auto-scaling group is created by CloudFormation as part of the
 stack, then that auto-scaling group **_is_** a member of the group.
 However, an Amazon EC2 instance created by that auto-scaling group as part of
 its operation **_is
-not_** a member of the AWS CloudFormation stack-based
+not_** a member of the CloudFormation stack-based
 resource group.
 
-If you create a group based on an AWS CloudFormation stack, and the stack's status
+If you create a group based on an CloudFormation stack, and the stack's status
 changes to one that is no longer supported as a basis for a group query,
 such as `DELETE_COMPLETE`, the resource group still exists, but
 it has no member resources.
@@ -169,7 +169,7 @@ resource group contains the following elements:
 
 This element indicates which kind of query defines this resource group.
 
-To create a AWS CloudFormation stack-based resource group, specify the value
+To create a CloudFormation stack-based resource group, specify the value
 `CLOUDFORMATION_STACK_1_0`, as follows:
 
 ```
@@ -203,13 +203,13 @@ elements:
 
 
 
-    This element specifies the Amazon Resource Name (ARN) of the AWS CloudFormation
+    This element specifies the Amazon Resource Name (ARN) of the CloudFormation
      stack whose resources you want to include in the group.
 
 All of these JSON elements must be combined into a single-line string representation
 of the JSON structure. For example, consider a `Query` with the following
 example JSON structure. This query is meant to match only Amazon S3 buckets that are part of
-the specified AWS CloudFormation stack.
+the specified CloudFormation stack.
 
 ```
 {

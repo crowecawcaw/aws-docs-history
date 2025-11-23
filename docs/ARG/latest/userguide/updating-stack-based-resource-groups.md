@@ -1,11 +1,11 @@
-# Update an AWS CloudFormation stack-based
+# Update an CloudFormation stack-based
 
 group
 
 The following procedures show you how to update a CloudFormation stack-based group.
 
 Console
-You cannot change an AWS CloudFormation stack-based group to a tag-based group in the
+You cannot change an CloudFormation stack-based group to a tag-based group in the
 AWS Management Console. However, you can change the stack on which the group is based, or
 change the stack resource types that you want to include in the group. You
 can also add or change the group's description.
@@ -36,7 +36,7 @@ choose **X** on the resource type's label. For more
 information about which resource types are supported and can be in
 the group, see [Resource types you can use with AWS Resource Groups and
 Tag Editor](supported-resources.md "supported-resources.md"). 6. Choose **Preview group resources** to retrieve
-the list of resources in the AWS CloudFormation stack that match your selected
+the list of resources in the CloudFormation stack that match your selected
 resource types. 7. In **Additional information**, you can edit the
 group description. You cannot edit a group's name after the group
 has been created. 8. In **Group tags**, add or remove tags. Group tags

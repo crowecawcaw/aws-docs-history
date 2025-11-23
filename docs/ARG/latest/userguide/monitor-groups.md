@@ -23,7 +23,7 @@ with EventBridge, see [Amazon EventBridge targets](../../../eventbridge/latest/u
 When you turn on group lifecycle events, AWS Resource Groups creates the following items:
 
 - An AWS Identity and Access Management (IAM) service-linked role that has permission to monitor your
-  resources for any changes to their tags and your AWS CloudFormation stacks for any changes to the
+  resources for any changes to their tags and your CloudFormation stacks for any changes to the
   resources that are part of a stack.
 - A Resource Groups managed EventBridge rule that captures the details of any tag or stack changes to
   your resources. EventBridge uses this rule to notify Resource Groups about those changes. Then, Resource Groups
@@ -42,7 +42,7 @@ following changes to a resource group:
 - Update the description of a resource group.
 - Delete a resource group.
 - Change a resource group's membership by adding or removing a resource from the
-  group. A membership change can also happen when tags change, or when a AWS CloudFormation stack
+  group. A membership change can also happen when tags change, or when a CloudFormation stack
   changes.
 
 ###### Important

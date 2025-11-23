@@ -129,7 +129,7 @@ resource groups that you can create in your AWS account](https://console.aws.ama
 For more information, see [Using AppRegistry](../../../servicecatalog/latest/adminguide/appregistry.md "../../../servicecatalog/latest/adminguide/appregistry.md") in the _Service Catalog User Guide_.
 
 When AppRegistry creates a service-linked resource group of this type, it also
-automatically creates a separate, additional [AWS CloudFormation service-linked group](#about-slg-types-cloudformation "#about-slg-types-cloudformation") for
+automatically creates a separate, additional [CloudFormation service-linked group](#about-slg-types-cloudformation "#about-slg-types-cloudformation") for
 each AWS CloudFormation stack associated with the application.
 
 AppRegistry automatically names the service-linked groups of this type that its creates
@@ -168,7 +168,7 @@ This parameter specifies the [Amazon Resource Name
 To change any of these elements, you must modify the application using the
 AppRegistry console or that service's AWS SDK and AWS CLI operations.
 
-This application resource group automatically includes as group members the [resource groups created for the AWS CloudFormation
+This application resource group automatically includes as group members the [resource groups created for the CloudFormation
 stacks](#about-slg-types-cloudformation "#about-slg-types-cloudformation") that are associated with the AppRegistry application. You can use the
 [ListGroupResources](../APIReference/API_ListGroupResources.md "../APIReference/API_ListGroupResources.md") operation to see those child groups.
 
@@ -205,7 +205,7 @@ AWS CloudFormation stack and its members are the AWS resources created by that
 stack.
 
 Resource groups of this type are automatically created for you when you associate
-a AWS CloudFormation stack with the AppRegistry service. You can't create, update, or delete these
+a CloudFormation stack with the AppRegistry service. You can't create, update, or delete these
 groups except by using the tools provided by AppRegistry.
 
 AppRegistry automatically names the service-linked groups of this type that its creates
@@ -223,11 +223,11 @@ resource groups that you can create in your AWS account](https://console.aws.ama
 For more information, see [Using AppRegistry](../../../servicecatalog/latest/adminguide/AppRegistry.md "../../../servicecatalog/latest/adminguide/AppRegistry.md") in the _Service Catalog User Guide_.
 
 AppRegistry automatically creates a service-linked resource group of this type for
-every AWS CloudFormation stack that you associate with the AppRegistry application. These resource
+every CloudFormation stack that you associate with the AppRegistry application. These resource
 groups become child members of the parent [resource group for the AppRegistry
 application](#about-slg-types-appregistry "#about-slg-types-appregistry").
 
-The members of this AWS CloudFormation resource group are the AWS resources created as part
+The members of this CloudFormation resource group are the AWS resources created as part
 of the stack.
 
 The following parameters are supported for the
@@ -235,20 +235,20 @@ The following parameters are supported for the
 
 - **`Name`**
 
-This parameter specifies the friendly name of the AWS CloudFormation stack assigned by
+This parameter specifies the friendly name of the CloudFormation stack assigned by
 the user when the stack was created.
 
 **Data type of values:** String
 
 **Permitted values:** any text string
-permitted by the AWS CloudFormation service for a stack name.
+permitted by the CloudFormation service for a stack name.
 
 **Required:** Yes
 
 - **`Arn`**
 
 This parameter specifies the [Amazon Resource Name
-(ARN)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") path of the AWS CloudFormation stack attached to the application in
+(ARN)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") path of the CloudFormation stack attached to the application in
 AppRegistry.
 
 **Data type of values:** String

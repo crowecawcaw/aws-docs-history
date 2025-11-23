@@ -31,7 +31,7 @@ actions on your behalf. For more information, see [Using service-linked roles fo
 Resource Groups](security_iam_service-linked-roles.md "security_iam_service-linked-roles.md").
 
 This policy grants the permissions required for Resource Groups to retrieve information about
-the resources in your resource groups and any AWS CloudFormation stacks that those resources belong
+the resources in your resource groups and any CloudFormation stacks that those resources belong
 to. This lets Resource Groups generate CloudWatch Events for the group lifecycle events feature.
 
 To see the latest version of this AWS managed policy, see `ResourceGroupsServiceRolePolicy` in the IAM console.

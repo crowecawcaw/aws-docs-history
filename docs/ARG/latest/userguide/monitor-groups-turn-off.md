@@ -7,7 +7,7 @@ APIs.
 ###### Note
 
 Turning off group lifecycle events deletes the Resource Groups managed EventBridge rule used to scan your resource tags
-and AWS CloudFormation stacks for changes. Resource Groups can no longer pass those changes to EventBridge. Any rules
+and CloudFormation stacks for changes. Resource Groups can no longer pass those changes to EventBridge. Any rules
 you defined in EventBridge that look for Resource Groups events stop receiving events to process. If you
 intend to turn on group lifecycle events again in the future, you can disable your rules. If you don't
 intend to use those rules again, you can delete them. For more information, see [Disabling or
