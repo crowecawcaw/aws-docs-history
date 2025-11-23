@@ -15,7 +15,7 @@ The AWS IoT SiteWise demo deletes itself after a week. If you're done using the 
 resources, you can delete the demo earlier. To delete the demo manually, use the
 following steps.
 
-1. Navigate to the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+1. Navigate to the [CloudFormation console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Choose **IoTSiteWiseDemoAssets** from the list
    of **Stacks**.
 3. Choose **Delete**. When you delete the stack, all of the
@@ -24,7 +24,7 @@ following steps.
 
 The stack takes around 15 minutes to delete. If the demo fails to delete,
 choose **Delete** in the upper-right corner again. If the demo
-fails to delete again, follow the steps in the AWS CloudFormation console to skip the
+fails to delete again, follow the steps in the CloudFormation console to skip the
 resources that failed to delete, and try again.
 
 ###### To delete your data store

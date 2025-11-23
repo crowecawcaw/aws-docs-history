@@ -9,7 +9,7 @@ For more information, see
 Migrating your AWS IoT Analytics workload from AWS IoT Analytics to Amazon Kinesis Data Streams, Amazon S3, and enhances your ability to handle large-scale, complex AWS IoT data.
 This architecture provides scalable, durable storage and powerful analytics capabilities, enabling you to gain deeper insights from your IoT data in real-time.
 
-Cleaning up resources created using AWS CloudFormation is essential to avoid unexpected costs once the migration has completed.
+Cleaning up resources created using CloudFormation is essential to avoid unexpected costs once the migration has completed.
 
 Refer to the AWS IoT Analytics
 [pricing page](https://aws.amazon.com/iot-analytics/pricing/ "https://aws.amazon.com/iot-analytics/pricing/") for costs involved in

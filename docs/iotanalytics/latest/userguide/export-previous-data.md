@@ -6,20 +6,20 @@ For more information, see
 
 # Step 2: Export previously ingested data
 
-For data previously ingested and stored in AWS IoT Analytics, you’ll need to export it to Amazon S3. To simplify this process, you can use a AWS CloudFormation
+For data previously ingested and stored in AWS IoT Analytics, you’ll need to export it to Amazon S3. To simplify this process, you can use a CloudFormation
 template to automate the entire data export workflow. You can use the script for partial (time range-based) data extraction.
 
 ![Architecture to export previously ingested data using CloudFormation](images/ingested-architecture.png)
 
-## AWS CloudFormation template to export data to Amazon S3
+## CloudFormation template to export data to Amazon S3
 
-The diagram above illustrates the process of using a AWS CloudFormation template to create a dataset within the same AWS IoT Analytics datastore,
+The diagram above illustrates the process of using a CloudFormation template to create a dataset within the same AWS IoT Analytics datastore,
 enabling selection based on a timestamp. This allows users to retrieve specific data points within a desired timeframe.
 Additionally, a Content Delivery Rule is created to export the data into an Amazon S3 bucket.
 
 The procedure below illustrates the steps.
 
-1. Prepare the AWS CloudFormation template and save it as a YAML file. For example, `migrate-datasource.yaml`.
+1. Prepare the CloudFormation template and save it as a YAML file. For example, `migrate-datasource.yaml`.
 
 ```
 
@@ -104,7 +104,7 @@ Resources:
 
 ![Identify the AWS IoT Analytics Datastore:](images/datastore.png) 3. Create or identify an Amazon S3 bucket where the data will be exported. For this guide, we will use the `iot-analytics-export` bucket.
 
-![Create or identify an Amazon S3 bucket](images/export-s3-bucket.png) 4. Create the AWS CloudFormation stack.
+![Create or identify an Amazon S3 bucket](images/export-s3-bucket.png) 4. Create the CloudFormation stack.
 
     * Navigate to the [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
     * Click on **Create stack** and select
