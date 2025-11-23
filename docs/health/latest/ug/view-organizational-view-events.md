@@ -9,7 +9,7 @@ additional cost.
 ###### Note
 
 If you want to allow users access to this feature in the management account, they must
-have permissions such as the [AWSHealthFullAccess](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess") policy. For more information, see
+have permissions such as the [AWSHealthFullAccess](https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess "https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess") policy. For more information, see
 [AWS Health identity-based
 policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 

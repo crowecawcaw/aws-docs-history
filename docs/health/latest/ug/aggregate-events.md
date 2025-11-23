@@ -40,7 +40,7 @@ management account. For more information, see [Lock away your AWS account root u
 keys](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials") in the _IAM User Guide_.
 
 - If you sign in as an IAM user, use an IAM policy that grants access to the
-  AWS Health and Organizations actions, such as the [AWSHealthFullAccess](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess") policy. For more
+  AWS Health and Organizations actions, such as the [AWSHealthFullAccess](https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess "https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess") policy. For more
   information, see [AWS Health identity-based
   policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 

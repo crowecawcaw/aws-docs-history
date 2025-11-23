@@ -10,6 +10,8 @@ health of your applications, services, and resources in your AWS account.
 - [Event type code](#event-type-code "#event-type-code")
 - [Event type categories](#event-type-categories "#event-type-categories")
 - [Event status](#event-status "#event-status")
+- [Actionability](#actionability "#actionability")
+- [Personas](#personas "#personas")
 - [Affected entities](#affected-entities "#affected-entities")
 - [AWS Health events on Amazon EventBridge](#aws-health-events-on-eventbridge "#aws-health-events-on-eventbridge")
 - [AWS Health API](#aws-health-api "#aws-health-api")
@@ -167,6 +169,39 @@ the `Event` object contains the `eventScopeCode` field with the
 
 The event status tells you if the Health event is open, closed, or upcoming. You can view
 Health events in the AWS Health Dashboard or the AWS Health API for up to 90 days.
+
+## Actionability
+
+Actionability is a field that helps you prioritize Health events based on whether an
+action is required from you. Health events include an actionability status that indicates if
+you need to take action to mitigate risks to your AWS resources or if the event is
+informational in nature.
+
+The actionability field can contain one of the following values:
+
+- `ACTION_REQUIRED`: Events with this status require action from you to mitigate potential
+  impact related to availability, billing, or security of your AWS resources.
+- `ACTION_MAY_BE_REQUIRED`: Events with this status communicate changes that
+  require action, based on your specific implementation, dependencies, and workflows. These
+  events require your review to determine if action is needed.
+- `INFORMATIONAL`: Events with this status provide ongoing visibility into
+  operational information about the AWS services that you use. No immediate action is
+  expected.
+
+###### Note
+
+Health events related to service issues don't include an actionability label, as the
+need for recovery actions depends on your specific application architecture.
+
+## Personas
+
+The personas field provides a list of contacts that helps you route relevant information to appropriate teams within your organization. Each Health event can include one or more of the following personas:
+
+- `OPERATIONS`: For events related to operational activities and service availability.
+- `SECURITY`: For events related to security considerations.
+- `BILLING`: For events with potential cost implications.
+
+For example, when AWS sends an event about the end of standard support that converts into extended support, the event includes `BILLING` in addition to `OPERATIONS` within the persona list to help make sure the information reaches teams responsible for cost management.
 
 ## Affected entities
 
