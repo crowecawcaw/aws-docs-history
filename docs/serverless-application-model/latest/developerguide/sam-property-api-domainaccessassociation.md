@@ -26,6 +26,6 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly
+_CloudFormation compatibility_: This property is passed directly
 to the `AccessAssociationSource` property of an
 `AWS::ApiGateway::DomainNameAccessAssociation` resource.

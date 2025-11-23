@@ -1,6 +1,6 @@
-# Managing AWS SAM permissions with AWS CloudFormation mechanisms
+# Managing AWS SAM permissions with CloudFormation mechanisms
 
-To control access to AWS resources, the AWS Serverless Application Model (AWS SAM) can use the same mechanisms as AWS CloudFormation. For more
+To control access to AWS resources, the AWS Serverless Application Model (AWS SAM) can use the same mechanisms as CloudFormation. For more
 information, see [Controlling access with
 AWS Identity and Access Management](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md "../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md") in the _AWS CloudFormation User Guide_.
 

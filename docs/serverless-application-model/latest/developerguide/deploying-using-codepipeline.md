@@ -1,7 +1,7 @@
 # Using AWS CodePipeline to deploy with AWS SAM
 
 To configure your [AWS CodePipeline](../../../codepipeline/latest/userguide/welcome.md "../../../codepipeline/latest/userguide/welcome.md") pipeline to automate the
-build and deployment of your AWS SAM application, your AWS CloudFormation template and
+build and deployment of your AWS SAM application, your CloudFormation template and
 `buildspec.yml` file must contain lines that do the following:
 
 1. Reference a build container image with the necessary runtime from the available images.
@@ -13,7 +13,7 @@ build and deployment of your AWS SAM application, your AWS CloudFormation templa
    This example assumes that you have declared all functions and layers in your AWS SAM template
    file with `runtime: nodejs20.x`.
 
-**AWS CloudFormation template snippet:**
+**CloudFormation template snippet:**
 
 ```
   CodeBuildProject:

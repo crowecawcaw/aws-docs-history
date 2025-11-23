@@ -33,7 +33,7 @@ _Type_: [SnsFilterPolicy](../../../AWSCloudFormation/latest/UserGuide/aws-resour
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `FilterPolicy` property of an `AWS::SNS::Subscription`
 resource.
 
@@ -50,7 +50,7 @@ _Required_: No
 
 _Default_: `MessageAttributes`
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `FilterPolicyScope` property of an `AWS::SNS::Subscription` resource.
+_CloudFormation compatibility_: This property is passed directly to the `FilterPolicyScope` property of an `AWS::SNS::Subscription` resource.
 
 `RedrivePolicy`
 
@@ -66,7 +66,7 @@ _Type_: Json
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `RedrivePolicy` property of an `AWS::SNS::Subscription`
 resource.
 
@@ -81,7 +81,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Region` property of an `AWS::SNS::Subscription`
 resource.
 
@@ -96,8 +96,8 @@ _Type_: Boolean | [SqsSubscriptionObject](sam-property-function-sqssubscriptiono
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `Topic`
 
@@ -107,7 +107,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `TopicArn` property of an `AWS::SNS::Subscription`
 resource.
 

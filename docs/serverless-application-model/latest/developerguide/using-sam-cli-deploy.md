@@ -103,7 +103,7 @@ Configuring SAM deploy
          package to an Amazon Simple Storage Service (Amazon S3) bucket. If necessary, the AWS SAM CLI will create a new bucket.
         * For applications with Lambda functions package as a container image, the AWS SAM CLI uploads the image to
          Amazon Elastic Container Registry (Amazon ECR). If necessary, the AWS SAM CLI will create a new repository.
-        * The AWS SAM CLI creates an AWS CloudFormation change set and deploys your application to AWS CloudFormation as a stack.
+        * The AWS SAM CLI creates an AWS CloudFormation change set and deploys your application to CloudFormation as a stack.
         * The AWS SAM CLI modifies your deployed AWS SAM template with the new `CodeUri` value for your Lambda
          functions.
 
@@ -235,13 +235,13 @@ Successfully created/updated stack - sam-app-zip in us-west-2
 ```
 
 5. To view your deployed application, do the following:
-   1. Open the AWS CloudFormation console directly with the URL [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+   1. Open the CloudFormation console directly with the URL [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
    2. Select **Stacks**.
    3. Identify your stack by application name and select it.
 
 ### Verify changes before deployment
 
-You can configure the AWS SAM CLI to display your AWS CloudFormation change set and ask for confirmation before deploying.
+You can configure the AWS SAM CLI to display your CloudFormation change set and ask for confirmation before deploying.
 
 ###### To confirm changes before deployment
 

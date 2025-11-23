@@ -1,19 +1,19 @@
-# AWS CloudFormation resources generated
+# CloudFormation resources generated
 
 when AWS::Serverless::HttpApi is specified
 
 When an `AWS::Serverless::HttpApi` is specified, AWS Serverless Application Model
-(AWS SAM) generates an `AWS::ApiGatewayV2::Api` base AWS CloudFormation resource.
+(AWS SAM) generates an `AWS::ApiGatewayV2::Api` base CloudFormation resource.
 
 **`AWS::ApiGatewayV2::Api`**
 
 _`LogicalId`:_ `<httpapi‑LogicalId>`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
-In addition to this AWS CloudFormation resource, when `AWS::Serverless::HttpApi` is
-specified, AWS SAM also generates AWS CloudFormation resources for the following scenarios:
+In addition to this CloudFormation resource, when `AWS::Serverless::HttpApi` is
+specified, AWS SAM also generates CloudFormation resources for the following scenarios:
 
 ###### Scenarios
 
@@ -29,7 +29,7 @@ specified, AWS SAM also generates AWS CloudFormation resources for the following
 property is specified
 
 When the `StageName` property of an `AWS::Serverless::HttpApi`
-is specified, AWS SAM generates the `AWS::ApiGatewayV2::Stage` AWS CloudFormation
+is specified, AWS SAM generates the `AWS::ApiGatewayV2::Stage` CloudFormation
 resource.
 
 **`AWS::ApiGatewayV2::Stage`**
@@ -50,7 +50,7 @@ property is _not_ specified
 
 When the `StageName` property of an `AWS::Serverless::HttpApi`
 is _not_ specified, AWS SAM generates the
-`AWS::ApiGatewayV2::Stage` AWS CloudFormation resource.
+`AWS::ApiGatewayV2::Stage` CloudFormation resource.
 
 **`AWS::ApiGatewayV2::Stage`**
 
@@ -64,7 +64,7 @@ property is specified
 
 When the `DomainName` property of the `Domain` property of an
 `AWS::Serverless::HttpApi` is specified, AWS SAM generates the
-`AWS::ApiGatewayV2::DomainName` AWS CloudFormation resource.
+`AWS::ApiGatewayV2::DomainName` CloudFormation resource.
 
 **`AWS::ApiGatewayV2::DomainName`**
 

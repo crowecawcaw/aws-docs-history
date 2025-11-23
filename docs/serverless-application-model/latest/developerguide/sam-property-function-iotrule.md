@@ -2,7 +2,7 @@
 
 The object describing an `IoTRule` event source type.
 
-Creates an [AWS::IoT::TopicRule](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.md") resource to declare an AWS IoT rule. For more information see [AWS CloudFormation documentation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.md")
+Creates an [AWS::IoT::TopicRule](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.md") resource to declare an AWS IoT rule. For more information see [CloudFormation documentation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.md")
 
 ## Syntax
 
@@ -26,7 +26,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `AwsIotSqlVersion` property of an `AWS::IoT::TopicRule TopicRulePayload` resource.
+_CloudFormation compatibility_: This property is passed directly to the `AwsIotSqlVersion` property of an `AWS::IoT::TopicRule TopicRulePayload` resource.
 
 `Sql`
 
@@ -36,7 +36,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Sql` property of an `AWS::IoT::TopicRule TopicRulePayload` resource.
+_CloudFormation compatibility_: This property is passed directly to the `Sql` property of an `AWS::IoT::TopicRule TopicRulePayload` resource.
 
 ## Examples
 

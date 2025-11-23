@@ -272,7 +272,7 @@ Some important files to highlight:
 - `build/HelloWorldFunction` – Contains your Lambda function code and dependencies. The
   AWS SAM CLI creates a directory for each function in your application.
 - `build/template.yaml` – Contains a copy of your AWS SAM template that is referenced by
-  AWS CloudFormation at deployment.
+  CloudFormation at deployment.
 - `build.toml` – Configuration file that stores default parameter values referenced by
   the AWS SAM CLI when building and deploying your application.
 
@@ -289,7 +289,7 @@ following:
 
 - Guide you through configuring your application settings for deployment.
 - Upload your application files to Amazon Simple Storage Service (Amazon S3).
-- Transform your AWS SAM template into an AWS CloudFormation template. It then uploads your template to the AWS CloudFormation service to
+- Transform your AWS SAM template into an CloudFormation template. It then uploads your template to the CloudFormation service to
   provision your AWS resources.
 
 ###### To deploy your application
@@ -302,11 +302,11 @@ following:
 
 2.  Follow the AWS SAM CLI interactive flow to configure your application settings. Configure the following:
 
-        1. The **AWS CloudFormation stack name** – A stack is a collection of AWS resources
+        1. The **CloudFormation stack name** – A stack is a collection of AWS resources
          that you can manage as a single unit. To learn more, see [Working with stacks](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md") in the
          *AWS CloudFormation User Guide*.
-        2. The **AWS Region** to deploy your AWS CloudFormation stack to. For more information, see
-         [AWS CloudFormation
+        2. The **AWS Region** to deploy your CloudFormation stack to. For more information, see
+         [CloudFormation
          endpoints](../../../AWSCloudFormation/latest/UserGuide/using-cfn-endpoints.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-endpoints.md") in the *AWS CloudFormation User Guide*.
         3. For this tutorial, opt out of **confirming changes before deploy**.
         4. Allow **IAM role creation** – This lets AWS SAM create the IAM role
@@ -351,8 +351,8 @@ Configuring SAM deploy
 3.  The AWS SAM CLI deploys your application by doing the following:
 
         * The AWS SAM CLI creates an Amazon S3 bucket and uploads your `.aws-sam` directory.
-        * The AWS SAM CLI transforms your AWS SAM template into AWS CloudFormation and uploads it to the AWS CloudFormation service.
-        * AWS CloudFormation provisions your resources.
+        * The AWS SAM CLI transforms your AWS SAM template into CloudFormation and uploads it to the CloudFormation service.
+        * CloudFormation provisions your resources.
 
     During deployment, the AWS SAM CLI displays your progress. The following is an example output:
 
@@ -765,7 +765,7 @@ AWS Cloud.
 `$` `sam delete`
 ```
 
-2. The AWS SAM CLI will ask you to confirm. Then, it will delete your application’s Amazon S3 bucket and AWS CloudFormation stack.
+2. The AWS SAM CLI will ask you to confirm. Then, it will delete your application’s Amazon S3 bucket and CloudFormation stack.
    The following is an example output:
 
 ```

@@ -61,8 +61,8 @@ Includes X-Ray traces in the log output.
 
 `--name, -n `TEXT``
 
-The name of the resource for which to fetch logs. If this resource is part of an AWS CloudFormation stack,
-this can be the logical ID of the function resource in the AWS CloudFormation/AWS SAM template. Multiple names
+The name of the resource for which to fetch logs. If this resource is part of an CloudFormation stack,
+this can be the logical ID of the function resource in the CloudFormation/AWS SAM template. Multiple names
 can be provided by repeating the parameter again. If resource is in a nested stack, the name can be prepended
 by the name of the nested stack name to pull logs from that resource (NestedStackLogicalId/ResourceLogicalId).
 If the resource name isn't given, the given stack will be scanned and log information will be pulled for all supported resources.
@@ -95,7 +95,7 @@ Save the parameters that you provide at the command line to the AWS SAM configur
 
 `--stack-name `TEXT``
 
-The name of the AWS CloudFormation stack that the resource is a part of.
+The name of the CloudFormation stack that the resource is a part of.
 
 `--start-time, -s `TEXT``
 
@@ -110,7 +110,7 @@ continues to fetch logs as they become available.
 
 ## Examples
 
-When your functions are a part of an AWS CloudFormation stack, you can fetch logs by using the function's logical ID when you specify the stack name.
+When your functions are a part of an CloudFormation stack, you can fetch logs by using the function's logical ID when you specify the stack name.
 
 ```
 `$` `sam logs -n `HelloWorldFunction` --stack-name `myStack``

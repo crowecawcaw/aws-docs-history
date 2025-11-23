@@ -26,7 +26,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Name` property of an `AWS::AppSync::FunctionConfiguration
  AppSyncRuntime` object.
 
@@ -39,6 +39,6 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `RuntimeVersion` property of an
 `AWS::AppSync::FunctionConfiguration AppSyncRuntime` object.

@@ -5,7 +5,7 @@ This page provides reference information for the AWS Serverless Application Mode
 
 For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli "what-is-sam-overview.md#what-is-sam-cli")
 
-The `sam list stack-outputs` subcommand displays the outputs of your AWS CloudFormation stack from an AWS Serverless Application Model (AWS SAM) or AWS CloudFormation template. For more information on
+The `sam list stack-outputs` subcommand displays the outputs of your AWS CloudFormation stack from an AWS Serverless Application Model (AWS SAM) or CloudFormation template. For more information on
 `Outputs`, see [Outputs](../../../AWSCloudFormation/latest/UserGuide/outputs-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/outputs-section-structure.md")
 in the _AWS CloudFormation User Guide_.
 
@@ -63,14 +63,14 @@ Save the parameters that you provide at the command line to the AWS SAM configur
 
 `--stack-name `TEXT``
 
-Name of the deployed AWS CloudFormation stack. The stack name can be found in your application's
+Name of the deployed CloudFormation stack. The stack name can be found in your application's
 `samconfig.toml` file or designated configuration file.
 
 This option is required.
 
 ## Examples
 
-Displays the outputs, in table format, of resources in your AWS CloudFormation stack named `test-stack`.
+Displays the outputs, in table format, of resources in your CloudFormation stack named `test-stack`.
 
 ```
 `$` `sam list stack-outputs --stack-name test-stack --output table`

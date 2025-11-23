@@ -36,7 +36,7 @@ _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `BatchSize` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `Cluster`
@@ -47,7 +47,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `EventSourceArn` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `CollectionName`
@@ -59,7 +59,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `CollectionName` property of an `AWS::Lambda::EventSourceMapping`
 `DocumentDBEventSourceConfig` data type.
 
@@ -71,7 +71,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `DatabaseName` property of an `AWS::Lambda::EventSourceMapping`
 `DocumentDBEventSourceConfig`data type.
 
@@ -84,7 +84,7 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Enabled` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `FilterCriteria`
@@ -96,7 +96,7 @@ _Type_: [FilterCriteria](../../../AWSCloudFormation/latest/UserGuide/aws-propert
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `FilterCriteria` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `FullDocument`
@@ -109,7 +109,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `FullDocument` property of an `AWS::Lambda::EventSourceMapping`
 `DocumentDBEventSourceConfig` data type.
 
@@ -121,7 +121,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `KmsKeyArn`
 property of an `AWS::Lambda::EventSourceMapping` resource.
 
@@ -133,7 +133,7 @@ _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `MaximumBatchingWindowInSeconds` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `SecretsManagerKmsKeyId`
@@ -148,7 +148,7 @@ _Type_: String
 
 _Required_: Conditional
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn’t have an AWS CloudFormation
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn’t have an CloudFormation
 equivalent.
 
 `SourceAccessConfigurations`
@@ -166,7 +166,7 @@ _Type_: List
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `SourceAccessConfigurations` property of an `AWS::Lambda::EventSourceMapping`
 resource.
 
@@ -182,7 +182,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `StartingPosition` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `StartingPositionTimestamp`
@@ -194,7 +194,7 @@ _Type_: Double
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `StartingPositionTimestamp` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 ## Examples

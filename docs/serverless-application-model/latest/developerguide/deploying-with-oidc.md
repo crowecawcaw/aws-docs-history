@@ -35,7 +35,7 @@ selected platform. These details vary by platform and can include:
 
 AWS SAM generates an `AWS::IAM::OIDCProvider` AWS CloudFormation resource with the
 provided configuration that assumes the pipeline execution role. To learn more about this
-AWS CloudFormation resource type, see [AWS::IAM::OIDCProvider](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.md") in the _AWS CloudFormation User Guide_.
+CloudFormation resource type, see [AWS::IAM::OIDCProvider](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.md") in the _AWS CloudFormation User Guide_.
 
 ###### Note
 

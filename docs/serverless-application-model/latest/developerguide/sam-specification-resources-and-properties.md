@@ -1,8 +1,8 @@
 # AWS SAM resources and properties
 
 This section desribes the resource and property types that are specific to AWS SAM.
-You define these resources and properties using the AWS SAM shorthand syntax. AWS SAM also supports AWS CloudFormation resource and property types.
-For reference information for all the AWS resource and property types AWS CloudFormation and AWS SAM
+You define these resources and properties using the AWS SAM shorthand syntax. AWS SAM also supports CloudFormation resource and property types.
+For reference information for all the AWS resource and property types CloudFormation and AWS SAM
 support, see [AWS resource
 and property types reference](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") in the _AWS CloudFormation User Guide_.
 

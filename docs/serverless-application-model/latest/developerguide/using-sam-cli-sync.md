@@ -65,7 +65,7 @@ watch = true
    type of change, the following may occur:
    1. If your updated resource supports AWS service APIs, the AWS SAM CLI will use it to deploy your changes.
       This results in a quick sync to update your resource in the AWS Cloud.
-   2. If your updated resource doesn’t support AWS service APIs, the AWS SAM CLI will perform an AWS CloudFormation deployment.
+   2. If your updated resource doesn’t support AWS service APIs, the AWS SAM CLI will perform an CloudFormation deployment.
       This updates your entire application in the AWS Cloud. While not as quick, it does prevent you from having to
       manually initiate a deployment.
 
@@ -114,7 +114,7 @@ Workshop_.
 The following are some of the main options you can use to modify the `sam sync` command. For a list
 of all options, see [sam sync](sam-cli-command-reference-sam-sync.md "sam-cli-command-reference-sam-sync.md").
 
-### Perform a one-time AWS CloudFormation deployment
+### Perform a one-time CloudFormation deployment
 
 Use the `--no-watch` option to turn off automatic syncing. The following is an example:
 
@@ -122,24 +122,24 @@ Use the `--no-watch` option to turn off automatic syncing. The following is an e
 `$` `sam sync --no-watch`
 ```
 
-The AWS SAM CLI will perform a one-time AWS CloudFormation deployment. This command groups together the actions performed by the
+The AWS SAM CLI will perform a one-time CloudFormation deployment. This command groups together the actions performed by the
 `sam build` and `sam deploy` commands.
 
-### Skip the initial AWS CloudFormation deployment
+### Skip the initial CloudFormation deployment
 
-You can customize whether an AWS CloudFormation deployment is required each time `sam sync` is run.
+You can customize whether an CloudFormation deployment is required each time `sam sync` is run.
 
-- Provide `--no-skip-deploy-sync` to require an AWS CloudFormation deployment each time
-  `sam sync` is run. This ensures that your local infrastructure is synced to AWS CloudFormation, preventing drift.
+- Provide `--no-skip-deploy-sync` to require an CloudFormation deployment each time
+  `sam sync` is run. This ensures that your local infrastructure is synced to CloudFormation, preventing drift.
   Using this option does add additional time to your development and testing workflow.
-- Provide `--skip-deploy-sync` to make AWS CloudFormation deployment optional. The AWS SAM CLI will compare
-  your local AWS SAM template with your deployed AWS CloudFormation template and will skip the initial AWS CloudFormation deployment if a change
-  isn't detected. Skipping AWS CloudFormation deployment can save you time when syncing local changes to the AWS Cloud.
+- Provide `--skip-deploy-sync` to make CloudFormation deployment optional. The AWS SAM CLI will compare
+  your local AWS SAM template with your deployed CloudFormation template and will skip the initial CloudFormation deployment if a change
+  isn't detected. Skipping CloudFormation deployment can save you time when syncing local changes to the AWS Cloud.
 
-If no change is detected, the AWS SAM CLI will still perform an AWS CloudFormation deployment in the following scenarios:
+If no change is detected, the AWS SAM CLI will still perform an CloudFormation deployment in the following scenarios:
 
-    + If its been 7 days or more since your last AWS CloudFormation deployment.
-    + If a large number of Lambda function code changes are detected, making AWS CloudFormation deployment the quickest method
+    + If its been 7 days or more since your last CloudFormation deployment.
+    + If a large number of Lambda function code changes are detected, making CloudFormation deployment the quickest method
      to update your application.
 
 The following is an example:
@@ -165,9 +165,9 @@ The following is an example:
 
 For more information about creating nested applications, see [Reuse code and resources using nested applications in AWS SAM](serverless-sam-template-nested-applications.md "serverless-sam-template-nested-applications.md").
 
-### Specify a specific AWS CloudFormation stack to update
+### Specify a specific CloudFormation stack to update
 
-To specify a specific AWS CloudFormation stack to update, provide the `--stack-name` option. The following
+To specify a specific CloudFormation stack to update, provide the `--stack-name` option. The following
 is an example:
 
 ```
@@ -356,7 +356,7 @@ Resources:
 ```
 
 Since the Amazon API Gateway resource doesn’t support the AWS service API, the AWS SAM CLI automatically performs an
-AWS CloudFormation deployment. The following is an example output:
+CloudFormation deployment. The following is an example output:
 
 ```
 Queued infra sync. Waiting for in progress code syncs to complete...

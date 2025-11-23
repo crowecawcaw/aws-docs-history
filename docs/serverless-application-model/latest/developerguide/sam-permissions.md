@@ -6,7 +6,7 @@ users, roles, and policies to accomplish your interaction in a secure manner.
 
 The topics in this section are all related to setting up access to the resources defined in your template. This section starts with general best practices.
 The next two topics review two options you have for setting up access and permissions between the resources referenced in your serverless application:
-AWS SAM connectors and AWS SAM policy templates. The last topic provides details for managing user access using the same mechanics AWS CloudFormation uses for managing users.
+AWS SAM connectors and AWS SAM policy templates. The last topic provides details for managing user access using the same mechanics CloudFormation uses for managing users.
 
 To learn more, see
 [Controlling access with AWS Identity and Access Management](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md "../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md") in the
@@ -36,8 +36,8 @@ machines and the resources they interact with. To learn more about AWS SAM polic
 
 ## AWS CloudFormation mechanisms
 
-AWS CloudFormation mechanisms include the configuring of IAM users, roles, and policies to manage
-permissions between your AWS resources. To learn more, see [Managing AWS SAM permissions with AWS CloudFormation mechanisms](sam-permissions-cloudformation.md "sam-permissions-cloudformation.md").
+CloudFormation mechanisms include the configuring of IAM users, roles, and policies to manage
+permissions between your AWS resources. To learn more, see [Managing AWS SAM permissions with CloudFormation mechanisms](sam-permissions-cloudformation.md "sam-permissions-cloudformation.md").
 
 ## Best practices
 
@@ -60,4 +60,4 @@ to consider when choosing the best option for you:
   support all CRUD operations. When supported, and when an AWS SAM policy template for your
   scenario is available, use AWS SAM policy templates. For a list of available policy
   templates, see [AWS SAM policy templates](serverless-policy-templates.md "serverless-policy-templates.md").
-- For all other scenarios, or when granularity is required, use AWS CloudFormation mechanisms.
+- For all other scenarios, or when granularity is required, use CloudFormation mechanisms.

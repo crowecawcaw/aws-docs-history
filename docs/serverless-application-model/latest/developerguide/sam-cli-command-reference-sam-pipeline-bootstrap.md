@@ -23,7 +23,7 @@ This subcommand sets up the following AWS infrastructure resources:
   - Supported CI/CD platforms through OIDC. For an introduction on using OIDC with AWS SAM
     pipeline, go to [How to use OIDC authentication with AWS SAM pipelines](deploying-with-oidc.md "deploying-with-oidc.md").
 
-- An AWS CloudFormation execution IAM role assumed by AWS CloudFormation to deploy the AWS SAM application.
+- An CloudFormation execution IAM role assumed by CloudFormation to deploy the AWS SAM application.
 - An Amazon S3 bucket to hold the AWS SAM artifacts.
 - Optionally, an Amazon ECR image repository to hold container image Lambda deployment packages
   (if you have a resource that is of package type `Image`).
@@ -56,7 +56,7 @@ The CI/CD platform for the AWS SAM pipeline.
 
 `--cloudformation-execution-role `TEXT``
 
-The ARN of the IAM role to be assumed by AWS CloudFormation while deploying the application's
+The ARN of the IAM role to be assumed by CloudFormation while deploying the application's
 stack. Provide only if you want to use your own role. Otherwise, the command will create
 a new role.
 

@@ -558,7 +558,7 @@ Putting record to Kinesis data stream KinesisStream
 
 **Invoke a Lambda function by providing the logical ID as a resource ID:**
 
-You must also provide the AWS CloudFormation stack name using the `--stack-name` option. The following is an example:
+You must also provide the CloudFormation stack name using the `--stack-name` option. The following is an example:
 
 ```
 `$` `sam remote invoke `HelloWorldFunction` --stack-name `sam-app``
@@ -573,7 +573,7 @@ example:
 
 **Invoke a Lambda function by providing the physical ID as a resource ID:**
 
-The physical ID gets created when you deploy using AWS CloudFormation.
+The physical ID gets created when you deploy using CloudFormation.
 
 ```
 `$` `sam remote invoke `sam-app-HelloWorldFunction-TZvxQRFNv0k4``

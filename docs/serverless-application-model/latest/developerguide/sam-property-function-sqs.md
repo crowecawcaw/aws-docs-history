@@ -21,6 +21,7 @@ syntax.
   KmsKeyArn: `String`
   MaximumBatchingWindowInSeconds: `Integer`
   MetricsConfig: `MetricsConfig`
+  ProvisionedPollerConfig: `ProvisionedPollerConfig`
   Queue: `String`
   ScalingConfig: `ScalingConfig`
 
@@ -38,7 +39,7 @@ _Required_: No
 
 _Default_: 10
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `BatchSize` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
@@ -54,7 +55,7 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Enabled` property of an `AWS::Lambda::EventSourceMapping`
 resource.
 
@@ -68,7 +69,7 @@ _Type_: [FilterCriteria](../../../AWSCloudFormation/latest/UserGuide/aws-propert
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `FilterCriteria` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
@@ -84,7 +85,7 @@ _Type_: List
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `FunctionResponseTypes` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
@@ -96,7 +97,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `KmsKeyArn`
 property of an `AWS::Lambda::EventSourceMapping` resource.
 
@@ -109,7 +110,7 @@ _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `MaximumBatchingWindowInSeconds` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
@@ -122,8 +123,22 @@ _Type_: [MetricsConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properti
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `MetricsConfig` property of an
+`AWS::Lambda::EventSourceMapping` resource.
+
+`ProvisionedPollerConfig`
+
+Configuration to increase the amount of pollers used to compute event source mappings.
+This configuration allows for a minimum of 2 pollers and a maximum of 2000 pollers. For an example,
+refer to [ProvisionedPollerConfig example](#sam-property-function-sqs-example-provisionedpollerconfig "#sam-property-function-sqs-example-provisionedpollerconfig").
+
+_Type_: [ProvisionedPollerConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.md")
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is passed directly to the
+`ProvisionedPollerConfig` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
 `Queue`
@@ -134,7 +149,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `EventSourceArn` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
@@ -147,7 +162,7 @@ _Type_: `ScalingConfig`
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `ScalingConfig` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
@@ -222,4 +237,25 @@ MyFunction:
           ...
           ScalingConfig:
             MaximumConcurrency: 10
+```
+
+### ProvisionedPollerConfig example
+
+```
+MyFunction:
+  Type: AWS::Serverless::Function
+  Properties:
+    Handler: index.handler
+    Runtime: nodejs18.x
+    Timeout: 30
+    Events:
+      SQSEvent:
+        Type: SQS
+        Properties:
+          Queue: !GetAtt MyQueue.Arn
+          BatchSize: 10
+          Enabled: True
+          ProvisionedPollerConfig:
+            MaximumPollers: 300
+            MinimumPollers: 10
 ```

@@ -14,17 +14,17 @@ Key benefits of using AWS SAM CLI for local testing include:
 
 For information about testing applications defined using AWS SAM templates, see [Testing and debugging serverless applications](serverless-test-and-debug.md "serverless-test-and-debug.md") in this guide.
 
-## Test AWS CloudFormation templates locally
+## Test CloudFormation templates locally
 
-To use the AWS SAM CLI's local testing capabilities with AWS CloudFormation, add the AWS SAM transform to your AWS CloudFormation template. For more information, see [AWS SAM template anatomy](sam-specification-template-anatomy.md "sam-specification-template-anatomy.md") for:
+To use the AWS SAM CLI's local testing capabilities with CloudFormation, add the AWS SAM transform to your CloudFormation template. For more information, see [AWS SAM template anatomy](sam-specification-template-anatomy.md "sam-specification-template-anatomy.md") for:
 
-- Adding AWS SAM transform to AWS CloudFormation templates
+- Adding AWS SAM transform to CloudFormation templates
 - Understanding template compatibility
 - Exploring serverless resource syntax
 
 ## Test AWS CDK applications locally
 
-You can use the AWS SAM CLI to test AWS CDK applications locally after you synthesize the AWS CDK application to AWS CloudFormation templates using the cdk synth command.
+You can use the AWS SAM CLI to test AWS CDK applications locally after you synthesize the AWS CDK application to CloudFormation templates using the cdk synth command.
 
 For more information, look at [Locally test and build AWS CDK applications with the AWS SAM CLI](../../../cdk/v2/guide/testing-locally.md "../../../cdk/v2/guide/testing-locally.md") in the AWS CDK developer guide. This includes:
 

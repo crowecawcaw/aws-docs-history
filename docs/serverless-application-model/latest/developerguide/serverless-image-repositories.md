@@ -51,6 +51,7 @@ an earlier version of the AWS SAM CLI, we recommend that you upgrade.
 | .NET 8                  | [public.ecr.aws/sam/build-dotnet8](https://gallery.ecr.aws/sam/build-dotnet8 "https://gallery.ecr.aws/sam/build-dotnet8")                         |
 | .NET 7                  | [public.ecr.aws/sam/build-dotnet7](https://gallery.ecr.aws/sam/build-dotnet7 "https://gallery.ecr.aws/sam/build-dotnet7")                         |
 | .NET 6                  | [public.ecr.aws/sam/build-dotnet6](https://gallery.ecr.aws/sam/build-dotnet6 "https://gallery.ecr.aws/sam/build-dotnet6")                         |
+| Node.js 24              | [public.ecr.aws/sam/build-nodejs24.x](https://gallery.ecr.aws/sam/build-nodejs24.x "https://gallery.ecr.aws/sam/build-nodejs24.x")                |
 | Node.js 22              | [public.ecr.aws/sam/build-nodejs22.x](https://gallery.ecr.aws/sam/build-nodejs22.x "https://gallery.ecr.aws/sam/build-nodejs22.x")                |
 | Node.js 20              | [public.ecr.aws/sam/build-nodejs20.x](https://gallery.ecr.aws/sam/build-nodejs20.x "https://gallery.ecr.aws/sam/build-nodejs20.x")                |
 | Node.js 18              | [public.ecr.aws/sam/build-nodejs18.x](https://gallery.ecr.aws/sam/build-nodejs18.x "https://gallery.ecr.aws/sam/build-nodejs18.x")                |
@@ -71,14 +72,14 @@ an earlier version of the AWS SAM CLI, we recommend that you upgrade.
 The following two example commands build applications using container images from the
 image repository:
 
-**Build a Node.js 22 application using a container image pulled from Amazon ECR**:
+**Build a Node.js 24 application using a container image pulled from Amazon ECR**:
 
 ```
-`$` `sam build --use-container --build-image `public.ecr.aws/sam/build-nodejs22.x``
+`$` `sam build --use-container --build-image `public.ecr.aws/sam/build-nodejs24.x``
 ```
 
-**Build a function resource using the Python 3.13 container image pulled from Amazon ECR**:
+**Build a function resource using the Python 3.14 container image pulled from Amazon ECR**:
 
 ```
-`$` `sam build --use-container --build-image `Function1=public.ecr.aws/sam/build-python3.13``
+`$` `sam build --use-container --build-image `Function1=public.ecr.aws/sam/build-python3.14``
 ```

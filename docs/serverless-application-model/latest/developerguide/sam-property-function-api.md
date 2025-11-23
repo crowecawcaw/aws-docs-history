@@ -41,8 +41,8 @@ _Type_: [ApiFunctionAuth](sam-property-function-apifunctionauth.md "sam-property
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `Method`
 
@@ -54,8 +54,8 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `Path`
 
@@ -65,8 +65,8 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `RequestModel`
 
@@ -77,8 +77,8 @@ _Type_: [RequestModel](sam-property-function-requestmodel.md "sam-property-funct
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `RequestParameters`
 
@@ -94,8 +94,8 @@ _Type_: List of [ String | [RequestParameter](sam-property-function-requestparam
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `RestApiId`
 
@@ -113,8 +113,8 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `TimeoutInMillis`
 
@@ -131,7 +131,7 @@ _Required_: No
 
 _Default_: 29,000 milliseconds or 29 seconds
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation
 equivalent.
 
 ## Examples

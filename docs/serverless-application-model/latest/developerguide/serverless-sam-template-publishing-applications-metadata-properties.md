@@ -7,7 +7,7 @@ specify application information that you want published to the AWS Serverless Ap
 
 ###### Note
 
-AWS CloudFormation [intrinsic
+CloudFormation [intrinsic
 functions](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.md") aren't supported by the
 `AWS::ServerlessRepo::Application` metadata key.
 

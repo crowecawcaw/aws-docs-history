@@ -34,7 +34,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `AuthType` property of an `AWS::Lambda::Url`
 resource.
 
@@ -46,7 +46,7 @@ _Type_: [Cors](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Cors` property of an `AWS::Lambda::Url` resource.
 
 `InvokeMode`

@@ -3,14 +3,14 @@
 Creates a DynamoDB table with a single attribute primary key. It is useful when data only
 needs to be accessed via a primary key.
 
-For more advanced features, use an [AWS::DynamoDB::Table](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md") resource in AWS CloudFormation. These resouces can be used in AWS SAM. They are comprehensive and provide further customization, including
+For more advanced features, use an [AWS::DynamoDB::Table](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md") resource in CloudFormation. These resouces can be used in AWS SAM. They are comprehensive and provide further customization, including
 [key schema](../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-keyschema.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-keyschema.md") and
 [resource policy](../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.md") customization.
 
 ###### Note
 
-When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into AWS CloudFormation resources.
-For more information, see [Generated AWS CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources.
+For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
 
 ## Syntax
 
@@ -41,7 +41,7 @@ _Type_: [PointInTimeRecoverySpecification](../../../AWSCloudFormation/latest/Use
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `PointInTimeRecoverySpecification` property of an `AWS::DynamoDB::Table` resource.
+_CloudFormation compatibility_: This property is passed directly to the `PointInTimeRecoverySpecification` property of an `AWS::DynamoDB::Table` resource.
 
 `PrimaryKey`
 
@@ -57,8 +57,8 @@ _Type_: [PrimaryKeyObject](sam-property-simpletable-primarykeyobject.md "sam-pro
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `ProvisionedThroughput`
 
@@ -71,7 +71,7 @@ _Type_: [ProvisionedThroughputObject](sam-property-simpletable-provisionedthroug
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `ProvisionedThroughput` property of an
 `AWS::DynamoDB::Table` resource.
 
@@ -83,7 +83,7 @@ _Type_: [SSESpecification](../../../AWSCloudFormation/latest/UserGuide/aws-prope
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `SSESpecification` property of an `AWS::DynamoDB::Table`
 resource.
 
@@ -95,7 +95,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `TableName` property of an `AWS::DynamoDB::Table`
 resource.
 
@@ -109,7 +109,7 @@ _Type_: Map
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `Tags` property of an `AWS::DynamoDB::Table` resource. The
 Tags property in SAM consists of Key:Value pairs; in CloudFormation it consists of a
 list of Tag objects.

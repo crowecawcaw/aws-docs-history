@@ -25,7 +25,7 @@ Show this message and exit.
 
 `endpoints`
 
-Displays a list of cloud and local endpoints from your AWS CloudFormation stack. For more information, see
+Displays a list of cloud and local endpoints from your CloudFormation stack. For more information, see
 [sam list endpoints](sam-cli-command-reference-sam-list-endpoints.md "sam-cli-command-reference-sam-list-endpoints.md").
 
 `resources`
@@ -35,5 +35,5 @@ information, see [sam list resources](sam-cli-command-reference-sam-list-resourc
 
 `stack-outputs`
 
-Displays the outputs of your AWS CloudFormation stack from an AWS SAM or AWS CloudFormation template. For more information, see
+Displays the outputs of your CloudFormation stack from an AWS SAM or CloudFormation template. For more information, see
 [sam list stack-outputs](sam-cli-command-reference-sam-list-stack-outputs.md "sam-cli-command-reference-sam-list-stack-outputs.md").

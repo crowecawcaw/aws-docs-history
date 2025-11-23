@@ -27,7 +27,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `ApiKeyId` property of an `AWS::AppSync::ApiKey`
 resource.
 
@@ -39,7 +39,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Description` property of an `AWS::AppSync::ApiKey`
 resource.
 
@@ -52,7 +52,7 @@ _Type_: Double
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Expires` property of an `AWS::AppSync::ApiKey`
 resource.
 
@@ -64,6 +64,6 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `ApiKeyId` property of an `AWS::AppSync::ApiKey`
 resource.

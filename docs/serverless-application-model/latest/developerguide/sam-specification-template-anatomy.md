@@ -1,13 +1,13 @@
 # AWS SAM template anatomy
 
-An AWS SAM template file closely follows the format of an AWS CloudFormation template file, which is
+An AWS SAM template file closely follows the format of an CloudFormation template file, which is
 described in [Template anatomy](../../../AWSCloudFormation/latest/UserGuide/template-anatomy.md "../../../AWSCloudFormation/latest/UserGuide/template-anatomy.md") in the
 _AWS CloudFormation User Guide_. The primary differences between AWS SAM template
-files and AWS CloudFormation template files are the following:
+files and CloudFormation template files are the following:
 
 - **Transform declaration.** The declaration
   `Transform: AWS::Serverless-2016-10-31` is required for AWS SAM
-  template files. This declaration identifies an AWS CloudFormation template file as an AWS SAM
+  template files. This declaration identifies an CloudFormation template file as an AWS SAM
   template file. For more information about transforms, see [Transform](../../../AWSCloudFormation/latest/UserGuide/transform-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/transform-section-structure.md") in the
   _AWS CloudFormation User Guide_.
 - **Globals section.** The `Globals` section
@@ -18,11 +18,11 @@ files and AWS CloudFormation template files are the following:
   section. For more information about this section, see [Globals section of the AWS SAM
   template](sam-specification-template-anatomy-globals.md "sam-specification-template-anatomy-globals.md").
 - **Resources section.** In AWS SAM templates the
-  `Resources` section can contain a combination of AWS CloudFormation resources and
-  AWS SAM resources. For more information about AWS CloudFormation resources, see [AWS resource and
+  `Resources` section can contain a combination of CloudFormation resources and
+  AWS SAM resources. For more information about CloudFormation resources, see [AWS resource and
   property types reference](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") in the _AWS CloudFormation User Guide_.
   For more information about AWS SAM resources, see [AWS SAM resources and properties](sam-specification-resources-and-properties.md "sam-specification-resources-and-properties.md").
-  All other sections of an AWS SAM template file correspond to the AWS CloudFormation template file section
+  All other sections of an AWS SAM template file correspond to the CloudFormation template file section
   of the same name.
 
 ## YAML
@@ -95,7 +95,7 @@ simple tables. All the `AWS::Serverless::Function`,
 properties that are defined in the `Globals` section.
 
 This section is unique to AWS SAM. There isn't a corresponding section in
-AWS CloudFormation templates.
+CloudFormation templates.
 
 **[Description
 (optional)](../../../AWSCloudFormation/latest/UserGuide/template-description-structure.md "../../../AWSCloudFormation/latest/UserGuide/template-description-structure.md")**
@@ -103,7 +103,7 @@ AWS CloudFormation templates.
 A text string that describes the template.
 
 This section corresponds directly with the `Description`
-section of AWS CloudFormation templates.
+section of CloudFormation templates.
 
 **[Metadata
 (optional)](../../../AWSCloudFormation/latest/UserGuide/metadata-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/metadata-section-structure.md")**
@@ -111,7 +111,7 @@ section of AWS CloudFormation templates.
 Objects that provide additional information about the template.
 
 This section corresponds directly with the `Metadata` section
-of AWS CloudFormation templates.
+of CloudFormation templates.
 
 **[Parameters
 (optional)](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md")**
@@ -139,7 +139,7 @@ to a corresponding value by using the [`Fn::FindInMap`](../../../AWSCloudFormati
 `Resources` and `Outputs` sections.
 
 This section corresponds directly with the `Mappings` section
-of AWS CloudFormation templates.
+of CloudFormation templates.
 
 **[Conditions
 (optional)](../../../AWSCloudFormation/latest/UserGuide/conditions-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/conditions-section-structure.md")**
@@ -150,7 +150,7 @@ update. For example, you could conditionally create a resource that depends
 on whether the stack is for a production or test environment.
 
 This section corresponds directly with the `Conditions` section
-of AWS CloudFormation templates.
+of CloudFormation templates.
 
 **[Resources
 (required)](../../../AWSCloudFormation/latest/UserGuide/resources-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/resources-section-structure.md")**
@@ -160,9 +160,9 @@ instance or an Amazon Simple Storage Service (Amazon S3) bucket. You can refer t
 `Resources` and `Outputs` sections of the
 template.
 
-This section is similar to the `Resources` section of AWS CloudFormation
+This section is similar to the `Resources` section of CloudFormation
 templates. In AWS SAM templates, this section can contain AWS SAM resources in
-addition to AWS CloudFormation resources.
+addition to CloudFormation resources.
 
 **[Outputs
 (optional)](../../../AWSCloudFormation/latest/UserGuide/outputs-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/outputs-section-structure.md")**
@@ -173,7 +173,7 @@ the `aws cloudformation describe-stacks` AWS Command Line Interface (AWS CLI)
 command to view the name.
 
 This section corresponds directly with the `Outputs` section of
-AWS CloudFormation templates.
+CloudFormation templates.
 
 ## Next steps
 

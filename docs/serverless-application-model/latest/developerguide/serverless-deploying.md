@@ -1,7 +1,7 @@
 # Deploy your application and resources with AWS SAM
 
 Deploying your application provisions and configures your AWS resources in the AWS Cloud,
-making your application run in the cloud. AWS SAM uses [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md") as its underlying deployment mechanism.
+making your application run in the cloud. AWS SAM uses [CloudFormation](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md") as its underlying deployment mechanism.
 AWS SAM uses the build artifacts you create when running the **sam build** command as the standard inputs
 for deploying your serverless application.
 

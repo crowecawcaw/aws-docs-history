@@ -108,7 +108,7 @@ These revisions to the AWS SAM template do the following:
       + `PreTraffic`: Before traffic shifting starts,
        CodeDeploy invokes the pre-traffic hook Lambda function. This Lambda function must call
        back to CodeDeploy and indicate success or failure. If the function fails, it aborts and
-       reports a failure back to AWS CloudFormation. If the function succeeds, CodeDeploy proceeds to traffic
+       reports a failure back to CloudFormation. If the function succeeds, CodeDeploy proceeds to traffic
        shifting.
       + `PostTraffic`: After traffic shifting completes,
        CodeDeploy invokes the post-traffic hook Lambda function. This is similar to the pre-traffic

@@ -32,8 +32,8 @@ _Type_: [DynamoDb](sam-property-graphqlapi-datasource-dynamodb.md "sam-property-
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn’t have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn’t have an CloudFormation equivalent.
 
 `Lambda`
 
@@ -44,5 +44,5 @@ _Type_: [Lambda](sam-property-graphqlapi-datasource-lambda.md "sam-property-grap
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn’t have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn’t have an CloudFormation equivalent.

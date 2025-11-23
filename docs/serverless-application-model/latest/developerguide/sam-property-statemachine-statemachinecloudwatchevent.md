@@ -4,7 +4,7 @@ The object describing a `CloudWatchEvent` event source type.
 
 AWS Serverless Application Model (AWS SAM) generates an [AWS::Events::Rule](../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.md") resource when this event type is set.
 
-**Important Note**: [EventBridgeRule](sam-property-statemachine-statemachineeventbridgerule.md "sam-property-statemachine-statemachineeventbridgerule.md") is the preferred event source type to use, instead of `CloudWatchEvent`. `EventBridgeRule` and `CloudWatchEvent` use the same underlying service, API, and AWS CloudFormation resources. However, AWS SAM will add support for new features only to `EventBridgeRule`.
+**Important Note**: [EventBridgeRule](sam-property-statemachine-statemachineeventbridgerule.md "sam-property-statemachine-statemachineeventbridgerule.md") is the preferred event source type to use, instead of `CloudWatchEvent`. `EventBridgeRule` and `CloudWatchEvent` use the same underlying service, API, and CloudFormation resources. However, AWS SAM will add support for new features only to `EventBridgeRule`.
 
 ## Syntax
 
@@ -32,7 +32,7 @@ _Required_: No
 
 _Default_: Default event bus
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `EventBusName` property of an `AWS::Events::Rule` resource.
+_CloudFormation compatibility_: This property is passed directly to the `EventBusName` property of an `AWS::Events::Rule` resource.
 
 `Input`
 
@@ -42,7 +42,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Input` property of an `AWS::Events::Rule Target` resource.
+_CloudFormation compatibility_: This property is passed directly to the `Input` property of an `AWS::Events::Rule Target` resource.
 
 `InputPath`
 
@@ -52,7 +52,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `InputPath` property of an `AWS::Events::Rule Target` resource.
+_CloudFormation compatibility_: This property is passed directly to the `InputPath` property of an `AWS::Events::Rule Target` resource.
 
 `Pattern`
 
@@ -62,7 +62,7 @@ _Type_: [EventPattern](../../../AWSCloudFormation/latest/UserGuide/aws-resource-
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `EventPattern` property of an `AWS::Events::Rule` resource.
+_CloudFormation compatibility_: This property is passed directly to the `EventPattern` property of an `AWS::Events::Rule` resource.
 
 ## Examples
 

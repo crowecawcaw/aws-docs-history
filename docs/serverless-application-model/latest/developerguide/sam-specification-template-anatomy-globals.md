@@ -110,6 +110,7 @@ Globals:
     SnapStart:
     SourceKMSKeyArn:
     Tags:
+    TenancyConfig:
     Timeout:
     Tracing:
     VpcConfig:

@@ -27,7 +27,7 @@ _Type_: List
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `Headers`
 
@@ -37,7 +37,7 @@ _Type_: List
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `QueryStrings`
 
@@ -47,7 +47,7 @@ _Type_: List
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `ReauthorizeEvery`
 
@@ -59,7 +59,7 @@ _Required_: No
 
 _Default_: 300
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `StageVariables`
 
@@ -69,7 +69,7 @@ _Type_: List
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 ## Examples
 

@@ -50,7 +50,7 @@ _Required_: No
 
 _Default_: 100
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `BatchSize` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
@@ -66,7 +66,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `EventSourceArn` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
@@ -87,8 +87,8 @@ _Required_: No
 
 _Default_: `false`
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `Enabled`
 
@@ -99,7 +99,7 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Enabled` property of an `AWS::Lambda::EventSourceMapping`
 resource.
 
@@ -113,7 +113,7 @@ _Type_: [FilterCriteria](../../../AWSCloudFormation/latest/UserGuide/aws-propert
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `FilterCriteria` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
@@ -125,7 +125,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `KmsKeyArn`
 property of an `AWS::Lambda::EventSourceMapping` resource.
 
@@ -138,7 +138,7 @@ _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `MaximumBatchingWindowInSeconds` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
@@ -150,7 +150,7 @@ _Type_: List
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Queues` property of an `AWS::Lambda::EventSourceMapping`
 resource.
 
@@ -167,8 +167,8 @@ _Type_: String
 
 _Required_: Conditional
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `SourceAccessConfigurations`
 
@@ -192,7 +192,7 @@ _Type_: List
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `SourceAccessConfigurations` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 

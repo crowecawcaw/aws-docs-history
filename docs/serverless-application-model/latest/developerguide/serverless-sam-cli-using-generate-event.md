@@ -4,7 +4,7 @@ payloads with AWS SAM
 
 To test your Lambda functions, you can generate and customize sample event payloads that imitate the data
 your Lambda functions will receive when triggered by other AWS services. This includes services like API Gateway,
-AWS CloudFormation, Amazon S3, and more.
+CloudFormation, Amazon S3, and more.
 
 Generating sample event payloads helps you test the behavior of your Lambda function with a variety of different
 inputs without needing to work in a live environment. This approach also saves time when compared to manually

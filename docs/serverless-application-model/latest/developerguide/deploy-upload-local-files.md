@@ -209,7 +209,7 @@ Successfully created/updated stack - demo in us-west-2
 ```
 
 During deployment, the AWS SAM CLI automatically uploads our Lambda function code to Amazon S3 and
-updates our template. Our modified template in the AWS CloudFormation console reflects the Amazon S3 bucket
+updates our template. Our modified template in the CloudFormation console reflects the Amazon S3 bucket
 path.
 
 ```
@@ -227,14 +227,14 @@ Resources:
 
 ## Supported use cases
 
-The AWS SAM CLI can automatically facilitate this process for a number of file types, AWS CloudFormation
-resource types, and AWS CloudFormation macros.
+The AWS SAM CLI can automatically facilitate this process for a number of file types, CloudFormation
+resource types, and CloudFormation macros.
 
 ### File types
 
 Application files and Docker images are supported.
 
-### AWS CloudFormation resource types
+### CloudFormation resource types
 
 The following is a list of the supported resource types and their properties:
 
@@ -260,7 +260,7 @@ The following is a list of the supported resource types and their properties:
 | `AWS::Serverless::StateMachine`             | `DefinitionUri`                                                                               |
 | `AWS::StepFunctions::StateMachine`          | `DefinitionS3Location`                                                                        |
 
-### AWS CloudFormation macros
+### CloudFormation macros
 
 Files referenced using the `AWS::Include` transform macro are
 supported.

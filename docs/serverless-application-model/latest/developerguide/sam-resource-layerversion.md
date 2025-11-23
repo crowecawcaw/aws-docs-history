@@ -4,14 +4,14 @@ Creates a Lambda LayerVersion that contains library or runtime code needed by a 
 
 The AWS::Serverless::LayerVersion resource also supports the `Metadata` resource attribute, so you can instruct AWS SAM to build layers included in your application. For more information about building layers, see [Building Lambda layers in AWS SAM](building-layers.md "building-layers.md").
 
-**Important Note**: Since the release of the [UpdateReplacePolicy](../../../AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.md "../../../AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.md") resource attribute in AWS CloudFormation, [AWS::Lambda::LayerVersion](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.md") (recommended) offers the same benefits as AWS::Serverless::LayerVersion.
+**Important Note**: Since the release of the [UpdateReplacePolicy](../../../AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.md "../../../AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.md") resource attribute in CloudFormation, [AWS::Lambda::LayerVersion](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.md") (recommended) offers the same benefits as AWS::Serverless::LayerVersion.
 
 When a Serverless LayerVersion is transformed, SAM also transforms the logical id of the resource so that old LayerVersions are not automatically deleted by CloudFormation when the resource is updated.
 
 ###### Note
 
-When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into AWS CloudFormation resources. For more information,
-see [Generated AWS CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources. For more information,
+see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
 
 ## Syntax
 
@@ -49,7 +49,7 @@ _Required_: No
 
 _Default_: `x86_64`
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `CompatibleArchitectures` property of an `AWS::Lambda::LayerVersion` resource.
+_CloudFormation compatibility_: This property is passed directly to the `CompatibleArchitectures` property of an `AWS::Lambda::LayerVersion` resource.
 
 `CompatibleRuntimes`
 
@@ -59,7 +59,7 @@ _Type_: List
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `CompatibleRuntimes` property of an `AWS::Lambda::LayerVersion` resource.
+_CloudFormation compatibility_: This property is passed directly to the `CompatibleRuntimes` property of an `AWS::Lambda::LayerVersion` resource.
 
 `ContentUri`
 
@@ -73,7 +73,7 @@ _Type_: String | [LayerContent](sam-property-layerversion-layercontent.md "sam-p
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is similar to the `Content` property of an `AWS::Lambda::LayerVersion` resource. The nested Amazon S3 properties are named differently.
+_CloudFormation compatibility_: This property is similar to the `Content` property of an `AWS::Lambda::LayerVersion` resource. The nested Amazon S3 properties are named differently.
 
 `Description`
 
@@ -83,7 +83,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Description` property of an `AWS::Lambda::LayerVersion` resource.
+_CloudFormation compatibility_: This property is passed directly to the `Description` property of an `AWS::Lambda::LayerVersion` resource.
 
 `LayerName`
 
@@ -95,7 +95,7 @@ _Required_: No
 
 _Default_: Resource logical id
 
-_AWS CloudFormation compatibility_: This property is similar to the `LayerName` property of an `AWS::Lambda::LayerVersion` resource. If you don't specify a name, the logical id of the resource will be used as the name.
+_CloudFormation compatibility_: This property is similar to the `LayerName` property of an `AWS::Lambda::LayerVersion` resource. If you don't specify a name, the logical id of the resource will be used as the name.
 
 `LicenseInfo`
 
@@ -105,7 +105,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `LicenseInfo` property of an `AWS::Lambda::LayerVersion` resource.
+_CloudFormation compatibility_: This property is passed directly to the `LicenseInfo` property of an `AWS::Lambda::LayerVersion` resource.
 
 `PublishLambdaVersion`
 
@@ -116,7 +116,7 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `RetentionPolicy`
 
@@ -131,7 +131,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 _Additional notes_: When you specify `Retain`, AWS SAM adds a [Resource attributes supported by AWS SAM](sam-specification-resource-attributes.md "sam-specification-resource-attributes.md") of `DeletionPolicy: Retain` to the transformed `AWS::Lambda::LayerVersion` resource.
 

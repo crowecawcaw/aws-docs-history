@@ -16,12 +16,16 @@ To declare this entity in your AWS SAM template, use the following syntax.
 
 ```
   BatchSize: `Integer`
+  BisectBatchOnFunctionError: `Boolean`
   ConsumerGroupId: `String`
   DestinationConfig: `DestinationConfig`
   Enabled: `Boolean`
   FilterCriteria: `FilterCriteria`
+  FunctionResponseTypes: `List`
   KmsKeyArn: `String`
   MaximumBatchingWindowInSeconds: `Integer`
+  MaximumRecordAgeInSeconds: `Integer`
+  MaximumRetryAttempts: `Integer`
   ProvisionedPollerConfig: `ProvisionedPollerConfig`
   SchemaRegistryConfig: `SchemaRegistryConfig`
   SourceAccessConfigurations: `SourceAccessConfigurations`
@@ -46,9 +50,19 @@ _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `BatchSize` property of an
 `AWS::Lambda::EventSourceMapping` resource.
+
+`BisectBatchOnFunctionError`
+
+If the function returns an error, split the batch in two and retry.
+
+_Type_: Boolean
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is passed directly to the `BisectBatchOnFunctionError` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `ConsumerGroupId`
 
@@ -58,7 +72,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `AmazonManagedKafkaConfiguration` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
@@ -72,7 +86,7 @@ _Type_: [DestinationConfig](../../../AWSCloudFormation/latest/UserGuide/aws-reso
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `DestinationConfig` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `Enabled`
@@ -83,7 +97,7 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Enabled` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
@@ -97,9 +111,21 @@ _Type_: [FilterCriteria](../../../AWSCloudFormation/latest/UserGuide/aws-propert
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `FilterCriteria` property of an
 `AWS::Lambda::EventSourceMapping` resource.
+
+`FunctionResponseTypes`
+
+A list of the response types currently applied to the event source mapping. For more information, see [Reporting batch item failures](../../../lambda/latest/dg/kafka-retry-configurations.md "../../../lambda/latest/dg/kafka-retry-configurations.md") in the _AWS Lambda Developer Guide_.
+
+_Valid values_: `ReportBatchItemFailures`
+
+_Type_: List
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is passed directly to the `FunctionResponseTypes` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `KmsKeyArn`
 
@@ -109,7 +135,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `KmsKeyArn`
 property of an `AWS::Lambda::EventSourceMapping` resource.
 
@@ -122,21 +148,41 @@ _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `MaximumBatchingWindowInSeconds` property of an
 `AWS::Lambda::EventSourceMapping` resource.
+
+`MaximumRecordAgeInSeconds`
+
+The maximum age of a record that Lambda sends to a function for processing.
+
+_Type_: Integer
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is passed directly to the `MaximumRecordAgeInSeconds` property of an `AWS::Lambda::EventSourceMapping` resource.
+
+`MaximumRetryAttempts`
+
+The maximum number of times to retry when the function returns an error.
+
+_Type_: Integer
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is passed directly to the `MaximumRetryAttempts` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `ProvisionedPollerConfig`
 
 Configuration to increase the amount of pollers used to compute event source mappings.
-This configuration allows for a minimum of 1 poller and a maximum of 20 pollers. For an example,
+This configuration allows for a minimum of 1 poller and a maximum of 2000 pollers. For an example,
 refer to [ProvisionedPollerConfig example](#sam-property-function-msk-example-provisionedpollerconfig "#sam-property-function-msk-example-provisionedpollerconfig").
 
-_Type_: [ProvisionedPollerConfig](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.md")
+_Type_: [ProvisionedPollerConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.md")
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `ProvisionedPollerConfig` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
@@ -152,7 +198,7 @@ _Type_: SchemaRegistryConfig
 
 _Required_: No
 
-_AWS CloudFormation compatibility:_ This property is passed directly to the
+_CloudFormation compatibility:_ This property is passed directly to the
 `AmazonManagedKafkaEventSourceConfig`
 property of an `AWS::Lambda::EventSourceMapping` resource.
 
@@ -168,7 +214,7 @@ _Type_: List of [SourceAccessConfiguration](../../../AWSCloudFormation/latest/Us
 
 _Required_: No
 
-_AWS CloudFormation compatibility:_ This propertyrty is part of the
+_CloudFormation compatibility:_ This propertyrty is part of the
 [AmazonManagedKafkaEventSourceConfig](../../../AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventsourcemapping-amazonmanagedkafkaeventsourceconfig.md "../../../AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventsourcemapping-amazonmanagedkafkaeventsourceconfig.md")
 property of an `AWS::Lambda::EventSourceMapping` resource.
 
@@ -188,7 +234,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `StartingPosition` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
@@ -202,7 +248,7 @@ _Type_: Double
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `StartingPositionTimestamp` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
@@ -214,7 +260,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `EventSourceArn` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
@@ -226,7 +272,7 @@ _Type_: List
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Topics` property of an `AWS::Lambda::EventSourceMapping`
 resource.
 
@@ -348,7 +394,7 @@ Resources:
 ```
 ProvisionedPollerConfig:
   MinimumPollers: 1
-  MaximumPollers: 20
+  MaximumPollers: 200
 ```
 
 ### Amazon MSK Example for Existing Cluster

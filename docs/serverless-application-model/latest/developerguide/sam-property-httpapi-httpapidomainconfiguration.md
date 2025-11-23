@@ -32,7 +32,7 @@ _Required_: No
 
 _Default_: /
 
-_AWS CloudFormation compatibility_: This property is similar to the `ApiMappingKey` property of an `AWS::ApiGatewayV2::ApiMapping` resource. AWS SAM creates multiple `AWS::ApiGatewayV2::ApiMapping` resources, one per value specified in this property.
+_CloudFormation compatibility_: This property is similar to the `ApiMappingKey` property of an `AWS::ApiGatewayV2::ApiMapping` resource. AWS SAM creates multiple `AWS::ApiGatewayV2::ApiMapping` resources, one per value specified in this property.
 
 `CertificateArn`
 
@@ -42,24 +42,24 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `CertificateArn` property of an `AWS::ApiGateway2::DomainName DomainNameConfiguration` resource.
+_CloudFormation compatibility_: This property is passed directly to the `CertificateArn` property of an `AWS::ApiGateway2::DomainName DomainNameConfiguration` resource.
 
 `DomainName`
 
 The custom domain name for your API Gateway API. Uppercase letters are not supported.
 
 AWS SAM generates an `AWS::ApiGatewayV2::DomainName` resource when this property is set. For information about this scenario, see [DomainName
-property is specified](sam-specification-generated-resources-httpapi.md#sam-specification-generated-resources-httpapi-domain-name "sam-specification-generated-resources-httpapi.md#sam-specification-generated-resources-httpapi-domain-name"). For information about generated AWS CloudFormation resources, see [Generated AWS CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+property is specified](sam-specification-generated-resources-httpapi.md#sam-specification-generated-resources-httpapi-domain-name "sam-specification-generated-resources-httpapi.md#sam-specification-generated-resources-httpapi-domain-name"). For information about generated CloudFormation resources, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
 
 _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `DomainName` property of an `AWS::ApiGateway2::DomainName` resource.
+_CloudFormation compatibility_: This property is passed directly to the `DomainName` property of an `AWS::ApiGateway2::DomainName` resource.
 
 `EndpointConfiguration`
 
-Defines the type of API Gateway endpoint to map to the custom domain. The value of this property determines how the `CertificateArn` property is mapped in AWS CloudFormation.
+Defines the type of API Gateway endpoint to map to the custom domain. The value of this property determines how the `CertificateArn` property is mapped in CloudFormation.
 
 The only valid value for HTTP APIs is `REGIONAL`.
 
@@ -69,7 +69,7 @@ _Required_: No
 
 _Default_: `REGIONAL`
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `MutualTlsAuthentication`
 
@@ -79,7 +79,7 @@ _Type_: [MutualTlsAuthentication](../../../AWSCloudFormation/latest/UserGuide/aw
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `MutualTlsAuthentication` property of an `AWS::ApiGatewayV2::DomainName` resource.
+_CloudFormation compatibility_: This property is passed directly to the `MutualTlsAuthentication` property of an `AWS::ApiGatewayV2::DomainName` resource.
 
 `OwnershipVerificationCertificateArn`
 
@@ -89,7 +89,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `OwnershipVerificationCertificateArn` property of the `AWS::ApiGatewayV2::DomainName` `DomainNameConfiguration` data type.
+_CloudFormation compatibility_: This property is passed directly to the `OwnershipVerificationCertificateArn` property of the `AWS::ApiGatewayV2::DomainName` `DomainNameConfiguration` data type.
 
 `Route53`
 
@@ -99,7 +99,7 @@ _Type_: [Route53Configuration](sam-property-httpapi-route53configuration.md "sam
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `SecurityPolicy`
 
@@ -111,7 +111,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `SecurityPolicy` property of the `AWS::ApiGatewayV2::DomainName` `DomainNameConfiguration` data type.
+_CloudFormation compatibility_: This property is passed directly to the `SecurityPolicy` property of the `AWS::ApiGatewayV2::DomainName` `DomainNameConfiguration` data type.
 
 ## Examples
 

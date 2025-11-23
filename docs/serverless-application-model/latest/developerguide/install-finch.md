@@ -253,7 +253,7 @@ If you encounter issues with Finch:
 - Verify that you have enabled virtualization on your system.
 - For macOS, verify that you have sufficient disk space for the virtual machine.
 - For Linux, verify that you have proper permissions to run `systemctl` commands.
-- If you encounter AWS CloudFormation deployment failures with "media type not supported" errors when you push multi-architecture images to Amazon Elastic Container Registry (Amazon ECR), create a single image artifact instead of using multi-architecture images. This occurs because Finch pushes both the image index and image to Amazon ECR, while Docker pushes only the image.
+- If you encounter CloudFormation deployment failures with "media type not supported" errors when you push multi-architecture images to Amazon Elastic Container Registry (Amazon ECR), create a single image artifact instead of using multi-architecture images. This occurs because Finch pushes both the image index and image to Amazon ECR, while Docker pushes only the image.
 - If cross-platform building fails when the target function architecture doesn't match the host machine architecture on Linux, enable cross-platform emulation by running `sudo finch run --privileged --rm tonistiigi/binfmt:master --install all`.
 
 For additional troubleshooting, see the [Finch documentation](https://runfinch.com/docs/ "https://runfinch.com/docs/")

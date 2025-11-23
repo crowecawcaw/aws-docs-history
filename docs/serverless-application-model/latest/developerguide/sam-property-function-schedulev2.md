@@ -58,7 +58,7 @@ _Type_: [DeadLetterConfig](sam-property-function-scheduledeadletterconfig.md "sa
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `DeadLetterConfig` property of the
 `AWS::Scheduler::Schedule`
 `Target` data type. The AWS SAM version of this property includes additional
@@ -72,7 +72,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Description` property of an `AWS::Scheduler::Schedule`
 resource.
 
@@ -86,7 +86,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `EndDate` property of an `AWS::Scheduler::Schedule`
 resource.
 
@@ -98,7 +98,7 @@ _Type_: [FlexibleTimeWindow](../../../AWSCloudFormation/latest/UserGuide/aws-res
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `FlexibleTimeWindow` property of an
 `AWS::Scheduler::Schedule` resource.
 
@@ -111,7 +111,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `GroupName` property of an `AWS::Scheduler::Schedule`
 resource.
 
@@ -124,7 +124,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Input` property of an `AWS::Scheduler::Schedule Target`
 resource.
 
@@ -136,7 +136,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `KmsKeyArn` property of an `AWS::Scheduler::Schedule`
 resource.
 
@@ -151,7 +151,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Name` property of an `AWS::Scheduler::Schedule`
 resource.
 
@@ -159,7 +159,7 @@ resource.
 
 By default, AWS SAM generates and uses a schedule name in the format of
 `<Function-logical-ID><event-source-name>`. Set this property to `true`
-to have AWS CloudFormation generate a unique physical ID and use that for the schedule name instead.
+to have CloudFormation generate a unique physical ID and use that for the schedule name instead.
 
 _Type_: Boolean
 
@@ -167,7 +167,7 @@ _Required_: No
 
 _Default_: `false`
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation
 equivalent.
 
 `PermissionsBoundary`
@@ -183,7 +183,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `PermissionsBoundary` property of an `AWS::IAM::Role`
 resource.
 
@@ -196,7 +196,7 @@ _Type_: [RetryPolicy](../../../AWSCloudFormation/latest/UserGuide/aws-properties
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `RetryPolicy` property of the `AWS::Scheduler::Schedule`
 `Target` data type.
 
@@ -209,7 +209,7 @@ _Type_: [RoleArn](../../../AWSCloudFormation/latest/UserGuide/aws-properties-sch
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `RoleArn` property of the `AWS::Scheduler::Schedule`
 `Target` data type.
 
@@ -222,7 +222,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `ScheduleExpression` property of an
 `AWS::Scheduler::Schedule` resource.
 
@@ -234,7 +234,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `ScheduleExpressionTimezone` property of an
 `AWS::Scheduler::Schedule` resource.
 
@@ -248,7 +248,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `StartDate` property of an `AWS::Scheduler::Schedule`
 resource.
 
@@ -263,7 +263,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `State` property of an `AWS::Scheduler::Schedule`
 resource.
 

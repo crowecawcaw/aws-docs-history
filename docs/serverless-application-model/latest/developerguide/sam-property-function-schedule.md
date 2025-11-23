@@ -59,7 +59,7 @@ _Type_: [DeadLetterConfig](sam-property-function-scheduledeadletterconfig.md "sa
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `DeadLetterConfig` property of the `AWS::Events::Rule`
 `Target` data type. The AWS SAM version of this property includes additional
 subproperties, in case you want AWS SAM to create the dead-letter queue for you.
@@ -72,7 +72,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Description` property of an `AWS::Events::Rule`
 resource.
 
@@ -91,7 +91,7 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `State` property of an `AWS::Events::Rule` resource. If
 this property is set to `true` then AWS SAM passes `ENABLED`,
 otherwise it passes `DISABLED`.
@@ -105,20 +105,20 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Input` property of an `AWS::Events::Rule Target`
 resource.
 
 `Name`
 
-The name of the rule. If you don't specify a name, AWS CloudFormation generates a unique physical
+The name of the rule. If you don't specify a name, CloudFormation generates a unique physical
 ID and uses that ID for the rule name.
 
 _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Name` property of an `AWS::Events::Rule` resource.
 
 `RetryPolicy`
@@ -131,7 +131,7 @@ _Type_: [RetryPolicy](../../../AWSCloudFormation/latest/UserGuide/aws-properties
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `RetryPolicy` property of the `AWS::Events::Rule`
 `Target` data type.
 
@@ -144,7 +144,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `ScheduleExpression` property of an `AWS::Events::Rule`
 resource.
 
@@ -164,7 +164,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `State` property of an `AWS::Events::Rule` resource.
 
 ## Examples

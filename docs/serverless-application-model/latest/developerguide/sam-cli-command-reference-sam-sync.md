@@ -81,7 +81,7 @@ _Default_: `--no-build-in-source`
 
 `--capabilities `LIST``
 
-A list of capabilities that you specify to allow AWS CloudFormation to create certain stacks. Some stack templates might
+A list of capabilities that you specify to allow CloudFormation to create certain stacks. Some stack templates might
 include resources that can affect permissions in your AWS account. For example, by creating new AWS Identity and Access Management (IAM)
 users. Specify this option to override the default values. Valid values include the following:
 
@@ -109,7 +109,7 @@ include the following:
 - `AWS::StepFunctions::StateMachine`
 
 To sync code resources, AWS SAM uses AWS service APIs directly, instead of deploying through AWS CloudFormation. To
-update your AWS CloudFormation stack, run **sam sync --watch** or **sam deploy**.
+update your CloudFormation stack, run **sam sync --watch** or **sam deploy**.
 
 `--config-env `TEXT``
 
@@ -157,7 +157,7 @@ A map of metadata to attach to all artifacts that you reference in your template
 
 `--notification-arns `LIST``
 
-A list of Amazon Simple Notification Service (Amazon SNS) topic ARNs that AWS CloudFormation associates with the stack.
+A list of Amazon Simple Notification Service (Amazon SNS) topic ARNs that CloudFormation associates with the stack.
 
 `--no-use-container`
 
@@ -165,7 +165,7 @@ An option that allows you to use the IDE toolkit to set default behavior.
 
 `--parameter-overrides`
 
-A string that contains AWS CloudFormation parameter overrides encoded as key-value pairs. Use
+A string that contains CloudFormation parameter overrides encoded as key-value pairs. Use
 the same format as the AWS Command Line Interface (AWS CLI). The AWS SAM CLI format is explicit key and value keywords, each override is separated by a space. Here are two examples:
 
 - `--parameter-overrides ParameterKey=hello,ParameterValue=world`
@@ -186,11 +186,11 @@ option is supported with the `--code` option. For example,
 
 `--role-arn `TEXT``
 
-The Amazon Resource Name (ARN) of an IAM role that AWS CloudFormation assumes when applying the changeset.
+The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes when applying the changeset.
 
 ``--s3-bucket `TEXT```
 
-The name of the Amazon Simple Storage Service (Amazon S3) bucket where this command uploads your AWS CloudFormation template. If your template is
+The name of the Amazon Simple Storage Service (Amazon S3) bucket where this command uploads your CloudFormation template. If your template is
 larger than 51,200 bytes, then either the `--s3-bucket` or the `--resolve-s3` option is
 required. If you specify both the `--s3-bucket` and `--resolve-s3` options, then an
 error occurs.
@@ -208,25 +208,25 @@ Saves the parameters that you provide at the command line to the AWS SAM configu
 `--skip-deploy-sync | --no-skip-deploy-sync`
 
 Specifies `--skip-deploy-sync` to skip the initial infrastructure sync if it isn't required. The
-AWS SAM CLI will compare your local AWS SAM template with the deployed AWS CloudFormation template and perform a deployment only if a
+AWS SAM CLI will compare your local AWS SAM template with the deployed CloudFormation template and perform a deployment only if a
 change is detected.
 
-Specifies `--no-skip-deploy-sync` to perform an AWS CloudFormation deployment every time `sam sync` is
+Specifies `--no-skip-deploy-sync` to perform an CloudFormation deployment every time `sam sync` is
 run.
 
-To learn more, see [Skip the initial AWS CloudFormation deployment](using-sam-cli-sync.md#using-sam-cli-sync-options-skip-deploy-sync "using-sam-cli-sync.md#using-sam-cli-sync-options-skip-deploy-sync").
+To learn more, see [Skip the initial CloudFormation deployment](using-sam-cli-sync.md#using-sam-cli-sync-options-skip-deploy-sync "using-sam-cli-sync.md#using-sam-cli-sync-options-skip-deploy-sync").
 
 _Default_: `--skip-deploy-sync`
 
 `--stack-name `TEXT``
 
-The name of the AWS CloudFormation stack for your application.
+The name of the CloudFormation stack for your application.
 
 This option is required.
 
 `--tags `LIST``
 
-A list of tags to associate with the stack that is created or updated. AWS CloudFormation also propagates these tags to
+A list of tags to associate with the stack that is created or updated. CloudFormation also propagates these tags to
 resources in the stack that support it.
 
 `--template-file, --template, -t `PATH``
@@ -253,8 +253,8 @@ Currently, this option is not compatible with `--dependency-layer`. If you use
 
 Starts a process that watches your local application for changes and automatically syncs them to the AWS Cloud.
 By default, when you specify this option, AWS SAM syncs all resources in your application as you update them. With this
-option, AWS SAM performs an initial AWS CloudFormation deployment. Then, AWS SAM uses AWS service APIs to update code resources.
-AWS SAM uses AWS CloudFormation to update infrastructure resources when you update your AWS SAM template.
+option, AWS SAM performs an initial CloudFormation deployment. Then, AWS SAM uses AWS service APIs to update code resources.
+AWS SAM uses CloudFormation to update infrastructure resources when you update your AWS SAM template.
 
 `--watch-exclude `TEXT``
 

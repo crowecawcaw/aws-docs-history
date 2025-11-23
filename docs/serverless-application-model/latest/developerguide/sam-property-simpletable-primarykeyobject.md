@@ -24,7 +24,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `AttributeName` property of the `AWS::DynamoDB::Table` `AttributeDefinition` data type.
+_CloudFormation compatibility_: This property is passed directly to the `AttributeName` property of the `AWS::DynamoDB::Table` `AttributeDefinition` data type.
 
 _Additional notes_: This property is also passed to the [AttributeName](../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.md#aws-properties-dynamodb-keyschema-attributename "../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.md#aws-properties-dynamodb-keyschema-attributename") property of an `AWS::DynamoDB::Table KeySchema` data type.
 
@@ -38,7 +38,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `AttributeType` property of the `AWS::DynamoDB::Table` `AttributeDefinition` data type.
+_CloudFormation compatibility_: This property is passed directly to the `AttributeType` property of the `AWS::DynamoDB::Table` `AttributeDefinition` data type.
 
 ## Examples
 

@@ -1,4 +1,4 @@
-# AWS CloudFormation resources generated when
+# CloudFormation resources generated when
 
 you specify AWS::Serverless::Connector
 
@@ -14,21 +14,21 @@ AWS SAM generates the following AWS CloudFormation resources as needed.
 
 _`LogicalId`:_``<connector‑LogicalId>`Policy`
 
-_Referenceable property:_ N/A (To reference this AWS CloudFormation resource, you
+_Referenceable property:_ N/A (To reference this CloudFormation resource, you
 must use the `LogicalId`.)
 
 **`AWS::SNS::TopicPolicy`**
 
 _`LogicalId`:_``<connector‑LogicalId>`TopicPolicy`
 
-_Referenceable property:_ N/A (To reference this AWS CloudFormation resource, you
+_Referenceable property:_ N/A (To reference this CloudFormation resource, you
 must use the `LogicalId`.)
 
 **`AWS::SQS::QueuePolicy`**
 
 _`LogicalId`:_``<connector‑LogicalId>`QueuePolicy`
 
-_Referenceable property:_ N/A (To reference this AWS CloudFormation resource, you
+_Referenceable property:_ N/A (To reference this CloudFormation resource, you
 must use the `LogicalId`.)
 
 **`AWS::Lambda::Permission`**
@@ -37,5 +37,5 @@ _`LogicalId`:_`<connector‑LogicalId>`<permission>`LambdaPermission`
 
 `<permission>` is a permission specified by the `Permissions` property. For example, `Write`.
 
-_Referenceable property:_ N/A (To reference this AWS CloudFormation resource, you
+_Referenceable property:_ N/A (To reference this CloudFormation resource, you
 must use the `LogicalId`.)

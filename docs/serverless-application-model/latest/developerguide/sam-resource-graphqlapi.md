@@ -41,8 +41,8 @@ _Type_: [ApiKeys](sam-property-graphqlapi-apikeys.md "sam-property-graphqlapi-ap
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn’t have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn’t have an CloudFormation equivalent.
 
 `Auth`
 
@@ -52,8 +52,8 @@ _Type_: [Auth](sam-property-graphqlapi-auth.md "sam-property-graphqlapi-auth.md"
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn’t have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn’t have an CloudFormation equivalent.
 
 `Cache`
 
@@ -63,7 +63,7 @@ _Type_: [AWS::AppSync::ApiCache](../../../AWSCloudFormation/latest/UserGuide/aws
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 [AWS::AppSync::ApiCache](../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.md") resource.
 
 `DataSources`
@@ -75,8 +75,8 @@ _Type_: [DataSource](sam-property-graphqlapi-datasource.md "sam-property-graphql
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn’t have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn’t have an CloudFormation equivalent.
 
 `DomainName`
 
@@ -86,7 +86,7 @@ _Type_: [AWS::AppSync::DomainName](../../../AWSCloudFormation/latest/UserGuide/a
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 [AWS::AppSync::DomainName](../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.md") resource. AWS SAM automatically generates the [AWS::AppSync::DomainNameApiAssociation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.md") resource.
 
 `Functions`
@@ -98,8 +98,8 @@ _Type_: [Function](sam-property-graphqlapi-function.md "sam-property-graphqlapi-
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn’t have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn’t have an CloudFormation equivalent.
 
 `Logging`
 
@@ -121,7 +121,7 @@ _Type_: [LogConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-a
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `LogConfig` property of an `AWS::AppSync::GraphQLApi`
 resource.
 
@@ -133,7 +133,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Name` property of an `AWS::AppSync::GraphQLApi`
 resource.
 
@@ -146,7 +146,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Name` property of an `AWS::AppSync::GraphQLApi`
 resource.
 
@@ -159,8 +159,8 @@ _Type_: [Resolver](sam-property-graphqlapi-resolver.md "sam-property-graphqlapi-
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn’t have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn’t have an CloudFormation equivalent.
 
 `SchemaInline`
 
@@ -172,7 +172,7 @@ _Type_: String
 _Required_: Conditional. You must specify
 `SchemaInline` or `SchemaUri`.
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Definition` property of an `AWS::AppSync::GraphQLSchema`
 resource.
 
@@ -180,7 +180,7 @@ resource.
 
 The schema’s Amazon Simple Storage Service (Amazon S3) bucket URI or path to a local folder.
 
-If you specify a path to a local folder, AWS CloudFormation requires that the file is first
+If you specify a path to a local folder, CloudFormation requires that the file is first
 uploaded to Amazon S3 before deployment. You can use the AWS SAM CLI to facilitate this
 process. For more information, see [How AWS SAM uploads local files at deployment](deploy-upload-local-files.md "deploy-upload-local-files.md").
 
@@ -189,7 +189,7 @@ _Type_: String
 _Required_: Conditional. You must specify
 `SchemaInline` or `SchemaUri`.
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `DefinitionS3Location` property of an
 `AWS::AppSync::GraphQLSchema` resource.
 
@@ -202,7 +202,7 @@ _Type_: List of [Tag](../../../AWSCloudFormation/latest/UserGuide/aws-properties
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Tag` property of an `AWS::AppSync::GraphQLApi`
 resource.
 
@@ -215,7 +215,7 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `XrayEnabled` property of an `AWS::AppSync::GraphQLApi`
 resource.
 
@@ -223,7 +223,7 @@ resource.
 
 For a list of return values, refer to
 [AWS::Serverless::GraphQLApi](../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.md#aws-resource-appsync-graphqlapi-return-values.html "../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.md#aws-resource-appsync-graphqlapi-return-values.html")
-in the [AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md").
+in the [CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md").
 
 ## Examples
 

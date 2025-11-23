@@ -7,8 +7,8 @@ For more information about Step Functions, see the [AWS Step Functions Developer
 
 ###### Note
 
-When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into AWS CloudFormation resources.
-For more information, see [Generated AWS CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources.
+For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
 
 ## Syntax
 
@@ -61,7 +61,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Name` property of an
+_CloudFormation compatibility_: This property is passed directly to the `Name` property of an
 `AWS::StepFunctions::StateMachineAlias` resource.
 
 `UseAliasAsEventTarget`
@@ -76,8 +76,8 @@ _Required_: No
 
 _Default_: `False`
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `Definition`
 
@@ -94,8 +94,8 @@ _Type_: Map
 
 _Required_: Conditional
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `DefinitionSubstitutions`
 
@@ -107,7 +107,7 @@ _Type_: Map
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `DefinitionSubstitutions` property of an
 `AWS::StepFunctions::StateMachine` resource. If any intrinsic functions are
 specified in an inline state machine definition, AWS SAM adds entries to this property to
@@ -130,7 +130,7 @@ _Type_: String | [S3Location](../../../AWSCloudFormation/latest/UserGuide/aws-re
 
 _Required_: Conditional
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `DefinitionS3Location` property of an
 `AWS::StepFunctions::StateMachine` resource.
 
@@ -152,7 +152,7 @@ _Type_: [DeploymentPreference](../../../AWSCloudFormation/latest/UserGuide/aws-p
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: AWS SAM generates and attaches the
+_CloudFormation compatibility_: AWS SAM generates and attaches the
 `StateMachineVersionArn` property value to
 `DeploymentPreference` and passes `DeploymentPreference` to the
 `DeploymentPreference` property of an
@@ -167,8 +167,8 @@ _Type_: [EventSource](sam-property-statemachine-statemachineeventsource.md "sam-
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `Logging`
 
@@ -178,7 +178,7 @@ _Type_: [LoggingConfiguration](../../../AWSCloudFormation/latest/UserGuide/aws-r
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `LoggingConfiguration` property of an
 `AWS::StepFunctions::StateMachine` resource.
 
@@ -190,7 +190,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `StateMachineName` property of an
 `AWS::StepFunctions::StateMachine` resource.
 
@@ -203,7 +203,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `PermissionsBoundary` property of an `AWS::IAM::Role`
 resource.
 
@@ -228,8 +228,8 @@ _Type_: String | List | Map
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `PropagateTags`
 
@@ -244,8 +244,8 @@ _Required_: No
 
 _Default_: `False`
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `Role`
 
@@ -255,7 +255,7 @@ _Type_: String
 
 _Required_: Conditional
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `RoleArn` property of an
 `AWS::StepFunctions::StateMachine` resource.
 
@@ -270,7 +270,7 @@ _Type_: String
 
 _Required_: Conditional
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Path` property of an `AWS::IAM::Role` resource.
 
 `Tags`
@@ -283,7 +283,7 @@ _Type_: Map
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `Tags` property of an `AWS::StepFunctions::StateMachine`
 resource. AWS SAM automatically adds a `stateMachine:createdBy:SAM` tag to this
 resource, and to the default role that is generated for it.
@@ -298,7 +298,7 @@ _Type_: [TracingConfiguration](../../../AWSCloudFormation/latest/UserGuide/aws-r
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `TracingConfiguration` property of an
 `AWS::StepFunctions::StateMachine` resource.
 
@@ -315,7 +315,7 @@ _Required_: No
 
 _Default_: `STANDARD`
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `StateMachineType` property of an
 `AWS::StepFunctions::StateMachine` resource.
 

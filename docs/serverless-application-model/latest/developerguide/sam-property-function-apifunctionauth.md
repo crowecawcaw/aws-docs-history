@@ -29,8 +29,8 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM
-and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM
+and doesn't have an CloudFormation equivalent.
 
 `AuthorizationScopes`
 
@@ -43,8 +43,8 @@ _Type_: List
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM
-and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM
+and doesn't have an CloudFormation equivalent.
 
 `Authorizer`
 
@@ -65,8 +65,8 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM
-and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM
+and doesn't have an CloudFormation equivalent.
 
 `InvokeRole`
 
@@ -79,8 +79,8 @@ _Required_: No
 
 _Default_: `CALLER_CREDENTIALS`
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM
-and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM
+and doesn't have an CloudFormation equivalent.
 
 _Additional notes_: `CALLER_CREDENTIALS`
 maps to `arn:aws:iam::`:<user>/``, which uses the caller
@@ -102,7 +102,7 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `ResourcePolicy`
 
@@ -112,8 +112,8 @@ _Type_: [ResourcePolicyStatement](sam-property-function-resourcepolicystatement.
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM
-and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM
+and doesn't have an CloudFormation equivalent.
 
 ## Examples
 

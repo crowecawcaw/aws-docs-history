@@ -25,7 +25,7 @@ _Type_: [EventInvokeDestinationConfiguration](sam-property-function-eventinvoked
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the `DestinationConfig` property of an `AWS::Lambda::EventInvokeConfig` resource. SAM requires an extra parameter, "Type", that does not exist in CloudFormation.
+_CloudFormation compatibility_: This property is similar to the `DestinationConfig` property of an `AWS::Lambda::EventInvokeConfig` resource. SAM requires an extra parameter, "Type", that does not exist in CloudFormation.
 
 `MaximumEventAgeInSeconds`
 
@@ -35,7 +35,7 @@ _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `MaximumEventAgeInSeconds` property of an `AWS::Lambda::EventInvokeConfig` resource.
+_CloudFormation compatibility_: This property is passed directly to the `MaximumEventAgeInSeconds` property of an `AWS::Lambda::EventInvokeConfig` resource.
 
 `MaximumRetryAttempts`
 
@@ -45,7 +45,7 @@ _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `MaximumRetryAttempts` property of an `AWS::Lambda::EventInvokeConfig` resource.
+_CloudFormation compatibility_: This property is passed directly to the `MaximumRetryAttempts` property of an `AWS::Lambda::EventInvokeConfig` resource.
 
 ## Examples
 

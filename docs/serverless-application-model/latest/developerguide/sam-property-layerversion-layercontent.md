@@ -25,7 +25,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `S3Bucket` property of the `AWS::Lambda::LayerVersion` `Content` data type.
+_CloudFormation compatibility_: This property is passed directly to the `S3Bucket` property of the `AWS::Lambda::LayerVersion` `Content` data type.
 
 `Key`
 
@@ -35,7 +35,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `S3Key` property of the `AWS::Lambda::LayerVersion` `Content` data type.
+_CloudFormation compatibility_: This property is passed directly to the `S3Key` property of the `AWS::Lambda::LayerVersion` `Content` data type.
 
 `Version`
 
@@ -45,7 +45,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `S3ObjectVersion` property of the `AWS::Lambda::LayerVersion` `Content` data type.
+_CloudFormation compatibility_: This property is passed directly to the `S3ObjectVersion` property of the `AWS::Lambda::LayerVersion` `Content` data type.
 
 ## Examples
 

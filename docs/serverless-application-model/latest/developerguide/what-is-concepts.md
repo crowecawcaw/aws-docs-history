@@ -36,4 +36,4 @@ services](https://serverlessland.com/learn/serverless-101 "https://serverlesslan
 **Serverless Application**
 
 When you use AWS SAM, you manage related resources in an application, which consists of your AWS SAM project and template. All the resources in your application are defined or referred to in your AWS SAM template.
-When AWS SAM processes your template, it creates AWS CloudFormation resources. In AWS CloudFormation, resources are managed in a single unit called a stack, and all the resources in a stack are defined by the stack's AWS CloudFormation template.
+When AWS SAM processes your template, it creates CloudFormation resources. In CloudFormation, resources are managed in a single unit called a stack, and all the resources in a stack are defined by the stack's CloudFormation template.

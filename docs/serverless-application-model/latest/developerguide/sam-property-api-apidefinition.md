@@ -25,7 +25,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Bucket` property of the `AWS::ApiGateway::RestApi` `S3Location` data type.
+_CloudFormation compatibility_: This property is passed directly to the `Bucket` property of the `AWS::ApiGateway::RestApi` `S3Location` data type.
 
 `Key`
 
@@ -35,7 +35,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Key` property of the `AWS::ApiGateway::RestApi` `S3Location` data type.
+_CloudFormation compatibility_: This property is passed directly to the `Key` property of the `AWS::ApiGateway::RestApi` `S3Location` data type.
 
 `Version`
 
@@ -45,7 +45,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Version` property of the `AWS::ApiGateway::RestApi` `S3Location` data type.
+_CloudFormation compatibility_: This property is passed directly to the `Version` property of the `AWS::ApiGateway::RestApi` `S3Location` data type.
 
 ## Examples
 

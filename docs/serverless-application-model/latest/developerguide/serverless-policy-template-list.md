@@ -246,7 +246,7 @@ Gives permission to rotate a secret in AWS Secrets Manager.
 
 ## CloudFormationDescribeStacksPolicy
 
-Gives permission to describe AWS CloudFormation stacks.
+Gives permission to describe CloudFormation stacks.
 
 ```
 "Statement": [

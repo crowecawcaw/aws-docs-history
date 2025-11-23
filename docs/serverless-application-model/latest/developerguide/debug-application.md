@@ -24,4 +24,4 @@ information, see [How layers are cached locally](serverless-sam-cli-layers.md#lo
 
 - [Locally debug functions with AWS SAM](serverless-sam-cli-using-debugging.md "serverless-sam-cli-using-debugging.md")
 - [Pass multiple runtime arguments when debugging with AWS SAM](serverless-sam-cli-using-debugging-additional-arguments.md "serverless-sam-cli-using-debugging-additional-arguments.md")
-- [Validate your AWS SAM applications with AWS CloudFormation Linter](validate-cfn-lint.md "validate-cfn-lint.md")
+- [Validate your AWS SAM applications with CloudFormation Linter](validate-cfn-lint.md "validate-cfn-lint.md")

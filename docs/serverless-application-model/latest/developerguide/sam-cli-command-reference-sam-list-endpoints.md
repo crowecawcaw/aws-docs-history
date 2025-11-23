@@ -5,7 +5,7 @@ This page provides reference information for the AWS Serverless Application Mode
 
 For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli "what-is-sam-overview.md#what-is-sam-cli")
 
-The `sam list endpoints` subcommand displays a list of cloud and local endpoints from your AWS CloudFormation stack. You can interact with these resources through
+The `sam list endpoints` subcommand displays a list of cloud and local endpoints from your CloudFormation stack. You can interact with these resources through
 the **sam local** and **sam sync** commands.
 
 AWS Lambda and Amazon API Gateway resource types are supported with this command.
@@ -69,7 +69,7 @@ Save the parameters that you provide at the command line to the AWS SAM configur
 
 `--stack-name `TEXT``
 
-Name of the deployed AWS CloudFormation stack. The stack name can be found in your application's
+Name of the deployed CloudFormation stack. The stack name can be found in your application's
 `samconfig.toml` file or designated configuration file.
 
 When this option is not specified, local resources defined in your template will display.
@@ -82,7 +82,7 @@ _Default value_: `template.[yaml|yml|json]`
 
 ## Examples
 
-Display an output, in json format, of deployed resource endpoints from your AWS CloudFormation stack named
+Display an output, in json format, of deployed resource endpoints from your CloudFormation stack named
 `test-stack`.
 
 ```

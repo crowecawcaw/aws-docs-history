@@ -42,7 +42,7 @@ _Required_: No
 
 _Default_: 100
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `BatchSize` property of an `AWS::Lambda::EventSourceMapping` resource.
+_CloudFormation compatibility_: This property is passed directly to the `BatchSize` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 _Minimum_: `1`
 
@@ -56,7 +56,7 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `BisectBatchOnFunctionError` property of an `AWS::Lambda::EventSourceMapping` resource.
+_CloudFormation compatibility_: This property is passed directly to the `BisectBatchOnFunctionError` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `DestinationConfig`
 
@@ -66,7 +66,7 @@ _Type_: [DestinationConfig](../../../AWSCloudFormation/latest/UserGuide/aws-reso
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `DestinationConfig` property of an `AWS::Lambda::EventSourceMapping` resource.
+_CloudFormation compatibility_: This property is passed directly to the `DestinationConfig` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `Enabled`
 
@@ -76,7 +76,7 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Enabled` property of an `AWS::Lambda::EventSourceMapping` resource.
+_CloudFormation compatibility_: This property is passed directly to the `Enabled` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `FilterCriteria`
 
@@ -86,7 +86,7 @@ _Type_: [FilterCriteria](../../../AWSCloudFormation/latest/UserGuide/aws-propert
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `FilterCriteria` property of an `AWS::Lambda::EventSourceMapping` resource.
+_CloudFormation compatibility_: This property is passed directly to the `FilterCriteria` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `FunctionResponseTypes`
 
@@ -98,7 +98,7 @@ _Type_: List
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `FunctionResponseTypes` property of an `AWS::Lambda::EventSourceMapping` resource.
+_CloudFormation compatibility_: This property is passed directly to the `FunctionResponseTypes` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `KmsKeyArn`
 
@@ -108,7 +108,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `KmsKeyArn`
 property of an `AWS::Lambda::EventSourceMapping` resource.
 
@@ -120,7 +120,7 @@ _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `MaximumBatchingWindowInSeconds` property of an `AWS::Lambda::EventSourceMapping` resource.
+_CloudFormation compatibility_: This property is passed directly to the `MaximumBatchingWindowInSeconds` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `MaximumRecordAgeInSeconds`
 
@@ -130,7 +130,7 @@ _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `MaximumRecordAgeInSeconds` property of an `AWS::Lambda::EventSourceMapping` resource.
+_CloudFormation compatibility_: This property is passed directly to the `MaximumRecordAgeInSeconds` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `MaximumRetryAttempts`
 
@@ -140,7 +140,7 @@ _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `MaximumRetryAttempts` property of an `AWS::Lambda::EventSourceMapping` resource.
+_CloudFormation compatibility_: This property is passed directly to the `MaximumRetryAttempts` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `MetricsConfig`
 
@@ -151,7 +151,7 @@ _Type_: [MetricsConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properti
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `MetricsConfig` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
@@ -163,7 +163,7 @@ _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `ParallelizationFactor` property of an `AWS::Lambda::EventSourceMapping` resource.
+_CloudFormation compatibility_: This property is passed directly to the `ParallelizationFactor` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `StartingPosition`
 
@@ -180,7 +180,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `StartingPosition` property of an `AWS::Lambda::EventSourceMapping` resource.
+_CloudFormation compatibility_: This property is passed directly to the `StartingPosition` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `StartingPositionTimestamp`
 
@@ -191,7 +191,7 @@ _Type_: Double
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `StartingPositionTimestamp`
 property of an `AWS::Lambda::EventSourceMapping` resource.
 
@@ -203,7 +203,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `EventSourceArn` property of an `AWS::Lambda::EventSourceMapping` resource.
+_CloudFormation compatibility_: This property is passed directly to the `EventSourceArn` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `TumblingWindowInSeconds`
 
@@ -215,7 +215,7 @@ _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `TumblingWindowInSeconds` property of an `AWS::Lambda::EventSourceMapping` resource.
+_CloudFormation compatibility_: This property is passed directly to the `TumblingWindowInSeconds` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 ## Examples
 

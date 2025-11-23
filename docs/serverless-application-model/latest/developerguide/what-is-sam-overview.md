@@ -19,25 +19,25 @@ We recommend you review [Serverless concepts for AWS Serverless Application Mode
 
 The AWS SAM template specification is an open-source framework that you can use to define and manage your serverless application infrastructure code. The AWS SAM template specification is:
 
-- **Built on AWS CloudFormation** – You use the AWS CloudFormation syntax directly in your AWS SAM template,
-  taking advantage of its extensive support of resource and property configurations. If you are already familiar with AWS CloudFormation,
+- **Built on AWS CloudFormation** – You use the CloudFormation syntax directly in your AWS SAM template,
+  taking advantage of its extensive support of resource and property configurations. If you are already familiar with CloudFormation,
   you don't have to learn a new service to manage your application infrastructure code.
-- **An extension of AWS CloudFormation** – AWS SAM offers its own
+- **An extension of CloudFormation** – AWS SAM offers its own
   unique syntax that focuses specifically on speeding up serverless development. You can use
-  both the AWS CloudFormation and AWS SAM syntax within the same template.
+  both the CloudFormation and AWS SAM syntax within the same template.
 - **An abstract, short-hand syntax** – Using the
   AWS SAM syntax, you can define your infrastructure quickly, in fewer lines of code, and with
   a lower chance of errors. Its syntax is especially curated to abstract away the complexity
   in defining your serverless application infrastructure.
 - **Transformational** – AWS SAM does the complex work
   of transforming your template into the code necessary to provision your infrastructure
-  through AWS CloudFormation.
+  through CloudFormation.
 
 ## What is the AWS SAM project and AWS SAM template?
 
 The AWS SAM project includes the AWS SAM template which contains the AWS SAM template specification. This specification is the open-source framework that you
 use to define your serverless application infrastructure on AWS,
-with some additional components that make them easier to work with. In this sense, AWS SAM templates are an extension of AWS CloudFormation templates.
+with some additional components that make them easier to work with. In this sense, AWS SAM templates are an extension of CloudFormation templates.
 
 Here’s an example of a basic serverless application. This application processes requests
 to get all items from a database through an HTTP request. It consists of the following
@@ -88,9 +88,9 @@ In 23 lines of code, the following infrastructure is defined:
 - The AWS Identity and Access Management (IAM) permissions necessary for these services to interact with one
   another.
 
-To provision this infrastructure, the template is deployed to AWS CloudFormation. During deployment,
-AWS SAM transforms the 23 lines of code into the AWS CloudFormation syntax required to generate these
-resources in AWS. The transformed AWS CloudFormation template contains over 200 lines of code!
+To provision this infrastructure, the template is deployed to CloudFormation. During deployment,
+AWS SAM transforms the 23 lines of code into the CloudFormation syntax required to generate these
+resources in AWS. The transformed CloudFormation template contains over 200 lines of code!
 
 ```
 {
@@ -306,7 +306,7 @@ resources in AWS. The transformed AWS CloudFormation template contains over 200 
 ```
 
 By using AWS SAM, you define 23 lines of infrastructure code. AWS SAM transforms your code
-into the 200+ lines of AWS CloudFormation code necessary to provision your application.
+into the 200+ lines of CloudFormation code necessary to provision your application.
 
 ## What is the AWS SAM CLI?
 
@@ -323,7 +323,7 @@ to:
 - Sync local changes to the cloud as you develop.
 - And more!
 
-The AWS SAM CLI is best utilized when used with AWS SAM and AWS CloudFormation templates. It also works
+The AWS SAM CLI is best utilized when used with AWS SAM and CloudFormation templates. It also works
 with third-party products such as Terraform.
 
 ### Initialize a new project
@@ -374,7 +374,7 @@ provision your resources.
 
 Here, we use the **sam deploy --guided** command to deploy our
 application through an interactive flow. The AWS SAM CLI guides us through configuring our
-application's deployment settings, transforms our template into AWS CloudFormation, and deploys to AWS CloudFormation
+application's deployment settings, transforms our template into CloudFormation, and deploys to CloudFormation
 to create our resources.
 
 ![Using the AWS SAM CLI sam deploy command to deploy an application to the AWS Cloud.](images/what-is-sam-03.gif)

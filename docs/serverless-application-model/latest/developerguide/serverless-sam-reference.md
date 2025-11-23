@@ -12,7 +12,7 @@ a simplified short-hand syntax you use to define the functions, events, APIs, co
 and permissions of your serverless application.
 
 You interact with AWS SAM specification through the AWS SAM application project directory, which are the folders and files that are created when you run the **sam init** command.
-This directory includes the AWS SAM template, an important file that defines your AWS resources. The AWS SAM template is an extension of a AWS CloudFormation template. For the full reference for AWS CloudFormation
+This directory includes the AWS SAM template, an important file that defines your AWS resources. The AWS SAM template is an extension of a AWS CloudFormation template. For the full reference for CloudFormation
 templates, see [Template reference](../../../AWSCloudFormation/latest/UserGuide/template-reference.md "../../../AWSCloudFormation/latest/UserGuide/template-reference.md")
 in the _AWS CloudFormation User Guide_.
 

@@ -43,7 +43,7 @@ Show the help message and exit.
 
 `--stack-name `TEXT``
 
-The name of the AWS CloudFormation stack associated with the Lambda function.
+The name of the CloudFormation stack associated with the Lambda function.
 
 This option is required if you are providing the Lambda function logical ID as an argument.
 

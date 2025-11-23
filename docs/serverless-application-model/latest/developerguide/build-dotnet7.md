@@ -127,7 +127,7 @@ HelloWorldFunction:
 ###### Note
 
 When the `Event` property of an `AWS::Serverless::Function` is set to `Api`,
-but the `RestApiId` property is not specified, AWS SAM generates the `AWS::ApiGateway::RestApi` AWS CloudFormation resource.
+but the `RestApiId` property is not specified, AWS SAM generates the `AWS::ApiGateway::RestApi` CloudFormation resource.
 
 ## Build your application with the AWS SAM CLI
 

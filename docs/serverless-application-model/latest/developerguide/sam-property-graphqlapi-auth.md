@@ -28,7 +28,7 @@ _Type_: List of [AuthProvider](sam-property-graphqlapi-auth-authprovider.md "sam
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation
 equivalent.
 
 `LambdaAuthorizer`
@@ -40,7 +40,7 @@ _Type_: [LambdaAuthorizerConfig](../../../AWSCloudFormation/latest/UserGuide/aws
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `LambdaAuthorizerConfig` property of an `AWS::AppSync::GraphQLApi` resource.
+_CloudFormation compatibility_: This property is passed directly to the `LambdaAuthorizerConfig` property of an `AWS::AppSync::GraphQLApi` resource.
 
 `OpenIDConnect`
 
@@ -51,7 +51,7 @@ _Type_: [OpenIDConnectConfig](../../../AWSCloudFormation/latest/UserGuide/aws-re
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `OpenIDConnectConfig` property of an `AWS::AppSync::GraphQLApi` resource.
+_CloudFormation compatibility_: This property is passed directly to the `OpenIDConnectConfig` property of an `AWS::AppSync::GraphQLApi` resource.
 
 `Type`
 
@@ -68,7 +68,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `AuthenticationType` property of an
 `AWS::AppSync::GraphQLApi` resource.
 
@@ -81,7 +81,7 @@ _Type_: [UserPoolConfig](../../../AWSCloudFormation/latest/UserGuide/aws-resourc
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `UserPoolConfig` property of an `AWS::AppSync::GraphQLApi` resource.
+_CloudFormation compatibility_: This property is passed directly to the `UserPoolConfig` property of an `AWS::AppSync::GraphQLApi` resource.
 
 ## Examples
 

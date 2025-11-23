@@ -4,7 +4,7 @@ You define the AWS resources your serverless application uses in the `Resources`
 When you define a resource, you identify what the resource is, how it interacts with other resources,
 and how it can be accessed (that is, the permissions of the resource).
 
-The `Resources` section of your AWS SAM template can contain a combination of AWS CloudFormation resources and AWS SAM resources. Additionally, you can use AWS SAM's short-hand syntax for the following resources:
+The `Resources` section of your AWS SAM template can contain a combination of CloudFormation resources and AWS SAM resources. Additionally, you can use AWS SAM's short-hand syntax for the following resources:
 
 | AWS SAM short-hand syntax                                                                    | What it does with a related AWS resource                                                                                                                                                                                                       |
 | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -21,6 +21,6 @@ The `Resources` section of your AWS SAM template can contain a combination of AW
 The above resources are also listed in
 [AWS SAM resources and properties](sam-specification-resources-and-properties.md "sam-specification-resources-and-properties.md").
 
-For reference information for all the AWS resource and property types AWS CloudFormation and AWS SAM support, see
+For reference information for all the AWS resource and property types CloudFormation and AWS SAM support, see
 [AWS resource and property
 types reference](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") in the _AWS CloudFormation User Guide_.

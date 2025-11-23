@@ -15,7 +15,7 @@ returned by Amazon Rekognition in a DynamoDB table.
 With this example application, you perform steps in a slightly different order than in
 previous examples. The reason for this is that this example requires that AWS resources are
 created and IAM permissions are configured _before_ you can test the Lambda
-function locally. We are going to leverage AWS CloudFormation to create the resources and configure the
+function locally. We are going to leverage CloudFormation to create the resources and configure the
 permissions for you. Otherwise, you would need to do this manually before you can test the
 Lambda function locally.
 
@@ -100,11 +100,11 @@ sam deploy \
     --region `us-east-1`
 ```
 
-In the command, the `--capabilities` parameter allows AWS CloudFormation to create an
+In the command, the `--capabilities` parameter allows CloudFormation to create an
 IAM role.
 
-AWS CloudFormation creates the AWS resources that are defined in the template. You can access the
-names of these resources in the AWS CloudFormation console.
+CloudFormation creates the AWS resources that are defined in the template. You can access the
+names of these resources in the CloudFormation console.
 
 ###### To test the serverless application in the AWS Cloud
 
@@ -120,9 +120,9 @@ names of these resources in the AWS CloudFormation console.
 locally
 
 Before you can test the application locally, you must first retrieve the names of the
-AWS resources that were created by AWS CloudFormation.
+AWS resources that were created by CloudFormation.
 
-- Retrieve the Amazon S3 key name and bucket name from AWS CloudFormation. Modify the
+- Retrieve the Amazon S3 key name and bucket name from CloudFormation. Modify the
   `SampleEvent.json` file by replacing the values for the object key, bucket
   name, and bucket ARN.
 - Retrieve the DynamoDB table name. This name is used for the following `sam local
@@ -131,7 +131,7 @@ invoke` command.
 Use the AWS SAM CLI to generate a sample Amazon S3 event and invoke the Lambda function:
 
 ```
-TABLE_NAME=`Table name obtained from AWS CloudFormation console` sam local invoke --event SampleEvent.json
+TABLE_NAME=`Table name obtained from CloudFormation console` sam local invoke --event SampleEvent.json
 ```
 
 The `TABLE_NAME=` portion sets the DynamoDB table name. The `--event`

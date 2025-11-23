@@ -16,7 +16,7 @@ signing profile using AWS Signer. You use this signing profile for the following
    an [`AWS::Lambda::CodeSigningConfig`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.md") resource to specify the signing
    profiles of trusted publishers and to set the policy action for validation checks. You can
    declare this object in the same AWS SAM template as your serverless function, in a different
-   AWS SAM template, or in an AWS CloudFormation template. You then enable code signing for a serverless
+   AWS SAM template, or in an CloudFormation template. You then enable code signing for a serverless
    function by specify the [`CodeSigningConfigArn`](sam-resource-function.md#sam-function-codesigningconfigarn "sam-resource-function.md#sam-function-codesigningconfigarn") property the function with the Amazon
    Resource Name (ARN) of an [`AWS::Lambda::CodeSigningConfig`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.md") resource.
 2. **Signing your code** – Use the [`sam package`](sam-cli-command-reference-sam-package.md "sam-cli-command-reference-sam-package.md") or [`sam deploy`](sam-cli-command-reference-sam-deploy.md "sam-cli-command-reference-sam-deploy.md") command with the `--signing-profiles`

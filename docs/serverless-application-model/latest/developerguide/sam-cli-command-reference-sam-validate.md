@@ -37,7 +37,7 @@ display timestamps.
 Run linting validation on template through **cfn-lint**. Create a `cfnlintrc`
 config file to specify additional parameters. For more information, see
 [cfn-lint](https://github.com/aws-cloudformation/cfn-lint "https://github.com/aws-cloudformation/cfn-lint")
-in the _AWS CloudFormation GitHub repository_.
+in the _CloudFormation GitHub repository_.
 
 `--profile `TEXT``
 
@@ -64,4 +64,4 @@ If you just ran **sam build**, this option is not required.
 
 For an example on using this command to validate a template, refer to [Validate AWS SAM template files](serverless-sam-cli-using-validate.md "serverless-sam-cli-using-validate.md").
 
-For an example on using this command with cfn-lint, refer to [Validate your AWS SAM applications with AWS CloudFormation Linter](validate-cfn-lint.md "validate-cfn-lint.md").
+For an example on using this command with cfn-lint, refer to [Validate your AWS SAM applications with CloudFormation Linter](validate-cfn-lint.md "validate-cfn-lint.md").

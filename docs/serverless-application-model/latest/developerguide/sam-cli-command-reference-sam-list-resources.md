@@ -9,7 +9,7 @@ The `sam list resources` subcommand displays the resources in your AWS Serverles
 transform at deployment.
 
 Use **sam list resources** with an AWS SAM template before deployment to see resources that will be
-created. Provide an AWS CloudFormation stack name to view a consolidated list that includes deployed resources.
+created. Provide an CloudFormation stack name to view a consolidated list that includes deployed resources.
 
 ###### Note
 
@@ -70,11 +70,11 @@ Save the parameters that you provide at the command line to the AWS SAM configur
 
 `--stack-name `TEXT``
 
-Name of the deployed AWS CloudFormation stack. The stack name can be found in your application's
+Name of the deployed CloudFormation stack. The stack name can be found in your application's
 `samconfig.toml` file or designated configuration file.
 
 When provided, resource logical IDs from your template will be mapped to their corresponding physical
-IDs in AWS CloudFormation. To learn more about physical IDs, see [Resource fields](../../../AWSCloudFormation/latest/UserGuide/resources-section-structure.md#resources-section-structure-resource-fields "../../../AWSCloudFormation/latest/UserGuide/resources-section-structure.md#resources-section-structure-resource-fields") in the _AWS CloudFormation User Guide_.
+IDs in CloudFormation. To learn more about physical IDs, see [Resource fields](../../../AWSCloudFormation/latest/UserGuide/resources-section-structure.md#resources-section-structure-resource-fields "../../../AWSCloudFormation/latest/UserGuide/resources-section-structure.md#resources-section-structure-resource-fields") in the _AWS CloudFormation User Guide_.
 
 When this option is not specified, local resources defined in your template will display.
 
@@ -87,7 +87,7 @@ _Default value_: `template.[yaml|yml|json]`
 ## Examples
 
 Display an output, in table format, of local resources from your AWS SAM template and deployed resources from
-your AWS CloudFormation stack named `test-stack`. Run from the same directory as your local template.
+your CloudFormation stack named `test-stack`. Run from the same directory as your local template.
 
 ```
 `$` `sam list resources --stack-name test-stack --output table`

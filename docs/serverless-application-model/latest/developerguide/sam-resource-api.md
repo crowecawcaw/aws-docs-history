@@ -12,18 +12,18 @@ An AWS::Serverless::Api resource should be
 used to define and document the API using OpenApi, which provides more ability to configure the
 underlying Amazon API Gateway resources.
 
-We recommend that you use AWS CloudFormation hooks or IAM policies to verify that API Gateway resources have
+We recommend that you use CloudFormation hooks or IAM policies to verify that API Gateway resources have
 authorizers attached to them to control access to them.
 
-For more information about using AWS CloudFormation hooks, see [Registering hooks](../../../cloudformation-cli/latest/userguide/registering-hook-python.md "../../../cloudformation-cli/latest/userguide/registering-hook-python.md") in the _AWS CloudFormation CLI user guide_ and
+For more information about using CloudFormation hooks, see [Registering hooks](../../../cloudformation-cli/latest/userguide/registering-hook-python.md "../../../cloudformation-cli/latest/userguide/registering-hook-python.md") in the _CloudFormation CLI user guide_ and
 the [apigw-enforce-authorizer](https://github.com/aws-cloudformation/aws-cloudformation-samples/tree/main/hooks/python-hooks/apigw-enforce-authorizer/ "https://github.com/aws-cloudformation/aws-cloudformation-samples/tree/main/hooks/python-hooks/apigw-enforce-authorizer/") GitHub repository.
 
 For more information about using IAM policies, see [Require that API routes have authorization](../../../apigateway/latest/developerguide/security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-require-authorization "../../../apigateway/latest/developerguide/security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-require-authorization") in the _API Gateway Developer Guide_.
 
 ###### Note
 
-When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into AWS CloudFormation resources.
-For more information, see [Generated AWS CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources.
+For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
 
 ## Syntax
 
@@ -78,7 +78,7 @@ _Type_: [AccessLogSetting](../../../AWSCloudFormation/latest/UserGuide/aws-resou
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `AccessLogSetting` property of an `AWS::ApiGateway::Stage`
 resource.
 
@@ -90,8 +90,8 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `ApiKeySourceType`
 
@@ -102,7 +102,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `ApiKeySourceType` property of an
 `AWS::ApiGateway::RestApi` resource.
 
@@ -116,8 +116,8 @@ _Type_: [ApiAuth](sam-property-api-apiauth.md "sam-property-api-apiauth.md")
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `BinaryMediaTypes`
 
@@ -128,10 +128,10 @@ _Type_: List
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `BinaryMediaTypes` property of an
 `AWS::ApiGateway::RestApi` resource. The list of BinaryMediaTypes is added
-to both the AWS CloudFormation resource and the OpenAPI document.
+to both the CloudFormation resource and the OpenAPI document.
 
 `CacheClusterEnabled`
 
@@ -143,7 +143,7 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `CacheClusterEnabled` property of an
 `AWS::ApiGateway::Stage` resource.
 
@@ -155,7 +155,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `CacheClusterSize` property of an `AWS::ApiGateway::Stage`
 resource.
 
@@ -167,7 +167,7 @@ _Type_: [CanarySetting](../../../AWSCloudFormation/latest/UserGuide/aws-resource
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `CanarySetting` property of an `AWS::ApiGateway::Stage`
 resource.
 
@@ -189,8 +189,8 @@ _Type_: String | [CorsConfiguration](sam-property-api-corsconfiguration.md "sam-
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `DefinitionBody`
 
@@ -205,7 +205,7 @@ _Type_: JSON
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `Body` property of an `AWS::ApiGateway::RestApi` resource.
 If certain properties are provided, content may be inserted or modified into the
 DefinitionBody before being passed to CloudFormation. Properties include
@@ -233,7 +233,7 @@ _Type_: String | [ApiDefinition](sam-property-api-apidefinition.md "sam-property
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `BodyS3Location` property of an `AWS::ApiGateway::RestApi`
 resource. The nested Amazon S3 properties are named differently.
 
@@ -245,7 +245,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Description` property of an `AWS::ApiGateway::RestApi`
 resource.
 
@@ -261,7 +261,7 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `DisableExecuteApiEndpoint` property of an
 `AWS::ApiGateway::RestApi` resource. It is passed directly to the
 `disableExecuteApiEndpoint` property of an `x-amazon-apigateway-endpoint-configuration` extension, which gets
@@ -276,8 +276,8 @@ _Type_: [DomainConfiguration](sam-property-api-domainconfiguration.md "sam-prope
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `EndpointConfiguration`
 
@@ -287,7 +287,7 @@ _Type_: [EndpointConfiguration](sam-property-api-endpointconfiguration.md "sam-p
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `EndpointConfiguration` property of an
 `AWS::ApiGateway::RestApi` resource. The nested configuration properties
 are named differently.
@@ -302,7 +302,7 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `FailOnWarnings` property of an `AWS::ApiGateway::RestApi`
 resource.
 
@@ -316,8 +316,8 @@ _Type_: Map
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `MergeDefinitions`
 
@@ -337,8 +337,8 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `MethodSettings`
 
@@ -349,7 +349,7 @@ _Type_: List of [MethodSetting](../../../AWSCloudFormation/latest/UserGuide/aws-
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `MethodSettings` property of an `AWS::ApiGateway::Stage`
 resource.
 
@@ -364,7 +364,7 @@ _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `MinimumCompressionSize` property of an
 `AWS::ApiGateway::RestApi` resource.
 
@@ -381,7 +381,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Mode` property of an `AWS::ApiGateway::RestApi`
 resource.
 
@@ -395,8 +395,8 @@ _Type_: Map
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `Name`
 
@@ -406,7 +406,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Name` property of an `AWS::ApiGateway::RestApi`
 resource.
 
@@ -425,8 +425,8 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `PropagateTags`
 
@@ -440,8 +440,8 @@ _Required_: No
 
 _Default_: `False`
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `Policy`
 
@@ -454,7 +454,7 @@ _Type_: JSON
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to
+_CloudFormation compatibility_: This property is passed directly to
 the [Policy](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.md#cfn-apigateway-restapi-policy "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.md#cfn-apigateway-restapi-policy") property of an `AWS::ApiGateway::RestApi` resource.
 
 `StageName`
@@ -465,15 +465,15 @@ invoke Uniform Resource Identifier (URI).
 To reference the stage resource, use
 ``<api-logical-id>`.Stage`. For more
 information about referencing resources generated when an [AWS::Serverless::Api](sam-resource-api.md "sam-resource-api.md") resource is specified,
-see [AWS CloudFormation resources generated when
+see [CloudFormation resources generated when
 AWS::Serverless::Api is specified](sam-specification-generated-resources-api.md "sam-specification-generated-resources-api.md"). For general information
-about generated AWS CloudFormation resources, see [Generated AWS CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+about generated CloudFormation resources, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
 
 _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `StageName` property of an `AWS::ApiGateway::Stage`
 resource. It is required in SAM, but not required in API Gateway
 
@@ -490,7 +490,7 @@ _Type_: Map
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `Tags` property of an `AWS::ApiGateway::Stage` resource.
 The Tags property in SAM consists of Key:Value pairs; in CloudFormation it consists of a
 list of Tag objects.
@@ -505,7 +505,7 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `TracingEnabled` property of an `AWS::ApiGateway::Stage`
 resource.
 
@@ -520,7 +520,7 @@ _Type_: Map
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Variables` property of an `AWS::ApiGateway::Stage`
 resource.
 

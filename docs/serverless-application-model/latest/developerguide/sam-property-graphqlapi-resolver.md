@@ -34,7 +34,7 @@ _Type_: [CachingConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properti
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `CachingConfig` property of an `AWS::AppSync::Resolver`
 resource.
 
@@ -42,7 +42,7 @@ resource.
 
 The resolver function code’s Amazon Simple Storage Service (Amazon S3) URI or path to a local folder.
 
-If you specify a path to a local folder, AWS CloudFormation requires that the file is first
+If you specify a path to a local folder, CloudFormation requires that the file is first
 uploaded to Amazon S3 before deployment. You can use the AWS SAM CLI to facilitate this
 process. For more information, see [How AWS SAM uploads local files at deployment](deploy-upload-local-files.md "deploy-upload-local-files.md").
 
@@ -54,7 +54,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `CodeS3Location` property of an `AWS::AppSync::Resolver`
 resource.
 
@@ -67,7 +67,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `FieldName` property of an `AWS::AppSync::Resolver`
 resource.
 
@@ -83,7 +83,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Code` property of an `AWS::AppSync::Resolver`
 resource.
 
@@ -97,8 +97,8 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn’t have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn’t have an CloudFormation equivalent.
 
 `MaxBatchSize`
 
@@ -109,7 +109,7 @@ _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `MaxBatchSize` property of an `AWS::AppSync::Resolver`
 resource.
 
@@ -124,7 +124,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `TypeName` property of an `AWS::AppSync::Resolver`
 resource.
 
@@ -137,8 +137,8 @@ _Type_: List
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent. It is similar to the `PipelineConfig` property of an `AWS::AppSync::Resolver`
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent. It is similar to the `PipelineConfig` property of an `AWS::AppSync::Resolver`
 resource.
 
 `Runtime`
@@ -150,8 +150,8 @@ _Type_: [Runtime](sam-property-graphqlapi-resolver-runtime.md "sam-property-grap
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent. It is similar to the `Runtime` property of an `AWS::AppSync::Resolver`
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent. It is similar to the `Runtime` property of an `AWS::AppSync::Resolver`
 resource.
 
 `Sync`
@@ -165,7 +165,7 @@ _Type_: [SyncConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `SyncConfig` property of an `AWS::AppSync::Resolver`
 resource.
 

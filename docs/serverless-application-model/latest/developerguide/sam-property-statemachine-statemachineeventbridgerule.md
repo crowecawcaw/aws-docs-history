@@ -41,7 +41,7 @@ _Type_: [DeadLetterConfig](sam-property-statemachine-statemachinedeadletterconfi
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `DeadLetterConfig` property of the `AWS::Events::Rule`
 `Target` data type. The AWS SAM version of this property includes additional
 subproperties, in case you want AWS SAM to create the dead-letter queue for you.
@@ -57,7 +57,7 @@ _Required_: No
 
 _Default_: Default event bus
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `EventBusName` property of an `AWS::Events::Rule`
 resource.
 
@@ -70,7 +70,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Input` property of an `AWS::Events::Rule Target`
 resource.
 
@@ -83,7 +83,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `InputPath` property of an `AWS::Events::Rule Target`
 resource.
 
@@ -97,7 +97,7 @@ _Type_: [InputTransformer](../../../AWSCloudFormation/latest/UserGuide/aws-prope
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `InputTransformer` property of an `AWS::Events::Rule` `Target` data type.
 
 `Pattern`
@@ -109,7 +109,7 @@ _Type_: [EventPattern](../../../AWSCloudFormation/latest/UserGuide/aws-resource-
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `EventPattern` property of an `AWS::Events::Rule`
 resource.
 
@@ -123,7 +123,7 @@ _Type_: [RetryPolicy](../../../AWSCloudFormation/latest/UserGuide/aws-properties
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `RetryPolicy` property of the `AWS::Events::Rule`
 `Target` data type.
 
@@ -135,7 +135,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Name` property of an `AWS::Events::Rule` resource.
 
 `State`
@@ -148,7 +148,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `State` property of an `AWS::Events::Rule` resource.
 
 `Target`
@@ -161,7 +161,7 @@ _Type_: [Target](sam-property-statemachine-statemachinetarget.md "sam-property-s
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `Targets` property of an `AWS::Events::Rule` resource. The
 AWS SAM version of this property only allows you to specify the logical ID of a single
 target.

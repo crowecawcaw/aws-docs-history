@@ -106,7 +106,7 @@ For a list of options to use with the `get` subcommand, see [sam remote test-eve
 You can list all shareable test events for a particular Lambda function from the schema registry. Use the `list` subcommand along with the following:
 
 - Provide an acceptable ID of the Lambda function associated with the events.
-- If you are providing the Lambda function logical ID, you must also provide the AWS CloudFormation stack name associated with the Lambda function.
+- If you are providing the Lambda function logical ID, you must also provide the CloudFormation stack name associated with the Lambda function.
 
 The following is an example that obtains a list of all shareable test events associated with the `HelloWorldFunction` Lambda function of the
 `sam-app` stack:

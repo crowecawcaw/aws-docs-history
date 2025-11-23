@@ -20,7 +20,7 @@ serverless application that consists of:
 - [Troubleshooting](#using-sam-cli-init-troubleshooting "#using-sam-cli-init-troubleshooting")
 - [Examples](#using-sam-cli-init-examples "#using-sam-cli-init-examples")
 - [Learn more](#using-sam-cli-init-learn "#using-sam-cli-init-learn")
-- [Next steps](#w3aac18c11c37 "#w3aac18c11c37")
+- [Next steps](#w2aac18c11c37 "#w2aac18c11c37")
 
 ## Initialize a new serverless application
 

@@ -4,8 +4,8 @@ Embeds a serverless application from the [AWS Serverless Application Repository]
 
 ###### Note
 
-When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into AWS CloudFormation resources. For more information,
-see [Generated AWS CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources. For more information,
+see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
 
 ## Syntax
 
@@ -38,7 +38,7 @@ _Type_: String | [ApplicationLocationObject](sam-property-application-applicatio
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is similar to the `TemplateURL` property of an `AWS::CloudFormation::Stack` resource. The CloudFormation version does not take an [ApplicationLocationObject](sam-property-application-applicationlocationobject.md "sam-property-application-applicationlocationobject.md") to retrieve an application from the AWS Serverless Application Repository.
+_CloudFormation compatibility_: This property is similar to the `TemplateURL` property of an `AWS::CloudFormation::Stack` resource. The CloudFormation version does not take an [ApplicationLocationObject](sam-property-application-applicationlocationobject.md "sam-property-application-applicationlocationobject.md") to retrieve an application from the AWS Serverless Application Repository.
 
 `NotificationARNs`
 
@@ -48,7 +48,7 @@ _Type_: List
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `NotificationARNs` property of an `AWS::CloudFormation::Stack` resource.
+_CloudFormation compatibility_: This property is passed directly to the `NotificationARNs` property of an `AWS::CloudFormation::Stack` resource.
 
 `Parameters`
 
@@ -58,7 +58,7 @@ _Type_: Map
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Parameters` property of an `AWS::CloudFormation::Stack` resource.
+_CloudFormation compatibility_: This property is passed directly to the `Parameters` property of an `AWS::CloudFormation::Stack` resource.
 
 `Tags`
 
@@ -68,17 +68,17 @@ _Type_: Map
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the `Tags` property of an `AWS::CloudFormation::Stack` resource. The Tags property in SAM consists of Key:Value pairs; in CloudFormation it consists of a list of Tag objects. When the stack is created, SAM will automatically add a `lambda:createdBy:SAM` tag to this application. In addition, if this application is from the AWS Serverless Application Repository, then SAM will also automatically the two additional tags `serverlessrepo:applicationId:`ApplicationId`` and `serverlessrepo:semanticVersion:`SemanticVersion``.
+_CloudFormation compatibility_: This property is similar to the `Tags` property of an `AWS::CloudFormation::Stack` resource. The Tags property in SAM consists of Key:Value pairs; in CloudFormation it consists of a list of Tag objects. When the stack is created, SAM will automatically add a `lambda:createdBy:SAM` tag to this application. In addition, if this application is from the AWS Serverless Application Repository, then SAM will also automatically the two additional tags `serverlessrepo:applicationId:`ApplicationId`` and `serverlessrepo:semanticVersion:`SemanticVersion``.
 
 `TimeoutInMinutes`
 
-The length of time, in minutes, that AWS CloudFormation waits for the nested stack to reach the `CREATE_COMPLETE` state. The default is no timeout. When AWS CloudFormation detects that the nested stack has reached the `CREATE_COMPLETE` state, it marks the nested stack resource as `CREATE_COMPLETE` in the parent stack and resumes creating the parent stack. If the timeout period expires before the nested stack reaches `CREATE_COMPLETE`, AWS CloudFormation marks the nested stack as failed and rolls back both the nested stack and parent stack.
+The length of time, in minutes, that CloudFormation waits for the nested stack to reach the `CREATE_COMPLETE` state. The default is no timeout. When CloudFormation detects that the nested stack has reached the `CREATE_COMPLETE` state, it marks the nested stack resource as `CREATE_COMPLETE` in the parent stack and resumes creating the parent stack. If the timeout period expires before the nested stack reaches `CREATE_COMPLETE`, CloudFormation marks the nested stack as failed and rolls back both the nested stack and parent stack.
 
 _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `TimeoutInMinutes` property of an `AWS::CloudFormation::Stack` resource.
+_CloudFormation compatibility_: This property is passed directly to the `TimeoutInMinutes` property of an `AWS::CloudFormation::Stack` resource.
 
 ## Return Values
 

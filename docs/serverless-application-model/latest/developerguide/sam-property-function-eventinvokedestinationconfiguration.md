@@ -24,7 +24,7 @@ _Type_: [OnFailure](sam-property-function-onfailure.md "sam-property-function-on
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the `OnFailure` property of an `AWS::Lambda::EventInvokeConfig` resource. Requires `Type`, an additional SAM-only property.
+_CloudFormation compatibility_: This property is similar to the `OnFailure` property of an `AWS::Lambda::EventInvokeConfig` resource. Requires `Type`, an additional SAM-only property.
 
 `OnSuccess`
 
@@ -34,7 +34,7 @@ _Type_: [OnSuccess](sam-property-function-onsuccess.md "sam-property-function-on
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the `OnSuccess` property of an `AWS::Lambda::EventInvokeConfig` resource. Requires `Type`, an additional SAM-only property.
+_CloudFormation compatibility_: This property is similar to the `OnSuccess` property of an `AWS::Lambda::EventInvokeConfig` resource. Requires `Type`, an additional SAM-only property.
 
 ## Examples
 

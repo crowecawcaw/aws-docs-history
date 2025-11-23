@@ -33,7 +33,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Arn` property of the `AWS::Events::Rule` `DeadLetterConfig` data type.
+_CloudFormation compatibility_: This property is passed directly to the `Arn` property of the `AWS::Events::Rule` `DeadLetterConfig` data type.
 
 `QueueLogicalId`
 
@@ -47,7 +47,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `Type`
 
@@ -63,7 +63,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 ## Examples
 

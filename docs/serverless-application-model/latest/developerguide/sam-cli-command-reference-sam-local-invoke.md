@@ -165,7 +165,7 @@ Removes the memory limitation in the container during local invoke, even when me
 
 `--parameter-overrides`
 
-A string that contains AWS CloudFormation parameter overrides encoded as key-value pairs. Use
+A string that contains CloudFormation parameter overrides encoded as key-value pairs. Use
 the same format as the AWS Command Line Interface (AWS CLI). The AWS SAM CLI format is explicit key and value keywords, each override is separated by a space. Here are two examples:
 
 - `--parameter-overrides ParameterKey=hello,ParameterValue=world`
@@ -217,6 +217,11 @@ This option is not compatible with `--hook-name`.
 ###### Note
 
 If you specify this option, AWS SAM loads only the template and the local resources that it points to.
+
+`--tenant-id `TEXT``
+
+The tenant ID for multi-tenant Lambda functions. Used to ensure compute isolation between different tenants.
+Required when invoking functions configured with tenant isolation mode.
 
 `--terraform-plan-file`
 

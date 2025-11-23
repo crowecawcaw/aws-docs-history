@@ -25,7 +25,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is similar to the `BucketName` property of an `AWS::S3::Bucket` resource. This is a required field in SAM. This field only accepts a reference to the S3 bucket created in this template
+_CloudFormation compatibility_: This property is similar to the `BucketName` property of an `AWS::S3::Bucket` resource. This is a required field in SAM. This field only accepts a reference to the S3 bucket created in this template
 
 `Events`
 
@@ -35,7 +35,7 @@ _Type_: String | List
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Event` property of the `AWS::S3::Bucket` `LambdaConfiguration` data type.
+_CloudFormation compatibility_: This property is passed directly to the `Event` property of the `AWS::S3::Bucket` `LambdaConfiguration` data type.
 
 `Filter`
 
@@ -45,7 +45,7 @@ _Type_: [NotificationFilter](../../../AWSCloudFormation/latest/UserGuide/aws-pro
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Filter` property of the `AWS::S3::Bucket` `LambdaConfiguration` data type.
+_CloudFormation compatibility_: This property is passed directly to the `Filter` property of the `AWS::S3::Bucket` `LambdaConfiguration` data type.
 
 ## Examples
 

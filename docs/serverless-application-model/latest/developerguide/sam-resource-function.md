@@ -10,8 +10,8 @@ runtimes, see [Building Lambda functions with custom runtimes in AWS SAM](buildi
 
 ###### Note
 
-When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into AWS CloudFormation resources.
-For more information, see [Generated AWS CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources.
+For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
 
 ## Syntax
 
@@ -62,6 +62,7 @@ Properties:
   SnapStart: `SnapStart`
   SourceKMSKeyArn: `String`
   Tags: `Map`
+  TenancyConfig: `TenancyConfig`
   Timeout: `Integer`
   Tracing: `String`
   VersionDescription: `String`
@@ -87,7 +88,7 @@ _Required_: No
 
 _Default_: `x86_64`
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Architectures` property of an `AWS::Lambda::Function`
 resource.
 
@@ -101,7 +102,7 @@ _Type_: JSON
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `AssumeRolePolicyDocument` property of an `AWS::IAM::Role`
 resource. AWS SAM adds this property to the generated IAM role for this function. If a
 role's Amazon Resource Name (ARN) is provided for this function, this property does
@@ -116,14 +117,14 @@ gradually with AWS SAM](automating-updates-to-serverless-apps.md "automating-upd
 
 AWS SAM generates [AWS::Lambda::Version](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.md") and [AWS::Lambda::Alias](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.md") resources when this property is set. For
 information about this scenario, see [AutoPublishAlias property is specified](sam-specification-generated-resources-function.md#sam-specification-generated-resources-function-autopublishalias "sam-specification-generated-resources-function.md#sam-specification-generated-resources-function-autopublishalias"). For
-general information about generated AWS CloudFormation resources, see [Generated AWS CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+general information about generated CloudFormation resources, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
 
 _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `AutoPublishAliasAllProperties`
 
@@ -148,8 +149,8 @@ _Required_: No
 
 _Default value_: `false`
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `AutoPublishCodeSha256`
 
@@ -176,8 +177,8 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `CodeSigningConfigArn`
 
@@ -188,7 +189,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `CodeSigningConfigArn` property of an
 `AWS::Lambda::Function` resource.
 
@@ -215,7 +216,7 @@ _Type_: [ String | [FunctionCode](sam-property-function-functioncode.md "sam-pro
 _Required_: Conditional. When `PackageType` is set to `Zip`, one of `CodeUri` or `InlineCode` is
 required.
 
-_AWS CloudFormation compatibility_: This property is similar to the `Code` property of an `AWS::Lambda::Function` resource. The nested Amazon S3 properties are named differently.
+_CloudFormation compatibility_: This property is similar to the `Code` property of an `AWS::Lambda::Function` resource. The nested Amazon S3 properties are named differently.
 
 `DeadLetterQueue`
 
@@ -234,9 +235,9 @@ _Type_: Map | [DeadLetterQueue](sam-property-function-deadletterqueue.md "sam-pr
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `DeadLetterConfig` property of an `AWS::Lambda::Function`
-resource. In AWS CloudFormation the type is derived from the `TargetArn`, whereas in AWS SAM
+resource. In CloudFormation the type is derived from the `TargetArn`, whereas in AWS SAM
 you must pass the type along with the `TargetArn`.
 
 `DeploymentPreference`
@@ -253,8 +254,8 @@ _Type_: [DeploymentPreference](sam-property-function-deploymentpreference.md "sa
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 _See also_: For more information about this property, see [Deploying serverless applications
 gradually with AWS SAM](automating-updates-to-serverless-apps.md "automating-updates-to-serverless-apps.md").
@@ -267,7 +268,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Description` property of an `AWS::Lambda::Function`
 resource.
 
@@ -279,7 +280,7 @@ _Type_: [Environment](../../../AWSCloudFormation/latest/UserGuide/aws-properties
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Environment` property of an `AWS::Lambda::Function`
 resource.
 
@@ -295,7 +296,7 @@ _Type_: [EphemeralStorage](../../../AWSCloudFormation/latest/UserGuide/aws-resou
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `EphemeralStorage` property of an `AWS::Lambda::Function`
 resource.
 
@@ -307,8 +308,8 @@ _Type_: [EventInvokeConfiguration](sam-property-function-eventinvokeconfiguratio
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `Events`
 
@@ -319,8 +320,8 @@ _Type_: [EventSource](sam-property-function-eventsource.md "sam-property-functio
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `FileSystemConfigs`
 
@@ -335,7 +336,7 @@ _Type_: List
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `FileSystemConfigs` property of an `AWS::Lambda::Function`
 resource.
 
@@ -348,7 +349,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `FunctionName` property of an `AWS::Lambda::Function`
 resource.
 
@@ -364,8 +365,8 @@ _Type_: [FunctionUrlConfig](sam-property-function-functionurlconfig.md "sam-prop
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `Handler`
 
@@ -377,7 +378,7 @@ _Type_: String
 
 _Required_: Conditional
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Handler` property of an `AWS::Lambda::Function`
 resource.
 
@@ -391,7 +392,7 @@ _Type_: [ImageConfig](../../../AWSCloudFormation/latest/UserGuide/aws-resource-l
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `ImageConfig` property of an `AWS::Lambda::Function`
 resource.
 
@@ -417,7 +418,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `ImageUri` property of the `AWS::Lambda::Function`
 `Code` data type.
 
@@ -436,7 +437,7 @@ _Type_: String
 
 _Required_: Conditional
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `ZipFile` property of the `AWS::Lambda::Function`
 `Code` data type.
 
@@ -449,7 +450,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `KmsKeyArn` property of an `AWS::Lambda::Function`
 resource.
 
@@ -465,7 +466,7 @@ _Type_: List
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Layers` property of an `AWS::Lambda::Function`
 resource.
 
@@ -477,7 +478,7 @@ _Type_: [LoggingConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properti
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 [`LoggingConfig`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md#cfn-lambda-function-loggingconfig "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md#cfn-lambda-function-loggingconfig") property of an `AWS::Lambda::Function` resource.
 
 `MemorySize`
@@ -488,7 +489,7 @@ _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `MemorySize` property of an `AWS::Lambda::Function`
 resource.
 
@@ -517,7 +518,7 @@ _Required_: No
 
 _Default_: `Zip`
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `PackageType` property of an `AWS::Lambda::Function`
 resource.
 
@@ -530,7 +531,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `PermissionsBoundary` property of an `AWS::IAM::Role`
 resource.
 
@@ -555,7 +556,7 @@ _Type_: String | List | Map
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `Policies` property of an `AWS::IAM::Role` resource.
 
 `PropagateTags`
@@ -571,8 +572,8 @@ _Required_: No
 
 _Default_: `False`
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `ProvisionedConcurrencyConfig`
 
@@ -587,7 +588,7 @@ _Type_: [ProvisionedConcurrencyConfig](../../../AWSCloudFormation/latest/UserGui
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `ProvisionedConcurrencyConfig` property of an
 `AWS::Lambda::Alias` resource.
 
@@ -603,7 +604,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `RecursiveLoop`
 property of the `AWS::Lambda::Function` resource.
 
@@ -618,7 +619,7 @@ _Type_: Integer
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `ReservedConcurrentExecutions` property of an
 `AWS::Lambda::Function` resource.
 
@@ -630,9 +631,9 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `Role` property of an `AWS::Lambda::Function` resource.
-This is required in AWS CloudFormation but not in AWS SAM. If a role isn't specified, one is created
+This is required in CloudFormation but not in AWS SAM. If a role isn't specified, one is created
 for you with a logical ID of
 ``<function-logical-id>`Role`.
 
@@ -647,7 +648,7 @@ _Type_: String
 
 _Required_: Conditional
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Path` property of an `AWS::IAM::Role` resource.
 
 `Runtime`
@@ -666,7 +667,7 @@ _Type_: String
 
 _Required_: Conditional
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Runtime` property of an `AWS::Lambda::Function`
 resource.
 
@@ -680,7 +681,7 @@ _Type_: [RuntimeManagementConfig](../../../AWSCloudFormation/latest/UserGuide/aw
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `RuntimeManagementConfig` property of an
 `AWS::Lambda::Function` resource.
 
@@ -697,7 +698,7 @@ _Type_: [SnapStart](../../../AWSCloudFormation/latest/UserGuide/aws-properties-l
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `SnapStart` property of an `AWS::Lambda::Function`
 resource.
 
@@ -709,7 +710,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `SourceKmsKeyArn` property of an `AWS::Lambda::Function` `Code` data type.
 
 `Tags`
@@ -726,12 +727,24 @@ _Type_: Map
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `Tags` property of an `AWS::Lambda::Function` resource. The
-`Tags` property in AWS SAM consists of key-value pairs (whereas in AWS CloudFormation this
+`Tags` property in AWS SAM consists of key-value pairs (whereas in CloudFormation this
 property consists of a list of `Tag` objects). Also, AWS SAM automatically adds
 a `lambda:createdBy:SAM` tag to this Lambda function, and to the default roles
 that are generated for this function.
+
+`TenancyConfig`
+
+Configuration for Lambda tenant isolation mode. Ensures execution environments are never shared between different tenant IDs,
+providing compute-level isolation for multi-tenant applications.
+
+_Type_: [TenancyConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tenancyconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tenancyconfig.md")
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is passed directly to the
+`TenancyConfig` property of an `AWS::Lambda::Function` resource.
 
 `Timeout`
 
@@ -743,7 +756,7 @@ _Required_: No
 
 _Default_: 3
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Timeout` property of an `AWS::Lambda::Function`
 resource.
 
@@ -769,7 +782,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is similar to the `TracingConfig` property of an `AWS::Lambda::Function` resource.
+_CloudFormation compatibility_: This property is similar to the `TracingConfig` property of an `AWS::Lambda::Function` resource.
 
 `VersionDescription`
 
@@ -780,7 +793,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Description` property of an `AWS::Lambda::Version`
 resource.
 
@@ -793,7 +806,7 @@ _Type_: [VpcConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-l
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `VpcConfig` property of an `AWS::Lambda::Function`
 resource.
 
@@ -960,4 +973,17 @@ TestFunc
     ...
     SnapStart:
       ApplyOn: PublishedVersions
+```
+
+### TenancyConfig examples
+
+Example of a Lambda function with tenant isolation mode turned on:
+
+```
+TestFunction
+  Type: AWS::Serverless::Function
+  Properties:
+    ...
+    TenancyConfig:
+      TenantIsolationMode: PER_TENANT
 ```

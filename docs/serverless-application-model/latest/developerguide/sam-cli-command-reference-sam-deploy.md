@@ -18,7 +18,7 @@ This page provides reference information for the AWS Serverless Application Mode
 `SAM_CLI_POLL_DELAY`
 
 Set the `SAM_CLI_POLL_DELAY` environment variable with a value of seconds in your shell
-to configure how often the AWS SAM CLI checks the AWS CloudFormation stack state, which is useful when seeing throttling from AWS CloudFormation.
+to configure how often the AWS SAM CLI checks the CloudFormation stack state, which is useful when seeing throttling from CloudFormation.
 This env variable is used for polling `describe_stack` API calls, which are made while running `sam deploy`.
 
 The following is an example of this variable:
@@ -31,7 +31,7 @@ The following is an example of this variable:
 
 `--capabilities `LIST``
 
-A list of capabilities that you must specify to allow AWS CloudFormation to create certain
+A list of capabilities that you must specify to allow CloudFormation to create certain
 stacks. Some stack templates might include resources that affect permissions in your
 AWS account, for example, by creating new AWS Identity and Access Management (IAM) users. For those stacks,
 you must explicitly acknowledge their capabilities by specifying this option. The only
@@ -69,8 +69,8 @@ to display timestamps.
 
 `--disable-rollback | --no-disable-rollback`
 
-Specify whether to roll back your AWS CloudFormation stack if an error occurs during a
-deployment. By default, if there's an error during a deployment, your AWS CloudFormation stack rolls
+Specify whether to roll back your CloudFormation stack if an error occurs during a
+deployment. By default, if there's an error during a deployment, your CloudFormation stack rolls
 back to the last stable state. If you specify `--disable-rollback` and an
 error occurs during a deployment, then resources that were created or updated before the
 error occurred aren't rolled back.
@@ -125,7 +125,7 @@ template.
 `--no-execute-changeset`
 
 Indicates whether to apply the changeset. Specify this option if you want to view
-your stack changes before applying the changeset. This command creates an AWS CloudFormation
+your stack changes before applying the changeset. This command creates an CloudFormation
 changeset and then exits without applying the changeset. To apply the changeset, run the
 same command without this option.
 
@@ -135,7 +135,7 @@ Do not display a progress bar when uploading artifacts to Amazon S3.
 
 `--notification-arns `LIST``
 
-A list of Amazon Simple Notification Service (Amazon SNS) topic ARNs that AWS CloudFormation associates with the
+A list of Amazon Simple Notification Service (Amazon SNS) topic ARNs that CloudFormation associates with the
 stack.
 
 `--on-failure [ROLLBACK | DELETE | DO_NOTHING]`
@@ -161,7 +161,7 @@ not both.
 
 `--parameter-overrides `LIST``
 
-A string that contains AWS CloudFormation parameter overrides encoded as key-value pairs. Each override uses the format `ParameterKey=name,ParameterValue=value`. Multiple overrides are separated by spaces. Here are two examples:
+A string that contains CloudFormation parameter overrides encoded as key-value pairs. Each override uses the format `ParameterKey=name,ParameterValue=value`. Multiple overrides are separated by spaces. Here are two examples:
 
 ```
 `$` `sam deploy --parameter-overrides `ParameterKey=value1,ParameterValue=value2``
@@ -202,12 +202,12 @@ and `--resolve-s3` options, then an error occurs.
 
 `--role-arn `TEXT``
 
-The Amazon Resource Name (ARN) of an IAM role that AWS CloudFormation assumes when applying
+The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes when applying
 the changeset.
 
 `--s3-bucket `TEXT``
 
-The name of the Amazon S3 bucket where this command uploads your AWS CloudFormation template. If your
+The name of the Amazon S3 bucket where this command uploads your CloudFormation template. If your
 template is larger than 51,200 bytes, then either the `--s3-bucket` option or
 the `--resolve-s3` option is required. If you specify both the
 `--s3-bucket` and `--resolve-s3` options, then an error
@@ -232,13 +232,13 @@ with `:`. For example, `FunctionNameToSign=SigningProfileName1
 
 `--stack-name `TEXT``
 
-(Required) The name of the AWS CloudFormation stack that you're deploying to. If you specify an
+(Required) The name of the CloudFormation stack that you're deploying to. If you specify an
 existing stack, then the command updates the stack. If you specify a new stack, then the
 command creates it.
 
 `--tags `LIST``
 
-A list of tags to associate with the stack that is created or updated. AWS CloudFormation also
+A list of tags to associate with the stack that is created or updated. CloudFormation also
 propagates these tags to resources in the stack that support it.
 
 `--template-file, --template, -t `PATH``
@@ -252,7 +252,7 @@ template and the local resources that it points to.
 
 `--use-json`
 
-Output JSON for the AWS CloudFormation template. The default output is YAML.
+Output JSON for the CloudFormation template. The default output is YAML.
 
 ## Example
 

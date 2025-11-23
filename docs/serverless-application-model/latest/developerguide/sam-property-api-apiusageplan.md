@@ -37,7 +37,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `Description`
 
@@ -47,7 +47,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Description` property of an `AWS::ApiGateway::UsagePlan` resource.
+_CloudFormation compatibility_: This property is passed directly to the `Description` property of an `AWS::ApiGateway::UsagePlan` resource.
 
 `Quota`
 
@@ -57,7 +57,7 @@ _Type_: [QuotaSettings](../../../AWSCloudFormation/latest/UserGuide/aws-resource
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Quota` property of an `AWS::ApiGateway::UsagePlan` resource.
+_CloudFormation compatibility_: This property is passed directly to the `Quota` property of an `AWS::ApiGateway::UsagePlan` resource.
 
 `Tags`
 
@@ -69,7 +69,7 @@ _Type_: List
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Tags` property of an `AWS::ApiGateway::UsagePlan` resource.
+_CloudFormation compatibility_: This property is passed directly to the `Tags` property of an `AWS::ApiGateway::UsagePlan` resource.
 
 `Throttle`
 
@@ -79,7 +79,7 @@ _Type_: [ThrottleSettings](../../../AWSCloudFormation/latest/UserGuide/aws-resou
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Throttle` property of an `AWS::ApiGateway::UsagePlan` resource.
+_CloudFormation compatibility_: This property is passed directly to the `Throttle` property of an `AWS::ApiGateway::UsagePlan` resource.
 
 `UsagePlanName`
 
@@ -89,7 +89,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `UsagePlanName` property of an `AWS::ApiGateway::UsagePlan` resource.
+_CloudFormation compatibility_: This property is passed directly to the `UsagePlanName` property of an `AWS::ApiGateway::UsagePlan` resource.
 
 ## Examples
 

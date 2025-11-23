@@ -26,7 +26,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `FilterPattern` property of an `AWS::Logs::SubscriptionFilter` resource.
+_CloudFormation compatibility_: This property is passed directly to the `FilterPattern` property of an `AWS::Logs::SubscriptionFilter` resource.
 
 `LogGroupName`
 
@@ -36,7 +36,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `LogGroupName` property of an `AWS::Logs::SubscriptionFilter` resource.
+_CloudFormation compatibility_: This property is passed directly to the `LogGroupName` property of an `AWS::Logs::SubscriptionFilter` resource.
 
 ## Examples
 

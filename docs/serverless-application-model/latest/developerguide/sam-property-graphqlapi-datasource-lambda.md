@@ -28,7 +28,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Description` property of an `AWS::AppSync::DataSource`
 resource.
 
@@ -40,7 +40,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `LambdaFunctionArn` property of an `AWS::AppSync::DataSource
  LambdaConfig` object.
 
@@ -52,7 +52,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Name` property of an `AWS::AppSync::DataSource`
 resource.
 
@@ -65,7 +65,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Name` property of an `AWS::AppSync::DataSource`
 resource.
 
@@ -85,6 +85,6 @@ _Required_: No. If not specified, AWS SAM will provision
 `Write` permissions using [AWS SAM
 connectors](managing-permissions-connectors.md "managing-permissions-connectors.md").
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `ServiceRoleArn` property of an `AWS::AppSync::DataSource`
 resource.

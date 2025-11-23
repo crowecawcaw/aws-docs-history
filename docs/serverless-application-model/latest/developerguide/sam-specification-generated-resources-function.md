@@ -1,19 +1,19 @@
-# AWS CloudFormation resources generated
+# CloudFormation resources generated
 
 when AWS::Serverless::Function is specified
 
 When an `AWS::Serverless::Function` is specified, AWS Serverless Application Model
-(AWS SAM) always creates an `AWS::Lambda::Function` base AWS CloudFormation resource.
+(AWS SAM) always creates an `AWS::Lambda::Function` base CloudFormation resource.
 
 **`AWS::Lambda::Function`**
 
 _`LogicalId`:_ `<function‑LogicalId>`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
-In addition to this AWS CloudFormation resource, when `AWS::Serverless::Function` is
-specified, AWS SAM also generates AWS CloudFormation resources for the following scenarios.
+In addition to this CloudFormation resource, when `AWS::Serverless::Function` is
+specified, AWS SAM also generates CloudFormation resources for the following scenarios.
 
 ###### Scenarios
 
@@ -23,7 +23,7 @@ specified, AWS SAM also generates AWS CloudFormation resources for the following
 
 ## Core function properties
 
-The following scenarios generate AWS CloudFormation resources based on core function properties:
+The following scenarios generate CloudFormation resources based on core function properties:
 
 ### Role property
 
@@ -31,20 +31,20 @@ is not specified
 
 When the `Role` property of an `AWS::Serverless::Function` is
 _not_ specified, AWS SAM generates an `AWS::IAM::Role`
-AWS CloudFormation resource.
+CloudFormation resource.
 
 **`AWS::IAM::Role`**
 
 _`LogicalId`:_ ``<function‑LogicalId>`Role`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
 ### AutoPublishAlias property is specified
 
 When the `AutoPublishAlias` property of an
 `AWS::Serverless::Function` is specified, AWS SAM generates the following
-AWS CloudFormation resources: `AWS::Lambda::Alias` and
+CloudFormation resources: `AWS::Lambda::Alias` and
 `AWS::Lambda::Version`.
 
 **`AWS::Lambda::Alias`**
@@ -75,58 +75,58 @@ For additional information on the `AutoPublishAlias` property, see the [Properti
 
 When the `DeploymentPreference` property of an
 `AWS::Serverless::Function` is specified, AWS SAM generates the following
-resources AWS CloudFormation resources: `AWS::CodeDeploy::Application` and
+resources CloudFormation resources: `AWS::CodeDeploy::Application` and
 `AWS::CodeDeploy::DeploymentGroup`. In addition, if the `Role`
 property of the `DeploymentPreference` object is _not_
-specified, AWS SAM also generates an `AWS::IAM::Role` AWS CloudFormation resource.
+specified, AWS SAM also generates an `AWS::IAM::Role` CloudFormation resource.
 
 **`AWS::CodeDeploy::Application`**
 
 _`LogicalId`:_ `ServerlessDeploymentApplication`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
 **`AWS::CodeDeploy::DeploymentGroup`**
 
 _`LogicalId`:_ ``<function‑LogicalId>`DeploymentGroup`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
 **`AWS::IAM::Role`**
 
 _`LogicalId`:_ `CodeDeployServiceRole`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
 ### FunctionUrlConfig property is specified
 
-When the `FunctionUrlConfig` property is specified, AWS SAM generates different AWS CloudFormation resources based on the `AuthType`.
+When the `FunctionUrlConfig` property is specified, AWS SAM generates different CloudFormation resources based on the `AuthType`.
 
-When `AuthType: NONE` is specified, AWS SAM generates the following AWS CloudFormation resources:
+When `AuthType: NONE` is specified, AWS SAM generates the following CloudFormation resources:
 
 **`AWS::Lambda::Permission` (Invoke Access)**
 
 _`LogicalId`:_ ``<function‑LogicalId>`URLInvokeAllowPublicAccess`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
 **`AWS::Lambda::Permission` (Public Access)**
 
 _`LogicalId`:_ ``<function‑LogicalId>`UrlPublicPermissions`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
 **`AWS::Lambda::Url`**
 
 _`LogicalId`:_ ``<function‑LogicalId>`Url`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
 When `AuthType: AWS_IAM` is specified, AWS SAM generates only:
 
@@ -135,13 +135,13 @@ When `AuthType: AWS_IAM` is specified, AWS SAM generates only:
 _`LogicalId`:_ ``<function‑LogicalId>`Url`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
 For additional information on the `FunctionUrlConfig` property, see [FunctionUrlConfig](sam-property-function-functionurlconfig.md "sam-property-function-functionurlconfig.md").
 
 ## Event sources
 
-The following scenarios generate AWS CloudFormation resources based on event sources:
+The following scenarios generate CloudFormation resources based on event sources:
 
 ### An Api
 
@@ -150,14 +150,14 @@ event source is specified
 When the `Event` property of an `AWS::Serverless::Function` is
 set to `Api`, but the `RestApiId` property is
 _not_ specified, AWS SAM generates the
-`AWS::ApiGateway::RestApi` AWS CloudFormation resource.
+`AWS::ApiGateway::RestApi` CloudFormation resource.
 
 **`AWS::ApiGateway::RestApi`**
 
 _`LogicalId`:_ `ServerlessRestApi`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
 ### An HttpApi
 
@@ -166,14 +166,14 @@ event source is specified
 When the `Event` property of an `AWS::Serverless::Function` is
 set to `HttpApi`, but the `ApiId` property is
 _not_ specified, AWS SAM generates the
-`AWS::ApiGatewayV2::Api` AWS CloudFormation resource.
+`AWS::ApiGatewayV2::Api` CloudFormation resource.
 
 **`AWS::ApiGatewayV2::Api`**
 
 _`LogicalId`:_ `ServerlessHttpApi`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
 ### A streaming
 
@@ -181,7 +181,7 @@ event source is specified
 
 When the `Event` property of an `AWS::Serverless::Function` is
 set to one of the streaming types, AWS SAM generates the
-`AWS::Lambda::EventSourceMapping` AWS CloudFormation resource. This applies to the
+`AWS::Lambda::EventSourceMapping` CloudFormation resource. This applies to the
 following types: `DynamoDB`, `Kinesis`, `MQ`,
 `MSK`, and `SQS`.
 
@@ -190,7 +190,7 @@ following types: `DynamoDB`, `Kinesis`, `MQ`,
 _`LogicalId`:_ `<function‑LogicalId><event‑LogicalId>`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
 ### An event bridge
 
@@ -198,7 +198,7 @@ _Referenceable property:_ N/A (you must use the
 
 When the `Event` property of an `AWS::Serverless::Function` is
 set to one of the event bridge (or event bus) types, AWS SAM generates the
-`AWS::Events::Rule` AWS CloudFormation resource. This applies to the
+`AWS::Events::Rule` CloudFormation resource. This applies to the
 following types: `EventBridgeRule`, `Schedule`, and
 `CloudWatchEvents`.
 
@@ -207,7 +207,7 @@ following types: `EventBridgeRule`, `Schedule`, and
 _`LogicalId`:_ `<function‑LogicalId><event‑LogicalId>`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
 ### An IotRule
 
@@ -215,18 +215,18 @@ event source is specified
 
 When the `Event` property of an `AWS::Serverless::Function` is
 set to IoTRule, AWS SAM generates the
-`AWS::IoT::TopicRule` AWS CloudFormation resource.
+`AWS::IoT::TopicRule` CloudFormation resource.
 
 **`AWS::IoT::TopicRule`**
 
 _`LogicalId`:_ `<function‑LogicalId><event‑LogicalId>`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
 ## Event configuration
 
-The following scenarios generate AWS CloudFormation resources based on event configuration:
+The following scenarios generate CloudFormation resources based on event configuration:
 
 ### OnSuccess
 
@@ -236,7 +236,7 @@ When the `OnSuccess` (or `OnFailure`) property of the
 `DestinationConfig` property of the `EventInvokeConfig`
 property of an `AWS::Serverless::Function` is specified, and the destination
 type is `SNS` but the destination ARN is _not_ specified,
-AWS SAM generates the following AWS CloudFormation resources:
+AWS SAM generates the following CloudFormation resources:
 `AWS::Lambda::EventInvokeConfig` and `AWS::SNS::Topic`.
 
 **`AWS::Lambda::EventInvokeConfig`**
@@ -244,7 +244,7 @@ AWS SAM generates the following AWS CloudFormation resources:
 _`LogicalId`:_ ``<function‑LogicalId>`EventInvokeConfig`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
 **`AWS::SNS::Topic`**
 
@@ -266,7 +266,7 @@ When the `OnSuccess` (or `OnFailure`) property of the
 `DestinationConfig` property of the `EventInvokeConfig`
 property of an `AWS::Serverless::Function` is specified, and the destination
 type is `SQS` but the destination ARN is _not_ specified,
-AWS SAM generates the following AWS CloudFormation resources:
+AWS SAM generates the following CloudFormation resources:
 `AWS::Lambda::EventInvokeConfig` and `AWS::SQS::Queue`.
 
 **`AWS::Lambda::EventInvokeConfig`**
@@ -274,7 +274,7 @@ AWS SAM generates the following AWS CloudFormation resources:
 _`LogicalId`:_ ``<function‑LogicalId>`EventInvokeConfig`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
 **`AWS::SQS::Queue`**
 

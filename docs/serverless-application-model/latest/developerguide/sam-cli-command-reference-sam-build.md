@@ -204,7 +204,7 @@ sequence.
 
 `--parameter-overrides`
 
-(Optional) A string that contains AWS CloudFormation parameter overrides encoded as key-value
+(Optional) A string that contains CloudFormation parameter overrides encoded as key-value
 pairs. Uses the same format as the AWS Command Line Interface (AWS CLI). For example:
 '`ParameterKey`=`KeyPairName`,
 `ParameterValue`=`MyKey`

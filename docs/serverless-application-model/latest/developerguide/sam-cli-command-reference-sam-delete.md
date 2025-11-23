@@ -5,7 +5,7 @@ This page provides reference information for the AWS Serverless Application Mode
 
 For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli "what-is-sam-overview.md#what-is-sam-cli")
 
-The `sam delete` command deletes an AWS SAM application by deleting the AWS CloudFormation stack, the artifacts that were packaged
+The `sam delete` command deletes an AWS SAM application by deleting the CloudFormation stack, the artifacts that were packaged
 and deployed to Amazon S3 and Amazon ECR, and the AWS SAM template file.
 
 This command also checks whether there is an Amazon ECR companion stack deployed, and if so prompts the user
@@ -69,7 +69,7 @@ Save the parameters that you provide at the command line to the AWS SAM configur
 
 `--stack-name `TEXT``
 
-The name of the AWS CloudFormation stack that you want to delete.
+The name of the CloudFormation stack that you want to delete.
 
 ## Examples
 

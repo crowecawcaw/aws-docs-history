@@ -25,7 +25,7 @@ _Type_: Integer
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `ReadCapacityUnits` property of the `AWS::DynamoDB::Table` `ProvisionedThroughput` data type.
+_CloudFormation compatibility_: This property is passed directly to the `ReadCapacityUnits` property of the `AWS::DynamoDB::Table` `ProvisionedThroughput` data type.
 
 `WriteCapacityUnits`
 
@@ -35,7 +35,7 @@ _Type_: Integer
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `WriteCapacityUnits` property of the `AWS::DynamoDB::Table` `ProvisionedThroughput` data type.
+_CloudFormation compatibility_: This property is passed directly to the `WriteCapacityUnits` property of the `AWS::DynamoDB::Table` `ProvisionedThroughput` data type.
 
 ## Examples
 

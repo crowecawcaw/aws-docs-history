@@ -28,7 +28,7 @@ curl: (6) Could not resolve: endpointdomain (Domain name not found)
 This means that you've attempted to send a request to a domain that's not valid. This
 can happen if your serverless application failed to deploy successfully, or if you have a
 typo in your **curl** command. Verify that the application deployed
-successfully by using the AWS CloudFormation console or the AWS CLI, and verify that your
+successfully by using the CloudFormation console or the AWS CLI, and verify that your
 **curl** command is correct.
 
 ### Error: Can’t find exact

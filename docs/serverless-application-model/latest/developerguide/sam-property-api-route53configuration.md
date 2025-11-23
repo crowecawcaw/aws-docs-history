@@ -33,7 +33,7 @@ _Required_: No
 
 _Default_: Use the API Gateway distribution.
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `DNSName` property of an `AWS::Route53::RecordSetGroup
  AliasTarget` resource.
 
@@ -43,14 +43,14 @@ distribution](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloudfron
 `EvaluateTargetHealth`
 
 When EvaluateTargetHealth is true, an alias record inherits the health of the
-referenced AWS resource, such as an Elastic Load Balancing load balancer or another record in the
+referenced AWS resource, such as an ELB load balancer or another record in the
 hosted zone.
 
 _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `EvaluateTargetHealth` property of an
 `AWS::Route53::RecordSetGroup AliasTarget` resource.
 
@@ -69,7 +69,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `HostedZoneId` property of an `AWS::Route53::RecordSetGroup
  RecordSet` resource.
 
@@ -85,7 +85,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `HostedZoneName` property of an `AWS::Route53::RecordSetGroup
  RecordSet` resource.
 
@@ -98,8 +98,8 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn't have an CloudFormation equivalent.
 
 `Region`
 
@@ -125,7 +125,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Region` property of an `AWS::Route53::RecordSetGroup` `RecordSet` data
+_CloudFormation compatibility_: This property is passed directly to the `Region` property of an `AWS::Route53::RecordSetGroup` `RecordSet` data
 type.
 
 `SetIdentifier`
@@ -143,7 +143,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `SetIdentifier` property of an `AWS::Route53::RecordSetGroup` `RecordSet` data
+_CloudFormation compatibility_: This property is passed directly to the `SetIdentifier` property of an `AWS::Route53::RecordSetGroup` `RecordSet` data
 type.
 
 `VpcEndpointDomainName`
@@ -155,7 +155,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `DNSName` property of an
 `AWS::Route53::RecordSet`
 `AliasTarget` field.
@@ -169,7 +169,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `HostedZoneId` property of an
 `AWS::Route53::RecordSet`
 `AliasTarget` field.

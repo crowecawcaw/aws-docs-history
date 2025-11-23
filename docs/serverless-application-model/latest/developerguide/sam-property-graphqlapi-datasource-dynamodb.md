@@ -34,7 +34,7 @@ _Type_: [DeltaSyncConfig](../../../AWSCloudFormation/latest/UserGuide/aws-proper
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `DeltaSyncConfig` property of an `AWS::AppSync::DataSource
  DynamoDBConfig` object.
 
@@ -46,7 +46,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Description` property of an `AWS::AppSync::DataSource`
 resource.
 
@@ -58,7 +58,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Name` property of an `AWS::AppSync::DataSource`
 resource.
 
@@ -71,7 +71,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Name` property of an `AWS::AppSync::DataSource`
 resource.
 
@@ -87,7 +87,7 @@ following values in a list:
 
 AWS SAM uses an `AWS::Serverless::Connector` resource which is transformed
 at deployment to provision your permissions. To learn about generated resources, see
-[AWS CloudFormation resources generated when
+[CloudFormation resources generated when
 you specify AWS::Serverless::Connector](sam-specification-generated-resources-connector.md "sam-specification-generated-resources-connector.md").
 
 ###### Note
@@ -101,8 +101,8 @@ _Type_: List
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn’t have an AWS CloudFormation equivalent. It is similar to the `Permissions` property of an
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn’t have an CloudFormation equivalent. It is similar to the `Permissions` property of an
 `AWS::Serverless::Connector` resource.
 
 `Region`
@@ -114,7 +114,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `AwsRegion` property of an `AWS::AppSync::DataSource
  DynamoDBConfig` object.
 
@@ -131,7 +131,7 @@ _Type_: String
 _Required_: No. If not specified, AWS SAM applies the default value
 for `Permissions`.
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `ServiceRoleArn` property of an `AWS::AppSync::DataSource`
 resource.
 
@@ -144,8 +144,8 @@ _Type_: String
 _Required_: Conditional. If you don’t specify
 `ServiceRoleArn`, `TableArn` is required.
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn’t have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and
+doesn’t have an CloudFormation equivalent.
 
 `TableName`
 
@@ -155,7 +155,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `TableName` property of an `AWS::AppSync::DataSource
  DynamoDBConfig` object.
 
@@ -167,7 +167,7 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `UseCallerCredentials` property of an `AWS::AppSync::DataSource
  DynamoDBConfig` object.
 
@@ -180,6 +180,6 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `Versioned` property of an `AWS::AppSync::DataSource
  DynamoDBConfig` object.

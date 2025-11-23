@@ -25,7 +25,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Id` property of the `AWS::Events::Rule` `Target` data type.
+_CloudFormation compatibility_: This property is passed directly to the `Id` property of the `AWS::Events::Rule` `Target` data type.
 
 ## Examples
 

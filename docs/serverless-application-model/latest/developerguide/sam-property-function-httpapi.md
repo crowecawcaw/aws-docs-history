@@ -37,7 +37,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `Auth`
 
@@ -49,7 +49,7 @@ _Type_: [HttpApiFunctionAuth](sam-property-function-httpapifunctionauth.md "sam-
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `Method`
 
@@ -61,7 +61,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `Path`
 
@@ -73,7 +73,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `PayloadFormatVersion`
 
@@ -87,7 +87,7 @@ _Required_: No
 
 _Default_: 2.0
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `RouteSettings`
 
@@ -99,7 +99,7 @@ _Type_: [RouteSettings](../../../AWSCloudFormation/latest/UserGuide/aws-resource
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `RouteSettings` property of an `AWS::ApiGatewayV2::Stage` resource.
+_CloudFormation compatibility_: This property is passed directly to the `RouteSettings` property of an `AWS::ApiGatewayV2::Stage` resource.
 
 `TimeoutInMillis`
 
@@ -113,7 +113,7 @@ _Required_: No
 
 _Default_: 5000
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 ## Examples
 

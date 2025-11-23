@@ -26,7 +26,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Types` property of the `AWS::ApiGateway::RestApi` `EndpointConfiguration` data type.
+_CloudFormation compatibility_: This property is passed directly to the `Types` property of the `AWS::ApiGateway::RestApi` `EndpointConfiguration` data type.
 
 `VPCEndpointIds`
 
@@ -36,7 +36,7 @@ _Type_: List
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `VpcEndpointIds` property of the `AWS::ApiGateway::RestApi` `EndpointConfiguration` data type.
+_CloudFormation compatibility_: This property is passed directly to the `VpcEndpointIds` property of the `AWS::ApiGateway::RestApi` `EndpointConfiguration` data type.
 
 ## Examples
 

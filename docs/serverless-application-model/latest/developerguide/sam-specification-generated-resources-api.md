@@ -1,9 +1,9 @@
-# AWS CloudFormation resources generated when
+# CloudFormation resources generated when
 
 AWS::Serverless::Api is specified
 
 When an `AWS::Serverless::Api` is specified, AWS Serverless Application Model (AWS SAM) always generates
-an `AWS::ApiGateway::RestApi` base AWS CloudFormation resource. In addition, it also always
+an `AWS::ApiGateway::RestApi` base CloudFormation resource. In addition, it also always
 generates an `AWS::ApiGateway::Stage` and an
 `AWS::ApiGateway::Deployment` resource.
 
@@ -12,7 +12,7 @@ generates an `AWS::ApiGateway::Stage` and an
 _`LogicalId`:_ `<api‑LogicalId>`
 
 _Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this AWS CloudFormation resource)
+`LogicalId` to reference this CloudFormation resource)
 
 **`AWS::ApiGateway::Stage`**
 
@@ -35,8 +35,8 @@ that is generated when the stack is created. For example,
 
 _Referenceable property:_ ``<api‑LogicalId>`.Deployment`
 
-In addition to these AWS CloudFormation resources, when `AWS::Serverless::Api` is specified,
-AWS SAM generates additional AWS CloudFormation resources for the following scenarios.
+In addition to these CloudFormation resources, when `AWS::Serverless::Api` is specified,
+AWS SAM generates additional CloudFormation resources for the following scenarios.
 
 ###### Scenarios
 
@@ -51,7 +51,7 @@ property is specified
 
 When the `DomainName` property of the `Domain` property of an
 `AWS::Serverless::Api` is specified, AWS SAM generates the
-`AWS::ApiGateway::DomainName` AWS CloudFormation resource.
+`AWS::ApiGateway::DomainName` CloudFormation resource.
 
 **`AWS::ApiGateway::DomainName`**
 
@@ -68,7 +68,7 @@ _Referenceable property:_ ``<api‑LogicalId>`.DomainName`
 property is specified
 
 When the `UsagePlan` property of the `Auth` property of an
-`AWS::Serverless::Api` is specified, AWS SAM generates the following AWS CloudFormation
+`AWS::Serverless::Api` is specified, AWS SAM generates the following CloudFormation
 resources: `AWS::ApiGateway::UsagePlan`,
 `AWS::ApiGateway::UsagePlanKey`, and
 `AWS::ApiGateway::ApiKey`.

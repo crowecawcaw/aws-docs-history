@@ -79,9 +79,9 @@ Resources:
   [`AWS::ApplicationInsights::Application`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.md")
   in the _AWS CloudFormation User Guide_.
 
-Both resources are automatically passed through to AWS CloudFormation at application deployment. You can use the
-AWS CloudFormation syntax in your AWS SAM template to configure CloudWatch Application Insights further. For more information, see
-[Use AWS CloudFormation templates](../../../AmazonCloudWatch/latest/monitoring/appinsights-cloudformation.md "../../../AmazonCloudWatch/latest/monitoring/appinsights-cloudformation.md")
+Both resources are automatically passed through to CloudFormation at application deployment. You can use the
+CloudFormation syntax in your AWS SAM template to configure CloudWatch Application Insights further. For more information, see
+[Use CloudFormation templates](../../../AmazonCloudWatch/latest/monitoring/appinsights-cloudformation.md "../../../AmazonCloudWatch/latest/monitoring/appinsights-cloudformation.md")
 in the _Amazon CloudWatch User Guide_.
 
 When using the **sam init --application-insights** command, both of these resources are

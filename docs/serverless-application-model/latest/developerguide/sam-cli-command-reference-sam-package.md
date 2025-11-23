@@ -143,7 +143,7 @@ resources that it points to.
 
 `--use-json`
 
-Output JSON for the AWS CloudFormation template. YAML is used by default.
+Output JSON for the CloudFormation template. YAML is used by default.
 
 ## Example
 

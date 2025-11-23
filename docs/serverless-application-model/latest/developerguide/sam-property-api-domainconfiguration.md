@@ -31,13 +31,13 @@ The configuration required to generate `AWS::ApiGateway::DomainNameAccessAssocia
 
 AWS SAM generates an [AWS::ApiGateway::DomainNameAccessAssociation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnameaccessassociation.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnameaccessassociation.md") resource when
 this property is set.
-For information about generated AWS CloudFormation resources, see [Generated AWS CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+For information about generated CloudFormation resources, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
 
 _Type_: [DomainAccessAssociation](sam-property-api-domainaccessassociation.md "sam-property-api-domainaccessassociation.md")
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `BasePath`
 
@@ -49,7 +49,7 @@ _Required_: No
 
 _Default_: /
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `BasePath` property of an `AWS::ApiGateway::BasePathMapping` resource. AWS SAM creates multiple `AWS::ApiGateway::BasePathMapping` resources, one per `BasePath` specified in this property.
 
 `CertificateArn`
@@ -60,7 +60,7 @@ _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is similar to the
+_CloudFormation compatibility_: This property is similar to the
 `CertificateArn` property of an
 `AWS::ApiGateway::DomainName` resource. If `EndpointConfiguration` is set to `REGIONAL` (the default value),
 `CertificateArn` maps to [RegionalCertificateArn](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.md#cfn-apigateway-domainname-regionalcertificatearn "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.md#cfn-apigateway-domainname-regionalcertificatearn")
@@ -76,20 +76,20 @@ _Additional notes_: For an `EDGE` endpoint, you must create the certificate in t
 The custom domain name for your API Gateway API. Uppercase letters are not supported.
 
 AWS SAM generates an [AWS::ApiGateway::DomainName](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.md") resource when this property is set. For information about this scenario, see [DomainName
-property is specified](sam-specification-generated-resources-api.md#sam-specification-generated-resources-api-domain-name "sam-specification-generated-resources-api.md#sam-specification-generated-resources-api-domain-name"). For information about generated AWS CloudFormation resources, see [Generated AWS CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+property is specified](sam-specification-generated-resources-api.md#sam-specification-generated-resources-api-domain-name "sam-specification-generated-resources-api.md#sam-specification-generated-resources-api-domain-name"). For information about generated CloudFormation resources, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
 
 _Type_: String
 
 _Required_: Yes
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `DomainName`
 property of an `AWS::ApiGateway::DomainName` resource, or to [`AWS::ApiGateway::DomainNameV2`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.md")
 when EndpointConfiguration is set to `PRIVATE`.
 
 `EndpointConfiguration`
 
-Defines the type of API Gateway endpoint to map to the custom domain. The value of this property determines how the `CertificateArn` property is mapped in AWS CloudFormation.
+Defines the type of API Gateway endpoint to map to the custom domain. The value of this property determines how the `CertificateArn` property is mapped in CloudFormation.
 
 _Valid values_: `EDGE`, `REGIONAL`, or
 `PRIVATE`
@@ -100,7 +100,7 @@ _Required_: No
 
 _Default_: `REGIONAL`
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `MutualTlsAuthentication`
 
@@ -110,7 +110,7 @@ _Type_: [MutualTlsAuthentication](../../../AWSCloudFormation/latest/UserGuide/aw
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `MutualTlsAuthentication` property of an `AWS::ApiGateway::DomainName` resource.
+_CloudFormation compatibility_: This property is passed directly to the `MutualTlsAuthentication` property of an `AWS::ApiGateway::DomainName` resource.
 
 `NormalizeBasePath`
 
@@ -126,8 +126,8 @@ _Required_: No
 
 _Default_: True
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an
-AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an
+CloudFormation equivalent.
 
 `OwnershipVerificationCertificateArn`
 
@@ -137,7 +137,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `OwnershipVerificationCertificateArn` property of an `AWS::ApiGateway::DomainName` resource.
 
 `Policy`
@@ -148,7 +148,7 @@ _Type_: Json
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the `Policy` property of an
+_CloudFormation compatibility_: This property is passed directly to the `Policy` property of an
 `AWS::ApiGateway::DomainNameV2` resource when `EndpointConfiguration` is set to `PRIVATE`. For examples of valid policy documents, see
 [AWS::ApiGateway::DomainNameV2](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.md").
 
@@ -160,7 +160,7 @@ _Type_: [Route53Configuration](sam-property-api-route53configuration.md "sam-pro
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `SecurityPolicy`
 
@@ -170,7 +170,7 @@ _Type_: String
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is passed directly to the
+_CloudFormation compatibility_: This property is passed directly to the
 `SecurityPolicy`
 property of an `AWS::ApiGateway::DomainName` resource, or to [`AWS::ApiGateway::DomainNameV2`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.md")
 when `EndpointConfiguration` is set to `PRIVATE`. For `PRIVATE` endpoints, only TLS_1_2 is supported.

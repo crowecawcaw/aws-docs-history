@@ -1,20 +1,20 @@
 # What is the AWS Serverless Application Model (AWS SAM)?
 
-AWS Serverless Application Model (AWS SAM) is an open-source framework for building serverless applications using infrastructure as code (IaC). With AWS SAM's shorthand syntax, developers declare [AWS CloudFormation](https://aws.amazon.com/cloudformation "https://aws.amazon.com/cloudformation") resources and specialized serverless resources that are transformed to
+AWS Serverless Application Model (AWS SAM) is an open-source framework for building serverless applications using infrastructure as code (IaC). With AWS SAM's shorthand syntax, developers declare [CloudFormation](https://aws.amazon.com/cloudformation "https://aws.amazon.com/cloudformation") resources and specialized serverless resources that are transformed to
 infrastructure during deployment. When working with AWS SAM, you will interact with:
 
 1. AWS SAM CLI - A command-line tool that helps you develop, locally test, and deploy your serverless applications.
-2. AWS SAM Template - An extension of AWS CloudFormation that provides simplified syntax for defining serverless resources.
+2. AWS SAM Template - An extension of CloudFormation that provides simplified syntax for defining serverless resources.
    When you use the **sam init** command, it creates a project directory, which we will refer to as the AWS SAM project, that typically includes your AWS SAM template, application code, and other configuration files.
 
 ## When to use AWS SAM
 
-AWS SAM is an ideal IaC solution for scenarios where you want simplified serverless development with the full power of AWS CloudFormation.
+AWS SAM is an ideal IaC solution for scenarios where you want simplified serverless development with the full power of CloudFormation.
 For example, you can use SAM for:
 
 - **Serverless applications:** You can use SAM to quickly define AWS Lambda functions, Amazon API Gateway APIs, Amazon DynamoDB tables,
   and other serverless resources with minimal code.
-- **AWS CloudFormation enhancement:** You can combine SAM with existing CloudFormation templates to add serverless components to traditional infrastructure.
+- **CloudFormation enhancement:** You can combine SAM with existing CloudFormation templates to add serverless components to traditional infrastructure.
   SAM resources work alongside standard CloudFormation resources in the same template.
 - **Local development and testing:** You can use the SAM CLI to test Lambda
   functions locally, simulate API Gateway endpoints, and debug serverless applications on your development machine before deploying to AWS.
@@ -36,7 +36,7 @@ AWS SAM offers a variety of benefits that improve the developer experience by al
 **Define your application infrastructure code quickly, using less code**
 
 Author AWS SAM templates to define your serverless application infrastructure code.
-Deploy your templates directly to AWS CloudFormation to provision your resources.
+Deploy your templates directly to CloudFormation to provision your resources.
 
 **Manage your serverless applications through their entire development lifecycle**
 

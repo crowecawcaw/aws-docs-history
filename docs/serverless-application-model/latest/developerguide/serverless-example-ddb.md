@@ -101,8 +101,8 @@ sam deploy \
 In the command, the `--capabilities` parameter allows AWS CloudFormation
 to create an IAM role.
 
-AWS CloudFormation creates the AWS resources that are defined in the template. You can access the
-names of these resources in the AWS CloudFormation console.
+CloudFormation creates the AWS resources that are defined in the template. You can access the
+names of these resources in the CloudFormation console.
 
 ###### To test the serverless application in the AWS Cloud
 

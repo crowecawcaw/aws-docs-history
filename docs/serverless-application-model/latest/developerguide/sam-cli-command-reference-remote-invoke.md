@@ -29,7 +29,7 @@ Use `sam list stack-outputs --stack-name `<stack-name>`` to obtain the ARN of yo
 
 - **Logical ID** – The logical ID of the resource. You must also provide the AWS CloudFormation stack name using the
   `--stack-name` option.
-- **Physical ID** – The physical ID of the resource. This ID gets created when you deploy a resource using AWS CloudFormation.
+- **Physical ID** – The physical ID of the resource. This ID gets created when you deploy a resource using CloudFormation.
 
 ###### Tip
 
@@ -38,12 +38,12 @@ Use `sam list resources --stack-name `<stack-name>`` to obtain the physical ID o
 **When you provide an ARN or physical ID:**
 
 If you provide an ARN or physical ID, do not provide a stack name. When the stack name is provided using the `--stack-name` option, or when the stack name
-is defined in your configuration file, the AWS SAM CLI will automatically process your resource ID as a logical ID value from the AWS CloudFormation stack.
+is defined in your configuration file, the AWS SAM CLI will automatically process your resource ID as a logical ID value from the CloudFormation stack.
 
 **When you don't provide a resource ID:**
 
 If you don't provide a resource ID, but do provide a stack name with the `--stack-name` option, the AWS SAM CLI will attempt to automatically invoke
-a resource in your AWS CloudFormation stack using the following logic:
+a resource in your CloudFormation stack using the following logic:
 
 1. The AWS SAM CLI will identify resource types in the following order and move to the next step once the resource type is found in your stack:
    1. Lambda
@@ -181,7 +181,12 @@ The AWS Region of the resource. For example, `us-east-1`.
 
 `--stack-name `TEXT``
 
-The name of the AWS CloudFormation stack that the resource belongs to.
+The name of the CloudFormation stack that the resource belongs to.
+
+`--tenant-id `TEXT``
+
+The tenant ID for multi-tenant Lambda functions. Used to ensure compute isolation between different tenants.
+Required when invoking functions configured with tenant isolation mode.
 
 `--test-event-name `NAME``
 

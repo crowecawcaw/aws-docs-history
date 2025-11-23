@@ -39,7 +39,7 @@ _Required_: No
 
 _Default_: `True`
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `AddDefaultAuthorizerToCorsPreflight`
 
@@ -51,7 +51,7 @@ _Required_: No
 
 _Default_: True
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `ApiKeyRequired`
 
@@ -61,7 +61,7 @@ _Type_: Boolean
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `Authorizers`
 
@@ -75,7 +75,7 @@ _Required_: No
 
 _Default_: None
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 _Additional notes_: SAM adds the Authorizers to the OpenApi definition of an Api.
 
@@ -93,7 +93,7 @@ _Required_: No
 
 _Default_: None
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `InvokeRole`
 
@@ -109,7 +109,7 @@ _Required_: No
 
 _Default_: `CALLER_CREDENTIALS`
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 `ResourcePolicy`
 
@@ -119,7 +119,7 @@ _Type_: [ResourcePolicyStatement](sam-property-api-resourcepolicystatement.md "s
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 _Additional notes_: This setting can also be defined on individual `AWS::Serverless::Function` using the [ApiFunctionAuth](sam-property-function-apifunctionauth.md "sam-property-function-apifunctionauth.md"). This is required for APIs with `EndpointConfiguration: PRIVATE`.
 
@@ -127,14 +127,14 @@ _Additional notes_: This setting can also be defined on individual `AWS::Serverl
 
 Configures a usage plan associated with this API. For more information about usage plans see [Create and Use Usage Plans with API Keys](../../../apigateway/latest/developerguide/api-gateway-api-usage-plans.md "../../../apigateway/latest/developerguide/api-gateway-api-usage-plans.md") in the _API Gateway Developer Guide_.
 
-This AWS SAM property generates three additional AWS CloudFormation resources when this property is set: an [AWS::ApiGateway::UsagePlan](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.md"), an [AWS::ApiGateway::UsagePlanKey](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.md"), and an [AWS::ApiGateway::ApiKey](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.md"). For information about this scenario, see [UsagePlan
-property is specified](sam-specification-generated-resources-api.md#sam-specification-generated-resources-api-usage-plan "sam-specification-generated-resources-api.md#sam-specification-generated-resources-api-usage-plan"). For general information about generated AWS CloudFormation resources, see [Generated AWS CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+This AWS SAM property generates three additional CloudFormation resources when this property is set: an [AWS::ApiGateway::UsagePlan](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.md"), an [AWS::ApiGateway::UsagePlanKey](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.md"), and an [AWS::ApiGateway::ApiKey](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.md"). For information about this scenario, see [UsagePlan
+property is specified](sam-specification-generated-resources-api.md#sam-specification-generated-resources-api-usage-plan "sam-specification-generated-resources-api.md#sam-specification-generated-resources-api-usage-plan"). For general information about generated CloudFormation resources, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
 
 _Type_: [ApiUsagePlan](sam-property-api-apiusageplan.md "sam-property-api-apiusageplan.md")
 
 _Required_: No
 
-_AWS CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an AWS CloudFormation equivalent.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 ## Examples
 
