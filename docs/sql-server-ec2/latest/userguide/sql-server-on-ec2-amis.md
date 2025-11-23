@@ -74,7 +74,7 @@ Region.
    cost, operating system, and architecture.
 5. To launch an instance from this AMI, select it and then choose
    **Launch instance** . For more information
-   about launching an instance using the console, see Launching your instance from an AMI. If you're not
+   about launching an instance using the console, see [Launching your instance from an AMI](../../../index.md "../../../index.md"). If you're not
    ready to launch the instance now, take note of the AMI ID for
    later.
 

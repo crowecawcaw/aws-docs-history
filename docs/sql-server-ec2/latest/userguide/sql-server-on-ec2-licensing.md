@@ -10,6 +10,7 @@ the costs of SQL Server editions, see [Compare SQL Server editions](../../../pre
 - [Licensing options](#sql-server-on-ec2-licensing-options "#sql-server-on-ec2-licensing-options")
 - [Licensing
   considerations](#sql-server-on-ec2-licensing-considerations "#sql-server-on-ec2-licensing-considerations")
+- [Amazon EC2 High Availability for SQL Server on Amazon EC2](sql-high-availability.md "sql-high-availability.md")
 
 ## Licensing options
 

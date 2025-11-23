@@ -23,8 +23,8 @@ meet all of the prerequisites.
   can skip the component install prerequisite. That command document automatically
   installs the VSS components as needed on your instance.
 
-For more information, see Prerequisites to create
-Windows VSS based EBS snapshots in the
+For more information, see [Prerequisites to create
+Windows VSS based EBS snapshots](../../../index.md "../../../index.md") in the
 _Amazon EC2 User Guide_.
 
 - To enable the restore process for your SQL Server database, you must set your

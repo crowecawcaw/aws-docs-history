@@ -48,7 +48,7 @@ SQL Server on Amazon EC2 provides the following features:
 - **Fully-managed shared storage** — [Amazon FSx for Windows File Server](https://aws.amazon.com/fsx "https://aws.amazon.com/fsx") and Amazon FSx for NetApp ONTAP offer
   fully-managed shared storage for high-availability SQL Server failover cluster instances (FCI)
   workloads.
-- **Windows-based services** — [AWS Directory Service](https://aws.amazon.com/directoryservice "https://aws.amazon.com/directoryservice") offers managed Microsoft Active Directory with
+- **Windows-based services** — [Directory Service](https://aws.amazon.com/directoryservice "https://aws.amazon.com/directoryservice") offers managed Microsoft Active Directory with
   identity and access management.
 - **Scalable processors** — [Intel Xeon
   Scalable Processors on AWS](https://pages.awscloud.com/gc-500-Running-Windows-Workloads-learn.html "https://pages.awscloud.com/gc-500-Running-Windows-Workloads-learn.html") provide you with better data protection, faster
