@@ -32,6 +32,8 @@ dashboard.
   because it can take up to 24 hours for all your data to be populated in your
   dashboard. If the export status says “Healthy”, allow 24 hours for your dashboard to
   update with the current month's data.
+
+  When you use billing transfer as a bill transfer account, or AWS Billing Conductor as a management account, you can see all billing view-based exports with billing view mode disabled. When you enable billing view mode, you can see only exports associated with the selected billing view.
   - **Unhealthy**: This status indicates that the most recent export
     delivery failed.
 

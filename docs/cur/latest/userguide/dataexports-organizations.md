@@ -13,10 +13,8 @@ how it is determined whether to include member account data for each table.
 - [FOCUS 1.0 with AWS columns](table-dictionary-focus-1-0-aws.md#focus-1-0-table-organizations "table-dictionary-focus-1-0-aws.md#focus-1-0-table-organizations")
 - [Cost and usage dashboard](table-dictionary-cur-dashboard.md#cur-dashboard-table-organizations "table-dictionary-cur-dashboard.md#cur-dashboard-table-organizations")
 - [Carbon emissions](table-dictionary-carbon-emissions.md#carbon-emissions-table-organizations "table-dictionary-carbon-emissions.md#carbon-emissions-table-organizations")
-  The
-  IAM
-  policies that allow or restrict the ability to create an export are the same for both
-  management and member accounts.
+  The IAM policies that allow or restrict the ability to create an export are the same for
+  both management and member accounts.
 
 If you are an administrator of an AWS Organizations management account and you don’t
 want member accounts to create an export, you can apply a service control policy (SCP) that
@@ -26,6 +24,5 @@ creating new exports, it doesn’t delete previously created exports.
 ###### Note
 
 SCPs apply only to member accounts. To prevent a management account from creating an
-export, modify the
-IAM
-policies attached to the user roles in the management account.
+export, modify the IAM policies attached to the user roles in the management
+account.

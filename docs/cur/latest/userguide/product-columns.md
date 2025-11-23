@@ -195,7 +195,7 @@ For reference, visit [https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2](https://
   `Equinix DC1 - DC6`, `Equinix DC10 - DC11`,
   `Global Switch Singapore`
 - **Services:**
-  - AWS Direct Connect
+  - Direct Connect
 
 ### product/directorysize
 
@@ -203,21 +203,21 @@ For reference, visit [https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2](https://
   that is used to store the meta information for the directory or
   folder.
 - **Services:**
-  - AWS Direct Connect
+  - Direct Connect
 
 ### product/directorytype
 
 - **Description:** Specifies if the
   directory is a file or another directory.
 - **Services:**
-  - AWS Direct Connect
+  - Direct Connect
 
 ### product/directorytypedescription
 
 - **Description:** The meaningful name
   given to the directory.
 - **Services:**
-  - AWS Direct Connect
+  - Direct Connect
 
 ### product/disableactivationconfirmationemail
 
@@ -356,7 +356,7 @@ application programming interface that conforms to the constraints of
   - Amazon RDS
   - Amazon EC2
   - Amazon VPC
-  - AWS Direct Connect
+  - Direct Connect
 
 ### product/fromLocationType
 
@@ -365,7 +365,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `AWS Region`, `AWS Edge Location`
 - **Services:**
-  - AWS Direct Connect
+  - Direct Connect
   - AWS Elemental MediaConnect
   - Amazon CloudFront
   - Amazon Lightsail
@@ -766,7 +766,7 @@ application programming interface that conforms to the constraints of
 
 ### product/parameterType
 
-- **Description:** Use parameters in AWS CloudFormation
+- **Description:** Use parameters in CloudFormation
   to enter custom values to your template when you create or update a
   stack. For Example, `InstanceTypeParameter`. You can use this
   parameter to specify the Amazon EC2 instance type when you create or update
@@ -810,7 +810,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Description:** The smallest billing
   unit for an AWS service. For example, 0.01c per API call.
 - **Services:**
-  - AWS Directory Service
+  - Directory Service
 
 ### product/primaryplaceofuse
 
@@ -1165,7 +1165,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Sample values:**
   `AWS Region`, `AWS Edge Location`
 - **Services:**
-  - AWS Direct Connect
+  - Direct Connect
   - AWS Elemental MediaConnect
   - AWS Shield
   - Amazon CloudFront
@@ -1183,7 +1183,7 @@ E5-2670`, `AMD EPYC 7571`
   - Amazon RDS
   - Amazon EC2
   - Amazon VPC
-  - AWS Direct Connect
+  - Direct Connect
 
 ### product/transcodingResult
 

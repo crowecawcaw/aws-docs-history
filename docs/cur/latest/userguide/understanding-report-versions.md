@@ -105,11 +105,11 @@ could be delivered as a collection of the following files.
 <`example-report-prefix`>/<`example-report-name`>/yyyymmdd-yyyymmdd/crawler-cfn.yml
 ```
 
-### AWS CloudFormation specifications
+### CloudFormation specifications
 
-In addition to the AWS CUR files, AWS also delivers an AWS CloudFormation template that you can use
-to set up an AWS CloudFormation stack that enables you to query Amazon S3 data using Athena. If you don't
-want to use the AWS CloudFormation template, you can use the provided SQL to create your own Athena
+In addition to the AWS CUR files, AWS also delivers an CloudFormation template that you can use
+to set up an CloudFormation stack that enables you to query Amazon S3 data using Athena. If you don't
+want to use the CloudFormation template, you can use the provided SQL to create your own Athena
 tables. For more information, see [Querying Cost and Usage Reports using Amazon Athena](cur-query-athena.md "cur-query-athena.md").
 
 ## Cost and Usage Reports manifest files
@@ -170,7 +170,7 @@ command in the `RedshiftCommands` file uploads. Deleting or removing the
 
 If you chose the option for Amazon Athena support in your AWS CUR, AWS also creates and
 delivers multiple files to help set up all of the resources that you need. AWS delivers
-a AWS CloudFormation template, a SQL file with the SQL to create your Athena table manually, and a file
+a CloudFormation template, a SQL file with the SQL to create your Athena table manually, and a file
 with the SQL to check your AWS CUR refresh status. These files use the following naming
 conventions.
 

@@ -90,3 +90,63 @@ JSON
 
 For more information on access control and IAM permissions to use Data Exports in Billing and
 Cost Management, see [Overview of managing access permissions](../../../awsaccountbilling/latest/aboutv2/control-access-billing.md "../../../awsaccountbilling/latest/aboutv2/control-access-billing.md").
+
+### Create a pro forma AWS CUR 2.0
+
+To create a pro forma CUR 2.0, you will need to include the following IAM policy:
+
+Allow IAM user to have full access to CUR 2.0 and Billing Group Billing View.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowCreateCur20AnyBillingView",
+ "Effect": "Allow",
+ "Action": "bcm-data-exports:CreateExport",
+ "Resource": [
+ "arn:aws:bcm-data-exports:*:*:table/COST_AND_USAGE_REPORT",
+ "arn:aws:bcm-data-exports:*:*:export/*",
+ "arn:aws:billing::*:billingview/*"
+ ]
+ },{
+ "Sid": "CurDataAccess",
+ "Effect": "Allow",
+ "Action": "cur:PutReportDefinition",
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+If you want an IAM role to have access to a specific billing group, you can add the Billing View ARN the role is allowed to access.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowCreateSpecificBillingViewCur20",
+ "Effect": "Allow",
+ "Action": "bcm-data-exports:CreateExport",
+ "Resource": [
+ "arn:aws:bcm-data-exports:*:*:table/COST_AND_USAGE_REPORT",
+ "arn:aws:bcm-data-exports:*:*:export/*",
+ "arn:aws:billing::444455556666:billingview/billing-group-111122223333"
+ ]
+ },{
+ "Sid": "CurDataAccess",
+ "Effect": "Allow",
+ "Action": "cur:PutReportDefinition",
+ "Resource": "*"
+ }
+ ]
+}`
+
+```

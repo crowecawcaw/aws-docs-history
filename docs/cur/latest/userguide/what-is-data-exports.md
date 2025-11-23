@@ -12,7 +12,7 @@ write SQL queries, select columns, filter rows, and rename columns. This allows 
 the data you want to process, remove any sensitive cost information, and control the output schema
 of your exports.
 
-There are three export types:
+There are five export types:
 
 - **Standard data export**, with
   four
@@ -26,6 +26,7 @@ There are three export types:
   and Usage Reports (CUR). For more information, see [Migrating from CUR
   to CUR 2.0 in Data Exports](dataexports-migrate.md "dataexports-migrate.md").
   - Cost optimization recommendations (from Cost Optimization Hub)
+  - FOCUS 1.2 with AWS columns
   - FOCUS 1.0 with AWS columns
   - Carbon emissions
 

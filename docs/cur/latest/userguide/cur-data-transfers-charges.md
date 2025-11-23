@@ -80,12 +80,12 @@ Data transfer usage types that don’t have the Region prefix, such as
 `DataTransfer-Out-Bytes`, represent data transfer from the
 US East (N. Virginia) Region.
 
-## AWS Direct Connect traffic
+## Direct Connect traffic
 
-AWS Direct Connect data transfer over a public virtual interface have usage types that end
+Direct Connect data transfer over a public virtual interface have usage types that end
 with `DataXfer-In` or `DataXfer-Out`.
 
-AWS Direct Connect data transfer over a private or transit virtual interface have usage
+Direct Connect data transfer over a private or transit virtual interface have usage
 types that end with `DataXfer-In:dc.3` or
 `DataXfer-Out:dc.3`.
 

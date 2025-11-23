@@ -18,6 +18,10 @@ There are a few differences between the standard Cost and Usage Reports and pro 
 
 Use the following steps to generate a pro forma AWS CUR for a billing group.
 
+###### Note
+
+The legacy AWS Cost and Usage Report page supports reports only for billing group views. To create reports for billing transfer views, use the Data Export page.
+
 ###### To create pro forma Cost and Usage Reports for a billing group
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").

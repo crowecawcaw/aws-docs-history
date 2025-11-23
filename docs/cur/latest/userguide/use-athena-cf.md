@@ -1,8 +1,8 @@
-# Setting up Athena using AWS CloudFormation templates
+# Setting up Athena using CloudFormation templates
 
 ###### Important
 
-AWS CloudFormation doesn't support cross-Region resources. If you plan to use an AWS CloudFormation template, you
+CloudFormation doesn't support cross-Region resources. If you plan to use an CloudFormation template, you
 must create all resources in the same AWS Region. The Region must support the following
 services:
 
@@ -11,11 +11,11 @@ services:
 - AWS Glue
 - Amazon Athena
   To streamline and automate integration of your Cost and Usage Reports with Athena, AWS provides an
-  AWS CloudFormation template with several key resources along with the reports that you set up for Athena
-  integration. The AWS CloudFormation template includes an AWS Glue crawler, an AWS Glue database, and an
+  CloudFormation template with several key resources along with the reports that you set up for Athena
+  integration. The CloudFormation template includes an AWS Glue crawler, an AWS Glue database, and an
   AWS Lambda event.
 
-The Athena integration setup process using AWS CloudFormation removes any Amazon S3 events that your bucket might already have. This can negatively affect any existing event-based processes that you have for an existing AWS CUR report. We strongly recommend that you create both a new Amazon S3 bucket and a new AWS CUR report to use
+The Athena integration setup process using CloudFormation removes any Amazon S3 events that your bucket might already have. This can negatively affect any existing event-based processes that you have for an existing AWS CUR report. We strongly recommend that you create both a new Amazon S3 bucket and a new AWS CUR report to use
 with Athena.
 
 Before you can use a CloudFormation template to automate Athena integration, make sure that you
@@ -28,7 +28,7 @@ do the following:
 - Wait for the first report to be delivered to your Amazon S3 bucket. It can take up to 24
   hours for AWS to deliver your first report.
 
-###### To use the Athena AWS CloudFormation template
+###### To use the Athena CloudFormation template
 
 1. Open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -39,9 +39,9 @@ do the following:
 4. Choose the `.yml` template file.
 5. Choose **Object actions**, and then choose **Download
    as**.
-6. Open the AWS CloudFormation console at
+6. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-7. If you have never used AWS CloudFormation before, choose **Create New Stack**.
+7. If you have never used CloudFormation before, choose **Create New Stack**.
    Otherwise, choose **Create Stack**.
 8. Under **Prepare template**, choose **Template is
    ready**.
@@ -67,7 +67,7 @@ This template creates the following resources:
 
 16. Choose **Create stack**.
 
-###### To update the existing Athena AWS CloudFormation template
+###### To update the existing Athena CloudFormation template
 
 1. Open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -78,7 +78,7 @@ This template creates the following resources:
 4. Choose the `.yml` template file.
 5. Choose **Object actions**, and then choose **Download
    as**.
-6. Open the AWS CloudFormation console at
+6. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 7. Select the stack that was previously created, and then choose
    **Update**.

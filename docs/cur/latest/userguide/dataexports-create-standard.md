@@ -19,20 +19,15 @@ export.
 
 ###### Note
 
-Exporting
-the Cost
-optimization
-recommendations
-table requires a service-linked role. For more information, see [Service-linked roles for Data Exports](../../../cost-management/latest/userguide/data-exports-SLR.md "../../../cost-management/latest/userguide/data-exports-SLR.md").
+Exporting the Cost optimization recommendations table requires a service-linked
+role. For more information, see [Service-linked roles for Data Exports](../../../cost-management/latest/userguide/data-exports-SLR.md "../../../cost-management/latest/userguide/data-exports-SLR.md").
 
 Exporting the Carbon emissions table requires the IAM permission
 `sustainability:GetCarbonFootprintSummary` to access the Customer Carbon
 Footprint Tool and data.
 
-With the exception of FOCUS 1.0 with AWS
-columns and Carbon
-emissions, there are different table configurations to add data to your
-export.
+With the exception of FOCUS 1.0 with AWS columns and Carbon emissions, there are
+different table configurations to add data to your export.
 
     1. For **CUR 2.0**:
 
@@ -102,8 +97,7 @@ export.
    your export. If unsure, select all columns by selecting the first check box at the top of
    the table. Selecting more columns may increase the file size of your export.
 8. Under **Data table delivery options**, for **Data export
-   refresh cadence**:
-   .
+   refresh cadence**: .
    - For billing and cost management data exports, the only option available is
      **Daily - export is refreshed up to one time per day**.
    - For carbon emissions data exports, the only option available is \*\*Monthly

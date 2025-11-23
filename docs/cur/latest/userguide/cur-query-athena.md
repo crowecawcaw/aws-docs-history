@@ -13,7 +13,7 @@ service, see the [Amazon Athena User Guide](../../../athena/latest/ug.md "../../
 
 ###### Topics
 
-- [Setting up Athena using AWS CloudFormation templates](use-athena-cf.md "use-athena-cf.md")
+- [Setting up Athena using CloudFormation templates](use-athena-cf.md "use-athena-cf.md")
 - [Setting up Athena manually](cur-ate-manual.md "cur-ate-manual.md")
 - [Running Amazon Athena queries](cur-ate-run.md "cur-ate-run.md")
 - [Loading report data to other resources](cur-query-other.md "cur-query-other.md")
