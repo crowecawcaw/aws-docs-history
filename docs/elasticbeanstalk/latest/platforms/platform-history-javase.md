@@ -6,9 +6,24 @@ Previous platform versions remain accessible to accounts with active or terminat
 See the [Supported platforms](platforms-supported.md "platforms-supported.md") page for information on the latest version of each platform
 supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
 
-## November 5, 2025 – present
+## November 20, 2025 – present
 
-The following Elastic Beanstalk platform versions for Java SE have been current since November 5, 2025:
+The following Elastic Beanstalk platform versions for Java SE have been current since November 20, 2025:
+
+| Platform Version and _Solution Stack Name_                                                   | AMI             | Language              | Tools                                    | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------- | --------------- | --------------------- | ---------------------------------------- | --------- | ------------ |
+| **Corretto 25 AL2023 version 4.8.0**<br>_64bit Amazon Linux 2023 v4.8.0 running Corretto 25_ | 2023.9.20251117 | Corretto 25.0.1.8.1   | Ant 1.10.15, Gradle 9.2.1, Maven 3.9.11  | 3.6.1     | nginx 1.28.0 |
+| **Corretto 21 AL2023 version 4.8.0**<br>_64bit Amazon Linux 2023 v4.8.0 running Corretto 21_ | 2023.9.20251117 | Corretto 21.0.9.10.1  | Ant 1.10.15, Gradle 9.2.1, Maven 3.9.11  | 3.6.1     | nginx 1.28.0 |
+| **Corretto 17 AL2023 version 4.8.0**<br>_64bit Amazon Linux 2023 v4.8.0 running Corretto 17_ | 2023.9.20251117 | Corretto 17.0.17.10.1 | Ant 1.10.15, Gradle 9.2.1, Maven 3.9.11  | 3.6.1     | nginx 1.28.0 |
+| **Corretto 11 AL2023 version 4.8.0**<br>_64bit Amazon Linux 2023 v4.8.0 running Corretto 11_ | 2023.9.20251117 | Corretto 11.0.29.7.1  | Ant 1.10.15, Gradle 8.14.3, Maven 3.9.11 | 3.6.1     | nginx 1.28.0 |
+| **Corretto 8 AL2023 version 4.8.0**<br>_64bit Amazon Linux 2023 v4.8.0 running Corretto 8_   | 2023.9.20251117 | Corretto 8.472.08.1   | Ant 1.10.15, Gradle 8.14.3, Maven 3.9.11 | 3.6.1     | nginx 1.28.0 |
+| **Corretto 17 version 3.10.0**<br>_64bit Amazon Linux 2 v3.10.0 running Corretto 17_         | 2.0.20251110    | Corretto 17.0.17.10.1 | Ant 1.10.15, Gradle 8.14.3, Maven 3.9.11 | 3.6.1     | nginx 1.28.0 |
+| **Corretto 11 version 3.10.0**<br>_64bit Amazon Linux 2 v3.10.0 running Corretto 11_         | 2.0.20251110    | Corretto 11.0.29.7.1  | Ant 1.10.15, Gradle 8.14.3, Maven 3.9.11 | 3.6.1     | nginx 1.28.0 |
+| **Corretto 8 version 3.10.0**<br>_64bit Amazon Linux 2 v3.10.0 running Corretto 8_           | 2.0.20251110    | Corretto 8.472.08.1   | Ant 1.10.15, Gradle 8.14.3, Maven 3.9.11 | 3.6.1     | nginx 1.28.0 |
+
+## November 5, 2025 – November 19, 2025
+
+The following Elastic Beanstalk platform versions for Java SE were current between November 5, 2025 and November 19, 2025:
 
 | Platform Version and _Solution Stack Name_                                                   | AMI             | Language              | Tools                                    | AWS X-Ray | Proxy Server |
 | -------------------------------------------------------------------------------------------- | --------------- | --------------------- | ---------------------------------------- | --------- | ------------ |
