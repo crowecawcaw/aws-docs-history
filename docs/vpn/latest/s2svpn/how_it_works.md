@@ -13,7 +13,7 @@ For more information about Site-to-Site VPN quotas, see [AWS Site-to-Site VPN qu
 
 ## Virtual private gateway
 
-A _virtual private gateway_ is the VPN concentrator on the
+A _virtual private gateway_ is the Site-to-Site VPN Concentrator on the
 Amazon side of the Site-to-Site VPN connection. You create a virtual private gateway and attach it
 to a virtual private cloud (VPC) with resources that must access the Site-to-Site VPN
 connection.

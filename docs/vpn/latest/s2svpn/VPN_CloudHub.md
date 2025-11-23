@@ -40,8 +40,8 @@ For this scenario, do the following:
    Use more specific prefixes between customer gateways devices and the virtual
    private gateway.
 
-Sites that use AWS Direct Connect connections to the virtual private gateway can also be part of the
-AWS VPN CloudHub. For example, your corporate headquarters in New York can have an AWS Direct Connect
+Sites that use Direct Connect connections to the virtual private gateway can also be part of the
+AWS VPN CloudHub. For example, your corporate headquarters in New York can have an Direct Connect
 connection to the VPC and your branch offices can use Site-to-Site VPN connections to the VPC. The
 branch offices in Los Angeles and Miami can send and receive data with each other and with
 your corporate headquarters, all using the AWS VPN CloudHub.

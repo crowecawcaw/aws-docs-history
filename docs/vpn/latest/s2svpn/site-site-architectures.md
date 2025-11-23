@@ -9,7 +9,7 @@ You can create additional VPN connections from your on-premises location to othe
 VPCs using the same customer gateway device. You can reuse the same customer gateway
 IP address for each of those VPN connections.
 
-###### Multiple customer gateway devices to a single virtual private gateway (AWS VPN
+###### Multiple customer gateway devices to a single virtual private gateway (Site-to-Site VPN
 
 CloudHub)
 

@@ -1,7 +1,7 @@
 # Get started with AWS Site-to-Site VPN
 
 Use the following procedure to set up an AWS Site-to-Site VPN connection. During creation, you will
-specify a virtual private gateway, a transit gateway, or "Not associated" as the
+specify a virtual private gateway, a transit gateway, a Site-to-Site VPN Concentrator, or "Not associated" as the
 target gateway type. If you specify "Not associated", you can choose the target gateway type
 at a later time, or you can use it as a VPN attachment for AWS Cloud WAN. This tutorial
 helps you create a VPN connection using a virtual private gateway. It assumes that you have
@@ -24,9 +24,10 @@ To set up a VPN connection using a virtual private gateway, complete the followi
 ###### Related tasks
 
 - To create a VPN connection for AWS Cloud WAN, see
-  [Create a Cloud WAN VPN attachment](create-cwan-vpn-attachment.md "create-cwan-vpn-attachment.md").
+  [Create a VPN Cloud WAN connection
+  using the CLI or API](create-cwan-vpn-attachment.md "create-cwan-vpn-attachment.md").
 - To create a VPN connection on a transit gateway, see
-  [Create a transit gateway VPN attachment](create-tgw-vpn-attachment.md "create-tgw-vpn-attachment.md").
+  [Create a VPN connection](create-vpn-connection.md "create-vpn-connection.md").
 
 ## Prerequisites
 

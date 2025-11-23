@@ -74,7 +74,7 @@ A Site-to-Site VPN connection has the following limitations.
 
 - IPv6 traffic is not supported for VPN connections on a virtual private
   gateway. IPv6 for outer tunnel IPs is only supported on Transit Gateway and Cloud WAN.
-- An AWS VPN connection does not support Path MTU Discovery.
+- An Site-to-Site VPN connection does not support Path MTU Discovery.
 - A single Site-to-Site VPN connection cannot support both IPv4 and IPv6 traffic simultaneously.
   You need separate VPN connections to transport IPv4 and IPv6 packets.
 - Private IP VPN connections do not support IPv6 addresses for outer tunnel IPs.

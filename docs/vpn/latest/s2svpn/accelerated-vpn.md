@@ -21,7 +21,7 @@ FAQs](https://aws.amazon.com/vpn/faqs/ "https://aws.amazon.com/vpn/faqs/").
 
 By default, when you create a Site-to-Site VPN connection, acceleration is disabled. You can
 optionally enable acceleration when you create a new Site-to-Site VPN attachment on a transit
-gateway. For more information and steps, see [Create a transit gateway AWS Site-to-Site VPN attachment](create-tgw-vpn-attachment.md "create-tgw-vpn-attachment.md").
+gateway. For more information and steps, see [Create an AWS Site-to-Site VPN connection](create-vpn-connection.md "create-vpn-connection.md").
 
 Accelerated VPN connections use a separate pool of IP addresses for the tunnel
 endpoint IP addresses. The IP addresses for the two VPN tunnels are selected from two

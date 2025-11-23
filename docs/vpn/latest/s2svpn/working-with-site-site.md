@@ -5,8 +5,8 @@ the AWS CLI.
 
 ###### Topics
 
-- [Create a Cloud WAN VPN attachment](create-cwan-vpn-attachment.md "create-cwan-vpn-attachment.md")
-- [Create a transit gateway VPN attachment](create-tgw-vpn-attachment.md "create-tgw-vpn-attachment.md")
+- [Create and manage VPN Concentrators](create-manage-vpn-concentrators.md "create-manage-vpn-concentrators.md")
+- [Create a VPN connection](create-vpn-connection.md "create-vpn-connection.md")
 - [Test a VPN connection](HowToTestEndToEnd_Linux.md "HowToTestEndToEnd_Linux.md")
 - [Delete a VPN connection and gateway](delete-vpn.md "delete-vpn.md")
 - [Modify the target gateway of a VPN connection](modify-vpn-target.md "modify-vpn-target.md")

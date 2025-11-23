@@ -12,10 +12,10 @@ We use the most specific route in your route table that matches the traffic to
 determine how to route the traffic (longest prefix match). If your route table has
 overlapping or matching routes, the following rules apply:
 
-- If propagated routes from a Site-to-Site VPN connection or AWS Direct Connect connection overlap
+- If propagated routes from a Site-to-Site VPN connection or Direct Connect connection overlap
   with the local route for your VPC, the local route is most preferred even if the
   propagated routes are more specific.
-- If propagated routes from a Site-to-Site VPN connection or AWS Direct Connect connection have the
+- If propagated routes from a Site-to-Site VPN connection or Direct Connect connection have the
   same destination CIDR block as other existing static routes (longest prefix
   match cannot be applied), we prioritize the static routes whose targets are an
   internet gateway, a virtual private gateway, a network interface, an instance
@@ -46,7 +46,7 @@ This precedence applies to VPNs on virtual private gateways and Transit Gateways
 prefixes are the same, then the virtual private gateway prioritizes routes as follows,
 from most preferred to least preferred:
 
-- BGP propagated routes from an AWS Direct Connect connection
+- BGP propagated routes from an Direct Connect connection
 
 Blackhole routes are not propagated to a Site-to-Site VPN customer gateway via BGP.
 

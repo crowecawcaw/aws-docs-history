@@ -9,15 +9,18 @@ To request a quota increase for an adjustable quota, choose **Yes** in the
 
 ## Site-to-Site VPN resources
 
-| Name                                                     | Default | Adjustable                                                                                                                                                                 |
-| -------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Customer gateways per Region                             | 50      | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-4FB7FF5D "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-4FB7FF5D") |
-| Virtual private gateways per Region                      | 5       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-7029FAB6 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-7029FAB6") |
-| Site-to-Site VPN connections per Region                  | 50      | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-3E6EC3A3 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-3E6EC3A3") |
-| Site-to-Site VPN connections per virtual private gateway | 10      | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-B91E5754 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-B91E5754") |
-| Accelerated Site-to-Site VPN connections per Region      | 10      | Yes                                                                                                                                                                        |
-| Unassociated Site-to-Site VPN connections per Region     | 10      | Yes                                                                                                                                                                        |
-| Large Bandwidth Tunnel connections per Region            | 50      | Yes                                                                                                                                                                        |
+| Name                                                            | Default | Adjustable                                                                                                                                                                 |
+| --------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Customer gateways per Region                                    | 50      | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-4FB7FF5D "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-4FB7FF5D") |
+| Virtual private gateways per Region                             | 5       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-7029FAB6 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-7029FAB6") |
+| Site-to-Site VPN connections per Region                         | 50      | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-3E6EC3A3 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-3E6EC3A3") |
+| Site-to-Site VPN connections per virtual private gateway        | 10      | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-B91E5754 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-B91E5754") |
+| Accelerated Site-to-Site VPN connections per Region             | 10      | Yes                                                                                                                                                                        |
+| Unassociated Site-to-Site VPN connections per Region            | 10      | Yes                                                                                                                                                                        |
+| Large Bandwidth Tunnel connections per Region                   | 50      | Yes                                                                                                                                                                        |
+| Site-to-Site VPN Concentrators per Region                       | 50      | Yes                                                                                                                                                                        |
+| Site-to-Site VPN Concentrators per Transit Gateway or Cloud WAN | 5       | Yes                                                                                                                                                                        |
+| Remote sites per Site-to-Site VPN Concentrator                  | 100     | Yes                                                                                                                                                                        |
 
 ###### Note
 
@@ -34,7 +37,7 @@ quotas](../../../vpc/latest/tgw/transit-gateway-quotas.md "../../../vpc/latest/t
 
 ## Routes
 
-Advertised route sources include VPC routes, other VPN routes, and routes from AWS Direct Connect
+Advertised route sources include VPC routes, other VPN routes, and routes from Direct Connect
 virtual interfaces. Advertised routes come from the route table that's associated with the
 VPN attachment.
 
@@ -57,10 +60,14 @@ including but not limited to: packet size, traffic mix (TCP/UDP), shaping or thr
 policies on intermediate networks, internet weather, and specific application
 requirements.
 
-| Name                                            | Default         | Adjustable |
-| ----------------------------------------------- | --------------- | ---------- |
-| Maximum bandwidth per VPN tunnel                | Up to 1.25 Gbps | No         |
-| Maximum packets per second (PPS) per VPN tunnel | Up to 140,000   | No         |
+| Name                                                             | Default         | Adjustable |
+| ---------------------------------------------------------------- | --------------- | ---------- |
+| Maximum bandwidth per VPN Concentrator VPN tunnel                | Up to 100 Mbps  | No         |
+| Maximum packets per second (PPS) per VPN Concentrator VPN tunnel | Up to 10,000    | No         |
+| Maximum bandwidth per standard VPN tunnel                        | Up to 1.25 Gbps | No         |
+| Maximum packets per second (PPS) per standard VPN tunnel         | Up to 140,000   | No         |
+| Maximum bandwidth per large bandwidth VPN tunnel                 | Up to 5 Gbps    | No         |
+| Maximum packets per second (PPS) per large bandwidth VPN tunnel  | Up to 400,000   | No         |
 
 For Site-to-Site VPN connections on a transit gateway, you can use ECMP to get higher VPN
 bandwidth by aggregating multiple VPN tunnels. To use ECMP, the VPN connection

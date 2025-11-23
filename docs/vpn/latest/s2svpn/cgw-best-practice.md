@@ -17,7 +17,7 @@ If packets being sent to over your Site-to-Site VPN connection exceed the MTU si
 Since Site-to-Site VPN will reassemble any fragmented packets received from your customer
 gateway device before forwarding to the next destination, keep in mind, there may be
 packet size/MTU considerations for destination networks where these packets get
-forwarded next, such as over AWS Direct Connect, or with certain protocols, such as
+forwarded next, such as over Direct Connect, or with certain protocols, such as
 Radius.
 
 ###### Adjust MTU and MSS sizes according to the algorithms in use

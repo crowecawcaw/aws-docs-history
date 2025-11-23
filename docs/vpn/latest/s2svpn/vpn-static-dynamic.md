@@ -5,6 +5,10 @@ gateway device. If your customer gateway device supports Border Gateway Protocol
 specify dynamic routing when you configure your Site-to-Site VPN connection. If your customer
 gateway device does not support BGP, specify static routing.
 
+###### Note
+
+Site-to-Site VPN Concentrators only support BGP routing. Static routing is not supported for VPN connections that use a Site-to-Site VPN Concentrator.
+
 If you use a device that supports BGP advertising, you don't specify static routes to
 the Site-to-Site VPN connection because the device uses BGP to advertise its routes to the virtual
 private gateway. If you use a device that doesn't support BGP advertising, you must

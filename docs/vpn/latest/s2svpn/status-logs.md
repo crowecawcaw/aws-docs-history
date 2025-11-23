@@ -15,9 +15,12 @@ conflicts you might have with a VPN connection.
    connections** list.
 4. Choose the **Tunnel details** tab.
 5. Expand the **Tunnel 1 options** and **Tunnel 2 options** sections to view all tunnel configuration details.
-6. You can view the current status of the logging feature under
-   **Tunnel VPN log**, and the currently configured CloudWatch
-   log group (if any) under **CloudWatch log group**.
+6. You can view the current status **Tunnel VPN log** feature, and the currently configured CloudWatch
+   log group (if any) under **CloudWatch log group for tunnel VPN log** and the log
+   output format under **Output format for tunnel VPN log**.
+7. You can view the current status **Tunnel BGP log** feature, and the currently configured CloudWatch
+   log group (if any) under **CloudWatch log group for tunnel VPN log** and the log
+   output format under **Output format for tunnel BGP log**.
 
 ###### To view current tunnel logging settings on a Site-to-Site VPN connection using the AWS command line or API
 

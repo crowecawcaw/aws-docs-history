@@ -26,7 +26,7 @@ line or API
 - [CreateVpnConnection](../../../AWSEC2/latest/APIReference/API_CreateVpnConnection.md "../../../AWSEC2/latest/APIReference/API_CreateVpnConnection.md") (Amazon EC2 Query API)
 - [create-vpn-connection](../../../cli/latest/reference/ec2/create-vpn-connection.md "../../../cli/latest/reference/ec2/create-vpn-connection.md") (AWS CLI)
 
-###### To enable tunnel logging on an existing Site-to-Site VPN connection
+###### To enable tunnel activity logging on an existing Site-to-Site VPN connection
 
 1. Open the Amazon VPC console at
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
@@ -40,6 +40,30 @@ line or API
    address from the **VPN tunnel outside IP address**
    list.
 6. Under **Tunnel activity log**, select
+   **Enable**.
+7. Under **Amazon CloudWatch log group**, select the Amazon CloudWatch log
+   group where you want the logs to be sent.
+8. (Optional) Under **Output format**, choose the desired
+   format for the log output, either **json** or
+   **text**.
+9. Select **Save changes**.
+10. (Optional) Repeat steps 4 through 9 for the other tunnel if
+    desired.
+
+###### To enable tunnel BGP logging on an existing Site-to-Site VPN connection
+
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, choose **Site-to-Site VPN
+   connections**.
+3. Select the VPN connection that you want to modify from the **VPN
+   connections** list.
+4. Select **Actions**, **Modify VPN tunnel
+   options**.
+5. Select the tunnel that you want to modify by choosing the appropriate IP
+   address from the **VPN tunnel outside IP address**
+   list.
+6. Under **Tunnel BGP log**, select
    **Enable**.
 7. Under **Amazon CloudWatch log group**, select the Amazon CloudWatch log
    group where you want the logs to be sent.

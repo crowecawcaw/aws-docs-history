@@ -172,7 +172,7 @@ between `Local Tunnel Endpoint` and `Remote Tunnel
  Endpoint`.
 
 We suggest that you configure both tunnels as part of the VPN connection. Each tunnel
-connects to a separate VPN concentrator on the Amazon side of the VPN connection.
+connects to a separate Site-to-Site VPN Concentrator on the Amazon side of the VPN connection.
 Although only one tunnel at a time is up, the second tunnel automatically establishes
 itself if the first tunnel goes down. Having redundant tunnels ensure continuous
 availability in the case of a device failure. Because only one tunnel is available at a
