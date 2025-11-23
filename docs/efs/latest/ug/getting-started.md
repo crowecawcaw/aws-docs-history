@@ -74,7 +74,7 @@ using AWS DataSync
 After creating an EFS file system, you can transfer files to it from an
 existing file system by using AWS DataSync. DataSync is a data transfer service that simplifies,
 automates, and accelerates moving and replicating data between on-premises storage systems and
-AWS storage services over the internet or AWS Direct Connect. DataSync can transfer your file data,
+AWS storage services over the internet or Direct Connect. DataSync can transfer your file data,
 and also file system metadata such as ownership, timestamps, and access permissions.
 
 For more information about DataSync, see [AWS DataSync](https://aws.amazon.com/datasync "https://aws.amazon.com/datasync").

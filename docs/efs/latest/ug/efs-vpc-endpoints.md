@@ -12,7 +12,7 @@ communication between AWS services using private IP addresses. To use AWS Privat
 an interface VPC endpoint for Amazon EFS in your VPC using the Amazon VPC console, API, or CLI. Doing this
 creates an elastic network interface in your subnet with a private IP address that serves Amazon EFS
 API requests. You can also access a VPC endpoint from on-premises environments or from other
-VPCs using AWS VPN, AWS Direct Connect, or VPC peering. To learn more, see [Connect your VPC to services using AWS PrivateLink](../../../vpc/latest/userguide/endpoint-services-overview.md "../../../vpc/latest/userguide/endpoint-services-overview.md") in the _Amazon VPC User Guide_.
+VPCs using Site-to-Site VPN, Direct Connect, or VPC peering. To learn more, see [Connect your VPC to services using AWS PrivateLink](../../../vpc/latest/userguide/endpoint-services-overview.md "../../../vpc/latest/userguide/endpoint-services-overview.md") in the _Amazon VPC User Guide_.
 
 ## Creating an interface endpoint for Amazon EFS
 

@@ -19,7 +19,7 @@ Following, find some useful metric math expressions for Amazon EFS.
 - [Metric math: Throughput IOPS](#metric-math-throughput-iops "#metric-math-throughput-iops")
 - [Metric math: Percentage of IOPS](#metric-math-iops-percent "#metric-math-iops-percent")
 - [Metric math: Average I/O size in KiB](#metric-math-average-io "#metric-math-average-io")
-- [Using metric math through an AWS CloudFormation
+- [Using metric math through an CloudFormation
   template for Amazon EFS](#metric-math-cloudformation-template "#metric-math-cloudformation-template")
 
 ## Metric math: Throughput in MiBps
@@ -167,11 +167,11 @@ Your metric math ID and expression are the following.
 | --- | -------------- |
 | e1  | `(m1/1024)/m2` |
 
-## Using metric math through an AWS CloudFormation
+## Using metric math through an CloudFormation
 
 template for Amazon EFS
 
-You can also create metric math expressions through AWS CloudFormation templates. One such template
+You can also create metric math expressions through CloudFormation templates. One such template
 is available for you to download and customize for use from the [Amazon EFS tutorials](https://github.com/aws-samples/amazon-efs-tutorial "https://github.com/aws-samples/amazon-efs-tutorial") on
-GitHub. For more information about using AWS CloudFormation templates, see [Working with AWS CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") in the
+GitHub. For more information about using CloudFormation templates, see [Working with CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") in the
 _AWS CloudFormation User Guide._

@@ -183,7 +183,7 @@ Service (DNS) records to propagate fully in an AWS Region.
 ###### Action to take
 
 If you're programmatically creating and mounting file systems, for example
-with an AWS CloudFormation template, we recommend that you implement a wait condition.
+with an CloudFormation template, we recommend that you implement a wait condition.
 
 ## File system mount hangs and then fails
 

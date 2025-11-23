@@ -3,11 +3,11 @@
 clients
 
 You can mount your EFS file systems on your on-premises data center servers when
-connected to your Amazon VPC with AWS Direct Connect or VPN. The following graphic shows a high-level
+connected to your Amazon VPC with Direct Connect or VPN. The following graphic shows a high-level
 schematic diagram of the AWS services required in mounting EFS file systems from
 on-premises.
 
-![Mount an EFS file system on an on-premises client when using AWS Direct Connect.](images/efs-directconnect-how-it-works.png)
+![Mount an EFS file system on an on-premises client when using Direct Connect.](images/efs-directconnect-how-it-works.png)
 
 ###### Note
 
@@ -26,11 +26,11 @@ Using Amazon EFS with Microsoft Windows–based clients isn't supported.
 
 ## Prerequisites
 
-Make sure that you already have an AWS Direct Connect or VPN connection. For more information on
-AWS Direct Connect, see the [AWS Direct Connect User Guide](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md"). For more
+Make sure that you already have an Direct Connect or VPN connection. For more information on
+Direct Connect, see the [Direct Connect User Guide](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md"). For more
 information on setting up a VPN connection, see [Connect your VPC to remote networks using AWS Virtual Private Network](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md") in the _Amazon VPC User Guide_.
 
-After you have an AWS Direct Connect or VPN connection, create an EFS file system and a
+After you have an Direct Connect or VPN connection, create an EFS file system and a
 mount target in your Amazon VPC. After that, you download and install the amazon-efs-utils tools.
 Then, you test the file system from your on-premises client. Finally, the clean-up step at the
 end of the walkthrough provides information for you to remove these resources.
@@ -40,7 +40,7 @@ The walkthrough creates all these resources in the US West (Oregon) Region
 All of your resources—your VPC, your mount target, and your EFS file
 system—must be in the same AWS Region, as shown in the following diagram.
 
-![Mount an EFS file system on an on-premises client when using AWS Direct Connect.](images/efs-directconnect-how-it-works.png)
+![Mount an EFS file system on an on-premises client when using Direct Connect.](images/efs-directconnect-how-it-works.png)
 
 ###### Note
 
@@ -331,7 +331,7 @@ sudo apt-get install build/amazon-efs-utils*deb
 ```
 
 After the package is installed, configure amazon-efs-utils for use in your AWS Region with
-AWS Direct Connect or VPN.
+Direct Connect or VPN.
 
 ###### To configure amazon-efs-utils for use in your AWS Region
 

@@ -33,7 +33,7 @@ from the following locations:
 
 ###### Note
 
-- If you're using AWS Direct Connect, you can find installation instructions in [Prerequisites](mounting-fs-mount-helper-direct.md#efs-onpremises "mounting-fs-mount-helper-direct.md#efs-onpremises").
+- If you're using Direct Connect, you can find installation instructions in [Prerequisites](mounting-fs-mount-helper-direct.md#efs-onpremises "mounting-fs-mount-helper-direct.md#efs-onpremises").
 - The Amazon Linux 1 (AL1) AMI reached its end-of-life on December 31, 2023 and is not
   supported for `amazon-efs-utils` packages released in April 2024 and later
   (version 2.0 and later). We recommend that you upgrade applications to Amazon Linux 2023

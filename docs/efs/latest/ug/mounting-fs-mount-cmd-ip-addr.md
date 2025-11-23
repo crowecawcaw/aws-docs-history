@@ -52,7 +52,7 @@ on EC2 Mac instances running macOS Big Sur.
 
 ## Mounting with an IP address in AWS CloudFormation
 
-You can also mount your file system using an IP address in an AWS CloudFormation template. For more information, see
+You can also mount your file system using an IP address in an CloudFormation template. For more information, see
 [storage-efs-mountfilesystem-ip-addr.config](https://github.com/awsdocs/elastic-beanstalk-samples/blob/master/configuration-files/community-provided/instance-configuration/storage-efs-mountfilesystem-ip-addr.config "https://github.com/awsdocs/elastic-beanstalk-samples/blob/master/configuration-files/community-provided/instance-configuration/storage-efs-mountfilesystem-ip-addr.config")
 in the **awsdocs/elastic-beanstalk-samples** repository for community-provided
 configuration files on GitHub.

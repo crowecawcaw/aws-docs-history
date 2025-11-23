@@ -71,7 +71,7 @@ The Amazon EFS team reviews each quota increase request.
 
 ###### To request a quota increase through AWS Support
 
-1. Open the [AWS Support Center](https://console.aws.amazon.com/https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/https://console.aws.amazon.com/support/home#/") page, and
+1. Open the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") page, and
    sign in if necessary. Then choose **Create Case**.
 2. Under **Create case**, choose **Service Limit
    Increase**.
@@ -225,6 +225,6 @@ In addition, note the following:
 
 - For a list of AWS Regions where you can create Amazon EFS file systems, see the [AWS General Reference User Guide](../../../general/latest/gr/Welcome.md "../../../general/latest/gr/Welcome.md").
 - Amazon EFS does not support the `nconnect` mount option.
-- You can mount an Amazon EFS file system from on-premises data center servers using AWS Direct Connect
+- You can mount an Amazon EFS file system from on-premises data center servers using Direct Connect
   and VPN. For more information, see [Tutorial: Mounting with
   on-premises clients](mounting-fs-mount-helper-direct.md "mounting-fs-mount-helper-direct.md").

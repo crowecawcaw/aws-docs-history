@@ -44,7 +44,7 @@ POSIX-compliant file system. For information about NFS-level permissions and rel
 considerations, see [Network File System (NFS) level users, groups, and permissions](accessing-fs-nfs-permissions.md "accessing-fs-nfs-permissions.md").
 
 You can mount your EFS file systems on your on-premises
-data center servers when connected to your Amazon VPC with AWS Direct Connect or AWS VPN. You can mount your
+data center servers when connected to your Amazon VPC with AWS Direct Connect or Site-to-Site VPN. You can mount your
 EFS file systems on on-premises servers to migrate datasets to EFS, enable
 cloud bursting scenarios, or back up your on-premises data to Amazon EFS.
 
@@ -113,15 +113,15 @@ server:
   on-premises server using a mount target IP address instead of a DNS name.
 
 There is no additional cost for on-premises access to your Amazon EFS file systems. You are
-charged for the AWS Direct Connect connection to your Amazon VPC. For more information, see [AWS Direct Connect pricing](https://aws.amazon.com/directconnect/pricing/ "https://aws.amazon.com/directconnect/pricing/").
+charged for the Direct Connect connection to your Amazon VPC. For more information, see [Direct Connect pricing](https://aws.amazon.com/directconnect/pricing/ "https://aws.amazon.com/directconnect/pricing/").
 
 The following illustration shows an example of how to access an Amazon EFS file system from
 on-premises (the on-premises servers have the file systems mounted).
 
-![Mount an EFS file system on an on-premises client when using AWS Direct Connect.](images/efs-directconnect-how-it-works.png)
+![Mount an EFS file system on an on-premises client when using Direct Connect.](images/efs-directconnect-how-it-works.png)
 
 You can use any mount target in your VPC if you can reach that mount target's subnet by
-using an AWS Direct Connect connection between your on-premises server and VPC. To access Amazon EFS from an
+using an Direct Connect connection between your on-premises server and VPC. To access Amazon EFS from an
 on-premises server, add a rule to your mount target security group to allow inbound traffic to
 the NFS port (2049) from your on-premises server. For more information, including detailed procedures,
 see [Prerequisites](mounting-fs-mount-helper-direct.md#efs-onpremises "mounting-fs-mount-helper-direct.md#efs-onpremises").

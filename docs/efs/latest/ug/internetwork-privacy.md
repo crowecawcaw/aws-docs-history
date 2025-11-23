@@ -9,7 +9,7 @@ Traffic between service and on-premises clients and applications
 You have two connectivity options between your private network and AWS:
 
 - An AWS Site-to-Site VPN connection. For more information, see [What is AWS Site-to-Site VPN?](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md")
-- An AWS Direct Connect connection. For more information, see [What is AWS Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")
+- An Direct Connect connection. For more information, see [What is Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")
 
 Access to Amazon EFS via the network is through AWS published APIs. Clients must support Transport Layer 1.2 or above.
 We recommend TLS 1.3 or above. Clients must also support cipher suites with Perfect Forward Secrecy (PFS),
