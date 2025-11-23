@@ -155,4 +155,4 @@ Synced entities without modification are not charged, but you are charged for
 those entities if changes have been made in AWS IoT TwinMaker. For example, if you add a
 non-synced component to a synced entity, that entity is now charged in AWS IoT TwinMaker.
 For more information, see [AWS IoT TwinMaker
-Pricing](https://aws.amazon.com/iot-twinmaker/pricing/ "https://aws.amazon.com/iot-twinmaker/pricing/").
+Pricing](https://aws.amazon.com//iot-twinmaker/pricing/ "https://aws.amazon.com//iot-twinmaker/pricing/").
