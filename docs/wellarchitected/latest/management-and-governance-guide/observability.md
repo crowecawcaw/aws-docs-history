@@ -55,5 +55,5 @@ Flow Logs](../../../vpc/latest/userguide/flow-logs.md "../../../vpc/latest/userg
 [AWS X-Ray
 traces](https://aws.amazon.com/xray/features/ "https://aws.amazon.com/xray/features/"),
 [Amazon EventBridge events](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md"), Amazon Managed Grafana,
-[Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/"), and
+[ELB](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/"), and
 [AWS Network Firewall](https://aws.amazon.com/network-firewall/ "https://aws.amazon.com/network-firewall/").
