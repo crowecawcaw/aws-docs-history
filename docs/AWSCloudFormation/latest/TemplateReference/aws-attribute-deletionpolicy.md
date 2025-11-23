@@ -1,4 +1,4 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
@@ -7,7 +7,7 @@ Please update your bookmarks and links. For help getting started with CloudForma
 With the `DeletionPolicy` attribute you can preserve, and in some cases, backup
 a resource when its stack is deleted. You specify a `DeletionPolicy` attribute for
 each resource that you want to control. If a resource has no `DeletionPolicy`
-attribute, AWS CloudFormation deletes the resource by default.
+attribute, CloudFormation deletes the resource by default.
 
 This capability also applies to stack update operations that lead to resources being
 deleted from stacks. For example, if you remove the resource from the stack template, and then

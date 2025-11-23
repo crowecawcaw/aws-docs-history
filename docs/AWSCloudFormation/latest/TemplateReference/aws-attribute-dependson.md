@@ -1,4 +1,4 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
@@ -29,7 +29,7 @@ apply:
   order. For example, you must explicitly declare dependencies on gateway attachments
   for some resources in a VPC. For more information, see [When a DependsOn attribute is
   required](#gatewayattachment "#gatewayattachment").
-- Override default parallelism when creating, updating, or deleting resources. AWS CloudFormation
+- Override default parallelism when creating, updating, or deleting resources. CloudFormation
   creates, updates, and deletes resources in parallel to the extent possible. It
   automatically determines which resources in a template can be parallelized and which
   have dependencies that require other operations to finish first. You can use
@@ -124,9 +124,9 @@ same template.
 Currently, the following resources depend on a VPC-gateway attachment when they have
 an associated public IP address and are in a VPC.
 
-- Auto Scaling groups
+- Amazon EC2 Auto Scaling groups
 - Amazon EC2 instances
-- Elastic Load Balancing load balancers
+- ELB load balancers
 - Elastic IP addresses
 - Amazon RDS database instances
 - Amazon VPC routes that include the Internet gateway
@@ -208,10 +208,10 @@ EC2Host:
         Ref: PublicSubnet
 ```
 
-### Amazon ECS service and Auto Scaling group
+### Amazon ECS service and Amazon EC2 Auto Scaling group
 
-When you use Auto Scaling or Amazon Elastic Compute Cloud (Amazon EC2) to create container instances for an Amazon ECS
-cluster, the Amazon ECS service resource must have a dependency on the Auto Scaling group or
+When you use Amazon EC2 Auto Scaling or Amazon Elastic Compute Cloud (Amazon EC2) to create container instances for an Amazon ECS
+cluster, the Amazon ECS service resource must have a dependency on the Amazon EC2 Auto Scaling group or
 Amazon EC2 instances, as shown in the following snippet. That way the container instances
 are available and associated with the Amazon ECS cluster before CloudFormation creates the
 Amazon ECS service.

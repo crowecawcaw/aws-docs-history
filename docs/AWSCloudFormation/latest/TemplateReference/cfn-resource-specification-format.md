@@ -1,4 +1,4 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
@@ -9,12 +9,12 @@ within the specification.
 
 ###### Topics
 
-- [Specification sections](#w2308aac37b9c23b7 "#w2308aac37b9c23b7")
+- [Specification sections](#w2aac37b9c23b7 "#w2aac37b9c23b7")
 - [Property
   specification](#cfn-resource-specification-format-propertytypes "#cfn-resource-specification-format-propertytypes")
 - [Resource
   specification](#cfn-resource-specification-format-resourcetype "#cfn-resource-specification-format-resourcetype")
-- [Example resource specification](#w2308aac37b9c23c13 "#w2308aac37b9c23c13")
+- [Example resource specification](#w2aac37b9c23c13 "#w2aac37b9c23c13")
 
 ## Specification sections
 

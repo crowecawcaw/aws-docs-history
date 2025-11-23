@@ -1,4 +1,4 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
@@ -144,4 +144,4 @@ scripts from the `yum` repository.
   or a different platform, and you have created your own certificate trust store,
   you'll also need to keep the trust store updated.
 
-For the version history of the `aws-cfn-bootstrap` package, see [Release history for AWS CloudFormation helper scripts](releasehistory-aws-cfn-bootstrap.md "releasehistory-aws-cfn-bootstrap.md").
+For the version history of the `aws-cfn-bootstrap` package, see [Release history for CloudFormation helper scripts](releasehistory-aws-cfn-bootstrap.md "releasehistory-aws-cfn-bootstrap.md").

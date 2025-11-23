@@ -1,10 +1,10 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
-# Release history for AWS CloudFormation helper scripts
+# Release history for CloudFormation helper scripts
 
-The following table describes the changes to the `aws-cfn-bootstrap` package, which contains the AWS CloudFormation
+The following table describes the changes to the `aws-cfn-bootstrap` package, which contains the CloudFormation
 helper scripts.
 
 You can also download the latest version of the helper scripts at the following
@@ -60,7 +60,7 @@ require Python 3.4 or above.
 
 ###### Note
 
-The AWS CloudFormation helper scripts are preinstalled on Amazon Linux AMI images. The download packages listed in the table apply
+The CloudFormation helper scripts are preinstalled on Amazon Linux AMI images. The download packages listed in the table apply
 to other Linux/Unix distributions and Microsoft Windows (2008 or later). To learn how to use the helper scripts, see the
 [CloudFormation helper scripts reference](cfn-helper-scripts-reference.md "cfn-helper-scripts-reference.md").
 

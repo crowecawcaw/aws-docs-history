@@ -1,4 +1,4 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
@@ -20,7 +20,7 @@ transform](transform-aws-languageextensions.md "transform-aws-languageextensions
 
 Using the `Fn::ForEach` intrinsic function does not change the quotas, which
 apply to the resultant template. Quotas include the maximum size of a template and the maximum
-number of resources in a template. For more information, see [Understand AWS CloudFormation quotas](../UserGuide/cloudformation-limits.md "../UserGuide/cloudformation-limits.md") in the
+number of resources in a template. For more information, see [Understand CloudFormation quotas](../UserGuide/cloudformation-limits.md "../UserGuide/cloudformation-limits.md") in the
 _AWS CloudFormation User Guide_.
 
 ## Declaration

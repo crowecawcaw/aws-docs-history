@@ -1,10 +1,10 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
 # `UpdatePolicy` attribute
 
-Use the `UpdatePolicy` attribute to specify how AWS CloudFormation handles updates to certain
+Use the `UpdatePolicy` attribute to specify how CloudFormation handles updates to certain
 resources during stack update operations.
 
 ###### Topics
@@ -33,20 +33,20 @@ resources are updated, as described here:
   which causes the fleet's instances to be replaced. By doing so, all instances will have
   the latest changes applied immediately after a stack update.
 - [AWS::AutoScaling::AutoScalingGroup](aws-resource-autoscaling-autoscalinggroup.md "aws-resource-autoscaling-autoscalinggroup.md") – With
-  Auto Scaling groups, you can use one or more update policies to control how CloudFormation handles
+  Amazon EC2 Auto Scaling groups, you can use one or more update policies to control how CloudFormation handles
   certain updates. These policies include:
   - `AutoScalingReplacingUpdate` and
     `AutoScalingRollingUpdate` policies – CloudFormation can
-    either replace the Auto Scaling group and its instances with an
+    either replace the Amazon EC2 Auto Scaling group and its instances with an
     `AutoScalingReplacingUpdate` policy, or replace only the instances with
     an `AutoScalingRollingUpdate` policy. These replacement operations occur
     when you make one or more of the following changes:
 
-        - Change the Auto Scaling group's [AWS::AutoScaling::LaunchConfiguration](aws-resource-autoscaling-launchconfiguration.md "aws-resource-autoscaling-launchconfiguration.md").
-        - Change the Auto Scaling group's `VPCZoneIdentifier` property.
-        - Change the Auto Scaling group's `LaunchTemplate` property.
-        - Change the Auto Scaling group's `PlacementGroup` property.
-        - Update an Auto Scaling group that contains instances that don't match the current
+        - Change the Amazon EC2 Auto Scaling group's [AWS::AutoScaling::LaunchConfiguration](aws-resource-autoscaling-launchconfiguration.md "aws-resource-autoscaling-launchconfiguration.md").
+        - Change the Amazon EC2 Auto Scaling group's `VPCZoneIdentifier` property.
+        - Change the Amazon EC2 Auto Scaling group's `LaunchTemplate` property.
+        - Change the Amazon EC2 Auto Scaling group's `PlacementGroup` property.
+        - Update an Amazon EC2 Auto Scaling group that contains instances that don't match the current
          `LaunchConfiguration`.
 
     If both the `AutoScalingReplacingUpdate` and
@@ -55,7 +55,7 @@ resources are updated, as described here:
     `AutoScalingReplacingUpdate` precedence.
 
   - `AutoScalingScheduledAction` policy
-    – This policy applies when you update a stack that includes an Auto Scaling group with
+    – This policy applies when you update a stack that includes an Amazon EC2 Auto Scaling group with
     scheduled actions that scale the group at specific times. CloudFormation can't modify the
     minimum size, maximum size, or desired capacity of the group unless they have been
     explicitly changed in the stack template. This policy helps to prevent any unexpected
@@ -121,11 +121,11 @@ _Required_: No
 
 policy
 
-To replace the Auto Scaling group and the instances it contains, use the
+To replace the Amazon EC2 Auto Scaling group and the instances it contains, use the
 `AutoScalingReplacingUpdate` policy.
 
 Before attempting an update, ensure that you have sufficient Amazon EC2 capacity for both your
-old and new Auto Scaling groups.
+old and new Amazon EC2 Auto Scaling groups.
 
 ### Syntax
 
@@ -151,13 +151,13 @@ UpdatePolicy:
 
 `WillReplace`
 
-Specifies whether an Auto Scaling group and the instances it contains are replaced during
+Specifies whether an Amazon EC2 Auto Scaling group and the instances it contains are replaced during
 an update. During replacement, CloudFormation retains the old group until it finishes
-creating the new one. If the update fails, CloudFormation can roll back to the old Auto Scaling
-group and delete the new Auto Scaling group.
+creating the new one. If the update fails, CloudFormation can roll back to the old Amazon EC2 Auto Scaling
+group and delete the new Amazon EC2 Auto Scaling group.
 
 While CloudFormation creates the new group, it doesn't detach or attach any instances.
-After successfully creating the new Auto Scaling group, CloudFormation deletes the old Auto Scaling group
+After successfully creating the new Amazon EC2 Auto Scaling group, CloudFormation deletes the old Amazon EC2 Auto Scaling group
 during the cleanup process.
 
 When you set the `WillReplace` parameter, remember to specify a
@@ -165,7 +165,7 @@ matching [CreationPolicy attribute](aws-attribute-creationpolicy.md "aws-attribu
 (specified by the `MinSuccessfulInstancesPercent` property) don't signal
 success within the `Timeout` period (specified in the
 `CreationPolicy` attribute), the replacement update fails and CloudFormation
-rolls back to the old Auto Scaling group.
+rolls back to the old Amazon EC2 Auto Scaling group.
 
 _Type_: Boolean
 
@@ -175,10 +175,10 @@ _Required_: No
 
 policy
 
-To perform a rolling update of the instances in an Auto Scaling group rather than wait for scaling
+To perform a rolling update of the instances in an Amazon EC2 Auto Scaling group rather than wait for scaling
 activities to gradually replace older instances with newer instances, use the
 `AutoScalingRollingUpdate` policy. This policy provides you the flexibility to
-specify whether CloudFormation replaces instances that are in an Auto Scaling group in batches or all at
+specify whether CloudFormation replaces instances that are in an Amazon EC2 Auto Scaling group in batches or all at
 once without replacing the entire resource.
 
 Things to consider when using an `AutoScalingRollingUpdate` policy:
@@ -188,12 +188,12 @@ Things to consider when using an `AutoScalingRollingUpdate` policy:
   change the `MaxBatchSize` from 1 to 10 in the `UpdatePolicy`,
   perform a stack update, and that update fails. CloudFormation will use 1 as the maximum batch
   size when it rolls back, not 10. To avoid this scenario, make changes to the
-  `UpdatePolicy` in a separate update before any updates to the Auto Scaling group that
+  `UpdatePolicy` in a separate update before any updates to the Amazon EC2 Auto Scaling group that
   are likely to initiate rolling updates.
 - CloudFormation recommends specifying the `SuspendProcesses` property to
   temporarily suspend Amazon EC2 Auto Scaling processes that might interfere with the rolling update and
   cause it to fail. For more information, see [How can I update
-  my Auto Scaling group when I update my CloudFormation stack?](https://repost.aws/knowledge-center/auto-scaling-group-rolling-updates "https://repost.aws/knowledge-center/auto-scaling-group-rolling-updates")
+  my Amazon EC2 Auto Scaling group when I update my CloudFormation stack?](https://repost.aws/knowledge-center/auto-scaling-group-rolling-updates "https://repost.aws/knowledge-center/auto-scaling-group-rolling-updates")
 - CloudFormation supports using Amazon EC2 Auto Scaling lifecycle hooks when launching or terminating
   instances. This gives you time to perform custom actions on an instance before it moves to
   the next state. To make sure that new instances reach the `InService` state,
@@ -205,7 +205,7 @@ Things to consider when using an `AutoScalingRollingUpdate` policy:
   scale-in protection are not available for use with CloudFormation rolling updates. Plan your
   rolling updates accordingly.
 - If you use an `AutoScalingRollingUpdate` policy and remove the placement
-  group setting, the placement group will be removed from the Auto Scaling group and the CloudFormation
+  group setting, the placement group will be removed from the Amazon EC2 Auto Scaling group and the CloudFormation
   template. Also this triggers a rolling update, so new instances won't be launched into a
   placement group.
 
@@ -259,7 +259,7 @@ _Required_: No
 
 `MinActiveInstancesPercent`
 
-Specifies the percentage of instances in an Auto Scaling group that must be in the
+Specifies the percentage of instances in an Amazon EC2 Auto Scaling group that must be in the
 `InService` state relative to that group's desired capacity during a
 rolling update for an update to succeed. You can specify a value from 0 to 100.
 CloudFormation rounds to the nearest tenth of a percent. For example, if you update five
@@ -271,7 +271,7 @@ CloudFormation assumes that the instance wasn't updated.
 Setting `MinActiveInstancesPercent` in your `UpdatePolicy`
 will also affect instances launched when the `DesiredCapacity` property of
 the `AWS::AutoScaling::AutoScalingGroup` resource is set higher than the
-current desired capacity of that Auto Scaling group.
+current desired capacity of that Amazon EC2 Auto Scaling group.
 
 _Default_: `100`
 
@@ -281,13 +281,13 @@ _Required_: No
 
 `MinInstancesInService`
 
-Specifies the minimum number of instances that must be in service within the Auto Scaling
-group while CloudFormation updates old instances. This value must be less than the [MaxSize](aws-resource-autoscaling-autoscalinggroup.md#cfn-autoscaling-autoscalinggroup-maxsize "aws-resource-autoscaling-autoscalinggroup.md#cfn-autoscaling-autoscalinggroup-maxsize") of the Auto Scaling group.
+Specifies the minimum number of instances that must be in service within the Amazon EC2 Auto Scaling
+group while CloudFormation updates old instances. This value must be less than the [MaxSize](aws-resource-autoscaling-autoscalinggroup.md#cfn-autoscaling-autoscalinggroup-maxsize "aws-resource-autoscaling-autoscalinggroup.md#cfn-autoscaling-autoscalinggroup-maxsize") of the Amazon EC2 Auto Scaling group.
 
 ###### Warning
 
 We recommend that you set the value of the `MinInstancesInService`
-property to at least the [MinSize](aws-resource-autoscaling-autoscalinggroup.md#cfn-autoscaling-autoscalinggroup-minsize "aws-resource-autoscaling-autoscalinggroup.md#cfn-autoscaling-autoscalinggroup-minsize") of the Auto Scaling group. This avoids potential
+property to at least the [MinSize](aws-resource-autoscaling-autoscalinggroup.md#cfn-autoscaling-autoscalinggroup-minsize "aws-resource-autoscaling-autoscalinggroup.md#cfn-autoscaling-autoscalinggroup-minsize") of the Amazon EC2 Auto Scaling group. This avoids potential
 availability issues during a rolling update due to 0 instances serving customer
 traffic.
 
@@ -299,7 +299,7 @@ _Required_: No
 
 `MinSuccessfulInstancesPercent`
 
-Specifies the percentage of instances in an Auto Scaling rolling update that must signal
+Specifies the percentage of instances in an Amazon EC2 Auto Scaling rolling update that must signal
 success for an update to succeed. You can specify a value from 0 to 100. CloudFormation
 rounds to the nearest tenth of a percent. For example, if you update five instances
 with a minimum successful percentage of `50`, three instances must signal
@@ -312,9 +312,9 @@ We recommend that you set the value of the
 the `MinSuccessfulInstancesPercent` property is set to 0, CloudFormation waits
 for 0% of the capacity instances to be in an `InService` state.
 `MinSuccessfulInstancesPercent` returns immediately and before
-considering the Auto Scaling group status as `UPDATE_COMPLETE` to move on to the
-subsequent resources defined in the stack template. If other Auto Scaling groups are defined
-in your CloudFormation template, they will update simultaneously. When all Auto Scaling groups are
+considering the Amazon EC2 Auto Scaling group status as `UPDATE_COMPLETE` to move on to the
+subsequent resources defined in the stack template. If other Amazon EC2 Auto Scaling groups are defined
+in your CloudFormation template, they will update simultaneously. When all Amazon EC2 Auto Scaling groups are
 deployed at once with 0% of the capacity instances in an `InService` state,
 then you will experience availability issues, due to 0 instances serving customer
 traffic.
@@ -360,15 +360,15 @@ _Required_: No
 
 `SuspendProcesses`
 
-Specifies the Auto Scaling processes to suspend during a stack update. Suspending
-processes prevents Auto Scaling from interfering with a stack update. For example, you can
+Specifies the Amazon EC2 Auto Scaling processes to suspend during a stack update. Suspending
+processes prevents Amazon EC2 Auto Scaling from interfering with a stack update. For example, you can
 suspend alarming so that Amazon EC2 Auto Scaling doesn't initiate scaling policies associated with an
 alarm. For valid values, see [Types
 of processes](../../../autoscaling/ec2/userguide/as-suspend-resume-processes.md#process-types "../../../autoscaling/ec2/userguide/as-suspend-resume-processes.md#process-types") in the _Amazon EC2 Auto Scaling User Guide_.
 
 _Default_: Not specified
 
-_Type_: List of Auto Scaling processes
+_Type_: List of Amazon EC2 Auto Scaling processes
 
 _Required_: No
 
@@ -378,7 +378,7 @@ Specifies whether CloudFormation waits for success signals from new instances be
 continuing the update. CloudFormation waits for the specified `PauseTime`
 duration for success signals.
 
-To signal the Auto Scaling group, use the [cfn-signal](cfn-signal.md "cfn-signal.md") helper script. For Auto Scaling groups associated with Elastic Load Balancing,
+To signal the Amazon EC2 Auto Scaling group, use the [cfn-signal](cfn-signal.md "cfn-signal.md") helper script. For Amazon EC2 Auto Scaling groups associated with ELB,
 consider adding a health check to ensure that instances are healthy before signaling
 success by using the [cfn-init](cfn-init.md "cfn-init.md") helper
 script. For an example, see the `verify_instance_health` command in the
@@ -401,9 +401,9 @@ To specify how CloudFormation handles updates for the `MinSize`,
 `AWS::AutoScaling::AutoScalingGroup` resource has an associated scheduled action,
 use the `AutoScalingScheduledAction` policy.
 
-With scheduled actions, the group size properties of an Auto Scaling group can change at any time.
-When you update a stack with an Auto Scaling group and scheduled action, CloudFormation always sets the
-group size property values of your Auto Scaling group to the values that are defined in the
+With scheduled actions, the group size properties of an Amazon EC2 Auto Scaling group can change at any time.
+When you update a stack with an Amazon EC2 Auto Scaling group and scheduled action, CloudFormation always sets the
+group size property values of your Amazon EC2 Auto Scaling group to the values that are defined in the
 `AWS::AutoScaling::AutoScalingGroup` resource of your template, even if a
 scheduled action is in effect.
 
@@ -439,10 +439,10 @@ UpdatePolicy:
 `IgnoreUnmodifiedGroupSizeProperties`
 
 If `true`, CloudFormation ignores differences in group size properties
-between your current Auto Scaling group and the Auto Scaling group described in the
+between your current Amazon EC2 Auto Scaling group and the Amazon EC2 Auto Scaling group described in the
 `AWS::AutoScaling::AutoScalingGroup` resource of your template during a
 stack update. If you modify any of the group size property values in your template,
-CloudFormation uses the modified values and updates your Auto Scaling group.
+CloudFormation uses the modified values and updates your Amazon EC2 Auto Scaling group.
 
 ###### Note
 
@@ -659,17 +659,17 @@ For an example that specifies the `UpdatePolicy` attribute for an
 
 ## Examples
 
-The following examples show how to add an update policy to an Auto Scaling group and how to
+The following examples show how to add an update policy to an Amazon EC2 Auto Scaling group and how to
 maintain availability when updating metadata.
 
 ### Add an `UpdatePolicy` to
 
-an Auto Scaling group
+an Amazon EC2 Auto Scaling group
 
-The following example shows how to add an update policy. During an update, the Auto Scaling
+The following example shows how to add an update policy. During an update, the Amazon EC2 Auto Scaling
 group updates instances in batches of two and keeps a minimum of one instance in service.
-Because the `WaitOnResourceSignals` flag is set, the Auto Scaling group waits for new
-instances that are added to the group. The new instances must signal the Auto Scaling group before
+Because the `WaitOnResourceSignals` flag is set, the Amazon EC2 Auto Scaling group waits for new
+instances that are added to the group. The new instances must signal the Amazon EC2 Auto Scaling group before
 it updates the next batch of instances.
 
 #### JSON
@@ -749,7 +749,7 @@ ASG:
 
 ### AutoScalingReplacingUpdate policy
 
-The following example declares a policy that forces an associated Auto Scaling group to be
+The following example declares a policy that forces an associated Amazon EC2 Auto Scaling group to be
 replaced during an update. For the update to succeed, a percentage of instances (specified
 by the `MinSuccessfulPercentParameter` parameter) must signal success within the
 `Timeout` period.
@@ -792,7 +792,7 @@ CreationPolicy:
 updating the metadata for the cfn-init helper script
 
 When you install software applications on your instances, you might use the [AWS::CloudFormation::Init](aws-resource-init.md "aws-resource-init.md") metadata key and the [cfn-init](cfn-init.md "cfn-init.md") helper script to bootstrap the instances in
-your Auto Scaling group. CloudFormation installs the packages, runs the commands, and performs other
+your Amazon EC2 Auto Scaling group. CloudFormation installs the packages, runs the commands, and performs other
 bootstrapping actions described in the metadata.
 
 When you update only the metadata (for example, when updating a package to another
@@ -810,7 +810,7 @@ the old one. Any information stored on the old instance is lost.
 
 To force a rolling update, change the logical ID of the launch configuration resource,
 and then update the stack and any references pointing to the original logic ID (such as the
-associated Auto Scaling group). CloudFormation triggers a rolling update on the Auto Scaling group, replacing
+associated Amazon EC2 Auto Scaling group). CloudFormation triggers a rolling update on the Amazon EC2 Auto Scaling group, replacing
 all instances.
 
 ### Original

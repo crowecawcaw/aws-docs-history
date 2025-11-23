@@ -1,11 +1,11 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
 # AWS resource and property types reference
 
 This section contains reference information for all AWS resource and property types that are supported by
-AWS CloudFormation.
+CloudFormation.
 
 Resource type identifiers always take the following form:
 

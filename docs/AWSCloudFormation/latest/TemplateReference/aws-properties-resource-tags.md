@@ -1,8 +1,8 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
-# AWS CloudFormation resource tagging
+# CloudFormation resource tagging
 
 You can apply tags to resources by using the `Tags` property in your CloudFormation
 template, which can help you identify and categorize those resources.

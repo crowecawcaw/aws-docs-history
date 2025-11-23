@@ -1,10 +1,10 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
 # CloudFormation resource specification
 
-The AWS CloudFormation resource specification is a JSON-formatted text file that defines the resources
+The CloudFormation resource specification is a JSON-formatted text file that defines the resources
 and properties that CloudFormation supports. The document is a machine-readable, strongly typed
 specification that you can use to build tools for creating CloudFormation templates. For example, you can
 use the specification to build auto completion and validation functionality for CloudFormation templates

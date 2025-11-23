@@ -1,4 +1,4 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
@@ -18,7 +18,7 @@ contains a property named `authentication`. You can use the
 `authentication` property to associate authentication information defined in the
 `AWS::CloudFormation::Authentication` metadata type directly with a file.
 
-For files, AWS CloudFormation looks for authentication information in the following order:
+For files, CloudFormation looks for authentication information in the following order:
 
 1. The `authentication` property of the
    `AWS::CloudFormation::Init`
@@ -32,7 +32,7 @@ For files, AWS CloudFormation looks for authentication information in the follow
 ###### Topics
 
 - [Syntax](#aws-resource-cloudformation-authentication-syntax "#aws-resource-cloudformation-authentication-syntax")
-- [Properties](#w2308aac19c23c15c19 "#w2308aac19c23c15c19")
+- [Properties](#w2aac19c23c15c19 "#w2aac19c23c15c19")
 - [Examples](#aws-resource-authentication-examples "#aws-resource-authentication-examples")
 
 ## Syntax

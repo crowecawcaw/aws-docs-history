@@ -1,4 +1,4 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
@@ -19,7 +19,7 @@ you track each signal.
 
 ###### Topics
 
-- [Syntax for resource signaling (recommended)](#w2308aac32c29b9 "#w2308aac32c29b9")
+- [Syntax for resource signaling (recommended)](#w2aac32c29b9 "#w2aac32c29b9")
 - [Syntax for use with wait condition
   handle](#cfn-signal-Syntaxwaitcondition "#cfn-signal-Syntaxwaitcondition")
 - [Options](#cfn-signal-options "#cfn-signal-options")
@@ -43,7 +43,7 @@ cfn-signal --success|-s `signal.to.send` \
         --role `IAM.role.name` \
         --secret-key `secret.key` \
         --stack `stack.name.or.stack.ID` \
-        --url `AWS CloudFormation.endpoint`
+        --url `CloudFormation.endpoint`
 ```
 
 ###### Note

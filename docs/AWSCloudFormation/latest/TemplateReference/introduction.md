@@ -1,16 +1,16 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
-# Introduction: AWS CloudFormation Template Reference Guide
+# Introduction: CloudFormation Template Reference Guide
 
-The _AWS CloudFormation Template Reference Guide_ is a companion to the [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md"). It provides
-detailed information about the different components that you can use when creating AWS CloudFormation
+The _CloudFormation Template Reference Guide_ is a companion to the [CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md"). It provides
+detailed information about the different components that you can use when creating CloudFormation
 templates.
 
 ###### Reference summary
 
-The _AWS CloudFormation Template Reference Guide_ contains reference information
+The _CloudFormation Template Reference Guide_ contains reference information
 for the following topics:
 
 - Resource types and properties – These are

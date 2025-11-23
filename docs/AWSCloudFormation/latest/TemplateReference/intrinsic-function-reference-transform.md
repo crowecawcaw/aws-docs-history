@@ -1,4 +1,4 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
@@ -10,7 +10,7 @@ templates, from simple actions like find-and-replace operations to extensive tra
 of entire templates. For more information, see [Using CloudFormation macros to perform custom processing
 on templates](../UserGuide/template-macros.md "../UserGuide/template-macros.md") in the _AWS CloudFormation User Guide_.
 
-You can also use `Fn::Transform` to call the [AWS::Include transform](transform-aws-include.md "transform-aws-include.md") transform, which is a macro hosted by AWS CloudFormation.
+You can also use `Fn::Transform` to call the [AWS::Include transform](transform-aws-include.md "transform-aws-include.md") transform, which is a macro hosted by CloudFormation.
 
 ## Declaration
 

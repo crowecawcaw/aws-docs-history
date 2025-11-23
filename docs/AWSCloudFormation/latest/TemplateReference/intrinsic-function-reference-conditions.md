@@ -1,4 +1,4 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
@@ -32,7 +32,7 @@ in the `Resources` and `Outputs` sections.
 - [Fn::If](#intrinsic-function-reference-conditions-if "#intrinsic-function-reference-conditions-if")
 - [Fn::Not](#intrinsic-function-reference-conditions-not "#intrinsic-function-reference-conditions-not")
 - [Fn::Or](#intrinsic-function-reference-conditions-or "#intrinsic-function-reference-conditions-or")
-- [Supported functions](#w2308aac24c20c25 "#w2308aac24c20c25")
+- [Supported functions](#w2aac24c20c25 "#w2aac24c20c25")
 - [Sample template](#conditions-sample-templates "#conditions-sample-templates")
 
 ## `Fn::And`
@@ -204,11 +204,11 @@ A value to be returned if the specified condition evaluates to
 
 ###### Topics
 
-- [Conditionally choosing a resource](#w2308aac24c20c19b9b5 "#w2308aac24c20c19b9b5")
-- [Conditional outputs](#w2308aac24c20c19b9b7 "#w2308aac24c20c19b9b7")
-- [Conditional array values](#w2308aac24c20c19b9b9 "#w2308aac24c20c19b9b9")
-- [Conditional properties and property values](#w2308aac24c20c19b9c11 "#w2308aac24c20c19b9c11")
-- [Conditional update policies](#w2308aac24c20c19b9c13 "#w2308aac24c20c19b9c13")
+- [Conditionally choosing a resource](#w2aac24c20c19b9b5 "#w2aac24c20c19b9b5")
+- [Conditional outputs](#w2aac24c20c19b9b7 "#w2aac24c20c19b9b7")
+- [Conditional array values](#w2aac24c20c19b9b9 "#w2aac24c20c19b9b9")
+- [Conditional properties and property values](#w2aac24c20c19b9c11 "#w2aac24c20c19b9c11")
+- [Conditional update policies](#w2aac24c20c19b9c13 "#w2aac24c20c19b9c13")
 
 #### Conditionally choosing a resource
 
@@ -392,7 +392,7 @@ MyDatabase:
 
 #### Conditional update policies
 
-The following snippet provides an Auto Scaling update policy only if the
+The following snippet provides an Amazon EC2 Auto Scaling update policy only if the
 `RollingUpdates` condition evaluates to true. If the condition evaluates to
 false, CloudFormation removes the `AutoScalingRollingUpdate` update policy.
 

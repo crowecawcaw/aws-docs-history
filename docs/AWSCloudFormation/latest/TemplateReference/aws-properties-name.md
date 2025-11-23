@@ -1,8 +1,8 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
-# AWS CloudFormation resource custom naming
+# CloudFormation resource custom naming
 
 You can assign custom names to supported resource types in your CloudFormation template to make
 them more meaningful and easily identifiable. By default, CloudFormation generates a unique physical

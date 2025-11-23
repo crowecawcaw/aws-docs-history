@@ -1,4 +1,4 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
@@ -10,7 +10,7 @@ Use the `UpdateReplacePolicy` attribute to retain or, in some cases, backup the
 existing physical instance of a resource when it's replaced during a stack update
 operation.
 
-When you initiate a stack update, AWS CloudFormation updates resources based on differences between
+When you initiate a stack update, CloudFormation updates resources based on differences between
 what you submit and the stack's current template and parameters. If you update a resource
 property that requires that the resource be replaced, CloudFormation recreates the resource
 during the update. For more information, see [Update behaviors of

@@ -1,4 +1,4 @@
-This is the new _AWS CloudFormation Template Reference Guide_.
+This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
@@ -12,7 +12,7 @@ interpreted values.
 
 ###### Note
 
-AWS CloudFormation doesn't validate the syntax within the metadata attribute.
+CloudFormation doesn't validate the syntax within the metadata attribute.
 
 ###### Important
 
