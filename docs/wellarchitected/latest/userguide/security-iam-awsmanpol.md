@@ -144,10 +144,10 @@ This policy includes the following permissions.
   AppRegistry application.
 - `servicecatalog:ListAssociatedResources` –Lists resources
   associated with an AppRegistry application.
-- `cloudformation:DescribeStacks` –Gets details of AWS CloudFormation
+- `cloudformation:DescribeStacks` –Gets details of CloudFormation
   stacks.
 - `cloudformation:ListStackResources` –Lists resources
-  associated with the AWS CloudFormation stacks.
+  associated with the CloudFormation stacks.
 - `resource-groups:ListGroupResources` –Lists resources from a
   ResourceGroup.
 - `tag:GetResources` – Required for ListGroupResources.

@@ -38,7 +38,7 @@ practices.
 account IDs and AWS Regions specified in the workload.
 
 **AppRegistry** – the workload is defined by resources
-(such as AWS CloudFormation stacks) that are present in the AppRegistry application associated
+(such as CloudFormation stacks) that are present in the AppRegistry application associated
 with the workload.
 
 **All** – the workload is defined by both the workload
