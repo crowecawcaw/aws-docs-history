@@ -18,4 +18,4 @@ of Python notebooks focusing on [AWS Security Hub](../../../securityhub/latest/u
 findings in Security Lake, which can also be
 expanded to incorporate other AWS sources or custom data sources in Security Lake. For
 more details, see [Generate machine learning insights for Amazon Security Lake data using
-Amazon SageMaker AI](https://aws.amazon.com/blogs/security/generate-machine-learning-insights-for-amazon-security-lake-data-using-amazon-sagemaker/ "https://aws.amazon.com/blogs/security/generate-machine-learning-insights-for-amazon-security-lake-data-using-amazon-sagemaker/").
+Amazon SageMaker AI](https://aws.amazon.com/blogs//security/generate-machine-learning-insights-for-amazon-security-lake-data-using-amazon-sagemaker/ "https://aws.amazon.com/blogs//security/generate-machine-learning-insights-for-amazon-security-lake-data-using-amazon-sagemaker/").

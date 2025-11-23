@@ -15,4 +15,4 @@ risk and increase your security posture. You can reduce the amount of time neede
 conduct an investigation by automatically identifying the appropriate data sources,
 generating and invoking SQL queries, and visualizing data from your investigation.
 For more details see [Generate AI powered insights for Amazon Security Lake using Amazon SageMaker AI Studio and
-Amazon Bedrock](https://aws.amazon.com/blogs/security/generate-ai-powered-insights-for-amazon-security-lake-using-amazon-sagemaker-studio-and-amazon-bedrock/ "https://aws.amazon.com/blogs/security/generate-ai-powered-insights-for-amazon-security-lake-using-amazon-sagemaker-studio-and-amazon-bedrock/").
+Amazon Bedrock](https://aws.amazon.com/blogs//security/generate-ai-powered-insights-for-amazon-security-lake-using-amazon-sagemaker-studio-and-amazon-bedrock/ "https://aws.amazon.com/blogs//security/generate-ai-powered-insights-for-amazon-security-lake-using-amazon-sagemaker-studio-and-amazon-bedrock/").

@@ -31,5 +31,5 @@ select Security Lake data sets using on-demand indexing.
   For more information about using OpenSearch Service with Security Lake, use the following
   resources.
 
-- [Introducing Amazon OpenSearch Service and Amazon Security Lake integration to simplify security analytics](https://aws.amazon.com/blogs/aws/introducing-amazon-opensearch-service-zero-etl-integration-for-amazon-security-lake/ "https://aws.amazon.com/blogs/aws/introducing-amazon-opensearch-service-zero-etl-integration-for-amazon-security-lake/")
+- [Introducing Amazon OpenSearch Service and Amazon Security Lake integration to simplify security analytics](https://aws.amazon.com/blogs//aws/introducing-amazon-opensearch-service-zero-etl-integration-for-amazon-security-lake/ "https://aws.amazon.com/blogs//aws/introducing-amazon-opensearch-service-zero-etl-integration-for-amazon-security-lake/")
 - Introduction to zero-ETL on OpenSearch Service with Amazon Security Lake

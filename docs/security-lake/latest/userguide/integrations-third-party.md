@@ -921,7 +921,7 @@ Detect for AWS
 **Integration type:** Source
 
 By using Vectra Detect for AWS, you can send high-fidelity alerts to
-Security Lake as a custom source using a dedicated AWS CloudFormation template.
+Security Lake as a custom source using a dedicated CloudFormation template.
 
 [Integration
 documentation](https://support.vectra.ai/s/article/KB-VS-1621 "https://support.vectra.ai/s/article/KB-VS-1621")
