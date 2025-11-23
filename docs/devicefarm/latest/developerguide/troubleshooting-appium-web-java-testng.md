@@ -43,7 +43,7 @@ A valid Appium Java JUnit package should produce output like the following:
       `— log4j-1.2.14.jar
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE_DEPENDENCY_DIR_MISSING
 
@@ -84,7 +84,7 @@ directory inside the working directory.
       `— log4j-1.2.14.jar
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE_JAR_MISSING_IN_DEPENDENCY_DIR
 
@@ -125,7 +125,7 @@ inside the `dependency-jars` directory.
       `— `log4j-1.2.14.jar`
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE_TESTS_JAR_FILE_MISSING
 
@@ -167,7 +167,7 @@ be different, but it should end with `–tests.jar`.
       `— log4j-1.2.14.jar
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE_CLASS_FILE_MISSING_IN_TESTS_JAR
 
@@ -239,4 +239,4 @@ everything built from the ./src/test directory)
       `— log4j-1.2.14.jar
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").

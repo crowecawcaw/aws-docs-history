@@ -13,14 +13,12 @@ original app signature with AWS Device Farm's signature. The re-signed app is th
 the test devices provided by AWS Device Farm. The new signature allows the app to be installed and
 run on these devices without the need for the original developer's certificates.
 
-On iOS, we replace the embedded provisioning profile with a wildcard profile and resign
+On iOS, we replace the embedded provisioning profile with a wildcard profile and re-sign
 the app. If you provide it, we will add auxiliary data to the application package before
-installation so the data will be present in your app’s sandbox. Resigning the iOS app
-results in the removal of certain entitlements. This includes App Group, Associated Domains,
-Game Center, HealthKit, HomeKit, Wireless Accessory Configuration, In-App Purchase,
-Inter-App Audio, Apple Pay, Push Notifications, and VPN Configuration & Control.
+installation so the data will be present in your app’s sandbox. Re-signing the iOS app
+results in the removal of all entitlements.
 
-On Android, we resign the app. This may break functionality that depends on the app
+On Android, we re-sign the app. This may break functionality that depends on the app
 signature, such as the Google Maps Android API. It may also trigger anti-piracy and
 anti-tamper detection available from products such as DexGuard. For built-in tests, we may
 modify the manifest to include permissions required to capture and save screenshots.
@@ -88,22 +86,22 @@ app
 If you're using an in-house (Enterprise) developer provisioning profile, you must perform a one-time
 procedure to trust the in-house app developer certificate on each of your private devices.
 
-To do so, you can either install the app that you want to test on the private device, or you can install a
-dummy app that's signed with the same certificate as the app that you want to test. There is an advantage to
-installing a dummy app that's signed with the same certificate. After you trust the configuration profile or
+To do so, you must install a placeholder app that's signed with the same certificate as the app that you want to test. After the device trusts the configuration profile or
 enterprise app developer, all apps from that developer are trusted on the private device until you delete
-them. Therefore, when you upload a new version of the app that you want to test, you won't have to trust the
-app developer again. This is particularly useful if you run test automations and you don't want to create a
+them. Therefore, when you install new versions of the app that you want to test, you won't have to trust the
+app developer again each time. This is particularly useful if you run test automations and you don't want to create a
 remote access session each time you test your app.
 
+A common procedure many customers use is to re-sign the [Device Farm sample app for iOS](https://github.com/aws-samples/aws-device-farm-sample-app-for-ios/blob/master/prebuilt/prebuiltSampleApp.ipa "https://github.com/aws-samples/aws-device-farm-sample-app-for-ios/blob/master/prebuilt/prebuiltSampleApp.ipa"), then install this onto their device as the placeholder app.
+
 Before you start your remote access session, follow the steps in [Creating an instance profile in AWS Device Farm](set-up-private-devices-account-settings.md "set-up-private-devices-account-settings.md") to create or modify an
-instance profile in Device Farm. In the instance profile, add the bundle ID of the test app or
-dummy app to the **Exclude packages from cleanup** setting. Then,
+instance profile in Device Farm. In the instance profile, add the bundle ID of the placeholder
+app to the **Exclude packages from cleanup** setting. Then,
 attach the instance profile to the private device instance to ensure that Device Farm doesn't
 remove this app from the device before it starts a new test run. This ensures that your
 developer certificate remains trusted.
 
-You can upload the dummy app to the device by using a remote access session, which allows you to launch
+You can upload the placeholder app to the device by using a remote access session, which allows you to launch
 the app and trust the developer.
 
 1. Follow the instructions in [Creating a session](how-to-create-session.md "how-to-create-session.md") to create a remote access session that uses the private
@@ -118,10 +116,10 @@ To filter the list of devices to include only private devices, select **Private 
 instances only** to ensure that you use a private device with the correct instance
 profile.
 
-Be sure to also add the dummy app or the app that you want to test to the
+Be sure to also add the placeholder app or the app that you want to test to the
 **Exclude packages from cleanup** setting for the instance
 profile that's attached to this instance. 2. When your remote session starts, choose **Choose File** to
-install an application that uses your in-house provisioning profile. 3. Launch the app that you just uploaded. 4. Follow the instructions to trust the developer certificate.
+install an application that uses your in-house provisioning profile. 3. Launch the app that you just uploaded. 4. Confirm that an iOS dialogue box appears indicating that the enterprise app developer is untrusted. 5. Then, if the iOS device is on iOS version 18 or greater, open a support ticket with the AWS Device Farm team to have our team trust the app for you, since these devices require the app to be manually trusted. Otherwise, if the iOS version is 17 or lower, you can go into the **Settings** app, and, under **General** settings, trust the app yourself from the **VPN and Profiles** menu.
 
 All apps from this configuration profile or enterprise app developer are now trusted on this private
 device until you delete them.

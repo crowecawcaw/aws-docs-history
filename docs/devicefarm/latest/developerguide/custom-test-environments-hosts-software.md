@@ -47,6 +47,7 @@ The following table contains the selectable software and the test hosts that con
 | Python 3.8      | amazon_linux_2                   | `devicefarm-cli use python 3.8`  |
 | Ruby 3.2        | amazon_linux_2<br>macos_sequoia  | `devicefarm-cli use ruby 3.2`    |
 | Ruby 2.7        | amazon_linux_2                   | `devicefarm-cli use ruby 2.7`    |
+| Appium 3        | amazon_linux_2                   | `devicefarm-cli use appium 3`    |
 | Appium 2        | amazon_linux_2<br>macos_sequoia  | `devicefarm-cli use appium 2`    |
 | Appium 1        | amazon_linux_2                   | `devicefarm-cli use appium 1`    |
 | Xcode 26        | macos_sequoia                    | `devicefarm-cli use xcode 26`    |

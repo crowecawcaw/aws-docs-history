@@ -7,15 +7,26 @@ test environment run.
 
 ###### Topics
 
+- [Custom environment variables](#custom-test-environment-variables-custom "#custom-test-environment-variables-custom")
 - [Common environment variables](#custom-test-environment-variables-common "#custom-test-environment-variables-common")
 - [Environment variables for Appium
   tests](#custom-test-environment-variables-appium "#custom-test-environment-variables-appium")
 - [Environment variables for
   XCUITest tests](#custom-test-environment-variables-xcuitest "#custom-test-environment-variables-xcuitest")
 
+## Custom environment variables
+
+Device Farm supports the configuration of key-value pairs that are applied as environment variables on the test host. These may be configured on a Device Farm project or during run creation;
+any variables configured on a run will supersede any that may be configured on its parent project.
+The following restrictions apply:
+
+- Custom environment variables are not supported on legacy iOS test hosts. For more information, see [Legacy iOS test host](custom-test-environments-hosts-ios.md#legacy-ios-host "custom-test-environments-hosts-ios.md#legacy-ios-host").
+- Variable names beginning with `$DEVICEFARM_` are reserved for internal service use.
+- Custom environment variables may not be used to configure test host compute selection in your test spec.
+
 ## Common environment variables
 
-This section describes custom environment variables common to all tests in Device Farm.
+This section describes environment variables common to all tests in Device Farm.
 
 **`$DEVICEFARM_DEVICE_NAME`**
 
@@ -51,6 +62,30 @@ test run.
 **`$DEVICEFARM_SCREENSHOT_PATH`**
 
 The path to the screenshots, if any, captured during the test run.
+
+**`$DEVICEFARM_PROJECT_ARN`**
+
+The ARN of the job's parent project.
+
+**`$DEVICEFARM_RUN_ARN`**
+
+The ARN of the job's parent run.
+
+**`$DEVICEFARM_DEVICE_ARN`**
+
+The ARN of the device under test.
+
+**`$DEVICEFARM_TOTAL_JOBS`**
+
+The total number of jobs associated with its parent Device Farm run.
+
+**`$DEVICEFARM_JOB_NUMBER`**
+
+This job's number within `$DEVICEFARM_TOTAL_JOBS`. For example, a run may contain 5 jobs, and each will have a unique `$DEVICEFARM_JOB_NUMBER` ranging from 0 to 4.
+
+**`$AWS_REGION`**
+
+The AWS region. The service will set this to match the region in which the device under test is located. It can be overridden by a custom environment variable if needed.
 
 **`$ANDROID_HOME`**
 

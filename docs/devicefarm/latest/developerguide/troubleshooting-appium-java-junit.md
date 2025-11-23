@@ -45,7 +45,7 @@ A valid Appium Java JUnit package should produce output like the following:
       `— log4j-1.2.14.jar
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_JAVA_JUNIT_TEST_PACKAGE_DEPENDENCY_DIR_MISSING
 
@@ -86,7 +86,7 @@ directory inside the working directory:
       `— log4j-1.2.14.jar
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_JAVA_JUNIT_TEST_PACKAGE_JAR_MISSING_IN_DEPENDENCY_DIR
 
@@ -127,7 +127,7 @@ inside the `dependency-jars` directory:
       `— `log4j-1.2.14.jar`
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_JAVA_JUNIT_TEST_PACKAGE_TESTS_JAR_FILE_MISSING
 
@@ -169,7 +169,7 @@ be different, but it should end with `–tests.jar`.
       `— log4j-1.2.14.jar
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_JAVA_JUNIT_TEST_PACKAGE_CLASS_FILE_MISSING_IN_TESTS_JAR
 
@@ -236,7 +236,7 @@ everything built from the ./src/test directory)
       `— log4j-1.2.14.jar
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_JAVA_JUNIT_TEST_PACKAGE_JUNIT_VERSION_VALUE_UNKNOWN
 
@@ -281,7 +281,7 @@ If the Appium Java JUnit package is valid, you will find the JUnit dependency fi
 jar file `junit-4.10.jar` in our example. The name should consist of the keyword
 `junit` and its version number, which in this example is 4.10.
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_JAVA_JUNIT_TEST_PACKAGE_INVALID_JUNIT_VERSION
 
@@ -328,4 +328,4 @@ its version number, which in our example is 4.10:
 Your tests may not execute correctly if the JUnit version specified in your test package is lower than
 the minimum version 4.10 we support.
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").

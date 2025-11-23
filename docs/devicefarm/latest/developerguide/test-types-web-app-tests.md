@@ -1,7 +1,7 @@
 # Web app tests in AWS Device Farm
 
 Device Farm provides testing with Appium for web applications. For more information on setting up your Appium tests
-on Device Farm, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+on Device Farm, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 For more information about testing in Device Farm, see [Test frameworks and built-in tests in AWS Device Farm](test-types.md "test-types.md").
 

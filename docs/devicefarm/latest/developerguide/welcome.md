@@ -6,40 +6,50 @@ iOS, and web apps on real, physical phones and tablets that are hosted by Amazon
 
 There are two main ways to use Device Farm:
 
-- Automated testing of apps using a variety of testing frameworks.
-- Remote access of devices onto which you can load, run, and interact with apps in
-  real time.
+- Remotely access a device from your local computer, either interactively in your
+  web browser or automatically testing it using Appium from a local client.
+- Automatically execute app tests using Device Farm's managed test execution
+  environment.
 
 ###### Note
 
 Device Farm is only available in the `us-west-2` (Oregon) region.
 
+## Remote access
+
+Remote access allows you to interact with a device through your web browser in real
+time. Remote access also lets you to run Appium tests from your local client against
+remote Device Farm devices using a managed Appium endpoint.
+
+Real-time interaction with a device can be useful for a number of scenarios, such as
+manual app testing, reproducing bugs on a specific device, checking the visual rendering
+of your app on different screen types, and app install and upgrade sequences. Device Farm's
+fully managed Appium endpoint enables you to develop, test, and debug your Appium tests,
+giving fast feedback.
+
+The Appium endpoint supports any language of your choice, any local IDE, live debugging
+with breakpoints, live video and logs, and tools like [Appium Inspector](https://github.com/appium/appium-inspector "https://github.com/appium/appium-inspector"). You can
+execute tests as many times as you like on the same device during your remote access
+session with a [150-minute limit](limits.md#service-limits "limits.md#service-limits").
+
+During a remote access session, Device Farm logs details about actions that take place as
+you interact with the device. Logs with these details and a video capture of the session
+are produced at the end of the session.
+
 ## Automated app testing
 
-Device Farm allows you to upload your own tests or use built-in, script-free compatibility
-tests. Because testing is performed in parallel, tests on multiple devices begin in
-minutes.
+Device Farm allows you to run automated tests on multiple devices in parallel by uploading
+your app and tests. The tests are automatically executed in a fully managed environment
+on test hosts that you can configure [a test spec file](custom-test-environment-test-spec.md "custom-test-environment-test-spec.md"). The
+environment uses Device Farm's [test hosts](custom-test-environments-hosts.md "custom-test-environments-hosts.md"), so you don't need
+to worry about provisioning your own infrastructure for running tests. The test hosts and
+devices can securely connect to your VPC to access your private endpoints.
 
-As tests are completed, a test report that contains high-level results, low-level
-logs, pixel-to-pixel screenshots, and performance data is updated.
+As tests are completed, a test report is generated that contains high-level results,
+low-level logs, screenshots, and your test artifacts.
 
-Device Farm supports testing of native and hybrid Android and iOS apps, including those
-created with PhoneGap, Titanium, Xamarin, Unity, and other frameworks. It supports
-remote access of Android and iOS apps for interactive testing. For more information
+Device Farm supports testing of native and hybrid Android and iOS apps. For more information
 about supported test types, see [Test frameworks and built-in tests in AWS Device Farm](test-types.md "test-types.md").
-
-## Remote access interaction
-
-Remote access allows you to swipe, gesture, and interact with a device through your
-web browser in real time. There are a number of situations where real-time interaction
-with a device is useful. For example, customer service representatives can guide
-customers through the use or setup of their device. They can also walk customers through
-the use of apps running on a specific device. You can install apps on a device running
-in a remote access session and then reproduce customer problems or reported bugs.
-
-During a remote access session, Device Farm collects details about actions that take place
-as you interact with the device. Logs with these details and a video capture of the
-session are produced at the end of the session.
 
 ## Terminology
 

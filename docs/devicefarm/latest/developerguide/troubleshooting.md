@@ -3,6 +3,10 @@
 In this section, you will find error messages and procedures to help you fix common problems with
 Device Farm.
 
+###### Note
+
+To troubleshoot Appium tests that unexpectedly fail on Device Farm, please see our guide for [client-side Appium testing](appium-endpoint.md "appium-endpoint.md")
+
 ###### Topics
 
 - [Troubleshooting Android application tests in

@@ -32,6 +32,7 @@ and [Creating a test run in Device Farm](how-to-create-test-run.md "how-to-creat
 
 - [Test spec reference and syntax](custom-test-environment-test-spec.md "custom-test-environment-test-spec.md")
 - [Hosts for custom test environments](custom-test-environments-hosts.md "custom-test-environments-hosts.md")
+- [Access AWS resources using an IAM Execution Role](custom-test-environments-iam-roles.md "custom-test-environments-iam-roles.md")
 - [Environment variables for custom test
   environments](custom-test-environment-variables.md "custom-test-environment-variables.md")
 - [Best practices for custom test

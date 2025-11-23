@@ -1,7 +1,7 @@
 # Integrating Appium tests with Device Farm
 
 Use the following instructions to integrate Appium tests with AWS Device Farm. For more information about using Appium
-tests in Device Farm, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+tests in Device Farm, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## Configure your Appium test package
 

@@ -19,9 +19,10 @@ A run produces a report that contains information about the results of the run. 
 ## Run configuration
 
 As part of a run, you can supply settings Device Farm can use to override current device
-settings. These include latitude and longitude coordinates, locale, radio states (such
-as Bluetooth, GPS, NFC, and Wi-Fi), extra data (contained in a .zip file), and auxiliary
-apps (apps that should be installed before the app to be tested).
+settings. These include latitude and longitude coordinates, extra data (contained in a
+.zip file), and auxiliary apps (apps that should be installed before the app to be
+tested). On Android, some additional settings can be changed, such as locale and radio
+states (Bluetooth, GPS, NFC, and Wi-Fi).
 
 ## Run files retention
 

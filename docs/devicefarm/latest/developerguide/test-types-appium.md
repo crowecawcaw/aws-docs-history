@@ -1,11 +1,17 @@
-# Appium tests and AWS Device Farm
+# Automatically run Appium tests in Device Farm
 
-This section describes how to configure, package, and upload your Appium tests to Device Farm. Appium is an open source tool for automating native and mobile web applications.
+###### Note
+
+This page covers running Appium tests in Device Farm's managed **server-side** execution environment. To run Appium tests from your local **client-side** environment during a remote access session, see [client-side Appium testing](appium-endpoint.md "appium-endpoint.md").
+
+This section describes how to configure, package, and upload your Appium tests for running
+on Device Farm's managed server-side environment.
+Appium is an open source tool for automating native and mobile web applications.
 For more information, see [Introduction to Appium](http://appium.io/docs/en/latest/intro "http://appium.io/docs/en/latest/intro") on the Appium website.
 
 For a sample app and links to working tests, see [Device Farm Sample App for Android](https://github.com/aws-samples/aws-device-farm-sample-app-for-android "https://github.com/aws-samples/aws-device-farm-sample-app-for-android") and [Device Farm Sample App for iOS](https://github.com/aws-samples/aws-device-farm-sample-app-for-ios "https://github.com/aws-samples/aws-device-farm-sample-app-for-ios") on GitHub.
 
-For more information about testing in Device Farm, see [Test frameworks and built-in tests in AWS Device Farm](test-types.md "test-types.md").
+For more information about testing in Device Farm and how server-side works, see [Test frameworks and built-in tests in AWS Device Farm](test-types.md "test-types.md").
 
 ## Selecting an Appium version
 

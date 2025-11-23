@@ -52,9 +52,10 @@ For information about the available test suites, see [Test frameworks and built-
 **Run your test in a custom environment**. For more
 information, see [Test environments in AWS Device Farm](test-environments.md "test-environments.md"). 12. If you're using a custom test environment, you can optionally do the following:
 
-    1. If you want to edit the default test spec in a custom test environment, choose
+    * If you want to edit the default test spec in a custom test environment, choose
      **Edit** to update the default YAML specification.
-    2. If you changed the test spec, choose **Save as New** to update it.
+    * If you changed the test spec, choose **Save as New** to update it.
+    * You may configure envirnonment variables. Variables supplied here will take precedence over any that may be configured on the parent project.
 
 13. Under **Select devices**, do one of the following:
 
@@ -71,6 +72,7 @@ information, see [Test environments in AWS Device Farm](test-environments.md "te
 
 14. (Optional) To add additional configuration, open the **Additional configuration** dropdown.
     In this section, you can do any of the following:
+    - To provide an execution role ARN, or override one configured on the parent project, use the Exectuion role ARN field.
     - To provide other data for Device Farm to use during the run, next to **Add extra
       data**, choose **Choose File**, and then browse to and choose
       the .zip file that contains the data.

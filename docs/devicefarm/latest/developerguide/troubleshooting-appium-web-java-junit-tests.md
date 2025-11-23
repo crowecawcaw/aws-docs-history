@@ -3,7 +3,7 @@
 tests in AWS Device Farm
 
 The following topic lists error messages that occur during the upload of Appium Java JUnit Web application tests
-and recommends workarounds to resolve each error. For more information on using Appium with Device Farm, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+and recommends workarounds to resolve each error. For more information on using Appium with Device Farm, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE_UNZIP_FAILED
 
@@ -314,4 +314,4 @@ its version number, which in our example is 4.10:
 Your tests may not execute correctly if the JUnit version specified in your test package is lower than
 the minimum version 4.10 we support.
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").

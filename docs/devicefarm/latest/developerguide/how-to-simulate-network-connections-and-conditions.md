@@ -3,8 +3,8 @@
 for your AWS Device Farm runs
 
 You can use network shaping to simulate network connections and conditions while testing
-your Android, iOS, FireOS, and web apps in Device Farm. For example, you can test your app in less
-than perfect network conditions.
+your Android, iOS and web apps in Device Farm. For example, you can simulate lossy or intermittent
+internet connectivity.
 
 When you create a run using the default network settings, each device has a full, unhindered
 Wi-Fi connection with internet connectivity. When you use network shaping, you can change the

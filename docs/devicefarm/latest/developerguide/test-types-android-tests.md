@@ -8,7 +8,7 @@ For more information about testing in Device Farm, see [Test frameworks and buil
 
 The following tests are available for Android devices.
 
-- [Appium](test-types-appium.md "test-types-appium.md")
+- [Automatic Appium tests](test-types-appium.md "test-types-appium.md")
 - [Instrumentation](test-types-android-instrumentation.md "test-types-android-instrumentation.md")
 
 ## Built-in test types for Android

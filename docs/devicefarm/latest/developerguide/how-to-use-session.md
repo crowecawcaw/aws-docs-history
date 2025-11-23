@@ -27,11 +27,8 @@ instrumentation or provisioning.
 
 ###### Note
 
-AWS Device Farm doesn't display a confirmation after an app is installed. Try interacting with the app
-icon to see if the app is ready to use.
-
-When you upload an app, there's sometimes a delay before the app is available. Look at the system
-tray to determine whether the app is available.
+When you upload an app, there's sometimes a delay before the app is available.
+A confirmation message will appear to let you know if the app was successfully installed or not.
 
 ### Controlling the device
 
@@ -54,8 +51,7 @@ you're using.
 
 Device Farm continues the session until you stop it manually or the 150-minute time limit is reached. To end the
 session, choose **Stop Session**. After the session stops, you can access the video that
-was captured and the logs that were generated. For more information, see [Retrieving session results from remote access
-sessions](how-to-access-session-results.md "how-to-access-session-results.md").
+was captured and the logs that were generated. For more information, see [Retrieving session results](how-to-access-session-results.md "how-to-access-session-results.md").
 
 ## Tips and tricks
 

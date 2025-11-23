@@ -8,7 +8,7 @@ For more information about testing in Device Farm, see [Test frameworks and buil
 
 The following tests are available for iOS devices.
 
-- [Appium](test-types-appium.md "test-types-appium.md")
+- [Automatic Appium tests](test-types-appium.md "test-types-appium.md")
 - [XCTest](test-types-ios-xctest.md "test-types-ios-xctest.md")
 - [XCTest UI](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md")
 

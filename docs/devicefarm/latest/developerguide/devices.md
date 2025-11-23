@@ -16,7 +16,7 @@ The following sections provide information about device support in Device Farm.
 
 Device Farm provides support for hundreds of unique, popular Android and iOS
 devices and operating system combinations. The list of available devices grows as new
-devices enter the market. For the full list of devices, see [Device List](https://aws.amazon.com/device-farm/device-list/ "https://aws.amazon.com/device-farm/device-list/").
+devices enter the market. For the full list of devices, see the [interactive device list in your AWS console](https://us-west-2.console.aws.amazon.com/devicefarm/home?region=us-west-2#/mobile/publicdevices "https://us-west-2.console.aws.amazon.com/devicefarm/home?region=us-west-2#/mobile/publicdevices").
 
 ## Device pools
 
@@ -72,11 +72,10 @@ manufacturers and carriers.
 
 ## Device capabilities
 
-All devices have a Wi-Fi connection to the internet. They do not have carrier
-connections and cannot make phone calls or send SMS messages.
+All devices have internet connectivity. They do not have carrier connections and
+cannot make phone calls or send SMS messages.
 
 You can take photos with any device that supports a front- or rear-facing camera. Due
 to the way the devices are mounted, photos might look dark and blurry.
 
-Google Play Services is installed on devices that support it, but these devices do not
-have an active Google account.
+Google Play Services and Google Chrome are installed on Android devices.

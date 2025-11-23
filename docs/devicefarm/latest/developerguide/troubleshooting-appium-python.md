@@ -43,7 +43,7 @@ A valid Appium Python package should produce output like the following:
        `-- wheel-0.26.0-py2.py3-none-any.whl
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_PYTHON_TEST_PACKAGE_DEPENDENCY_WHEEL_MISSING
 
@@ -88,7 +88,7 @@ dependent file like the highlighted files inside the `wheelhouse` directory.
        `-- `wheel-0.26.0-py2.py3-none-any.whl`
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_PYTHON_TEST_PACKAGE_INVALID_PLATFORM
 
@@ -135,7 +135,7 @@ file's name may be different, but it should end with `-any.whl` or
        `-- `wheel-0.26.0-py2.py3-none-any.whl`
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_PYTHON_TEST_PACKAGE_TEST_DIR_MISSING
 
@@ -179,7 +179,7 @@ the working directory.
        `-- wheel-0.26.0-py2.py3-none-any.whl
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_PYTHON_TEST_PACKAGE_INVALID_TEST_FILE_NAME
 
@@ -225,7 +225,7 @@ the working directory. The file's name may be different, but it should start wit
        `-- wheel-0.26.0-py2.py3-none-any.whl
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_PYTHON_TEST_PACKAGE_REQUIREMENTS_TXT_FILE_MISSING
 
@@ -269,7 +269,7 @@ inside the working directory.
        `-- wheel-0.26.0-py2.py3-none-any.whl
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_PYTHON_TEST_PACKAGE_INVALID_PYTEST_VERSION
 
@@ -327,7 +327,7 @@ pytest==2.9.0
 It shows the pytest version, which in this example is 2.9.0. If the Appium Python package is valid, the
 pytest version should be larger than or equal to 2.8.0.
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_PYTHON_TEST_PACKAGE_INSTALL_DEPENDENCY_WHEELS_FAILED
 
@@ -386,7 +386,7 @@ Successfully installed Appium-Python-Client-0.20 py-1.4.31 pytest-2.9.0 selenium
 $ deactivate
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_PYTHON_TEST_PACKAGE_PYTEST_COLLECT_FAILED
 
@@ -449,7 +449,7 @@ collected 1 items
 $ deactivate
 ```
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
 ## APPIUM_PYTHON_TEST_PACKAGE_DEPENDENCY_WHEELS_INSUFFICIENT
 
@@ -496,4 +496,4 @@ directly correspond to dependency packages, such as lines that specify global op
  install` command. See [Requirements file
 format](https://pip.pypa.io/en/stable/reference/requirements-file-format/#global-options "https://pip.pypa.io/en/stable/reference/requirements-file-format/#global-options") for a list of global options.
 
-For more information, see [Appium tests and AWS Device Farm](test-types-appium.md "test-types-appium.md").
+For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
