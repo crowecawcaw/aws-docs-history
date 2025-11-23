@@ -68,7 +68,7 @@ To use the Findings feature across accounts with an organization set up in AWS R
 application account must configure permissions for Incident Manager to assume the management
 account's service role on its behalf.
 
-These permissions can be configured in an application account by deploying an AWS CloudFormation
+These permissions can be configured in an application account by deploying an CloudFormation
 template provided by AWS, which creates the role
 `IncidentManagerIncidentAccessServiceRole`.
 

@@ -193,7 +193,7 @@ dropdown.
 
 #### Viewing findings from AWS CodeDeploy and
 
-AWS CloudFormation
+CloudFormation
 
 After Findings is enabled and all required permissions configured, any
 findings that might be related to a specific incident are attached to the

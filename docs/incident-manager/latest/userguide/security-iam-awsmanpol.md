@@ -32,7 +32,7 @@ services.
 
 This policy includes the following permissions.
 
-- `cloudformation` – Allows principals to describe AWS CloudFormation stacks.
+- `cloudformation` – Allows principals to describe CloudFormation stacks.
   This is required for Incident Manager to identify CloudFormation events and resources related
   to an incident.
 - `codedeploy` – Allows principals to read AWS CodeDeploy deployments.
@@ -94,55 +94,11 @@ Amazon Q Developer in chat applications, see [Managing permissions for running c
 
 This policy includes the following permissions.
 
-- `ssm-incidents` – Allows you to start incidents, list response
+- `ssm-incidents` – Allows principals to start incidents, list response
   plans, list incidents, update incidents, list timeline events, create custom timeline
   events, update custom timeline events, delete custom timeline events, list related
   items, create related items, and update related items.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "StartIncidentPermissions",
- "Effect": "Allow",
- "Action": [
- "ssm-incidents:StartIncident"
- ],
- "Resource": "*"
- },
- {
- "Sid": "ResponsePlanReadOnlyPermissions",
- "Effect": "Allow",
- "Action": [
- "ssm-incidents:ListResponsePlans",
- "ssm-incidents:GetResponsePlan"
- ],
- "Resource": "*"
- },
- {
- "Sid": "IncidentRecordResolverPermissions",
- "Effect": "Allow",
- "Action": [
- "ssm-incidents:ListIncidentRecords",
- "ssm-incidents:GetIncidentRecord",
- "ssm-incidents:UpdateIncidentRecord",
- "ssm-incidents:ListTimelineEvents",
- "ssm-incidents:CreateTimelineEvent",
- "ssm-incidents:GetTimelineEvent",
- "ssm-incidents:UpdateTimelineEvent",
- "ssm-incidents:DeleteTimelineEvent",
- "ssm-incidents:ListRelatedItems",
- "ssm-incidents:UpdateRelatedItems"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
+- `ssm-contacts` – Allows principals to start engagements with contacts during incident creation.
 
 To view more details about the policy, including the latest version of the JSON policy
 document, see [AWSIncidentManagerResolverAccess](../../../aws-managed-policy/latest/reference/AWSIncidentManagerResolverAccess.md "../../../aws-managed-policy/latest/reference/AWSIncidentManagerResolverAccess.md") in the _AWS
@@ -158,6 +114,7 @@ subscribe to the RSS feed on the Incident Manager Document history page.
 
 | Change                                                                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                    | Date              |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| [AWSIncidentManagerResolverAccess](#security-iam-awsmanpol-AWSIncidentManagerResolverAccess "#security-iam-awsmanpol-AWSIncidentManagerResolverAccess") –<br>Policy update                                                    | Incident Manager added permission to start engagements with contacts.                                                                                                                                                                                                                                                          | November 20, 2025 |
 | [AWSIncidentManagerServiceRolePolicy](#security-iam-awsmanpol-AWSServiceRoleforIncidentManagerPolicy "#security-iam-awsmanpol-AWSServiceRoleforIncidentManagerPolicy") –<br>Policy update                                     | Incident Manager added a new permission that allows Incident Manager to publish<br>metrics within the `AWS/Usage` namespace into your account.                                                                                                                                                                                 | January 27, 2025  |
 | [AWSIncidentManagerIncidentAccessServiceRolePolicy](#security-iam-awsmanpol-AWSIncidentManagerIncidentAccessServiceRolePolicy "#security-iam-awsmanpol-AWSIncidentManagerIncidentAccessServiceRolePolicy") – Policy<br>update | Incident Manager has added a new permission to<br>`AWSIncidentManagerIncidentAccessServiceRolePolicy`, in support of<br>the Findings feature, that allows it to check whether an EC2 instance is part of<br>an Auto Scaling group.                                                                                             | February 20, 2024 |
 | [AWSIncidentManagerIncidentAccessServiceRolePolicy](#security-iam-awsmanpol-AWSIncidentManagerIncidentAccessServiceRolePolicy "#security-iam-awsmanpol-AWSIncidentManagerIncidentAccessServiceRolePolicy")<br>– New policy    | Incident Manager added a new policy that grants Incident Manager permissions to call<br>other AWS services as a part of managing an incident.                                                                                                                                                                                  | November 17, 2023 |

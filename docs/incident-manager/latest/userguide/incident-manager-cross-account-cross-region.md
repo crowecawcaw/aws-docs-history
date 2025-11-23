@@ -126,7 +126,7 @@ resources.
    AWS-SystemsManager-IncidentManagerIncidentAccessServiceRole,
    specify the account ID of the management account. This role provides the
    permissions that Incident Manager needs to access information about AWS CodeDeploy
-   deployments and AWS CloudFormation stack updates. This information is reported as
+   deployments and CloudFormation stack updates. This information is reported as
    _findings_ for an incident if the
    Findings feature is enabled. For more information, see [Identifying potential causes of incidents from other services as
    "findings" in Incident Manager](findings.md "findings.md").

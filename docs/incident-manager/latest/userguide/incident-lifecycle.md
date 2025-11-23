@@ -88,7 +88,7 @@ of the following:
 
 - Manage instances and AWS resources
 - Automatically run scripts
-- Manage AWS CloudFormation resources
+- Manage CloudFormation resources
 
 For more information about the supported action types, see [Systems Manager Automation
 actions reference](../../../systems-manager/latest/userguide/automation-actions.md "../../../systems-manager/latest/userguide/automation-actions.md") in the _AWS Systems Manager User Guide_.
