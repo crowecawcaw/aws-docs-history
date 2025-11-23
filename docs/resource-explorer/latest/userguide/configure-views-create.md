@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Creating Resource Explorer views to use for search
 
 All searches must use a [view](customer-views.md#configure-views "customer-views.md#configure-views"). A view defines filters that determine which resources can

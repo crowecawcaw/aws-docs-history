@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Turning off Resource Explorer
 
 When you no longer need to search for resources in a specific AWS Region, you can turn
@@ -18,7 +14,7 @@ When you register the first AWS Region, Resource Explorer creates [a service lin
 AWSServiceRoleForResourceExplorer](security_iam_service-linked-roles.md#slr-permissions "security_iam_service-linked-roles.md#slr-permissions") in the AWS account. Resource Explorer **_doesn't_** delete this SLR automatically. After
 you delete the Resource Explorer index in every Region in the account, you can use the IAM
 console to delete the SLR if you won't use Resource Explorer in the future. If you do delete the
-role and you then choose to turn on Resource Explorer again in at least one AWS Region, Resource Explorer
+role and you then choose to access Resource Explorer again in at least one AWS Region, Resource Explorer
 re-creates the service-linked role automatically.
 
 ## Turning off Resource Explorer in one

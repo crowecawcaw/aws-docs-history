@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Resource types you can search for with
 
 Resource Explorer
@@ -71,7 +67,7 @@ As of October 13, 2025, Resource Explorer no longer supports the following resou
 ###### Supported AWS services
 
 - [Amazon API Gateway](#services-apigateway "#services-apigateway")
-- [AWS Direct Connect](#services-directconnect "#services-directconnect")
+- [Direct Connect](#services-directconnect "#services-directconnect")
 - [AWS Shield](#services-shield "#services-shield")
 - [AWS Systems Manager Incident Manager](#services-ssm-incidents "#services-ssm-incidents")
 - [AWS WAFV2](#services-wafv2 "#services-wafv2")
@@ -101,7 +97,7 @@ As of October 13, 2025, Resource Explorer no longer supports the following resou
 - [Amazon Chime](#services-chime "#services-chime")
 - [AWS Cloud Map](#services-servicediscovery "#services-servicediscovery")
 - [AWS Cloud9](#services-cloud9 "#services-cloud9")
-- [AWS CloudFormation](#services-cloudformation "#services-cloudformation")
+- [CloudFormation](#services-cloudformation "#services-cloudformation")
 - [Amazon CloudFront](#services-cloudfront "#services-cloudfront")
 - [AWS CloudTrail](#services-cloudtrail "#services-cloudtrail")
 - [Amazon CloudWatch](#services-cloudwatch "#services-cloudwatch")
@@ -254,7 +250,7 @@ As of October 13, 2025, Resource Explorer no longer supports the following resou
 - `apigateway:restapis/stages`
 - `apigateway:vpclinks`
 
-### AWS Direct Connect
+### Direct Connect
 
 - `directconnect:dx-gateway`
 
@@ -426,7 +422,7 @@ As of October 13, 2025, Resource Explorer no longer supports the following resou
 
 - `cloud9:environment`
 
-### AWS CloudFormation
+### CloudFormation
 
 - `cloudformation:stack`
 - `cloudformation:stackset`

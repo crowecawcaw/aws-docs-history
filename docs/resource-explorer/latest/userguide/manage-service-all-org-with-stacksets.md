@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Deploying Resource Explorer to the accounts in
 
 an organization
@@ -10,17 +6,17 @@ By using AWS CloudFormation StackSets, you can define and deploy to all of the a
 an organization by AWS Organizations. When you define a stack set, you specify AWS resources that
 you want created across your AWS Regions and across all of the target accounts that you
 specify. When all of the accounts are part of the same organization, you can take advantage
-of AWS CloudFormation integration with Organizations and let those services handle the cross-account role
+of CloudFormation integration with Organizations and let those services handle the cross-account role
 creation. You can enable automatic deployment in an organization, which automatically
 deploys stack instances to new accounts that you might add to the target organization or an
 organizational unit (OU) in the future. If you remove an account from the organization, then
-AWS CloudFormation automatically deletes any resources that were deployed as part of an organization
+CloudFormation automatically deletes any resources that were deployed as part of an organization
 stack instance. For more information about StackSets, see [Working with
 AWS CloudFormation StackSets](../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md "../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md") in the _AWS CloudFormation User Guide_.
 
-You can use AWS CloudFormation StackSets to turn on and configure AWS Resource Explorer in all of the accounts in
-your organization, creating indexes in each enabled Region, and creating views where you
-need them.
+You can use CloudFormation StackSets to configure AWS Resource Explorer for organization-wide search in all of
+the accounts in your organization, creating indexes in each enabled Region, and creating
+views where you need them.
 
 ###### Important
 
@@ -31,22 +27,22 @@ another index to be the new aggregator index for the account.
 
 ## Prerequisites
 
-To use AWS CloudFormation StackSets to deploy Resource Explorer to the accounts in your organization, you, or
+To use CloudFormation StackSets to deploy Resource Explorer to the accounts in your organization, you, or
 the administrator of your organization, must first perform the following steps to enable
 stacks with service-managed permissions:
 
 1. The organization must have [all features enabled](../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md "../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md"). If the organization has only consolidated
    billing features enabled, you can't create a stack set with service-managed
    permissions.
-2. [Turn on trusted access between AWS CloudFormation and Organizations](../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.md"). This grants AWS CloudFormation
+2. [Turn on trusted access between CloudFormation and Organizations](../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.md"). This grants CloudFormation
    permission to create the roles needed in the organization's management account
-   and the member accounts AWS CloudFormation will deploy Resource Explorer indexes and views.
+   and the member accounts CloudFormation will deploy Resource Explorer indexes and views.
 
 Now you can create stack sets with service-managed permissions.
 
 ###### Important
 
-You must create the stack sets in the organization's management account. AWS CloudFormation is
+You must create the stack sets in the organization's management account. CloudFormation is
 a Regional service, so you can view and manage the stack sets you create from only
 the Region you originally created them in.
 
@@ -76,7 +72,7 @@ After you deploy these stack sets to your organization, every account within the
 you selected, organization or organizational unit, has an aggregator index in the
 specified Region, and local indexes in every other Region.
 
-## Sample AWS CloudFormation templates
+## Sample CloudFormation templates
 
 The following sample template creates the account's aggregator index and a default
 view that can search for resources across all Regions in the account where you deploy an

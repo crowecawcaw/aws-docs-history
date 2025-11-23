@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Security in AWS Resource Explorer
 
 Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a

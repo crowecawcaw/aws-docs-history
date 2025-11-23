@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Supporting Unified Search in the
 
 AWS Management Console
@@ -13,17 +9,23 @@ include such things as:
 - AWS service and feature console pages.
 - AWS documentation pages.
 - AWS blog and Knowledge Base articles
-- Resources in your accounts — if you follow the steps below.
-  To see your account's resources in your Unified Search results, you must perform the
-  following steps. You can do this during initial setup of AWS Resource Explorer. It all happens
-  automatically if you use the **Quick setup** option.
+- Resources in your accounts — if have at minimum read-only access.
+  The account resources you can view in your Unified Search results depend on the
+  permissions assigned to you.
 
-- You must [create an aggregator
-  index](manage-aggregator-region-turn-on.md "manage-aggregator-region-turn-on.md") in one AWS Region for the AWS account.
-- You must [create a default view in the
-  AWS Region that contains the aggregator index](configure-views-set-default.md "configure-views-set-default.md").
-- You must grant all principals that need to search for resources in the Unified
-  Search bar [permission to search using
-  that default view](configure-views-grant-access.md "configure-views-grant-access.md").
+- Partial Regional results: With, at minimum, the permissions in the
+  `AWSResourceExplorerReadOnlyAccess` managed policy, you can can
+  immediately search all tagged resources and supported untagged resources created
+  after the immediate resource discovery release in a Region.
+- Full Regional results: With at minimum, the permissions in the
+  `AWSResourceExplorerReadOnlyAccess` managed policy and the
+  `iam:CreateServiceLinkedRole` permission, you can search full
+  results, including all tagged and untagged resources with ongoing automatic updates
+  and historical backfill, in a Region.
+- Full cross-Region results: If you create an aggregator index, cross-Region results
+  are available in Unified Search.
   Unified Search always uses the default view in the AWS Region that contains the
-  aggregator index to perform all searches.
+  aggregator index to perform all searches when present.
+
+For more information about resourcer views, see [Permission tiers and user
+experiences](manage-immediate-resource-discovery-experience.md#immediate-permission-tiers "manage-immediate-resource-discovery-experience.md#immediate-permission-tiers").

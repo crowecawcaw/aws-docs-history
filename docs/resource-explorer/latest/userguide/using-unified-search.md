@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Using Unified Search in the AWS Management Console
 
 The AWS Management Console includes a search bar at the top of every AWS console page. This search
@@ -61,7 +57,8 @@ appropriate Resource Explorer permissions. To enhance Unified Search functionali
 results, cross-Region results, or custom views, you can optionally complete the
 following steps:
 
-1. (Optional) [Completing setup for Resource Explorer](manage-service-turn-on-region.md "manage-service-turn-on-region.md") to create
+1. (Optional) [Creating user-owned indexes for enhanced
+   Resource Explorer functionality](manage-service-turn-on-region.md "manage-service-turn-on-region.md") to create
    user-owned indexes for complete search results.
 2. (Optional) [Enabling cross-Region search by creating an
    aggregator index](manage-aggregator-region.md "manage-aggregator-region.md") to enable cross-Region

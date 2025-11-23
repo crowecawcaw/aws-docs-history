@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Logging AWS Resource Explorer API calls using AWS CloudTrail
 
 AWS Resource Explorer is integrated with AWS CloudTrail, a service that provides a record of actions taken

@@ -1,14 +1,10 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Access AWS Resource Explorer using an interface endpoint
 
 (AWS PrivateLink)
 
 You can use AWS PrivateLink to create a private connection between your VPC and
 AWS Resource Explorer. You can access Resource Explorer as if it were in your VPC, without the use of an
-internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC
+internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC
 don't need public IP addresses to access Resource Explorer.
 
 You establish this private connection by creating an _interface

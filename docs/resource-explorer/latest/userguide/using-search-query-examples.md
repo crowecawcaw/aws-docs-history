@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Example Resource Explorer search queries
 
 The following examples show the syntax for common types of queries that you can use in
@@ -172,7 +168,7 @@ resources that match the word "wing" without the word "west".
 
 stack
 
-When you create a resource as part of an AWS CloudFormation stack, they are all tagged with the
+When you create a resource as part of an CloudFormation stack, they are all tagged with the
 stack's name _automatically_. The following example
 returns all resources that were created as part of the specified stack.
 

@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Terms and concepts for Resource Explorer
 
 AWS Resource Explorer is a resource search and discovery service. With Resource Explorer, you can explore your
@@ -43,30 +39,28 @@ You should understand the following concepts to successfully use AWS Resource Ex
 - [Unified Search in the AWS Management Console](#term-unified-search "#term-unified-search")
 - [Multi-account search](#term-multi-account-search "#term-multi-account-search")
   The following diagram shows three AWS Regions in which users have searched for
-  resources, and one Region where no search has occurred yet. Regions with
-  user-owned
-  (local) indexes provide complete search results, while Regions with only
-  Resource Explorer owned indexes provide partial results (all tagged resources and supported untagged
-  resources created after the [immediate resource discovery](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md") release).
+  resources, and one Region where no search has occurred yet. Regions with user-owned (local)
+  indexes provide complete search results, while Regions with only Resource Explorer owned indexes
+  provide partial results (all tagged resources and supported untagged resources created after
+  the [immediate resource discovery](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md") release).
 
 In this example scenario, a user selected the US West (Oregon) Region
 (`us-west-2`) to contain the aggregator index for the account. All Regions
-with user-owned (local)
-indexes replicate their local indexes to the Region with the
+with user-owned (local) indexes replicate their local indexes to the Region with the
 aggregator index.
 
 The default view created by Resource Explorer doesn't have any filters. Therefore, results from
 searching with this view can include resources of any type in all Regions in the account
 where Resource Explorer is turned on including Tags.
 
-![4 Regions: Resource Explorer registered in 3. Default view, aggregator index, or AWS account in 1.](/images/resource-explorer/latest/userguide/images/AREX-Overview-IAD.png)
+![4 Regions: Resource Explorer registered in 3. Default view, aggregator index, or AWS account in 1.](images/AREX-Overview-IAD.png)
 
 |                                                                                        |
-| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Legend**                                                                             |
-| Gear icon with magnifying glass, representing system configuration or search settings. | Resource Explorer<br>is set up with a user-owned (local) index in this<br>AWS Region.<br>Information<br>about the Region's resources is stored in a local index in that Region.<br>Every Region's<br>user-owned<br>(local) index is also replicated (indicated by the arrows)<br>to the Region that contains the aggregator index.                                                                |
-| Notebook icon representing a document or file with lined pages.                        | The index in this AWS Region is configured to be the aggregator index<br>for the account. Resource Explorer replicates the resource information collected in the<br>user-owned<br>(local) indexes of all other Regions<br>into<br>the aggregator index in this Region. Searches made in this<br>Region can include results from all Regions<br>with<br>user-owned (local) indexes in the account. |
-| Blue square border with white interior, representing a placeholder for an image.       | The default view created by \*_Quick Setup_<br>• includes all<br>resources in all<br>AWS Regions<br>with user-owned (local) indexes.                                                                                                                                                                                                                                                              |
+| Gear icon with magnifying glass, representing system configuration or search settings. | Resource Explorer is set up with a user-owned (local) index in this AWS Region.<br>Information about the Region's resources is stored in a local index in that<br>Region. Every Region's user-owned (local) index is also replicated<br>(indicated by the arrows) to the Region that contains the aggregator<br>index.                                                                |
+| Notebook icon representing a document or file with lined pages.                        | The index in this AWS Region is configured to be the aggregator index<br>for the account. Resource Explorer replicates the resource information collected in the<br>user-owned (local) indexes of all other Regions into the aggregator index<br>in this Region. Searches made in this Region can include results from all<br>Regions with user-owned (local) indexes in the account. |
+| Blue square border with white interior, representing a placeholder for an image.       | The default view created by \*_Quick Setup_<br>• includes all<br>resources in all AWS Regions with user-owned (local) indexes.                                                                                                                                                                                                                                                        |
 
 ## Resource Explorer administrator
 
@@ -149,10 +143,10 @@ policy
 (all tagged resources and supported untagged resources created after the
 [immediate resource discovery](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md") release)
 
-**Enhancement:**
-Can upgrade to full experience by obtaining service-linked
-role creation permission or having another user with permissions create the
-service-linked role in the account
+**Enhancement:** Can upgrade to full
+experience by obtaining service-linked role creation permission or having
+another user with permissions create the service-linked role in the
+account
 
 **No Access**
 
@@ -215,8 +209,7 @@ query the index. Instead, they must always query using a view.
 
 There are three types of indexes:
 
-**Resource Explorer-owned
-index**
+**Resource Explorer-owned index**
 
 A _Resource Explorer owned index_ exists in every
 AWS Region and is managed by the Resource Explorer service. These indexes cannot be
@@ -249,10 +242,9 @@ capabilities. There can be **_only one_** aggregator index in an
 AWS account.
 
 When you complete setup for Resource Explorer, you can specify which AWS Region
-contains the aggregator index. You can also change the
-AWS Region used for the aggregator index later. For information about how
-to promote a local index to make it the aggregator index for its
-AWS account, see [Enabling cross-Region search by creating an
+contains the aggregator index. You can also change the AWS Region used for
+the aggregator index later. For information about how to promote a local
+index to make it the aggregator index for its AWS account, see [Enabling cross-Region search by creating an
 aggregator index](manage-aggregator-region.md "manage-aggregator-region.md").
 
 After the service-linked role has been created in the account (created by a user with
@@ -289,7 +281,7 @@ For more information about views in Resource Explorer, see [Working with views](
 
 A _resource_ is an entity in AWS that you can work
 with. Resources are created by AWS services as you use the features of the service.
-Examples include an Amazon EC2 instance, an Amazon S3 bucket, or an AWS CloudFormation stack. Some resource
+Examples include an Amazon EC2 instance, an Amazon S3 bucket, or an CloudFormation stack. Some resource
 types can contain customer data. All resource types have attributes or metadata to
 describe the resource, including a name, description, and the [Amazon resource name (ARN)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") that you
 use to uniquely reference a resource. Most [resource types also support tags](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md").

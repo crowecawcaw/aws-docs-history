@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Managing resources in the Resource Explorer console
 
 The Resource Explorer console supports resource quick-actions and integrations with several other
@@ -68,9 +64,9 @@ Resource Explorer console:
 
 ###### Note
 
-AWS recommends not including AWS CloudFormation stacks in your resource selection when
+AWS recommends not including CloudFormation stacks in your resource selection when
 managing tags in the Resource Explorer console. Instead, you should manage tags on
-AWS CloudFormation stacks only using AWS CloudFormation. Tagging AWS CloudFormation stacks from Resource Explorer can cause
+AWS CloudFormation stacks only using CloudFormation. Tagging CloudFormation stacks from Resource Explorer can cause
 unexpected tagging behavior, resulting in downtime or other issues.
 
 **Minimum permissions**
@@ -123,13 +119,13 @@ meet the following requirements to be successfully added to a new application:
 
 ###### Note
 
-AWS recommends not including AWS CloudFormation stacks in your resource selection when
+AWS recommends not including CloudFormation stacks in your resource selection when
 creating an application in the Resource Explorer console. Creating an application that
 includes a AWS CloudFormation stack requires a stack update because all resources added
 to your application are tagged with the `awsApplication` tag. Manual
 configurations performed after the stack was last updated may not be reflected
 after this update. This can cause downtime or other application issues. For more
-information, see [Update behaviors of stack resources](../../../servicecatalog/latest/arguide/overview-appreg.md#tag-sync-role "../../../servicecatalog/latest/arguide/overview-appreg.md#tag-sync-role") in the _AWS CloudFormation User
+information, see [Update behaviors of stack resources](../../../servicecatalog/latest/arguide/overview-appreg.md#tag-sync-role "../../../servicecatalog/latest/arguide/overview-appreg.md#tag-sync-role") in the _CloudFormation User
 Guide_.
 
 **Minimum permissions**
@@ -193,13 +189,13 @@ be successfully added to an application:
 
 ###### Note
 
-AWS recommends not including AWS CloudFormation stacks in your resource selection when
-adding resources to an application in the Resource Explorer console. Adding a AWS CloudFormation stack
+AWS recommends not including CloudFormation stacks in your resource selection when
+adding resources to an application in the Resource Explorer console. Adding a CloudFormation stack
 to the application requires a stack update because all resources added to your
 application are tagged with the `awsApplication` tag. Manual
 configurations performed after the stack was last updated may not be reflected
 after this update. This can cause downtime or other application issues. For more
-information, see [Update behaviors of stack resources](../../../servicecatalog/latest/arguide/overview-appreg.md#tag-sync-role "../../../servicecatalog/latest/arguide/overview-appreg.md#tag-sync-role") in the _AWS CloudFormation User
+information, see [Update behaviors of stack resources](../../../servicecatalog/latest/arguide/overview-appreg.md#tag-sync-role "../../../servicecatalog/latest/arguide/overview-appreg.md#tag-sync-role") in the _CloudFormation User
 Guide_.
 
 **Minimum permissions**

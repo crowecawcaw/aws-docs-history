@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Creating Resource Explorer resources with CloudFormation
 
 AWS Resource Explorer is integrated with AWS CloudFormation, a service that helps you model and set up your
@@ -15,9 +11,9 @@ When you use CloudFormation, you can reuse your template to set up your Resource
 consistently and repeatedly. Just describe your resources once, and then provision the same
 resources over and over in multiple AWS accounts and Regions.
 
-###### Using AWS CloudFormation to deploy Resource Explorer to AWS Organizations
+###### Using CloudFormation to deploy Resource Explorer to AWS Organizations
 
-You can use AWS CloudFormation StackSets to deploy Resource Explorer to all of the accounts in your
+You can use CloudFormation StackSets to deploy Resource Explorer to all of the accounts in your
 organization. When you add or create member accounts in your organization, StackSets can
 automatically configure indexes in each AWS Region, including an aggregator index where
 you specify, to each new member account. For instructions, see [Deploying Resource Explorer to the accounts in
@@ -26,18 +22,19 @@ an organization](manage-service-all-org-with-stacksets.md "manage-service-all-or
 ## Resource Explorer and CloudFormation templates
 
 To provision and configure resources for Resource Explorer and related services, you must
-understand [AWS CloudFormation
+understand [CloudFormation
 templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md"). Templates are formatted text files in JSON or YAML. These templates
 describe the resources that you want to provision in your CloudFormation stacks. If you're
-unfamiliar with JSON or YAML, you can use AWS CloudFormation Designer to help you get started with
-CloudFormation templates. For more information, see [What is AWS CloudFormation Designer?](../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md "../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md") in the
+unfamiliar with JSON or YAML, you can use CloudFormation Designer to help you get started with
+CloudFormation templates. For more information, see [What is CloudFormation Designer?](../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md "../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md") in the
 _AWS CloudFormation User Guide_.
 
 Resource Explorer supports creating the following resource types in CloudFormation:
 
 - **[Index](../../../AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-index.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-index.md")** – Creates an index in a Region and
   turns on Resource Explorer in that Region. You can specify that the index be either local
-  or the aggregator index for the AWS account. For more information, see [Completing setup for Resource Explorer](manage-service-turn-on-region.md "manage-service-turn-on-region.md") and [Enabling cross-Region search by creating an
+  or the aggregator index for the AWS account. For more information, see [Creating user-owned indexes for enhanced
+  Resource Explorer functionality](manage-service-turn-on-region.md "manage-service-turn-on-region.md") and [Enabling cross-Region search by creating an
   aggregator index](manage-aggregator-region.md "manage-aggregator-region.md").
 - **[View](../../../AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.md")** – Creates a view that determines what
   results can appear when a user performs a search. Every search operation must
@@ -47,10 +44,11 @@ Resource Explorer supports creating the following resource types in CloudFormati
 
 ###### Note
 
-You must create an index in a Region before you can create a view in that
-same Region. If you create an index and view as part of the same stack, use
-the `DependsOn` attribute on the view, as shown in the following
-example template, to ensure that the index is created first.
+You must create a user-owned index in a Region before you can create a
+view in that same Region. If you create a user-owned index and view as part
+of the same stack, use the `DependsOn` attribute on the view, as
+shown in the following example template, to ensure that the index is created
+first.
 
 - **[DefaultViewAssociation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-defaultviewassociation.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-defaultviewassociation.md")** – Assigns the
   specified view to be the default in its Region. When a user doesn't explicitly
@@ -135,7 +133,7 @@ For more information, including examples of JSON and YAML templates for Resource
 and views, see the [ResourceExplorer2 resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_ResourceExplorer2.md "../../../AWSCloudFormation/latest/UserGuide/AWS_ResourceExplorer2.md") in the
 _AWS CloudFormation User Guide_.
 
-## Learn more about AWS CloudFormation
+## Learn more about CloudFormation
 
 To learn more about CloudFormation, see the following resources:
 

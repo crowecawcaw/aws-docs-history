@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Setting a default view in an
 
 AWS Region
@@ -44,8 +40,7 @@ AWS Management Console
 1. On the Resource Explorer **[Views](https://console.aws.amazon.com/resource-explorer/home#/views "https://console.aws.amazon.com/resource-explorer/home#/views")** page, choose the option button next to the
    view that you want to make the default for its Region.
 2. Choose **Actions**, then choose **Set as
-   default** or set as default in
-   the
+   default** or set as default in the
    **Default** column.
 
 AWS CLI

@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Troubleshooting Resource Explorer search issues
 
 Use the information here to help you diagnose and fix common errors that can occur when
@@ -29,7 +25,8 @@ results as expected:
 
 **Initial indexing isn't complete**
 
-After you initially turn on Resource Explorer in an AWS Region, it can take up to
+After you first access Resource Explorer, the service automatically enables search
+capabilities [based on your IAM permissions](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md"). It can then take up to
 36 hours for indexing and replication to the aggregator index to complete.
 Try your search again later.
 
@@ -46,14 +43,6 @@ Region to be indexed in its own Region and then replicated to the aggregator
 index for the account. The new resource can appear in cross-Region search
 results only after replication is complete. Try your search again
 later.
-
-**The Region with the resource doesn't have Resource Explorer turned
-on**
-
-Your administrator determines which AWS Regions that Resource Explorer can operate
-in. The **[Settings](https://console.aws.amazon.com/resource-explorer/home#/settings "https://console.aws.amazon.com/resource-explorer/home#/settings")** page shows which Regions have Resource Explorer turned on and
-contain an index. If the Region with your resource is not turned on, ask
-your administrator to turn on Resource Explorer in that Region.
 
 **The resource exists in a different Region, and the
 searched Region doesn't contain the aggregator index**
@@ -78,13 +67,12 @@ Some resource types aren't supported by Resource Explorer. For more information,
 [Resource types you can search for with
 Resource Explorer](supported-resource-types.md "supported-resource-types.md").
 
-**Indexes or views aren't configured in the console
+**User indexes aren't configured in the console
 Region**
 
-If the indexes or views aren't configured in the Regions expected by the
-console consuming the widget, you will not see the results you expect. For
-more information, see [Enabling cross-Region search by creating an
-aggregator index](manage-aggregator-region.md "manage-aggregator-region.md").
+If a user index isn't configured in a Region, you will see partial results.
+For more information, see [Understanding the immediate
+resource discovery experience](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md").
 
 **Your views don't include tags**
 
@@ -146,16 +134,10 @@ must use additional filters.
 Unified Search results in the console?
 
 [Unified Search](../../../awsconsolehelpdocs/latest/gsg/using-search.md "../../../awsconsolehelpdocs/latest/gsg/using-search.md") results are available in the search bar at the top of every
-AWS Management Console page. However, the search can return resources that match the query in search
-results _only_ after the following configuration
-options are complete:
-
-- There must be [an aggregator
-  index](manage-aggregator-region-turn-on.md "manage-aggregator-region-turn-on.md") in one of the Regions in the account.
-- There must be [a default view in
-  the Region that contains the aggregator index](configure-views-set-default.md "configure-views-set-default.md").
-- All principals (IAM roles and users) must have [permission to search using that
-  default view](configure-views-grant-access.md "configure-views-grant-access.md").
+AWS Management Console page when you have, at minimum, the permissions in the
+`AWSResourceExplorerReadOnlyAccess` managed policy. If you don't have
+access to resource results, obtain permission from your administrator or sign in with a
+role that has this permission.
 
 ## Why does Unified Search in
 

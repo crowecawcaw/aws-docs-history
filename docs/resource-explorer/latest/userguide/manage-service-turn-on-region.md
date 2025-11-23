@@ -1,8 +1,6 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
+# Creating user-owned indexes for enhanced
 
-# Completing setup for Resource Explorer
+Resource Explorer functionality
 
 AWS Resource Explorer automatically enables basic search functionality when you search with
 appropriate permissions. However, you may need to manually complete setup in specific

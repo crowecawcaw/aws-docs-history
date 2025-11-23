@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Understanding the immediate
 
 resource discovery experience
@@ -53,12 +49,14 @@ in the `AWSResourceExplorerReadOnlyAccess` managed policy and the
 service-linked role creation per account).
 
 **Experience:** Complete resource search results with
-automatic infrastructure creation. On first search in each Region, Resource Explorer
-automatically creates the service-linked role and user-owned indexes and views in the Region,
-providing full search functionality including all tagged and untagged resources with
-ongoing automatic updates. After the service-linked role is created in your account
-by any user, subsequent users need only the permissions in the `AWSResourceExplorerReadOnlyAccess` managed policy to create
-an index and view for full results on first search in each Region .
+automatic infrastructure creation. On first search, Resource Explorer automatically creates the
+service-linked role and user-owned indexes and views in the Region, providing full
+search functionality including all tagged and supported untagged resources with ongoing
+automatic updates. On search in subsequent Regions, Resource Explorer automatically creates
+user-owned indexes and views per Region. After the service-linked role is created in
+your account by any user, subsequent users need only the permissions in the
+`AWSResourceExplorerReadOnlyAccess` managed policy to create
+an index and view for full results on first search in each Region.
 
 **Available through managed policies:**
 `AdministratorAccess`, `AWSResourceExplorerFullAccess`, or

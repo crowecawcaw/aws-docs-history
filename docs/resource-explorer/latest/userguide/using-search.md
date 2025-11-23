@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Using AWS Resource Explorer to search for resources
 
 AWS Resource Explorer provides immediate search capabilities for your AWS resources without
@@ -9,9 +5,8 @@ requiring manual setup. When you access Resource Explorer with the appropriate p
 automatically enables resource search functionality in your account. You can use the
 AWS Management Console or the AWS Command Line Interface (AWS CLI) to search for resources using Resource Explorer.
 
-The search experience you receive depends on your IAM permissions. With basic search
-permissions, you get immediate access to partial results while indexing completes in the
-background. With additional permissions, you receive complete resource inventory and
+The search experience you receive depends on your IAM permissions. With basic (Read-Only) search
+permissions, you get immediate access to partial results. With additional permissions, you receive complete resource inventory and
 enhanced functionality.
 
 The following are some of the main characteristics of Resource Explorer search.
@@ -25,13 +20,12 @@ in the `AWSResourceExplorerReadOnlyAccess` managed policy and the
 `iam:CreateServiceLinkedRole` permission (included in the [AWSResourceExplorerFullAccess](../../../aws-managed-policy/latest/reference/AWSResourceExplorerFullAccess.md "../../../aws-managed-policy/latest/reference/AWSResourceExplorerFullAccess.md") managed policy) receive complete resource
 inventory. The `iam:CreateServiceLinkedRole` permission (included in the
 [AWSResourceExplorerFullAccess](../../../aws-managed-policy/latest/reference/AWSResourceExplorerFullAccess.md "../../../aws-managed-policy/latest/reference/AWSResourceExplorerFullAccess.md") managed policy) is only needed until the
-first user creates the service-linked role for the account. Once created, subsequent
-users with only the permissions in the `AWSResourceExplorerReadOnlyAccess` managed policy in Regions
-where Resource Explorer has been set up will also receive complete results. Users without the
+first user creates the service-linked role for the account. Once created,
+users with only the permissions in the `AWSResourceExplorerReadOnlyAccess` managed policy will also receive complete results in subsequent Regions where they search. Users without the
 service-linked role receive partial results immediately (all tagged resources plus
-untagged resources created after the feature launch).
+untagged resources created after the [feature launch](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")).
 
-- **Every search must use a view.**
+- **Every search uses a view.**
 
 The view is what Resource Explorer uses to determine who has permissions to see which
 resources. To use a view in a Resource Explorer search operation, the user must have an

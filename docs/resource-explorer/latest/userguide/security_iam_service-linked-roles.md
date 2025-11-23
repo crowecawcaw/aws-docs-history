@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # Using service-linked roles for
 
 Resource Explorer
@@ -33,10 +29,9 @@ following service principal to assume the role:
 
 - `resource-explorer-2.amazonaws.com`
 
-The role permissions policy named [AWSResourceExplorerServiceRolePolicy](security_iam_awsmanpol.md#security_iam_awsmanpol_AWSResourceExplorerServiceRolePolicy "security_iam_awsmanpol.md#security_iam_awsmanpol_AWSResourceExplorerServiceRolePolicy") allows
-Resource Explorer read-only
-access to retrieve resource names and properties for supported AWS resources. To view
-the services and resources that Resource Explorer supports, see [Resource
+The role permissions policy named [AWSResourceExplorerServiceRolePolicy](security_iam_awsmanpol.md#security_iam_awsmanpol_AWSResourceExplorerServiceRolePolicy "security_iam_awsmanpol.md#security_iam_awsmanpol_AWSResourceExplorerServiceRolePolicy") allows Resource Explorer read-only access to
+retrieve resource names and properties for supported AWS resources. To view the
+services and resources that Resource Explorer supports, see [Resource
 types you can search for with Resource Explorer](supported-resource-types.md "supported-resource-types.md"). To see the latest version of this
 AWS managed policy, [`AWSResourceExplorerServiceRolePolicy`](../../../aws-managed-policy/latest/reference/AWSResourceExplorerServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSResourceExplorerServiceRolePolicy.md") in the _AWS Managed Policy
 Reference Guide_. To see permission changes to this policy, see [Resource Explorer updates to AWS managed
@@ -52,8 +47,8 @@ _IAM User Guide_.
 
 ## Creating a service-linked role for Resource Explorer
 
-You don't need to manually create a service-linked role. When you turn on Resource Explorer in
-the AWS Management Console, or run [CreateIndex](../apireference/API_CreateIndex.md "../apireference/API_CreateIndex.md") in the first
+You don't need to manually create a service-linked role. When you first access Resource Explorer
+with appropriate permissions, or run [CreateIndex](../apireference/API_CreateIndex.md "../apireference/API_CreateIndex.md") in the first
 AWS Region in your account using the AWS CLI or an AWS API, Resource Explorer creates the
 service-linked role for you.
 

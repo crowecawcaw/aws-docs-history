@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # What are AWS service views
 
 AWS service views are pre-defined views (cannot be modified or deleted) that enable
@@ -59,10 +55,8 @@ Customers can manage service views through the following actions:
 
 Customer opt-in is required for streaming access through service views. Customers must
 explicitly grant permission through the Resource Explorer
-`CreateStreamingAccessForService` API action.
-AWS services
-must create their own service views and can only use the service views they have
-created.
+`CreateStreamingAccessForService` API action. AWS services must create
+their own service views and can only use the service views they have created.
 
 ## Customer experience
 

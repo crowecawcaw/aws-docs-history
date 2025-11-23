@@ -1,7 +1,3 @@
-AWS Resource Explorer now provides immediate access to resource search and
-discovery capabilities in a Region. With this launch, you no longer need to activate
-Resource Explorer to discover your resources. [Learn more](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md")
-
 # What is AWS Resource Explorer?
 
 AWS Resource Explorer is a resource search and discovery service. With Resource Explorer, you can explore your
@@ -64,9 +60,9 @@ Your search experience is automatically enabled based on your IAM permissions. I
 you have, at minimum, the permissions in the `AWSResourceExplorerReadOnlyAccess` managed policy, you can
 immediately search in partial results (all tagged resources and supported untagged
 resources created after the [immediate resource discovery](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md") release). Resource Explorer uses a service-linked
-channel to receive AWS CloudTrail events on your behalf, and this visibility will be available
-in the CloudTrail console by end of October 2025 across all supported Regions. For complete
-resource inventory with automatic updates, you'll also need the
+channel to receive AWS CloudTrail events on your
+behalf.
+For complete resource inventory with automatic updates, you'll also need the
 `iam:CreateServiceLinkedRole` permission (included in the `AWSResourceExplorerFullAccess` managed policy). After the
 service-linked role is created in your account by any user, subsequent users only need
 the permissions in the `AWSResourceExplorerReadOnlyAccess` managed policy to get complete
