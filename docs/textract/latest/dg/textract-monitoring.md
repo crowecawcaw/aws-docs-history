@@ -94,7 +94,7 @@ You can create a CloudWatch alarm that sends an Amazon Simple Notification Servi
 changes state. An alarm watches a single metric over a time period that you specify.
 It performs one or more actions based on the value of the metric relative to a given
 threshold over a number of time periods. The action is a notification sent to an
-Amazon SNS topic or an Auto Scaling policy.
+Amazon SNS topic or an Amazon EC2 Auto Scaling policy.
 
 Alarms invoke actions for sustained state changes only. CloudWatch alarms don't invoke
 actions simply because they are in a particular state. The state must have changed
