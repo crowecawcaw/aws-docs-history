@@ -43,6 +43,25 @@ VM Import/Export
 The following operating systems (OS) can be imported to and exported from Amazon EC2.
 VMs using `ARM64` architecture are not currently supported.
 
+###### Important
+
+We strongly recommend that you avoid using OS versions that have reached End-of-Life (EOL).
+OS vendors typically don't provide security patches or other updates for versions that have reached EOL.
+Continuing to use an EOL system greatly increases the risk of not being able to apply upgrades, including security fixes, and other operational problems.
+VM Import Export functionalities are not tested on OS versions that have reached EOL.
+
+###### Important
+
+Starting from February 1, 2026, VM Import Export will begin deprecating support for i386 architecture and End-of-Life OS versions.
+This deprecation will start with Windows Server 2003 (all versions), Windows Server 2003 R2 (all versions), Windows Server 2008 (all versions),
+Windows 7 (all versions), Windows 8 (all versions), Windows 8.1 (all versions),
+CentOS 5 (all versions), CentOS 6 (all versions), CentOS 7 (all versions), CentOS 8 (all versions),
+Debian 6 (all versions), Debian 7 (all versions), Debian 10 (all versions),
+Fedora 18 (all versions), Fedora 19 (all versions), Fedora 20 (all versions), Fedora 37 (all versions), Fedora 38 (all versions), Fedora 39 (all versions),
+Oracle Linux 5 (all versions), Oracle Linux 6 (all versions),
+Red Hat Enterprise Linux 5 (all versions), Red Hat Enterprise Linux 6 (all versions), SUSE Linux Enterprise Server 11 (all versions),
+Ubuntu 12.04 (all versions), Ubuntu 12.10(all versions), Ubuntu 13.04 (all versions), Ubuntu 13.10 (all versions), Ubuntu 14.04 (all versions), Ubuntu 14.10 (all versions), and Ubuntu 15.04 (all versions).
+
 The following Linux/Unix operating systems are support by VM Import/Export.
 
 | Operating system                    | Version                                                                                                           | Kernel                                                     | Service pack |
