@@ -2,16 +2,16 @@
 
 Classic Load Balancer
 
-Elastic Load Balancing provides security policies that have predefined SSL negotiation configurations
+ELB provides security policies that have predefined SSL negotiation configurations
 to use to negotiate SSL connections between clients and your load balancer. If you are
 using the HTTPS/SSL protocol for your listener, you can use one of the predefined
 security policies, or use your own custom security policy.
 
 For more information about the security policies, see [SSL negotiation configurations for Classic Load Balancers](elb-ssl-security-policy.md "elb-ssl-security-policy.md"). For
-information about the configurations of the security policies provided by Elastic Load Balancing, see
+information about the configurations of the security policies provided by ELB, see
 [Predefined SSL security policies for Classic Load Balancers](elb-security-policy-table.md "elb-security-policy-table.md").
 
-If you create an HTTPS/SSL listener without associating a security policy, Elastic Load Balancing
+If you create an HTTPS/SSL listener without associating a security policy, ELB
 associates the default predefined security policy, `ELBSecurityPolicy-2016-08`, with
 your load balancer.
 
@@ -35,7 +35,7 @@ configuration will be used with new requests that are received.
 
 using the console
 
-By default, Elastic Load Balancing associates the latest predefined policy with your load balancer.
+By default, ELB associates the latest predefined policy with your load balancer.
 When a new predefined policy is added, we recommend that you update your load
 balancer to use the new predefined policy. Alternatively, you can select a different
 predefined security policy or create a custom policy.
@@ -81,7 +81,7 @@ a different predefined security policy, or a custom security policy.
 ###### To use a predefined SSL security policy
 
 1. Use the following [describe-load-balancer-policies](../../../cli/latest/reference/elb/describe-load-balancer-policies.md "../../../cli/latest/reference/elb/describe-load-balancer-policies.md") command to list the predefined
-   security policies provided by Elastic Load Balancing. The syntax that you use depends on the
+   security policies provided by ELB. The syntax that you use depends on the
    operating system and shell that you are using.
 
 Linux

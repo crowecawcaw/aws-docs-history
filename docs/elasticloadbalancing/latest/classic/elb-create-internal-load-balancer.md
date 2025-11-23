@@ -113,7 +113,7 @@ about your network, and the listener that routes traffic to your instances..
 
 ## Create an internal load balancer using the AWS CLI
 
-By default, Elastic Load Balancing creates an internet-facing load balancer. Use
+By default, ELB creates an internet-facing load balancer. Use
 the following procedure to create an internal load balancer and register your EC2
 instances with the newly created internal load balancer.
 

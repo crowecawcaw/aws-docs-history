@@ -2,7 +2,7 @@
 
 After you've created your Classic Load Balancer, you must register your EC2 instances with the
 load balancer. You can select EC2 instances from a single Availability Zone or multiple
-Availability Zones within the same Region as the load balancer. Elastic Load Balancing routinely performs
+Availability Zones within the same Region as the load balancer. ELB routinely performs
 health checks on registered EC2 instances, and automatically distributes incoming requests
 to the DNS name of your load balancer across the registered, healthy EC2 instances.
 
@@ -30,7 +30,7 @@ to the DNS name of your load balancer across the registered, healthy EC2 instanc
   on your web server and improves the throughput of the load balancer. The
   keep-alive timeout should be at least 60 seconds to ensure that the load
   balancer is responsible for closing the connection to your instance.
-- Elastic Load Balancing supports Path Maximum Transmission Unit (MTU) Discovery. To ensure that
+- ELB supports Path Maximum Transmission Unit (MTU) Discovery. To ensure that
   Path MTU Discovery can function correctly, you must ensure that the security group
   for your instance allows ICMP fragmentation required (type 3, code 4) messages.
   For more information, see [Path MTU Discovery](../../../AWSEC2/latest/UserGuide/network_mtu.md#path_mtu_discovery "../../../AWSEC2/latest/UserGuide/network_mtu.md#path_mtu_discovery") in the _Amazon EC2 User Guide_.

@@ -11,14 +11,14 @@ If demand decreases, or you need to service your instances, you can deregister i
 An instance that is deregistered remains running, but no longer receives traffic from the load balancer,
 and you can register it with the load balancer again when you are ready.
 
-When you deregister an instance, Elastic Load Balancing waits until in-flight requests have completed if
+When you deregister an instance, ELB waits until in-flight requests have completed if
 connection draining is enabled. For more information, see [Configure connection draining for your Classic Load Balancer](config-conn-drain.md "config-conn-drain.md").
 
-If your load balancer is attached to an Auto Scaling group, instances in the group are
+If your load balancer is attached to an Amazon EC2 Auto Scaling group, instances in the group are
 automatically registered with the load balancer. If you detach a load balancer from
-your Auto Scaling group, the instances in the group are deregistered.
+your Amazon EC2 Auto Scaling group, the instances in the group are deregistered.
 
-Elastic Load Balancing registers your EC2 instance with your load balancer using its IP address.
+ELB registers your EC2 instance with your load balancer using its IP address.
 
 [EC2-VPC] When you register an instance with an elastic network interface (ENI)
 attached, the load balancer routes requests to the primary IP address of the
@@ -111,10 +111,10 @@ my-load-balancer
 You can deregister an instance from your load balancer if you
 no longer need the capacity or if you need to service the instance.
 
-If your load balancer is attached to an Auto Scaling group, detaching the instance
+If your load balancer is attached to an Amazon EC2 Auto Scaling group, detaching the instance
 from the group also deregisters it from the load balancer. For more
 information, see [Detach
-EC2 instances from your Auto Scaling group](../../../autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.md") in the _Amazon EC2 Auto Scaling User Guide_.
+EC2 instances from your Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 ###### To deregister your instances using the console
 

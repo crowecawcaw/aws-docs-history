@@ -31,7 +31,7 @@ connection because they do not send data in the payload.
 
 console
 
-By default, Elastic Load Balancing sets the idle timeout for your load balancer to 60 seconds. Use
+By default, ELB sets the idle timeout for your load balancer to 60 seconds. Use
 the following procedure to set a different value for the idle timeout.
 
 ###### To configure the idle timeout setting for your load balancer using the console

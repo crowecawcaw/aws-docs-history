@@ -13,8 +13,8 @@ with the default security group for the VPC.
 
 [Default VPC] If you use the AWS CLI or API to create a load balancer in your default VPC,
 you can't choose an existing security group for your load balancer. Instead,
-Elastic Load Balancing provides a security group with rules to allow all traffic on the ports specified
-for the load balancer. Elastic Load Balancing creates only one such security group per AWS account, with
+ELB provides a security group with rules to allow all traffic on the ports specified
+for the load balancer. ELB creates only one such security group per AWS account, with
 a name of the form default_elb\_`id` (for example,
 `default_elb_fc5fbed3-0405-3b7d-a328-ea290EXAMPLE`).
 Subsequent load balancers that you create in the default VPC also use this security group.

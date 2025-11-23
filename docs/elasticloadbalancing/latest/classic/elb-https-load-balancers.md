@@ -5,7 +5,7 @@ You can create a load balancer that uses the SSL/TLS protocol for encrypted conn
 between your load balancer and the clients that initiate HTTPS sessions, and for connections
 between your load balancer and your EC2 instances.
 
-Elastic Load Balancing uses Secure Sockets Layer (SSL) negotiation configurations, known as
+ELB uses Secure Sockets Layer (SSL) negotiation configurations, known as
 _security policies_, to negotiate connections between the clients and
 the load balancer. When you use HTTPS/SSL for your front-end connections, you can use either
 a predefined security policy or a custom security policy. You must deploy an SSL certificate

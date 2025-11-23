@@ -28,12 +28,12 @@ Your instance is not `InService` until one health check succeeds.
 
 paid AMI
 
-**Problem**: Elastic Load Balancing is not registering an instance launched using a paid AMI.
+**Problem**: ELB is not registering an instance launched using a paid AMI.
 
 **Cause**: Your instances might have been launched using a
 paid AMI from [Amazon DevPay](http://aws.amazon.com/devpay/ "http://aws.amazon.com/devpay/").
 
-**Solution**: Elastic Load Balancing does not support registering instances launched
+**Solution**: ELB does not support registering instances launched
 using paid AMIs from [Amazon DevPay](http://aws.amazon.com/devpay/ "http://aws.amazon.com/devpay/").
 Note that you can use paid AMIs from [AWS Marketplace](https://aws.amazon.com/marketplace "https://aws.amazon.com/marketplace").
 If you are already using a paid AMI from AWS Marketplace and are unable

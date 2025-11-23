@@ -38,7 +38,7 @@ information about public certificates, see [Requesting a public certificate](../
 using AWS Certificate Manager
 
 We recommend that you use AWS Certificate Manager (ACM) to create or import certificates for
-your load balancer. ACM integrates with Elastic Load Balancing so that you can deploy the
+your load balancer. ACM integrates with ELB so that you can deploy the
 certificate on your load balancer. To deploy a certificate on your load balancer,
 the certificate must be in the same Region as the load balancer. For more
 information, see [Request a

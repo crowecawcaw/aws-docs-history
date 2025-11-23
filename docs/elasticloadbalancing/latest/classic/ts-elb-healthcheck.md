@@ -1,7 +1,7 @@
 # Troubleshoot a Classic Load Balancer: Health checks
 
 Your load balancer checks the health of its registered instances using either the default
-health check configuration provided by Elastic Load Balancing or a custom health
+health check configuration provided by ELB or a custom health
 check configuration that you specify. The health check configuration contains information such as
 the protocol, ping port, ping path, response timeout, and health check interval. An instance is
 considered healthy if it returns a 200 response code within the health check interval. For more
@@ -21,7 +21,7 @@ the potential causes, and the steps you can take to resolve the issues.
   failing](#ts-elb-healthcheck-publickey "#ts-elb-healthcheck-publickey")
 - [Instance is not receiving traffic from the load balancer](#ts-elb-healthcheck-securitygroup "#ts-elb-healthcheck-securitygroup")
 - [Ports on instance are not open](#ts-elb-healthcheck-ports "#ts-elb-healthcheck-ports")
-- [Instances in an Auto Scaling group are failing the ELB health check](#ts-elb-healthcheck-autoscaling "#ts-elb-healthcheck-autoscaling")
+- [Instances in an Amazon EC2 Auto Scaling group are failing the ELB health check](#ts-elb-healthcheck-autoscaling "#ts-elb-healthcheck-autoscaling")
 
 ## Health check target page error
 
@@ -87,7 +87,7 @@ respond.
   in the _Amazon EC2 User Guide_.
 - Check the utilization of other application resources, such as memory or
   limits, by connecting to your EC2 instances.
-- If necessary, add more instances or enable Auto Scaling. For more information,
+- If necessary, add more instances or enable Amazon EC2 Auto Scaling. For more information,
   see the [Amazon EC2 Auto Scaling User Guide](../../../autoscaling/ec2/userguide.md "../../../autoscaling/ec2/userguide.md").
 
 **Cause 3**: If you are using an HTTP or an HTTPS
@@ -157,23 +157,23 @@ and the listener port must be open and listening.
 **Solution**: Open up the listener port and the port specified in your health check configuration (if configured differently)
 on your instances to receive load balancer traffic.
 
-## Instances in an Auto Scaling group are failing the ELB health check
+## Instances in an Amazon EC2 Auto Scaling group are failing the ELB health check
 
 **Problem**: Instances in your Auto Scaling group pass
-the default Auto Scaling health check but fail the ELB health check.
+the default Amazon EC2 Auto Scaling health check but fail the ELB health check.
 
-**Cause**: Auto Scaling uses EC2 status checks to detect hardware and software issues
+**Cause**: Amazon EC2 Auto Scaling uses EC2 status checks to detect hardware and software issues
 with the instances, but the load balancer performs health checks by sending a request to the instance
 and waiting for a 200 response code, or by establishing a TCP connection (for a TCP-based health check)
 with the instance.
 
 An instance might fail the ELB health check because an application
 running on the instance has issues that cause the load balancer to
-consider the instance out of service. This instance might pass the Auto Scaling
-health check; it would not be replaced by the Auto Scaling policy because it is
+consider the instance out of service. This instance might pass the Amazon EC2 Auto Scaling
+health check; it would not be replaced by the Amazon EC2 Auto Scaling policy because it is
 considered healthy based on the EC2 status check.
 
-**Solution**: Use the ELB health check for your Auto Scaling group. When you use the ELB
-health check, Auto Scaling determines the health status of your instances by checking the results of both the instance
-status check and the ELB health check. For more information, see [Add Elastic Load Balancing health checks to your Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md")
+**Solution**: Use the ELB health check for your Amazon EC2 Auto Scaling group. When you use the ELB
+health check, Amazon EC2 Auto Scaling determines the health status of your instances by checking the results of both the instance
+status check and the ELB health check. For more information, see [Add ELB health checks to your Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md")
 in the _Amazon EC2 Auto Scaling User Guide_.
