@@ -21,7 +21,7 @@ the _Amazon VPC User Guide_.
 ## Creating the Endpoint
 
 You can create an Amazon SWF endpoint in your VPC using the AWS Management Console, the AWS Command Line Interface
-(AWS CLI), an AWS SDK, the Amazon SWF API, or AWS CloudFormation.
+(AWS CLI), an AWS SDK, the Amazon SWF API, or CloudFormation.
 
 For information about creating and configuring an endpoint using the Amazon VPC console or the
 AWS CLI, see [Creating
@@ -32,8 +32,8 @@ an Interface Endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-in
 When you create an endpoint, specify Amazon SWF as the service that you want your VPC to connect to. In the Amazon VPC console, service names vary based on the AWS
 Region. For example, in the AWS Top Secret - East Region, the service name for Amazon SWF is **com.amazonaws.us-iso-east-1.swf**.
 
-For information about creating and configuring an endpoint using AWS CloudFormation, see the [AWS::EC2::VPCEndpoint](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md") resource
-in the _AWS CloudFormation User Guide_.
+For information about creating and configuring an endpoint using CloudFormation, see the [AWS::EC2::VPCEndpoint](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md") resource
+in the _CloudFormation User Guide_.
 
 ## Amazon VPC Endpoint Policies
 
