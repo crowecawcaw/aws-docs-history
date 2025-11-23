@@ -10,7 +10,7 @@ the KOTS Admin Console and the Wickr Admin Console.
 
 ###### Note
 
-Make any changes needed to reflect your organization's backup and logging policies (Amazon S3 settings, Elastic Load Balancing access logs, Amazon Virtual Private Cloud flow logs).
+Make any changes needed to reflect your organization's backup and logging policies (Amazon S3 settings, ELB access logs, Amazon Virtual Private Cloud flow logs).
 
 ## KOTS Admin Console
 
