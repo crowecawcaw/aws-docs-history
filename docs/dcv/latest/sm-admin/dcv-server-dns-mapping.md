@@ -30,7 +30,7 @@ Identifies which type of id the value refers to; currently the available values 
 
 **`Ip:`**
 
-Available for both Amazon EC2 and on premise infrastructures; can be quickly retrieved by system administrators with an ifconfig (Linux)
+Available for both Amazon EC2 and on premise infrastructures; can be quickly retrieved by system administrators with an ifconfig (Linux/macOS)
 or ipconfig (Windows) command. This info is also available in the DescribeServers API response.
 
 **`Id:`**

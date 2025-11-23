@@ -13,7 +13,7 @@ you need to verify that the installations are functioning properly.
 After you have installed the broker and the agent, make sure that the agent is running and
 that it's able to connect to the broker.
 
-###### Linux agent host
+###### Linux and macOS agent hosts
 
 The command to run depends on the version.
 

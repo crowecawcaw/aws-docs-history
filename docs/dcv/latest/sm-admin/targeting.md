@@ -25,7 +25,7 @@ tag2="xyz"
 ```
 
 3. Open the Agent configuration file (`/etc/dcv-session-manager-agent/agent.conf`
-   for Linux or `C:\Program Files\NICE\DCVSessionManagerAgent\conf\agent.conf` for Windows). For `tags_folder`, and
+   for Linux and macOS or `C:\Program Files\NICE\DCVSessionManagerAgent\conf\agent.conf` for Windows). For `tags_folder`, and
    specify the path to the directory in which the tag file is located.
 
 If the directory contains multiple tag files, all of the tags defined across the files apply the Agent.
@@ -55,4 +55,16 @@ is overwritten with the value from the last read file. 4. Save and close the fil
 
     ```
     `$` sudo systemctl start dcv-session-manager-agent
+    ```
+    * macOS
+
+
+
+    ```
+    `$` sudo launchctl unload /Library/LaunchDaemons/com.amazon.dcv.session-manager.agent.plist
+    ```
+
+
+    ```
+    `$` sudo launchctl load /Library/LaunchDaemons/com.amazon.dcv.session-manager.agent.plist
     ```

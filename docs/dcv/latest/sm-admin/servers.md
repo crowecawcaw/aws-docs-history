@@ -4,12 +4,12 @@ You must have a fleet of Amazon DCV servers with which you intend to use Session
 information about installing Amazon DCV servers, see [Installing the Amazon DCV
 server](../adminguide/setting-up-installing.md "../adminguide/setting-up-installing.md") in the _Amazon DCV Administrator Guide_.
 
-On Linux Amazon DCV servers, Session Manager uses a local service user named `dcvsmagent`.
+On Linux and macOS Amazon DCV servers, Session Manager uses a local service user named `dcvsmagent`.
 This user is automatically created when the Session Manager agent is installed. You must grant this
 service user administrator privileges for Amazon DCV so that it can perform actions on behalf of
 other users. To grant the Session Manager service user administrator privileges, do the following:
 
-###### To add the local service user for Linux Amazon DCV servers
+###### To add the local service user for Linux and macOS Amazon DCV servers
 
 1. Open `/etc/dcv/dcv.conf` using your preferred text editor.
 2. Add the `administrators` parameter to the `[security]`
