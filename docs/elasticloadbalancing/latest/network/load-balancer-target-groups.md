@@ -105,7 +105,7 @@ target group:
 
 - AWS resources that are addressable by IP address and port (for example,
   databases).
-- On-premises resources linked to AWS through AWS Direct Connect or a Site-to-Site VPN
+- On-premises resources linked to AWS through Direct Connect or a Site-to-Site VPN
   connection.
 
 When client IP preservation is disabled for your target groups, the load balancer can
@@ -150,7 +150,7 @@ For more information about allowing traffic to your instances, see [Target secur
 
 ### On premises resources as targets
 
-On premises resources linked through AWS Direct Connect or a Site-to-Site VPN connection can serve
+On premises resources linked through Direct Connect or a Site-to-Site VPN connection can serve
 as a target, when the target type is `ip`.
 
 ![Connect a Network Load Balancer with on-premises servers using AWS Direct Connect or AWS Site-to-Site VPN.](images/nlb-on-prem-resources.png)
@@ -165,7 +165,7 @@ come from one of the following CIDR blocks:
 - 172.16.0.0/12 (RFC 1918)
 - 192.168.0.0/16 (RFC 1918)
 
-For more information about AWS Direct Connect, see [What is AWS Direct Connect?](../../../directconnect/latest/UserGuide.md "../../../directconnect/latest/UserGuide.md")
+For more information about Direct Connect, see [What is Direct Connect?](../../../directconnect/latest/UserGuide.md "../../../directconnect/latest/UserGuide.md")
 
 For more information about AWS Site-to-Site VPN, see [What is AWS Site-to-Site VPN?](../../../vpn/latest/s2svpn.md "../../../vpn/latest/s2svpn.md")
 
@@ -218,10 +218,10 @@ register the target with the target group again when you are ready for it to res
 receiving traffic.
 
 If you are registering targets by instance ID, you can use your load balancer with an
-Auto Scaling group. After you attach a target group to an Auto Scaling group, Auto Scaling registers your
+Amazon EC2 Auto Scaling group. After you attach a target group to an Amazon EC2 Auto Scaling group, Amazon EC2 Auto Scaling registers your
 targets with the target group for you when it launches them. For more information, see
 [Attaching a load balancer to
-your Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md") in the _Amazon EC2 Auto Scaling User Guide_.
+your Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 ###### Requirements and considerations
 
@@ -257,7 +257,7 @@ group type is `alb`, these attributes always use their default values.
 
 `deregistration_delay.timeout_seconds`
 
-The amount of time for Elastic Load Balancing to wait before changing the state of a
+The amount of time for ELB to wait before changing the state of a
 deregistering target from `draining` to `unused`. The
 range is 0-3600 seconds. The default value is 300 seconds. For QUIC traffic, the value is always 300 seconds.
 
@@ -339,7 +339,7 @@ The value is `true` or `false`. The default is
 
 `target_health_state.unhealthy.draining_interval_seconds`
 
-The amount of time for Elastic Load Balancing to wait before changing the
+The amount of time for ELB to wait before changing the
 state of an unhealthy target from `unhealthy.draining` to
 `unhealthy`. The range is 0-360000 seconds. The default value is 0 seconds.
 

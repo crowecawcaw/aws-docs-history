@@ -56,7 +56,7 @@ If you have instances in a VPC that is peered with the load balancer VPC,
 you must register them with your load balancer by IP address, not by
 instance ID.
 
-**The server ID configured doesn't match the ID configured on the target.**
+**The server ID configured doesn't match the ID configured on the target**
 
 If you are using QUIC listeners, ensure that the ID configured on the target matches
 the ID configured with the Network Load Balancer target group.
@@ -319,14 +319,13 @@ reason code check for the following issues:
 
   You choose which security policy is used for front-end connections.
   The security policy used for back-end connections is automatically selected
-  based on the front-end security policy in use.
+  based on the front-end security policy in use. If any of your listeners have:
 
-      - If your TLS listener is using a TLS 1.3 security policy for
-       front-end connections, the `ELBSecurityPolicy-TLS13-1-0-2021-06`
-       security policy is used for back-end connections.
-      - If your TLS listener is not using a TLS 1.3 security policy for
-       front-end connections, the `ELBSecurityPolicy-2016-08`
-       security policy is used for back-end connections.For more information, see
+      - **FIPS post-quantum TLS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-FIPS-PQ-2025-09`
+      - **FIPS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-FIPS-2023-04`
+      - **Post-quantum TLS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-PQ-2025-09`
+      - **TLS 1.3 policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-2021-06`
+      - All other TLS policies backend connections use `ELBSecurityPolicy-2016-08`For more information, see
 
   [Security policies](describe-ssl-policies.md "describe-ssl-policies.md").
   - Verify the target is providing a server certificate and key in the correct format

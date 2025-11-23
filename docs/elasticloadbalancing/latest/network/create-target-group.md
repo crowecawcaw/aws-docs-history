@@ -6,7 +6,7 @@ the target group. You can override this port when you register each target with 
 target group.
 
 To route traffic to the targets in a target group, create a listener and specify the
-target group in the default action for the listener. For more information, see [Listener rules](load-balancer-listeners.md#listener-rules "load-balancer-listeners.md#listener-rules"). You can specify the same
+target group in the default action for the listener. For more information, see [Default actions](load-balancer-listeners.md#default-actions "load-balancer-listeners.md#default-actions"). You can specify the same
 target group in multiple listeners, but these listeners must belong to the same Network Load Balancer.
 To use a target group with a load balancer, you must verify that the target group is not
 in use by a listener for any other load balancer.

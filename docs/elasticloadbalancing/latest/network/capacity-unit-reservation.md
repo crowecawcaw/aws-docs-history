@@ -26,7 +26,7 @@ Consider using LCU reservation in following situations:
 
 When determining the amount of capacity you should reserve for your load
 balancer, we recommend performing load testing or reviewing historical workload data that
-represents the upcoming traffic you expect. Using the Elastic Load Balancing console, you can
+represents the upcoming traffic you expect. Using the ELB console, you can
 estimate how much capacity you need to reserve based on the reviewed traffic.
 
 Alternatively, you can refer to CloudWatch metric **ProcessedBytes** to

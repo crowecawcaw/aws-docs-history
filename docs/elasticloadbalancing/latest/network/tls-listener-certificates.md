@@ -25,7 +25,7 @@ The wild-card name appears in the **Subject** field and in the
 information about public certificates, see [Requesting a public certificate](../../../acm/latest/userguide/gs-acm-request-public.md#request-public-console "../../../acm/latest/userguide/gs-acm-request-public.md#request-public-console") in the _AWS Certificate Manager User Guide_.
 
 We recommend that you create certificates for your load balancers using [AWS Certificate Manager (ACM)](https://aws.amazon.com/certificate-manager/ "https://aws.amazon.com/certificate-manager/"). ACM
-integrates with Elastic Load Balancing so that you can deploy the certificate on your load balancer.
+integrates with ELB so that you can deploy the certificate on your load balancer.
 For more information, see the [AWS Certificate Manager User Guide](../../../acm/latest/userguide.md "../../../acm/latest/userguide.md").
 
 Alternatively, you can use TLS tools to create a certificate signing request

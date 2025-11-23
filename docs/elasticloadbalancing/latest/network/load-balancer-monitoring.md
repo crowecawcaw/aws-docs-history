@@ -54,7 +54,7 @@ targets. For more information, see [Access logs for your Network Load Balancer](
 **CloudTrail logs**
 
 You can use AWS CloudTrail to capture detailed information about the calls made to
-the Elastic Load Balancing API and store them as log files in Amazon S3. You can use these CloudTrail logs
+the ELB API and store them as log files in Amazon S3. You can use these CloudTrail logs
 to determine which calls were made, the source IP address where the call came
 from, who made the call, when the call was made, and so on. For more information,
-see [Log API calls for Elastic Load Balancing using CloudTrail](../userguide/cloudtrail-logs.md "../userguide/cloudtrail-logs.md").
+see [Log API calls for ELB using CloudTrail](../userguide/cloudtrail-logs.md "../userguide/cloudtrail-logs.md").

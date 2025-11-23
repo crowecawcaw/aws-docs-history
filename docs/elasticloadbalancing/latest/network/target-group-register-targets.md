@@ -15,18 +15,18 @@ the target. If demand increases subsequently, you can register targets that you
 deregistered with the target group again. If you need to service a target, you can
 deregister it and then register it again when servicing is complete.
 
-When you deregister a target, Elastic Load Balancing waits until in-flight requests have completed.
+When you deregister a target, ELB waits until in-flight requests have completed.
 This is known as _connection draining_. The status of a target is
 `draining` while connection draining is in progress. After deregistration
 is complete, status of the target changes to `unused`. For more information,
 see [Deregistration delay](edit-target-group-attributes.md#deregistration-delay "edit-target-group-attributes.md#deregistration-delay").
 
 If you are registering targets by instance ID, you can use your load balancer with an
-Auto Scaling group. After you attach a target group to an Auto Scaling group and the group scales out,
-the instances launched by the Auto Scaling group are automatically registered with the target
-group. If you detach the load balancer from the Auto Scaling group, the instances are
+Amazon EC2 Auto Scaling group. After you attach a target group to an Amazon EC2 Auto Scaling group and the group scales out,
+the instances launched by the Amazon EC2 Auto Scaling group are automatically registered with the target
+group. If you detach the load balancer from the Amazon EC2 Auto Scaling group, the instances are
 automatically deregistered from the target group. For more information, see [Attaching a load balancer to your
-Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md") in the _Amazon EC2 Auto Scaling User Guide_.
+Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 ###### Contents
 

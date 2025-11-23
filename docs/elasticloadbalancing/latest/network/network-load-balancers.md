@@ -9,7 +9,7 @@ is most effective if you ensure that each enabled Availability Zone has at least
 one registered target. You also create [listeners](load-balancer-listeners.md "load-balancer-listeners.md") to check for connection requests from clients and route requests from
 clients to the targets in your target groups.
 
-Network Load Balancers support connections from clients over VPC peering, AWS managed VPN, AWS Direct Connect,
+Network Load Balancers support connections from clients over VPC peering, AWS managed VPN, Direct Connect,
 and third-party VPN solutions.
 
 ###### Contents
@@ -71,14 +71,14 @@ Clients can connect to the Network Load Balancer using both IPv4 addresses (for 
   the target group.
 - To support source IP preservation for UDP IPv6 listeners, ensure that
   **Enable prefix for IPv6 source NAT** is turned on.
-- When you enable dualstack mode for the Network Load Balancer, Elastic Load Balancing provides an AAAA
+- When you enable dualstack mode for the Network Load Balancer, ELB provides an AAAA
   DNS record for the Network Load Balancer. Clients that communicate with the Network Load Balancer
   using IPv4 addresses resolve the A DNS record. Clients that communicate
   with the Network Load Balancer using IPv6 addresses resolve the AAAA DNS record.
 - Access to your internal dualstack Network Load Balancer through the internet gateway
   is blocked to prevent unintended internet access. However, this does not prevent
   other internet access (for example, through peering, Transit Gateway, AWS Direct Connect, or
-  AWS VPN).
+  Site-to-Site VPN).
 
 For more information, see [Update the IP address types for your Network Load Balancer](load-balancer-ip-address-type.md "load-balancer-ip-address-type.md").
 
@@ -104,7 +104,7 @@ While UDP is connectionless, the load balancer maintains UDP flow state based on
 source and destination IP addresses and ports. This ensures that packets that belong to
 the same flow are consistently sent to the same target. After the idle timeout period
 elapses, the load balancer considers the incoming UDP packet as a new flow and routes it
-to a new target. Elastic Load Balancing sets the idle timeout value for UDP flows to 120 seconds. This
+to a new target. ELB sets the idle timeout value for UDP flows to 120 seconds. This
 cannot be changed.
 
 EC2 instances must respond to a new request within 30 seconds in order to establish a
@@ -145,7 +145,7 @@ unintended access to your internal Network Load Balancer through an internet
 gateway. It is set to `false` for internet-facing Network Load Balancers
 and `true` for internal Network Load Balancers. This attribute does not
 prevent non-IGW internet access (for example, through peering, Transit Gateway,
-AWS Direct Connect, or AWS VPN).
+AWS Direct Connect, or Site-to-Site VPN).
 
 `load_balancing.cross_zone.enabled`
 

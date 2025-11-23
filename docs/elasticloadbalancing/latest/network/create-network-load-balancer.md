@@ -116,9 +116,16 @@ security groups. 8. **Listeners and routing**
      **Protocol** and **Port** as
      needed.
     2. For **Default action**, select a target group to
-     forward traffic. If you don't have a target group that meets your
-     needs, choose **Create target group** to create one
-     now. For more information, see [Create a target group](create-target-group.md "create-target-group.md").
+     forward traffic to.
+
+
+    To add another target group choose **Add target group**
+     and update the weights as needed.
+
+
+    If you don't have a target group that meets your needs, choose
+     **Create target group** to create one now. For more information,
+     see [Create a target group](create-target-group.md "create-target-group.md").
     3. (Optional) Choose **Add listener tag** and enter
      a tag key and a tag value.
     4. (Optional) Choose **Add listener** to add another

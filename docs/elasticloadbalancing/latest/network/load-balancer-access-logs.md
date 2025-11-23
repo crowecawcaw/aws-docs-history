@@ -1,6 +1,6 @@
 # Access logs for your Network Load Balancer
 
-Elastic Load Balancing provides access logs that capture detailed information about the TLS connections
+ELB provides access logs that capture detailed information about the TLS connections
 established with your Network Load Balancer. You can use these access logs to analyze traffic patterns and
 troubleshoot issues.
 
@@ -15,8 +15,8 @@ contain information about TLS requests only. Access logs record requests on a be
 basis. We recommend that you use access logs to understand the nature of the requests,
 not as a complete accounting of all requests.
 
-Access logging is an optional feature of Elastic Load Balancing that is disabled by default. After you
-enable access logging for your load balancer, Elastic Load Balancing captures the logs as compressed
+Access logging is an optional feature of ELB that is disabled by default. After you
+enable access logging for your load balancer, ELB captures the logs as compressed
 files and stores them in the Amazon S3 bucket that you specify. You can disable access
 logging at any time.
 
@@ -31,7 +31,7 @@ regularly rotated. For more information, see [Specifying Amazon S3 encryption
 _Amazon S3 User Guide_.
 
 There is no additional charge for access logs. You are charged storage costs for Amazon S3,
-but not charged for the bandwidth used by Elastic Load Balancing to send log files to Amazon S3. For more
+but not charged for the bandwidth used by ELB to send log files to Amazon S3. For more
 information about storage costs, see [Amazon S3
 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
@@ -45,7 +45,7 @@ Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/"
 
 ## Access log files
 
-Elastic Load Balancing publishes a log file for each load balancer node every 5 minutes. Log
+ELB publishes a log file for each load balancer node every 5 minutes. Log
 delivery is eventually consistent. The load balancer can deliver multiple logs for
 the same period. This usually happens if the site has high traffic.
 
@@ -127,7 +127,7 @@ fields at the end of the log entry that you were not expecting.
 | chosen_cert_serial           | Reserved for future use. This value is always set to `-`.                                                                                                                                                                                                                                                                                                                                                                                     |
 | tls_cipher                   | The cipher suite negotiated with the client, in OpenSSL<br>format. If TLS negotiation does not complete, this value is set<br>to `-`.                                                                                                                                                                                                                                                                                                         |
 | tls_protocol_version         | The TLS protocol negotiated with the client, in string format.<br>The possible values are `tlsv10`,<br>`tlsv11`, `tlsv12`, and `tlsv13`.<br>If TLS negotiation does not complete, this value is set to `-`.                                                                                                                                                                                                                                   |
-| tls_named_group              | Reserved for future use. This value is always set to `-`.                                                                                                                                                                                                                                                                                                                                                                                     |
+| tls_keyexchange              | The key exchange used during handshakes for TLS or PQ-TLS .<br>If TLS or PQ-TLS negotiation does not complete, this value is set to `-`.                                                                                                                                                                                                                                                                                                      |
 | domain_name                  | The value of the server_name extension in the client hello<br>message. This value is URL-encoded. If no valid client hello<br>message is sent or the extension is not present, this value is<br>set to `-`.                                                                                                                                                                                                                                   |
 | alpn_fe_protocol             | The application protocol negotiated with the client, in string<br>format. The possible values are `h2`,<br>`http/1.1`, and `http/1.0`. If no ALPN<br>policy is configured in the TLS listener, no matching protocol<br>is found, or no valid protocol list is sent, this value is set<br>to `-`.                                                                                                                                              |
 | alpn_be_protocol             | The application protocol negotiated with the target, in string<br>format. The possible values are `h2`,<br>`http/1.1`, and `http/1.0`. If no ALPN<br>policy is configured in the TLS listener, no matching protocol<br>is found, or no valid protocol list is sent, this value is set<br>to `-`.                                                                                                                                              |

@@ -13,7 +13,7 @@ connections are routed to the newly configured target group. However, this has n
 on any active connections that were created prior to this change. These active
 connections remain associated to the target in the original target group for up to one
 hour if traffic is being sent, or up to when the idle-timeout period elapses if no
-traffic is sent, whichever occurs first. The parameter `Connection termination on
+traffic is sent, whichever occurs first. The parameter `Connection termination on 
  deregistration` is not applied when updating the listener, as it's applied
 when deregistering targets.
 
@@ -31,25 +31,44 @@ Console
 4. On the **Listeners** tab, choose the text in the
    **Protocol:Port** column to open the detail page for the
    listener.
-5. Choose **Edit**.
-6. (Optional) Change the specified values for **Protocol**
-   and **Port** as needed.
-7. (Optional) Choose a different target group for
-   **Default action**.
-8. (Optional) Add, update, or remove tags as needed.
-9. Choose **Save changes**.
+5. Choose **Actions**, **Edit listener**.
+6. Update the values as needed.
+   - (Optional) Change the **Protocol**.
+   - (Optional) Change the **Port**.
+   - (Optional) Choose different target groups for the **Default action**.
+   - (Optional) To add another target group, choose **Add target group**
+     and update the weights as needed.
+   - (Optional) To remove a target group, choose **Remove**.
+
+7. (Optional) Add, update, or remove tags as needed.
+8. Choose **Save changes**.
 
 AWS CLI
 
 ###### To update the default action
 
-Use the following [modify-listener](../../../cli/latest/reference/elbv2/modify-listener.md "../../../cli/latest/reference/elbv2/modify-listener.md") command to change the target group for
-the default action.
+Use the following [modify-listener](../../../cli/latest/reference/elbv2/modify-listener.md "../../../cli/latest/reference/elbv2/modify-listener.md") command to change the target group.
 
 ```
 aws elbv2 modify-listener \
     --listener-arn `listener-arn` \
     --default-actions Type=forward,TargetGroupArn=`new-target-group-arn`
+```
+
+The following example updates a listener with multiple target groups.
+
+```
+aws elbv2 modify-listener \
+    --listener-arn `listener-arn` \
+    --default-actions '[{
+        "Type":"forward",
+        "ForwardConfig":{
+            "TargetGroups":[
+                {"TargetGroupArn":"`target-group-1-arn`","Weight":`10`},
+                {"TargetGroupArn":"`target-group-2-arn`","Weight":`30`}
+            ]
+        }
+    }]'
 ```
 
 ###### To add tags
@@ -92,6 +111,20 @@ Resources:
       DefaultActions:
         - Type: forward
           TargetGroupArn: !Ref `newTargetGroup`
+```
+
+Alternatively, to distribute traffic between multiple target
+groups, define `DefaultActions` as follows.
+
+```
+DefaultActions:
+    - Type: forward
+    ForwardConfig:
+        TargetGroups:
+        - TargetGroupArn: !Ref `TargetGroup1`
+            Weight: `10`
+        - TargetGroupArn: !Ref `TargetGroup2`
+            Weight: `30`
 ```
 
 ###### To add tags

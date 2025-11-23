@@ -6,7 +6,7 @@ any time.
 
 ## Prerequisites
 
-- You must specify a target group for the listener rule. For more
+- You must specify a target group for the default action. For more
   information, see [Create a target group for your Network Load Balancer](create-target-group.md "create-target-group.md").
 - You must specify an SSL certificate for a TLS listener. The load balancer
   uses the certificate to terminate the connection and decrypt requests from
@@ -37,22 +37,26 @@ Console
 5. For **Protocol**, choose **TCP**,
    **UDP**, **TCP_UDP**, **TLS**, **QUIC**,
    or **TCP_QUIC**. Keep the default port or type a different port.
-6. For **Default action**, choose an available target
-   group. If you don't have a target group that meets your needs,
-   choose **Create target group** to create one now.
-   For more information, see [Create a target group](create-target-group.md "create-target-group.md").
-7. [TLS listeners] For **Security policy**, we recommend
-   that you keep the default security policy.
-8. [TLS listeners] For **Default SSL/TLS server certificate**,
-   choose the default certificate. You can select the certificate from one of
-   the following sources:
-   - If you created or imported a certificate using AWS Certificate Manager, choose
+6. For **Default action**, select a target group to forward
+   traffic to.
+
+To add another target group, choose **Add target group**
+and update the weights as needed.
+
+If you don't have a target group that meets your needs,
+choose **Create target group** to create one now.
+For more information, see [Create a target group](create-target-group.md "create-target-group.md"). 7. [TLS listeners] For **Security policy**, we recommend
+that you keep the default security policy. 8. [TLS listeners] For **Default SSL/TLS server certificate**,
+choose the default certificate. You can select the certificate from one of
+the following sources:
+
+    * If you created or imported a certificate using AWS Certificate Manager, choose
      **From ACM**, then choose the certificate from
      **Certificate (from ACM)**.
-   - If you imported a certificate using IAM, choose **From
+    * If you imported a certificate using IAM, choose **From
      IAM**, and then choose the certificate from
      **Certificate (from IAM)**.
-   - If you have a certificate, choose **Import certificate**.
+    * If you have a certificate, choose **Import certificate**.
      Choose either **Import to ACM** or **Import to
      IAM**. For **Certificate private
      key**, copy and paste the contents of the private key file
@@ -66,8 +70,10 @@ Console
 9. [TLS listeners] For **ALPN policy**, choose a policy to
    enable ALPN or choose **None** to disable ALPN. For more
    information, see [ALPN policies](load-balancer-listeners.md#alpn-policies "load-balancer-listeners.md#alpn-policies").
-10. Choose **Add**.
-11. [TLS listeners] To add certificates to the optional certificate list, see
+10. (Optional) To add tags, expand **Listener tags**. Choose
+    **Add new tag** and enter the tag key and tag value.
+11. Choose **Add**.
+12. [TLS listeners] To add certificates to the optional certificate list, see
     [Add certificates to the certificate list](listener-update-certificates.md#add-certificates "listener-update-certificates.md#add-certificates").
 
 AWS CLI
@@ -88,6 +94,26 @@ aws elbv2 create-listener \
     --protocol TCP \
     --port `80` \
     --default-actions Type=forward,TargetGroupArn=`target-group-arn`
+```
+
+###### To add a TCP listener with multiple target groups
+
+Use the [create-listener](../../../cli/latest/reference/elbv2/create-listener.md "../../../cli/latest/reference/elbv2/create-listener.md") command, specifying the TCP protocol, target groups, and weights.
+
+```
+aws elbv2 create-listener \
+    --load-balancer-arn `load-balancer-arn` \
+    --protocol TCP \
+    --port `80` \
+    --default-actions '[{
+        "Type":"forward",
+        "ForwardConfig":{
+            "TargetGroups":[
+                {"TargetGroupArn":"`target-group-1-arn`","Weight":`10`},
+                {"TargetGroupArn":"`target-group-2-arn`","Weight":`30`}
+            ]
+        }
+    }]'
 ```
 
 ###### To add a TLS listener
@@ -146,6 +172,31 @@ Resources:
       DefaultActions:
         - Type: forward
           TargetGroupArn: !Ref myTargetGroup
+```
+
+###### To add a TCP listener with multiple target groups
+
+Define a resource of type [AWS::ElasticLoadBalancingV2::Listener](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.md") using the
+TCP protocol.
+
+```
+Resources:
+    myTCPListener:
+        Type: 'AWS::ElasticLoadBalancingV2::Listener'
+        Properties:
+        LoadBalancerArn: !Ref myLoadBalancer
+        Protocol: TCP
+        Port: 80
+        DefaultActions:
+            - Type: forward
+            ForwardConfig:
+                TargetGroups:
+                - TargetGroupArn: !Ref myTargetGroup1,
+                    Weight: 10
+                - TargetGroupArn: !Ref myTargetGroup2,
+                    Weight: 30
+            TargetGroupStickinessConfig:
+                Enabled: true
 ```
 
 ###### To add a TLS listener

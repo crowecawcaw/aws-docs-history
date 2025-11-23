@@ -7,7 +7,7 @@ registered targets in that Availability Zone. Your load balancer is most effecti
 you ensure that each enabled Availability Zone has at least one registered target.
 Enabling multiple Availability Zones helps improve the fault tolerance of your applications.
 
-Elastic Load Balancing creates a Network Load Balancer node in the Availability Zone you choose, and a network interface
+ELB creates a Network Load Balancer node in the Availability Zone you choose, and a network interface
 for the selected subnet in that Availability Zone. Each Network Load Balancer node in the Availability
 Zone uses the network interface to get an IPv4 address. You can view these network
 interfaces, but they can't be modified.

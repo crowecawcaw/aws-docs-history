@@ -9,8 +9,8 @@ routes requests to the targets that you register, such as EC2 instances.
 ###### Contents
 
 - [Listener configuration](#listener-configuration "#listener-configuration")
+- [Default actions](#default-actions "#default-actions")
 - [Listener attributes](#listener-attributes "#listener-attributes")
-- [Listener rules](#listener-rules "#listener-rules")
 - [Secure listeners](#secure-listeners "#secure-listeners")
 - [ALPN policies](#alpn-policies "#alpn-policies")
 - [Create a listener](create-listener.md "create-listener.md")
@@ -64,6 +64,50 @@ active TCP connection are rejected with a TCP reset (RST).
 For more information, see [Request
 routing](../userguide/how-elastic-load-balancing-works.md#request-routing "../userguide/how-elastic-load-balancing-works.md#request-routing") in the _Elastic Load Balancing User Guide_.
 
+## Default actions
+
+When you create a listener, you specify a default action for routing requests.
+The default action forwards requests to the target groups that you specify.
+
+###### Distribute traffic to multiple target groups
+
+If you specify multiple target groups for a default action, requests are
+distributed to these target groups based on their relative weights. You
+must specify a weight from 0 to 999 for each target group. A target group
+with a weight of 0 receives no traffic. After you add a target group or
+update the target group weights, new connections are routed based on the
+new target group weights. Existing connections are not affected and continue
+until they are closed as usual.
+
+As an example, if you specify two target groups, each with a weight of 10, each
+target group receives half the requests. If you specify two target groups, one
+with a weight of 10 and the other with a weight of 20, the target group with a
+weight of 20 receives twice as many requests as the target group with a weight
+of 10.
+
+A common use case is migrating traffic from one target group to another.
+Meaning that you gradually increase the weight of the new target group while
+decreasing the weight of the original target group until it is 0. If you update
+the weight of a target group to 0, after a short period of time, it receives no new
+connections and existing connections are closed.
+
+###### Sticky sessions and weighted target groups
+
+Forward actions on listeners can specify whether to enable target group stickiness.
+When enabled, target group stickiness causes subsequent connections from the same source IP
+address to prefer the previously chosen target group.
+
+###### Considerations
+
+- For TLS listeners, you can't add both TCP target groups and TLS target
+  groups to the listener rule. All target groups must use the same protocol.
+- For TLS listeners, target group stickiness is not supported.
+- For dualstack load balancers, you can't add both IPv4 target groups and
+  IPv6 target groups to the same default action. All target groups in the default action
+  must use the same IP address type.
+- For listeners, if a forward action contains multiple target groups and any of them
+  have stickiness enabled, then the forward action must also have target group stickiness enabled.
+
 ## Listener attributes
 
 The following are the listener attributes for Network Load Balancers:
@@ -75,11 +119,6 @@ The default is 350 seconds.
 
 For more information, see [Update idle timeout](update-idle-timeout.md "update-idle-timeout.md").
 
-## Listener rules
-
-When you create a listener, you specify a rule for routing requests. This rule
-forwards requests to the specified target group. To update this rule, see [Update a listener for your Network Load Balancer](listener-update-rules.md "listener-update-rules.md").
-
 ## Secure listeners
 
 To use a TLS listener, you must deploy at least one server certificate on your load
@@ -89,7 +128,7 @@ Note that if you need to pass encrypted traffic to the targets without the load 
 decrypting it, create a TCP listener on port 443 instead of creating a TLS listener. The
 load balancer passes the request to the target as is, without decrypting it.
 
-Elastic Load Balancing uses a TLS negotiation configuration, known as a security policy, to negotiate
+ELB uses a TLS negotiation configuration, known as a security policy, to negotiate
 TLS connections between a client and the load balancer. A security policy is a
 combination of protocols and ciphers. The protocol establishes a secure connection
 between a client and a server and ensures that all data passed between the client and
