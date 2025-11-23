@@ -31,7 +31,7 @@ A summary of the tasks in this getting started are as follows.
 ###### Topics
 
 - [Prerequisites](#gdc-s3-glue-prerequisites "#gdc-s3-glue-prerequisites")
-- [Step 1: Connect to an AWS Glue Data Catalog](#w19aac19c17 "#w19aac19c17")
+- [Step 1: Connect to an AWS Glue Data Catalog](#w2aac19c17 "#w2aac19c17")
 - [Step 2: Get started with importing S3 data](#gdc-s3-gdc-bucket "#gdc-s3-gdc-bucket")
 - [Step 3: Get started with the query editor](#gdc-s3-query-editor "#gdc-s3-query-editor")
 
