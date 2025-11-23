@@ -3,14 +3,14 @@
 This section discusses firewall configurations and the service link connection.
 
 In the following diagram, the configuration extends the Amazon VPC from
-the AWS Region to the Outpost. An AWS Direct Connect public virtual interface is the service link
-connection. The following traffic goes over the service link and the AWS Direct Connect
+the AWS Region to the Outpost. An Direct Connect public virtual interface is the service link
+connection. The following traffic goes over the service link and the Direct Connect
 connection:
 
 - Management traffic to the Outpost through the service link
 - Traffic between the Outpost and any associated VPCs
 
-![AWS Direct Connect connection to AWS](images/intra-vpc-Nov-23.png)
+![Direct Connect connection to AWS](images/intra-vpc-Nov-23.png)
 If you are using a stateful firewall with your internet connection to limit connectivity
 from the public internet to the service link VLAN, you can block all inbound connections that
 initiate from the internet. This is because the service link VPN initiates only from the

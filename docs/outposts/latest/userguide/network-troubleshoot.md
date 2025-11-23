@@ -3,7 +3,7 @@
 Use this checklist to help troubleshoot a service link that has a status of
 `DOWN`.
 
-![Virtual LANs.](images/two-isolated-networks.png)
+![Virtual LANs.](/images/outposts/latest/userguide/images/two-isolated-networks.png)
 
 ## Connectivity with Outpost network
 
@@ -56,21 +56,21 @@ troubleshoot further by checking the following devices on your customer local ne
 Use one of the following checklists, depending on how your service link connectivity is
 provisioned.
 
-- Edge routers connected with AWS Direct Connect – Public virtual interface in use for
-  service link connectivity. For more information, see [AWS Direct Connect public virtual interface connectivity to AWS
+- Edge routers connected with Direct Connect – Public virtual interface in use for
+  service link connectivity. For more information, see [Direct Connect public virtual interface connectivity to AWS
   Region](#check-dc-public "#check-dc-public").
-- Edge routers connected with AWS Direct Connect – Private virtual interface in use for
-  service link connectivity. For more information, see [AWS Direct Connect private virtual interface connectivity to AWS
+- Edge routers connected with Direct Connect – Private virtual interface in use for
+  service link connectivity. For more information, see [Direct Connect private virtual interface connectivity to AWS
   Region](#check-dc-private "#check-dc-private").
 - Edge routers connected with Internet Service Providers (ISPs) – Public internet
   in use for service link connectivity. For more information, see [ISP public internet connectivity to AWS
   Region](#check-public-internet "#check-public-internet").
 
-## AWS Direct Connect public virtual interface connectivity to AWS
+## Direct Connect public virtual interface connectivity to AWS
 
 Region
 
-Use the following checklist to troubleshoot edge routers connected with AWS Direct Connect when a
+Use the following checklist to troubleshoot edge routers connected with Direct Connect when a
 public virtual interface is in use for service link connectivity.
 
 1. Confirm that the devices connecting directly with the Outpost network devices are
@@ -83,11 +83,11 @@ public virtual interface is in use for service link connectivity.
    should include the AWS Public IP address ranges or the default route.
 3. If you are not receiving the AWS public IP address ranges in the service link VRF,
    check the following items.
-   1. Check the AWS Direct Connect link status from the edge router or the AWS Management Console.
+   1. Check the Direct Connect link status from the edge router or the AWS Management Console.
    2. If the physical link is `UP`, check the BGP peering status from the
       edge router.
    3. If the BGP peering status is `DOWN`, ping the peer AWS IP address and
-      check the BGP configuration in the edge router. For more information, see [Troubleshooting AWS Direct Connect](../../../directconnect/latest/UserGuide/Troubleshooting.md "../../../directconnect/latest/UserGuide/Troubleshooting.md") in the _AWS Direct Connect User Guide_
+      check the BGP configuration in the edge router. For more information, see [Troubleshooting Direct Connect](../../../directconnect/latest/UserGuide/Troubleshooting.md "../../../directconnect/latest/UserGuide/Troubleshooting.md") in the _Direct Connect User Guide_
       and [My virtual
       interface BGP status is down in the AWS console. What should I do?](https://repost.aws/knowledge-center/virtual-interface-bgp-down "https://repost.aws/knowledge-center/virtual-interface-bgp-down").
    4. If BGP is established and you are not seeing the default route or AWS public IP
@@ -123,28 +123,28 @@ public virtual interface is in use for service link connectivity.
       translation.
 
 6. If the issue persists, perform MTR / traceroute / packet captures from your edge
-   router to the AWS Direct Connect peer IP addresses. Share the test results with AWS Support, using
+   router to the Direct Connect peer IP addresses. Share the test results with AWS Support, using
    your Enterprise support plan.
 
-## AWS Direct Connect private virtual interface connectivity to AWS
+## Direct Connect private virtual interface connectivity to AWS
 
 Region
 
-Use the following checklist to troubleshoot edge routers connected with AWS Direct Connect when a
+Use the following checklist to troubleshoot edge routers connected with Direct Connect when a
 private virtual interface is in use for service link connectivity.
 
 1. If connectivity between the Outposts rack and the AWS Region is using the AWS Outposts
    private connectivity feature, check the following items.
    1. Ping the remote peering AWS IP address from the edge router and confirm the BGP
       peering status.
-   2. Ensure that BGP peering over the AWS Direct Connect private virtual interface between your
+   2. Ensure that BGP peering over the Direct Connect private virtual interface between your
       service link endpoint VPC and the Outpost installed on your premises is
       `UP`. For more information, see [Troubleshooting
-      AWS Direct Connect](../../../directconnect/latest/UserGuide/Troubleshooting.md "../../../directconnect/latest/UserGuide/Troubleshooting.md") in the _AWS Direct Connect User Guide_, [My virtual interface BGP status is down in the AWS console. What should I
+      Direct Connect](../../../directconnect/latest/UserGuide/Troubleshooting.md "../../../directconnect/latest/UserGuide/Troubleshooting.md") in the _Direct Connect User Guide_, [My virtual interface BGP status is down in the AWS console. What should I
       do?](https://repost.aws/knowledge-center/virtual-interface-bgp-down "https://repost.aws/knowledge-center/virtual-interface-bgp-down"), and [How can I troubleshoot
       BGP connection issues over Direct Connect?](https://repost.aws/knowledge-center/troubleshoot-bgp-dx "https://repost.aws/knowledge-center/troubleshoot-bgp-dx").
-   3. The AWS Direct Connect private virtual interface is a private connection to your edge router
-      in your chosen AWS Direct Connect location, and it uses BGP to exchange routes. Your private
+   3. The Direct Connect private virtual interface is a private connection to your edge router
+      in your chosen Direct Connect location, and it uses BGP to exchange routes. Your private
       virtual private cloud (VPC) CIDR range is advertised through this BGP session to your
       edge router. Similarly, the IP address range for the Outpost service link is
       advertised to the region through BGP from your edge router.
@@ -163,7 +163,7 @@ private virtual interface is in use for service link connectivity.
    don't want to advertise a default route, summarize the routes so that the number of
    advertised routes is less than 100.
 3. If the issue persists, perform MTR / traceroute / packet captures from your edge
-   router to the AWS Direct Connect peer IP addresses. Share the test results with AWS Support, using
+   router to the Direct Connect peer IP addresses. Share the test results with AWS Support, using
    your Enterprise support plan.
 
 ## ISP public internet connectivity to AWS
@@ -258,15 +258,15 @@ routing of the service link especially if it was functioning correctly before.
   - Check traffic graphs for links to your ISP(s) for changes to traffic patterns that
     line up with the start of the service link issue.
 
-- If you are using AWS Direct Connect connectivity for the service link, it is possible that an
+- If you are using Direct Connect connectivity for the service link, it is possible that an
   AWS planned maintenance triggered asymmetric routing of the service link.
-  - Check for notifications of planned maintenance on your AWS Direct Connect service(s).
-  - Note that if you have redundant AWS Direct Connect services, you can proactively test the
+  - Check for notifications of planned maintenance on your Direct Connect service(s).
+  - Note that if you have redundant Direct Connect services, you can proactively test the
     routing of the Outposts service link over each likely network path under maintenance
-    conditions. This allows you to test if an interruption to one of your AWS Direct Connect
+    conditions. This allows you to test if an interruption to one of your Direct Connect
     services could lead to asymmetric routing of the service link. The resiliency of the
-    AWS Direct Connect portion of the end-to-end network connectivity can be tested by the
-    AWS Direct Connect Resiliency with Resiliency Toolkit. For more information, see [Testing AWS Direct Connect Resiliency with Resiliency Toolkit – Failover
+    Direct Connect portion of the end-to-end network connectivity can be tested by the
+    Direct Connect Resiliency with Resiliency Toolkit. For more information, see [Testing Direct Connect Resiliency with Resiliency Toolkit – Failover
     Testing](https://aws.amazon.com/blogs/networking-and-content-delivery/testing-aws-direct-connect-resiliency-with-resiliency-toolkit-failover-testing/ "https://aws.amazon.com/blogs/networking-and-content-delivery/testing-aws-direct-connect-resiliency-with-resiliency-toolkit-failover-testing/").
 
 After you have gone through the preceding checklist and pinpointed asymmetric routing of the

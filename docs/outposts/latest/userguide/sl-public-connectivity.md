@@ -1,7 +1,7 @@
 # Service link public connectivity options
 
 You can configure the service link with a public connection for the traffic between the
-Outposts and home AWS Region. You can choose to use the public internet or AWS Direct Connect public
+Outposts and home AWS Region. You can choose to use the public internet or Direct Connect public
 VIFs.
 
 If you plan on allow-listing only AWS Region public IPs (instead of 0.0.0.0/0) on your
@@ -23,7 +23,7 @@ infrastructure subnet IPs](local-rack.md#service-link-subnet "local-rack.md#serv
 Region or home Region. You must allow-list AWS Region public IPs or 0.0.0.0/0 on
 networking devices such as your firewall.
 
-## Option 2. Public connectivity through AWS Direct Connect
+## Option 2. Public connectivity through Direct Connect
 
 public VIFs
 

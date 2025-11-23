@@ -1,7 +1,7 @@
 # Service link private connectivity options
 
 You can configure the service link with a private connection for the traffic between the
-Outposts and home AWS Region. You can choose to use AWS Direct Connect private or transit VIFs.
+Outposts and home AWS Region. You can choose to use Direct Connect private or transit VIFs.
 
 Select the private connectivity option when you create your Outpost in the AWS Outposts console.
 For instructions, see [Create an
@@ -59,9 +59,9 @@ The following sample SCP prevents the following from deletion:
 - Configure the subnet security group to allow traffic for UDP 443 inbound and
   outbound directions.
 - Advertise the subnet CIDR to your on-premises network. You can use AWS Direct Connect to
-  do so. For more information, see [AWS Direct Connect
+  do so. For more information, see [Direct Connect
   virtual interfaces](../../../directconnect/latest/UserGuide/WorkingWithVirtualInterfaces.md "../../../directconnect/latest/UserGuide/WorkingWithVirtualInterfaces.md") and [Working with
-  AWS Direct Connect gateways](../../../directconnect/latest/UserGuide/direct-connect-gateways.md "../../../directconnect/latest/UserGuide/direct-connect-gateways.md") in the _AWS Direct Connect User Guide_.
+  Direct Connect gateways](../../../directconnect/latest/UserGuide/direct-connect-gateways.md "../../../directconnect/latest/UserGuide/direct-connect-gateways.md") in the _Direct Connect User Guide_.
 
 ###### Note
 
@@ -86,7 +86,7 @@ on your behalf:
 After your Outpost is installed, confirm connectivity to the private IPs in your subnet
 from your Outpost.
 
-## Option 1. Private connectivity through AWS Direct Connect
+## Option 1. Private connectivity through Direct Connect
 
 private VIFs
 
@@ -94,7 +94,7 @@ Create an AWS Direct Connect connection, private virtual interface, and virtual 
 gateway to allow your on-premises Outpost to access the VPC.
 
 For more information, see the following sections in the
-_AWS Direct Connect User Guide_:
+_Direct Connect User Guide_:
 
 - [Dedicated and hosted
   connections](../../../directconnect/latest/UserGuide/WorkingWithConnections.md "../../../directconnect/latest/UserGuide/WorkingWithConnections.md")
@@ -106,9 +106,9 @@ _AWS Direct Connect User Guide_:
 If the AWS Direct Connect connection is in a different AWS account from your VPC, see
 [Associating a
 virtual private gateway across accounts](../../../directconnect/latest/UserGuide/multi-account-associate-vgw.md "../../../directconnect/latest/UserGuide/multi-account-associate-vgw.md") in the
-_AWS Direct Connect User Guide_.
+_Direct Connect User Guide_.
 
-## Option 2. Private connectivity through AWS Direct Connect
+## Option 2. Private connectivity through Direct Connect
 
 transit VIFs
 
@@ -116,7 +116,7 @@ Create an AWS Direct Connect connection, transit virtual interface, and transit 
 allow your on-premises Outpost to access the VPC.
 
 For more information, see the following sections in the
-_AWS Direct Connect User Guide_:
+_Direct Connect User Guide_:
 
 - [Dedicated and hosted
   connections](../../../directconnect/latest/UserGuide/WorkingWithConnections.md "../../../directconnect/latest/UserGuide/WorkingWithConnections.md")
