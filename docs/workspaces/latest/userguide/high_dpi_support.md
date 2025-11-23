@@ -21,9 +21,9 @@ that a monitor with one of these resolutions is a high DPI display.
 - [Overview](#high-dpi-overview "#high-dpi-overview")
 - [Limitations](#high-dpi-limitations "#high-dpi-limitations")
 - [Enabling high DPI mode for Android](#high-dpi-android "#high-dpi-android")
-- [Enabling high DPI mode for Windows, macOS, or Linux](#w39aac25c17 "#w39aac25c17")
-- [Adjusting the scaling settings on a Windows WorkSpace](#w39aac25c19 "#w39aac25c19")
-- [Adjusting the scaling settings on a Linux WorkSpace](#w39aac25c21 "#w39aac25c21")
+- [Enabling high DPI mode for Windows, macOS, or Linux](#w2aac25c17 "#w2aac25c17")
+- [Adjusting the scaling settings on a Windows WorkSpace](#w2aac25c19 "#w2aac25c19")
+- [Adjusting the scaling settings on a Linux WorkSpace](#w2aac25c21 "#w2aac25c21")
 
 ## Overview
 
