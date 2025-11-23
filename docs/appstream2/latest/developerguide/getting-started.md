@@ -23,7 +23,7 @@ Before you can stream your applications, you need to set up a stack, choose an i
 ###### To set up a sample stack, choose an image, and configure a fleet
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. Choose **Get Started** if you are new to the console, or
    **Quick Links** from the left navigation menu. Choose
    **Set up with sample apps**.

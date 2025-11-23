@@ -29,3 +29,5 @@ Registry** in the WorkSpaces Applications console, and categorized by visibility
 - [Windows Update and Antivirus Software on Amazon WorkSpaces Applications](windows-update-antivirus-software.md "windows-update-antivirus-software.md")
 - [Programmatically Create a New Image in Amazon WorkSpaces Applications](create-image-programmatically.md "create-image-programmatically.md")
 - [Manage License Included Applications on Your Image in Amazon WorkSpaces Applications](license-included-applications.md "license-included-applications.md")
+- [Import Image](import-image.md "import-image.md")
+- [Export Image](export-image.md "export-image.md")

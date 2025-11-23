@@ -77,7 +77,7 @@ to the internet.
 ###### To automatically restore the Internet Explorer default settings
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. In the left navigation pane, choose **Images**, **Image Builder**.
 3. Choose the image builder on which to restore the Internet Explorer
    default settings, verify that it is in the **Running**

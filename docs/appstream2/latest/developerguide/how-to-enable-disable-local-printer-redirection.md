@@ -10,7 +10,7 @@ console by performing the following steps.
 ###### To enable local printer redirection by using the WorkSpaces Applications console
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. In the left navigation pane, choose
    **Stacks**.
 3. Choose the stack for which you want to enable local printer

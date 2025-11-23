@@ -75,14 +75,14 @@ used for in-session authentication, after a user signs
 in to a streaming instance.
 
 - Ensure that your users have WorkSpaces Applications client version 1.1.257 or later
-  installed. For more information, see [WorkSpaces Applications Client Release Notes](client-release-versions.md "client-release-versions.md").
+  installed. For more information, see [WorkSpaces Applications Windows Client Release Notes](client-release-versions.md "client-release-versions.md").
 
 By default, password sign in for Active Directory is enabled on WorkSpaces Applications stacks. You can enable smart card sign in for Active Directory by performing the following steps in the WorkSpaces Applications console.
 
 ###### To enable smart card sign in for Active Directory by using the WorkSpaces Applications console
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. In the left navigation pane, choose
    **Stacks**.
 3. Choose the stack for which you want to enable smart card authentication for Active Directory.

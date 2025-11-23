@@ -20,4 +20,4 @@ to WorkSpaces Applications and stream applications.
 - [Relative Mouse Offset](client-application-windows-relative-mouse-offset-user.md "client-application-windows-relative-mouse-offset-user.md")
 - [Logging](client-application-windows-how-to-enable-diagnostic-logging-user.md "client-application-windows-how-to-enable-diagnostic-logging-user.md")
 - [Troubleshooting](client-application-windows-troubleshooting-user.md "client-application-windows-troubleshooting-user.md")
-- [WorkSpaces Applications Client Release Notes](client-release-versions.md "client-release-versions.md")
+- [WorkSpaces Applications Windows Client Release Notes](client-release-versions.md "client-release-versions.md")

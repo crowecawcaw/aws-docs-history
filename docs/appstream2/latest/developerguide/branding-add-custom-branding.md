@@ -14,7 +14,7 @@ favicon.
 ###### To add your custom branding to WorkSpaces Applications
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. In the left pane, choose **Stacks**.
 3. In the stack list, select the stack to customize with your branding.
 4. Choose **Branding**, **Custom**.

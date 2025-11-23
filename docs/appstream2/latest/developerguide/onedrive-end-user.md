@@ -5,6 +5,8 @@
 OneDrive for Business is currently not supported for Linux-based streaming
 instances.
 
+OneDrive for Business is currently not supported for Asia Pacific (Malaysia), Europe (Milan), Europe (Spain), and Israel (Tel Aviv) AWS Regions.
+
 If your WorkSpaces Applications administrator has enabled this file storage option, you can add
 your OneDrive account to WorkSpaces Applications. After you add your account and sign in to an WorkSpaces Applications
 streaming session, you can do the following in OneDrive:

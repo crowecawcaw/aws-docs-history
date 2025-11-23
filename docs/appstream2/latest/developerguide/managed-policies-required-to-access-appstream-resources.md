@@ -105,7 +105,8 @@ service began tracking these changes. For automatic alerts about changes to this
 page, subscribe to the RSS feed on the [Document History for Amazon WorkSpaces Applications](doc-history.md "doc-history.md")
 page.
 
-| Change                                           | Description                                                                      | Date             |
-| ------------------------------------------------ | -------------------------------------------------------------------------------- | ---------------- |
-| AmazonAppStreamReadOnlyAccess – Change           | Removed `"appstream:Get*",` from the JSON<br>policy document                     | October 22, 2025 |
-| WorkSpaces Applications started tracking changes | WorkSpaces Applications started tracking changes for its AWS managed<br>policies | October 31, 2022 |
+| Change                                           | Description                                                                           | Date              |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------- | ----------------- |
+| AmazonAppStreamServiceAccess – Change            | Added allow permissions for `"ec2:DescribeImages"` to the policy JSON policy document | November 17, 2025 |
+| AmazonAppStreamReadOnlyAccess – Change           | Removed `"appstream:Get*",` from the JSON<br>policy document                          | October 22, 2025  |
+| WorkSpaces Applications started tracking changes | WorkSpaces Applications started tracking changes for its AWS managed<br>policies      | October 31, 2022  |

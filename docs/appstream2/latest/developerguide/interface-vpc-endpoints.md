@@ -4,7 +4,7 @@ A virtual private cloud (VPC) is a virtual network in your own logically isolate
 
 Interface endpoints are powered by AWS PrivateLink, a technology that lets you keep
 streaming traffic within a VPC that you specify by using private IP addresses. When you use
-the VPC with an AWS Direct Connect or AWS Virtual Private Network tunnel, you can keep
+the VPC with an Direct Connect or AWS Virtual Private Network tunnel, you can keep
 the streaming traffic within your network.
 
 The following topics provide information about WorkSpaces Applications interface endpoints.

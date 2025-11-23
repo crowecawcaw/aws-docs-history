@@ -4,7 +4,7 @@ AWS Glue is a fully managed extract, transform, and load (ETL) service that lets
 create a database from your Amazon S3 data and query that database by using Athena. This
 database is also referred to as an AWS Glue Data Catalog. An AWS Glue crawler can
 automatically detect the schema of your Amazon S3 data and create the corresponding
-database and tables. WorkSpaces Applications provides an AWS CloudFormation template that you can use to create
+database and tables. WorkSpaces Applications provides an CloudFormation template that you can use to create
 the necessary AWS Glue resources.
 
 ###### Important
@@ -16,15 +16,15 @@ procedure. For more information about AWS Glue crawlers, see [Defining Crawlers]
 ###### To create an AWS Glue crawler
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. Choose the AWS Region for which you have subscribed to usage reports.
 3. In the navigation pane, choose **Usage Reports**, and verify that usage reports logging is enabled.
 4. On the **Report Details** tab, in the paragraph next to
    **Analytics**, choose the **CloudFormation
    template** link.
 
-Choosing the link opens the AWS CloudFormation console, where you can review the parameters
-of the AWS CloudFormation stack specified by the template before you run it. The
+Choosing the link opens the CloudFormation console, where you can review the parameters
+of the CloudFormation stack specified by the template before you run it. The
 template, when run, creates an AWS Glue crawler and several sample Athena queries. 5. On the **Specify Details** page, next to
 **ScheduleExpression**, either keep the default value or specify a different cron expression value for the frequency that you
 want to run the crawler. Do not change any other default value. When you're
@@ -33,10 +33,10 @@ done, choose **Next**.
 By default, the
 crawler is scheduled to run on a daily basis, but you can configure the crawler to run
 weekly, monthly, or on another frequency. For information about cron syntax, see [Cron
-Expressions](../../../AmazonCloudWatch/latest/events/ScheduledEvents.md#CronExpressions "../../../AmazonCloudWatch/latest/events/ScheduledEvents.md#CronExpressions"). 6. On the **Options** page, keep the default values, and choose **Next**. 7. On the **Review** page, select the check box next to "I acknowledge that AWS CloudFormation might create IAM resources with custom names," and then choose **Create**.
+Expressions](../../../AmazonCloudWatch/latest/events/ScheduledEvents.md#CronExpressions "../../../AmazonCloudWatch/latest/events/ScheduledEvents.md#CronExpressions"). 6. On the **Options** page, keep the default values, and choose **Next**. 7. On the **Review** page, select the check box next to "I acknowledge that CloudFormation might create IAM resources with custom names," and then choose **Create**.
 
 You must have sufficient AWS Glue and AWS Identity and Access Management (IAM) permissions to create and
-run the AWS CloudFormation stack. If you don't have the required permissions, ask your
+run the CloudFormation stack. If you don't have the required permissions, ask your
 Amazon Web Services account administrator either to perform these steps in your account or
 to grant you the following permissions.
 

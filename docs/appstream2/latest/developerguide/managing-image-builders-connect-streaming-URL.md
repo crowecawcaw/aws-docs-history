@@ -34,7 +34,7 @@ You can create a streaming URL in any of the following ways:
 WorkSpaces Applications console
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. In the navigation pane, choose **Images**,
    **Image Builder**.
 3. In the list of image builders, choose the image builder to which you want to connect. Verify that the status of

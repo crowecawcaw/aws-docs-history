@@ -12,7 +12,7 @@ To subscribe to usage reports for WorkSpaces Applications by using the WorkSpace
 steps.
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. Choose the AWS Region for which you want to enable usage reports.
 3. In the navigation pane, choose **Usage Reports**.
 4. Choose **Enabled**, and then choose **Apply**.

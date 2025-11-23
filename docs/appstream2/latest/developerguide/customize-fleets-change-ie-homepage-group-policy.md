@@ -26,7 +26,7 @@ see [Edit Administrative Template Policy Settings](<https://docs.microsoft.com/e
 documentation.
 
 1.  Open the WorkSpaces Applications console at
-    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+    [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2.  If you are not using Active Directory in your environment, open Local
     Group Policy Editor. If you are using Active Directory, open the GPMC.
     Locate the **Scripts (Logon\Logoff)** policy setting:

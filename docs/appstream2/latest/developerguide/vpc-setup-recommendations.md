@@ -62,6 +62,13 @@ used in the same Region.
 - If you are using a VPC with NAT, configure at least one public subnet with a NAT Gateway for internet access, preferably two. Configure the public subnets in the same Availability Zones where your private subnets reside.
 
 To enhance fault tolerance and reduce the chance of insufficient capacity errors for large WorkSpaces Applications fleet deployments, consider extending your VPC configuration into a third Availability Zone. Include a private subnet, public subnet, and NAT gateway in this additional Availability Zone.
+
+- If you enable auto assign IPV6 option for your subnet then Elastic Network Interface for your instances will be auto assigned with a global IPV6 address. For more information, see [modify-subnet](../../../cli/latest/reference/ec2/modify-subnet-attribute.md "../../../cli/latest/reference/ec2/modify-subnet-attribute.md").
+- Enabling default internet access is only applicable for IPV4 addresses in IPv4 only or dual-stack subnets. To allow internet access for IPV6 addresses add an internet gateway or egress only gateway. For more information, see [egress-only-internet-gateway](../../../vpc/latest/userguide/egress-only-internet-gateway.md "../../../vpc/latest/userguide/egress-only-internet-gateway.md").
+
+###### Note
+
+By default IPV6 addresses are globally addressable. If your subnet has an internet gateway and appropriate subnet groups and acl allowing IPV6 traffic rules your streaming instances can be connected to the internet with IPV6 address.
 **Security Groups**
 
 - Use security groups to provide additional access control to your VPC.

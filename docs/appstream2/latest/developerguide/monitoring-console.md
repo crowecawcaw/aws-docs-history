@@ -5,7 +5,7 @@ You can monitor your Amazon WorkSpaces Applications fleet usage using the WorkSp
 ###### To view fleet usage in the WorkSpaces Applications console
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. In the left pane, choose **Fleets**.
 3. Select a fleet and choose its **Fleet Usage** tab.
 4. By default, the graph displays the following metrics:

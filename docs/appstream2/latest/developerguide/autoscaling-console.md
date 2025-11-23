@@ -14,7 +14,7 @@ sessions.
 ###### To set a fleet scaling policy using the console
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. In the navigation pane, choose **Fleets**.
 3. Select the fleet and then choose **Scaling Policies**.
 4. Edit existing policies by choosing the edit icon next to each value. Set the
@@ -51,7 +51,7 @@ sessions running will be reclaimed.
 ###### To set a fixed capacity fleet using the console
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. In the navigation pane, choose **Fleets**.
 3. Select the fleet.
 4. For **Scaling Policies**, remove all policies associated with

@@ -28,3 +28,4 @@ For more information, see [Tutorial: Creating and Streaming from Interface VPC E
   DNS servers. The port must be open to the IP addresses for your DNS servers
   so that public domain names can be resolved. This port is optional if you
   are not using DNS servers for domain name resolution.
+  WorkSpaces Applications client for Windows (version 1.2.1581 or greater), Mac (version 1.2.0 or greater) and Web Browser access automatically prefer to connect on IPv6 network than over IPv4 network. In case of adverse network conditions such as network latency the clients will fall back to IPV4 network.

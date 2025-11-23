@@ -34,6 +34,7 @@ Before you set up interface VPC endpoints for WorkSpaces Applications, be aware 
 
         * For **VPC**, choose a VPC in which to create the interface endpoint. You can choose a different VPC than the VPC with WorkSpaces Applications resources.
         * For **Subnets**, choose the subnets (Availability Zones) in which to create the endpoint network interfaces. We recommend that you choose subnets in at least two Availability Zones.
+        * For **IP address type**, choose either IPV6 or IPV4.
         * Ensure that the **Enable Private DNS Name** check box is selected.
 
 
@@ -59,7 +60,7 @@ To update a stack to use the interface endpoint that you created for streaming s
 ###### To update a stack to use a new interface endpoint
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 
 Ensure that you open the console in the same AWS Region as the interface endpoint that you want to use. 2. In the navigation pane, choose **Stacks**, and then choose the stack that you want. 3. Choose the **VPC Endpoints** tab, and then choose **Edit**. 4. In the **Edit VPC Endpoint** dialog box, for **Streaming
 Endpoint**, choose the endpoint through which to stream

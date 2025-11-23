@@ -27,7 +27,7 @@ guidance that you can provide to your users, see [WorkSpaces Applications Client
 To enable this feature for your users, you must use an image that uses a [version of the WorkSpaces Applications agent](agent-software-versions.md "agent-software-versions.md")
 released on or after February 19, 2020. In addition, version 1.1.129 or later of
 the WorkSpaces Applications client must be installed on your users' PCs. For more information
-about client versions, see [WorkSpaces Applications Client Release Notes](client-release-versions.md "client-release-versions.md").
+about client versions, see [WorkSpaces Applications Windows Client Release Notes](client-release-versions.md "client-release-versions.md").
 
 If WorkSpaces Applications client version 1.1.129 or later is installed on your users'
 computer, but you are not using an image that uses an agent version released on

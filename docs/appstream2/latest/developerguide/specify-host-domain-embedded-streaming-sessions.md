@@ -16,7 +16,7 @@ use any of the following methods:
   To specify a host domain by using the WorkSpaces Applications console, perform the following steps.
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. In the left navigation pane, choose **Stacks**, and select the stack that you want.
 3. Choose **Edit**.
 4. Expand **Embed WorkSpaces Applications (Optional)**.

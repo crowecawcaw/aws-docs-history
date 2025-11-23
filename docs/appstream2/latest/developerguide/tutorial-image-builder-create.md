@@ -11,7 +11,7 @@ charges. For more information, see [WorkSpaces Applications Pricing](https://aws
 ###### To launch an image builder
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. You can launch the image builder in the following ways:
    - If a welcome screen appears displaying two options (**Try
      it now** and **Get started**), choose
@@ -47,6 +47,25 @@ builder by doing the following:
     * **Instance Type**: Select the instance type for the image builder. Choose a type that
      matches the performance requirements of the applications that you
      plan to install. For more information, see [WorkSpaces Applications Instance Families](instance-types.md "instance-types.md").
+
+
+
+
+    	+ You can use stream.\* instance types for images with `type = "native"`. To use any of the following instance type you must [Import Image](import-image.md "import-image.md") and create an image with `type = "custom"`.
+
+
+
+
+    		- GeneralPurpose.\*
+    		- MemoryOptimized.\*
+    		- ComputeOptimized.\*
+    		- Accelerated.\*
+    * Configure **storage** volumes for Image Builder. By default, the storage volume matches image volume size, with a service default of 200 GB included in the hourly instance rate. You can customize your Image Builder storage capacity from 200 GB up to 500 GB based on your requirements.
+
+
+    ###### Note
+
+    Note: Storage volume size cannot be set below the image volume size. Storage capacity can be increased up to 500 GB, with additional charges applying to any storage beyond the included 200 GB. These charges apply to Image Builders in RUNNING state.
     * **Available license included applications**: Select
      one or more license included applications that you want to install on
      your image.

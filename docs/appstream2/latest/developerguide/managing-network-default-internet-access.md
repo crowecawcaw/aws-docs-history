@@ -34,6 +34,10 @@ You can configure your own non-default VPC with a public subnet by using either 
 - [Create a New VPC with a Single Public Subnet](#new-vpc-with-public-subnet "#new-vpc-with-public-subnet")
 - [Configure an Existing VPC](#existing-vpc-with-public-subnet "#existing-vpc-with-public-subnet")
 
+###### Note
+
+When working with IPv6 only subnets, default internet access cannot be enabled. You'll need to set up an Egress-Only Internet Gateway and configure route table to allow outbound internet traffic. For more information check the [steps](../../../vpc/latest/userguide/egress-only-internet-gateway.md "../../../vpc/latest/userguide/egress-only-internet-gateway.md"). You also need to enable auto-assign IPv6 addresses for your subnets. The Egress-Only gateway handles outbound internet traffic only so if you need inbound access, you'll still need a regular internet gateway. You can find more details about this in [egress only internet gateway documentation](../../../vpc/latest/userguide/egress-only-internet-gateway.md "../../../vpc/latest/userguide/egress-only-internet-gateway.md").
+
 ### Create a New VPC with a Single Public Subnet
 
 When you use the VPC wizard to create a new VPC, the wizard creates an internet gateway and a custom route table that is associated with the public subnet. The route table routes all traffic destined for an address outside the VPC to the internet gateway. For more information about this configuration, see [VPC with a Single Public Subnet](../../../vpc/latest/userguide/VPC_Scenario1.md "../../../vpc/latest/userguide/VPC_Scenario1.md") in the _Amazon VPC User Guide_.

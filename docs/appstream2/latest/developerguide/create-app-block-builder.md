@@ -6,7 +6,7 @@ Elastic fleets.
 ###### To create an app block builder
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. Choose **Applications Manager** in the left navigation pane,
    then choose the **App block builders** tab and **Create
    app block builder**.

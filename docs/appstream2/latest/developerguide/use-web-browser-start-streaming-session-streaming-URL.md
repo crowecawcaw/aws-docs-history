@@ -10,7 +10,7 @@ To create a streaming URL, use one of the following methods:
 ###### To create a streaming URL by using the WorkSpaces Applications console
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. In the navigation pane, choose **Fleets**.
 3. In the list of fleets, choose the fleet that is associated with the stack for which you want to create a streaming URL. Verify that the status of the fleet is **Running**.
 4. In the navigation pane, choose **Stacks**. Choose

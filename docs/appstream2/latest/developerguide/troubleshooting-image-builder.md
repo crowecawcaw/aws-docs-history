@@ -79,7 +79,7 @@ application from fleet instances. To install the ClickOnce application as an
 Administrator and then as a Template User, perform these steps.
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. In the left navigation pane, choose **Images**, **Image Builder**.
 3. In the list, select the image builder that you want to use, and log into it as an
    Administrator.

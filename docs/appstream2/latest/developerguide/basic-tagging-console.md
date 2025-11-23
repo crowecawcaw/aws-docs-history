@@ -7,7 +7,7 @@ You can add, edit, and delete tags for existing resources by using the WorkSpace
 ###### To add, edit, or delete tags for an existing WorkSpaces Applications resource
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. From the navigation bar, select the Region that contains the resource for
    which you want to add, edit, or delete tags.
 3. In the navigation pane, select the resource type. The resource type can be an image builder, image, fleet, or stack.

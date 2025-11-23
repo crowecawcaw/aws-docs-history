@@ -27,3 +27,4 @@ Active Directory Computer Objects](active-directory-permissions.md "active-direc
   (VPC) in which your streaming instances are launched. For more information, see
   [Active Directory and Active Directory Domain Services Port
   Requirements](https://technet.microsoft.com/en-us/library/dd772723.aspx "https://technet.microsoft.com/en-us/library/dd772723.aspx") in the Microsoft documentation.
+- Domain controller access can also be supported over IPv6, and require [DHCP options set updates](../../../vpc/latest/userguide/VPC_DHCP_Options.md "../../../vpc/latest/userguide/VPC_DHCP_Options.md").

@@ -20,7 +20,7 @@ role to create and manage WorkSpaces Applications resources on your behalf.
 ###### To use the Try It Now feature
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. Choose **Try it now**.
 3. Sign in using your AWS account credentials, if requested.
 4. Read the terms and conditions and choose **Agree and
@@ -30,6 +30,6 @@ role to create and manage WorkSpaces Applications resources on your behalf.
 ###### To run the Getting Started tutorial
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. Choose **Get Started**.
 3. Select the option to learn more about WorkSpaces Applications resources.

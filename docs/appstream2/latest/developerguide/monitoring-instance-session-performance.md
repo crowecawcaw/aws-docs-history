@@ -16,7 +16,7 @@ Performance metrics are currently available only for multi-session fleets
 ###### To view instance and session in the WorkSpaces Applications console
 
 1. Open the WorkSpaces Applications console at
-   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. In the left pane, choose **Fleets**.
 3. Select a fleet and choose **View Details** and **View
    Sessions**.
