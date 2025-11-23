@@ -7,7 +7,7 @@ AWS Migration Hub is no longer open to new customers as of November 7, 2025. For
 You can establish a private connection between your VPC and Migration Hub Strategy Recommendations by creating an
 _interface VPC endpoint_. Interface endpoints are powered by
 AWS PrivateLink. With AWS PrivateLink, you can privately access Strategy Recommendations API operations
-without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances
+without an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances
 in your VPC don't need public IP addresses to communicate with Strategy Recommendations API operations.
 Traffic between your VPC and Strategy Recommendations stays within the Amazon network.
 
