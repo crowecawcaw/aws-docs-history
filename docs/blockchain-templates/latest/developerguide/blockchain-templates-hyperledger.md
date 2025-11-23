@@ -13,7 +13,7 @@ The AWS Blockchain Template for Hyperledger Fabric only supports a _docker-local
 
 ## Links to Launch
 
-See [Getting Started with AWS Blockchain Templates](https://aws.amazon.com/blockchain/templates/getting-started/ "https://aws.amazon.com/blockchain/templates/getting-started/") for links to launch AWS CloudFormation in specific Regions using the Hyperledger Fabric templates.
+See [Getting Started with AWS Blockchain Templates](https://aws.amazon.com/blockchain/templates/getting-started/ "https://aws.amazon.com/blockchain/templates/getting-started/") for links to launch CloudFormation in specific Regions using the Hyperledger Fabric templates.
 
 ## AWS Blockchain Template for Hyperledger Fabric Components
 
@@ -31,7 +31,7 @@ requirements are satisfied:
 - The IAM principle (user or group) that you use must have permission to work with all related services.
 - You must have access to a key pair that you can use to access EC2 instances (for example, using SSH). The key must exist in the same region as the instance.
 - You must have an EC2 instance profile with a permissions policy attached that allows access to Amazon S3 and to Amazon Elastic Container Registry (Amazon ECR) to pull containers. For an example permissions policy, see [Example IAM Permissions for the EC2 Instance Profile](#blockchain-hyperledger-ec2profile "#blockchain-hyperledger-ec2profile").
-- You must have a Amazon VPC network with a public subnet, or a private subnet with a NAT Gateway and Elastic IP address so that Amazon S3, AWS CloudFormation, and Amazon ECR can be accessed.
+- You must have a Amazon VPC network with a public subnet, or a private subnet with a NAT Gateway and Elastic IP address so that Amazon S3, CloudFormation, and Amazon ECR can be accessed.
 - You must have an EC2 security group with inbound rules that allow SSH traffic (port 22) from
   the IP addresses that need to connect to the instance using SSH, and the same for clients that
   need to connect to Hyperledger Explorer (port 8080).

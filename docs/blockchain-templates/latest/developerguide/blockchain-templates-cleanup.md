@@ -7,11 +7,11 @@ If you have questions about AMB or require further support, [contact Support](ht
 
 # Clean Up Resources
 
-AWS CloudFormation makes it easy to clean up resources that the stack created. When you delete the stack, all resources that the stack created are deleted.
+CloudFormation makes it easy to clean up resources that the stack created. When you delete the stack, all resources that the stack created are deleted.
 
 ###### To delete resources that the template created
 
-- Open the AWS CloudFormation console, select the root stack that you created earlier, choose **Actions**, **Delete**.
+- Open the CloudFormation console, select the root stack that you created earlier, choose **Actions**, **Delete**.
 
 The **Status** of the root stack you created earlier and the associated nested stacks update to **DELETE_IN_PROGRESS**.
 You may choose to delete the prerequisites you created for the Ethereum network.

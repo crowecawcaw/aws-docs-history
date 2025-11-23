@@ -7,13 +7,13 @@ If you have questions about AMB or require further support, [contact Support](ht
 
 # Create the Ethereum Network
 
-The Ethereum network that you specify using the template in this topic launches an AWS CloudFormation stack that creates an Amazon ECS cluster of EC2 instances for the Ethereum network. The template relies on the resources that you created earlier in [Set Up Prerequisites](blockchain-template-getting-started-prerequisites.md "blockchain-template-getting-started-prerequisites.md").
+The Ethereum network that you specify using the template in this topic launches an CloudFormation stack that creates an Amazon ECS cluster of EC2 instances for the Ethereum network. The template relies on the resources that you created earlier in [Set Up Prerequisites](blockchain-template-getting-started-prerequisites.md "blockchain-template-getting-started-prerequisites.md").
 
-When you launch the AWS CloudFormation stack using the template, it creates nested stacks for some tasks. After they are complete, you can connect to resources served by the network's Application Load Balancer through the bastion host to verify that your Ethereum network is running and accessible.
+When you launch the CloudFormation stack using the template, it creates nested stacks for some tasks. After they are complete, you can connect to resources served by the network's Application Load Balancer through the bastion host to verify that your Ethereum network is running and accessible.
 
 ###### To create the Ethereum network using the AWS Blockchain Template for Ethereum
 
-1. See [Getting Started with AWS Blockchain Templates](https://aws.amazon.com/blockchain/templates/getting-started/ "https://aws.amazon.com/blockchain/templates/getting-started/"), and open the latest AWS Blockchain Template for Ethereum in the AWS CloudFormation console using the quick-links for your AWS Region.
+1. See [Getting Started with AWS Blockchain Templates](https://aws.amazon.com/blockchain/templates/getting-started/ "https://aws.amazon.com/blockchain/templates/getting-started/"), and open the latest AWS Blockchain Template for Ethereum in the CloudFormation console using the quick-links for your AWS Region.
 2. Enter values according to the following guidelines:
    - For **Stack name**, enter a name that is easy for you to identify. This name is used within the names of resources that the stack creates.
    - Under **Ethereum Network Parameters** and **Private Ethereum
@@ -52,12 +52,12 @@ When you launch the AWS CloudFormation stack using the template, it creates nest
 
 3. Leave all other settings to their defaults, select the acknowledgement check box, and choose **Create**.
 
-The **Stack Detail** page for the root stack that AWS CloudFormation launches appears. 4. To monitor the progress of the root stack and nested stacks, choose **Stacks**.
+The **Stack Detail** page for the root stack that CloudFormation launches appears. 4. To monitor the progress of the root stack and nested stacks, choose **Stacks**.
 
-![AWS CloudFormation interface showing Stacks option highlighted in the navigation menu.](images/choose-stacks.png) 5. When all stacks show **CREATE_COMPLETE** for **Status**, you can connect to Ethereum user interfaces to verify that the network is running and accessible. When you use the ECS container platform, URLs for connecting to EthStats, EthExplorer, and EthJsonRPC through the Application Load Balancer are available on the **Outputs** tab of the root stack.
+![CloudFormation interface showing Stacks option highlighted in the navigation menu.](images/choose-stacks.png) 5. When all stacks show **CREATE_COMPLETE** for **Status**, you can connect to Ethereum user interfaces to verify that the network is running and accessible. When you use the ECS container platform, URLs for connecting to EthStats, EthExplorer, and EthJsonRPC through the Application Load Balancer are available on the **Outputs** tab of the root stack.
 
 ###### Important
 
 You won't be able to connect directly to these URLs or SSH directly until you set up a proxy connection through the bastion host on your client computer. For more information, see [Connect to EthStats and EthExplorer Using the Bastion Host](blockchain-bastion-host-connect.md "blockchain-bastion-host-connect.md").
 
-![AWS CloudFormation console showing Ethereum network stack details and output URLs.](images/stack-urls.png)
+![CloudFormation console showing Ethereum network stack details and output URLs.](images/stack-urls.png)
