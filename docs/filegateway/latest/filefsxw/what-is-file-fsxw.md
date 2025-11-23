@@ -26,7 +26,7 @@ FSx File Gateway provides the following benefits:
 
 To use Amazon FSx File Gateway (FSx File Gateway), you must have at least one Amazon FSx for Windows File Server file
 system. You must also have on-premises access to FSx for Windows File Server, either through a VPN or
-through an AWS Direct Connect connection. For more
+through an Direct Connect connection. For more
 information about using Amazon FSx file systems, see [What is
 Amazon FSx for Windows File Server?](../../../fsx/latest/WindowsGuide/what-is.md "../../../fsx/latest/WindowsGuide/what-is.md")
 
@@ -59,7 +59,7 @@ Storage Gateway.
 Note
 the following in the diagram:
 
-- **AWS Direct Connect or a VPN** is needed to allow the
+- **Direct Connect or a VPN** is needed to allow the
   FSx File Gateway to access the Amazon FSx file share using SMB and to allow the
   FSx for Windows File Server to join your on-premises Active Directory domain.
 - **Amazon Virtual Private Cloud (Amazon VPC)** is needed to connect to the

@@ -163,7 +163,7 @@ system.
 
 ###### Note
 
-Using AWS Directory Service, you can create a hosted Active Directory domain service in the
+Using Directory Service, you can create a hosted Active Directory domain service in the
 AWS Cloud.
 
 To use AWS Managed Microsoft AD with an Amazon EC2 gateway, you must create the Amazon EC2 instance in

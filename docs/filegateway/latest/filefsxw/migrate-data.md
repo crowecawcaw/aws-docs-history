@@ -13,7 +13,7 @@ Amazon EC2 instances, or to refresh the underlying server hardware.
 
 ###### Important
 
-Use these migration instructions only for gateway appliances version 1.x or lower. You can't use them to migrate to version 2.x or higher.
+Use these instructions only for migrating gateway appliances running version 1.x. You can't use them to migrate gateway appliances running lower versions.
 
 \*Method 1 is only supported when migrating between gateways that have the same generation and major version number.
 

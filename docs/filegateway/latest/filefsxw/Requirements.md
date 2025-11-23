@@ -37,7 +37,7 @@ you must meet the following prerequisites:
   update the gateway.
 - Configure the connection you want to use for network traffic between AWS and
   the on-premises environment where you are deploying your gateway. You can
-  connect using the public internet, private networking, a VPN, or AWS Direct Connect. If
+  connect using the public internet, private networking, a VPN, or Direct Connect. If
   you want your gateway to communicate AWS through a private connection to an
   Amazon Virtual Private Cloud, set up the Amazon VPC before you set up your gateway.
 - Make sure your gateway can resolve the name of your Active Directory Domain
@@ -171,7 +171,7 @@ For FSx File Gateway, you must use Microsoft Active Directory to
 allow domain users to access a Server Message Block (SMB) file share. You can join
 your File Gateway to any valid Microsoft Windows domain (resolvable by DNS).
 
-You can also use the AWS Directory Service to create an [AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md") in the Amazon Web Services Cloud. For most AWS Managed Microsoft AD deployments,
+You can also use the Directory Service to create an [AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md") in the Amazon Web Services Cloud. For most AWS Managed Microsoft AD deployments,
 you need to configure the Dynamic Host Configuration Protocol (DHCP) service for
 your VPC. For information about creating a DHCP options set, see [Create a DHCP
 options set](../../../directoryservice/latest/admin-guide/dhcp_options_set.md "../../../directoryservice/latest/admin-guide/dhcp_options_set.md") in the _AWS Directory Service Administration Guide_.

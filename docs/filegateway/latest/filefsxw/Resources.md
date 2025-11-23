@@ -16,7 +16,7 @@ resources related to setting up and using AWS Storage Gateway:
 - [Getting activation key](get-activation-key.md "get-activation-key.md") -
   Learn where to find the activation key that you need to provide when you deploy a
   new gateway.
-- [Using AWS Direct Connect](using-dx.md "using-dx.md") - Learn how to create a
+- [Using Direct Connect](using-dx.md "using-dx.md") - Learn how to create a
   dedicated network connection between your on-premises gateway and the AWS
   cloud.
 - [Active Directory
