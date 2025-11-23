@@ -3,7 +3,7 @@
 To enable and use Recycle Bin, you must create _retention rules_ in the AWS Regions
 in which you want to protect your resources. Retention rules specify the following:
 
-- The resource type that you want to protect (snapshots or AMIs).
+- The resource type that you want to protect (volumes, snapshots, or AMIs).
 - The type of retention rule:
   - **Tag-level retention rules** — These retention rules use
     resource tags to identify the resources to protect. For each retention rule, you specify one or
@@ -17,7 +17,11 @@ in which you want to protect your resources. Retention rules specify the followi
     Region.
 
 - The retention period to retain resources after they are deleted. After this period expires, the
-  resources are permanently deleted from the Recycle Bin.
+  resources are permanently deleted from the Recycle Bin. The supported retention periods are:
+
+      + EBS volumes: 1 - 7 days
+      + EBS snapshots and EBS-backed AMIs: 1 - 365 days
+
   While a resource is in the Recycle Bin, you have the ability to restore it for use at any time. The resource
   remains in the Recycle Bin until one of the following happens:
 

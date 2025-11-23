@@ -2,7 +2,7 @@
 
 You can establish a private connection between your VPC and Recycle Bin by creating an
 interface VPC endpoint, powered by [AWS PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.com/privatelink/"). You can access Recycle Bin as if it were in your VPC, without using
-an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC
+an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC
 don't need public IP addresses to communicate with Recycle Bin.
 
 We create an endpoint network interface in each subnet that you enable for the interface

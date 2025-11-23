@@ -98,10 +98,10 @@ for snapshot creation failures. For more information, see [Monitor Data Lifecycl
 No, you can't use local snapshots or AMIs backed by local snapshots to launch Spot Instances
 or a Spot Fleet.
 
-**11. Can I use local snapshots and AMIs backed by local snapshots with Amazon EC2 Auto Scaling?**
+**11. Can I use local snapshots and AMIs backed by local snapshots with Amazon EC2 Amazon EC2 Auto Scaling?**
 
 Yes, you can use local snapshots and AMIs backed by local snapshots to launch Auto Scaling
-groups in a subnet that is on the same Outpost as the snapshots. The Amazon EC2 Auto Scaling group service-linked
+groups in a subnet that is on the same Outpost as the snapshots. The Amazon EC2 Amazon EC2 Auto Scaling group service-linked
 role must have permission to use the KMS key used to encrypt the snapshots.
 
 You can't use local snapshots or AMIs backed by local snapshots to launch Auto Scaling groups

@@ -10,10 +10,12 @@ The following considerations apply when working with Recycle Bin and retention r
   deleted; it is not moved to the Recycle Bin.
 - ###### Important
 
-When you create your first retention rule, it can take up to 30 minutes for
-the rule to become active and for it to start retaining resources. After you
-create the first retention rule, subsequent retention rules become active and
-start retaining resources almost immediately.
+Retention rules follow an eventual consistency model for the first retention rule
+created per resource type, per Region in your account. When you create your first
+retention rule for a resource type in a Region, that rule might not become active and
+start retaining resources immediately. However, any subsequent retention rules you
+create for that same resource type in the same Region will become active and start
+retaining resources almost immediately.
 
 - If a resource matches more than one retention rule upon deletion, then the retention
   rule with the longest retention period takes precedence.
@@ -34,6 +36,22 @@ start retaining resources almost immediately.
 
   You can't manually edit or delete this tag. When the resource is restored from the
   Recycle Bin, the tag is automatically removed.
+
+###### Considerations for volumes
+
+- Volumes deleted due to instance termination or root volume replacement are protected by
+  Recycle Bin.
+- Volumes that fail to be created are not protected by Recycle Bin on deletion.
+- Volumes of failed instance launches are not protected by Recycle Bin on deletion.
+- Volumes of managed instances are not protected by Recycle Bin on deletion.
+- Ongoing volume creation or modification will not be paused when the volume enters
+  Recycle Bin. This means that you are still billed accordingly if the volume was created
+  with an Amazon EBS Provisioned Rate for Volume Initialization.
+- Volumes in Recycle Bin count towards your quotas in the same way as regular volumes.
+- Volumes in Recycle Bin are not billed after their Recycle Bin exit time has elapsed. You
+  cannot restore these volumes but you can discover them if they have not yet been deleted.
+- The `deleteVolume` event will be sent only after the volume is deleted from
+  Recycle Bin. This event is not emitted when the volume enters Recycle Bin.
 
 ###### Considerations for snapshots
 

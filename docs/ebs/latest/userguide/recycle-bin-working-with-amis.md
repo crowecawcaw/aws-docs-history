@@ -1,5 +1,7 @@
 # Recover deleted AMIs from the Recycle Bin
 
+This topic explains how to recover Amazon EBS-backed AMIs from the Recycle Bin.
+
 ###### Topics
 
 - [Permissions for working with AMIs in the Recycle Bin](#ami-perms "#ami-perms")

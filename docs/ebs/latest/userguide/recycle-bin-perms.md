@@ -85,6 +85,7 @@ in the _IAM User Guide_.
 For more information about the IAM permissions needed to work with resources in the
 Recycle Bin, see the following:
 
+- [Permissions for working with volumes in the Recycle Bin](recycle-bin-working-with-volumes.md#volume-perms "recycle-bin-working-with-volumes.md#volume-perms")
 - [Permissions for working with snapshots in the Recycle Bin](recycle-bin-working-with-snaps.md#snap-perms "recycle-bin-working-with-snaps.md#snap-perms")
 - [Permissions for working with AMIs in the Recycle Bin](recycle-bin-working-with-amis.md#ami-perms "recycle-bin-working-with-amis.md#ami-perms")
 

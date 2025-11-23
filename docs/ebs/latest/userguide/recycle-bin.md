@@ -1,7 +1,7 @@
-# Recover deleted Amazon EBS snapshots and EBS-backed AMIs with Recycle Bin
+# Recover deleted EBS volumes, EBS snapshots, and EBS-backed AMIs with Recycle Bin
 
 Recycle Bin is a data recovery feature that enables you to restore accidentally
-deleted Amazon EBS snapshots and EBS-backed AMIs. When using Recycle Bin, if your resources are deleted, they are
+deleted EBS volumes, EBS snapshots, and EBS-backed AMIs. When using Recycle Bin, if your resources are deleted, they are
 retained in the Recycle Bin for a time period that you specify before being permanently deleted.
 
 You can restore a resource from the Recycle Bin at any time before its retention period expires.
@@ -32,6 +32,7 @@ Program (FedRAMP, HIPAA BAA, SOC, etc) which lists Amazon EBS will also apply to
 - [Tag retention rules](recycle-bin-tag-resource.md "recycle-bin-tag-resource.md")
 - [Delete retention rules](recycle-bin-delete-rule.md "recycle-bin-delete-rule.md")
 - [Recover deleted snapshots](recycle-bin-working-with-snaps.md "recycle-bin-working-with-snaps.md")
+- [Recover deleted volumes](recycle-bin-working-with-volumes.md "recycle-bin-working-with-volumes.md")
 - [Recover deleted AMIs](recycle-bin-working-with-amis.md "recycle-bin-working-with-amis.md")
 - [Monitor using EventBridge](rbin-eventbridge.md "rbin-eventbridge.md")
 - [Monitor using CloudTrail](recycle-bin-ct.md "recycle-bin-ct.md")
@@ -42,6 +43,7 @@ Program (FedRAMP, HIPAA BAA, SOC, etc) which lists Amazon EBS will also apply to
 
 Recycle Bin supports the following resource types:
 
+- Amazon EBS volumes
 - Amazon EBS snapshots
 
 ###### Important
@@ -78,6 +80,9 @@ Recycle Bin works with the following services:
 There are no additional charges for using Recycle Bin and retention rules. For more
 information, see [Amazon EBS pricing](https://aws.amazon.com/ebs/pricing/ "https://aws.amazon.com/ebs/pricing/").
 
+- **Amazon EBS volumes** — Volumes
+  in the Recycle Bin are billed at the same rate as regular volumes
+  in your account.
 - **Amazon EBS snapshots** — Snapshots
   in the Recycle Bin are billed at the same rate as regular snapshots
   in your account.

@@ -1,5 +1,7 @@
 # Recover deleted snapshots from the Recycle Bin
 
+This topic explains how to recover Amazon EBS snapshots from the Recycle Bin.
+
 ###### Topics
 
 - [Permissions for working with snapshots in the Recycle Bin](#snap-perms "#snap-perms")

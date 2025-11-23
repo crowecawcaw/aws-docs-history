@@ -995,7 +995,7 @@ Console
 
 ###### To create the SSM command document
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com//systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com//systems-manager/](https://console.aws.amazon.com//systems-manager/ "https://console.aws.amazon.com//systems-manager/").
 2. In the navigation pane, choose **Documents**, then choose
    **Create document**, **Command or Session**.
 3. For **Name**, enter a descriptive name for the document.

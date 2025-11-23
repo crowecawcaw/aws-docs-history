@@ -63,15 +63,15 @@ using the Amazon EC2 console, or specify **--type `sc1`** when using the command
 line. For information about creating EBS volumes, see [Create an Amazon EBS volume](ebs-creating-volume.md "ebs-creating-volume.md"). For information about attaching these volumes to
 your instance, see [Attach an Amazon EBS volume to an Amazon EC2 instance](ebs-attaching-volume.md "ebs-attaching-volume.md").
 
-(_Linux instances only_) AWS provides a JSON template for use with AWS CloudFormation that simplifies this setup procedure.
-Access the [template](https://s3.amazonaws.com/cloudformation-examples/community/st1_cloudformation_template.json "https://s3.amazonaws.com/cloudformation-examples/community/st1_cloudformation_template.json") and save it as a JSON file. AWS CloudFormation allows you to configure your own SSH
+(_Linux instances only_) AWS provides a JSON template for use with CloudFormation that simplifies this setup procedure.
+Access the [template](https://s3.amazonaws.com/cloudformation-examples/community/st1_cloudformation_template.json "https://s3.amazonaws.com/cloudformation-examples/community/st1_cloudformation_template.json") and save it as a JSON file. CloudFormation allows you to configure your own SSH
 keys and offers an easier way to set up a performance test environment to evaluate `st1`
 volumes. The template creates a current-generation instance and a 2 TiB `st1` volume, and
 attaches the volume to the instance at `/dev/xvdf`.
 
 ###### (_Linux instances only_) To create an HDD volume using the template
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Choose **Create Stack**.
 3. Choose **Upload a Template to Amazon S3** and select the JSON

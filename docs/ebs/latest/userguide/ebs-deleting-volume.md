@@ -7,6 +7,10 @@ of the volume, which you can use to re-create the volume later.
 You can't delete a volume if it's attached to an instance. To delete a volume, you must
 first detach it. For more information, see [Detach an Amazon EBS volume from an Amazon EC2 instance](ebs-detaching-volume.md "ebs-detaching-volume.md").
 
+If you delete a volume that matches a Recycle Bin retention rule, the volume is
+retained in the Recycle Bin instead of being immediately deleted. For more information, see
+[Recycle Bin](recycle-bin.md "recycle-bin.md").
+
 Console
 
 ###### To delete an EBS volume

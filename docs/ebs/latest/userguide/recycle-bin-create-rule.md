@@ -2,11 +2,16 @@
 
 When you create a retention rule, you must specify the following required parameters:
 
-- The resource type to protect (snapshots or AMIs).
+- The resource type to protect (volumes, snapshots, or AMIs).
 - The type of retention rule (tag-level or Region-level). Tag-level rules protect only
   resources that have specific tags. Region-level rules protect all resources in the Region,
   but can exclude resources that have specific tags.
-- The retention period, which can be up to 1 year (365 days).
+- The retention period to retain resources after they are deleted. After this period expires, the
+  resources are permanently deleted from the Recycle Bin. The supported retention periods are:
+
+      + EBS volumes: 1 - 7 days
+      + EBS snapshots and EBS-backed AMIs: 1 - 365 days
+
   You can also optionally specify a rule name and description of up to 255 characters each, and
   tags to help you identify and organize your rules. We recommend that you do not include personally
   identifying, confidential, or sensitive information in the name, description, or tags.
@@ -89,9 +94,9 @@ AWS CLI
 
 Use the [create-rule](../../../cli/latest/reference/rbin/create-rule.md "../../../cli/latest/reference/rbin/create-rule.md")
 AWS CLI command. For `--retention-period`, specify the number of days to retain deleted snapshots
-in the Recycle Bin. For `--resource-type`, specify `EBS_SNAPSHOT` for snapshots or
+in the Recycle Bin. For `--resource-type`, specify `EBS_VOLUME` for volumes, `EBS_SNAPSHOT` for snapshots, or
 `EC2_IMAGE` for AMIs. To create a tag-level retention rule, for `--resource-tags`,
-specify the tags to use to identify the snapshots that are to be retained. To create a Region-level
+specify the tags to use to identify the resources that are to be retained. To create a Region-level
 retention rule, omit `--resource-tags`, and optionally specify `--exclude-resource-tags`,
 to exclude resources that have specific tags. To lock a Region-level retention
 rule, include `--lock-configuration`, and specify the unlock delay period in days.
@@ -99,7 +104,7 @@ rule, include `--lock-configuration`, and specify the unlock delay period in day
 ```
 aws rbin create-rule \
 --retention-period RetentionPeriodValue=`number_of_days`,RetentionPeriodUnit=DAYS \
---resource-type `EBS_SNAPSHOT|EC2_IMAGE` \
+--resource-type `EBS_VOLUME|EBS_SNAPSHOT|EC2_IMAGE` \
 --description "`rule_description`" \
 --lock-configuration 'UnlockDelay={UnlockDelayUnit=DAYS,UnlockDelayValue=`unlock_delay_in_days`}' \
 --resource-tags ResourceTagKey=`tag_key`,ResourceTagValue=`tag_value` \

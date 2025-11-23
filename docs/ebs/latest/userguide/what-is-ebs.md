@@ -99,7 +99,7 @@ A set of PowerShell modules that enable you to script operations on your Amazon 
 resources from the PowerShell command line. For more information, see the
 [AWS Tools for PowerShell User Guide](../../../powershell/latest/userguide/pstools-welcome.md "../../../powershell/latest/userguide/pstools-welcome.md") and [AWS Tools for PowerShell Cmdlet Reference](../../../powershell/latest/reference.md "../../../powershell/latest/reference.md").
 
-**AWS CloudFormation**
+**CloudFormation**
 
 A fully managed AWS service that lets you create reusable JSON or YAML
 templates that describe your AWS resources, and then provisions and configures

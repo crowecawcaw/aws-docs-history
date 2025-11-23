@@ -1,6 +1,6 @@
 # Enable Data Lifecycle Manager default policies across accounts and Regions
 
-Using AWS CloudFormation StackSets, you can enable Amazon Data Lifecycle Manager default policies across multiple accounts and
+Using CloudFormation StackSets, you can enable Amazon Data Lifecycle Manager default policies across multiple accounts and
 AWS Regions with a single operation.
 
 You can use stack sets to enable default policies in one of the following ways:
@@ -8,7 +8,7 @@ You can use stack sets to enable default policies in one of the following ways:
 - **Across an AWS organization** — Ensures that default
   policies are enabled and configured consistently across an entire AWS organization or specific
   organizational units in an organization. This is done using _service-managed permissions_.
-  AWS CloudFormation StackSets creates the required IAM roles on your behalf.
+  CloudFormation StackSets creates the required IAM roles on your behalf.
 - **Across specific AWS accounts** — Ensures that default
   policies are enabled and configured consistently across specific target accounts. This requires
   _self-managed permissions_. You create the IAM roles required to establish
@@ -31,7 +31,7 @@ Console
 
 ###### To enable default policies across an AWS organization or across specific target accounts
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. In the navigation pane, choose **StackSets**, then choose
    **Create StackSet**.
@@ -88,7 +88,7 @@ stack resources. 11. For **Managed execution**, choose **Active**. 12. Choose **
 17. For **Specify regions**, select specific Regions in which to enable default policies,
     or choose **Add all Regions** to enable default policies in all Regions.
 18. Choose **Next**.
-19. Review the stack set settings, select **I acknowledge that AWS CloudFormation might create IAM
+19. Review the stack set settings, select **I acknowledge that CloudFormation might create IAM
     resources**, and then choose **Submit**.
 
 AWS CLI

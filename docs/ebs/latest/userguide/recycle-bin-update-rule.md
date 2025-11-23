@@ -49,14 +49,14 @@ AWS CLI
 
 Use the [update-rule](../../../cli/latest/reference/rbin/update-rule.md "../../../cli/latest/reference/rbin/update-rule.md")
 AWS CLI command. For `--identifier`, specify the ID of the retention rule to update For
-`--resource-types`, specify `EBS_SNAPSHOT` for snapshots or `EC2_IMAGE`
+`--resource-types`, specify `EBS_VOLUME` for volumes, `EBS_SNAPSHOT` for snapshots, or `EC2_IMAGE`
 for AMIs.
 
 ```
 aws rbin update-rule \
 --identifier `rule_ID` \
 --retention-period RetentionPeriodValue=`number_of_days`,RetentionPeriodUnit=DAYS \
---resource-type `EBS_SNAPSHOT|EC2_IMAGE` \
+--resource-type `EBS_VOLUME|EBS_SNAPSHOT|EC2_IMAGE` \
 --description "`rule_description`"
 ```
 
