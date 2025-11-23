@@ -26,4 +26,4 @@ change the endpoint URL to an ActiveMQ failover URL.
 ###### Note
 
 To learn more about a phased migration approach from IBM MQ to Amazon MQ, refer to this
-[post](https://aws.amazon.com/blogs/compute/migrating-from-ibm-mq-to-amazon-mq-using-a-phased-approach/ "https://aws.amazon.com/blogs/compute/migrating-from-ibm-mq-to-amazon-mq-using-a-phased-approach/").
+[post](https://aws.amazon.com/blogs//compute/migrating-from-ibm-mq-to-amazon-mq-using-a-phased-approach/ "https://aws.amazon.com/blogs//compute/migrating-from-ibm-mq-to-amazon-mq-using-a-phased-approach/").

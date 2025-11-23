@@ -58,7 +58,7 @@ brokers with
 _public
 network access_. You can also achieve a hybrid solution
 by using
-[AWS VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/") or [AWS Direct Connect](https://aws.amazon.com/directconnect/ "https://aws.amazon.com/directconnect/").
+[Site-to-Site VPN](https://aws.amazon.com//vpn/ "https://aws.amazon.com//vpn/") or [Direct Connect](https://aws.amazon.com//directconnect/ "https://aws.amazon.com//directconnect/").
 
 ###### Tip
 
@@ -69,7 +69,7 @@ For network access across multiple VPCs, you can use [VPC peering](../../../vpc/
 
 ### Availability options
 
-Amazon MQ supports durability-optimized brokers backed by [Amazon Elastic File System (Amazon EFS)](https://aws.amazon.com/efs/ "https://aws.amazon.com/efs/"). You can configure [single-instance
+Amazon MQ supports durability-optimized brokers backed by [Amazon Elastic File System (Amazon EFS)](https://aws.amazon.com//efs/ "https://aws.amazon.com//efs/"). You can configure [single-instance
 brokers](../developer-guide/single-broker-deployment.md "../developer-guide/single-broker-deployment.md") (one broker in one Availability Zone) or [active/standby brokers](../developer-guide/active-standby-broker-deployment.md "../developer-guide/active-standby-broker-deployment.md") (two brokers in two different Availability Zones).
 In either configuration, Amazon MQ can automatically provision infrastructure for high
 message durability by storing messages redundantly across multiple Availability
@@ -138,7 +138,7 @@ latency is due to many factors, such as message size, the type of protocol, the
 number of active producers and consumers, consumption speed, and message
 persistence.
 
-Amazon MQ also supports creating throughput-optimized message brokers backed by [Amazon Elastic Block Store (Amazon EBS)](https://aws.amazon.com/ebs/ "https://aws.amazon.com/ebs/"). These brokers are ideal for
+Amazon MQ also supports creating throughput-optimized message brokers backed by [Amazon Elastic Block Store (Amazon EBS)](https://aws.amazon.com//ebs/ "https://aws.amazon.com//ebs/"). These brokers are ideal for
 applications such as high-volume order processing, stock trading, and text
 processing.
 
@@ -178,7 +178,7 @@ Performance numbers can vary depending on multiple configuration parameters. For
 more information on Amazon MQ throughput measurements, see [Throughput Benchmarks](chapter-benchmarks.md "chapter-benchmarks.md").
 
 You can measure the throughput of your Amazon MQ brokers using [JMS
-Benchmark](https://aws.amazon.com/blogs/compute/measuring-the-throughput-for-amazon-mq-using-the-jms-benchmark/ "https://aws.amazon.com/blogs/compute/measuring-the-throughput-for-amazon-mq-using-the-jms-benchmark/").
+Benchmark](https://aws.amazon.com/blogs//compute/measuring-the-throughput-for-amazon-mq-using-the-jms-benchmark/ "https://aws.amazon.com/blogs//compute/measuring-the-throughput-for-amazon-mq-using-the-jms-benchmark/").
 
 ### Latency
 
@@ -232,7 +232,7 @@ For more information, see [Security Best
 Practices for Amazon MQ](../developer-guide/using-amazon-mq-securely.md "../developer-guide/using-amazon-mq-securely.md") in the _Amazon MQ Developer Guide_.
 
 Amazon MQ encrypts messages at rest and in transit using encryption keys that it manages
-and stores securely in [AWS Key Management Service (AWS KMS)](https://aws.amazon.com/kms/ "https://aws.amazon.com/kms/").
+and stores securely in [AWS Key Management Service (AWS KMS)](https://aws.amazon.com//kms/ "https://aws.amazon.com//kms/").
 AWS KMS
 helps reduce the operational burden and complexity involved in protecting sensitive
 data. With encryption at rest, you can build security-sensitive
@@ -297,4 +297,4 @@ single-instance `mq.t2.micro`
 or
 `mq.t3.micro` broker per month, and up to 5 GB of
 durability-optimized storage per month for one year. For more
-information on the Free Tier, pricing, and associated costs, see [Amazon MQ Pricing](https://aws.amazon.com/amazon-mq/pricing/ "https://aws.amazon.com/amazon-mq/pricing/").
+information on the Free Tier, pricing, and associated costs, see [Amazon MQ Pricing](https://aws.amazon.com//amazon-mq/pricing/ "https://aws.amazon.com//amazon-mq/pricing/").
