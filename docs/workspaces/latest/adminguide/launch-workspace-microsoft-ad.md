@@ -3,7 +3,7 @@
 In this tutorial, we create an AWS Managed Microsoft AD directory. For tutorials
 that use the other options, see [Create a directory for WorkSpaces Personal](launch-workspaces-tutorials.md "launch-workspaces-tutorials.md").
 
-First, create an AWS Managed Microsoft AD directory. AWS Directory Service creates two directory servers, one in each of the
+First, create an AWS Managed Microsoft AD directory. Directory Service creates two directory servers, one in each of the
 private subnets of your VPC. Note that there are no users in the directory initially. You
 will add a user in the next step when you launch the WorkSpace.
 
@@ -54,4 +54,4 @@ will add a user in the next step when you launch the WorkSpace.
    `Creating`. When directory creation is complete (this might take
    a few minutes), the status is `Active`.
    After you’ve created an AWS Managed Microsoft AD directory, you can register it with Amazon WorkSpaces.
-   For more information, see [Register an existing AWS Directory Service directory with WorkSpaces Personal](register-deregister-directory.md "register-deregister-directory.md")
+   For more information, see [Register an existing Directory Service directory with WorkSpaces Personal](register-deregister-directory.md "register-deregister-directory.md")

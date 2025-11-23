@@ -96,7 +96,7 @@ user name
 
 to
 
-1. Open the AWS Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
+1. Open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2. In the list of directories, click the **Directory ID** link of
    the directory for the WorkSpace.
 3. In the **Directory details** section, note the

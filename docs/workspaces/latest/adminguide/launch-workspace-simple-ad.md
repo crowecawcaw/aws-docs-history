@@ -16,7 +16,7 @@ that use the other options, see [Create a directory for WorkSpaces Personal](lau
   [AWS Directory Service pricing terms](https://aws.amazon.com/directoryservice/pricing/ "https://aws.amazon.com/directoryservice/pricing/").
 - [Simple AD](../../../directoryservice/latest/admin-guide/simple_ad_getting_started.md "../../../directoryservice/latest/admin-guide/simple_ad_getting_started.md") currently supports only IPv4 addressing, meaning that when creating a directory,
   the associated VPC will be configured with an IPv4 CIDR block and does not support IPv6 networks.
-  When you create a Simple AD directory. AWS Directory Service creates two directory servers, one in each of the
+  When you create a Simple AD directory. Directory Service creates two directory servers, one in each of the
   private subnets of your VPC. There are no users in the directory initially. Add a user after you create the WorkSpace.
   For more information, see
   [Create a WorkSpace in WorkSpaces Personal](create-workspaces-personal.md "create-workspaces-personal.md")
@@ -73,4 +73,4 @@ WorkSpaces completes the following tasks on your behalf:
 - Creates two security groups, one for directory controllers and another
   for WorkSpaces in the directory.
   After you’ve created an Simple AD directory, you can register it with Amazon WorkSpaces.
-  For more information, see [Register an existing AWS Directory Service directory with WorkSpaces Personal](register-deregister-directory.md "register-deregister-directory.md")
+  For more information, see [Register an existing Directory Service directory with WorkSpaces Personal](register-deregister-directory.md "register-deregister-directory.md")

@@ -20,7 +20,7 @@ by one or more [network interfaces](../../../AWSEC2/latest/UserGuide/using-eni.m
 (also known as elastic network interfaces, or ENIs) with private IP addresses in your VPC subnets.
 
 The VPC interface endpoint connects your VPC directly to the Amazon WorkSpaces API endpoint
-without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. The
+without an internet gateway, NAT device, VPN connection, or Direct Connect connection. The
 instances in your VPC don't need public IP addresses to communicate with the Amazon WorkSpaces API endpoint.
 
 You can create an interface endpoint to connect to Amazon WorkSpaces with either the AWS Management Console

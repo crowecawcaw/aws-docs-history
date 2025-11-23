@@ -53,7 +53,7 @@ WorkSpaces again.
 
 ###### Contents
 
-- [Register an existing AWS Directory Service directory with WorkSpaces Personal](register-deregister-directory.md "register-deregister-directory.md")
+- [Register an existing Directory Service directory with WorkSpaces Personal](register-deregister-directory.md "register-deregister-directory.md")
 - [Select an organizational unit for WorkSpaces Personal](select-ou.md "select-ou.md")
 - [Configure automatic public IP addresses for WorkSpaces Personal](automatic-assignment.md "automatic-assignment.md")
 - [Control device access for WorkSpaces Personal](control-device-access.md "control-device-access.md")

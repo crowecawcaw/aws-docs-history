@@ -8,7 +8,7 @@ trusted devices with valid certificates.
 ###### Note
 
 This feature is currently available only when your WorkSpaces Personal directories are
-managed through AWS Directory Service including Simple AD, AD Connector, and AWS Managed Microsoft AD directory.
+managed through Directory Service including Simple AD, AD Connector, and AWS Managed Microsoft AD directory.
 
 When you enable this feature, WorkSpaces uses certificate-based authentication
 to determine whether a device is trusted. If the WorkSpaces client application

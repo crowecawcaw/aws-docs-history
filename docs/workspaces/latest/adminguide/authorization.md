@@ -1,6 +1,6 @@
 # Authorization of corporate users
 
-With WorkSpaces, directories are managed through the AWS Directory Service. You can create a standalone,
+With WorkSpaces, directories are managed through the Directory Service. You can create a standalone,
 managed directory for users. Or you can integrate with your existing Active Directory
 environment so that your users can use their current credentials to obtain seamless access
 to corporate resources. For more information, see [Manage directories for WorkSpaces Personal](manage-workspaces-directory.md "manage-workspaces-directory.md").

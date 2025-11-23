@@ -89,8 +89,8 @@ DCV](#gp_audio_in_wsp "#gp_audio_in_wsp").
   ticket](group_policy.md#gp_kerberos_ticket "group_policy.md#gp_kerberos_ticket")
 - [Configure device proxy server settings for internet
   access](group_policy.md#gp_device_proxy "group_policy.md#gp_device_proxy")
-  - [Proxying desktop traffic](group_policy.md#w25aac11c29c11c27c15 "group_policy.md#w25aac11c29c11c27c15")
-  - [Recommendation on the use of proxy servers](group_policy.md#w25aac11c29c11c27c17 "group_policy.md#w25aac11c29c11c27c17")
+  - [Proxying desktop traffic](group_policy.md#w2aac11c29c11c27c15 "group_policy.md#w2aac11c29c11c27c15")
+  - [Recommendation on the use of proxy servers](group_policy.md#w2aac11c29c11c27c17 "group_policy.md#w2aac11c29c11c27c17")
 
 - [Enable Zoom Meeting Media Plugin support](group_policy.md#zoom-integration "group_policy.md#zoom-integration")
   - [Enable Zoom Meeting Media Plugin for DCV](group_policy.md#zoom-wsp "group_policy.md#zoom-wsp")
@@ -167,7 +167,7 @@ use the Default Domain Policy to create your GPO. Instead, you must create
 and link the GPO under the domain container that has delegated
 privileges.
 
-When you create a directory with AWS Managed Microsoft AD, AWS Directory Service creates a
+When you create a directory with AWS Managed Microsoft AD, Directory Service creates a
 `yourdomainname` organizational unit (OU) under
 the domain root. The name of this OU is based on the NetBIOS name that you
 typed when you created your directory. If you didn't specify a NetBIOS name,
@@ -1508,7 +1508,7 @@ cannot use the Default Domain Policy to create your GPO. Instead,
 you must create and link the GPO under the domain container that has
 delegated privileges.
 
-When you create a directory with AWS Managed Microsoft AD, AWS Directory Service creates a
+When you create a directory with AWS Managed Microsoft AD, Directory Service creates a
 `yourdomainname` organizational unit
 (OU) under the domain root. The name of this OU is based on the
 NetBIOS name that you typed when you created your directory. If you

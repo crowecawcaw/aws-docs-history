@@ -1,6 +1,6 @@
 # Create a directory for WorkSpaces Personal
 
-WorkSpaces Personal allows you to use directories managed through AWS Directory Service to store and manage information for your WorkSpaces and users.
+WorkSpaces Personal allows you to use directories managed through Directory Service to store and manage information for your WorkSpaces and users.
 Use the following options to create a WorkSpaces Personal directory:
 
 - Create a Simple AD directory.
@@ -34,7 +34,7 @@ Use the following options to create a WorkSpaces Personal directory:
 - Create a virtual private cloud with at least two private subnets. For more information, see
   [Configure a VPC for WorkSpaces Personal](amazon-workspaces-vpc.md "amazon-workspaces-vpc.md"). The VPC must
   be connected to your on-premises network through a virtual private network (VPN)
-  connection or AWS Direct Connect. For more information,
+  connection or Direct Connect. For more information,
   see [AD Connector
   Prerequisites](../../../directoryservice/latest/admin-guide/prereq_connector.md "../../../directoryservice/latest/admin-guide/prereq_connector.md") in the _AWS Directory Service Administration Guide_.
 - Provide access to the internet from the WorkSpace. For more information,

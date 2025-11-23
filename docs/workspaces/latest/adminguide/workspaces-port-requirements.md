@@ -180,25 +180,25 @@ applications. For these checks to finish successfully, your firewall policies mu
 outbound traffic to the IP addresses of the following Regional health check
 servers.
 
-| Region                    | Health check hostname         | IP addresses                                                                                      |
-| ------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------- |
-| US East (N. Virginia)     | drp-iad.amazonworkspaces.com  | 3.209.215.252<br>3.212.50.30<br>3.225.55.35<br>3.226.24.234<br>34.200.29.95<br>52.200.219.150     |
-| US West (Oregon)          | drp-pdx.amazonworkspaces.com  | 34.217.248.177<br>52.34.160.80<br>54.68.150.54<br>54.185.4.125<br>54.188.171.18<br>54.244.158.140 |
-| Asia Pacific (Mumbai)     | drp-bom.amazonworkspaces.com  | 13.127.57.82<br>13.234.250.73                                                                     |
-| Asia Pacific (Seoul)      | drp-icn.amazonworkspaces.com  | 13.124.44.166<br>13.124.203.105<br>52.78.44.253<br>52.79.54.102                                   |
-| Asia Pacific (Singapore)  | drp-sin.amazonworkspaces.com  | 3.0.212.144<br>18.138.99.116<br>18.140.252.123<br>52.74.175.118                                   |
-| Asia Pacific (Sydney)     | drp-syd.amazonworkspaces.com  | 3.24.11.127<br>13.237.232.125                                                                     |
-| Asia Pacific (Tokyo)      | drp-nrt.amazonworkspaces.com  | 18.178.102.247<br>54.64.174.128                                                                   |
-| Canada (Central)          | drp-yul.amazonworkspaces.com  | 52.60.69.16<br>52.60.80.237<br>52.60.173.117<br>52.60.201.0                                       |
-| Europe (Frankfurt)        | drp-fra.amazonworkspaces.com  | 52.59.191.224<br>52.59.191.225<br>52.59.191.226<br>52.59.191.227                                  |
-| Europe (Ireland)          | drp-dub.amazonworkspaces.com  | 18.200.177.86<br>52.48.86.38<br>54.76.137.224                                                     |
-| Europe (London)           | drp-lhr.amazonworkspaces.com  | 35.176.62.54<br>35.177.255.44<br>52.56.46.102<br>52.56.111.36                                     |
-| Europe (Paris)            | drp-cdg.amazonworkspaces.com  | 51.17.52.90<br>51.17.109.231<br>51.16.190.43                                                      |
-| South America (São Paulo) | drp-gru.amazonworkspaces.com  | 18.231.0.105<br>52.67.55.29<br>54.233.156.245<br>54.233.216.234                                   |
-| Africa (Cape Town)        | drp-cpt.amazonworkspaces.com/ | 13.244.128.155<br>13.245.205.255<br>13.245.216.116                                                |
-| Israel (Tel Aviv)         | drp-tlv.amazonworkspaces.com/ | 51.17.52.90<br>51.17.109.231<br>51.16.190.43                                                      |
-| AWS GovCloud (US-West)    | drp-pdt.amazonworkspaces.com  | 52.61.60.65<br>52.61.65.14<br>52.61.88.170<br>52.61.137.87<br>52.61.155.110<br>52.222.20.88       |
-| AWS GovCloud (US-East)    | drp-osu.amazonworkspaces.com  | 18.253.251.70<br>18.254.0.118                                                                     |
+| Region                    | Health check hostname                                                                   | IP addresses                                                                                                                                    |
+| ------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| US East (N. Virginia)     | IPv4:<br>drp-iad.amazonworkspaces.com<br>IPv6:<br>drp-workspaces.us-east-1.api.aws      | IPv4:<br>3.209.215.252<br>3.212.50.30<br>3.225.55.35<br>3.226.24.234<br>34.200.29.95<br>52.200.219.150<br>IPv6:<br>2600:1f18:74e9:4400::/56     |
+| US West (Oregon)          | IPv4:<br>drp-pdx.amazonworkspaces.com<br>IPv6:<br>drp-workspaces.us-west-2.api.aws      | IPv4:<br>34.217.248.177<br>52.34.160.80<br>54.68.150.54<br>54.185.4.125<br>54.188.171.18<br>54.244.158.140<br>IPv6:<br>2600:1f14:278e:5700::/56 |
+| Asia Pacific (Mumbai)     | IPv4:<br>drp-bom.amazonworkspaces.com<br>IPv6:<br>drp-workspaces.ap-south-1.api.aws     | IPv4:<br>13.127.57.82<br>13.234.250.73<br>IPv6:<br>2406:da1a:502:b800::/56                                                                      |
+| Asia Pacific (Seoul)      | IPv4:<br>drp-icn.amazonworkspaces.com<br>IPv6:<br>drp-workspaces.ap-northeast-2.api.aws | IPv4:<br>13.124.44.166<br>13.124.203.105<br>52.78.44.253<br>52.79.54.102<br>IPv6:<br>2406:da12:c8c:4900::/56                                    |
+| Asia Pacific (Singapore)  | IPv4:<br>drp-sin.amazonworkspaces.com<br>IPv6:<br>drp-workspaces.ap-southeast-1.api.aws | IPv4:<br>3.0.212.144<br>18.138.99.116<br>18.140.252.123<br>52.74.175.118<br>IPv6:<br>2406:da18:991:4a00::/56                                    |
+| Asia Pacific (Sydney)     | IPv4:<br>drp-syd.amazonworkspaces.com<br>IPv6:<br>drp-workspaces.ap-southeast-2.api.aws | IPv4:<br>3.24.11.127<br>13.237.232.125<br>IPv6:<br>2406:da1c:9b5:9d00::/56                                                                      |
+| Asia Pacific (Tokyo)      | IPv4:<br>drp-nrt.amazonworkspaces.com<br>IPv6:<br>drp-workspaces.ap-northeast-1.api.aws | IPv4:<br>18.178.102.247<br>54.64.174.128<br>IPv6:<br>2406:da14:785:5300::/56                                                                    |
+| Canada (Central)          | IPv4:<br>drp-yul.amazonworkspaces.com<br>IPv6:<br>drp-workspaces.ca-central-1.api.aws   | IPv4:<br>52.60.69.16<br>52.60.80.237<br>52.60.173.117<br>52.60.201.0<br>IPv6:<br>2600:1f11:759:d900::/56                                        |
+| Europe (Frankfurt)        | IPv4:<br>drp-fra.amazonworkspaces.com<br>IPv6:<br>drp-workspaces.eu-central-1.api.aws   | IPv4:<br>52.59.191.224<br>52.59.191.225<br>52.59.191.226<br>52.59.191.227<br>IPv6:<br>2a05:d014:b5c:500::/56                                    |
+| Europe (Ireland)          | IPv4:<br>drp-dub.amazonworkspaces.com<br>IPv6:<br>drp-workspaces.eu-west-1.api.aws      | IPv4:<br>18.200.177.86<br>52.48.86.38<br>54.76.137.224<br>IPv6:<br>2a05:d018:10ca:f400::/56                                                     |
+| Europe (London)           | IPv4:<br>drp-lhr.amazonworkspaces.com<br>IPv6:<br>drp-workspaces.eu-west-2.api.aws      | IPv4:<br>35.176.62.54<br>35.177.255.44<br>52.56.46.102<br>52.56.111.36<br>IPv6:<br>2a05:d01c:263:f400::/56                                      |
+| Europe (Paris)            | IPv4:<br>drp-cdg.amazonworkspaces.com<br>IPv6:<br>drp-workspaces.eu-west-3.api.aws      | IPv4:<br>51.17.52.90<br>51.17.109.231<br>51.16.190.43<br>IPv6:<br>2a05:d012:16:8600::/56                                                        |
+| South America (São Paulo) | IPv4:<br>drp-gru.amazonworkspaces.com<br>IPv6:<br>drp-workspaces.sa-east-1.api.aws      | IPv4:<br>18.231.0.105<br>52.67.55.29<br>54.233.156.245<br>54.233.216.234<br>IPv6:<br>2600:1f1e:bbf:fa00::/56                                    |
+| Africa (Cape Town)        | IPv4:<br>drp-cpt.amazonworkspaces.com/<br>IPv6:<br>drp-workspaces.af-south-1.api.aws    | IPv4:<br>13.244.128.155<br>13.245.205.255<br>13.245.216.116<br>IPv6:<br>2406:da11:685:2400::/56                                                 |
+| Israel (Tel Aviv)         | IPv4:<br>drp-tlv.amazonworkspaces.com/<br>IPv6:<br>drp-workspaces.il-central-1.api.aws  | IPv4:<br>51.17.52.90<br>51.17.109.231<br>51.16.190.43<br>IPv6:<br>2a05:d025:c78:fc00::/56                                                       |
+| AWS GovCloud (US-West)    | IPv4:<br>drp-pdt.amazonworkspaces.com<br>IPv6:<br>drp-workspaces.us-gov-west-1.api.aws  | IPv4:<br>52.61.60.65<br>52.61.65.14<br>52.61.88.170<br>52.61.137.87<br>52.61.155.110<br>52.222.20.88<br>IPv6:<br>2600:1f12:28f:af00::/56        |
+| AWS GovCloud (US-East)    | IPv4:<br>drp-osu.amazonworkspaces.com<br>IPv6:<br>drp-workspaces.us-gov-east-1.api.aws  | IPv4:<br>18.253.251.70<br>18.254.0.118<br>IPv6:<br>2600:1f15:a45:3e00::/56                                                                      |
 
 ## PCoIP gateway servers
 
@@ -448,7 +448,7 @@ the primary network interface of all WorkSpaces:
 
 - To communicate with the directory controllers, the following ports must be
   open between your WorkSpaces VPC and your directory controllers. For a
-  Simple AD directory, the security group created by AWS Directory Service will have these
+  Simple AD directory, the security group created by Directory Service will have these
   ports configured correctly. For an AD Connector directory, you might need
   to adjust the default security group for the VPC to open these ports.
 

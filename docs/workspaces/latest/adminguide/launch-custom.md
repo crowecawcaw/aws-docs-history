@@ -73,7 +73,7 @@ Create a dedicated WorkSpaces Personal directory that stores information about y
 4. On the **Create directory** page, for **WorkSpaces** type, choose **Personal**.
    For **WorkSpace device management**, choose **Custom**.
 5. For **User identity source**, select the IAM Identity Center instance that you configured in
-   Step 1 from the dropdown list. You won't be able to change the IAM Identity Center
+   [Step 1](../../../index.md "../../../index.md") from the dropdown list. You won't be able to change the IAM Identity Center
    instance associated with the directory once the directory is created.
 
 ###### Note

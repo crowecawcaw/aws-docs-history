@@ -1,10 +1,10 @@
-# Create custom CloudWatch dashboards using AWS CloudFormation
+# Create custom CloudWatch dashboards using CloudFormation
 
 templates
 
-AWS provides AWS CloudFormation templates that you can use to create custom CloudWatch dashboards for
-WorkSpaces. Choose from the following AWS CloudFormation template options to create custom dashboards for
-your WorkSpaces in the AWS CloudFormation console.
+AWS provides CloudFormation templates that you can use to create custom CloudWatch dashboards for
+WorkSpaces. Choose from the following CloudFormation template options to create custom dashboards for
+your WorkSpaces in the CloudFormation console.
 
 ## Considerations before getting
 
@@ -37,14 +37,14 @@ Following is an example of the Help Desk dashboard.
 ![The sample help desk dashboard for CloudWatch.](images/help-desk.png)
 
 Complete the following procedure to create a custom dashboard in CloudWatch using
-AWS CloudFormation.
+CloudFormation.
 
-1. [Open the Create Stack page in the AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=YourStackName&templateURL=https://cfn-templates-global-prod-iad.s3.us-east-1.amazonaws.com/cfn-templates/workspaces_helpdesk_dashboard.yaml "https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=YourStackName&templateURL=https://cfn-templates-global-prod-iad.s3.us-east-1.amazonaws.com/cfn-templates/workspaces_helpdesk_dashboard.yaml"). This link
+1. [Open the Create Stack page in the CloudFormation console](cloudformation/home.md#/stacks/new?stackName=YourStackName&templateURL=https://cfn-templates-global-prod-iad.s3.us-east-1.amazonaws.com/cfn-templates/workspaces_helpdesk_dashboard.yaml "cloudformation/home.md#/stacks/new?stackName=YourStackName&templateURL=https://cfn-templates-global-prod-iad.s3.us-east-1.amazonaws.com/cfn-templates/workspaces_helpdesk_dashboard.yaml"). This link
    opens the page with the Amazon S3 bucket location of the Help Desk custom CloudWatch
    dashboard template pre-populated.
 2. Review the default selections on the **Create Stack**
    page. Note that the **Amazon S3 URL** field is pre-populated
-   with the Amazon S3 bucket location of the AWS CloudFormation template.
+   with the Amazon S3 bucket location of the CloudFormation template.
 3. Choose **Next**.
 4. In the **Stack name** text box, enter the name of the
    stack.
@@ -86,14 +86,14 @@ Following is an example of the Connection Insights dashboard.
 ![The sample connection insights dashboard for CloudWatch.](images/connection-insights.png)
 
 Complete the following procedure to create a custom dashboard in CloudWatch using
-AWS CloudFormation.
+CloudFormation.
 
-1. [Open the Create Stack page in the AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=YourStackName&templateURL=https://cfn-templates-global-prod-iad.s3.us-east-1.amazonaws.com/cfn-templates/workspaces_connection_insights_dashboard.yaml "https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=YourStackName&templateURL=https://cfn-templates-global-prod-iad.s3.us-east-1.amazonaws.com/cfn-templates/workspaces_connection_insights_dashboard.yaml"). This link
+1. [Open the Create Stack page in the CloudFormation console](cloudformation/home.md#/stacks/new?stackName=YourStackName&templateURL=https://cfn-templates-global-prod-iad.s3.us-east-1.amazonaws.com/cfn-templates/workspaces_connection_insights_dashboard.yaml "cloudformation/home.md#/stacks/new?stackName=YourStackName&templateURL=https://cfn-templates-global-prod-iad.s3.us-east-1.amazonaws.com/cfn-templates/workspaces_connection_insights_dashboard.yaml"). This link
    opens the page with the Amazon S3 bucket location of the Connection Insights
    custom CloudWatch dashboard template pre-populated.
 2. Review the default selections on the **Create Stack**
    page. Note that the **Amazon S3 URL** field is pre-populated
-   with the Amazon S3 bucket location of the AWS CloudFormation template.
+   with the Amazon S3 bucket location of the CloudFormation template.
 3. Choose **Next**.
 4. In the **Stack name** text box, enter the name of the
    stack.
@@ -140,19 +140,19 @@ Following is an example of the Internet Monitoring dashboard.
 
 ![The sample Internet Monitoring dashboard for CloudWatch.](images/cw-internet-monitor.png)
 
-###### To create a custom dashboard in CloudWatch using AWS CloudFormation
+###### To create a custom dashboard in CloudWatch using CloudFormation
 
 ###### Note
 
 Before creating a custom dashboard, make sure you create an Internet Monitor with CloudWatch Internet Monitor. For more information, see
 [Creating a monitor in Amazon CloudWatch Internet Monitor using the console](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-IM-get-started.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-IM-get-started.md")
 
-1. [Open the Create Stack page in the AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=YourStackName&templateURL=https://cfn-templates-global-prod-iad.s3.us-east-1.amazonaws.com/cfn-templates/workspaces_cloudwatch_internet_monitor_dashboard.yaml "https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=YourStackName&templateURL=https://cfn-templates-global-prod-iad.s3.us-east-1.amazonaws.com/cfn-templates/workspaces_cloudwatch_internet_monitor_dashboard.yaml"). This link
+1. [Open the Create Stack page in the CloudFormation console](cloudformation/home.md#/stacks/new?stackName=YourStackName&templateURL=https://cfn-templates-global-prod-iad.s3.us-east-1.amazonaws.com/cfn-templates/workspaces_cloudwatch_internet_monitor_dashboard.yaml "cloudformation/home.md#/stacks/new?stackName=YourStackName&templateURL=https://cfn-templates-global-prod-iad.s3.us-east-1.amazonaws.com/cfn-templates/workspaces_cloudwatch_internet_monitor_dashboard.yaml"). This link
    opens the page with the Amazon S3 bucket location of the Internet Monitoring
    custom CloudWatch dashboard template pre-populated.
 2. Review the default selections on the **Create Stack**
    page. Note that the **Amazon S3 URL** field is pre-populated
-   with the Amazon S3 bucket location of the AWS CloudFormation template.
+   with the Amazon S3 bucket location of the CloudFormation template.
 3. Choose **Next**.
 4. In the **Stack name** text box, enter the name of the
    stack.

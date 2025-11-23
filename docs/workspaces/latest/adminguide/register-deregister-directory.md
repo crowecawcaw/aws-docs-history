@@ -1,6 +1,6 @@
-# Register an existing AWS Directory Service directory with WorkSpaces Personal
+# Register an existing Directory Service directory with WorkSpaces Personal
 
-To allow WorkSpaces to use an existing AWS Directory Service directory, you must register it with WorkSpaces.
+To allow WorkSpaces to use an existing Directory Service directory, you must register it with WorkSpaces.
 After you register a directory, you can launch WorkSpaces in the directory.
 
 ###### Requirements
@@ -34,7 +34,7 @@ WorkSpaces again.
 4. On the **Create directory** page, for **WorkSpaces type**
    choose **Personal**. For **WorkSpace device management**,
    choose **AWS Directory Service**.
-5. Select the directory you want to register in the **Directories in AWS Directory Service** table
+5. Select the directory you want to register in the **Directories in Directory Service** table
 6. Select two subnets of your VPC that are not from the same Availability Zone. These subnets will
    be used to launch your WorkSpaces. For more information, see
    [Availability Zones for WorkSpaces Personal](azs-workspaces.md "azs-workspaces.md").
@@ -46,7 +46,7 @@ users to rebuild their WorkSpaces, change volume size, compute type and running 
 Enabling may impact how much you pay for Amazon WorkSpaces. Choose **No** otherwise. 8. Choose **Register**.
 Initially the value of **Registered** is `REGISTERING`.
 After registration is complete, the value is `Yes`.
-After you've registered the AWS Directory Service directory, you can create a personal WorkSpace. For more information, see
+After you've registered the Directory Service directory, you can create a personal WorkSpace. For more information, see
 [Create a WorkSpace in WorkSpaces Personal](create-workspaces-personal.md "create-workspaces-personal.md").
 
 When you are finished using the directory with WorkSpaces, you can deregister it. Note that you must deregister a

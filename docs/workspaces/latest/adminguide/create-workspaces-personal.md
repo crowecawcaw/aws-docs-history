@@ -66,7 +66,7 @@ Now that you have created a directory, you are ready to create a personal WorkSp
 8. Under **Select directory**, enter the following details:
    - Choose the directory that you created. To create a directory, choose
      **Create directory**. For more information about creating personal directories, see
-     [Register an existing AWS Directory Service directory with WorkSpaces Personal](register-deregister-directory.md "register-deregister-directory.md").
+     [Register an existing Directory Service directory with WorkSpaces Personal](register-deregister-directory.md "register-deregister-directory.md").
    - Choose the users from that directory you want to provision personal WorkSpaces for by doing the following.
      1. Choose **Create users**.
      2. Enter the user’s **Username**, **First name**,

@@ -7,7 +7,7 @@ similar to a physical desktop computer assigned to an individual.
 Each WorkSpace is associated with a virtual private cloud
 (VPC), and a directory to store and manage information for your WorkSpaces and users. For
 more information, see [Configure a VPC for WorkSpaces Personal](amazon-workspaces-vpc.md "amazon-workspaces-vpc.md"). Directories are either managed
-by the WorkSpaces service, or through the AWS Directory Service, which offers the following options: Simple AD, AD Connector, or AWS
+by the WorkSpaces service, or through the Directory Service, which offers the following options: Simple AD, AD Connector, or AWS
 Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft
 AD. For more information, see the [AWS Directory Service Administration Guide](../../../directoryservice/latest/admin-guide.md "../../../directoryservice/latest/admin-guide.md").
 
@@ -39,7 +39,7 @@ The following diagram shows the architecture of WorkSpaces that use AD Connector
 
 As a first-time WorkSpaces user, you can choose to set up your WorkSpaces Personal with quick setup or advanced setup.
 The following tutorials describe how to provision a cloud-based desktop, known as a _WorkSpace_
-using WorkSpaces and AWS Directory Service.
+using WorkSpaces and Directory Service.
 
 ###### Note
 
@@ -48,7 +48,7 @@ directory](create-directory-pools.md "create-directory-pools.md").
 
 In this tutorial, you learn how to provision a virtual, cloud-based Microsoft
 Windows, Amazon Linux 2, Ubuntu Linux, Rocky Linux, or Red Hat Enterprise Linux desktop, known as a _WorkSpace_,
-by using WorkSpaces and AWS Directory Service.
+by using WorkSpaces and Directory Service.
 
 This tutorial uses the quick setup option to launch your WorkSpace. This option is
 available only if you have never launched a WorkSpace. Alternatively, see [Create a directory for WorkSpaces Personal](launch-workspaces-tutorials.md "launch-workspaces-tutorials.md").
@@ -123,7 +123,7 @@ Quick setup completes the following tasks on your behalf:
   VPC and enables it for WorkDocs. This Simple AD directory is used to store
   user and WorkSpace information. The first AWS account created by quick
   setup is your admin AWS account. † The directory also has an
-  Administrator account. For more information, see What gets created in the
+  Administrator account. For more information, see [What gets created](../../../index.md "../../../index.md") in the
   _AWS Directory Service Administration Guide_.
 - **Creates the specified AWS accounts and adds
   them to the directory**.
@@ -278,7 +278,7 @@ Support](../userguide/peripheral_devices.md "../userguide/peripheral_devices.md"
 
 In this tutorial, you learn how to provision a virtual, cloud-based Microsoft
 Windows, Amazon Linux, Ubuntu Linux, or Red Hat Enterprise Linux desktop desktop, known as a
-_WorkSpace_, by using WorkSpaces and AWS Directory Service.
+_WorkSpace_, by using WorkSpaces and Directory Service.
 
 This tutorial uses the advanced setup option to launch your WorkSpace.
 

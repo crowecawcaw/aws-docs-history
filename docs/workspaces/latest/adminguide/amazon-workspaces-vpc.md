@@ -32,7 +32,7 @@ which Availability Zones you can use for the subnets of the VPC that you're usin
 
 ## Configure a VPC with private subnets and a NAT gateway
 
-If you use AWS Directory Service to create an AWS Managed Microsoft or a Simple AD, we recommend that you configure
+If you use Directory Service to create an AWS Managed Microsoft or a Simple AD, we recommend that you configure
 the VPC with one public subnet and two private subnets. Configure your directory to launch your WorkSpaces
 in the private subnets. To provide internet access to WorkSpaces in a private subnet, configure a NAT
 gateway in the public subnet.

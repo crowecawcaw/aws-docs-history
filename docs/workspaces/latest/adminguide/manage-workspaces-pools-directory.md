@@ -9,4 +9,4 @@ In this section, we show you how to create and manage directories for WorkSpaces
   directory](create-directory-pools.md "create-directory-pools.md")
 - [Update directory details for your
   WorkSpaces Pools](update-directory-pools-details.md "update-directory-pools-details.md")
-- [Deregister a WorkSpaces Pools directory](deregister-directory-pools.md "deregister-directory-pools.md")
+- [Delete a WorkSpaces Pools directory](delete-directory-pools.md "delete-directory-pools.md")
