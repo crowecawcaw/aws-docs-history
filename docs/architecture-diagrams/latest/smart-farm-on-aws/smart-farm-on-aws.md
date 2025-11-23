@@ -28,7 +28,7 @@ Diagram
    use **Amazon Simple Storage Service** for a
    data lake strategy.
 7. Transfer owned data, like planting records or farm finances, securely into your data
-   lake with **AWS Direct Connect**.
+   lake with **Direct Connect**.
 8. Securely consume data from a sensor ecosystem hosted on AWS with **AWS PrivateLink**.
 9. Empower users with insights delivered via **Amazon API Gateway** or visualizations with **Quick Suite**.
 10. Build and deploy machine learning (ML) models for edge inference with **Amazon SageMaker AI**. Use **Amazon SageMaker Ground Truth** to manage data labeling workflow.
