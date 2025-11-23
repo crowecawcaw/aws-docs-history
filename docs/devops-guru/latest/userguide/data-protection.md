@@ -42,7 +42,7 @@ such as for data at rest, you can configure when you create your project or buil
   and [What is ACM PCA](../../../privateca/latest/userguide.md "../../../privateca/latest/userguide.md").
 - **Encryption of data at-rest**: For all AWS resources
   analyzed by DevOps Guru, the Amazon CloudWatch metrics and data, resource IDs, and AWS CloudTrail events are
-  stored using Amazon S3, Amazon DynamoDB, and Amazon Kinesis. If AWS CloudFormation stacks are used to define the
+  stored using Amazon S3, Amazon DynamoDB, and Amazon Kinesis. If CloudFormation stacks are used to define the
   analyzed resources, then stack data is also collected. DevOps Guru uses the data retention
   policies of Amazon S3, DynamoDB, and Kinesis. Data stored in Kinesis can be retained for up to one year
   and depends on the policies set. Data stored in Amazon S3 and DynamoDB is stored for one year.

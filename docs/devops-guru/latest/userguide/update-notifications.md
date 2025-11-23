@@ -16,7 +16,7 @@ DevOps Guru sends notifications for the following updates:
 - The severity of an insight is upgraded from `Low` or `Medium` to `High`.
 - The status of an insight changes from ongoing to resolved.
 - A recommendation for an insight is identified.
-  DevOps Guru also sends notifications if a selected AWS CloudFormation stack or tag key is invalid when you are attempting to add resources to your DevOps Guru account.
+  DevOps Guru also sends notifications if a selected CloudFormation stack or tag key is invalid when you are attempting to add resources to your DevOps Guru account.
 
 You can choose to receive Amazon SNS notifications for all kinds of updates to an issue or to receive Amazon SNS notifications only when the
 issue is opened, closed, or has a change in severity. By default, you receive notifications for

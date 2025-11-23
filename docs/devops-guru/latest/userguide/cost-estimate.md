@@ -19,7 +19,7 @@ and depend on the percentage of time your analyzed active resources are utilized
 
 ###### Note
 
-For a cost estimate, you can specify only one AWS CloudFormation stack. For your actual coverage boundary, you
+For a cost estimate, you can specify only one CloudFormation stack. For your actual coverage boundary, you
 can specify up to 1000 stacks.
 
 ###### To create a monthly resource analysis cost estimate
@@ -34,16 +34,16 @@ can specify up to 1000 stacks.
    appear.
 4. Choose the resources you want to use to create your estimate.
    - If you want to estimate the cost for DevOps Guru to analyze the resources
-     defined by one AWS CloudFormation stack, do the following.
+     defined by one CloudFormation stack, do the following.
      1. Choose **CloudFormation stack in the current
         Region**.
      2. In **Choose a CloudFormation stack**, choose the
-        name of an AWS CloudFormation stack in your AWS account. You can also enter the
+        name of an CloudFormation stack in your AWS account. You can also enter the
         name of a stack to find it quickly. For information about working
         with and viewing your stacks, see [Working
-        with stacks](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md") in the _AWS CloudFormation User
+        with stacks](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md") in the _CloudFormation User
         Guide_.
-     3. (Optional) If you use an AWS CloudFormation stack that you are currently not
+     3. (Optional) If you use an CloudFormation stack that you are currently not
         analyzing, choose **Enable resource analysis** to
         enable DevOps Guru to start analyzing its resources. This option is not
         available if you have not enabled DevOps Guru or if you are already

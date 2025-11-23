@@ -31,9 +31,9 @@ organization.
    AWS CloudFormation stack sets. To learn more about quick
    setup, see [Configure DevOps Guru with Quick Setup](../../../systems-manager/latest/userguide/quick-setup-devops.md "../../../systems-manager/latest/userguide/quick-setup-devops.md"). To learn more about
    setting up with stack sets, see [Working with
-   stacks](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md") in the _AWS CloudFormation User Guide_, and
+   stacks](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md") in the _CloudFormation User Guide_, and
    [Step 2 – Determine coverage for
-   DevOps Guru](setting-up.md#setting-up-determine-coverage "setting-up.md#setting-up-determine-coverage"). and [Using AWS CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md "working-with-cfn-stacks.md").
+   DevOps Guru](setting-up.md#setting-up-determine-coverage "setting-up.md#setting-up-determine-coverage"). and [Using CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md "working-with-cfn-stacks.md").
 
 ## Onboard with the AWS
 

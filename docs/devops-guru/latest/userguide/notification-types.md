@@ -261,7 +261,7 @@ Notifications for severity upgrades contain the following information:
 
 ## Resource validation failure
 
-You can use AWS CloudFormation stacks and AWS tags to filter and identify the AWS resources that you want DevOps Guru to analyze.
+You can use CloudFormation stacks and AWS tags to filter and identify the AWS resources that you want DevOps Guru to analyze.
 When you choose an invalid stack or tag for DevOps Guru to identify resources with,
 DevOps Guru creates a `SELECTED_RESOURCE_FILTER_VALIDATION_FAILURE` notification.
 This can happen when the tag or stack name that you specify does not have resources associated with it.

@@ -9,7 +9,7 @@ AWS Region for each AWS account.
 | ----------------------------------------------------------------------------------- | --- |
 | Maximum number of Amazon Simple Notification Service topics you can specify at once | 2   |
 
-## AWS CloudFormation stacks
+## CloudFormation stacks
 
 |                                                             |      |
 | ----------------------------------------------------------- | ---- |

@@ -27,7 +27,7 @@ resources are grouped in applications. You have four boundary coverage options.
   If a resource in your account is not defined by a stack you choose, it is not
   analyzed. For
   more information, see [Working with stacks](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md") in
-  the _AWS CloudFormation User Guide_ and [Determine coverage for
+  the _CloudFormation User Guide_ and [Determine coverage for
   DevOps Guru](setting-up.md#setting-up-determine-coverage "setting-up.md#setting-up-determine-coverage").
 - Specify resources by using AWS tags. DevOps Guru either analyzes all the resources in
   your account and Region or all the resources that contain the tag key that you choose.
@@ -75,7 +75,7 @@ information about the supported services and resources, see
            quickly locate a specific stack. You can select up to 1,000
            stacks.
 
-      For more information, see [Using AWS CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md "working-with-cfn-stacks.md").
+      For more information, see [Using CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md "working-with-cfn-stacks.md").
 
     - Choose **Tags** if you want DevOps Guru to analyze all
       resources that contain the tags you choose. Choose a _key_, then

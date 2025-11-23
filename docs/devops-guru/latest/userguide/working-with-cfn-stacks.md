@@ -1,4 +1,4 @@
-# Using AWS CloudFormation stacks to identify resources in your DevOps Guru applications
+# Using CloudFormation stacks to identify resources in your DevOps Guru applications
 
 You can use AWS CloudFormation stacks to specify which AWS resources you want DevOps Guru to analyze. A
 stack is a collection of AWS resources that are managed as a single unit. The resources in
@@ -23,7 +23,7 @@ grouped into insights](working-with-insights.md#how-insights-are-grouped "workin
 
 ## Choosing stacks for DevOps Guru to analyze
 
-Specify the resources that you want Amazon DevOps Guru to analyze by choosing the AWS CloudFormation stacks
+Specify the resources that you want Amazon DevOps Guru to analyze by choosing the CloudFormation stacks
 that create them. You can do this using the AWS Management Console or the SDK.
 
 ###### Topics
@@ -65,6 +65,6 @@ You can add AWS CloudFormation stacks using the console.
 
 SDK)
 
-To specify AWS CloudFormation stacks using the Amazon DevOps Guru SDK, use the
+To specify CloudFormation stacks using the Amazon DevOps Guru SDK, use the
 `UpdateResourceCollection` method. For more information, see [UpdateResourceCollection](../APIReference/API_UpdateResourceCollection.md "../APIReference/API_UpdateResourceCollection.md") in the _Amazon DevOps Guru API
 Reference_.

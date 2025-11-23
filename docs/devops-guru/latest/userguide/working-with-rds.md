@@ -1,12 +1,11 @@
-# Overview of DevOps Guru for RDS
+# Working with anomalies in DevOps Guru for RDS
 
-Following, you can find a summary of the key benefits and features of DevOps Guru for RDS.
-For background on insights and anomalies, see [DevOps Guru concepts](concepts.md "concepts.md").
+DevOps Guru detects, analyzes, and provides recommendations for supported AWS resources, including Amazon RDS
+engines. For Amazon Aurora and RDS for PostgreSQL database instances with Performance Insights turned on, DevOps Guru for RDS provides detailed,
+database-specific analyses of performance issues and recommends corrective actions.
 
 ###### Topics
 
-- [Benefits of DevOps Guru for RDS](working-with-rds.overview.md "working-with-rds.overview.md")
-- [Key concepts for database performance tuning](working-with-rds.overview.md "working-with-rds.overview.md")
-- [Key concepts for DevOps Guru for RDS](working-with-rds.overview.md "working-with-rds.overview.md")
-- [How DevOps Guru for RDS works](working-with-rds.overview.md "working-with-rds.overview.md")
-- [Supported database engines](working-with-rds.overview.md "working-with-rds.overview.md")
+- [Overview of DevOps Guru for RDS](working-with-rds.md "working-with-rds.md")
+- [Enabling DevOps Guru for RDS](working-with-rds.md "working-with-rds.md")
+- [Analyzing anomalies in Amazon RDS](working-with-rds.md "working-with-rds.md")

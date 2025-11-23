@@ -4,7 +4,7 @@ resources
 
 Amazon DevOps Guru groups the resources that are in the coverage boundary that specifies which
 resources it analyzes for operational insights. The resources are grouped by resources in
-AWS CloudFormation stacks or by resources with tags. You choose the stacks or tags when you set up DevOps Guru.
+CloudFormation stacks or by resources with tags. You choose the stacks or tags when you set up DevOps Guru.
 You can also update the stacks or tags later. We recommend that you think of your resource
 groups as applications. For example, you might have all resources that you use for a
 monitoring application defined in one stack. Or you might add the same tag to all the
@@ -20,8 +20,8 @@ You can define your coverage boundary that contains the resources in your applic
 - Specify that all supported AWS resources in your AWS account and Region. This makes your account and
   Region your resource boundary. With this option, DevOps Guru analyzes every supported resource in your account and Region. All
   resources that are in one stack are grouped into an application. Any resources that are not in a stack are grouped into their own application.
-- Use AWS CloudFormation stacks to specify the resources in your applications. A stack contains resources that are
-  generated using AWS CloudFormation. In DevOps Guru, you choose stacks in your account. The resources you in each stack you choose are grouped
+- Use CloudFormation stacks to specify the resources in your applications. A stack contains resources that are
+  generated using CloudFormation. In DevOps Guru, you choose stacks in your account. The resources you in each stack you choose are grouped
   into an application. All resources in the stacks are analyzed by DevOps Guru for insights.
 - Use AWS tags to specify the resources in your applications. An AWS tag contains a
   _key_ and a _value_. In DevOps Guru, choose one
@@ -34,4 +34,4 @@ You can define your coverage boundary that contains the resources in your applic
 
 - [Using tags to identify resources in your DevOps Guru
   applications](working-with-resource-tags.md "working-with-resource-tags.md")
-- [Using AWS CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md "working-with-cfn-stacks.md")
+- [Using CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md "working-with-cfn-stacks.md")

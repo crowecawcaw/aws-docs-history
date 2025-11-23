@@ -52,7 +52,7 @@ using tags.
 
     * Amazon API Gateway paths and routes
     * Amazon DynamoDB streams
-    * Amazon EC2 Auto Scaling group instances
+    * Amazon EC2 Amazon EC2 Auto Scaling group instances
     * AWS Elastic Beanstalk environments
     * Amazon Redshift nodes
 
@@ -95,7 +95,7 @@ Insight overview
 
 Use this section to get a high-level overview of the insight. You can see
 the status of the insight (_Ongoing_ or
-_Closed_), how many AWS CloudFormation stacks are affected, when
+_Closed_), how many CloudFormation stacks are affected, when
 the insight started, ended, and was last updated, and the related operations
 item if there is one.
 
@@ -127,9 +127,9 @@ Aggregated metrics
 
 Choose the **Aggregated metrics** tab to view metrics
 that are related to the insight. In the table, each row represents one
-metric. You can see which AWS CloudFormation stack created the resource that emitted the
+metric. You can see which CloudFormation stack created the resource that emitted the
 metric, the name of the resource, and its type. Not all metrics are
-associated with an AWS CloudFormation stack or have a name.
+associated with an CloudFormation stack or have a name.
 
 When there are multiple resources anomalous at the same time, the timeline
 view aggregates the resources and presents their anomalous metrics in a
@@ -218,7 +218,7 @@ _account level_ insight.
 How a stack is grouped can depend on how you configured your resource analysis
 coverage in Amazon DevOps Guru.
 
-**If your coverage is defined by AWS CloudFormation
+**If your coverage is defined by CloudFormation
 stacks**
 
 All resources contained in the stacks you choose are analyzed, and all

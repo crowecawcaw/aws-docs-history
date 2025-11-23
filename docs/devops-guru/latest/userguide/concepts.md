@@ -67,11 +67,11 @@ of your application. The recommendation includes the following:
 - A description of the recommendation actions to address the anomalies that comprise the
   insight.
 - A list of the analyzed metrics in which DevOps Guru found anomalous behavior. Each metric
-  includes the name of the AWS CloudFormation stack that generated the resource associated with the
+  includes the name of the CloudFormation stack that generated the resource associated with the
   metrics, the resource's name, and the name of the AWS service associated with the
   resource.
 - A list of the events that are related to the anomalous metrics associated with the
-  insight. Each related event contains the name of the AWS CloudFormation stack that generated the
+  insight. Each related event contains the name of the CloudFormation stack that generated the
   resource associated with the event, the name of the resource that generated the event, and
   the name of the AWS service associated with the event.
 - A list of log groups that are related to the anomalous behavior associated with the insight.

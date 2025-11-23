@@ -7,7 +7,7 @@ recommendations to improve application availability based on your historic usage
 
 Beyond capacity planning, DevOps Guru detects and helps you troubleshoot operational issues such as throttling, transaction conflicts,
 conditional check failures, and areas for improvement in SDK parameters. Databases are typically connected with multiple services and resources,
-and DevOps Guru can correlate your application structure for analysis using groups based on tagging or AWS CloudFormation aggregation.
+and DevOps Guru can correlate your application structure for analysis using groups based on tagging or CloudFormation aggregation.
 Anomalies can involve multiple resources that are all affected by the same solution.
 DevOps Guru is capable of correlating across different resource metrics, configurations, logs, and events.
 For example, DevOps Guru can analyze and relate data from a Lambda function that might be reading or writing data from a Amazon DynamoDB table.

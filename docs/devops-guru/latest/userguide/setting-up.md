@@ -95,7 +95,7 @@ for anomalous behavior. We recommend that you group your resources into your ope
 applications. All the resources in your resource boundary should comprise one or more of
 your applications. If you have one operational solution, then your coverage boundary
 should include all of its resources. If you have multiple applications, choose the
-resources that make up each solution and group them together using AWS CloudFormation stacks or AWS
+resources that make up each solution and group them together using CloudFormation stacks or AWS
 tags. All of the combined resources you specify, whether they define one or more
 applications, are analyzed by DevOps Guru and make up its coverage boundary.
 
@@ -106,11 +106,11 @@ solutions.
   With this option, DevOps Guru analyzes all resources in your account and
   Region. This is a good option to choose if you use your account for only one
   application.
-- Use AWS CloudFormation stacks to define the resources in your operational application.
-  AWS CloudFormation templates define and generate your resources for you. Specify the stacks
+- Use CloudFormation stacks to define the resources in your operational application.
+  CloudFormation templates define and generate your resources for you. Specify the stacks
   that create your application resources when you configure DevOps Guru. You can update
   your stacks at any time. All of the resources in the stacks that you choose
-  define your boundary coverage. For more information, see [Using AWS CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md "working-with-cfn-stacks.md").
+  define your boundary coverage. For more information, see [Using CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md "working-with-cfn-stacks.md").
 - Use AWS tags to specify AWS resources in your applications. DevOps Guru analyzes
   only the resources that contain the tags you choose. Those resources make up
   your boundary.

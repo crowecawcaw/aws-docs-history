@@ -1,14 +1,14 @@
 # Step 3: Specify your DevOps Guru resource coverage
 
 If you chose to specify AWS resources later when you enabled DevOps Guru, you need to
-choose the AWS CloudFormation stacks in your AWS account that create the resources you want
-analyzed. An AWS CloudFormation stack is a collection of AWS resources that you manage as a single
+choose the CloudFormation stacks in your AWS account that create the resources you want
+analyzed. An CloudFormation stack is a collection of AWS resources that you manage as a single
 unit. You can use one or more stacks to include all the resources required to run your
 operational applications, then specify them so that they are analyzed by DevOps Guru. If you
 don't specify stacks, then DevOps Guru analyzes all the AWS resources in your account. For
 more information, see [Working with stacks](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md") in
-the _AWS CloudFormation User Guide_, and [Determine coverage for
-DevOps Guru](setting-up.md#setting-up-determine-coverage "setting-up.md#setting-up-determine-coverage"). and [Using AWS CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md "working-with-cfn-stacks.md").
+the _CloudFormation User Guide_, and [Determine coverage for
+DevOps Guru](setting-up.md#setting-up-determine-coverage "setting-up.md#setting-up-determine-coverage"). and [Using CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md "working-with-cfn-stacks.md").
 
 ###### Note
 
@@ -41,7 +41,7 @@ For more information about supported services and resources, see [Amazon DevOps�
            quickly locate a specific stack. You can select up to 1,000
            stacks.
 
-      For more information, see [Using AWS CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md "working-with-cfn-stacks.md").
+      For more information, see [Using CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md "working-with-cfn-stacks.md").
 
     - Choose **Tags** if you want DevOps Guru to analyze all
       resources that contain the tags you choose. Choose a _key_, then
