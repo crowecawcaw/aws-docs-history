@@ -78,9 +78,9 @@ Amazon Athena data source](create-config-table-athena.md "create-config-table-at
 Amazon Athena?](../../../athena/latest/ug/what-is.md "../../../athena/latest/ug/what-is.md") in the _Amazon Athena User
 Guide_
 
-- **AWS CloudFormation**
+- **CloudFormation**
 
-Create the following resources in AWS CloudFormation: collaborations, configured tables, configured table associations, and memberships
+Create the following resources in CloudFormation: collaborations, configured tables, configured table associations, and memberships
 
 For more information, see [Creating AWS Clean Rooms resources with
 AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").
