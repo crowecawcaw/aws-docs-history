@@ -19,7 +19,7 @@ feature. Not all Amazon Q Business data source connectors support Amazon VPC.
 If your data source isn't running on Amazon VPC and isn't accessible from
 the public internet, you first connect your data source to your VPC using a virtual
 private network (VPN). Then, you can connect your data source to Amazon Q Business by using a combination of Amazon VPC and AWS Virtual Private Network. For
-information about setting up a VPN, see the [AWS VPN documentation](../../../vpn.md "../../../vpn.md").
+information about setting up a VPN, see the [Site-to-Site VPN documentation](../../../vpn.md "../../../vpn.md").
 
 ###### Topics
 

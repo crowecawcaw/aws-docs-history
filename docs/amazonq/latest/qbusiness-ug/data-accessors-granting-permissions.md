@@ -180,6 +180,8 @@ ISVs:
   `arn:aws:iam::431569694887:role/ep-copilot-production-us-west-2-q-index-role-tti`
 - Amplience —
   `arn:aws:iam::123645302184:role/q-index-isv-role`
+- Saviynt —
+  `arn:aws:iam::249469748895:role/ispm-isv-qindex`
 
 ### Action
 

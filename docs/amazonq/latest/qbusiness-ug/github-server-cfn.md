@@ -10,7 +10,7 @@ configuration details specific to your data source connector.
 
 To learn more about AWS CloudFormation, see
 [What is AWS CloudFormation?](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
-in the _AWS CloudFormation User Guide_.
+in the _CloudFormation User Guide_.
 
 ###### Topics
 
@@ -83,7 +83,7 @@ property for AWS CloudFormation.
 configuration property with AWS CloudFormation
 
 The following is the GitHub (Server) JSON schema for the configuration property for
-AWS CloudFormation
+CloudFormation
 
 ```
 {
@@ -645,7 +645,7 @@ AWS CloudFormation
 using the configuration property with AWS CloudFormation
 
 The following is the GitHub (Server) JSON schema example for the configuration
-property for AWS CloudFormation
+property for CloudFormation
 
 ```
 {
@@ -741,7 +741,7 @@ property for AWS CloudFormation:
 configuration property with AWS CloudFormation
 
 The following is the GitHub (Server) YAML schema for the configuration property for
-AWS CloudFormation.
+CloudFormation.
 
 ```
 type: object
@@ -1155,7 +1155,7 @@ required:
 using the configuration property with AWS CloudFormation
 
 The following is the GitHub (Server) YAML example for the Configuration property for
-AWS CloudFormation:
+CloudFormation:
 
 ```
 AWSTemplateFormatVersion: "2010-09-09"

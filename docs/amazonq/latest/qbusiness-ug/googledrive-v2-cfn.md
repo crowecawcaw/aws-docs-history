@@ -10,17 +10,17 @@ configuration details specific to your data source connector.
 
 To learn more about AWS CloudFormation, see
 [What is AWS CloudFormation?](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
-in the _AWS CloudFormation User Guide_.
+in the _CloudFormation User Guide_.
 
 ###### Topics
 
-- [Google Drive New AWS CloudFormation template](#googledrive-v2-cfn-template "#googledrive-v2-cfn-template")
+- [Google Drive New CloudFormation template](#googledrive-v2-cfn-template "#googledrive-v2-cfn-template")
 
-## Google Drive New AWS CloudFormation template
+## Google Drive New CloudFormation template
 
-The following is the Google Drive New AWS CloudFormation template. Copy and save this template to a file on your local drive.
+The following is the Google Drive New CloudFormation template. Copy and save this template to a file on your local drive.
 
-For more information about AWS CloudFormation templates, see [Working with AWS CloudFormation templates](../../../https:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.md "../../../https:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.md") in the _AWS CloudFormation User Guide_.
+For more information about CloudFormation templates, see [Working with CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") in the _CloudFormation User Guide_.
 
 ```
 {

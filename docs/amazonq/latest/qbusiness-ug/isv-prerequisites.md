@@ -88,3 +88,8 @@ For Amplience, the Tenant ID is the Hub ID. You can use the following instructio
 1. Within Amplience Dynamic Content, switch into the Hub you wish to connect.
 2. Select the settings icon in the top right corner and select the **Properties** menu item.
 3. The Hub ID will be displayed with a copy to clipboard option.
+
+Saviynt
+For Saviynt, the Tenant ID is the FQDN from the Saviynt Console. You can use the following instructions to retrieve the Saviynt FQDN.
+
+The URL will look similar to this example https://ispm-dev.saviyntcloud.com/ and the tenant id from this example will be "ispm-dev.saviyntcloud.com"
