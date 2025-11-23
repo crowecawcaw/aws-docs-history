@@ -202,6 +202,9 @@ DATABASE` command was issued. This type of restore means that you
 
 - SQL Server Web Edition only allows you to use the **Dev/Test** template when
   creating a new RDS for SQL Server DB instance.
+- SQL Server Web Edition is designed for web hosters and web VAPs to host public and
+  internet-accessible web pages, websites, web applications, and web services. For more information, see
+  [Licensing Microsoft SQL Server on Amazon RDS](SQLServer.Concepts.General.md "SQLServer.Concepts.General.md").
 
 ## Compliance program support for Microsoft SQL Server DB instances
 

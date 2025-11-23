@@ -305,7 +305,7 @@ The following diagram depicts a Multi-AZ DB instance deployment, where Amazon RD
 provisions and maintains a synchronous standby replica in a different Availability Zone.
 The replica database doesn't serve read traffic.
 
-![High availability scenario for a Multi-AZ instance deployment](images/con-multi-AZ.png)
+![High availability scenario for a Multi-AZ instance deployment](/images/AmazonRDS/latest/UserGuide/images/con-multi-AZ.png)
 
 The following diagram depicts a Multi-AZ DB cluster deployment, which has a writer
 DB instance and two reader DB instances in three separate Availability Zones in the same

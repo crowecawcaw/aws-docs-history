@@ -29,6 +29,11 @@ For more information about MariaDB supported versions and version management, se
 Database engine upgrades require downtime. The duration of the downtime varies based
 on the size of your DB instance.
 
+Amazon RDS also supports upgrade rollout policy to manage automatic minor version upgrades
+across multiple database resources and AWS accounts. For more information,
+see [Using AWS Organizations upgrade rollout policy
+for automatic minor version upgrades](RDS.Maintenance.AMVU.md "RDS.Maintenance.AMVU.md").
+
 ###### Tip
 
 You can minimize the downtime required for DB instance upgrade by using a blue/green deployment. For more information,

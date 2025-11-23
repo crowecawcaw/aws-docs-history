@@ -58,7 +58,7 @@ The following general limitations apply to blue/green deployments:
   - Amazon RDS Proxy
   - Cascading read replicas
   - Cross-Region read replicas
-  - AWS CloudFormation
+  - CloudFormation
   - Multi-AZ DB cluster deployments
 
   Blue/green deployments are supported for Multi-AZ DB instance deployments. For

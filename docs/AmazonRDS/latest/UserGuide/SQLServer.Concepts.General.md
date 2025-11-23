@@ -1,23 +1,50 @@
-# Change data capture support for Microsoft SQL Server DB instances
+# Features not supported and features with limited support
 
-Amazon RDS supports change data capture (CDC) for your DB instances running Microsoft SQL
-Server. CDC captures changes that are made to the data in your tables, and stores
-metadata about each change that you can access later. For more information, see [Change data capture](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture "https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture") in the Microsoft documentation.
+The following Microsoft SQL Server features aren't supported on Amazon RDS:
 
-Amazon RDS supports CDC for the following SQL Server editions and versions:
+- Backing up to Microsoft Azure Blob Storage
+- Buffer pool extension
+- Custom password policies
+- Data Quality Services
+- Database Log Shipping
+- Database snapshots (Amazon RDS supports only DB instance snapshots)
+- Extended stored procedures, including xp_cmdshell
+- FILESTREAM support
+- File tables
+- Machine Learning and R Services (requires OS access to install it)
+- Maintenance plans
+- Performance Data Collector
+- Policy-Based Management
+- PolyBase
+- Replication
+- Resource Governor
 
-- Microsoft SQL Server Enterprise Edition (All versions)
-- Microsoft SQL Server Standard Edition:
+In a multi-tenancy environment, we recommend understanding performance
+requirements and considerations to minimize problems due to workload
+competition for resources.
 
-      + 2022
-      + 2019
-      + 2017
-      + 2016 version 13.00.4422.0 SP1 CU2 and later
+- Server-level triggers
+- Service Broker endpoints
+- Stretch database
+- TRUSTWORTHY database property (requires sysadmin role)
+- T-SQL endpoints (all operations using CREATE ENDPOINT are unavailable)
+- WCF Data Services
+  The following Microsoft SQL Server features have limited support on Amazon RDS:
 
-  To use CDC with your Amazon RDS DB instances, first enable or disable CDC at the database
-  level by using RDS-provided stored procedures. After that, any user that has the
-  `db_owner` role for that database can use the native Microsoft stored
-  procedures to control CDC on that database. For more information, see [Using change data capture for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md").
+- Distributed queries/linked servers. For more information, see [Implement linked servers with
+  Amazon RDS for Microsoft SQL Server](https://aws.amazon.com/blogs/database/implement-linked-servers-with-amazon-rds-for-microsoft-sql-server/ "https://aws.amazon.com/blogs/database/implement-linked-servers-with-amazon-rds-for-microsoft-sql-server/").
+- Common Runtime Language (CLR). On RDS for SQL Server 2016 and lower versions, CLR is supported in `SAFE` mode and
+  using assembly bits only. CLR isn't supported on RDS for SQL Server 2017 and higher versions. For more information, see [Common Runtime Language Integration](https://docs.microsoft.com/en-us/sql/relational-databases/clr-integration/common-language-runtime-integration-overview "https://docs.microsoft.com/en-us/sql/relational-databases/clr-integration/common-language-runtime-integration-overview") in the Microsoft documentation.
+- Link servers with Oracle OLEDB in Amazon RDS for SQL Server. For more information,
+  see [Support for Linked
+  Servers with Oracle OLEDB in Amazon RDS for SQL Server](Appendix.SQLServer.Options.md "Appendix.SQLServer.Options.md").
+  The following features aren't supported on Amazon RDS with SQL Server 2022:
 
-You can use CDC and AWS Database Migration Service to enable ongoing replication from SQL Server DB
-instances.
+- Suspend database for snapshot
+- External Data Source
+- Backup and restore to S3 compatible object storage
+- Object store integration
+- TLS 1.3 and MS-TDS 8.0
+- Backup compression offloading with QAT
+- SQL Server Analysis Services (SSAS)
+- Database mirroring with Multi-AZ deployments. SQL Server Always On is the only supported method with Multi-AZ deployments.

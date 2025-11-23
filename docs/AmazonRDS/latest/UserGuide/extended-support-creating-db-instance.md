@@ -10,7 +10,7 @@ If you use the console, you must select **Enable RDS Extended Support**. The
 setting isn't selected by default.
 
 If you use the AWS CLI or the RDS API and don't specify the RDS Extended Support setting, Amazon RDS
-defaults to enabling RDS Extended Support. When you automate by using [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md#aws-resource-rds-dbinstance-return-values:~:text=EngineLifecycleSupport "../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md#aws-resource-rds-dbinstance-return-values:~:text=EngineLifecycleSupport") or other services, this default behavior maintains the availability of
+defaults to enabling RDS Extended Support. When you automate by using [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md#aws-resource-rds-dbinstance-return-values:~:text=EngineLifecycleSupport "../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md#aws-resource-rds-dbinstance-return-values:~:text=EngineLifecycleSupport") or other services, this default behavior maintains the availability of
 your database past the RDS end of standard support date.
 
 You can prevent enrollment in RDS Extended Support by using the [AWS CLI](#extended-support-creating-db-instance-create-cli "#extended-support-creating-db-instance-create-cli") or the [RDS API](#extended-support-creating-db-instance-create-api "#extended-support-creating-db-instance-create-api") to create

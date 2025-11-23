@@ -5,8 +5,8 @@ PostgreSQL
 You can use Kerberos to authenticate users when they connect to your DB
 instance running PostgreSQL. To do so, configure your
 DB instance to use AWS Directory Service for Microsoft Active Directory for Kerberos authentication.
-AWS Directory Service for Microsoft Active Directory is also called AWS Managed Microsoft AD. It's a feature available with AWS Directory Service. To
-learn more, see [What is AWS Directory Service?](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md") in the
+AWS Directory Service for Microsoft Active Directory is also called AWS Managed Microsoft AD. It's a feature available with Directory Service. To
+learn more, see [What is Directory Service?](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md") in the
 _AWS Directory Service Administration Guide_.
 
 To start, create an AWS Managed Microsoft AD directory to store user credentials. Then, provide to
@@ -62,7 +62,7 @@ To set up Kerberos authentication for a PostgreSQL DB instance, take the followi
 steps, described in more detail later:
 
 1. Use AWS Managed Microsoft AD to create an AWS Managed Microsoft AD directory. You can use the
-   AWS Management Console, the AWS CLI, or the AWS Directory Service API to create the directory. Make sure to
+   AWS Management Console, the AWS CLI, or the Directory Service API to create the directory. Make sure to
    open the relevant outbound ports on the directory security group so that the
    directory can communicate with the instance.
 2. Create a role that provides Amazon RDS access to
@@ -78,7 +78,7 @@ _IAM User Guide_. 3. Create and configure users in the AWS Managed Microsoft AD 
 Active Directory tools. For more information about creating users in your Active
 Directory, see [Manage
 users and groups in AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/ms_ad_manage_users_groups.md "../../../directoryservice/latest/admin-guide/ms_ad_manage_users_groups.md") in the
-_AWS Directory Service Administration Guide_. 4. If you plan to locate the directory and the DB instance in different AWS
+_Directory Service Administration Guide_. 4. If you plan to locate the directory and the DB instance in different AWS
 accounts or virtual private clouds (VPCs), configure VPC peering. For more
 information, see [What is VPC
 peering?](../../../vpc/latest/peering/Welcome.md "../../../vpc/latest/peering/Welcome.md") in the _Amazon VPC Peering Guide_. 5. Create or modify a PostgreSQL DB

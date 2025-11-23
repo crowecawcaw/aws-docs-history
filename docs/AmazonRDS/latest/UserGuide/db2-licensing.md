@@ -180,7 +180,7 @@ accounts centrally.
 To track license usage of your RDS for Db2 DB instances, you must create self-managed
 licenses. You can create self-managed licenses by using the AWS Management Console, the AWS License Manager
 CLI, and the AWS License Manager API. Or, you can automate the creation of self-managed
-licenses with AWS CloudFormation and Terraform templates.
+licenses with CloudFormation and Terraform templates.
 
 RDS for Db2 resources that match the product information filter are automatically
 associated with the self-managed license. Discovery of RDS for Db2 DB instances can
@@ -329,10 +329,10 @@ operation with the following required parameters:
 
 self-managed licenses in AWS License Manager with templates
 
-You can automate the creation of self-managed licenses by using AWS CloudFormation and
+You can automate the creation of self-managed licenses by using CloudFormation and
 Terraform templates.
 
-The following example AWS CloudFormation template creates self-managed licenses for Db2
+The following example CloudFormation template creates self-managed licenses for Db2
 Standard Edition on RDS for Db2. For a template for Db2 Advanced Edition, update
 the values for `Name`, `Description`, and
 `ProductInformationFilter`.
@@ -358,7 +358,7 @@ Resources:
               ProductInformationFilterComparator: "EQUALS"
 ```
 
-For more information about using AWS CloudFormation with Amazon RDS, see [Creating Amazon RDS
+For more information about using CloudFormation with Amazon RDS, see [Creating Amazon RDS
 resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").
 
 The following example Terraform template creates self-managed
@@ -401,10 +401,10 @@ Terraform as an IaC tool for the AWS Cloud](../../../prescriptive-guidance/lates
 licenses
 
 In the following table, you can find details about the settings for creating
-self-managed licenses by using the AWS License Manager CLI, the AWS License Manager API, an AWS CloudFormation
+self-managed licenses by using the AWS License Manager CLI, the AWS License Manager API, an CloudFormation
 template, and a Terraform template. The parameter name in the
 following table appears in the format of the name used in the AWS License Manager API and
-the AWS CloudFormation template.
+the CloudFormation template.
 
 | Parameter name                     | Data type        | Required | Description                                                                                                                  |
 | ---------------------------------- | ---------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
@@ -489,7 +489,7 @@ subscriptions without deleting your DB instances, Amazon RDS will continue to bi
 for the use of the DB instances. For more information, see [Deleting a DB instance](USER_DeleteInstance.md "USER_DeleteInstance.md").
 
 You can view bills and manage payments for your RDS for Db2 DB instances that use Db2
-license through AWS Marketplace in the [AWS Billing console](https://console.aws.amazon.com/https://console.aws.amazon.com/billing "https://console.aws.amazon.com/https://console.aws.amazon.com/billing"). Your
+license through AWS Marketplace in the [AWS Billing console](https://console.aws.amazon.com/billing "https://console.aws.amazon.com/billing"). Your
 bills includes two charges: one for your usage of Db2 license through AWS Marketplace and one
 for your usage of Amazon RDS. For more information about billing, see [Viewing your
 bill](../../../awsaccountbilling/latest/aboutv2/getting-viewing-bill.md "../../../awsaccountbilling/latest/aboutv2/getting-viewing-bill.md") in the _AWS Billing and Cost Management User Guide_.

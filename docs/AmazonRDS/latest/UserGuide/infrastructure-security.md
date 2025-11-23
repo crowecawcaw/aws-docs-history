@@ -44,5 +44,5 @@ the internet](USER_VPC.md#USER_VPC.Hiding "USER_VPC.md#USER_VPC.Hiding").
 ###### Note
 
 If your DB instance is in a VPC but isn't publicly accessible, you can also use an AWS Site-to-Site VPN connection or
-an AWS Direct Connect connection to access it from a private network. For more information, see
+an Direct Connect connection to access it from a private network. For more information, see
 [Internetwork traffic privacy](inter-network-traffic-privacy.md "inter-network-traffic-privacy.md").

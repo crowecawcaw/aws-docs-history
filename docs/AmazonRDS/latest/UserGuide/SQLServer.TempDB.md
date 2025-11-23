@@ -1,37 +1,53 @@
-# Modifying tempdb database options
+# Shrinking the tempdb database
 
-You can modify the database options on the `tempdb` database on your Amazon RDS DB
-instances. For more information about which options can be modified, see [tempdb
-database](https://msdn.microsoft.com/en-us/library/ms190768%28v=sql.120%29.aspx "https://msdn.microsoft.com/en-us/library/ms190768%28v=sql.120%29.aspx") in the Microsoft documentation.
+There are two ways to shrink the `tempdb` database on your Amazon RDS DB instance. You
+can use the `rds_shrink_tempdbfile` procedure, or you can set the
+`SIZE` property,
 
-Database options such as the maximum file size options are persistent after you restart your
-DB instance. You can modify the database options to optimize performance when importing
-data, and to prevent running out of storage.
+## Using the rds_shrink_tempdbfile
 
-## Optimizing performance when
+procedure
 
-importing data
+You can use the Amazon RDS procedure `msdb.dbo.rds_shrink_tempdbfile` to shrink the
+`tempdb` database. You can only call
+`rds_shrink_tempdbfile` if you have `CONTROL` access to
+`tempdb`. When you call `rds_shrink_tempdbfile`, there is
+no downtime for your DB instance.
 
-To optimize performance when importing large amounts of data into your DB instance, set the
-`SIZE` and `FILEGROWTH` properties of the tempdb database
-to large numbers. For more information about how to optimize `tempdb`,
-see [Optimizing tempdb performance](https://technet.microsoft.com/en-us/library/ms175527%28v=sql.120%29.aspx "https://technet.microsoft.com/en-us/library/ms175527%28v=sql.120%29.aspx") in the Microsoft documentation.
+The `rds_shrink_tempdbfile` procedure has the following parameters.
 
-The following example demonstrates setting the size to 100 GB and file growth to
-10 percent.
+| Parameter name   | Data type | Default | Required | Description                              |
+| ---------------- | --------- | ------- | -------- | ---------------------------------------- |
+| `@temp_filename` | SYSNAME   | —       | required | The logical name of the file to shrink.  |
+| `@target_size`   | int       | null    | optional | The new size for the file, in megabytes. |
 
-```
-alter database[tempdb] modify file (NAME = N'`templog`', SIZE=`100GB`, FILEGROWTH = `10%`)
-```
-
-## Preventing storage
-
-problems
-
-To prevent the `tempdb` database from using all available disk space, set the
-`MAXSIZE` property. The following example demonstrates setting the
-property to 2048 MB.
+The following example gets the names of the files for the `tempdb`
+database.
 
 ```
-alter database [tempdb] modify file (NAME = N'`templog`', MAXSIZE = `2048MB`)
+use tempdb;
+GO
+
+select name, * from sys.sysfiles;
+GO
+```
+
+The following example shrinks a `tempdb` database file named
+`test_file`, and requests a new size of `10` megabytes:
+
+```
+exec msdb.dbo.rds_shrink_tempdbfile @temp_filename = N'`test_file`', @target_size = `10`;
+```
+
+## Setting the SIZE property
+
+You can also shrink the `tempdb` database by setting the `SIZE`
+property and then restarting your DB instance. For more information about restarting
+your DB instance, see [Rebooting a DB instance](USER_RebootInstance.md "USER_RebootInstance.md").
+
+The following example demonstrates setting the `SIZE` property to 1024
+MB.
+
+```
+alter database [tempdb] modify file (NAME = N'`templog`', SIZE = `1024MB`)
 ```

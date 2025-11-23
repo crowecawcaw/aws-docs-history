@@ -1651,9 +1651,7 @@ The following example shows the archive log retention setting for a database
 called `TESTDB`.
 
 ```
-db2 "call rdsadmin.show_archive_log_retention(
-    ?,
-    'TESTDB')"
+db2 "call rdsadmin.show_archive_log_retention(?,'TESTDB')"
 ```
 
 ## rdsadmin.list_archive_log_information

@@ -1,55 +1,84 @@
-# Connecting to your DB instance using IAM authentication
+# Troubleshooting for IAM DB authentication
 
-With IAM database authentication, you use an authentication token when you connect
-to your DB instance. An _authentication token_ is a
-string of characters that you use instead of a password. After you generate an
-authentication token, it's valid for 15 minutes before it expires. If you try to
-connect using an expired token, the connection request is denied.
+Following, you can find troubleshooting ideas for some common IAM DB authentication
+issues and information on CloudWatch logs and metrics for IAM DB authentication.
 
-Every authentication token must be accompanied by a valid signature, using AWS
-signature version 4. (For more information, see [Signature Version 4 signing
-process](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") in the _AWS General Reference._) The AWS CLI
-and an AWS SDK, such as the AWS SDK for Java or AWS SDK for Python (Boto3), can automatically sign each token you create.
+## Exporting IAM DB authentication error logs to CloudWatch Logs
 
-You can use an authentication token when you connect to
-Amazon RDS from another AWS service,
-such as AWS Lambda. By using a token, you can avoid placing a password in your code.
-Alternatively, you can use an AWS SDK to programmatically create and programmatically sign an
-authentication token.
+IAM DB authentication error logs are stored on the database host,
+and you can export these logs your CloudWatch Logs account. Use the logs and
+remediation methods in this page to troubleshoot IAM DB authentication issues.
 
-After you have a signed IAM authentication token, you can connect to an Amazon RDS DB instance. Following, you can find out how to do this using either a command
-line tool or an AWS SDK, such as the AWS SDK for Java or AWS SDK for Python (Boto3).
+You can enable log exports to CloudWatch Logs from the console, AWS CLI, and RDS API. For console instructions, see
+[Publishing database logs to Amazon CloudWatch Logs](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md").
 
-For more information, see the following blog posts:
+To export your IAM DB authentication error logs to CloudWatch Logs when creating a
+DB instance from the AWS CLI, use the following command:
 
-- [Use IAM authentication to connect with SQL Workbench/J to Aurora MySQL or Amazon RDS for MySQL](https://aws.amazon.com/blogs/database/use-iam-authentication-to-connect-with-sql-workbenchj-to-amazon-aurora-mysql-or-amazon-rds-for-mysql/ "https://aws.amazon.com/blogs/database/use-iam-authentication-to-connect-with-sql-workbenchj-to-amazon-aurora-mysql-or-amazon-rds-for-mysql/")
-- [Using IAM authentication to connect with pgAdmin Amazon Aurora PostgreSQL or Amazon RDS for PostgreSQL](https://aws.amazon.com/blogs/database/using-iam-authentication-to-connect-with-pgadmin-amazon-aurora-postgresql-or-amazon-rds-for-postgresql/ "https://aws.amazon.com/blogs/database/using-iam-authentication-to-connect-with-pgadmin-amazon-aurora-postgresql-or-amazon-rds-for-postgresql/")
+```
+aws rds create-db-instance --db-instance-identifier `mydbinstance` \
+--region `us-east-1` \
+--db-instance-class `db.t3.large` \
+--allocated-storage `50` \
+--engine `postgres` \
+--engine-version `16` \
+--port `5432` \
+--master-username `master` \
+--master-user-password `password` \
+--publicly-accessible \
+--enable-iam-database-authentication \
+*--enable-cloudwatch-logs-exports=iam-db-auth-error*
+```
 
-###### Prerequisites
+To export your IAM DB authentication error logs to CloudWatch Logs when modifying a DB instance
+from the AWS CLI, use the following command:
 
-The following are prerequisites for connecting to your DB instance using IAM authentication:
+```
+aws rds modify-db-instance --db-instance-identifier `mydbinstance` \
+--region `us-east-1` \
+*--cloudwatch-logs-export-configuration '{"EnableLogTypes":["iam-db-auth-error"]}'*
+```
 
-- [Enabling and disabling IAM database
-  authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-- [Creating and using an IAM policy for
-  IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-- [Creating a database account using
-  IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
+To verify if your DB instance
+is exporting IAM DB authentication logs to CloudWatch Logs, check if the `EnabledCloudwatchLogsExports`
+parameter is set to `iam-db-auth-error` in the output for the `describe-db-instances` command.
 
-###### Topics
+```
+aws rds describe-db-instances --region us-east-1 --db-instance-identifier `mydbinstance`
+            ...
 
-- [Connecting to your DB instance using IAM authentication with the AWS drivers](IAMDBAuth.Connecting.md "IAMDBAuth.Connecting.md")
-- [Connecting to your DB
-  instance using IAM authentication from the command line: AWS CLI and
-  mysql client](UsingWithRDS.IAMDBAuth.Connecting.md "UsingWithRDS.IAMDBAuth.Connecting.md")
-- [Connecting to
-  your DB instance using IAM authentication from the command line: AWS CLI and psql
-  client](UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.md "UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.md")
-- [Connecting to your DB instance
-  using IAM authentication and the AWS SDK for .NET](UsingWithRDS.IAMDBAuth.Connecting.md "UsingWithRDS.IAMDBAuth.Connecting.md")
-- [Connecting to your DB instance
-  using IAM authentication and the AWS SDK for Go](UsingWithRDS.IAMDBAuth.Connecting.md "UsingWithRDS.IAMDBAuth.Connecting.md")
-- [Connecting to your DB instance
-  using IAM authentication and the AWS SDK for Java](UsingWithRDS.IAMDBAuth.Connecting.md "UsingWithRDS.IAMDBAuth.Connecting.md")
-- [Connecting to your DB instance
-  using IAM authentication and the AWS SDK for Python (Boto3)](UsingWithRDS.IAMDBAuth.Connecting.md "UsingWithRDS.IAMDBAuth.Connecting.md")
+             "EnabledCloudwatchLogsExports": [
+                "iam-db-auth-error"
+            ],
+            ...
+
+```
+
+## IAM DB authentication CloudWatch metrics
+
+Amazon RDS delivers near-real time metrics
+about IAM DB authentication to your Amazon CloudWatch account.
+The following table lists the IAM DB authentication metrics available using CloudWatch:
+
+| Metric                                              | Description                                                                                                                       |
+| --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `IamDbAuthConnectionRequests`                       | Total number of connection requests made with IAM DB<br>authentication.                                                           |
+| `IamDbAuthConnectionSuccess`                        | Total number of successful IAM DB authentication<br>requests.                                                                     |
+| `IamDbAuthConnectionFailure`                        | Total number of failed IAM DB authentication<br>requests.                                                                         |
+| `IamDbAuthConnectionFailureInvalidToken`            | Total number of failed IAM DB authentication requests due to<br>invalid token.                                                    |
+| `IamDbAuthConnectionFailureInsufficientPermissions` | Total number of failed IAM DB authentication requests due to<br>incorrect policies or permissions.                                |
+| `IamDbAuthConnectionFailureThrottling`              | Total number of failed IAM DB authentication requests due to<br>IAM DB authentication throttling.                                 |
+| `IamDbAuthConnectionFailureServerError`             | Total number of failed IAM DB authentication requests due to<br>an internal server error in the IAM DB authentication<br>feature. |
+
+## Common issues and solutions
+
+You might encounter the following issues when using IAM DB authention. Use the remediation steps
+in the table to solve the issues:
+
+| Error                                                                                                                                                                                                                                                                                                                  | Metric(s)                                                                           | Cause                                                                                                                                                                                                                                                                                                                                                                 | Solution                                                                                                                                                                                                                        |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `[ERROR] Failed to authenticate the connection request for<br>user `db_user` because the provided<br>token is malformed or otherwise invalid. (Status Code: 400,<br>Error Code: InvalidToken)`                                                                                                                         | `IamDbAuthConnectionFailure`<br>`IamDbAuthConnectionFailureInvalidToken`            | The IAM DB authentiation token in the connection request is<br>either not a valid SigV4a token, or it is not formatted<br>correctly.                                                                                                                                                                                                                                  | Check your token generation strategy in your application. In some<br>cases, make sure you are passing the token with valid formatting.<br>Truncating the token (or incorrect string formatting) will make the<br>token invalid. |
+| `[ERROR] Failed to authenticate the connection request for<br>user `db_user` because the token age is<br>longer than 15 minutes. (Status Code: 400, Error<br>Code:ExpiredToken)`                                                                                                                                       | `IamDbAuthConnectionFailure`<br>`IamDbAuthConnectionFailureInvalidToken`            | The IAM DB authentication token has expired. Tokens are only<br>valid for 15 minutes.                                                                                                                                                                                                                                                                                 | Check your token caching and/or token re-use logic in your<br>application. You should not re-use tokens that are older than 15<br>minutes.                                                                                      |
+| `[ERROR] Failed to authorize the connection request for user<br>`db_user` because the IAM policy<br>assumed by the caller 'arn:aws:sts::123456789012:assumed-role/<br><RoleName>/ <RoleSession>' is not authorized to perform<br>`rds-db:connect` on the DB instance. (Status Code: 403, Error<br>Code:NotAuthorized)` | `IamDbAuthConnectionFailure`<br>`IamDbAuthConnectionFailureInsufficientPermissions` | This error might be due to the following reasons:<br>• The IAM policy assumed by the application does not<br>authorize the `rds-db:connect` action.<br>• You are assuming the incorrect role/policy for<br>`db_user` to connect to the<br>database.<br>• You are assuming the correct policy for<br>`db_user`, but you are not<br>connecting to the correct database. | Verify that the IAM role and/or policy you are assuming in your<br>application. Make sure you assume the same policy to generate the<br>token as to connect to the DB.                                                          |
+| `[ERROR] Failed to authorize the connection request for user<br>`db_user` due to IAM DB<br>authentication throttling. (Status Code: 429, Error Code:<br>ThrottlingException)`                                                                                                                                          | `IamDbAuthConnectionFailure`<br>`IamDbAuthConnectionFailureThrottling`              | You are making too many connection requests to your DB in a short<br>amount of time. IAM DB authentication throttling limit is 200<br>connections per second.                                                                                                                                                                                                         | Reduce the rate of establishing new connections with IAM<br>authentication. Consider implementing connection pooling using RDS Proxy in<br>order to reuse established connections in your application.                          |
+| `[ERROR] Failed to authorize the connection request for user<br>`db_user` due to an internal IAM<br>DB authentication error. (Status Code: 500, Error Code: InternalError)`                                                                                                                                            | `IamDbAuthConnectionFailure`<br>`IamDbAuthConnectionFailureThrottling`              | There was an internal error while authorizing the<br>DB conneciton with IAM DB authentication.                                                                                                                                                                                                                                                                        | Reach out to https://aws.amazon.com/premiumsupport/ to investigate the issue.                                                                                                                                                   |

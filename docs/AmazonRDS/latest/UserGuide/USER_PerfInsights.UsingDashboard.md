@@ -1,122 +1,40 @@
-# Overview of the Performance Insights dashboard
+# Accessing more SQL text in the Performance Insights dashboard
 
-The dashboard is the easiest way to interact with Performance Insights. The following example shows the dashboard for a PostgreSQL DB
-instance.
+By default, each row in the **Top SQL** table shows 500 bytes of SQL text for each SQL statement.
 
-![Filter metrics](images/perf_insights_0b.png)
+![500 bytes of SQL](images/perf-insights-top-sql-bytes.png)
+When a SQL statement exceeds 500 bytes, you can view more text in the **SQL text** section below the **Top
+SQL** table. In this case, the maximum length for the text displayed in **SQL text** is 4 KB. This limit is
+introduced by the console and is subject to the limits set by the database engine. To save the text shown in **SQL text**,
+choose **Download**.
 
 ###### Topics
 
-- [Time range filter](#USER_PerfInsights.UsingDashboard.Components.time-range "#USER_PerfInsights.UsingDashboard.Components.time-range")
-- [Counter metrics chart](#USER_PerfInsights.UsingDashboard.Components.Countermetrics "#USER_PerfInsights.UsingDashboard.Components.Countermetrics")
-- [Database load chart](#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions "#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions")
-- [Top dimensions
-  table](#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable "#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable")
+- [Text size limits for Amazon RDS engines](#sql-text-engine-limits "#sql-text-engine-limits")
+- [Setting the SQL text limit for Amazon RDS for PostgreSQL DB
+  instances](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")
+- [Viewing and downloading SQL text in the Performance Insights
+  dashboard](view-download-text.md "view-download-text.md")
 
-## Time range filter
+## Text size limits for Amazon RDS engines
 
-By default, the Performance Insights dashboard shows DB load for the last hour. You can adjust this range to be as short as 5 minutes or as
-long as 2 years. You can also select a custom relative range.
+When you download SQL text, the database engine determines its maximum length. You can download SQL text up to the following per-engine
+limits.
 
-![Performance Insights relative time](images/perf-insights-relative-time.png)
+| DB engine                           | Maximum length of downloaded text                                                                                                                        |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon RDS for MySQL and MariaDB    | The length is fixed at 4,096 bytes when the Performance Schema is enabled. If the Performance Schema isn't enabled, the length is fixed at 65,535 bytes. |
+| Amazon RDS for Microsoft SQL Server | 4,096 characters                                                                                                                                         |
+| Amazon RDS for Oracle               | 1,000 bytes                                                                                                                                              |
 
-You can select an absolute range with a beginning and ending date and time. The following example shows the time range beginning at midnight on
-9/25/24 and ending at 11:59 PM on 9/28/24.
+The **SQL text** section of the Performance Insights console displays up to the maximum that the engine returns. For example,
+if MySQL returns at most 1 KB to Performance Insights, it can only collect and show 1 KB, even
+if the original query is larger. Thus, when you view the query in **SQL text** or download it, Performance Insights
+returns the same number of bytes.
 
-![Performance Insights absolute time](images/perf-insights-absolute-time.png)
+If you use the AWS CLI or API, Performance Insights doesn't have the 4 KB limit enforced by the console.
+`DescribeDimensionKeys` and `GetResourceMetrics` return at most 500 bytes.
 
-By default, the time zone for the Performance Insights dashboard is Coordinated Universal Time (UTC). You can also choose the local time zone.
+###### Note
 
-![Select the local time zone for your Performance Insights dashboard](images/perf-insights-local-time-zone.png)
-
-## Counter metrics chart
-
-With counter metrics, you can customize the Performance Insights dashboard to include up to 10 additional graphs.
-These graphs show a selection of dozens of operating system and database performance metrics. You can correlate this
-information with DB load to help identify and analyze performance problems.
-
-The **Counter metrics** chart displays data for performance counters. The default
-metrics depend on the DB engine:
-
-- MySQL and MariaDB – `db.SQL.Innodb_rows_read.avg`
-- Oracle – `db.User.user calls.avg`
-- Microsoft SQL Server – `db.Databases.Active Transactions(_Total).avg`
-- PostgreSQL – `db.Transactions.xact_commit.avg`
-
-![Counter metrics](images/oracle_perf_insights_counters.png)
-
-To change the performance counters, choose **Manage Metrics**. You can select multiple
-**OS metrics** or **Database metrics**, as
-shown in the following screenshot. To see details for any metric, hover over the metric name.
-
-![Filter metrics](images/perf_insights_select_metrics.png)
-
-For descriptions of the counter metrics that you can add for each DB engine, see [Performance Insights counter metrics](USER_PerfInsights_Counters.md "USER_PerfInsights_Counters.md").
-
-## Database load chart
-
-The **Database load** chart shows how the database activity compares to DB instance
-capacity as represented by the **Max vCPU** line. By default, the stacked line
-chart represents DB load as average active sessions per unit of time. The DB load is sliced (grouped) by wait
-states.
-
-![Database load](images/perf_insights_2.png)
-
-### DB load sliced by
-
-dimensions
-
-You can choose to display load as active sessions grouped by any supported dimensions. The following table shows
-which dimensions are supported for the different engines.
-
-| Dimension    | Oracle | SQL Server | PostgreSQL | MySQL |
-| ------------ | ------ | ---------- | ---------- | ----- |
-| Host         | Yes    | Yes        | Yes        | Yes   |
-| SQL          | Yes    | Yes        | Yes        | Yes   |
-| User         | Yes    | Yes        | Yes        | Yes   |
-| Waits        | Yes    | Yes        | Yes        | Yes   |
-| Plans        | Yes    | No         | No         | No    |
-| Application  | No     | No         | Yes        | No    |
-| Database     | No     | No         | Yes        | Yes   |
-| Session type | No     | No         | Yes        | No    |
-
-The following image shows the dimensions for a PostgreSQL DB instance.
-
-![Filter metrics](images/perf_insights_2b.png)
-
-### DB load details for
-
-a dimension item
-
-To see details about a DB load item within a dimension, hover over the item name. The following image shows
-details for a SQL statement.
-
-![Database load item details](images/perf_insights_2c.png)
-
-To see details for any item for the selected time period in the legend, hover over that item.
-
-![Time period details for DB load](images/perf_insights_3.png)
-
-## Top dimensions
-
-table
-
-The Top dimensions table slices DB load by different dimensions. A dimension is a category or "slice by" for
-different characteristics of DB load. If the dimension is SQL, **Top SQL** shows the SQL
-statements that contribute the most to DB load.
-
-![Top N dimensions](images/perf_insights_4c.png)
-
-Choose any of the following dimension tabs.
-
-| Tab               | Description                                                   | Supported engines                                  |
-| ----------------- | ------------------------------------------------------------- | -------------------------------------------------- |
-| Top SQL           | The SQL statements that are currently running                 | All                                                |
-| Top waits         | The event for which the database backend is waiting           | All                                                |
-| Top hosts         | The host name of the connected client                         | All                                                |
-| Top users         | The user logged in to the database                            | All                                                |
-| Top databases     | The name of the database to which the client is connected     | PostgreSQL, MySQL, MariaDB, and SQL Server<br>only |
-| Top applications  | The name of the application that is connected to the database | PostgreSQL and SQL Server only                     |
-| Top session types | The type of the current session                               | PostgreSQL only                                    |
-
-To learn how to analyze queries by using the **Top SQL** tab, see [Overview of the Top SQL tab](USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.md#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL "USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.md#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL").
+`GetDimensionKeyDetails` returns the full query, but the size is subject to the engine limit.

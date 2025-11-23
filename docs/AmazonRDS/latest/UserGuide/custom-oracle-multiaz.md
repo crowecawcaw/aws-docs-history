@@ -74,7 +74,7 @@ prerequisites.
 
 ###### Important
 
-To simplify setup, we recommend that you use the latest AWS CloudFormation template file
+To simplify setup, we recommend that you use the latest CloudFormation template file
 provided in the network setup instructions. For more information, see [Deploying RDS Custom for Oracle with AWS CloudFormation](custom-oracle-multiaz-deployment.md "custom-oracle-multiaz-deployment.md").
 
 You can create an RDS Custom for Oracle instance with a Multi-AZ deployment by choosing the

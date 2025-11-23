@@ -78,7 +78,6 @@ For Linux, macOS, or Unix:
 aws iam create-policy \
    --policy-name rds-s3-import-policy \
    --policy-document '{
-
      "Version": "2012-10-17",
      "Statement": [
        {

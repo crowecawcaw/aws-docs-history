@@ -92,7 +92,7 @@ place for storing and managing credentials for multiple DB instances
 .
 
 To use credentials from your self-managed Active Directory,
-you need to setup a trust relationship to the AWS Directory Service for Microsoft Active Directory that the
+you need to setup a trust relationship to the Directory Service for Microsoft Active Directory that the
 DB instance
 is joined to.
 
@@ -107,7 +107,7 @@ This requires your self-managed Active Directory to have additional settings. Th
 Microsoft SQL Server and PostgreSQL DB instances support
 one-way and two-way forest trust relationships. Oracle DB instances support one-way and
 two-way external and forest trust relationships. For more information, see [When to create a trust
-relationship](../../../directoryservice/latest/admin-guide/setup_trust.md "../../../directoryservice/latest/admin-guide/setup_trust.md") in the _AWS Directory Service Administration
+relationship](../../../directoryservice/latest/admin-guide/setup_trust.md "../../../directoryservice/latest/admin-guide/setup_trust.md") in the _Directory Service Administration
 Guide_.
 
 For information about Kerberos authentication with a

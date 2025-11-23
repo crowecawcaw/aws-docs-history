@@ -40,7 +40,7 @@ Security for MySQL DB instances is managed at three levels:
     with AWS Directory Service for Microsoft Active Directory (AWS Managed Microsoft AD) to enable Kerberos authentication. When users
     authenticate with a MySQL DB instance joined to the trusting domain, authentication
     requests are forwarded. Forwarded requests go to the domain directory that you
-    create with AWS Directory Service. For more information, see [Using Kerberos authentication for Amazon RDS for MySQL](mysql-kerberos.md "mysql-kerberos.md").
+    create with Directory Service. For more information, see [Using Kerberos authentication for Amazon RDS for MySQL](mysql-kerberos.md "mysql-kerberos.md").
     When you create an Amazon RDS DB instance, the master user has the following default
     privileges:
 

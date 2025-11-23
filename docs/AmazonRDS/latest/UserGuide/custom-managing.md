@@ -1,49 +1,41 @@
-# Working with container databases (CDBs) in
+# Working with high availability features for RDS Custom for Oracle
 
-RDS Custom for Oracle
+RDS Custom for Oracle provides built-in high availability through Multi-AZ deployments. Alternatively, you can use Oracle Data Guard as a customer-managed option based on your use cases.
 
-You can either create your RDS Custom for Oracle DB instance with the Oracle multitenant architecture
-(`custom-oracle-ee-cdb` or `custom-oracle-se2-cdb` engine type) or
-with the traditional non-CDB architecture (`custom-oracle-ee` or
-`custom-oracle-se2` engine type). When you create a container database (CDB), it
-contains one pluggable database (PDB) and one PDB seed. You can create additional PDBs manually
-using Oracle SQL.
+## Multi-AZ deployments
 
-## PDB and CDB names
+(fully-managed)
 
-When you create an RDS Custom for Oracle CDB instance, you specify a name for the initial PDB. By
-default, your initial PDB is named `ORCL`. You can choose a different name.
+With Multi-AZ deployments for RDS Custom for Oracle, Amazon RDS automatically provisions and
+maintains a synchronous standby replica in a different Availability Zone (AZ). The
+primary DB instance is synchronously replicated across AZs to a standby replica for data
+redundancy. Multi-AZ deployment is supported in both the Enterprise Edition and the
+Standard Edition 2. See [Managing a Multi-AZ deployment for RDS Custom for Oracle](custom-oracle-multiaz.md "custom-oracle-multiaz.md") for details.
 
-By default, your CDB is named `RDSCDB`. You can choose a different name. The CDB
-name is also the name of your Oracle system identifier (SID), which uniquely identifies
-the memory and processes that manage your CDB. For more information about the Oracle SID, see
-[Oracle System Identifier (SID)](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/oracle-database-instance.html#GUID-8BB8140D-63ED-454E-AAC3-1964F80D102D "https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/oracle-database-instance.html#GUID-8BB8140D-63ED-454E-AAC3-1964F80D102D") in _Oracle Database
-Concepts_.
+## Oracle Data Guard
 
-You can't rename existing PDBs using Amazon RDS APIs. You also can't rename the CDB using the
-`modify-db-instance` command.
+(customer-managed)
 
-## PDB management
+Alternatively, you can achieve high availability by manually configuring Oracle
+Data Guard to replicate data between RDS Custom for Oracle DB instances. The primary DB instance
+automatically synchronizes data to the standby instances. Oracle Data Guard is supported
+only in the Enterprise Edition.
 
-In the RDS Custom for Oracle shared responsibility model, you are responsible for managing PDBs
-and creating any additional PDBs. RDS Custom doesn't restrict the number of PDBs. You can
-manually create, modify, and delete PDBs by connecting to the CDB root and running a SQL
-statement. Create PDBs on an Amazon EBS data volume to prevent the DB instance from going outside
-the support perimeter.
+You can configure your high availability environment in the following ways:
 
-To modify your CDBs or PDBs, complete the following steps:
+- Configure standby instances in different AZs to be resilient to AZ
+  failures.
+- Place your standby databases in mounted or read-only mode. Read-only mode
+  requires an Oracle Active Data Guard license.
+- Fail over or switch over from the primary database to a standby database with no data loss.
+- Migrate data by configuring high availability for your on-premises
+  instance, and then failing over or switching over to the RDS Custom for Oracle standby
+  database.
 
-1. Pause automation to prevent interference with RDS Custom actions.
-2. Modify your CDB or PDBs.
-3. Back up any modified PDBs.
-4. Resume RDS Custom automation.
+To learn how to configure Oracle Data Guard for high availability, see the AWS blog [Build high availability for RDS Custom for Oracle using read replicas](https://aws.amazon.com/blogs/database/build-high-availability-for-amazon-rds-custom-for-oracle-using-read-replicas/ "https://aws.amazon.com/blogs/database/build-high-availability-for-amazon-rds-custom-for-oracle-using-read-replicas/"). You can perform the following tasks:
 
-## Automatic recovery of the CDB root
-
-RDS Custom keeps the CDB root open in the same way as it keeps a non-CDB open. If the
-state of the CDB root changes, the monitoring and recovery automation attempts to
-recover the CDB root to the desired state. You receive RDS event notifications when the
-root CDB is shut down (`RDS-EVENT-0004`) or restarted
-(`RDS-EVENT-0006`), similar to the non-CDB architecture. RDS Custom attempts
-to open all PDBs in `READ WRITE` mode at DB instance startup. If some PDBs can't be
-opened, RDS Custom publishes the following event: `tenant database shutdown`.
+- Use a virtual private network (VPN) tunnel to encrypt data in transit for
+  your high availability instances. Encryption in transit isn't configured
+  automatically by RDS Custom for Oracle.
+- Configure Oracle Fast-Failover Observer (FSFO) to monitor your high availability instances.
+- Allow the observer to perform automatic failover when necessary conditions are met.

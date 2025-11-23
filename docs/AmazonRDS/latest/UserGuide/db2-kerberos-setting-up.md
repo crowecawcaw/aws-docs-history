@@ -13,7 +13,7 @@ steps:
 - [Step 2: Create a
   trust](#db2-kerberos-setting-up-create-forest-trust "#db2-kerberos-setting-up-create-forest-trust")
 - [Step 3: Create an IAM role for
-  Amazon RDS to access AWS Directory Service](#db2-kerberos-setting-up-create-iam-role "#db2-kerberos-setting-up-create-iam-role")
+  Amazon RDS to access Directory Service](#db2-kerberos-setting-up-create-iam-role "#db2-kerberos-setting-up-create-iam-role")
 - [Step 4: Create and configure
   users](#db2-kerberos-setting-up.create-users "#db2-kerberos-setting-up.create-users")
 - [Step 5: Create an RDS for Db2 admin
@@ -33,12 +33,12 @@ steps:
 
 using AWS Managed Microsoft AD
 
-AWS Directory Service creates a fully managed Active Directory in the AWS Cloud. When
-you create an AWS Managed Microsoft AD directory, AWS Directory Service creates two domain controllers and DNS
+Directory Service creates a fully managed Active Directory in the AWS Cloud. When
+you create an AWS Managed Microsoft AD directory, Directory Service creates two domain controllers and DNS
 servers for you. The directory servers are created in different subnets in a VPC. This
 redundancy helps ensure that your directory remains accessible even if a failure occurs.
 
-When you create an AWS Managed Microsoft AD directory, AWS Directory Service performs the following tasks on your
+When you create an AWS Managed Microsoft AD directory, Directory Service performs the following tasks on your
 behalf:
 
 - Sets up an Active Directory within your VPC.
@@ -47,7 +47,7 @@ behalf:
 
 ###### Important
 
-Make sure to save this password. AWS Directory Service doesn't store this password, and it
+Make sure to save this password. Directory Service doesn't store this password, and it
 can't be retrieved or reset.
 
 - Creates a security group for the directory controllers. The security group
@@ -68,7 +68,7 @@ permissions for the most common administrative activities for your OU:
 - Delegate authority.
 - Restore deleted objects from the Active Directory Recycle Bin.
 - Run Active Directory and Domain Name Service (DNS) modules for
-  Windows PowerShell on the AWS Directory Service.
+  Windows PowerShell on the Directory Service.
 
 The `Admin` account also has rights to perform the following domain-wide
 activities:
@@ -80,7 +80,7 @@ activities:
 
 ###### To create a directory with AWS Managed Microsoft AD
 
-1.  Sign in to the AWS Management Console and open the AWS Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
+1.  Sign in to the AWS Management Console and open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2.  Choose **Set up directory**.
 3.  Choose **AWS Managed Microsoft AD**. AWS Managed Microsoft AD is the only option
     currently supported for use with Amazon RDS.
@@ -117,7 +117,7 @@ activities:
 
         ###### Important
 
-        Make sure that you save this password. AWS Directory Service doesn't store
+        Make sure that you save this password. Directory Service doesn't store
          this password, and it can't be retrieved or reset.
 
 6.  Choose **Next**.
@@ -135,7 +135,7 @@ activities:
     **Previous** and make the changes. When the information is
     correct, choose **Create directory**.
 
-![The Review & create window during directory creation in the AWS Directory Service console.](images/db2-create-ADS-directory.png)
+![The Review & create window during directory creation in the Directory Service console.](images/db2-create-ADS-directory.png)
 
 It takes several minutes for the directory to be created. When it has been
 successfully created, the **Status** value changes to
@@ -146,30 +146,30 @@ To see information about your directory, choose the directory ID under
 ID** value. You need this value when you create or modify your RDS for Db2 DB
 instance.
 
-![The Directory details section with Directory ID in the AWS Directory Service console.](images/db2-ADS-directory-details.png)
+![The Directory details section with Directory ID in the Directory Service console.](images/db2-ADS-directory-details.png)
 
 ## Step 2: Create a
 
 trust
 
 If you plan to use AWS Managed Microsoft AD only, skip to [Step 3: Create an IAM role for
-Amazon RDS to access AWS Directory Service](#db2-kerberos-setting-up-create-iam-role "#db2-kerberos-setting-up-create-iam-role").
+Amazon RDS to access Directory Service](#db2-kerberos-setting-up-create-iam-role "#db2-kerberos-setting-up-create-iam-role").
 
 To enable Kerberos authentication using your self-managed Active Directory, you must
 create a forest trust relationship between your self-managed Active Directory and the .
 A forest trust is a trust relationship between a Microsoft AD and a self-managed Active
 Directory and the AWS Managed Microsoft AD created in the previous step. The trust can also be
 two-way, where both Active Directories trust each other. For more information about
-setting up forest trusts using AWS Directory Service, see [When to create a trust relationship](../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md "../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md") in the _AWS Directory
+setting up forest trusts using Directory Service, see [When to create a trust relationship](../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md "../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md") in the _AWS Directory
 Service Administration Guide_.
 
 ## Step 3: Create an IAM role for
 
-Amazon RDS to access AWS Directory Service
+Amazon RDS to access Directory Service
 
-For Amazon RDS to call AWS Directory Service for you, your AWS account needs an IAM role that uses the
+For Amazon RDS to call Directory Service for you, your AWS account needs an IAM role that uses the
 managed IAM policy `AmazonRDSDirectoryServiceAccess`. This role allows
-Amazon RDS to make calls to AWS Directory Service.
+Amazon RDS to make calls to Directory Service.
 
 When you create a DB instance using the AWS Management Console and your console user account has
 the `iam:CreateRole` permission, the console creates the needed IAM role
@@ -248,8 +248,8 @@ the Microsoft documentation. In this case, users are individuals or other
 entities, such as their computers, that are part of the domain and whose identities are
 being maintained in the directory.
 
-To create users in an AWS Directory Service directory, you must be connected to a
-Windows-based Amazon EC2 instance that's a member of the AWS Directory Service directory.
+To create users in an Directory Service directory, you must be connected to a
+Windows-based Amazon EC2 instance that's a member of the Directory Service directory.
 At the same time, you must be signed in as a user that has privileges to create users.
 For more information, see [Create a user](../../../directoryservice/latest/admin-guide/ms_ad_manage_users_groups_create_user.md "../../../directoryservice/latest/admin-guide/ms_ad_manage_users_groups_create_user.md") in the _AWS Directory Service Administration Guide_.
 
@@ -401,13 +401,13 @@ client
 
 ###### Note
 
-For Windows operating systems, create a **C:\windows\krb5.ini** file. 2. Verify that traffic can flow between the client host and AWS Directory Service. Use a network
+For Windows operating systems, create a **C:\windows\krb5.ini** file. 2. Verify that traffic can flow between the client host and Directory Service. Use a network
 utility such as Netcat for the following tasks:
 
     1. Verify traffic over DNS for port 53.
     2. Verify traffic over TCP/UDP for port 53 and for
      Kerberos, which includes ports 88 and 464 for
-     AWS Directory Service.
+     Directory Service.
 
 3. Verify that traffic can flow between the client host and the DB instance over
    the database port. You can use the command `db2` to connect and

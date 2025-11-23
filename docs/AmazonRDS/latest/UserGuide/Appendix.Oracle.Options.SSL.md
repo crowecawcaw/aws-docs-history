@@ -1,86 +1,40 @@
-# Setting up an SSL connection over JDBC
+# Connecting to an RDS for Oracle DB instance using SSL
 
-To use an SSL connection over JDBC, you must create a keystore, trust the Amazon RDS
-root CA certificate, and use the code snippet specified following.
-
-To create the keystore in JKS format, you can use the following command. For more
-information about creating the keystore, see the [Creating a keystore](https://docs.oracle.com/cd/E35822_01/server.740/es_admin/src/tadm_ssl_jetty_keystore.html "https://docs.oracle.com/cd/E35822_01/server.740/es_admin/src/tadm_ssl_jetty_keystore.html") in the Oracle documentation. For reference information,
-see [keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html "https://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html") in the _Java Platform, Standard Edition Tools
-Reference_.
+After you configure SQL\*Plus to use SSL as described previously, you can
+connect to the RDS for Oracle DB instance with the SSL option. Optionally, you can
+first export the `TNS_ADMIN` value that points to the directory that contains the
+tnsnames.ora and sqlnet.ora files. Doing so ensures that SQL\*Plus can find these files consistently.
+The following example exports the `TNS_ADMIN` value.
 
 ```
-keytool -genkey -alias `client` -validity `365` -keyalg `RSA` -keystore `clientkeystore`
+export TNS_ADMIN=${ORACLE_HOME}/network/admin
 ```
 
-Take the following steps to trust the Amazon RDS root CA certificate.
-
-###### To trust the Amazon RDS root CA certificate
-
-1. Download the certificate bundle .pem file that works for all AWS Regions
-   and put the file in the ssl_wallet directory.
-
-For information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB
-instance or cluster](UsingWithRDS.md "UsingWithRDS.md"). 2. Extract each certificate in the .pem file into a separate file using an OS
-utility. 3. Convert each certificate to .der format using a separate
-`openssl` command, replacing
-`certificate-pem-file` with the name of the
-certificate .pem file (without the .pem extension).
+Connect to the DB instance. For example, you can connect
+using SQL\*Plus and a `<net_service_name>` in a
+tnsnames.ora file.
 
 ```
-openssl x509 -outform der -in `certificate-pem-file`.pem -out `certificate-pem-file`.der
+sqlplus `mydbuser`@`net_service_name`
 ```
 
-4. Import each certificate into the keystore using the following
-   command.
+You can also connect to the DB instance using SQL\*Plus without using a
+tnsnames.ora file by using the following command.
 
 ```
-keytool -import -alias rds-root -keystore `clientkeystore.jks` -file `certificate-pem-file`.der
+sqlplus '`mydbuser`@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCPS)(HOST = `endpoint`) (PORT = `ssl_port_number`))(CONNECT_DATA = (SID = `database_name`)))'
 ```
 
-For more information, see [Rotating your SSL/TLS
-certificate](UsingWithRDS.md "UsingWithRDS.md"). 5. Confirm that the key store was created successfully.
+You can also connect to the RDS for Oracle DB instance without using SSL. For example, the
+following command connects to the DB instance through the clear text port without
+SSL encryption.
 
 ```
-keytool -list -v -keystore `clientkeystore.jks`
+sqlplus '`mydbuser`@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = `endpoint`) (PORT = `port_number`))(CONNECT_DATA = (SID = `database_name`)))'
 ```
 
-Enter the keystore password when you are prompted for it.
-The following code example shows how to set up the SSL connection using
-JDBC.
-
-```
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.Properties;
-
-public class OracleSslConnectionTest {
-    private static final String DB_SERVER_NAME = "`dns-name-provided-by-amazon-rds`";
-    private static final Integer SSL_PORT = "`ssl-option-port-configured-in-option-group`";
-    private static final String DB_SID = "`oracle-sid`";
-    private static final String DB_USER = "`user-name`";
-    private static final String DB_PASSWORD = "`password`";
-    // This key store has only the prod root ca.
-    private static final String KEY_STORE_FILE_PATH = "`file-path-to-keystore`";
-    private static final String KEY_STORE_PASS = "`keystore-password`";
-
-    public static void main(String[] args) throws SQLException {
-        final Properties properties = new Properties();
-        final String connectionString = String.format(
-                "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCPS)(HOST=%s)(PORT=%d))(CONNECT_DATA=(SID=%s)))",
-                DB_SERVER_NAME, SSL_PORT, DB_SID);
-        properties.put("user", DB_USER);
-        properties.put("password", DB_PASSWORD);
-        properties.put("oracle.jdbc.J2EE13Compliant", "true");
-        properties.put("javax.net.ssl.trustStore", KEY_STORE_FILE_PATH);
-        properties.put("javax.net.ssl.trustStoreType", "JKS");
-        properties.put("javax.net.ssl.trustStorePassword", KEY_STORE_PASS);
-        final Connection connection = DriverManager.getConnection(connectionString, properties);
-        // If no exception, that means handshake has passed, and an SSL connection can be opened
-    }
-}
-```
-
-###### Note
-
-Specify a password other than the prompt shown here as a security best practice.
+If you want to close Transmission Control Protocol (TCP) port access, create a
+security group with no IP address ingresses and add it to the instance. This
+addition closes connections over the TCP port, while still allowing connections over
+the SSL port that are specified from IP addresses within the range permitted by the
+SSL option security group.

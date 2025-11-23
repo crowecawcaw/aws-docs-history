@@ -76,9 +76,11 @@ parameters
 You can also set the following National Language Support (NLS) initialization parameters at the instance
 level for an Oracle DB instance in Amazon RDS:
 
+- NLS_COMP
 - NLS_DATE_FORMAT
 - NLS_LENGTH_SEMANTICS
 - NLS_NCHAR_CONV_EXCP
+- NLS_SORT
 - NLS_TIME_FORMAT
 - NLS_TIME_TZ_FORMAT
 - NLS_TIMESTAMP_FORMAT

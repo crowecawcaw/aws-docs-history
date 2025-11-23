@@ -163,13 +163,13 @@ in the _AWS Managed Policy Reference Guide_.
 
 ## AWS managed policy: AmazonRDSDirectoryServiceAccess
 
-This policy allows Amazon RDS to make calls to the AWS Directory Service.
+This policy allows Amazon RDS to make calls to the Directory Service.
 
 **Permissions details**
 
 This policy includes the following permission:
 
-- `ds` – Allows principals to describe AWS Directory Service directories and control authorization to AWS Directory Service directories.
+- `ds` – Allows principals to describe Directory Service directories and control authorization to Directory Service directories.
 
 For more information about this policy, including the JSON policy document, see
 [AmazonRDSDirectoryServiceAccess](../../../aws-managed-policy/latest/reference/AmazonRDSDirectoryServiceAccess.md "../../../aws-managed-policy/latest/reference/AmazonRDSDirectoryServiceAccess.md")

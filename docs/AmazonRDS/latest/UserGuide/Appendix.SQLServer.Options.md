@@ -1,92 +1,71 @@
-# Support for SQL Server Reporting Services in Amazon RDS for SQL Server
+# Support for SQL Server Analysis Services in Amazon RDS for SQL Server
 
-Microsoft SQL Server Reporting Services (SSRS) is a server-based application used for report
-generation and distribution. It's part of a suite of SQL Server services that also
-includes SQL Server Analysis Services (SSAS) and SQL Server Integration Services (SSIS).
-SSRS is a service built on top of SQL Server. You can use it to collect data from various
-data sources and present it in a way that's easily understandable and ready for
-analysis.
+Microsoft SQL Server Analysis Services (SSAS) is part of the Microsoft Business Intelligence (MSBI) suite. SSAS is an online
+analytical processing (OLAP) and data mining tool that is installed within SQL Server. You use SSAS to analyze data to help make
+business decisions. SSAS differs from the SQL Server relational database because SSAS is optimized for queries and calculations
+common in a business intelligence environment.
 
-Amazon RDS for SQL Server supports running SSRS directly on RDS DB instances. You can use SSRS with existing or new DB instances.
+You can turn on SSAS for existing or new DB instances. It's installed on the same DB
+instance as your database engine. For more information on SSAS, see the Microsoft [Analysis services
+documentation](https://docs.microsoft.com/en-us/analysis-services "https://docs.microsoft.com/en-us/analysis-services").
 
-RDS supports SSRS for SQL Server Standard and Enterprise Editions on the following versions:
+Amazon RDS supports SSAS for SQL Server Standard and Enterprise Editions on the following versions:
 
-- SQL Server 2022, all versions
-- SQL Server 2019, version 15.00.4043.16.v1 and higher
-- SQL Server 2017, version 14.00.3223.3.v1 and higher
-- SQL Server 2016, version 13.00.5820.21.v1 and higher
+- Tabular mode:
+  - SQL Server 2019, version 15.00.4043.16.v1 and higher
+  - SQL Server 2017, version 14.00.3223.3.v1 and higher
+  - SQL Server 2016, version 13.00.5426.0.v1 and higher
+
+- Multidimensional mode:
+  - SQL Server 2019, version 15.00.4153.1.v1 and higher
+  - SQL Server 2017, version 14.00.3381.3.v1 and higher
+  - SQL Server 2016, version 13.00.5882.1.v1 and higher
 
 ###### Contents
 
-- [Limitations and recommendations](Appendix.SQLServer.Options.md#SSRS.Limitations "Appendix.SQLServer.Options.md#SSRS.Limitations")
-- [Turning on SSRS](SSRS.md "SSRS.md")
-  - [Creating an option group for
-    SSRS](SSRS.md#SSRS.OptionGroup "SSRS.md#SSRS.OptionGroup")
-  - [Adding the SSRS option to your option group](SSRS.md#SSRS.Add "SSRS.md#SSRS.Add")
-  - [Associating your option group with your
-    DB instance](SSRS.md#SSRS.Apply "SSRS.md#SSRS.Apply")
-  - [Allowing inbound access to your VPC
-    security group](SSRS.md#SSRS.Inbound "SSRS.md#SSRS.Inbound")
+- [Limitations](Appendix.SQLServer.Options.md#SSAS.Limitations "Appendix.SQLServer.Options.md#SSAS.Limitations")
+- [Turning on SSAS](SSAS.md "SSAS.md")
+  - [Creating an option group for SSAS](SSAS.md#SSAS.OptionGroup "SSAS.md#SSAS.OptionGroup")
+  - [Adding the SSAS option to the option group](SSAS.md#SSAS.Add "SSAS.md#SSAS.Add")
+  - [Associating the option group with your DB instance](SSAS.md#SSAS.Apply "SSAS.md#SSAS.Apply")
+  - [Allowing inbound access to your VPC security group](SSAS.md#SSAS.InboundRule "SSAS.md#SSAS.InboundRule")
+  - [Enabling Amazon S3 integration](SSAS.md#SSAS.EnableS3 "SSAS.md#SSAS.EnableS3")
 
-- [Report server databases](Appendix.SQLServer.Options.md#SSRS.DBs "Appendix.SQLServer.Options.md#SSRS.DBs")
-- [SSRS log files](Appendix.SQLServer.Options.md#SSRS.Logs "Appendix.SQLServer.Options.md#SSRS.Logs")
-- [Accessing the SSRS web portal](SSRS.md "SSRS.md")
-  - [Using SSL on RDS](SSRS.md#SSRS.Access.SSL "SSRS.md#SSRS.Access.SSL")
-  - [Granting access to domain users](SSRS.md#SSRS.Access.Grant "SSRS.md#SSRS.Access.Grant")
-  - [Accessing the web portal](SSRS.md#SSRS.Access "SSRS.md#SSRS.Access")
+- [Deploying SSAS projects on Amazon RDS](SSAS.md "SSAS.md")
+- [Monitoring the status of a deployment task](SSAS.md "SSAS.md")
+- [Using SSAS on Amazon RDS](SSAS.md "SSAS.md")
+  - [Setting up a Windows-authenticated user for SSAS](SSAS.md#SSAS.Use.Auth "SSAS.md#SSAS.Use.Auth")
+  - [Adding a domain user as a database administrator](SSAS.md#SSAS.Admin "SSAS.md#SSAS.Admin")
+  - [Creating an SSAS proxy](SSAS.md#SSAS.Use.Proxy "SSAS.md#SSAS.Use.Proxy")
+  - [Scheduling SSAS database processing using SQL Server Agent](SSAS.md#SSAS.Use.Schedule "SSAS.md#SSAS.Use.Schedule")
+  - [Revoking SSAS access from the proxy](SSAS.md#SSAS.Use.Revoke "SSAS.md#SSAS.Use.Revoke")
 
-- [Deploying reports and configuring report data sources](SSRS.md "SSRS.md")
-  - [Deploying reports to SSRS](SSRS.md#SSRS.Deploy "SSRS.md#SSRS.Deploy")
-  - [Configuring the report data source](SSRS.md#SSRS.ConfigureDataSource "SSRS.md#SSRS.ConfigureDataSource")
+- [Backing up an SSAS database](SSAS.md "SSAS.md")
+- [Restoring an SSAS database](SSAS.md "SSAS.md")
+  - [Restoring a DB instance to a specified time](SSAS.md#SSAS.PITR "SSAS.md#SSAS.PITR")
 
-- [Using SSRS Email to send reports](SSRS.md "SSRS.md")
-- [Revoking system-level permissions](SSRS.Access.md "SSRS.Access.md")
-- [Monitoring the status of a task](SSRS.md "SSRS.md")
-- [Disabling and deleting SSRS databases](SSRS.md "SSRS.md")
-  - [Turning off SSRS](SSRS.md#SSRS.Disable "SSRS.md#SSRS.Disable")
-  - [Deleting the SSRS databases](SSRS.md#SSRS.Drop "SSRS.md#SSRS.Drop")
+- [Changing the SSAS mode](SSAS.md "SSAS.md")
+- [Turning off SSAS](SSAS.md "SSAS.md")
+- [Troubleshooting SSAS issues](SSAS.md "SSAS.md")
 
-## Limitations and recommendations
+## Limitations
 
-The following limitations and recommendations apply to running SSRS on RDS for SQL Server:
+The following limitations apply to using SSAS on RDS for SQL Server:
 
-- You can't use SSRS on DB instances that have read replicas.
-- Instances must use self-managed Active Directory or AWS Directory Service for Microsoft Active Directory for SSRS web portal and web server authentication. For more information, see [Working with Active Directory with RDS for SQL Server](User.SQLServer.md "User.SQLServer.md").
-- You can't back up the reporting server databases that are created with the SSRS option.
-- Importing and restoring report server databases from other instances of SSRS isn't
-  supported. For more information, see [Report server databases](#SSRS.DBs "#SSRS.DBs").
-- You can't configure SSRS to listen on the default SSL port (443). The allowed values are
-  1150–49511, except 1234, 1434, 3260, 3343, 3389, and 47001.
-- Subscriptions through a Microsoft Windows file share aren't supported.
-- Using Reporting Services Configuration Manager isn't supported.
-- Creating and modifying roles isn't supported.
-- Modifying report server properties isn't supported.
-- System administrator and system user roles aren't granted.
-- You can't edit system-level role assignments through the web portal.
+- RDS for SQL Server supports running SSAS in Tabular or Multidimensional mode. For more information, see [Comparing tabular and
+  multidimensional solutions](https://docs.microsoft.com/en-us/analysis-services/comparing-tabular-and-multidimensional-solutions-ssas "https://docs.microsoft.com/en-us/analysis-services/comparing-tabular-and-multidimensional-solutions-ssas") in the Microsoft documentation.
+- You can only use one SSAS mode at a time. Before changing modes, make sure to
+  delete all of the SSAS databases.
 
-## Report server databases
+For more information, see [Changing the SSAS mode](SSAS.md "SSAS.md").
 
-When your DB instance is associated with the SSRS option, two new databases are created on your DB instance:
-
-- `rdsadmin_ReportServer`
-- `rdsadmin_ReportServerTempDB`
-
-These databases act as the ReportServer and ReportServerTempDB databases.
-SSRS stores its data in the ReportServer database and caches its data in the ReportServerTempDB database.
-For more information, see [Report Server Database](https://learn.microsoft.com/en-us/sql/reporting-services/report-server/report-server-database-ssrs-native-mode?view=sql-server-ver15 "https://learn.microsoft.com/en-us/sql/reporting-services/report-server/report-server-database-ssrs-native-mode?view=sql-server-ver15")
-in the Microsoft documentation.
-
-RDS owns and manages these databases, so database operations on them such as ALTER and DROP aren't permitted.
-Access isn't permitted on the `rdsadmin_ReportServerTempDB` database. However,
-you can perform read operations on the `rdsadmin_ReportServer`database.
-
-## SSRS log files
-
-You can list, view, and download SSRS log files. SSRS log files follow a naming convention of ReportServerService\_`timestamp`.log.
-These report server logs are located in the `D:\rdsdbdata\Log\SSRS` directory. (The `D:\rdsdbdata\Log` directory is also the
-parent directory for error logs and SQL Server Agent logs.). For more information, see [Viewing and listing database log files](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md").
-
-For existing SSRS instances, restarting the SSRS service might be necessary to access report server logs. You can restart the
-service by updating the `SSRS` option.
-
-For more information, see [Working with Amazon RDS for Microsoft SQL Server logs](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md").
+- Multi-AZ instances aren't supported.
+- Instances must use self-managed Active Directory or AWS Directory Service for Microsoft Active Directory for SSAS authentication. For more information, see [Working with Active Directory with RDS for SQL Server](User.SQLServer.md "User.SQLServer.md").
+- Users aren't given SSAS server administrator access, but they can be granted
+  database-level administrator access.
+- The only supported port for accessing SSAS is 2383.
+- You can't deploy projects directly. We provide an RDS stored procedure to do this. For more information, see [Deploying SSAS projects on Amazon RDS](SSAS.md "SSAS.md").
+- Processing during deployment isn't supported.
+- Using .xmla files for deployment isn't supported.
+- SSAS project input files and database backup output files can only be in the
+  `D:\S3` folder on the DB instance.

@@ -3,7 +3,7 @@
 You can use Kerberos authentication to authenticate users when they connect to your MySQL DB instance. The
 DB instance works with AWS Directory Service for Microsoft Active Directory (AWS Managed Microsoft AD) to enable Kerberos authentication. When users
 authenticate with a MySQL DB instance joined to the trusting domain, authentication requests are forwarded.
-Forwarded requests go to the domain directory that you create with AWS Directory Service.
+Forwarded requests go to the domain directory that you create with Directory Service.
 
 Keeping all of your credentials in the same directory can save you time and effort. With this approach, you have
 a centralized place for storing and managing credentials for multiple DB instances. Using a directory can
@@ -22,7 +22,7 @@ To set up Kerberos authentication for a MySQL DB instance, complete the followin
 in more detail later:
 
 1. Use AWS Managed Microsoft AD to create an AWS Managed Microsoft AD directory. You can use the AWS Management Console, the
-   AWS CLI, or the AWS Directory Service to create the directory. For details about doing so,
+   AWS CLI, or the Directory Service to create the directory. For details about doing so,
    see [Create your AWS Managed Microsoft AD directory](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_create_directory.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_create_directory.md") in the _AWS Directory Service Administration Guide_.
 2. Create an AWS Identity and Access Management (IAM) role that uses the managed IAM policy
    `AmazonRDSDirectoryServiceAccess`. The role allows Amazon RDS to make calls to your directory.
@@ -50,13 +50,13 @@ authentication, you take the following steps.
 
 ### Step 1: Create a directory using AWS Managed Microsoft AD
 
-AWS Directory Service creates a fully managed Active Directory in the AWS Cloud. When you create an
-AWS Managed Microsoft AD directory, AWS Directory Service creates two domain controllers and Domain Name System (DNS)
+Directory Service creates a fully managed Active Directory in the AWS Cloud. When you create an
+AWS Managed Microsoft AD directory, Directory Service creates two domain controllers and Domain Name System (DNS)
 servers on your behalf. The directory servers are created in different subnets in a VPC.
 This redundancy helps make sure that your directory remains accessible even if a failure
 occurs.
 
-When you create an AWS Managed Microsoft AD directory, AWS Directory Service performs the following tasks on your behalf:
+When you create an AWS Managed Microsoft AD directory, Directory Service performs the following tasks on your behalf:
 
 - Sets up an Active Directory within the VPC.
 - Creates a directory administrator account with the user name Admin and the specified password. You use
@@ -64,7 +64,7 @@ When you create an AWS Managed Microsoft AD directory, AWS Directory Service per
 
 ###### Note
 
-Be sure to save this password. AWS Directory Service doesn't store it. You can reset it, but you can't retrieve
+Be sure to save this password. Directory Service doesn't store it. You can reset it, but you can't retrieve
 it.
 
 - Creates a security group for the directory controllers.
@@ -92,7 +92,7 @@ The Admin account also has rights to perform the following domain-wide activitie
 
 ###### To create a directory with AWS Managed Microsoft AD
 
-1. Sign in to the AWS Management Console and open the AWS Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
+1. Sign in to the AWS Management Console and open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2. In the navigation pane, choose **Directories** and choose **Set up
    Directory**.
 3. Choose **AWS Managed Microsoft AD**. AWS Managed Microsoft AD is the only option that you
@@ -141,7 +141,7 @@ The VPC for the directory. Create the MySQL DB instance in this same VPC.
 Subnets for the directory servers. The two subnets must be in different Availability Zones. 7. Review the directory information and make any necessary changes. When the information is correct, choose
 **Create directory**.
 
-![The Review & create window during directory creation in the AWS Directory Service console.](images/WinAuth2.png)
+![The Review & create window during directory creation in the Directory Service console.](images/WinAuth2.png)
 
 It takes several minutes for the directory to be created. When it has been successfully created, the
 **Status** value changes to **Active**.
@@ -150,13 +150,13 @@ To see information about your directory, choose the directory name in the direct
 listing. Note the **Directory ID** value because you need this value when
 you create or modify your MySQL DB instance.
 
-![The Directory details section with Directory ID in the AWS Directory Service console.](images/WinAuth3.png)
+![The Directory details section with Directory ID in the Directory Service console.](images/WinAuth3.png)
 
 ### Step 2: Create the IAM role for use by Amazon RDS
 
-For Amazon RDS to call AWS Directory Service for you, an IAM role that uses the managed IAM
+For Amazon RDS to call Directory Service for you, an IAM role that uses the managed IAM
 policy `AmazonRDSDirectoryServiceAccess` is required. This role allows
-Amazon RDS to make calls to the AWS Directory Service.
+Amazon RDS to make calls to the Directory Service.
 
 When a DB instance is created using the AWS Management Console and the
 console user has the `iam:CreateRole` permission, the console creates this
@@ -229,8 +229,8 @@ You can create users with the Active Directory Users and Computers tool. This to
 Directory Domain Services and Active Directory Lightweight Directory Services tools. Users represent
 individual people or entities that have access to your directory.
 
-To create users in an AWS Directory Service directory, you must be connected to an Amazon EC2 instance based on Microsoft
-Windows. This instance must be a member of the AWS Directory Service directory and be logged in as a user that has
+To create users in an Directory Service directory, you must be connected to an Amazon EC2 instance based on Microsoft
+Windows. This instance must be a member of the Directory Service directory and be logged in as a user that has
 privileges to create users. For more information, see
 [Manage users and groups in AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/creating_ad_users_and_groups.md "../../../directoryservice/latest/admin-guide/creating_ad_users_and_groups.md") in the
 _AWS Directory Service Administration Guide_.

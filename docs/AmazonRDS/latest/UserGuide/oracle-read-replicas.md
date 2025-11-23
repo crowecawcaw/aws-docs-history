@@ -1,30 +1,81 @@
-# Redo transport compression with RDS for Oracle
+# Preparing to create an Oracle replica
 
-Use RDS for Oracle redo transport compression to improve the replication performance between your primary DB instance and standby replicas. This is particularly useful in environments that have limited network bandwidth or high-latency connections.
+Before you can begin using your replica, perform the following tasks.
 
-## Obtaining a license for redo transport compression
+###### Topics
 
-Redo transport compression is part of the [Oracle Advanced Compression](//www.oracle.com/database/advanced-compression/ "//www.oracle.com/database/advanced-compression/") option. To use redo transport compression, you need a valid license for the Oracle Advanced Compression option. For licensing information, contact your Oracle representative.
+- [Enabling automatic backups](#oracle-read-replicas.configuration.autobackups "#oracle-read-replicas.configuration.autobackups")
+- [Enabling force logging mode](#oracle-read-replicas.configuration.force-logging "#oracle-read-replicas.configuration.force-logging")
+- [Changing your logging
+  configuration](#oracle-read-replicas.configuration.logging-config "#oracle-read-replicas.configuration.logging-config")
+- [Setting the MAX_STRING_SIZE
+  parameter](#oracle-read-replicas.configuration.string-size "#oracle-read-replicas.configuration.string-size")
+- [Planning compute and storage
+  resources](#oracle-read-replicas.configuration.planning-resources "#oracle-read-replicas.configuration.planning-resources")
 
-## Configuring redo transport compression
+## Enabling automatic backups
 
-To configure redo transport compression, you can use the `rds.replica.redo_compression` parameter. This parameter is available for Oracle versions 19c and 21c.
+Before a DB instance can serve as a source DB instance, make sure to enable automatic backups on the source
+DB instance. To learn how to perform this procedure, see [Enabling automated
+backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md").
 
-The `rds.replica.redo_compression` parameter accepts the following values:
+## Enabling force logging mode
 
-- `DISABLE` – Default value that disables redo transport compression.
-- `ENABLE` – Value that enables redo transport compression through the default algorithm [ZLIB](https://zlib.net/ "https://zlib.net/").
-- `ZLIB` – Value that explicitly enables redo transport compression using the ZLIB algorithm, which provides good compression ratios.
-- `LZO` – Value that explicitly enables redo transport compression using the [LZO](https://www.oberhumer.com/opensource/lzo/ "https://www.oberhumer.com/opensource/lzo/") algorithm, which optimizes compression speed, particularly during decompression.
+We recommend that you enable force logging mode. In force logging mode, the Oracle database writes redo
+records even when `NOLOGGING` is used with data definition language (DDL) statements.
 
-## Performance considerations for redo transport compression
+###### To enable force logging mode
 
-Compression and decompression operations consume CPU resources on both the primary and standby instances. If you use redo transport compression, consider instance resource usage and network conditions.
+1. Log in to your Oracle database using a client tool such as SQL Developer.
+2. Enable force logging mode by running the following procedure.
 
-## Related topics for redo transport compression
+```
+exec rdsadmin.rdsadmin_util.force_logging(p_enable => true);
+```
 
-For more information on configuring redo transport compression, see the following resources:
+For more information about this procedure, see [Setting force
+logging](Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.SettingForceLogging "Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.SettingForceLogging").
 
-- [DB parameter groups for
-  Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md")
-- [RedoCompression](https://docs.oracle.com/en/database/oracle/oracle-database/19/dgbkr/oracle-data-guard-broker-properties.html#GUID-5E6DDFD0-6196-48EB-94AF-21A1AFBB7DE1 "https://docs.oracle.com/en/database/oracle/oracle-database/19/dgbkr/oracle-data-guard-broker-properties.html#GUID-5E6DDFD0-6196-48EB-94AF-21A1AFBB7DE1") in the Oracle Database 19c release notes
+## Changing your logging
+
+configuration
+
+For _n_ online redo logs of size _m_, RDS
+automatically creates _n_+1 standby logs of size
+_m_ on the primary DB instance and all replicas. Whenever you change
+the logging configuration on the primary, the changes propagate automatically to the
+replicas.
+
+If you change your logging configuration, consider the following guidelines:
+
+- We recommend that you complete the changes before making a DB instance the source
+  for replicas. RDS for Oracle also supports updating the instance after it becomes a
+  source.
+- Before you change the logging configuration on the primary DB instance, check that
+  each replica has enough storage to accommodate the new configuration.
+
+You can modify the logging configuration for a DB instance by using the Amazon RDS procedures
+`rdsadmin.rdsadmin_util.add_logfile` and
+`rdsadmin.rdsadmin_util.drop_logfile`. For more information, see [Adding online redo
+logs](Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.RedoLogs "Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.RedoLogs") and [Dropping online
+redo logs](Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.DroppingRedoLogs "Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.DroppingRedoLogs").
+
+## Setting the MAX_STRING_SIZE
+
+parameter
+
+Before you create an Oracle replica, ensure that the setting of the `MAX_STRING_SIZE` parameter
+is the same on the source DB instance and the replica. You can do this by associating them with the same
+parameter group. If you have different parameter groups for the source and the replica, you can set
+`MAX_STRING_SIZE` to the same value. For more information about setting this parameter, see
+[Turning on extended data types for a new DB instance](Oracle.Concepts.md#Oracle.Concepts.ExtendedDataTypes.CreateDBInstance "Oracle.Concepts.md#Oracle.Concepts.ExtendedDataTypes.CreateDBInstance").
+
+## Planning compute and storage
+
+resources
+
+Ensure that the source DB instance and its replicas are sized properly, in terms of compute and storage, to
+suit their operational load. If a replica reaches compute, network, or storage resource capacity, the replica
+stops receiving or applying changes from its source. Amazon RDS for Oracle doesn't intervene to mitigate high
+replica lag between a source DB instance and its replicas. You can modify the storage and CPU resources of a
+replica independently from its source and other replicas.

@@ -7,7 +7,7 @@ Complete the following prerequisites before deploying the resources.
 
 ###### Download required Oracle files
 
-You need specific Oracle installation files before you can create the AWS CloudFormationtemplate. Download these files before you deploy.
+You need specific Oracle installation files before you can create the CloudFormationtemplate. Download these files before you deploy.
 
 1. Navigate to [Oracle Database 19c (19.3)](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html "https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html")
 2. Locate and download the file `LINUX.X64_193000_db_home.zip`
@@ -84,9 +84,9 @@ Patches
 
 ## Deploy RDS Custom for Oracle using AWS CloudFormation
 
-### Step 1: Prepare the AWS CloudFormation template
+### Step 1: Prepare the CloudFormation template
 
-Before you can deploy RDS Custom for Oracle, you need to download and configure the AWS CloudFormation
+Before you can deploy RDS Custom for Oracle, you need to download and configure the CloudFormation
 template that creates the necessary prerequisites.
 
 **Copy and save the template**
@@ -183,12 +183,12 @@ The template creates the following resources:
 
 ## Monitor your deployment progress
 
-After you create the AWS CloudFormation stack, monitor its progress to ensure successful deployment.
+After you create the CloudFormation stack, monitor its progress to ensure successful deployment.
 The deployment process includes creating Custom Engine Versions (CEVs) and RDS instances.
 
 To monitor deployment progress:
 
-1. Open the AWS CloudFormation console.
+1. Open the CloudFormation console.
 2. Choose your stack name.
 3. Choose the **Events** tab to view progress and identify any errors.
 

@@ -193,7 +193,7 @@ RDS for PostgreSQL databases in either of the following ways.
 - [Adding RDS for PostgreSQL
   resources in the DevOps Guru console](#devops-guru-for-rds.configuring.coverage.guru-console "#devops-guru-for-rds.configuring.coverage.guru-console")
 - [Adding RDS for PostgreSQL
-  resources using AWS CloudFormation](#devops-guru-for-rds.configuring.coverage.cfn "#devops-guru-for-rds.configuring.coverage.cfn")
+  resources using CloudFormation](#devops-guru-for-rds.configuring.coverage.cfn "#devops-guru-for-rds.configuring.coverage.cfn")
 
 #### Turning on DevOps Guru in the RDS console
 
@@ -304,7 +304,7 @@ Guide_.
 
 #### Adding RDS for PostgreSQL
 
-resources using AWS CloudFormation
+resources using CloudFormation
 
 You can use tags to add coverage for your
 RDS for PostgreSQL resources to your CloudFormation
@@ -362,5 +362,5 @@ DevOpsGuruResourceCollection:
  - "\*"**
 ```
 
-For more information, see [AWS::DevOpsGuru::ResourceCollection](../../../AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.md") and [AWS::RDS::DBInstance](../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md") in the _AWS CloudFormation User
+For more information, see [AWS::DevOpsGuru::ResourceCollection](../../../AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.md") and [AWS::RDS::DBInstance](../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md") in the _CloudFormation User
 Guide_.

@@ -1,342 +1,454 @@
-# Managing TOAST OID contention in
+# Managing spatial data with the
 
-Amazon RDS for PostgreSQL
+PostGIS extension
 
-TOAST (The Oversized-Attribute Storage Technique) is a PostgreSQL feature designed to handle
-large data values that exceed the typical 8KB database block size. PostgreSQL doesn't allow
-physical rows to span multiple blocks. The block size acts as an upper limit on row size. TOAST
-overcomes this restriction by splitting large field values into smaller chunks. It stores them
-separately in a dedicated TOAST table linked to the main table. For more information, see the
-[PostgreSQL TOAST
-storage mechanism and implementation documentation](https://www.postgresql.org/docs/current/storage-toast.html "https://www.postgresql.org/docs/current/storage-toast.html").
+PostGIS is an extension to PostgreSQL for storing and managing spatial information. To
+learn more about PostGIS, see [PostGIS.net](https://postgis.net/ "https://postgis.net/").
+
+Starting with version 10.5, PostgreSQL supports the libprotobuf 1.3.0 library used by
+PostGIS for working with map box vector tile data.
+
+Setting up the PostGIS extension requires `rds_superuser` privileges. We
+recommend that you create a user (role) to manage the PostGIS extension and your spatial
+data. The PostGIS extension and its related components add thousands of functions to
+PostgreSQL. Consider creating the PostGIS extension in its own schema if that makes sense
+for your use case. The following example shows how to install the extension in its own
+database, but this isn't required.
 
 ###### Topics
 
-- [Understanding TOAST
-  operations](#Appendix.PostgreSQL.CommonDBATasks.TOAST_OID.HowWorks "#Appendix.PostgreSQL.CommonDBATasks.TOAST_OID.HowWorks")
-- [Identifying performance challenges](#Appendix.PostgreSQL.CommonDBATasks.TOAST_OID.PerformanceChallenges "#Appendix.PostgreSQL.CommonDBATasks.TOAST_OID.PerformanceChallenges")
-- [Recommendations](#Appendix.PostgreSQL.CommonDBATasks.TOAST_OID.Recommendations "#Appendix.PostgreSQL.CommonDBATasks.TOAST_OID.Recommendations")
-- [Monitoring](#Appendix.PostgreSQL.CommonDBATasks.TOAST_OID.Monitoring "#Appendix.PostgreSQL.CommonDBATasks.TOAST_OID.Monitoring")
+- [Step 1: Create a
+  user (role) to manage the PostGIS extension](#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Connect "#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Connect")
+- [Step 2: Load
+  the PostGIS extensions](#Appendix.PostgreSQL.CommonDBATasks.PostGIS.LoadExtensions "#Appendix.PostgreSQL.CommonDBATasks.PostGIS.LoadExtensions")
+- [Step 3:
+  Transfer ownership of the extension schemas](#Appendix.PostgreSQL.CommonDBATasks.PostGIS.TransferOwnership "#Appendix.PostgreSQL.CommonDBATasks.PostGIS.TransferOwnership")
+- [Step 4:
+  Transfer ownership of the PostGIS tables](#Appendix.PostgreSQL.CommonDBATasks.PostGIS.TransferObjects "#Appendix.PostgreSQL.CommonDBATasks.PostGIS.TransferObjects")
+- [Step 5: Test the
+  extensions](#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Test "#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Test")
+- [Step 6: Upgrade the
+  PostGIS extension](#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update "#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update")
+- [PostGIS extension
+  versions](#CHAP_PostgreSQL.Extensions.PostGIS "#CHAP_PostgreSQL.Extensions.PostGIS")
+- [Upgrading PostGIS 2 to PostGIS 3](#PostgreSQL.Extensions.PostGIS.versions.upgrading.2-to-3 "#PostgreSQL.Extensions.PostGIS.versions.upgrading.2-to-3")
 
-## Understanding TOAST
+## Step 1: Create a
 
-operations
+user (role) to manage the PostGIS extension
 
-TOAST performs compression and stores large field values out of line. TOAST assigns a
-unique OID (Object Identifier) to each chunk of oversized data stored in the TOAST table. The
-main table stores the TOAST value ID and relation ID on the page to reference the
-corresponding row in the TOAST table. This allows PostgreSQL to efficiently locate and manage
-these TOAST chunks. However, as the TOAST table grows, the system risks exhausting available
-OIDs, leading to both performance degradation and potential downtime due to OID
-depletion.
-
-### Object
-
-identifiers in TOAST
-
-An Object Identifier (OID) is a system-wide unique identifier used by PostgreSQL to
-reference database objects like tables, indexes, and functions. These identifiers play a
-vital role in PostgreSQL's internal operations, allowing the database to efficiently locate
-and manage objects.
-
-For tables with eligible data sets for toasting, PostgreSQL assigns OIDs to uniquely
-identify each chunk of oversized data stored in the associated TOAST table. The system
-associates each chunk with a `chunk_id`, which helps PostgreSQL organize and
-locate these chunks efficiently within the TOAST table.
-
-## Identifying performance challenges
-
-PostgreSQL's OID management relies on a global 32-bit counter so that it wraps around
-after generating 4 billion unique values. While the database cluster shares this counter, OID
-allocation involves two steps during TOAST operations:
-
-- Global counter for allocation – The global
-  counter assigns a new OID across the cluster.
-- Local search for conflicts – The TOAST table
-  ensures the new OID does not conflict with existing OIDs already used in that specific
-  table.
-
-Performance degradation can occur when:
-
-- The TOAST table has high fragmentation or dense OID usage, leading to delays in
-  assigning the OID.
-- The system frequently allocates and reuses OIDs in environments with high data churn
-  or wide tables that use TOAST extensively.
-
-For more information, see the [PostgreSQL TOAST table
-size limits and OID allocation documentation](https://wiki.postgresql.org/wiki/TOAST#Total_table_size_limit "https://wiki.postgresql.org/wiki/TOAST#Total_table_size_limit"):
-
-A global counter generates the OIDs and wraps around every 4 billion values, so that from
-time to time, the system generates an already-used value again. PostgreSQL detects that and
-tries again with the next OID. A slow INSERT could occur if there is a very long run of used
-OID values with no gaps in the TOAST table. These challenges become more pronounced as the OID
-space fills, leading to slower inserts and updates.
-
-### Identifying the problem
-
-- Simple `INSERT` statements take significantly longer than usual in an
-  inconsistent and random manner.
-- Delays occur only for `INSERT` and `UPDATE` statements
-  involving TOAST operations.
-- The following log entries appear in PostgreSQL logs when the system struggles to
-  find available OIDs in TOAST tables:
+First, connect to your RDS for PostgreSQL DB instance as a user that has
+`rds_superuser` privileges. If you kept the default name when you set up
+your instance, you connect as `postgres`.
 
 ```
-LOG: still searching for an unused OID in relation "pg_toast_20815"
-DETAIL: OID candidates have been checked 1000000 times, but no unused OID has been found yet.
+psql --host=`111122223333`.`aws-region`.rds.amazonaws.com --port=5432 --username=postgres --password
 ```
 
-- Performance Insights indicates a high number of average active sessions (AAS)
-  associated with `LWLock:buffer_io` and `LWLock:OidGenLock` wait
-  events.
+Create a separate role (user) to administer the PostGIS extension.
 
-You can run the following SQL query to identify long-running INSERT transactions
-with wait events:
+```
+`postgres=>`  `CREATE ROLE `gis_admin` LOGIN PASSWORD '`change_me`';`
+`CREATE ROLE`
+```
+
+Grant this role `rds_superuser` privileges, to allow the role to install
+the extension.
+
+```
+`postgres=>` `GRANT rds_superuser TO `gis_admin`;`
+`GRANT`
+```
+
+Create a database to use for your PostGIS artifacts. This step is optional. Or you can
+create a schema in your user database for the PostGIS extensions, but this also
+isn't required.
+
+```
+`postgres=>` `CREATE DATABASE `lab_gis`;`
+`CREATE DATABASE`
+```
+
+Give the `gis_admin` all privileges on the `lab_gis`
+database.
+
+```
+`postgres=>` `GRANT ALL PRIVILEGES ON DATABASE lab_gis TO gis_admin;`
+`GRANT`
+```
+
+Exit the session and reconnect to your RDS for PostgreSQL DB instance as
+`gis_admin`.
+
+```
+`postgres=>` `psql --host=`111122223333`.`aws-region`.rds.amazonaws.com --port=5432 --username=`gis_admin` --password --dbname=`lab_gis``
+`Password for user gis_admin:...`
+`lab_gis=>`
+```
+
+Continue setting up the extension as detailed in the next steps.
+
+## Step 2: Load
+
+the PostGIS extensions
+
+The PostGIS extension includes several related extensions that work together to
+provide geospatial functionality. Depending on your use case, you might not need all the
+extensions created in this step.
+
+Use `CREATE EXTENSION` statements to load the PostGIS extensions.
+
+```
+`CREATE EXTENSION postgis;`
+`CREATE EXTENSION`
+`CREATE EXTENSION postgis_raster;`
+`CREATE EXTENSION`
+`CREATE EXTENSION fuzzystrmatch;`
+`CREATE EXTENSION`
+`CREATE EXTENSION postgis_tiger_geocoder;`
+`CREATE EXTENSION`
+`CREATE EXTENSION postgis_topology;`
+`CREATE EXTENSION`
+`CREATE EXTENSION address_standardizer_data_us;`
+`CREATE EXTENSION`
+
+
+```
+
+You can verify the results by running the SQL query shown in the following example,
+which lists the extensions and their owners.
+
+```
+`SELECT n.nspname AS "Name",
+ pg_catalog.pg_get_userbyid(n.nspowner) AS "Owner"
+ FROM pg_catalog.pg_namespace n
+ WHERE n.nspname !~ '^pg_' AND n.nspname <> 'information_schema'
+ ORDER BY 1;``List of schemas
+ Name | Owner
+--------------+-----------
+ public | postgres
+ tiger | rdsadmin
+ tiger_data | rdsadmin
+ topology | rdsadmin
+(4 rows)`
+```
+
+## Step 3:
+
+Transfer ownership of the extension schemas
+
+Use the ALTER SCHEMA statements to transfer ownership of the schemas to the
+`gis_admin` role.
+
+```
+`ALTER SCHEMA tiger OWNER TO gis_admin;`
+`ALTER SCHEMA`
+`ALTER SCHEMA tiger_data OWNER TO gis_admin;`
+`ALTER SCHEMA`
+`ALTER SCHEMA topology OWNER TO gis_admin;`
+`ALTER SCHEMA`
+```
+
+You can confirm the ownership change by running the following SQL query. Or you can
+use the `\dn` metacommand from the psql command line.
+
+```
+`SELECT n.nspname AS "Name",
+ pg_catalog.pg_get_userbyid(n.nspowner) AS "Owner"
+ FROM pg_catalog.pg_namespace n
+ WHERE n.nspname !~ '^pg_' AND n.nspname <> 'information_schema'
+ ORDER BY 1;``List of schemas
+ Name | Owner
+--------------+---------------
+ public | postgres
+ tiger | gis_admin
+ tiger_data | gis_admin
+ topology | gis_admin
+(4 rows)`
+```
+
+## Step 4:
+
+Transfer ownership of the PostGIS tables
+
+###### Note
+
+Do not change ownership of the PostGIS functions. Proper operation and future
+upgrades of PostGIS require these functions to retain original ownership. For more
+information about PostGIS permissions, see [PostgreSQL
+Security](https://postgis.net/workshops/postgis-intro/security.html "https://postgis.net/workshops/postgis-intro/security.html").
+
+Use the following function to transfer ownership of the PostGIS tables to the
+`gis_admin` role. Run the following statement from the psql prompt to
+create the function.
+
+```
+`CREATE FUNCTION exec(text) returns text language plpgsql volatile AS $f$ BEGIN EXECUTE $1; RETURN $1; END; $f$;`
+`CREATE FUNCTION`
+```
+
+Next, run the following query to run the `exec` function that in turn runs
+the statements and alters the permissions.
+
+```
+`SELECT exec('ALTER TABLE ' || quote_ident(s.nspname) || '.' || quote_ident(s.relname) || ' OWNER TO gis_admin;')
+ FROM (
+ SELECT nspname, relname
+ FROM pg_class c JOIN pg_namespace n ON (c.relnamespace = n.oid)
+ WHERE nspname in ('tiger','topology') AND
+ relkind IN ('r','S','v') ORDER BY relkind = 'S')
+s;`
+```
+
+## Step 5: Test the
+
+extensions
+
+To avoid needing to specify the schema name, add the `tiger` schema to your
+search path using the following command.
+
+```
+`SET search_path=public,tiger;`
+`SET`
+```
+
+Test the `tiger` schema by using the following SELECT statement.
+
+```
+`SELECT address, streetname, streettypeabbrev, zip
+ FROM normalize_address('1 Devonshire Place, Boston, MA 02109') AS na;``address | streetname | streettypeabbrev | zip
+---------+------------+------------------+-------
+ 1 | Devonshire | Pl | 02109
+(1 row)`
+```
+
+To learn more about this extension, see [Tiger Geocoder](https://postgis.net/docs/Extras.html#Tiger_Geocoder "https://postgis.net/docs/Extras.html#Tiger_Geocoder") in
+the PostGIS documentation.
+
+Test access to the `topology` schema by using the following
+`SELECT` statement. This calls the `createtopology` function
+to register a new topology object (my_new_topo) with the specified spatial reference
+identifier (26986) and default tolerance (0.5). To learn more, see [CreateTopology](https://postgis.net/docs/CreateTopology.html "https://postgis.net/docs/CreateTopology.html") in the
+PostGIS documentation.
+
+```
+`SELECT topology.createtopology('my_new_topo',26986,0.5);``createtopology
+----------------
+ 1
+(1 row)`
+```
+
+## Step 6: Upgrade the
+
+PostGIS extension
+
+Each new release of PostgreSQL supports one or more versions of the PostGIS extension
+compatible with that release. Upgrading the PostgreSQL engine to a new version
+doesn't automatically upgrade the PostGIS extension. Before upgrading the
+PostgreSQL engine, you typically upgrade PostGIS to the newest available version for the
+current PostgreSQL version. For details, see [PostGIS extension versions](#CHAP_PostgreSQL.Extensions.PostGIS "#CHAP_PostgreSQL.Extensions.PostGIS").
+
+After the PostgreSQL engine upgrade, you then upgrade the PostGIS extension again, to
+the version supported for the newly upgraded PostgreSQL engine version. For more
+information about upgrading the PostgreSQL engine, see
+[How
+to perform a major version upgrade for RDS for PostgreSQL](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md").
+
+You can check for available PostGIS extension version updates on your
+RDS for PostgreSQL DB instance at any time. To do so,
+run the following command. This function is available with PostGIS 2.5.0 and higher
+versions.
+
+```
+`SELECT postGIS_extensions_upgrade();`
+```
+
+If your application doesn't support the latest PostGIS version, you can install
+an older version of PostGIS that's available in your major version as
+follows.
+
+```
+`CREATE EXTENSION postgis VERSION "2.5.5";`
+```
+
+If you want to upgrade to a specific PostGIS version from an older version, you can
+also use the following command.
+
+```
+`ALTER EXTENSION postgis UPDATE TO "2.5.5";`
+```
+
+Depending on the version that you're upgrading from, you might need to use this
+function again. The result of the first run of the function determines if an additional
+upgrade function is needed. For example, this is the case for upgrading from PostGIS 2
+to PostGIS 3. For more information, see [Upgrading
+PostGIS 2 to PostGIS 3](#PostgreSQL.Extensions.PostGIS.versions.upgrading.2-to-3 "#PostgreSQL.Extensions.PostGIS.versions.upgrading.2-to-3").
+
+If you upgraded this extension to prepare for a major version upgrade of the
+PostgreSQL engine, you can continue with other preliminary tasks.
+For more information, see [How
+to perform a major version upgrade for RDS for PostgreSQL](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md").
+
+## PostGIS extension versions
+
+We recommend that you install the versions of all extensions such as PostGIS as listed
+in
+[Extension versions for Amazon RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-extensions.md "../PostgreSQLReleaseNotes/postgresql-extensions.md") in the
+_Amazon RDS for PostgreSQL Release Notes._ To get a list of versions that
+are available in your release, use the following command.
+
+```
+`SELECT * FROM pg_available_extension_versions WHERE name='postgis';`
+```
+
+You can find version information in the following sections in
+the _Amazon RDS for PostgreSQL Release Notes_:
+
+- [PostgreSQL version 16 extensions supported on Amazon RDS](../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-16x "../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-16x")
+- [PostgreSQL version 15 extensions supported on Amazon RDS](../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-15x "../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-15x")
+- [PostgreSQL version 14 extensions supported on Amazon RDS](../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-14x "../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-14x")
+- [PostgreSQL version 13 extensions supported on Amazon RDS](../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-13x "../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-13x")
+- [PostgreSQL version 12 extensions supported on Amazon RDS](../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-12x "../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-12x")
+- [PostgreSQL version 11 extensions supported on Amazon RDS](../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-11x "../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-11x")
+- [PostgreSQL version 10 extensions supported on Amazon RDS](../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-101x "../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-101x")
+- [PostgreSQL version 9.6.x extensions supported on Amazon RDS](../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-96x "../PostgreSQLReleaseNotes/postgresql-extensions.md#postgresql-extensions-96x")
+
+## Upgrading
+
+PostGIS 2 to PostGIS 3
+
+Starting with version 3.0, the PostGIS raster functionality is now a separate
+extension, `postgis_raster`. This extension has its own installation and
+upgrade path. This removes dozens of functions, data types, and other artifacts required
+for raster image processing from the core `postgis` extension. That means
+that if your use case doesn't require raster processing, you don't need to
+install the `postgis_raster` extension.
+
+In the following upgrade example, the first upgrade command extracts raster
+functionality into the `postgis_raster` extension. A second upgrade command
+is then required to upgrade `postgis_raster` to the new version.
+
+###### To upgrade from PostGIS 2 to PostGIS 3
+
+1. Identify the default version of PostGIS that's available to the
+   PostgreSQL version on your
+   RDS for PostgreSQL DB instance. To do so, run
+   the following query.
+
+```
+SELECT * FROM pg_available_extensions
+    WHERE default_version > installed_version;
+`name   | default_version | installed_version |                          comment
+---------+-----------------+-------------------+------------------------------------------------------------
+ postgis | 3.1.4           | 2.3.7             | PostGIS geometry and geography spatial types and functions
+(1 row)`
+```
+
+2. Identify the versions of PostGIS installed in each database on
+   your RDS for PostgreSQL DB instance. In other
+   words, query each user database as follows.
 
 ```
 SELECT
-    datname AS database_name,
-    usename AS database_user,
-    pid,
-    now() - pg_stat_activity.xact_start AS transaction_duration,
-    concat(wait_event_type, ':', wait_event) AS wait_event,
-    substr(query, 1, 30) AS TRANSACTION,
-    state
+    e.extname AS "Name",
+    e.extversion AS "Version",
+    n.nspname AS "Schema",
+    c.description AS "Description"
 FROM
-    pg_stat_activity
-WHERE (now() - pg_stat_activity.xact_start) > INTERVAL '60 seconds'
-    AND state IN ('active', 'idle in transaction', 'idle in transaction (aborted)', 'fastpath function call', 'disabled')
-    AND pid <> pg_backend_pid()
-AND lower(query) LIKE '%insert%'
+    pg_catalog.pg_extension e
+    LEFT JOIN pg_catalog.pg_namespace n ON n.oid = e.extnamespace
+    LEFT JOIN pg_catalog.pg_description c ON c.objoid = e.oid
+    AND c.classoid = 'pg_catalog.pg_extension'::pg_catalog.regclass
+WHERE
+    e.extname LIKE '%postgis%'
 ORDER BY
-    transaction_duration DESC;
+    1;
+`Name   | Version | Schema |                             Description
+---------+---------+--------+---------------------------------------------------------------------
+ postgis | 2.3.7   | public | PostGIS geometry, geography, and raster spatial types and functions
+(1 row)`
 ```
 
-Example query results displaying INSERT operations with extended wait times:
+This mismatch between the default version (PostGIS 3.1.4) and the installed
+version (PostGIS 2.3.7) means that you need to upgrade the PostGIS
+extension.
 
 ```
- database_name |  database_user  |  pid  | transaction_duration |     wait_event      |          transaction           | state
----------------+-----------------+-------+----------------------+---------------------+--------------------------------+--------
- postgres       | db_admin_user| 70965 | 00:10:19.484061      | LWLock:buffer_io    | INSERT INTO "products" (......... | active
- postgres       | db_admin_user| 69878 | 00:06:14.976037      | LWLock:buffer_io    | INSERT INTO "products" (......... | active
- postgres       | db_admin_user| 68937 | 00:05:13.942847      | :                   | INSERT INTO "products" (......... | active
+ALTER EXTENSION postgis UPDATE;
+`ALTER EXTENSION
+WARNING: unpackaging raster
+WARNING: PostGIS Raster functionality has been unpackaged`
 ```
 
-### Isolating
-
-the problem
-
-- Test small insert – Insert a record smaller
-  than the `toast_tuple_target` threshold. Remember that compression is applied
-  before TOAST storage. If this operates without performance issues, the problem is
-  related to TOAST operations.
-- Test new table – Create a new table with the
-  same structure and insert a record larger than `toast_tuple_target`. If this
-  works without issues, the problem is localized to the original table's OID
-  allocation.
-
-## Recommendations
-
-The following approaches can help resolve TOAST OID contention issues.
-
-- Data cleanup and archive – Review and delete any
-  obsolete or unnecessary data to free up OIDs for future use, or archive the data. Consider
-  the following limitations:
-  - Limited scalability, as future cleanup might not always be possible.
-  - Possible long-running VACUUM operation to remove the resulting dead tuples.
-
-- Write to a new table – Create a new table for
-  future inserts and use a `UNION ALL` view to combine old and new data for
-  queries. This view presents the combined data from both old and new tables, allowing
-  queries to access them as a single table. Consider the following limitations:
-  - Updates on the old table might still cause OID exhaustion.
-
-- Partition or Shard – Partition the table or
-  shard data for better scalability and performance. Consider the following
-  limitations:
-  - Increased complexity in query logic and maintenance, potential need for
-    application changes to handle partitioned data correctly.
-
-## Monitoring
-
-### Using system
-
-tables
-
-You can use PostgreSQL's system tables to monitor growth of OID usage.
-
-###### Warning
-
-Depending on the number of OIDs in the TOAST table, it may take time to complete. We
-recommend that you schedule monitoring during off-business hours to minimize
-impact.
-
-The following anonymous block counts the number of distinct OIDs used in each TOAST
-table and displays the parent table information:
+3. Run the following query to verify that the raster functionality is now in its
+   own package.
 
 ```
-DO $$
-DECLARE
-    r record;
-    o bigint;
-    parent_table text;
-    parent_schema text;
-BEGIN
-    SET LOCAL client_min_messages TO notice;
-    FOR r IN
-    SELECT
-        c.oid,
-        c.oid::regclass AS toast_table
-    FROM
-        pg_class c
-    WHERE
-        c.relkind = 't'
-        AND c.relowner != 10 LOOP
-            -- Fetch the number of distinct used OIDs (chunk IDs) from the TOAST table
-            EXECUTE 'SELECT COUNT(DISTINCT chunk_id) FROM ' || r.toast_table INTO o;
-            -- If there are used OIDs, find the associated parent table and its schema
-            IF o <> 0 THEN
-                SELECT
-                    n.nspname,
-                    c.relname INTO parent_schema,
-                    parent_table
-                FROM
-                    pg_class c
-                    JOIN pg_namespace n ON c.relnamespace = n.oid
-                WHERE
-                    c.reltoastrelid = r.oid;
-                -- Raise a concise NOTICE message
-                RAISE NOTICE 'Parent schema: % | Parent table: % | Toast table: % | Number of used OIDs: %', parent_schema, parent_table, r.toast_table, TO_CHAR(o, 'FM9,999,999,999,999');
-            END IF;
-        END LOOP;
-END
-$$;
+SELECT
+    probin,
+    count(*)
+FROM
+    pg_proc
+WHERE
+    probin LIKE '%postgis%'
+GROUP BY
+    probin;
+`probin          | count
+--------------------------+-------
+ $libdir/rtpostgis-2.3    | 107
+ $libdir/postgis-3        | 487
+(2 rows)`
 ```
 
-Example output displaying OID usage statistics by TOAST table:
+The output shows that there's still a difference between versions. The
+PostGIS functions are version 3 (postgis-3), while the raster functions
+(rtpostgis) are version 2 (rtpostgis-2.3). To complete the upgrade, you run the
+upgrade command again, as follows.
 
 ```
-NOTICE:  Parent schema: public | Parent table: my_table | Toast table: pg_toast.pg_toast_16559 | Number of used OIDs: 45,623,317
-NOTICE:  Parent schema: public | Parent table: my_table1 | Toast table: pg_toast.pg_toast_45639925 | Number of used OIDs: 10,000
-NOTICE:  Parent schema: public | Parent table: my_table2 | Toast table: pg_toast.pg_toast_45649931 | Number of used OIDs: 1,000,000
-DO
+`postgres=>` SELECT postgis_extensions_upgrade();
 ```
 
-The following anonymous block retrieves the maximum assigned OID for each non-empty
-TOAST table:
+You can safely ignore the warning messages. Run the following query again to
+verify that the upgrade is complete. The upgrade is complete when PostGIS and
+all related extensions aren't marked as needing upgrade.
 
 ```
-DO $$
-DECLARE
-    r record;
-    o bigint;
-    parent_table text;
-    parent_schema text;
-BEGIN
-    SET LOCAL client_min_messages TO notice;
-    FOR r IN
-    SELECT
-        c.oid,
-        c.oid::regclass AS toast_table
-    FROM
-        pg_class c
-    WHERE
-        c.relkind = 't'
-        AND c.relowner != 10 LOOP
-            -- Fetch the max(chunk_id) from the TOAST table
-            EXECUTE 'SELECT max(chunk_id) FROM ' || r.toast_table INTO o;
-            -- If there's at least one TOASTed chunk, find the associated parent table and its schema
-            IF o IS NOT NULL THEN
-                SELECT
-                    n.nspname,
-                    c.relname INTO parent_schema,
-                    parent_table
-                FROM
-                    pg_class c
-                    JOIN pg_namespace n ON c.relnamespace = n.oid
-                WHERE
-                    c.reltoastrelid = r.oid;
-                -- Raise a concise NOTICE message
-                RAISE NOTICE 'Parent schema: % | Parent table: % | Toast table: % | Max chunk_id: %', parent_schema, parent_table, r.toast_table, TO_CHAR(o, 'FM9,999,999,999,999');
-            END IF;
-        END LOOP;
-END
-$$;
+SELECT postgis_full_version();
 ```
 
-Example output displaying maximum chunk IDs for TOAST tables:
+4. Use the following query to see the completed upgrade process and the
+   separately packaged extensions, and verify that their versions match.
 
 ```
-
-NOTICE:  Parent schema: public | Parent table: my_table | Toast table: pg_toast.pg_toast_16559 | Max chunk_id: 45,639,907
-NOTICE:  Parent schema: public | Parent table: my_table1 | Toast table: pg_toast.pg_toast_45639925 | Max chunk_id: 45,649,929
-NOTICE:  Parent schema: public | Parent table: my_table2 | Toast table: pg_toast.pg_toast_45649931 | Max chunk_id: 46,649,935
-DO
+SELECT
+    e.extname AS "Name",
+    e.extversion AS "Version",
+    n.nspname AS "Schema",
+    c.description AS "Description"
+FROM
+    pg_catalog.pg_extension e
+    LEFT JOIN pg_catalog.pg_namespace n ON n.oid = e.extnamespace
+    LEFT JOIN pg_catalog.pg_description c ON c.objoid = e.oid
+        AND c.classoid = 'pg_catalog.pg_extension'::pg_catalog.regclass
+WHERE
+    e.extname LIKE '%postgis%'
+ORDER BY
+    1;
+`Name      | Version | Schema |                             Description
+----------------+---------+--------+---------------------------------------------------------------------
+ postgis        | 3.1.5   | public | PostGIS geometry, geography, and raster spatial types and functions
+ postgis_raster | 3.1.5   | public | PostGIS raster types and functions
+(2 rows)`
 ```
 
-### Using
+The output shows that the PostGIS 2 extension was upgraded to PostGIS 3, and
+both `postgis` and the now separate `postgis_raster`
+extension are version 3.1.5.
 
-Performance Insights
+After this upgrade completes, if you don't plan to use the raster functionality,
+you can drop the extension as follows.
 
-The wait events `LWLock:buffer_io` and `LWLock:OidGenLock` appear
-in Performance Insights during operations that require assigning new Object Identifiers
-(OIDs). High Average Active Sessions (AAS) for these events typically point to contention
-during OID assignment and resource management. This is particularly common in environments
-with high data churn, extensive large data usage, or frequent object creation.
-
-#### LWLock:buffer_io
-
-`LWLock:buffer_io` is a wait event that occurs when a PostgreSQL session is
-waiting for I/O operations on a shared buffer to complete. This typically happens when the
-database reads data from disk into memory or writes modified pages from memory to disk.
-The `BufferIO` wait event ensures consistency by preventing multiple processes
-from accessing or modifying the same buffer while I/O operations are in progress. High
-occurrences of this wait event may indicate disk bottlenecks or excessive I/O activity in
-the database workload.
-
-During TOAST operations:
-
-- PostgreSQL allocates OIDs for large objects and ensures their uniqueness by
-  scanning the TOAST table's index.
-- Large TOAST indexes may require accessing multiple pages to verify OID uniqueness.
-  This results in increased disk I/O, especially when the buffer pool cannot cache all
-  required pages.
-
-The size of the index directly affects the number of buffer pages that need to be
-accessed during these operations. Even if the index is not bloated, its sheer size can
-increase buffer I/O, particularly in high-concurrency or high-churn environments. For more
-information, see [LWLock:BufferIO wait event troubleshooting guide](../AuroraUserGuide/apg-waits.md "../AuroraUserGuide/apg-waits.md").
-
-#### LWLock:OidGenLock
-
-`OidGenLock` is a wait event that occurs when a PostgreSQL session is
-waiting to allocate a new object identifier (OID). This lock ensures that OIDs are
-generated sequentially and safely, allowing only one process to generate OIDs at a
-time.
-
-During TOAST operations:
-
-- OID allocation for chunks in TOAST table –
-  PostgreSQL assigns OIDs to chunks in TOAST tables when managing large data records.
-  Each OID must be unique to prevent conflicts in the system catalog.
-- High concurrency – Since access to OID
-  generator is sequential, when multiple sessions are concurrently creating objects that
-  require OIDs, contention for `OidGenLock` can occur. This increases the
-  likelihood of sessions waiting for OID allocation to complete.
-- Dependency on system catalog access –
-  Allocating OIDs requires updates to shared system catalog tables like
-  `pg_class` and `pg_type`. If these tables experience heavy
-  activity (due to frequent DDL operations), it can increase lock contention for
-  `OidGenLock`.
-- High OID allocation demand – TOAST heavy
-  workloads with large data records require constant OID allocation, increasing
-  contention.
-
-Additional factors that increase OID contention:
-
-- Frequent object creation – Workloads that
-  frequently create and drop objects, such as temporary tables, amplify contention on
-  the global OID counter.
-- Global counter locking – The global OID
-  counter is accessed serially to ensure uniqueness, creating a single point of
-  contention in high-concurrency environments.
+```
+DROP EXTENSION postgis_raster;
+```

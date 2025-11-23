@@ -73,7 +73,7 @@ Skip this step if either of the following is true:
 
 templates for RDS Custom for Oracle
 
-To simplify setup, we strongly recommend that you use AWS CloudFormation templates to create
+To simplify setup, we strongly recommend that you use CloudFormation templates to create
 CloudFormation stacks. If you plan to configure IAM and your VPC manually, skip this
 step.
 
@@ -196,7 +196,7 @@ You can configure IAM using either CloudFormation or manual steps.
 
 ###### Important
 
-We strongly recommend that you configure your RDS Custom for Oracle environment using AWS CloudFormation.
+We strongly recommend that you configure your RDS Custom for Oracle environment using CloudFormation.
 This technique is the easiest and least error-prone.
 
 ###### Topics
@@ -245,7 +245,7 @@ resources:
 6.  On the **Review custom-oracle-iam** page, do the
     following:
     1. Select the \***\*I acknowledge that
-       AWS CloudFormation might create IAM resources with custom
+       CloudFormation might create IAM resources with custom
        names\*\*** check box.
     2. Choose **Submit**.CloudFormation creates the IAM roles that RDS Custom for Oracle requires. In the left
        panel, when **custom-oracle-iam** shows
@@ -743,7 +743,7 @@ process.
 
 ###### Important
 
-We strongly recommend that you configure your RDS Custom for Oracle environment using AWS CloudFormation.
+We strongly recommend that you configure your RDS Custom for Oracle environment using CloudFormation.
 This technique is the easiest and least error-prone.
 
 ###### Topics
@@ -847,7 +847,7 @@ following:
 
 RDS Custom for Oracle
 
-As an alternative to automating VPC creation with AWS CloudFormation, you can configure your
+As an alternative to automating VPC creation with CloudFormation, you can configure your
 VPC manually. This option might be best when you have a complex networking setup
 that uses existing resources.
 

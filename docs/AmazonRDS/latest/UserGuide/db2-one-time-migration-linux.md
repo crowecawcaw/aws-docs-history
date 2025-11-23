@@ -25,8 +25,7 @@ using native restore
 The following limitations and recommendations apply to using native restore:
 
 - Amazon RDS only supports migrating on-premises versions of Db2 that match supported
-  RDS for Db2 versions. For more information about the supported versions, see [Supported Db2 minor versions on
-  Amazon RDS](Db2.Concepts.md#Db2.Concepts.VersionMgmt.Supported "Db2.Concepts.md#Db2.Concepts.VersionMgmt.Supported").
+  RDS for Db2 versions. For more information about the supported versions, see [Upgrade management for Amazon RDS Db2 instances](Db2.Concepts.VersionMgmt.md "Db2.Concepts.VersionMgmt.md").
 - Amazon RDS only supports offline and online backups for native restore. Amazon RDS
   doesn't support incremental or Delta backups.
 - You can't restore from an Amazon S3 bucket in an AWS Region that is different

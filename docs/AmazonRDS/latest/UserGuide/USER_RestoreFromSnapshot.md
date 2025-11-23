@@ -25,7 +25,7 @@ from magnetic storage, the migration process is the slowest. That's because magn
 doesn't have the IOPS capability of Provisioned IOPS or General Purpose (SSD)
 storage.
 
-You can use AWS CloudFormation to restore a DB instance from a DB instance snapshot. For more information,
+You can use CloudFormation to restore a DB instance from a DB instance snapshot. For more information,
 see [AWS::RDS::DBInstance](../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md")
 in the _AWS CloudFormation User Guide_.
 

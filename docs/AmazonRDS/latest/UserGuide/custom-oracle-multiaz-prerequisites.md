@@ -15,7 +15,7 @@ deployment in RDS Custom for Oracle.
 
 RDS Custom for Oracle requires specific prerequisites when converting from Single-AZ to Multi-AZ
 deployment. Incomplete prerequisites cause Multi-AZ setup to fail. Use either manual
-setup or the latest AWS CloudFormation template file provided in the network setup instructions. For
+setup or the latest CloudFormation template file provided in the network setup instructions. For
 more information, see [Step 3: Extract the CloudFormation
 templates for RDS Custom for Oracle](custom-setup-orcl.md#custom-setup-orcl.cf.downloading "custom-setup-orcl.md#custom-setup-orcl.cf.downloading").
 

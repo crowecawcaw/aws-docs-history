@@ -10,9 +10,9 @@ perform the following tasks.
 
 - [Step 1: Grant required permissions to your IAM principal](custom-setup-sqlserver.md#custom-setup-sqlserver.iam-user "custom-setup-sqlserver.md#custom-setup-sqlserver.iam-user")
 - [Step 2: Configure networking, instance profile, and encryption](custom-setup-sqlserver.md#custom-setup-sqlserver.iam-vpc "custom-setup-sqlserver.md#custom-setup-sqlserver.iam-vpc")
-  - [Configuring with AWS CloudFormation](custom-setup-sqlserver.md#custom-setup-sqlserver.cf "custom-setup-sqlserver.md#custom-setup-sqlserver.cf")
+  - [Configuring with CloudFormation](custom-setup-sqlserver.md#custom-setup-sqlserver.cf "custom-setup-sqlserver.md#custom-setup-sqlserver.cf")
     - [Parameters required by CloudFormation](custom-setup-sqlserver.md#custom-setup-sqlserver.cf.params "custom-setup-sqlserver.md#custom-setup-sqlserver.cf.params")
-    - [Download AWS CloudFormation template file](custom-setup-sqlserver.md#custom-setup-sqlserver.cf.download "custom-setup-sqlserver.md#custom-setup-sqlserver.cf.download")
+    - [Download CloudFormation template file](custom-setup-sqlserver.md#custom-setup-sqlserver.cf.download "custom-setup-sqlserver.md#custom-setup-sqlserver.cf.download")
     - [Configuring resources using CloudFormation](custom-setup-sqlserver.md#custom-setup-sqlserver.cf.config "custom-setup-sqlserver.md#custom-setup-sqlserver.cf.config")
 
   - [Configuring manually](custom-setup-sqlserver.md#custom-setup-sqlserver.manual "custom-setup-sqlserver.md#custom-setup-sqlserver.manual")
@@ -43,7 +43,7 @@ setup)](https://aws.amazon.com/blogs/database/get-started-with-amazon-rds-custom
 
 Before creating an RDS Custom for SQL Server DB instance, make sure that your environment meets the requirements
 described in this topic. You can also use the CloudFormation template to set up the prerequisites within your AWS account.
-For more information, see [Configuring with AWS CloudFormation](#custom-setup-sqlserver.cf "#custom-setup-sqlserver.cf")
+For more information, see [Configuring with CloudFormation](#custom-setup-sqlserver.cf "#custom-setup-sqlserver.cf")
 
 RDS Custom for SQL Server requires that you configure the following
 prerequisites:
@@ -254,7 +254,7 @@ permission boundaries, or session policies associated with the IAM principal.
 You can configure your IAM instance profile role, virtual private cloud (VPC), and AWS KMS symmetric encryption key by using
 either of the following processes:
 
-- [Configuring with AWS CloudFormation](#custom-setup-sqlserver.cf "#custom-setup-sqlserver.cf") (recommended)
+- [Configuring with CloudFormation](#custom-setup-sqlserver.cf "#custom-setup-sqlserver.cf") (recommended)
 - [Configuring manually](#custom-setup-sqlserver.manual "#custom-setup-sqlserver.manual")
 
 ###### Note
@@ -265,22 +265,22 @@ instance profile role aren't restricted by service control policies (SCPs).
 The networking configurations in this topic work best with DB instances that aren't publicly accessible.
 You can't connect directly to such DB instances from outside the VPC.
 
-### Configuring with AWS CloudFormation
+### Configuring with CloudFormation
 
-To simplify setup, you can use an AWS CloudFormation template file to create a CloudFormation
+To simplify setup, you can use an CloudFormation template file to create a CloudFormation
 stack. A CloudFormation template creates all the networking, instance profiles,
 and encryption resources according the requirements of RDS Custom.
 
-To learn how to create stacks, see [Creating a stack on the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the _AWS CloudFormation User
+To learn how to create stacks, see [Creating a stack on the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the _CloudFormation User
 Guide_.
 
-For a tutorial on how to launch Amazon RDS Custom for SQL Server using an AWS CloudFormation template, see
-[Get started with Amazon RDS Custom for SQL Server using an AWS CloudFormation template](https://aws.amazon.com/blogs/database/get-started-with-amazon-rds-custom-for-sql-server-using-an-aws-cloudformation-template-network-setup/ "https://aws.amazon.com/blogs/database/get-started-with-amazon-rds-custom-for-sql-server-using-an-aws-cloudformation-template-network-setup/") in the _AWS Database Blog_ .
+For a tutorial on how to launch Amazon RDS Custom for SQL Server using an CloudFormation template, see
+[Get started with Amazon RDS Custom for SQL Server using an CloudFormation template](https://aws.amazon.com/blogs/database/get-started-with-amazon-rds-custom-for-sql-server-using-an-aws-cloudformation-template-network-setup/ "https://aws.amazon.com/blogs/database/get-started-with-amazon-rds-custom-for-sql-server-using-an-aws-cloudformation-template-network-setup/") in the _AWS Database Blog_ .
 
 ###### Topics
 
 - [Parameters required by CloudFormation](#custom-setup-sqlserver.cf.params "#custom-setup-sqlserver.cf.params")
-- [Download AWS CloudFormation template file](#custom-setup-sqlserver.cf.download "#custom-setup-sqlserver.cf.download")
+- [Download CloudFormation template file](#custom-setup-sqlserver.cf.download "#custom-setup-sqlserver.cf.download")
 - [Configuring resources using CloudFormation](#custom-setup-sqlserver.cf.config "#custom-setup-sqlserver.cf.config")
 
 #### Parameters required by CloudFormation
@@ -358,7 +358,7 @@ your AWS account:
 
   Use the following procedures to create the CloudFormation stack for RDS Custom for SQL Server.
 
-#### Download AWS CloudFormation template file
+#### Download CloudFormation template file
 
 ###### To download the template file
 
@@ -397,13 +397,13 @@ make sure that the CloudFormation stack parameter **Select an availability confi
 If you create the CloudFormation stack as Single-AZ, update the CloudFormation stack to Multi-AZ configuration before creating the first Multi-AZ instance. 8. On the **Configure stack options page**, choose **Next.** 9. On the **Review rds-custom-sqlserver** page, do the following:
 
     1. For **Capabilities**, select the ****I acknowledge that
-     AWS CloudFormation might create IAM resources with custom names**** check box.
+     CloudFormation might create IAM resources with custom names**** check box.
     2. Choose **Create stack**.
 
 ###### Note
 
-Do not update the resources created from this AWS CloudFormation stack directly from the resource pages.
-This prevents you from applying future updates to these resources by using a AWS CloudFormation template.
+Do not update the resources created from this CloudFormation stack directly from the resource pages.
+This prevents you from applying future updates to these resources by using a CloudFormation template.
 
 CloudFormation creates the resources that RDS Custom for SQL Server requires. If the stack creation fails, read through the
 **Events** tab to see which resource creation failed and its status reason.
@@ -447,9 +447,9 @@ If you choose to configure resources manually, perform the following tasks.
 
 ###### Note
 
-To simplify setup, you can use the AWS CloudFormation template
+To simplify setup, you can use the CloudFormation template
 file to create a CloudFormation stack rather than a manual configuration.
-For more information, see [Configuring with AWS CloudFormation](#custom-setup-sqlserver.cf "#custom-setup-sqlserver.cf").
+For more information, see [Configuring with CloudFormation](#custom-setup-sqlserver.cf "#custom-setup-sqlserver.cf").
 
 You can also use the AWS CLI to complete this section. If so, download and install the latest CLI.
 

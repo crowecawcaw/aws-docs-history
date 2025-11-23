@@ -1,71 +1,114 @@
-# Using Database Mail on Amazon RDS for SQL Server
+# Using extended events with Amazon RDS for Microsoft SQL Server
 
-You can use Database Mail to send email messages to users from your Amazon RDS on SQL Server database instance. The messages can contain
-files and query results. Database Mail includes the following components:
+You can use extended events in Microsoft SQL Server to capture debugging and troubleshooting information for Amazon RDS for SQL Server. Extended events replace
+SQL Trace and Server Profiler, which have been deprecated by Microsoft. Extended events are similar to profiler traces but with more granular control
+on the events being traced. Extended events are supported for SQL Server versions 2016 and later on Amazon RDS. For more information, see
+[Extended events overview](https://docs.microsoft.com/en-us/sql/relational-databases/extended-events/extended-events "https://docs.microsoft.com/en-us/sql/relational-databases/extended-events/extended-events") in the Microsoft documentation.
 
-- **Configuration and security objects** – These objects create profiles and accounts,
-  and are stored in the `msdb` database.
-- **Messaging objects** – These objects include the [sp_send_dbmail](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql") stored procedure used to send messages, and data structures that hold information about
-  messages. They're stored in the `msdb` database.
-- **Logging and auditing objects** – Database Mail writes logging information to the
-  `msdb` database and the Microsoft Windows application event log.
-- **Database Mail executable** – `DatabaseMail.exe` reads from a queue in the
-  `msdb` database and sends email messages.
-  RDS supports Database Mail for all SQL Server versions on the Web, Standard, and Enterprise Editions.
+Extended events are turned on automatically for users with master user privileges in Amazon RDS for SQL Server.
 
-## Limitations
+###### Topics
 
-The following limitations apply to using Database Mail on your SQL Server DB instance:
+- [Limitations and recommendations](#SQLServer.ExtendedEvents.Limits "#SQLServer.ExtendedEvents.Limits")
+- [Configuring extended events on RDS for SQL Server](#SQLServer.ExtendedEvents.Config "#SQLServer.ExtendedEvents.Config")
+- [Considerations for Multi-AZ deployments](#SQLServer.ExtendedEvents.MAZ "#SQLServer.ExtendedEvents.MAZ")
+- [Querying extended event files](#SQLServer.ExtendedEvents.Querying "#SQLServer.ExtendedEvents.Querying")
 
-- Database Mail isn't supported for SQL Server Express Edition.
-- Modifying Database Mail configuration parameters isn't supported. To see the preset (default) values, use the
-  [sysmail_help_configure_sp](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-help-configure-sp-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-help-configure-sp-transact-sql") stored procedure.
-- File attachments aren't fully supported. For more information, see [Working with file attachments](#SQLServer.DBMail.Files "#SQLServer.DBMail.Files").
-- The maximum file attachment size is 1 MB.
-- Database Mail requires additional configuration on Multi-AZ DB instances. For more information, see [Considerations for Multi-AZ deployments](#SQLServer.DBMail.MAZ "#SQLServer.DBMail.MAZ").
-- Configuring SQL Server Agent to send email messages to predefined operators isn't supported.
+## Limitations and recommendations
 
-## Amazon RDS stored procedures and functions for Database Mail
+When using extended events on RDS for SQL Server, the following limitations apply:
 
-Microsoft provides [stored procedures](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/database-mail-stored-procedures-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/database-mail-stored-procedures-transact-sql") for using Database Mail, such as creating, listing, updating, and deleting accounts and profiles.
-In addition, RDS provides the stored procedures and functions for Database Mail shown in the following table.
+- Extended events are supported only for the Enterprise and Standard Editions.
+- You can't alter default extended event sessions.
+- Make sure to set the session memory partition mode to `NONE`.
+- Session event retention mode can be either `ALLOW_SINGLE_EVENT_LOSS` or `ALLOW_MULTIPLE_EVENT_LOSS`.
+- Event Tracing for Windows (ETW) targets aren't supported.
+- Make sure that file targets are in the `D:\rdsdbdata\log` directory.
+- For pair matching targets, set the `respond_to_memory_pressure` property to `1`.
+- Ring buffer target memory can't be greater than 4 MB.
+- The following actions aren't supported:
+  - `debug_break`
+  - `create_dump_all_threads`
+  - `create_dump_single_threads`
 
-| Procedure/Function              | Description                                                                      |
-| ------------------------------- | -------------------------------------------------------------------------------- |
-| rds_fn_sysmail_allitems         | Shows sent messages, including those submitted by other users.                   |
-| rds_fn_sysmail_event_log        | Shows events, including those for messages submitted by other users.             |
-| rds_fn_sysmail_mailattachments  | Shows attachments, including those to messages submitted by other users.         |
-| rds_sysmail_control             | Starts and stops the mail queue (DatabaseMail.exe process).                      |
-| rds_sysmail_delete_mailitems_sp | Deletes email messages sent by all users from the Database Mail internal tables. |
+- The `rpc_completed` event is supported on the following versions and later:
+  15.0.4083.2, 14.0.3370.1, 13.0.5865.1, 12.0.6433.1, 11.0.7507.2.
 
-## Working with file attachments
+## Configuring extended events on RDS for SQL Server
 
-The following file attachment extensions aren't supported in Database Mail messages from RDS on SQL Server: .ade, .adp,
-.apk, .appx, .appxbundle, .bat, .bak, .cab, .chm, .cmd, .com, .cpl, .dll, .dmg, .exe, .hta, .inf1, .ins, .isp, .iso, .jar, .job,
-.js, .jse, .ldf, .lib, .lnk, .mde, .mdf, .msc, .msi, .msix, .msixbundle, .msp, .mst, .nsh, .pif, .ps, .ps1, .psc1, .reg, .rgs,
-.scr, .sct, .shb, .shs, .svg, .sys, .u3p, .vb, .vbe, .vbs, .vbscript, .vxd, .ws, .wsc, .wsf, and .wsh.
+On RDS for SQL Server, you can configure the values of certain parameters of extended event sessions. The following table describes the configurable parameters.
 
-Database Mail uses the Microsoft Windows security context of the current user to control access to files. Users who log in
-with SQL Server Authentication can't attach files using the `@file_attachments` parameter with the
-`sp_send_dbmail` stored procedure. Windows doesn't allow SQL Server to provide credentials from a remote
-computer to another remote computer. Therefore, Database Mail can't attach files from a network share when the command is
-run from a computer other than the computer running SQL Server.
+| Parameter name                    | Description                                                                                                                                                                                                      | RDS default value | Minimum value | Maximum value |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------- | ------------- |
+| `xe_session_max_memory`           | Specifies the maximum amount of memory to allocate to the session for event buffering. This value corresponds to the `max_memory`<br>setting of the event session.                                               | 4 MB              | 4 MB          | 8 MB          |
+| `xe_session_max_event_size`       | Specifies the maximum memory size allowed for large events. This value corresponds to the `max_event_size` setting of the<br>event session.                                                                      | 4 MB              | 4 MB          | 8 MB          |
+| `xe_session_max_dispatch_latency` | Specifies the amount of time that events are buffered in memory before being dispatched to extended event session targets. This value<br>corresponds to the `max_dispatch_latency` setting of the event session. | 30 seconds        | 1 second      | 30 seconds    |
+| `xe_file_target_size`             | Specifies the maximum size of the file target. This value corresponds to the `max_file_size` setting of the file target.                                                                                         | 100 MB            | 10 MB         | 1 GB          |
+| `xe_file_retention`               | Specifies the retention time in days for files generated by the file targets of event sessions.                                                                                                                  | 7 days            | 0 days        | 7 days        |
 
-However, you can use SQL Server Agent jobs to attach files. For more information on SQL Server Agent, see [Using SQL Server Agent for Amazon RDS](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md") and [SQL Server Agent](https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent "https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent") in the Microsoft
-documentation.
+###### Note
+
+Setting `xe_file_retention` to zero causes .xel files to be removed automatically after the lock on these files
+is released by SQL Server. The lock is released whenever an .xel file reaches the size limit set in `xe_file_target_size`.
+
+You can use the `rdsadmin.dbo.rds_show_configuration` stored procedure to show the current values of these parameters. For example, use the following SQL
+statement to view the current setting of `xe_session_max_memory`.
+
+```
+exec rdsadmin.dbo.rds_show_configuration 'xe_session_max_memory'
+```
+
+You can use the `rdsadmin.dbo.rds_set_configuration` stored procedure to modify them. For example, use the following SQL statement to set
+`xe_session_max_memory` to 4 MB.
+
+```
+exec rdsadmin.dbo.rds_set_configuration 'xe_session_max_memory', 4
+```
 
 ## Considerations for Multi-AZ deployments
 
-When you configure Database Mail on a Multi-AZ DB instance, the configuration isn't automatically propagated to the
-secondary. We recommend converting the Multi-AZ instance to a Single-AZ instance, configuring Database Mail, and then converting
-the DB instance back to Multi-AZ. Then both the primary and secondary nodes have the Database Mail configuration.
+When you create an extended event session on a primary DB instance, it doesn't propagate to the standby replica. You can fail over and create the extended event
+session on the new primary DB instance. Or you can remove and then re-add the Multi-AZ configuration to propagate the extended event session to the standby replica. RDS stops
+all nondefault extended event sessions on the standby replica, so that these sessions don't consume resources on the standby. Because of this, after a standby replica
+becomes the primary DB instance, make sure to manually start the extended event sessions on the new primary.
 
-If you create a read replica from your Multi-AZ instance that has Database Mail configured, the replica inherits the
-configuration, but without the password to the SMTP server. Update the Database Mail account with the password.
+###### Note
 
-## Removing the SMTP (port 25) restriction
+This approach applies to both Always On Availability Groups and Database Mirroring.
 
-By default, AWS blocks outbound traffic on SMTP (port 25) for RDS for SQL Server DB instances.
-This is done to prevent spam based on the elastic network interface owner's policies.
-You can remove this restriction if needed. For more information, see
-[How do I remove the restriction on port 25 from my Amazon EC2 instance or Lambda function?](https://repost.aws/knowledge-center/ec2-port-25-throttle "https://repost.aws/knowledge-center/ec2-port-25-throttle").
+You can also use a SQL Server Agent job to track the standby replica and start the sessions if the standby becomes the
+primary. For example, use the following query in your SQL Server Agent job step to restart event sessions on a primary DB
+instance.
+
+```
+BEGIN
+    IF (DATABASEPROPERTYEX('rdsadmin','Updateability')='READ_WRITE'
+    AND DATABASEPROPERTYEX('rdsadmin','status')='ONLINE'
+    AND (DATABASEPROPERTYEX('rdsadmin','Collation') IS NOT NULL OR DATABASEPROPERTYEX('rdsadmin','IsAutoClose')=1)
+    )
+    BEGIN
+        IF NOT EXISTS (SELECT 1 FROM sys.dm_xe_sessions WHERE name='xe1')
+            ALTER EVENT SESSION xe1 ON SERVER STATE=START
+        IF NOT EXISTS (SELECT 1 FROM sys.dm_xe_sessions WHERE name='xe2')
+            ALTER EVENT SESSION xe2 ON SERVER STATE=START
+    END
+END
+```
+
+This query restarts the event sessions `xe1` and `xe2` on a primary DB instance if these sessions are in a stopped state. You can also add a schedule with a
+convenient interval to this query.
+
+## Querying extended event files
+
+You can either use SQL Server Management Studio or the `sys.fn_xe_file_target_read_file` function to view data from
+extended events that use file targets. For more information on this function, see [sys.fn_xe_file_target_read_file
+(Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-functions/sys-fn-xe-file-target-read-file-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-functions/sys-fn-xe-file-target-read-file-transact-sql") in the Microsoft documentation.
+
+Extended event file targets can only write files to the `D:\rdsdbdata\log` directory on RDS for SQL Server.
+
+As an example, use the following SQL query to list the contents of all files of extended event sessions whose names start with
+`xe`.
+
+```
+SELECT * FROM sys.fn_xe_file_target_read_file('d:\rdsdbdata\log\xe*', null,null,null);
+```

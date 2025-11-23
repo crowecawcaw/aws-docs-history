@@ -1,72 +1,67 @@
-# Promoting an RDS Custom for Oracle replica to a standalone DB instance
+# Working with Oracle replicas for RDS Custom for Oracle
 
-Just as with RDS for Oracle, you can promote an RDS Custom for Oracle replica to a standalone DB instance. When you promote a Oracle replica, RDS Custom for Oracle
-reboots the DB instance before it becomes available. For more information about promoting Oracle replicas, see [Promoting a read replica to be a standalone
-DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+You can create Oracle replicas for RDS Custom for Oracle DB instances that run Oracle Enterprise Edition.
+Both container databases (CDBs) and non-CDBs are supported. Standard Edition 2 doesn't
+support Oracle Data Guard.
 
-When promoting a replica, note the following guidelines:
+Creating an RDS Custom for Oracle replica is similar to creating an RDS for Oracle replica, but with
+important differences. For general information about creating and managing Oracle replicas,
+see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md") and [Working with read replicas for Amazon RDS for Oracle](oracle-read-replicas.md "oracle-read-replicas.md").
 
-- Don't initiate a failover while RDS Custom for Oracle is promoting your replica.
-  Otherwise, the promotion workflow could become stuck.
-- Don't switch over your primary DB instance while RDS Custom for Oracle is promoting your Oracle
-  replica. Otherwise, the promotion workflow could become stuck.
-- Don't shut down your primary DB instance while RDS Custom for Oracle is promoting your Oracle
-  replica. Otherwise, the promotion workflow could become stuck.
-- Don't try to restart replication with your newly promoted DB instance as a target.
-  After RDS Custom for Oracle promotes your Oracle replica, it becomes a standalone DB instance and
-  no longer has the replica role.
-  Note the following limitations for RDS Custom for Oracle replica promotion:
+###### Topics
 
-- You can't promote a replica while RDS Custom for Oracle is backing it up.
-- You can't change the backup retention period to `0` when you
-  promote your Oracle replica.
-- You can't promote your replica when it isn't in a healthy state.
+- [Overview of RDS Custom for Oracle replication](#custom-rr.overview "#custom-rr.overview")
+- [Guidelines and limitations for RDS Custom for Oracle
+  replication](custom-rr.md "custom-rr.md")
+- [Promoting an RDS Custom for Oracle replica to a standalone DB instance](custom-rr.md "custom-rr.md")
+- [Configuring a VPN tunnel between RDS Custom for Oracle
+  primary and replica instances](cfo-standby-vpn-tunnel.md "cfo-standby-vpn-tunnel.md")
 
-If you issue `delete-db-instance` on the primary DB instance, RDS Custom for Oracle
-validates that each managed Oracle replica is healthy and available for
-promotion. A replica might be ineligible for promotion because automation is
-paused or it is outside the support perimeter. In such cases, RDS Custom for Oracle
-publishes an event explaining the issue so that you can repair your Oracle
-replica manually.
-The following steps show the general process for promoting a Oracle replica to a DB instance:
+## Overview of RDS Custom for Oracle replication
 
-1. Stop any transactions from being written to the primary DB instance.
-2. Wait for RDS Custom for Oracle to apply all updates to your Oracle replica.
-3. Promote your Oracle replica by choosing the **Promote** option on the Amazon RDS console, the AWS CLI command [`promote-read-replica`](../../../cli/latest/reference/rds/promote-read-replica.md "../../../cli/latest/reference/rds/promote-read-replica.md"), or the [`PromoteReadReplica`](../APIReference/API_PromoteReadReplica.md "../APIReference/API_PromoteReadReplica.md") Amazon RDS API operation.
-   Promoting a Oracle replica takes a few minutes to complete. During the process,
-   RDS Custom for Oracle stops replication and reboots your replica. When the reboot completes, the
-   Oracle replica is available as a standalone DB instance. For information about troubleshooting
-   replica promotion, see [Troubleshooting replica promotion for RDS Custom for Oracle](custom-troubleshooting.md#custom-troubleshooting-promote "custom-troubleshooting.md#custom-troubleshooting-promote").
+The architecture of RDS Custom for Oracle replication is analogous to RDS for Oracle replication. A primary DB instance replicates asynchronously to one
+or more Oracle replicas.
 
-###### To promote an RDS Custom for Oracle replica to a standalone DB instance
+![RDS Custom for Oracle supports Oracle replicas](images/read-replica-custom-oracle.png)
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the Amazon RDS console, choose **Databases**.
+### Maximum number of replicas
 
-The **Databases** pane appears. Each Oracle replica shows **Replica** in the
-**Role** column. 3. Choose the RDS Custom for Oracle replica that you want to promote. 4. For **Actions**, choose **Promote**. 5. On the **Promote Oracle replica** page, enter the backup retention period and the backup window for the
-newly promoted DB instance. You can't set this value to **0**. 6. When the settings are as you want them, choose **Promote Oracle replica**.
-To promote your RDS Custom for Oracle replica to a standalone DB instance, use the AWS CLI [`promote-read-replica`](../../../cli/latest/reference/rds/promote-read-replica.md "../../../cli/latest/reference/rds/promote-read-replica.md") command.
+As with RDS for Oracle, you can create up to five managed Oracle replicas of your
+RDS Custom for Oracle primary DB instance. You can also create your own manually configured (external)
+Oracle replicas. External replicas don't count toward your DB instance limit. They
+also lie outside the RDS Custom support perimeter. For more information about the
+support perimeter, see [RDS Custom support
+perimeter](custom-concept.md#custom-troubleshooting.support-perimeter "custom-concept.md#custom-troubleshooting.support-perimeter").
 
-###### Example
+### Replica naming convention
 
-For Linux, macOS, or Unix:
+Oracle replica names are based on the database unique name. The format is
+``DB_UNIQUE_NAME`_`X``,
+with letters appended sequentially. For example, if your database unique name is
+`ORCL`, the first two replicas are named `ORCL_A` and
+`ORCL_B`. The first six letters, A–F, are reserved for RDS Custom.
+RDS Custom copies database parameters from your primary DB instance to the replicas. For more
+information, see [DB_UNIQUE_NAME](https://docs.oracle.com/database/121/REFRN/GUID-3547C937-5DDA-49FF-A9F9-14FF306545D8.htm#REFRN10242 "https://docs.oracle.com/database/121/REFRN/GUID-3547C937-5DDA-49FF-A9F9-14FF306545D8.htm#REFRN10242") in the Oracle documentation.
 
-```
-aws rds promote-read-replica \
---db-instance-identifier `my-custom-read-replica` \
---backup-retention-period 2 \
---preferred-backup-window 23:00-24:00
-```
+### Replica backup retention
 
-For Windows:
+By default, RDS Custom Oracle replicas use the same backup retention period as your
+primary DB instance. You can modify the backup retention period to 1–35 days.
+RDS Custom supports backing up, restoring, and point-in-time recovery (PITR). For more
+information about backing up and restoring RDS Custom DB instances, see [Backing up and restoring an Amazon RDS Custom for Oracle DB instance](custom-backup.md "custom-backup.md").
 
-```
-aws rds promote-read-replica ^
---db-instance-identifier `my-custom-read-replica` ^
---backup-retention-period 2 ^
---preferred-backup-window 23:00-24:00
-```
+###### Note
 
-To promote your RDS Custom for Oracle replica to be a standalone DB instance, call the Amazon RDS API [`PromoteReadReplica`](../APIReference/API_PromoteReadReplica.md "../APIReference/API_PromoteReadReplica.md") operation with the required parameter `DBInstanceIdentifier`.
+While creating a Oracle replica, RDS Custom temporarily pauses the cleanup of redo
+log files. In this way, RDS Custom ensures that it can apply these logs to the new
+Oracle replica after it becomes available.
+
+### Replica promotion
+
+You can promote managed Oracle replicas in RDS Custom for Oracle using the console,
+`promote-read-replica` AWS CLI command, or
+`PromoteReadReplica` API. If you delete your primary DB instance, and all
+replicas are healthy, RDS Custom for Oracle promotes your managed replicas to standalone
+instances automatically. If a replica has paused automation or is outside the
+support perimeter, you must fix the replica before RDS Custom can promote it
+automatically. You can only promote external Oracle replicas manually.

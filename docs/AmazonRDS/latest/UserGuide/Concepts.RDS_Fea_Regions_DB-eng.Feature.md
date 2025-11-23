@@ -1,274 +1,124 @@
 # Supported
 
-Regions and DB engines for Kerberos authentication in Amazon RDS
+Regions and DB engines for RDS Custom
 
-By using Kerberos authentication in Amazon RDS, you can support external authentication of
-database users using Kerberos and Microsoft Active Directory. Using Kerberos and Active
-Directory provides the benefits of single sign-on and centralized authentication of database
-users.
+Amazon RDS Custom automates database administration tasks and operations. By using RDS Custom, as a
+database administrator you can access and customize your database environment and operating
+system. With RDS Custom, you can customize to meet the requirements of legacy, custom, and packaged
+applications. For more information, see [Amazon RDS Custom](rds-custom.md "rds-custom.md").
 
-Kerberos authentication isn't available with the following engines:
-
-- RDS for MariaDB
-  Although most AWS Regions are active by default for your AWS account, certain Regions
-  are activated only when you manually select them. These Regions are referred to as
-  _opt-in Regions_. In contrast, Regions that are active by default, as soon
-  as your AWS account is created, are referred to as _commercial
-  Regions_, or simply, _Regions_. For opt-in Regions,
-  you must use a regionalized service principal of the form
-  `directoryservice.rds.`region_name`.amazonaws.com`. For
-  example, for Africa (Cape Town), you must add service principal
-  `directoryservice.rds.af-south-1.amazonaws.com` to your trust policy. For
-  more information, see [Kerberos authentication](database-authentication.md#kerberos-authentication "database-authentication.md#kerberos-authentication").
+RDS Custom is supported for the following DB engines only:
 
 ###### Topics
 
-- [Kerberos
-  authentication with RDS for Db2](#Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.db2 "#Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.db2")
-- [Kerberos
-  authentication with RDS for MySQL](#Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.my "#Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.my")
-- [Kerberos
-  authentication with RDS for Oracle](#Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.ora "#Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.ora")
-- [Kerberos
-  authentication with RDS for PostgreSQL](#Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.pg "#Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.pg")
-- [Kerberos
-  authentication with RDS for SQL Server](#Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.sq "#Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.sq")
+- [Supported
+  Regions and DB engines for RDS Custom for Oracle](#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora "#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora")
+- [Supported
+  Regions and DB engines for RDS Custom for SQL Server](#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.sq "#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.sq")
 
-## Kerberos
+## Supported
 
-authentication with RDS for Db2
+Regions and DB engines for RDS Custom for Oracle
 
-The following Regions and engine versions are available for Kerberos authentication with
-RDS for Db2.
+The following Regions and engine versions are available for RDS Custom for Oracle.
 
-| Region                     | RDS for Db2 11.5 |
-| -------------------------- | ---------------- |
-| US East (N. Virginia)      | All versions     |
-| US East (Ohio)             | All versions     |
-| US West (N. California)    | All versions     |
-| US West (Oregon)           | All versions     |
-| Africa (Cape Town)         | All versions     |
-| Asia Pacific (Hong Kong)   | Not available    |
-| Asia Pacific (Hyderabad)   | All versions     |
-| Asia Pacific (Jakarta)     | All versions     |
-| Asia Pacific (Malaysia)    | Not available    |
-| Asia Pacific (Melbourne)   | All versions     |
-| Asia Pacific (Mumbai)      | All versions     |
-| Asia Pacific (New Zealand) | Not available    |
-| Asia Pacific (Osaka)       | Not available    |
-| Asia Pacific (Seoul)       | All versions     |
-| Asia Pacific (Singapore)   | All versions     |
-| Asia Pacific (Sydney)      | All versions     |
-| Asia Pacific (Taipei)      | Not available    |
-| Asia Pacific (Thailand)    | Not available    |
-| Asia Pacific (Tokyo)       | All versions     |
-| Canada (Central)           | All versions     |
-| Canada West (Calgary)      | Not available    |
-| China (Beijing)            | Not available    |
-| China (Ningxia)            | Not available    |
-| Europe (Frankfurt)         | All versions     |
-| Europe (Ireland)           | All versions     |
-| Europe (London)            | All versions     |
-| Europe (Milan)             | All versions     |
-| Europe (Paris)             | Not available    |
-| Europe (Spain)             | All versions     |
-| Europe (Stockholm)         | All versions     |
-| Europe (Zurich)            | All versions     |
-| Israel (Tel Aviv)          | All versions     |
-| Mexico (Central)           | Not available    |
-| Middle East (Bahrain)      | All versions     |
-| Middle East (UAE)          | All versions     |
-| South America (São Paulo)  | All versions     |
-| AWS GovCloud (US-East)     | Not available    |
-| AWS GovCloud (US-West)     | Not available    |
+| Region                     | Oracle Database 19c                        | Oracle Database 18c                        | Oracle Database 12c                                  |
+| -------------------------- | ------------------------------------------ | ------------------------------------------ | ---------------------------------------------------- |
+| US East (N. Virginia)      | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| US East (Ohio)             | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| US West (N. California)    | Not available                              | Not available                              | Not available                                        |
+| US West (Oregon)           | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| Africa (Cape Town)         | Not available                              | Not available                              | Not available                                        |
+| Asia Pacific (Hong Kong)   | Not available                              | Not available                              | Not available                                        |
+| Asia Pacific (Jakarta)     | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| Asia Pacific (Malaysia)    | Not available                              | Not available                              | Not available                                        |
+| Asia Pacific (Melbourne)   | Not available                              | Not available                              | Not available                                        |
+| Asia Pacific (Mumbai)      | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| Asia Pacific (New Zealand) | Not available                              | Not available                              | Not available                                        |
+| Asia Pacific (Osaka)       | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| Asia Pacific (Seoul)       | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| Asia Pacific (Singapore)   | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| Asia Pacific (Sydney)      | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| Asia Pacific (Taipei)      | Not available                              | Not available                              | Not available                                        |
+| Asia Pacific (Thailand)    | Not available                              | Not available                              | Not available                                        |
+| Asia Pacific (Tokyo)       | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| Canada (Central)           | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| Canada West (Calgary)      | Not available                              | Not available                              | Not available                                        |
+| China (Beijing)            | Not available                              | Not available                              | Not available                                        |
+| China (Ningxia)            | Not available                              | Not available                              | Not available                                        |
+| Europe (Frankfurt)         | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| Europe (Ireland)           | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| Europe (London)            | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| Europe (Milan)             | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| Europe (Paris)             | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| Europe (Stockholm)         | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| Israel (Tel Aviv)          | Not available                              | Not available                              | Not available                                        |
+| Mexico (Central)           | Not available                              | Not available                              | Not available                                        |
+| Middle East (Bahrain)      | Not available                              | Not available                              | Not available                                        |
+| Middle East (UAE)          | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| South America (São Paulo)  | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| AWS GovCloud (US-East)     | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
+| AWS GovCloud (US-West)     | 19c with the January 2021 or higher RU/RUR | 18c with the January 2021 or higher RU/RUR | 12.1 and 12.2 with the January 2021 or higher RU/RUR |
 
-## Kerberos
+## Supported
 
-authentication with RDS for MySQL
+Regions and DB engines for RDS Custom for SQL Server
 
-The following Regions and engine versions are available for Kerberos authentication with
-RDS for MySQL.
+You can deploy RDS Custom for SQL Server by using either an RDS provided engine version (RPEV) or a custom
+engine version (CEV):
 
-| Region                     | RDS for MySQL 8.4 | RDS for MySQL 8.0 | RDS for MySQL 5.7 (under RDS Extended Support) |
-| -------------------------- | ----------------- | ----------------- | ---------------------------------------------- |
-| US East (N. Virginia)      | All versions      | All versions      | All versions                                   |
-| US East (Ohio)             | All versions      | All versions      | All versions                                   |
-| US West (N. California)    | All versions      | All versions      | All versions                                   |
-| US West (Oregon)           | All versions      | All versions      | All versions                                   |
-| Africa (Cape Town)         | All versions      | All versions      | All versions                                   |
-| Asia Pacific (Hong Kong)   | All versions      | All versions      | All versions                                   |
-| Asia Pacific (Hyderabad)   | All versions      | All versions      | All versions                                   |
-| Asia Pacific (Jakarta)     | All versions      | All versions      | All versions                                   |
-| Asia Pacific (Malaysia)    | Not available     | Not available     | Not available                                  |
-| Asia Pacific (Melbourne)   | All versions      | All versions      | All versions                                   |
-| Asia Pacific (Mumbai)      | All versions      | All versions      | All versions                                   |
-| Asia Pacific (New Zealand) | Not available     | Not available     | Not available                                  |
-| Asia Pacific (Osaka)       | All versions      | All versions      | All versions                                   |
-| Asia Pacific (Seoul)       | All versions      | All versions      | All versions                                   |
-| Asia Pacific (Singapore)   | All versions      | All versions      | All versions                                   |
-| Asia Pacific (Sydney)      | All versions      | All versions      | All versions                                   |
-| Asia Pacific (Taipei)      | Not available     | Not available     | Not available                                  |
-| Asia Pacific (Thailand)    | Not available     | Not available     | Not available                                  |
-| Asia Pacific (Tokyo)       | All versions      | All versions      | All versions                                   |
-| Canada (Central)           | All versions      | All versions      | All versions                                   |
-| Canada West (Calgary)      | Not available     | Not available     | Not available                                  |
-| China (Beijing)            | All versions      | All versions      | All versions                                   |
-| China (Ningxia)            | All versions      | All versions      | All versions                                   |
-| Europe (Frankfurt)         | All versions      | All versions      | All versions                                   |
-| Europe (Ireland)           | All versions      | All versions      | All versions                                   |
-| Europe (London)            | All versions      | All versions      | All versions                                   |
-| Europe (Milan)             | All versions      | All versions      | All versions                                   |
-| Europe (Paris)             | All versions      | All versions      | All versions                                   |
-| Europe (Spain)             | All versions      | All versions      | All versions                                   |
-| Europe (Stockholm)         | All versions      | All versions      | All versions                                   |
-| Europe (Zurich)            | All versions      | All versions      | All versions                                   |
-| Israel (Tel Aviv)          | All versions      | All versions      | All versions                                   |
-| Mexico (Central)           | Not available     | Not available     | Not available                                  |
-| Middle East (Bahrain)      | All versions      | All versions      | All versions                                   |
-| Middle East (UAE)          | All versions      | All versions      | All versions                                   |
-| South America (São Paulo)  | All versions      | All versions      | All versions                                   |
-| AWS GovCloud (US-East)     | All versions      | All versions      | All versions                                   |
-| AWS GovCloud (US-West)     | All versions      | All versions      | All versions                                   |
+- If you use an RPEV, it includes the default Amazon Machine Image (AMI) and SQL Server
+  installation. If you customize or modify the operating system (OS), your changes might not
+  persist during patching, snapshot restore, or automatic recovery.
+- If you use a CEV, you choose your own AMI with either pre-installed Microsoft SQL Server
+  or SQL Server that you install using your own media. When using an AWS provided CEV, you
+  choose the latest Amazon EC2 image (AMI) available by AWS, which has the cumulative update (CU)
+  supported by RDS Custom for SQL Server. With a CEV, you can customize both the OS and SQL Server
+  configuration to meet your enterprise needs.
 
-## Kerberos
+Currently, you can only use the Windows 2019 operating system.
 
-authentication with RDS for Oracle
+The following AWS Regions and DB engine versions are available for RDS Custom for SQL Server. The engine
+version support depends on whether you're using RDS Custom for SQL Server with an RPEV, AWS provided CEV, or
+customer-provided CEV.
 
-The following Regions and engine versions are available for Kerberos authentication with
-RDS for Oracle.
-
-| Region                                   | RDS for Oracle 21c | RDS for Oracle 19c |
-| ---------------------------------------- | ------------------ | ------------------ |
-| US East (N. Virginia)                    | All versions       | All versions       |
-| US East (Ohio)                           | All versions       | All versions       |
-| US West (N. California)                  | All versions       | All versions       |
-| US West (Oregon)                         | All versions       | All versions       |
-| Africa (Cape Town) (opt-in Region)       | All versions       | All versions       |
-| Asia Pacific (Hong Kong) (opt-in Region) | All versions       | All versions       |
-| Asia Pacific (Hyderabad) (opt-in Region) | All versions       | All versions       |
-| Asia Pacific (Jakarta) (opt-in Region)   | All versions       | All versions       |
-| Asia Pacific (Malaysia)                  | Not available      | Not available      |
-| Asia Pacific (Melbourne) (opt-in Region) | All versions       | All versions       |
-| Asia Pacific (Mumbai)                    | All versions       | All versions       |
-| Asia Pacific (New Zealand)               | Not available      | Not available      |
-| Asia Pacific (Osaka)                     | Not available      | Not available      |
-| Asia Pacific (Seoul)                     | All versions       | All versions       |
-| Asia Pacific (Singapore)                 | All versions       | All versions       |
-| Asia Pacific (Sydney)                    | All versions       | All versions       |
-| Asia Pacific (Taipei)                    | Not available      | Not available      |
-| Asia Pacific (Thailand)                  | Not available      | Not available      |
-| Asia Pacific (Tokyo)                     | All versions       | All versions       |
-| Canada (Central)                         | All versions       | All versions       |
-| Canada West (Calgary)                    | Not available      | Not available      |
-| China (Beijing)                          | Not available      | Not available      |
-| China (Ningxia)                          | Not available      | Not available      |
-| Europe (Frankfurt)                       | All versions       | All versions       |
-| Europe (Ireland)                         | All versions       | All versions       |
-| Europe (London)                          | All versions       | All versions       |
-| Europe (Milan) (opt-in Region)           | All versions       | All versions       |
-| Europe (Paris)                           | Not available      | Not available      |
-| Europe (Spain) (opt-in Region)           | All versions       | All versions       |
-| Europe (Stockholm)                       | All versions       | All versions       |
-| Europe (Zurich) (opt-in Region)          | All versions       | All versions       |
-| Israel (Tel Aviv) (opt-in Region)        | All versions       | All versions       |
-| Mexico (Central)                         | Not available      | Not available      |
-| Middle East (Bahrain) (opt-in Region)    | All versions       | All versions       |
-| Middle East (UAE) (opt-in Region)        | All versions       | All versions       |
-| South America (São Paulo)                | All versions       | All versions       |
-| AWS GovCloud (US-East)                   | All versions       | All versions       |
-| AWS GovCloud (US-West)                   | All versions       | All versions       |
-
-## Kerberos
-
-authentication with RDS for PostgreSQL
-
-The following Regions and engine versions are available for Kerberos authentication with
-RDS for PostgreSQL.
-
-| Region                     | RDS for PostgreSQL 17 | RDS for PostgreSQL 16 | RDS for PostgreSQL 15 | RDS for PostgreSQL 14 | RDS for PostgreSQL 13 | RDS for PostgreSQL 12 | RDS for PostgreSQL 11 | RDS for PostgreSQL 10 |
-| -------------------------- | --------------------- | --------------------- | --------------------- | --------------------- | --------------------- | --------------------- | --------------------- | --------------------- |
-| US East (N. Virginia)      | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| US East (Ohio)             | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| US West (N. California)    | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| US West (Oregon)           | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Africa (Cape Town)         | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Asia Pacific (Hong Kong)   | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Asia Pacific (Hyderabad)   | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Asia Pacific (Jakarta)     | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Asia Pacific (Malaysia)    | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         |
-| Asia Pacific (Melbourne)   | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Asia Pacific (Mumbai)      | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Asia Pacific (New Zealand) | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         |
-| Asia Pacific (Osaka)       | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         |
-| Asia Pacific (Seoul)       | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Asia Pacific (Singapore)   | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Asia Pacific (Sydney)      | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Asia Pacific (Taipei)      | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         |
-| Asia Pacific (Thailand)    | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         |
-| Asia Pacific (Tokyo)       | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Canada (Central)           | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Canada West (Calgary)      | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         |
-| China (Beijing)            | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| China (Ningxia)            | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Europe (Frankfurt)         | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Europe (Ireland)           | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Europe (London)            | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Europe (Milan)             | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Europe (Paris)             | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Europe (Spain)             | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Europe (Stockholm)         | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Europe (Zurich)            | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Israel (Tel Aviv)          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Mexico (Central)           | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         |
-| Middle East (Bahrain)      | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Middle East (UAE)          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| South America (São Paulo)  | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| AWS GovCloud (US-East)     | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| AWS GovCloud (US-West)     | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-
-## Kerberos
-
-authentication with RDS for SQL Server
-
-The following Regions and engine versions are available for Kerberos authentication with
-RDS for SQL Server.
-
-| Region                     | RDS for SQL Server 2022 | RDS for SQL Server 2019 | RDS for SQL Server 2017 | RDS for SQL Server 2016 |
-| -------------------------- | ----------------------- | ----------------------- | ----------------------- | ----------------------- |
-| US East (N. Virginia)      | All versions            | All versions            | All versions            | All versions            |
-| US East (Ohio)             | All versions            | All versions            | All versions            | All versions            |
-| US West (N. California)    | All versions            | All versions            | All versions            | All versions            |
-| US West (Oregon)           | All versions            | All versions            | All versions            | All versions            |
-| Africa (Cape Town)         | All versions            | All versions            | All versions            | All versions            |
-| Asia Pacific (Hong Kong)   | All versions            | All versions            | All versions            | All versions            |
-| Asia Pacific (Hyderabad)   | All versions            | All versions            | All versions            | All versions            |
-| Asia Pacific (Malaysia)    | Not available           | Not available           | Not available           | Not available           |
-| Asia Pacific (Melbourne)   | All versions            | All versions            | All versions            | All versions            |
-| Asia Pacific (Mumbai)      | All versions            | All versions            | All versions            | All versions            |
-| Asia Pacific (New Zealand) | Not available           | Not available           | Not available           | Not available           |
-| Asia Pacific (Osaka)       | All versions            | All versions            | All versions            | All versions            |
-| Asia Pacific (Seoul)       | All versions            | All versions            | All versions            | All versions            |
-| Asia Pacific (Singapore)   | All versions            | All versions            | All versions            | All versions            |
-| Asia Pacific (Sydney)      | All versions            | All versions            | All versions            | All versions            |
-| Asia Pacific (Taipei)      | Not available           | Not available           | Not available           | Not available           |
-| Asia Pacific (Thailand)    | Not available           | Not available           | Not available           | Not available           |
-| Asia Pacific (Tokyo)       | All versions            | All versions            | All versions            | All versions            |
-| Canada (Central)           | All versions            | All versions            | All versions            | All versions            |
-| Canada West (Calgary)      | Not available           | Not available           | Not available           | Not available           |
-| China (Beijing)            | All versions            | All versions            | All versions            | All versions            |
-| China (Ningxia)            | All versions            | All versions            | All versions            | All versions            |
-| Europe (Frankfurt)         | All versions            | All versions            | All versions            | All versions            |
-| Europe (Ireland)           | All versions            | All versions            | All versions            | All versions            |
-| Europe (London)            | All versions            | All versions            | All versions            | All versions            |
-| Europe (Milan)             | All versions            | All versions            | All versions            | All versions            |
-| Europe (Paris)             | All versions            | All versions            | All versions            | All versions            |
-| Europe (Spain)             | All versions            | All versions            | All versions            | All versions            |
-| Europe (Stockholm)         | All versions            | All versions            | All versions            | All versions            |
-| Europe (Zurich)            | All versions            | All versions            | All versions            | All versions            |
-| Israel (Tel Aviv)          | Not available           | Not available           | Not available           | Not available           |
-| Mexico (Central)           | Not available           | Not available           | Not available           | Not available           |
-| Middle East (Bahrain)      | All versions            | All versions            | All versions            | All versions            |
-| Middle East (UAE)          | All versions            | All versions            | All versions            | All versions            |
-| South America (São Paulo)  | All versions            | All versions            | All versions            | All versions            |
-| AWS GovCloud (US-East)     | All versions            | All versions            | All versions            | All versions            |
-| AWS GovCloud (US-West)     | All versions            | All versions            | All versions            | All versions            |
+| Region                     | RPEV                                                                                                                                                                                                                                                                 | AWS provided CEV                                                                                                                                                                                                                                                         | Customer-provided CEV                                                                                                                                                                                                                                                                          |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| US East (N. Virginia)      | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| US East (Ohio)             | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| US West (N. California)    | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| US West (Oregon)           | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| Africa (Cape Town)         | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| Asia Pacific (Hong Kong)   | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| Asia Pacific (Hyderabad)   | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| Asia Pacific (Jakarta)     | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| Asia Pacific (Malaysia)    | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| Asia Pacific (Melbourne)   | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| Asia Pacific (Mumbai)      | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| Asia Pacific (New Zealand) | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| Asia Pacific (Osaka)       | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| Asia Pacific (Seoul)       | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| Asia Pacific (Singapore)   | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| Asia Pacific (Sydney)      | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| Asia Pacific (Taipei)      | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| Asia Pacific (Thailand)    | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| Asia Pacific (Tokyo)       | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| Canada (Central)           | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| Canada West (Calgary)      | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| China (Beijing)            | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| China (Ningxia)            | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| Europe (Frankfurt)         | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| Europe (Ireland)           | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| Europe (London)            | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| Europe (Milan)             | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| Europe (Paris)             | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| Europe (Spain)             | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| Europe (Stockholm)         | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| Europe (Zurich)            | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| Israel (Tel Aviv)          | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| Mexico (Central)           | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| Middle East (Bahrain)      | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| Middle East (UAE)          | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| South America (São Paulo)  | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. | SQL Server 2022 Enterprise, Standard, Developer, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, and CU20-GDR.<br>SQL Server 2019 Enterprise, Standard, Developer, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR. |
+| AWS GovCloud (US-East)     | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |
+| AWS GovCloud (US-West)     | Not available                                                                                                                                                                                                                                                        | Not available                                                                                                                                                                                                                                                            | Not available                                                                                                                                                                                                                                                                                  |

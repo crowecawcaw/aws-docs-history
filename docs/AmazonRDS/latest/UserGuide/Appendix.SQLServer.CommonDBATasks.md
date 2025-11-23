@@ -1,49 +1,32 @@
-# Working with Amazon RDS for Microsoft SQL Server logs
+# Determining a
 
-You can use the Amazon RDS console to view, watch, and download SQL Server Agent logs, Microsoft SQL Server error logs, and SQL Server
-Reporting Services (SSRS) logs.
+recovery model for your Amazon RDS for SQL Server database
 
-## Watching log files
+In Amazon RDS, the recovery model, retention period, and database status are linked.
 
-If you view a log in the Amazon RDS console, you can see its contents as they exist at that
-moment. Watching a log in the console opens it in a dynamic state so that you can
-see updates to it in near-real time.
+It's important to understand the consequences before making a change to one of these
+settings. Each setting can affect the others. For example:
 
-Only the latest log is active for watching. For example, suppose you have the following
-logs shown:
+- If you change a database's recovery model to SIMPLE or BULK_LOGGED while backup retention
+  is enabled, Amazon RDS resets the recovery model to FULL within five minutes. This
+  also results in RDS taking a snapshot of the DB instance.
+- If you set backup retention to `0` days, RDS sets the recovery mode to SIMPLE.
+- If you change a database's recovery model from SIMPLE to any other option while backup
+  retention is set to `0` days, RDS resets the recovery model to SIMPLE.
 
-![An image of the Logs section from the Amazon RDS console with an error log selected.](images/logs_sqlserver.png)
+###### Important
 
-Only log/ERROR, as the most recent log, is being actively updated. You can choose to watch
-others, but they are static and will not update.
+Never change the recovery model on Multi-AZ instances, even if it seems you can do so—for
+example, by using ALTER DATABASE. Backup retention, and therefore FULL recovery mode, is
+required for Multi-AZ. If you alter the recovery model, RDS immediately changes it back to FULL.
 
-## Archiving log files
+This automatic reset forces RDS to completely rebuild the mirror. During this rebuild, the
+availability of the database is degraded for about 30-90 minutes until the mirror is
+ready for failover. The DB instance also experiences performance degradation in the
+same way it does during a conversion from Single-AZ to Multi-AZ. How long
+performance is degraded depends on the database storage size—the bigger the
+stored database, the longer the degradation.
 
-The Amazon RDS console shows logs for the past week through the current day. You can download
-and archive logs to keep them for reference past that time. One way to archive logs
-is to load them into an Amazon S3 bucket. For instructions on how to set up an Amazon S3
-bucket and upload a file, see [Amazon S3
-basics](../../../AmazonS3/latest/userguide/AmazonS3Basics.md "../../../AmazonS3/latest/userguide/AmazonS3Basics.md") in the _Amazon Simple Storage Service Getting Started Guide_ and
-click **Get Started**.
-
-## Viewing error and agent logs
-
-To view Microsoft SQL Server error and agent logs, use the Amazon RDS stored procedure `rds_read_error_log` with the
-following parameters:
-
-- **`@index`** – the version
-  of the log to retrieve. The default value is 0, which retrieves the current
-  error log. Specify 1 to retrieve the previous log, specify 2 to retrieve the
-  one before that, and so on.
-- **`@type`** – the type of
-  log to retrieve. Specify 1 to retrieve an error log. Specify 2 to retrieve
-  an agent log.
-
-The following example requests the current error log.
-
-```
-EXEC rdsadmin.dbo.rds_read_error_log @index = `0`, @type = `1`;
-```
-
-For more information on SQL Server errors, see [Database
-engine errors](https://docs.microsoft.com/en-us/sql/relational-databases/errors-events/database-engine-events-and-errors "https://docs.microsoft.com/en-us/sql/relational-databases/errors-events/database-engine-events-and-errors") in the Microsoft documentation.
+For more information on SQL Server recovery models, see
+[Recovery models (SQL Server)](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server "https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server")
+in the Microsoft documentation.

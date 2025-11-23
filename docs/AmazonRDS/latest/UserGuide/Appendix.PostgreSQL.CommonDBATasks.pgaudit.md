@@ -1,61 +1,111 @@
-# Auditing database objects
+# Setting up the pgAudit extension
 
-With pgAudit set up on your
-RDS for PostgreSQL DB instance and configured for your requirements,
-more detailed information is captured in the PostgreSQL log. For example, while the default PostgreSQL logging configuration
-identifies the date and time that a change was made in a database table, with the pgAudit
-extension the log entry can include the schema, user who made the change, and other details
-depending on how the extension parameters are configured. You can set up auditing to
-track changes in the following ways.
+To set up the pgAudit extension on your RDS for PostgreSQL DB instance
+, you first add pgAudit to the shared libraries
+on the custom DB parameter group for your RDS for PostgreSQL DB instance.
+For information
+about creating a custom DB parameter group, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). Next, you
+install the pgAudit extension. Finally, you specify the databases and objects that you want to audit.
+The procedures in this section show you how. You can use the AWS Management Console or the AWS CLI.
 
-- For each session, by user. For the session level, you can capture the
-  fully qualified command text.
-- For each object, by user and by database.
-  The object auditing capability is activated when you create the `rds_pgaudit` role on your system and then
-  add this role to the `pgaudit.role` parameter in your custom parameter parameter group. By default, the
-  `pgaudit.role` parameter is unset and the only allowable value is `rds_pgaudit`.
-  The following steps assume that `pgaudit` has been initialized and that
-  you have created the `pgaudit` extension by following the procedure in [Setting up the pgAudit extension](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md").
+You must have permissions as the `rds_superuser` role to perform all these tasks.
 
-![Image of the PostgreSQL log file after setting up pgAudit.](images/pgaudit-log-example.png)
-As shown in this example, the "LOG: AUDIT: SESSION" line provides information about the table and its schema, among other
-details.
+The steps following assume that your
+RDS for PostgreSQL DB instance is associated with a custom
+DB parameter group.
 
-###### To set up object auditing
+###### To set up the pgAudit extension
 
-1. Use `psql` to connect to the RDS for PostgreSQL DB instance.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose your
+   RDS for PostgreSQL DB instance.
+3. Open the **Configuration** tab for your
+
+RDS for PostgreSQL DB instance. Among the Instance details, find
+the **Parameter group** link. 4. Choose the link to open the custom parameters associated with your
+RDS for PostgreSQL DB instance. 5. In the **Parameters** search field, type `shared_pre` to
+find the `shared_preload_libraries` parameter. 6. Choose **Edit parameters** to access the property values. 7. Add `pgaudit` to the list in the **Values** field. Use
+a comma to separate items in the list of values.
+
+![Image of the shared_preload_libaries parameter with pgAudit added.](images/apg_rpg_shared_preload_pgaudit.png) 8. Reboot the RDS for PostgreSQL DB instance so that
+your change to the `shared_preload_libraries` parameter takes effect. 9. When the instance is available, verify that pgAudit
+has been initialized. Use `psql` to connect to the RDS for PostgreSQL DB instance,
+and then run the following command.
 
 ```
-psql --host=`your-instance-name`.`aws-region`.rds.amazonaws.com --port=5432 --username=`postgres`postgres --password --dbname=`labdb`
+`SHOW shared_preload_libraries;`
+`shared_preload_libraries
+--------------------------
+rdsutils,pgaudit
+(1 row)`
 ```
 
-2. Create a database role named `rds_pgaudit` using the following command.
+10. With pgAudit initialized, you can now create the extension. You need to create the
+    extension after initializing the library because the `pgaudit` extension
+    installs event triggers for auditing data definition language (DDL) statements.
 
 ```
-`labdb=>` `CREATE ROLE rds_pgaudit;`
-`CREATE ROLE
-`labdb=>``
+CREATE EXTENSION pgaudit;
 ```
 
-3. Close the `psql` session.
+11. Close the `psql` session.
 
 ```
 `labdb=>` `\q`
 ```
 
-In the next few steps, use the AWS CLI to modify the audit log parameters in your
-custom parameter group. 4. Use the following AWS CLI command to set the `pgaudit.role` parameter to `rds_pgaudit`.
-By default, this parameter is empty, and `rds_pgaudit` is the only allowable value.
+12. Sign in to the AWS Management Console and open the Amazon RDS console at
+    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+13. Find the `pgaudit.log` parameter in the list and set to the appropriate value for your
+    use case. For example, setting the `pgaudit.log` parameter to `write` as
+    shown in the following image captures inserts, updates, deletes, and
+    some other types changes to the log.
+
+![Image of the pgaudit.log parameter with setting.](images/rpg_set_pgaudit-log-level.png)
+
+You can also choose one of the following values for the `pgaudit.log` parameter.
+
+    * none – This is the default. No database changes are logged.
+    * all – Logs everything (read, write, function, role, ddl, misc).
+    * ddl – Logs all data definition language (DDL) statements that
+     aren't included in the `ROLE` class.
+    * function – Logs function calls and `DO` blocks.
+    * misc – Logs miscellaneous commands, such as `DISCARD`, `FETCH`,
+     `CHECKPOINT`, `VACUUM`, and `SET`.
+    * read – Logs `SELECT` and `COPY` when the source is a relation (such
+     as a table) or a query.
+    * role – Logs statements related to roles and privileges, such as
+     `GRANT`, `REVOKE`, `CREATE ROLE`, `ALTER ROLE`, and `DROP ROLE`.
+    * write – Logs `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`,
+     and `COPY` when the destination is a relation (table).
+
+14. Choose **Save changes**.
+15. Open the Amazon RDS console at
+    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+16. Choose your
+    RDS for PostgreSQL DB instance from the
+    Databases list.
+
+###### To setup pgAudit
+
+To setup pgAudit using the AWS CLI, you call the
+[modify-db-parameter-group](../../../cli/latest/reference/rds/modify-db-parameter-group.md "../../../cli/latest/reference/rds/modify-db-parameter-group.md") operation
+to modify the audit log parameters in your
+custom parameter group, as shown in the following procedure.
+
+1. Use the following AWS CLI command to add `pgaudit` to the
+   `shared_preload_libraries` parameter.
 
 ```
 aws rds modify-db-parameter-group \
    --db-parameter-group-name `custom-param-group-name` \
-   --parameters "ParameterName=pgaudit.role,ParameterValue=rds_pgaudit,ApplyMethod=pending-reboot" \
+   --parameters "ParameterName=shared_preload_libraries,ParameterValue=pgaudit,ApplyMethod=pending-reboot" \
    --region `aws-region`
 ```
 
-5. Use the following AWS CLI command to reboot the RDS for PostgreSQL DB instance so that
-   your changes to the parameters take effect.
+2. Use the following AWS CLI command to reboot the RDS for PostgreSQL DB instance so that the
+   pgaudit library is initialized.
 
 ```
 aws rds reboot-db-instance \
@@ -63,36 +113,62 @@ aws rds reboot-db-instance \
     --region `aws-region`
 ```
 
-6. Run the following command to confirm that the `pgaudit.role` is set to `rds_pgaudit`.
+3. When the instance is available, you can verify that `pgaudit`
+   has been initialized. Use `psql` to connect to the RDS for PostgreSQL DB instance,
+   and then run the following command.
 
 ```
-`SHOW pgaudit.role;`
-`pgaudit.role
-------------------
-rds_pgaudit`
+`SHOW shared_preload_libraries;`
+`shared_preload_libraries
+--------------------------
+rdsutils,pgaudit
+(1 row)`
 ```
 
-To test pgAudit logging, you can run several example commands that you want to audit. For example, you might run the
-following commands.
+With pgAudit initialized, you can now create the extension.
 
 ```
-`CREATE TABLE t1 (id int);
-GRANT SELECT ON t1 TO rds_pgaudit;
-SELECT * FROM t1;`
-`id
-----
-(0 rows)`
+CREATE EXTENSION pgaudit;
 ```
 
-The database logs should contain an entry similar to the following.
+4. Close the `psql` session so that you can use the AWS CLI.
 
 ```
-...
-2017-06-12 19:09:49 UTC:...:rds_test@postgres:[11701]:LOG: AUDIT:
-OBJECT,1,1,READ,SELECT,TABLE,public.t1,select * from t1;
-...
+`labdb=>` `\q`
 ```
 
-For information on viewing the logs, see [Monitoring Amazon RDS log files](USER_LogAccess.md "USER_LogAccess.md").
+5. Use the following AWS CLI command to specify the classes of statement that want logged by session audit logging. The
+   example sets the `pgaudit.log` parameter to `write`, which captures inserts, updates, and deletes to the
+   log.
 
-To learn more about the pgAudit extension, see [pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md "https://github.com/pgaudit/pgaudit/blob/master/README.md") on GitHub.
+```
+aws rds modify-db-parameter-group \
+   --db-parameter-group-name `custom-param-group-name` \
+   --parameters "ParameterName=pgaudit.log,ParameterValue=`write`,ApplyMethod=pending-reboot" \
+   --region `aws-region`
+```
+
+You can also choose one of the following values for the `pgaudit.log` parameter.
+
+    * none – This is the default. No database changes are logged.
+    * all – Logs everything (read, write, function, role, ddl, misc).
+    * ddl – Logs all data definition language (DDL) statements that
+     aren't included in the `ROLE` class.
+    * function – Logs function calls and `DO` blocks.
+    * misc – Logs miscellaneous commands, such as `DISCARD`, `FETCH`,
+     `CHECKPOINT`, `VACUUM`, and `SET`.
+    * read – Logs `SELECT` and `COPY` when the source is a relation (such
+     as a table) or a query.
+    * role – Logs statements related to roles and privileges, such as
+     `GRANT`, `REVOKE`, `CREATE ROLE`, `ALTER ROLE`, and `DROP ROLE`.
+    * write – Logs `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`,
+     and `COPY` when the destination is a relation (table).
+
+Reboot the RDS for PostgreSQL DB instance using the following AWS CLI
+command.
+
+```
+aws rds reboot-db-instance \
+    --db-instance-identifier `your-instance` \
+    --region `aws-region`
+```

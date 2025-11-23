@@ -1,13 +1,82 @@
-# Options for MySQL DB instances
+# Parameters for MySQL
 
-Following, you can find a description of options, or additional features, that are available for Amazon RDS
-instances running the MySQL DB engine. To enable these options, you can add them to a custom
-option group, and then associate the option group with your DB instance. For more
-information about working with option groups, see [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md").
+By default, a MySQL DB instance uses a DB parameter group that is specific to a MySQL database.
+This parameter group contains parameters for the MySQL database engine. For information about
+working with parameter groups and setting parameters, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
-Amazon RDS supports the following options for MySQL:
+RDS for MySQL parameters are set to the default values of the storage engine that you have
+selected. For more information about MySQL parameters, see the [MySQL
+documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html"). For more information about MySQL storage engines, see [Supported storage engines for RDS for MySQL](MySQL.Concepts.md#MySQL.Concepts.Storage "MySQL.Concepts.md#MySQL.Concepts.Storage").
 
-| Option                                                                                             | Option ID              | Engine versions                                                                     |
-| -------------------------------------------------------------------------------------------------- | ---------------------- | ----------------------------------------------------------------------------------- |
-| [MariaDB Audit Plugin support for<br>MySQL](Appendix.MySQL.Options.md "Appendix.MySQL.Options.md") | `MARIADB_AUDIT_PLUGIN` | All MySQL 8.4 versionsMySQL 8.0.28 and higher 8.0<br>versionsAll MySQL 5.7 versions |
-| [MySQL memcached support](Appendix.MySQL.Options.md "Appendix.MySQL.Options.md")                   | `MEMCACHED`            | All MySQL 5.7 and 8.0 versions                                                      |
+You can view the parameters available for a specific RDS for MySQL version using the RDS console
+or the AWS CLI. For information about viewing the parameters in a MySQL parameter group in the
+RDS console, see [Viewing parameter values for a
+DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+
+Using the AWS CLI, you can view the parameters for an RDS for MySQL version by running the
+[`describe-engine-default-parameters`](../../../cli/latest/reference/rds/describe-engine-default-parameters.md "../../../cli/latest/reference/rds/describe-engine-default-parameters.md") command. Specify one of the following
+values for the `--db-parameter-group-family` option:
+
+- `mysql8.4`
+- `mysql8.0`
+- `mysql5.7`
+  For example, to view the parameters for RDS for MySQL version 8.0, run the following
+  command.
+
+```
+aws rds describe-engine-default-parameters --db-parameter-group-family mysql8.0
+```
+
+Your output looks similar to the following.
+
+```
+{
+    "EngineDefaults": {
+        "Parameters": [
+            {
+                "ParameterName": "activate_all_roles_on_login",
+                "ParameterValue": "0",
+                "Description": "Automatically set all granted roles as active after the user has authenticated successfully.",
+                "Source": "engine-default",
+                "ApplyType": "dynamic",
+                "DataType": "boolean",
+                "AllowedValues": "0,1",
+                "IsModifiable": true
+            },
+            {
+                "ParameterName": "allow-suspicious-udfs",
+                "Description": "Controls whether user-defined functions that have only an xxx symbol for the main function can be loaded",
+                "Source": "engine-default",
+                "ApplyType": "static",
+                "DataType": "boolean",
+                "AllowedValues": "0,1",
+                "IsModifiable": false
+            },
+            {
+                "ParameterName": "auto_generate_certs",
+                "Description": "Controls whether the server autogenerates SSL key and certificate files in the data directory, if they do not already exist.",
+                "Source": "engine-default",
+                "ApplyType": "static",
+                "DataType": "boolean",
+                "AllowedValues": "0,1",
+                "IsModifiable": false
+            },
+        ...
+```
+
+To list only the modifiable parameters for RDS for MySQL version 8.0, run the following
+command.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds describe-engine-default-parameters --db-parameter-group-family mysql8.0 \
+   --query 'EngineDefaults.Parameters[?IsModifiable==`true`]'
+```
+
+For Windows:
+
+```
+aws rds describe-engine-default-parameters --db-parameter-group-family mysql8.0 ^
+   --query "EngineDefaults.Parameters[?IsModifiable==`true`]"
+```

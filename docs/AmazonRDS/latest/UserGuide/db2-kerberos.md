@@ -7,7 +7,7 @@ to your Amazon RDS for Db2 DB instance. In this configuration, your DB instance 
 AWS Directory Service for Microsoft Active Directory, also called AWS Managed Microsoft AD. You add the domain and other information of
 your AWS Managed Microsoft AD directory to your RDS for Db2 DB instance. When users authenticate with an
 RDS for Db2 DB instance joined to the trusting domain, authentication requests are forwarded to
-the AWS Managed Microsoft AD directory that you created with AWS Directory Service.
+the AWS Managed Microsoft AD directory that you created with Directory Service.
 
 Keeping all of your credentials in the same directory can save you time and effort. With
 this approach, you have a centralized place for storing and managing credentials for
@@ -20,7 +20,7 @@ directory trusts your on-premises Microsoft Active Directory. In this way, your 
 access your RDS for Db2 DB instances with the same Windows single sign-on (SSO) experience as
 when they access workloads in your on-premises network.
 
-For more information, see [What is AWS Directory Service?](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md") in the
+For more information, see [What is Directory Service?](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md") in the
 _AWS Directory Service Administration Guide_.
 
 For information about Kerberos authentication, see the following
@@ -53,7 +53,7 @@ To set up Kerberos authentication for an RDS for Db2 DB instance, complete
 the following general steps, which are described in more detail later:
 
 1. Use AWS Managed Microsoft AD to create an AWS Managed Microsoft AD directory. You can use the
-   AWS Management Console, the AWS Command Line Interface (AWS CLI), or AWS Directory Service to create the directory. For more
+   AWS Management Console, the AWS Command Line Interface (AWS CLI), or Directory Service to create the directory. For more
    information, see [Create your AWS Managed Microsoft AD directory](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_create_directory.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_create_directory.md") in the _AWS Directory Service Administration Guide_.
 2. Create an AWS Identity and Access Management (IAM) role that uses the managed IAM policy
    `AmazonRDSDirectoryServiceAccess`. The IAM role allows Amazon RDS to
@@ -90,7 +90,7 @@ instance, do the following tasks:
      from the directory security group.
 
 4. Configure your Db2 client, and verify that traffic can flow between the client
-   host and AWS Directory Service for the following ports:
+   host and Directory Service for the following ports:
    - TCP/UDP port 53 – DNS
    - TCP 88 – Kerberos authentication
    - TCP 389 – LDAP
