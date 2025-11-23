@@ -22,7 +22,7 @@ searching.
 ###### To use the Amazon SageMaker AI CloudFormation templates
 
 1. Open the [Amazon OpenSearch Service
-   console](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home ").
+   console](https://console.aws.amazon.com//aos/home "https://console.aws.amazon.com//aos/home ").
 2. In the left navigation pane, choose
    **Integrations**.
 3. Under each of the Amazon SageMaker AI templates, choose **Configure

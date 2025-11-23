@@ -14,7 +14,7 @@ while it elects a master node.
 1. [Take a manual snapshot](managedomains-snapshots.md "managedomains-snapshots.md") of your
    domain. This snapshot serves as a backup that you can [restore on a new domain](managedomains-snapshot-restore.md "managedomains-snapshot-restore.md") if
    you want to return to using the prior OpenSearch version.
-2. Go to https://aws.amazon.com and
+2. Go to [https://aws.amazon.com](https://console.aws.amazon.com/ "https://console.aws.amazon.com/") and
    choose **Sign In to the Console**.
 3. Under **Analytics**, choose
    **Amazon OpenSearch Service**.

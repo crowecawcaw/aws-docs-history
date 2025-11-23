@@ -5,7 +5,7 @@ some amount of time. For example, you might want AWS to email you if your cluste
 health status is `red` for longer than one minute. This section includes
 some recommended alarms for Amazon OpenSearch Service and how to respond to them.
 
-You can automatically deploy these alarms using AWS CloudFormation. For a sample stack, see the
+You can automatically deploy these alarms using CloudFormation. For a sample stack, see the
 related [GitHub
 repository](https://github.com/ev2900/OpenSearch_CloudWatch_Alarms "https://github.com/ev2900/OpenSearch_CloudWatch_Alarms").
 

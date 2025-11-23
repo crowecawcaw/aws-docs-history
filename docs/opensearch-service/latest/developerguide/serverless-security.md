@@ -75,7 +75,7 @@ both.
 If you plan to configure VPC access within a network policy, you must first create one
 or more [OpenSearch Serverless-managed VPC endpoints](serverless-vpc.md "serverless-vpc.md"). These
 endpoints let you access OpenSearch Serverless as if it were in your VPC, without the use of an
-internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
+internet gateway, NAT device, VPN connection, or Direct Connect connection.
 
 Private access to AWS services can only apply to the collection's OpenSearch
 endpoint, not to the OpenSearch Dashboards endpoint. AWS services cannot be granted access
@@ -155,7 +155,7 @@ Well‐Architected Framework_.
 
 You use AWS published API calls to access Amazon OpenSearch Serverless through the network. Clients
 must support Transport Layer Security (TLS). We require TLS 1.2 and recommend TLS 1.3.
-For a list of supported ciphers for TLS 1.3, see [TLS protocols and ciphers](../../../elasticloadbalancing/latest/network/create-tls-listener.md#tls-protocols-ciphers "../../../elasticloadbalancing/latest/network/create-tls-listener.md#tls-protocols-ciphers") in the Elastic Load Balancing documentation.
+For a list of supported ciphers for TLS 1.3, see [TLS protocols and ciphers](../../../elasticloadbalancing/latest/network/create-tls-listener.md#tls-protocols-ciphers "../../../elasticloadbalancing/latest/network/create-tls-listener.md#tls-protocols-ciphers") in the ELB documentation.
 
 Additionally, you must sign requests using an access key ID and a secret access key
 that is associated with an IAM principal. Or you can use the [AWS Security Token Service](../../../STS/latest/APIReference/Welcome.md "../../../STS/latest/APIReference/Welcome.md")

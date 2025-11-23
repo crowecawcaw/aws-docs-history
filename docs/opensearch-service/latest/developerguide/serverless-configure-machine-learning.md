@@ -18,7 +18,7 @@ Connectors facilitate access to models hosted on third-party ML platforms. They 
 as the gateway between your OpenSearch cluster and a remote model. For more information,
 see the following documentation:
 
-- [Creating connectors for third-party ML platforms](https://docs.opensearch.org/docs/latest/ml-commons-plugin/remote-models/connectors/ "https://docs.opensearch.org/docs/latest/ml-commons-plugin/remote-models/connectors/") on the
+- [Creating connectors for third-party ML platforms](https://docs.opensearch.org/latest/ml-commons-plugin/remote-models/connectors/ "https://docs.opensearch.org/latest/ml-commons-plugin/remote-models/connectors/") on the
   _OpenSearch Documentation_ website
 - [Connectors for external platforms](ml-external-connector.md "ml-external-connector.md")
 - [Connectors for AWS services](ml-amazon-connector.md "ml-amazon-connector.md")
@@ -42,7 +42,7 @@ see the following documentation:
 A model is the core functionality that's used across various AI workflows. Generally,
 you associate the connector with a model to perform prediction using the connector.
 After a model is in the deployed state, you can run prediction. For more information,
-see [Register a model hosted on a third-party platform](https://docs.opensearch.org/docs/latest/ml-commons-plugin/api/model-apis/register-model/#register-a-model-hosted-on-a-third-party-platform "https://docs.opensearch.org/docs/latest/ml-commons-plugin/api/model-apis/register-model/#register-a-model-hosted-on-a-third-party-platform") on the
+see [Register a model hosted on a third-party platform](https://docs.opensearch.org/latest/ml-commons-plugin/api/model-apis/register-model/#register-a-model-hosted-on-a-third-party-platform "https://docs.opensearch.org/latest/ml-commons-plugin/api/model-apis/register-model/#register-a-model-hosted-on-a-third-party-platform") on the
 _OpenSearch Documentation_ website.
 
 ###### Note

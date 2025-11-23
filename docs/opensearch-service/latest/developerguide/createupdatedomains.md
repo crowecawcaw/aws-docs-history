@@ -378,17 +378,19 @@ The Migration Assistant offers the following key benefits:
 - **Global availability** - Deploys across the
   most common AWS Regions for global reach and scalability
 
-Migration Assistant supports migrating from Elasticsearch versions 6.x and
-7.x, and OpenSearch 1.x and 2.x. For more information, see [Supported migration paths](https://docs.opensearch.org/latest/migration-assistant/is-migration-assistant-right-for-you/#supported-migration-paths "https://docs.opensearch.org/latest/migration-assistant/is-migration-assistant-right-for-you/#supported-migration-paths").
+Migration Assistant supports migrating from Elasticsearch versions 6.x and 7.x,
+and OpenSearch 1.x and 2.x. For more information, see [Supported migration paths](https://docs.opensearch.org/latest/migration-assistant/is-migration-assistant-right-for-you/#supported-migration-paths "https://docs.opensearch.org/latest/migration-assistant/is-migration-assistant-right-for-you/#supported-migration-paths").
 
 ###### Note
 
 Note the following additional information about Migration Assistant.
 
-- The tool supports multi-hop migrations (for example, migration from Elasticsearch 5.x to OpenSearch Service 3.x in one hop).
+- The tool supports multi-hop migrations (for example, migration from
+  Elasticsearch 5.x to OpenSearch Service 3.x in one hop).
 - You can roll back a migration.
 - For some use cases, the tool requires little or no downtime.
-- The tool provides high-performance backfill without impacting a source cluster.
+- The tool provides high-performance backfill without impacting a source
+  cluster.
 
 ### Migration scenarios
 
@@ -433,14 +435,14 @@ with Migration Assistant:
 2. Understand the costs and requirements by reading the [deployment planning guide](../../../solutions/latest/migration-assistant-for-amazon-opensearch-service/plan-your-deployment.md "../../../solutions/latest/migration-assistant-for-amazon-opensearch-service/plan-your-deployment.md").
 3. Deploy the solution using the [deployment instructions](https://docs.opensearch.org/latest/migration-assistant/migration-phases/ "https://docs.opensearch.org/latest/migration-assistant/migration-phases/") and follow the [usage guide](../../../solutions/latest/migration-assistant-for-amazon-opensearch-service/use-the-solution.md "../../../solutions/latest/migration-assistant-for-amazon-opensearch-service/use-the-solution.md") to perform your migration.
 
-For developers and advanced users, Migration Assistant source code and
-additional documentation are available in the [OpenSearch
+For developers and advanced users, Migration Assistant source code and additional
+documentation are available in the [OpenSearch
 migrations GitHub repository](https://github.com/opensearch-project/opensearch-migrations "https://github.com/opensearch-project/opensearch-migrations").
 
 ### Solution architecture
 
-When deployed in AWS, Migration Assistant uses several AWS services to provide a comprehensive
-migration solution:
+When deployed in AWS, Migration Assistant uses several AWS services to provide
+a comprehensive migration solution:
 
 - **AWS CloudFormation** - Provides Infrastructure as
   Code (IaC) templates to deploy and configure Migration Assistant

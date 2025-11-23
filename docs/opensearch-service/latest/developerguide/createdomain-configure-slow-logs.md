@@ -321,7 +321,7 @@ Resources:
           Enabled: true
 ```
 
-For detailed syntax information, see the [log publishing options](../../../AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-logpublishingoption.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-logpublishingoption.md") in the _AWS CloudFormation User Guide._
+For detailed syntax information, see the [log publishing options](../../../AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-logpublishingoption.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-logpublishingoption.md") in the _CloudFormation User Guide._
 
 ## Setting search request slow
 

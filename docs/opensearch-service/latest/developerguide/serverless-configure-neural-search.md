@@ -23,7 +23,7 @@ powered by the following components:
 
 With hybrid search, you can improve search relevance by combining keyword and semantic
 search capabilities. To use hybrid search, create a search pipeline that processes your
-search results and combines document scores. For more information, see [Search pipelines](https://docs.opensearch.org/docs/latest/search-plugins/search-pipelines/index/ "https://docs.opensearch.org/docs/latest/search-plugins/search-pipelines/index/") on the _OpenSearch Documentation_
+search results and combines document scores. For more information, see [Search pipelines](https://docs.opensearch.org/latest/search-plugins/search-pipelines/index/ "https://docs.opensearch.org/latest/search-plugins/search-pipelines/index/") on the _OpenSearch Documentation_
 website. Use the following components to implement hybrid search:
 
 - Normalization search pipeline processor
@@ -70,7 +70,7 @@ semantic and keyword search.
 ```
 
 For more information, see [Neural
-query](https://docs.opensearch.org/docs/latest/query-dsl/specialized/neural/ "https://docs.opensearch.org/docs/latest/query-dsl/specialized/neural/") on the _OpenSearch Documentation_ website.
+query](https://docs.opensearch.org/latest/query-dsl/specialized/neural/ "https://docs.opensearch.org/latest/query-dsl/specialized/neural/") on the _OpenSearch Documentation_ website.
 
 ###### Example : `hybrid`
 
@@ -85,14 +85,14 @@ query](https://docs.opensearch.org/docs/latest/query-dsl/specialized/neural/ "ht
 ```
 
 For more information, see [Hybrid
-query](https://docs.opensearch.org/docs/latest/query-dsl/compound/hybrid/ "https://docs.opensearch.org/docs/latest/query-dsl/compound/hybrid/") on the _OpenSearch Documentation_ website.
+query](https://docs.opensearch.org/latest/query-dsl/compound/hybrid/ "https://docs.opensearch.org/latest/query-dsl/compound/hybrid/") on the _OpenSearch Documentation_ website.
 
-To configure semantic search components in Amazon OpenSearch Serverless, follow the steps in the [Neural Search tutorial](https://docs.opensearch.org/docs/latest/tutorials/vector-search/neural-search-tutorial/ "https://docs.opensearch.org/docs/latest/tutorials/vector-search/neural-search-tutorial/") on the _OpenSearch Documentation_
+To configure semantic search components in Amazon OpenSearch Serverless, follow the steps in the [Neural Search tutorial](https://docs.opensearch.org/latest/tutorials/vector-search/neural-search-tutorial/ "https://docs.opensearch.org/latest/tutorials/vector-search/neural-search-tutorial/") on the _OpenSearch Documentation_
 website. Keep in mind these important differences:
 
 - OpenSearch Serverless supports only remote models. You must configure connectors to remotely
   hosted models. You don't need to deploy or remove remote models. For more
-  information, see [Getting started with semantic and hybrid search](https://docs.opensearch.org/docs/latest/tutorials/vector-search/neural-search-tutorial/ "https://docs.opensearch.org/docs/latest/tutorials/vector-search/neural-search-tutorial/") on the
+  information, see [Getting started with semantic and hybrid search](https://docs.opensearch.org/latest/tutorials/vector-search/neural-search-tutorial/ "https://docs.opensearch.org/latest/tutorials/vector-search/neural-search-tutorial/") on the
   _OpenSearch Documentation_ website.
 - Expect up to 15 seconds of latency when you search against your vector index
   or search for recently created search and ingest pipelines.

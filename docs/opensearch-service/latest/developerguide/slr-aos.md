@@ -8,7 +8,7 @@ OpenSearch Service and include all the permissions that the service requires to 
 AWS services on your behalf.
 
 OpenSearch Service uses the service-linked role named **AWSServiceRoleForAmazonOpenSearchService**,
-which provides the minimum Amazon EC2 and Elastic Load Balancing permissions necessary for the role to enable
+which provides the minimum Amazon EC2 and ELB permissions necessary for the role to enable
 [VPC access](cognito-auth.md "cognito-auth.md") for a domain or a direct query data
 source.
 

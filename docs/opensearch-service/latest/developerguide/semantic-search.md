@@ -7,8 +7,8 @@ search queries and improve search relevance. You can use semantic search in one 
 
 With OpenSearch Service, you can set up [AI connectors for
 AWS services](ml-amazon-connector.md "ml-amazon-connector.md") and [external
-services](ml-external-connector.md "ml-external-connector.md"). Using the console, you can also create an ML model with a AWS CloudFormation template.
-For more information, see [Using AWS CloudFormation to set up remote inference for semantic
+services](ml-external-connector.md "ml-external-connector.md"). Using the console, you can also create an ML model with a CloudFormation template.
+For more information, see [Using CloudFormation to set up remote inference for semantic
 search](cfn-template.md "cfn-template.md").
 
 For full documentation of semantic search, including a step-by-step guide to use semantic

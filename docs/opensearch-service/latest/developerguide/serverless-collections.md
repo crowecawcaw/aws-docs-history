@@ -3,7 +3,7 @@
 collections
 
 You can create Amazon OpenSearch Serverless collections using the console, the AWS CLI and API, the AWS
-SDKs, and AWS CloudFormation.
+SDKs, and CloudFormation.
 
 ###### Topics
 
@@ -11,5 +11,5 @@ SDKs, and AWS CloudFormation.
 - [Working with vector search collections](serverless-vector-search.md "serverless-vector-search.md")
 - [Using data lifecycle policies with Amazon OpenSearch Serverless](serverless-lifecycle.md "serverless-lifecycle.md")
 - [Using the AWS SDKs to interact with Amazon OpenSearch Serverless](serverless-sdk.md "serverless-sdk.md")
-- [Using AWS CloudFormation to create Amazon OpenSearch Serverless collections](serverless-cfn.md "serverless-cfn.md")
+- [Using CloudFormation to create Amazon OpenSearch Serverless collections](serverless-cfn.md "serverless-cfn.md")
 - [Backing up collections using snapshots](serverless-snapshots.md "serverless-snapshots.md")

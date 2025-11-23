@@ -14,7 +14,7 @@ plugin with Amazon OpenSearch Service.
   AWS services](ml-amazon-connector.md "ml-amazon-connector.md")
 - [Amazon OpenSearch Service ML connectors for third-party
   platforms](ml-external-connector.md "ml-external-connector.md")
-- [Using AWS CloudFormation to set up remote inference for semantic
+- [Using CloudFormation to set up remote inference for semantic
   search](cfn-template.md "cfn-template.md")
 - [Unsupported ML Commons settings](#sm "#sm")
 - [OpenSearch Service flow framework templates](ml-workflow-framework.md "ml-workflow-framework.md")

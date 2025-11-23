@@ -57,7 +57,7 @@ search have the following functional differences and requirements:
   you need to update domains after setting up the bi-directional connection, you
   must first delete the connection, and then recreate it afterwards.
 - You can't use custom dictionaries or SQL with the remote clusters.
-- You can't use AWS CloudFormation to connect domains.
+- You can't use CloudFormation to connect domains.
 - You can't use cross-cluster search on M3 or burstable (T2 and T3)
   instances.
 - Cross-cluster search does not work for Amazon OpenSearch Serverless collections.

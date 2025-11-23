@@ -1,4 +1,4 @@
-# Using AWS CloudFormation to set up remote inference for semantic
+# Using CloudFormation to set up remote inference for semantic
 
 search
 
@@ -24,7 +24,7 @@ information, see [Sparse encoding models](https://opensearch.org/docs/latest/ml-
 
 ###### Topics
 
-- [Available AWS CloudFormation templates](#cfn-template-list "#cfn-template-list")
+- [Available CloudFormation templates](#cfn-template-list "#cfn-template-list")
 - [Prerequisites](#cfn-template-prereq "#cfn-template-prereq")
 - [Amazon Bedrock templates](cfn-template-bedrock.md "cfn-template-bedrock.md")
 - [MCP server integration templates](cfn-template-mcp-server.md "cfn-template-mcp-server.md")
@@ -32,7 +32,7 @@ information, see [Sparse encoding models](https://opensearch.org/docs/latest/ml-
 - [Remote inference for semantic
   highlighting templates](#cfn-template-semantic-highlighting "#cfn-template-semantic-highlighting")
 
-## Available AWS CloudFormation templates
+## Available CloudFormation templates
 
 The following AWS CloudFormation machine learning (ML) templates are available for
 use:
@@ -159,7 +159,7 @@ allowing search administrators to deliver more intelligent and contextually awar
 search experiences that highlight meaningful content spans rather than just keyword
 occurrences. For more information, see [Using semantic highlighting](https://docs.opensearch.org/latest/tutorials/vector-search/semantic-highlighting-tutorial/ "https://docs.opensearch.org/latest/tutorials/vector-search/semantic-highlighting-tutorial/").
 
-Use the following procedure open and run an AWS CloudFormation template that automatically
+Use the following procedure open and run an CloudFormation template that automatically
 configures Amazon SageMaker models for semantic highlighting.
 
 ###### To use the semantic highlighting CloudFormation template

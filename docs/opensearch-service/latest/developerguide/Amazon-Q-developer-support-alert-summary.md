@@ -79,7 +79,7 @@ connector.
    `LambdaInvokeOpenSearchMLCommonsRole` role, and then
    choose **Map**.
 
-### Step 3: Configure an OpenSearch Service knowledge base using AWS CloudFormation
+### Step 3: Configure an OpenSearch Service knowledge base using CloudFormation
 
 Use the following procedure to configure an OpenSearch Service knowledge base using
 AWS CloudFormation so that Amazon Q can generate insights.
@@ -96,10 +96,10 @@ AWS CloudFormation so that Amazon Q can generate insights.
    Region.
 4. In the **Integrate with knowledge base through Amazon Bedrock**
    tile, choose **Configure domain**, and then choose one
-   of the available options. OpenSearch Service opens the AWS CloudFormation stack template with the
-   required fields pre-populated. The AWS CloudFormation stack supports integration for
+   of the available options. OpenSearch Service opens the CloudFormation stack template with the
+   required fields pre-populated. The CloudFormation stack supports integration for
    public and VPC domains.
-5. Choose **Create stack**. After AWS CloudFormation creates the
+5. Choose **Create stack**. After CloudFormation creates the
    resources, the service displays the Amazon Bedrock agent
    **AgentId**, **ConnectorId**, and
    **ModelId**.

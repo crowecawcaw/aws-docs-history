@@ -19,7 +19,7 @@ The following Machine Learning (ML) APIs are not supported on Amazon OpenSearch 
 - ML stats API
 
 For more information about ML APIs, see [ML
-APIs](https://docs.opensearch.org/docs/latest/ml-commons-plugin/api/index/ "https://docs.opensearch.org/docs/latest/ml-commons-plugin/api/index/") on the _OpenSearch Documentation_ website.
+APIs](https://docs.opensearch.org/latest/ml-commons-plugin/api/index/ "https://docs.opensearch.org/latest/ml-commons-plugin/api/index/") on the _OpenSearch Documentation_ website.
 
 ## Unsupported features
 
@@ -36,6 +36,6 @@ For more information about these features, see the following documentation on th
 _OpenSearch Documentation_ website:
 
 - [Machine
-  learning](https://docs.opensearch.org/docs/latest/ml-commons-plugin "https://docs.opensearch.org/docs/latest/ml-commons-plugin")
-- [ML inference processor](https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ml-inference/ "https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ml-inference/")
-- [Search pipelines](https://docs.opensearch.org/docs/latest/search-plugins/search-pipelines/index/ "https://docs.opensearch.org/docs/latest/search-plugins/search-pipelines/index/")
+  learning](https://docs.opensearch.org/latest/ml-commons-plugin "https://docs.opensearch.org/latest/ml-commons-plugin")
+- [ML inference processor](https://docs.opensearch.org/latest/ingest-pipelines/processors/ml-inference/ "https://docs.opensearch.org/latest/ingest-pipelines/processors/ml-inference/")
+- [Search pipelines](https://docs.opensearch.org/latest/search-plugins/search-pipelines/index/ "https://docs.opensearch.org/latest/search-plugins/search-pipelines/index/")

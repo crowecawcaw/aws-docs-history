@@ -1,7 +1,7 @@
-# Using AWS CloudFormation to create Amazon OpenSearch Serverless collections
+# Using CloudFormation to create Amazon OpenSearch Serverless collections
 
-You can use AWS CloudFormation to create Amazon OpenSearch Serverless resources such as collections, security policies, and
-VPC endpoints. For the comprehensive OpenSearch Serverless CloudFormation reference, see [Amazon OpenSearch Serverless](../../../AWSCloudFormation/latest/UserGuide/AWS_OpenSearchServerless.md "../../../AWSCloudFormation/latest/UserGuide/AWS_OpenSearchServerless.md") in the _AWS CloudFormation User Guide_.
+You can use CloudFormation to create Amazon OpenSearch Serverless resources such as collections, security policies, and
+VPC endpoints. For the comprehensive OpenSearch Serverless CloudFormation reference, see [Amazon OpenSearch Serverless](../../../AWSCloudFormation/latest/UserGuide/AWS_OpenSearchServerless.md "../../../AWSCloudFormation/latest/UserGuide/AWS_OpenSearchServerless.md") in the _CloudFormation User Guide_.
 
 The following sample CloudFormation template creates a simple data access policy, network
 policy, and security policy, as well as a matching collection. It's a good way to get up and

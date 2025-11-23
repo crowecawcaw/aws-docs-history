@@ -50,7 +50,7 @@ Cross-cluster replication has the following limitations:
   connections, to a maximum of 20 other domains.
 - When you initially set up a cross-cluster connection, the leader domain must
   be on the same or a higher version than the follower domain.
-- You can't use AWS CloudFormation to connect domains.
+- You can't use CloudFormation to connect domains.
 - You can't use cross-cluster replication on M3 or burstable (T2 and T3)
   instances.
 - You can't replicate data between UltraWarm or cold indexes. Both indexes must

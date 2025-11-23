@@ -4,7 +4,7 @@
 
 You can use AWS PrivateLink to create a private connection between your VPC and Amazon OpenSearch Serverless.
 You can access OpenSearch Serverless as if it were in your VPC, without the use of an internet gateway, NAT
-device, VPN connection, or AWS Direct Connect connection. Instances in your VPC don't need public IP
+device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP
 addresses to access OpenSearch Serverless. For more information on VPC network access, see [Network connectivity patterns for Amazon OpenSearch Serverless](https://aws.amazon.com/blogs/big-data/network-connectivity-patterns-for-amazon-opensearch-serverless/ "https://aws.amazon.com/blogs/big-data/network-connectivity-patterns-for-amazon-opensearch-serverless/").
 
 You establish this private connection by creating an _interface
@@ -18,6 +18,7 @@ _AWS PrivateLink Guide_.
 
 ###### Topics
 
+- [Creating Collection/Policies using PrivateLink](#serverless-vpc-privatelink "#serverless-vpc-privatelink")
 - [DNS resolution of collection endpoints](#vpc-endpoint-dnc "#vpc-endpoint-dnc")
 - [VPCs and network access policies](#vpc-endpoint-network "#vpc-endpoint-network")
 - [VPCs and endpoint policies](#vpc-endpoint-policy "#vpc-endpoint-policy")
@@ -25,6 +26,83 @@ _AWS PrivateLink Guide_.
 - [Permissions required](#serverless-vpc-permissions "#serverless-vpc-permissions")
 - [Create an interface endpoint for OpenSearch Serverless](#serverless-vpc-create "#serverless-vpc-create")
 - [Shared VPC setup for Amazon OpenSearch Serverless](#shared-vpc-setup "#shared-vpc-setup")
+
+## Creating Collection/Policies using PrivateLink
+
+You can improve the security posture of your VPC by configuring OpenSearch Serverless to use an interface VPC endpoint. Interface endpoints are powered by AWS PrivateLink. This technology enables you to privately access OpenSearch Serverless APIs without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
+
+For more information about AWS PrivateLink and VPC endpoints, see [VPC endpoints](../../../vpc/latest/privatelink/concepts.md#concepts-vpc-endpoints "../../../vpc/latest/privatelink/concepts.md#concepts-vpc-endpoints") in the Amazon VPC User Guide.
+
+### Considerations
+
+- VPC endpoints are supported within the same Region only.
+- VPC endpoints only support Amazon-provided DNS through Amazon Route 53.
+- VPC endpoints support endpoint policies to control access to OpenSearch Serverless Collections, Policies and VpcEndpoints.
+- OpenSearch Serverless supports interface endpoints only. Gateway endpoints are not supported.
+
+### Creating the VPC endpoint for OpenSearch Serverless
+
+To create the VPC endpoint for Amazon OpenSearch Serverless, use the [Access an AWS service using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint") procedure in the . Create the following endpoint:
+
+- `com.amazonaws.region.aoss`
+
+To create a VPC endpoint using the console
+
+- Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
+- In the navigation pane, choose Endpoints.
+- Choose Create Endpoint.
+- For Service category, choose AWS services.
+- For Services, choose `com.amazonaws.<region>.aoss`. Example: `com.amazonaws.us-east-1.aoss`
+- For VPC, choose the VPC in which to create the endpoint.
+- For Subnets, choose the subnets (Availability Zones) in which to create the endpoint network interfaces.
+- For Security groups, choose the security groups to associate with the endpoint network interfaces. Ensure HTTPS (port 443) is allowed.
+- For Policy, choose Full access to allow all operations, or choose Custom to attach a custom policy.
+- Choose Create endpoint.
+
+### Creating an endpoint policy for your VPC endpoint
+
+You can attach an endpoint policy to your VPC endpoint that controls access to Amazon OpenSearch Serverless. The policy specifies the following information:
+
+- The principal that can perform actions.
+- The actions that can be performed.
+- The resources on which actions can be performed.
+
+For more information, see [Controlling access to services with VPC endpoints](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the _Amazon VPC User Guide_.
+
+Example: VPC endpoint policy for OpenSearch Serverless
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": [
+        "aoss:ListCollections",
+        "aoss:BatchGetCollection"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+Example: Restrictive policy allowing only list operations
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "aoss:ListCollections",
+      "Resource": "*"
+    }
+  ]
+}
+```
 
 ## DNS resolution of collection endpoints
 

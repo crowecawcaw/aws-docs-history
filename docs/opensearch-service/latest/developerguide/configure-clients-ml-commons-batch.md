@@ -178,7 +178,7 @@ semantic search using a text embedding model.
 connectors and register models in OpenSearch
 
 For the following procedure, use the ML Commons [batch_inference_sagemaker_connector_blueprint](https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/batch_inference_sagemaker_connector_blueprint.md "https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/batch_inference_sagemaker_connector_blueprint.md") to create a connector and model in
-Amazon SageMaker. If you prefer to use OpenSearch AWS CloudFormation integration templates, see [(Alternative procedure) Step 1: Create connectors and models using an AWS CloudFormation integration
+Amazon SageMaker. If you prefer to use OpenSearch CloudFormation integration templates, see [(Alternative procedure) Step 1: Create connectors and models using an CloudFormation integration
 template](#configure-clients-ml-commons-configuring-create-connectors-alternative "#configure-clients-ml-commons-configuring-create-connectors-alternative")
 later in this section.
 
@@ -379,16 +379,16 @@ The response contains the task status:
 }
 ```
 
-#### (Alternative procedure) Step 1: Create connectors and models using an AWS CloudFormation integration
+#### (Alternative procedure) Step 1: Create connectors and models using an CloudFormation integration
 
 template
 
 If you prefer, you can use AWS CloudFormation to automatically create all required Amazon SageMaker
 connectors and models for ML inference. This approach simplifies setup by using a
-preconfigured template available in the Amazon OpenSearch Service console. For more information, see [Using AWS CloudFormation to set up remote inference for semantic
+preconfigured template available in the Amazon OpenSearch Service console. For more information, see [Using CloudFormation to set up remote inference for semantic
 search](cfn-template.md "cfn-template.md").
 
-###### To deploy an AWS CloudFormation stack that creates all the required SageMaker connectors and
+###### To deploy an CloudFormation stack that creates all the required SageMaker connectors and
 
 models
 
@@ -402,8 +402,8 @@ models
 5. Enter information in the template fields. For **Enable Offline Batch
    Inference**, choose **true** to provision resources for
    offline batch processing.
-6. Choose **Create** to create the AWS CloudFormation stack.
-7. After the stack is created, open the **Outputs** tab in the AWS CloudFormation
+6. Choose **Create** to create the CloudFormation stack.
+7. After the stack is created, open the **Outputs** tab in the CloudFormation
    console Locate the **connector_id** and
    **model_id**. You will need these values later when you configure the
    pipeline.

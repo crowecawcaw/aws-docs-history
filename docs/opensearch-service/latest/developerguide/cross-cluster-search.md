@@ -51,7 +51,7 @@ Cross-cluster search has several important limitations:
   If you set up a bidirectional connection between two domains and you want to upgrade one
   or both of them, you must first delete one of the connections.
 - You can't use custom dictionaries or SQL with cross-cluster search.
-- You can't use AWS CloudFormation to connect domains.
+- You can't use CloudFormation to connect domains.
 - You can't use cross-cluster search on M3 or burstable (T2 and T3) instances.
 
 ## Cross-cluster search prerequisites
