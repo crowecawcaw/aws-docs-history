@@ -41,7 +41,7 @@ The following information can be used to better understand the services:
 - AWS Documentation: [Amazon EBS Durability and Availability](../../../whitepapers/latest/aws-storage-services-overview/durability-and-availability-3.md "../../../whitepapers/latest/aws-storage-services-overview/durability-and-availability-3.md")
 - AWS Documentation: [Amazon EFS
   Data Protection and availability](https://aws.amazon.com/efs/faq/#Data_protection_and_availability "https://aws.amazon.com/efs/faq/#Data_protection_and_availability")
-- AWS Documentation: [AWS Direct Connect Resiliency Recommendations](https://aws.amazon.com/directconnect/resiliency-recommendation/?nc=sn&loc=4&dn=2 "https://aws.amazon.com/directconnect/resiliency-recommendation/?nc=sn&loc=4&dn=2")
+- AWS Documentation: [Direct Connect Resiliency Recommendations](https://aws.amazon.com/directconnect/resiliency-recommendation/?nc=sn&loc=4&dn=2 "https://aws.amazon.com/directconnect/resiliency-recommendation/?nc=sn&loc=4&dn=2")
   The likelihood of failure of other supporting services should also be evaluated
   including, but not limited to, domain name services, load balancers, and serverless
   functions.

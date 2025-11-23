@@ -29,7 +29,7 @@ AMIs and infrastructure as code**
 
 The benefit of infrastructure as code (IaC) is the ability to build and tear down
 entire environments programmatically. If architected for resiliency, an environment can be
-implemented in minutes using [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") templates or [AWS Systems Manager automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md"). Automation is critical for maintaining high
+implemented in minutes using [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") templates or [AWS Systems Manager automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md"). Automation is critical for maintaining high
 availability and fast recovery.
 
 You should evaluate the following AWS services as part of your strategy:

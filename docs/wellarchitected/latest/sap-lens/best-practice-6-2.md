@@ -22,7 +22,7 @@ reused and updated over time.
 AMIs can be either standard images from the operating system vendor or custom images
 that you build yourself. In both cases, you need to have a consistent approach for ensuring
 the operating system is secure at launch and maintained in an on-going basis. Using
-infrastructure as code (IaC) tools such as [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") can assist with achieving image
+infrastructure as code (IaC) tools such as [CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") can assist with achieving image
 security consistency. For HANA-based SAP solutions, the [AWS Launch Wizard](https://aws.amazon.com/launchwizard/ "https://aws.amazon.com/launchwizard/") for SAP simplifies
 the installation process, including pre- and post-installation scripts that can be
 customized to automate the installation of security components.

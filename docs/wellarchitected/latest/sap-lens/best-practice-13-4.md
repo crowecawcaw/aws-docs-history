@@ -10,7 +10,7 @@ traffic.
 performance**
 
 Choose a Region based on proximity to your SAP end users and corporate data center.
-Select and size any cloud connectivity options (such as AWS Direct Connect and VPN) to accommodate
+Select and size any cloud connectivity options (such as Direct Connect and VPN) to accommodate
 your data transfer requirements.
 
 Use SAP performance tools to understand the breakdown of user response time (such as

@@ -23,7 +23,7 @@ For more details, see the following information:
   for Availability and Reliability of SAP on AWS including Failure Scenarios and
   Architecture Patterns](../../../sap/latest/general/architecture-guidance-of-sap-on-aws.md "../../../sap/latest/general/architecture-guidance-of-sap-on-aws.md")
 - AWS Documentation: [The Amazon Builders' Library: Static stability using Availability Zones](https://aws.amazon.com/builders-library/static-stability-using-availability-zones/ "https://aws.amazon.com/builders-library/static-stability-using-availability-zones/")
-- AWS Documentation: [AWS Direct Connect
+- AWS Documentation: [Direct Connect
   Resiliency Recommendations](https://aws.amazon.com/directconnect/resiliency-recommendation/ "https://aws.amazon.com/directconnect/resiliency-recommendation/")
 - AWS Documentation: [Disaster Recovery of Workloads on AWS: Recovery in the Cloud](../../../whitepapers/latest/disaster-recovery-workloads-on-aws/introduction.md "../../../whitepapers/latest/disaster-recovery-workloads-on-aws/introduction.md")
 - SAP Documentation: [SAP HANA System Architecture Overview](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/LATEST/en-US/1b4477a539ab4b77a3bfe2a6835b5e0e.html "https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/LATEST/en-US/1b4477a539ab4b77a3bfe2a6835b5e0e.html")

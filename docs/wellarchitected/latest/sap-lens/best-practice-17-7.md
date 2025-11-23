@@ -23,7 +23,7 @@ applications on AWS following SAP best practice. The service is available at no
 additional cost, with support provided by AWS.
 
 - AWS Documentation: [Infrastructure as Code](../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md "../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md")
-- AWS Documentation: [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/")
+- AWS Documentation: [CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/")
 - AWS Documentation: [AWS Launch Wizard for SAP](../../../launchwizard/latest/userguide/what-is-launch-wizard-sap.md "../../../launchwizard/latest/userguide/what-is-launch-wizard-sap.md")
 - SAP on AWS Blog: [AWS for SAP DevOps](https://aws.amazon.com/blogs/awsforsap/category/devops/ "https://aws.amazon.com/blogs/awsforsap/category/devops/")
 
