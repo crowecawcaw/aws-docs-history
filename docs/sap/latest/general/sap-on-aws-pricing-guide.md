@@ -26,9 +26,9 @@ AWS service pricing varies between different AWS Regions. You must select the Re
 
 ## Compute
 
-[Amazon Elastic Compute Cloud (Amazon EC2)](https://docs.aws.amazon.comAWSEC2/latest/UserGuide/concepts.html "https://docs.aws.amazon.comAWSEC2/latest/UserGuide/concepts.html") provides a wide selection of instance types that provide varying combinations of CPU, memory, storage, I/O, and networking capabilities. Each running instance is charged by the hour. For more information, see [Amazon EC2 pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/").
+[Amazon Elastic Compute Cloud (Amazon EC2)](../../../AWSEC2/latest/UserGuide/concepts.md "../../../AWSEC2/latest/UserGuide/concepts.md") provides a wide selection of instance types that provide varying combinations of CPU, memory, storage, I/O, and networking capabilities. Each running instance is charged by the hour. For more information, see [Amazon EC2 pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/").
 
-Amazon EC2 offers multiple purchasing options that give you flexibility to optimize your costs. For more information, see [Instance purchasing options](https://docs.aws.amazon.comAWSEC2/latest/UserGuide/instance-purchasing-options.html "https://docs.aws.amazon.comAWSEC2/latest/UserGuide/instance-purchasing-options.html").
+Amazon EC2 offers multiple purchasing options that give you flexibility to optimize your costs. For more information, see [Instance purchasing options](../../../AWSEC2/latest/UserGuide/instance-purchasing-options.md "../../../AWSEC2/latest/UserGuide/instance-purchasing-options.md").
 
 ## Storage
 
@@ -44,7 +44,7 @@ The following AWS services are flexible, cost-effective, and easy-to-use data st
 
 ### Amazon EBS
 
-[Amazon Elastic Block Store (Amazon EBS)](https://docs.aws.amazon.comAWSEC2/latest/UserGuide/AmazonEBS.html "https://docs.aws.amazon.comAWSEC2/latest/UserGuide/AmazonEBS.html") provides persistent, block-level storage volumes for Amazon EC2 instances. Each Amazon EC2 instance that runs an SAP environment requires one or more Amazon EBS volumes to store system components, such as operating system, SAP software, SAP database data and log files, and local backup storage.
+[Amazon Elastic Block Store (Amazon EBS)](../../../AWSEC2/latest/UserGuide/AmazonEBS.md "../../../AWSEC2/latest/UserGuide/AmazonEBS.md") provides persistent, block-level storage volumes for Amazon EC2 instances. Each Amazon EC2 instance that runs an SAP environment requires one or more Amazon EBS volumes to store system components, such as operating system, SAP software, SAP database data and log files, and local backup storage.
 
 With Amazon Elastic Block Store, you only pay for what you provision. For more information, see [Amazon EBS pricing](https://aws.amazon.com/ebs/pricing/ "https://aws.amazon.com/ebs/pricing/").
 

@@ -41,8 +41,8 @@ It is important to understand the key business requirements that guide a disaste
 If you are new to AWS, see the following documents.
 
 - [Getting started with AWS](https://aws.amazon.com/getting-started "https://aws.amazon.com/getting-started")
-- [What is Amazon EC2?](https://docs.aws.amazon.comAWSEC2/latest/UserGuide/concepts.html "https://docs.aws.amazon.comAWSEC2/latest/UserGuide/concepts.html")
+- [What is Amazon EC2?](../../../AWSEC2/latest/UserGuide/concepts.md "../../../AWSEC2/latest/UserGuide/concepts.md")
 - [What is Amazon VPC?](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md")
-- [Amazon Elastic Block Store (Amazon EBS)](https://docs.aws.amazon.comAWSEC2/latest/UserGuide/AmazonEBS.html "https://docs.aws.amazon.comAWSEC2/latest/UserGuide/AmazonEBS.html")
+- [Amazon Elastic Block Store (Amazon EBS)](../../../AWSEC2/latest/UserGuide/AmazonEBS.md "../../../AWSEC2/latest/UserGuide/AmazonEBS.md")
 
 _To use this information provided here effectively, you must have previous experience installing, migrating, and operating SAP environments and systems on AWS, along with high availability and disaster recovery solution implementation._
