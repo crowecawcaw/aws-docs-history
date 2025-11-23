@@ -111,7 +111,7 @@ Amazon Connect uses the following services for added security:
 
 - AWS Identity and Access Management (IAM)—Use to manage permissions for users. Amazon Connect users
   require permission for services. For more information, see [Identity and access management for Amazon Connect](security-iam.md "security-iam.md").
-- AWS Directory Service—Amazon Connect supports user federation through the internal directory
+- Directory Service—Amazon Connect supports user federation through the internal directory
   (created in the Amazon Connect instance), using Active Directory integration (MAD,
   ADFS) or SAML 2.0.
 
@@ -131,5 +131,5 @@ Amazon Connect uses the following services for monitoring usage:
 
 For more information about Amazon Connect and AWS CloudTrail, see [Log Amazon Connect API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
-- AWS CloudFormation—Amazon Connect supports using AWS CloudFormation for initiating an instance with
+- CloudFormation—Amazon Connect supports using CloudFormation for initiating an instance with
   all the supported channels enabled. For more information, see [AWS::Connect::Instance](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.md").

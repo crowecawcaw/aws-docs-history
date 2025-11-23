@@ -190,6 +190,8 @@ domain names within the same instance that do not start with the
       + `wisdom:SendMessage`
       + `wisdom:GetNextMessage`
       + `wisdom:ListMessages`
+      + `wisdom:Retrieve`
+      + `wisdom:ListAssistantAssociations`
 
   with resource tag `'AmazonConnectEnabled':'True'` on all Amazon Connect Amazon Q in Connect
   resources associated with your Amazon Connect instance.

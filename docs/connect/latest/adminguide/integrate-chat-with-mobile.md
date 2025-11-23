@@ -122,7 +122,7 @@ Amazon Connect chat integration
 
 The following steps and resources will help you get started with integrating Amazon Connect Chat into your native mobile applications:
 
-1. You can quickly set up a [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
+1. You can quickly set up a [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
    stack to provide the necessary back-end to call StartChatContact by looking at our [startChatContactAPI](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/cloudformationTemplates/startChatContactAPI "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/cloudformationTemplates/startChatContactAPI") example on GitHub.
 2. For examples that show how to
    build your mobile chat UI powered by the Amazon Connect Chat SDKs, check out our [UI

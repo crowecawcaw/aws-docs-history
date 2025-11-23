@@ -9,10 +9,10 @@ You can enable Contact Lens conversational analytics in a few steps:
    behavior](set-recording-behavior.md "set-recording-behavior.md") block to a flow, and
    configure it to enable conversational analytics for voice, chat, or
    both.
-   The following image shows a block that's configured for call recording, and speech
-   analytics and chat analytics. The **Call recording** option is set
+   The following image shows a block that's configured for call recording and speech
+   analytics. The **Call recording** option is set
    to **Agent and customer**. In the **Analytics**
-   section, the options are selected for speech and chat.
+   section, the options are selected for automated interactions and agent interactions.
 
 ![The properties page for a set recording and analytics behavior block.](images/set-recording-and-analytics-behavior.png)
 The procedures in this topic describe the steps to enable conversational analytics

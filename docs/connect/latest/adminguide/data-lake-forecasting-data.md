@@ -25,6 +25,8 @@ shared:
 - [Short-term forecasts
   table](#data-lake-shortterm-forecasts "#data-lake-shortterm-forecasts")
 - [Intraday forecasts table](#data-lake-intraday-forecasts "#data-lake-intraday-forecasts")
+- [Demand group table](#data-lake-demand-groups "#data-lake-demand-groups")
+- [Demand group definitions table](#data-lake-demand-group-definition "#data-lake-demand-group-definition")
 
 ## Important things to
 
@@ -136,3 +138,39 @@ Composite primary key: {instance_id, intraday_forecast_id}
 | contact_volume                     | Double    | Forecasted metric data: contact volume.                                                                                                                                                      |
 | effective_agent_staffing           | Double    | Forecasted metric data: effective agent staffing.                                                                                                                                            |
 | data_lake_last_processed_timestamp | Timestamp | Timestamp, which shows the last time the data lake processed<br>the record. This can include transformation and backfill. This<br>field cannot be used to determine reliably data freshness. |
+
+## Demand group table
+
+Table name: `demand_group`
+
+Composite Primary Key: `{instance_id, demand_group_arn, demand_group_version}`
+
+| Column                             | Type      | Description                                                                                                                                                                                 |
+| ---------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| instance_id                        | string    | The identifier of the Amazon Connect instance.                                                                                                                                              |
+| demand_group_arn                   | string    | The ARN of the demand group.                                                                                                                                                                |
+| demand_group_version               | Long      | The version of the demand group. A new version is created every time a change is made to a demand group, for example, addition of new queues.                                               |
+| instance_arn                       | string    | The ARN of the Amazon Connect instance.                                                                                                                                                     |
+| demand_group_name                  | string    | Name of the demand group.                                                                                                                                                                   |
+| foecast_group_arn                  | string    | The ARN of the forecast group.                                                                                                                                                              |
+| is_deleted                         | Boolean   | Whether the demand group is deleted.                                                                                                                                                        |
+| last_updated_timestamp             | Timestamp | Timestamp when the demand group was last created/updated/deleted.                                                                                                                           |
+| data_lake_last_processed_timestamp | Timestamp | Timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot be used to determine reliably data freshness. |
+
+## Demand group definitions table
+
+Table name: `demand_group_definitions`
+
+Composite Primary Key: `{instance_id, demand_group_definition_id}`
+
+| Column                             | Type      | Description                                                                                                                                                                                 |
+| ---------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| instance_id                        | string    | The identifier of the Amazon Connect instance.                                                                                                                                              |
+| demand_group_definition_id         | string    | Unique Identifier for the demandGroup definition row.                                                                                                                                       |
+| demand_group_arn                   | string    | The ARN of the demand group.                                                                                                                                                                |
+| demand_group_version               | Long      | The version of the demand group. A new version is created every time a change is made to a demand group, for example, addition of new queues.                                               |
+| instance_arn                       | string    | The ARN of the Amazon Connect instance.                                                                                                                                                     |
+| queue_id                           | string    | ID of the queue that is part of the demand group.                                                                                                                                           |
+| is_deleted                         | Boolean   | Whether the demand group is deleted.                                                                                                                                                        |
+| last_updated_timestamp             | Timestamp | Timestamp when the demand group was last created/updated/deleted.                                                                                                                           |
+| data_lake_last_processed_timestamp | Timestamp | Timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot be used to determine reliably data freshness. |

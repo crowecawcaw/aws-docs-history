@@ -24,7 +24,7 @@ The following diagram shows how voice calls flow through Amazon Connect
 
 ## Authentication
 
-The following diagram shows using the AD Connector with AWS Directory Service to connect to an
+The following diagram shows using the AD Connector with Directory Service to connect to an
 existing customer Active Directory installation. The flow is similar to using
 AWS Managed Microsoft AD.
 

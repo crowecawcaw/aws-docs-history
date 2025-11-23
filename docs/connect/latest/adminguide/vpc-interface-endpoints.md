@@ -14,7 +14,7 @@ endpoints:
   The core Amazon Connect service does not support AWS PrivateLink or VPC endpoints.
 
 Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you to privately access Amazon Connect APIs
-without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
+without an internet gateway, NAT device, VPN connection, or Direct Connect connection.
 Instances in your VPC don't need public IP addresses to communicate with the Amazon Connect APIs
 that integrate with AWS PrivateLink.
 

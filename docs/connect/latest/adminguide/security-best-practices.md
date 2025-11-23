@@ -26,7 +26,7 @@ practices
   identity provider, or Radius server, if that's more applicable for your use
   case. After MFA is set up, a third text box becomes visible on the Amazon Connect login
   page to provide the second factor.
-- If you use an existing directory through AWS Directory Service or SAML-based authentication
+- If you use an existing directory through Directory Service or SAML-based authentication
   for identity management, ensure that you follow all security requirements
   appropriate for your use case.
 - Use the **Log in for emergency access** URL on the instance

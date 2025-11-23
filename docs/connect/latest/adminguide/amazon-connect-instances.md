@@ -49,7 +49,7 @@ information, see [Plan your identity management in Amazon Connect](connect-ident
    - **Store users in Amazon Connect** - Use Amazon Connect to create and
      manage user accounts. You cannot share users with other
      applications.
-   - **Link to an existing directory** - Use an AWS Directory Service
+   - **Link to an existing directory** - Use an Directory Service
      directory to manage your users. You can use each directory with one
      Amazon Connect instance at a time.
    - **SAML 2.0-based authentication** - Use an existing
@@ -61,7 +61,7 @@ information, see [Plan your identity management in Amazon Connect](connect-ident
    instances in all Regions. You can't change the access URL after you create your
    instance.
 5. If you chose **Link to an existing directory**, select the
-   AWS Directory Service directory for **Directory**. The directory name is used
+   Directory Service directory for **Directory**. The directory name is used
    as the left-most label for **Access URL**.
 6. Choose **Next**.
 
@@ -80,7 +80,7 @@ security profile.
      password, and email address for the user account in Amazon Connect.
    - If you chose **Link to an existing directory**, for
      **Username**, type the name of an existing user in
-     the AWS Directory Service directory. The password for this user is managed through the
+     the Directory Service directory. The password for this user is managed through the
      directory.
    - If you chose **SAML 2.0-based authentication**,
      select **Add a new admin** and provide a name for the
@@ -209,7 +209,7 @@ enable Customer Profiles.
    prefer, you can access your instance and configure it later on. For more
    information, see [Next steps](#get-started-next-steps "#get-started-next-steps").
 
-If you chose to manage your users directly within Amazon Connect or through an AWS Directory Service
+If you chose to manage your users directly within Amazon Connect or through an Directory Service
 directory, you can access the instance using its access URL. If you chose to
 manage your users through SAML-based authentication, you can access the instance
 using the IdP.

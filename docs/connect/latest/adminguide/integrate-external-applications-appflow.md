@@ -67,7 +67,7 @@ will need to create a new flow for your integration.
 You can optionally perform data transformations such as
 `Arithmetic`, `Filter`, `Map`,
 `Map_all`, `Mask`, `Merge`,
-`Truncate`, and `Validate` when using the AWS CloudFormation
+`Truncate`, and `Validate` when using the CloudFormation
 `AWS::AppFlow::Flow Task` resource prior to ingestion.
 
 1. Log into your AWS Management Console, select Amazon AppFlow, and choose

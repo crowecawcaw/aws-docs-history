@@ -132,7 +132,7 @@ time for each of short-term and long-term) have not been successfully
 generated. Check if you have the permission for **Analytics,
 Forecasting - Publish** and check if the forecasts have
 been successfully generated (the status column should show
-**complete”** when the forecasts are
+**complete"** when the forecasts are
 generated).
 
 - **How can I see data from a previous

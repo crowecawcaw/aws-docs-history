@@ -11,7 +11,7 @@ call for this agent.
 
 This functionality doesn't apply to chats or tasks.
 
-## How to enable persistent connection
+## How to configure persistent connection
 
 for an agent
 
@@ -28,12 +28,15 @@ name`.my.connect.aws/. Use an Admin account, or an account with
    **Edit**.
 4. On the **Edit users** page, under
    **Phone**, choose **Softphone**, and
-   then select **Enable persistent connection**.
-5. Choose **Save**.
+   then
 
-## Bulk upload new users with
+a) select **Enable persistent connection** - to enable the feature
 
-persistent connection enabled
+b) deselect **Enable persistent connection** - to disable the feature 5. Choose **Save**.
+
+## Configure Persistent Connection using
+
+Bulk upload for new users
 
 You can't use the CSV template to edit information for existing users. If you
 include duplicate users with different information in the CSV template, you will
@@ -51,15 +54,15 @@ name`.my.connect.aws/. Use an Admin account, or an account with
 4. Choose **Import users using a .csv template**.
 5. Download the template for a pre-formatted CSV file.
 6. In the CSV file, configure the details for the new users who you want to
-   add. For **persistent connection (yes/no)**, be sure to
-   enter **yes**.
-7. After configuring the CSV file, in your Amazon Connect instance, choose
-   **Upload file**, and then choose the configured CSV
-   file from its location on your computer.
-8. Under **Upload file and verify**.
-9. Under **Verify user details**, verify that the
-   information is correct for the new users, and then choose
-   **Save**.
+   add.
+
+a) To enable persistent connection - **persistent connection (yes/no)**, be sure to enter **yes**.
+
+b) To disable persistent connection - **persistent connection (yes/no)**, be sure to enter **no**. 7. After configuring the CSV file, in your Amazon Connect instance, choose
+**Upload file**, and then choose the configured CSV
+file from its location on your computer. 8. Under **Upload file and verify**. 9. Under **Verify user details**, verify that the
+information is correct for the new users, and then choose
+**Save**.
 
 ## FAQ
 

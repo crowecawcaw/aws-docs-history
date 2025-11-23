@@ -56,7 +56,7 @@ environment
   through between endpoints increases the possibility of failure and adds
   opportunity to introduce latency. VDI environments are particularly
   susceptible to call quality issues if the underlying route is not optimized
-  or the pipe isn't either fast or wide enough. While AWS Direct Connect can improve
+  or the pipe isn't either fast or wide enough. While Direct Connect can improve
   call quality from the edge router to AWS, it will not address internal
   routing issues. You may need to upgrade or optimize your private LAN/WAN, or
   redirect to an external device to circumvent call audio issues. In most

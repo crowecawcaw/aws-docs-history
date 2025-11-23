@@ -343,7 +343,7 @@ Ping, OneLogin, Shibboleth, ADFS, AzureAD, and more).
       Region-specific SAML sign in process will forward the user to the
       console sign in page within the same Region. This step is most varied
       per identity provider, but there are a blogs (for example, [How to Use SAML to Automatically Direct Federated Users to a
-      Specific AWS Management Console Page](https://aws.amazon.com/blogs/security/how-to-use-saml-to-automatically-direct-federated-users-to-a-specific-aws-management-console-page/ "https://aws.amazon.com/blogs/security/how-to-use-saml-to-automatically-direct-federated-users-to-a-specific-aws-management-console-page/")) that show the use of
+      Specific AWS Management Console Page](https://aws.amazon.com/blogs//security/how-to-use-saml-to-automatically-direct-federated-users-to-a-specific-aws-management-console-page/ "https://aws.amazon.com/blogs//security/how-to-use-saml-to-automatically-direct-federated-users-to-a-specific-aws-management-console-page/")) that show the use of
       relay state to achieve deep linking.
    2. Using the technique/parameters appropriate for your IdP, set the relay
       state to the console endpoint that matches (for example,

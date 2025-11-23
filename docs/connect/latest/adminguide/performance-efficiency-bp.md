@@ -153,9 +153,9 @@ information, send SMS text messages, and with other services like Amazon S3 to
 automatically distribute scheduled reports. For more information, see [Best
 Practices for Working with AWS Lambda functions](../../../lambda/latest/dg/best-practices.md "../../../lambda/latest/dg/best-practices.md").
 
-### AWS Direct Connect
+### Direct Connect
 
-AWS Direct Connect is a cloud service solution that makes it more efficient to establish
+Direct Connect is a cloud service solution that makes it more efficient to establish
 a dedicated network connection from your premises to AWS. It provides a
 durable, consistent connection rather than relying on your ISP to dynamically
 route requests to AWS resources. It allows you to configure your edge router
@@ -165,20 +165,20 @@ center, office, or colocation environment. In many cases, this can reduce your
 network costs, increase bandwidth throughput, and provide a more consistent
 network experience than Internet-based connections.
 
-While AWS Direct Connect does not solve issues specific to private LAN/WAN traversal to
+While Direct Connect does not solve issues specific to private LAN/WAN traversal to
 your edge router, it can help solve for latency and connectivity issues between
 your edge router and AWS resources. It can also solve for latency and poor
 call quality between your edge router and AWS resources.
 
 Depending on your VDI environment, you may not be able to take advantage of
-AWS Direct Connect as it requires you to conﬁgure your edge router to redirect AWS traﬃc
+Direct Connect as it requires you to conﬁgure your edge router to redirect AWS traﬃc
 across dedicated ﬁber rather than traversing the public WAN. If the VDI
 environment is hosted outside of your local DXC-enabled network, you may not be
-able to take full advantage of AWS Direct Connect.
+able to take full advantage of Direct Connect.
 
-Do not use AWS Direct Connect for "QoS" or "increased security." AWS Direct Connect can cause
+Do not use Direct Connect for "QoS" or "increased security." Direct Connect can cause
 performance degradation in cases where the latency from the agent workstation is
-higher than the ISP’s path to the Amazon Connect instance. AWS Direct Connect does not offer
+higher than the ISP’s path to the Amazon Connect instance. Direct Connect does not offer
 additional security when compared to an ISP as Amazon Connect voice and data is already
 encrypted.
 

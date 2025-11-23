@@ -13,7 +13,7 @@ and agent performance for a better overall customer experience.
 
 - [Analyze conversations using
   conversational analytics](analyze-conversations.md "analyze-conversations.md"). You can uncover trends and improve customer service by understanding sentiment,
-  conversation characteristics, emerging contact themes, and agent compliance risks.
+  conversation characteristics, emerging contact themes, self-service user experiences, and agent compliance risks.
 
 Conversational analytics helps you protect your customer's privacy by enabling you
 to [automatically redact sensitive

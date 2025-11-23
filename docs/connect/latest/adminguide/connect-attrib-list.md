@@ -23,6 +23,7 @@ The JSONPath reference for each attribute is provided so you can [create dynamic
 - [Lambda contact attributes](#attribs-lambda-table "#attribs-lambda-table")
 - [User-defined attributes](#user-defined-attributes "#user-defined-attributes")
 - [Flow attributes](#flow-attributes "#flow-attributes")
+- [Flow modules attributes](#flow-modules-attributes "#flow-modules-attributes")
 - [Apple Messages for Business attributes](#apple-messages-for-business-attributes "#apple-messages-for-business-attributes")
 - [Customer Profiles attributes](#customer-profiles-attributes "#customer-profiles-attributes")
 - [Outbound campaign attributes](#campaign-attributes "#campaign-attributes")
@@ -327,6 +328,20 @@ customer's credit card number to do a Lambda data dip.
 | Attribute           | Description                                                                                                                                                                                                                                                                                                 | Type | JSONPath Reference                              |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ----------------------------------------------- |
 | Any name you choose | A flow attribute has two parts:<br>• Destination key: this is any name you choose for the key. However, the<br>**$\*<br>• and **.\*<br>• (period) characters are<br>not allowed because they are both used in defining the attribute paths in<br>JSONPath.<br>• Value: this is can be any value you choose. | Flow | $.FlowAttributes._name_of_your_destination_key_ |
+
+## Flow modules attributes
+
+Flow module Input attribute are attributes passed into a module that has defined input schema from a flow or another module using [Invoke Module block](contact-flow-modules.md#add-modules "contact-flow-modules.md#add-modules"). Flow modules Output and Result attributes are returned from the most recent invocation of an [Invoke Module block](contact-flow-modules.md#add-modules "contact-flow-modules.md#add-modules"). Module Output and Result attributes are overwritten with each invocation of the Module function.
+
+These attributes are not included in contact records, not passed to the next module invocation, and not passed to the CCP for screenpop information. However, they can be copied to user-defined attributes using the [Set contact attributes](set-contact-attributes.md "set-contact-attributes.md") block. When used in [Set contact attributes](set-contact-attributes.md "set-contact-attributes.md") block, the attributes that are copied are included in contact records, and can be used in the CCP.
+
+The following table lists the flow modules attributes available in Amazon Connect.
+
+| Attribute                            | Description                                                                                                                                                                     | Type    | JSONPath Reference   |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------- |
+| Input                                | The input data provide access to the input passed into the module. This is returned as a JSON object and the specific format is defined by module input schema.                 | Modules | $.Modules.Input      |
+| Result                               | The result data captures the branch name returned from the module excluding the error branch. This is returned as a string.                                                     | Modules | $.Modules.Result     |
+| Output (Attribute reference from UI) | The output data captures the result-data generated from the module execution. This is returned as a JSON object and the specific format is defined by the module output schema. | Modules | $.Modules.ResultData |
 
 ## Apple Messages for Business attributes
 

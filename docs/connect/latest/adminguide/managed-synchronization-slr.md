@@ -47,12 +47,17 @@ resources:
   - `connect:Update*`
   - `connect:Delete*`
   - `connect:Describe*`
+  - `connect:BatchCreate*`
+  - `connect:BatchUpdate*`
+  - `connect:BatchDelete*`
+  - `connect:BatchDescribe*`
   - `connect:List*`
   - `connect:Search*`
   - `connect:Associate*`
   - `connect:Disassociate*`
   - `connect:Get*`
   - `connect:BatchGet*`
+  - `connect:Import*`
   - `connect:TagResource`
   - `connect:UntagResource`
 

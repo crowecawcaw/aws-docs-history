@@ -105,7 +105,7 @@ workstation layer include:
 - Operating system and web browser
 - Endpoint security
 - All networking components and infrastructure
-- Internet Service Provider (ISP) or AWS Direct Connect dedicated network path to
+- Internet Service Provider (ISP) or Direct Connect dedicated network path to
   AWS.
 - All other aspects of your agent’s operating environment including power,
   facilities, security, and ambient noise.

@@ -32,7 +32,7 @@ The following sections describe the two primary connectivity options for using t
 - [Region selection considerations](#ccp-region-selection "#ccp-region-selection")
 - [Agents using Amazon Connect remotely](#remote-agents "#remote-agents")
 - [Rerouting audio](#reroute-audio "#reroute-audio")
-- [Using AWS Direct Connect](#using-directconnect "#using-directconnect")
+- [Using Direct Connect](#using-directconnect "#using-directconnect")
 - [Agent workstation requirements
   for app, web, and video calling in Amazon Connect](videocalling-networking-requirements.md "videocalling-networking-requirements.md")
 - [Detailed Network
@@ -348,12 +348,12 @@ that agent is connected with the caller. If the agent does not answer their devi
 are moved into a missed contact state until they or a supervisor changes their state
 back to available.
 
-## Using AWS Direct Connect
+## Using Direct Connect
 
 Contact Control Panel (CCP) network connectivity issues are most often rooted in your
-route to AWS using private WAN/LAN, ISP, or both. While AWS Direct Connect does not solve issues
+route to AWS using private WAN/LAN, ISP, or both. While Direct Connect does not solve issues
 specific to private LAN/WAN traversal to your edge router, it can help solve for latency
-and connectivity issues between your edge router and AWS resources. AWS Direct Connect provides
+and connectivity issues between your edge router and AWS resources. Direct Connect provides
 a durable, consistent connection rather than relying on your ISP to dynamically route
 requests to AWS resources. It also allows you to configure your edge router to
 redirect AWS traffic across dedicated fiber rather than traversing the public

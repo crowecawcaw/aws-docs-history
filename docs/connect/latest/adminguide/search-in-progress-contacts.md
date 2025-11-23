@@ -35,10 +35,14 @@ search
 The ability to search for in-progress contacts varies by channel (see [Contact events data model](contact-events.md#contact-events-data-model "contact-events.md#contact-events-data-model")
 for reference):
 
-- **Voice**: You can search for contacts after
-  they have been either connected to an agent, or have been disconnected.
-  Queued in-progress contacts including queued callbacks are not shown on the
-  **Contact search** page.
+- **Voice**
+  - You can search for in-progress queued callbacks after
+    they are queued, connected to an agent or disconnected.
+  - For other voice contacts, you can search them only after
+    they are connected to an agent, or have been disconnected.
+    Queued in-progress voice contacts (with the exception of callbacks)
+    are not shown on the **Contact search** page.
+
 - **Chat**: You can search for contacts after
   they are connected to system, queued, connected to an agent or
   disconnected.

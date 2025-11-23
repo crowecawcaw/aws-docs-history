@@ -113,6 +113,7 @@ capacity reduces if any other campaigns start actively dialing.
 - Preview dialing mode does not support [agent
   whisper flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"), however the [outbound whisper
   flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types") can play the intended whisper to the customer.
+- Configuring maximum ring time is not supported for the preview dialing mode.
 - For preview dialing mode, please adjust contact flow to use profile id
   as the default search key in agent workspace. For more information, see
   [Use contact

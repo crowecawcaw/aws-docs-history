@@ -3,9 +3,8 @@
 analytics in Amazon Connect Contact Lens
 
 With Contact Lens conversational analytics, you can analyze conversations
-between customers and agents by using speech and chat transcriptions, natural language
-processing, and intelligent search capabilities. Conversational analytics performs
-sentiment analysis, detects issues, and enables you to automatically categorize
+between customers and agents or customers and conversational AI, across voice and chat, using natural language
+processing. Conversational analytics performs sentiment analysis, detects issues, and enables you to automatically categorize
 contacts.
 
 ###### Speech analytics support
@@ -16,8 +15,8 @@ contacts.
   you when a customer is getting frustrated because the agent is unable to resolve
   a complicated problem. This allows you to provide more immediate assistance.
 - **Post-call analytics**: Use to understand trends
-  of customer conversations and agent compliance. This helps you identify
-  opportunities to coach an agent after the call.
+  of customer conversations, self-service interactions, and agent compliance. This helps you identify
+  opportunities to improve conversational AI and coach agents after the call.
 
 ###### Chat analytics support
 

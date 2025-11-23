@@ -22,7 +22,7 @@ to Amazon Connect.
   credentials.
 
 If you choose this option, the directory must be associated with your account, set
-up in AWS Directory Service, and be active in the same Region in which you create your instance. If
+up in Directory Service, and be active in the same Region in which you create your instance. If
 you plan to choose this option, you should prepare your directory before you create
 your Amazon Connect instance. For more information, see [Use an existing directory for identity management in
 Amazon Connect](directory-service.md "directory-service.md").

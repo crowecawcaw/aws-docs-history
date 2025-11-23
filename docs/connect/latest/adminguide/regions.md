@@ -18,7 +18,7 @@ available.
 - [Messaging
   integrations](#messaging-integrations_region "#messaging-integrations_region")
 - [Communications widget](#chatwidget_region "#chatwidget_region")
-- [Contact Lens](#contactlens_region "#contactlens_region")
+- [Conversational analytics](#contactlens_region "#contactlens_region")
 - [Customer
   authentication](#customerauthentication_region "#customerauthentication_region")
 - [Customer Profiles](#customerprofiles_region "#customerprofiles_region")
@@ -166,7 +166,7 @@ applications
 - Europe (Frankfurt)
 - Europe (London)
 
-## Contact Lens availability by Region
+## Conversational analytics availability by Region
 
 | Region Name              | Region         | Endpoint                                            | Protocol |
 | ------------------------ | -------------- | --------------------------------------------------- | -------- |
@@ -180,9 +180,9 @@ applications
 | Canada (Central)         | ca-central-1   | contact-lens.ca-central-1.amazonaws.com             | HTTPS    |
 | Europe (Frankfurt)       | eu-central-1   | contact-lens.eu-central-1.amazonaws.com             | HTTPS    |
 | Europe (London)          | eu-west-2      | contact-lens.eu-west-2.amazonaws.com                | HTTPS    |
-| AWS GovCloud (US-West)   |                | Real-time voice API is not available in this Region | N/A      |
+| AWS GovCloud (US-West)   | us-gov-west-1  | ontact-lens.us-gov-west-1.amazonaws.com             | HTTPS    |
 
-### Contact Lens features by Region
+### Conversational analytics features by Region
 
 | Region Name              | Generative AI-powered contact categorization | Generative AI-powered post-contact summaries | Analytics dashboards | Post-call analytics | Post-chat analytics | Real-time call analytics | Performance evaluations | Generative AI-powered performance evaluations | Screen recording | Theme detection | External voice |
 | ------------------------ | -------------------------------------------- | -------------------------------------------- | -------------------- | ------------------- | ------------------- | ------------------------ | ----------------------- | --------------------------------------------- | ---------------- | --------------- | -------------- |
@@ -193,10 +193,12 @@ applications
 | Asia Pacific (Singapore) | -                                            | Yes                                          | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | Yes                                           | Yes              | Yes             | -              |
 | Asia Pacific (Sydney)    | Yes                                          | Yes                                          | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | Yes                                           | Yes              | Yes             | Yes            |
 | Asia Pacific (Tokyo)     | Yes                                          | Yes                                          | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | Yes                                           | Yes              | Yes             | Yes            |
-| Canada (Central)         | Yes                                          | Yes                                          | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | Yes                                           | Yes              | Yes             | Yes            |
+| Canada (Central)         | Yes                                          | Yes                                          | Yes                  | Yes\*               | Yes                 | Yes                      | Yes                     | Yes                                           | Yes              | Yes             | Yes            |
 | Europe (Frankfurt)       | Yes                                          | Yes                                          | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | Yes                                           | Yes              | Yes             | Yes            |
-| Europe (London)          | Yes                                          | Yes                                          | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | Yes                                           | Yes              | Yes             | Yes            |
+| Europe (London)          | Yes                                          | Yes                                          | Yes                  | Yes\*               | Yes                 | Yes                      | Yes                     | Yes                                           | Yes              | Yes             | Yes            |
 | AWS GovCloud (US-West)   | -                                            | -                                            | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | -                                             | Yes              | Yes             | -              |
+
+\* Self-service post-contact conversational analytics in not available in Canada (Central) or Europe (London).
 
 ## Customer authentication availability by
 
@@ -341,7 +343,7 @@ your Amazon Connect instance is created.
 - From instances created in Asia Pacific (Sydney) you can call phone numbers
   based in Australia and New Zealand. There are a few specific restrictions
   explained in [Make predictive and progressive calls using Amazon Connect
-  outbound campaigns](https://aws.amazon.com/blogs/contact-center/make-predictive-and-progressive-calls-using-amazon-connect-high-volume-outbound-communications/ "https://aws.amazon.com/blogs/contact-center/make-predictive-and-progressive-calls-using-amazon-connect-high-volume-outbound-communications/")).
+  outbound campaigns](https://aws.amazon.com/blogs//contact-center/make-predictive-and-progressive-calls-using-amazon-connect-high-volume-outbound-communications/ "https://aws.amazon.com/blogs//contact-center/make-predictive-and-progressive-calls-using-amazon-connect-high-volume-outbound-communications/")).
 - From instances created in Europe (Frankfurt) or Europe (London) you can
   call all phone numbers based in the Belgium, Denmark, France, Germany, Ireland,
   Italy, Netherlands, Poland, Portugal, Spain, and UK.

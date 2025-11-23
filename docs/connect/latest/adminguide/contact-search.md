@@ -33,14 +33,18 @@ contacts using the Amazon Connect admin website. For the APIs used to search for
 ## Important things to know
 
 - You can search for contacts as far back as two years ago.
-- You can search for both completed and in-progress contacts. For contacts
-  handled by agents, a contact is only marked as completed aftger the agent has
-  completed After Contact Work (ACW).
+- You can search for both completed and in-progress contacts.
+  For contacts handled by agents, a contact is only marked as completed
+  after the agent has completed After Contact Work (ACW).
 - The ability to search for in-progress contacts varies by channel (see [Contact events data model](contact-events.md#contact-events-data-model "contact-events.md#contact-events-data-model") for reference):
-  - **Voice**: You can search for contacts
-    once they have been either connected to an agent, or have been
-    disconnected. Queued in-progress contacts including queued callbacks are
-    not shown on the **Contact search** page.
+  - **Voice**
+    - You can search for in-progress queued callbacks after
+      they are queued, connected to an agent or disconnected.
+    - For other voice contacts, you can search them only after
+      they are connected to an agent, or have been disconnected.
+      Queued in-progress voice contacts (with the exception of callbacks)
+      are not shown on the **Contact search** page.
+
   - **Chat**: You can search for contacts
     after they are connected to system, queued, connected to an agent or
     disconnected.

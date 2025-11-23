@@ -34,6 +34,9 @@ shared:
 - [Staff timeoffs](#data-lake-staff-timeoffs "#data-lake-staff-timeoffs")
 - [Staff timeoff
   intervals](#data-lake-staff-timeoff-intervals "#data-lake-staff-timeoff-intervals")
+- [Staff demand group](#data-lake-staff_demand_group "#data-lake-staff_demand_group")
+- [Staffing groups demand group](#data-lake-staffing-groups-demand-groups "#data-lake-staffing-groups-demand-groups")
+- [Staff shift activity allocation](#data-lake-staff-shift-activity-allocation "#data-lake-staff-shift-activity-allocation")
 - [Data schema](#data-lake-data-schema "#data-lake-data-schema")
 - [Sample queries](#data-lake-sample-queries "#data-lake-sample-queries")
 
@@ -288,18 +291,67 @@ table on `timeoff_id` and `timeoff_version`.
 | last_updated_timestamp             | Timestamp | Timestamp when the Time Off was created/updated/deleted.                                                                                                                                                                                                                                  |
 | data_lake_last_processed_timestamp | Timestamp | Timestamp, which shows the last time the record was touched<br>by the data lake. This can include transformation and backfill.<br>This field cannot be used to determine reliably data freshness.                                                                                         |
 
+## Staff demand group
+
+Table name: `staff_demand_group`
+
+Composite Primary Key: `{instance_id, agent_arn, demand_group_arn, staff_demand_group_version}`
+
+| Column                             | Type      | Description                                                                                                                                                                                           |
+| ---------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| instance_id                        | string    | The ID of the Amazon Connect instance.                                                                                                                                                                |
+| agent_arn                          | string    | The ARN of the agent.                                                                                                                                                                                 |
+| demand_group_arn                   | string    | The ARN of the demand group.                                                                                                                                                                          |
+| staff_demand_group_version         | Long      | Version for this agent to demand group association                                                                                                                                                    |
+| priority                           | string    | Priority of the demand group for this agent. Can be LOW, MEDIUM or<br>HIGH                                                                                                                            |
+| instance_arn                       | string    | The ARN of the Amazon Connect instance.                                                                                                                                                               |
+| is_override                        | Boolean   | Set to 'true' if this is Agent to Demand Group association is Agent level override.                                                                                                                   |
+| is_deleted                         | Boolean   | Set to true if agent to demand group association is deleted.                                                                                                                                          |
+| last_updated_timestamp             | Timestamp | The Timestamp when the agent to demand group association was created/updated.                                                                                                                         |
+| data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was touched by the data lake.<br>This can include transformation and backfill. This field cannot be used to determine<br>reliably data freshness. |
+
+## Staffing groups demand group
+
+Table name: `staffing_group_demand_group`
+
+Composite Primary Key: `{instance_id, staffing_group_arn, demand_group_arn,
+ staffing_group_demand_group_version}`
+
+| Column                              | Type      | Description                                                                                                                                                                                           |
+| ----------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| instance_id                         | string    | The ID of the Amazon Connect instance.                                                                                                                                                                |
+| staffing_group_arn                  | string    | The ARN of the Staffing Group.                                                                                                                                                                        |
+| demand_group_arn                    | string    | The ARN of the demand group.                                                                                                                                                                          |
+| staffing_group_demand_group_version | Long      | Version for this Staffing Group to Demand Group association                                                                                                                                           |
+| priority                            | string    | Priority of the Demand Group for this Staffing Group. Can be LOW, MEDIUM or<br>HIGH                                                                                                                   |
+| instance_arn                        | string    | The ARN of the Amazon Connect instance.                                                                                                                                                               |
+| is_deleted                          | Boolean   | Set to true if the staffing group to demand group association is deleted.                                                                                                                             |
+| last_updated_timestamp              | Timestamp | Timestamp when the staffing group to demand group association was created/updated/deleted.                                                                                                            |
+| data_lake_last_processed_timestamp  | Timestamp | The Timestamp, which shows the last time the record was touched by the data lake.<br>This can include transformation and backfill. This field cannot be used to determine<br>reliably data freshness. |
+
+## Staff shift activity allocation
+
+Table name: `staff_shift_activity_allocations`
+
+Composite Primary Key: `{instance_id, shift_id, shift_version, activity_id, demand_group_arn}`
+
+| Column                             | Type      | Description                                                                                                                                                                                     |
+| ---------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| instance_id                        | string    | The ID of the Amazon Connect instance.                                                                                                                                                          |
+| shift_id                           | string    | The ID of the shift.                                                                                                                                                                            |
+| shift_version                      | Long      | The Shift Version.                                                                                                                                                                              |
+| activity_id                        | string    | The ID of the activity.                                                                                                                                                                         |
+| demand_group_arn                   | string    | The ARN of the demand group.                                                                                                                                                                    |
+| foecast_group_arn                  | string    | The ARN of the forecast group.                                                                                                                                                                  |
+| allocation_percentage              | double    | Percentage allocation of the Activity to the Demand Group.                                                                                                                                      |
+| is_deleted                         | Boolean   | Set to False when the StaffingGroup-ForecastGroupassociation is valid.                                                                                                                          |
+| last_updated_timestamp             | Timestamp | The Timestamp when the Staffing Group was created/updated.                                                                                                                                      |
+| data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot be used to determine reliably data freshness. |
+
 ## Data schema
 
 Following is an entity relationship diagram that shows the structure and
-relationships between scheduling tables in the Amazon Connect analytics data lake. The
-diagram illustrates the database schema with 10 interconnected tables:
-`staff_shift_ activities`, `staff_shifts`,
-`staff_timeoffs`, `staff_timeoff_balance_changes`,
-`staff_timeoff_intervals`, `users`,
-`routing_profiles`, `shift_activities`,
-`staffing_groups`, `shift_profiles`, `staffing_group_supervisors`,
-`staffing_group_forecast_groups`, and
-f`orecast_groups`.
+relationships between scheduling tables in the Amazon Connect analytics data lake.
 
 Each table displays its primary keys and attributes with their data types.
 The diagram illustrates how these tables relate to each other through foreign

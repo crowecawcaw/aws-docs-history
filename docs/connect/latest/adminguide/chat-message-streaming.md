@@ -225,7 +225,7 @@ You are all set for working with the message streaming APIs.
    [Monitoring Amazon SNS
    topics using CloudWatch](../../../sns/latest/dg/sns-monitoring-using-cloudwatch.md "../../../sns/latest/dg/sns-monitoring-using-cloudwatch.md").
 2. Because SNS has [limited
-   retention](https://aws.amazon.com/blogs/aws/sns-ttl-control/ "https://aws.amazon.com/blogs/aws/sns-ttl-control/"), we recommend that you set up [Amazon Simple Queue Service (Amazon SQS)](https://aws.amazon.com/sqs/ "https://aws.amazon.com/sqs/")
+   retention](https://aws.amazon.com/blogs//aws/sns-ttl-control/ "https://aws.amazon.com/blogs//aws/sns-ttl-control/"), we recommend that you set up [Amazon Simple Queue Service (Amazon SQS)](https://aws.amazon.com/sqs/ "https://aws.amazon.com/sqs/")
    [Amazon Kinesis](https://aws.amazon.com/kinesis/ "https://aws.amazon.com/kinesis/"), or another service to
    retain messages.
 3. Using [StopContactStreaming](../APIReference/API_StopContactStreaming.md "../APIReference/API_StopContactStreaming.md") is optional and not required if the chats are

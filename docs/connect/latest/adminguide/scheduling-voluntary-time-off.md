@@ -21,3 +21,4 @@ employees in an idle state.
   decline](agent-accept-decline-vto.md "agent-accept-decline-vto.md")
 - [Supervisor
   override](supervisor-override-vto.md "supervisor-override-vto.md")
+- [Voluntary time off for multi-skill forecast groups](multiskill-vto.md "multiskill-vto.md")

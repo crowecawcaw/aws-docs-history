@@ -275,7 +275,7 @@ expanded to additional AWS Regions
 Contact Lens with external voice is now supported in Asia Pacific (Tokyo),
 Asia Pacific (Sydney), Canada (Central), Europe (Frankfurt), and Europe (London).
 For more information, see [Integrate Amazon Connect Contact Lens with external
-voice systems](contact-lens-integration.md "contact-lens-integration.md") and [Contact Lens availability by Region](regions.md#contactlens_region "regions.md#contactlens_region").
+voice systems](contact-lens-integration.md "contact-lens-integration.md") and [Conversational analytics availability by Region](regions.md#contactlens_region "regions.md#contactlens_region").
 
 ### Multi-user web, in-app, and video calling
 
@@ -842,7 +842,7 @@ AWS GovCloud (US) Region
 
 You can access Amazon Connect Contact Lens real-time queue and agent performance dashboards,
 and flows performance dashboards in AWS GovCloud (US) Region, a secure cloud environment designed
-for government and public sector customers. For more information, see [Contact Lens features by Region](regions.md#regions-contactlens "regions.md#regions-contactlens").
+for government and public sector customers. For more information, see [Conversational analytics features by Region](regions.md#regions-contactlens "regions.md#regions-contactlens").
 
 ### Administrator access for agent schedules
 
@@ -3088,7 +3088,7 @@ following topics:
 - [DeleteRoutingProfile](../APIReference/API_DeleteRoutingProfile.md "../APIReference/API_DeleteRoutingProfile.md") action
 - [delete-routing-profile](../../../cli/latest/reference/connect/delete-routing-profile.md "../../../cli/latest/reference/connect/delete-routing-profile.md") AWS CLI
 
-To create an AWS CloudFormation template for queues and routing profiles, see the following
+To create an CloudFormation template for queues and routing profiles, see the following
 topics:
 
 - [AWS::Connect::Queue](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.md")
@@ -3179,9 +3179,9 @@ Contact Lens to discover issues with contacts](use-theme-detection.md "use-theme
 #### New APIs for managing prompts
 
 You can programmatically create and manage prompts using APIs, for example, to extract
-prompts stored in Amazon Connect and add them to your Amazon S3 bucket. AWS CloudTrail, AWS CloudFormation, and
+prompts stored in Amazon Connect and add them to your Amazon S3 bucket. AWS CloudTrail, CloudFormation, and
 tagging are supported. For more information, see [Prompt actions](../APIReference/prompts-api.md "../APIReference/prompts-api.md") in the
-_Amazon Connect API Reference Guide_. Also see [AWS::Connect::Prompt](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-prompt.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-prompt.md") in the _AWS CloudFormation User Guide_.
+_Amazon Connect API Reference Guide_. Also see [AWS::Connect::Prompt](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-prompt.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-prompt.md") in the _CloudFormation User Guide_.
 
 #### Added supervisor alerts on agent performance
 
@@ -3215,7 +3215,7 @@ to:
 
 To manage evaluation forms programmatically, see the [Evaluation](../APIReference/evaluation-api.md "../APIReference/evaluation-api.md") actions in the
 _Amazon Connect API Reference_. To create a shared template for evaluation forms,
-see the AWS::Connect::EvaluationForm resource in the _AWS CloudFormation User Guide_.
+see the AWS::Connect::EvaluationForm resource in the _CloudFormation User Guide_.
 
 #### New API: Use `CreateParticipant` to customize chat flow
 
@@ -3419,7 +3419,7 @@ You can use CloudFormation templates to manage Amazon Connect instances for
 associating Amazon Lex and Lex V2 bots, Lambda functions, security keys,
 and approved origins—along with the rest of your AWS
 infrastructure—in a secure, efficient, and repeatable way. For more information, see
-[Amazon Connect resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_Connect.md "../../../AWSCloudFormation/latest/UserGuide/AWS_Connect.md") in the _AWS CloudFormation User
+[Amazon Connect resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_Connect.md "../../../AWSCloudFormation/latest/UserGuide/AWS_Connect.md") in the _CloudFormation User
 Guide_.
 
 ### January 2023 Updates
@@ -4225,7 +4225,7 @@ real-time chat message streaming](chat-message-streaming.md "chat-message-stream
 Availability
 
 Released the Amazon Connect `HoursOfOperation` APIs for general availability (GA). Also
-launched AWS CloudFormation support for Users, User Hierarchies, and Hours of Operation. For more
+launched CloudFormation support for Users, User Hierarchies, and Hours of Operation. For more
 information, see the [Amazon Connect API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md") and the [AWS CloudFormation User
 Guide](../../../AWSCloudFormation/latest/UserGuide/AWS_Connect.md "../../../AWSCloudFormation/latest/UserGuide/AWS_Connect.md").
 
@@ -4603,7 +4603,7 @@ Endpoint Test Utility](check-connectivity-tool.md "check-connectivity-tool.md").
 analytics
 
 Contact Lens real-time analytics is available in Europe (London), Europe
-(Frankfurt), and Asia (Tokyo). For more information, see [Contact Lens features by Region](regions.md#regions-contactlens "regions.md#regions-contactlens").
+(Frankfurt), and Asia (Tokyo). For more information, see [Conversational analytics features by Region](regions.md#regions-contactlens "regions.md#regions-contactlens").
 
 #### Ingest data into Customer Profiles using
 

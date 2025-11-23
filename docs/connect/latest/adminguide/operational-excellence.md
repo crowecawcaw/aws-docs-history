@@ -106,7 +106,7 @@ quality.
 
 ### Configure your existing directory
 
-If you are already using an AWS Directory Service directory to manage users, you can use the
+If you are already using an Directory Service directory to manage users, you can use the
 same directory to manage user accounts in Amazon Connect. This must be decided and
 configured when you create your Amazon Connect instance. You cannot change the identity
 option you select after you create the instance. For example, if you decide to
