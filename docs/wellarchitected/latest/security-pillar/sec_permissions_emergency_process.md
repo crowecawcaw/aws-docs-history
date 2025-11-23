@@ -308,7 +308,7 @@ modes**
   IAM roles in the workload AWS accounts with trust
   relationships with corresponding IAM roles in the emergency
   access account. You can use
-  [AWS CloudFormation
+  [CloudFormation
   StackSets with AWS Organizations](../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md "../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md") to create such
   resources in the member accounts in your organization.
 
