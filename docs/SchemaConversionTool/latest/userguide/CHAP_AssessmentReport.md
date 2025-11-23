@@ -1,40 +1,24 @@
-# Using the assessment report in the AWS Schema Conversion Tool
+# Configuring an assessment report in AWS Schema Conversion Tool
 
-An important part of the AWS Schema Conversion Tool is the assessment report that it generates to estimate the
-complexity of your schema conversion. This _database migration assessment report_
-summarizes all of the schema conversion tasks and details the action items for schema that
-can't be converted to the DB engine of your target DB instance. You can view the report in
-the application or export it as a comma-separated value (CSV) or PDF file.
+You can configure the amount of details that AWS SCT includes into
+assessment reports.
 
-If you add multiple source and target databases in a single project, AWS SCT aggregates
-the reports for all conversion pairs into one database migration assessment report.
+###### To configure a database migration assessment report
 
-You can use virtual target database platforms to generate an assessment report and
-understand the complexity of migration to a selected database platform. In this case,
-you don't need to connect to your target database platform. For example, you can use Babelfish
-for Aurora PostgreSQL as a virtual target database platform to create
-a database migration assessment report. For more information on virtual
-target database platforms, see [Mapping to virtual targets in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md").
-
-The migration assessment report includes the following:
-
-- Executive summary
-- License evaluation
-- Cloud support, indicating any features in the source database not available on the
-  target.
-- Recommendations, including conversion of server objects, backup suggestions, and
-  linked server changes
-  The report also includes estimates of the amount of effort that it will take to write the
-  equivalent code for your target DB instance that can't be converted automatically.
-
-If you use AWS SCT to migrate your existing schema to an Amazon RDS DB instance, then you can
-use the report to help you analyze requirements for moving to the AWS Cloud and change
-your license type.
-
-###### Topics
-
-- [Creating an assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")
-- [Viewing an assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")
-- [Saving the assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")
-- [Configuring an assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")
-- [Creating a multiserver assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")
+1. On the **Settings** menu, choose
+   **Global settings**, and then choose
+   **Assessment report**.
+2. For **Action item occurrences**, choose
+   **First five issues only** to limit the number of
+   action items of a single type in the assessment report. Choose
+   **All issues** to include all action items of each
+   type in the assessment report.
+3. For **SQL script analyzed files**, choose
+   **List not more than `X` files**
+   to limit the number of SQL script files in the assessment report to
+   `X`. Enter the number of files. Choose
+   **List all analyzed files** to include all SQL script files
+   in the assessment report.
+4. Select **Open reports after saving** to automatically open
+   the file after you save a local copy of the database migration assessment report.
+   For more information, see .

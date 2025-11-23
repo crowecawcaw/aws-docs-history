@@ -1,25 +1,29 @@
-# Applying the converted schemas in AWS Schema Conversion Tool
+# Hiding schemas in AWS Schema Conversion Tool
 
-You can apply the converted database schema to your target DB instance. After the
-schema has been applied to your target DB instance, you can update the schema based on
-the action items in the database migration assessment report.
+Use tree view settings to specify what schemas and databases you want to see in
+the AWS SCT tree view. You can hide empty schemas, empty databases, system databases,
+and user-defined databases and schemas.
 
-###### Warning
+###### To hide databases and schemas in tree view
 
-The following procedure overwrites the existing target schema. Be careful not to
-overwrite schemas unintentionally. Be careful not to overwrite schemas in your
-target DB instance that you have already modified, or you overwrite those changes.
+1. Open an AWS SCT project.
+2. Connect to the data store that you want to show in tree view.
+3. Choose **Settings**, **Global settings**, **Tree
+   view**.
 
-###### To apply the converted database schema to your target database instance
+![The Tree view settings section of the Global settings dialog box](images/treeview-hide.png) 4. In the **Tree view settings** section, do the
+following:
 
-1. Choose **Connect to the server** at the top of the right panel
-   of your project to connect to your target database. If you're connected to your target
-   database, then skip this step.
-2. Choose the schema element in the right panel
-   of your project that displays the planned schema for your target DB instance.
-3. Open the context (right-click) menu for the schema element,
-   and then choose **Apply to database**.
+    * For **Vendor**, choose database platform.
+    * Choose **Hide empty schemas** to hide empty schemas
+     for the selected database platform.
+    * Choose **Hide empty databases** to hide empty databases
+     for the selected database platform.
+    * For **Hide system databases/schemas**, choose system databases
+     and schemas by name to hide them.
+    * For **Hide user-defined
+     databases/schemas**, enter the names of user-defined
+     databases and schemas that you want to hide, and then choose
+     **Add**. The names are case insensitive.
 
-![Apply to database](images/write_to_database.png)
-
-The converted schema is applied to the target DB instance.
+5. Choose **OK**.
