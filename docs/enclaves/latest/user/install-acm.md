@@ -85,7 +85,7 @@ Option 1: Using ACM for Nitro Enclaves AMI
 AWS Marketplace
 
 1. Open the [ACM for
-   Nitro Enclaves](https://aws.amazon.com/marketplace/pp/B08S7NZFNF "https://aws.amazon.com/marketplace/pp/B08S7NZFNF") page in the AWS Marketplace.
+   Nitro Enclaves](https://aws.amazon.com//marketplace/pp/B08S7NZFNF "https://aws.amazon.com//marketplace/pp/B08S7NZFNF") page in the AWS Marketplace.
 2. Find the ACM for Nitro Enclaves AMI for your Region, and note
    the AMI ID. You need the AMI ID for the next step.
 3. Launch the instance using the AMI from the AWS Marketplace and enable it

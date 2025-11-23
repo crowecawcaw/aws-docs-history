@@ -179,6 +179,7 @@ Nitro Enclaves has the following requirements:
   | P5              | All instance types.                          |
   | P5e             | All instance types.                          |
   | P5en            | All instance types.                          |
+  | P6-B300         | All instance types.                          |
   | Trn2            | All instance types.                          |
   | Trn2u           | All instance types.                          |
 

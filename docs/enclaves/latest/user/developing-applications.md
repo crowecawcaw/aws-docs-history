@@ -25,7 +25,7 @@ AWS provides a Nitro Enclaves Developer AMI that contains the tools and
 components needed to develop enclave applications and to build enclave image files.
 It also contains samples applications, such as hello-enclave, vsock_sample and
 kmstool, to demonstrate how to use and develop your own enclave applications. For
-more information, see [AWS Nitro Enclaves Developer AMI](https://aws.amazon.com/marketplace/pp/B08R69DKQ1 "https://aws.amazon.com/marketplace/pp/B08R69DKQ1").
+more information, see [AWS Nitro Enclaves Developer AMI](https://aws.amazon.com//marketplace/pp/B08R69DKQ1 "https://aws.amazon.com//marketplace/pp/B08R69DKQ1").
 
 ## Nitro Enclaves SDK
 
