@@ -6,7 +6,7 @@ AWS Migration Hub Refactor Spaces is no longer open to new customers as of Novem
 
 You can use AWS PrivateLink to create a private connection between your VPC and
 AWS Migration Hub Refactor Spaces (Refactor Spaces). You can access Refactor Spaces as if it were in your VPC, without the use of an
-internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC
+internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC
 don't need public IP addresses to access Refactor Spaces.
 
 You establish this private connection by creating an _interface
