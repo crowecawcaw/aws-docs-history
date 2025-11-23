@@ -81,7 +81,7 @@ The distance metric to use for distance computation.
 
 
 
-    	![Cosine Similarity: Measures the cosine of the angle between two vectors (higher value means more similar).](/images/neptune-analytics/latest/userguide/images/vectors-distance/cossimi4.png)
+    	![Cosine Similarity: Measures the cosine of the angle between two vectors (higher value means more similar).](images/vectors-distance/cossimi4.png)
 
 
     	 Range: [-1, 1]

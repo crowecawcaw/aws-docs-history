@@ -11,7 +11,7 @@ Applications in your VPC do not need public IP addresses to communicate with Nep
 for Neptune Analytics operations. Interface endpoints are represented by one or more elastic network interfaces (ENIs)
 that are assigned private IP addresses from subnets in your Amazon VPC. Requests to Neptune Analytics over interface endpoints
 stay on the Amazon network. You can also access interface endpoints in your Amazon VPC from on-premises applications
-through AWS Direct Connect or AWS Virtual Private Network (AWS VPN). For more information about how to connect your
+through AWS Direct Connect or AWS Virtual Private Network (Site-to-Site VPN). For more information about how to connect your
 Amazon VPC with your on-premises network, see the
 [AWS Direct Connect user guide](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") and the
 [AWS Site-to-Site VPN user guide](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md").

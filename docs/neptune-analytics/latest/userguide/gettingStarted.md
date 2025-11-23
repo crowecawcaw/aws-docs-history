@@ -1,6 +1,6 @@
 # Getting started
 
-To get started using Neptune Analytics, you need to create a graph using the AWS console, the AWS CLI, or AWS CloudFormation. You can load
+To get started using Neptune Analytics, you need to create a graph using the AWS console, the AWS CLI, or CloudFormation. You can load
 data into a graph from another Neptune database, Neptune database cluster snapshot, or from files located in Amazon S3.
 
 ###### Topics

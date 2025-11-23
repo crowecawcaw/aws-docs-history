@@ -5,7 +5,7 @@ Neptune Analytics removes the underlying compute infrastructure while preserving
 identifiers.
 
 While stopped, you're charged only 10% of the normal rate instead of the
-[full compute costs](https://aws.amazon.com/neptune/pricing/ "https://aws.amazon.com/neptune/pricing/"). This can result
+[full compute costs](https://aws.amazon.com//neptune/pricing/ "https://aws.amazon.com//neptune/pricing/"). This can result
 in significant cost savings for graphs that are used intermittently, such as development environments or
 analytics workloads with discrete processing periods.
 

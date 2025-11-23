@@ -118,7 +118,7 @@ Your IAM role is now ready for import.
 ## Use the CreateGraphUsingImportTask API to import from Amazon S3
 
 You can perform this operation from the Neptune console as well as from AWS CLI/SDK. For more information on
-different parameters, see [https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_CreateGraphUsingImportTask.html](../apiref/API_CreateGraphUsingImportTask.md "../apiref/API_CreateGraphUsingImportTask.md")
+different parameters, see [https://docs.aws.amazon.com//neptune-analytics/latest/apiref/API_CreateGraphUsingImportTask.html](../apiref/API_CreateGraphUsingImportTask.md "../apiref/API_CreateGraphUsingImportTask.md")
 
 **Via CLI/SDK**
 

@@ -21,7 +21,7 @@ post-creation.
 
 ###### Note
 
-All Neptune Analytics graphs are configured to use AWS Identity and Access Management ([IAM](https://aws.amazon.com/https://aws.amazon.com/iam/ "https://aws.amazon.com/https://aws.amazon.com/iam/")) for authentication and
+All Neptune Analytics graphs are configured to use AWS Identity and Access Management ([IAM](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/")) for authentication and
 authorization. This means that all requests to the graph should be signed using AWS Signature Version 4
 [(SIGV4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md").
 If you are using the AWS CLI or SDK to connect, then the signing of the requests is handled by the client

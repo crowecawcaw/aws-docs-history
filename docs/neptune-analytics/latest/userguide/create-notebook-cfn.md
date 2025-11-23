@@ -1,17 +1,17 @@
-# Creating a new Neptune Analytics notebook using a AWS CloudFormation template
+# Creating a new Neptune Analytics notebook using a CloudFormation template
 
 [Amazon SageMaker AI Notebook
 instances](../../../sagemaker/latest/dg/nbi.md "../../../sagemaker/latest/dg/nbi.md") provide a fully managed Jupyter environment for running graph notebooks
 that are connected to a Neptune Analytics graph. SageMaker AI Notebooks run natively on Amazon Linux 2, and support
 use of the Jupyter Classic Notebook or JupyterLab 3 interface on the same instance.
 
-You can use one of the following AWS CloudFormation templates to set up a new Neptune Analytics notebook to
+You can use one of the following CloudFormation templates to set up a new Neptune Analytics notebook to
 use with your Neptune Analytics graph:
 
-###### To use an AWS CloudFormation stack to create a new Neptune Analytics notebook
+###### To use an CloudFormation stack to create a new Neptune Analytics notebook
 
 1. Choose one of the **Launch Stack** buttons in the following
-   table to launch the AWS CloudFormation stack on the AWS CloudFormation console.
+   table to launch the CloudFormation stack on the CloudFormation console.
 
 | Region                   | View                                                                                                                                                                                                                                                                          | View in Designer                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Launch                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

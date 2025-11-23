@@ -13,7 +13,7 @@ AWS console
 
 To view CloudWatch data for a Neptune Analytics graph from the AWS console:
 
-1. Sign in to the [AWS management console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/")
+1. Sign in to the [AWS management console](https://console.aws.amazon.com//cloudwatch/ "https://console.aws.amazon.com//cloudwatch/")
    and open the CloudWatch console.
 2. In the navigation pane, choose **Metrics**.
 3. In the **All Metrics** pane, choose Neptune , and then choose Neptune Analytics.

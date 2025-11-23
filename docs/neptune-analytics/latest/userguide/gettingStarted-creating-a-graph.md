@@ -2,7 +2,7 @@
 
 Neptune allows you to create and manage graph databases. This step-by-step guide
 outlines the process of creating an empty Neptune graph using the AWS management console, the AWS CLI, and
-AWS CloudFormation. The guide covers the necessary configurations, such as setting the graph name, size, replica
+CloudFormation. The guide covers the necessary configurations, such as setting the graph name, size, replica
 configuration, and network connectivity options.
 
 AWS console
@@ -87,18 +87,18 @@ List all graphs in the default region:
 aws neptune-graph list-graphs
 ```
 
-AWS CloudFormation
+CloudFormation
 
-Instead of using the console to create your Neptune graph, you can use AWS CloudFormation to provision AWS resources
+Instead of using the console to create your Neptune graph, you can use CloudFormation to provision AWS resources
 by treating infrastructure as code. To help you organize your AWS resources into smaller and more
-manageable units, you can use the AWS CloudFormation nested stack functionality. For more information, see
+manageable units, you can use the CloudFormation nested stack functionality. For more information, see
 [Creating a stack on the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") and [working with nested stacks](../../../AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.md").
 
-AWS CloudFormation is free, but the resources that CloudFormation creates are live. You incur the standard usage fees
+CloudFormation is free, but the resources that CloudFormation creates are live. You incur the standard usage fees
 for these resources until you terminate them. The total charges will be minimal. For information about
 how you might minimize any charges, see [AWS free tier](http://aws.amazon.com/free/ "http://aws.amazon.com/free/").
 
-To create your resources using the AWS CloudFormation console, complete the following steps:
+To create your resources using the CloudFormation console, complete the following steps:
 
 1. Create the CloudFormation template.
 2. Configure your resources using CloudFormation.

@@ -74,7 +74,7 @@ for more information. By default, CloudTrail doesn't log data events.
 ###### Note
 
 Additional charges apply for data events. For more information, see
-[AWS CloudTrail pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+[AWS CloudTrail pricing](https://aws.amazon.com//cloudtrail/pricing/ "https://aws.amazon.com//cloudtrail/pricing/").
 
 Data plane events can be filtered by resource type for granular control over which Neptune Analytics API calls you want
 to selectively log and pay for in CloudTrail. For example, by specifying `AWS::NeptuneGraph::Graph` as a
