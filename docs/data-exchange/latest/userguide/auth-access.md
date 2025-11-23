@@ -44,7 +44,7 @@ for your role session.
 Roles with temporary credentials are useful in the following situations:
 
     + **Federated user access** – Instead
-     of creating a user, you can use existing identities from AWS Directory Service, your
+     of creating a user, you can use existing identities from Directory Service, your
      enterprise user directory, or a web identity provider. These are known
      as *federated users*. AWS assigns a role to a
      federated user when access is requested through an identity provider.
