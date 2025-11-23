@@ -54,7 +54,7 @@ recommendation about the service link bandwidth and latency requirements for you
 
 When you build connectivity from your Outpost to the AWS Region, we recommend that you
 create multiple connections for higher availability and resiliency. For more information,
-see [AWS Direct Connect
+see [Direct Connect
 Resiliency Recommendations](https://aws.amazon.com/directconnect/resiliency-recommendation/ "https://aws.amazon.com/directconnect/resiliency-recommendation/").
 
 If you need connectivity to the public internet, you can use redundant internet

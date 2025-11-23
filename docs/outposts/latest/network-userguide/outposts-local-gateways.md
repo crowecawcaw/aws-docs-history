@@ -4,7 +4,7 @@ The local gateway is a core component of the architecture for your Outposts rack
 enables connectivity between your Outpost subnets and your on-premises network. If the
 on-premise infrastructure provides an internet access, workloads running on Outposts racks can also
 leverage the local gateway to communicate with regional services or regional workloads. This
-connectivity can be achieved either by using a public connection (internet) or using AWS Direct Connect.
+connectivity can be achieved either by using a public connection (internet) or using Direct Connect.
 For more information, see [AWS Outposts connectivity to AWS Regions](region-connectivity.md "region-connectivity.md").
 
 ###### Contents
@@ -96,7 +96,7 @@ Region. Note that the control plane path always uses the service link connectivi
 of the data plane path that you use.
 
 You can connect your on-premises Outposts infrastructure to AWS services in the Region
-privately over AWS Direct Connect. For more information, see [AWS Outposts private connectivity](https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-aws-outposts-private-connectivity/ "https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-aws-outposts-private-connectivity/").
+privately over Direct Connect. For more information, see [AWS Outposts private connectivity](https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-aws-outposts-private-connectivity/ "https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-aws-outposts-private-connectivity/").
 
 The following image shows the connectivity through the local gateway:
 

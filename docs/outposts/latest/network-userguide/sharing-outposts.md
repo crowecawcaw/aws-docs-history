@@ -257,7 +257,7 @@ for any data transfer charges associated with their Outpost's service link VPN t
 the AWS Region.
 
 There are no additional charges for sharing local gateway route tables. For shared
-subnets, the VPC owner is billed for VPC-level resources such as AWS Direct Connect and VPN connections,
+subnets, the VPC owner is billed for VPC-level resources such as Direct Connect and VPN connections,
 NAT gateways, and Private Link connections.
 
 Consumers are billed for application resources that they create on shared Outposts, such

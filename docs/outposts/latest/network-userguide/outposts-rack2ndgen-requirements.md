@@ -284,7 +284,7 @@ UDP and TCP 443 must be statefully listed in the firewall.
 | UDP      | 443         | Outpost service link /24 | 443              | Outpost Region's public routes |
 | TCP      | 1025-65535  | Outpost service link /24 | 443              | Outpost Region's public routes |
 
-You can use an AWS Direct Connect connection or a public internet connection to connect the
+You can use an Direct Connect connection or a public internet connection to connect the
 Outpost back to the AWS Region. For Outpost service link connectivity, you can use NAT
 or PAT at your firewall or edge router. Service link establishment is always initiated
 from the Outpost.
