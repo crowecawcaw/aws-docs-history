@@ -1,6 +1,6 @@
 # Build CloudWatch alarms in Incident Detection and Response with CloudFormation templates
 
-To accelerate onboarding to AWS Incident Detection and Response, and to reduce the effort needed to build alarms, AWS provides you with AWS CloudFormation templates. These templates include optimized alarm settings for commonly onboarded services, such as Application Load Balancer, Network Load Balancer, and Amazon CloudFront.
+To accelerate onboarding to AWS Incident Detection and Response, and to reduce the effort needed to build alarms, AWS provides you with CloudFormation templates. These templates include optimized alarm settings for commonly onboarded services, such as Application Load Balancer, Network Load Balancer, and Amazon CloudFront.
 
 ###### Build CloudWatch alarms with CloudFormation templates
 
@@ -18,7 +18,7 @@ To accelerate onboarding to AWS Incident Detection and Response, and to reduce t
 
 ###### Note
 
-The following steps use the standard CloudFormation stack creation process. For detailed steps, see [Creating a stack on the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
+The following steps use the standard CloudFormation stack creation process. For detailed steps, see [Creating a stack on the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
 
     1. Open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
     2. Choose **Create stack**.
@@ -42,7 +42,7 @@ The following steps use the standard CloudFormation stack creation process. For 
     	* **ThresholdConfig**: Revise the threshold value to meet your application's requirements.
 
 
-    	* **DistributionIDConfig**: Make sure that the distribution ID point to the correct resources in the account that you're creating the AWS CloudFormation stack in.
+    	* **DistributionIDConfig**: Make sure that the distribution ID point to the correct resources in the account that you're creating the CloudFormation stack in.
     6. Choose **Next**.
     7. Review the default values in the **PeriodConfig**, **EvalutionPeriodConfig**, and **DatapointsToAlarmConfig** fields. It's a best practice to use the default values for these fields. You can make adjustments, if needed, to meet your application's requirements.
     8. Optionally enter tags and SNS notification information as needed. It's a best practice to turn on **Termination protection**to prevent accidental deletion of the alarm. To turn on termination protection, select the **Activated** radio button, as shown in the following example:

@@ -19,7 +19,7 @@ your APM as an event source in Amazon EventBridge
 
 Set up each of your APMs as an event source in Amazon EventBridge in your AWS account.
 For instructions on setting up your APM as an event source, see the [event source set up instructions for your tool in
-Amazon EventBridge partners](https://console.aws.amazon.com/events/home#/partners "https://console.aws.amazon.com/events/home#/partners").
+Amazon EventBridge partners](https://console.aws.amazon.com//events/home#/partners "https://console.aws.amazon.com//events/home#/partners").
 
 By setting up your APM as an event source, you can ingest notifications from
 your APM to an event bus in your AWS account. After setup, AWS Incident Detection and Response can start
