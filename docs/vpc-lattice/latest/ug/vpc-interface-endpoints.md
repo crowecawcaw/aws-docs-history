@@ -3,7 +3,7 @@
 You can establish a private connection between your VPC and Amazon VPC Lattice by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.com/privatelink/"), a technology that enables you
 to privately access VPC Lattice APIs without an internet gateway, NAT device, VPN connection,
-or AWS Direct Connect connection. Instances in your VPC don't need public IP addresses to communicate
+or Direct Connect connection. Instances in your VPC don't need public IP addresses to communicate
 with VPC Lattice APIs.
 
 Each interface endpoint is represented by one or more [network interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") in your subnets.

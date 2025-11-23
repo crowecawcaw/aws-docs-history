@@ -30,7 +30,7 @@ services. It includes permissions to do the following:
   instances and VPCs. This is used to create resource configurations, resource
   gateways, and target groups, configure VPC Lattice entity associations,
   and register targets.
-- Elastic Load Balancing – Retrieve information about an Application Load Balancer to register it as a
+- ELB – Retrieve information about an Application Load Balancer to register it as a
   target.
 - Firehose – Retrieve information about delivery streams used to store access
   logs.
@@ -63,7 +63,7 @@ dependent services. It includes permissions to do the following:
   subscriptions.
 - Amazon EC2 – Retrieve information about EC2 instances and VPCs to create
   target groups and register targets.
-- Elastic Load Balancing – Retrieve information about an Application Load Balancer.
+- ELB – Retrieve information about an Application Load Balancer.
 - Firehose – Retrieve information about delivery streams for access log
   delivery.
 - Lambda – View information about a Lambda function.

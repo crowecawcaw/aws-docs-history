@@ -38,12 +38,12 @@ The target instances must be in the virtual private cloud (VPC) that you
 specified for the target group. The instance must also be in the
 `running` state when you register it.
 
-When you register targets by instance ID, you can use your service with an Auto Scaling
-group. After you attach a target group to an Auto Scaling group and the group scales out, the
-instances that the Auto Scaling group launches are automatically registered with the target group.
-If you detach the target group from the Auto Scaling group, the instances are automatically
+When you register targets by instance ID, you can use your service with an Amazon EC2 Auto Scaling
+group. After you attach a target group to an Amazon EC2 Auto Scaling group and the group scales out, the
+instances that the Amazon EC2 Auto Scaling group launches are automatically registered with the target group.
+If you detach the target group from the Amazon EC2 Auto Scaling group, the instances are automatically
 deregistered from the target group. For more information, see [Routing traffic to
-your Auto Scaling group with a VPC Lattice target group](../../../autoscaling/ec2/userguide/ec2-auto-scaling-vpc-lattice.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-vpc-lattice.md") in the
+your Amazon EC2 Auto Scaling group with a VPC Lattice target group](../../../autoscaling/ec2/userguide/ec2-auto-scaling-vpc-lattice.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-vpc-lattice.md") in the
 _Amazon EC2 Auto Scaling User Guide_.
 
 ###### To register or deregister targets by instance ID using the console

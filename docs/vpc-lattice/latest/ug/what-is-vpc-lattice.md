@@ -40,7 +40,7 @@ target groups, listeners, and rules.
 Target group
 
 A collection of resources, also known as targets, that run your application or
-service. These are similar to the target groups provided by Elastic Load Balancing, but they are not
+service. These are similar to the target groups provided by ELB, but they are not
 interchangeable. The supported target types include EC2 instances, IP addresses, Lambda functions, Application Load Balancers, Amazon ECS tasks, and Kubernetes Pods.
 
 Listener
@@ -199,7 +199,7 @@ You can create, access, and manage VPC Lattice using any of the following interf
   Lattice resources for a Kubernetes cluster. For more information about using VPC Lattice with
   Kubernetes, see the [AWS Gateway
   API Controller User Guide](https://www.gateway-api-controller.eks.aws.dev/ "https://www.gateway-api-controller.eks.aws.dev/").
-- AWS CloudFormation – Helps you to model and set up your AWS
+- CloudFormation – Helps you to model and set up your AWS
   resources. For more information, see the [Amazon VPC
   Lattice resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_VpcLattice.md "../../../AWSCloudFormation/latest/UserGuide/AWS_VpcLattice.md").
 
