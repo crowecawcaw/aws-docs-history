@@ -4,7 +4,7 @@ An AWS Resilience Hub application is a collection of AWS resources that are stru
 and recover AWS application disruptions.
 
 To describe an AWS Resilience Hub application, you provide an application name, resources from one
-or more AWS CloudFormation stacks, and an appropriate resiliency policy. You can also use any existing
+or more CloudFormation stacks, and an appropriate resiliency policy. You can also use any existing
 AWS Resilience Hub application as a template to describe your application.
 
 After you describe an AWS Resilience Hub application, you must publish it so that you can run a

@@ -2,12 +2,12 @@
 
 recommendations
 
-AWS Resilience Hub creates an AWS CloudFormation template that contains details to create the selected
+AWS Resilience Hub creates an CloudFormation template that contains details to create the selected
 alarms in Amazon CloudWatch. After the template is generated, you can access it through an Amazon S3
 URL, download the same and place it in your code pipeline or create a stack through the
-AWS CloudFormation console.
+CloudFormation console.
 
-To create an alarm based on AWS Resilience Hub recommendations, you must create an AWS CloudFormation
+To create an alarm based on AWS Resilience Hub recommendations, you must create an CloudFormation
 template for the recommended alarms and include them in your code base.
 
 ###### To create alarms in operational recommendations
@@ -100,7 +100,7 @@ using the following:
 8. Select the recommended alarms that you want to set up for your application,
    and choose **Create CloudFormation template**.
 9. In **Create CloudFormation template** dialog, you can use the
-   auto-generated name, or you can enter a name for AWS CloudFormation template in the
+   auto-generated name, or you can enter a name for CloudFormation template in the
    **CloudFormation template name** box.
 10. Choose **Create**. This can take up to a few minutes to
     create the AWS CloudFormation template.

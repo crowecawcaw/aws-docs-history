@@ -16,7 +16,7 @@ AWS FIS experiment. Therefore, AWS Resilience Hub also provides an AWS FIS exper
 automation document - this way, you can proactively test your application to make sure the SOP
 you've created does the intended job.
 
-AWS Resilience Hub provides its recommendations in the form of an AWS CloudFormation template you can add to your application code base. This template provides:
+AWS Resilience Hub provides its recommendations in the form of an CloudFormation template you can add to your application code base. This template provides:
 
 - The IAM role with the permissions required to run the SOP.
 - An AWS FIS experiment you can use to test the SOP.
@@ -24,8 +24,8 @@ AWS Resilience Hub provides its recommendations in the form of an AWS CloudForma
   IAM role is to be run as the SOP, and on which resource. For example: `$(DocumentName) for
  SOP $(HandleCrisisA) on $(ResourceA)`.
   Creating an SOP may require some trial and error. Running a resiliency assessment against
-  your application and generating an AWS CloudFormation template from the AWS Resilience Hub recommendations is a good
-  start. Use the AWS CloudFormation template to generate an AWS CloudFormation stack, then use the SSM parameters and their
+  your application and generating an CloudFormation template from the AWS Resilience Hub recommendations is a good
+  start. Use the CloudFormation template to generate an CloudFormation stack, then use the SSM parameters and their
   default values in your SOP. Run the SOP and see what refinements you need to make.
 
 Because all applications have differing requirements, the default list of SSM documents that

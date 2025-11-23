@@ -24,7 +24,7 @@ details`.
       Service Account with the necessary RBAC permissions and the
       correct namespace.
     - Ensure that you have mapped the provided IAM role (see
-      the output of the AWS CloudFormation stack of the test) to the Kubernetes
+      the output of the CloudFormation stack of the test) to the Kubernetes
       user.
 
 - Unable to start AWS FIS Pod: Max failed sidecar containers reached. This

@@ -18,4 +18,4 @@ recovery time in the event of application outages.
 - [Managing AWS Fault Injection Service experiments](testing.md "testing.md")
 - [Understanding resiliency scores](resil-score.md "resil-score.md")
 - [Integrating operational recommendations into your application
-  with AWS CloudFormation](cfn-integration.md "cfn-integration.md")
+  with CloudFormation](cfn-integration.md "cfn-integration.md")

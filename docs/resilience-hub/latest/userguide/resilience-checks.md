@@ -202,7 +202,7 @@ AWS Resilience Hub treats it as a stateless Amazon EC2 instance.
 ### Auto Scaling groups
 
 AWS Resilience Hub checks for a group of stateless Amazon EC2 instances. If discovered, it
-is recommended to orchestrate the same using Auto Scaling groups (ASG) with Multi-AZ
+is recommended to orchestrate the same using Amazon EC2 Auto Scaling groups (ASG) with Multi-AZ
 configuration. If an existing ASG is identified, ARH will verify if it is configured
 across multiple Availability Zones. If ASG is also defined using spot Amazon EC2
 instances only, it is recommended to augment its capacity with on-demand Amazon EC2

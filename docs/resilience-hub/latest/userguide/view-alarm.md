@@ -1,10 +1,10 @@
 # Viewing alarms
 
 You can view all the active alarms that you have set up to monitor the resiliency of
-your applications. AWS Resilience Hub uses AWS CloudFormation template to store alarm details that is in-turn
-used for creating the alarms in Amazon CloudWatch. You can access the AWS CloudFormation template using Amazon S3
+your applications. AWS Resilience Hub uses CloudFormation template to store alarm details that is in-turn
+used for creating the alarms in Amazon CloudWatch. You can access the CloudFormation template using Amazon S3
 URL, and can download and place it into your code pipeline or create a stack through the
-AWS CloudFormation console.
+CloudFormation console.
 
 To view alarms from the dashboard, choose **Dashboard** from the left
 navigation menu. In **Implemented alarms** table, you can identify the

@@ -62,7 +62,7 @@ AWS Resilience Hub performs the following actions:
 
 Before starting assessments, it is advisable to evaluate the potential
 costs involved in running assessments using AWS Resilience Hub. For detailed pricing
-information, see the [AWS Resilience Hub pricing](https://aws.amazon.com/resilience-hub/pricing?icmpid=docs_resiliencehub_help_panel_resiliency_policies_hp "https://aws.amazon.com/resilience-hub/pricing?icmpid=docs_resiliencehub_help_panel_resiliency_policies_hp").
+information, see the [AWS Resilience Hub pricing](https://aws.amazon.com//resilience-hub/pricing?icmpid=docs_resiliencehub_help_panel_resiliency_policies_hp "https://aws.amazon.com//resilience-hub/pricing?icmpid=docs_resiliencehub_help_panel_resiliency_policies_hp").
 
 ###### To rerun a resiliency assessment for an existing
 

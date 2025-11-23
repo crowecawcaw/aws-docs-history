@@ -3,10 +3,10 @@
 To build an SOP based on AWS Resilience Hub recommendations, you need an AWS Resilience Hub application with a resiliency policy attached to it, and you need to have run a resiliency
 assessment against that application. The resiliency assessment generates the recommendations for your SOP.
 
-To build an SOP based on AWS Resilience Hub recommendations, you must create an AWS CloudFormation template for
+To build an SOP based on AWS Resilience Hub recommendations, you must create an CloudFormation template for
 the recommended SOPs and include them in your code base.
 
-###### Create an AWS CloudFormation template for the SOP recommendations
+###### Create an CloudFormation template for the SOP recommendations
 
 1. Open the AWS Resilience Hub console.
 2. In the navigation pane, choose **Applications**.

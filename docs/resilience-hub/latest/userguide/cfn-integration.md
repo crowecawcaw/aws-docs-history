@@ -1,14 +1,14 @@
 # Integrating operational recommendations into your application
 
-with AWS CloudFormation
+with CloudFormation
 
 After you choose **Create CloudFormation template** in the
-**Operational recommendations** page, AWS Resilience Hub creates an AWS CloudFormation template that
-describes the specific alarm, standard operating procedure (SOP), or AWS FIS experiment for your application. The AWS CloudFormation template is stored in an Amazon S3 bucket, and you
+**Operational recommendations** page, AWS Resilience Hub creates an CloudFormation template that
+describes the specific alarm, standard operating procedure (SOP), or AWS FIS experiment for your application. The CloudFormation template is stored in an Amazon S3 bucket, and you
 can check the S3 path to the template in the **Template details** tab on the
 **Operational recommendations** page.
 
-For example, the listing below shows a JSON-formatted AWS CloudFormation template that describes an alarm
+For example, the listing below shows a JSON-formatted CloudFormation template that describes an alarm
 recommendation rendered by AWS Resilience Hub. It's a Read Throttling Alarm for a DynamoDB table called
 `Employees`.
 
@@ -84,12 +84,12 @@ actual application.
 }
 ```
 
-## Modifying the AWS CloudFormation template
+## Modifying the CloudFormation template
 
 The easiest way to integrate an alarm, SOP, or AWS FIS resource into your main application is
 to simply add it as another resource in the template that describes your application template.
 The JSON-formatted file provided below provides a basic outline of how a DynamoDB table is
-described in an AWS CloudFormation template. A real application is likely to include several more
+described in an CloudFormation template. A real application is likely to include several more
 resources, such as additional tables.
 
 ```
@@ -203,22 +203,22 @@ to the below:
 "Fn::Sub" : "{\"alarmName\":\"${ReadthrottleeventsthresholdexceededEmployeesONDEMAND0DynamoDBTablePXBZQYH3DCJ9Alarm}\",\"referenceId\":\"dynamodb:alarm:health_read_throttle_events:2020-04-01\",\"resourceId\":\"${Employees}\",\"relatedSOPs\":[\"dynamodb:sop:update_provisioned_capacity:2020-04-01\"]}"
 ```
 
-When modifying AWS CloudFormation templates for SOPs and AWS FIS experiments, you will take the same
+When modifying CloudFormation templates for SOPs and AWS FIS experiments, you will take the same
 approach, replacing hardcoded reference IDs with dynamic references that continue to work even
 after hardware changes.
 
-By using a reference to the DynamoDB table, you allow AWS CloudFormation to do the following:
+By using a reference to the DynamoDB table, you allow CloudFormation to do the following:
 
 - Create the database table first.
 - Always use the actual ID of the generated resource in the alarm, and update the alarm
-  dynamically if AWS CloudFormation needs to replace the resource.
+  dynamically if CloudFormation needs to replace the resource.
 
 ###### Note
 
-You can choose more advanced methods for managing your application resources with AWS CloudFormation
+You can choose more advanced methods for managing your application resources with CloudFormation
 such as [nesting
 stacks](../../../AWSCloudFormation/latest/UserGuide/resource-import-nested-stacks.md "../../../AWSCloudFormation/latest/UserGuide/resource-import-nested-stacks.md") or [referring to
-resource outputs in a separate AWS CloudFormation stack](../../../AWSCloudFormation/latest/UserGuide/walkthrough-crossstackref.md "../../../AWSCloudFormation/latest/UserGuide/walkthrough-crossstackref.md"). (But if you want to keep the
+resource outputs in a separate CloudFormation stack](../../../AWSCloudFormation/latest/UserGuide/walkthrough-crossstackref.md "../../../AWSCloudFormation/latest/UserGuide/walkthrough-crossstackref.md"). (But if you want to keep the
 recommendation stack separate from the main stack, you need to configure a way to pass
 information between the two stacks.)
 
