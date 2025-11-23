@@ -12,19 +12,19 @@ In this next step, you’ll use an AWS CloudFormation template to create a stack
 ###### To accept the Resource Share ARN invitation and enable the integration
 
 1. Create a new CloudFormation stack using the CloudFormation template. For more details,
-   see [Creating a stack using the AWS CloudFormation
+   see [Creating a stack using the CloudFormation
    template](#cloud-formation-template "#cloud-formation-template").
 2. After you finish creating the stack, choose **Enable integration** to enable Detective integration with Security Lake.
 
-## Creating a stack using the AWS CloudFormation
+## Creating a stack using the CloudFormation
 
 template
 
-Detective provides an AWS CloudFormation template, which you can use to set up the parameters required to create and manage query access for Security Lake subscribers.
+Detective provides an CloudFormation template, which you can use to set up the parameters required to create and manage query access for Security Lake subscribers.
 
 ###### Step 1: Create an AWS CloudFormation service role
 
-You must create an AWS CloudFormation service role to create a stack using the AWS CloudFormation template.
+You must create an CloudFormation service role to create a stack using the CloudFormation template.
 If you do not have the required permissions to create a service role, contact the
 administrator of the Detective administrator account. For more information about the
 AWS CloudFormation service role, see [AWS CloudFormation
@@ -35,7 +35,7 @@ service role](../../../AWSCloudFormation/latest/UserGuide/using-iam-servicerole.
    then choose **Create role**.
 3. For **Select trusted entity**, choose **AWS
    service**.
-4. Choose **AWS CloudFormation**. Then, choose
+4. Choose **CloudFormation**. Then, choose
    **Next**.
 5. Enter a name for the role. For example,
    `CFN-DetectiveSecurityLakeIntegration`.
@@ -216,7 +216,7 @@ JSON
 
 [Show moreShow less](# "#")
 
-###### Step 3: Specifying custom values in the AWS CloudFormation console
+###### Step 3: Specifying custom values in the CloudFormation console
 
 1. Go to the AWS CloudFormation console from Detective.
 2. (Optional) Enter a **Stack name**. The stack name is
@@ -291,7 +291,7 @@ Replace `athena-results-bucket` with
 the `AthenaResultsBucket` name. The `AthenaResultsBucket`
 can be found on the AWS CloudFormation console:
 
-1. Open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Click on your Stack.
 3. Click the **Resources** tab.
 4. Search for the logical ID `AthenaResultsBucket` and copy its physical ID.

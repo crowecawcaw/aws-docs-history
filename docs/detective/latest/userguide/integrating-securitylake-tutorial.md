@@ -20,7 +20,7 @@ To consume logs and events from Amazon Security Lake, you must be a Security Lak
 
 
     	+ Attach these AWS Identity and Access Management (IAM) permissions to your IAM identity. For details, see the [Add the required IAM permissions to your account](securitylake-integration.md#iam-permissions "securitylake-integration.md#iam-permissions") section.
-    	+ Add this IAM policy to the IAM principal that you plan to use to pass the AWS CloudFormation service role. For more details, see the [Add permissions to your IAM principal](securitylake-integration.md#cloud-formation-template "securitylake-integration.md#cloud-formation-template") section.
+    	+ Add this IAM policy to the IAM principal that you plan to use to pass the CloudFormation service role. For more details, see the [Add permissions to your IAM principal](securitylake-integration.md#cloud-formation-template "securitylake-integration.md#cloud-formation-template") section.
     * If you have already integrated Detective with Security Lake, to use the integration attach these (IAM) permissions to your IAM identity. For details, see the [Add the required IAM permissions to your account](securitylake-integration.md#iam-permissions "securitylake-integration.md#iam-permissions") section.
 
 4. [Accepting the Resource Share ARN invitation and enable the

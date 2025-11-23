@@ -17,7 +17,7 @@ efficiency, and shorten the response timelines.
 
 Finding group summaries powered by generative AI may and not always provide completely
 accurate information. See [AWS Responsible AI
-Policy](https://aws.amazon.com/machine-learning/responsible-ai/policy/ "https://aws.amazon.com/machine-learning/responsible-ai/policy/") for more information.
+Policy](https://aws.amazon.com//machine-learning/responsible-ai/policy/ "https://aws.amazon.com//machine-learning/responsible-ai/policy/") for more information.
 
 ## Reviewing finding group summary
 

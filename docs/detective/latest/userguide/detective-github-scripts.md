@@ -102,7 +102,7 @@ When you create the role, make sure that you do the following:
 - Add the required permissions above (recommended) or select the [AmazonDetectiveFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-amazondetectivefullaccess "security-iam-awsmanpol.md#security-iam-awsmanpol-amazondetectivefullaccess") managed policy.
 - Add role trust relationship block as discussed above.
 
-To automate this process, you can use the `EnableDetective.yaml` AWS CloudFormation
+To automate this process, you can use the `EnableDetective.yaml` CloudFormation
 template. Because the template creates only global resources, it can be run in any Region.
 
 ## Setting up the run environment for the Python
@@ -122,11 +122,11 @@ One option for running the scripts is to run them from an EC2 instance.
 2. Attach to the instance an IAM role that has permissions to allow the instance to call
    `AssumeRole` within the administrator account.
 
-If you used the `EnableDetective.yaml` AWS CloudFormation template, then an
+If you used the `EnableDetective.yaml` CloudFormation template, then an
 instance role with a profile named `EnableDetective` was created.
 
 Otherwise, for information on creating an instance role, see the blog post [Easily Replace or Attach an IAM Role to an Existing EC2 Instance by Using the EC2
-Console](https://aws.amazon.com/blogs/security/easily-replace-or-attach-an-iam-role-to-an-existing-ec2-instance-by-using-the-ec2-console/ "https://aws.amazon.com/blogs/security/easily-replace-or-attach-an-iam-role-to-an-existing-ec2-instance-by-using-the-ec2-console/"). 3. Install the required software:
+Console](https://aws.amazon.com/blogs//security/easily-replace-or-attach-an-iam-role-to-an-existing-ec2-instance-by-using-the-ec2-console/ "https://aws.amazon.com/blogs//security/easily-replace-or-attach-an-iam-role-to-an-existing-ec2-instance-by-using-the-ec2-console/"). 3. Install the required software:
 
     * **APT:**
     `sudo apt-get -y install python3-pip python3 git`

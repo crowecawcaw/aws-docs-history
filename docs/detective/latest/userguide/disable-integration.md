@@ -16,7 +16,7 @@ If you do not delete the existing stack, new stack creation in the same Region w
 fail. You can delete a CloudFormation stack by using the CloudFormation console or use the AWS
 CLI.
 
-###### To delete the AWS CloudFormation stack (Console)
+###### To delete the CloudFormation stack (Console)
 
 1. Open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the **Stacks** page in the CloudFormation console, select the
