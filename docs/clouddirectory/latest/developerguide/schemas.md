@@ -29,7 +29,7 @@ within the directory. For more information about the schema APIs, see the [Amazo
 Reference Guide](../APIReference/welcome.md "../APIReference/welcome.md").
 
 Cloud Directory supports uploading a compliant JSON file for schema creation. You can also create and
-manage schemas using the AWS Directory Service console. For more information, see [Create an Amazon Cloud Directory](getting_started_create_directory.md "getting_started_create_directory.md").
+manage schemas using the Directory Service console. For more information, see [Create an Amazon Cloud Directory](getting_started_create_directory.md "getting_started_create_directory.md").
 
 ###### Topics
 

@@ -2,7 +2,7 @@ Amazon Cloud Directory is no longer be open to new customers. For alternatives t
 
 # Create an Amazon Cloud Directory
 
-Before you can create a directory in Amazon Cloud Directory, AWS Directory Service requires
+Before you can create a directory in Amazon Cloud Directory, Directory Service requires
 that you first apply a schema to it. A directory cannot be created without a schema and
 typically has one schema applied to it. However, you use Cloud Directory API operations to apply
 additional schemas to a directory. For more information, see [ApplySchema](../../../amazoncds/latest/APIReference/API_ApplySchema.md "../../../amazoncds/latest/APIReference/API_ApplySchema.md") in the _Amazon Cloud Directory API Reference
@@ -31,7 +31,7 @@ Guide_.
         * `clouddirectory:PublishSchema`
         * `clouddirectory:DeleteSchema`
 
-    Since sample schemas are read-only templates provided by AWS Directory Service, they cannot be published
+    Since sample schemas are read-only templates provided by Directory Service, they cannot be published
     directly. Instead, when you choose to create a directory based on a sample schema, the
     console creates a temporary copy of the sample schema you selected and places it in the
     **Development** state. It then creates a copy of that

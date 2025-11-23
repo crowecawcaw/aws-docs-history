@@ -20,7 +20,7 @@ provides the following resources to help with compliance:
   security- and compliance-focused baseline environments on AWS.
 - [Architecting for HIPAA Security and Compliance on AWS](../../../pdfs/whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md "../../../pdfs/whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md") – This
   whitepaper describes how companies can use AWS to create HIPAA-compliant
-  applications. For more information, see [HIPAA compliance](https://aws.amazon.com/compliance/hipaa-compliance/ "https://aws.amazon.com/compliance/hipaa-compliance/").
+  applications. For more information, see [HIPAA compliance](https://aws.amazon.com//compliance/hipaa-compliance/ "https://aws.amazon.com//compliance/hipaa-compliance/").
 - [AWS Compliance
   Resources](https://aws.amazon.com/compliance/resources/ "https://aws.amazon.com/compliance/resources/") – This collection of workbooks and guides might apply
   to your industry and location.

@@ -21,12 +21,12 @@ For more information, see [Managed Schema](schemas_managed.md "schemas_managed.m
 
 ## Sample Schemas
 
-The set of sample schemas provided by default in the AWS Directory Service console. For
+The set of sample schemas provided by default in the Directory Service console. For
 example, Person, Organization, and Device are all sample schemas. For more information, see
 [Sample Schemas](schemas_sampleschemastopic.md "schemas_sampleschemastopic.md").
 
 ## Custom Schemas
 
 One or more schemas defined by a user that can be uploaded from the Schemas section or
-during the Cloud Directory creation process of the AWS Directory Service console, or created
+during the Cloud Directory creation process of the Directory Service console, or created
 by API calls.

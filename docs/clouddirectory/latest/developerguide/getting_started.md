@@ -3,7 +3,7 @@ Amazon Cloud Directory is no longer be open to new customers. For alternatives t
 # Getting Started
 
 In this getting started exercise, you create a schema. You then choose to create a directory
-from that same schema or from any of the sample schemas that are available in the AWS Directory Service console.
+from that same schema or from any of the sample schemas that are available in the Directory Service console.
 Although not required, we recommend that you review [Understanding Key Cloud Directory Concepts](key_concepts.md "key_concepts.md") before you begin using the console so that you are familiar
 with the core features and terminology.
 

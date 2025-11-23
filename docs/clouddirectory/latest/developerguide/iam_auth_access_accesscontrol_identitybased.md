@@ -15,15 +15,15 @@ information, see [Overview of Managing Access Permissions to Your Cloud Director
 The sections in this topic cover the following:
 
 - [Permissions
-  Required to Use the AWS Directory Service Console](#iam_auth_access_usingwith_iam_requiredpermissions_console "#iam_auth_access_usingwith_iam_requiredpermissions_console")
+  Required to Use the Directory Service Console](#iam_auth_access_usingwith_iam_requiredpermissions_console "#iam_auth_access_usingwith_iam_requiredpermissions_console")
 - [AWS Managed
   (Predefined) Policies for Amazon Cloud Directory](#iam_auth_access_accesscontrol_managedpolicies "#iam_auth_access_accesscontrol_managedpolicies")
 
 ## Permissions
 
-Required to Use the AWS Directory Service Console
+Required to Use the Directory Service Console
 
-For a user to work with the AWS Directory Service console, that user must have permissions listed in the policy above or the permissions granted by the Directory Service Full Access Role or Directory Service Read Only role, described in [AWS Managed
+For a user to work with the Directory Service console, that user must have permissions listed in the policy above or the permissions granted by the Directory Service Full Access Role or Directory Service Read Only role, described in [AWS Managed
 (Predefined) Policies for Amazon Cloud Directory](#iam_auth_access_accesscontrol_managedpolicies "#iam_auth_access_accesscontrol_managedpolicies").
 
 If you create an IAM policy that is more restrictive than the minimum required
