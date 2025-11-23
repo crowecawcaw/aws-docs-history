@@ -7,11 +7,14 @@ This section shows how to view your pro forma data in the Billing and Cost Manag
 - [Viewing your pro forma costs on the Bills page](custom-pricing-view.md "custom-pricing-view.md")
 - [Performing ad hoc analysis on pro forma costs
   in AWS Cost Explorer](ad-hoc-cost-explorer-analysis.md "ad-hoc-cost-explorer-analysis.md")
+  - [Using Billing Conductor as a standalone service](ad-hoc-cost-explorer-analysis.md#ad-hoc-cost-explorer-analysis-standalone "ad-hoc-cost-explorer-analysis.md#ad-hoc-cost-explorer-analysis-standalone")
+  - [Using Billing Conductor with billing transfer](ad-hoc-cost-explorer-analysis.md#ad-hoc-cost-explorer-analysis-tandem "ad-hoc-cost-explorer-analysis.md#ad-hoc-cost-explorer-analysis-tandem")
+
 - [Analyzing Savings Plans, reservation coverage, and utilization reports](analyzing-abc-sp.md "analyzing-abc-sp.md")
   - [Understanding the effects of billing group configuration and Savings Plans sharing preferences](analyzing-abc-sp.md#analyzing-abc-sp-callout "analyzing-abc-sp.md#analyzing-abc-sp-callout")
   - [View your reservation and Savings Plans inventory](view-ri-sp.md "view-ri-sp.md")
 
 - [Viewing your pro forma data in AWS Budgets](abc-budgets.md "abc-budgets.md")
-- [AWS services that support pro forma
-  costs](service-integrations-support-proforma.md "service-integrations-support-proforma.md")
+- [AWS services that support pro
+  forma-based billing view costs](service-integrations-support-proforma.md "service-integrations-support-proforma.md")
   - [Related information](service-integrations-support-proforma.md#related-information-proforma-costs "service-integrations-support-proforma.md#related-information-proforma-costs")

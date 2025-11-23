@@ -1,6 +1,6 @@
 # Creating pricing plans
 
-Use the following steps to create a pricing plan.
+Use the following steps to create a pricing plan (customer managed).
 
 ###### To create a pricing plan
 

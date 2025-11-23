@@ -1,21 +1,24 @@
 # What is AWS Billing Conductor?
 
-AWS Billing Conductor is a custom billing service for AWS Marketplace Channel Partners (Partners) and
-organizations that have _chargeback_ requirements. For Partners, chargebacks
-are a prerequisite to getting paid by their customers and follow an AWS account or an AWS Organizations
-billing boundary. For organizations, chargeback activities ensure that organizations allocate the
-costs of a specific team (for example, a collection of accounts) to the correct internal budget or
-profit and loss (P&L) statement.
+AWS Billing Conductor is a custom billing service for AWS Channel Partners (Partners) and organizations
+that have _chargeback_ requirements. For Partners, chargebacks are a
+prerequisite to getting paid by their customers. For direct customers, showback or, chargeback
+activities ensure that the business allocates the costs of a specific team, business unit,
+subsidiary or affiliate company, to the correct internal budget or profit and loss (P&L)
+statement.
 
-To achieve these activities, Billing Conductor enables customers to create a second, pro forma version of
-their costs to share with their customers or account owners. Pro forma costs represent the usage
-within Billing Conductor managed accounts (those assigned to billing groups) at the pricing rates defined
-within Billing Conductor (for example, by using a global pricing rule to apply public pricing to all
-usage).
+To achieve these activities, Billing Conductor enables users to create a second version of their costs to
+share with their customers or account owners. The second version of cloud cost data comes from your Billing Conductor configuration (pricing plans, pricing rules, and custom line items).
+
+This data is called pro forma cost data, which represents costs for accounts in billing groups. These Billing Conductor resources can include a subset of accounts in an AWS Organizations (standard billing group) when using Billing Conductor as a standalone service, or an entire AWS Organizations (billing transfer billing group) when using Billing Conductor with billing transfer.
+
+Pro forma data exists in a separate domain (pro forma) from your billable cost data (standard billable). While billable cost data uses AWS-determined pricing, pro forma data is accessible through billing views.
+
+The primary billing view for accounts or AWS Organizations in billing groups shows only pro forma data. The account that configures the Billing Conductor pricing resources gains access to the billing view that shows the pro forma data displayed to accounts or AWS Organizations in billing groups.
 
 ###### Note
 
-Customers will observe minor usage differences between _billable costs_
+Customers will observe cost differences between _billable costs_
 (matching the AWS invoice) and _pro forma costs_ (matching the Billing Conductor
 configuration) throughout the month. However, usage values will match at the end of each month,
 once the AWS invoice is issued.
@@ -29,33 +32,33 @@ following use cases:
    configurations (for example, sharing of credits or commitment-based discounts like Reserved
    Instances or Savings Plans).
 
-Customers can analyze pro forma costs from the management account by doing the following
-tasks:
+You can analyze pro forma costs from either a management account of a standalone AWS Organizations or from a bill transfer account that manages multiple AWS Organizations bills.
 
 - Analyze margins (the difference between pro forma costs and billable costs for the same set
   of accounts) within Billing Conductor
-- View pro forma costs on AWS Cost Explorer
-- View monthly pro forma costs on the billing details page
-- Create an AWS Cost and Usage Report (CUR) per billing group
-- View Reservation and Savings Plans coverage and utilization reports reflecting pro forma costs
-  Billing Conductor managed accounts (accounts in billing groups) can analyze pro forma costs in AWS Cost Explorer,
-  Cost and Usage Reports, the Billing dashboard, and the billing details page. Managed accounts can also create budgets to monitor their pro forma spend and be alerted when they exceed, or they are forecasted to exceed, their desired pro forma spending limit.
+- Use to analyze cost data using either billing group views or billing transfer views
+- Analyze cost data by using `Billing Group` views or `Billing Transfer` views on the Bills page
+- Create a for each `Billing Group` view and `Billing Transfer` view
+- View reservation and Savings Plans coverage and utilization reports that reflect `Billing Group` and `Billing Transfer` views
+  Billing Conductor managed accounts and AWS Organizations can analyze pro forma costs in AWS Cost Explorer, Cost and Usage Reports, the Billing dashboard, and the billing details page. Managed accounts and AWS Organizations in billing groups can create budgets to monitor their pro forma spend and receive alerts when they exceed, or are forecasted to exceed, their desired pro forma spending limit.
 
 You can configure billing groups, pricing plans, pricing rules, and custom line items in the
 [Billing Conductor console](https://console.aws.amazon.com/billingconductor "https://console.aws.amazon.com/billingconductor") or by using the [Billing Conductor
 API](../APIReference/Welcome.md "../APIReference/Welcome.md").
 
-For more information about AWS Billing Conductor service quotas, see [Quotas and restrictions](limits.md "limits.md").
+For more information about AWS Billing Conductor service quotas, see [Quotas and restrictions](limits.md "limits.md"). For more information about billing transfer, see [Transfer billing management to external accounts](../../../awsaccountbilling/latest/aboutv2/orgs_transfer_billing.md "../../../awsaccountbilling/latest/aboutv2/orgs_transfer_billing.md").
 
 ## Features in AWS Billing Conductor
 
 You can use the AWS Billing Conductor features to do the following:
 
-**Group accounts**
+**Group accounts in standard billing groups**
 
-Organize accounts into billing groups for an aggregated view of pro forma costs. Simulate
-individual customer benefits like cross-service discounts and AWS Free Tier for each
-group.
+Organize accounts into Billing Conductor billing groups to view aggregated pro forma costs that model your AWS Organizations structure to reflect your business financial organization.
+
+**Assign AWS Organizations to billing transfer billing group**
+
+When using billing transfer, you can use Billing Conductor to create billing groups that map one-to-one with an AWS Organizations so that the entire organization (including the management account) can view the pro forma costs data exclusively.
 
 **Custom pricing**
 
@@ -68,9 +71,8 @@ groups.
 
 **Pro forma analysis**
 
-Analyze costs based on pricing configurations in the Billing console. Accounts in your
-billing groups can visualize, forecast, and create custom reports of their pro forma costs in AWS Cost Explorer. Accounts in the billing groups can view Reservation and Savings Plans coverage and utilization reports that reflects their pro forma costs. The primary account will have a cross-account view of all costs accrued by accounts
-in the billing group, while non-primary accounts will see their own costs.
+Analyze costs based on pricing configurations in the Billing console. Accounts and AWS Organizations in your
+billing groups can visualize, forecast, and create custom reports of their pro forma costs in AWS Cost Explorer. Accounts and AWS Organizations in the billing groups can view Reservation and Savings Plans coverage and utilization reports that reflects their pro forma costs. When using Billing Conductor as a standalone service, you designate a primary account for each billing group. This primary account has a cross-account view of all costs accrued by accounts in the billing group, while non-primary accounts see only their own costs. For Billing Conductor users who opt in to billing transfer, the primary account defaults to the management account of the AWS Organizations that's transferring its bills (bill source account).
 
 **Reporting**
 
@@ -83,17 +85,17 @@ report.
 
 **Budget**
 
-Accounts in billing groups can create budgets to monitor their pro forma spend and be alerted when they exceed, or they are forecasted to exceed, their desired pro forma spending limit.
+Accounts and AWS Organizations in billing groups can create budgets to monitor their pro forma spend and be alerted when they exceed, or they are forecasted to exceed, their desired pro forma spending limit.
 
 ## Pricing for AWS Billing Conductor
 
-For more information about pricing, see [AWS Billing Conductor Pricing](https://aws.amazon.com/aws-cost-management/aws-billing-conductor/pricing/ "https://aws.amazon.com/aws-cost-management/aws-billing-conductor/pricing/").
+For more information about pricing, see [AWS Billing Conductor Pricing](https://aws.amazon.com/aws-cost-management/aws-billing-conductor/pricing/ "https://aws.amazon.com/aws-cost-management/aws-billing-conductor/pricing/"). Billing Conductor is free for all billing transfer users for transfer billing billing groups. Any standard billing groups are charged.
 
 ## Related services
 
-\***\*AWS Billing console\*\***
+\***\*AWS Billing\*\***
 
-The AWS Billing console is the portal for all AWS customers, from students and
+The AWS Billing is the portal for all AWS customers, from students and
 startup companies to large enterprises. You can use the console to see the resources that are
 running in your AWS accounts, manage billing preferences, and access billing artifacts that
 are needed to make payments to AWS. The AWS Billing console also provides a high-level
@@ -160,3 +162,19 @@ If you create multiple accounts, you can use the consolidated billing feature of
 to combine all your member accounts under one management account and receive a single bill.
 For more information, see [Consolidated billing for
 Organizations](../../../awsaccountbilling/latest/aboutv2/consolidated-billing.md "../../../awsaccountbilling/latest/aboutv2/consolidated-billing.md") in the _AWS Billing User Guide_.
+
+\***\*Billing transfer\*\***
+
+Billing transfer decouples billing and financial management from security and governance management. This enables a single AWS Organizations to get centralized access to costs data and AWS invoices across multiple organizations.
+
+To centralize billing while maintaining security management autonomy, billing transfer allows a management account to designate an external management account to manage and pay for its consolidated bill. To set up billing transfer, an external account (bill transfer account) sends a billing transfer invitation to a management account (bill source account). After the invitation is accepted, the external account becomes the bill transfer account and manages payment for the bill source account's consolidated bill, starting on the date specified in the invitation.
+
+For more information, see [Transfer billing management to external accounts](../../../awsaccountbilling/latest/aboutv2/orgs_transfer_billing.md "../../../awsaccountbilling/latest/aboutv2/orgs_transfer_billing.md").
+
+\***\*Billing views\*\***
+
+A billing view helps you manage and control access to cost management data within your AWS environment. With billing views, cost management data is represented as an AWS resource. Through resource-based policies, you can configure what data is accessible to an account when using AWS Billing and Cost Management tools.
+
+Each billing view is identified by a unique Amazon Resource Name (ARN), which you can reference in identity-based policies to perform specific IAM actions on the cost management data contained in that billing view.
+
+For more information, see [Controlling cost management data access with Billing View](../../../cost-management/latest/userguide/billing-view.md "../../../cost-management/latest/userguide/billing-view.md").

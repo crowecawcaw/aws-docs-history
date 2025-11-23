@@ -32,9 +32,13 @@ delete the billing group as needed.
 2. In the navigation pane, choose **Billing groups**.
 3. In the **Billing groups** table, choose the billing group name.
 
+###### Note
+
+The auto-associate functionality applies only when using Billing Conductor as a standalone service.
+
 ## Viewing your pro forma configurations by linked account
 
-You can review your billing group configurations by linked account, using the account inventory tool in the AWS Billing Conductor console.
+This feature is available only when using Billing Conductor as a standalone service, not with billing transfer. You can review your billing group configurations by linked account, using the account inventory tool in the AWS Billing Conductor console.
 
 ###### To view your billing group configurations by linked account
 
@@ -47,7 +51,7 @@ You can review your billing group configurations by linked account, using the ac
 ## Viewing your billing details by custom pricing dimensions
 
 After you create and assign your billing groups and pricing plans, you can view your custom
-billing dimensions with usage type granularity for each billing group under management.
+billing dimensions with usage type granularity for each billing group.
 
 Use the following steps to view your billing details in the pro forma domain.
 
@@ -55,14 +59,26 @@ Use the following steps to view your billing details in the pro forma domain.
 
 1. Open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
-2. In the navigation pane, choose **Bills**.
-3. Choose **Settings** in the top-right corner of **billing
-   details**.
-4. Enable the **Pro forma data view**.
-5. For **Billing group**, choose the billing to analyze.
+2. In the navigation pane, enable **billing view** mode.
+3. From the dropdown list, choose **billing transfer** view.
 
-You can analyze the billing group usage by service and AWS Region to see the cost of that
-usage, consistent with the rates defined in AWS Billing Conductor.
+The dropdown shows your 10 most recently accessed views. To see all views, choose **See all views** at the bottom of the dropdown menu. 4. From the **Billing view** modal, choose either `billing group view` or `billing transfer views`. 5. Use the search bar to filter results across all columns in the table.
+
+Search for views using these parameters:
+
+- View name (partial match, starts with)
+
+- Account ID (exact match)
+
+- Type (exact match for `BILLING_TRANSFER` or `BILLING_TRANSFER_SHOWBACK`)
+
+- Billing period (choose month)
+
+6. Select the desired billing view and select **Choose view**.
+
+When using Billing Conductor as a standalone service, you can analyze billing group usage and costs by service and AWS Region through billing group views. The costs reflect the rates defined in your pricing configuration.
+
+You can analyze pro forma usage for AWS Organizations transferring their bills by using billing transfer views of type `Showback/Chargeback`. You can use all available Cost Explorer filters to analyze your billing transfer views.
 
 You can find the custom line items under the service **AWS Billing Conductor**
 on the **Billing details** page.

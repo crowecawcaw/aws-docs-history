@@ -1,6 +1,6 @@
-# AWS services that support pro forma
+# AWS services that support pro
 
-costs
+forma-based billing view costs
 
 The following Cloud Financial Management services and their features support pro forma
 costs.

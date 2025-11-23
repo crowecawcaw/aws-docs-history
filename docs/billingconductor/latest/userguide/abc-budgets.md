@@ -21,4 +21,6 @@ will be based on billable data going forward.
 
 We recommend linked accounts in billing groups, that previously had budget alerts configured on billable data, to update the threshold to the budget alerts to match the pro forma data view.
 
+As a billing transfer user, only bill source accounts can use budgets and budget alerts. If a bill transfer account needs to set up a budget, they must obtain an IAM role in the bill source account.
+
 For more information about AWS Budgets, see [Managing your costs with AWS Budgets](../../../cost-management/latest/userguide/budgets-managing-costs.md "../../../cost-management/latest/userguide/budgets-managing-costs.md") in the _AWS Cost Management User Guide_.

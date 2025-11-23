@@ -1,10 +1,12 @@
 # Analyzing Savings Plans, reservation coverage, and utilization reports
 
 You can analyze Savings Plans, reservation coverage, and utilization reports for AWS accounts in
-Billing Conductor billing groups. Reports are generated for each billing group. The primary billing group
+Billing Conductor billing groups. and Reports are generated for each billing group and as AWS Organizations in billing groups. The primary billing group
 account can view coverage and utilization data, based on pro forma costs for all accounts in the
 group. In pro forma domain, Savings Plans and reservations are shared only within billing groups, despite
-preferences in the billable domain. This means that your pro forma coverage and utilization reports are computed based on your pro forma Reservations and Savings Plans sharing configuration at the billing group level, which is enabled for all accounts in the billing group by default.
+preferences in the billable domain. This is not applicable to Billing Conductor using billing transfer. This means that your pro forma coverage and utilization
+reports are computed based on your pro forma Reservations and Savings Plans sharing configuration at the
+billing group level, which is enabled for all accounts in the billing group by default.
 
 Billing group managed accounts, or billing group members, can view coverage and utilization
 data based on pro forma costs if there are Savings Plans purchases or reservations in that account. You
@@ -30,12 +32,12 @@ This shows the pro forma costs under total On-Demand costs and annual potential 
 
 - If you're using AWS Organizations, management accounts can't analyze, forecast, or report pro forma costs in Cost Explorer. This feature is only available to accounts in the billing group.
 - Total commitment values are not affected by the pro forma domain.
-- Pro forma utilization reports and coverage reports must not be used as a reference to make optimization decisions. For example, changes in workloads, Savings Plans, or reservations purchases. See the billable utilization reports and coverage reports for any optimization decisions.
+- When using Billing Conductor as a standalone service, don't use pro forma utilization and coverage reports to make optimization decisions. This limitation doesn't apply to billing transfer users because their billing groups map one-to-one with AWS Organizations. For example, changes in workloads, Savings Plans, or reservations purchases. See the billable utilization reports and coverage reports for any optimization decisions.
 - We recommend you discuss with the billing administrator or your organization before making reservations and Savings Plans purchases based on pro forma data. Savings Plans and reservations purchase recommendations offer accurate recommendations based on the billable sharing preferences, billable On-Demand spend, and on the performance of any existing Savings Plans and/or reservations in the billable domain. Savings Plans and reservation recommendations reflect the insights reported in the billable utilization and coverage report for primary accounts and linked accounts in billing groups. See the Savings Plans and reservation purchase recommendations page as an account within the billing group, and your recommended commitment value will accurately reflect the billable utilization and coverage report. This is the source of truth for your organization optimization decisions.
 
 ## Understanding the effects of billing group configuration and Savings Plans sharing preferences
 
-Discount benefits are shared within the billing group within Billing Conductor. For this reason, Savings Plans coverage and utilization metrics might change based on billing group configuration or Savings Plans sharing preference in the billable domain.
+Discount benefits are shared within the billing group in Billing Conductor. For this reason, Savings Plans coverage and utilization metrics might change based on billing group configuration or Savings Plans sharing preferences in the billable domain. This behavior doesn't apply to billing transfer users because their billing groups map one-to-one with AWS Organizations.
 
 ###### Examples
 
