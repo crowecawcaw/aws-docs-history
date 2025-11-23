@@ -138,7 +138,7 @@ debugging information to CloudWatch Logs. For an example, see [Pre sign-up examp
 Deny sign-up if user name has fewer than five characters](user-pool-lambda-pre-sign-up.md#aws-lambda-triggers-pre-registration-example-3 "user-pool-lambda-pre-sign-up.md#aws-lambda-triggers-pre-registration-example-3").
 
 - You can add a Lambda function in another AWS account as a trigger for your
-  user pool. You must add cross-account triggers with the [CreateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md") and UpdateUserPool API operations, or their equivalents in AWS CloudFormation and
+  user pool. You must add cross-account triggers with the [CreateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md") and [UpdateUserPool](../../../index.md "../../../index.md") API operations, or their equivalents in CloudFormation and
   the AWS CLI. You can't add cross-account functions in the AWS Management Console.
 - When you add a Lambda trigger in the Amazon Cognito console, Amazon Cognito adds a resource-based
   policy to your function that permits your user pool to invoke the function. When

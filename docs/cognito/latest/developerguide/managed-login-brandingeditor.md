@@ -386,7 +386,7 @@ The following is how to programmatically update your branding style.
       object that aren't in the schema that you receive in your API
       response.
 
-5. Use the updated response body in a [CreateManagedLoginBranding](../../../cognito-user-identity-pools/latest/APIReference/API_CreateManagedLoginBranding.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateManagedLoginBranding.md") or UpdateManagedLoginBranding request. If this request exceeds
+5. Use the updated response body in a [CreateManagedLoginBranding](../../../cognito-user-identity-pools/latest/APIReference/API_CreateManagedLoginBranding.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateManagedLoginBranding.md") or [UpdateManagedLoginBranding](../../../index.md "../../../index.md") request. If this request exceeds
    2 MB in size, separate it out into multiple requests. These operations
    work in a `PATCH` model where original settings remain
    unchanged unless you specify otherwise.

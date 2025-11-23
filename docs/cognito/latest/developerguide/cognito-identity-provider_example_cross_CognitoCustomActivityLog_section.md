@@ -772,7 +772,7 @@ func (actor CloudWatchLogsActions) GetLogEvents(ctx context.Context, functionNam
 
 ```
 
-Create a struct that wraps AWS CloudFormation actions.
+Create a struct that wraps CloudFormation actions.
 
 ```
 

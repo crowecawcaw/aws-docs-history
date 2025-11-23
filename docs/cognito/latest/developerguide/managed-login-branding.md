@@ -72,7 +72,7 @@ When you create a style, you link it to an app client. To change a style
 assignment for an app client, you must first delete the original style. Currently,
 you can't copy settings between styles. You must do this programmatically. To
 replicate settings between styles and app clients, get the settings for a style with
-the [DescribeManagedLoginBranding](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBranding.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBranding.md") API operation and apply them with [CreateManagedLoginBranding](../../../cognito-user-identity-pools/latest/APIReference/API_CreateManagedLoginBranding.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateManagedLoginBranding.md") or UpdateManagedLoginBranding. You can't change the assigned styles of an
+the [DescribeManagedLoginBranding](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBranding.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBranding.md") API operation and apply them with [CreateManagedLoginBranding](../../../cognito-user-identity-pools/latest/APIReference/API_CreateManagedLoginBranding.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateManagedLoginBranding.md") or [UpdateManagedLoginBranding](../../../index.md "../../../index.md"). You can't change the assigned styles of an
 app client—you can only delete the original and set a new one. For more
 information about managing styles with API and SDK operations, see [API and SDK operations for managed login
 branding](managed-login-brandingeditor.md#branding-designer-api "managed-login-brandingeditor.md#branding-designer-api").

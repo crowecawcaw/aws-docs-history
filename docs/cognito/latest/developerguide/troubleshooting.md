@@ -440,7 +440,7 @@ We recommend the following approach:
 3. Use [DescribeUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.md") and [DescribeUserPoolClient](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.md") API operations to generate JSON templates of your
    tested configuration.
 4. Use these templates with deployment tools like the AWS SDKs, CDK, REST API, or
-   AWS CloudFormation to create your production resources.
+   CloudFormation to create your production resources.
 
 For more information, see [Getting started with user pools](getting-started-user-pools.md "getting-started-user-pools.md").
 
