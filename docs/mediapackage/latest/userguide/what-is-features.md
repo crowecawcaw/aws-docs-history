@@ -14,7 +14,7 @@ MediaPackage accepts these codecs from the input source and passes them through
 to the output stream.
 
 Be sure to order your inputs so that your preferred audio rendition is
-listed first in the audio section of the parent manifest. When packaging
+listed first in the audio section of the multivariant playlist. When packaging
 audio and subtitles or captions tracks, MediaPackage designates the first audio
 track as `DEFAULT=YES` and `AUTO-SELECT=YES`. This
 packaging overrides default and auto-select settings from the input.
@@ -32,7 +32,7 @@ in the media segments on TS and CMAF origin endpoints, and generate the
 appropriate manifest signaling.
 
 Be sure to order your inputs so that your preferred captions rendition is
-listed first in the captions section of the parent manifest. When packaging
+listed first in the captions section of the multivariant playlist. When packaging
 captions tracks, MediaPackage designates the first captions track as
 `DEFAULT=YES` and `AUTO-SELECT=YES`. This
 packaging overrides default and auto-select settings from the input.
@@ -45,8 +45,10 @@ manifest signaling.
 
 **DRM**
 
-MediaPackage supports content protection through digital rights management (DRM).
-For information, see [Content encryption and DRM in AWS Elemental MediaPackage](using-encryption.md "using-encryption.md").
+MediaPackage supports content protection through digital rights management (DRM),
+including advanced features like session key exclusion for HLS manifests to
+improve compatibility with legacy clients and provide granular access
+control. For information, see [Content encryption and DRM in AWS Elemental MediaPackage](using-encryption.md "using-encryption.md").
 
 **HLS Rendition Groups**
 
@@ -79,7 +81,7 @@ MediaPackage supports input WebVTT text-based subtitles and passes through the
 subtitles.
 
 Be sure to order your inputs so that your preferred subtitles rendition is
-listed first in the subtitles section of the parent manifest. When packaging
+listed first in the subtitles section of the multivariant playlist. When packaging
 subtitles tracks, MediaPackage designates the first subtitles track as
 `DEFAULT=YES` and `AUTO-SELECT=YES`. This
 packaging overrides default and auto-select settings from the input.

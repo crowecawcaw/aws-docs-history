@@ -32,11 +32,11 @@ that you encountered a **`Resource limit exceeded`** error wrongfully, use the S
 
 The following table describes quotas in AWS Elemental MediaPackage that can't be increased.
 
-| Resource or operation                        | Quota                                                                                           |
-| -------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Maximum content age for time-shifted viewing | 336 hours (14 days)                                                                             |
-| Maximum request rates per channel input      | 200 requests per second                                                                         |
-| Maximum request rates per endpoint           | • Media segments output: 500 requests per second<br>• Manifests output: 500 requests per second |
-| Maximum REST API requests                    | • Steady state: 5 requests per second<br>• Bursting: 50 requests per second                     |
-| Maximum time-shifted manifest length         | 24 hours for all supported output formats                                                       |
-| Maximum tracks per ingest stream             | 10The maximum number of tracks (audio, video, subtitle, etc.) per stream that you can ingest.   |
+| Resource or operation                        | Quota                                                                                            |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Maximum content age for time-shifted viewing | 336 hours (14 days)                                                                              |
+| Maximum request rates per channel input      | 200 requests per second                                                                          |
+| Maximum request rates per endpoint           | • Media segments output: 500 requests per second<br>• Manifests output: 1000 requests per second |
+| Maximum REST API requests                    | • Steady state: 5 requests per second<br>• Bursting: 50 requests per second                      |
+| Maximum time-shifted manifest length         | 24 hours for all supported output formats                                                        |
+| Maximum tracks per ingest stream             | 10The maximum number of tracks (audio, video, subtitle, etc.) per stream that you can ingest.    |

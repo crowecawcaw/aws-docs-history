@@ -20,17 +20,26 @@ When using HLS or LL-HLS in MediaPackage, you can take advantage of the followin
 
 An HLS manifest is a text-based M3U8 playlist that describes the available media segments and their characteristics. HLS uses a hierarchical structure with two types of playlists:
 
-- **Master playlist**: Contains information about the available variants (different bitrates and resolutions) and references to the media playlists.
+- **Multivariant playlist**: Contains information about the available variants (different bitrates and resolutions) and references to the media playlists.
 - **Media playlist**: Contains references to the actual media segments for a specific variant.
 
 Key tags in HLS manifests include:
 
-- **EXT-X-STREAM-INF**: Describes a variant stream in the master playlist.
-- **EXT-X-MEDIA**: Describes alternative renditions such as audio or subtitles.
-- **EXTINF**: Specifies the duration of a media segment.
-- **EXT-X-PROGRAM-DATE-TIME**: Associates a segment with an absolute date and time.
-- **EXT-X-KEY**: Specifies how to decrypt encrypted segments.
-- **EXT-X-DATERANGE**: Signals ad markers and program transition events.
+- **EXT-X-STREAM-INF**: Describes a variant stream
+  in the multivariant playlist.
+- **EXT-X-MEDIA**: Describes alternative renditions
+  such as audio or subtitles.
+- **EXTINF**: Specifies the duration of a media
+  segment.
+- **EXT-X-PROGRAM-DATE-TIME**: Associates a segment
+  with an absolute date and time.
+- **EXT-X-KEY**: Specifies how to decrypt encrypted
+  segments.
+- **EXT-X-SESSION-KEY**: Provides encryption key
+  information in the multivariant playlist to enable client key pre-fetching for
+  DRM-protected content.
+- **EXT-X-DATERANGE**: Signals ad markers and
+  program transition events.
 
 LL-HLS extends the standard HLS protocol with additional tags and features to reduce latency:
 

@@ -138,7 +138,7 @@ When you're creating a harvest job, don't put sensitive identifying information 
     - Select a date and time for **When the live-to-VOD asset ends**. The length of the asset can't exceed the startover window on the endpoint. The end time can be in the future.
 
 12. For **Destination**, select the **S3 bucket name** in which to store the live-to-VOD asset. The bucket must be in the same AWS Region that MediaPackage is harvesting from.
-13. For **S3 destination path**, enter the path to the asset in the bucket. Include the file name for the parent manifest of the asset. If the directory structure doesn't already exist in the bucket, MediaPackage creates it.
+13. For **S3 destination path**, enter the path to the asset in the bucket. Include the file name for the multivariant playlist of the asset. If the directory structure doesn't already exist in the bucket, MediaPackage creates it.
 14. Choose **Create harvest job**.
 
 ## Viewing harvest jobs

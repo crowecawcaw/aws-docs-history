@@ -275,7 +275,7 @@ SEIG and SGPD boxes.
 When enabled, MediaPackage excludes segment-level DRM metadata boxes while
 preserving other essential DRM functionality. Key rotation can still be
 handled through media playlist signaling. For more information about DRM
-segment metadata, see [Managing DRM segment metadata](drm-segment-metadata-management.md "drm-segment-metadata-management.md").
+segment metadata, see [Managing DRM segment metadata in AWS Elemental MediaPackage](drm-segment-metadata-management.md "drm-segment-metadata-management.md").
 
 ## Endpoint policy fields
 
@@ -451,6 +451,24 @@ you must have a startover window defined.
 
 For more information about using time delays, see
 [Time delay](time-delay.md "time-delay.md").
+
+**DRM settings**
+
+Optionally specify DRM-related settings for HLS
+manifests. Currently supports excluding session keys
+from the multivariant playlist.
+
+To exclude session keys, enter
+`exclude_session_keys:true`. This removes
+`EXT-X-SESSION-KEY` tags from the
+multivariant playlist while preserving key information
+in individual media playlists. This setting is useful
+for legacy clients that have issues with session key
+pre-fetching or when using manifest filtering to control
+access to specific content variants.
+
+This setting only applies to HLS manifests and is
+ignored for DASH manifests.
 
 **Clip start time data and time**
 

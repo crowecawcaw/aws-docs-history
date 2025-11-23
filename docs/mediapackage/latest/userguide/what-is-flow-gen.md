@@ -35,7 +35,7 @@ include adding encryption and configuring audio, video, and subtitles or
 captions track outputs.
 
 Be sure to order your inputs so that your preferred audio rendition is
-listed first in the audio section of the parent manifest. Do the same for
+listed first in the audio section of the multivariant playlist. Do the same for
 the subtitles or captions. When packaging audio and subtitles or captions
 tracks, MediaPackage designates the first audio and captions or subtitles track as
 `DEFAULT=YES` and `AUTO-SELECT=YES`. This

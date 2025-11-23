@@ -64,4 +64,5 @@ for MediaPackage.
 
 - [Key rotation](drm-content-key-rotation.md "drm-content-key-rotation.md")
 - [Managing DRM segment metadata](drm-segment-metadata-management.md "drm-segment-metadata-management.md")
+- [Exclude session keys](drm-session-key-exclusion.md "drm-session-key-exclusion.md")
 - [Encryption presets](drm-content-speke-v2-presets.md "drm-content-speke-v2-presets.md")
