@@ -70,7 +70,7 @@ step.
   the respective script files.
 
 ```
-aws emr create-cluster --name "`Test cluster`" --release-label `emr-7.11.0` --applications Name=`Hue` Name=`Hive` Name=`Pig` --use-default-roles \
+aws emr create-cluster --name "`Test cluster`" --release-label `emr-7.12.0` --applications Name=`Hue` Name=`Hive` Name=`Pig` --use-default-roles \
 --ec2-attributes KeyName=`myKey` --instance-type `m5.xlarge` --instance-count `3` \
 --steps Type=`STREAMING`,Name=`"Streaming Program"`,ActionOnFailure=`CONTINUE`,Args=[--files,`pathtoscripts`,-mapper,`mapperscript`,-reducer,`reducerscript`,`aggregate`,-input,`pathtoinputdata`,-output,`pathtooutputbucket`]
 ```

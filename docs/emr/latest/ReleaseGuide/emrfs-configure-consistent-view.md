@@ -7,7 +7,7 @@ DynamoDB throughput by supplying the following arguments to the CLI
 ###### Example Changing default metadata read and write values at cluster launch
 
 ```
-aws emr create-cluster --release-label `emr-7.11.0` --instance-type `m5.xlarge` \
+aws emr create-cluster --release-label `emr-7.12.0` --instance-type `m5.xlarge` \
 --emrfs Consistent=`true`,Args=[fs.s3.consistent.metadata.read.capacity=`600`,\
 fs.s3.consistent.metadata.write.capacity=`300`] --ec2-attributes KeyName=`myKey`
 ```
@@ -30,7 +30,7 @@ locally or in Amazon S3:
 Use the configuration you created with the following syntax:
 
 ```
-aws emr create-cluster --release-label `emr-7.11.0` --applications Name=Hive \
+aws emr create-cluster --release-label `emr-7.12.0` --applications Name=Hive \
 --instance-type m5.xlarge --instance-count 2 --configurations file://./myConfig.json
 ```
 

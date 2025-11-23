@@ -22,7 +22,7 @@ Ganglia stores log files on the primary node in the `/mnt/var/lib/ganglia/rrds/`
 - Use a `create-cluster` command similar to the following:
 
 ```
-aws emr create-cluster --name "`Test cluster`" --release-label `emr-7.11.0` \
+aws emr create-cluster --name "`Test cluster`" --release-label `emr-7.12.0` \
 --applications Name=`HBase` Name=`Ganglia` --use-default-roles \
 --ec2-attributes KeyName=`myKey` --instance-type `m5.xlarge` \
 --instance-count `3`

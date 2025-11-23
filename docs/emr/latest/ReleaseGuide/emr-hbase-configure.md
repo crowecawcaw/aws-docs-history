@@ -10,7 +10,7 @@ directory based on a configuration file, `myConfig.json`, stored in Amazon S3.
 Linux line continuation characters (\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^).
 
 ```
-aws emr create-cluster --release-label `emr-7.11.0` --applications Name=HBase \
+aws emr create-cluster --release-label `emr-7.12.0` --applications Name=HBase \
 --instance-type m5.xlarge --instance-count 3 --configurations https://s3.amazonaws.com/amzn-s3-demo-bucket/myfolder/myConfig.json
 ```
 

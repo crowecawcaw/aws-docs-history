@@ -41,7 +41,7 @@ Linux line continuation characters (\) are included for readability. They can be
 
 ```
 aws emr create-cluster --instance-type `m5.xlarge` --instance-count `3` --emrfs Consistent=`true` \
---release-label `emr-7.11.0` --ec2-attributes KeyName=`myKey`
+--release-label `emr-7.12.0` --ec2-attributes KeyName=`myKey`
 ```
 
 ###### To check if consistent view is enabled using the AWS Management Console

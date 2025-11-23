@@ -59,7 +59,7 @@ AWS CLI
   Amazon S3.
 
 ```
-aws emr create-cluster --release-label `emr-7.11.0` --applications Name=Hue Name=Spark Name=Hive \
+aws emr create-cluster --release-label `emr-7.12.0` --applications Name=Hue Name=Spark Name=Hive \
 --instance-type m5.xlarge --instance-count 3 --configurations `https://s3.amazonaws.com/amzn-s3-demo-bucket/myfolder/myConfig.json`.
 ```
 

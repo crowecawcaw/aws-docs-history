@@ -3,7 +3,7 @@
 This section contains application versions, release notes, component versions, and configuration classifications available in each Amazon EMR 7.x release version.
 
 When you launch a cluster, you can choose from multiple releases of Amazon EMR. This allows you to test and use application versions that fit your compatibility requirements.
-You specify the release number with the _release label_. Release labels are in the form `emr-`x.x.x``. For example, `emr-7.11.0`.
+You specify the release number with the _release label_. Release labels are in the form `emr-`x.x.x``. For example, `emr-7.12.0`.
 
 New Amazon EMR releases are made available in different Regions over a period of several days, beginning with the first Region on the initial release date. The latest release version may not be available in your Region during this period.
 
@@ -14,6 +14,7 @@ releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md").
 
 - [Application versions in Amazon EMR 7.x
   releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
+- [Amazon EMR release 7.12.0](emr-7120-release.md "emr-7120-release.md")
 - [Amazon EMR release 7.11.0](emr-7110-release.md "emr-7110-release.md")
 - [Amazon EMR release 7.10.0](emr-7100-release.md "emr-7100-release.md")
 - [Amazon EMR release 7.9.0](emr-790-release.md "emr-790-release.md")

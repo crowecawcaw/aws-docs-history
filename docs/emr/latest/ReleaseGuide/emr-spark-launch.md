@@ -32,7 +32,7 @@ To configure Spark when you are creating the cluster, see [Configure Spark](emr-
 - Create the cluster with the following command.
 
 ```
-aws emr create-cluster --name "Spark cluster" --release-label `emr-7.11.0` --applications Name=Spark \
+aws emr create-cluster --name "Spark cluster" --release-label `emr-7.12.0` --applications Name=Spark \
 --ec2-attributes KeyName=myKey --instance-type m5.xlarge --instance-count 3 --use-default-roles
 ```
 

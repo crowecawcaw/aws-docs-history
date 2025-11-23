@@ -101,7 +101,7 @@ AWS CLI
 2. Next, create a cluster with the following configuration:
 
 ```
-aws emr create-cluster --release-label `emr-7.11.0` \
+aws emr create-cluster --release-label `emr-7.12.0` \
 --applications Name=Flink \
 --configurations file://./configurations.json \
 --region `us-east-1` \

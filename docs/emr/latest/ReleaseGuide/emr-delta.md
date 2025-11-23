@@ -6,11 +6,11 @@ with Delta Lake tables. For more information about lakehouses with Delta Lake, s
 
 The following table lists the version of Delta included in the latest release of the Amazon EMR 7.x series, along with the components that Amazon EMR installs with Delta.
 
-For the version of components installed with Delta in this release, see [Release 7.11.0 Component Versions](emr-7110-release.md "emr-7110-release.md").
+For the version of components installed with Delta in this release, see [Release 7.12.0 Component Versions](emr-7120-release.md "emr-7120-release.md").
 
-| Delta version information for emr-7.11.0 | Amazon EMR Release Label | Delta Version  | Components Installed With Delta |
+| Delta version information for emr-7.12.0 | Amazon EMR Release Label | Delta Version  | Components Installed With Delta |
 | ---------------------------------------- | ------------------------ | -------------- | ------------------------------- |
-| emr-7.11.0                               | Delta 3.3.2-amzn-0       | Not available. |
+| emr-7.12.0                               | Delta 3.3.2-amzn-1       | Not available. |
 
 The following table lists the version of Delta included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with Delta.
 

@@ -63,7 +63,14 @@ For a comprehensive history of application versions for each release of Amazon E
 The following release notes include information for Amazon EMR release 7.11.0.
 
 - **New features**
-  - Long-running sessions with corporate identities - Amazon SageMaker Unified Studio now supports long-running sessions with corporate identities through IAM Identity Center's Trusted Identity Propagation (TIP). Users can launch interactive notebooks and data processing sessions on Amazon EMR and AWS Glue that persist using corporate credentials, even when logged off or sessions expire. Sessions run for up to 90 days (default 7 days) while maintaining identity permissions and consistent security controls.
+  - **Application upgrades** – Amazon EMR 7.11.0 application upgrades include Delta 3.3.2-amzn-0, Flink 1.20.0-amzn-5, HBase 2.6.2-amzn-2, HCatalog 3.1.3-amzn-20, Hadoop 3.4.1-amzn-3, Hive 3.1.3-amzn-20, Hudi 1.0.2-amzn-0, Iceberg 1.9.1-amzn-0, Presto 0.287-amzn-5, Spark 3.5.6-amzn-0, TensorFlow 2.19.0, Tez 0.10.2-amzn-18, Trino 475-amzn-0, and ZooKeeper 3.9.3-amzn-3.
+  - Amazon EMR on EC2 now supports IAM Identity Center User Background Sessions
+    - **User Background Sessions**: Enables long-running Spark workloads to continue running even after users log off from SageMaker Unified Studio, supporting sessions up to 90 days
+    - **Flexible Background Session Configuration**: Two-level configuration (IAM Identity Center instance and Amazon EMR-EC2 cluster) with customizable background session duration from 15 minutes to 90 days (default: 7 days)
+    - **Trusted Identity Propagation**: Maintains secure identity context throughout the background session lifecycle using Amazon EMR's trusted identity propagation feature
+    - **SageMaker Unified Studio Integration**: Background sessions initiated through Livy interactive sessions in SageMaker Unified Studio
+
+  - **Long-running sessions with corporate identities** - Amazon SageMaker Unified Studio now supports long-running sessions with corporate identities through IAM Identity Center's Trusted Identity Propagation (TIP). Users can launch interactive notebooks and data processing sessions on Amazon EMR and AWS Glue that persist using corporate credentials, even when logged off or sessions expire. Sessions run for up to 90 days (default 7 days) while maintaining identity permissions and consistent security controls.
 
 ## 7.11.0 default Java versions
 
@@ -323,4 +330,6 @@ running cluster](emr-configure-apps-running-cluster.md "emr-configure-apps-runni
 
 ## 7.11.0 change log
 
-Initial release of EMR 7.11.0.
+| Change log for 7.11.0 release and release notes | Date             | Event                                           | Description |
+| ----------------------------------------------- | ---------------- | ----------------------------------------------- | ----------- |
+| 2025-11-12                                      | Docs publication | Amazon EMR 7.11.0 release notes first published |

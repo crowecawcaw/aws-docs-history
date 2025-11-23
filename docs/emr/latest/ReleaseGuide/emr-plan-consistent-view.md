@@ -53,7 +53,7 @@ applying them to your production environments.
    4. If you use AWS CLI to create a new cluster with the [`create-cluster` API](../../../cli/latest/reference/emr/create-cluster.md "../../../cli/latest/reference/emr/create-cluster.md"), don't use the
       `--emrfs` option, which turns on EMRFS
       CV.
-   5. If you use an SDK or AWS CloudFormation to create a new cluster, don't use any
+   5. If you use an SDK or CloudFormation to create a new cluster, don't use any
       of the configurations listed in [Configure consistent view](emrfs-configure-consistent-view.md "emrfs-configure-consistent-view.md").
 
 2. ###### To clone a cluster and remove EMRFS CV

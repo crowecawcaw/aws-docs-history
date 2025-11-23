@@ -7,11 +7,11 @@ Amazon EMR 6.5.0, you can use Apache Spark 3 on Amazon EMR clusters with the Ice
 
 The following table lists the version of Iceberg included in the latest release of the Amazon EMR 7.x series, along with the components that Amazon EMR installs with Iceberg.
 
-For the version of components installed with Iceberg in this release, see [Release 7.11.0 Component Versions](emr-7110-release.md "emr-7110-release.md").
+For the version of components installed with Iceberg in this release, see [Release 7.12.0 Component Versions](emr-7120-release.md "emr-7120-release.md").
 
-| Iceberg version information for emr-7.11.0 | Amazon EMR Release Label | Iceberg Version | Components Installed With Iceberg |
+| Iceberg version information for emr-7.12.0 | Amazon EMR Release Label | Iceberg Version | Components Installed With Iceberg |
 | ------------------------------------------ | ------------------------ | --------------- | --------------------------------- |
-| emr-7.11.0                                 | Iceberg 1.9.1-amzn-0     | Not available.  |
+| emr-7.12.0                                 | Iceberg 1.10.0-amzn-0    | Not available.  |
 
 The following table lists the version of Iceberg included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with Iceberg.
 

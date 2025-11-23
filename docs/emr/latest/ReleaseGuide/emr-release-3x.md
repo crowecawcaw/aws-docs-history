@@ -8,7 +8,7 @@ After December 4, 2023, you won't be able to create clusters with Amazon EMR 3.1
 lower.
 
 If you use Amazon EMR 3.10 or lower, we recommend that you immediately test and migrate
-your workloads to the latest Amazon EMR release. For more information, see the [AWS Security Blog](https://aws.amazon.com/blogs/security/tls-1-2-required-for-aws-endpoints/ "https://aws.amazon.com/blogs/security/tls-1-2-required-for-aws-endpoints/").
+your workloads to the latest Amazon EMR release. For more information, see the [AWS Security Blog](https://aws.amazon.com/blogs//security/tls-1-2-required-for-aws-endpoints/ "https://aws.amazon.com/blogs//security/tls-1-2-required-for-aws-endpoints/").
 
 Amazon EMR 2.x and 3.x releases, called _AMI versions_, are made available
 for pre-existing solutions that require them for compatibility reasons. We do not recommend

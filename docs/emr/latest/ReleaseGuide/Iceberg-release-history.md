@@ -6,6 +6,7 @@ For component versions in each release, see the Component Version section for yo
 
 | Iceberg version information | Amazon EMR Release Label | Iceberg Version | Components Installed With Iceberg |
 | --------------------------- | ------------------------ | --------------- | --------------------------------- |
+| emr-7.12.0                  | 1.10.0-amzn-0            | Not available.  |
 | emr-7.11.0                  | 1.9.1-amzn-0             | Not available.  |
 | emr-7.10.0                  | 1.8.1-amzn-0             | Not available.  |
 | emr-7.9.0                   | 1.7.1-amzn-2             | Not available.  |
