@@ -1,16 +1,15 @@
-# System prompt for user preference
+# System prompt for user preference memory
 
-memory strategy
+strategy
 
 A system prompt is a combination of:
 
-- A set of instructions that guide the LLM's behavior. It can
-  include step-by-step processing guidelines (how the model should
-  reason and extract or consolidate information).
-- Output Schema - how the model should present the
-  result.
-  This system prompt is sent to the LLM during memory extraction and
-  consolidation step.
+- A set of instructions that guide the LLM's behavior. It can include
+  step-by-step processing guidelines (how the model should reason and extract or
+  consolidate information).
+- Output Schema - how the model should present the result.
+  This system prompt is sent to the LLM during memory extraction and consolidation
+  step.
 
 ## Extraction
 
@@ -39,9 +38,7 @@ For implicit preference, it is allowed to infer user's preference, but only the 
 
 ```
 
-## Extraction output
-
-schema
+## Extraction output schema
 
 ```
 
@@ -133,9 +130,7 @@ New memory: "The user prefers to use Bank of America, which his account number i
 
 ```
 
-## Consolidation output
-
-schema
+## Consolidation output schema
 
 ```
 

@@ -4,6 +4,11 @@ Before you create your gateway, you must set up inbound authorization. Inbound a
 
 - **JSON Web Token (JWT)** – A secure and compact token used for authorization. After creating the JWT, you specify it as the authorization configuration when you create the gateway. You can create a JWT with any of the identity providers at [Provider setup and configuration](identity-idps.md "identity-idps.md").
 - **IAM identity** – Authorizes through the credentials of the AWS IAM identity trying to access the gateway.
+- **No Authorization** – The gateway will not perform any inbound authorization. This makes your gateway accessible to all users to be invoked.
+
+###### Important
+
+Do not use No Authorization gateways for testing or development purposes. No Authorization gateways should only be used for production gateways that you intend to make public after you have implemented all the security best practices listed later on in this page.
 
 ###### Note
 
@@ -15,6 +20,7 @@ If you don't plan to use the default authorization configuration using Amazon Co
 
 - [IAM-based inbound authorization](#gateway-inbound-auth-iam "#gateway-inbound-auth-iam")
 - [JSON Web Token (JWT)-based inbound authorization](#gateway-inbound-auth-jwt "#gateway-inbound-auth-jwt")
+- [No Authorization](#gateway-inbound-auth-none "#gateway-inbound-auth-none")
 
 ## IAM-based inbound authorization
 
@@ -107,3 +113,17 @@ You'll need these values to do the following:
 
 - Create the gateway by specifying values in the [authorizer configuration](../../../bedrock-agentcore-control/latest/APIReference/API_AuthorizerConfiguration.md "../../../bedrock-agentcore-control/latest/APIReference/API_AuthorizerConfiguration.md").
 - Obtain authorization credentials to invoke the gateway. To learn how to obtain your credentials, look up your identity provider's documentation. For example, if you used Amazon Cognito, see [The token issuer endpoint](../../../cognito/latest/developerguide/token-endpoint.md "../../../cognito/latest/developerguide/token-endpoint.md") in the Amazon Cognito Developer Guide.
+
+## No Authorization
+
+You can create a gateway that is configured with no authorization by using `authorizerType=NONE`. The gateway will not perform any authorization on the incoming gateway request and the request can be unauthenticated.
+
+###### Important
+
+Do not use No Authorization gateways for testing or development purposes. No Authorization gateways should only be used for production gateways that you intend to make public after you have implemented all the security best practices listed below.
+
+###### Security Best Practices
+
+1. Use the `bedrock-agentcore:GatewayAuthorizerType` condition key to selectively allow/deny access within your organization for creating gateways with `authorizerType=NONE`
+2. Do not use No Authorization gateways out of convenience for testing. They should be used for gateways you intend to make public but have implemented your own custom throttling rules and checks to ensure your public gateway can handle unauthenticated users
+3. Do not use No Authorization gateways with targets that may respond with sensitive information. Although targets are configured with their own authorization configurations, it is best to add another security layer on the gateway.

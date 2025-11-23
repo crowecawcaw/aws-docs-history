@@ -1,8 +1,8 @@
 # Strands Agents SDK
 
 Use the [Strands Agents](https://strandsagents.com/latest/ "https://strandsagents.com/latest/") SDK for
-seamless integration with agent frameworks, providing automatic memory management
-and retrieval within conversational agents.
+seamless integration with agent frameworks, providing automatic memory management and
+retrieval within conversational agents.
 
 **Install dependencies**
 

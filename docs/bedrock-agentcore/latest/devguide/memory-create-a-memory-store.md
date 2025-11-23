@@ -1,29 +1,29 @@
 # Create an AgentCore Memory
 
-You can create an AgentCore Memory with the Amazon Bedrock AgentCore starter toolkit, AgentCore python SDK, the AWS
-console, or with the [CreateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md") AWS SDK operation. When creating a memory, you can
-configure settings such as name, description, encryption settings, expiration timestamp
-for raw events, and memory strategies if you want to extract long-term memory.
+You can create an AgentCore Memory with the Amazon Bedrock AgentCore starter toolkit, AgentCore
+python SDK, the AWS console, or with the [CreateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md") AWS SDK operation. When creating a memory, you can configure
+settings such as name, description, encryption settings, expiration timestamp for raw
+events, and memory strategies if you want to extract long-term memory.
 
-When creating an AgentCore Memory, consider the following factors to maintain it meets
-your application's needs:
+When creating an AgentCore Memory, consider the following factors to maintain it meets your
+application's needs:
 
-**Event retention** – Choose how long raw events are
-retained (up to 365 days) for short-term memory.
+**Event retention** – Choose how long raw events are retained
+(up to 365 days) for short-term memory.
 
 **Security requirements** – If your application handles
 sensitive information, consider using a [customer managed AWS KMS key](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") for
-encryption. The service still encrypts data using a service managed key, even if you
-don't provide a customer-managed AWS KMS key.
+encryption. The service still encrypts data using a service managed key, even if you don't
+provide a customer-managed AWS KMS key.
 
-**Memory strategies** – Define how events are processed
-into meaningful long-term memories using built-in or built-in with overrides strategies.
-If you do not define any strategy, only short-term memory containing raw events are
-stored. For more information, see [Use long-term memory](long-term-memory-long-term.md "long-term-memory-long-term.md").
+**Memory strategies** – Define how events are processed into
+meaningful long-term memories using built-in or built-in with overrides strategies. If you
+do not define any strategy, only short-term memory containing raw events are stored. For
+more information, see [Use long-term memory](long-term-memory-long-term.md "long-term-memory-long-term.md").
 
-**Naming conventions** – Use clear, descriptive names
-that help identify the purpose of each AgentCore Memory, especially if your application
-uses multiple stores.
+**Naming conventions** – Use clear, descriptive names that
+help identify the purpose of each AgentCore Memory, especially if your application uses
+multiple stores.
 
 Starter toolkit
 for the full example, see [Get started with AgentCore Memory](memory-get-started.md "memory-get-started.md").
@@ -139,9 +139,11 @@ Console
 ###### To create an AgentCore memory
 
 1. Open the [Amazon Bedrock AgentCore](https://console.aws.amazon.com/bedrock-agentcore/ "https://console.aws.amazon.com/bedrock-agentcore/") console.
-2. In the left navigation pane, choose **Memory**.
+2. In the left navigation pane, choose
+   **Memory**.
 3. Choose **Create memory**.
-4. For **Memory name** enter a name for the AgentCore Memory.
+4. For **Memory name** enter a name for the
+   AgentCore Memory.
 5. (Optional) For **Short-term memory (raw event)
    expiration** set the duration (days), for which the
    AgentCore Memory will store events.
@@ -149,18 +151,22 @@ Console
    following:
    1. For **Memory description**, enter a
       description for the AgentCore Memory.
-   2. If you want to use your own AWS KMS key to encrypt your data, do the following:
+   2. If you want to use your own AWS KMS key to encrypt your data, do
+      the following:
       1. In **KMS key**, choose
          **Customize encryption settings
          (advanced)**.
-      2. In **Choose an AWS KMS key** choose or enter
-         the ARN of an existing AWS KMS key. Alternatively, choose **Create an AWS KMS**
-         to create a new AWS KMS key.
+      2. In **Choose an AWS KMS key** choose or
+         enter the ARN of an existing AWS KMS key. Alternatively,
+         choose **Create an AWS KMS** to create a
+         new AWS KMS key.
 
-7. (Optional) For **Long-term memory extraction strategies** choose one or more
-   [memory strategies](memory-strategies.md "memory-strategies.md"). For more information:
+7. (Optional) For **Long-term memory extraction
+   strategies** choose one or more [memory strategies](memory-strategies.md "memory-strategies.md"). For more
+   information:
    - [Built-in strategies](built-in-strategies.md "built-in-strategies.md")
    - [Built-in with overrides strategy](memory-custom-strategy.md "memory-custom-strategy.md")
    - [Self-managed strategy](memory-self-managed-strategies.md "memory-self-managed-strategies.md")
 
-8. Choose **Create memory** to create the AgentCore Memory.
+8. Choose **Create memory** to create the
+   AgentCore Memory.

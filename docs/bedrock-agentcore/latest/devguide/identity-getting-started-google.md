@@ -15,10 +15,10 @@ AgentCore Identity](identity-outbound-credential-provider.md "identity-outbound-
 ###### Topics
 
 - [Prerequisites](#identity-getting-started-prerequisites "#identity-getting-started-prerequisites")
-- [Step 1: Import Identity and Auth
-  modules](#identity-getting-started-step1 "#identity-getting-started-step1")
-- [Step 2: Set up an OAuth 2.0 Credential
-  Provider](#identity-getting-started-step2 "#identity-getting-started-step2")
+- [Step 1: Set up an OAuth 2.0 Credential
+  Provider](#identity-getting-started-step1 "#identity-getting-started-step1")
+- [Step 2: Import Identity and Auth
+  modules](#identity-getting-started-step2 "#identity-getting-started-step2")
 - [Step 3: Obtain an OAuth 2.0 access
   token](#identity-getting-started-step3 "#identity-getting-started-step3")
 - [Step 4: Use OAuth2 Access Token to
@@ -32,6 +32,8 @@ Before you start, you need:
 - An AWS account with appropriate permissions (for example,
   `BedrockAgentCoreFullAccess`)
 - Python 3.10 or higher
+- The latest AWS CLI and `jq` installed
+- AWS credentials and region configured (`aws configure`)
 - Basic understanding of Python programming
 
 ### Install the SDK
@@ -50,21 +52,46 @@ To allow your agent to access Google Drive, you need to obtain a Google client I
 and client secret for your agent. Go to the [Google Developer
 Console](https://console.developers.google.com/project "https://console.developers.google.com/project") and follow these steps:
 
-1. Enable Google Drive API
-2. Create OAuth consent screen
-3. Create a new web application for the agent, for example, "My Agent
+1. Create a Project in Google Developer Console
+2. Enable Google Drive API
+3. Configure OAuth consent screen
+4. Create a new web application for the agent, for example, "My Agent
    1"
-4. Add the following OAuth 2.0 scope to your agent application:
+5. Add the following OAuth 2.0 scope to your agent application:
    `https://www.googleapis.com/auth/drive.metadata.readonly`
-5. Create OAuth 2.0 Credentials for the new web application, and note the
+6. Create OAuth 2.0 Credentials for the new web application, and save the
    generated Google client ID and client secret
+
+## Step 1: Set up an OAuth 2.0 Credential
+
+Provider
+
+Create a new OAuth 2.0 Credential Provider with the Google client ID and client secret
+obtained earlier using the following AWS CLI command:
+
+```
+OAUTH2_CREDENTIAL_PROVIDER_RESPONSE=$(aws bedrock-agentcore-control create-oauth2-credential-provider \
+  --region us-east-1 \
+  --name "google-provider" \
+  --credential-provider-vendor "GoogleOauth2" \
+  --oauth2-provider-config-input '{
+      "googleOauth2ProviderConfig": {
+        "clientId": "<your-google-client-id>",
+        "clientSecret": "<your-google-client-secret>"
+      }
+    }' \
+--output json)
+
+OAUTH2_CALLBACK_URL=$(echo $OAUTH2_CREDENTIAL_PROVIDER_RESPONSE | jq -r '.callbackUrl')
+
+echo "OAuth2 Callback URL: $OAUTH2_CALLBACK_URL"
+```
 
 ###### Note
 
-You must add the following URI to your application's redirect URI list:
-`https://bedrock-agentcore.us-east-1.amazonaws.com/identities/oauth2/callback`
+Obtain the `callbackUrl` from the [CreateOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md") response above and add the URI to your Google application's redirect URI list. The callback URL should look like: `https://bedrock-agentcore.us-east-1.amazonaws.com/identities/oauth2/callback/********-****-****-****-************`
 
-## Step 1: Import Identity and Auth
+## Step 2: Import Identity and Auth
 
 modules
 
@@ -74,29 +101,6 @@ Add this import statement to your Python file:
 from bedrock_agentcore.services.identity import IdentityClient
 from bedrock_agentcore.identity.auth import requires_access_token, requires_api_key
 ```
-
-## Step 2: Set up an OAuth 2.0 Credential
-
-Provider
-
-Create a new OAuth 2.0 Credential Provider with the Google client ID and client secret
-obtained earlier using the following AWS CLI command:
-
-```
-aws bedrock-agentcore-control create-oauth2-credential-provider \
-  --region us-east-1 \
-  --name "google-provider" \
-  --credential-provider-vendor "GoogleOauth2" \
-  --oauth2-provider-config-input '{
-      "googleOauth2ProviderConfig": {
-        "clientId": "<your-google-client-id>",
-        "clientSecret": "<your-google-client-secret>"
-      }
-    }'
-```
-
-Behind the scenes, the SDK makes a call to the
-`CreateOauth2CredentialProvider` API.
 
 ## Step 3: Obtain an OAuth 2.0 access
 
@@ -126,6 +130,8 @@ import asyncio
     on_auth_url=lambda x: print("\nPlease copy and paste this URL in your browser:\n" + x),
     # If false, caches obtained access token
     force_authentication=False,
+    # The callback URL to redirect to after the OAuth 2.0 token retrieval is complete
+    callback_url='oauth2_callback_url_for_session_binding',
 )
 async def write_to_google_drive(*, access_token: str):
     # Prints the access token obtained from Google
@@ -144,7 +150,7 @@ following sequence:
    `GetResourceOauth2Token`.
 2. When running the agent code locally, the SDK automatically generates an agent
    identity ID and a random user ID for local testing, and stores them in a local
-   file called `.agentcore.yaml`.
+   file called `.bedrock_agentcore.yaml`.
 3. When running the agent code with AgentCore Runtime, the SDK does not
    generate an agent identity ID or random user ID. Instead, it uses the agent
    identity ID assigned, and the user ID or JWT token passed in by the agent
@@ -154,6 +160,7 @@ following sequence:
 5. AgentCore Identity service stores the Google access token in the Token Vault under the
    agent identity ID and user ID. This creates a binding among the agent identity,
    user identity, and the Google access token.
+6. The [session binding flow](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md") must be completed before the Google access token is returned to the caller by AgentCore Identity.
 
 ## Step 4: Use OAuth2 Access Token to
 
@@ -223,6 +230,7 @@ if __name__ == "__main__":
         # prints authorization URL to console
         on_auth_url=lambda x: print("Copy and paste this authorization url to your browser", x),
         force_authentication=True,
+        callback_url='oauth2_callback_url_for_session_binding',
     )
     async def read_from_google_drive(*, access_token: str):
         print(access_token)  # You can see the access_token

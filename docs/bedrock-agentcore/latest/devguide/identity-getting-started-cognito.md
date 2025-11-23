@@ -21,6 +21,7 @@ the integration capabilities.
   (Optional)](#identity-quick-start-cognito "#identity-quick-start-cognito")
 - [Step 2: Create a credential
   provider](#identity-quick-start-credential-provider "#identity-quick-start-credential-provider")
+- [Step 2.5: Add the callback URL to your OAuth 2.0 authorization server](#identity-update-credential-provider "#identity-update-credential-provider")
 - [Step 3: Create a sample agent that
   initiates an OAuth 2.0 flow](#identity-quick-start-agent "#identity-quick-start-agent")
 - [Step 4: Deploy the agent to AgentCore
@@ -35,7 +36,7 @@ Before you begin, ensure you have:
 
 - An AWS account with appropriate permissions
 - Python 3.10+ installed
-- The latest AWS CLI installed
+- The latest AWS CLI and `jq` installed
 - AWS credentials and region configured (`aws configure`)
 
 This tutorial requires that you have an OAuth 2.0 authorization server. If you do not
@@ -114,7 +115,6 @@ CLIENT_RESPONSE=$(aws cognito-idp create-user-pool-client \
   --user-pool-id $USER_POOL_ID \
   --client-name AgentCoreQuickStart \
   --generate-secret \
-  --callback-urls "https://bedrock-agentcore.`region`.amazonaws.com/identities/oauth2/callback" \
   --allowed-o-auth-flows "code" \
   --allowed-o-auth-scopes "openid" "profile" "email" \
   --allowed-o-auth-flows-user-pool-client \
@@ -127,7 +127,7 @@ CLIENT_SECRET=$(echo $CLIENT_RESPONSE | jq -r '.ClientSecret')
 
 # Generate random username and password
 USERNAME="AgentCoreTestUser$(printf "%04d" $((RANDOM % 10000)))"
-PASSWORD="$(LC_ALL=C tr -dc 'A-Za-z0-9!@#$%^&*()_+-=[]{}|;:,.<>?' < /dev/urandom | head -c 16)"
+PASSWORD="$(LC_ALL=C tr -dc 'A-Za-z0-9!@#$%^&*()_+-=[]{}|;:,.<>?' < /dev/urandom | head -c 16)$(LC_ALL=C tr -dc '0-9' < /dev/urandom | head -c 1)"
 
 # Create user with permanent password
 aws cognito-idp admin-create-user \
@@ -187,10 +187,9 @@ on behalf of your user.
 ```
 #!/bin/bash
 # please note the expected ISSUER_URL format for Bedrock AgentCore is the full url, including .well-known/openid-configuration
-aws bedrock-agentcore-control create-oauth2-credential-provider \
+OAUTH2_CREDENTIAL_PROVIDER_RESPONSE=$(aws bedrock-agentcore-control create-oauth2-credential-provider \
   --name "AgentCoreIdentityQuickStartProvider" \
   --credential-provider-vendor "CustomOauth2" \
-  --no-cli-pager \
   --oauth2-provider-config-input '{
     "customOauth2ProviderConfig": {
       "oauthDiscovery": {
@@ -199,7 +198,32 @@ aws bedrock-agentcore-control create-oauth2-credential-provider \
       "clientId": "'$CLIENT_ID'",
       "clientSecret": "'$CLIENT_SECRET'"
     }
-  }'
+  }' \
+  --output json)
+
+OAUTH2_CALLBACK_URL=$(echo $OAUTH2_CREDENTIAL_PROVIDER_RESPONSE | jq -r '.callbackUrl')
+
+echo "OAuth2 Callback URL: $OAUTH2_CALLBACK_URL"
+```
+
+## Step 2.5: Add the callback URL to your OAuth 2.0 authorization server
+
+To prevent unauthorized redirects, add the callback URL retrieved from [CreateOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md") or [GetOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_GetOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_GetOauth2CredentialProvider.md") to your OAuth 2.0 authorization server.
+
+If you are using the previous script to create an authorization server with Cognito, copy the EXPORT statements from the output into your
+terminal to set the environment variables and update the Cognito user pool client with the OAuth2 credential provider callback URL.
+
+```
+#!/bin/bash
+aws cognito-idp update-user-pool-client \
+    --user-pool-id $USER_POOL_ID \
+    --client-id $CLIENT_ID \
+    --client-name AgentCoreQuickStart \
+    --allowed-o-auth-flows "code" \
+    --allowed-o-auth-scopes "openid" "profile" "email" \
+    --allowed-o-auth-flows-user-pool-client \
+    --supported-identity-providers "COGNITO" \
+    --callback-urls "$OAUTH2_CALLBACK_URL"
 ```
 
 ## Step 3: Create a sample agent that
@@ -272,7 +296,8 @@ async def handle_auth_url(url):
     scopes=["openid"],
     auth_flow="USER_FEDERATION",
     on_auth_url=handle_auth_url, # streams authorization URL to client
-    force_authentication=True
+    force_authentication=True,
+    callback_url='insert_oauth2_callback_url_for_session_binding',
 )
 async def introspect_with_decorator(*, access_token: str):
     """Introspect token using decorator"""
@@ -404,8 +429,8 @@ prompted on your browser, or use your preferred authentication method you have
 configured. If you used the script from Step 1 to create a Cognito instance, you can
 retrieve this from your terminal history.
 
-Your browser should redirect you to the AgentCore Identity Success Page, and you should have a
-success message in your terminal.
+Your browser should redirect to your configured OAuth2 callback URL, which handles the [session binding flow](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md").
+Ensure your OAuth2 callback server provides clear success and error responses to indicate the authorization status.
 
 ###### Note
 

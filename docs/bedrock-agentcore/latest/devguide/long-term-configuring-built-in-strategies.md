@@ -2,9 +2,7 @@
 
 strategies
 
-AgentCore Memory provides three pre-configured,
-[built-in memory strategies](built-in-strategies.md "built-in-strategies.md") for
-common use cases.
+AgentCore Memory provides three pre-configured, [built-in memory strategies](built-in-strategies.md "built-in-strategies.md") for common use cases.
 
 ###### Topics
 
@@ -15,10 +13,10 @@ common use cases.
 ## User preferences
 
 The [user preferences](user-preference-memory-strategy.md "user-preference-memory-strategy.md")
-(`UserPreferenceMemoryStrategy`) strategy is designed to automatically identify
-and extract user preferences, choices, and styles from conversations. This lets
-your agent build a persistent profile of each user, leading to more personalized
-and relevant interactions.
+(`UserPreferenceMemoryStrategy`) strategy is designed to
+automatically identify and extract user preferences, choices, and styles from
+conversations. This lets your agent build a persistent profile of each user, leading
+to more personalized and relevant interactions.
 
 - **Example use case:** An e-commerce agent
   remembers a user's favorite brands and preferred size, letting it offer
@@ -49,16 +47,15 @@ memory = memory_manager.get_or_create_memory(
 ## Semantic
 
 The [Semantic](semantic-memory-strategy.md "semantic-memory-strategy.md")
-(`SemanticMemoryStrategy`) memory strategy is engineered to
-identify and extract key pieces of factual information and contextual knowledge
-from conversational data. This lets your agent build a persistent knowledge base
-about important entities, events, and details discussed during an
-interaction.
+(`SemanticMemoryStrategy`) memory strategy is engineered to identify
+and extract key pieces of factual information and contextual knowledge from
+conversational data. This lets your agent build a persistent knowledge base about
+important entities, events, and details discussed during an interaction.
 
 - **Example use case:** A customer support
-  agent remembers that order `#ABC-123` is related to a
-  specific support ticket, so the user doesn't have to provide the order
-  number again when following up.
+  agent remembers that order `#ABC-123` is related to a specific
+  support ticket, so the user doesn't have to provide the order number again
+  when following up.
 
 ###### Configuration example:
 
@@ -85,16 +82,15 @@ memory = memory_manager.get_or_create_memory(
 ## Session summaries
 
 The [session summaries](summary-strategy.md "summary-strategy.md")
-(`SummaryMemoryStrategy`) memory strategy creates condensed,
-running summaries of conversations as they happen within a single session. This
-captures the key topics and decisions, letting an agent quickly recall the
-context of a long conversation without needing to re-process the entire
-history.
+(`SummaryMemoryStrategy`) memory strategy creates condensed, running
+summaries of conversations as they happen within a single session. This captures the
+key topics and decisions, letting an agent quickly recall the context of a long
+conversation without needing to re-process the entire history.
 
 - **Example use case:** After a 30-minute
-  troubleshooting session, the agent can access a summary like, "User
-  reported issue with software v2.1, attempted a restart, and was provided
-  a link to the knowledge base article."
+  troubleshooting session, the agent can access a summary like, "User reported
+  issue with software v2.1, attempted a restart, and was provided a link to
+  the knowledge base article."
 
 ###### Configuration example:
 

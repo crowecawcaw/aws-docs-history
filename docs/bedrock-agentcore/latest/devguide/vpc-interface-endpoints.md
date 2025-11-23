@@ -4,7 +4,7 @@ create a private connection between your VPC and your Amazon Bedrock AgentCore r
 
 You can use AWS PrivateLink to create a private connection between your VPC and
 Amazon Bedrock AgentCore. You can access AgentCore as if it were in your VPC, without the use of an
-internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC
+internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC
 don't need public IP addresses to access AgentCore.
 
 You establish this private connection by creating an _interface

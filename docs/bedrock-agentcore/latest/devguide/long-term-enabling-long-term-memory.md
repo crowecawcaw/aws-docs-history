@@ -1,19 +1,16 @@
-# Enable long-term
+# Enable long-term memory
 
-memory
-
-You can enable long-term memory in two ways: by adding strategies when you
-first [create an
-AgentCore Memory](memory-create-a-memory-store.md "memory-create-a-memory-store.md"), or by updating an existing resource to include
-them.
+You can enable long-term memory in two ways: by adding strategies when you first [create an AgentCore Memory](memory-create-a-memory-store.md "memory-create-a-memory-store.md"), or by
+updating an existing resource to include them.
 
 ## Creating a new
 
 memory with long-term strategies
 
-The most direct method is to include strategies when you create a new AgentCore Memory.
-After calling `get_or_create_memory`, you must wait for the AgentCore Memory
-status to become `ACTIVE` before you can use it.
+The most direct method is to include strategies when you create a new
+AgentCore Memory. After calling `get_or_create_memory`, you must wait for
+the AgentCore Memory status to become `ACTIVE` before you can use
+it.
 
 ###### Example Create a new AgentCore Memory
 
@@ -42,13 +39,13 @@ print(f"Memory resource is now ACTIVE with ID: {memory_id}")
 
 ```
 
-## Adding
+## Adding long-term
 
-long-term strategies to an existing AgentCore Memory
+strategies to an existing AgentCore Memory
 
 To add long-term capabilities to an existing AgentCore Memory, you use the
-`update_memory_strategies` operation. You can add, modify or
-delete strategies for an existing memory.
+`update_memory_strategies` operation. You can add, modify or delete
+strategies for an existing memory.
 
 ###### Example Add a Session Summary strategy to an existing AgentCore Memory
 
@@ -84,6 +81,6 @@ print(f"Memory strategies for memoryID: {memory_id} are: {memory_strategies}")
 ###### Note
 
 Long-term memory records will only be extracted from conversational events
-that are stored **after** a new strategy
-becomes `ACTIVE`. Conversations stored before a strategy is added
-will not be processed for long-term memory.
+that are stored **after** a new strategy becomes
+`ACTIVE`. Conversations stored before a strategy is added will
+not be processed for long-term memory.

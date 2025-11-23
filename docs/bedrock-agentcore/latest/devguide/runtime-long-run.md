@@ -28,10 +28,11 @@ logic.
 
 management
 
-Agent code communicates its processing status using the "/ping" health status.
-"HealthyBusy" indicates the agent is busy processing background tasks, while
-"Healthy" indicates it is idle (waiting for requests). A session in idle state for
-15 minutes gets automatically terminated.
+Agent code communicates its processing status using the "/ping" endpoint health
+status. 200 HTTP Status response with payload `{"status": "HealthyBusy"}`
+indicates the agent is busy processing background tasks. `{"status":
+ "Healthy"}` indicates it is idle (waiting for requests). A session in idle
+state for 15 minutes gets automatically terminated.
 
 ## Implementing asynchronous tasks
 
@@ -41,8 +42,10 @@ To get started, install the `bedrock-agentcore` package:
 pip install bedrock-agentcore
 ```
 
-### API based task management
+AgentCore SDK provides following options for integration asynchronous
+processing.
 
+API based task management
 To build interactive agents that perform asynchronous tasks, you need to call
 `add_async_task` when starting a task and
 `complete_async_task` when the task completes. The SDK handles task
@@ -58,33 +61,7 @@ task_id = app.add_async_task("data_processing")
 app.complete_async_task(task_id)
 ```
 
-### Asynchronous task decorator
-
-The Amazon Bedrock AgentCore SDK helps with tracking asynchronous tasks. You can get started by
-simply annotating your asynchronous functions with `@app.async_task`.
-
-```
-# Automatically track asynchronous functions:
-@app.async_task
-async def background_work():
-    await asyncio.sleep(10)  # Status becomes "HealthyBusy"
-    return "done"
-
-@app.entrypoint
-async def handler(event):
-    asyncio.create_task(background_work())
-    return {"status": "started"}
-```
-
-Here is how it works:
-
-- The `@app.async_task` decorator tracks function
-  execution
-- When the function runs, ping status changes to "HealthyBusy"
-- When the function completes, status returns to "Healthy"
-
-### Custom ping handler
-
+Custom ping handler
 You can implement your own custom ping handler to manage the Runtime Session's
 state. Your agent's health is reported through the /ping endpoint:
 
@@ -100,6 +77,12 @@ Status values:
 
 - "Healthy": Ready for new work
 - "HealthyBusy": Processing background task
+
+###### Important
+
+Ensure `@app.entrypoint` handler does not perform blocking
+operations, as this might also block the /ping health check endpoint. Use
+separate threads or async methods for blocking operations.
 
 ## Complete example
 
@@ -156,3 +139,17 @@ This example demonstrates:
   `complete_async_task`
 - Responding immediately to the user while processing continues
 - Managing the agent's health status automatically
+
+## Common issues and solutions
+
+### Long-running agent gets
+
+terminated after 15 minutes
+
+This can happen when the application is single threaded and the ping
+thread is blocked.
+
+- Check that blocking calls in the invocation path are in a separate thread or
+  async non-blocking
+- Run async agent server locally and simulate scenarios while checking for
+  ping status.

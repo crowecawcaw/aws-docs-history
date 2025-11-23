@@ -1,30 +1,21 @@
-# System prompt for summary
-
-strategy
+# System prompt for summary strategy
 
 A system prompt is a combination of:
 
-- A set of instructions that guide the LLM's behavior. It can
-  include step-by-step processing guidelines (how the model should
-  reason and extract or consolidate information).
-- Output Schema - how the model should present the
-  result.
-  This system prompt is sent to the LLM during memory consolidation
-  step.
+- A set of instructions that guide the LLM's behavior. It can include
+  step-by-step processing guidelines (how the model should reason and extract or
+  consolidate information).
+- Output Schema - how the model should present the result.
+  This system prompt is sent to the LLM during memory consolidation step.
 
-There is no extraction step for summary strategy. Summary generation
-happens in a single consolidation step.
+There is no extraction step for summary strategy. Summary generation happens in a
+single consolidation step.
 
-## Consolidation
+## Consolidation instructions
 
-instructions
+There are no consolidation instructions for built-in summary strategy.
 
-There are no consolidation instructions for built-in summary
-strategy.
-
-## Consolidation output
-
-schema
+## Consolidation output schema
 
 ```
 
@@ -88,11 +79,10 @@ The XML format of each summary is as it follows:
 
 ###### Note
 
-Built-in strategies may use cross-region inference for
-optimal performance and availability.
+Built-in strategies may use cross-region inference for optimal performance and
+availability.
 
-Built-in strategies may use [cross-region inference](../../../bedrock/latest/userguide/cross-region-inference.md "../../../bedrock/latest/userguide/cross-region-inference.md"). Bedrock will automatically
-select the optimal region within your geography to process your
-inference request, maximizing available compute resources and model
-availability, and providing the best customer experience. There's no
-additional cost for using cross-region inference.
+Built-in strategies may use [cross-region inference](../../../bedrock/latest/userguide/cross-region-inference.md "../../../bedrock/latest/userguide/cross-region-inference.md"). Bedrock will automatically select the optimal
+region within your geography to process your inference request, maximizing available
+compute resources and model availability, and providing the best customer experience.
+There's no additional cost for using cross-region inference.

@@ -47,7 +47,7 @@ def _get_bedrock_model(model_id):
 mcp_client = MCPClient(_create_streamable_http_transport)
 
 if __name__ == "__main__":
-    user_prompt = "What all orders do I have?"
+    user_prompt = "What orders do I have?"
     _response = _invoke_agent(
         bedrock_model=_get_bedrock_model("us.anthropic.claude-sonnet-4-20250514-v1:0"),
         mcp_client=mcp_client,

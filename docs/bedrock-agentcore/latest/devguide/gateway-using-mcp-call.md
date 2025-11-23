@@ -15,7 +15,7 @@ Replace the following values:
 
 - `${GatewayEndpoint}` – The URL of the gateway, as provided in the response of the [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") API.
 - `${Authorization header}` – The authorization credentials from the identity provider when you set up [inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md").
-- `${RequestBody}` – The JSON payload of the request body, as specified in [Calling tools](../../../https:/modelcontextprotocol.io/specification/2025-06-18/server/tools.md#calling-tools "../../../https:/modelcontextprotocol.io/specification/2025-06-18/server/tools.md#calling-tools") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro"). Include `tools/call` as the `method` and include the `name` of the tool and its `arguments`.
+- `${RequestBody}` – The JSON payload of the request body, as specified in [Calling tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#calling-tools "https://modelcontextprotocol.io/specification/2025-06-18/server/tools#calling-tools") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro"). Include `tools/call` as the `method` and include the `name` of the tool and its `arguments`.
   The response returns the content returned by the tool and associated metadata.
 
 ## Code samples for calling tools
@@ -253,4 +253,4 @@ An internal server error occurred.
 
 **HTTP Status Code**: 500
 
-- MCP errors. For more information about these types of errors, [Error Handling](../../../https:/modelcontextprotocol.io/specification/2024-11-05/server/tools.md#error-handlinghttps://modelcontextprotocol.io/specification/2024-11-05/server/tools#error-handling "../../../https:/modelcontextprotocol.io/specification/2024-11-05/server/tools.md#error-handlinghttps://modelcontextprotocol.io/specification/2024-11-05/server/tools#error-handling") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") documentation.
+- MCP errors. For more information about these types of errors, [Error Handling](https://modelcontextprotocol.io/specification/2024-11-05/server/tools#error-handlinghttps://modelcontextprotocol.io/specification/2024-11-05/server/tools#error-handling "https://modelcontextprotocol.io/specification/2024-11-05/server/tools#error-handlinghttps://modelcontextprotocol.io/specification/2024-11-05/server/tools#error-handling") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") documentation.

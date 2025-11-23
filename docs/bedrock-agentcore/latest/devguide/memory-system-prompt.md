@@ -7,8 +7,7 @@ A system prompt is a combination of:
 - A set of instructions that guide the LLM's behavior. It can
   include step-by-step processing guidelines (how the model should
   reason and extract or consolidate information).
-- Output Schema - how the model should present the
-  result.
+- Output Schema - how the model should present the result.
   This system prompt is sent to the LLM during memory extraction and
   consolidation step.
 
@@ -56,9 +55,7 @@ Your output must be a single JSON object, which is a list of JSON dicts followin
 </schema>
 ```
 
-## Consolidation
-
-instructions
+## Consolidation instructions
 
 ```
 You are a conservative memory manager that preserves existing information while carefully integrating new facts.

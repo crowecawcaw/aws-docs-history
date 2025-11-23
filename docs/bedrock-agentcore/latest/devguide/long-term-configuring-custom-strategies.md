@@ -1,15 +1,16 @@
-# Configure built-in with overrides strategies
+# Configure built-in with
 
-For advanced use cases,
-[built-in with overrides](memory-custom-strategy.md "memory-custom-strategy.md") strategies give you fine-grained control over the
-memory extraction process. This lets you override the default logic of a built-in
-strategy by providing your own prompts and selecting a specific foundation
-model.
+overrides strategies
 
-- **Example use case:** A travel agent bot
-  needs to extract very specific details about a user's flight preferences and
-  consolidate new preferences with existing ones, such as adding a seating
-  preference to a previously stated airline preference.
+For advanced use cases, [built-in with
+overrides](memory-custom-strategy.md "memory-custom-strategy.md") strategies give you fine-grained control over the memory extraction
+process. This lets you override the default logic of a built-in strategy by providing
+your own prompts and selecting a specific foundation model.
+
+- **Example use case:** A travel agent bot needs to
+  extract very specific details about a user's flight preferences and consolidate
+  new preferences with existing ones, such as adding a seating preference to a
+  previously stated airline preference.
 
 ###### Topics
 
@@ -22,14 +23,13 @@ model.
 
 execution role
 
-When you use a built-in with overrides strategy, AgentCore Memory invokes an Amazon Bedrock model
-in your account on your behalf. To grant the service permission to do this, you
-must create an IAM role (an execution role) and pass its ARN when creating the
-memory in `memoryExecutionRoleArn` field of the
+When you use a built-in with overrides strategy, AgentCore Memory invokes an Amazon
+Bedrock model in your account on your behalf. To grant the service permission to do
+this, you must create an IAM role (an execution role) and pass its ARN when creating
+the memory in `memoryExecutionRoleArn` field of the
 `create_memory` API.
 
-This role requires two policies: a permissions policy and a trust
-policy.
+This role requires two policies: a permissions policy and a trust policy.
 
 ### 1. Permissions policy
 
@@ -64,9 +64,9 @@ or create a policy with the following permissions:
 
 ### 2. Trust policy
 
-This role is assumed by the Service to call the model in your AWS
-account. Use the trust policy below when creating the role or when using the
-managed policy:
+This role is assumed by the Service to call the model in your AWS account.
+Use the trust policy below when creating the role or when using the managed
+policy:
 
 ```
 
@@ -102,8 +102,8 @@ For information about creating an IAM role, see [IAM role creation](../../../IAM
 
 example
 
-This example demonstrates how to override both the extraction and
-consolidation steps for user preferences.
+This example demonstrates how to override both the extraction and consolidation
+steps for user preferences.
 
 ```
 # Custom instructions for the EXTRACTION step.

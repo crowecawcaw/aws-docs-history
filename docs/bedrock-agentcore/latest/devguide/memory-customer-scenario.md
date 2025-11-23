@@ -2,33 +2,34 @@
 
 AgentCore Memory
 
-In this section you learn how to build a customer support AI agent that uses AgentCore Memory to
-provide personalized assistance by maintaining conversation history and
-extracting long-term insights about user preferences. The topic includes code examples
-for the Amazon Bedrock AgentCore toolkit and the AWS SDK.
+In this section you learn how to build a customer support AI agent that uses
+AgentCore Memory to provide personalized assistance by maintaining conversation history
+and extracting long-term insights about user preferences. The topic includes code
+examples for the Amazon Bedrock AgentCore toolkit and the AWS SDK.
 
-Consider a customer, Sarah, who engages with your shopping website's support AI
-agent to inquire about a delayed order. The interaction flow through the
-AgentCore Memory APIs would look like this:
+Consider a customer, Sarah, who engages with your shopping website's support AI agent
+to inquire about a delayed order. The interaction flow through the AgentCore Memory APIs
+would look like this:
 
 ![Memory AgentCore Memory](images/memory-short-long-term.png)
 
 ###### Topics
 
-- [Step 1: Create a AgentCore Memory](#create-memory-resource "#create-memory-resource")
+- [Step 1: Create an AgentCore Memory](#create-memory-resource "#create-memory-resource")
 - [Step 2: Start the session](#start-session "#start-session")
-- [Step 3: Capture the conversation history](#capture-conversation "#capture-conversation")
+- [Step 3: Capture the conversation
+  history](#capture-conversation "#capture-conversation")
 - [Step 4: Generate long-term memory](#generate-longterm-memory "#generate-longterm-memory")
 - [Step 5: Retrieve past interactions from
   short-term memory](#retrieve-shortterm-memory "#retrieve-shortterm-memory")
-- [Step 6: Use long-term memories for personalized
-  assistance](#use-longterm-memory "#use-longterm-memory")
+- [Step 6: Use long-term memories for
+  personalized assistance](#use-longterm-memory "#use-longterm-memory")
 
-## Step 1: Create a AgentCore Memory
+## Step 1: Create an AgentCore Memory
 
-First, you create a memory resource with both short-term and long-term
-memory capabilities, configuring the strategies for what long-term
-information to extract.
+First, you create a memory resource with both short-term and long-term memory
+capabilities, configuring the strategies for what long-term information to
+extract.
 
 Starter toolkit
 
@@ -115,8 +116,8 @@ while True:
 
 ## Step 2: Start the session
 
-When Sarah initiates the conversation, the agent creates a new, and
-unique, session ID to track this interaction separately.
+When Sarah initiates the conversation, the agent creates a new, and unique,
+session ID to track this interaction separately.
 
 Starter toolkit
 
@@ -155,12 +156,14 @@ print(f"Session started for Actor ID: {sarah_actor_id}, Session ID: {support_ses
 
 ```
 
-## Step 3: Capture the conversation history
+## Step 3: Capture the conversation
+
+history
 
 As Sarah explains her issue, the agent captures each turn of the conversation
-(both her questions and the agent's responses). This populates the the full
-conversation in short-term memory and provides the raw data for the long-term
-memory strategies to process.
+(both her questions and the agent's responses). This populates the full
+conversation in short-term memory and provides the raw data for the long-term memory
+strategies to process.
 
 Starter toolkit
 
@@ -225,18 +228,18 @@ print("Conversation history has been captured in short-term memory.")
 
 ## Step 4: Generate long-term memory
 
-In the background, the asynchronous extraction process runs. This
-process analyzes the recent raw events using your configured memory
-strategies to extract long-term memories such as summaries, semantic
-facts, or user preferences, which are then stored for future use.
+In the background, the asynchronous extraction process runs. This process analyzes
+the recent raw events using your configured memory strategies to extract long-term
+memories such as summaries, semantic facts, or user preferences, which are then
+stored for future use.
 
 ## Step 5: Retrieve past interactions from
 
 short-term memory
 
-o provide context-aware assistance, the agent loads the current conversation
-history. This helps the agent understand what issues Sarah has raised in the
-ongoing chat.
+To provide context-aware assistance, the agent loads the current conversation
+history. This helps the agent understand what issues Sarah has raised in the ongoing
+chat.
 
 Starter toolkit
 
@@ -267,15 +270,14 @@ event_list = reversed(response.get('events', []))
 for event in event_list: print(event)
 ```
 
-## Step 6: Use long-term memories for personalized
+## Step 6: Use long-term memories for
 
-assistance
+personalized assistance
 
-The agent performs a semantic search across extracted long-term memories to
-find relevant insights about Sarah's preferences, order history, or past
-concerns. This lets the agent provide highly personalized assistance without
-needing to ask Sarah to repeat information she has already shared in previous
-chats.
+The agent performs a semantic search across extracted long-term memories to find
+relevant insights about Sarah's preferences, order history, or past concerns. This
+lets the agent provide highly personalized assistance without needing to ask Sarah
+to repeat information she has already shared in previous chats.
 
 Starter toolkit
 
@@ -338,6 +340,6 @@ for record in issue_response.get('memoryRecordSummaries', []):
 ```
 
 This integrated approach lets the agent maintain rich context across sessions,
-recognize returning customers, recall important details, and deliver
-personalized experiences seamlessly, resulting in faster, more natural, and
-effective customer support.
+recognize returning customers, recall important details, and deliver personalized
+experiences seamlessly, resulting in faster, more natural, and effective customer
+support.

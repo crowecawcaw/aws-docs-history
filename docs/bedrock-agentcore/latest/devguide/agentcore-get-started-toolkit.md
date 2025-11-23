@@ -65,7 +65,7 @@ Install the AgentCore starter toolkit:
 ```
 # Create virtual environment
 python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+source .venv/bin/activate # On Windows: .venv\Scripts\activate
 
 # Install required packages (version 0.1.21 or later)
 pip install "bedrock-agentcore-starter-toolkit>=0.1.21" strands-agents strands-agents-tools boto3
@@ -73,9 +73,9 @@ pip install "bedrock-agentcore-starter-toolkit>=0.1.21" strands-agents strands-a
 
 ## Step 1: Create the agent
 
-Create `agentcore_starter_strands.py`:
+Create `agent.py`:
 
-```
+````
 """
 Strands Agent sample with AgentCore
 """
@@ -90,54 +90,72 @@ app = BedrockAgentCoreApp()
 
 MEMORY_ID = os.getenv("BEDROCK_AGENTCORE_MEMORY_ID")
 REGION = os.getenv("AWS_REGION")
-MODEL_ID = "us.anthropic.claude-3-7-sonnet-20250219-v1:0"
+MODEL_ID = "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+
+
+def format_response(result) -> str:
+    """Extract code from metrics and format with LLM response."""
+    parts = []
+
+    # Extract executed code from metrics
+    try:
+        tool_metrics = result.metrics.tool_metrics.get('code_interpreter')
+        if tool_metrics and hasattr(tool_metrics, 'tool'):
+            action = tool_metrics.tool['input']['code_interpreter_input']['action']
+            if 'code' in action:
+                parts.append(f"## Executed Code:\n```{action.get('language', 'python')}\n{action['code']}\n```\n---\n")
+    except (AttributeError, KeyError):
+        pass  # No code to extract
+
+    # Add LLM response
+    parts.append(f"## 📊 Result:\n{str(result)}")
+    return "\n".join(parts)
 
 @app.entrypoint
 def invoke(payload, context):
-    actor_id = "quickstart-user"
-
-    # Get runtime session ID for isolation
-    session_id = getattr(context, 'session_id', None)
+    session_id = getattr(context, 'session_id', 'default')
 
     # Configure memory if available
     session_manager = None
     if MEMORY_ID:
-        memory_config = AgentCoreMemoryConfig(
-            memory_id=MEMORY_ID,
-            session_id=session_id or 'default',
-            actor_id=actor_id,
-            retrieval_config={
-                f"/users/{actor_id}/facts": RetrievalConfig(top_k=3, relevance_score=0.5),
-                f"/users/{actor_id}/preferences": RetrievalConfig(top_k=3, relevance_score=0.5)
-            }
+        session_manager = AgentCoreMemorySessionManager(
+            AgentCoreMemoryConfig(
+                memory_id=MEMORY_ID,
+                session_id=session_id,
+                actor_id="quickstart-user",
+                retrieval_config={
+                    "/users/quickstart-user/facts": RetrievalConfig(top_k=3, relevance_score=0.5),
+                    "/users/quickstart-user/preferences": RetrievalConfig(top_k=3, relevance_score=0.5)
+                }
+            ),
+            REGION
         )
-        session_manager = AgentCoreMemorySessionManager(memory_config, REGION)
 
-    # Create Code Interpreter with runtime session binding
+    # Create code interpreter
     code_interpreter = AgentCoreCodeInterpreter(
         region=REGION,
         session_name=session_id,
-        auto_create=True
+        auto_create=True,
+        persist_sessions=True
     )
 
+    # Create agent
     agent = Agent(
         model=MODEL_ID,
         session_manager=session_manager,
-        system_prompt="""You are a helpful assistant with code execution capabilities. Use tools when appropriate.
-Response format when using code:
-1. Brief explanation of your approach
-2. Code block showing the executed code
-3. Results and analysis
-""",
+        system_prompt="You are a helpful assistant with code execution capabilities. Use tools when appropriate.",
         tools=[code_interpreter.code_interpreter]
     )
 
+    # Execute and format response
     result = agent(payload.get("prompt", ""))
-    return {"response": result.message.get('content', [{}])[0].get('text', str(result))}
+    return {"response": format_response(result)}
+
 
 if __name__ == "__main__":
     app.run()
-```
+
+````
 
 Create `requirements.txt`:
 
@@ -145,6 +163,7 @@ Create `requirements.txt`:
 strands-agents
 bedrock-agentcore
 strands-agents-tools
+aws-opentelemetry-distro
 ```
 
 ## Step 2: Configure and deploy the
@@ -157,26 +176,26 @@ In this step, you'll use the AgentCore CLI to configure and deploy your agent.
 
 Configure the agent with memory and execution settings:
 
-**For this tutorial**: When prompted for the execution role,
-press Enter to auto-create a new role with all required permissions for the Runtime, Memory,
-Code Interpreter, and Observability features. When prompted for long-term memory, type
-`yes`.
+**For this tutorial**: When prompted for deployment type, press Enter to use the recommended Direct Code Deploy option. When prompted for the execution role, press Enter to auto-create a new role with all required permissions for the Runtime, Memory, Code Interpreter, and Observability features. When prompted for long-term memory, type `yes`.
 
 ```
-agentcore configure -e agentcore_starter_strands.py
+agentcore configure -e agent.py
 
 #Interactive prompts you'll see:
 
-# 1. Execution Role: Press Enter to auto-create or provide existing role ARN/name
-# 2. ECR Repository: Press Enter to auto-create or provide existing ECR URI
-# 3. Requirements File: Confirm the detected requirements.txt file or specify a different path
-# 4. OAuth Configuration: Configure OAuth authorizer? (yes/no) - Type `no` for this tutorial
-# 5. Request Header Allowlist: Configure request header allowlist? (yes/no) - Type `no` for this tutorial
-# 6. Memory Configuration:
-#    - If existing memories found: Choose from list or press Enter to create new
-#    - If creating new: Enable long-term memory extraction? (yes/no) - Type `yes` for this tutorial
-#    - Note: Short-term memory is always enabled by default
-#    - Type `s` to skip memory setup
+# 1. Dependency File: Confirm the detected requirements.txt file or specify a different path
+# 2. Deployment Configuration:
+#  - Select deployment type (1 for Direct Code Deploy - recommended, 2 for Container)
+#  - If Direct Code Deploy: Select Python runtime version (1 for PYTHON_3_10)
+# 3. Execution Role: Press Enter to auto-create or provide existing role ARN/name
+# 4. S3 Bucket: Press Enter to auto-create or provide existing S3 URI/path
+# 5. Authorization Configuration: Configure OAuth authorizer? (yes/no) - Type `no` for this tutorial
+# 6. Request Header Allowlist: Configure request header allowlist? (yes/no) - Type `no` for this tutorial
+# 7. Memory Configuration:
+#  - If existing memories found: Choose from list or press Enter to create new
+#  - If creating new: Enable long-term memory extraction? (yes/no) - Type `yes` for this tutorial
+#  - Note: Short-term memory is always enabled by default
+#  - Type `s` to skip memory setup
 ```
 
 ###### Note
@@ -194,12 +213,12 @@ Launch your agent to the AgentCore runtime environment:
 agentcore launch
 
 # This performs:
-#   1. Memory resource provisioning (STM + LTM strategies)
-#   2. Docker container build with dependencies
-#   3. ECR repository push
-#   4. AgentCore Runtime deployment with X-Ray tracing enabled
-#   5. CloudWatch Transaction Search configuration (automatic)
-#   6. Endpoint activation with trace collection
+#  1. Memory resource provisioning (STM + LTM strategies)
+#  2. Docker container build with dependencies
+#  3. ECR repository push
+#  4. AgentCore Runtime deployment with X-Ray tracing enabled
+#  5. CloudWatch Transaction Search configuration (automatic)
+#  6. Endpoint activation with trace collection
 ```
 
 Expected output:
@@ -209,19 +228,19 @@ provisioning may take 2-5 minutes to activate:
 
 ```
 Creating memory resource for agent: agentcore_starter_strands
-⏳ Creating memory resource (this may take 30-180 seconds)...
+:hourglass_flowing_sand: Creating memory resource (this may take 30-180 seconds)...
 Created memory: agentcore_starter_strands_mem-abc123
 Waiting for memory agentcore_starter_strands_mem-abc123 to return to ACTIVE state...
-⏳ Memory: CREATING (61s elapsed)
-⏳ Memory: CREATING (92s elapsed)
-⏳ Memory: CREATING (123s elapsed)
-✅ Memory is ACTIVE (took 159s)
-✅ Memory created and active: agentcore_starter_strands_mem-abc123
+:hourglass_flowing_sand: Memory: CREATING (61s elapsed)
+:hourglass_flowing_sand: Memory: CREATING (92s elapsed)
+:hourglass_flowing_sand: Memory: CREATING (123s elapsed)
+:white_check_mark: Memory is ACTIVE (took 159s)
+:white_check_mark: Memory created and active: agentcore_starter_strands_mem-abc123
 Observability is enabled, configuring Transaction Search...
-✅ Transaction Search configured: resource_policy, trace_destination, indexing_rule
-🔍 GenAI Observability Dashboard:
-   https://console.aws.amazon.com/cloudwatch/home?region=us-west-2#gen-ai-observability/agent-core
-✅ Container deployed to Bedrock AgentCore
+:white_check_mark: Transaction Search configured: resource_policy, trace_destination, indexing_rule
+:mag: GenAI Observability Dashboard:
+  https://console.aws.amazon.com/cloudwatch/home?region=us-west-2#gen-ai-observability/agent-core
+:white_check_mark: Container deployed to Bedrock AgentCore
 Agent ARN: arn:aws:bedrock-agentcore:us-west-2:123456789:runtime/starter_agent-xyz
 ```
 
@@ -229,8 +248,7 @@ If the deployment encounters errors or behaves unexpectedly, check your
 configuration:
 
 ```
-cat .bedrock_agentcore.yaml  # Review deployed configuration
-agentcore status              # Verify resource provisioning status
+cat .bedrock_agentcore.yaml # Review deployed configuration
 ```
 
 ## Step 3: Monitor the deployment
@@ -241,10 +259,10 @@ Check the agent's deployment status:
 agentcore status
 
 # Shows:
-#   Memory ID: bedrock_agentcore_memory_ci_agent_memory-abc123
-#   Memory Type: STM+LTM (3 strategies) (when active with strategies)
-#   Memory Type: STM only (if configured without LTM)
-#   Observability: Enabled
+#  Memory ID: bedrock_agentcore_memory_ci_agent_memory-abc123
+#  Memory Type: STM+LTM (3 strategies) (when active with strategies)
+#  Memory Type: STM only (if configured without LTM)
+#  Observability: Enabled
 ```
 
 ## Step 4: Test Memory and Code
@@ -253,8 +271,6 @@ Interpreter
 
 In this section, you'll test your agent's memory capabilities and code execution
 features.
-
-### Test short-term memory
 
 Test short-term memory within a single session:
 
@@ -268,10 +284,6 @@ agentcore invoke '{"prompt": "What is my favorite agent platform?"}'
 # Expected response:
 # "Your favorite agent platform is AgentCore."
 ```
-
-### Test long-term memory – cross-session
-
-persistence
 
 Long-term memory (LTM) lets information persist across different sessions. This requires
 waiting for long-term memory to be extracted before starting a new session.
@@ -299,8 +311,6 @@ agentcore invoke '{"prompt": "Tell me about myself?"}' --session-id $SESSION_ID
 # "Your email address is user@example.com."
 # "You appear to be a user of AgentCore, which seems to be your favorite agent platform."
 ```
-
-### Test Code Interpreter
 
 Test AgentCore Code Interpreter:
 
@@ -363,11 +373,11 @@ Remove all resources created during this tutorial:
 agentcore destroy
 
 # Removes:
-#   - AgentCore Runtime endpoint and agent
-#   - AgentCore Memory resources (short- and long-term memory)
-#   - Amazon ECR repository and images
-#   - IAM roles (if auto-created)
-#   - CloudWatch log groups (optional)
+#  - AgentCore Runtime endpoint and agent
+#  - AgentCore Memory resources (short- and long-term memory)
+#  - Amazon ECR repository and images
+#  - IAM roles (if auto-created)
+#  - CloudWatch log groups (optional)
 ```
 
 ## Troubleshooting
@@ -383,8 +393,8 @@ AgentCore starter toolkit. Make sure you have version 0.1.21 or later installed:
 
 ```
 # Step 1: Verify current state
-which python   # Should show .venv/bin/python
-which agentcore  # Currently showing global path
+which python  # Should show .venv/bin/python
+which agentcore # Currently showing global path
 
 # Step 2: Deactivate and reactivate venv to reset PATH
 deactivate
@@ -407,9 +417,9 @@ which agentcore
 pip install --force-reinstall --no-cache-dir "bedrock-agentcore-starter-toolkit>=0.1.21"
 
 # Step 7: Final verification
-which agentcore  # Must show: /path/to/your-project/.venv/bin/agentcore
-pip show bedrock-agentcore-starter-toolkit  # Verify version >= 0.1.21
-agentcore --version  # Double check it's working
+which agentcore # Must show: /path/to/your-project/.venv/bin/agentcore
+pip show bedrock-agentcore-starter-toolkit # Verify version >= 0.1.21
+agentcore --version # Double check it's working
 
 # Step 8: Try configure again
 agentcore configure -e agentcore_starter_strands.py
@@ -439,11 +449,11 @@ pip install --no-cache-dir "bedrock-agentcore-starter-toolkit>=0.1.21" strands-a
 agentcore destroy
 
 # This removes:
-#   - AgentCore Runtime endpoint and agent
-#   - AgentCore Memory resources (short- and long-term memory)
-#   - Amazon ECR repository and images
-#   - IAM roles (if auto-created)
-#   - CloudWatch log groups (optional)
+#  - AgentCore Runtime endpoint and agent
+#  - AgentCore Memory resources (short- and long-term memory)
+#  - Amazon ECR repository and images
+#  - IAM roles (if auto-created)
+#  - CloudWatch log groups (optional)
 ```
 
 2. Verify your AWS CLI is configured for the correct Region:

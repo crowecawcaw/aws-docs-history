@@ -19,7 +19,7 @@ The following topics describe how to invoke your AgentCore gateway:
 
 ###### Topics
 
-- [Authorize and authenticate to a AgentCore gateway and gateway target](gateway-using-auth.md "gateway-using-auth.md")
+- [Authorize and authenticate to an AgentCore gateway and gateway target](gateway-using-auth.md "gateway-using-auth.md")
 - [List available tools in an AgentCore gateway](gateway-using-mcp-list.md "gateway-using-mcp-list.md")
 - [Call a tool in a AgentCore gateway](gateway-using-mcp-call.md "gateway-using-mcp-call.md")
 - [Search for tools in your AgentCore gateway with a natural language query](gateway-using-mcp-semantic-search.md "gateway-using-mcp-semantic-search.md")

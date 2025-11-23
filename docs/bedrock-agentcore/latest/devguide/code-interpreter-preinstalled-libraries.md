@@ -285,6 +285,23 @@ The AgentCore Code Interpreter comes with a comprehensive set of pre-installed P
 | `pyshp`                          | Shapefile library                 |
 | `branca`                         | HTML/JS template library for maps |
 
+## Document Processing Support
+
+| Document Processing Support libraries | Library                                                      | Description |
+| ------------------------------------- | ------------------------------------------------------------ | ----------- |
+| `python-pptx`                         | Create and update PowerPoint (.pptx) files                   |
+| `defusedxml`                          | XML bomb protection for Python stdlib modules                |
+| `markitdown`                          | Convert various file formats to Markdown                     |
+| `xlwt`                                | Write data and formatting information to Excel files         |
+| `odfpy`                               | API for OpenDocument Format documents                        |
+| `docx-mailmerge`                      | Mail merge for Word documents                                |
+| `docxcompose`                         | Compose Word documents by concatenating/appending            |
+| `html5lib`                            | Standards-compliant library for parsing and serializing HTML |
+| `xmltodict`                           | Convert XML to Python dictionaries                           |
+| `tabula-py`                           | Extract tables from PDF files                                |
+| `pypandoc`                            | Python wrapper for Pandoc document converter                 |
+| `pypdf`                               | Pure Python PDF library for splitting, merging, cropping     |
+
 For a complete list of all pre-installed libraries with their specific versions, you can run the following code in your Code Interpreter session:
 
 ```

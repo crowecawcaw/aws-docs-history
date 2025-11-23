@@ -113,6 +113,7 @@ Before you begin, make sure you have:
 - Basic understanding of Python programming
 - Familiarity with Docker containers (for advanced deployment)
 - Set up a basic agent with runtime successfully
+- The latest AWS CLI and `jq` installed
 - Basic understanding of OAuth authorization, mainly JWT bearer tokens, claims,
   and the various grant flows
 
@@ -167,8 +168,8 @@ bedrock-agentcore
 To set up a Cognito user pool and create a user, you'll use a shell script that
 automates the process.
 
-For more information, see [Step 2: Set up an OAuth 2.0 Credential
-Provider](identity-getting-started-google.md#identity-getting-started-step2 "identity-getting-started-google.md#identity-getting-started-step2").
+For more information, see [Step 2: Import Identity and Auth
+modules](identity-getting-started-google.md#identity-getting-started-step2 "identity-getting-started-google.md#identity-getting-started-step2").
 
 ###### To set up Cognito user pool and create a user
 
@@ -388,11 +389,12 @@ Fetch a bearer token for the user you created with Amazon Cognito.
 
 ```
 # use the password and other details used when you created the cognito user
-            export TOKEN=$(aws cognito-idp initiate-auth \
-            --client-id "$CLIENT_ID" \
-            --auth-flow USER_PASSWORD_AUTH \
-            --auth-parameters USERNAME='testuser',PASSWORD='`PASSWORD`' \
-            --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
+
+export TOKEN=$(aws cognito-idp initiate-auth \
+    --client-id "$CLIENT_ID" \
+    --auth-flow USER_PASSWORD_AUTH \
+    --auth-parameters USERNAME='testuser',PASSWORD='`PASSWORD`' \
+    --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
 ```
 
 Proceed to invoke the agent with the rest of the following instructions.
@@ -518,7 +520,7 @@ To set up a Google Credential Provider, you need to:
 2. Create an OAuth credential provider using the AWS CLI. Replace `your-client-id` and `your-client-secret` with your actual Google OAuth2 client ID and client secret:
 
 ```
-aws bedrock-agentcore-control create-oauth2-credential-provider \
+OAUTH2_CREDENTIAL_PROVIDER_RESPONSE=$(aws bedrock-agentcore-control create-oauth2-credential-provider \
   --name "google-provider" \
   --credential-provider-vendor "GoogleOauth2" \
   --oauth2-provider-config-input '{
@@ -526,8 +528,19 @@ aws bedrock-agentcore-control create-oauth2-credential-provider \
         "clientId": "`your-client-id`",
         "clientSecret": "`your-client-secret`"
       }
-    }'
+    }' \
+--output json)
+
+OAUTH2_CALLBACK_URL=$(echo $OAUTH2_CREDENTIAL_PROVIDER_RESPONSE | jq -r '.callbackUrl')
+
+echo "OAuth2 Callback URL: $OAUTH2_CALLBACK_URL"
 ```
+
+###### Note
+
+Obtain the `callbackUrl` from the [CreateOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md")
+response above and add the URI to your Google application's redirect URI
+list. The callback URL should look like: `https://bedrock-agentcore.us-east-1.amazonaws.com/identities/oauth2/callback/********-****-****-****-************`
 
 Make sure your invocation role has the necessary permissions for accessing the
 credential provider.
@@ -550,6 +563,7 @@ from bedrock_agentcore.identity.auth import requires_access_token, requires_api_
     auth_flow="USER_FEDERATION", # 3LO flow
     on_auth_url=lambda x: print("Copy and paste this authorization url to your browser", x), # prints authorization URL to console
     force_authentication=True,
+    callback_url='insert_oauth2_callback_url_for_session_binding'
 )
 async def read_from_google_drive(*, access_token: str):
     print(access_token) #You can see the access_token

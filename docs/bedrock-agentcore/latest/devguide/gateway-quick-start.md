@@ -21,7 +21,7 @@ The AgentCore starter toolkit abstracts the AWS Python SDK (Boto3) into simplifi
 
 ## Prerequisites
 
-Before starting, make sure you have the followinsg:
+Before starting, make sure you have the following:
 
 - **AWS Account** with credentials configured. To configure credentials, you can install and use the AWS Command Line Interface by following the steps at [Getting started with the AWS CLI](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md").
 - **Python 3.10+** installed.
@@ -233,7 +233,7 @@ Now, let's create a gateway. The gateway acts as your MCP server endpoint that a
 Let's add a Lambda function target. This code will automatically create a Lambda function with weather and time tools.
 
 ```
-s# Step 2.3: Add Lambda target
+# Step 2.3: Add Lambda target
     print("Step 2.3: Adding Lambda target...")
     lambda_target = client.create_mcp_gateway_target(
         # the gateway created in the previous step

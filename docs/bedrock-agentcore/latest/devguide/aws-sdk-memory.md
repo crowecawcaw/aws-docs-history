@@ -1,8 +1,8 @@
 # AWS SDK
 
-Use the AWS SDK to directly interact with AgentCore Memory fine-grained control
-over memory operations. The following examples show how to access the AWS SDK with
-the [SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html").
+Use the AWS SDK to directly interact with AgentCore Memory fine-grained control over
+memory operations. The following examples show how to access the AWS SDK with the
+[SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html").
 
 **Install dependencies**
 
@@ -147,8 +147,7 @@ event = data_client.create_event(
 )
 ```
 
-Full AWS SDK Amazon Bedrock AgentCore AgentCore Memory API reference can be found
-at:
+Full AWS SDK Amazon Bedrock AgentCore AgentCore Memory API reference can be found at:
 
 - [https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore.html](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore.html")
 - [https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html")
