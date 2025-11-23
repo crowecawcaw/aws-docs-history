@@ -73,7 +73,7 @@ runtime-configuration parameter when [creating an EMR Serverless application](ge
 
 ```
 aws emr-serverless create-application \
-    --release-label emr-7.11.0 \
+    --release-label emr-7.12.0 \
     --runtime-configuration '{
      "classification": "spark-defaults",
      "properties": {
@@ -184,37 +184,124 @@ After you finish setting up the Lake Formation grants, you can [submit Spark job
 
 ## Open-table format support
 
-EMR Serverless supports Apache Hive, Apache Iceberg, and as of release 7.6.0, Delta Lake and Apache Hudi. For information about operation support, refer to the following tabs.
+EMR Serverless supports SELECT queries on Apache Hive, Apache Iceberg, Delta Lake (7.6.0+),
+and Apache Hudi (7.6.0+). Starting with EMR 7.12, DML and DDL operations that modify
+table data are supported for Apache Hive, Apache Iceberg, and Delta Lake tables using
+Lake Formation vended credentials.
+
+### Permission
+
+requirements
+
+#### Tables not registered in AWS Lake Formation
+
+For tables not registered with AWS Lake Formation, the job runtime role accesses
+both the AWS Glue Data Catalog and the underlying table data in Amazon S3. This
+requires the job runtime role to have appropriate IAM permissions for both AWS Glue
+and Amazon S3 operations.
+
+#### Tables registered in
+
+AWS Lake Formation
+
+For tables registered with AWS Lake Formation, the job runtime role accesses the AWS Glue Data Catalog
+metadata, while temporary credentials vended by Lake Formation access the underlying
+table data in Amazon S3. The Lake Formation permissions required to execute an
+operation depend on the AWS Glue Data Catalog and Amazon S3 API calls that the Spark job
+initiates and can be summarized as follows:
+
+- **DESCRIBE** permission allows the runtime
+  role to read table or database metadata in the Data Catalog
+- **ALTER** permission allows the runtime role
+  to modify table or database metadata in the Data Catalog
+
+- **DROP** permission allows the runtime role
+  to delete table or database metadata from the Data Catalog
+- **SELECT** permission allows the runtime role
+  to read table data from Amazon S3
+- **INSERT** permission allows the runtime role
+  to write table data to Amazon S3
+- **DELETE** permission allows the runtime role
+  to delete table data from Amazon S3
+
+###### Note
+
+Lake Formation evaluates permissions lazily when a Spark job calls AWS Glue
+to retrieve table metadata and Amazon S3 to retrieve table data.
+Jobs that use a runtime role with insufficient permissions will not fail
+until Spark makes an AWS Glue or Amazon S3 call that requires the
+missing permission.
+
+###### Note
+
+In the following supported table matrix:
+
+- Operations marked as **Supported**
+  exclusively use Lake Formation credentials to access table data for tables
+  registered with Lake Formation. If Lake Formation permissions are
+  insufficient, the operation will not fall back to runtime role credentials.
+  For tables not registered with Lake Formation, the job runtime role
+  credentials access the table data.
+
+- Operations marked as **Supported with IAM permissions
+  on Amazon S3 location** do not use Lake Formation credentials
+  to access underlying table data in Amazon S3. To run these operations, the
+  job runtime role must have the necessary Amazon S3 IAM permissions to access
+  the table data, regardless of whether the table is registered with Lake
+  Formation.
 
 Hive
 
-| Operations                             | Notes                               |
-| -------------------------------------- | ----------------------------------- |
-| Read operations                        | Fully supported                     |
-| Incremental queries                    | Not applicable                      |
-| Time travel queries                    | Not applicable to this table format |
-| `DML INSERT`                           | With IAM permissions only           |
-| DML UPDATE                             | Not applicable to this table format |
-| `DML DELETE`                           | Not applicable to this table format |
-| DDL commands                           | With IAM permissions only           |
-| Metadata tables                        | Not applicable to this table format |
-| Stored procedures                      | Not applicable                      |
-| Table maintenance and utility features | Not applicable                      |
+| Operation                               | AWS Lake Formation permissions      | Support status                                                                                                                                                                                                    |
+| --------------------------------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SELECT                                  | SELECT                              | Supported                                                                                                                                                                                                         |
+| CREATE TABLE                            | CREATE_TABLE                        | Supported                                                                                                                                                                                                         |
+| CREATE TABLE LIKE                       | CREATE_TABLE                        | Supported with IAM permissions on Amazon<br>S3 location                                                                                                                                                           |
+| CREATE TABLE AS SELECT                  | CREATE_TABLE                        | Supported with IAM permissions on Amazon<br>S3 location                                                                                                                                                           |
+| DESCRIBE TABLE                          | DESCRIBE                            | Supported                                                                                                                                                                                                         |
+| SHOW TBLPROPERTIES                      | DESCRIBE                            | Supported                                                                                                                                                                                                         |
+| SHOW COLUMNS                            | DESCRIBE                            | Supported                                                                                                                                                                                                         |
+| SHOW PARTITIONS                         | DESCRIBE                            | Supported                                                                                                                                                                                                         |
+| SHOW CREATE TABLE                       | DESCRIBE                            | Supported                                                                                                                                                                                                         |
+| ALTER TABLE `tablename`                 | SELECT and ALTER                    | Supported                                                                                                                                                                                                         |
+| ALTER TABLE `tablename` SET<br>LOCATION | -                                   | Not supported                                                                                                                                                                                                     |
+| ALTER TABLE `tablename`ADD<br>PARTITION | SELECT, INSERT and ALTER            | Supported                                                                                                                                                                                                         |
+| REPAIR TABLE                            | SELECT and ALTER                    | Supported                                                                                                                                                                                                         |
+| LOAD DATA                               |                                     | Not supported                                                                                                                                                                                                     |
+| INSERT                                  | INSERT and ALTER                    | Supported                                                                                                                                                                                                         |
+| INSERT OVERWRITE                        | SELECT, INSERT, DELETE and ALTER    | Supported                                                                                                                                                                                                         |
+| DROP TABLE                              | SELECT, DROP, DELETE and ALTER      | Supported                                                                                                                                                                                                         |
+| TRUNCATE TABLE                          | SELECT, INSERT, DELETE and ALTER    | Supported                                                                                                                                                                                                         |
+| Dataframe Writer V1                     | Same as corresponding SQL operation | Supported when appending data to an existing table.<br>Refer to [considerations and limitations](emr-serverless-lf-enable-considerations.md "emr-serverless-lf-enable-considerations.md") for more<br>information |
+| Dataframe Writer V2                     | Same as corresponding SQL operation | Supported when appending data to an existing table.<br>Refer to [considerations and limitations](emr-serverless-lf-enable-considerations.md "emr-serverless-lf-enable-considerations.md") for more<br>information |
 
 Iceberg
 
-| Operations                             | Notes                                                                                                                                                                                                                     |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Read operations                        | Fully supported                                                                                                                                                                                                           |
-| Incremental queries                    | Fully supported                                                                                                                                                                                                           |
-| Time travel queries                    | Fully supported                                                                                                                                                                                                           |
-| `DML INSERT`                           | With IAM permissions only                                                                                                                                                                                                 |
-| DML UPDATE                             | With IAM permissions only                                                                                                                                                                                                 |
-| `DML DELETE`                           | With IAM permissions only                                                                                                                                                                                                 |
-| DDL commands                           | With IAM permissions only                                                                                                                                                                                                 |
-| Metadata tables                        | Supported, but certain tables are hidden. Refer to [considerations and limitations](emr-serverless-lf-enable-considerations.md "emr-serverless-lf-enable-considerations.md") for more information.                        |
-| Stored procedures                      | Supported with the exceptions of `register_table` and `migrate`. Refer to [considerations and limitations](emr-serverless-lf-enable-considerations.md "emr-serverless-lf-enable-considerations.md") for more information. |
-| Table maintenance and utility features | Not applicable                                                                                                                                                                                                            |
+| Operation                        | AWS Lake Formation permissions      | Support status                                                                                                                                                                                                                                                                                                                               |
+| -------------------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SELECT                           | SELECT                              | Supported                                                                                                                                                                                                                                                                                                                                    |
+| CREATE TABLE                     | CREATE_TABLE                        | Supported                                                                                                                                                                                                                                                                                                                                    |
+| CREATE TABLE LIKE                | CREATE_TABLE                        | Supported with IAM permissions on Amazon<br>S3 location                                                                                                                                                                                                                                                                                      |
+| CREATE TABLE AS SELECT           | CREATE_TABLE                        | Supported with IAM permissions on Amazon<br>S3 location                                                                                                                                                                                                                                                                                      |
+| REPLACE TABLE AS SELECT          | SELECT, INSERT and ALTER            | Supported                                                                                                                                                                                                                                                                                                                                    |
+| DESCRIBE TABLE                   | DESCRIBE                            | Supported with IAM permissions on Amazon<br>S3 location                                                                                                                                                                                                                                                                                      |
+| SHOW TBLPROPERTIES               | DESCRIBE                            | Supported with IAM permissions on Amazon<br>S3 location                                                                                                                                                                                                                                                                                      |
+| SHOW CREATE TABLE                | DESCRIBE                            | Supported with IAM permissions on Amazon<br>S3 location                                                                                                                                                                                                                                                                                      |
+| ALTER TABLE                      | SELECT, INSERT and ALTER            | Supported                                                                                                                                                                                                                                                                                                                                    |
+| ALTER TABLE SET LOCATION         | SELECT, INSERT and ALTER            | Supported with IAM permissions on Amazon<br>S3 location                                                                                                                                                                                                                                                                                      |
+| ALTER TABLE WRITE ORDERED BY     | SELECT, INSERT and ALTER            | Supported with IAM permissions on Amazon<br>S3 location                                                                                                                                                                                                                                                                                      |
+| ALTER TABLE WRITE DISTRIBUTED BY | SELECT, INSERT, and ALTER           | Supported with IAM permissions on Amazon<br>S3 location                                                                                                                                                                                                                                                                                      |
+| ALTER TABLE RENAME TABLE         | CREATE_TABLE, and DROP              | Supported                                                                                                                                                                                                                                                                                                                                    |
+| INSERT INTO                      | SELECT, INSERT and ALTER            | Supported                                                                                                                                                                                                                                                                                                                                    |
+| INSERT OVERWRITE                 | SELECT, INSERT and ALTER            | Supported                                                                                                                                                                                                                                                                                                                                    |
+| DELETE                           | SELECT, INSERT and ALTER            | Supported                                                                                                                                                                                                                                                                                                                                    |
+| UPDATE                           | SELECT, INSERT and ALTER            | Supported                                                                                                                                                                                                                                                                                                                                    |
+| MERGE INTO                       | SELECT, INSERT and ALTER            | Supported                                                                                                                                                                                                                                                                                                                                    |
+| DROP TABLE                       | SELECT, DELETE and DROP             | Supported                                                                                                                                                                                                                                                                                                                                    |
+| DataFrame Writer V1              | -                                   | Not supported                                                                                                                                                                                                                                                                                                                                |
+| DataFrame Writer V2              | Same as corresponding SQL operation | Supported when appending data to an existing table.<br>Refer to [considerations and limitations](emr-serverless-lf-enable-considerations.md "emr-serverless-lf-enable-considerations.md") for more<br>information.                                                                                                                           |
+| Metadata tables                  | SELECT                              | Supported. Certain tables are hidden.<br>Refer to [considerations and limitations](emr-serverless-lf-enable-considerations.md "emr-serverless-lf-enable-considerations.md") for more<br>information.                                                                                                                                         |
+| Stored procedures                | -                                   | Supported for tables that meet the<br>following conditions:<br>• Tables not registered in AWS Lake Formation<br>• Tables that do not use<br>`register_table` and<br>`migrate`<br>Refer to [considerations and limitations](emr-serverless-lf-enable-considerations.md "emr-serverless-lf-enable-considerations.md") for more<br>information. |
 
 **Spark configuration for Iceberg:** The following sample shows how to configure Spark with Iceberg. To run Iceberg jobs, provide the following `spark-submit` properties.
 
@@ -228,18 +315,27 @@ Iceberg
 
 Hudi
 
-| Operations                             | Notes                     |
-| -------------------------------------- | ------------------------- |
-| Read operations                        | Fully supported           |
-| Incremental queries                    | Fully supported           |
-| Time travel queries                    | Fully supported           |
-| `DML INSERT`                           | With IAM permissions only |
-| DML UPDATE                             | With IAM permissions only |
-| `DML DELETE`                           | With IAM permissions only |
-| DDL commands                           | With IAM permissions only |
-| Metadata tables                        | Not supported             |
-| Stored procedures                      | Not applicable            |
-| Table maintenance and utility features | Not supported             |
+| Operation                                 | AWS Lake Formation permissions      | Support status                                          |
+| ----------------------------------------- | ----------------------------------- | ------------------------------------------------------- |
+| SELECT                                    | SELECT                              | Supported                                               |
+| CREATE TABLE                              | CREATE_TABLE                        | Supported with IAM permissions on Amazon<br>S3 location |
+| CREATE TABLE LIKE                         | CREATE_TABLE                        | Supported with IAM permissions on Amazon<br>S3 location |
+| CREATE TABLE AS SELECT                    | -                                   | Not supported                                           |
+| DESCRIBE TABLE                            | DESCRIBE                            | Supported with IAM permissions on Amazon<br>S3 location |
+| SHOW TBLPROPERTIES                        | DESCRIBE                            | Supported with IAM permissions on Amazon<br>S3 location |
+| SHOW COLUMNS                              | DESCRIBE                            | Supported with IAM permissions on Amazon<br>S3 location |
+| SHOW CREATE TABLE                         | DESCRIBE                            | Supported with IAM permissions on Amazon<br>S3 location |
+| ALTER TABLE                               | SELECT                              | Supported with IAM permissions on Amazon<br>S3 location |
+| INSERT INTO                               | SELECT and ALTER                    | Supported with IAM permissions on Amazon<br>S3 location |
+| INSERT OVERWRITE                          | SELECT and ALTER                    | Supported with IAM permissions on Amazon<br>S3 location |
+| DELETE                                    | -                                   | Not supported                                           |
+| UPDATE                                    | -                                   | Not supported                                           |
+| MERGE INTO                                | -                                   | Not supported                                           |
+| DROP TABLE                                | SELECT and DROP                     | Supported with IAM permissions on Amazon<br>S3 location |
+| DataFrame Writer V1                       | -                                   | Not supported                                           |
+| DataFrame Writer V2                       | Same as corresponding SQL operation | Supported with IAM permissions on Amazon<br>S3 location |
+| Metadata tables                           | -                                   | Not supported                                           |
+| Table maintenance and utility<br>features | -                                   | Not supported                                           |
 
 The following samples configure Spark with Hudi, specifying file locations and other properties necessary for use.
 
@@ -276,18 +372,31 @@ spark.sql.extensions=org.apache.spark.sql.hudi.HoodieSparkSessionExtension",
 
 Delta Lake
 
-| Operations                             | Notes                     |
-| -------------------------------------- | ------------------------- |
-| Read operations                        | Fully supported           |
-| Incremental queries                    | Fully supported           |
-| Time travel queries                    | Fully supported           |
-| `DML INSERT`                           | With IAM permissions only |
-| DML UPDATE                             | With IAM permissions only |
-| `DML DELETE`                           | With IAM permissions only |
-| DDL commands                           | With IAM permissions only |
-| Metadata tables                        | Not supported             |
-| Stored procedures                      | Not applicable            |
-| Table maintenance and utility features | Not supported             |
+| Operation                                  | AWS Lake Formation permissions      | Support status                                          |
+| ------------------------------------------ | ----------------------------------- | ------------------------------------------------------- |
+| SELECT                                     | SELECT                              | Supported                                               |
+| CREATE TABLE                               | CREATE_TABLE                        | Supported                                               |
+| CREATE TABLE LIKE                          | -                                   | Not supported                                           |
+| CREATE TABLE AS SELECT                     | CREATE_TABLE                        | Supported                                               |
+| REPLACE TABLE AS SELECT                    | SELECT, INSERT and ALTER            | Supported                                               |
+| DESCRIBE TABLE                             | DESCRIBE                            | Supported with IAM permissions on Amazon<br>S3 location |
+| SHOW TBLPROPERTIES                         | DESCRIBE                            | Supported with IAM permissions on Amazon<br>S3 location |
+| SHOW COLUMNS                               | DESCRIBE                            | Supported with IAM permissions on Amazon<br>S3 location |
+| SHOW CREATE TABLE                          | DESCRIBE                            | Supported with IAM permissions on Amazon<br>S3 location |
+| ALTER TABLE                                | SELECT and INSERT                   | Supported                                               |
+| ALTER TABLE SET LOCATION                   | SELECT and INSERT                   | Supported with IAM permissions on Amazon<br>S3 location |
+| ALTER TABLE `tablename` CLUSTER<br>BY      | SELECT and INSERT                   | Supported with IAM permissions on Amazon<br>S3 location |
+| ALTER TABLE `tablename` ADD<br>CONSTRAINT  | SELECT and INSERT                   | Supported with IAM permissions on Amazon<br>S3 location |
+| ALTER TABLE `tablename` DROP<br>CONSTRAINT | SELECT and INSERT                   | Supported with IAM permissions on Amazon<br>S3 location |
+| INSERT INTO                                | SELECT and INSERT                   | Supported                                               |
+| INSERT OVERWRITE                           | SELECT and INSERT                   | Supported                                               |
+| DELETE                                     | SELECT and INSERT                   | Supported                                               |
+| UPDATE                                     | SELECT and INSERT                   | Supported                                               |
+| MERGE INTO                                 | SELECT and INSERT                   | Supported                                               |
+| DROP TABLE                                 | SELECT, DELETE and DROP             | Supported                                               |
+| DataFrame Writer V1                        | -                                   | Not supported                                           |
+| DataFrame Writer V2                        | Same as corresponding SQL operation | Supported                                               |
+| Table maintenance and utility<br>features  | -                                   | Not supported                                           |
 
 **EMR Serverless with Delta Lake:** To use Delta Lake with Lake Formation on EMR Serverless, run the following command:
 

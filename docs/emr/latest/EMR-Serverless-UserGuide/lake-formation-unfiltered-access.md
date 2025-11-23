@@ -1,4 +1,4 @@
-# Lake Formation unfiltered access for EMR Serverless
+# Lake Formation full table access for EMR Serverless
 
 With Amazon EMR releases 7.8.0 and higher, you can leverage AWS Lake Formation with Glue Data
 Catalog where the job runtime role has full table permissions without the limitations of

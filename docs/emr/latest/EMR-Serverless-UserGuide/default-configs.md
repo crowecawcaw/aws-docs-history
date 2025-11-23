@@ -168,7 +168,7 @@ perform the following operations:
   application _runtime configuration_, provide the key for the
   configuration that you want to remove, and pass an empty declaration `{}` for
   the configuration. We don't recommend removing any classifications that contain
-  parameters that are required for a job run. For example, if you try to remove the required properties for a Hive job,
+  parameters that are required for a job run. For example, if you try to remove the [required properties for a Hive job](../../../index.md "../../../index.md"),
   the job will fail.
 
 To remove an application _monitoring configuration_, use the

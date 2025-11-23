@@ -10,9 +10,8 @@ _in_ the cloud:
 
 - **Security of the cloud** – AWS is
   responsible for protecting the infrastructure that runs AWS services in the AWS
-  Cloud. AWS also provides you with services that use securely. Third-party
-  auditors regularly test and verify the effectiveness of our security as part of the
-  [AWS compliance
+  Cloud. AWS also provides you with services that use securely. Third-party auditors
+  regularly test and verify the effectiveness of our security as part of the [AWS compliance
   programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/"). To learn about the compliance programs that apply to
   Amazon EMR Serverless, refer to [AWS services in
   scope by compliance program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
@@ -21,9 +20,8 @@ _in_ the cloud:
   factors including the sensitivity of your data, your company's requirements, and
   applicable laws and regulations.
   This documentation helps you understand how to apply the shared responsibility model when
-  using Amazon EMR Serverless. The topics explain how to configure
-  Amazon EMR Serverless and use other AWS services to meet your security and compliance
-  objectives.
+  using Amazon EMR Serverless. The topics explain how to configure Amazon EMR Serverless and use
+  other AWS services to meet your security and compliance objectives.
 
 ###### Topics
 
