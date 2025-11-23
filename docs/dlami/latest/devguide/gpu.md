@@ -15,6 +15,7 @@ instance's available RAM, choose a different instance type with enough memory fo
 your application.
 
 - [Amazon EC2 P6-B200 Instances](https://aws.amazon.com/ec2/instance-types/p6/ "https://aws.amazon.com/ec2/instance-types/p6/") have up to 8 NVIDIA Blackwell B200 GPUs.
+- [Amazon EC2 P6-B300 Instances](https://aws.amazon.com/ec2/instance-types/p6/ "https://aws.amazon.com/ec2/instance-types/p6/") have up to 8 NVIDIA Blackwell B300 GPUs.
 - [Amazon EC2 P6e-GB200 Instances](https://aws.amazon.com/ec2/instance-types/p6/ "https://aws.amazon.com/ec2/instance-types/p6/") have up to 4 NVIDIA Blackwell GB200 GPUs.
 - [Amazon EC2 P5e Instances](https://aws.amazon.com/ec2/instance-types/p5/ "https://aws.amazon.com/ec2/instance-types/p5/") have up to 8 NVIDIA Tesla H200 GPUs.
 - [Amazon EC2 P5 Instances](https://aws.amazon.com/ec2/instance-types/p5/ "https://aws.amazon.com/ec2/instance-types/p5/") have up to 8 NVIDIA Tesla H100 GPUs.

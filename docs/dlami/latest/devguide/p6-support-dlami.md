@@ -1,12 +1,17 @@
-# P6 Supported DLAMIs
+# Software requirements for P6 instances
 
-Below are the detailed requirements for running DLAMI on [Amazon EC2 P6-B200 Instances](https://aws.amazon.com/ec2/instance-types/p6/ "https://aws.amazon.com/ec2/instance-types/p6/") and
-[Amazon EC2 P6e-GB200 Instances](https://aws.amazon.com/ec2/instance-types/p6/ "https://aws.amazon.com/ec2/instance-types/p6/")
+Below are the detailed requirements for running DLAMI on P6 instances.
 
-## P6-B200 Supported DLAMIs
+###### Topics
 
-**The following software is required to operate P6-B200
-instances:**
+- [P6-B200 requirements](#dlami-support-p6-b200 "#dlami-support-p6-b200")
+- [P6e-GB200 requirements](#dlami-support-p6e-gb200 "#dlami-support-p6e-gb200")
+- [P6-B300 requirements](#dlami-support-p6-b300 "#dlami-support-p6-b300")
+- [GPU Functionality Test](#dlami-p6-testing "#dlami-p6-testing")
+
+## P6-B200 requirements
+
+The following software is required to operate P6-B200 instances:
 
 | Software                         | Minimum Version Requirement |
 | -------------------------------- | --------------------------- |
@@ -17,10 +22,9 @@ instances:**
 | **Elastic Fabric Adapter (EFA)** | 1.41.0                      |
 | **AWS OFI NCCL Plugin**          | 1.15.0                      |
 
-## P6e-GB200 Supported DLAMIs
+## P6e-GB200 requirements
 
-**The following software is required to operate
-P6e-GB200 instances:**
+The following software is required to operate P6e-GB200 instances:
 
 | Software                         | Minimum Version Requirement |
 | -------------------------------- | --------------------------- |
@@ -30,20 +34,32 @@ P6e-GB200 instances:**
 | **Elastic Fabric Adapter (EFA)** | 1.42.0                      |
 | **AWS OFI NCCL Plugin**          | 1.15.0                      |
 
+## P6-B300 requirements
+
+The following software is required to operate P6-B300 instances:
+
+| Software                         | Minimum Version Requirement |
+| -------------------------------- | --------------------------- |
+| **Nvidia CUDA Toolkit**          | 13.0                        |
+| **Nvidia Driver**                | R580                        |
+| **NVLINK 5**                     | R580                        |
+| **Linux Kernel**                 | 6.1                         |
+| **Elastic Fabric Adapter (EFA)** | 1.44.0                      |
+| **AWS OFI NCCL Plugin**          | 1.17.1                      |
+
 ## Confirm GPU Functionality
 
 **To confirm functional GPUs:**
 
-1. Run the following Nvidia GPU Device Query Test
+1. Run the following Nvidia GPU Device Query Test.
 
 ```
 `$` /usr/local/cuda/extras/demo_suite/deviceQuery
 ```
 
-2. Confirm the Following output from the Device Query Run:
+2. Confirm the output from the Device Query Test. The following is example output for p6-B200.
 
 ```
-$ /usr/local/cuda/extras/demo_suite/deviceQuery
 /usr/local/cuda/extras/demo_suite/deviceQuery Starting...
 
  CUDA Device Query (Runtime API)
@@ -56,13 +72,13 @@ Result = PASS
 
 **To confirm functional NVIDIA Driver:**
 
-1. Run the Nvidia System Management Interface
+1. Run the Nvidia System Management Interface.
 
 ```
 `$` nvidia-smi
 ```
 
-2. Confirm the Following output from the System Management Interface
+2. Confirm the output from the System Management Interface. The following is example output for p6-B200.
 
 ```
 +-----------------------------------------------------------------------------------------+
@@ -114,5 +130,6 @@ Result = PASS
 +-----------------------------------------------------------------------------------------+
 ```
 
-**If you experience any issues with P6-B200 instances, please reach out
-to AWS Support.**
+###### Note
+
+If you experience any issues, contact AWS Support.
