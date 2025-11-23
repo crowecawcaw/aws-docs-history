@@ -17,7 +17,7 @@ files](https://servicecatalogconnector.s3.amazonaws.com/SM_ConnectorForJSD_2.0.7
   see [Setting Up AWS Service Catalog](../../../servicecatalog/latest/adminguide/setup.md "../../../servicecatalog/latest/adminguide/setup.md").
 - To see AWS Config details, configure the service settings to record
   data for the resource types of interest. We recommend including
-  provisioned products and AWS CloudFormation stacks, in addition to the major
+  provisioned products and CloudFormation stacks, in addition to the major
   resource types your team uses. For more information, see [Setting Up AWS Config with the Console](../../../config/latest/developerguide/gs-console.md "../../../config/latest/developerguide/gs-console.md").
 - To use AWS Systems Manager Automation with the Connector, you don't need
   AWS-side setup. A number of automation documents are available

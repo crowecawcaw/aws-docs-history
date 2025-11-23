@@ -25,7 +25,7 @@ rotating IAM user access keys. For more information, refer to
 
 baseline permissions
 
-For an AWS CloudFormation template to configure Jira Service Management, refer
+For an CloudFormation template to configure Jira Service Management, refer
 to [AWS commercial Regions](https://servicecatalogconnector.s3.amazonaws.com/SMC_ConnectorforJSMCloud-AWS_Configurations_Commercialv7.0.0.json "https://servicecatalogconnector.s3.amazonaws.com/SMC_ConnectorforJSMCloud-AWS_Configurations_Commercialv7.0.0.json") and [AWS GovCloud (US) Regions](https://servicecatalogconnector.s3.amazonaws.com/SMC_ConnectorforJSMCloud-AWS_Configurations_GovCloudv7.0.0.json "https://servicecatalogconnector.s3.amazonaws.com/SMC_ConnectorforJSMCloud-AWS_Configurations_GovCloudv7.0.0.json"). For each AWS account, the
 connector for Jira Service Management requires two IAM users:
 
@@ -43,7 +43,7 @@ recommends that you assign two new users for the Connector.
 
 ###### Note
 
-The baseline AWS CloudFormation template creates the **Sync
+The baseline CloudFormation template creates the **Sync
 User** and **End User** with required
 permissions and configures the AWS account for all available
 integrations.

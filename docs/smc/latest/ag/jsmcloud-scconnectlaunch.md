@@ -142,7 +142,7 @@ JSON
 
 Service Management Connector recommends that you customize and
 scope your launch policies to the specific AWS services, which
-are in the associated AWS CloudFormation template for the given Service Catalog product.
+are in the associated CloudFormation template for the given Service Catalog product.
 
 For example, to provision Amazon EC2 and Amazon S3 products, the
 recommended policies are as follows:

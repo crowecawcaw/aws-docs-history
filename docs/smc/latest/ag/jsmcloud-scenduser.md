@@ -16,8 +16,8 @@ Connector end user\*\*
    Console access to follow the Connector for Jira installation
    instructions.
 
-For products using AWS CloudFormation StackSets, you need to create a
-StackSet inline policy. With AWS CloudFormation StackSets, you are able to
+For products using CloudFormation StackSets, you need to create a
+StackSet inline policy. With CloudFormation StackSets, you are able to
 create products across multiple accounts and Regions.
 
 Using an administrator account, you define and manage a Service Catalog

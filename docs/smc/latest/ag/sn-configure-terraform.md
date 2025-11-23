@@ -8,12 +8,12 @@ As of the 4.8.5 release, you can provision AWS Service Catalog products and thei
 [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") or [Hashicorp Terraform](https://www.terraform.io/ "https://www.terraform.io/")
 (Terraform open source).
 
-The **AWS CloudFormation** product type in AWS Service Catalog allows you to request provisioning,
+The **CloudFormation** product type in AWS Service Catalog allows you to request provisioning,
 create provisioned product plans, perform self-service actions, and request termination or update
 for the provisioned product. The connector also dynamically makes API calls to list available parameters such as VPC ID,
 Subnet IDs, and Security Groups in a drop down format.
 
-When provisioning fails for a AWS CloudFormation product, the provisioned product **Status**
+When provisioning fails for a CloudFormation product, the provisioned product **Status**
 changes to `TERMINATED`.
 
 The **Terraform open source** product type in AWS Service Catalog allows you to

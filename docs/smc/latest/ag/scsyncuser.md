@@ -5,13 +5,13 @@ user
 This section describes how to create the AWS Sync user and associate the
 appropriate IAM permission. To perform this task, you need IAM permissions to create
 new users. The following steps to create a Sync user and End user are not required
-if you use the AWS CloudFormation template to deploy the permissions. Review [Setting baseline
+if you use the CloudFormation template to deploy the permissions. Review [Setting baseline
 permissions for AWS Service Management Connector for ServiceNow](sn-base-perms.md "sn-base-perms.md")
 for more information.
 
 ###### Note
 
-The AWS CloudFormation template to set up the AWS configurations of the Connector for
+The CloudFormation template to set up the AWS configurations of the Connector for
 ServiceNow creates the Sync user and End user with the required permissions for all the
 supported integrations.
 

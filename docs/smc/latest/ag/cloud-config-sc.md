@@ -10,7 +10,7 @@ Jira Service Management Cloud.
    the Service Catalog console. In the **Upload new product** page, enter the
    product details.
 3. For **Select template**, choose the Amazon S3 bucket
-   AWS CloudFormation template you saved to your device.
+   CloudFormation template you saved to your device.
 4. Set **Constraint type** to **Launch** for
    the product that you created now with the `SCConnectLaunch` role in
    the baseline permissions. For additional launch constraint instructions, see

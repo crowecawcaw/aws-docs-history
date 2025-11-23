@@ -26,7 +26,7 @@ This section describes how to configure Support integration in ServiceNow.
 
 ###### Note
 
-You can use baseline AWS CloudFormation tempates for the Connector for ServiceNow to automate the Support
+You can use baseline CloudFormation tempates for the Connector for ServiceNow to automate the Support
 integration features. For more information, see [Baseline Permissions](../../../en_us/smc/latest/ag/sn-base-perms.md "../../../en_us/smc/latest/ag/sn-base-perms.md").
 
 To create the required SQS queue and EventBridge rule, use Connector for ServiceNow - [AWS Support Commercial Regions](https://servicecatalogconnector.s3.amazonaws.com/SMC-AWS_Support_SQS.json "https://servicecatalogconnector.s3.amazonaws.com/SMC-AWS_Support_SQS.json"), and Connector for Service Management - [AWS Support GovCloud West Region](https://servicecatalogconnector.s3.amazonaws.com/SMC-AWS_Support_SQS.json "https://servicecatalogconnector.s3.amazonaws.com/SMC-AWS_Support_SQS.json").

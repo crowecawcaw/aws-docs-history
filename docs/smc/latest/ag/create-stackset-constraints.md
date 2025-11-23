@@ -1,6 +1,6 @@
 # Creating StackSet constraints
 
-AWS CloudFormation StackSets enable users to create and deploy products across multiple
+CloudFormation StackSets enable users to create and deploy products across multiple
 accounts and Regions.
 
 ###### \*\*To apply a stack set constraint to a Service Catalog

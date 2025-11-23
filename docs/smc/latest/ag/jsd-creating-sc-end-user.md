@@ -13,8 +13,8 @@ new users.
    user (such as SCEndUser). The user needs programmatic and AWS Management Console
    access to follow the Connector for Jira Service Management
    installation instructions.
-2. For products with AWS CloudFormation StackSets, you need to create a stack
-   set inline policy. With AWS CloudFormation StackSets, you can create products to
+2. For products with CloudFormation StackSets, you need to create a stack
+   set inline policy. With CloudFormation StackSets, you can create products to
    deploy across multiple accounts and Regions.
 
 Using an administrator account, you define and manage a Service Catalog
@@ -77,7 +77,7 @@ JSON
 
 ###### Note
 
-For Service Catalog products with AWS CloudFormation StackSets, you need to include
+For Service Catalog products with CloudFormation StackSets, you need to include
 the read only permissions for the services you want to provision.
 For example, to provision an Amazon S3 bucket, include the
 **AmazonS3ReadOnlyAccess** policy to the

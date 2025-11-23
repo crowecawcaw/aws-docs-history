@@ -24,7 +24,7 @@ information, see [Using service-linked roles for AWS Systems Manager](../../../s
 
 ###### Note
 
-You can use baseline AWS CloudFormation tempates to create the `ServiceNowChangeManagerRole` role.
+You can use baseline CloudFormation tempates to create the `ServiceNowChangeManagerRole` role.
 For more information, see [Setting baseline
 permissions for AWS Service Management Connector for ServiceNow](sn-base-perms.md "sn-base-perms.md").
 

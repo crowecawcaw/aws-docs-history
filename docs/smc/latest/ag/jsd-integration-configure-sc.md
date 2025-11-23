@@ -17,7 +17,7 @@ device.
    enter the product details in the Service Catalog console on the **Upload
    new product** page.
 3. For **Select template**, choose the Amazon S3 bucket
-   AWS CloudFormation template you saved to your device.
+   CloudFormation template you saved to your device.
 4. Set **Constraint type** to
    **Launch** for the product that you just created
    with the **SCConnectLaunch** role in the

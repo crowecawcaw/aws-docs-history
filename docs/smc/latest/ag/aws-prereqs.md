@@ -7,7 +7,7 @@ Make sure you have AWS and ServiceNow prerequisites configured before you get st
   Service Catalog](../../../servicecatalog/latest/adminguide/setup.md "../../../servicecatalog/latest/adminguide/setup.md") and [Using
   AppRegistry.](../../../servicecatalog/latest/arguide/intro-app-registry.md "../../../servicecatalog/latest/arguide/intro-app-registry.md")
 - **AWS Config details** — Configure the service settings to record data for the resource types of
-  interest. We recommend you include provisioned products and AWS CloudFormation stacks, in
+  interest. We recommend you include provisioned products and CloudFormation stacks, in
   addition to the major resource types that your team uses. For more
   information, see [Setting up AWS Config with
   the console](../../../config/latest/developerguide/gs-console.md "../../../config/latest/developerguide/gs-console.md"). This version of the Connector enables the import of

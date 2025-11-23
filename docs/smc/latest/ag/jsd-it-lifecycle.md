@@ -117,7 +117,7 @@ Parameter Store.
    issues.
 6. To save, choose **Create parameter**.
 
-An AWS CloudFormation template assists setting up the role and configuration
+An CloudFormation template assists setting up the role and configuration
 rule: \***\*JSMConnector-CreateRemediationIssue-MakePublicBucketsPrivateConfigRule.cfn.yaml\*\***
 
 Install the template, setting the following parameters:

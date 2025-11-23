@@ -34,5 +34,5 @@ Step 2.
 
 ###### Note
 
-You can use the AWS CloudFormation templates for the Connector for ServiceNow to automate
+You can use the CloudFormation templates for the Connector for ServiceNow to automate
 the AWS Config custom resource and AWS Security Hub integration features. For more information, see [Baseline Permissions](sn-base-perms.md "sn-base-perms.md").
