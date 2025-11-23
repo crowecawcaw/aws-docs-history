@@ -72,7 +72,7 @@ Guide_.
 After you complete setup of an API-linked policy store, you must attach the Lambda
 authorizer to your API. If you can't locate your authorizer in the API Gateway console,
 the additional resources for your policy store might have failed or not deployed yet.
-API-linked policy stores deploy these resources in an AWS CloudFormation stack.
+API-linked policy stores deploy these resources in an CloudFormation stack.
 
 Verified Permissions displays a link with the label **Check deployment** at the
 end of the creation process. If you already navigated away from this screen, go to

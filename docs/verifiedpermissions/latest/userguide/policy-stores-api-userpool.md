@@ -167,7 +167,7 @@ access requests with Verified Permissions.
 **Verified Permissions deploys authorizer resources in CloudFormation**
 
 To create an API-linked policy store, you must sign in a highly-privileged AWS
-principal to the Verified Permissions console. This user deploys an AWS CloudFormation stack that
+principal to the Verified Permissions console. This user deploys an CloudFormation stack that
 creates resources across several AWS services. This principal must have
 the permission to add and modify resources in Verified Permissions, IAM, Lambda, and
 API Gateway. As a best practice, don't share these credentials with other

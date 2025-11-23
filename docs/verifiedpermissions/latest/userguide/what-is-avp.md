@@ -29,7 +29,7 @@ managed and how they were authenticated.
 
 Verified Permissions is a service that enables customers to create, maintain, and test policies in
 the AWS Management Console, programmatically using the Verified Permissions APIs, or through infrastructure as code
-solutions like AWS CloudFormation. Permissions are expressed using the Cedar policy language. The client
+solutions like CloudFormation. Permissions are expressed using the Cedar policy language. The client
 application calls authorization APIs to evaluate the Cedar policies stored with the
 service and provide an access decision for whether an action is permitted.
 
@@ -151,8 +151,8 @@ The following are links to documentation for Verified Permissions resources in v
 **AWS CDK constructs**
 
 The AWS Cloud Development Kit (AWS CDK) is an open-source software development framework for
-defining cloud infrastructure in code and provisioning it through AWS CloudFormation.
-Constructs, or reusable cloud components, can be used to create AWS CloudFormation
+defining cloud infrastructure in code and provisioning it through CloudFormation.
+Constructs, or reusable cloud components, can be used to create CloudFormation
 templates. These templates can then be used to deploy your cloud
 infrastructure.
 
