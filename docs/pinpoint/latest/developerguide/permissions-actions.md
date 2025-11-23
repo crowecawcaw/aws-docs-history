@@ -18,7 +18,7 @@ a colon and the name of the action, such as `GetSegments`. Most actions
 correspond to a request to the Amazon Pinpoint API using a specific URI and HTTP method. For example,
 if you allow the `mobiletargeting:GetSegments` action in a user's policy, the
 user is allowed to retrieve information about all the segments for a project by submitting
-an HTTP GET request to the [`/apps/`projectId`/segments`](../apireference/rest-api-segments.md#rest-api-segments-list "../apireference/rest-api-segments.md#rest-api-segments-list") URI.
+an HTTP GET request to the [`/apps/`projectId`/segments`](https://docs.aws.amazon.compinpoint/latest/apireference/rest-api-segments.html#rest-api-segments-list "https://docs.aws.amazon.compinpoint/latest/apireference/rest-api-segments.html#rest-api-segments-list") URI.
 This policy also allows the user to view that information on the console, and retrieve that
 information by using an AWS SDK or the AWS CLI.
 
@@ -97,7 +97,7 @@ Retrieve (query) aggregated data for a standard application metric.
 This is a metric that applies to all the campaigns or transactional
 messages that are associated with a project.
 
-- URI – [`/apps/`projectId`/kpis/daterange/`kpi-name``](../apireference/apps-application-id-kpis-daterange-kpi-name.md "../apireference/apps-application-id-kpis-daterange-kpi-name.md")
+- URI – [`/apps/`projectId`/kpis/daterange/`kpi-name``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-kpis-daterange-kpi-name.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-kpis-daterange-kpi-name.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/kpis/daterange/`kpi-name``
@@ -107,7 +107,7 @@ messages that are associated with a project.
 Retrieve (query) aggregated data for a standard campaign metric. This
 is a metric that applies to an individual campaign.
 
-- URI – [`/apps/`projectId`/campaigns/`campaignId`/kpis/daterange/`kpi-name``](../apireference/apps-application-id-campaigns-campaign-id-kpis-daterange-kpi-name.md "../apireference/apps-application-id-campaigns-campaign-id-kpis-daterange-kpi-name.md")
+- URI – [`/apps/`projectId`/campaigns/`campaignId`/kpis/daterange/`kpi-name``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns-campaign-id-kpis-daterange-kpi-name.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns-campaign-id-kpis-daterange-kpi-name.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/campaigns/`campaignId`/kpis/daterange/`kpi-name``
@@ -119,7 +119,7 @@ metric. This is an engagement metric that applies to an individual
 journey—for example, the number of messages that were opened by
 participants for all the activities in a journey.
 
-- URI – [`/apps/`projectId`/journeys/`journeyId`/kpis/daterange/`kpi-name``](../apireference/apps-application-id-journeys-journey-id-kpis-daterange-kpi-name.md "../apireference/apps-application-id-journeys-journey-id-kpis-daterange-kpi-name.md")
+- URI – [`/apps/`projectId`/journeys/`journeyId`/kpis/daterange/`kpi-name``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys-journey-id-kpis-daterange-kpi-name.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys-journey-id-kpis-daterange-kpi-name.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/journeys/`journeyId`/kpis/daterange/`kpi-name``
@@ -131,7 +131,7 @@ apply to an individual journey—for example, the number of
 participants who are actively proceeding through all the activities in a
 journey.
 
-- URI – [`/apps/`projectId`/journeys/`journeyId`/execution-metrics`](../apireference/apps-application-id-journeys-journey-id-execution-metrics.md "../apireference/apps-application-id-journeys-journey-id-execution-metrics.md")
+- URI – [`/apps/`projectId`/journeys/`journeyId`/execution-metrics`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys-journey-id-execution-metrics.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys-journey-id-execution-metrics.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/journeys/`journeyId`/execution-metrics`
@@ -142,7 +142,7 @@ Retrieve (query) aggregated data for standard execution metrics that
 apply to an individual activity in a journey—for example, the
 number of participants who started or completed an activity.
 
-- URI – [`/apps/`projectId`/journeys/`journeyId`/activities/`journey-activity-id`/execution-metrics`](../apireference/apps-application-id-journeys-journey-id-activities-journey-activity-id-execution-metrics.md "../apireference/apps-application-id-journeys-journey-id-activities-journey-activity-id-execution-metrics.md")
+- URI – [`/apps/`projectId`/journeys/`journeyId`/activities/`journey-activity-id`/execution-metrics`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys-journey-id-activities-journey-activity-id-execution-metrics.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys-journey-id-activities-journey-activity-id-execution-metrics.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/journeys/`journeyId`/activities/`journey-activity-id`/execution-metrics`
@@ -156,7 +156,7 @@ account.
 
 Create a campaign for a project.
 
-- URI – [`/apps/`projectId`/campaigns`](../apireference/apps-application-id-campaigns.md "../apireference/apps-application-id-campaigns.md")
+- URI – [`/apps/`projectId`/campaigns`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns.html")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/campaigns`
@@ -165,7 +165,7 @@ Create a campaign for a project.
 
 Delete a specific campaign.
 
-- URI – [`/apps/`projectId`/campaigns/`campaignId``](../apireference/apps-application-id-campaigns.md "../apireference/apps-application-id-campaigns.md")
+- URI – [`/apps/`projectId`/campaigns/`campaignId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/campaigns/`campaignId``
@@ -174,7 +174,7 @@ Delete a specific campaign.
 
 Retrieve information about a specific campaign.
 
-- URI – [`/apps/`projectId`/campaigns/`campaignId``](../apireference/apps-application-id-campaigns.md "../apireference/apps-application-id-campaigns.md")
+- URI – [`/apps/`projectId`/campaigns/`campaignId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/campaigns/`campaignId``
@@ -184,7 +184,7 @@ Retrieve information about a specific campaign.
 Retrieve information about the activities performed by a
 campaign.
 
-- URI – [`/apps/`projectId`/campaigns/`campaignId`/activities`](../apireference/apps-application-id-campaigns.md "../apireference/apps-application-id-campaigns.md")
+- URI – [`/apps/`projectId`/campaigns/`campaignId`/activities`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/campaigns/`campaignId``
@@ -193,7 +193,7 @@ campaign.
 
 Retrieve information about all campaigns for a project.
 
-- URI – [`/apps/`projectId`/campaigns`](../apireference/apps-application-id-campaigns.md "../apireference/apps-application-id-campaigns.md")
+- URI – [`/apps/`projectId`/campaigns`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId``
@@ -202,7 +202,7 @@ Retrieve information about all campaigns for a project.
 
 Retrieve information about a specific campaign version.
 
-- URI – [`/apps/`projectId`/campaigns/`campaignId`/versions/`versionId``](../apireference/apps-application-id-campaigns-campaign-id-versions-version.md "../apireference/apps-application-id-campaigns-campaign-id-versions-version.md")
+- URI – [`/apps/`projectId`/campaigns/`campaignId`/versions/`versionId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns-campaign-id-versions-version.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns-campaign-id-versions-version.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/campaigns/`campaignId``
@@ -212,7 +212,7 @@ Retrieve information about a specific campaign version.
 Retrieve information about the current and prior versions of a
 campaign.
 
-- URI – [`/apps/`projectId`/campaigns/`campaignId`/versions`](../apireference/apps-application-id-campaigns-campaign-id-versions-version.md "../apireference/apps-application-id-campaigns-campaign-id-versions-version.md")
+- URI – [`/apps/`projectId`/campaigns/`campaignId`/versions`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns-campaign-id-versions-version.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns-campaign-id-versions-version.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/campaigns/`campaignId``
@@ -221,7 +221,7 @@ campaign.
 
 Update a specific campaign.
 
-- URI – [`/apps/`projectId`/campaigns/`campaignId``](../apireference/apps-application-id-campaigns.md "../apireference/apps-application-id-campaigns.md")
+- URI – [`/apps/`projectId`/campaigns/`campaignId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-campaigns.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/campaigns/`campaignId``
@@ -237,7 +237,7 @@ your customers, such as sending email, SMS messages, or push notifications.
 Disable the Amazon Device Messaging (ADM) channel for a
 project.
 
-- URI – [`/apps/`projectId`/channels/adm`](../apireference/apps-application-id-channels-adm.md "../apireference/apps-application-id-channels-adm.md")
+- URI – [`/apps/`projectId`/channels/adm`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-adm.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-adm.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/adm`
@@ -246,7 +246,7 @@ project.
 
 Retrieve information about the ADM channel for a project.
 
-- URI – [`/apps/`projectId`/channels/adm`](../apireference/apps-application-id-channels-adm.md "../apireference/apps-application-id-channels-adm.md")
+- URI – [`/apps/`projectId`/channels/adm`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-adm.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-adm.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/adm`
@@ -255,7 +255,7 @@ Retrieve information about the ADM channel for a project.
 
 Enable or update the ADM channel for a project.
 
-- URI – [`/apps/`projectId`/channels/adm`](../apireference/apps-application-id-channels-adm.md "../apireference/apps-application-id-channels-adm.md")
+- URI – [`/apps/`projectId`/channels/adm`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-adm.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-adm.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/adm`
@@ -264,7 +264,7 @@ Enable or update the ADM channel for a project.
 
 Disable the Apple Push Notification service (APNs) channel for a project.
 
-- URI – [`/apps/`projectId`/channels/apns`](../apireference/apps-application-id-channels-apns.md "../apireference/apps-application-id-channels-apns.md")
+- URI – [`/apps/`projectId`/channels/apns`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/apns`
@@ -273,7 +273,7 @@ Disable the Apple Push Notification service (APNs) channel for a project.
 
 Retrieve information about the APNs channel for a project.
 
-- URI – [`/apps/`projectId`/channels/apns`](../apireference/apps-application-id-channels-apns.md "../apireference/apps-application-id-channels-apns.md")
+- URI – [`/apps/`projectId`/channels/apns`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/apns`
@@ -282,7 +282,7 @@ Retrieve information about the APNs channel for a project.
 
 Enable or update the APNs channel for a project.
 
-- URI – [`/apps/`projectId`/channels/apns`](../apireference/apps-application-id-channels-apns.md "../apireference/apps-application-id-channels-apns.md")
+- URI – [`/apps/`projectId`/channels/apns`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/apns`
@@ -291,7 +291,7 @@ Enable or update the APNs channel for a project.
 
 Disable the APNs sandbox channel for a project.
 
-- URI – [`/apps/`projectId`/channels/apns_sandbox`](../apireference/apps-application-id-channels-apns.md "../apireference/apps-application-id-channels-apns.md")
+- URI – [`/apps/`projectId`/channels/apns_sandbox`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/apns_sandbox`
@@ -301,7 +301,7 @@ Disable the APNs sandbox channel for a project.
 Retrieve information about the APNs sandbox channel for a
 project.
 
-- URI – [`/apps/`projectId`/channels/apns_sandbox`](../apireference/apps-application-id-channels-apns_sandbox.md "../apireference/apps-application-id-channels-apns_sandbox.md")
+- URI – [`/apps/`projectId`/channels/apns_sandbox`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns_sandbox.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns_sandbox.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/apns_sandbox`
@@ -310,7 +310,7 @@ project.
 
 Enable or update the APNs sandbox channel for a project.
 
-- URI – [`/apps/`projectId`/channels/apns_sandbox`](../apireference/apps-application-id-channels-apns_sandbox.md "../apireference/apps-application-id-channels-apns_sandbox.md")
+- URI – [`/apps/`projectId`/channels/apns_sandbox`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns_sandbox.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns_sandbox.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/apns_sandbox`
@@ -319,7 +319,7 @@ Enable or update the APNs sandbox channel for a project.
 
 Disable the APNs VoIP channel for a project.
 
-- URI – [`/apps/`projectId`/channels/apns_voip`](../apireference/apps-application-id-channels-apns_voip.md "../apireference/apps-application-id-channels-apns_voip.md")
+- URI – [`/apps/`projectId`/channels/apns_voip`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns_voip.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns_voip.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/apns_voip`
@@ -329,7 +329,7 @@ Disable the APNs VoIP channel for a project.
 Retrieve information about the APNs VoIP channel for a
 project.
 
-- URI – [`/apps/`projectId`/channels/apns_voip`](../apireference/apps-application-id-channels-apns_voip.md "../apireference/apps-application-id-channels-apns_voip.md")
+- URI – [`/apps/`projectId`/channels/apns_voip`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns_voip.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns_voip.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/apns_voip`
@@ -338,7 +338,7 @@ project.
 
 Enable or update the APNs VoIP channel for a project.
 
-- URI – [`/apps/`projectId`/channels/apns_voip`](../apireference/apps-application-id-channels-apns_voip.md "../apireference/apps-application-id-channels-apns_voip.md")
+- URI – [`/apps/`projectId`/channels/apns_voip`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns_voip.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns_voip.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/apns_voip`
@@ -347,7 +347,7 @@ Enable or update the APNs VoIP channel for a project.
 
 Disable the APNs VoIP sandbox channel for a project.
 
-- URI – [`/apps/`projectId`/channels/apns_voip_sandbox`](../apireference/apps-application-id-channels-apns_voip_sandbox.md "../apireference/apps-application-id-channels-apns_voip_sandbox.md")
+- URI – [`/apps/`projectId`/channels/apns_voip_sandbox`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns_voip_sandbox.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns_voip_sandbox.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/apns_voip_sandbox`
@@ -357,7 +357,7 @@ Disable the APNs VoIP sandbox channel for a project.
 Retrieve information about the APNs VoIP sandbox channel for a
 project.
 
-- URI – [`/apps/`projectId`/channels/apns_voip_sandbox`](../apireference/apps-application-id-channels-apns_voip_sandbox.md "../apireference/apps-application-id-channels-apns_voip_sandbox.md")
+- URI – [`/apps/`projectId`/channels/apns_voip_sandbox`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns_voip_sandbox.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns_voip_sandbox.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/apns_voip_sandbox`
@@ -366,7 +366,7 @@ project.
 
 Enable or update the APNs VoIP sandbox channel for a project.
 
-- URI – [`/apps/`projectId`/channels/apns_voip_sandbox`](../apireference/apps-application-id-channels-apns_voip_sandbox.md "../apireference/apps-application-id-channels-apns_voip_sandbox.md")
+- URI – [`/apps/`projectId`/channels/apns_voip_sandbox`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns_voip_sandbox.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-apns_voip_sandbox.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/apns_voip_sandbox`
@@ -375,7 +375,7 @@ Enable or update the APNs VoIP sandbox channel for a project.
 
 Disable the Baidu Cloud Push channel for a project.
 
-- URI – [`/apps/`projectId`/channels/baidu`](../apireference/apps-application-id-channels-baidu.md "../apireference/apps-application-id-channels-baidu.md")
+- URI – [`/apps/`projectId`/channels/baidu`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-baidu.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-baidu.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/baidu`
@@ -385,7 +385,7 @@ Disable the Baidu Cloud Push channel for a project.
 Retrieve information about the Baidu Cloud Push channel for a
 project.
 
-- URI – [`/apps/`projectId`/channels/baidu`](../apireference/apps-application-id-channels-baidu.md "../apireference/apps-application-id-channels-baidu.md")
+- URI – [`/apps/`projectId`/channels/baidu`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-baidu.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-baidu.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/baidu`
@@ -394,7 +394,7 @@ project.
 
 Enable or update the Baidu Cloud Push channel for a project.
 
-- URI – [`/apps/`projectId`/channels/baidu`](../apireference/apps-application-id-channels-baidu.md "../apireference/apps-application-id-channels-baidu.md")
+- URI – [`/apps/`projectId`/channels/baidu`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-baidu.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-baidu.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/baidu`
@@ -403,7 +403,7 @@ Enable or update the Baidu Cloud Push channel for a project.
 
 Disable the email channel for a project.
 
-- URI – [`/apps/`projectId`/channels/email`](../apireference/apps-application-id-channels-email.md "../apireference/apps-application-id-channels-email.md")
+- URI – [`/apps/`projectId`/channels/email`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-email.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-email.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/email`
@@ -412,7 +412,7 @@ Disable the email channel for a project.
 
 Retrieve information about the email channel for a project.
 
-- URI – [`/apps/`projectId`/channels/email`](../apireference/apps-application-id-channels-email.md "../apireference/apps-application-id-channels-email.md")
+- URI – [`/apps/`projectId`/channels/email`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-email.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-email.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/email`
@@ -421,7 +421,7 @@ Retrieve information about the email channel for a project.
 
 Enable or update the email channel for a project.
 
-- URI – [`/apps/`projectId`/channels/email`](../apireference/apps-application-id-channels-email.md "../apireference/apps-application-id-channels-email.md")
+- URI – [`/apps/`projectId`/channels/email`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-email.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-email.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/email`
@@ -433,7 +433,7 @@ allows Amazon Pinpoint to send push notifications to an Android app through the
 FCM service, which replaces the Google Cloud Messaging (GCM)
 service.
 
-- URI – [`/apps/`projectId`/channels/gcm`](../apireference/apps-application-id-channels-gcm.md "../apireference/apps-application-id-channels-gcm.md")
+- URI – [`/apps/`projectId`/channels/gcm`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-gcm.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-gcm.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/gcm`
@@ -445,7 +445,7 @@ channel allows Amazon Pinpoint to send push notifications to an Android app
 through the FCM service, which replaces the Google Cloud Messaging
 (GCM) service.
 
-- URI – [`/apps/`projectId`/channels/gcm`](../apireference/apps-application-id-channels-gcm.md "../apireference/apps-application-id-channels-gcm.md")
+- URI – [`/apps/`projectId`/channels/gcm`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-gcm.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-gcm.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/gcm`
@@ -456,7 +456,7 @@ Enable or update the FCM channel for a project. This channel allows
 Amazon Pinpoint to send push notifications to an Android app through the FCM
 service, which replaces the Google Cloud Messaging (GCM) service.
 
-- URI – [`/apps/`projectId`/channels/gcm`](../apireference/apps-application-id-channels-gcm.md "../apireference/apps-application-id-channels-gcm.md")
+- URI – [`/apps/`projectId`/channels/gcm`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-gcm.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-gcm.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/gcm`
@@ -465,7 +465,7 @@ service, which replaces the Google Cloud Messaging (GCM) service.
 
 Disable the SMS channel for a project.
 
-- URI – [`/apps/`projectId`/channels/sms`](../apireference/apps-application-id-channels-sms.md "../apireference/apps-application-id-channels-sms.md")
+- URI – [`/apps/`projectId`/channels/sms`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-sms.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-sms.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/sms`
@@ -474,7 +474,7 @@ Disable the SMS channel for a project.
 
 Retrieve information about the SMS channel for a project.
 
-- URI – [`/apps/`projectId`/channels/sms`](../apireference/apps-application-id-channels-sms.md "../apireference/apps-application-id-channels-sms.md")
+- URI – [`/apps/`projectId`/channels/sms`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-sms.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-sms.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/sms`
@@ -483,7 +483,7 @@ Retrieve information about the SMS channel for a project.
 
 Enable or update the SMS channel for a project.
 
-- URI – [`/apps/`projectId`/channels/sms`](../apireference/apps-application-id-channels-sms.md "../apireference/apps-application-id-channels-sms.md")
+- URI – [`/apps/`projectId`/channels/sms`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-sms.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-sms.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/channels/sms`
@@ -493,7 +493,7 @@ Enable or update the SMS channel for a project.
 Retrieves information about the history and status of each channel for
 an application.
 
-- URI – [`/apps/`application-id`/channels`](../apireference/apps-application-id-channels.md#apps-application-id-channelsget "../apireference/apps-application-id-channels.md#apps-application-id-channelsget")
+- URI – [`/apps/`application-id`/channels`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels.html#apps-application-id-channelsget "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels.html#apps-application-id-channelsget")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:region:`accountId`:apps/`projectId`/channels`
@@ -503,7 +503,7 @@ an application.
 Disables the voice channel for an application and deletes any existing
 settings for the channel.
 
-- URI – [`/apps/`application-id`/channels/voice`](../apireference/apps-application-id-channels-voice.md#apps-application-id-channels-voicedelete "../apireference/apps-application-id-channels-voice.md#apps-application-id-channels-voicedelete")
+- URI – [`/apps/`application-id`/channels/voice`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-voice.html#apps-application-id-channels-voicedelete "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-voice.html#apps-application-id-channels-voicedelete")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectid`/channels/voice`
@@ -513,7 +513,7 @@ settings for the channel.
 Retrieves information about the status and settings of the voice
 channel for an application.
 
-- URI – [`/apps/`application-id`/channels/voice`](../apireference/apps-application-id-channels-voice.md#apps-application-id-channels-voiceget "../apireference/apps-application-id-channels-voice.md#apps-application-id-channels-voiceget")
+- URI – [`/apps/`application-id`/channels/voice`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-voice.html#apps-application-id-channels-voiceget "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-voice.html#apps-application-id-channels-voiceget")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectid`/channels/voice`
@@ -523,7 +523,7 @@ channel for an application.
 Enables the voice channel for an application or updates the status and
 settings of the voice channel for an application.
 
-- URI – [`/apps/`application-id`/channels/voice`](../apireference/apps-application-id-channels-voice.md#apps-application-id-channels-voiceput "../apireference/apps-application-id-channels-voice.md#apps-application-id-channels-voiceput")
+- URI – [`/apps/`application-id`/channels/voice`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-voice.html#apps-application-id-channels-voiceput "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-channels-voice.html#apps-application-id-channels-voiceput")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectid`/channels/voice`
@@ -539,7 +539,7 @@ number, or mobile device token.
 
 Delete an endpoint.
 
-- URI – [`/apps/`projectId`/endpoints/`endpointId``](../apireference/apps-application-id-endpoints-endpoint-id.md "../apireference/apps-application-id-endpoints-endpoint-id.md")
+- URI – [`/apps/`projectId`/endpoints/`endpointId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/endpoints/`endpointId``
@@ -548,7 +548,7 @@ Delete an endpoint.
 
 Retrieve information about a specific endpoint.
 
-- URI – [`/apps/`projectId`/endpoints/`endpointId``](../apireference/apps-application-id-endpoints-endpoint-id.md "../apireference/apps-application-id-endpoints-endpoint-id.md")
+- URI – [`/apps/`projectId`/endpoints/`endpointId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/endpoints/`endpointId``
@@ -567,7 +567,7 @@ the endpoints that are associated with an application.
 
 Create an endpoint or update the information for an endpoint.
 
-- URI – [`/apps/`projectId`/endpoints/`endpointId``](../apireference/apps-application-id-endpoints-endpoint-id.md "../apireference/apps-application-id-endpoints-endpoint-id.md")
+- URI – [`/apps/`projectId`/endpoints/`endpointId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/endpoints/`endpointId``
@@ -576,7 +576,7 @@ Create an endpoint or update the information for an endpoint.
 
 Create or update endpoints as a batch operation.
 
-- URI – [`/apps/`projectId`/endpoints`](../apireference/apps-application-id-endpoints-endpoint-id.md "../apireference/apps-application-id-endpoints-endpoint-id.md")
+- URI – [`/apps/`projectId`/endpoints`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId``
@@ -590,7 +590,7 @@ account.
 
 Delete the event stream for a project.
 
-- URI – [`/apps/`projectId`/eventstream/`](../apireference/apps-application-id-eventstream.md "../apireference/apps-application-id-eventstream.md")
+- URI – [`/apps/`projectId`/eventstream/`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-eventstream.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-eventstream.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/eventstream`
@@ -599,7 +599,7 @@ Delete the event stream for a project.
 
 Retrieve information about the event stream for a project.
 
-- URI – [`/apps/`projectId`/eventstream/`](../apireference/apps-application-id-eventstream.md "../apireference/apps-application-id-eventstream.md")
+- URI – [`/apps/`projectId`/eventstream/`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-eventstream.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-eventstream.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/eventstream`
@@ -608,7 +608,7 @@ Retrieve information about the event stream for a project.
 
 Create or update an event stream for a project.
 
-- URI – [`/apps/`projectId`/eventstream/`](../apireference/apps-application-id-eventstream.md "../apireference/apps-application-id-eventstream.md")
+- URI – [`/apps/`projectId`/eventstream/`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-eventstream.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-eventstream.html")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/eventstream`
@@ -624,7 +624,7 @@ based on endpoint definitions that are stored in an Amazon S3 bucket.
 Creates a new event to record for endpoints, or creates or updates
 endpoint data that existing events are associated with.
 
-- URI – [`/apps/`application-id`/events`](../apireference/apps-application-id-events.md#apps-application-id-eventspost "../apireference/apps-application-id-events.md#apps-application-id-eventspost")
+- URI – [`/apps/`application-id`/events`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-events.html#apps-application-id-eventspost "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-events.html#apps-application-id-eventspost")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:region:`accountId`:apps/`projectId`/events`
@@ -640,7 +640,7 @@ about endpoints to an Amazon S3 bucket for storage or analysis.
 Create an export job for exporting endpoint definitions to
 Amazon S3.
 
-- URI – [`/apps/`projectId`/jobs/export`](../apireference/apps-application-id-jobs-export.md "../apireference/apps-application-id-jobs-export.md")
+- URI – [`/apps/`projectId`/jobs/export`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-jobs-export.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-jobs-export.html")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/jobs/export`
@@ -649,7 +649,7 @@ Amazon S3.
 
 Retrieve information about a specific export job for a project.
 
-- URI – [`/apps/`projectId`/jobs/export/`jobId``](../apireference/apps-application-id-jobs-export.md "../apireference/apps-application-id-jobs-export.md")
+- URI – [`/apps/`projectId`/jobs/export/`jobId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-jobs-export.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-jobs-export.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/jobs/export/`jobId``
@@ -658,7 +658,7 @@ Retrieve information about a specific export job for a project.
 
 Retrieve a list of all the export jobs for a project.
 
-- URI – [`/apps/`projectId`/jobs/export`](../apireference/apps-application-id-jobs-export.md "../apireference/apps-application-id-jobs-export.md")
+- URI – [`/apps/`projectId`/jobs/export`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-jobs-export.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-jobs-export.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/jobs/export`
@@ -673,7 +673,7 @@ based on endpoint definitions that are stored in an Amazon S3 bucket.
 
 Import endpoint definitions from Amazon S3 to create a segment.
 
-- URI – [`/apps/`projectId`/jobs/import`](../apireference/apps-application-id-jobs-import.md "../apireference/apps-application-id-jobs-import.md")
+- URI – [`/apps/`projectId`/jobs/import`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-jobs-import.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-jobs-import.html")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId``
@@ -682,7 +682,7 @@ Import endpoint definitions from Amazon S3 to create a segment.
 
 Retrieve information about a specific import job for a project.
 
-- URI – [`/apps/`projectId`/jobs/import/`jobId``](../apireference/apps-application-id-jobs-import.md "../apireference/apps-application-id-jobs-import.md")
+- URI – [`/apps/`projectId`/jobs/import/`jobId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-jobs-import.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-jobs-import.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/jobs/import/`jobId``
@@ -691,7 +691,7 @@ Retrieve information about a specific import job for a project.
 
 Retrieve information about all the import jobs for a project.
 
-- URI – [`/apps/`projectId`/jobs/import`](../apireference/apps-application-id-jobs-import.md "../apireference/apps-application-id-jobs-import.md")
+- URI – [`/apps/`projectId`/jobs/import`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-jobs-import.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-jobs-import.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId``
@@ -705,7 +705,7 @@ account.
 
 Create a journey for a project.
 
-- URI – [`/apps/`projectId`/journeys`](../apireference/apps-application-id-journeys.md "../apireference/apps-application-id-journeys.md")
+- URI – [`/apps/`projectId`/journeys`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys.html")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/journeys`
@@ -714,7 +714,7 @@ Create a journey for a project.
 
 Retrieve information about a specific journey.
 
-- URI – [`/apps/`projectId`/journeys/`journeyId``](../apireference/apps-application-id-journeys-journey-id.md "../apireference/apps-application-id-journeys-journey-id.md")
+- URI – [`/apps/`projectId`/journeys/`journeyId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys-journey-id.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys-journey-id.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/journeys/`journeyId``
@@ -723,7 +723,7 @@ Retrieve information about a specific journey.
 
 Retrieve information about all the journeys for a project.
 
-- URI – [`/apps/`projectId`/journeys`](../apireference/apps-application-id-journeys.md "../apireference/apps-application-id-journeys.md")
+- URI – [`/apps/`projectId`/journeys`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/journeys`
@@ -733,7 +733,7 @@ Retrieve information about all the journeys for a project.
 Update the configuration and other settings for a specific
 journey.
 
-- URI – [`/apps/`projectId`/journeys/`journeyId``](../apireference/apps-application-id-journeys-journey-id.md "../apireference/apps-application-id-journeys-journey-id.md")
+- URI – [`/apps/`projectId`/journeys/`journeyId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys-journey-id.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys-journey-id.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/journeys/`journeyId``
@@ -742,7 +742,7 @@ journey.
 
 Cancel an active journey.
 
-- URI – [`/apps/`projectId`/journeys/`journeyId`/state`](../apireference/apps-application-id-journeys-journey-id-state.md "../apireference/apps-application-id-journeys-journey-id-state.md")
+- URI – [`/apps/`projectId`/journeys/`journeyId`/state`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys-journey-id-state.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys-journey-id-state.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/journeys/`journeyId`/state`
@@ -751,7 +751,7 @@ Cancel an active journey.
 
 Delete a specific journey.
 
-- URI – [`/apps/`projectId`/journeys/`journeyId``](../apireference/apps-application-id-journeys-journey-id.md "../apireference/apps-application-id-journeys-journey-id.md")
+- URI – [`/apps/`projectId`/journeys/`journeyId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys-journey-id.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-journeys-journey-id.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/journeys/`journeyId``
@@ -770,7 +770,7 @@ you send for any of your Amazon Pinpoint projects.
 Retrieve information about all the message templates that are
 associated with your Amazon Pinpoint account.
 
-- URI – [`/templates`](../apireference/templates.md "../apireference/templates.md")
+- URI – [`/templates`](https://docs.aws.amazon.compinpoint/latest/apireference/templates.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:templates`
@@ -780,7 +780,7 @@ associated with your Amazon Pinpoint account.
 Retrieve information about all the versions of a specific message
 template.
 
-- URI – [`/templates/`template-name`/`template-type`/versions`](../apireference/templates-template-name-template-type-versions.md "../apireference/templates-template-name-template-type-versions.md")
+- URI – [`/templates/`template-name`/`template-type`/versions`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-template-type-versions.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-template-type-versions.html")
 - Method – GET
 - Resource ARN – Not applicable
 
@@ -789,7 +789,7 @@ template.
 Designate a specific version of a message template as the active
 version of the template.
 
-- URI – [`/templates/`template-name`/`template-type`/active-version`](../apireference/templates-template-name-template-type-active-version.md "../apireference/templates-template-name-template-type-active-version.md")
+- URI – [`/templates/`template-name`/`template-type`/active-version`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-template-type-active-version.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-template-type-active-version.html")
 - Method – GET
 - Resource ARN – Not applicable
 
@@ -798,7 +798,7 @@ version of the template.
 Retrieve information about a message template for messages that are
 sent through the email channel.
 
-- URI – [`/templates/`template-name`/email`](../apireference/templates-template-name-email.md "../apireference/templates-template-name-email.md")
+- URI – [`/templates/`template-name`/email`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-email.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-email.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:templates/`template-name`/EMAIL`
@@ -808,7 +808,7 @@ sent through the email channel.
 Create a message template for messages that are sent through the email
 channel.
 
-- URI – [`/templates/`template-name`/email`](../apireference/templates-template-name-email.md "../apireference/templates-template-name-email.md")
+- URI – [`/templates/`template-name`/email`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-email.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-email.html")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:templates/`template-name`/EMAIL`
@@ -818,7 +818,7 @@ channel.
 Update an existing message template for messages that are sent through
 the email channel.
 
-- URI – [`/templates/`template-name`/email`](../apireference/templates-template-name-email.md "../apireference/templates-template-name-email.md")
+- URI – [`/templates/`template-name`/email`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-email.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-email.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:templates/`template-name`/EMAIL`
@@ -828,7 +828,7 @@ the email channel.
 Delete a message template for messages that were sent through the
 email channel.
 
-- URI – [`/templates/`template-name`/email`](../apireference/templates-template-name-email.md "../apireference/templates-template-name-email.md")
+- URI – [`/templates/`template-name`/email`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-email.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-email.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:templates/`template-name`/EMAIL`
@@ -838,7 +838,7 @@ email channel.
 Retrieve information about a message template for messages that are
 sent through a push notification channel.
 
-- URI – [`/templates/`template-name`/push`](../apireference/templates-template-name-push.md "../apireference/templates-template-name-push.md")
+- URI – [`/templates/`template-name`/push`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-push.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-push.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:templates/`template-name`/PUSH`
@@ -848,7 +848,7 @@ sent through a push notification channel.
 Create a message template for messages that are sent through a push
 notification channel.
 
-- URI – [`/templates/`template-name`/push`](../apireference/templates-template-name-push.md "../apireference/templates-template-name-push.md")
+- URI – [`/templates/`template-name`/push`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-push.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-push.html")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:templates/`template-name`/PUSH`
@@ -858,7 +858,7 @@ notification channel.
 Update an existing message template for messages that are sent through
 a push notification channel.
 
-- URI – [`/templates/`template-name`/push`](../apireference/templates-template-name-push.md "../apireference/templates-template-name-push.md")
+- URI – [`/templates/`template-name`/push`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-push.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-push.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:templates/`template-name`/PUSH`
@@ -868,7 +868,7 @@ a push notification channel.
 Delete a message template for messages that were sent through a push
 notification channel.
 
-- URI – [`/templates/`template-name`/push`](../apireference/templates-template-name-push.md "../apireference/templates-template-name-push.md")
+- URI – [`/templates/`template-name`/push`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-push.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-push.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:templates/`template-name`/PUSH`
@@ -878,7 +878,7 @@ notification channel.
 Retrieve information about a message template for messages that are
 sent through the SMS channel.
 
-- URI – [`/templates/`template-name`/sms`](../apireference/templates-template-name-sms.md "../apireference/templates-template-name-sms.md")
+- URI – [`/templates/`template-name`/sms`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-sms.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-sms.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:templates/`template-name`/SMS`
@@ -888,7 +888,7 @@ sent through the SMS channel.
 Create a message template for messages that are sent through the SMS
 channel.
 
-- URI – [`/templates/`template-name`/sms`](../apireference/templates-template-name-sms.md "../apireference/templates-template-name-sms.md")
+- URI – [`/templates/`template-name`/sms`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-sms.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-sms.html")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:templates/`template-name`/SMS`
@@ -898,7 +898,7 @@ channel.
 Update an existing message template for messages that are sent through
 the SMS channel.
 
-- URI – [`/templates/`template-name`/sms`](../apireference/templates-template-name-sms.md "../apireference/templates-template-name-sms.md")
+- URI – [`/templates/`template-name`/sms`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-sms.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-sms.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:templates/`template-name`/SMS`
@@ -908,7 +908,7 @@ the SMS channel.
 Delete a message template for messages that were sent through the SMS
 channel.
 
-- URI – [`/templates/`template-name`/sms`](../apireference/templates-template-name-sms.md "../apireference/templates-template-name-sms.md")
+- URI – [`/templates/`template-name`/sms`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-sms.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-sms.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:templates/`template-name`/SMS`
@@ -918,7 +918,7 @@ channel.
 Retrieve information about a message template for messages that are
 sent through the voice channel.
 
-- URI – [`/templates/`template-name`/voice`](../apireference/templates-template-name-voice.md "../apireference/templates-template-name-voice.md")
+- URI – [`/templates/`template-name`/voice`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-voice.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-voice.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:templates/`template-name`/VOICE`
@@ -928,7 +928,7 @@ sent through the voice channel.
 Create a message template for messages that are sent through the voice
 channel.
 
-- URI – [`/templates/`template-name`/voice`](../apireference/templates-template-name-voice.md "../apireference/templates-template-name-voice.md")
+- URI – [`/templates/`template-name`/voice`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-voice.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-voice.html")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:templates/`template-name`/VOICE`
@@ -938,7 +938,7 @@ channel.
 Update an existing message template for messages that are sent through
 the voice channel.
 
-- URI – [`/templates/`template-name`/voice`](../apireference/templates-template-name-voice.md "../apireference/templates-template-name-voice.md")
+- URI – [`/templates/`template-name`/voice`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-voice.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-voice.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:templates/`template-name`/VOICE`
@@ -948,7 +948,7 @@ the voice channel.
 Delete a message template for messages that were sent through the
 voice channel.
 
-- URI – [`/templates/`template-name`/voice`](../apireference/templates-template-name-voice.md "../apireference/templates-template-name-voice.md")
+- URI – [`/templates/`template-name`/voice`](https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-voice.html "https://docs.aws.amazon.compinpoint/latest/apireference/templates-template-name-voice.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:templates/`template-name`/VOICE`
@@ -964,7 +964,7 @@ without creating segments and campaigns first.
 
 Send a message or push notification to specific endpoints.
 
-- URI – [`/apps/`projectId`/messages`](../apireference/apps-application-id-messages.md "../apireference/apps-application-id-messages.md")
+- URI – [`/apps/`projectId`/messages`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-messages.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-messages.html")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/messages`
@@ -974,7 +974,7 @@ Send a message or push notification to specific endpoints.
 Send a message or push notification to all the endpoints that are
 associated with a specific user ID.
 
-- URI – [`/apps/`projectId`/users-messages`](../apireference/apps-application-id-users-messages.md "../apireference/apps-application-id-users-messages.md")
+- URI – [`/apps/`projectId`/users-messages`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-users-messages.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-users-messages.html")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/messages`
@@ -988,7 +988,7 @@ The following permissions are related to sending and validating one-time passwor
 
 Send a text message that contains a one-time password.
 
-- URI – [`/apps/`projectId`/otp`](../apireference/apps-application-id-otp.md#apps-application-id-otppost "../apireference/apps-application-id-otp.md#apps-application-id-otppost")
+- URI – [`/apps/`projectId`/otp`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-otp.html#apps-application-id-otppost "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-otp.html#apps-application-id-otppost")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/otp`
@@ -998,7 +998,7 @@ Send a text message that contains a one-time password.
 Check the validity of a one-time password (OTP) that was generated
 using the SendOTPMessage operation.
 
-- URI – [`/apps/`projectId`/verify-otp`](../apireference/apps-application-id-verify-otp.md#apps-application-id-verify-otppost "../apireference/apps-application-id-verify-otp.md#apps-application-id-verify-otppost")
+- URI – [`/apps/`projectId`/verify-otp`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-verify-otp.html#apps-application-id-verify-otppost "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-verify-otp.html#apps-application-id-verify-otppost")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/verify-otp`
@@ -1014,7 +1014,7 @@ in Amazon Pinpoint.
 
 Retrieve information about a phone number.
 
-- URI – [`/phone/number/validate`](../apireference/phone-number-validate.md "../apireference/phone-number-validate.md")
+- URI – [`/phone/number/validate`](https://docs.aws.amazon.compinpoint/latest/apireference/phone-number-validate.html "https://docs.aws.amazon.compinpoint/latest/apireference/phone-number-validate.html")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:phone/number/validate`
@@ -1030,7 +1030,7 @@ project.
 
 Create an Amazon Pinpoint project.
 
-- URI – [`/apps`](../apireference/apps.md "../apireference/apps.md")
+- URI – [`/apps`](https://docs.aws.amazon.compinpoint/latest/apireference/apps.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps.html")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps`
@@ -1039,7 +1039,7 @@ Create an Amazon Pinpoint project.
 
 Delete an Amazon Pinpoint project.
 
-- URI – [`/apps/`projectId``](../apireference/apps-application-id.md "../apireference/apps-application-id.md")
+- URI – [`/apps/`projectId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId``
@@ -1048,7 +1048,7 @@ Delete an Amazon Pinpoint project.
 
 Retrieve information about an Amazon Pinpoint project.
 
-- URI – [`/apps/`projectId``](../apireference/apps-application-id.md "../apireference/apps-application-id.md")
+- URI – [`/apps/`projectId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId``
@@ -1058,7 +1058,7 @@ Retrieve information about an Amazon Pinpoint project.
 Retrieve information about all the projects that are associated with
 your Amazon Pinpoint account.
 
-- URI – [`/apps`](../apireference/apps.md "../apireference/apps.md")
+- URI – [`/apps`](https://docs.aws.amazon.compinpoint/latest/apireference/apps.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps`
@@ -1067,7 +1067,7 @@ your Amazon Pinpoint account.
 
 Retrieve the default settings for an Amazon Pinpoint project.
 
-- URI – [`/apps/`projectId`/settings`](../apireference/apps-application-id-settings.md "../apireference/apps-application-id-settings.md")
+- URI – [`/apps/`projectId`/settings`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-settings.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-settings.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId``
@@ -1076,7 +1076,7 @@ Retrieve the default settings for an Amazon Pinpoint project.
 
 Update the default settings for an Amazon Pinpoint project.
 
-- URI – [`/apps/`projectId`/settings`](../apireference/apps-application-id-settings.md "../apireference/apps-application-id-settings.md")
+- URI – [`/apps/`projectId`/settings`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-settings.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-settings.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId``
@@ -1094,7 +1094,7 @@ data.
 
 Create an Amazon Pinpoint configuration for a recommender model.
 
-- URI – [`/recommenders`](../apireference/recommenders.md "../apireference/recommenders.md")
+- URI – [`/recommenders`](https://docs.aws.amazon.compinpoint/latest/apireference/recommenders.html "https://docs.aws.amazon.compinpoint/latest/apireference/recommenders.html")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:recommenders`
@@ -1104,7 +1104,7 @@ Create an Amazon Pinpoint configuration for a recommender model.
 Retrieve information about all the recommender model configurations
 that are associated with your Amazon Pinpoint account.
 
-- URI – [`/recommenders`](../apireference/recommenders.md "../apireference/recommenders.md")
+- URI – [`/recommenders`](https://docs.aws.amazon.compinpoint/latest/apireference/recommenders.html "https://docs.aws.amazon.compinpoint/latest/apireference/recommenders.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:recommenders`
@@ -1114,7 +1114,7 @@ that are associated with your Amazon Pinpoint account.
 Retrieve information about an individual Amazon Pinpoint configuration for a
 recommender model.
 
-- URI – [`/recommenders/`recommenderId``](../apireference/recommenders-recommender-id.md "../apireference/recommenders-recommender-id.md")
+- URI – [`/recommenders/`recommenderId``](https://docs.aws.amazon.compinpoint/latest/apireference/recommenders-recommender-id.html "https://docs.aws.amazon.compinpoint/latest/apireference/recommenders-recommender-id.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:recommenders/`recommenderId``
@@ -1123,7 +1123,7 @@ recommender model.
 
 Update an Amazon Pinpoint configuration for a recommender model.
 
-- URI – [`/recommenders/`recommenderId``](../apireference/recommenders-recommender-id.md "../apireference/recommenders-recommender-id.md")
+- URI – [`/recommenders/`recommenderId``](https://docs.aws.amazon.compinpoint/latest/apireference/recommenders-recommender-id.html "https://docs.aws.amazon.compinpoint/latest/apireference/recommenders-recommender-id.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:recommenders/`recommenderId``
@@ -1132,7 +1132,7 @@ Update an Amazon Pinpoint configuration for a recommender model.
 
 Delete an Amazon Pinpoint configuration for a recommender model.
 
-- URI – [`/recommenders/`recommenderId``](../apireference/recommenders-recommender-id.md "../apireference/recommenders-recommender-id.md")
+- URI – [`/recommenders/`recommenderId``](https://docs.aws.amazon.compinpoint/latest/apireference/recommenders-recommender-id.html "https://docs.aws.amazon.compinpoint/latest/apireference/recommenders-recommender-id.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:recommenders/`recommenderId``
@@ -1149,7 +1149,7 @@ Create a segment. To allow a user to create a segment by importing
 endpoint data from outside Amazon Pinpoint, allow the
 `mobiletargeting:CreateImportJob` action.
 
-- URI – [`/apps/`projectId`/segments`](../apireference/apps-application-id-segments.md "../apireference/apps-application-id-segments.md")
+- URI – [`/apps/`projectId`/segments`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments.html")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId``
@@ -1158,7 +1158,7 @@ endpoint data from outside Amazon Pinpoint, allow the
 
 Delete a segment.
 
-- URI – [`/apps/`projectId`/segments/`segmentId``](../apireference/apps-application-id-segments.md "../apireference/apps-application-id-segments.md")
+- URI – [`/apps/`projectId`/segments/`segmentId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/segments/`segmentId``
@@ -1167,7 +1167,7 @@ Delete a segment.
 
 Retrieve information about a specific segment.
 
-- URI – [`/apps/`projectId`/segments/`segmentId``](../apireference/apps-application-id-segments.md "../apireference/apps-application-id-segments.md")
+- URI – [`/apps/`projectId`/segments/`segmentId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/segments/`segmentId``
@@ -1177,7 +1177,7 @@ Retrieve information about a specific segment.
 Retrieve information about jobs that export endpoint definitions for a
 segment.
 
-- URI – [`/apps/`projectId`/segments/`segmentId`/jobs/export`](../apireference/apps-application-id-segments-segment-id-jobs-export.md "../apireference/apps-application-id-segments-segment-id-jobs-export.md")
+- URI – [`/apps/`projectId`/segments/`segmentId`/jobs/export`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments-segment-id-jobs-export.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments-segment-id-jobs-export.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/segments/`segmentId`/jobs/export`
@@ -1186,7 +1186,7 @@ segment.
 
 Retrieve information about all the segments for a project.
 
-- URI – [`/apps/`projectId`/segments`](../apireference/apps-application-id-segments.md "../apireference/apps-application-id-segments.md")
+- URI – [`/apps/`projectId`/segments`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId``
@@ -1196,7 +1196,7 @@ Retrieve information about all the segments for a project.
 Retrieve information about jobs that create segments by importing
 endpoint definitions from Amazon S3.
 
-- URI – [`/apps/`projectId`/segments/`segmentId`/jobs/import`](../apireference/apps-application-id-segments-segment-id-jobs-import.md "../apireference/apps-application-id-segments-segment-id-jobs-import.md")
+- URI – [`/apps/`projectId`/segments/`segmentId`/jobs/import`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments-segment-id-jobs-import.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments-segment-id-jobs-import.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/segments/`segmentId``
@@ -1205,7 +1205,7 @@ endpoint definitions from Amazon S3.
 
 Retrieve information about a specific segment version.
 
-- URI – [`/apps/`projectId`/segments/`segmentId`/versions/`versionId``](../apireference/apps-application-id-segments-segment-id-versions-version.md "../apireference/apps-application-id-segments-segment-id-versions-version.md")
+- URI – [`/apps/`projectId`/segments/`segmentId`/versions/`versionId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments-segment-id-versions-version.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments-segment-id-versions-version.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/segments/`segmentId``
@@ -1215,7 +1215,7 @@ Retrieve information about a specific segment version.
 Retrieve information about the current and prior versions of a
 segment.
 
-- URI – [`/apps/`projectId`/segments/`segmentId`/versions`](../apireference/apps-application-id-segments-segment-id-versions.md "../apireference/apps-application-id-segments-segment-id-versions.md")
+- URI – [`/apps/`projectId`/segments/`segmentId`/versions`](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments-segment-id-versions.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments-segment-id-versions.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/segments/`segmentId``
@@ -1224,7 +1224,7 @@ segment.
 
 Update a specific segment.
 
-- URI – [`/apps/`projectId`/segments/`segmentId``](../apireference/apps-application-id-segments-segment-id.md "../apireference/apps-application-id-segments-segment-id.md")
+- URI – [`/apps/`projectId`/segments/`segmentId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments-segment-id.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-segments-segment-id.html")
 - Method – PUT
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/segments/`segmentId``
@@ -1239,7 +1239,7 @@ resources.
 Retrieve information about the tags that are associated with a
 project, campaign, message template, or segment.
 
-- URI – [`/tags/`resource-arn``](../apireference/tags-resource-arn.md "../apireference/tags-resource-arn.md")
+- URI – [`/tags/`resource-arn``](https://docs.aws.amazon.compinpoint/latest/apireference/tags-resource-arn.html "https://docs.aws.amazon.compinpoint/latest/apireference/tags-resource-arn.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:*`
@@ -1249,7 +1249,7 @@ project, campaign, message template, or segment.
 Add one or more tags to a project, campaign, message template, or
 segment.
 
-- URI – [`/tags/`resource-arn``](../apireference/tags-resource-arn.md "../apireference/tags-resource-arn.md")
+- URI – [`/tags/`resource-arn``](https://docs.aws.amazon.compinpoint/latest/apireference/tags-resource-arn.html "https://docs.aws.amazon.compinpoint/latest/apireference/tags-resource-arn.html")
 - Method – POST
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:*`
@@ -1259,7 +1259,7 @@ segment.
 Remove one or more tags from a project, campaign, message template, or
 segment.
 
-- URI – [`/tags/`resource-arn``](../apireference/tags-resource-arn.md "../apireference/tags-resource-arn.md")
+- URI – [`/tags/`resource-arn``](https://docs.aws.amazon.compinpoint/latest/apireference/tags-resource-arn.html "https://docs.aws.amazon.compinpoint/latest/apireference/tags-resource-arn.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:*`
@@ -1274,7 +1274,7 @@ you. A single user might be associated with more than one endpoint.
 
 Delete all the endpoints that are associated with a user ID.
 
-- URI – [`/apps/`projectId`/users/`userId``](../apireference/apps-application-id-users-user-id.md "../apireference/apps-application-id-users-user-id.md")
+- URI – [`/apps/`projectId`/users/`userId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-users-user-id.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-users-user-id.html")
 - Method – DELETE
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/users/`userId``
@@ -1284,7 +1284,7 @@ Delete all the endpoints that are associated with a user ID.
 Retrieve information about all the endpoints that are associated with
 a user ID.
 
-- URI – [`/apps/`projectId`/users/`userId``](../apireference/apps-application-id-users-user-id.md "../apireference/apps-application-id-users-user-id.md")
+- URI – [`/apps/`projectId`/users/`userId``](https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-users-user-id.html "https://docs.aws.amazon.compinpoint/latest/apireference/apps-application-id-users-user-id.html")
 - Method – GET
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/users/`userId``

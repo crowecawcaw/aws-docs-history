@@ -20,11 +20,11 @@ practices can help you ensure internetwork traffic privacy for Amazon Pinpoint.
 Amazon Pinpoint and on-premises clients and applications
 
 To establish a private connection between Amazon Pinpoint and clients and applications on your
-on-premises network, you can use AWS Direct Connect. This enables you to link your network to an
+on-premises network, you can use Direct Connect. This enables you to link your network to an
 AWS Direct Connect location by using a standard, fiber-optic Ethernet cable. One end of the
-cable is connected to your router. The other end is connected to an AWS Direct Connect router. For
+cable is connected to your router. The other end is connected to an Direct Connect router. For
 more information, see [What is
-AWS Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") in the _AWS Direct Connect User Guide_.
+Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") in the _Direct Connect User Guide_.
 
 To help secure access to Amazon Pinpoint through published APIs, we recommend that you comply
 with Amazon Pinpoint requirements for API calls. Amazon Pinpoint requires clients to use Transport Layer

@@ -12,7 +12,7 @@ You can establish a private connection between your virtual private cloud (VPC) 
 endpoint in Amazon Pinpoint by creating an interface VPC endpoint.
 
 Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.com/privatelink/"), a technology that allows you to privately access Amazon Pinpoint APIs without an
-internet gateway, NAT device, VPN connection, or AWS Direct Connect. Instances in your VPC don't need
+internet gateway, NAT device, VPN connection, or Direct Connect. Instances in your VPC don't need
 public IP addresses to communicate with the Amazon Pinpoint APIs that integrate with AWS PrivateLink.
 
 For more information, see the [AWS PrivateLink Guide](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md").
