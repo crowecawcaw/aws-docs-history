@@ -44,7 +44,7 @@ policies to projects and domain unit owners within Amazon DataZone blueprint con
 
 An Amazon DataZone blueprint configuration is an entity that encapsulates information needed to
 create and configure resources used in publishing and subscribing user workflows. This
-information includes AWS account number and region, AWS CloudFormation templates, account level
+information includes AWS account number and region, CloudFormation templates, account level
 parameters such as VPCs and subnets, and can also contain database connection information
 and credentials. To control costs and improve security, data platform users require the
 ability to control who can use these blueprints and create environments.
