@@ -71,7 +71,7 @@ an error.
 
 To configure an index document using the S3 console, use the following procedure.
 You can also configure an index document using the REST API, the AWS SDKs, the
-AWS CLI, or AWS CloudFormation.
+AWS CLI, or CloudFormation.
 
 ###### Note
 

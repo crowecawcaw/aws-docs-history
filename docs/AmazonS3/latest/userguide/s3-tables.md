@@ -41,7 +41,7 @@ bucket types.
 **Built-in support for Apache
 Iceberg**
 
-Tables in your table buckets are stored in [Apache Iceberg](https://aws.amazon.com/what-is/apache-iceberg/ "https://aws.amazon.com/what-is/apache-iceberg/")
+Tables in your table buckets are stored in [Apache Iceberg](https://aws.amazon.com//what-is/apache-iceberg/ "https://aws.amazon.com//what-is/apache-iceberg/")
 format. You can query these tables using standard SQL in query engines that
 support Iceberg. Iceberg has a variety of
 features to optimize query performance, including schema evolution and
@@ -103,6 +103,7 @@ analytics applications.
   can use AWS Glue for analytics, machine learning (ML), and application development.
   AWS Glue also includes additional productivity and data-operations tooling for
   authoring, running jobs, and implementing business workflows.
+- [**Amazon SageMaker Unified Studio**](../../../sagemaker-unified-studio/latest/userguide/what-is-sagemaker-unified-studio.md "../../../sagemaker-unified-studio/latest/userguide/what-is-sagemaker-unified-studio.md") – SageMaker Unified Studio delivers an integrated experience for analytics and AI with unified access to all your data. Collaborate and build in SageMaker Unified Studio using familiar AWS tools for SQL analytics, data processing, model development, and generative AI, accelerated by [Amazon Q Developer](../../../amazonq/latest/qdeveloper-ug/what-is.md "../../../amazonq/latest/qdeveloper-ug/what-is.md").
 - [**Amazon EMR**](../../../emr/latest/ManagementGuide/emr-what-is-emr.md "../../../emr/latest/ManagementGuide/emr-what-is-emr.md") – Amazon EMR is a managed cluster platform that simplifies running
   big data frameworks, such as Apache Hadoop and Apache
   Spark, on AWS to process and analyze vast amounts of data.

@@ -25,9 +25,9 @@ Tutorials: Setting up a Dynamic Content Distribution for Amazon S3](https://aws.
 serve content hosted in an Amazon S3 bucket using CloudFront, you can use any bucket name, and both
 HTTP and HTTPS are supported.
 
-###### Automating set up with an AWS CloudFormation template
+###### Automating set up with an CloudFormation template
 
-For more information about using an AWS CloudFormation template to configure a secure static website
+For more information about using an CloudFormation template to configure a secure static website
 that creates a CloudFront distribution to serve your website, see [Getting started with a secure static website](../../../AmazonCloudFront/latest/DeveloperGuide/getting-started-secure-static-website-cloudformation-template.md "../../../AmazonCloudFront/latest/DeveloperGuide/getting-started-secure-static-website-cloudformation-template.md") in the _Amazon CloudFront Developer Guide_.
 
 ###### Topics

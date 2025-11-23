@@ -28,6 +28,7 @@ The following AWS analytics services can access tables through this integration:
 - [Amazon Data Firehose](s3-tables-integrating-firehose.md "s3-tables-integrating-firehose.md")
 - [AWS Glue
   ETL](s3-tables-integrating-glue.md "s3-tables-integrating-glue.md")
+- [Querying S3 Tables with SageMaker Unified Studio](s3-tables-integrating-sagemaker.md "s3-tables-integrating-sagemaker.md")
 
 ### Accessing tables using the AWS Glue Iceberg REST endpoint
 

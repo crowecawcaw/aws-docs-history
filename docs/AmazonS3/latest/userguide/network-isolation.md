@@ -4,8 +4,10 @@ As a managed service, Amazon S3 is protected by the AWS global network security 
 are described in the security pillar of the [AWS Well-Architected Framework](../../../wellarchitected/latest/security-pillar/welcome.md "../../../wellarchitected/latest/security-pillar/welcome.md").
 
 Access to Amazon S3 via the network is through AWS published APIs. Clients must support
-Transport Layer Security (TLS) 1.2. We recommend also supporting TLS 1.3. (For more
-information about this recommendation, see [Faster AWS cloud connections with TLS 1.3](https://aws.amazon.com/blogs/security/faster-aws-cloud-connections-with-tls-1-3/ "https://aws.amazon.com/blogs/security/faster-aws-cloud-connections-with-tls-1-3/") on the _AWS Security Blog_.)
+Transport Layer Security (TLS) 1.2. We recommend also supporting TLS 1.3 and hybrid
+post-quantum key exchange. To learn about post-quantum cryptography at AWS, including
+links to blog posts and research papers, see [Post-Quantum
+Cryptography for AWS](https://aws.amazon.com/security/post-quantum-cryptography/ "https://aws.amazon.com/security/post-quantum-cryptography/").
 
 ###### Note
 

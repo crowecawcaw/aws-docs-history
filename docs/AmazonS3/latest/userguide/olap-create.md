@@ -111,7 +111,7 @@ aws s3api put-object --bucket `Amazon S3 bucket name` --key s3objectlambda_deplo
 
 ```
 aws cloudformation deploy --template-file s3objectlambda_defaultconfig.yaml \
- --stack-name `AWS CloudFormation stack name` \
+ --stack-name `CloudFormation stack name` \
  --parameter-overrides ObjectLambdaAccessPointName=`Object Lambda Access Point name` \
   SupportingAccessPointName=`Amazon S3 access point` S3BucketName=`Amazon S3 bucket` \
   LambdaFunctionS3BucketName=`Amazon S3 bucket containing your Lambda package` \
@@ -275,7 +275,7 @@ Object Lambda Access Point.
 For information about modifying the AWS CloudFormation template's default configuration, see [Automate S3 Object Lambda setup with a CloudFormation
 template](olap-using-cfn-template.md "olap-using-cfn-template.md").
 
-For information about configuring Object Lambda Access Points by using AWS CloudFormation without the template, see [`AWS::S3ObjectLambda::AccessPoint`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.md") in the
+For information about configuring Object Lambda Access Points by using CloudFormation without the template, see [`AWS::S3ObjectLambda::AccessPoint`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.md") in the
 _AWS CloudFormation User Guide_.
 
 ###### To upload the Lambda function deployment package

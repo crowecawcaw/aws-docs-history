@@ -78,6 +78,10 @@ To manage tags using the Amazon S3 API, see the following API pages in the _Amaz
 - [GetBucketTagging](../API/API_GetBucketTagging.md "../API/API_GetBucketTagging.md")
 - [DeleteBucketTagging](../API/API_DeleteBucketTagging.md "../API/API_DeleteBucketTagging.md")
 
+###### Note
+
+After you enable ABAC, the `PutBucketTagging` or `DeleteBucketTagging` operations will no longer work. Instead, use the `TagResource` and `UntagResource` APIs to add or delete tags on your buckets. We recommend you use the `TagResource` and `UntagResource` APIs to manage tagging before enabling ABAC on your buckets. To learn more about ABAC, see[Enabling ABAC in general purpose buckets](buckets-tagging-enable-abac.md "buckets-tagging-enable-abac.md").
+
 ###### Using the CLI
 
 To manage tags using the AWS CLI, see the following pages

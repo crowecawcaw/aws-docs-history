@@ -248,7 +248,7 @@ You can manage your object storage by using the AWS SDKs and client libraries.
 - [PyTorch on AWS](../../../sagemaker/latest/dg/pytorch.md "../../../sagemaker/latest/dg/pytorch.md") – PyTorch on AWS
   is an open source deep-learning framework that makes it easier to develop
   machine learning models and deploy them to production.
-- [AWS SDKs](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/") – You can use
+- [AWS SDKs](https://aws.amazon.com//developer/tools/ "https://aws.amazon.com//developer/tools/") – You can use
   the AWS SDKs when developing applications with Amazon S3. The AWS SDKs
   simplify your programming tasks by wrapping the underlying Amazon S3 REST API.
   For more information about using the AWS SDKs with S3 Express One Zone, see [AWS SDKs](s3-express-SDKs.md#s3-express-getting-started-accessing-sdks "s3-express-SDKs.md#s3-express-getting-started-accessing-sdks").

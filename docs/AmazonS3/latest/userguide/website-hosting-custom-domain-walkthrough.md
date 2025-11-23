@@ -22,20 +22,20 @@ For a tutorial about how to host your content securely with CloudFront and Amazo
 streaming video with Amazon S3, Amazon CloudFront, and Amazon Route 53](tutorial-s3-cloudfront-route53-video-streaming.md "tutorial-s3-cloudfront-route53-video-streaming.md"). For more information, see [How do I use
 CloudFront to serve a static website hosted on Amazon S3?](https://aws.amazon.com/premiumsupport/knowledge-center/cloudfront-serve-static-website/ "https://aws.amazon.com/premiumsupport/knowledge-center/cloudfront-serve-static-website/") and [Requiring HTTPS for communication between viewers and CloudFront](../../../AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.md "../../../AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.md").
 
-###### Automating static website setup with an AWS CloudFormation template
+###### Automating static website setup with an CloudFormation template
 
-You can use an AWS CloudFormation template to automate your static website setup. The AWS CloudFormation template sets
+You can use an CloudFormation template to automate your static website setup. The CloudFormation template sets
 up the components that you need to host a secure static website so that you can focus
 more on your website’s content and less on configuring components.
 
-The AWS CloudFormation template includes the following components:
+The CloudFormation template includes the following components:
 
 - Amazon S3 – Creates an Amazon S3 bucket to host your static website.
 - CloudFront – Creates a CloudFront distribution to speed up your static website.
 - Lambda@Edge – Uses [Lambda@Edge](../../../AmazonCloudFront/latest/DeveloperGuide/lambda-at-the-edge.md "../../../AmazonCloudFront/latest/DeveloperGuide/lambda-at-the-edge.md") to add security headers to every server response. Security
   headers are a group of headers in the web server response that tell web browsers to
   take extra security precautions. For more information, see the blog post [Adding HTTP security headers using Lambda@Edge and Amazon CloudFront](https://aws.amazon.com/blogs/networking-and-content-delivery/adding-http-security-headers-using-lambdaedge-and-amazon-cloudfront/ "https://aws.amazon.com/blogs/networking-and-content-delivery/adding-http-security-headers-using-lambdaedge-and-amazon-cloudfront/").
-  This AWS CloudFormation template is available for you to download and use. For information and
+  This CloudFormation template is available for you to download and use. For information and
   instructions, see [Getting started with a secure static website](../../../AmazonCloudFront/latest/DeveloperGuide/getting-started-secure-static-website-cloudformation-template.md "../../../AmazonCloudFront/latest/DeveloperGuide/getting-started-secure-static-website-cloudformation-template.md") in the _Amazon CloudFront Developer Guide_.
 
 ###### Topics

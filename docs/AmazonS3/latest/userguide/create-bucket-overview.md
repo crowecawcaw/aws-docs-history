@@ -36,6 +36,7 @@ bucket's behavior:
   objects. You can use Object Lock to help meet regulatory requirements that require WORM storage, or
   to add another layer of protection against object changes or deletion. For more information, see
   [Locking objects with Object Lock](object-lock.md "object-lock.md").
+- **Tags** – An AWS tag is a key-value pair that holds metadata. You attach the tags to your Amazon S3 resources, such as buckets. You can tag resources when you create them or manage tags on existing resources. You can use tags for cost allocation to track storage costs by bucket tag in AWS Billing and Cost Management. You can also use tags for attribute-based access control (ABAC), to scale access permissions and grant access to S3 resources based on their tags. For more information, see [Using tags with S3 general purpose buckets](buckets-tagging.md "buckets-tagging.md").
 
 After you create a general purpose bucket, or when you're creating a general purpose bucket by using the Amazon S3 console, you can also
 use the following settings to control other aspects of your bucket's behavior:

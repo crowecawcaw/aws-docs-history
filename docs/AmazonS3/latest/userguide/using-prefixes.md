@@ -80,7 +80,6 @@ first occurrence of the specified delimiter.
     <Size>6</Size>
     <Owner>
       <ID>75cc57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a</ID>
-      <DisplayName>displayname</DisplayName>
     </Owner>
     <StorageClass>STANDARD</StorageClass>
   </Contents>

@@ -109,12 +109,12 @@ The following API operations support S3 Bucket Keys for SSE-KMS:
   - The `x-amz-server-side-encryption-bucket-key-enabled` response header
     indicates if an S3 Bucket Key is enabled or disabled for an object.
 
-### Working with AWS CloudFormation
+### Working with CloudFormation
 
-In AWS CloudFormation, the `AWS::S3::Bucket` resource includes an encryption property
+In CloudFormation, the `AWS::S3::Bucket` resource includes an encryption property
 called `BucketKeyEnabled` that you can use to enable or disable an S3 Bucket Key.
 
-For more information, see [Using AWS CloudFormation](configuring-bucket-key.md#enable-bucket-key-cloudformation "configuring-bucket-key.md#enable-bucket-key-cloudformation").
+For more information, see [Using CloudFormation](configuring-bucket-key.md#enable-bucket-key-cloudformation "configuring-bucket-key.md#enable-bucket-key-cloudformation").
 
 ## Changes to note before enabling an S3 Bucket Key
 

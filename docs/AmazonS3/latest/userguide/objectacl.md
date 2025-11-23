@@ -40,14 +40,6 @@ includes the following attributes:
      You can retrieve the canonical user ID. For more information, see [Find the canonical user ID for your AWS account](../../../accounts/latest/reference/manage-acct-identifiers.md#FindCanonicalId "../../../accounts/latest/reference/manage-acct-identifiers.md#FindCanonicalId") in the
      *AWS Account Management Reference
      Guide*.
-
-
-    ###### Note
-
-    If a grantee in an ACL is the email address of an AWS account, S3
-     Inventory uses the `canonicalId` of that AWS account and
-     the `CanonicalUser` type to specify this grantee. For more
-     information, see [Grantees in access control lists](acl-overview.md#specifying-grantee "acl-overview.md#specifying-grantee").
     + `permission` – The ACL permissions that are granted on
      the object. For more information, see [ACL
      permissions on an object](acl-overview.md#permissions "acl-overview.md#permissions").

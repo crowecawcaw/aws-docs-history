@@ -119,6 +119,36 @@ Denied` message.
 The following examples show the format for different types of access denied error
 messages and how to troubleshoot each type of message.
 
+### Access denied due to Blocked Encryption Type
+
+To limit the server-side encryption types you can use in your general purpose buckets, you can
+choose to block SSE-C write requests by updating your default encryption configuration for your
+buckets. This bucket-level configuration blocks requests to upload objects that specify SSE-C. When SSE-C is blocked for a bucket, any `PutObject`,
+`CopyObject`, `PostObject`, or Multipart Upload or replication
+requests that specify SSE-C encryption will be rejected with an HTTP 403
+`AccessDenied` error.
+
+This setting is a parameter on the
+`PutBucketEncryption` API and can also be updated using the S3 Console, AWS CLI, and AWS SDKs, if you have the `s3:PutEncryptionConfiguration` permission. Valid values are `SSE-C`, which blocks SSE-C encryption for the general purpose
+bucket, and `NONE`, which allows the use SSE-C for writes to the bucket.
+
+For
+example, when access is denied for a `PutObject` request because the `BlockedEncryptionTypes` setting blocks write requests specifying SSE-C, you receive the following
+message:
+
+```
+An error occurred (AccessDenied) when calling the PutObject operation:
+User: arn:aws:iam::123456789012:user/MaryMajor  is not
+authorized to perform: s3:PutObject on resource:
+"arn:aws:s3:::amzn-s3-demo-bucket1/object-name" because this
+bucket has blocked upload requests that specify
+Server Side Encryption with Customer provided keys (SSE-C).
+Please specify a different server-side encryption type
+
+```
+
+For more information about this setting, see [Blocking or unblocking SSE-C for a general purpose bucket](blocking-unblocking-s3-c-encryption-gpb.md "blocking-unblocking-s3-c-encryption-gpb.md").
+
 ### Access denied due to a resource
 
 control policy – explicit denial

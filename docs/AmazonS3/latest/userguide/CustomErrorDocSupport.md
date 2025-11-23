@@ -46,11 +46,11 @@ returns your custom error document for only the HTTP 4XX class of error codes.
 
 To configure a custom error document using the S3 console, follow the steps below.
 You can also configure an error document using the REST API, the AWS SDKs, the
-AWS CLI, or AWS CloudFormation. For more information, see the following:
+AWS CLI, or CloudFormation. For more information, see the following:
 
 - [PutBucketWebsite](../API/API_PutBucketWebsite.md "../API/API_PutBucketWebsite.md") in the
   _Amazon Simple Storage Service API Reference_
-- [AWS::S3::Bucket WebsiteConfiguration](../../../AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-websiteconfiguration.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-websiteconfiguration.md") in the _AWS CloudFormation User Guide_
+- [AWS::S3::Bucket WebsiteConfiguration](../../../AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-websiteconfiguration.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-websiteconfiguration.md") in the _CloudFormation User Guide_
 - [put-bucket-website](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-website.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-website.html") in the _AWS CLI Command
   Reference_
 

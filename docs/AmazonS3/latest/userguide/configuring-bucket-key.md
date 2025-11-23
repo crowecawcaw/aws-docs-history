@@ -8,7 +8,7 @@ request traffic from Amazon S3 to AWS KMS and reduce the cost of SSE-KMS. For mo
 [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](bucket-key.md "bucket-key.md").
 
 You can configure your bucket to use an S3 Bucket Key for SSE-KMS on new objects by using
-the Amazon S3 console, REST API, AWS SDKs, AWS Command Line Interface (AWS CLI), or AWS CloudFormation. If you want to enable or
+the Amazon S3 console, REST API, AWS SDKs, AWS Command Line Interface (AWS CLI), or CloudFormation. If you want to enable or
 disable an S3 Bucket Key for existing objects, you can use a `CopyObject` operation. For
 more information, see [Configuring an S3 Bucket Key at the object
 level](configuring-bucket-key-object.md "configuring-bucket-key-object.md") and [Using Batch Operations to enable S3 Bucket Keys for
@@ -176,5 +176,5 @@ aws s3api put-bucket-encryption --bucket `amzn-s3-demo-bucket` --server-side-enc
     }'
 ```
 
-For more information about configuring an S3 Bucket Key with AWS CloudFormation, see [AWS::S3::Bucket ServerSideEncryptionRule](../../../AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.md") in the
+For more information about configuring an S3 Bucket Key with CloudFormation, see [AWS::S3::Bucket ServerSideEncryptionRule](../../../AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.md") in the
 _AWS CloudFormation User Guide_.

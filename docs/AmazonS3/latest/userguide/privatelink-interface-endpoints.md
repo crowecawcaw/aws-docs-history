@@ -2,13 +2,13 @@
 
 With AWS PrivateLink for Amazon S3, you can provision *interface VPC endpoints*
 (interface endpoints) in your virtual private cloud (VPC). These endpoints are directly accessible from applications that are on premises
-over VPN and AWS Direct Connect, or in a different AWS Region over VPC peering.
+over VPN and Direct Connect, or in a different AWS Region over VPC peering.
 
 Interface endpoints are represented by one or more elastic network interfaces (ENIs) that
 are assigned private IP addresses from subnets in your VPC. Requests to Amazon S3 over interface
 endpoints stay on the Amazon network. You can also access interface endpoints in your VPC from
-on-premises applications through AWS Direct Connect or AWS Virtual Private Network (AWS VPN). For more information about
-how to connect your VPC with your on-premises network, see the [AWS Direct Connect User Guide](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") and the [AWS Site-to-Site VPN User Guide](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md").
+on-premises applications through AWS Direct Connect or AWS Virtual Private Network (Site-to-Site VPN). For more information about
+how to connect your VPC with your on-premises network, see the [Direct Connect User Guide](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") and the [AWS Site-to-Site VPN User Guide](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md").
 
 For general information about interface endpoints, see [Interface VPC endpoints
 (AWS PrivateLink)](../../../vpc/latest/privatelink/vpce-interface.md "../../../vpc/latest/privatelink/vpce-interface.md") in the _AWS PrivateLink Guide_.
@@ -74,6 +74,7 @@ Interface endpoints for Amazon S3 does not support the following:
 - Transport Layer Security (TLS) 1.0
 - Transport Layer Security (TLS) 1.1
 - Transport Layer Security (TLS) 1.3
+- Hybrid post-quantum Transport Layer Security (TLS)
 
 ## Creating a VPC endpoint
 
@@ -583,11 +584,11 @@ diagram.
 The
 diagram illustrates the following:
 
-- Your on-premises network uses AWS Direct Connect or AWS VPN to connect to VPC A.
+- Your on-premises network uses Direct Connect or Site-to-Site VPN to connect to VPC A.
 - Your applications on-premises and in VPC A use endpoint-specific DNS names to access
   Amazon S3 through the S3 interface endpoint.
 - On-premises applications send data to the interface endpoint in the VPC through
-  AWS Direct Connect (or AWS VPN). AWS PrivateLink moves the data from the interface endpoint to Amazon S3
+  Direct Connect (or Site-to-Site VPN). AWS PrivateLink moves the data from the interface endpoint to Amazon S3
   over the AWS network.
 - In-VPC applications also send traffic to the interface endpoint. AWS PrivateLink moves
   the data from the interface endpoint to Amazon S3 over the AWS network.
@@ -608,7 +609,7 @@ DNS names for Amazon S3.
 The diagram illustrates the following:
 
 - On-premises applications use endpoint-specific DNS names to send data to the
-  interface endpoint within the VPC through AWS Direct Connect (or AWS VPN). AWS PrivateLink moves the
+  interface endpoint within the VPC through Direct Connect (or Site-to-Site VPN). AWS PrivateLink moves the
   data from the interface endpoint to Amazon S3 over the AWS network.
 - Using default Regional Amazon S3 names, in-VPC applications send data to the gateway
   endpoint that connects to Amazon S3 over the AWS network.

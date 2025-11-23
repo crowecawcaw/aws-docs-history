@@ -6,7 +6,7 @@ To reduce the amount of time your packets spend on the network, configure your v
 
 ###### To configure a gateway VPC endpoint
 
-1. Open the [Amazon VPC Console](https://console.aws.amazon.com/https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/https://console.aws.amazon.com/vpc/").
+1. Open the [Amazon VPC Console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
 2. In the navigation pane, choose **Endpoints**.
 3. Choose **Create endpoint**.
 4. Create a name for your endpoint.

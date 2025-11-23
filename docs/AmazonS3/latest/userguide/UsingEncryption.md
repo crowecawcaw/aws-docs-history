@@ -11,8 +11,9 @@ see [Default encryption FAQ](default-encryption-faq.md "default-encryption-faq.m
 
 Data protection refers to protecting data while it's in transit (as it travels to and from
 Amazon S3) and at rest (while it is stored on disks in Amazon S3 data centers). You can protect data
-in transit by using Secure Socket Layer/Transport Layer Security (SSL/TLS) or client-side
-encryption. For protecting data at rest in Amazon S3, you have the following options:
+in transit by using Secure Socket Layer/Transport Layer Security (SSL/TLS) including hybrid
+post-quantum key exchange or client-side encryption. For protecting data at rest in Amazon S3,
+you have the following options:
 
 - **Server-side encryption** – Amazon S3 encrypts your
   objects before saving them on disks in AWS data centers and then decrypts the
@@ -43,7 +44,7 @@ To configure server-side encryption, see:
     + [Specifying dual-layer server-side encryption with AWS KMS
      keys (DSSE-KMS)](specifying-dsse-encryption.md "specifying-dsse-encryption.md")
     + [Specifying server-side encryption with
-     customer-provided keys (SSE-C)](ServerSideEncryptionCustomerKeys.md#specifying-s3-c-encryption "ServerSideEncryptionCustomerKeys.md#specifying-s3-c-encryption")
+     customer-provided keys (SSE-C)](specifying-s3-c-encryption.md "specifying-s3-c-encryption.md")
 
 - **Client-side encryption** – You encrypt your data
   client-side and upload the encrypted data to Amazon S3. In this case, you manage the
@@ -55,11 +56,13 @@ To see which percentage of your storage bytes are encrypted, you can use Amazon 
 metrics. S3 Storage Lens is a cloud-storage analytics feature that you can use to gain organization-wide
 visibility into object-storage usage and activity. For more information, see [Assessing your storage activity and usage with S3 Storage Lens](storage_lens.md "storage_lens.md"). For a complete list of metrics, see [S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md "storage_lens_metrics_glossary.md").
 
-For more information about server-side encryption and client-side encryption, review the
-following topics.
+For more information about server-side encryption, client-side encryption, and encryption in
+transit, review the following topics.
 
 ###### Topics
 
 - [Protecting data with server-side encryption](serv-side-encryption.md "serv-side-encryption.md")
 - [Protecting data by using client-side
   encryption](UsingClientSideEncryption.md "UsingClientSideEncryption.md")
+- [Protecting data in transit with
+  encryption](UsingEncryptionInTransit.md "UsingEncryptionInTransit.md")

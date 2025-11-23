@@ -773,8 +773,8 @@ see [Permissions for log delivery](#grant-log-delivery-permissions-general "#gra
           "TargetGrants": [
                {
                   "Grantee": {
-                      "Type": "AmazonCustomerByEmail",
-                      "EmailAddress": "`user@example.com`"
+                      "Type": "CanonicalUser",
+                      "ID": "`79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`"
                    },
                   "Permission": "FULL_CONTROL"
                }
@@ -797,35 +797,10 @@ request elements) in the following ways:
     {
       "Grantee": {
         "Type": "CanonicalUser",
-        "ID": "`ID`",
-        "DisplayName": "`GranteesEmail`"
+        "ID": "`ID`"
       }
     }
     ```
-
-    `DisplayName` is optional and is ignored in the request.
-    * By email address:
-
-
-
-    ```
-    {
-      "Grantee": {
-        "Type": "AmazonCustomerByEmail",
-        "EmailAddress": "`username`@`example.com`"
-      }
-    }
-    ```
-
-    The grantee is resolved to the `CanonicalUser` and, in a response to a
-     `GetObjectAcl` request, appears as the `CanonicalUser`.
-
-
-    ###### Note
-
-    Using email addresses to specify a grantee is supported only in some AWS Regions.
-     For more information, see [Grantee](../API/API_Grantee.md "../API/API_Grantee.md") in the
-     *Amazon S3 API Reference*.
     * By URI:
 
 

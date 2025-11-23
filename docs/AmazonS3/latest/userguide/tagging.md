@@ -107,11 +107,11 @@ Provides the most detailed set of AWS cost and usage data, including tag-based c
 
 The following Amazon S3 resources support storage cost tracking using tags.
 
-- **General purpose buckets**
+- **S3 general purpose buckets**
 
-For more information, see [Using cost allocation S3 bucket tags](CostAllocTagging.md "CostAllocTagging.md")
+For more information, see [Using tags with S3 general purpose buckets](buckets-tagging.md "buckets-tagging.md").
 
-- **Directory buckets**
+- **S3 Directory buckets**
 
 For more information, see [Using tags with S3 directory buckets](directory-buckets-tagging.md "directory-buckets-tagging.md").
 
@@ -141,6 +141,10 @@ Some resources support additional Amazon S3 condition keys. For a complete list 
 
 The following Amazon S3 resources support attribute-based access control (ABAC) using tags.
 
+- **S3 general purpose buckets**
+
+For more information, see [Using tags with S3 general purpose buckets](buckets-tagging.md "buckets-tagging.md").
+
 - **Access points**
 
 For more information, see [Using tags with S3 Access Points for general purpose buckets](access-points-tagging.md "access-points-tagging.md") and [Using tags with S3 Access Points for directory buckets](access-points-db-tagging.md "access-points-db-tagging.md").
@@ -149,7 +153,7 @@ For more information, see [Using tags with S3 Access Points for general purpose 
 
 For more information, see [Controlling access and labeling jobs using tags](batch-ops-job-tags.md "batch-ops-job-tags.md").
 
-- **Directory buckets**
+- **S3 Directory buckets**
 
 For more information, see [Using tags with S3 directory buckets](directory-buckets-tagging.md "directory-buckets-tagging.md").
 
@@ -184,7 +188,7 @@ When you use tags, we recommend that you adhere to the following best practices:
 
 Do not store personally identifiable information (PII) or other confidential or sensitive information in tags.
 
-- Automate tagging to ensure consistency. For example, you can include tags in an AWS CloudFormation template. When you create resources with the template, the resources are tagged automatically.
+- Automate tagging to ensure consistency. For example, you can include tags in an CloudFormation template. When you create resources with the template, the resources are tagged automatically.
 - Use tags only when necessary. Avoid unnecessary tag proliferation and complexity.
 - Review tags periodically for relevance and accuracy. Remove or modify outdated tags as needed.
 - Consider creating tags with the AWS Tag Editor in the AWS Management Console. You can use the Tag Editor to add tags to multiple supported AWS resources, including Amazon S3 resources, at the same time. For more information, see [Tag Editor](../../../ARG/latest/userguide/tag-editor.md "../../../ARG/latest/userguide/tag-editor.md") in the _AWS Resource Groups User Guide_.
@@ -202,3 +206,4 @@ For more information on how to manage tags for Amazon S3 resources, see the foll
 - [Managing tags for S3 Access Grants](access-grants-tagging.md "access-grants-tagging.md")
 - [Managing AWS resource tags with Storage
   Lens groups](storage-lens-groups-manage-tags.md "storage-lens-groups-manage-tags.md")
+- [Using tags with S3 general purpose buckets](buckets-tagging.md "buckets-tagging.md").

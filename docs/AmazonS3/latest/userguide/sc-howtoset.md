@@ -33,7 +33,7 @@ To set the storage class when you upload an object, you can use the following me
 
 To set the storage class when uploading a new object in the console:
 
-1. Sign in to the AWS Management Console and open the Amazon S3 console at: [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3 "https://console.aws.amazon.com/s3").
+1. Sign in to the AWS Management Console and open the Amazon S3 console at: [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com//s3 "https://console.aws.amazon.com//s3").
 2. In the left navigation pane, choose **General purpose buckets**.
 3. In the buckets list, choose the name of the bucket that you want to upload your folders or files to.
 4. Choose **Upload**.

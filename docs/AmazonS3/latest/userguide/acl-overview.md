@@ -32,14 +32,12 @@ owner full control over the resource. This is shown in the following sample buck
 <AccessControlPolicy xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
   <Owner>
     <ID>*** Owner-Canonical-User-ID ***</ID>
-    <DisplayName>owner-display-name</DisplayName>
   </Owner>
   <AccessControlList>
     <Grant>
       <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:type="Canonical User">
         <ID>*** Owner-Canonical-User-ID ***</ID>
-        <DisplayName>display-name</DisplayName>
       </Grantee>
       <Permission>FULL_CONTROL</Permission>
     </Grant>
@@ -72,25 +70,6 @@ An ACL can have up to 100 grants.
 
 ## Who is a grantee?
 
-###### Important
-
-End of support notice: Beginning October 1, 2025, Amazon S3 will discontinue support for creating new Email Grantee Access Control Lists (ACL).
-Email Grantee ACLs created prior to this date will continue to work and remain accessible through the AWS Management Console, Command Line Interface (CLI), SDKs,
-and REST API. However, you will no longer be able to create new Email Grantee ACLs.
-
-Between July 15, 2025 and October 1, 2025, you will begin to see an increasing rate of `HTTP 405` errors for requests to Amazon S3 when attempting to create
-new Email Grantee ACLs.
-
-This change affects the following AWS Regions: US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney),
-Asia Pacific (Tokyo), Europe (Ireland), and South America (São Paulo).
-
-A grantee can be an AWS account or one of the predefined Amazon S3 groups. You grant
-permission to an AWS account using the email address or the canonical user ID.
-However, if you provide an email address in your grant request, Amazon S3 finds the
-canonical user ID for that account and adds it to the ACL. The resulting ACLs always
-contain the canonical user ID for the AWS account, not the email address of the
-AWS account.
-
 When you grant access rights, you specify each grantee as a
 ``type`="`value`"`
  pair, where ``type`` is one of the
@@ -98,35 +77,6 @@ following:
 
 - `id` – If the value specified is the canonical user ID of an AWS account
 - `uri` – If you are granting permissions to a predefined group
-- `emailAddress` – If the value specified is the email address of an
-  AWS account
-
-###### Important
-
-Using email addresses to specify a grantee is only supported in the following AWS
-Regions:
-
-- US East (N. Virginia)
-- US West (N. California)
-- US West (Oregon)
-- Asia Pacific (Singapore)
-- Asia Pacific (Sydney)
-- Asia Pacific (Tokyo)
-- Europe (Ireland)
-- South America (São Paulo)
-  For a list of all the Amazon S3 supported regions and endpoints,
-  see [Regions and Endpoints](../../../general/latest/gr/rande.md#s3_region "../../../general/latest/gr/rande.md#s3_region") in the
-  _Amazon Web Services General Reference_.
-
-###### Example: Email address
-
-For example, the following `x-amz-grant-read` header grants
-the AWS accounts identified by email addresses permissions to read object
-data and its metadata:
-
-```
-x-amz-grant-read: emailAddress="xyz@example.com", emailAddress="abc@example.com"
-```
 
 ###### Warning
 
@@ -391,13 +341,11 @@ section.
 <AccessControlPolicy xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
   <Owner>
     <ID>Owner-canonical-user-ID</ID>
-    <DisplayName>display-name</DisplayName>
   </Owner>
   <AccessControlList>
     <Grant>
       <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
         <ID>Owner-canonical-user-ID</ID>
-        <DisplayName>display-name</DisplayName>
       </Grantee>
       <Permission>FULL_CONTROL</Permission>
     </Grant>
@@ -405,7 +353,6 @@ section.
     <Grant>
       <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
         <ID>user1-canonical-user-ID</ID>
-        <DisplayName>display-name</DisplayName>
       </Grantee>
       <Permission>WRITE</Permission>
     </Grant>
@@ -413,7 +360,6 @@ section.
     <Grant>
       <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
         <ID>user2-canonical-user-ID</ID>
-        <DisplayName>display-name</DisplayName>
       </Grantee>
       <Permission>READ</Permission>
     </Grant>

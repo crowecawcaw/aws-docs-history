@@ -32,7 +32,7 @@ Amazon S3 Express One Zone storage class objects and directory buckets.
 
 ###### To configure a gateway VPC endpoint
 
-1. Open the [Amazon VPC Console](https://console.aws.amazon.com/https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/https://console.aws.amazon.com/vpc/").
+1. Open the [Amazon VPC Console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
 2. In the navigation pane, choose **Endpoints**.
 3. Choose **Create endpoint**.
 4. Create a name for your endpoint.

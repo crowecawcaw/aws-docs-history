@@ -11,11 +11,11 @@ network and AWS:
 
 - An AWS Site-to-Site VPN connection. For more information, see
   [What is AWS Site-to-Site VPN?](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md")
-- An AWS Direct Connect connection. For more information, see
-  [What is AWS Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")
+- An Direct Connect connection. For more information, see
+  [What is Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")
 
 Access to Amazon S3 via the network is through AWS published APIs. Clients must support
-Transport Layer Security (TLS) 1.2. We recommend TLS 1.3. Clients must also
+Transport Layer Security (TLS) 1.2. We recommend utilizing TLS 1.3 with hybrid post-quantum key exchange. Clients must also
 support cipher suites with Perfect Forward Secrecy (PFS), such as Ephemeral
 Diffie-Hellman (DHE) or Elliptic Curve Diffie-Hellman Ephemeral (ECDHE). Most modern
 systems such as Java 7 and later support these modes. Additionally, you must sign

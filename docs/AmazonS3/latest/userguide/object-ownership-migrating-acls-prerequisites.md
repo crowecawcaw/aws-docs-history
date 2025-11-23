@@ -236,13 +236,11 @@ account to a bucket policy.
 ```
 {
 		"Owner": {
-			"DisplayName": "`DOC-EXAMPLE-ACCOUNT-OWNER`",
 			"ID": "`852b113e7a2f25102679df27bb0ae12b3f85be6BucketOwnerCanonicalUserID`"
 		},
 		"Grants": [
 			{
 				"Grantee": {
-					"DisplayName": "`DOC-EXAMPLE-ACCOUNT-OWNER`",
 					"ID": "`852b113e7a2f25102679df27bb0ae12b3f85be6BucketOwnerCanonicalUserID`",
 					"Type": "CanonicalUser"
 				},
@@ -250,7 +248,6 @@ account to a bucket policy.
 			},
 			{
 				"Grantee": {
-					"DisplayName": "`THIRD-PARTY-EXAMPLE-ACCOUNT`",
 					"ID": "`72806de9d1ae8b171cca9e2494a8d1335dfced4ThirdPartyAccountCanonicalUserID`",
 					"Type": "CanonicalUser"
 				},
@@ -258,7 +255,6 @@ account to a bucket policy.
 			},
 			{
 				"Grantee": {
-					"DisplayName": "`THIRD-PARTY-EXAMPLE-ACCOUNT`",
 					"ID": "`72806de9d1ae8b171cca9e2494a8d1335dfced4ThirdPartyAccountCanonicalUserID`",
 					"Type": "CanonicalUser"
 				},
@@ -280,7 +276,7 @@ aws s3api put-bucket-policy --bucket ``amzn-s3-demo-bucket`` --policy `file://po
 
 	policy.json:
 	{
-		"Version": "2012-10-17"		 	 	 ,		 	 	 TCX5-2025-waiver;,
+		"Version": "2012-10-17",
 		"Statement": [
 			{
 				"Sid": "PolicyForCrossAccountAllowUpload",
@@ -477,14 +473,12 @@ the S3 log delivery group:
 ```
 {
     "Owner": {
-        "DisplayName": "`DOC-EXAMPLE-ACCOUNT-OWNER`",
         "ID": "`852b113e7a2f25102679df27bb0ae12b3f85be6BucketOwnerCanonicalUserID`"
     },
     "Grants": [
         {
             "Grantee": {
                 "Type": "CanonicalUser",
-                "DisplayName": "`DOC-EXAMPLE-ACCOUNT-OWNER`",
                 "ID": "`852b113e7a2f25102679df27bb0ae12b3f85be6BucketOwnerCanonicalUserID`"
             },
             "Permission": "FULL_CONTROL"
@@ -520,7 +514,7 @@ aws s3api put-bucket-policy --bucket `amzn-s3-demo-bucket` --policy `file://poli
 
 policy.json:						{
     {
-    "Version": "2012-10-17"		 	 	 ,		 	 	 TCX5-2025-waiver;,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "S3ServerAccessLogsPolicy",
@@ -570,13 +564,11 @@ This object ACL grants public read access to an object in a bucket:
 ```
 {
     "Owner": {
-        "DisplayName": "`DOC-EXAMPLE-ACCOUNT-OWNER`",
         "ID": "`852b113e7a2f25102679df27bb0ae12b3f85be6BucketOwnerCanonicalUserID`"
     },
     "Grants": [
         {
             "Grantee": {
-                "DisplayName": "`DOC-EXAMPLE-ACCOUNT-OWNER`",
                 "ID": "`852b113e7a2f25102679df27bb0ae12b3f85be6BucketOwnerCanonicalUserID`",
                 "Type": "CanonicalUser"
             },
@@ -603,7 +595,7 @@ aws s3api put-bucket-policy --bucket `amzn-s3-demo-bucket` --policy file://`poli
 
 policy.json:
 {
-    "Version": "2012-10-17"		 	 	 ,		 	 	 TCX5-2025-waiver;,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "PublicReadGetObject",
@@ -655,13 +647,11 @@ to ElastiCache.
 ```
 {
     "Owner": {
-        "DisplayName": "`DOC-EXAMPLE-ACCOUNT-OWNER`",
         "ID": "`852b113e7a2f25102679df27bb0ae12b3f85be6BucketOwnerCanonicalUserID`"
     },
     "Grants": [
         {
             "Grantee": {
-                "DisplayName": "`DOC-EXAMPLE-ACCOUNT-OWNER`",
                 "ID": "`852b113e7a2f25102679df27bb0ae12b3f85be6BucketOwnerCanonicalUserID`",
                 "Type": "CanonicalUser"
             },
@@ -669,7 +659,6 @@ to ElastiCache.
         },
         {
             "Grantee": {
-                "DisplayName": "aws-scs-s3-readonly",
                 "ID": "540804c33a284a299d2547575ce1010f2312ef3da9b3a053c8bc45bf233e4353",
                 "Type": "CanonicalUser"
             },
@@ -677,7 +666,6 @@ to ElastiCache.
         },
         {
             "Grantee": {
-                "DisplayName": "aws-scs-s3-readonly",
                 "ID": "540804c33a284a299d2547575ce1010f2312ef3da9b3a053c8bc45bf233e4353",
                 "Type": "CanonicalUser"
             },
@@ -685,7 +673,6 @@ to ElastiCache.
         },
         {
             "Grantee": {
-                "DisplayName": "aws-scs-s3-readonly",
                 "ID": "540804c33a284a299d2547575ce1010f2312ef3da9b3a053c8bc45bf233e4353",
                 "Type": "CanonicalUser"
             },
@@ -705,7 +692,7 @@ aws s3api put-bucket-policy --bucket `amzn-s3-demo-bucket` --policy file://`poli
 
 policy.json:
 {
-    "Version": "2012-10-17"		 	 	 ,		 	 	 TCX5-2025-waiver;,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "Stmt15399483",

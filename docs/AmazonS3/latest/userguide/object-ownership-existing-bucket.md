@@ -121,7 +121,7 @@ an existing bucket by using the AWS SDK for Java:
           s3client.putBucketOwnershipControls(putBucketOwnershipControlsRequest);
 ```
 
-To use AWS CloudFormation to apply an Object Ownership setting for an existing bucket, see
+To use CloudFormation to apply an Object Ownership setting for an existing bucket, see
 [AWS::S3::Bucket OwnershipControls](../../../AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.md") in the
 _AWS CloudFormation User Guide_.
 

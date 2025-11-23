@@ -106,7 +106,7 @@ configuration
 You can set an Amazon S3 Lifecycle configuration on a general purpose bucket by using the Amazon S3 console,
 the AWS Command Line Interface (AWS CLI), the AWS SDKs, or the Amazon S3 REST API.
 
-For information about AWS CloudFormation templates and examples, see [Working with AWS CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") and [AWS::S3::Bucket](../../../AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.md#aws-resource-s3-bucket--examples "../../../AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.md#aws-resource-s3-bucket--examples") in the _AWS CloudFormation User
+For information about AWS CloudFormation templates and examples, see [Working with AWS CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") and [AWS::S3::Bucket](../../../AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.md#aws-resource-s3-bucket--examples "../../../AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.md#aws-resource-s3-bucket--examples") in the _CloudFormation User
 Guide_.
 
 You can define lifecycle rules for all objects or a subset of objects in a bucket by using a

@@ -72,8 +72,8 @@ purpose buckets. You can increase the bucket quota for an account by submitting 
 increase request. To request an increase for general purpose buckets, visit the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/s3/quotas/ "https://console.aws.amazon.com/servicequotas/home/services/s3/quotas/").
 
 To manage your bucket-per-use pattern and simplify your infrastructure management, you
-can use [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md#welcome-simplify-infrastructure-management "../../../AWSCloudFormation/latest/UserGuide/Welcome.md#welcome-simplify-infrastructure-management"). You can create a custom AWS CloudFormation template for your pattern that
+can use [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md#welcome-simplify-infrastructure-management "../../../AWSCloudFormation/latest/UserGuide/Welcome.md#welcome-simplify-infrastructure-management"). You can create a custom CloudFormation template for your pattern that
 already defines all of your desired settings for your S3 general purpose buckets so that you can easily
 deploy and track any changes to your infrastructure. For more information, see [AWS::S3::Bucket](../../../AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.md") in the _AWS CloudFormation User Guide_.
 
-![A diagram showing you how you can create a AWS CloudFormation template customized to your application that defines settings for your S3 buckets.](images/create-stack-diagram.png)
+![A diagram showing you how you can create a CloudFormation template customized to your application that defines settings for your S3 buckets.](images/create-stack-diagram.png)

@@ -287,7 +287,7 @@ AWS SDK for Java:
 
 ```
 
-To use the `AWS::S3::Bucket` AWS CloudFormation resource to set
+To use the `AWS::S3::Bucket` CloudFormation resource to set
 Object Ownership when you create a new bucket, see [OwnershipControls within
 AWS::S3::Bucket](../../../AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.md#cfn-s3-bucket-ownershipcontrols "../../../AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.md#cfn-s3-bucket-ownershipcontrols") in the
 _AWS CloudFormation User Guide_.

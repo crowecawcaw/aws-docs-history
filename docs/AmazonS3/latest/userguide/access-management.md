@@ -385,13 +385,11 @@ owner that has full control permission.
 	<AccessControlPolicy xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
 		<Owner>
 			<ID>`Owner-Canonical-User-ID`</ID>
-			<DisplayName>`owner-display-name`</DisplayName>
 		</Owner>
 	<AccessControlList>
 		<Grant>
 			<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Canonical User">
 				<ID>`Owner-Canonical-User-ID`</ID>
-				<DisplayName>`display-name`</DisplayName>
 			</Grantee>
 			<Permission>FULL_CONTROL</Permission>
 		</Grant>

@@ -5,9 +5,7 @@ You can view properties for any Amazon S3 bucket you own. These settings include
 - **Bucket Versioning** – Keep multiple versions of an object
   in one general purpose bucket by using versioning. By default, versioning is disabled for a new bucket.
   For information about enabling versioning, see [Enabling versioning on buckets](manage-versioning-examples.md "manage-versioning-examples.md").
-- **Tags** – With AWS cost allocation, you can use bucket tags to
-  annotate billing for your use of a general purpose bucket. A tag is a key-value pair that represents a label
-  that you assign to a bucket. For more information, see [Using cost allocation S3 bucket tags](CostAllocTagging.md "CostAllocTagging.md").
+- **Tags** – An AWS tag is a key-value pair that holds metadata. You attach the tags to your Amazon S3 resources, such as buckets. You can tag resources when you create them or manage tags on existing resources. You can use tags for cost allocation to track storage costs by bucket tag in AWS Billing and Cost Management. You can also use tags for attribute-based access control (ABAC), to scale access permissions and grant access to S3 resources based on their tags. For more information, see [Using tags with S3 general purpose buckets](buckets-tagging.md "buckets-tagging.md").
 - **Default encryption** – Enabling default encryption provides
   you with automatic server-side encryption. Amazon S3 encrypts an object before saving it to a
   disk and decrypts the object when you download it. For more information, see [Setting default server-side encryption behavior for Amazon S3

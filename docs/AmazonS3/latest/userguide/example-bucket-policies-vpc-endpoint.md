@@ -23,7 +23,7 @@ access over the internet, through a
 virtual private
 network
 (VPN)
-connection, through a NAT instance, or through AWS Direct Connect.
+connection, through a NAT instance, or through Direct Connect.
 
 A VPC endpoint for Amazon S3 is a logical entity within a VPC that allows connectivity only to
 Amazon S3. The VPC endpoint routes requests to Amazon S3 and routes responses back to the VPC. VPC

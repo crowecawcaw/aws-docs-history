@@ -701,9 +701,9 @@ JSON
 access logs
 
 When you enable access logs for Application Load Balancer, you must specify the name of the S3 bucket where
-the load balancer will [store the logs](../../../elasticloadbalancing/latest/application/enable-access-logging.md#access-log-create-bucket "../../../elasticloadbalancing/latest/application/enable-access-logging.md#access-log-create-bucket"). The bucket must have an [attached policy](../../../elasticloadbalancing/latest/application/enable-access-logging.md#attach-bucket-policy "../../../elasticloadbalancing/latest/application/enable-access-logging.md#attach-bucket-policy") that grants Elastic Load Balancing permission to write to the bucket.
+the load balancer will [store the logs](../../../elasticloadbalancing/latest/application/enable-access-logging.md#access-log-create-bucket "../../../elasticloadbalancing/latest/application/enable-access-logging.md#access-log-create-bucket"). The bucket must have an [attached policy](../../../elasticloadbalancing/latest/application/enable-access-logging.md#attach-bucket-policy "../../../elasticloadbalancing/latest/application/enable-access-logging.md#attach-bucket-policy") that grants ELB permission to write to the bucket.
 
-In the following example, the bucket policy grants Elastic Load Balancing (ELB) permission to write the
+In the following example, the bucket policy grants ELB (ELB) permission to write the
 access logs to the bucket:
 
 JSON
@@ -728,11 +728,11 @@ JSON
 ###### Note
 
 Make sure to replace `elb-account-id` with the
-AWS account ID for Elastic Load Balancing for your AWS Region. For the list of Elastic Load Balancing Regions, see
-[Attach a policy to your Amazon S3 bucket](../../../elasticloadbalancing/latest/classic/enable-access-logs.md#attach-bucket-policy "../../../elasticloadbalancing/latest/classic/enable-access-logs.md#attach-bucket-policy") in the _Elastic Load Balancing User
+AWS account ID for ELB for your AWS Region. For the list of ELB Regions, see
+[Attach a policy to your Amazon S3 bucket](../../../elasticloadbalancing/latest/classic/enable-access-logs.md#attach-bucket-policy "../../../elasticloadbalancing/latest/classic/enable-access-logs.md#attach-bucket-policy") in the _ELB User
 Guide_.
 
-If your AWS Region does not appear in the supported Elastic Load Balancing Regions list, use the
+If your AWS Region does not appear in the supported ELB Regions list, use the
 following policy, which grants permissions to the specified log delivery service.
 
 JSON
@@ -754,7 +754,7 @@ JSON
 
 ```
 
-Then, make sure to configure your [Elastic Load Balancing access logs](../../../elasticloadbalancing/latest/application/enable-access-logging.md#enable-access-logs "../../../elasticloadbalancing/latest/application/enable-access-logging.md#enable-access-logs") by enabling them. You can [verify your bucket permissions](../../../elasticloadbalancing/latest/application/enable-access-logging.md#verify-bucket-permissions "../../../elasticloadbalancing/latest/application/enable-access-logging.md#verify-bucket-permissions") by creating a test file.
+Then, make sure to configure your [ELB access logs](../../../elasticloadbalancing/latest/application/enable-access-logging.md#enable-access-logs "../../../elasticloadbalancing/latest/application/enable-access-logging.md#enable-access-logs") by enabling them. You can [verify your bucket permissions](../../../elasticloadbalancing/latest/application/enable-access-logging.md#verify-bucket-permissions "../../../elasticloadbalancing/latest/application/enable-access-logging.md#verify-bucket-permissions") by creating a test file.
 
 ## Managing access to an Amazon CloudFront
 

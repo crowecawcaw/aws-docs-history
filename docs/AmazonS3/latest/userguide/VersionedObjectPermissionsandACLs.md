@@ -11,8 +11,7 @@ instructions on using ACLs, see [Identity and Access Management for Amazon S3](s
 
 ###### Example — Setting permissions for an object version
 
-The following request sets the permission of the grantee,
-`BucketOwner@amazon.com`, to `FULL_CONTROL` on the
+The following request sets the permission of the grantee with canonical user ID `b4bf1b36f9716f094c3079dcf5ac9982d4f2847de46204d47448bc557fb5ac2a`, to `FULL_CONTROL` on the
 key, `my-image.jpg`, version ID,
 `3HL4kqtJvjVBH40Nrjfkd`.
 
@@ -26,13 +25,11 @@ Content-Length: 124
 <AccessControlPolicy>
   <Owner>
     <ID>75cc57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a</ID>
-    <DisplayName>mtd@amazon.com</DisplayName>
   </Owner>
   <AccessControlList>
     <Grant>
       <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
         <ID>a9a7b886d6fd24a52fe8ca5bef65f89a64e0193f23000e241bf9b1c61be666e9</ID>
-        <DisplayName>BucketOwner@amazon.com</DisplayName>
       </Grantee>
       <Permission>FULL_CONTROL</Permission>
     </Grant>
