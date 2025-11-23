@@ -147,6 +147,8 @@ To configure this using the AWS Management Console, follow the below steps:
 
    ![<shared id="consolelong"/> showing the VPC CNI add-on with network policy in the optional configuration.](images/console-cni-config-network-policy.png)
 
+###### Helm
+
 If you have installed the Amazon VPC CNI plugin for Kubernetes through `helm`, you can update the configuration to enable network policy.
 
 1. Run the following command to enable network policy.
@@ -154,6 +156,8 @@ If you have installed the Amazon VPC CNI plugin for Kubernetes through `helm`, y
 ```
 helm upgrade --set enableNetworkPolicy=true aws-vpc-cni --namespace kube-system eks/aws-vpc-cni
 ```
+
+###### kubectl
 
 1. Open the `amazon-vpc-cni`
    `ConfigMap` in your editor.

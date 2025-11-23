@@ -70,6 +70,8 @@ You must create this role and attach the following AWS managed policy:
 - [AmazonEKSWorkerNodeMinimalPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSWorkerNodeMinimalPolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSWorkerNodeMinimalPolicy")
 - [AmazonEC2ContainerRegistryPullOnly](../../../AmazonECR/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEC2ContainerRegistryPullOnly "../../../AmazonECR/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEC2ContainerRegistryPullOnly")
 
+###### Service-Linked Role
+
 EKS Auto Mode also requires a Service-Linked Role, which is automatically created and configured by AWS. For more information, see [AWSServiceRoleForAmazonEKS](using-service-linked-roles-eks.md "using-service-linked-roles-eks.md").
 
 ## Create an EKS Auto Mode Cluster IAM Role

@@ -10,6 +10,7 @@ This section provides in-depth guidance on the full lifecycle management of Kube
 
 - [Create an Amazon EKS Auto Mode cluster](create-cluster-auto.md "create-cluster-auto.md")
 - [Create an Amazon EKS cluster](create-cluster.md "create-cluster.md")
+- [Amazon EKS Provisioned Control Plane](eks-provisioned-control-plane.md "eks-provisioned-control-plane.md")
 - [Prepare for Kubernetes version upgrades and troubleshoot misconfigurations with cluster insights](cluster-insights.md "cluster-insights.md")
 - [Update existing cluster to new Kubernetes version](update-cluster.md "update-cluster.md")
 - [Delete a cluster](delete-cluster.md "delete-cluster.md")

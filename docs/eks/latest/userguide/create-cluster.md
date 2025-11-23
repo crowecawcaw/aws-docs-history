@@ -6,7 +6,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 ###### Note
 
-This topic covers creating EKS clusters without EKS Auto Mode.
+This topic covers creating Amazon EKS clusters without EKS Auto Mode.
 
 For detailed instructions on creating an EKS Auto Mode cluster, see [Create an Amazon EKS Auto Mode cluster](create-cluster-auto.md "create-cluster-auto.md").
 
@@ -201,7 +201,7 @@ When you’re done with this page, choose **Next**.
 
 Some add-ons, such as Amazon VPC CNI, CoreDNS, and kube-proxy, are installed by default. If you disable any of the default add-ons, this may affect your ability to run Kubernetes applications. 10. On the **Configure selected add-ons settings** page, select the version that you want to install. You can always update to a later version after cluster creation.
 
-For add-ons that support EKS Pod Identities, you can use the console to automatically generate the role with the name, AWS managed policy, and trust policy prepopulated specifically for the add-on. You can re-use existing roles or create new roles for supported add-ons. For the steps to use the console to create roles for add-ons that support EKS Pod Identities, see [Create add-on (AWS Console)](creating-an-add-on.md#_create_add_on_console "creating-an-add-on.md#_create_add_on_console"). If an add-on does not support EKS Pod Identity, a message displays with instructions to use the wizard to create the IAM roles for service accounts (IRSA) after the cluster is created.
+For add-ons that support EKS Pod Identities, you can use the console to automatically generate the role with the name, AWS managed policy, and trust policy prepopulated specifically for the add-on. You can re-use existing roles or create new roles for supported add-ons. For the steps to use the console to create roles for add-ons that support EKS Pod Identities, see [Create add-on (AWS Console)](creating-an-add-on.md#create_add_on_console "creating-an-add-on.md#create_add_on_console"). If an add-on does not support EKS Pod Identity, a message displays with instructions to use the wizard to create the IAM roles for service accounts (IRSA) after the cluster is created.
 
 You can update the configuration of each add-on after cluster creation. For more information about configuring add-ons, see [Update an Amazon EKS add-on](updating-an-add-on.md "updating-an-add-on.md"). When you’re done with this page, choose **Next**. 11. On the **Review and create** page, review the information that you entered or selected on the previous pages. If you need to make changes, choose **Edit**. When you’re satisfied, choose **Create**. The **Status** field shows **CREATING** while the cluster is provisioned.
 

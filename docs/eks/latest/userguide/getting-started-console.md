@@ -87,7 +87,7 @@ For a list of all the resources the previous command creates, open the AWS Cloud
       --role-name myAmazonEKSClusterRole
     ```
 
-3. Open the Amazon EKS console at [[https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters")](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+3. Open the Amazon EKS console at [[eks/home#/clusters](eks/home.md#/clusters "eks/home.md#/clusters")](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
 
 Make sure that the AWS Region shown in the upper right of your console is the AWS Region that you want to create your cluster in. If it’s not, choose the dropdown next to the AWS Region name and choose the AWS Region that you want to use. 4. Choose **Create cluster**. If you don’t see this option, then choose **Clusters** in the left navigation pane first. 5. On the **Configure cluster** page, do the following:
 
@@ -196,7 +196,7 @@ To learn more about different ways to configure nodes in EKS, see [Manage comput
      --role-name myAmazonEKSNodeRole
    ```
 
-   4. Open the Amazon EKS console at [[https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters")](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+   4. Open the Amazon EKS console at [[eks/home#/clusters](eks/home.md#/clusters "eks/home.md#/clusters")](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
    5. Choose the name of the cluster that you created in [Step 1: Create your Amazon EKS cluster](#eks-create-cluster "#eks-create-cluster"), such as `my-cluster`.
    6. On the **`my-cluster`** page, do the following:
    7. Choose the **Compute** tab.
@@ -228,7 +228,7 @@ You can view your nodes and Kubernetes workloads.
 After you’ve finished with the cluster and nodes that you created for this tutorial, you should delete the resources that you created. If you want to do more with this cluster before you delete the resources, see [Next steps](#gs-console-next-steps "#gs-console-next-steps").
 
 1. Delete any node groups profiles that you created.
-   1. Open the Amazon EKS console at [[https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters")](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+   1. Open the Amazon EKS console at [[eks/home#/clusters](eks/home.md#/clusters "eks/home.md#/clusters")](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
    2. In the left navigation pane, choose **Clusters**. In the list of clusters, choose `my-cluster`.
    3. Choose the **Compute** tab.
    4. If you created a node group, choose the `my-nodegroup` node group and then choose **Delete**. Enter `my-nodegroup`, and then choose **Delete**.

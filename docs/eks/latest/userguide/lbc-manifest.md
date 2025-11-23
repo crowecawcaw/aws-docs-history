@@ -215,7 +215,7 @@ curl -Lo v2_14_1_full.yaml https://github.com/kubernetes-sigs/aws-load-balancer-
    1. If you downloaded the `v2_14_1_full.yaml` file, run the following command to remove the `ServiceAccount` section in the manifest. If you don’t remove this section, the required annotation that you made to the service account in a previous step is overwritten. Removing this section also preserves the service account that you created in a previous step if you delete the controller.
 
    ```
-   sed -i.bak -e '764,773d' ./v2_14_1_full.yaml
+   sed -i.bak -e '764,772d' ./v2_14_1_full.yaml
    ```
 
    If you downloaded a different file version, then open the file in an editor and remove the following lines.
