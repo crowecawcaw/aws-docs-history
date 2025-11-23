@@ -23,7 +23,7 @@ configure it later. For more information, see [Update a private CA in AWS Privat
 AWS Private CA provides a fully managed OCSP solution to notify endpoints that certificates
 have been revoked without the need for customers to operate infrastructure
 themselves. Customers can enable OCSP on new or existing CAs with a single
-operation using the AWS Private CA console, the API, the CLI, or through AWS CloudFormation.
+operation using the AWS Private CA console, the API, the CLI, or through CloudFormation.
 Whereas CRLs are stored and processed on the endpoint and can become stale, OCSP
 storage and processing requirements are handled synchronously on the responder
 backend.

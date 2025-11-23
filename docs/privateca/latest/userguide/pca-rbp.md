@@ -94,7 +94,7 @@ JSON
  "acm-pca:ListPermissions",
  "acm-pca:ListTags"
  ],
- "Resource": "arn:aws:acm-pca:`us-east-1`:`123456789012`:certificate-authority/`CA_ID`/certificate/`certificate_ID`"
+ "Resource": "arn:aws:acm-pca:`us-east-1`:`123456789012`:certificate-authority/`CA_ID`"
  },
  {
  "Sid": "`ExampleStatementID2`",
@@ -105,7 +105,7 @@ JSON
  "Action": [
  "acm-pca:IssueCertificate"
  ],
- "Resource": "arn:aws:acm-pca:`us-east-1`:`123456789012`:certificate-authority/`CA_ID`/certificate/`certificate_ID`",
+ "Resource": "arn:aws:acm-pca:`us-east-1`:`123456789012`:certificate-authority/`CA_ID`",
  "Condition": {
  "StringEquals": {
  "acm-pca:TemplateArn": "arn:aws:acm-pca:::template/EndEntityCertificate/V1"

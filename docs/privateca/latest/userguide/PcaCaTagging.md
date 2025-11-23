@@ -18,7 +18,7 @@ time of creation](auth-InlinePolicies.md#tag-on-create "auth-InlinePolicies.md#t
 
 Other AWS resources also support tagging. You can assign the same tag to different
 resources to indicate that those resources are related. For example, you can assign a
-tag such as `Website=example.com` to your CA, the Elastic Load Balancing load balancer, and
+tag such as `Website=example.com` to your CA, the ELB load balancer, and
 other related resources. For more information on tagging AWS resources, see [Tagging
 your Amazon EC2 Resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md "../../../AWSEC2/latest/UserGuide/Using_Tags.md") in the [Amazon EC2 User Guide](../../../ec2/index.md#lang/en_us "../../../ec2/index.md#lang/en_us").
 

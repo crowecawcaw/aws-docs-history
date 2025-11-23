@@ -32,14 +32,14 @@ begin by reading the following sections:
 
 - [What is AWS Private CA?](PcaWelcome.md "PcaWelcome.md")
 - [What is
-  AWS Directory Service?](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md")
+  Directory Service?](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md")
 
 ### Access
 
 Connector for AD
 
 You can access Connector for AD through the console, AWS CLI, and APIs. You can get access to the connector in the
-console from the AWS Private CA console, from your AWS Directory Service console, or by searching for
+console from the AWS Private CA console, from your Directory Service console, or by searching for
 Connector for AD in the AWS Management Console search bar.
 
 ### Pricing

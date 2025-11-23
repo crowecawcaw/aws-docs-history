@@ -50,7 +50,7 @@ they are authenticated to the corresponding AD. This exists outside of the bound
 of AWSAuth and managing authorization and authentication is up to you, the
 customer.
 
-When using AWS Managed Microsoft AD, use the AWS Directory Service **enable-ca-enrollment-policy** command to
+When using AWS Managed Microsoft AD, use the Directory Service **enable-ca-enrollment-policy** command to
 configure GPOs on the domain controller of the AWS Managed Microsoft AD instance.
 
 The following command enables enrolling domain controllers:

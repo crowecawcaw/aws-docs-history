@@ -8,16 +8,16 @@ Each VPC endpoint is represented by one or more [elastic network interfaces](../
 private IP addresses in your VPC subnets.
 
 The interface VPC endpoint connects your VPC directly to AWS Private CA without an
-internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. The instances
+internet gateway, NAT device, VPN connection, or Direct Connect connection. The instances
 in your VPC don't need public IP addresses to communicate with the AWS Private CA
 API.
 
 To use AWS Private CA through your VPC, you must connect from an instance that is
 inside the VPC. Alternatively, you can connect your private network to your VPC by
-using an AWS Virtual Private Network (AWS VPN) or AWS Direct Connect. For information about AWS VPN, see [VPN Connections](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md") in the
+using an AWS Virtual Private Network (Site-to-Site VPN) or Direct Connect. For information about Site-to-Site VPN, see [VPN Connections](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md") in the
 _Amazon VPC User Guide_. For information about
-AWS Direct Connect, see [Creating a
-Connection](../../../directconnect/latest/UserGuide/dedicated_connection.md#create-connection "../../../directconnect/latest/UserGuide/dedicated_connection.md#create-connection") in the _AWS Direct Connect User Guide_.
+Direct Connect, see [Creating a
+Connection](../../../directconnect/latest/UserGuide/dedicated_connection.md#create-connection "../../../directconnect/latest/UserGuide/dedicated_connection.md#create-connection") in the _Direct Connect User Guide_.
 
 AWS Private CA does not require the use of AWS PrivateLink, but we recommend it as an
 additional layer of security. For more information about AWS PrivateLink and VPC

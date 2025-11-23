@@ -259,4 +259,4 @@ AWS CloudFormation
 
 When you have settled on a design for your CA hierarchy, you can test it and
 put it into production using a AWS CloudFormation template. For an example of such a
-template, see [Declaring a Private CA Hierarchy](../../../AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.md#aws-resource-acmpca-certificateauthority--examples "../../../AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.md#aws-resource-acmpca-certificateauthority--examples") in the _AWS CloudFormation User Guide_.
+template, see [Declaring a Private CA Hierarchy](../../../AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.md#aws-resource-acmpca-certificateauthority--examples "../../../AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.md#aws-resource-acmpca-certificateauthority--examples") in the _CloudFormation User Guide_.

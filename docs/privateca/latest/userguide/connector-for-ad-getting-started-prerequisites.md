@@ -15,10 +15,10 @@ Connector creation will fail if you try to create a connector using a private CA
 
 In addition to a private CA, you need an active directory in a virtual
 private cloud (VPC). Connector for AD supports the following
-directory types offered by AWS Directory Service:
+directory types offered by Directory Service:
 
 - [AWS
-  Managed Microsoft Active Directory](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md"): With AWS Directory Service you can run
+  Managed Microsoft Active Directory](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md"): With Directory Service you can run
   Microsoft Active Directory (AD) as a managed service. AWS Directory Service for Microsoft Active Directory
   also referred to as AWS Managed Microsoft AD, is powered by Windows Server 2019.
   With AWS Managed Microsoft AD, you can run directory-aware workloads in the

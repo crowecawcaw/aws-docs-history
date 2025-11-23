@@ -17,7 +17,7 @@ Sign in to your AWS account and open the AWS Private CA Connector for Active Dir
     - Under **Select your Active Directory type**, choose one
       of the two available types:
       - **AWS Directory Service for Microsoft Active Directory**
-        – Specifies an Active Directory managed by AWS Directory Service.
+        – Specifies an Active Directory managed by Directory Service.
       - **On-premises Active Directory with AWS
         AD Connector**– Uses AD Connector to access
         an Active Directory that you host on-premises.
@@ -26,14 +26,14 @@ Sign in to your AWS account and open the AWS Private CA Connector for Active Dir
       from the list.
 
     Alternatively, you can choose **Create directory**, which
-    opens the AWS Directory Service console in a new window. When you finish creating a new
+    opens the Directory Service console in a new window. When you finish creating a new
     directory, return to the AWS Private CA Connector for Active Directory console and refresh the list
     of directories. Your new directory should be available for selection.
 
     ###### Note
 
     When creating a directory, note that Connector for AD
-    supports only the following directory types offered in the AWS Directory Service
+    supports only the following directory types offered in the Directory Service
     console:
 
         + **AWS Managed Microsoft AD**
