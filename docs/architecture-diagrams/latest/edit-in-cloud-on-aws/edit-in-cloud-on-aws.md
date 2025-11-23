@@ -3,7 +3,7 @@
 Publication date: **June 12, 2022 ([Diagram history](#diagram-history "#diagram-history"))**
 
 This architecture helps you build a virtual, video editing environment on AWS to
-collaborate with your editors and creative professionals. This architecture can also be [deployed on AWS](../../../solutions/latest/edit-in-the-cloud-on-aws/welcome.md "../../../solutions/latest/edit-in-the-cloud-on-aws/welcome.md") using an AWS CloudFormation template that launches, configures, and runs the AWS services
+collaborate with your editors and creative professionals. This architecture can also be [deployed on AWS](../../../solutions/latest/edit-in-the-cloud-on-aws/welcome.md "../../../solutions/latest/edit-in-the-cloud-on-aws/welcome.md") using an CloudFormation template that launches, configures, and runs the AWS services
 required to deploy this solution using AWS best practices for security and
 availability.
 
