@@ -236,11 +236,11 @@ line.
 
 Before you create an EventBridge Scheduler schedule, you need at least one target for your schedule to
 invoke. You can use an existing AWS resource, or create a new one. The following steps
-show how to create a new standard Amazon SQS queue with AWS CloudFormation.
+show how to create a new standard Amazon SQS queue with CloudFormation.
 
 ###### To create a new Amazon SQS queue
 
-1. Copy the following JSON AWS CloudFormation template and save it locally as `SchedulerTargetSQS.json`.
+1. Copy the following JSON CloudFormation template and save it locally as `SchedulerTargetSQS.json`.
 
 ```
 {
@@ -282,7 +282,7 @@ show how to create a new standard Amazon SQS queue with AWS CloudFormation.
 }
 ```
 
-2. From the AWS CLI, run the following command to create an AWS CloudFormation stack from the
+2. From the AWS CLI, run the following command to create an CloudFormation stack from the
    `Scheduler-Target-SQS.json` template.
 
 ```
@@ -297,7 +297,7 @@ If successful, you'll see the following output:
 }
 ```
 
-3. Run the following command to view summary information for your AWS CloudFormation stack. This
+3. Run the following command to view summary information for your CloudFormation stack. This
    information includes the status of the stack and the outputs specified in the
    template.
 
