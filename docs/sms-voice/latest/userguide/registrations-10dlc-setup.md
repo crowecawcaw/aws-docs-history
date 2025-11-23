@@ -45,4 +45,4 @@ for leasing the phone number. This fee is shown on the purchase page.
 You are charged the monthly 10DLC number lease price regardless of status.
 For example, 10DLC numbers in a **Pending** state still
 generate a month fee. For more information about pricing, see [AWS End User
-Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/").
+Messaging Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").

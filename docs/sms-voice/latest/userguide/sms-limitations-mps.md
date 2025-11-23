@@ -29,7 +29,7 @@ If you send the 481 GSM 03.38 characters in the MMS message body you are only bi
 _message parts_. Also only sending 1 MMS _message
 part_ instead of 4 SMS _message parts_ will increase your
 message throughput. For more information on pricing, see [AWS End User Messaging
-Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/").
+Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").
 
 The following sections describe the MPS for various types of origination numbers and for
 various countries.

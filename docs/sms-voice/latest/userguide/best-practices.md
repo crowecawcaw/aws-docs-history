@@ -576,7 +576,7 @@ phone numbers
 
 When you send SMS and MMS messages through AWS End User Messaging SMS, you're billed for each message part
 that you send. The price you pay per message part varies on the recipient's country or
-region. For more information about SMS and MMS pricing, see [AWS End User Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/").
+region. For more information about SMS and MMS pricing, see [AWS End User Messaging Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").
 
 When AWS End User Messaging SMS accepts a request to send an SMS or MMS message, you're charged for sending
 that message. This statement is true even if the intended recipient doesn't actually
@@ -844,4 +844,4 @@ voice messages to the same recipient each day.
  
 
 1 Prices quoted are accurate as of December 2021. Per-minute rates are
-subject to change. For current pricing, see [AWS End User Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/").
+subject to change. For current pricing, see [AWS End User Messaging Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").

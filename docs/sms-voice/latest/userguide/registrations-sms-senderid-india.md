@@ -21,7 +21,7 @@ _local routes_ rather than ILDO routes.
 
 The price for sending messages using ILDO routes is much higher than the price for
 sending messages through local routes. The prices for sending messages using both ILDO
-and local routes are shown on the [AWS End User Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/") page.
+and local routes are shown on the [AWS End User Messaging Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/") page.
 
 To send messages using local routes, you must first register your use case and message
 templates with the Telecom Regulatory Authority of India (TRAI) through a Distributed Ledger

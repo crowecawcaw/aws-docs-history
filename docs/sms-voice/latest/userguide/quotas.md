@@ -246,7 +246,7 @@ Management Console.
 ###### To request a service quota increase
 
 1. Sign in to the **AWS Management Console** and open the **Service Quotas** console at
-   [https://console.aws.amazon.com/servicequotas/home](https://console.aws.amazon.com/https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/https://console.aws.amazon.com/servicequotas/home").
+   [https://console.aws.amazon.com/servicequotas/home](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home").
 2. In the navigation pane, choose **AWS Services**.
 3. Choose an AWS service from the list, or enter the name of the service in the
    search box.

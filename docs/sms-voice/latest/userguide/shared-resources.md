@@ -151,7 +151,7 @@ resources shared with them but are billed for using resources to send messages. 
 aren't extra costs associated with sharing a resource.
 
 Consumers are billed for sending a message with [send-text-message](../../../cli/latest/reference/pinpoint-sms-voice-v2/send-text-message.md "../../../cli/latest/reference/pinpoint-sms-voice-v2/send-text-message.md"), [send-media-message](../../../cli/latest/reference/pinpoint-sms-voice-v2/send-media-message.md "../../../cli/latest/reference/pinpoint-sms-voice-v2/send-media-message.md") or [send-voice-message](../../../cli/latest/reference/pinpoint-sms-voice-v2/send-voice-message.md "../../../cli/latest/reference/pinpoint-sms-voice-v2/send-voice-message.md") and this counts against the consumers spending limits.
-For more information about pricing or spending limits, see [AWS End User Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/") and [Set an SMS, MMS or voice spending limit in AWS End User Messaging SMS](spend-limit.md "spend-limit.md").
+For more information about pricing or spending limits, see [AWS End User Messaging Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/") and [Set an SMS, MMS or voice spending limit in AWS End User Messaging SMS](spend-limit.md "spend-limit.md").
 
 ## Instance quotas
 

@@ -119,4 +119,4 @@ deliverability rates across all US carriers, we recommend that you use a short c
 There are registration and monthly fees associated with using 10DLC, such as
 registering your company and 10DLC campaign. These are separate from any other monthly
 or AWS fees. For more information about 10DLC fees, see the [AWS End User Messaging
-Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/") page.
+Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/") page.

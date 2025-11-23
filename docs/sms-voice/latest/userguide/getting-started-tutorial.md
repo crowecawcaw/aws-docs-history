@@ -30,10 +30,10 @@ There are no country or regional restrictions associated with using this solutio
 There's no charge for creating an AWS account. However, by implementing this solution,
 you might incur some or all of the costs that are listed in the following table.
 
-| Description                     | Cost (US dollars)                                                                                                                                                                                                                                                                                                                                |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Message sending costs           | You pay for each SMS message part that you send through AWS End User Messaging SMS. For more information<br>about pricing, see [AWS End<br>User Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/").                                                                     |
-| Monthly phone number lease cost | You pay a recurring monthly fee to lease each phone number or sender ID. The monthly<br>fee varies depending on the type of phone number and sender ID. For more information about<br>pricing, see [AWS End User<br>Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/"). |
+| Description                     | Cost (US dollars)                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Message sending costs           | You pay for each SMS message part that you send through AWS End User Messaging SMS. For more information<br>about pricing, see [AWS End<br>User Messaging Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").                                                                     |
+| Monthly phone number lease cost | You pay a recurring monthly fee to lease each phone number or sender ID. The monthly<br>fee varies depending on the type of phone number and sender ID. For more information about<br>pricing, see [AWS End User<br>Messaging Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/"). |
 
 **AWS account permissions**
 
@@ -91,7 +91,7 @@ Amazon Data Firehose, or Amazon SNS destination and choose the event types.
 3. Under the **Configuration set details** section, enter a name in
    **Configuration set name**.
 4. For **Event destination setup**, choose either:
-   - **Set up CloudFormation** (Recommended) to have AWS CloudFormation create and
+   - **Set up CloudFormation** (Recommended) to have CloudFormation create and
      configure CloudWatch, Amazon Data Firehose and Amazon SNS to log all events.
      - For **Event destination name** enter a name for the event
        destination.
@@ -101,8 +101,8 @@ Amazon Data Firehose, or Amazon SNS destination and choose the event types.
 
      ###### Note
 
-     Creating the AWS CloudFormation stack can take up to five minutes.
-     - When the status indicator for the AWS CloudFormation stack on the **Create configuration
+     Creating the CloudFormation stack can take up to five minutes.
+     - When the status indicator for the CloudFormation stack on the **Create configuration
        set** page is **Stack created**, choose
        **Create**.
 

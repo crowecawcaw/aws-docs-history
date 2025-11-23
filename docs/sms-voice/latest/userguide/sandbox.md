@@ -28,7 +28,7 @@ in place while your account is in the sandbox:
 - To verify that you own a phone number, we send a verification code to that
   number. While the standard fees for each SMS message typically apply, we waive
   the fee for the first verification code for each phone number. For more
-  information about SMS pricing, see the [AWS End User Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/")
+  information about SMS pricing, see the [AWS End User Messaging Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/")
   page.
 
 ###### Note

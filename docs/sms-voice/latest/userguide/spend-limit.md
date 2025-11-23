@@ -29,7 +29,7 @@ contact Support.
 To set up billing alarms for your spending, see [Monitoring spending](monitor-spending.md "monitor-spending.md"). For more
 information about configuring the AWS CLI, see [Configure the
 AWS CLI](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md") in the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md"). For more information about SMS, MMS, or origination identity pricing, see [AWS End User Messaging
-Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/").
+Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").
 
 View your spending limits (console)
 

@@ -9,7 +9,7 @@ You can request a short code for the below countries through the End User Messag
 If you require a short code in a country not included in the below list you can request a
 short code by opening a case in the Support by following the below process.
 
-For information about short code pricing, see [AWS End User Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/").
+For information about short code pricing, see [AWS End User Messaging Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").
 
 ## Important
 

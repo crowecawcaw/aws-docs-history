@@ -6,7 +6,7 @@ numbers to test both sending and receiving an SMS message. The [workshop](https:
 developers and technical individuals who are comfortable using the AWS Command Line Interface
 (AWS CLI) to run API commands. For more information about SMS, MMS, or origination identity pricing,
 see [AWS End User Messaging
-Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/").
+Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").
 
 ###### Note
 
