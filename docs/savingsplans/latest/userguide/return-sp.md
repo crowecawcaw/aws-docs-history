@@ -29,7 +29,9 @@ You can return a Savings Plan using the console or by calling the
 ###### Note
 
 The **Return Savings Plan** button is only visible in
-the details page when a Savings Plan is eligible for return. 5. In the **Return Savings Plan** dialog box, choose
+the details page when a Savings Plan is eligible for return.
+
+When you use billing transfer, the account that purchases Savings Plans must request the return, even when another account pays their bill. 5. In the **Return Savings Plan** dialog box, choose
 **Confirm return**.
 
 ###### Note

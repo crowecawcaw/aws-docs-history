@@ -20,3 +20,7 @@ hour is 98 percent.
    **Savings Plan ID**.
 4. In the **Savings Plan details**, choose **View
    utilization report**.
+
+###### Note
+
+When your account is in a billing group (standard or billing transfer), Savings Plans utilization reports show pro forma data. For more information about pro forma data, see [What is Billing Conductor?](../../../billingconductor/latest/userguide/what-is-billingconductor.md "../../../billingconductor/latest/userguide/what-is-billingconductor.md").

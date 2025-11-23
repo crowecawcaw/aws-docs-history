@@ -7,6 +7,10 @@ page to see Savings Plans recommendations based on your past usage. You can also
 **Purchase Analyzer** to estimate the cost, coverage, and utilization
 impact of your next Savings Plan purchase.
 
+###### Note
+
+When you use billing transfer, you can purchase Savings Plans and Reserved Instances only in the AWS Organizations where they apply. Savings Plans and Reserved Instances can't be shared outside the purchasing organization. The account that purchases Savings Plans and Reserved Instances is responsible for the purchase, even when another account pays their bill.
+
 ###### Topics
 
 - [Evaluating Savings Plans recommendations](purchase-rec.md "purchase-rec.md")
