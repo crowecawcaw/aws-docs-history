@@ -17,6 +17,7 @@ frequently to address the feedback that you send us.
 
 ###### Topics
 
+- [2025.0-539— November 12, 2025](#sm-2025.0-539-nov "#sm-2025.0-539-nov")
 - [2025.0-539— October 22, 2025](#sm-2025.0-539 "#sm-2025.0-539")
 - [2024.0-531— June 17, 2025](#sm-2024.0-531 "#sm-2024.0-531")
 - [2024.0-504— March 31, 2025](#sm-2024.0-504 "#sm-2024.0-504")
@@ -38,6 +39,12 @@ frequently to address the feedback that you send us.
 - [2021.0-10242— April 12, 2021](#sm-2021.0-10242 "#sm-2021.0-10242")
 - [2020.2-9662— December 04, 2020](#sm-2020.2-9662 "#sm-2020.2-9662")
 - [2020.2-9508— November 11, 2020](#sm-2020.2-9508 "#sm-2020.2-9508")
+
+### 2025.0-539— November 12, 2025
+
+| Build numbers                               | Changes and bug fixes                                                   |
+| ------------------------------------------- | ----------------------------------------------------------------------- |
+| • Broker: 539<br>• Agent: 888<br>• CLI: 159 | • Rebranded macOS Agent bundle identifier from NICE Software to Amazon. |
 
 ### 2025.0-539— October 22, 2025
 
@@ -169,21 +176,23 @@ frequently to address the feedback that you send us.
 
 The following table describes the documentation for this release of Amazon DCV Session Manager.
 
-| Change                                        | Description                                                                                                                                                                | Date               |
-| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| Amazon DCV Version 2024.0-531                 | Amazon DCV Session Manager has been updated for Amazon DCV 2024.0-531. For more information, see<br>[2024.0-531— June 17, 2025](#sm-2024.0-531 "#sm-2024.0-531").          | June 17, 2025      |
-| Amazon DCV Version 2024.0-504                 | Amazon DCV Session Manager has been updated for Amazon DCV 2024.0-504. For more information, see<br>[2024.0-504— March 31, 2025](#sm-2024.0-504 "#sm-2024.0-504").         | March 31, 2025     |
-| Amazon DCV Version 2024.0-493                 | Amazon DCV Session Manager has been updated for Amazon DCV 2024.0-493. For more information, see<br>[2024.0-493— January 15, 2025](#sm-2024.0-493 "#sm-2024.0-493").       | January 15, 2025   |
-| Amazon DCV Version 2024.0-457                 | Amazon DCV Session Manager has been updated for Amazon DCV 2024.0-457. For more information, see<br>[2024.0-457— October 1, 2024](#sm-2024.0-457 "#sm-2024.0-457").        | September 30, 2024 |
-| Amazon DCV Version 2023.1-17652               | Amazon DCV Session Manager has been updated for Amazon DCV 2023.1-17652. For more information, see<br>[2023.1-17652— August 1, 2024](#sm-2023.1-17652 "#sm-2023.1-17652"). | August 1, 2024     |
-| Amazon DCV Version 2023.1-16388               | Amazon DCV Session Manager has been updated for Amazon DCV 2023.1-16388. For more information, see<br>[2023.1-16388— June 26, 2024](#sm-2023.1-16388 "#sm-2023.1-16388").  | June 26, 2024      |
-| Amazon DCV Version 2023.1                     | Amazon DCV Session Manager has been updated for Amazon DCV 2023.1. For more information, see<br>[2023.1— November 9, 2023](#sm-2023.1 "#sm-2023.1").                       | November 9, 2023   |
-| Amazon DCV Version 2023.0                     | Amazon DCV Session Manager has been updated for Amazon DCV 2023.0. For more information, see<br>[2023.0-14852— March 28, 2023](#sm-2023.0-14852 "#sm-2023.0-14852").       | March 28, 2023     |
-| Amazon DCV Version 2022.2                     | Amazon DCV Session Manager has been updated for Amazon DCV 2022.2. For more information, see<br>[2022.2-13907— November 11, 2022](#sm-2022.2-13907 "#sm-2022.2-13907").    | November 11, 2022  |
-| Amazon DCV Version 2022.1                     | Amazon DCV Session Manager has been updated for Amazon DCV 2022.1. For more information, see<br>[2022.1-13067— June 29, 2022](#sm-2022.1-13067 "#sm-2022.1-13067").        | June 29, 2022      |
-| Amazon DCV Version 2022.0                     | Amazon DCV Session Manager has been updated for Amazon DCV 2022.0. For more information, see<br>[2022.0-11952— February 23, 2022](#sm-2022.0-11952 "#sm-2022.0-11952").    | February 23, 2022  |
-| Amazon DCV Version 2021.3                     | Amazon DCV Session Manager has been updated for Amazon DCV 2021.3. For more information, see<br>[2021.3-11591— December 20, 2021](#sm-2021.3-11591 "#sm-2021.3-11591").    | December 20, 2021  |
-| Amazon DCV Version 2021.2                     | Amazon DCV Session Manager has been updated for Amazon DCV 2021.2. For more information, see<br>[2021.2-11042— September 01, 2021](#sm-2021.2-11042 "#sm-2021.2-11042").   | September 01, 2021 |
-| Amazon DCV Version 2021.1                     | Amazon DCV Session Manager has been updated for Amazon DCV 2021.1. For more information, see<br>[2021.1-10557— May 31, 2021](#sm-2021.1-10557 "#sm-2021.1-10557").         | May 31, 2021       |
-| Amazon DCV Version 2021.0                     | Amazon DCV Session Manager has been updated for Amazon DCV 2021.0. For more information, see<br>[2021.0-10242— April 12, 2021](#sm-2021.0-10242 "#sm-2021.0-10242").       | April 12, 2021     |
-| Initial release of Amazon DCV Session Manager | The first publication of this content.                                                                                                                                     | November 11, 2020  |
+| Change                                        | Description                                                                                                                                                                   | Date               |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| Amazon DCV Version 2025.0-539                 | Amazon DCV Session Manager has been updated for Amazon DCV 2025.0-539. For more information, see<br>[2025.0-539— November 12, 2025](#sm-2025.0-539-nov "#sm-2025.0-539-nov"). | November 12, 2025  |
+| Amazon DCV Version 2025.0-539                 | Amazon DCV Session Manager has been updated for Amazon DCV 2025.0-539. For more information, see<br>[2025.0-539— October 22, 2025](#sm-2025.0-539 "#sm-2025.0-539").          | October 22, 2025   |
+| Amazon DCV Version 2024.0-531                 | Amazon DCV Session Manager has been updated for Amazon DCV 2024.0-531. For more information, see<br>[2024.0-531— June 17, 2025](#sm-2024.0-531 "#sm-2024.0-531").             | June 17, 2025      |
+| Amazon DCV Version 2024.0-504                 | Amazon DCV Session Manager has been updated for Amazon DCV 2024.0-504. For more information, see<br>[2024.0-504— March 31, 2025](#sm-2024.0-504 "#sm-2024.0-504").            | March 31, 2025     |
+| Amazon DCV Version 2024.0-493                 | Amazon DCV Session Manager has been updated for Amazon DCV 2024.0-493. For more information, see<br>[2024.0-493— January 15, 2025](#sm-2024.0-493 "#sm-2024.0-493").          | January 15, 2025   |
+| Amazon DCV Version 2024.0-457                 | Amazon DCV Session Manager has been updated for Amazon DCV 2024.0-457. For more information, see<br>[2024.0-457— October 1, 2024](#sm-2024.0-457 "#sm-2024.0-457").           | September 30, 2024 |
+| Amazon DCV Version 2023.1-17652               | Amazon DCV Session Manager has been updated for Amazon DCV 2023.1-17652. For more information, see<br>[2023.1-17652— August 1, 2024](#sm-2023.1-17652 "#sm-2023.1-17652").    | August 1, 2024     |
+| Amazon DCV Version 2023.1-16388               | Amazon DCV Session Manager has been updated for Amazon DCV 2023.1-16388. For more information, see<br>[2023.1-16388— June 26, 2024](#sm-2023.1-16388 "#sm-2023.1-16388").     | June 26, 2024      |
+| Amazon DCV Version 2023.1                     | Amazon DCV Session Manager has been updated for Amazon DCV 2023.1. For more information, see<br>[2023.1— November 9, 2023](#sm-2023.1 "#sm-2023.1").                          | November 9, 2023   |
+| Amazon DCV Version 2023.0                     | Amazon DCV Session Manager has been updated for Amazon DCV 2023.0. For more information, see<br>[2023.0-14852— March 28, 2023](#sm-2023.0-14852 "#sm-2023.0-14852").          | March 28, 2023     |
+| Amazon DCV Version 2022.2                     | Amazon DCV Session Manager has been updated for Amazon DCV 2022.2. For more information, see<br>[2022.2-13907— November 11, 2022](#sm-2022.2-13907 "#sm-2022.2-13907").       | November 11, 2022  |
+| Amazon DCV Version 2022.1                     | Amazon DCV Session Manager has been updated for Amazon DCV 2022.1. For more information, see<br>[2022.1-13067— June 29, 2022](#sm-2022.1-13067 "#sm-2022.1-13067").           | June 29, 2022      |
+| Amazon DCV Version 2022.0                     | Amazon DCV Session Manager has been updated for Amazon DCV 2022.0. For more information, see<br>[2022.0-11952— February 23, 2022](#sm-2022.0-11952 "#sm-2022.0-11952").       | February 23, 2022  |
+| Amazon DCV Version 2021.3                     | Amazon DCV Session Manager has been updated for Amazon DCV 2021.3. For more information, see<br>[2021.3-11591— December 20, 2021](#sm-2021.3-11591 "#sm-2021.3-11591").       | December 20, 2021  |
+| Amazon DCV Version 2021.2                     | Amazon DCV Session Manager has been updated for Amazon DCV 2021.2. For more information, see<br>[2021.2-11042— September 01, 2021](#sm-2021.2-11042 "#sm-2021.2-11042").      | September 01, 2021 |
+| Amazon DCV Version 2021.1                     | Amazon DCV Session Manager has been updated for Amazon DCV 2021.1. For more information, see<br>[2021.1-10557— May 31, 2021](#sm-2021.1-10557 "#sm-2021.1-10557").            | May 31, 2021       |
+| Amazon DCV Version 2021.0                     | Amazon DCV Session Manager has been updated for Amazon DCV 2021.0. For more information, see<br>[2021.0-10242— April 12, 2021](#sm-2021.0-10242 "#sm-2021.0-10242").          | April 12, 2021     |
+| Initial release of Amazon DCV Session Manager | The first publication of this content.                                                                                                                                        | November 11, 2020  |
