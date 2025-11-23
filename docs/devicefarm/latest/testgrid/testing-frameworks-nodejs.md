@@ -5,7 +5,7 @@ Device Farm desktop browser testing can be used alongside the AWS SDK for JavaSc
 ###### Topics
 
 - [Using the Selenium WebDriver Node.js package to interact with Device Farm desktop browser testing](#testing-frameworks-nodejs-selenium "#testing-frameworks-nodejs-selenium")
-- [Configuring Webdriver.IO API to interact with Device Farm desktop browser testing](#w12aac10c15c13 "#w12aac10c15c13")
+- [Configuring Webdriver.IO API to interact with Device Farm desktop browser testing](#w2aac10c15c13 "#w2aac10c15c13")
 
 ## Using the Selenium WebDriver Node.js package to interact with Device Farm desktop browser testing
 
