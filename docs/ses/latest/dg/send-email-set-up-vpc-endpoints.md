@@ -23,7 +23,7 @@ accounts without the need to utilize an internet gateway.
 
 ###### Limitations
 
-- SES does not support VPC endpoints in the following Availability Zones:
+- SES does not support SMTP VPC endpoints in the following Availability Zones:
   `use1-az2`, `use1-az3`, `use1-az5`,
   `usw1-az2`, `usw2-az4`, `apne2-az4`,
   `cac1-az3`, and `cac1-az4`.
@@ -54,8 +54,8 @@ following steps:
 While VPC endpoints for SES can be used with any resource, for
 ease of test method, this example will have you use an EC2 instance as
 the resource. Because Amazon EC2 restricts email traffic over port 25 by
-default, you'll have to use a different port other than TCP 25, such as
-TCP 465, 587, 2465, or 2587—for more information, see [Restriction on email sent using port 25](../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md#port-25-throttle "../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md#port-25-throttle").
+default, for SMTP endpoints you'll have to use a different port other than TCP 25, such as
+TCP 465, 587, 2465, or 2587—for more information, see [Restriction on email sent using port 25](../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md#port-25-throttle "../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md#port-25-throttle"). For API endpoints use port 443.
 
 ### Setting up SES in
 
@@ -63,7 +63,7 @@ Amazon VPC
 
 The process of setting up a VPC endpoint to use with SES consists of a few
 separate steps. First, you have to
-create a security group that allows the instance to communicate with SMTP ports,
+create a security group that allows the instance to communicate with the chosen port(s),
 then create a VPC endpoint for Amazon SES, and finally, test the connection to the VPC
 endpoint to ensure that it's configured properly.
 
@@ -96,10 +96,10 @@ interface endpoint you'll be creating.
    - For **Type**, choose **Custom
      TCP**.
    - For **Port range**, enter the port number
-     that you want to use to send email. You can use any of the
+     that you want to use to send email. For SMTP endpoints, you can use any of the
      following port numbers: `465`,
      `587`, `2465`, or
-     `2587`.
+     `2587`. For API endpoints, use port 443.
    - For **Source type**, choose
      **Custom**.
    - For **Source**, enter the private IP CIDR
@@ -132,9 +132,9 @@ Amazon EC2 security group can connect to Amazon SES.
    a tag in the **Name tag** field.
 5. For **Service category**, select **AWS
    services**.
-6. In the **Services** panel, filter on
+6. In the **Services** panel, for SMTP endpoints, filter on
    _smtp_ in the search bar, then select its radio
-   button.
+   button. For API endpoints, filter on _email_ in the search bar. You can also use a FIPS endpoint by searching for _email-fips_.
 7. In the **VPC** panel, click inside the search bar and
    select a VPC from the list box (see [Prerequisites](#send-email-set-up-vpc-endpoints-prereqs "#send-email-set-up-vpc-endpoints-prereqs")).
 8. In the **Subnets** panel, select
@@ -143,7 +143,7 @@ Amazon EC2 security group can connect to Amazon SES.
 
 ###### Note
 
-Amazon SES doesn't support VPC endpoints in the following
+Amazon SES doesn't support SMTP VPC endpoints in the following
 _Availability Zones_: `use1-az2`,
 `use1-az3`, `use1-az5`,
 `usw1-az2`, `usw2-az4`,
@@ -173,8 +173,7 @@ For information about connecting to Linux instances, see [Connect to your Linux
 instance](../../../AWSEC2/latest/UserGuide/AccessingInstances.md "../../../AWSEC2/latest/UserGuide/AccessingInstances.md") in the _Amazon EC2 User Guide_.
 
 For information about connecting to Windows instances, see the [Get started tutorial](../../../AWSEC2/latest/WindowsGuide/EC2_GetStarted.md#ec2-connect-to-instance-windows "../../../AWSEC2/latest/WindowsGuide/EC2_GetStarted.md#ec2-connect-to-instance-windows") in the
-_Amazon EC2 User Guide_. 2. Send a test email, for example, by using the SES SMTP
-interface.
+_Amazon EC2 User Guide_. 2. Send a test email. For the SMTP endpoint, use the SES SMTP interface. For the API endpoint, use the SES CLI or API.
 
 ###### Note
 

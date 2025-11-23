@@ -17,7 +17,7 @@ action of the policy to allow or block email that falls outside of the condition
 policy statements—think of this as a “catch all” action for the traffic policy.
 
 Policy statements are also created with either an allow or block action that is taken when
-the statements' conditions are met. You build the conditions by selecting an email protocol
+the statements' conditions are met. You build the conditions by selecting an email property
 and a conditional operator for a value you enter that must be matched by the incoming
 message before the policy statement will allow or block it. Each policy statement can have
 multiple conditions.
@@ -71,13 +71,13 @@ manage the ones you've already created.
    your traffic policy.
 8. Choose either **Allow** or **Deny** (block)
    for the action to be taken when the statement's conditions are met.
-9. Build a condition by selecting an email protocol and a conditional operator
+9. Build a condition by selecting an email property and a conditional operator
    for the value you enter. Select **Add new condition** if you
    want to add more conditions to this policy statement. _To learn more
    about a condition property and its operators and valid values, see the [Policy statement conditions](#filter-conditions "#filter-conditions")
    reference._
    - If you're subscribed to an [Email Add On](eb-addons.md "eb-addons.md"), you'll be able to select it here as an email
-     protocol.
+     property.
    - Traffic policies associated with IPv6 or dual-stack ingress endpoints
      will not evaluate nor apply Email Add On conditions to messages received
      through IPv6 connections. Email Add On conditions will only apply to
@@ -106,14 +106,14 @@ manage the ones you've already created.
 
 ###### Policy statement conditions
 
-The following reference table lists all the policy statement protocols that are
+The following reference table lists all the policy statement properties that are
 available to build a policy statement condition.
-Selecting a protocol's expression type will take you
+Selecting a property's expression type will take you
 to its reference page in the _SES Mail Manager API
 Reference_ that lists all the available operators and valid values for
-that protocol.
+that property.
 
-| Policy statement conditions: Protocols, operators, and values                                                                                                                                                 | Protocol                                                                                                                                                                                                                          | Expression type |
+| Policy statement conditions: Properties, operators, and values                                                                                                                                                | Property                                                                                                                                                                                                                          | Expression type |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
 | Recipient address<br>Abusix Mail Intelligence [(if<br>subscribed)](eb-addons.md "eb-addons.md")<br>• Listed on<br>Spamhaus Domain Block List [(if<br>subscribed)](eb-addons.md "eb-addons.md")<br>• Listed on | [_Valid operators and values for string<br>expressions_](../../../sesmailmanager/latest/APIReference/API_IngressStringExpression.md "../../../sesmailmanager/latest/APIReference/API_IngressStringExpression.md")                 |
 | Sender IP range                                                                                                                                                                                               | [_Valid operators and values for IP<br>expressions_](../../../sesmailmanager/latest/APIReference/API_IngressIpv4Expression.md "../../../sesmailmanager/latest/APIReference/API_IngressIpv4Expression.md")                         |
