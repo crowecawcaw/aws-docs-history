@@ -114,9 +114,9 @@ aws ecr get-login-password \--region region-id | helm registry login \
 ```
 helm install `<livy-app-name>` \
   oci://895885662937.dkr.ecr.region-id.amazonaws.com/livy \
-  --version 7.11.0 \
+  --version 7.12.0 \
   --namespace `livy-namespace-name` \
-  --set image=`<ECR-registry-account.dkr.ecr>.<region>`.amazonaws.com/livy/emr-7.11.0:latest \
+  --set image=`<ECR-registry-account.dkr.ecr>.<region>`.amazonaws.com/livy/emr-7.12.0:latest \
   --set sparkNamespace=`spark-namespace` \
   --set ssl.enabled=true
   --set ssl.CertificateArn=livy-acm-certificate-arn

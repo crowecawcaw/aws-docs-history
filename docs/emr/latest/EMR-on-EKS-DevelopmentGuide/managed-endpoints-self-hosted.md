@@ -34,8 +34,8 @@ might need to create a peering connection between those two VPCs. For steps to c
 peering connection between two VPCs, see [Create a VPC peering
 connection](../../../vpc/latest/peering/create-vpc-peering-connection.md "../../../vpc/latest/peering/create-vpc-peering-connection.md") in the Amazon VPC Getting Started Guide.
 
-You need the ID for the security group to create an Amazon EMR on EKS interactive
-endpoint in the next step.
+You need the ID for the security group to [create an Amazon EMR on EKS interactive
+endpoint](../../../index.md "../../../index.md") in the next step.
 
 ## Create an Amazon EMR on EKS interactive
 
@@ -85,8 +85,8 @@ Initially, your endpoint is in the **CREATING** state. After a few minutes, it t
 
 Take note of the `serverUrl` attribute that the `aws emr-containers
  describe-managed-endpoint` command returns from the active endpoint. You need this
-URL to connect your notebook to the endpoint when you deploy your self-hosted Jupyter or
-JupyterLab notebook.
+URL to connect your notebook to the endpoint when you [deploy your self-hosted Jupyter or
+JupyterLab notebook](../../../index.md "../../../index.md").
 
 ## Retrieve an auth token to connect to
 
@@ -132,8 +132,8 @@ The same region as your endpoint.
 
 Your output should resemble the following example. Take note of the
 `session-token` value that you will use when you
-deploy your
-self-hosted Jupyter or JupyterLab notebook.
+[deploy your
+self-hosted Jupyter or JupyterLab notebook](../../../index.md "../../../index.md").
 
 ```
 {

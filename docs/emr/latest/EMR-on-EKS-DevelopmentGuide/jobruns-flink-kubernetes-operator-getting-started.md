@@ -21,7 +21,7 @@ kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/
 3. Install the Helm chart.
 
 ```
-export VERSION=7.9.0 # The Amazon EMR release version
+export VERSION=7.12.0 # The Amazon EMR release version
 export NAMESPACE=`The Kubernetes namespace to deploy the operator`
 
 helm install flink-kubernetes-operator \
@@ -66,7 +66,7 @@ Apache Flink](jobruns-flink-security-release-versions.md "jobruns-flink-security
 
 ```
 NAME                              NAMESPACE    REVISION    UPDATED                                STATUS      CHART                                   APP VERSION
-flink-kubernetes-operator    $NAMESPACE   1           2023-02-22 16:43:45.24148 -0500 EST    deployed    flink-kubernetes-operator-emr-7.9.0    x.y.z-amzn-n
+flink-kubernetes-operator    $NAMESPACE   1           2023-02-22 16:43:45.24148 -0500 EST    deployed    flink-kubernetes-operator-emr-7.12.0    x.y.z-amzn-n
 ```
 
 ### Upgrade the Kubernetes operator

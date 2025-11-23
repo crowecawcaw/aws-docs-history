@@ -1,13 +1,12 @@
-# emr-6.15.0-20240105
+# emr-6.15.0-flink-latest
 
-**Release notes**: `6.15.0-20240105` was released
-on January 17, 2024. Compared to the previous release,
-this release has been refreshed with the recently updated Amazon Linux packages and critical fixes.
+**Release notes**: `emr-6.15.0-flink-latest`
+currently points to `emr-6.15.0-flink-20240105`.
 
 **Regions:**
-`emr-6.15.0-20240105` is available in all Regions supported by Amazon EMR on EKS. For more
-information, see [Amazon EMR on EKS
+`emr-6.15.0-flink-latest` is available in all Regions supported by Amazon EMR on EKS. For
+more information, see [Amazon EMR on EKS
 service endpoints](service-quotas.md#service-endpoints "service-quotas.md#service-endpoints").
 
 **Container image tag**:
-`emr-6.15.0:20240105`
+`emr-6.15.0-flink:latest`

@@ -24,13 +24,13 @@ aws ecr get-login-password \
 
 3. Install the Spark operator with the following command.
 
-For the Helm chart `--version` parameter, use your Amazon EMR release label with the `emr-` prefix and date suffix removed. For example, with the `emr-6.12.0-java17-latest` release, specify `6.12.0-java17`. The example in the following command uses the `emr-7.9.0-latest` release, so it specifies `7.9.0` for the Helm chart `--version`.
+For the Helm chart `--version` parameter, use your Amazon EMR release label with the `emr-` prefix and date suffix removed. For example, with the `emr-6.12.0-java17-latest` release, specify `6.12.0-java17`. The example in the following command uses the `emr-7.12.0-latest` release, so it specifies `7.12.0` for the Helm chart `--version`.
 
 ```
 helm install spark-operator-demo \
   oci://895885662937.dkr.ecr.`region-id`.amazonaws.com/spark-operator \
   --set emrContainers.awsRegion=`region-id` \
-  --version `7.9.0` \
+  --version `7.12.0` \
   --namespace spark-operator \
   --create-namespace
 ```
@@ -64,7 +64,7 @@ release information:
 
 ```
 app_version: v1beta2-1.3.8-3.1.1
-chart: spark-operator-`7.9.0`
+chart: spark-operator-`7.12.0`
 name: spark-operator-demo
 namespace: spark-operator
 revision: "1"

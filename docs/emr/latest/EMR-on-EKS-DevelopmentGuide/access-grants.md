@@ -65,7 +65,7 @@ for your usage scenario.
   "name": "`myjob`",
   "virtualClusterId": "`123456`",
   "executionRoleArn": "`iam_role_name_for_job_execution`",
-  "releaseLabel": "`emr-7.9.0-latest`",
+  "releaseLabel": "`emr-7.12.0-latest`",
   "jobDriver": {
     "sparkSubmitJobDriver": {
       "entryPoint": "`entryPoint_location`",

@@ -36,16 +36,16 @@ using multi-architectural container images:
 The base image contains the Amazon EMR runtime and connectors that are used to access other
 AWS services. For Amazon EMR 6.9.0 and higher, you can get the base images from the
 Amazon ECR Public Gallery. Browse the gallery to find the image link and pull the image to your
-local workspace. For example, for Amazon EMR 7.9.0 release, the following
+local workspace. For example, for Amazon EMR 7.12.0 release, the following
 `docker pull` command gets you the lastest standard base image. You can replace
-`emr-7.9.0:latest` with
-`emr-7.9.0-spark-rapids:latest` to retrieve the image that has
-Nvidia RAPIDS accelerator. You can also replace `emr-7.9.0:latest`
-with `emr-7.9.0-java11:latest` to retrieve the image with Java 11
+`emr-7.12.0:latest` with
+`emr-7.12.0-spark-rapids:latest` to retrieve the image that has
+Nvidia RAPIDS accelerator. You can also replace `emr-7.12.0:latest`
+with `emr-7.12.0-java11:latest` to retrieve the image with Java 11
 runtime.
 
 ```
-docker pull public.ecr.aws/emr-on-eks/spark/`emr-7.9.0:latest`
+docker pull public.ecr.aws/emr-on-eks/spark/`emr-7.12.0:latest`
 ```
 
 If you would like to retrieve the base image for a Amazon EMR 6.9.0 or ealier releases, or if

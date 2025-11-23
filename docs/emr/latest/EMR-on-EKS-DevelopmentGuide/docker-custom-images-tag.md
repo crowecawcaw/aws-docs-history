@@ -13,7 +13,7 @@ The image URI follows this format:
 as the following example demonstrates.
 
 ```
-`895885662937`.dkr.ecr.`us-west-2`.amazonaws.com/spark/`emr-7.9.0:latest`
+`895885662937`.dkr.ecr.`us-west-2`.amazonaws.com/spark/`emr-7.12.0:latest`
 ```
 
 The image URI for interactive endpoints follows this format:
@@ -22,7 +22,7 @@ as the following example demonstrates. You need to use `notebook-spark` in the b
 image URI, instead of `spark`.
 
 ```
-`895885662937`.dkr.ecr.`us-west-2`.amazonaws.com/notebook-spark/`emr-7.9.0:latest`
+`895885662937`.dkr.ecr.`us-west-2`.amazonaws.com/notebook-spark/`emr-7.12.0:latest`
 ```
 
 Similarly, for non-Spark `python3` images for interactive endpoints,
@@ -31,7 +31,7 @@ the image URI is
 The following example URI is correctly formatted:
 
 ```
-`895885662937`.dkr.ecr.`us-west-2`.amazonaws.com/notebook-python/`emr-7.9.0:latest`
+`895885662937`.dkr.ecr.`us-west-2`.amazonaws.com/notebook-python/`emr-7.12.0:latest`
 ```
 
 To find the container image tag for your base image, refer to the [release notes page](emr-eks-releases.md "emr-eks-releases.md") for the corresponding release of

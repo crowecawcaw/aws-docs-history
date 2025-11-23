@@ -26,7 +26,7 @@ curl -s -k -H 'Content-Type: application/json' -X POST \
             "args": ["argument1", "argument2", ...],
             "conf": {
                 "spark.kubernetes.namespace": "`<spark-namespace>`",
-                "spark.kubernetes.container.image": "public.ecr.aws/emr-on-eks/spark/emr-7.11.0:latest",
+                "spark.kubernetes.container.image": "public.ecr.aws/emr-on-eks/spark/emr-7.12.0:latest",
                 "spark.kubernetes.authenticate.driver.serviceAccountName": "`<spark-service-account>`"
             }
           }' `<livy-endpoint>`/batches
@@ -57,7 +57,7 @@ To run interactive sessions with Apache Livy, see the following steps.
 {
   "conf": {
     "spark.kubernetes.namespace": "`livy-namespace`",
-    "spark.kubernetes.container.image": "public.ecr.aws/emr-on-eks/spark/emr-7.11.0:latest",
+    "spark.kubernetes.container.image": "public.ecr.aws/emr-on-eks/spark/emr-7.12.0:latest",
     "spark.kubernetes.authenticate.driver.serviceAccountName": "`<spark-service-account>`",
     "spark.kubernetes.file.upload.path": "`<URI_TO_S3_LOCATION_>`"
   }

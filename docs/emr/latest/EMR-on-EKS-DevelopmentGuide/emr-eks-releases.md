@@ -10,8 +10,8 @@ version when you submit your job.
 
 Amazon EMR on EKS uses the following form of release label: `emr-x.x.x-latest` or
 `emr-x.x.x-yyyymmdd` with a specific release date. For example,
-`emr-7.9.0-latest` or
-`emr-7.9.0-20210129`. When you use the `-latest` suffix,
+`emr-7.12.0-latest` or
+`emr-7.12.0-20210129`. When you use the `-latest` suffix,
 you ensure that your Amazon EMR version always includes the latest security updates.
 
 ###### Note
@@ -20,6 +20,8 @@ For a comparison between Amazon EMR on EKS and Amazon EMR running on EC2, see th
 
 ###### Topics
 
+- [Amazon EMR on EKS 7.12.0 releases](emr-eks-7.12.md "emr-eks-7.12.md")
+- [Amazon EMR on EKS 7.11.0 releases](emr-eks-7.11.md "emr-eks-7.11.md")
 - [Amazon EMR on EKS 7.10.0 releases](emr-eks-7.10.md "emr-eks-7.10.md")
 - [Amazon EMR on EKS 7.9.0 releases](emr-eks-7.9.md "emr-eks-7.9.md")
 - [Amazon EMR on EKS 7.8.0 releases](emr-eks-7.8.md "emr-eks-7.8.md")

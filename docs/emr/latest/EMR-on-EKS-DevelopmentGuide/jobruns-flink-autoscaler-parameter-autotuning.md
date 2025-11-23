@@ -58,7 +58,7 @@ spec:
     pipeline.max-parallelism: "12"
 
   executionRoleArn: `<JOB ARN>`
-  emrReleaseLabel: emr-7.11.0-flink-latest
+  emrReleaseLabel: emr-7.12.0-flink-latest
   jobManager:
     highAvailabilityEnabled: false
     storageDir: s3://`<s3_bucket>`/flink/autoscaling/ha/
