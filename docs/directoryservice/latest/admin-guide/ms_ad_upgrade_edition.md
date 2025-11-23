@@ -84,7 +84,7 @@ the following regions:
 [Show moreShow less](# "#")There are a few limitations to be aware of when upgrading your AWS Managed Microsoft AD. They
 are:
 
-- The upgrade will incur additional cost. See [AWS Directory Service Pricing](https://aws.amazon.com/directoryservice/pricing/ "https://aws.amazon.com/directoryservice/pricing/") for more
+- The upgrade will incur additional cost. See [Directory Service Pricing](https://aws.amazon.com/directoryservice/pricing/ "https://aws.amazon.com/directoryservice/pricing/") for more
   information.
 - Once your Active Directory is upgraded, it can't be reverted back to its previous
   edition.

@@ -87,16 +87,16 @@ following procedures must be applied separately in each Region. For more informa
 
 ###### Topics
 
-- [Step 1: Register a certificate in AWS Directory Service](#ms_ad_registercert "#ms_ad_registercert")
+- [Step 1: Register a certificate in Directory Service](#ms_ad_registercert "#ms_ad_registercert")
 - [Step 2: Check registration status](#ms_ad_check-registration-status "#ms_ad_check-registration-status")
 - [Step 3: Enable client-side LDAPS](#ms_ad_enableclientsideldapssteps "#ms_ad_enableclientsideldapssteps")
 - [Step 4: Check LDAPS status](#ms_ad_check-ldaps-status "#ms_ad_check-ldaps-status")
 
-### Step 1: Register a certificate in AWS Directory Service
+### Step 1: Register a certificate in Directory Service
 
-Use either of the following methods to register a certificate in AWS Directory Service.
+Use either of the following methods to register a certificate in Directory Service.
 
-###### Method 1: To register your certificate in AWS Directory Service (AWS Management Console)
+###### Method 1: To register your certificate in Directory Service (AWS Management Console)
 
 1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, select
    **Directories**.
@@ -119,7 +119,7 @@ Use either of the following methods to register a certificate in AWS Directory S
    **Open**.
 6. Choose **Register certificate**.
 
-###### Method 2: To register your certificate in AWS Directory Service (AWS CLI)
+###### Method 2: To register your certificate in Directory Service (AWS CLI)
 
 - Run the following command. For the certificate data, point to the location of your
   CA certificate file. A certificate ID will be provided in the response.
@@ -133,7 +133,7 @@ aws ds register-certificate --directory-id `your_directory_id` --certificate-dat
 To see the status of a certificate registration or a list of registered certificates,
 use either of the following methods.
 
-###### Method 1: To check certificate registration status in AWS Directory Service (AWS Management Console)
+###### Method 1: To check certificate registration status in Directory Service (AWS Management Console)
 
 1. Go to the **Client-side LDAPS** section on the **Directory
    details** page.
@@ -142,7 +142,7 @@ use either of the following methods.
    changes to **Registered**, your certificate has been successfully
    registered.
 
-###### Method 2: To check certificate registration status in AWS Directory Service (AWS CLI)
+###### Method 2: To check certificate registration status in Directory Service (AWS CLI)
 
 - Run the following command. If the status value returns `Registered`, your
   certificate has been successfully registered.
@@ -153,14 +153,14 @@ aws ds list-certificates --directory-id `your_directory_id`
 
 ### Step 3: Enable client-side LDAPS
 
-Use either of the following methods to enable client-side LDAPS in AWS Directory Service.
+Use either of the following methods to enable client-side LDAPS in Directory Service.
 
 ###### Note
 
 You must have successfully registered at least one certificate before you can enable
 client-side LDAPS.
 
-###### Method 1: To enable client-side LDAPS in AWS Directory Service (AWS Management Console)
+###### Method 1: To enable client-side LDAPS in Directory Service (AWS Management Console)
 
 1. Go to the **Client-side LDAPS** section on the **Directory
    details** page.
@@ -169,7 +169,7 @@ client-side LDAPS.
 3. In the **Enable client-side LDAPS** dialog box, choose
    **Enable**.
 
-###### Method 2: To enable client-side LDAPS in AWS Directory Service (AWS CLI)
+###### Method 2: To enable client-side LDAPS in Directory Service (AWS CLI)
 
 - Run the following command.
 
@@ -179,16 +179,16 @@ aws ds enable-ldaps --directory-id `your_directory_id` --type Client
 
 ### Step 4: Check LDAPS status
 
-Use either of the following methods to check the LDAPS status in AWS Directory Service.
+Use either of the following methods to check the LDAPS status in Directory Service.
 
-###### Method 1: To check LDAPS status in AWS Directory Service (AWS Management Console)
+###### Method 1: To check LDAPS status in Directory Service (AWS Management Console)
 
 1. Go to the **Client-side LDAPS** section on the **Directory
    details** page.
 2. If the status value is displayed as **Enabled**, LDAPS has been
    successfully configured.
 
-###### Method 2: To check LDAPS status in AWS Directory Service (AWS CLI)
+###### Method 2: To check LDAPS status in Directory Service (AWS CLI)
 
 - Run the following command. If the status value returns `Enabled`, LDAPS
   has been successfully configured.
@@ -208,7 +208,7 @@ the AWS Management Console method or the AWS CLI method.
 
 Use either of the following methods to see when a certificate is set to expire.
 
-###### Method 1: To view certificate details in AWS Directory Service (AWS Management Console)
+###### Method 1: To view certificate details in Directory Service (AWS Management Console)
 
 1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, select
    **Directories**.
@@ -226,7 +226,7 @@ Use either of the following methods to see when a certificate is set to expire.
 4. In the **Client-side LDAPS** section, under **CA
    certificates**, information about the certificate will be displayed.
 
-###### Method 2: To view certificate details in AWS Directory Service (AWS CLI)
+###### Method 2: To view certificate details in Directory Service (AWS CLI)
 
 - Run the following command. For the certificate ID, use the identifier returned by
   `register-certificate` or `list-certificates`.
@@ -244,7 +244,7 @@ Use either of the following methods to deregister a certificate.
 If only one certificate is registered, you must first disable LDAPS before you can
 deregister the certificate.
 
-###### Method 1: To deregister a certificate in AWS Directory Service (AWS Management Console)
+###### Method 1: To deregister a certificate in Directory Service (AWS Management Console)
 
 1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, select
    **Directories**.
@@ -265,7 +265,7 @@ deregister the certificate.
 5. In the **Deregister a CA certificate** dialog box, choose
    **Deregister**.
 
-###### Method 2: To deregister a certificate in AWS Directory Service (AWS CLI)
+###### Method 2: To deregister a certificate in Directory Service (AWS CLI)
 
 - Run the following command. For the certificate ID, use the identifier returned by
   `register-certificate` or `list-certificates`.
@@ -278,7 +278,7 @@ aws ds deregister-certificate --directory-id `your_directory_id` --certificate-i
 
 Use either of the following methods to disable client-side LDAPS.
 
-###### Method 1: To disable client-side LDAPS in AWS Directory Service (AWS Management Console)
+###### Method 1: To disable client-side LDAPS in Directory Service (AWS Management Console)
 
 1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, select
    **Directories**.
@@ -298,7 +298,7 @@ Use either of the following methods to disable client-side LDAPS.
 5. In the **Disable client-side LDAPS** dialog box, choose
    **Disable**.
 
-###### Method 2: To disable client-side LDAPS in AWS Directory Service (AWS CLI)
+###### Method 2: To disable client-side LDAPS in Directory Service (AWS CLI)
 
 - Run the following command.
 

@@ -24,7 +24,7 @@ You can enable user and group management with the AWS Management Console.
 
 ###### To enable user and group management
 
-1. Open the AWS Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
+1. Open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2. On the **Directory details** page, to enable
    user and group management, select **Enable**.
 3. In the **Enable user and group management** dialog box, select
@@ -68,7 +68,7 @@ You can disable user and group management with the AWS Management Console.
 
 ###### To disable user and group management
 
-1. Open the AWS Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
+1. Open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2. On the **Directory details** page, to disable
    user and group management, select **Disable**.
 3. In the **Disable user and group management** dialog box, select

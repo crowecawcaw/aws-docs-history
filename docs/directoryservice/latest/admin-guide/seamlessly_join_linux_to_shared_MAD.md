@@ -50,7 +50,7 @@ you will use to domain join your EC2 Linux instance while signed in to `Account
    ###### Note
 
    `AmazonSSMDirectoryServiceAccess` provides the permissions to
-   join instances to an Active Directory managed by AWS Directory Service.
+   join instances to an Active Directory managed by Directory Service.
    `AmazonSSMManagedInstanceCore` provides the minimum permissions
    necessary to use AWS Systems Manager. For more information about creating a role with
    these permissions, and for information about other permissions and policies you

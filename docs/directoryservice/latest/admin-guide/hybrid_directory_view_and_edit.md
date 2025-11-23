@@ -4,11 +4,11 @@ Use the following procedures to view or edit your hybrid directory.
 
 ## Viewing a hybrid directory
 
-You can view a hybrid directory in the AWS Directory Service console.
+You can view a hybrid directory in the Directory Service console.
 
 ###### To view detailed directory information
 
-1. In the [AWS Directory Service
+1. In the [Directory Service
    console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, choose
    **Directories**.
 2. Choose the directory ID link for your directory. Information about the
@@ -48,12 +48,12 @@ You can find the following information about your AWS Managed Microsoft AD:
 
 ## Updating a hybrid directory
 
-You can update a hybrid directory in the AWS Directory Service console to modify DNS settings or recover
+You can update a hybrid directory in the Directory Service console to modify DNS settings or recover
 administrator account access.
 
 ###### To update hybrid directory information
 
-1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2 "https://console.aws.amazon.com/directoryservicev2")
+1. In the [Directory Service console](https://console.aws.amazon.com/directoryservicev2 "https://console.aws.amazon.com/directoryservicev2")
    navigation pane, choose **Directories**.
 2. Choose the directory ID link for your directory to open the
    **Directory details** page.

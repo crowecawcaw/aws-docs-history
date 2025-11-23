@@ -1,9 +1,9 @@
-# AWS Directory Service API permissions: Actions,
+# Directory Service API permissions: Actions,
 
 resources, and conditions reference
 
 When you are setting up [Access control](iam_auth_access.md#access_control "iam_auth_access.md#access_control") and writing permissions policies that you can attach to an IAM identity
-(identity-based policies), you can use the AWS Directory Service API permissions: Actions,
+(identity-based policies), you can use the Directory Service API permissions: Actions,
 resources, and conditions reference table as a reference. Each API
 entry in the table includes the following:
 
@@ -16,27 +16,27 @@ You specify the actions in the policy's `Action` field and the resource value
 in the policy's `Resource` field. To specify an action, use the
 `ds:` prefix followed by the API operation name (for example,
 `ds:CreateDirectory`). Some AWS applications may require use of
-nonpublic AWS Directory Service API operations such as `ds:AuthorizeApplication`,
+nonpublic Directory Service API operations such as `ds:AuthorizeApplication`,
 `ds:CheckAlias`, `ds:CreateIdentityPoolDirectory`,
 `ds:GetAuthorizedApplicationDetails`,
 `ds:UpdateAuthorizedApplication`, and
 `ds:UnauthorizeApplication` in their policies.
 
-Some AWS Directory Service APIs can only be called through the AWS Management Console. They are not public APIs, in
+Some Directory Service APIs can only be called through the AWS Management Console. They are not public APIs, in
 the sense they cannot be called programmatically, and they are not provided by any SDK.
 They accept user credentials. These API operations include
 `ds:DisableRoleAccess`, `ds:EnableRoleAccess`, and
 `ds:UpdateDirectory`.
 
-You can use AWS global condition keys in your AWS Directory Service and Directory Service Data policies to express
+You can use AWS global condition keys in your Directory Service and Directory Service Data policies to express
 conditions. For a complete list of AWS keys, see [Available
 Global Condition Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#AvailableKeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#AvailableKeys") in the _IAM User Guide_.
 
-## AWS Directory Service API and required
+## Directory Service API and required
 
 permissions for actions
 
-| AWS Directory Service API Operations                                                                                                       | Required Permissions (API Actions)                                                                                                                                                                                                                                                                        | Resources |
+| Directory Service API Operations                                                                                                           | Required Permissions (API Actions)                                                                                                                                                                                                                                                                        | Resources |
 | ------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
 | [AcceptSharedDirectory](../devguide/API_AcceptSharedDirectory.md "../devguide/API_AcceptSharedDirectory.md")                               | `ds:AcceptSharedDirectory`                                                                                                                                                                                                                                                                                | \*        |
 | [AddIpRoutes](../devguide/API_AddIpRoutes.md "../devguide/API_AddIpRoutes.md")                                                             | `ds:AddIpRoutes`<br>`ec2:DescribeSecurityGroup`<br>`ec2:AuthorizeSecurityGroupIngress`<br>`ec2:AuthorizeSecurityGroupEgress`                                                                                                                                                                              | \*        |

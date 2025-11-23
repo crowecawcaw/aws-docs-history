@@ -1,6 +1,6 @@
 # Updating directory network type
 
-You can update your AWS Directory Service directory's network type from IPv4 to Dual-stack (IPv4 and IPv6).
+You can update your Directory Service directory's network type from IPv4 to Dual-stack (IPv4 and IPv6).
 Updating the network type to include IPv6 IP addresses provides a larger address space than IPv4.
 IPv4 and IPv6 communication are independent of each other.
 
@@ -21,7 +21,7 @@ met:
   VPC](../../../vpc/latest/userguide/vpc-migrate-ipv6.md "../../../vpc/latest/userguide/vpc-migrate-ipv6.md") in the _Amazon Virtual Private Cloud User Guide_.
 - You have administrative access to the AWS Management Console.
 - Your directory must be in Active state.
-- You have appropriate IAM permissions to modify AWS Directory Service settings.
+- You have appropriate IAM permissions to modify Directory Service settings.
 
 ## To update directory network type
 

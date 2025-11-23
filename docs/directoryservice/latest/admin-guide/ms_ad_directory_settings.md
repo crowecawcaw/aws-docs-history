@@ -14,7 +14,7 @@ You can configure and edit settings for any of your directories.
 
 ###### To edit directory settings
 
-1. Sign in to the AWS Management Console and open the AWS Directory Service console at
+1. Sign in to the AWS Management Console and open the Directory Service console at
    [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2. On the **Directories** page, choose your directory ID.
 3. Under **Networking & security**, find **Directory

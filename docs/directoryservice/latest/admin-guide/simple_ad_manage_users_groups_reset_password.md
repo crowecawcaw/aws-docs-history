@@ -4,12 +4,12 @@ password
 
 Users must adhere to password policies as defined in the Active Directory. Sometimes this can get the
 best of users, including the Active Directory administrator, and they forget their password. When this
-happens, you can quickly reset the user's password using AWS Directory Service if the user resides in
+happens, you can quickly reset the user's password using Directory Service if the user resides in
 Simple AD.
 
 You must be signed in as a user with the necessary permissions to reset passwords. For more
 information about permissions, see [Overview of managing access permissions to
-your AWS Directory Service resources](IAM_Auth_Access_Overview.md "IAM_Auth_Access_Overview.md").
+your Directory Service resources](IAM_Auth_Access_Overview.md "IAM_Auth_Access_Overview.md").
 
 You can reset the password for any user in your Active Directory with the following exceptions:
 
@@ -30,7 +30,7 @@ You can reset the password for any user in your Active Directory with the follow
 - AWS Management Console
 - AWS CLI
 
-AWS Management Console1. In the [AWS Directory Service
+AWS Management Console1. In the [Directory Service
 console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, under **Active Directory**, choose
 **Directories**, and then select the Active Directory in the list where
 you want to reset a user password. 2. On the **Directory details** page, choose

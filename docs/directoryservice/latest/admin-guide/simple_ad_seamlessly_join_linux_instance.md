@@ -208,7 +208,7 @@ Linux EC2 instance.
     4. After adding the three policies listed above, select **Create role**.###### Note
 
 AmazonSSMDirectoryServiceAccess provides the permissions to
-join instances to an Active Directory managed by AWS Directory Service.
+join instances to an Active Directory managed by Directory Service.
 AmazonSSMManagedInstanceCore provides the minimum permissions
 necessary to use the AWS Systems Manager service. For more information about creating a role
 with these permissions, and for information about other permissions and policies you

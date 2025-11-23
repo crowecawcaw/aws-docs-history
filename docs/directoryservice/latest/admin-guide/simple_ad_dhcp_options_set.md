@@ -2,7 +2,7 @@
 
 Simple AD
 
-AWS recommends that you create a DHCP options set for your AWS Directory Service directory and
+AWS recommends that you create a DHCP options set for your Directory Service directory and
 assign the DHCP options set to the VPC that your directory is in. This allows any
 instances in that VPC to point to the specified domain and DNS servers to resolve their
 domain names.

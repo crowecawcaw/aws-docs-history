@@ -73,7 +73,7 @@ This error occurs if the EC2 launch wizard identifies an existing SSM document w
     ###### Note
 
     **AmazonSSMDirectoryServiceAccess** provides the permissions
-    to join instances to an Active Directory managed by AWS Directory Service.
+    to join instances to an Active Directory managed by Directory Service.
     **AmazonSSMManagedInstanceCore** provides the minimum
     permissions necessary to use the AWS Systems Manager service. For more information about
     creating a role with these permissions, and for information about other
@@ -128,7 +128,7 @@ This error occurs if the EC2 launch wizard identifies an existing SSM document w
 
 You can locate the **Directory ID**,
 **directory name**, and **DNS IP
-addresses** by going back to the AWS Directory Service console,
+addresses** by going back to the Directory Service console,
 selecting **Directories shared with me**, and
 selecting your directory. Your **Directory ID** can
 be found under the **Shared directory details**

@@ -6,7 +6,7 @@ environment using the best practices for infrastructure security, see [Infrastru
 Protection](../../../wellarchitected/latest/security-pillar/infrastructure-protection.md "../../../wellarchitected/latest/security-pillar/infrastructure-protection.md") in _Security Pillar AWS Well‐Architected
 Framework_.
 
-You use AWS published API calls to access AWS Directory Service through the network. Clients must
+You use AWS published API calls to access Directory Service through the network. Clients must
 support the following:
 
 - Transport Layer Security (TLS). We require TLS 1.2 and recommend TLS 1.3.

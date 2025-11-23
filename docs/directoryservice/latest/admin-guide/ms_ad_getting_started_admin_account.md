@@ -51,9 +51,9 @@ accounts
 
 AWS automatically rotates the built-in Administrator password to a random password every
 90 days. Anytime the built in Administrator password is requested for human use an AWS
-ticket is created and logged with the AWS Directory Service team. Account credentials are encrypted and
+ticket is created and logged with the Directory Service team. Account credentials are encrypted and
 handled over secure channels. Also the Administrator account credentials can only be requested
-by the AWS Directory Service management team.
+by the Directory Service management team.
 
 To perform operational management of your directory, AWS has exclusive control of
 accounts with Enterprise Administrator and Domain Administrator privileges. This includes
@@ -88,11 +88,11 @@ all of the Security event logs to CloudWatch Logs in your account.
 You might occasionally see users created and deleted within the AWS Reserved OU. AWS
 is responsible for the management and security of all objects in this OU and any other OU or
 container where we have not delegated permissions for you to access and manage. You may see
-creations and deletions in that OU. This is because AWS Directory Service uses automation to rotate the Domain
+creations and deletions in that OU. This is because Directory Service uses automation to rotate the Domain
 Administrator password on a regular basis. When the password is rotated, a backup is created
 in the event that the rotation fails. Once the rotation is successful, the backup account is
 automatically deleted. Also in the rare event that interactive access is needed on the DCs for
-troubleshooting purposes, a temporary user account is created for an AWS Directory Service engineer to use.
+troubleshooting purposes, a temporary user account is created for an Directory Service engineer to use.
 Once an engineer has completed their work, the temporary user account will be deleted. Note
-that every time interactive credentials are requested for a directory, the AWS Directory Service management
+that every time interactive credentials are requested for a directory, the Directory Service management
 team is notified.

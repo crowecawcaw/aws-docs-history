@@ -15,7 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-The following sections describe the AWS managed policies that are specific to AWS Directory Service.
+The following sections describe the AWS managed policies that are specific to Directory Service.
 You can attach these policies to users in your account.
 
 For more information, see [AWS
@@ -30,7 +30,7 @@ identities. To view the full permissions for this policy, see [AWSDirectoryServi
 Reference_.
 
 This policy grants administrative permissions that allow a principal full access to
-all AWS Directory Service actions. Principals with these permissions can create, configure, and manage
+all Directory Service actions. Principals with these permissions can create, configure, and manage
 directories, including Simple AD, AD Connector, and Managed Microsoft AD. They can also
 manage directory sharing, trust relationships, and monitoring configurations. This
 policy includes permissions to manage the underlying network infrastructure required for
@@ -40,7 +40,7 @@ directory services.
 
 This policy includes the following permissions:
 
-- `ds` – Allows principals full access to all AWS Directory Service
+- `ds` – Allows principals full access to all Directory Service
   actions.
 - `ec2` – Allows principals to manage network interfaces,
   security groups, and describe VPC resources required for directory
@@ -63,7 +63,7 @@ identities. To view the full permissions for this policy, see [AWSDirectoryServi
 Reference_.
 
 This policy grants read-only permissions that allow users to view information in
-AWS Directory Service. Principals with this policy attached cannot make any updates to directories or
+Directory Service. Principals with this policy attached cannot make any updates to directories or
 their configurations. For example, principals with these permissions can view directory
 details, trust relationships, and monitoring configurations, but cannot create new
 directories or modify existing ones. They can also view related EC2 network resources
@@ -142,7 +142,7 @@ Directory Service to perform actions on your behalf. To view the permissions for
 policy, see [AWSDirectoryServiceServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSDirectoryServiceServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSDirectoryServiceServiceRolePolicy.md") in the _AWS Managed Policy
 Reference_.
 
-This policy grants permissions that allow AWS Directory Service to monitor and
+This policy grants permissions that allow Directory Service to monitor and
 assess self-managed domain controllers in hybrid Active Directory environments. The
 service uses these permissions to run automated health assessments, execute PowerShell
 scripts for compatibility testing, and gather network configuration information to
@@ -159,17 +159,17 @@ This policy includes the following permissions:
   such as VPCs, subnets, security groups, and network interfaces to validate
   hybrid connectivity configurations.
 
-## IAM and AWS Directory Service updates to AWS
+## IAM and Directory Service updates to AWS
 
 managed policies
 
 View details about updates to IAM and AWS managed policies since the service began
 tracking these changes. For automatic alerts about changes to this page, subscribe to
-the RSS feed on the IAM and AWS Directory Service Document history pages.
+the RSS feed on the IAM and Directory Service Document history pages.
 
-| Change                                                                                                                                                                                                     | Description                                                                                                                                                                                         | Date               |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| [AWSDirectoryServiceServiceRolePolicy](#security-iam-awsmanpol-AWSDirectoryServiceServiceRolePolicy "#security-iam-awsmanpol-AWSDirectoryServiceServiceRolePolicy") – New policy                           | AWS Directory Service added a new policy to allow AWS to monitor a customer's<br>self-managed domain controllers.                                                                                   | July 30, 2025      |
-| [AWS<br>managed policy: AWSDirectoryServiceDataReadOnlyAccess](#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess") – New policy | AWS Directory Service added a new policy to allow a user or group access to view<br>and search AD users, members, and groups.                                                                       | September 17, 2024 |
-| [AWS managed<br>policy: AWSDirectoryServiceDataFullAccess](#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") – New policy             | AWS Directory Service added a new policy to allow a user or group access to<br>built-in object management with Directory Service Data to create, manage, and view<br>AD users, members, and groups. | September 17, 2024 |
-| AWS Directory Service started tracking changes                                                                                                                                                             | AWS Directory Service started tracking changes for its AWS managed<br>policies.                                                                                                                     | September 17, 2024 |
+| Change                                                                                                                                                                                                     | Description                                                                                                                                                                                     | Date               |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [AWSDirectoryServiceServiceRolePolicy](#security-iam-awsmanpol-AWSDirectoryServiceServiceRolePolicy "#security-iam-awsmanpol-AWSDirectoryServiceServiceRolePolicy") – New policy                           | Directory Service added a new policy to allow AWS to monitor a customer's<br>self-managed domain controllers.                                                                                   | July 30, 2025      |
+| [AWS<br>managed policy: AWSDirectoryServiceDataReadOnlyAccess](#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess") – New policy | Directory Service added a new policy to allow a user or group access to view<br>and search AD users, members, and groups.                                                                       | September 17, 2024 |
+| [AWS managed<br>policy: AWSDirectoryServiceDataFullAccess](#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") – New policy             | Directory Service added a new policy to allow a user or group access to<br>built-in object management with Directory Service Data to create, manage, and view<br>AD users, members, and groups. | September 17, 2024 |
+| Directory Service started tracking changes                                                                                                                                                                 | Directory Service started tracking changes for its AWS managed<br>policies.                                                                                                                     | September 17, 2024 |

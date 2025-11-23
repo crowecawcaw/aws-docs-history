@@ -13,7 +13,7 @@ provides tools that help you protect your data for all services with service pri
 have been given access to resources in your account.
 
 We recommend using the [`aws:SourceArn`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") and [`aws:SourceAccount`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount") global condition context keys in resource
-policies to limit the permissions that AWS Directory Service for Microsoft Active Directory gives another service to the
+policies to limit the permissions that Directory Service for Microsoft Active Directory gives another service to the
 resource. If the `aws:SourceArn` value does not contain the account ID, such as
 an Amazon S3 bucket ARN, you must use both global condition context keys to limit permissions. If
 you use both global condition context keys and the `aws:SourceArn` value contains
@@ -120,7 +120,7 @@ JSON
 
 The following example shows an IAM trust policy for a role that has been delegated console
 access. The value of `aws:SourceArn` must be a directory resource in your account.
-For more information, see [Resource types defined by AWS Directory Service](../../../service-authorization/latest/reference/list_awsdirectoryservice.md#awsdirectoryservice-resources-for-iam-policies "../../../service-authorization/latest/reference/list_awsdirectoryservice.md#awsdirectoryservice-resources-for-iam-policies"). For example, you can
+For more information, see [Resource types defined by Directory Service](../../../service-authorization/latest/reference/list_awsdirectoryservice.md#awsdirectoryservice-resources-for-iam-policies "../../../service-authorization/latest/reference/list_awsdirectoryservice.md#awsdirectoryservice-resources-for-iam-policies"). For example, you can
 use `arn:aws:ds:us-east-1:123456789012:directory/d-1234567890` where
 `123456789012` is your customer ID and `d-1234567890` is your directory
 ID.

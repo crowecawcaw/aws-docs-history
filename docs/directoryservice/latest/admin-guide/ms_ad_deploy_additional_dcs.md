@@ -10,12 +10,12 @@ of Amazon EC2 and Amazon RDS for SQL Server instances.
 
 When you first create your directory, AWS Managed Microsoft AD deploys two domain controllers across
 multiple Availability Zones, which is required for highly availability purposes. Later, you can
-easily deploy additional domain controllers via the AWS Directory Service console by just specifying the total
+easily deploy additional domain controllers via the Directory Service console by just specifying the total
 number of domain controllers that you want. AWS Managed Microsoft AD distributes the additional domain
 controllers to the Availability Zones and Amazon VPC subnets on which your directory is running.
 
 For example, in the below illustration, DC-1 and DC-2 represent the two domain controllers
-that were originally created with your directory. The AWS Directory Service console refers to these default
+that were originally created with your directory. The Directory Service console refers to these default
 domain controllers as **Required**. AWS Managed Microsoft AD intentionally locates each of
 these domain controllers in separate Availability Zones during the directory creation process.
 Later, you might decide to add two more domain controllers to help distribute the authentication
@@ -146,5 +146,5 @@ Set-DSDomainControllerCount -DirectoryId `d-1234567890` -DesiredNumber `4`
 
 **Related AWS Security Blog Article**
 
-- [How to increase the redundancy and performance of your AWS Directory Service for AWS Managed Microsoft AD by adding
+- [How to increase the redundancy and performance of your Directory Service for AWS Managed Microsoft AD by adding
   domain controllers](https://aws.amazon.com/blogs/security/how-to-increase-the-redundancy-and-performance-of-your-aws-directory-service-for-microsoft-ad-directory-by-adding-domain-controllers/ "https://aws.amazon.com/blogs/security/how-to-increase-the-redundancy-and-performance-of-your-aws-directory-service-for-microsoft-ad-directory-by-adding-domain-controllers/")

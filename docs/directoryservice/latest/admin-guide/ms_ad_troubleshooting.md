@@ -8,7 +8,7 @@ creating or using your AWS Managed Microsoft AD Active Directory.
 Some troubleshooting tasks can only be completed by Support. Here are some of the
 tasks:
 
-- Restarting your AWS Directory Service-provided domain controllers.
+- Restarting your Directory Service-provided domain controllers.
 - [Upgrading your AWS Managed Microsoft AD](ms_ad_upgrade_edition.md "ms_ad_upgrade_edition.md").
 
 To create a support case, see [Creating support cases and case

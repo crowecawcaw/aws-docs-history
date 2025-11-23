@@ -21,7 +21,7 @@ A directory owner is the AWS account holder that owns the originating directory 
 the shared directory relationship. An administrator in this account initiates the
 directory sharing workflow by specifying which AWS accounts to share their directory
 with. Directory owners can see who they've shared a directory with using the
-**Scale & Share** tab for a given directory in the AWS Directory Service
+**Scale & Share** tab for a given directory in the Directory Service
 console.
 
 ### Directory consumer account
@@ -74,7 +74,7 @@ The following are some considerations when using directory share with your AWS M
 
 - AWS charges an additional fee for directory sharing. The AWS account that is using the
   shared AWS Managed Microsoft AD is the account charged the sharing fees. To learn more, see the
-  [Pricing](https://aws.amazon.com/directoryservice/pricing/ "https://aws.amazon.com/directoryservice/pricing/") page on the AWS Directory Service website.
+  [Pricing](https://aws.amazon.com/directoryservice/pricing/ "https://aws.amazon.com/directoryservice/pricing/") page on the Directory Service website.
 - Directory sharing makes AWS Managed Microsoft AD a more cost-effective way of integrating with Amazon EC2 in
   multiple accounts and VPCs.
 

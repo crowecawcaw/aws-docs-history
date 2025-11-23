@@ -144,7 +144,7 @@ Amazon RDS also supports AWS Managed Microsoft AD Directory Sharing. For more in
 - [Joining your Amazon RDS DB instances across accounts to a single shared
   domain](https://aws.amazon.com/blogs/database/joining-your-amazon-rds-instances-across-accounts-to-a-single-shared-domain/ "https://aws.amazon.com/blogs/database/joining-your-amazon-rds-instances-across-accounts-to-a-single-shared-domain/")
 
-For more information about joining an Amazon RDS for SQL Server to your Active Directory, see [Join Amazon RDS for SQL Server to your self-managed Active Directory](https://aws.amazon.com/blogs/database/join-amazon-rds-for-sql-server-to-your-self-managed-active-directory/ "https://aws.amazon.com/blogs/database/join-amazon-rds-for-sql-server-to-your-self-managed-active-directory/").
+For more information about joining an Amazon RDS for SQL Server to your Active Directory, see [Join Amazon RDS for SQL Server to your self-managed Active Directory](https://aws.amazon.com/blogs//database/join-amazon-rds-for-sql-server-to-your-self-managed-active-directory/ "https://aws.amazon.com/blogs//database/join-amazon-rds-for-sql-server-to-your-self-managed-active-directory/").
 
 ### .NET application using Amazon RDS for SQL Server with
 

@@ -81,9 +81,9 @@ deployment changes.
   Active Directory applications require changes to the default Active Directory schema, and
   they may attempt to install those changes as part of the application installation
   workflow. Due to the privileged nature of schema extensions, AWS makes this possible by
-  importing Lightweight Directory Interchange Format (LDIF) files through the AWS Directory Service console,
+  importing Lightweight Directory Interchange Format (LDIF) files through the Directory Service console,
   CLI, or SDK only. Such applications often come with an LDIF file that you can apply to the
-  directory through the AWS Directory Service schema update process. For more information about how the LDIF
+  directory through the Directory Service schema update process. For more information about how the LDIF
   import process works, see [Tutorial: Extending your AWS Managed Microsoft AD
   schema](ms_ad_tutorial_extend_schema.md "ms_ad_tutorial_extend_schema.md"). You can install the application in a way
   to bypass the schema installation during the installation process.

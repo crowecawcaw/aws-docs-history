@@ -2,7 +2,7 @@
 
 AWS Managed Microsoft AD creates a fully managed, Microsoft Active Directory in the AWS Cloud and is powered by Windows
 Server 2019 and operates at the 2012 R2 Forest and Domain functional levels. When you create a
-directory with AWS Managed Microsoft AD, AWS Directory Service creates two domain controllers and adds the DNS service on
+directory with AWS Managed Microsoft AD, Directory Service creates two domain controllers and adds the DNS service on
 your behalf. The domain controllers are created in different subnets in an Amazon VPC this redundancy
 helps ensure that your directory remains accessible even if a failure occurs. If you need more
 domain controllers, you can add them later. For more information, see [Deploying additional domain controllers for your
@@ -43,7 +43,7 @@ If you need to integrate your AWS Managed Microsoft AD domain with an existing o
 domain, you must have the Forest and Domain functional levels for your on-premises domain set
 to Windows Server 2003 or higher.
 
-AWS Directory Service uses a two VPC structure. The EC2 instances which make up your directory run outside
+Directory Service uses a two VPC structure. The EC2 instances which make up your directory run outside
 of your AWS account, and are managed by AWS. They have two network adapters,
 `ETH0` and `ETH1`. `ETH0` is the management adapter, and
 exists outside of your account. `ETH1` is created within your account.
@@ -212,8 +212,8 @@ For more information on what is created with your AWS Managed Microsoft AD, see 
 - [How to delegate administration of your AWS Managed Microsoft AD directory to your on-premises Active Directory
   users](https://aws.amazon.com/blogs/security/how-to-delegate-administration-of-your-aws-managed-microsoft-ad-directory-to-your-on-premises-active-directory-users/ "https://aws.amazon.com/blogs/security/how-to-delegate-administration-of-your-aws-managed-microsoft-ad-directory-to-your-on-premises-active-directory-users/")
 - [How to configure even stronger password policies to help meet your security standards by
-  using AWS Directory Service for AWS Managed Microsoft AD](https://aws.amazon.com/blogs/security/how-to-configure-even-stronger-password-policies-to-help-meet-your-security-standards-by-using-aws-directory-service-for-microsoft-active-directory/ "https://aws.amazon.com/blogs/security/how-to-configure-even-stronger-password-policies-to-help-meet-your-security-standards-by-using-aws-directory-service-for-microsoft-active-directory/")
-- [How to increase the redundancy and performance of your AWS Directory Service for AWS Managed Microsoft AD by adding
+  using Directory Service for AWS Managed Microsoft AD](https://aws.amazon.com/blogs/security/how-to-configure-even-stronger-password-policies-to-help-meet-your-security-standards-by-using-aws-directory-service-for-microsoft-active-directory/ "https://aws.amazon.com/blogs/security/how-to-configure-even-stronger-password-policies-to-help-meet-your-security-standards-by-using-aws-directory-service-for-microsoft-active-directory/")
+- [How to increase the redundancy and performance of your Directory Service for AWS Managed Microsoft AD by adding
   Domain controllers](https://aws.amazon.com/blogs/security/how-to-increase-the-redundancy-and-performance-of-your-aws-directory-service-for-microsoft-ad-directory-by-adding-domain-controllers/ "https://aws.amazon.com/blogs/security/how-to-increase-the-redundancy-and-performance-of-your-aws-directory-service-for-microsoft-ad-directory-by-adding-domain-controllers/")
 - [How to enable the use of remote desktops by deploying Microsoft remote desktop licensing
   manager on AWS Managed Microsoft AD](https://aws.amazon.com/blogs/security/how-to-enable-the-use-of-remote-desktops-by-deploying-microsoft-remote-desktop-licensing-manager-on-aws-microsoft-ad/ "https://aws.amazon.com/blogs/security/how-to-enable-the-use-of-remote-desktops-by-deploying-microsoft-remote-desktop-licensing-manager-on-aws-microsoft-ad/")

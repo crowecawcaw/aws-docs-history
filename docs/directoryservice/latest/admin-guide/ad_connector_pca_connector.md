@@ -6,9 +6,9 @@ AWS Private CA Connector for AD provides a fully managed AWS Private CA as a dro
 self-managed enterprise CAs without requiring you to deploy, patch, or update local agents or
 proxy servers.
 
-You can set up this integration through the AWS Directory Service
+You can set up this integration through the Directory Service
 console, the AWS Private CA Connector for AD console, or by calling the [`CreateTemplate`](../../../pca-connector-ad/latest/APIReference/API-CreateTemplate.md "../../../pca-connector-ad/latest/APIReference/API-CreateTemplate.md") API. To use the AWS Private CA Connector for Active Directory console, see [AWS Private CA Connector
-for Active Directory](../../../privateca/latest/userguide/connector-for-ad.md "../../../privateca/latest/userguide/connector-for-ad.md"). The following sections describe how to set up this integration from the AWS Directory Service
+for Active Directory](../../../privateca/latest/userguide/connector-for-ad.md "../../../privateca/latest/userguide/connector-for-ad.md"). The following sections describe how to set up this integration from the Directory Service
 console.
 
 ## Prerequisites
@@ -21,7 +21,7 @@ AWS Private CA Connector for AD
 
 ###### To create a Private CA connector for Active Directory
 
-1. Sign in to the AWS Management Console and open the AWS Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
+1. Sign in to the AWS Management Console and open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2. On the **Directories** page, choose your directory ID.
 3. Under the **Application Management** tab and **AWS apps & services** section, choose **AWS Private CA Connector for AD**.
 4. On the **Create Private CA certificate for Active Directory** page, complete the steps to create your Private CA for Active Directory connector.
@@ -32,7 +32,7 @@ For more information, see [Creating a connector](../../../privateca/latest/userg
 
 ###### To view Private CA connector details
 
-1.  Sign in to the AWS Management Console and open the AWS Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
+1.  Sign in to the AWS Management Console and open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2.  On the **Directories** page, choose your directory ID.
 3.  Under the **Application Management** tab and **AWS apps & services** section, view your Private CA connectors and associated Private CA. The following fields display:
     1.  **AWS Private CA Connector ID** – The unique identifier for a AWS Private CA connector. Choose it to view the details page.

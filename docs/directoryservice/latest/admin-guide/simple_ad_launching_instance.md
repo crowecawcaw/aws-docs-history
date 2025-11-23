@@ -19,7 +19,7 @@ To seamlessly domain join an EC2 instance, you'll need to complete the following
 
   - The user seamlessly domain joining the EC2 to the Simple AD needs the
     following IAM permissions:
-    - AWS Directory Service Permissions:
+    - Directory Service Permissions:
       - `"ds:DescribeDirectories"`
       - `"ds:CreateComputer"`
 
@@ -58,7 +58,7 @@ rules.
 | `ec2messages.`region`.amazonaws.com` | Creates and deletes session channels with Session Manager service. For more<br>information, see [AWS Systems Manager endpoints and<br>quotas](../../../general/latest/gr/ssm.md "../../../general/latest/gr/ssm.md"). |
 | `ssm.`region`.amazonaws.com`         | Endpoint for AWS Systems Manager Session Manager. For more information, see [AWS Systems Manager<br>endpoints and quotas](../../../general/latest/gr/ssm.md "../../../general/latest/gr/ssm.md").                     |
 | `ssmmessages.`region`.amazonaws.com` | Creates and deletes session channels with Session Manager service. For more<br>information, see [AWS Systems Manager endpoints and<br>quotas](../../../general/latest/gr/ssm.md "../../../general/latest/gr/ssm.md"). |
-| `ds.`region`.amazonaws.com`          | Endpoint for AWS Directory Service. For more information, see [Region availability for AWS Directory Service](regions.md "regions.md").                                                                               |
+| `ds.`region`.amazonaws.com`          | Endpoint for Directory Service. For more information, see [Region availability for Directory Service](regions.md "regions.md").                                                                                       |
 
 - We recommend to use a DNS server that will resolve your Simple AD domain
   name. To do so, you can create a DHCP option set. See [Creating a DHCP options set for
@@ -133,7 +133,7 @@ This error occurs if the EC2 launch wizard identifies an existing SSM document w
     ###### Note
 
     **AmazonSSMDirectoryServiceAccess** provides the permissions
-    to join instances to an Active Directory managed by AWS Directory Service.
+    to join instances to an Active Directory managed by Directory Service.
     **AmazonSSMManagedInstanceCore** provides the minimum
     permissions necessary to use the AWS Systems Manager service. For more information about
     creating a role with these permissions, and for information about other
@@ -155,7 +155,7 @@ Simple AD Active Directory.
 You will need the IP addresses of the Simple AD DNS servers. This information can be found under **Directory Services** >
 **Directories** > the **Directory ID** link for your directory > **Directory details** and **Networking & Security** sections.
 
-![On the AWS Directory Service console on the directory details page, the IP addresses of the AWS Directory Service provided DNS servers are highlighted.](images/directory_details_highlighted.png)
+![On the Directory Service console on the directory details page, the IP addresses of the Directory Service provided DNS servers are highlighted.](images/directory_details_highlighted.png)
 
 ###### To join a Windows instance to a Simple AD Active Directory
 

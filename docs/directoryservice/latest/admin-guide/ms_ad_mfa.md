@@ -25,7 +25,7 @@ require you to configure AWS security groups that enable communication over port
 
 You can enable multi-factor authentication for your AWS Managed Microsoft AD directory by performing the
 following procedure. For more information about how to configure your RADIUS server to work with
-AWS Directory Service and MFA, see [Multi-factor authentication prerequisites](ms_ad_getting_started.md#prereq_mfa_ad "ms_ad_getting_started.md#prereq_mfa_ad").
+Directory Service and MFA, see [Multi-factor authentication prerequisites](ms_ad_getting_started.md#prereq_mfa_ad "ms_ad_getting_started.md#prereq_mfa_ad").
 
 ## Considerations
 
@@ -50,7 +50,7 @@ For more information, see[How to enable multi-factor authentication for AWS serv
 on-premises credentials](https://aws.amazon.com/blogs/security/how-to-enable-multi-factor-authentication-for-amazon-workspaces-and-amazon-quicksight-by-using-microsoft-ad-and-on-premises-credentials/ "https://aws.amazon.com/blogs/security/how-to-enable-multi-factor-authentication-for-amazon-workspaces-and-amazon-quicksight-by-using-microsoft-ad-and-on-premises-credentials/").
 
     + For information about how to configure basic user access to Amazon Enterprise
-     applications, AWS Single Sign-On and the AWS Management Console using AWS Directory Service, see [Access to AWS applications and services
+     applications, AWS Single Sign-On and the AWS Management Console using Directory Service, see [Access to AWS applications and services
      from your AWS Managed Microsoft AD](ms_ad_manage_apps_services.md "ms_ad_manage_apps_services.md")
      and [Enabling AWS Management Console access with AWS Managed Microsoft AD
      credentials](ms_ad_management_console_access.md "ms_ad_management_console_access.md").
@@ -104,7 +104,7 @@ Amazon Enterprise applications and services such as WorkSpaces, Amazon Quick Sui
 Amazon Enterprise applications and services are only supported in the Primary
 Region if Multi-Region replication is configured for your AWS Managed Microsoft AD. It does
 not provide MFA to Windows workloads running on EC2 instances, or for signing into
-an EC2 instance. AWS Directory Service does not support RADIUS Challenge/Response
+an EC2 instance. Directory Service does not support RADIUS Challenge/Response
 authentication.
 
 Users must have their MFA code at the time they enter their user name and
@@ -119,7 +119,7 @@ their password in both the password field and the MFA field.
 
 The port that your RADIUS server is using for communications. Your on-premises
 network must allow inbound traffic over the default RADIUS server port (UDP:1812)
-from the AWS Directory Service servers.
+from the Directory Service servers.
 
 **_Shared secret code_**
 

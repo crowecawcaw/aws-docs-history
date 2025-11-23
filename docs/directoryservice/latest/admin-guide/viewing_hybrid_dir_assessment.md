@@ -5,7 +5,7 @@ assessment reports.
 
 ###### To view a directory assessment
 
-1. Open the AWS Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
+1. Open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2. On the **Directories** page, under the **Trial hybrid
    directory assessments** section, choose the assessment you want to
    view. This opens the assessment details page.

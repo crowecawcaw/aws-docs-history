@@ -2,7 +2,7 @@
 
 Simple AD credentials
 
-AWS Directory Service allows you to grant members of your directory access to the AWS Management Console. By default,
+Directory Service allows you to grant members of your directory access to the AWS Management Console. By default,
 your directory members do not have access to any AWS resources. You assign IAM roles to
 your directory members to give them access to the various AWS services and resources. The
 IAM role defines the services, resources, and level of access that your directory members

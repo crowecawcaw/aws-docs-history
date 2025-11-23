@@ -9,7 +9,7 @@ receive a notification when the directory returns to an Active status.
 
 Amazon SNS uses “topics” to collect and distribute messages. Each topic has one or more
 subscribers who receive the messages that have been published to that topic. Using the steps
-below you can add AWS Directory Service as publisher to an Amazon SNS topic. When AWS Directory Service detects a change in your
+below you can add Directory Service as publisher to an Amazon SNS topic. When Directory Service detects a change in your
 directory’s status, it publishes a message to that topic, which is then sent to the
 topic's subscribers.
 
@@ -20,7 +20,7 @@ Amazon SNS, see [What is Amazon SNS?](../../../sns/latest/dg/welcome.md "../../.
 
 ###### To enable SNS messaging for your directory
 
-1. Sign in to the AWS Management Console and open the [AWS Directory Service
+1. Sign in to the AWS Management Console and open the [Directory Service
    console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2. On the **Directories** page, choose your directory ID.
 3. Select the **Maintenance** tab.
@@ -53,11 +53,11 @@ If you are logged in using an IAM user or role that has only the [DirectoryServi
 additional privileges for SNS. 8. Choose **Create**.
 
 If you want to designate additional SNS subscribers, such as an additional email address,
-Amazon SQS queues or AWS Lambda, you can do this from the [Amazon SNS console](https://console.aws.amazon.com/sns/v3/home. "https://console.aws.amazon.com/sns/v3/home.").
+Amazon SQS queues or AWS Lambda, you can do this from the [Amazon SNS console](https://console.aws.amazon.com//sns/v3/home. "https://console.aws.amazon.com//sns/v3/home.").
 
 ###### To remove directory status messages from a topic
 
-1. Sign in to the AWS Management Console and open the [AWS Directory Service
+1. Sign in to the AWS Management Console and open the [Directory Service
    console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2. On the **Directories** page, choose your directory ID.
 3. Select the **Maintenance** tab.
@@ -81,5 +81,5 @@ updated status on the directory’s **Monitoring** tab indicating the topic
 could not be found.
 
 Therefore, to avoid missing important directory status messages, before deleting any
-topic that receives messages from AWS Directory Service, associate your directory with a different Amazon SNS
+topic that receives messages from Directory Service, associate your directory with a different Amazon SNS
 topic.

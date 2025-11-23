@@ -73,11 +73,11 @@ use either the AWS Management Console method or the AWS CLI method.
 
 ### Registering certificate in
 
-AWS Directory Service
+Directory Service
 
-Use either of the following methods to register a certificate in AWS Directory Service.
+Use either of the following methods to register a certificate in Directory Service.
 
-###### Method 1: To register your certificate in AWS Directory Service (AWS Management Console)
+###### Method 1: To register your certificate in Directory Service (AWS Management Console)
 
 1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, select
    **Directories**.
@@ -92,7 +92,7 @@ Use either of the following methods to register a certificate in AWS Directory S
    **Open**.
 6. Choose **Register certificate**.
 
-###### Method 2: To register your certificate in AWS Directory Service (AWS CLI)
+###### Method 2: To register your certificate in Directory Service (AWS CLI)
 
 - Run the following command. For the certificate data, point to the location of your
   CA certificate file. A certificate ID will be provided in the response.
@@ -108,7 +108,7 @@ status
 To see the status of a certificate registration or a list of registered certificates,
 use either of the following methods.
 
-###### Method 1: To check certificate registration status in AWS Directory Service (AWS Management Console)
+###### Method 1: To check certificate registration status in Directory Service (AWS Management Console)
 
 1. Go to the **Client-side LDAPS** section on the **Directory
    details** page.
@@ -117,7 +117,7 @@ use either of the following methods.
    changes to **Registered**, your certificate has been successfully
    registered.
 
-###### Method 2: To check certificate registration status in AWS Directory Service (AWS CLI)
+###### Method 2: To check certificate registration status in Directory Service (AWS CLI)
 
 - Run the following command. If the status value returns `Registered`, your
   certificate has been successfully registered.
@@ -128,14 +128,14 @@ aws ds list-certificates --directory-id `your_directory_id`
 
 ### Enabling client-side LDAPS
 
-Use either of the following methods to enable client-side LDAPS in AWS Directory Service.
+Use either of the following methods to enable client-side LDAPS in Directory Service.
 
 ###### Note
 
 You must have successfully registered at least one certificate before you can enable
 client-side LDAPS.
 
-###### Method 1: To enable client-side LDAPS in AWS Directory Service (AWS Management Console)
+###### Method 1: To enable client-side LDAPS in Directory Service (AWS Management Console)
 
 1. Go to the **Client-side LDAPS** section on the **Directory
    details** page.
@@ -144,7 +144,7 @@ client-side LDAPS.
 3. In the **Enable client-side LDAPS** dialog box, choose
    **Enable**.
 
-###### Method 2: To enable client-side LDAPS in AWS Directory Service (AWS CLI)
+###### Method 2: To enable client-side LDAPS in Directory Service (AWS CLI)
 
 - Run the following command.
 
@@ -154,16 +154,16 @@ aws ds enable-ldaps --directory-id `your_directory_id` --type Client
 
 ### Checking LDAPS status
 
-Use either of the following methods to check the LDAPS status in AWS Directory Service.
+Use either of the following methods to check the LDAPS status in Directory Service.
 
-###### Method 1: To check LDAPS status in AWS Directory Service (AWS Management Console)
+###### Method 1: To check LDAPS status in Directory Service (AWS Management Console)
 
 1. Go to the **Client-side LDAPS** section on the **Directory
    details** page.
 2. If the status value is displayed as **Enabled**, LDAPS has been
    successfully configured.
 
-###### Method 2: To check LDAPS status in AWS Directory Service (AWS CLI)
+###### Method 2: To check LDAPS status in Directory Service (AWS CLI)
 
 - Run the following command. If the status value returns `Enabled`, LDAPS
   has been successfully configured.

@@ -5,12 +5,12 @@ AWS Directory Service for Microsoft Active Directory and self-managed (on-premis
 AWS Managed Microsoft AD directories in the AWS cloud. AWS Managed Microsoft AD supports all three trust
 relationship directions: Incoming, Outgoing and Two-way (Bi-directional).
 
-For more information about trust relationship, see [Everything you wanted to know about trusts with AWS Managed Microsoft AD](https://aws.amazon.com/blogs/security/everything-you-wanted-to-know-about-trusts-with-aws-managed-microsoft-ad/ "https://aws.amazon.com/blogs/security/everything-you-wanted-to-know-about-trusts-with-aws-managed-microsoft-ad/").
+For more information about trust relationship, see [Everything you wanted to know about trusts with AWS Managed Microsoft AD](https://aws.amazon.com/blogs//security/everything-you-wanted-to-know-about-trusts-with-aws-managed-microsoft-ad/ "https://aws.amazon.com/blogs//security/everything-you-wanted-to-know-about-trusts-with-aws-managed-microsoft-ad/").
 
 ###### Note
 
 When setting up trust relationships, you must ensure that your self-managed directory
-is and remains compatible with AWS Directory Services. For more information on your responsibilities,
+is and remains compatible with Directory Services. For more information on your responsibilities,
 please see our [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model "https://aws.amazon.com/compliance/shared-responsibility-model").
 
 AWS Managed Microsoft AD supports both external and forest trusts. To walk through an example scenario
@@ -22,7 +22,7 @@ AWS IAM Identity Center, WorkDocs, Amazon WorkMail, Amazon WorkSpaces, and the A
 users and groups in your self-managed Active Directory.
 
 You can enable selective authentication so only the AWS application specific service
-account can query your self-managed Active Directory. For more information, see [Enhance security of your AWS app integration with AWS Managed Microsoft AD](https://aws.amazon.com/blogs/modernizing-with-aws/enhance-security-of-your-aws-app-integration-with-aws-managed-microsoft-ad/ "https://aws.amazon.com/blogs/modernizing-with-aws/enhance-security-of-your-aws-app-integration-with-aws-managed-microsoft-ad/").
+account can query your self-managed Active Directory. For more information, see [Enhance security of your AWS app integration with AWS Managed Microsoft AD](https://aws.amazon.com//blogs/modernizing-with-aws/enhance-security-of-your-aws-app-integration-with-aws-managed-microsoft-ad/ "https://aws.amazon.com//blogs/modernizing-with-aws/enhance-security-of-your-aws-app-integration-with-aws-managed-microsoft-ad/").
 
 Amazon EC2, Amazon RDS, and Amazon FSx will work with either a one-way or two-way trust.
 

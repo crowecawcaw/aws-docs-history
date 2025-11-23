@@ -1,8 +1,8 @@
 # Getting started with AD Connector
 
-With AD Connector you can connect AWS Directory Service to your existing enterprise Active Directory. When connected
+With AD Connector you can connect Directory Service to your existing enterprise Active Directory. When connected
 to your existing directory, all of your directory data remains on your domain controllers.
-AWS Directory Service does not replicate any of your directory data.
+Directory Service does not replicate any of your directory data.
 
 ###### Topics
 
@@ -28,10 +28,10 @@ for your VPC](../../../vpc/latest/userguide/vpc-migrate-ipv6.md "../../../vpc/la
 Guide_.
 
 - The VPC must be connected to your existing network through a
-  virtual private network (VPN) connection or AWS Direct Connect.
+  virtual private network (VPN) connection or Direct Connect.
 - The VPC must have default hardware tenancy.
 
-AWS Directory Service uses a two VPC structure. The EC2 instances which make up your directory run outside
+Directory Service uses a two VPC structure. The EC2 instances which make up your directory run outside
 of your AWS account, and are managed by AWS. They have two network adapters,
 `ETH0` and `ETH1`. `ETH0` is the management adapter, and
 exists outside of your account. `ETH1` is created within your account.
@@ -218,14 +218,14 @@ need the following:
   Dial-In User Service](https://en.wikipedia.org/wiki/RADIUS "https://en.wikipedia.org/wiki/RADIUS") (RADIUS) server in your existing network
   that has two client endpoints. The RADIUS client endpoints have the
   following requirements:
-  - To create the endpoints, you need the IP addresses of the AWS Directory Service
+  - To create the endpoints, you need the IP addresses of the Directory Service
     servers. These IP addresses can be obtained from the
     **Directory IP Address** field of your
     directory details.
   - Both RADIUS endpoints must use the same shared secret code.
 
 - Your existing network must allow inbound traffic over the default RADIUS
-  server port (1812) from the AWS Directory Service servers.
+  server port (1812) from the Directory Service servers.
 - The usernames between your RADIUS server and your existing directory must
   be identical.
 
@@ -242,7 +242,7 @@ have sufficient privileges to connect to the directory, as a best practice, you
 should use a service account that only has the minimum privileges necessary to
 connect to the directory. The following procedure demonstrates how to create a new
 group called `Connectors`, delegate the necessary
-privileges that are needed to connect AWS Directory Service to this group, and then add a new
+privileges that are needed to connect Directory Service to this group, and then add a new
 service account to this group.
 
 This procedure must be performed on a machine that is joined to your directory and
@@ -305,7 +305,7 @@ Control Wizard** page, and click **Finish**. 12. Create a user account with a st
 `Connectors` group. This user will be
 known as your AD Connector service account and since it is now a member of
 the `Connectors` group it now has sufficient
-privileges to connect AWS Directory Service to the directory.
+privileges to connect Directory Service to the directory.
 
 ### Test your AD Connector
 

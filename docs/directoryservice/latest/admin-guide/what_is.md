@@ -166,7 +166,7 @@ Windows workloads that need basic Active Directory features,
 compatible AWS applications, or to support Linux workloads that need LDAP
 service. For more information, see [Simple AD](directory_simple_ad.md "directory_simple_ad.md").
 
-See [Region availability for AWS Directory Service](regions.md "regions.md") for a list of supported
+See [Region availability for Directory Service](regions.md "regions.md") for a list of supported
 directory types per Region.
 
 ## Which to choose
@@ -185,7 +185,7 @@ on AWS](https://youtu.be/8xhHEtekgZ4?si=3wlSVnT-xgNylPPJ "https://youtu.be/8xhHE
 
 ## Working with Amazon EC2
 
-A basic understanding of Amazon EC2 is essential to using AWS Directory Service. We recommend that you
+A basic understanding of Amazon EC2 is essential to using Directory Service. We recommend that you
 begin by reading the following topics:
 
 - [What is Amazon EC2?](../../../AWSEC2/latest/WindowsGuide/concepts.md "../../../AWSEC2/latest/WindowsGuide/concepts.md") in the

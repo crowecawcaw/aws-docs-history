@@ -22,4 +22,4 @@ credentials](ms_ad_management_console_access.md "ms_ad_management_console_access
   role](assign_role.md "assign_role.md")
 - [Viewing users and groups assigned to a role](view_role_details.md "view_role_details.md")
 - [Removing a user or group from an IAM role](remove_role_users.md "remove_role_users.md")
-- [Using AWS managed policies with AWS Directory Service](ms_ad_managed_policies.md "ms_ad_managed_policies.md")
+- [Using AWS managed policies with Directory Service](ms_ad_managed_policies.md "ms_ad_managed_policies.md")

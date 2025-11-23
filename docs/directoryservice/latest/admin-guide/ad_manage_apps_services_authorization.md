@@ -1,4 +1,4 @@
-# Authorization for AWS applications and services using AWS Directory Service
+# Authorization for AWS applications and services using Directory Service
 
 This topic describes authorization for AWS applications and services using AWS Directory Service and AWS Directory Service Data
 
@@ -6,7 +6,7 @@ This topic describes authorization for AWS applications and services using AWS D
 
 Authorizing an AWS application on an Active Directory
 
-AWS Directory Service grants specific permissions for selected applications to integrate seamlessly with your Active Directory when you authorize an AWS application.
+Directory Service grants specific permissions for selected applications to integrate seamlessly with your Active Directory when you authorize an AWS application.
 AWS applications are only granted the access that's necessary for their specific use-cases.
 The following is a set of internal permissions granted to applications and application administrators after authorization:
 
@@ -24,7 +24,7 @@ Certain AWS Managed Microsoft AD applications such as Amazon RDS and Amazon FSx 
 such as LDAP and Kerberos. The permissions of these AWS applications are controlled by a directory user account created in the AWS Reserved Organizational Unit (OU) during the application authorization, which includes
 DNS management and full access to a custom OU created for the application. In order to use this account, the application requires permissions to `ds:GetAuthorizedApplicationDetails` action through caller credentials or an IAM role.
 
-For more information about AWS Directory Service API permissions, see [AWS Directory Service API permissions: Actions,
+For more information about Directory Service API permissions, see [Directory Service API permissions: Actions,
 resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md").
 
 For more information about enabling AWS applications and services for AWS Managed Microsoft AD, see [Access to AWS applications and services

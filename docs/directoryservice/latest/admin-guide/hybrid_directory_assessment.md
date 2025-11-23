@@ -4,7 +4,7 @@ A directory assessment examines your self-managed Active Directory environment t
 requirements for creating a hybrid directory. This assessment verifies network connectivity,
 domain controller configuration, and required services to help identify and resolve
 potential issues before establishing a connection between your self-managed AD and
-AWS Directory Service.
+Directory Service.
 
 There are two types of directory assessments:
 

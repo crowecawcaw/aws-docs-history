@@ -5,7 +5,7 @@ AWS Managed Microsoft AD
 You can seamlessly join an Amazon EC2 instance to your Active Directory domain when the instance is
 launched. For more information, see [Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD
 Active Directory](launching_instance.md "launching_instance.md"). You can also
-launch an EC2 instance and join it to an Active Directory domain directly from the AWS Directory Service console with
+launch an EC2 instance and join it to an Active Directory domain directly from the Directory Service console with
 [AWS Systems Manager Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md").
 
 If you need to manually join an EC2 instance to your Active Directory domain, you must launch the instance

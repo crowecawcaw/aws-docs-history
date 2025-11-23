@@ -31,5 +31,5 @@ forest in AWS.
 
 **[Step 3: Verify the trust](microsoftadtruststep3.md "microsoftadtruststep3.md")**
 
-Finally, as an administrator, you use the AWS Directory Service console to verify that the new
+Finally, as an administrator, you use the Directory Service console to verify that the new
 trusts are operational.

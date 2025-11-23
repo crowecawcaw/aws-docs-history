@@ -9,7 +9,7 @@ Consider these guidelines before creating your directory.
 
 ### Verify you have the right directory type
 
-AWS Directory Service provides multiple ways to use Microsoft Active Directory with other AWS
+Directory Service provides multiple ways to use Microsoft Active Directory with other AWS
 services. You can choose the directory service with the features you need at a cost
 that fits your budget:
 
@@ -25,7 +25,7 @@ that fits your budget:
   with basic Active Directory compatibility. It supports 5,000 or fewer users, Samba
   4–compatible applications, and LDAP compatibility for LDAP-aware applications.
 
-For a more detailed comparison of AWS Directory Service options, see [Which to choose](what_is.md#choosing_an_option "what_is.md#choosing_an_option").
+For a more detailed comparison of Directory Service options, see [Which to choose](what_is.md#choosing_an_option "what_is.md#choosing_an_option").
 
 ### Ensure your VPCs and instances are configured
 
@@ -67,7 +67,7 @@ may create a potential security risk for your EC2 instances.
 ### Use AWS Managed Microsoft AD if trusts are required
 
 Simple AD does not support trust relationships. If you need to establish a trust
-between your AWS Directory Service directory and another directory, you should use
+between your Directory Service directory and another directory, you should use
 AWS Directory Service for Microsoft Active Directory.
 
 ## Setting up: Creating your directory
@@ -83,7 +83,7 @@ directory.
 
 ### Understand username restrictions for AWS applications
 
-AWS Directory Service provides support for most character formats that can be used in the construction
+Directory Service provides support for most character formats that can be used in the construction
 of usernames. However, there are character restrictions that are enforced on usernames that
 will be used for signing in to AWS applications, such as WorkSpaces, WorkDocs, Amazon WorkMail, or Quick Suite. These
 restrictions require that the following characters not be used:
@@ -108,7 +108,7 @@ When developing applications, use the Windows DC locator service or use the Dyna
 
 Be sure to do lab testing with objects and requests that are representative of your
 production workload to confirm that the directory scales to the load of your application.
-Should you require additional capacity, you should use AWS Directory Service for Microsoft
+Should you require additional capacity, you should use Directory Service for Microsoft
 Active Directory, which enables you to add domain controllers for high performance. For more
 information, see [Deploying additional domain controllers for your
 AWS Managed Microsoft AD](ms_ad_deploy_additional_dcs.md "ms_ad_deploy_additional_dcs.md").

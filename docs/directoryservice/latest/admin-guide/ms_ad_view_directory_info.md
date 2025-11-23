@@ -39,7 +39,7 @@ AWS Management Console
    directory is displayed in the **Directory details**
    page.
 
-![AWS Directory Service Directory details page.](images/ms_ad_directory_details.png)
+![Directory Service Directory details page.](images/ms_ad_directory_details.png)
 
 AWS CLI
 

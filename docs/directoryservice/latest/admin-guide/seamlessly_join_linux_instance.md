@@ -49,7 +49,7 @@ following:
 
     - The user seamlessly domain joining the EC2 to the AWS Managed Microsoft AD needs the
       following IAM permissions:
-      - AWS Directory Service Permissions:
+      - Directory Service Permissions:
         - `"ds:DescribeDirectories"`
         - `"ds:CreateComputer"`
 
@@ -88,7 +88,7 @@ following:
   | `ec2messages.`region`.amazonaws.com`    | Creates and deletes session channels with Session Manager service. For more<br>information, see [AWS Systems Manager endpoints and<br>quotas](../../../general/latest/gr/ssm.md "../../../general/latest/gr/ssm.md"). |
   | `ssm.`region`.amazonaws.com`            | Endpoint for AWS Systems Manager Session Manager. For more information, see [AWS Systems Manager<br>endpoints and quotas](../../../general/latest/gr/ssm.md "../../../general/latest/gr/ssm.md").                     |
   | `ssmmessages.`region`.amazonaws.com`    | Creates and deletes session channels with Session Manager service. For more<br>information, see [AWS Systems Manager endpoints and<br>quotas](../../../general/latest/gr/ssm.md "../../../general/latest/gr/ssm.md"). |
-  | `ds.`region`.amazonaws.com`             | Endpoint for AWS Directory Service. For more information, see [Region availability for AWS Directory Service](regions.md "regions.md").                                                                               |
+  | `ds.`region`.amazonaws.com`             | Endpoint for Directory Service. For more information, see [Region availability for Directory Service](regions.md "regions.md").                                                                                       |
   | `secretsmanager.`region`.amazonaws.com` | Endpoint for AWS Secrets Manager. For more information, see [AWS Secrets Manager<br>endpoints and quotas](../../../general/latest/gr/asm.md "../../../general/latest/gr/asm.md").                                     |
 
 - We recommend to use a DNS server that will resolve your AWS Managed Microsoft AD domain
@@ -313,7 +313,7 @@ Linux EC2 instance.
     4. After adding the three policies listed above, select **Create role**.###### Note
 
 AmazonSSMDirectoryServiceAccess provides the permissions to
-join instances to an Active Directory managed by AWS Directory Service.
+join instances to an Active Directory managed by Directory Service.
 AmazonSSMManagedInstanceCore provides the minimum permissions
 necessary to use the AWS Systems Manager service. For more information about creating a role
 with these permissions, and for information about other permissions and policies you

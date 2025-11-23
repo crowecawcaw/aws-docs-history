@@ -78,7 +78,7 @@ Simple AD
 
 Some AWS accounts created before 2012 might have access to Availability Zones in the
 US East (N. Virginia), US West (N. California), or Asia Pacific (Tokyo) Region that do not
-support AWS Directory Service directories. If you receive an error such as this when creating a
+support Directory Service directories. If you receive an error such as this when creating a
 directory, choose a subnet in a different Availability Zone and try to create the
 directory again.
 

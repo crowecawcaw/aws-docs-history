@@ -38,7 +38,7 @@ following procedures must be applied separately in each Region. For more informa
          organization** – With this option you can select the
          AWS accounts you want to share your directory with from a list showing
          all the AWS accounts inside your AWS organization. You must enable
-         trusted access with AWS Directory Service before you share a directory. For more
+         trusted access with Directory Service before you share a directory. For more
          information, see [How to enable or disable trusted access](../../../organizations/latest/userguide/orgs_integrate_services.md#orgs_how-to-enable-disable-trusted-access "../../../organizations/latest/userguide/orgs_integrate_services.md#orgs_how-to-enable-disable-trusted-access").
 
 

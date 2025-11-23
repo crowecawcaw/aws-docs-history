@@ -11,7 +11,7 @@ Follow these steps to create a hybrid directory with your self-managed AD:
 
 ###### To create a hybrid directory
 
-1. Open the AWS Directory Service console for your desired Region.
+1. Open the Directory Service console for your desired Region.
 2. On the **Select directory type** page, choose
    **AWS Managed Microsoft AD**.
 3. Under **Getting started with AWS Managed Microsoft AD**, select

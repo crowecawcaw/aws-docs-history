@@ -1,7 +1,7 @@
 # Getting started with Simple AD
 
 Simple AD creates a fully managed, Samba-based directory in the AWS cloud. When you
-create a directory with Simple AD, AWS Directory Service creates two domain controllers and DNS servers on
+create a directory with Simple AD, Directory Service creates two domain controllers and DNS servers on
 your behalf. The domain controllers are created in different subnets in an Amazon VPC this redundancy
 helps ensures that your directory remains accessible even if a failure occurs.
 
@@ -24,7 +24,7 @@ the _Amazon Virtual Private Cloud User Guide_.
   type. The subnets must be in the same Classless Inter-Domain Routing (CIDR) range. If you
   want to extend or resize the VPC for your directory, then make sure to select both of the
   domain controller subnets for the extended VPC CIDR range. When you create a Simple AD,
-  AWS Directory Service creates two domain controllers and DNS servers on your behalf.
+  Directory Service creates two domain controllers and DNS servers on your behalf.
   - For more information about the CIDR range, see [IP addressing for your VPCs and
     subnets](../../../vpc/latest/userguide/vpc-ip-addressing.md "../../../vpc/latest/userguide/vpc-ip-addressing.md") in the _Amazon VPC User Guide_.
 
@@ -51,7 +51,7 @@ the _Amazon Virtual Private Cloud User Guide_.
 - For more information, see [What is Amazon VPC?](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") in the
   _Amazon VPC User Guide_.
 
-AWS Directory Service uses a two VPC structure. The EC2 instances which make up your directory run outside
+Directory Service uses a two VPC structure. The EC2 instances which make up your directory run outside
 of your AWS account, and are managed by AWS. They have two network adapters,
 `ETH0` and `ETH1`. `ETH0` is the management adapter, and
 exists outside of your account. `ETH1` is created within your account.
@@ -101,7 +101,7 @@ This procedure assumes the following:
   use Simple AD. For more information about VPC, see [What is Amazon VPC?](../../../vpc/latest/userguide/VPC_Introduction.md "../../../vpc/latest/userguide/VPC_Introduction.md") and [Subnets in your VPC](../../../vpc/latest/userguide/VPC_Subnets.md#VPCSubnet "../../../vpc/latest/userguide/VPC_Subnets.md#VPCSubnet") in the
   _Amazon VPC User Guide_.
 - You do not have an existing VPC in the Region with a CIDR of `10.0.0.0/16`.
-- You are in a Region where Simple AD is available. For more information, see [Region availability for AWS Directory Service](regions.md "regions.md").
+- You are in a Region where Simple AD is available. For more information, see [Region availability for Directory Service](regions.md "regions.md").
 
 For more information, see [Simple AD prerequisites](#prereq_simple "#prereq_simple").
 
@@ -112,7 +112,7 @@ Simple AD
 First, you will create and configure an Amazon VPC for use with your Simple AD. Before
 starting this procedure, make sure you have completed the [Prerequisites](#gsg_prereqs "#gsg_prereqs").
 
-The VPC you will create will have two public subnets. AWS Directory Service requires two subnets in your
+The VPC you will create will have two public subnets. Directory Service requires two subnets in your
 VPC, and each subnet must be in a different Availability Zone.
 
 ###### Create a VPC
@@ -198,8 +198,8 @@ Retype the administrator password.
 
 ###### Important
 
-Be sure to save this password. AWS Directory Service does not store this password, and it
-cannot be retrieved. However, you can reset a password from the AWS Directory Service console or
+Be sure to save this password. Directory Service does not store this password, and it
+cannot be retrieved. However, you can reset a password from the Directory Service console or
 by using the [ResetUserPassword](../devguide/API_ResetUserPassword.md "../devguide/API_ResetUserPassword.md") API.
 
 **Directory description**

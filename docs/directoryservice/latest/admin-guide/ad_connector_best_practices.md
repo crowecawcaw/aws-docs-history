@@ -9,7 +9,7 @@ Consider these guidelines before creating your directory.
 
 ### Verify you have the right directory type
 
-AWS Directory Service provides multiple ways to use Microsoft Active Directory with other AWS
+Directory Service provides multiple ways to use Microsoft Active Directory with other AWS
 services. You can choose the directory service with the features you need at a cost
 that fits your budget:
 
@@ -25,7 +25,7 @@ that fits your budget:
   with basic Active Directory compatibility. It supports 5,000 or fewer users, Samba
   4–compatible applications, and LDAP compatibility for LDAP-aware applications.
 
-For a more detailed comparison of AWS Directory Service options, see [Which to choose](what_is.md#choosing_an_option "what_is.md#choosing_an_option").
+For a more detailed comparison of Directory Service options, see [Which to choose](what_is.md#choosing_an_option "what_is.md#choosing_an_option").
 
 ### Ensure your VPCs and instances are configured
 
@@ -88,7 +88,7 @@ physically close to your Region.
 
 ### Understand username restrictions for AWS applications
 
-AWS Directory Service provides support for most character formats that can be used in the construction
+Directory Service provides support for most character formats that can be used in the construction
 of usernames. However, there are character restrictions that are enforced on usernames that
 will be used for signing in to AWS applications, such as WorkSpaces, WorkDocs, Amazon WorkMail, or Quick Suite. These
 restrictions require that the following characters not be used:
@@ -134,6 +134,6 @@ directory.
 ### Check for compatibility
 
 When using AD Connector, you must ensure that your on-premises directory is and remains
-compatible with AWS Directory Service. For more information on your responsibilities, please
+compatible with Directory Service. For more information on your responsibilities, please
 see our [shared
 responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model "https://aws.amazon.com/compliance/shared-responsibility-model").

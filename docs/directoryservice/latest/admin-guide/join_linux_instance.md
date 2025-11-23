@@ -37,7 +37,7 @@ tabs:
 Amazon Linux
 
 1. Connect to the instance using any SSH client.
-2. Configure the Linux instance to use the DNS server IP addresses of the AWS Directory Service-provided DNS servers. You can do this either by setting it up in the DHCP Options
+2. Configure the Linux instance to use the DNS server IP addresses of the Directory Service-provided DNS servers. You can do this either by setting it up in the DHCP Options
    set attached to the VPC or by setting it manually on the instance. If you want to set it
    manually, see [How do I assign a static DNS server to a private Amazon EC2 instance](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/") in the AWS
    Knowledge Center for guidance on setting the persistent DNS server for your particular Linux
@@ -135,7 +135,7 @@ The fully qualified DNS name of your directory.
 CentOS
 
 1. Connect to the instance using any SSH client.
-2. Configure the Linux instance to use the DNS server IP addresses of the AWS Directory Service-provided DNS servers. You can do this either by setting it up in the DHCP Options
+2. Configure the Linux instance to use the DNS server IP addresses of the Directory Service-provided DNS servers. You can do this either by setting it up in the DHCP Options
    set attached to the VPC or by setting it manually on the instance. If you want to set it
    manually, see [How do I assign a static DNS server to a private Amazon EC2 instance](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/") in the AWS
    Knowledge Center for guidance on setting the persistent DNS server for your particular Linux
@@ -229,7 +229,7 @@ The fully qualified DNS name of your directory.
 Red Hat
 
 1. Connect to the instance using any SSH client.
-2. Configure the Linux instance to use the DNS server IP addresses of the AWS Directory Service-provided DNS servers. You can do this either by setting it up in the DHCP Options
+2. Configure the Linux instance to use the DNS server IP addresses of the Directory Service-provided DNS servers. You can do this either by setting it up in the DHCP Options
    set attached to the VPC or by setting it manually on the instance. If you want to set it
    manually, see [How do I assign a static DNS server to a private Amazon EC2 instance](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/") in the AWS
    Knowledge Center for guidance on setting the persistent DNS server for your particular Linux
@@ -324,7 +324,7 @@ SUSE
 
 1. Connect to the instance using any SSH client.
 2. Configure the Linux instance to use the DNS server IP addresses of the
-   AWS Directory Service-provided DNS servers. You can do this either by setting it up in the DHCP
+   Directory Service-provided DNS servers. You can do this either by setting it up in the DHCP
    Options set attached to the VPC or by setting it manually on the instance. If
    you want to set it manually, see [How do I assign a static DNS server to a private Amazon EC2 instance](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/") in
    the AWS Knowledge Center for guidance on setting the persistent DNS server for
@@ -530,7 +530,7 @@ sudo realm permit --all
 Ubuntu
 
 1. Connect to the instance using any SSH client.
-2. Configure the Linux instance to use the DNS server IP addresses of the AWS Directory Service-provided DNS servers. You can do this either by setting it up in the DHCP Options
+2. Configure the Linux instance to use the DNS server IP addresses of the Directory Service-provided DNS servers. You can do this either by setting it up in the DHCP Options
    set attached to the VPC or by setting it manually on the instance. If you want to set it
    manually, see [How do I assign a static DNS server to a private Amazon EC2 instance](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/") in the AWS
    Knowledge Center for guidance on setting the persistent DNS server for your particular Linux

@@ -148,7 +148,7 @@ issues.
 **AWS Systems Manager Automation troubleshooting tool**
 
 [Support Automation Workflows (SAW)](../../../systems-manager/latest/userguide/automation-walk-support.md "../../../systems-manager/latest/userguide/automation-walk-support.md") leverage AWS Systems Manager Automation to provide you
-with a predefined runbook for AWS Directory Service. The [AWSSupport-TroubleshootDirectoryTrust](../../../systems-manager/latest/userguide/automation-awssupport-troubleshootdirectorytrust.md "../../../systems-manager/latest/userguide/automation-awssupport-troubleshootdirectorytrust.md") runbook tool helps you diagnose common trust
+with a predefined runbook for Directory Service. The [AWSSupport-TroubleshootDirectoryTrust](../../../systems-manager/latest/userguide/automation-awssupport-troubleshootdirectorytrust.md "../../../systems-manager/latest/userguide/automation-awssupport-troubleshootdirectorytrust.md") runbook tool helps you diagnose common trust
 creation issues between AWS Managed Microsoft AD and an on-premises Microsoft Active Directory.
 
 **DirectoryServicePortTest tool**

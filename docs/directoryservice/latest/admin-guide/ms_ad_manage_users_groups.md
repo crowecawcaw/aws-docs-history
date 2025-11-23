@@ -25,7 +25,7 @@ Alternatively, you can use a [domain-joined instance](#ms_ad_manage_users_groups
 AWS Management Console
 
 You can manage users and groups with the AWS Management Console with AWS Directory Service Data. Directory Service Data is an
-extension of AWS Directory Service that provides you with the ability to perform built-in object management
+extension of Directory Service that provides you with the ability to perform built-in object management
 tasks. Some of these tasks include creating users and groups and adding users to groups as
 well as groups to a group.
 
@@ -40,7 +40,7 @@ You can only manage users and groups with the AWS Management Console from the Pr
 for your directory. For more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
 
 You'll need the necessary IAM permissions to use AWS Directory Service Data. For more
-information, see [AWS Directory Service API permissions: Actions,
+information, see [Directory Service API permissions: Actions,
 resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
 to your users and workloads, you can use AWS managed policies like [AWS managed
 policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS
@@ -53,7 +53,7 @@ best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aw
 AWS CLI
 
 You can manage users and groups with the AWS CLI through the [AWS Directory Service Data
-API](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.md"). Directory Service Data is an extension of AWS Directory Service that provides you with the ability to perform
+API](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.md"). Directory Service Data is an extension of Directory Service that provides you with the ability to perform
 built-in object management tasks using the `ds-data` namespace. Some of these tasks
 include creating users and groups and adding users to groups as well as groups to a
 group.
@@ -77,7 +77,7 @@ You can only manage users and groups with the AWS Directory Service Data CLI fro
 more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
 
 You'll need the necessary IAM permissions to use AWS Directory Service Data. For more
-information, see [AWS Directory Service API permissions: Actions,
+information, see [Directory Service API permissions: Actions,
 resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
 to your users and workloads, you can use AWS managed policies like. [AWS managed
 policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS
@@ -124,7 +124,7 @@ Tools on your instance so you can add your users and groups with the Active Dire
 tool.
 
 - You can deploy a pre-configured EC2 instance with preinstalled Active Directory administrative
-  tools from AWS Directory Service management console. For more information, see [Launching a directory administration instance in your
+  tools from Directory Service management console. For more information, see [Launching a directory administration instance in your
   AWS Managed Microsoft AD Active Directory](console_instance.md "console_instance.md").
 - If you need to deploy a self-managed EC2 instance with administrative tools and
   install the necessary tools, see [Step 3: Deploy an Amazon EC2 instance to manage your AWS Managed Microsoft AD Active Directory](microsoftadbasestep3.md "microsoftadbasestep3.md").

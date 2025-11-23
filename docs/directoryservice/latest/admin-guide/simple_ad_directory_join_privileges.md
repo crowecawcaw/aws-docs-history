@@ -48,5 +48,5 @@ also be logged in as a domain administrator.
 **Next**.
 
 ![Delegation of Control Wizard permissions dialog box with the following permissions selected general, property-specific, and read.](images/aduc_delegate_join_permissions.png) 11. Verify the information on the **Completing the Delegation of Control
-Wizard** page and choose **Finish**. 12. Create a user with a strong password and add that user to the `Joiners` group. The user will then have sufficient privileges to connect AWS Directory Service to
+Wizard** page and choose **Finish**. 12. Create a user with a strong password and add that user to the `Joiners` group. The user will then have sufficient privileges to connect Directory Service to
 the directory.

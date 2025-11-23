@@ -33,7 +33,7 @@ the event data collected in CloudTrail logs. For more information, see the follo
 When CloudTrail logging is enabled in your AWS account, all API calls made to AWS Managed Microsoft AD
 actions are tracked in log files. AWS Managed Microsoft AD records are written together with other AWS
 service records in a log file. CloudTrail determines when to create and write to a new file based on
-a time period and file size. All calls made to the AWS Directory Service API or CLI calls are logged by
+a time period and file size. All calls made to the Directory Service API or CLI calls are logged by
 CloudTrail.
 
 Every log entry contains information about who generated the request. The user identity

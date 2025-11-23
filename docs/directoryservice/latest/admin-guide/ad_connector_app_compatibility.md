@@ -26,7 +26,7 @@ The following is a list of compatible AWS applications and services:
   accounts in Quick Suite Enterprise Edition](../../../quicksight/latest/user/managing-users-enterprise.md "../../../quicksight/latest/user/managing-users-enterprise.md").
 - AWS IAM Identity Center - For detailed instructions, see [Connect IAM Identity Center to an
   on-premises Active Directory](../../../singlesignon/latest/userguide/connectawsad.md "../../../singlesignon/latest/userguide/connectawsad.md").
-- AWS Transfer Family - For detailed instructions, see [Working with AWS Directory Service for Microsoft Active Directory](../../../transfer/latest/userguide/directory-services-users.md "../../../transfer/latest/userguide/directory-services-users.md").
+- AWS Transfer Family - For detailed instructions, see [Working with Directory Service for Microsoft Active Directory](../../../transfer/latest/userguide/directory-services-users.md "../../../transfer/latest/userguide/directory-services-users.md").
 - AWS Client VPN - For detailed instructions, see [Client
   authentication and authorization](../../../vpn/latest/clientvpn-admin/authentication-authorization.md "../../../vpn/latest/clientvpn-admin/authentication-authorization.md").
 - WorkDocs - For detailed instructions, see [Connecting to your on-premises directory with AD Connector](../../../workdocs/latest/adminguide/connect_directory_connector.md "../../../workdocs/latest/adminguide/connect_directory_connector.md").
@@ -37,4 +37,4 @@ The following is a list of compatible AWS applications and services:
 ###### Note
 
 Amazon RDS is compatible with AWS Managed Microsoft AD only, and is not compatible with AD Connector. For
-more information, see the AWS Managed Microsoft AD section in the [AWS Directory Service FAQs](https://aws.amazon.com/directoryservice/faqs/#microsoft-ad "https://aws.amazon.com/directoryservice/faqs/#microsoft-ad") page.
+more information, see the AWS Managed Microsoft AD section in the [Directory Service FAQs](https://aws.amazon.com/directoryservice/faqs/#microsoft-ad "https://aws.amazon.com/directoryservice/faqs/#microsoft-ad") page.

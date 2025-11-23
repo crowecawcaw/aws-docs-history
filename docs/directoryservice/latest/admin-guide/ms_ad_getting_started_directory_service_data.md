@@ -28,7 +28,7 @@ Directory Service Data is only available in your Primary Region. For more inform
 
 The Directory Service Data API connects to your AWS Managed Microsoft AD domain controllers to perform operations on
 the underlying directory objects. Active Directory is an eventually consistent platform, and replication
-is continuously occurring between AWS Directory Service directory domain controllers. By default, every AWS Directory Service
+is continuously occurring between Directory Service directory domain controllers. By default, every Directory Service
 directory is created with two domain controllers.
 
 Directory Service Data attempts to maintain a consistent experience by utilizing the same domain

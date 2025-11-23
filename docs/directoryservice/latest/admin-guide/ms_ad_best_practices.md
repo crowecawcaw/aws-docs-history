@@ -28,7 +28,7 @@ Consider these guidelines before creating your directory.
 
 #### Verify you have the right directory type
 
-AWS Directory Service provides multiple ways to use Microsoft Active Directory with other AWS
+Directory Service provides multiple ways to use Microsoft Active Directory with other AWS
 services. You can choose the directory service with the features you need at a cost
 that fits your budget:
 
@@ -44,7 +44,7 @@ that fits your budget:
   with basic Active Directory compatibility. It supports 5,000 or fewer users, Samba
   4–compatible applications, and LDAP compatibility for LDAP-aware applications.
 
-For a more detailed comparison of AWS Directory Service options, see [Which to choose](what_is.md#choosing_an_option "what_is.md#choosing_an_option").
+For a more detailed comparison of Directory Service options, see [Which to choose](what_is.md#choosing_an_option "what_is.md#choosing_an_option").
 
 #### Ensure your VPCs and instances are configured
 
@@ -134,7 +134,7 @@ directory.
 
 #### Create a DHCP options set
 
-We recommend that you create a DHCP options set for your AWS Directory Service directory and assign
+We recommend that you create a DHCP options set for your Directory Service directory and assign
 the DHCP options set to the VPC that your directory is in. That way any instances in that
 VPC can point to the specified domain, and DNS servers can resolve their domain
 names.
@@ -169,7 +169,7 @@ For more information, see [Use the Windows DC locator service](#program_dc_locat
 
 applications
 
-AWS Directory Service provides support for most character formats that can be used in the construction
+Directory Service provides support for most character formats that can be used in the construction
 of usernames. However, there are character restrictions that are enforced on usernames
 that will be used for signing in to AWS applications, such as WorkSpaces, WorkDocs, Amazon WorkMail, or
 Quick Suite. These restrictions require that the following characters not be used:
@@ -207,7 +207,7 @@ Here are some suggestions to keep in mind when using your AWS Managed Microsoft 
 
 units
 
-When you use AWS Directory Service to launch a directory, AWS creates an organizational unit (OU) that
+When you use Directory Service to launch a directory, AWS creates an organizational unit (OU) that
 contains all your directory's objects. This OU, which has the NetBIOS name that you typed
 when you created your directory, is located in the domain root. The domain root is owned and
 managed by AWS. Several groups and an administrative user are also created.
@@ -218,7 +218,7 @@ AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_gett
 
 ### Automatically join domains
 
-When launching a Windows instance that is to be part of an AWS Directory Service domain, it is often
+When launching a Windows instance that is to be part of an Directory Service domain, it is often
 easiest to join the domain as part of the instance creation process rather than manually
 adding the instance later. To automatically join a domain, simply select the correct
 directory for **Domain join directory** when launching a new instance. You
@@ -267,7 +267,7 @@ balancers.
 
 ### Make a backup of your instance
 
-If you decide to manually add an instance to an existing AWS Directory Service domain, make a backup or
+If you decide to manually add an instance to an existing Directory Service domain, make a backup or
 take a snapshot of that instance first. This is particularly important when joining a Linux
 instance. Some of the procedures used to add an instance, if not performed correctly, can
 render your instance unreachable or unusable. For more information, see [Restoring your AWS Managed Microsoft AD with snapshots](ms_ad_snapshots.md "ms_ad_snapshots.md").
@@ -280,7 +280,7 @@ your directory changes. You will be notified if your directory goes from an
 **Inoperable** status. You also receive a notification when the directory
 returns to an Active status.
 
-Also remember that if you have an SNS topic that receives messages from AWS Directory Service, before
+Also remember that if you have an SNS topic that receives messages from Directory Service, before
 deleting that topic from the Amazon SNS console, you should associate your directory with a
 different SNS topic. Otherwise you risk missing important directory status messages. For
 information about how to set up Amazon SNS, see [Enabling AWS Managed Microsoft AD directory status

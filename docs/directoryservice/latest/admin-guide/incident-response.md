@@ -11,7 +11,7 @@ can monitor your organization and the activity that happens within it.
   Metrics to monitor domain controller performance. For more information, see [Determining when to add domain controllers with CloudWatch metrics](ms_ad_monitor_dc_performance.md#scaledcs "ms_ad_monitor_dc_performance.md#scaledcs").
 - AWS CloudTrail
   - You can use CloudTrail
-    with all AWS Directory Service directory types.
+    with all Directory Service directory types.
     For more information,
     see [Logging AWS Directory Service API calls using AWS CloudTrail](logging-using-cloudtrail-ads.md "logging-using-cloudtrail-ads.md").
   - You can use CloudTrail

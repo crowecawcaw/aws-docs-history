@@ -25,7 +25,7 @@ To seamlessly domain join an EC2 instance, you will need to complete the followi
 
   - The user seamlessly domain joining the EC2 to the AWS Managed Microsoft AD needs the
     following IAM permissions:
-    - AWS Directory Service Permissions:
+    - Directory Service Permissions:
       - `"ds:DescribeDirectories"`
       - `"ds:CreateComputer"`
 
@@ -65,7 +65,7 @@ rules.
 | `ec2messages.`region`.amazonaws.com` | Creates and deletes session channels with Session Manager service. For more<br>information, see [AWS Systems Manager endpoints and<br>quotas](../../../general/latest/gr/ssm.md "../../../general/latest/gr/ssm.md"). |
 | `ssm.`region`.amazonaws.com`         | Endpoint for AWS Systems Manager Session Manager. For more information, see [AWS Systems Manager<br>endpoints and quotas](../../../general/latest/gr/ssm.md "../../../general/latest/gr/ssm.md").                     |
 | `ssmmessages.`region`.amazonaws.com` | Creates and deletes session channels with Session Manager service. For more<br>information, see [AWS Systems Manager endpoints and<br>quotas](../../../general/latest/gr/ssm.md "../../../general/latest/gr/ssm.md"). |
-| `ds.`region`.amazonaws.com`          | Endpoint for AWS Directory Service. For more information, see [Region availability for AWS Directory Service](regions.md "regions.md").                                                                               |
+| `ds.`region`.amazonaws.com`          | Endpoint for Directory Service. For more information, see [Region availability for Directory Service](regions.md "regions.md").                                                                                       |
 
 - We recommend to use a DNS server that will resolve your AWS Managed Microsoft AD domain
   name. To do so, you can create a DHCP option set. See [Creating or changing a DHCP options set for
@@ -143,7 +143,7 @@ This error occurs if the EC2 launch wizard identifies an existing SSM document w
     ###### Note
 
     **AmazonSSMDirectoryServiceAccess** provides the permissions
-    to join instances to an Active Directory managed by AWS Directory Service.
+    to join instances to an Active Directory managed by Directory Service.
     **AmazonSSMManagedInstanceCore** provides the minimum
     permissions necessary to use the AWS Systems Manager service. For more information about
     creating a role with these permissions, and for information about other
@@ -166,7 +166,7 @@ Active Directory.
 You will need the IP addresses of the AWS Managed Microsoft AD DNS servers. This information can be found under **Directory Services** >
 **Directories** > the **Directory ID** link for your directory > **Directory details** and **Networking & Security** sections.
 
-![On the AWS Directory Service console on the directory details page, the IP addresses of the AWS Directory Service provided DNS servers are highlighted.](images/directory_details_highlighted.png)
+![On the Directory Service console on the directory details page, the IP addresses of the Directory Service provided DNS servers are highlighted.](images/directory_details_highlighted.png)
 
 ###### To join a Windows instance to an AWS Managed Microsoft AD Active Directory
 
@@ -230,4 +230,4 @@ Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_
 
 ###### Note
 
-You can also use Amazon Route 53 to process DNS queries instead of manually changing the DNS addresses on your Amazon EC2 instances. For more information, see [Integrating your Directory Service's DNS resolution with Amazon Route 53 Resolver](https://aws.amazon.com/blogs/networking-and-content-delivery/integrating-your-directory-services-dns-resolution-with-amazon-route-53-resolvers/ "https://aws.amazon.com/blogs/networking-and-content-delivery/integrating-your-directory-services-dns-resolution-with-amazon-route-53-resolvers/") and [Forwarding outbound DNS queries to your network](../../../Route53/latest/DeveloperGuide/resolver-forwarding-outbound-queries.md "../../../Route53/latest/DeveloperGuide/resolver-forwarding-outbound-queries.md").
+You can also use Amazon Route 53 to process DNS queries instead of manually changing the DNS addresses on your Amazon EC2 instances. For more information, see [Integrating your Directory Service's DNS resolution with Amazon Route 53 Resolver](https://aws.amazon.com/blogs//networking-and-content-delivery/integrating-your-directory-services-dns-resolution-with-amazon-route-53-resolvers/ "https://aws.amazon.com/blogs//networking-and-content-delivery/integrating-your-directory-services-dns-resolution-with-amazon-route-53-resolvers/") and [Forwarding outbound DNS queries to your network](../../../Route53/latest/DeveloperGuide/resolver-forwarding-outbound-queries.md "../../../Route53/latest/DeveloperGuide/resolver-forwarding-outbound-queries.md").

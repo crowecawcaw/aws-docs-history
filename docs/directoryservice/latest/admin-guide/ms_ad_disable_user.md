@@ -17,7 +17,7 @@ account and applications.
 - You can only enable this feature from the Primary AWS Region for your directory. For
   more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
 - You'll need the necessary IAM permissions to use AWS Directory Service Data. For more
-  information, see [AWS Directory Service API permissions: Actions,
+  information, see [Directory Service API permissions: Actions,
   resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
   to your users and workloads, you can use AWS managed policies like [AWS managed
   policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS
@@ -31,7 +31,7 @@ You can disable an AWS Managed Microsoft AD user account in the AWS Management C
 
 ###### To disable an AWS Managed Microsoft AD user account with the AWS Management Console
 
-1. Open the AWS Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
+1. Open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2. From the navigation pane, choose **Active Directory**, and
    then choose **Directories**. You're directed to the
    **Directories** screen where you can view a list of directories

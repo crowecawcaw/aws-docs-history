@@ -2,12 +2,12 @@
 
 AWS Managed Microsoft AD
 
-When you create an Active Directory with AWS Managed Microsoft AD, AWS Directory Service performs the following tasks on your
+When you create an Active Directory with AWS Managed Microsoft AD, Directory Service performs the following tasks on your
 behalf:
 
 - Automatically creates and associates an elastic network interface (ENI) with each of your domain controllers.
-  Each of these ENIs are essential for connectivity between your VPC and AWS Directory Service domain controllers and should never be deleted.
-  You can identify all network interfaces reserved for use with AWS Directory Service by the description: "AWS created network interface for
+  Each of these ENIs are essential for connectivity between your VPC and Directory Service domain controllers and should never be deleted.
+  You can identify all network interfaces reserved for use with Directory Service by the description: "AWS created network interface for
   directory _directory-id_". For more information,
   see [Elastic Network Interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") in the _Amazon EC2 User Guide_.
   The default DNS Server of the AWS Managed Microsoft AD Active Directory is the VPC DNS server at Classless Inter-Domain Routing (CIDR)+2.
@@ -102,8 +102,8 @@ The following AWS Security group rules are created by default:
 
 ###### Important
 
-Be sure to save this password. AWS Directory Service does not store this password, and it cannot be
-retrieved. However, you can reset a password from the AWS Directory Service console or by using the [ResetUserPassword](../devguide/API_ResetUserPassword.md "../devguide/API_ResetUserPassword.md") API.
+Be sure to save this password. Directory Service does not store this password, and it cannot be
+retrieved. However, you can reset a password from the Directory Service console or by using the [ResetUserPassword](../devguide/API_ResetUserPassword.md "../devguide/API_ResetUserPassword.md") API.
 
 - Creates the following three organizational units (OUs) under the domain root:
 
@@ -171,9 +171,9 @@ joined Windows instance with the [Group policy management console (GPMC)](<https
 
 ###### Important
 
-Be sure to save the admin password. AWS Directory Service does not store this password, and it cannot
+Be sure to save the admin password. Directory Service does not store this password, and it cannot
 be retrieved. However, you [can
-reset a password from the AWS Directory Service console](ms_ad_manage_users_groups_reset_password.md "ms_ad_manage_users_groups_reset_password.md") or by using the [ResetUserPassword](../devguide/API_ResetUserPassword.md "../devguide/API_ResetUserPassword.md") API.
+reset a password from the Directory Service console](ms_ad_manage_users_groups_reset_password.md "ms_ad_manage_users_groups_reset_password.md") or by using the [ResetUserPassword](../devguide/API_ResetUserPassword.md "../devguide/API_ResetUserPassword.md") API.
 
 **Admin**
 

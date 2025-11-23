@@ -8,6 +8,6 @@ available, fault tolerant, and scalable than traditional single or multiple data
 For more information about AWS Regions and Availability Zones, see [AWS global
 infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
 
-In addition to the AWS global infrastructure, AWS Directory Service offers the ability to take manual
+In addition to the AWS global infrastructure, Directory Service offers the ability to take manual
 snapshots of data at any point in time to help support your data resiliency and backup
 needs. For more information, see [Restoring your AWS Managed Microsoft AD with snapshots](ms_ad_snapshots.md "ms_ad_snapshots.md").

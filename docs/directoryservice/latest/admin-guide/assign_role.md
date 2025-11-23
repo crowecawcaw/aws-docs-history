@@ -11,7 +11,7 @@ make sure you have completed the following.
 - [Create an IAM user](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md") or [create a IAM
   group](../../../IAM/latest/UserGuide/id_groups_create.md "../../../IAM/latest/UserGuide/id_groups_create.md").
 - [Create a
-  role](create_role.md "create_role.md") that has a trust relationship with AWS Directory Service. For existing IAM
+  role](create_role.md "create_role.md") that has a trust relationship with Directory Service. For existing IAM
   roles, you will need to [edit the trust
   relationship for an existing role](edit_trust.md "edit_trust.md").
 

@@ -2,7 +2,7 @@
 
 AWS Managed Microsoft AD
 
-You can use either the AWS Directory Service console or APIs to forward domain controller security event
+You can use either the Directory Service console or APIs to forward domain controller security event
 logs to Amazon CloudWatch Logs for your AWS Managed Microsoft AD. This helps you to meet your security monitoring, audit,
 and log retention policy requirements by providing transparency of the security events in your
 directory.
@@ -41,7 +41,7 @@ log forwarding
 
 You can enable Amazon CloudWatch Logs log forwarding for your AWS Managed Microsoft AD in the AWS Management Console.
 
-1. In the [AWS Directory Service
+1. In the [Directory Service
    console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, choose **Directories**.
 2. Choose the directory ID of the AWS Managed Microsoft AD directory that you want to share.
 3. On the **Directory details** page, do one of the
@@ -100,9 +100,9 @@ Guide_.
 
 IAM
 
-Create a CloudWatch Logs resource policy granting AWS Directory Service rights to add logs into the new log group
+Create a CloudWatch Logs resource policy granting Directory Service rights to add logs into the new log group
 you created in Step 1. You can either specify the exact ARN to the log group to limit
-AWS Directory Service's access to other log groups or use a wild card to include all log groups. The
+Directory Service's access to other log groups or use a wild card to include all log groups. The
 following sample policy uses the wild card method to identify that all log groups that start
 with `/aws/directoryservice/` for the AWS account where your directory resides
 will be included.
@@ -127,7 +127,7 @@ $PolicyDocument = Get-Content .\DSPolicy.json –Raw
 Write-CWLResourcePolicy -PolicyName DSLogSubscription -PolicyDocument $PolicyDocument
 ```
 
-### Step 3: Create an AWS Directory Service log
+### Step 3: Create an Directory Service log
 
 subscription
 

@@ -1,21 +1,21 @@
-# AWS Directory Service API and interface Amazon VPC endpoints using
+# Directory Service API and interface Amazon VPC endpoints using
 
 AWS PrivateLink
 
 You can use AWS PrivateLink
 to create a private connection
-between your VPC and AWS Directory Service and Directory Service Data APIs.
+between your VPC and Directory Service and Directory Service Data APIs.
 This allows you
-to access AWS Directory Service and Directory Service Data APIs
+to access Directory Service and Directory Service Data APIs
 like they were
 in your VPC
 and
 without the use
-of an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
+of an internet gateway, NAT device, VPN connection, or Direct Connect connection.
 Instances
 in your Amazon VPC
 don't require public IP addresses
-to access AWS Directory Service and Directory Service Data APIs.
+to access Directory Service and Directory Service Data APIs.
 
 To establish a private connection,
 you create an interface Amazon VPC endpoint
@@ -35,9 +35,9 @@ For more information,
 see [Access AWS services through AWS PrivateLink](../../../vpc/latest/privatelink/privatelink-access-aws-services.md "../../../vpc/latest/privatelink/privatelink-access-aws-services.md")
 in the _AWS PrivateLink Guide_.
 
-## Considerations for AWS Directory Service and Directory Service Data
+## Considerations for Directory Service and Directory Service Data
 
-With AWS Directory Service and Directory Service Data,
+With Directory Service and Directory Service Data,
 you can call API actions
 through interface endpoints.
 For information
@@ -48,24 +48,18 @@ before creating an interface endpoint,
 see [Access an AWS service using an interface Amazon VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#considerations-interface-endpoints "../../../vpc/latest/privatelink/create-interface-endpoint.md#considerations-interface-endpoints")
 in the _AWS PrivateLink Guide_.
 
-## AWS Directory Service and Directory Service Data Availability
+## Directory Service and Directory Service Data Availability
 
-AWS Directory Service supports interface endpoints in the following AWS Regions:
+Directory Service and Directory Service Data supports interface endpoints in all AWS Regions where it's available.
+For information about the AWS Regions that support Directory Service and Directory Service Data, see [Region availability for Directory Service](regions.md "regions.md").
 
-- US East (N. Virginia)
-- AWS GovCloud (US-East)
-- AWS GovCloud (US-West)
+## Create an interface Amazon VPC endpoint for Directory Service and Directory Service Data
 
-Directory Service Data supports interface endpoints in all AWS Regions where it's available.
-For information about the AWS Regions that support AWS Directory Service and Directory Service Data, see [Region availability for AWS Directory Service](regions.md "regions.md").
+You can create an interface endpoint for Directory Service and Directory Service Data APIs using the Amazon VPC console or the AWS Command Line Interface (AWS CLI).
 
-## Create an interface Amazon VPC endpoint for AWS Directory Service and Directory Service Data
+###### Example: Directory Service
 
-You can create an interface endpoint for AWS Directory Service and Directory Service Data APIs using the Amazon VPC console or the AWS Command Line Interface (AWS CLI).
-
-###### Example: AWS Directory Service
-
-Create an interface endpoint for AWS Directory Service APIs using the following service name:
+Create an interface endpoint for Directory Service APIs using the following service name:
 
 ```
 com.amazonaws.`region`.ds
@@ -101,13 +95,13 @@ For more information, see [Control access to services using endpoint policies](.
 
 You can control access to APIs from your Amazon VPC by attaching a custom endpoint policy to your interface endpoint.
 
-###### Example: Amazon VPC endpoint policy for AWS Directory Service API actions
+###### Example: Amazon VPC endpoint policy for Directory Service API actions
 
 The following is an example of a custom endpoint policy.
-When you attach this policy to your interface endpoint, it grants access to the listed AWS Directory Service actions for all principals on all resources.
+When you attach this policy to your interface endpoint, it grants access to the listed Directory Service actions for all principals on all resources.
 
-Replace `action-1`, `action-2`, and `action-3` with the required permissions for the AWS Directory Service APIs that you want to include in your policy.
-For a full list, see [AWS Directory Service API permissions: Actions,
+Replace `action-1`, `action-2`, and `action-3` with the required permissions for the Directory Service APIs that you want to include in your policy.
+For a full list, see [Directory Service API permissions: Actions,
 resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md").
 
 ```
@@ -144,7 +138,7 @@ with the required permissions for the Directory Service Data APIs
 that you want to include
 in your policy.
 For a full list,
-see [AWS Directory Service API permissions: Actions,
+see [Directory Service API permissions: Actions,
 resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md").
 
 ```

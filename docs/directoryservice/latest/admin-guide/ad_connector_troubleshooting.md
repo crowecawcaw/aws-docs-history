@@ -28,7 +28,7 @@ directory
 
 Some AWS accounts created before 2012 might have access to Availability Zones in
 the US East (N. Virginia), US West (N. California), or Asia Pacific (Tokyo)
-Regions that do not support AWS Directory Service directories. If you receive an
+Regions that do not support Directory Service directories. If you receive an
 error such as this when creating a Active Directory, choose a subnet in a different Availability
 Zone and try to create the directory again.
 
@@ -557,12 +557,12 @@ order so that the passwords match:
 
 1. Update the password for the service account in your Active Directory.
 2. Update the password for the service account in your AD Connector in
-   AWS Directory Service. For more information, see [Updating your AD Connector service account credentials
+   Directory Service. For more information, see [Updating your AD Connector service account credentials
    in AWS Management Console](ad_connector_update_creds.md "ad_connector_update_creds.md").
 
 ###### Important
 
-Updating the password only in AWS Directory Service does not push the password change to your
+Updating the password only in Directory Service does not push the password change to your
 existing on-premises Active Directory so it is important to do it in the order shown in the
 previous procedure.
 
@@ -600,7 +600,7 @@ anything](https://techcommunity.microsoft.com/t5/iis-support-blog/capture-a-netw
 To better understand what requests are being received and sent from
 AD Connector, you can configure [VPC flow
 logs](../../../vpc/latest/userguide/working-with-flow-logs.md "../../../vpc/latest/userguide/working-with-flow-logs.md") for the directory network interfaces. You can identify all
-network interfaces reserved for use with AWS Directory Service by the description:
+network interfaces reserved for use with Directory Service by the description:
 `AWS created network interface for directory
  `your-directory-id``.
 

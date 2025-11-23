@@ -6,8 +6,8 @@ those privileges to each individual user. If a user moves to a different organiz
 that user to a different group and they automatically receive the privileges needed for the new
 organization.
 
-To create users and groups in an AWS Directory Service directory, you must use any instance (from either on-premises or EC2)
-that has been joined to your AWS Directory Service directory, and be logged in as a user that has privileges to
+To create users and groups in an Directory Service directory, you must use any instance (from either on-premises or EC2)
+that has been joined to your Directory Service directory, and be logged in as a user that has privileges to
 create users and groups. You will also need to install the Active Directory Tools on your EC2
 instance so you can add your users and groups with the Active Directory Users and Computers
 snap-in. For more information about how to set up an EC2 instance and install the necessary

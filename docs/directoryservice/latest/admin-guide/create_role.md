@@ -1,8 +1,8 @@
 # Creating a new IAM role
 
-If you need to create a new IAM role for use with AWS Directory Service, you must create it using
+If you need to create a new IAM role for use with Directory Service, you must create it using
 the IAM console. Once the role has been created, you must then set up a trust
-relationship with that role before you can see that role in the AWS Directory Service console. For more
+relationship with that role before you can see that role in the Directory Service console. For more
 information, see [Editing the trust relationship for an existing IAM
 role](edit_trust.md "edit_trust.md").
 

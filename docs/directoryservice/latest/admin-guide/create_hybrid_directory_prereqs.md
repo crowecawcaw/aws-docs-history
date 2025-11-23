@@ -270,7 +270,7 @@ A VPC with the following:
 You cannot create a hybrid directory in a VPC using addresses in the 198.18.0.0/15 address
 space.
 
-AWS Directory Service uses a two VPC structure. The EC2 instances which make up your directory run
+Directory Service uses a two VPC structure. The EC2 instances which make up your directory run
 outside of your AWS account, and are managed by AWS. They have two network adapters,
 `ETH0` and `ETH1`. `ETH0` is the management
 adapter, and exists outside of your account. `ETH1` is created within your

@@ -7,7 +7,7 @@ instances. You must log into these instances with a local user account.
 
 ###### To delete a directory
 
-1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, select
+1. In the [Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, select
    **Directories**. Ensure you are in the AWS Region where your
    hybrid directory is deployed. For more information, see [Choosing a
    Region](../../../awsconsolehelpdocs/latest/gsg/select-region.md "../../../awsconsolehelpdocs/latest/gsg/select-region.md").

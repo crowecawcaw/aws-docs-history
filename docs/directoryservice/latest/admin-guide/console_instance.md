@@ -9,9 +9,9 @@ directly.
 
 For more information, see the following links:
 
-- [Simplifying Active Directory domain join with AWS Systems Manager](https://aws.amazon.com/blogs/modernizing-with-aws/simplifying-active-directory-domain-join-with-aws-systems-manager-2/ "https://aws.amazon.com/blogs/modernizing-with-aws/simplifying-active-directory-domain-join-with-aws-systems-manager-2/")
+- [Simplifying Active Directory domain join with AWS Systems Manager](https://aws.amazon.com/blogs//modernizing-with-aws/simplifying-active-directory-domain-join-with-aws-systems-manager-2/ "https://aws.amazon.com/blogs//modernizing-with-aws/simplifying-active-directory-domain-join-with-aws-systems-manager-2/")
 - [How do
-  I use AWS Systems Manager to join a running EC2 Windows instances to my AWS Directory Service
+  I use AWS Systems Manager to join a running EC2 Windows instances to my Directory Service
   domain?](https://repost.aws/knowledge-center/ec2-systems-manager-dx-domain "https://repost.aws/knowledge-center/ec2-systems-manager-dx-domain")
 
 ## Prerequisites
@@ -39,7 +39,7 @@ The following prerequisites are required to complete this tutorial:
 
   [Show moreShow less](# "#")
 
-- The VPC connected to your AWS Managed Microsoft AD needs to allow access to public AWS Directory Service
+- The VPC connected to your AWS Managed Microsoft AD needs to allow access to public Directory Service
   endpoints. For more information, see [Prerequisites for creating a
   AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_prereqs "ms_ad_getting_started.md#ms_ad_getting_started_prereqs").
 
@@ -94,7 +94,7 @@ The following prerequisites are required to complete this tutorial:
 
 in the AWS Management Console
 
-1. Sign in to the [AWS Directory Service
+1. Sign in to the [Directory Service
    console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2. Under **Active Directory**, choose
    **Directories**.

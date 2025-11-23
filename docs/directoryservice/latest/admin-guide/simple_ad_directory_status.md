@@ -6,7 +6,7 @@ The following are the various statuses for a directory.
 
 **Active**
 
-The directory is operating normally. No issues have been detected by the AWS Directory Service
+The directory is operating normally. No issues have been detected by the Directory Service
 for your directory.
 
 **Creating**

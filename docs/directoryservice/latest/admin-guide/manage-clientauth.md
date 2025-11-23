@@ -13,7 +13,7 @@ AWS Management Console method or the AWS CLI method.
 
 Use either of the following methods to see when a certificate is set to expire.
 
-###### Method 1: To view certificate details in AWS Directory Service (AWS Management Console)
+###### Method 1: To view certificate details in Directory Service (AWS Management Console)
 
 1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, select
    **Directories**.
@@ -24,7 +24,7 @@ Use either of the following methods to see when a certificate is set to expire.
    certificates**, choose the certificate ID to display details about that
    certificate.
 
-###### Method 2: To view certificate details in AWS Directory Service (AWS CLI)
+###### Method 2: To view certificate details in Directory Service (AWS CLI)
 
 - Run the following command. For the certificate ID, use the identifier returned by
   `register-certificate` or `list-certificates`.
@@ -42,7 +42,7 @@ Use either of the following methods to deregister a certificate.
 If only one certificate is registered, you must first disable smart card
 authentication before you can deregister the certificate.
 
-###### Method 1: To deregister a certificate in AWS Directory Service (AWS Management Console)
+###### Method 1: To deregister a certificate in Directory Service (AWS Management Console)
 
 1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, select
    **Directories**.
@@ -61,7 +61,7 @@ currently being used as part of a CA certificate chain for smart card
 authentication. 5. In the **Deregister a CA certificate** dialog box, choose
 **Deregister**.
 
-###### Method 2: To deregister a certificate in AWS Directory Service (AWS CLI)
+###### Method 2: To deregister a certificate in Directory Service (AWS CLI)
 
 - Run the following command. For the certificate ID, use the identifier returned by
   `register-certificate` or `list-certificates`.
@@ -74,7 +74,7 @@ aws ds deregister-certificate --directory-id `your_directory_id` --certificate-i
 
 Use either of the following methods to disable smart card authentication.
 
-###### Method 1: To disable smart card authentication in AWS Directory Service (AWS Management Console)
+###### Method 1: To disable smart card authentication in Directory Service (AWS Management Console)
 
 1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, select
    **Directories**.
@@ -86,7 +86,7 @@ Use either of the following methods to disable smart card authentication.
 5. In the **Disable smart card authentication** dialog box, choose
    **Disable**.
 
-###### Method 2: To disable smart card authentication in AWS Directory Service (AWS CLI)
+###### Method 2: To disable smart card authentication in Directory Service (AWS CLI)
 
 - Run the following command.
 

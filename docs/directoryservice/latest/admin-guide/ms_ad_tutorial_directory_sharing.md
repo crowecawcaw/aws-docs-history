@@ -30,14 +30,14 @@ necessary for the directory sharing process.
 **[Step 2: Share your directory](step2_share_directory.md "step2_share_directory.md")**
 
 While signed in with directory owner administrator credentials, you open the
-AWS Directory Service console and start the share directory workflow, which sends an invitation
+Directory Service console and start the share directory workflow, which sends an invitation
 to the directory consumer account.
 
 **[Step 3: Accept shared directory invite -
 Optional](step3_accept_invite.md "step3_accept_invite.md")**
 
 While signed in with directory consumer administrator credentials, you open
-the AWS Directory Service console and accept the directory sharing invite.
+the Directory Service console and accept the directory sharing invite.
 
 **[Step 4: Test seamlessly joining an EC2 instance
 for Windows Server to a domain](step4_test_ec2_access.md "step4_test_ec2_access.md")**

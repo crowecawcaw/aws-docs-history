@@ -8,7 +8,7 @@ updates. This service enables you to run directory-aware workloads, manage users
 provide single sign-on, create and apply group policies, and securely connect to Amazon EC2
 instances.
 
-AWS Directory Service offers two Microsoft Active Directory solutions: _AWS Directory Service for Microsoft Active Directory_ provides a fully
+Directory Service offers two Microsoft Active Directory solutions: _AWS Directory Service for Microsoft Active Directory_ provides a fully
 managed Active Directory service in the AWS Cloud, while _AWS Managed Microsoft AD (Hybrid Edition)_
 extends your existing self-managed AD to AWS.
 
@@ -34,7 +34,7 @@ providing users and groups with access to resources in either domain using AWS I
 ## Which to choose
 
 You can choose between two AWS Directory Service services with the features and scalability that best
-meet your needs. The following table helps you determine which AWS Directory Service option works best
+meet your needs. The following table helps you determine which Directory Service option works best
 for your organization.
 
 | Use case                                                                                      | Recommended solution                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |

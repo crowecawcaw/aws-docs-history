@@ -1,13 +1,13 @@
-# Using AWS managed policies with AWS Directory Service
+# Using AWS managed policies with Directory Service
 
-AWS Directory Service provides the following AWS managed policies to give your users and groups access to
+Directory Service provides the following AWS managed policies to give your users and groups access to
 AWS services and resources, such as access to the Amazon EC2 console. You must log in to the
 AWS Management Console before you can view these policies.
 
 - [Read only access](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/ReadOnlyAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/ReadOnlyAccess")
 - [Power user access](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/PowerUserAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/PowerUserAccess")
-- [AWS Directory Service full access](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSDirectoryServiceFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSDirectoryServiceFullAccess")
-- [AWS Directory Service read only access](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSDirectoryServiceReadOnlyAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSDirectoryServiceReadOnlyAccess")
+- [Directory Service full access](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSDirectoryServiceFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSDirectoryServiceFullAccess")
+- [Directory Service read only access](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSDirectoryServiceReadOnlyAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSDirectoryServiceReadOnlyAccess")
 - [AWS Directory Service Data full access](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSDirectoryServiceDataFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSDirectoryServiceDataFullAccess")
 - [AWS Directory Service Data read only access](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSDirectoryServiceDataReadOnlyAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSDirectoryServiceDataReadOnlyAccess")
 - [Amazon Cloud Directory full access](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonCloudDirectoryFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonCloudDirectoryFullAccess")

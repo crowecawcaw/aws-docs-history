@@ -3,7 +3,7 @@
 status messages
 
 When a Simple AD is impaired or inoperable, the directory status message contains
-additional information. The status message is displayed in the AWS Directory Service console, or returned in
+additional information. The status message is displayed in the Directory Service console, or returned in
 the [`DirectoryDescription.StageReason`](../devguide/API_DirectoryDescription.md#ADS-Type-DirectoryDescription-StageReason "../devguide/API_DirectoryDescription.md#ADS-Type-DirectoryDescription-StageReason") member by the [`DescribeDirectories`](../devguide/API_DescribeDirectories.md "../devguide/API_DescribeDirectories.md")
 API. For more information about the directory status, see [Understanding your AWS Managed Microsoft AD directory status](ms_ad_directory_status.md "ms_ad_directory_status.md").
 
@@ -14,11 +14,11 @@ The following are the status messages for a Simple AD directory:
 - [The directory service's elastic network interface is not
   attached](#sr_eni_detached "#sr_eni_detached")
 - [Issue(s) detected by instance](#sr_internal_error "#sr_internal_error")
-- [The critical AWS Directory Service reserved user is missing
+- [The critical Directory Service reserved user is missing
   from the directory](#sr_service_account_missing "#sr_service_account_missing")
-- [The critical AWS Directory Service reserved user needs to
+- [The critical Directory Service reserved user needs to
   belong to the Domain Admins group](#sr_service_account_not_admin "#sr_service_account_not_admin")
-- [The critical AWS Directory Service reserved user is
+- [The critical Directory Service reserved user is
   disabled](#sr_service_account_disabled "#sr_service_account_disabled")
 - [The main domain controller does not have all FSMO
   roles](#sr_dc_fsmo_role "#sr_dc_fsmo_role")
@@ -55,16 +55,16 @@ instances.
 In most cases, this is a transient issue, and the directory eventually
 returns to the Active state. If the problem persists, contact Support for more assistance.
 
-## The critical AWS Directory Service reserved user is missing
+## The critical Directory Service reserved user is missing
 
 from the directory
 
 **Description**
 
-When a Simple AD is created, AWS Directory Service creates a service account in the
+When a Simple AD is created, Directory Service creates a service account in the
 directory with the name `AWSAdmin`D-xxxxxxxxx``. This error
 is received when this service account cannot be found. Without this account,
-AWS Directory Service cannot perform administrative functions on the directory, rendering
+Directory Service cannot perform administrative functions on the directory, rendering
 the directory unusable.
 
 **Troubleshooting**
@@ -78,16 +78,16 @@ restore the directory from a snapshot where this account exists, your
 directory may become permanently unusable. If this is the case, you must
 delete your directory and create a new one.
 
-## The critical AWS Directory Service reserved user needs to
+## The critical Directory Service reserved user needs to
 
 belong to the Domain Admins group
 
 **Description**
 
-When a Simple AD is created, AWS Directory Service creates a service account in the
+When a Simple AD is created, Directory Service creates a service account in the
 directory with the name `AWSAdmin`D-xxxxxxxxx``. This error
  is received when this service account is not a member of the `Domain Admins` group. Membership in this group
-is needed to give AWS Directory Service the privileges it needs to perform maintenance and
+is needed to give Directory Service the privileges it needs to perform maintenance and
 recovery operations, such as transferring FSMO roles, domain joining new
 directory controllers, and restoring from snapshots.
 
@@ -96,16 +96,16 @@ directory controllers, and restoring from snapshots.
 Use the Active Directory Users and Computers tool to re-add the service
 account to the `Domain Admins` group.
 
-## The critical AWS Directory Service reserved user is
+## The critical Directory Service reserved user is
 
 disabled
 
 **Description**
 
-When a Simple AD is created, AWS Directory Service creates a service account in the
+When a Simple AD is created, Directory Service creates a service account in the
 directory with the name `AWSAdmin`D-xxxxxxxxx``. This error
 is received when this service account is disabled. This account must be
-enabled so that AWS Directory Service can perform maintenance and recovery operations on the
+enabled so that Directory Service can perform maintenance and recovery operations on the
 directory.
 
 **Troubleshooting**
@@ -120,7 +120,7 @@ roles
 **Description**
 
 All the FSMO roles are not owned by the Simple AD directory controller.
-AWS Directory Service cannot guarantee certain behavior and functionality if the FSMO roles
+Directory Service cannot guarantee certain behavior and functionality if the FSMO roles
 do not belong to the correct Simple AD directory controller.
 
 **Troubleshooting**

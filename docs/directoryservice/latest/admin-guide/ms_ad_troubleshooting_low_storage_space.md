@@ -9,7 +9,7 @@ common causes of this impairment are covered in the sections below:
 1. [SYSVOL folder is storing more than essential group policy
    objects](#sysvol-folder-gpo "#sysvol-folder-gpo")
 2. [Active Directory database has filled the volume](#ad-db-filled-volume "#ad-db-filled-volume")
-   For pricing information about AWS Managed Microsoft AD storage, see [AWS Directory Service
+   For pricing information about AWS Managed Microsoft AD storage, see [Directory Service
    Pricing](https://aws.amazon.com/directoryservice/pricing/#Comparison_Table "https://aws.amazon.com/directoryservice/pricing/#Comparison_Table").
 
 ## SYSVOL folder is storing more than essential group policy
@@ -49,7 +49,7 @@ retained for another 180 days before it is finally purged from the directory. So
 object is deleted it exists in the directory database for 360 day before it is purged. This is
 why the total number of objects need to be evaluated.
 
-For more details on AWS Managed Microsoft AD supported object counts, see [AWS Directory Service
+For more details on AWS Managed Microsoft AD supported object counts, see [Directory Service
 Pricing](https://aws.amazon.com/directoryservice/pricing/#Comparison_Table "https://aws.amazon.com/directoryservice/pricing/#Comparison_Table").
 
 To get the total number of objects in a directory that includes the deleted objects, you
@@ -92,11 +92,11 @@ Below are the options to resolve this impairment:
    ForEach ($ObjectToRemove in $ObjectsToRemove) { Remove-ADObject -Identity $ObjectToRemove.DistinguishedName -IncludeDeletedObjects }
    ```
 
-   4. Open a case with AWS Support to request that AWS Directory Service reclaims the free space.
+   4. Open a case with AWS Support to request that Directory Service reclaims the free space.
 
 2. If your directory type is Standard Edition Open a case with AWS Support requesting
    your directory be upgraded to Enterprise Edition. This will also increase the cost of your
-   directory. For pricing information, see [AWS Directory Service
+   directory. For pricing information, see [Directory Service
    Pricing](https://aws.amazon.com/directoryservice/pricing/#Comparison_Table "https://aws.amazon.com/directoryservice/pricing/#Comparison_Table").
 
 In AWS Managed Microsoft AD, members of the **AWS Delegated Deleted Object Lifetime Administrators**

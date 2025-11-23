@@ -18,7 +18,7 @@ with AD Connector.
 
 Once enabled, you manage access to your directories in the console of the application or
 service that you want to give access to your directory. To find the AWS applications and
-services links described above in the AWS Directory Service console, perform the following steps.
+services links described above in the Directory Service console, perform the following steps.
 
 ###### To display the applications and services for a directory
 
@@ -28,4 +28,4 @@ services links described above in the AWS Directory Service console, perform the
 3. On the **Directory details** page, select the
    **Application management** tab.
 4. Review the list under the **AWS apps & services** section.
-   For more information about how to authorize or deauthorize AWS applications and services using AWS Directory Service, see [Authorization for AWS applications and services using AWS Directory Service](ad_manage_apps_services_authorization.md "ad_manage_apps_services_authorization.md").
+   For more information about how to authorize or deauthorize AWS applications and services using Directory Service, see [Authorization for AWS applications and services using Directory Service](ad_manage_apps_services_authorization.md "ad_manage_apps_services_authorization.md").

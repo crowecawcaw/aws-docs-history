@@ -17,15 +17,15 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
   including the sensitivity of your data, your company’s requirements, and applicable laws and
   regulations.
   This documentation helps you understand how to apply the shared responsibility model when
-  using AWS Directory Service. The following topics show you how to configure AWS Directory Service to meet your security and
+  using Directory Service. The following topics show you how to configure Directory Service to meet your security and
   compliance objectives. You also learn how to use other AWS services that help you to monitor
-  and secure your AWS Directory Service resources.
+  and secure your Directory Service resources.
 
 **Security topics**
 
 The following security topics can be found in this section:
 
-- [Identity and access management for AWS Directory Service](iam_auth_access.md "iam_auth_access.md")
+- [Identity and access management for Directory Service](iam_auth_access.md "iam_auth_access.md")
 - [Logging and monitoring in AWS Directory Service](incident-response.md "incident-response.md")
 - [Compliance validation for AWS Directory Service](ds-compliance.md "ds-compliance.md")
 - [Resilience in AWS Directory Service](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
@@ -43,7 +43,7 @@ _Accounts, trusts, and AWS resource access_
 - [Kerberos constrained delegation](ms_ad_key_concepts.md#ms_ad_key_concepts_kerberos "ms_ad_key_concepts.md#ms_ad_key_concepts_kerberos")
 - [Granting AWS Managed Microsoft AD users and groups access to AWS
   resources with IAM roles](ms_ad_manage_roles.md "ms_ad_manage_roles.md")
-- [Authorization for AWS applications and services using AWS Directory Service](ad_manage_apps_services_authorization.md "ad_manage_apps_services_authorization.md")
+- [Authorization for AWS applications and services using Directory Service](ad_manage_apps_services_authorization.md "ad_manage_apps_services_authorization.md")
   _Secure your directory_
 
 - [Secure your AWS Managed Microsoft AD](ms_ad_security.md "ms_ad_security.md")

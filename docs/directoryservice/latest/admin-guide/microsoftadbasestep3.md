@@ -2,7 +2,7 @@
 
 For this lab, we are using Amazon EC2 instances that have public IP addresses to make it easy to
 access the management instance from anywhere. In a production setting, you can use instances
-that are in a private VPC that are only accessible through a VPN or AWS Direct Connect
+that are in a private VPC that are only accessible through a VPN or Direct Connect
 link. There is no requirement the instance have a public IP address.
 
 In this section, you walk through the various post-deployment tasks necessary for client
@@ -33,12 +33,12 @@ sets](../../../AmazonVPC/latest/UserGuide/VPC_DHCP_Options.md "../../../AmazonVP
 
    ###### Note
 
-   To find these addresses, go to the AWS Directory Service **Directories**
+   To find these addresses, go to the Directory Service **Directories**
    page, and then choose the applicable directory ID. On the
    **Details** page, identify and use the IPs that are displayed
    in **DNS address**.
 
-   Alternatively, to find these addresses, go to the AWS Directory Service
+   Alternatively, to find these addresses, go to the Directory Service
    **Directories** page, and choose the applicable directory ID.
    Then, choose **Scale & share**. Under **Domain
    controllers**, identify and use the IPs that are displayed in
@@ -87,7 +87,7 @@ Active Directory](launching_instance.md "launching_instance.md").
          Systems Manager service.
         * Select the box next to **AmazonSSMDirectoryServiceAccess**
          managed policy. The policy provides the permissions to join instances to an Active
-         Directory managed by AWS Directory Service.
+         Directory managed by Directory Service.
 
     For information about these managed policies and other policies you can attach to an
     IAM instance profile for Systems Manager, see [Create an IAM instance profile for

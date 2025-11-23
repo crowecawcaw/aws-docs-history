@@ -9,7 +9,7 @@ enable single sign-on.
 
 ###### Note
 
-Single sign-on only works when used on a computer that is joined to the AWS Directory Service
+Single sign-on only works when used on a computer that is joined to the Directory Service
 directory. It cannot be used on computers that are not joined to the directory.
 
 If your directory is an AD Connector directory and the AD Connector service account does not have the permission to add or remove its service principal name attribute, then for Steps 5 and 6 below, you have two options:

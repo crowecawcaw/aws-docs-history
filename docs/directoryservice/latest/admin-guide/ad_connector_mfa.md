@@ -2,7 +2,7 @@
 
 You can enable multi-factor authentication for AD Connector when you have Active Directory
 running on-premises or in Amazon EC2 instances. For more information about using multi-factor
-authentication with AWS Directory Service, see [AD Connector prerequisites](ad_connector_getting_started.md#prereq_connector "ad_connector_getting_started.md#prereq_connector").
+authentication with Directory Service, see [AD Connector prerequisites](ad_connector_getting_started.md#prereq_connector "ad_connector_getting_started.md#prereq_connector").
 
 ###### Note
 
@@ -31,7 +31,7 @@ separating them with a comma (e.g.,
 
 ###### Note
 
-RADIUS MFA is applicable only to authenticate access to the AWS Management Console, or to Amazon Enterprise applications and services such as WorkSpaces, Amazon Quick Suite, or Amazon Chime. It does not provide MFA to Windows workloads running on EC2 instances, or for signing into an EC2 instance. AWS Directory Service does not support RADIUS Challenge/Response authentication.
+RADIUS MFA is applicable only to authenticate access to the AWS Management Console, or to Amazon Enterprise applications and services such as WorkSpaces, Amazon Quick Suite, or Amazon Chime. It does not provide MFA to Windows workloads running on EC2 instances, or for signing into an EC2 instance. Directory Service does not support RADIUS Challenge/Response authentication.
 
 Users must have their MFA code at the time they enter their username and password. Alternatively, you must use a solution that performs MFA out-of-band such as SMS text verification for the user. In out-of-band MFA solutions, you must make sure you set the RADIUS time-out value appropriately for your solution. When using an out-of-band MFA solution, the sign-in page will prompt the user for an MFA code. In this case, the best practice is for users to enter their password in both the password field and the MFA field.
 
@@ -39,7 +39,7 @@ Users must have their MFA code at the time they enter their username and passwor
 
 The port that your RADIUS server is using for communications. Your
 on-premises network must allow inbound traffic over the default RADIUS
-server port (UDP:1812) from the AWS Directory Service servers.
+server port (UDP:1812) from the Directory Service servers.
 
 **_Shared secret code_**
 

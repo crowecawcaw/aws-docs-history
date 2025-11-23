@@ -1,9 +1,9 @@
 # Global vs Regional features
 
-When you add an AWS Region to your directory using multi-Region replication, AWS Directory Service
+When you add an AWS Region to your directory using multi-Region replication, Directory Service
 enhances the scope of all features so that they become Region-aware. These features are listed
 on various tabs of the details page that appears when you choose the ID of a directory in the
-AWS Directory Service console. This means that all features are enabled, configured, or managed based on the
+Directory Service console. This means that all features are enabled, configured, or managed based on the
 Region that you select in the **Multi-Region replication** section of the
 console. Changes you make to features in each Region are either applied globally or per
 Region.
