@@ -17,7 +17,7 @@ To successfully authenticate, the following constraints must be satisfied:
 - The `X-Amz-X509-Chain` header **MUST** be encoded as comma-delimited, base64-encoded DER.
 - The `X-Amx-X509-Chain` header **MUST NOT** exceed the maximum depth of 5 certificates.
 - The signing certificate's serial number **MUST** be included in the Credential portion of the Scope field of the `Authorization` header.
-  RSA and EC keys are supported; RSA keys are used with the RSA PKCS#1 v1.5 signing algorithm. EC keys are used with the ECDSA.
+  RSA, EC and ML-DSA keys are supported; RSA keys are used with the RSA PKCS#1 v1.5 signing algorithm. EC keys are used with the ECDSA. ML-DSA keys can be used with ML-DSA-44, ML-DSA-65 or ML-DSA-87.
 
 ###### Topics
 
