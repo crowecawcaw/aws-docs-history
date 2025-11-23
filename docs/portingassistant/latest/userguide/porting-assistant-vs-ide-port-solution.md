@@ -55,4 +55,4 @@ how to proceed are provided.
 When all of the source files are updated, you can compile, test, and run your
 code. If you have the AWS Toolkit for Visual Studio plug-in installed on your IDE,
 you can deploy your application on Amazon Web Services. To install, see [AWS Toolkit for Visual Studio
-Code](https://aws.amazon.com/visualstudiocode "https://aws.amazon.com/visualstudiocode").
+Code](https://aws.amazon.com//visualstudiocode "https://aws.amazon.com//visualstudiocode").
