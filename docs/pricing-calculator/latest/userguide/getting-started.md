@@ -25,7 +25,7 @@ AWS Pricing Calculator is available through a web-based console at [https://calc
 
 You can use the AWS Pricing Calculator to generate monthly cost estimates for all AWS Regions that are
 supported by your preferred services. To see which Regions are available for each service, see
-the corresponding service user guide documentation.
+the corresponding [service user guide documentation](../../../index.md "../../../index.md").
 
 For estimating costs in the China Region, you can access the AWS Pricing Calculator at [https://calculator.amazonaws.cn/](https://calculator.amazonaws.cn/ "https://calculator.amazonaws.cn/").
 
