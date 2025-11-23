@@ -48,7 +48,7 @@ The following are the service endpoints and service quotas for this service.
 SMTP endpoints are not currently available in Africa (Cape Town),
 Asia Pacific (Hyderabad), Asia Pacific (Jakarta), Europe (Milan),
 Europe (Zurich), Israel (Tel Aviv), Middle East (Bahrain),
-Middle East (UAE).
+Middle East (UAE), Canada West (Calgary), Asia Pacific (Malaysia).
 
 | Region Name               | Region         | Endpoint                                                                                                                                                           | Protocol |
 | ------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
@@ -109,6 +109,8 @@ _AWS GovCloud (US-West) and AWS GovCloud (US-East)._.
 | Africa (Cape Town)       | af-south-1         | dkim.af-south-1.amazonses.com     |
 | Asia Pacific (Hyderabad) | ap-south-2         | dkim.ap-south-2.amazonses.com     |
 | Asia Pacific (Jakarta)   | ap-southeast-3     | dkim.ap-southeast-3.amazonses.com |
+| Asia Pacific (Malaysia)  | ap-southeast-5     | dkim.ap-southeast-5.amazonses.com |
+| Canada West (Calgary)    | ca-west-1          | dkim.ca-west-1.amazonses.com      |
 | Asia Pacific (Osaka)     | ap-northeast-3     | dkim.ap-northeast-3.amazonses.com |
 | Europe (Milan)           | eu-south-1         | dkim.eu-south-1.amazonses.com     |
 | Europe (Zurich)          | eu-central-2       | dkim.eu-central-2.amazonses.com   |
@@ -130,6 +132,7 @@ HTTPS)
 | Africa (Cape Town)        | `r.af-south-1.awstrack.me`     |
 | Asia Pacific (Hyderabad)  | `r.ap-south-2.awstrack.me`     |
 | Asia Pacific (Jakarta)    | `r.ap-southeast-3.awstrack.me` |
+| Asia Pacific (Malaysia)   | `r.ap-southeast-5.awstrack.me` |
 | Asia Pacific (Mumbai)     | `r.ap-south-1.awstrack.me`     |
 | Asia Pacific (Osaka)      | `r.ap-northeast-3.awstrack.me` |
 | Asia Pacific (Seoul)      | `r.ap-northeast-2.awstrack.me` |
@@ -137,6 +140,7 @@ HTTPS)
 | Asia Pacific (Sydney)     | `r.ap-southeast-2.awstrack.me` |
 | Asia Pacific (Tokyo)      | `r.ap-northeast-1.awstrack.me` |
 | Canada (Central)          | `r.ca-central-1.awstrack.me`   |
+| Canada West (Calgary)     | `r.ca-west-1.awstrack.me`      |
 | Europe (Frankfurt)        | `r.eu-central-1.awstrack.me`   |
 | Europe (Ireland)          | `r.eu-west-1.awstrack.me`      |
 | Europe (London)           | `r.eu-west-2.awstrack.me`      |
@@ -168,8 +172,10 @@ FROM domains
 | Asia Pacific (Seoul)      | feedback-smtp.ap-northeast-2.amazonses.com |
 | Asia Pacific (Singapore)  | feedback-smtp.ap-southeast-1.amazonses.com |
 | Asia Pacific (Sydney)     | feedback-smtp.ap-southeast-2.amazonses.com |
+| Asia Pacific (Malaysia)   | feedback-smtp.ap-southeast-5.amazonses.com |
 | Asia Pacific (Tokyo)      | feedback-smtp.ap-northeast-1.amazonses.com |
 | Canada (Central)          | feedback-smtp.ca-central-1.amazonses.com   |
+| Canada West (Calgary)     | feedback-smtp.ca-west-1.amazonses.com      |
 | Europe (Frankfurt)        | feedback-smtp.eu-central-1.amazonses.com   |
 | Europe (Ireland)          | feedback-smtp.eu-west-1.amazonses.com      |
 | Europe (London)           | feedback-smtp.eu-west-2.amazonses.com      |
@@ -194,18 +200,28 @@ relays
 | us-east-2      | 206.55.134.0/24  |
 | us-west-1      | 206.55.142.0/24  |
 | us-west-2      | 206.55.131.0/24  |
+| af-south-1     | 216.221.183.0/24 |
 | ap-northeast-1 | 206.55.130.0/24  |
 | ap-northeast-2 | 206.55.139.0/24  |
 | ap-northeast-3 | 206.55.140.0/24  |
 | ap-south-1     | 206.55.136.0/24  |
+| ap-south-2     | 216.221.185.0/24 |
 | ap-southeast-1 | 206.55.143.0/24  |
 | ap-southeast-2 | 206.55.128.0/24  |
+| ap-southeast-3 | 216.221.180.0/24 |
+| ap-southeast-5 | 216.221.178.0/24 |
 | ca-central-1   | 216.221.176.0/24 |
+| ca-west-1      | 216.221.186.0/24 |
+| il-central-1   | 216.221.181.0/24 |
 | eu-central-1   | 206.55.132.0/24  |
+| eu-central-2   | 216.221.184.0/24 |
 | eu-north-1     | 206.55.135.0/24  |
+| eu-south-1     | 216.221.182.0/24 |
 | eu-west-1      | 206.55.133.0/24  |
 | eu-west-2      | 206.55.141.0/24  |
 | eu-west-3      | 206.55.137.0/24  |
+| me-central-1   | 216.221.177.0/24 |
+| me-south-1     | 216.221.179.0/24 |
 | sa-east-1      | 206.55.138.0/24  |
 
 ## Service quotas

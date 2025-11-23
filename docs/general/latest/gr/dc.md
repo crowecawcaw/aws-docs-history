@@ -71,5 +71,5 @@ The following are the service endpoints and service quotas for this service.
 | Virtual interfaces per LAG                                            | Each supported Region: 54    | No         | The maximum number of virtual interfaces for each Link Aggregation Group (LAG)                                       |
 | Virtual private gateways per Direct Connect gateway                   | Each supported Region: 20    | No         | The maximum number of virtual private gateways per AWS Direct Connect gateway.                                       |
 
-For more information, see [AWS Direct Connect
-Quotas](../../../directconnect/latest/UserGuide/limits.md "../../../directconnect/latest/UserGuide/limits.md") in the _AWS Direct Connect User Guide_.
+For more information, see [Direct Connect
+Quotas](../../../directconnect/latest/UserGuide/limits.md "../../../directconnect/latest/UserGuide/limits.md") in the _Direct Connect User Guide_.

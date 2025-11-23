@@ -35,7 +35,7 @@ The following are the service endpoints and service quotas for this service.
 | Name                                                             | Default | Adjustable |
 | ---------------------------------------------------------------- | ------- | ---------- |
 | Maximum number of Amazon SNS topics that you can specify at once | 2       | No         |
-| Maximum number of AWS CloudFormation stacks that you can specify | 1,000   | No         |
+| Maximum number of CloudFormation stacks that you can specify     | 1,000   | No         |
 | Maximum number of Amazon SQS queues for monitoring               | 100     | Yes        |
 
 For more information, see [Quotas and limits](../../../devops-guru/latest/userguide/quotas.md "../../../devops-guru/latest/userguide/quotas.md") in the
