@@ -168,9 +168,9 @@ activity.
 
 For more information, see [Logging AWS Entity Resolution API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
-- **AWS CloudFormation**
+- **CloudFormation**
 
-Create the following resources in AWS CloudFormation: AWS::EntityResolution::MatchingWorkflow, AWS::EntityResolution::SchemaMapping, AWS::EntityResolution:IdMappingWorkflow, AWS::EntityResolution::IdNamespace and AWS::EntityResolution::PolicyStatement
+Create the following resources in CloudFormation: AWS::EntityResolution::MatchingWorkflow, AWS::EntityResolution::SchemaMapping, AWS::EntityResolution:IdMappingWorkflow, AWS::EntityResolution::IdNamespace and AWS::EntityResolution::PolicyStatement
 
 For more information, see [Create AWS Entity Resolution resources with
 AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").

@@ -18,7 +18,7 @@ target.
     1. Enter an **ID mapping workflow name** and an optional
        **Description**.
 
-    ![The name and description fields on the Specify ID mapping workflow page](/images/entityresolution/latest/userguide/images/specify-ID-mapping-details-name.png) 2. For the **ID mapping method**, choose
+    ![The name and description fields on the Specify ID mapping workflow page](images/specify-ID-mapping-details-name.png) 2. For the **ID mapping method**, choose
     **Rule-based**. 3. (Optional) To process only new, updated, or deleted records in the workflow,
     select **Enable incremental processing**.
 
