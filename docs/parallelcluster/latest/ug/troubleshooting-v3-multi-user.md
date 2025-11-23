@@ -133,7 +133,7 @@ If you reset the password for the [DirectoryService](DirectoryService-v3.md "Dir
 
 After the password reset and cluster update, the user's cluster access should be restored.
 
-For more information, see [Reset a user password](../../../directoryservice/latest/admin-guide/ms_ad_manage_users_groups_reset_password.md "../../../directoryservice/latest/admin-guide/ms_ad_manage_users_groups_reset_password.md") in the _AWS Directory Service
+For more information, see [Reset a user password](../../../directoryservice/latest/admin-guide/ms_ad_manage_users_groups_reset_password.md "../../../directoryservice/latest/admin-guide/ms_ad_manage_users_groups_reset_password.md") in the _Directory Service
 Administration Guide_.
 
 ## How to verify the joined domain

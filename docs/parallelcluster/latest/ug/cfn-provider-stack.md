@@ -49,8 +49,8 @@ The AWS ParallelCluster custom resource file URL.
 **ServiceToken:**
 
 A value that can be used as a custom resource `ServiceToken` property. A custom
-resource `ServiceToken` specifies where AWS CloudFormation sends requests. This is a
-required input for a cluster resource that you include in your AWS CloudFormation template.
+resource `ServiceToken` specifies where CloudFormation sends requests. This is a
+required input for a cluster resource that you include in your CloudFormation template.
 
 **LogGroupArn:**
 

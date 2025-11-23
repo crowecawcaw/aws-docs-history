@@ -137,4 +137,4 @@ Outputs:
 ```
 
 To learn more about how to use the CloudFormation AWS ParallelCluster custom resource,
-see [Creating a cluster with AWS CloudFormation](tutorials_09_cfn-custom-resource-v3.md "tutorials_09_cfn-custom-resource-v3.md").
+see [Creating a cluster with CloudFormation](tutorials_09_cfn-custom-resource-v3.md "tutorials_09_cfn-custom-resource-v3.md").

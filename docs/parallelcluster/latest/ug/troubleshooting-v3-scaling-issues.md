@@ -50,7 +50,7 @@ or **Log groups**. For more information, see [Integration with Amazon CloudWatch
 
 The following table provides an overview of the key logs for the head node:
 
-- `/var/log/cfn-init.log` - This is the AWS CloudFormation init log. It contains all commands that were run when an instance was set up. Use it to
+- `/var/log/cfn-init.log` - This is the CloudFormation init log. It contains all commands that were run when an instance was set up. Use it to
   troubleshoot initialization issues.
 - `/var/log/chef-client.log` - This is the Chef client log. It contains all commands that were run through Chef/CINC. Use it to
   troubleshoot initialization issues.

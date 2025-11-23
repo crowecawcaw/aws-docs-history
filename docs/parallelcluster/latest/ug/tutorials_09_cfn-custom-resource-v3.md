@@ -1,4 +1,4 @@
-# Creating a cluster with AWS CloudFormation
+# Creating a cluster with CloudFormation
 
 Learn how to create a cluster with an AWS ParallelCluster CloudFormation custom resource. For more information, see
 [AWS CloudFormation custom resource](cloudformation-v3.md "cloudformation-v3.md").
@@ -41,7 +41,7 @@ Create a cluster with AWS CloudFormation
 5. Choose **Create stack**.
 6. Wait for the CloudFormation stack to reach the `CREATE_COMPLETE` state.
 
-## Cluster creation with the AWS CloudFormation Command Line Interface (CLI)
+## Cluster creation with the CloudFormation Command Line Interface (CLI)
 
 In this tutorial, you use the AWS Command Line Interface (CLI) for CloudFormation to deploy a CloudFormation template that creates a cluster.
 

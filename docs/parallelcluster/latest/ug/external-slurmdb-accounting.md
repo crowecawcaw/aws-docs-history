@@ -73,9 +73,9 @@ Before upgrading SlurmDB, make a backup of the database. For more information, s
 
 ## Step 2: Create a cluster with external Slurmdbd enabled
 
-The provided AWS CloudFormation template generates a AWS CloudFormation stack with some deﬁned outputs.
+The provided CloudFormation template generates a CloudFormation stack with some deﬁned outputs.
 
-From the AWS Management Console, view the **Outputs** tab in the AWS CloudFormation stack to review the entities created. To enable the Slurm accounting, some of these outputs must be used in the AWS ParallelCluster conﬁguration ﬁle:
+From the AWS Management Console, view the **Outputs** tab in the CloudFormation stack to review the entities created. To enable the Slurm accounting, some of these outputs must be used in the AWS ParallelCluster conﬁguration ﬁle:
 
 - **SlurmdbdPrivateIp**: Used for the
   [SlurmSettings](Scheduling-v3.md#Scheduling-v3-SlurmSettings "Scheduling-v3.md#Scheduling-v3-SlurmSettings") /
@@ -89,7 +89,7 @@ From the AWS Management Console, view the **Outputs** tab in the AWS CloudFormat
   [AdditionalSecurityGroups](HeadNode-v3.md#yaml-HeadNode-Networking-AdditionalSecurityGroups "HeadNode-v3.md#yaml-HeadNode-Networking-AdditionalSecurityGroups")
   conﬁguration parameter.
 
-Additional, from the **Parameters** tab in the AWS CloudFormation stack view:
+Additional, from the **Parameters** tab in the CloudFormation stack view:
 
 - **MungeKeySecretArn**: Used for the
   [SlurmSettings](Scheduling-v3.md#Scheduling-v3-SlurmSettings "Scheduling-v3.md#Scheduling-v3-SlurmSettings") /

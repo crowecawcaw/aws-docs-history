@@ -507,11 +507,11 @@ unset AWS_ACCESS_KEY_ID`
 ```
 You can use the AWS Management Console or AWS CLI to delete your API.
 
-1. From the AWS CloudFormation console, choose the API stack and then choose **Delete**.
+1. From the CloudFormation console, choose the API stack and then choose **Delete**.
 2. Run the following command if using the AWS CLI.
 
 
-Using AWS CloudFormation.
+Using CloudFormation.
 
 
 

@@ -14,7 +14,7 @@ cluster configuration. By default, [DirectoryService](DirectoryService-v3.md "Di
 If an AWS ParallelCluster application requires passwordless SSH between cluster nodes, make sure that the SSH keys are correctly set up in the
 user's home directory.
 
-AWS Managed Microsoft AD passwords expire after 42 days. For more information, see [Manage password policies for AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/ms_ad_password_policies.md "../../../directoryservice/latest/admin-guide/ms_ad_password_policies.md") in the _AWS Directory Service Administration
+AWS Managed Microsoft AD passwords expire after 42 days. For more information, see [Manage password policies for AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/ms_ad_password_policies.md "../../../directoryservice/latest/admin-guide/ms_ad_password_policies.md") in the _Directory Service Administration
 Guide_. If your password expires, it must be reset to restore cluster access. For
 more information, see [How to reset a user password and expired passwords](troubleshooting-v3-multi-user.md#troubleshooting-v3-multi-user-reset-passwd "troubleshooting-v3-multi-user.md#troubleshooting-v3-multi-user-reset-passwd").
 

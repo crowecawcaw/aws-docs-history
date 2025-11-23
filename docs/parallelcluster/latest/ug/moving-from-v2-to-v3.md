@@ -310,7 +310,7 @@ Scheduling:
 AWS ParallelCluster 3 uses the words "head node" in places where "master" was used in AWS ParallelCluster 2. This includes the following:
 
 - Variable exported in the AWS Batch job environment changed: from `MASTER_IP` to `PCLUSTER_HEAD_NODE_IP`.
-- All AWS CloudFormation outputs changed from `Master*` to `HeadNode*`.
+- All CloudFormation outputs changed from `Master*` to `HeadNode*`.
 - All NodeType and tags changed from `Master` to `HeadNode`.
 
 ## Scheduler support

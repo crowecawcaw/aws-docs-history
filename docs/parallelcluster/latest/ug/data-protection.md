@@ -81,7 +81,7 @@ _Amazon EC2 User Guide_.
 - [Data protection in
   EC2 Image Builder](../../../imagebuilder/latest/userguide/data-protection.md "../../../imagebuilder/latest/userguide/data-protection.md")
 - [Data
-  protection in AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/security-data-protection.md "../../../AWSCloudFormation/latest/UserGuide/security-data-protection.md")
+  protection in CloudFormation](../../../AWSCloudFormation/latest/UserGuide/security-data-protection.md "../../../AWSCloudFormation/latest/UserGuide/security-data-protection.md")
 - [Data protection in
   Amazon EFS](../../../efs/latest/ug/efs-backup-solutions.md "../../../efs/latest/ug/efs-backup-solutions.md")
 - [Data protection in

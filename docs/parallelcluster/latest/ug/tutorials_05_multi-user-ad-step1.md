@@ -1,6 +1,6 @@
 # Create the AD infrastructure
 
-Choose the _Automated_ tab to create the Active Directory (AD) infrastructure with an AWS CloudFormation quick create template.
+Choose the _Automated_ tab to create the Active Directory (AD) infrastructure with an CloudFormation quick create template.
 
 Choose the _Manual_ tab to manually create the AD infrastructure.
 

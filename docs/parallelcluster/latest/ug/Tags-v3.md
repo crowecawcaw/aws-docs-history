@@ -1,7 +1,7 @@
 # `Tags` section
 
-**(Optional), Array** Defines the tags that are used by AWS CloudFormation and
-propagated to all the cluster resources. For more information, see [AWS CloudFormation resource
+**(Optional), Array** Defines the tags that are used by CloudFormation and
+propagated to all the cluster resources. For more information, see [CloudFormation resource
 tag](../../../AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.md") in the _AWS CloudFormation User Guide_.
 
 ```

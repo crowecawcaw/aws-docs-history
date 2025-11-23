@@ -271,7 +271,7 @@ It's possible to archive the logs in an Amazon S3 bucket or in a local file, dep
 }`
 ```
 
-The archive contains the CloudWatch Logs Streams related to the Image Builder process and AWS CloudFormation stack events. The command might take several minutes to
+The archive contains the CloudWatch Logs Streams related to the Image Builder process and CloudFormation stack events. The command might take several minutes to
 run.
 
 **Managing Custom AMIs**

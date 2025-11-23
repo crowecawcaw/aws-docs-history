@@ -63,7 +63,7 @@ Guide_.
 
 ````
 
-The archive contains the Amazon CloudWatch Logs streams and AWS CloudFormation stack events from the head node and compute nodes for the last 14 days, unless specified
+The archive contains the Amazon CloudWatch Logs streams and CloudFormation stack events from the head node and compute nodes for the last 14 days, unless specified
 explicitly in the configuration or in the parameters for the `export-cluster-logs` command. The time it takes for the command to finish
 depends on the number of nodes in the cluster and the number of log streams available in CloudWatch Logs. For more information about the available log
 streams, see [Integration with Amazon CloudWatch Logs](cloudwatch-logs-v3.md "cloudwatch-logs-v3.md").

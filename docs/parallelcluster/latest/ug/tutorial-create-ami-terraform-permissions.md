@@ -4,7 +4,7 @@ You need the following permissions to deploy a custom AMI with Terraform:
 
 - assume the ParallelCluster API role, which is in charge of interacting with the
   ParallelCluster API
-- describe the AWS CloudFormation stack of the ParallelCluster API, to verify it exists and retrieve
+- describe the CloudFormation stack of the ParallelCluster API, to verify it exists and retrieve
   its parameters and outputs
 
 JSON

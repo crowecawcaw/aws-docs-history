@@ -12,14 +12,14 @@ infrastructure that you create is pre-configured to integrate AWS ParallelCluste
   LDAP by itself _doesn't_ provide encryption. To ensure secure transmission of potentially sensitive information, we strongly recommend
   that you use LDAPS (LDAP over TLS/SSL) for clusters integrated with ADs. For more information, see
   [Enable server-side LDAPS using
-  AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/ms_ad_ldap_server_side.md "../../../directoryservice/latest/admin-guide/ms_ad_ldap_server_side.md") in the AWS Directory Service _Administration Guide_.
+  AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/ms_ad_ldap_server_side.md "../../../directoryservice/latest/admin-guide/ms_ad_ldap_server_side.md") in the Directory Service _Administration Guide_.
 
 After you create these resources, proceed to configure and create your cluster integrated with your Active Directory (AD). After the cluster
 is created, log in as the user you created. For more information about the configuration that you create in this tutorial, see [Multiple user access to clusters](multi-user-v3.md "multi-user-v3.md") and the [DirectoryService](DirectoryService-v3.md "DirectoryService-v3.md") configuration section.
 
 This tutorial covers how to create an environment that supports multiple user access to clusters. This tutorial doesn't cover how you create
-and use an AWS Directory Service AD. The steps that you take to set up an AWS Managed Microsoft AD in this tutorial are provided for testing purposes only. They
-_aren't_ provided to replace the official documentation and best practices you can find at [AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md") and [Simple AD](../../../directoryservice/latest/admin-guide/directory_simple_ad.md "../../../directoryservice/latest/admin-guide/directory_simple_ad.md") in the _AWS Directory Service Administration
+and use an Directory Service AD. The steps that you take to set up an AWS Managed Microsoft AD in this tutorial are provided for testing purposes only. They
+_aren't_ provided to replace the official documentation and best practices you can find at [AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md") and [Simple AD](../../../directoryservice/latest/admin-guide/directory_simple_ad.md "../../../directoryservice/latest/admin-guide/directory_simple_ad.md") in the _Directory Service Administration
 Guide_.
 
 ###### Note

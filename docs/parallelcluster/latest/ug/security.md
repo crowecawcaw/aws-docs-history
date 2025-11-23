@@ -34,7 +34,7 @@ cloud and security _in_ the cloud:
   Amazon API Gateway](../../../apigateway/latest/developerguide/security.md "../../../apigateway/latest/developerguide/security.md")
 - [Security in AWS Batch](../../../batch/latest/userguide/security.md "../../../batch/latest/userguide/security.md")
 - [Security in
-  AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/security.md "../../../AWSCloudFormation/latest/UserGuide/security.md")
+  CloudFormation](../../../AWSCloudFormation/latest/UserGuide/security.md "../../../AWSCloudFormation/latest/UserGuide/security.md")
 - [Security in
   Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/security.md "../../../AmazonCloudWatch/latest/monitoring/security.md")
 - [Security in

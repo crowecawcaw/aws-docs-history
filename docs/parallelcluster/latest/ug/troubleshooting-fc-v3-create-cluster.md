@@ -9,9 +9,9 @@ section in the output to find the `failureCode` and `failureReason`. Then, in th
 In the following sections, we recommend that you check the logs on the head node, such as the `/var/log/cfn-init.log` and
 `/var/log/chef-client.log` files. For more information about AWS ParallelCluster logs and how to view them, see [Key logs for debugging](troubleshooting-v3-scaling-issues.md#troubleshooting-v3-key-logs "troubleshooting-v3-scaling-issues.md#troubleshooting-v3-key-logs") and [Retrieving and preserving logs](troubleshooting-v3-get-logs.md "troubleshooting-v3-get-logs.md").
 
-If you don't have a `failureCode`, navigate to the AWS CloudFormation console to view the cluster stack. Check the `Status Reason` for the
+If you don't have a `failureCode`, navigate to the CloudFormation console to view the cluster stack. Check the `Status Reason` for the
 `HeadNodeWaitCondition` or failures on other resources to find additional failure details. For more information, see
-[View AWS CloudFormation events on CREATE_FAILED](troubleshooting-v3-cluster-deployment.md#troubleshooting-v3-cluster-deployment-events "troubleshooting-v3-cluster-deployment.md#troubleshooting-v3-cluster-deployment-events").
+[View CloudFormation events on CREATE_FAILED](troubleshooting-v3-cluster-deployment.md#troubleshooting-v3-cluster-deployment-events "troubleshooting-v3-cluster-deployment.md#troubleshooting-v3-cluster-deployment-events").
 Check the `/var/log/cfn-init.log` and `/var/log/chef-client.log` files on the head node.
 If cluster creation fails because of head node creation failure and the cluster logs are not available in the cluster log
 group, you must retain the cluster on failure, specify `--rollback-on-failure` = `True` and retrieve
@@ -150,7 +150,7 @@ Check the `/var/log/chef-client.log` file for failure details.
 
 The AWS ParallelCluster version used to create the custom AMI is different than the AWS ParallelCluster version used to configure the
 cluster. In the CloudFormation console, view the cluster CloudFormation stack details and check the `Status Reason` for the
-`HeadNodeWaitCondition` to get additional details on the AWS ParallelCluster versions and the AMI. For more information, see [View AWS CloudFormation events on CREATE_FAILED](troubleshooting-v3-cluster-deployment.md#troubleshooting-v3-cluster-deployment-events "troubleshooting-v3-cluster-deployment.md#troubleshooting-v3-cluster-deployment-events").
+`HeadNodeWaitCondition` to get additional details on the AWS ParallelCluster versions and the AMI. For more information, see [View CloudFormation events on CREATE_FAILED](troubleshooting-v3-cluster-deployment.md#troubleshooting-v3-cluster-deployment-events "troubleshooting-v3-cluster-deployment.md#troubleshooting-v3-cluster-deployment-events").
 
 - How to resolve?
 
@@ -270,7 +270,7 @@ For more information, see [failureCode is HeadNodeBootstrapFailure with failureR
 
 For more information, see [failureCode is ResourceCreationFailure](#create-cluster-resource-creation-failure-v3 "#create-cluster-resource-creation-failure-v3").
 
-## Seeing `Failed to run cfn-init...` or other errors in the AWS CloudFormation stack
+## Seeing `Failed to run cfn-init...` or other errors in the CloudFormation stack
 
 Check the `/var/log/cfn-init.log` and `/var/log/chef-client.log` for additional failure details.
 

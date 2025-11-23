@@ -18,7 +18,7 @@ see [AWS services used by AWS ParallelCluster](aws-services-v3.md "aws-services-
 - [Creating a cluster with Slurm accounting](tutorials_07_slurm-accounting-v3.md "tutorials_07_slurm-accounting-v3.md")
 - [Creating a cluster with an external Slurmdbd accounting](external-slurmdb-accounting.md "external-slurmdb-accounting.md")
 - [Reverting to a previous AWS Systems Manager document version](tutorials_08_ssm-document-version-rev-v3.md "tutorials_08_ssm-document-version-rev-v3.md")
-- [Creating a cluster with AWS CloudFormation](tutorials_09_cfn-custom-resource-v3.md "tutorials_09_cfn-custom-resource-v3.md")
+- [Creating a cluster with CloudFormation](tutorials_09_cfn-custom-resource-v3.md "tutorials_09_cfn-custom-resource-v3.md")
 - [Deploy ParallelCluster API with Terraform](tutorial-deploy-terraform.md "tutorial-deploy-terraform.md")
 - [Creating a cluster with Terraform](tutorial-create-cluster-terraform.md "tutorial-create-cluster-terraform.md")
 - [Creating a custom AMI with Terraform](tutorial-create-ami-terraform.md "tutorial-create-ami-terraform.md")

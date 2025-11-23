@@ -21,7 +21,7 @@ hosted on Amazon API Gateway in your AWS account. For more information about the
 
 ## Install the PCUI
 
-To install an instance of the AWS ParallelCluster UI (PCUI), choose an AWS CloudFormation quick-create link for the AWS Region in which you create clusters. The
+To install an instance of the AWS ParallelCluster UI (PCUI), choose an CloudFormation quick-create link for the AWS Region in which you create clusters. The
 quick-create URL takes you to a **Create Stack Wizard** where you provide quick-create stack template inputs and deploy the
 stack. For more information about CloudFormation quick-create stacks, see [Creating quick-create links for stacks](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stacks-quick-create-links.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stacks-quick-create-links.md") in
 the _AWS CloudFormation User Guide_.
@@ -61,7 +61,7 @@ After deployment completes successfully, the PCUI will send a temporary password
 to access the PCUI. If you delete the email before you save or use the temporary password, you must delete the stack and reinstall the
 PCUI. 4. Keep the rest of the form blank or enter values for (optional) parameters to customize the PCUI build. 5. Note the stack name for use in later steps. 6. Navigate to **Capabilities**. Agree to the CloudFormation capabilities. 7. Choose **Create**. It takes about 15 minutes to complete the AWS ParallelCluster API and PCUI deployment. 8. View the stack details as the stack is created. 9. After the deployment completes, open the admin email that was sent to the address you entered and that contains the temporary password. Use that
 to access the PCUI. (Remember, if you permanently delete the email before you log in to the PCUI, you must delete the PCUI stack you
-created and reinstall the PCUI. 10. In the AWS CloudFormation console list of stacks, choose the link to the stack name that you noted in a previous step. 11. In **Stack details**, choose **Outputs** and select the link for the key named **`Stackname`URL** to
+created and reinstall the PCUI. 10. In the CloudFormation console list of stacks, choose the link to the stack name that you noted in a previous step. 11. In **Stack details**, choose **Outputs** and select the link for the key named **`Stackname`URL** to
 open the PCUI (where **`Stackname`** is the name
 that you noted in a previous step). 12. Enter the temporary password. Follow the steps to create your own password and log in again. 13. You are now on the home page of the PCUI in the AWS Region that you selected. 14. To get started using the PCUI, see [Configure and create a cluster with the
 PCUI](configure-create-pcui-v3.md "configure-create-pcui-v3.md").

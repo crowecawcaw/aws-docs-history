@@ -33,12 +33,12 @@ message likely looks like the following output:
 
 ###### Topics
 
-- [View AWS CloudFormation events on CREATE_FAILED](#troubleshooting-v3-cluster-deployment-events "#troubleshooting-v3-cluster-deployment-events")
+- [View CloudFormation events on CREATE_FAILED](#troubleshooting-v3-cluster-deployment-events "#troubleshooting-v3-cluster-deployment-events")
 - [Use the CLI to view log streams](#troubleshooting-v3-cluster-deployment-cli-logstreams "#troubleshooting-v3-cluster-deployment-cli-logstreams")
 - [Re-create the failed cluster with
   rollback-on-failure](#troubleshooting-v3-cluster-deployment-cli-fail-rollback "#troubleshooting-v3-cluster-deployment-cli-fail-rollback")
 
-## View AWS CloudFormation events on `CREATE_FAILED`
+## View CloudFormation events on `CREATE_FAILED`
 
 You can use the console or the AWS ParallelCluster CLI to view CloudFormation events on `CREATE_FAILED` errors to help find the root cause.
 

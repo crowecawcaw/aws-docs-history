@@ -24,7 +24,7 @@ Run the following commands to deploy the API:
 
 **Customize your deployment**
 
-You can use the AWS CloudFormation parameters exposed by the template to customize the API deployment.
+You can use the CloudFormation parameters exposed by the template to customize the API deployment.
 To configure the value of a parameter when you deploy through the CLI, the following option
 can be used: `--parameters ParameterKey=KeyName,ParameterValue=Value`.
 

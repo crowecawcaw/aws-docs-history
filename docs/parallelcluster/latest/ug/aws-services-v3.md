@@ -6,7 +6,7 @@ The following Amazon Web Services (AWS) services are used by AWS ParallelCluster
 
 - [Amazon API Gateway](#aws-api-gateway-v3 "#aws-api-gateway-v3")
 - [AWS Batch](#aws-batch-v3 "#aws-batch-v3")
-- [AWS CloudFormation](#aws-services-cloudformation-v3 "#aws-services-cloudformation-v3")
+- [CloudFormation](#aws-services-cloudformation-v3 "#aws-services-cloudformation-v3")
 - [Amazon CloudWatch](#amazon-cloudwatch-v3 "#amazon-cloudwatch-v3")
 - [Amazon CloudWatch Events](#amazon-cloudwatch-events-v3 "#amazon-cloudwatch-events-v3")
 - [Amazon CloudWatch Logs](#amazon-cloudwatch-logs-v3 "#amazon-cloudwatch-logs-v3")
@@ -52,17 +52,17 @@ AWS Batch is used only with AWS Batch clusters.
 For more information about AWS Batch, see [https://aws.amazon.com/batch/](https://aws.amazon.com/batch/ "https://aws.amazon.com/batch/")
 and [https://docs.aws.amazon.com/batch/](../../../batch.md "../../../batch.md").
 
-## AWS CloudFormation
+## CloudFormation
 
-AWS CloudFormation is an infrastructure-as-code service that provides a common language to model and provision
+CloudFormation is an infrastructure-as-code service that provides a common language to model and provision
 AWS and third-party application resources in your cloud environment. It is the main service used
 by AWS ParallelCluster. Each cluster in AWS ParallelCluster is represented as a stack, and all resources
 required by each cluster are defined within the AWS ParallelCluster CloudFormation template. In most cases,
-AWS ParallelCluster CLI commands directly correspond to AWS CloudFormation stack commands, such as create, update,
-and delete. Instances that are launched within a cluster make HTTPS calls to the AWS CloudFormation endpoint in
+AWS ParallelCluster CLI commands directly correspond to CloudFormation stack commands, such as create, update,
+and delete. Instances that are launched within a cluster make HTTPS calls to the CloudFormation endpoint in
 the AWS Region where the cluster is launched.
 
-For more information about AWS CloudFormation, see [https://aws.amazon.com/cloudformation/](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") and [https://docs.aws.amazon.com/cloudformation/](../../../cloudformation.md "../../../cloudformation.md").
+For more information about CloudFormation, see [https://aws.amazon.com/cloudformation/](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") and [https://docs.aws.amazon.com/cloudformation/](../../../cloudformation.md "../../../cloudformation.md").
 
 ## Amazon CloudWatch
 

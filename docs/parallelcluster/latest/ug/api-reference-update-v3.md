@@ -4,7 +4,7 @@ In this section, you will learn how to use one of the two available options to u
 
 **Upgrading to a newer AWS ParallelCluster version**
 
-Option 1: To remove the existing API, delete the corresponding AWS CloudFormation stack and deploy the
+Option 1: To remove the existing API, delete the corresponding CloudFormation stack and deploy the
 new API as shown above.
 
 Option 2: To update the existing API, run the following commands:

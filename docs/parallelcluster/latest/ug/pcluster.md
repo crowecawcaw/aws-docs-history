@@ -1,47 +1,48 @@
-# `pcluster create-cluster`
+# `pcluster list-cluster-log-streams`
 
-Creates an AWS ParallelCluster cluster.
+Retrieve the list of log streams associated with a cluster.
 
 ```
-pcluster create-cluster [-h]
-                 --cluster-configuration `CLUSTER_CONFIGURATION`
+pcluster list-cluster-log-streams [-h]
                  --cluster-name `CLUSTER_NAME`
-                [--debug]
-                [--dryrun `DRYRUN`]
+                [--filters `FILTERS` [`FILTERS` ...]]
+                [--next-token `NEXT_TOKEN`] [--debug]
                 [--query `QUERY`]
                 [--region `REGION`]
-                [--rollback-on-failure `ROLLBACK_ON_FAILURE`]
-                [--suppress-validators `SUPPRESS_VALIDATORS` [`SUPPRESS_VALIDATORS` ...]]
-                [--validation-failure-level {`INFO`,`WARNING`,`ERROR`}]
 ```
 
 ## Named arguments
 
 `-h, --help`
 
-Shows the help text for `pcluster create-cluster`.
-
-`--cluster-configuration, -c `CLUSTER_CONFIGURATION``
-
-Specifies the YAML cluster configuration file.
+Shows the help text for `pcluster list-cluster-log-streams`.
 
 `--cluster-name, -n `CLUSTER_NAME``
 
-Specifies the name of the cluster to be created.
-
-The name must start with an alphabetical character. The name can have up to 60 characters.
-If Slurm accounting is enabled, the name can have up to 40 characters.
-
-Valid characters: a-z, A-Z, 0-9, and - (hyphen).
+Specifies the name of the cluster.
 
 `--debug`
 
 Enables debug logging.
 
-`--dryrun `DRYRUN``
+`--filters `FILTERS` [`FILTERS`
+ ...]`
 
-When `true`, the command performs validation without creating any resources. You can use this to
-validate the cluster configuration. (Defaults to `false`.)
+Specifies filters for the log streams. Format: `Name=a,Values=1 Name=b,Values=2,3`. Supported
+filters are:
+
+`private-dns-name`
+
+Specifies the short form of the private DNS name of the instance (e.g.
+`ip-10-0-0-101`).
+
+`node-type`
+
+Specifies the node type, the only accepted value for this filter is `HeadNode`.
+
+`--next-token `NEXT_TOKEN``
+
+The token for the next set of results.
 
 `--query `QUERY``
 
@@ -49,40 +50,23 @@ Specifies the JMESPath query to perform on the output.
 
 `--region, -r `REGION``
 
-Specifies the AWS Region to use. The AWS Region must be specified, using the [Region](cluster-configuration-file-v3.md#yaml-Region "cluster-configuration-file-v3.md#yaml-Region") setting in the cluster configuration file, the `AWS_DEFAULT_REGION`
+Specifies the AWS Region to use. The AWS Region must be specified, using the `AWS_DEFAULT_REGION`
 environment variable, the `region` setting in the `[default]` section of the
 `~/.aws/config` file, or the `--region` parameter.
-
-`--rollback-on-failure
- `ROLLBACK_ON_FAILURE``
-
-When `true`, automatically initiates a cluster stack rollback on failures. (Defaults to
-`true`.)
-
-`--suppress-validators `SUPPRESS_VALIDATORS`
- [`SUPPRESS_VALIDATORS` ...]`
-
-Identifies one or more config validators to suppress.
-
-Format: (`ALL`|type:`[A-Za-z0-9]+`)
-
-`--validation-failure-level
- {`INFO`,`WARNING`,`ERROR`}`
-
-Specifies the minimum validation level that will cause the creation to fail. (Defaults to
-`ERROR`.)
 
 **Example using AWS ParallelCluster version 3.1.4:**
 
 ````
-`$` `pcluster create-cluster -c `cluster-config.yaml` -n `cluster-v3```{
- "cluster": {
- "clusterName": "cluster-v3",
- "cloudformationStackStatus": "CREATE_IN_PROGRESS",
- "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:123456789012:stack/cluster-v3/1234abcd-56ef-78gh-90ij-abcd1234efgh",
- "region": "us-east-1",
- "version": "3.1.4",
- "clusterStatus": "CREATE_IN_PROGRESS"
- }
-}`
+`$` `pcluster list-cluster-log-streams \
+ -n `cluster-v3` \
+ -r `us-east-1` \
+ --query `'logStreams[*].logStreamName'```[
+ "ip-172-31-58-205.i-1234567890abcdef0.cfn-init",
+ "ip-172-31-58-205.i-1234567890abcdef0.chef-client",
+ "ip-172-31-58-205.i-1234567890abcdef0.cloud-init",
+ "ip-172-31-58-205.i-1234567890abcdef0.clustermgtd",
+ "ip-172-31-58-205.i-1234567890abcdef0.slurmctld",
+ "ip-172-31-58-205.i-1234567890abcdef0.supervisord",
+ "ip-172-31-58-205.i-1234567890abcdef0.system-messages"
+]`
 ````

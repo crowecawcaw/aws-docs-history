@@ -11,4 +11,4 @@ month.
 | AWS Lambda                   | 1 million free requests each month and 400,000 GB-seconds of compute time each month |
 | EC2 Image Builder            | No cost, except EC2                                                                  |
 | Amazon Elastic Compute Cloud | 15-minute one-time container image build                                             |
-| AWS CloudFormation           | 5 GB data (ingestion, archive storage, and data scanned by Logs Insights queries)    |
+| CloudFormation               | 5 GB data (ingestion, archive storage, and data scanned by Logs Insights queries)    |

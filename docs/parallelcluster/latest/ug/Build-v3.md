@@ -149,7 +149,7 @@ specified together. The format is
 
 `CleanupLambdaRole` (**Optional**, `String`)
 
-The ARN of the IAM role to use for the AWS Lambda function that backs the AWS CloudFormation custom resource that removes
+The ARN of the IAM role to use for the AWS Lambda function that backs the CloudFormation custom resource that removes
 build artifacts on build completion. Lambda needs to be configured as the principal allowed to assume the role.
 The format is `arn:`Partition`:iam::`Account`:role/`RoleName``.
 
