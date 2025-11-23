@@ -16,7 +16,7 @@ If you use AWS Organizations, AWS Config must be enabled with an [AWS Config del
 
 ![CRCD Dashboard: deployment on AWS Organization](images/images/dashboards/crcd-architecture-dashboard-account.png)
 
-An Amazon Athena table is used to extract data from the AWS Config configuration files delivered to Amazon S3. Whenever a new object is added to the bucket, the Lambda Partitioner function is triggered. This function checks if the object is an AWS Config configuration update. If it is, the function adds a new partition to the corresponding Athena table with the new data; otherwise, the function ignores it. The solution provides Athena views, which are SQL queries that extract data from Amazon S3 using the schema defined in the Athena table. Finally, you can visualize the data in a QuickSight dashboard that uses these views through Amazon QuickSight datasets.
+An Amazon Athena table is used to extract data from the AWS Config configuration files delivered to Amazon S3. Whenever a new object is added to the bucket, the Lambda Partitioner function is triggered. This function checks if the object is an AWS Config configuration update. If it is, the function adds a new partition to the corresponding Athena table with the new data; otherwise, the function ignores it. The solution provides Athena views, which are SQL queries that extract data from Amazon S3 using the schema defined in the Athena table. Finally, you can visualize the data in a Quick Sight dashboard that uses these views through Amazon Quick Sight datasets.
 
 ### Log Archive bucket encrypted with an AWS Key Management Service (KMS) key
 
@@ -24,7 +24,7 @@ The deployment process supports Log Archive buckets encrypted using a customer-m
 
 In case of Log Archive account deployment:
 
-- Amazon QuickSight will be granted permissions to use the KMS key for decrypt operations. This is done with an IAM policy. If you prefer, you can manually grant this permission directly on the key policy. See below for instructions.
+- Amazon Quick Sight will be granted permissions to use the KMS key for decrypt operations. This is done with an IAM policy. If you prefer, you can manually grant this permission directly on the key policy. See below for instructions.
 
 In case of Dashboard account deployment:
 
@@ -43,13 +43,13 @@ If your Log Archive bucket is SSE-KMS encrypted, and you do not provide the ARN 
 
 2. An AWS account where you’ll deploy the dashboard.
 3. An IAM Role or IAM User with permissions to deploy the infrastructure using CloudFormation.
-4. Sign up for [Amazon QuickSight](../../../quicksight/latest/user/signing-up.md "../../../quicksight/latest/user/signing-up.md") and create a user:
+4. Sign up for [Amazon Quick Sight](../../../quicksight/latest/user/signing-up.md "../../../quicksight/latest/user/signing-up.md") and create a user:
    1. Select **Enterprise** edition.
    2. For the **Get Paginated Reports add-on**, choose the option you prefer (this is not required for deploying the CRCD dashboard).
-   3. **Use IAM federated identities and QuickSight-managed users**.
+   3. **Use IAM federated identities and Quick Sight-managed users**.
    4. Select the Region where to deploy the dashboard. We recommend using the same Region of your Amazon S3 bucket.
-   5. Add a username and an e-mail where you’ll receive notifications about failed QuickSight datasets updates.
-   6. Use the **QuickSight-managed role (default)**.
+   5. Add a username and an e-mail where you’ll receive notifications about failed Quick Sight datasets updates.
+   6. Use the **Quick Sight-managed role (default)**.
    7. Don’t modify the **Allow access and autodiscovery for these resources** section and click **Finish**.
 
 5. Ensure you have SPICE capacity available in the Region where you’re deploying the dashboard.
@@ -164,7 +164,7 @@ Ensure this is done consistently in every account and Region.
 
 Data transfer costs will incur when Amazon Athena queries an Amazon S3 bucket across Regions.
 
-To avoid cross-region data transfer, Amazon QuickSight and the Amazon S3 bucket containing AWS Config files must be deployed in the same Region.
+To avoid cross-region data transfer, Amazon Quick Sight and the Amazon S3 bucket containing AWS Config files must be deployed in the same Region.
 
 - If you have already deployed either resource, the other must use the same Region. If you haven’t deployed anything yet, you can choose a Region of your preference.
 - If you have deployed both resources in different Regions, we strongly recommend making changes so that both are in the same Region.
@@ -180,11 +180,11 @@ The most important decision is whether to deploy the dashboard on a dedicated Da
 
 #### Log Archive account architecture
 
-| Pros                                                                    | Cons                                                                                                                                                                                                                                       |
-| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Keep your logs secure in the Log Archive account.                       | Your security team must deploy and maintain the AWS Config Dashboard resources, including user access to QuickSight. Alternatively, you have to share access to the Log Archive account with other teams that will manage these resources. |
-| Avoid cost for data transfer and storing data on the Dashboard account. | The CRCD Dashboard adds complexity in user management if you already have QuickSight dashboards deployed in the Log Archive account.                                                                                                       |
-|                                                                         | If you already have S3 object notification configured on your Config bucket, a part of the deployment process must be done manually.                                                                                                       |
+| Pros                                                                    | Cons                                                                                                                                                                                                                                        |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Keep your logs secure in the Log Archive account.                       | Your security team must deploy and maintain the AWS Config Dashboard resources, including user access to Quick Sight. Alternatively, you have to share access to the Log Archive account with other teams that will manage these resources. |
+| Avoid cost for data transfer and storing data on the Dashboard account. | The CRCD Dashboard adds complexity in user management if you already have Quick Sight dashboards deployed in the Log Archive account.                                                                                                       |
+|                                                                         | If you already have S3 object notification configured on your Config bucket, a part of the deployment process must be done manually.                                                                                                        |
 
 #### Dashboard account architecture
 

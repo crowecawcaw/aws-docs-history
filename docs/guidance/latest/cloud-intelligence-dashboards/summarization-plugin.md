@@ -154,7 +154,7 @@ generate summaries as well.
 2. Go to Amazon Step Functions and execute `CID-DC-support-cases-StateMachine` this must collect all Support
    Cases.
 3. You can check the activity of the lambda `CID-DC-support-case-summarization-Lambda`. Make sure this lambda is
-   not triggered errors (Typical issue is the enabling of access to the model. See above). 1. Go to QuickSight and refresh the dataset `support_cases_communications_view`. Once the refresh finishes you can check the Dashboard. The table with cases and case details must contain executive and detailed summaries.
+   not triggered errors (Typical issue is the enabling of access to the model. See above). 1. Go to Quick Sight and refresh the dataset `support_cases_communications_view`. Once the refresh finishes you can check the Dashboard. The table with cases and case details must contain executive and detailed summaries.
 
 ### How often Summarization are updates?
 
@@ -164,7 +164,7 @@ default operates on a daily basis. Once the plugin is deployed, the
 summarization stack enriches cases with summaries right after daily
 collecting new data. Each day, data collection gathers all
 communications that have occurred since the previous collection. The
-QuickSight dashboard updates data on the daily schedule as well. As a
+Quick Sight dashboard updates data on the daily schedule as well. As a
 result, there may be up to a 24-hour delay between when a communication
 occurs and when it appears in the dashboard. We recommend using the AWS
 Support center to get the latest information on the status of the

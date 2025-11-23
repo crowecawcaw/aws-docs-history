@@ -33,7 +33,7 @@ For this solution you must have the following:
 
 - Deployed the [Data Collection Stack](data-collection.md "data-collection.md") with the **AWS Organizations** module deployed.
 - Permissions to create and update Athena views.
-- Permissions to update QuickSight Cloud Intelligence dashboard (CID) datasets
+- Permissions to update Quick Sight Cloud Intelligence dashboard (CID) datasets
 
 ## Step by Step Guide
 
@@ -41,7 +41,7 @@ This guide assumes you have enabled the [Data
 Collection Stack](data-collection.md "data-collection.md") with the **AWS Organizations** module deployed. There
 are two methods of incorporating organization data into your CID
 dashboards. The first covers creating a dedicated view and add the data
-into QuickSight. The other covers updating the `account_map` that is
+into Quick Sight. The other covers updating the `account_map` that is
 already used in most of CID datasets.
 
 Method 2 is the recommended way to make this change.
@@ -49,7 +49,7 @@ Method 2 is the recommended way to make this change.
 Regardless of the path of customization, the last section provides how
 to customize the dashboards in 3 ways: filters, controls and views.
 
-## Method 1 - Updating QuickSight dataset schema
+## Method 1 - Updating Quick Sight dataset schema
 
 ### Step 1. Create View in Athena
 
@@ -83,19 +83,19 @@ FROM "organization_map" limit 10;
 
 1. Move to the next step.
 
-### Step 2. Modify Data Set in Amazon QuickSight
+### Step 2. Modify Data Set in Amazon Quick Sight
 
-Next the data set in Amazon QuickSight needs to be updated so that you
+Next the data set in Amazon Quick Sight needs to be updated so that you
 can see the added fields to use them in your Dashboards and Analyses.
 
-1. Navigate to QuickSight in the console.
+1. Navigate to Quick Sight in the console.
 2. Select Datasets, and then select `summary_view` from the list of datasets.
 
-![QuickSight dataset screen with the datasets navigation item and summary view dataset highlighted](images/customizations/out-integration/ou-integration-01.png) 3. Click on EDIT DATASET.
+![Quick Sight dataset screen with the datasets navigation item and summary view dataset highlighted](images/customizations/out-integration/ou-integration-01.png) 3. Click on EDIT DATASET.
 
 ![Summary view summary page with edit dataset button highlighted](images/customizations/out-integration/ou-integration-02.png) 4. Click on Add data.
 
-![QuickSight edit dataset page with add data button highlighted](images/customizations/out-integration/ou-integration-03.png)
+![Quick Sight edit dataset page with add data button highlighted](images/customizations/out-integration/ou-integration-03.png)
 
 1. Make the following selections:
    - Select DataSource from the first drop down.
@@ -116,7 +116,7 @@ can see the added fields to use them in your Dashboards and Analyses.
 2. Click Apply.
 3. Save and Publish the dataset.
 
-![QuickSight dataset designer showing the summary view dataset with the save and publish button highlighted](images/customizations/out-integration/ou-integration-06.png)
+![Quick Sight dataset designer showing the summary view dataset with the save and publish button highlighted](images/customizations/out-integration/ou-integration-06.png)
 
 1. Now you can do the same for all other datasets (hourly_view, resource_view and others).
 2. Once the dataset
@@ -164,10 +164,10 @@ FROM
 Please explore `organization_data` table for more options that you can use in the view above.
 
 1. Click _Run_ to execute the query and create the view.
-2. Next, switch to QuickSight, locate the `summary_view` dataset and edit that dataset.
+2. Next, switch to Quick Sight, locate the `summary_view` dataset and edit that dataset.
 3. Confirm you see the _OU_ field in your schema.
 4. Save and publish that dataset to have the schema updated and data reloaded.
-5. Repeat these previous steps in QuickSight for each dataset that has `account_map`. Ex: `hourly_view` and `resource_view`
+5. Repeat these previous steps in Quick Sight for each dataset that has `account_map`. Ex: `hourly_view` and `resource_view`
 6. Then follow the section on dashboard customization to complete the customizations.
 
 ## Managing complex organization
@@ -226,9 +226,9 @@ FROM
 ```
 
 1. Click `Run` to execute the query and create the view.
-2. Next, switch to QuickSight, locate the `summary_view` dataset and edit that dataset.
+2. Next, switch to Quick Sight, locate the `summary_view` dataset and edit that dataset.
 3. Save and publish that dataset to have the schema updated and data reloaded.
-4. Repeat these previous steps in QuickSight for each dataset that has `account_map`. Ex: `hourly_view` and `resource_view`
+4. Repeat these previous steps in Quick Sight for each dataset that has `account_map`. Ex: `hourly_view` and `resource_view`
 5. Then follow the section on dashboard customization to complete the customizations.
 
 ## Dashboard Customization
@@ -240,7 +240,7 @@ new releases of CUDOS dashboards. Best practice is to clearly name your
 customized dashboards a clear and unique name separate from the
 dashboards we deploy.
 
-### Step 1. Modify QuickSight Analysis - CUDOS Dashboard
+### Step 1. Modify Quick Sight Analysis - CUDOS Dashboard
 
 After the dataset has been updated you can now add those fields to
 different visualizations. Here we will demonstrate how you can update
@@ -250,16 +250,16 @@ to "Invoiced Spend by Payer Account" visual on the "Executive:
 Billing Summary" sheet to instead reflect the same information by
 organization.
 
-1. Open up QuickSight.
+1. Open up Quick Sight.
 2. Navigate Dashboards and select the CUDOS dashboard.
 3. Save the dashboard as a new analysis named "cudos-out-customization".
 
-![QuickSight save as dialog](images/customizations/out-integration/ou-integration-07.png)
+![Quick Sight save as dialog](images/customizations/out-integration/ou-integration-07.png)
 
 1. In that analysis, select the "Invoiced Spend by Payer Account" visual on the "Executive: Billing Summary" sheet.
 2. Locate the "ou" field that was added in the field list for the _summary_view_ dataset.
 
-![QuickSight analysis showing the field list](images/customizations/out-integration/ou-integration-08.png)
+![Quick Sight analysis showing the field list](images/customizations/out-integration/ou-integration-08.png)
 
 1. Select that field.
 2. Drag and drop that field in Visual details under the GROUP/COLOR FOR BARS section. Make sure the field is at the top of the fields listed there.
@@ -292,15 +292,15 @@ default. You can add more controls to allow you to filter all the
 visuals on a sheet at once. Here we’ll show you how to add organization
 as a control.
 
-1. Open up QuickSight.
+1. Open up Quick Sight.
 2. Navigate Dashboards and select the CUDOS dashboard.
 3. Save the dashboard as a new analysis named "cudos-out-customization".
 
-![QuickSight save as dialog](images/customizations/out-integration/ou-integration-07.png)
+![Quick Sight save as dialog](images/customizations/out-integration/ou-integration-07.png)
 
 1. Click on _Insert_ from the analysis menu and select _Add Parameter_.
 
-![QuickSight insert menu dropdown showing add parameter](images/customizations/out-integration/ou-integration-13.png)
+![Quick Sight insert menu dropdown showing add parameter](images/customizations/out-integration/ou-integration-13.png)
 
 1. Enter _organization_ for the name, leave other settings to their default.
 

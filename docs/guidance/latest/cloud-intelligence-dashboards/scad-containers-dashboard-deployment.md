@@ -11,7 +11,7 @@ CloudFormation
 1. Log in to your **Data Collection** Account.
 2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](/images/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=SCAD-Containers-Dashboard&param_DashboardId=scad-containers-cost-allocation "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=SCAD-Containers-Dashboard¶m_DashboardId=scad-containers-cost-allocation") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as it is. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE_IN_PROGRESS**. Once complete, the stack will show **CREATE_COMPLETE** status 7. You can check the stack output for dashboard URLs.
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=SCAD-Containers-Dashboard&param_DashboardId=scad-containers-cost-allocation "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=SCAD-Containers-Dashboard¶m_DashboardId=scad-containers-cost-allocation") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as it is. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE_IN_PROGRESS**. Once complete, the stack will show **CREATE_COMPLETE** status 7. You can check the stack output for dashboard URLs.
 
 ###### Note
 
@@ -59,6 +59,6 @@ cid-cmd update --dashboard-id scad-containers-cost-allocation
 Note:
 
 Starting from version (v2.0.0), the `scad_cca_hourly_resource_view`
-QuickSight dataset and Athena view are no longer used by the dashboard,
+Quick Sight dataset and Athena view are no longer used by the dashboard,
 and can be deleted.
 Please check the [SCAD Containers Cost Allocation Dashboard v2.0.0 changelog](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-scad-cca.md#scad-containers-cost-allocation-dashboard---v200 "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-scad-cca.md#scad-containers-cost-allocation-dashboard---v200") for more information.

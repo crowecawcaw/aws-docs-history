@@ -36,7 +36,7 @@ See more screenshots in the [usage guide](#graviton-savings-usage-overview "#gra
 The Dashboard uses AWS CUR from [Foundational Dashboards Stack](deployment-in-global-regions.md "deployment-in-global-regions.md"), and additionally AWS Pricing and Inventory Modules
 from [Data Collection Stack](data-collection.md "data-collection.md"). These stacks
 automatically collect data and store on Amazon S3. Customers can then
-leverage Amazon Athena and provided Amazon QuickSight dashboard for
+leverage Amazon Athena and provided Amazon Quick Sight dashboard for
 visualization and analysis.
 
 ![Data Collection Overview](images/basic-data-collection.png)

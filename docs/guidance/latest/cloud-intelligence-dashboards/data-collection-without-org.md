@@ -76,7 +76,7 @@ API.
 4. The data collection Lambda goes to each account and assume the role to read the information
 5. The Lambda Stores collected data to S3
 6. Customer can query tables via Athena
-7. or deploy Quicksight Dashboards on top of these data.
+7. or deploy Quick Sight Dashboards on top of these data.
 
 To enable data collection you must first ensure that the [deploy-in-linked-account.yaml](https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-in-linked-account.yaml "https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-in-linked-account.yaml")
 CloudFormation template is installed in all concerned accounts. The
@@ -100,7 +100,7 @@ Note, not all Data Collection modules will work without AWS Organizations. The f
 
 1. If you have not done so already,
    [deploy
-   the permissions stack](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-in-linked-account.yaml&stackName=CidDataCollectionLinkedAccountReadPermissionsStack&param_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_IncludeBudgetsModule=no&param_IncludeECSChargebackModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeTAModule=yes&param_IncludeTransitGatewayModule=no "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-in-linked-account.yaml&stackName=CidDataCollectionLinkedAccountReadPermissionsStack¶m_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID¶m_IncludeBudgetsModule=no¶m_IncludeECSChargebackModule=no¶m_IncludeInventoryCollectorModule=no¶m_IncludeRDSUtilizationModule=no¶m_IncludeTAModule=yes¶m_IncludeTransitGatewayModule=no") into each Linked Account in scope. You should
+   the permissions stack](cloudformation/home.md#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-in-linked-account.yaml&stackName=CidDataCollectionLinkedAccountReadPermissionsStack&param_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_IncludeBudgetsModule=no&param_IncludeECSChargebackModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeTAModule=yes&param_IncludeTransitGatewayModule=no "cloudformation/home.md#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-in-linked-account.yaml&stackName=CidDataCollectionLinkedAccountReadPermissionsStack¶m_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID¶m_IncludeBudgetsModule=no¶m_IncludeECSChargebackModule=no¶m_IncludeInventoryCollectorModule=no¶m_IncludeRDSUtilizationModule=no¶m_IncludeTAModule=yes¶m_IncludeTransitGatewayModule=no") into each Linked Account in scope. You should
    adjust the template parameters to choose the modules you wish to use,
    using the list of supported modules above.
 2. Follow [Step 2](data-collection-deployment.md "data-collection-deployment.md") of the standard Data Collection deployment to deploy the Data

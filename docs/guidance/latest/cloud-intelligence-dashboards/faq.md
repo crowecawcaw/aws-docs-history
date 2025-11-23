@@ -73,10 +73,10 @@ CUR.
 - Edit/Show query for summary_view view
 - Modify the line towards the bottom that has 2 entries saying "7" months (6 past + 1 current) and replace them with your desired months
 - Run the query and it should complete successfully and that will automatically update the view.
-- Go to QuickSight and select Dataset in the left tab
+- Go to Quick Sight and select Dataset in the left tab
 - Select the summary_view and click on refresh dataset and do a full refresh. It might take some time depending on data. If you run into
-  SPICE issues, make sure to adjust spice capacity in your QuickSight account as needed.
-- Once it is done, check your QuickSight dashboard and select a visual and click on view dashboard filter to modify the date to either Relative
+  SPICE issues, make sure to adjust spice capacity in your Quick Sight account as needed.
+- Once it is done, check your Quick Sight dashboard and select a visual and click on view dashboard filter to modify the date to either Relative
   date or Date and Time range to verify the data for the past years.
 
 Note: Some visuals are additionally limited by filters. Feel free to
@@ -84,13 +84,13 @@ adjust them within dashboard as needed.
 
 ### In which regions can the Cloud Intelligence Dashboards be deployed in?
 
-CID requires QuickSight, Athena and Glue. Cost Usage Reports (CUR)
+CID requires Quick Sight, Athena and Glue. Cost Usage Reports (CUR)
 Bucket has to be in the same region as those services. CUR bucket can be
 replicated to the region that supports CIDs via S3 bucket replication.
 When using the cid-cmd, you can define the Region to deploy the
 dashboard in as a parameter e.g. _cid-cmd --region_name eu-west-2 deploy_.
 
-- [QuickSight](../../../general/latest/gr/quicksight.md "../../../general/latest/gr/quicksight.md")
+- [Quick Sight](../../../general/latest/gr/quicksight.md "../../../general/latest/gr/quicksight.md")
 - [Glue](../../../general/latest/gr/glue.md "../../../general/latest/gr/glue.md")
 - [Athena](../../../general/latest/gr/athena.md "../../../general/latest/gr/athena.md")
 
@@ -104,9 +104,9 @@ deploy.
 
 ### Do I need to learn any coding skills to customize the analysis?
 
-No, just AWS native BI service QuickSight and customer facing data Cost
+No, just AWS native BI service Quick Sight and customer facing data Cost
 and Usage Reports structure. Here is public documentation for
-[QuickSight](../../../quicksight/index.md "../../../quicksight/index.md") and
+[Quick Sight](../../../quicksight/index.md "../../../quicksight/index.md") and
 [Cost
 Usage Reports](../../../cur/latest/userguide/data-dictionary.md "../../../cur/latest/userguide/data-dictionary.md").
 
@@ -152,8 +152,8 @@ setup](deployment-in-global-regions.md#deployment-in-global-regions-deployment "
   optionally create a Support Case in each Account asking to Backfill the
   CUR `cid` with historical data (up to 3 years).
 - Step 3: [Run CFN "All-in-one Dashboards stack"](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard "deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard") that will create the Glue Crawler,
-  Athena Database, Athena Tables, QuickSight DataSets and Dashboards.
-  (QuickSight Enterprise must be activated in this account, [Prepare Amazon QuickSight](deployment-in-global-regions.md#deploy-in-global-regions-prepare-quicksight "deployment-in-global-regions.md#deploy-in-global-regions-prepare-quicksight"))
+  Athena Database, Athena Tables, Quick Sight DataSets and Dashboards.
+  (Quick Sight Enterprise must be activated in this account, [Prepare Amazon Quick Sight](deployment-in-global-regions.md#deploy-in-global-regions-prepare-quicksight "deployment-in-global-regions.md#deploy-in-global-regions-prepare-quicksight"))
 
 ![Multi Linked Account Account Setup](images/multi-account/multi-linked-account-architecture.png)
 
@@ -164,7 +164,7 @@ Stack" in the new account.
 
 ### What are the solution limitations?
 
-Amazon QuickSight SPICE capacity for Enterprise edition is up to 1
+Amazon Quick Sight SPICE capacity for Enterprise edition is up to 1
 billion rows or 1 TB per dataset. Amazon Athena DML query timeout is max
 3 hours. If you face these limitations please check troubleshooting
 section of this FAQ. Also you can contact your Technical Account Manager
@@ -173,19 +173,19 @@ section of this FAQ. Also you can contact your Technical Account Manager
 ### How can I share dashboards with other users?
 
 You can share dashboards and visuals with specific users or groups in
-your account or with everyone in your Amazon QuickSight account. Or you
+your account or with everyone in your Amazon Quick Sight account. Or you
 share them with anyone on the internet. You can share dashboards and
-visuals by using the QuickSight console or the QuickSight API. Access to
+visuals by using the Quick Sight console or the Quick Sight API. Access to
 a shared visual depends on the sharing settings that are configured for
 the dashboard that the visual belongs to. To share and embed visuals to
 your website or application, adjust the sharing settings of the
 dashboard that it belongs to. For more information, see the following:
 
 - [Granting
-  individual Amazon QuickSight users and groups access to a dashboard in
-  Amazon QuickSight](../../../quicksight/latest/user/share-a-dashboard-grant-access-users.md "../../../quicksight/latest/user/share-a-dashboard-grant-access-users.md")
+  individual Amazon Quick Sight users and groups access to a dashboard in
+  Amazon Quick Sight](../../../quicksight/latest/user/share-a-dashboard-grant-access-users.md "../../../quicksight/latest/user/share-a-dashboard-grant-access-users.md")
 - [Granting
-  everyone in your Amazon QuickSight account access to a dashboard](../../../quicksight/latest/user/share-a-dashboard-grant-access-everyone.md "../../../quicksight/latest/user/share-a-dashboard-grant-access-everyone.md")
+  everyone in your Amazon Quick Sight account access to a dashboard](../../../quicksight/latest/user/share-a-dashboard-grant-access-everyone.md "../../../quicksight/latest/user/share-a-dashboard-grant-access-everyone.md")
 - See more in [share section of this workshop](share-dashboards.md "share-dashboards.md").
 
 ### How is the Unit Cost is being calculated?
@@ -259,13 +259,13 @@ Due to a recent change in CUR2.0 data some customers can
 experience inconsistencies in data. We invite customers to
 [modify
 Athena Views](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/commit/b11e8a500a549c9bf7fe379e870a3b1af65a5465 "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/commit/b11e8a500a549c9bf7fe379e870a3b1af65a5465") (summary_view, hourly_view and resource_view), and then
-refresh corresponding datasets in QuickSight. Alternatively customers
+refresh corresponding datasets in Quick Sight. Alternatively customers
 can use [recursive update](update-dashboards.md "update-dashboards.md").
 
 1. Make sure you’re
    using the latest version of dashboards and underlying datasets. Consider
    running [recursive update](update-dashboards.md "update-dashboards.md").
-2. Check the QuickSight dataset refreshes — sometimes they error out. They
+2. Check the Quick Sight dataset refreshes — sometimes they error out. They
    should be scheduled for once a day at least.
 3. Cost Explorer does round
    cost values, so we’ve seen these rounding errors propagate to noticeable
@@ -349,7 +349,7 @@ After you run these instances, on the next CUR generation and Crawler
 run, the new columns will appear in your CUR table and you can retry.
 Typically this takes 24 hours.
 
-#### I’m getting an error in QuickSight that is saying Athena timed out.
+#### I’m getting an error in Quick Sight that is saying Athena timed out.
 
 For very large CUR files, Athena may time out trying to query the data
 for summary_view. In Athena, find the summary_view view, click the three
@@ -358,7 +358,7 @@ dots next to it and select show/edit query. Modify the following:
 - [Request Athena](https://docs.amazonaws.cn/en_us/athena/latest/ug/service-limits.html? "https://docs.amazonaws.cn/en_us/athena/latest/ug/service-limits.html?") DML query timeout increase via support case.
 - Or, adjust the granularity to monthly, by changing "day" to "month" in row 6.
 - Or, adjust the look back from "7" months to desired time-frame in row 75.
-- In QuickSight, refresh your dataset.
+- In Quick Sight, refresh your dataset.
 
 #### HIVE_PARTITION_SCHEMA_MISMATCH There is a mismatch between the table and partition schemas. The types are incompatible and cannot be coerced
 
@@ -369,12 +369,12 @@ steps](https://repost.aws/knowledge-center/athena-hive-partition-schema-mismatch
 
 #### Can we use Incremental Refresh for CUR Datasets?
 
-No. QuickSight Datasets using Cost and Usage Reports (CUR) require Full
+No. Quick Sight Datasets using Cost and Usage Reports (CUR) require Full
 Refresh exclusively. Incremental Refresh cannot be used because AWS
 updates and overwrites previous month’s CUR data after invoice
 finalization, which typically occurs mid-month. To ensure data accuracy
 and consistency, the 'Full Refresh' must be implemented for all CUR-based
-datasets in QuickSight.
+datasets in Quick Sight.
 
 ## Pricing
 
@@ -384,8 +384,8 @@ Assumptions for a set of Foundational Dashboards:
 
 - Number of working days per month = (22)
 - SPICE capacity = (100 GB)
-- Number of QuickSight authors = (3)
-- Number of QuickSight readers = (15)
+- Number of Quick Sight authors = (3)
+- Number of Quick Sight readers = (15)
 
 Cost breakdown using the
 [AWS
@@ -394,11 +394,11 @@ Pricing Calculator](https://calculator.aws/#/estimate?id=991281b8b57ced55853631c
 - S3 cost for CUR: $5-10/month\*\*
 - AWS Glue Crawler: $3/month\*\*
 - AWS Athena data scanned: $15/month\*\*
-- QuickSight Enterprise: ⇐ $24/month/author or $3/month/reader. See [Pricing](https://aws.amazon.com/quicksight/pricing/ "https://aws.amazon.com/quicksight/pricing/")
-- QuickSight SPICE capacity: $10-20/month\*\*
+- Quick Sight Enterprise: ⇐ $24/month/author or $3/month/reader. See [Pricing](https://aws.amazon.com/quicksight/pricing/ "https://aws.amazon.com/quicksight/pricing/")
+- Quick Sight SPICE capacity: $10-20/month\*\*
 - Total: $100-$200 monthly
 
-There is also a free trial for 30 days for 4 users of QuickSight, so the
+There is also a free trial for 30 days for 4 users of Quick Sight, so the
 first month’s overall cost may be less if a trial period is still
 available.
 
@@ -432,7 +432,7 @@ Step by step can be found on the video below
 ### Can I translate Dashboards to another language?
 
 Translating the Dashboard into another language poses a significant
-challenge. While it’s theoretically possible to generate a QuickSight
+challenge. While it’s theoretically possible to generate a Quick Sight
 Analysis from the Dashboard and adjust titles and static text in
 recommendations, achieving a complete translation of dashboards is a
 highly complex task. The dashboards use fields from the Cost and Usage
@@ -593,7 +593,7 @@ aws s3 cp --recursive ./ s3://cid-111112222233-shared/cur/777888899944/cid/cid/
 ```
 
 1. Refresh datasets
-   QuickSight will be automatically updated within 24h. You can manually
+   Quick Sight will be automatically updated within 24h. You can manually
    refresh the dataset by following this steps:
 
 - Go to Glue console and run the CID Glue Crawler
@@ -606,7 +606,7 @@ aws s3 cp --recursive ./ s3://cid-111112222233-shared/cur/777888899944/cid/cid/
 Do you want to give access to the dashboards to someone within your
 organization, but you only want them to see data from accounts or
 business units associated with their role or position? You can use row
-level security in QuickSight to accomplish limiting access to data by
+level security in Quick Sight to accomplish limiting access to data by
 user. In these steps below, we will define specific Linked Account IDs
 against individual users. Once the Row-Level Security is enabled, users
 will continue to load the same Dashboards and Analyses, but will have
@@ -619,7 +619,7 @@ See more in [Row Level Security](row-level-security.md "row-level-security.md") 
 
 ### We have an encrypted S3 buckets for CUR and Athena query results. Does CID Framework support encrypted S3 buckets?
 
-Yes. QuickSight would require an IAM role and a suitable IAM policy
+Yes. Quick Sight would require an IAM role and a suitable IAM policy
 allowing access to KMS.
 
 ### Can I encrypt my CUR buckets in S3?
@@ -631,7 +631,7 @@ like SCP can also be applied in your Organization. For troubleshooting
 IAM permissions you can use CloudTrail and open support tickets with
 cloud support engineers. Here is a sample KMS key policy that should be
 added in cases where the CUR bucket is KMS encrypted. The policy allows
-QuickSight and Glue roles to decrypt the data encrypted with that KMS
+Quick Sight and Glue roles to decrypt the data encrypted with that KMS
 key.
 
 ###### Important
@@ -647,7 +647,7 @@ by other services, like key administrators policy.
 
 ```
   {
-      "Sid": "Allow Quicksight and Glue",
+      "Sid": "Allow Quick Sight and Glue",
       "Action": "kms:Decrypt",
       "Effect": "Allow",
       "Principal":
@@ -673,6 +673,24 @@ recommend CUR bucket replication also because the Athena tables are
 created/updated via a Glue crawler where you get all CUR schema changes
 handled. Glue crawlers don’t support cross account set up. It also gets
 significantly more complicated if KMS encryption is used.
+
+## Backup / Disaster Recovery
+
+### How can I implement backup and disaster recovery for CID?
+
+We recommend installation from scratch in case if you fully lost the access to your Quick Sight account. But you may want to backup data, collected by CID as well as your custom dashboards.
+
+**Backup:**
+
+1. Configure cross-region/cross-account replication to DR region/account for S3 CUR and data collection buckets (cid-\*). For CUR you can request backfill for 3 years of data.
+2. Periodically backup your dashboards using [bundles](https://repost.aws/articles/ARNZN2L2L2SomnCShtJaB-qA/amazon-quicksight-asset-deployments-using-assetbundle-export-and-import-apis-private-datasource-guidelines "https://repost.aws/articles/ARNZN2L2L2SomnCShtJaB-qA/amazon-quicksight-asset-deployments-using-assetbundle-export-and-import-apis-private-datasource-guidelines") or using `cid-cmd export`. Both can be used in bash or python. Store artifacts on S3 in DR region/account.
+3. If you use customization of Athena views, they must be backed up as well.
+
+**Restore:**
+
+1. Install CID from scratch.
+2. Sync S3 buckets.
+3. Install additional dashboards from backup.
 
 ## Optimization Data Collection FAQs
 
@@ -745,7 +763,7 @@ This will move all current files into the new format
 ### What’s new in CUDOS v5 compare to previous version?
 
 To improve performance in CUDOS v5 we’ve re-designed dataset structure.
-All datasets used by CUDOS v5 use fast QuickSight SPICE storage which
+All datasets used by CUDOS v5 use fast Quick Sight SPICE storage which
 reduces time required to load visuals. CUDOS v5 is using 3 datasets:
 
 - **summary_view** with historical data for last 7 months (by default) and
@@ -767,7 +785,7 @@ full list of changes
 
 ### How to update to CUDOS v5 if I have previous version of CUDOS installed?
 
-We’ve released CUDOS v5 as a separate QuickSight template. This allows
+We’ve released CUDOS v5 as a separate Quick Sight template. This allows
 having both CUDOS v5 and CUDOS v4 deployed in parallel to switch to
 CUDOS v5 over time and delete CUDOS v4. You can deploy CUDOS v5 with one
 of the following options:
@@ -825,7 +843,7 @@ If you would like to delete previous version of CUDOS you can run `cid-cmd delet
    SPICE reduces amount of data scanned by Athena compare to previous
    version.
 5. **Row level security (RLS)**: If you are using row level security
-   feature of QuickSight you would need to apply RLS to new datasets
+   feature of Quick Sight you would need to apply RLS to new datasets
    hourly_view and resource_view before sharing dashboard with your users.
 6. **Share CUDOS v5 dashboard with users**: CUDOS v5 has a new URL to the
    dashboard [https://quicksight.aws.amazon.com/sn/dashboards/cudos-v5](https://quicksight.aws.amazon.com/sn/dashboards/cudos-v5 "https://quicksight.aws.amazon.com/sn/dashboards/cudos-v5"). You

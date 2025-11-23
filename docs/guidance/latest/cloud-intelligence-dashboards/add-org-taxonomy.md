@@ -201,9 +201,9 @@ Please note that introducing tags with many unique values can significantly expa
 
 ###### Warning
 
-Each tag added to the dashboard increases the cardinality of data and increases the size of aggregated SPICE datasets in Amazon QuickSight. This architectural decision directly impacts SPICE caching size and performance. We recommend selecting only the minimum necessary tags to satisfy business requirements.
+Each tag added to the dashboard increases the cardinality of data and increases the size of aggregated SPICE datasets in Amazon Quick Sight. This architectural decision directly impacts SPICE caching size and performance. We recommend selecting only the minimum necessary tags to satisfy business requirements.
 
-If your QuickSight datasets takes too much time refreshing after configuring the tags, please remove all tags (`cid update --force --recursive -y`) and try re-adding them one by one.
+If your Quick Sight datasets takes too much time refreshing after configuring the tags, please remove all tags (`cid update --force --recursive -y`) and try re-adding them one by one.
 
 ## Adding Taxonomy to the Dashboards
 
@@ -229,7 +229,7 @@ pip3 install -U cid-cmd
 cid-cmd update --force --recursive
 ```
 
-After update Amazon QuickSight datasets will be refreshed automatically. During the refresh process you may see `Dataset changed too much` error which should disappear once datasets are fully refreshed.
+After update Amazon Quick Sight datasets will be refreshed automatically. During the refresh process you may see `Dataset changed too much` error which should disappear once datasets are fully refreshed.
 
 See more in [update](update-dashboards.md "update-dashboards.md") documentation.
 

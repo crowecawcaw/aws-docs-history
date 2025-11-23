@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The End User Computing (EUC) Dashboard provides a unified view of your AWS EUC environment through an intuitive QuickSight interface. Key capabilities include:
+The End User Computing (EUC) Dashboard provides a unified view of your AWS EUC environment through an intuitive Quick Sight interface. Key capabilities include:
 
 - Operational visibility into Amazon WorkSpaces and Amazon AppStream 2.0 usage patterns
 - Cost optimization insights and spending analytics
@@ -69,7 +69,7 @@ The dashboard has six tabs:
 
 ## Prerequisites
 
-1. Deploy one or more of the foundational dashboards: [CUDOS, Cost Intelligence, or KPI Dashboard](cudos-cid-kpi.md "cudos-cid-kpi.md"). This will enable CUR and will enable required QuickSight and Athena resources needed for this dashboard.
+1. Deploy one or more of the foundational dashboards: [CUDOS, Cost Intelligence, or KPI Dashboard](cudos-cid-kpi.md "cudos-cid-kpi.md"). This will enable CUR and will enable required Quick Sight and Athena resources needed for this dashboard.
 2. [Deploy](data-collection-deployment.md "data-collection-deployment.md") or [Update](data-collection-update.md "data-collection-update.md") the Data Collection Lab and make sure the following modules are enabled. Version 3.2.0 or higher required.
    - **Include Inventory Collector Module** (Mandatory) - This enables the collection of WorkSpaces environmental information using the WorkSpaces API.
    - **Include WorkSpaces Utilization Data Collection Module** (Optional) - This enables the collection of Cloudwatch metrics for WorkSpaces. Please see **Visualizing WorkSpaces Cloudwatch Metric** section below to configure this.

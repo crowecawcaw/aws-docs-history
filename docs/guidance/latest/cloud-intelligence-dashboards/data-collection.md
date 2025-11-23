@@ -66,7 +66,7 @@ several accounts:
    the table in the Glue Data Catalog.
 6. Collected data is then available to be analyzed with
    [Amazon Athena](https://aws.amazon.com/athena "https://aws.amazon.com/athena") and visualized with
-   [Amazon QuickSight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") using the Cloud
+   [Amazon Quick Sight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") using the Cloud
    Intelligence Dashboards.
 
 ## Costs

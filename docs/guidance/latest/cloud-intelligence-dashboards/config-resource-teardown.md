@@ -17,7 +17,7 @@ cid-cmd delete --resources cid-crcd.yaml
 
 1. When prompted:
    - Select the `[cid-crcd] AWS Config Resource Compliance Dashboard (CRCD)` dashboard.
-   - For each QuickSight dataset, choose `yes` to delete the dataset.
+   - For each Quick Sight dataset, choose `yes` to delete the dataset.
    - If prompted, accept the default values for the S3 Path for the Athena table.
    - If prompted, accept the default values for the tags.
 

@@ -8,13 +8,13 @@
 
 The logs of the Partitioner function are kept for 14 days. If needed, [change the retention period](../../../solutions/latest/security-insights-on-aws/change-the-cloudwatch-log-group-retention-period.md "../../../solutions/latest/security-insights-on-aws/change-the-cloudwatch-log-group-retention-period.md") directly on the Amazon CloudWatch console.
 
-### QuickSight
+### Quick Sight
 
 #### Configure dataset refresh schedule
 
-By default, the datasets for the CRCD dashboard are refreshed once a day. You can optionally configure the Refresh Schedule in QuickSight with a different frequency:
+By default, the datasets for the CRCD dashboard are refreshed once a day. You can optionally configure the Refresh Schedule in Quick Sight with a different frequency:
 
-1. Navigate to QuickSight and then `Datasets`.
+1. Navigate to Quick Sight and then `Datasets`.
 2. All the datasets for this dashboard have the prefix `config_`.
 3. Click on a dataset, and then open the `Refresh` tab.
 4. Click on `ADD NEW SCHEDULE`, and configure as needed.
@@ -23,7 +23,7 @@ By default, the datasets for the CRCD dashboard are refreshed once a day. You ca
 
 ### I installed the dashboard successfully, but there’s no data
 
-If you followed our recommendations in the [prerequisites](config-resource-prerequisites.md "config-resource-prerequisites.md"), AWS Config delivers a configuration snapshot file every 24 hours, so you will probably start seeing data in a couple of days, depending on when the configuration snapshot files are generated and when the QuickSight datasets are refreshed.
+If you followed our recommendations in the [prerequisites](config-resource-prerequisites.md "config-resource-prerequisites.md"), AWS Config delivers a configuration snapshot file every 24 hours, so you will probably start seeing data in a couple of days, depending on when the configuration snapshot files are generated and when the Quick Sight datasets are refreshed.
 
 AWS Config generates history records approximately 6 hours after a resource is changed. These records will be loaded on the dasboard faster, and be visible on the **Configuration Item Events** tab.
 
@@ -67,4 +67,4 @@ The snapshot file will be delivered to the Log Archive bucket, optionally replic
 SELECT * FROM "cid_crcd_database"."cid_crcd_config" limit 10;
 ```
 
-1. Log onto QuickSight and [refresh](../../../quicksight/latest/user/refreshing-imported-data.md "../../../quicksight/latest/user/refreshing-imported-data.md") your datasets before opening the dashboard.
+1. Log onto Quick Sight and [refresh](../../../quicksight/latest/user/refreshing-imported-data.md "../../../quicksight/latest/user/refreshing-imported-data.md") your datasets before opening the dashboard.

@@ -15,7 +15,7 @@ publish from here will be separate from your templated dashboard.
 
 ![How to create analysis animation](images/create_analysis.gif)
 
-1. Visit the dashboard you wish to customize in QuickSight
+1. Visit the dashboard you wish to customize in Quick Sight
 2. In the top right, click the **Share** icon, then choose **Share dashboard** from the dropdown
 
 ![Share Dashboard on CUDOS dashboard](images/qs_share_dashboard.png)
@@ -39,7 +39,7 @@ publish from here will be separate from your templated dashboard.
 
 ![CUDOS Analysis](images/cudos_analysis_view.png)
 
-Once you have a customizable QuickSight Analysis created from the above
+Once you have a customizable Quick Sight Analysis created from the above
 steps, you can begin to implement the customizations outlined in this
 section of the workshop. Click **Next** below to see the first module on
 Adding Tags!

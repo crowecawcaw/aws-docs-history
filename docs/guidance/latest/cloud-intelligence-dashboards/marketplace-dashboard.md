@@ -4,7 +4,7 @@
 
 The AWS Marketplace Single Pane of Glass (SPG) dashboard delivers
 comprehensive procurement insights through an interactive, out-of-the-box
-Amazon QuickSight interface. Designed for AWS Marketplace buyers, this solution
+Amazon Quick Sight interface. Designed for AWS Marketplace buyers, this solution
 offers detailed visibility into third-party software subscriptions, including
 AI Agents, data products, and professional services. Users can access
 visualizations spanning all AWS Marketplace offerings, encompassing both
@@ -56,7 +56,7 @@ Get more familiar with Dashboard using the live, interactive demo
 dashboard following this [Link]
 ([https://cid.workshops.aws.dev/demo?dashboard=aws-marketplace](https://cid.workshops.aws.dev/demo?dashboard=aws-marketplace "https://cid.workshops.aws.dev/demo?dashboard=aws-marketplace"))
 
-![Image of a AWS Marketplace SPG dashboard in QuickSight](images/aws-marketplace-spg-pie.png)
+![Image of a AWS Marketplace SPG dashboard in Quick Sight](images/aws-marketplace-spg-pie.png)
 
 ## Prerequisites
 

@@ -10,7 +10,7 @@ The installation process consists of three steps:
 
 1. On the Dashboard account, deploy data pipeline resources for the dashboard using a CloudFormation stack.
 2. On the Log Archive account, configure the S3 replication rule that copies AWS Config files from the Log Archive bucket to the Dashboard bucket using a CloudFormation stack.
-3. On the Dashboard account, deploy QuickSight resources for the dashboard and the necessary Athena views using the [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md") command line tool.
+3. On the Dashboard account, deploy Quick Sight resources for the dashboard and the necessary Athena views using the [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md") command line tool.
 
 ![CRCD Dashboard: deployment steps on Dashboard account](images/images/dashboards/crcd-deployment-steps-dashboard-account.png)
 
@@ -22,7 +22,7 @@ The S3 replication rule configured at step 2 is valid only for new AWS Config fi
 
 ###### Note
 
-Ensure you are in the AWS Region where both your Log Archive bucket and Amazon QuickSight are deployed.
+Ensure you are in the AWS Region where both your Log Archive bucket and Amazon Quick Sight are deployed.
 
 ## Step 1 [in Dashboard account]
 
@@ -128,7 +128,7 @@ pip3 install --upgrade cid-cmd
    - If you have installed other CID/CUDOS dashboards, select the existing datasource `CID-CMD-Athena`.
    - Otherwise select `CID-CMD-Athena <CREATE NEW DATASOURCE>`.
 
-1. When prompted `[quicksight-datasource-role] Please choose a QuickSight role.` select `CidCmdQuickSightDataSourceRole <ADD NEW ROLE>` or `CidCmdQuickSightDataSourceRole` (the second option will appear as default if you have other CID/CUDOS dashboards).
+1. When prompted `[quicksight-datasource-role] Please choose a Quick Sight role.` select `CidCmdQuick SightDataSourceRole <ADD NEW ROLE>` or `CidCmdQuick SightDataSourceRole` (the second option will appear as default if you have other CID/CUDOS dashboards).
 1. In certain cases the installer will show an updated IAM policy JSON code and prompt `? [confirm-policy-AthenaAccess] Please confirm:`. Select `yes`.
 1. When prompted `[timezone] Please select timezone for datasets scheduled refresh.:` select the time zone for dataset scheduled refresh in your Region (it is already preselected).
 1. When prompted `Select taxonomy fields to add as dashboard filters and group by fields` select `Looks good` without adding taxonomy items. Taxonomy is not yet supported by the dashboard.
@@ -136,7 +136,7 @@ pip3 install --upgrade cid-cmd
 
 ## Visualize the dashboard
 
-1. Navigate to QuickSight and then `Dashboards`.
+1. Navigate to Quick Sight and then `Dashboards`.
 2. Ensure you are in the correct Region.
 3. Click on the **AWS Config Resource Compliance Dashboard (CRCD)**
    dashboard.

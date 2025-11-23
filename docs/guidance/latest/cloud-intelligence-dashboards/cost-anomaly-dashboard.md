@@ -6,7 +6,7 @@ AWS Cost Anomaly Detection uses advanced Machine Learning to identify
 anomalous spend and root causes, empowering the customers to take action
 quickly. To make it easier for them to identify any sudden spike in the
 spends, they can visualize the insights into those anomalous spends
-across multiple accounts using Amazon QuickSight that retrieves and
+across multiple accounts using Amazon Quick Sight that retrieves and
 refreshes the data periodically. Out-of-the-box benefits of the COD
 include (but are not limited to):
 
@@ -31,7 +31,7 @@ Get more familiar with Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo?dashboard=cost-anomaly-dashboard "https://cid.workshops.aws.dev/demo?dashboard=cost-anomaly-dashboard")
 
-![Image of a cost anomaly dashboard in QuickSight](images/ca_demo.png)
+![Image of a cost anomaly dashboard in Quick Sight](images/ca_demo.png)
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ CloudFormation
 1. Log in to to your **Data Collection** Account.
 2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](/images/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Cost-Anomaly-Dashboard&param_DashboardId=aws-cost-anomalies&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Cost-Anomaly-Dashboard¶m_DashboardId=aws-cost-anomalies¶m_RequiresDataCollection=yes") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as it is. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE_IN_PROGRESS**. Oncecomplete, the stack will show **CREATE_COMPLETE** 7. You can check the stack output for dashboard URLs.
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Cost-Anomaly-Dashboard&param_DashboardId=aws-cost-anomalies&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Cost-Anomaly-Dashboard¶m_DashboardId=aws-cost-anomalies¶m_RequiresDataCollection=yes") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as it is. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE_IN_PROGRESS**. Oncecomplete, the stack will show **CREATE_COMPLETE** 7. You can check the stack output for dashboard URLs.
 
 ###### Note
 

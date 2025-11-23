@@ -33,12 +33,12 @@ Each tab provides progressively detailed insights to help you optimize your medi
 Get more familiar with the dashboard using the live, interactive demo by following this
 [link](https://cid.workshops.aws.dev/demo?dashboard=media-services-insights "https://cid.workshops.aws.dev/demo?dashboard=media-services-insights")
 
-![Image of Media Services Insights Hub in QuickSight](images/media_services_insights_01.png)
+![Image of Media Services Insights Hub in Quick Sight](images/media_services_insights_01.png)
 
 ## Prerequisites
 
 Deploy the [CID Foundational Dashboards](dashboard-foundational.md "dashboard-foundational.md") stack.
-This will enable your CUR, Amazon Athena and QuickSight resources required for this and other dashboards.
+This will enable your CUR, Amazon Athena and Quick Sight resources required for this and other dashboards.
 
 ## Deployment
 

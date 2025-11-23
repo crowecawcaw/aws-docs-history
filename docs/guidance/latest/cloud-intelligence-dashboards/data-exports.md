@@ -70,13 +70,13 @@ s3://<prefix>-<destination-account-id>-data-exports/
 
 1. **Define the Region** Deployment can be only done in any region. Please
    carefully choose region as it should be the same region where you are
-   planning to deploy Amazon QuickSight Dashboards to avoid cross region
+   planning to deploy Amazon Quick Sight Dashboards to avoid cross region
    Amazon S3 costs. AWS Data Exports are available only in us-east-1, so
    when deployed in other regions, CFN creates Data Exports using Custom
    Resources.
 2. **Define the Destination Account** Make sure to note your Destination
    Account Id. It should be the same account where you plan to deploy
-   Amazon QuickSight dashboards.
+   Amazon Quick Sight dashboards.
 3. **Make sure you have access**: You need access to the Source and
    Destination accounts allowing you to create AWS CloudFormation stacks
    and work with AWS Glue and Amazon Athena. When creating a _Carbon
@@ -168,9 +168,9 @@ aws support create-case \
 Make sure you create the case from your Source Accounts (Typically
 Management/Payer Accounts).
 
-### Step 3 of 3. (In Destination/Data Collection Account) Allow QuickSight access to Database and Bucket
+### Step 3 of 3. (In Destination/Data Collection Account) Allow Quick Sight access to Database and Bucket
 
-In order to allow Amazon QuickSight access to Bucket and Database table you need to extend the role that QuickSight uses.
+In order to allow Amazon Quick Sight access to Bucket and Database table you need to extend the role that Quick Sight uses.
 
 #### Option A: If you use CID Foundational dashboards (CUDOS, KPI, Cost Intelligence) installed via CloudFormation or with Terraform
 
@@ -179,15 +179,15 @@ In order to allow Amazon QuickSight access to Bucket and Database table you need
 3. Update the stack with the latest version from this [template](https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml "https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml"). The version must be >=v3.8.
    If this does not work and you see errors in permissions you can do following:
 
-Typically when deploying with CloudFormation the stack create a role **CidQuickSightDataSourceRole**. This role must be extended with additional permissions.
+Typically when deploying with CloudFormation the stack create a role **CidQuick SightDataSourceRole**. This role must be extended with additional permissions.
 
 1. Open CloudShell in Data Collection Account and launch following script (can be just pasted to CloudShell):
 
 ```
-export qs_role=$(aws cloudformation describe-stacks --stack-name Cloud-Intelligence-Dashboards --query "Stacks[].Parameters[?ParameterKey=='QuickSightDataSourceRoleName'].ParameterValue" --output text)
+export qs_role=$(aws cloudformation describe-stacks --stack-name Cloud-Intelligence-Dashboards --query "Stacks[].Parameters[?ParameterKey=='Quick SightDataSourceRoleName'].ParameterValue" --output text)
 export policy_arn=$(aws cloudformation list-exports --query "Exports[?Name=='cid-DataExports-ReadAccessPolicyARN'].Value" --output text)
 
-if [ "$qs_role" -eq "CidQuickSightDataSourceRole" ]; then
+if [ "$qs_role" -eq "CidQuick SightDataSourceRole" ]; then
 
     if [ -z "${policy_arn// }" ]; then # Check if policy_arn is empty
         echo "Error: Policy ARN not found in CloudFormation exports."
@@ -195,17 +195,17 @@ if [ "$qs_role" -eq "CidQuickSightDataSourceRole" ]; then
         aws iam attach-role-policy --role-name "$qs_role" --policy-arn "$policy_arn"
     fi
 else
-    echo "This script only supports modification of CID default Quicksight Role == CidQuickSightDataSourceRole but in the stack role is $qs_role. Please attach a policy $policy_arn or grant similar permissions in UI."
+    echo "This script only supports modification of CID default Quick Sight Role == CidQuick SightDataSourceRole but in the stack role is $qs_role. Please attach a policy $policy_arn or grant similar permissions in UI."
 fi
 ```
 
 #### Option B: If you installed CID without CloudFormation or Terraform but with cid-cmd command line tool
 
 Typically when deploying with Command Line cid-cmd manage a role
-**CidCmdQuickSightDataSourceRole**. This role must be extended with
+**CidCmdQuick SightDataSourceRole**. This role must be extended with
 additional permissions.
 
-Option1: use command line to attach access policy to the QuickSight role
+Option1: use command line to attach access policy to the Quick Sight role
 
 1. Open CloudShell in Data Collection Account and launch following script
    (can be just pasted to CloudShell)
@@ -218,18 +218,18 @@ export policy_arn=$(aws cloudformation list-exports --query "Exports[?Name=='cid
 if [ -z "${policy_arn// }" ]; then
     echo "Error: Policy ARN not found in CloudFormation exports."
 else
-    aws iam attach-role-policy --role-name CidCmdQuickSightDataSourceRole --policy-arn "$policy_arn"
+    aws iam attach-role-policy --role-name CidCmdQuick SightDataSourceRole --policy-arn "$policy_arn"
 fi
 ```
 
 Option2: Attach Policy to Role manually
 
-1. Locate the role `CidCmdQuickSightDataSourceRole` in your IAM console.
+1. Locate the role `CidCmdQuick SightDataSourceRole` in your IAM console.
 2. Locate Arn of the Managed Policy in output of CFN Stack you can check export named `cid-DataExports-ReadAccessPolicyARN`
 3. Attach the managed policy to the role
    Option3:
 
-4. Locate the role `CidCmdQuickSightDataSourceRole` in your IAM console.
+4. Locate the role `CidCmdQuick SightDataSourceRole` in your IAM console.
 5. Add a following policy allowing read a bucket and database:
 
 ```
@@ -269,9 +269,9 @@ Option2: Attach Policy to Role manually
 ]
 ```
 
-#### Option C: If you use a default QuickSight role.
+#### Option C: If you use a default Quick Sight role.
 
-Follow [this guide](../../../quicksight/latest/user/troubleshoot-connect-S3.md "../../../quicksight/latest/user/troubleshoot-connect-S3.md") to add a bucket `arn:aws:s3:::cid-${AWS::AccountId}-data-exports` to grant access for QuickSight to Data Exports.
+Follow [this guide](../../../quicksight/latest/user/troubleshoot-connect-S3.md "../../../quicksight/latest/user/troubleshoot-connect-S3.md") to add a bucket `arn:aws:s3:::cid-${AWS::AccountId}-data-exports` to grant access for Quick Sight to Data Exports.
 
 ## Updating Stack
 

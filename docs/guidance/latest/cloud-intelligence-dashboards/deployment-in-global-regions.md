@@ -42,7 +42,7 @@ Deployment process consists of 3 main steps:
 3. Make sure you have the permissions for deploying CloudFormation Stacks.
 
 - In the Management/Payer Account you will need permission to access AWS CloudFormation, AWS Cost & Usage Reports, AWS IAM, AWS Lambda and Amazon S3.
-- In the Data Collection Account you will need permission to access Amazon Athena, AWS CloudFormation, AWS Directory Service, Amazon EventBridge, AWS Glue, AWS IAM, AWS Lambda, Amazon QuickSight, and Amazon S3 via both the console and the Command Line Tool.
+- In the Data Collection Account you will need permission to access Amazon Athena, AWS CloudFormation, AWS Directory Service, Amazon EventBridge, AWS Glue, AWS IAM, AWS Lambda, Amazon Quick Sight, and Amazon S3 via both the console and the Command Line Tool.
 - For a CLI deployment,you will not require CloudFormation permissions.
 - You can use this [CloudFormation template](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/cfn-templates/cid-admin-policies.yaml "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/cfn-templates/cid-admin-policies.yaml") to provision an IAM role with minimal permissions required for dashboard deployment. It takes an IAM role name as a parameter and adds the required policies to the role.
 
@@ -155,27 +155,27 @@ Management/Payer Accounts).
 
 ## Step 3. [Data Collection Account] Deploy Dashboards
 
-### 3.1 - Prepare Amazon QuickSight
+### 3.1 - Prepare Amazon Quick Sight
 
-Amazon QuickSight is the AWS Business Intelligence tool. You can install
-Dashboards into your Amazon QuickSight account and customize them to
-your needs. If you are already a regular Amazon QuickSight user you can
+Amazon Quick Sight is the AWS Business Intelligence tool. You can install
+Dashboards into your Amazon Quick Sight account and customize them to
+your needs. If you are already a regular Amazon Quick Sight user you can
 skip these steps and move on to the next step. If not, complete the
 steps below.
 
-1. Log into your Destination Linked Account and search for **QuickSight**
+1. Log into your Destination Linked Account and search for **Quick Sight**
    in the list of Services
 2. You will be asked to **Sign up** before you will be able to use it
    - Ensure you select the **Region** that is most appropriate based on where you plan to deploy the dashboards.
-   - Enter a **name** for your QuickSight account. This must be unique across all QuickSight accounts.
-   - Enter an **email address** for notifications to be sent to. This email will be linked to your QuickSight user account so it can be your email.
+   - Enter a **name** for your Quick Sight account. This must be unique across all Quick Sight accounts.
+   - Enter an **email address** for notifications to be sent to. This email will be linked to your Quick Sight user account so it can be your email.
 
 3. You will then need to fill in a series of options in order to finish creating your account:
    - Please select the appropriate **Authentication** method
 
    ###### Note
 
-   Select `Use AWS IAM Identity Center` if you want to use and share the CID dashboards in Production with your wider Organization using your existing Identity Provider such as Azure AD, Okta, or others. Follow the steps [here](publishing-as-sso-application.md "publishing-as-sso-application.md"). You may select `Use IAM federated identities & QuickSight-managed users` to get started quickly, however, **NOTE:** You will **NOT** be able to change the QuickSight Authentication method later
+   Select `Use AWS IAM Identity Center` if you want to use and share the CID dashboards in Production with your wider Organization using your existing Identity Provider such as Azure AD, Okta, or others. Follow the steps [here](publishing-as-sso-application.md "publishing-as-sso-application.md"). You may select `Use IAM federated identities & Quick Sight-managed users` to get started quickly, however, **NOTE:** You will **NOT** be able to change the Quick Sight Authentication method later
 
 4. Click **Create Account** and wait for the congratulations screen to display. Go to 'Manage Quick Suite'.
    - (optional, not recommended) Downgrade your user to avoid charges for Amazon Q in Quick Suite.
@@ -183,7 +183,7 @@ steps below.
    - Click on the SPICE Capacity option and choose `auto purchase` or purchase enough SPICE capacity so
      that the total is roughly 40GB. If you get SPICE capacity errors later, you can come back here to purchase more. If you’ve purchased too much you can also release it after you’ve deployed the dashboards.
 
-![QuickSight Sign up Workflow Image](/images/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/qs-enterprise-activation.gif)
+![Quick Sight Sign up Workflow Image](/images/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/qs-enterprise-activation.gif)
 
 ### 3.2 Deploy Dashboards
 
@@ -193,7 +193,7 @@ Data Transfer costs. Also your AWS Account must have a
 region.
 
 In this step we will use CloudFormation stack to create Athena
-Workgroup, S3 bucket, Glue Table, Glue Crawler, QuickSight datasets, and
+Workgroup, S3 bucket, Glue Table, Glue Crawler, Quick Sight datasets, and
 finally the Dashboards. The template uses a custom resource (a Lambda
 with
 [this
@@ -204,14 +204,14 @@ CloudFormation
 1. Log in to to your **Data Collection** Account.
 2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards&param_DeployCUDOSv5=yes&param_DeployKPIDashboard=yes&param_DeployCostIntelligenceDashboard=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards¶m_DeployCUDOSv5=yes¶m_DeployKPIDashboard=yes¶m_DeployCostIntelligenceDashboard=yes") 3. Enter a **Stack name** for your template such as **Cloud-Intelligence-Dashboards** 4. Review **Common Parameters** and confirm prerequisites before specifying the other parameters. You must answer `yes` to both prerequisites questions. 5. Copy and paste your **QuicksightUserName** into the parameter text box. To find your QuickSight username:
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards&param_DeployCUDOSv5=yes&param_DeployKPIDashboard=yes&param_DeployCostIntelligenceDashboard=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards¶m_DeployCUDOSv5=yes¶m_DeployKPIDashboard=yes¶m_DeployCostIntelligenceDashboard=yes") 3. Enter a **Stack name** for your template such as **Cloud-Intelligence-Dashboards** 4. Review **Common Parameters** and confirm prerequisites before specifying the other parameters. You must answer `yes` to both prerequisites questions. 5. Copy and paste your **Quick SightUserName** into the parameter text box. To find your Quick Sight username:
 
-    * Open a new tab or window and navigate to the **QuickSight** console
+    * Open a new tab or window and navigate to the **Quick Sight** console
     * Find your username from the person icon in the top right corner
 
 
 
-    ![Quicksight page with username drop down in the top right highlighted](images/cf_dash_qs_2.png)
+    ![Quick Sight page with username drop down in the top right highlighted](images/cf_dash_qs_2.png)
 
 6. Select the Dashboards you want to install. We recommend deploying all three: Cost Intelligence Dashboard, CUDOS, and the KPI Dashboard.
 7. Review the configuration, click **I acknowledge that AWS CloudFormation might create IAM resources, and click Create stack**.
@@ -260,7 +260,7 @@ WIP
 
 ###### Note
 
-After update QuickSight datasets will be refreshed
+After update Quick Sight datasets will be refreshed
 automatically. During the refresh process you may see "Dataset changed
 too much" error which should disappear once datasets are fully
 refreshed
@@ -292,9 +292,9 @@ You can check the latest Cloud Formation Stack [Here](https://aws-managed-cost-i
 
 Please check the following:
 
-1. In QuickSight, go to Datasets and click on Summary View. Check for errors (if you see a status `Failed`, you can click it to see more info).
+1. In Quick Sight, go to Datasets and click on Summary View. Check for errors (if you see a status `Failed`, you can click it to see more info).
 2. Check if CUR 2.0 data has arrived to the S3 bucket. If you just created CUR you will need to wait 24-48 hours before the first data arrives.
-3. The QuickSight datasets refresh once per day, if your first CUR was delivered after your latest refresh, you may need to click manual refresh on each dataset to see data in the dashboard.
+3. The Quick Sight datasets refresh once per day, if your first CUR was delivered after your latest refresh, you may need to click manual refresh on each dataset to see data in the dashboard.
 
 **Any issues? Visit our [FAQs](faq.md "faq.md").**
 

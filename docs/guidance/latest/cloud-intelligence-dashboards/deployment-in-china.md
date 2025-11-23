@@ -36,15 +36,15 @@ approach.
 3. [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/") allows querying data
    directly from the S3 bucket using an [AWS
    Glue](https://aws.amazon.com/glue/ "https://aws.amazon.com/glue/") table schema definition.
-4. [Amazon QuickSight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") creates datasets
+4. [Amazon Quick Sight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") creates datasets
    from [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/"), refreshes daily and
    caches in
    [SPICE](../../../quicksight/latest/user/spice.md "../../../quicksight/latest/user/spice.md")(Super-fast,
    Parallel, In-memory Calculation Engine) for
-   [Amazon QuickSight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
+   [Amazon Quick Sight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
 5. User Teams (Executives, FinOps, Engineers) can access Cloud
    Intelligence Dashboards in [Amazon
-   QuickSight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"). Access is secured through [AWS
+   Quick Sight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"). Access is secured through [AWS
    IAM](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/"), IIC ([AWS IAM Identity
    Center](https://aws.amazon.com/iam/identity-center/ "https://aws.amazon.com/iam/identity-center/"), formerly SSO), and optional
    [Row
@@ -64,7 +64,7 @@ Deployment process consists of 3 main steps:
 
 ### Before you start
 
-1. Choose **Beijing Region (cn-north-1)** for your deployment as QuickSight
+1. Choose **Beijing Region (cn-north-1)** for your deployment as Quick Sight
    is only available in this region for AWS China.
 2. Define your Data Collection Account. Create or reuse an existing
    shared account. We do not recommend using the Management(Payer) Account
@@ -76,7 +76,7 @@ Deployment process consists of 3 main steps:
   S3.
 - In the Data Collection Account you will need permission to access
   Amazon Athena, AWS CloudFormation, AWS Directory Service, Amazon
-  EventBridge, AWS Glue, AWS IAM, AWS Lambda, Amazon QuickSight, and
+  EventBridge, AWS Glue, AWS IAM, AWS Lambda, Amazon Quick Sight, and
   Amazon S3 via both the console and the Command Line Tool.
 - For a CLI deployment, you will not require CloudFormation permissions.
 - You can use this CloudFormation template to provision an IAM role with
@@ -90,7 +90,7 @@ Deployment process consists of 3 main steps:
    template** in your CloudFormation console. This Stack will create bucket
    open for replication and Athena Tables.
 
-[![Launch Stack button](/images/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Destination&param_CreateCUR=False&param_DestinationAccountId=REPLACE%20WITH%20THE%20CURRENT%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID "https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Destination¶m_CreateCUR=False¶m_DestinationAccountId=REPLACE%20WITH%20THE%20CURRENT%20ACCOUNT%20ID¶m_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Destination&param_CreateCUR=False&param_DestinationAccountId=REPLACE%20WITH%20THE%20CURRENT%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID "https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Destination¶m_CreateCUR=False¶m_DestinationAccountId=REPLACE%20WITH%20THE%20CURRENT%20ACCOUNT%20ID¶m_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID")
 
 ### Step 2. [Source/Management Account] Create CUR and Configure Replication
 
@@ -98,21 +98,21 @@ Deployment process consists of 3 main steps:
 2. Click the Launch Stack button below to open the **pre-populated stack
    template** in your CloudFormation console.
 
-[![Launch Stack button](/images/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Replication&param_CreateCUR=True&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds= "https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Replication¶m_CreateCUR=True¶m_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID¶m_SourceAccountIds=")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Replication&param_CreateCUR=True&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds= "https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Replication¶m_CreateCUR=True¶m_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID¶m_SourceAccountIds=")
 
 ### Step 3. [Data Collection Account] Deploy Dashboards
 
-#### 3.1 - Prepare Amazon QuickSight
+#### 3.1 - Prepare Amazon Quick Sight
 
 ###### Note
 
-QuickSight is only available in cn-north-1 Beijing region for AWS China
+Quick Sight is only available in cn-north-1 Beijing region for AWS China
 
 1.  Sign in to your Data Collection Account and navigate to the AWS
-    Management Console and search for **QuickSight** in the services menu.
-2.  Select **Sign up for QuickSight** if this is your first time accessing
+    Management Console and search for **Quick Sight** in the services menu.
+2.  Select **Sign up for Quick Sight** if this is your first time accessing
     the service.
-3.  On the QuickSight setup page, you’ll need to choose an authentication
+3.  On the Quick Sight setup page, you’ll need to choose an authentication
     method:
 
         * **IAM Identity Center** - Recommended for simplified user management and
@@ -122,11 +122,11 @@ QuickSight is only available in cn-north-1 Beijing region for AWS China
 
 
         You cannot change authentication method after the initial setup. You
-        will need to re-create the Amazon QuickSight account.
+        will need to re-create the Amazon Quick Sight account.
 
 4.  If selecting IAM Identity Center:
 
-        * Configure user groups for QuickSight access levels (Admin/Reader)
+        * Configure user groups for Quick Sight access levels (Admin/Reader)
         * Follow the
         [IAM
         Identity Center user management guide](../../../singlesignon/latest/userguide/addusers.md "../../../singlesignon/latest/userguide/addusers.md") to set up groups and permissions
@@ -139,11 +139,11 @@ QuickSight is only available in cn-north-1 Beijing region for AWS China
 
 Make sure to uncheck Pixel-Perfect Reports option unless specifically needed, as it incurs additional charges. This feature can be enabled later if needed.
 
-![QuickSight configuration page - uncheck Pixel-Perfect Reports option](images/pixel-perfect-china.png)
+![Quick Sight configuration page - uncheck Pixel-Perfect Reports option](images/pixel-perfect-china.png)
 
 1. Complete the account creation:
    - Select the appropriate Authentication method
-   - Enter a unique name for your QuickSight account
+   - Enter a unique name for your Quick Sight account
    - Enter an email address for notifications
    - (Optional) Click Select S3 buckets and choose all cid buckets (cid-\*)
    - Click Finish and wait for the congratulations screen
@@ -153,29 +153,29 @@ Make sure to uncheck Pixel-Perfect Reports option unless specifically needed, as
 ###### Note
 
 To avoid cross-region data transfer costs, use the Beijing
-Region (cn-north-1) - the only region where QuickSight is available in
+Region (cn-north-1) - the only region where Quick Sight is available in
 China.
 
 1. Sign in to your Data Collection Account.
 2. Click the Launch Stack button below to open the **pre-populated stack
    template** in your CloudFormation console.
 
-[![Launch Stack button](/images/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards&param_DeployCUDOSv5=yes&param_DeployKPIDashboard=yes&param_DeployCostIntelligenceDashboard=yes&param_CreateLocalAssetsBucket=yes&param_CURVersion=1.0&param_KeepLegacyCURTable=yes&param_CurrencySymbol=JPY "https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards¶m_DeployCUDOSv5=yes¶m_DeployKPIDashboard=yes¶m_DeployCostIntelligenceDashboard=yes¶m_CreateLocalAssetsBucket=yes¶m_CURVersion=1.0¶m_KeepLegacyCURTable=yes¶m_CurrencySymbol=JPY") 3. Configure stack parameters:
+[![Launch Stack button](images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards&param_DeployCUDOSv5=yes&param_DeployKPIDashboard=yes&param_DeployCostIntelligenceDashboard=yes&param_CreateLocalAssetsBucket=yes&param_CURVersion=1.0&param_KeepLegacyCURTable=yes&param_CurrencySymbol=JPY "https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards¶m_DeployCUDOSv5=yes¶m_DeployKPIDashboard=yes¶m_DeployCostIntelligenceDashboard=yes¶m_CreateLocalAssetsBucket=yes¶m_CURVersion=1.0¶m_KeepLegacyCURTable=yes¶m_CurrencySymbol=JPY") 3. Configure stack parameters:
 
 - Enter a Stack name for your template such as
   Cloud-Intelligence-Dashboards
 - Review Common Parameters and confirm prerequisites before specifying
   the other parameters. You must answer "yes" to both prerequisites
   questions.
-- Copy and paste your **QuicksightUserName** into the parameter text box.
-  To find your QuickSight username:
+- Copy and paste your **Quick SightUserName** into the parameter text box.
+  To find your Quick Sight username:
 
-      + Open a new tab or window and navigate to the **QuickSight** console
+      + Open a new tab or window and navigate to the **Quick Sight** console
       + Find your username from the person icon in the top right corner
 
 
 
-      ![Quicksight page with username drop down in the top right highlighted](images/cd_dash_qs_china.png)
+      ![Quick Sight page with username drop down in the top right highlighted](images/cd_dash_qs_china.png)
 
 - Select the Dashboards you want to install. We recommend deploying all
   three: Cost Intelligence Dashboard, CUDOS, and the KPI Dashboard.
@@ -208,7 +208,7 @@ Accounts).
 After successful deployment:
 
 1. Check stack outputs for dashboard URLs
-2. Verify QuickSight access
+2. Verify Quick Sight access
 3. Wait for data to populate (typically 24-48 hours for first data delivery)
 4. Consider requesting a backfill through AWS Support if you need historical data
 
@@ -229,7 +229,7 @@ After successful deployment:
 1. Amazon S3 replicates AWS CUR data from a Management account in Global
    region to a Data Collection Account.
 2. Cloud Intelligence Dashboards leverage Amazon Athena and Amazon
-   QuickSight for viualization.
+   Quick Sight for viualization.
 3. [Data Transfer Hub](https://github.com/aws-solutions/data-transfer-hub "https://github.com/aws-solutions/data-transfer-hub")
    moves data from China region to the Data collection account in Global
    Region.

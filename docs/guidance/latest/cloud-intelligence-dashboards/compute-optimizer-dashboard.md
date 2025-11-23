@@ -25,7 +25,7 @@ to):
 2. CID Data Collection has a Lambda functions that on schedule assume a role in Management account(s) to trigger an export of AWS Compute Optimizer in each region configured in data collection stack. By default it i scheduled for every 14 days, but it can be changed in the parameters of the Data Collection Stack.
 3. The AWS Compute Optimizer exports data to regional buckets.
 4. The replication mechanisms consolidates all data from regional buckets to one data bucket. All exports on regional bucket will be deleted after 1 day as per lifecycle policy.
-5. Quicksight Dataset refreshes daily to show the latest state on the dashboard.
+5. Quick Sight Dataset refreshes daily to show the latest state on the dashboard.
 
 ## Learn more
 
@@ -46,7 +46,7 @@ Get more familiar with Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo?dashboard=compute-optimizer-dashboard "https://cid.workshops.aws.dev/demo?dashboard=compute-optimizer-dashboard")
 
-![Image of a compute optimizer dashboard in QuickSight](images/co_demo.png)
+![Image of a compute optimizer dashboard in Quick Sight](images/co_demo.png)
 
 ## Prerequisites
 

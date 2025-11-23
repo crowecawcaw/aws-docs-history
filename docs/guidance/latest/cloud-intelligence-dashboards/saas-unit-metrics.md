@@ -39,14 +39,14 @@ you have the date formatted as a
 format](../../../quicksight/latest/user/supported-date-formats.md "../../../quicksight/latest/user/supported-date-formats.md") in your spreadsheet.
 
 1. Create a CSV file with this data.
-2. Go to QuickSight>>Datasets and click **New dataset**.
+2. Go to Quick Sight>>Datasets and click **New dataset**.
 3. Click on upload a file. Select the CSV you’ve created. Click next then click **Edit settings and prepared data**.
 
 ![Data source details with edit preview data button highlighted](images/customizations/saas/customizations_editpreviewdata.png) 4. Make sure that the date field in your dataset is of type _date_.
 Change it if it is not.
 
 ![Dataset results with the date field header highlighted](images/customizations/saas/customizations_dateformat.png) 5. Click **Save & Publish** and return to the list of your datasets in
-QuickSight. 6. Click on summary_view and select **EDIT DATASET**.
+Quick Sight. 6. Click on summary_view and select **EDIT DATASET**.
 
 ![Summary view with edit dataset button highlighted](images/customizations/saas/customizations_editdataset.png) 7. Click on **Add data**. Select from a dataset. Find your uploaded dataset
 and click **Select**.
@@ -91,7 +91,7 @@ its own Y axis.
 and the cost per API on that day. But it might be difficult to talk
 about a cost per API call if its less than $0.01 on average. So how do
 we adjust the multiplier so we can talk about cost per 10,000 API
-requests? We will add a control and a parameter in QuickSight to
+requests? We will add a control and a parameter in Quick Sight to
 accomplish this. Click on **Data**, then **Add Parameters**. Set it to an
 **intInteger**, give it a name, and set the default to 10.
 
@@ -148,6 +148,6 @@ API per operation, grouped by tag and service.
    control for a start date and end date to give users the ability to set
    the time being considered across all the visuals.
 2. Explore
-   [QuickSight
+   [Quick Sight
    forecast](../../../quicksight/latest/user/forecasts-and-whatifs.md "../../../quicksight/latest/user/forecasts-and-whatifs.md") features to see if you can forecast what your cost per API
    call will be in the future.

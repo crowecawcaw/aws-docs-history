@@ -31,7 +31,7 @@ Get more familiar with Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo?dashboard=tao "https://cid.workshops.aws.dev/demo?dashboard=tao")
 
-![Amazon QuickSight Trusted Advisor demo dashboard](images/tao_demo.png)
+![Amazon Quick Sight Trusted Advisor demo dashboard](images/tao_demo.png)
 
 ## Prerequisites
 

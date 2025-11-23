@@ -3,7 +3,7 @@
 ## Introduction
 
 The Data Transfer Dashboard is an interactive, customizable and
-accessible QuickSight dashboard to help customers gain insights into
+accessible Quick Sight dashboard to help customers gain insights into
 their data transfer. It will analyze any data transfer that incurs a
 cost such as outbound/internet, Inter Region and Inter AZ data transfer
 from all services.
@@ -23,7 +23,7 @@ Get more familiar with Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo?dashboard=datatransfer-cost-analysis-dashboard "https://cid.workshops.aws.dev/demo?dashboard=datatransfer-cost-analysis-dashboard")
 
-![Image of a Data transfer dashboard in QuickSight](images/data_transfer_dashboard.png)
+![Image of a Data transfer dashboard in Quick Sight](images/data_transfer_dashboard.png)
 
 ## Prerequisites
 

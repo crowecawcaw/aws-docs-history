@@ -20,8 +20,8 @@ they really matters to them.
 
 ###### Important
 
-This is a legacy guide, for a new fresh setup of QuickSight we
-recomend to setup QuickSight with IAM Identity Center integration.
+This is a legacy guide, for a new fresh setup of Quick Sight we
+recomend to setup Quick Sight with IAM Identity Center integration.
 Please follow
 [Publishing as single sign-on (SSO) Application](publishing-as-sso-application.md "publishing-as-sso-application.md") guide
 
@@ -41,9 +41,9 @@ For this solution you must have the following:
   member accounts, organizational units (OU) or payers.
 - Enable IAM Identity Center
 
-## Step 1: Quicksight Check
+## Step 1: Quick Sight Check
 
-1. Login into your Cost Account where your CID is deployed and go into Amazon QuickSight
+1. Login into your Cost Account where your CID is deployed and go into Amazon Quick Sight
 
 ![Images/sso_sso_quicksight.png](images/customizations/sso_legacy/sso_quicksight.png)
 
@@ -55,7 +55,7 @@ For this solution you must have the following:
 
 ![Images/sso_qs_share_button.png](images/customizations/sso_legacy/sso_qs_share_button.png)
 
-1. Share your CID Dashboard in Amazon QuickSight with all users by clicking on the toggle **Everyone in this account**
+1. Share your CID Dashboard in Amazon Quick Sight with all users by clicking on the toggle **Everyone in this account**
 
 ![Images/sso_qs_share.png](images/customizations/sso_legacy/sso_qs_share.png)
 
@@ -76,7 +76,7 @@ For this solution you must have the following:
 ![Images/sso_user_users.png](images/customizations/sso_legacy/sso_user_users.png)
 
 1. Fill out the details using the same email that will be used for Amazon
-   QuickSight. Click **Next**.
+   Quick Sight. Click **Next**.
 
 ![Images/sso_user_user_email.png](images/customizations/sso_legacy/sso_user_user_email.png)
 
@@ -94,7 +94,7 @@ For this solution you must have the following:
 
 ![Images/sso_iic_add_app.png](images/customizations/sso_legacy/sso_iic_add_app.png)
 
-1. Search in Preintegrated applications for **Amazon Quicksight** then click **Next**
+1. Search in Preintegrated applications for **Amazon Quick Sight** then click **Next**
 
 ![Images/sso_iic_qs.png](images/customizations/sso_legacy/sso_iic_qs.png)
 
@@ -124,7 +124,7 @@ Note: This step is done in the target account where the CID lives, this may diff
 
 ![Images/sso_iam_provider.png](images/customizations/sso_legacy/sso_iam_provider.png)
 
-1. Under Provider type choose **SAML**, give it the name **QuickSightProvider** then upload the SAML file you downloaded earlier using the **Choose file** button. Click **Add provider**
+1. Under Provider type choose **SAML**, give it the name **Quick SightProvider** then upload the SAML file you downloaded earlier using the **Choose file** button. Click **Add provider**
 
 ![Images/sso_iam_provider_saml.png](images/customizations/sso_legacy/sso_iam_provider_saml.png)
 
@@ -145,7 +145,7 @@ Note: This step is done in the target account where the CID lives, this may diff
 ![Images/sso_iam_policy.png](images/customizations/sso_legacy/sso_iam_policy.png)
 
 1. Select the JSON tab and paste in the below code replacing your
-   `ACCOUNT_ID` with your `CID Quicksight` account `ID`. Click Next.
+   `ACCOUNT_ID` with your `CID Quick Sight` account `ID`. Click Next.
 
 ```
          {
@@ -167,15 +167,15 @@ Note: This step is done in the target account where the CID lives, this may diff
 ![Images/sso_policy_json.png](images/customizations/sso_legacy/sso_policy_json.png)
 
 1. Click through **Next**
-2. For Name call it **QuickSightSAMLPolicy** then click **Create Policy**
+2. For Name call it **Quick SightSAMLPolicy** then click **Create Policy**
 
 ![Images/sso_iam_policy_name.png](images/customizations/sso_legacy/sso_iam_policy_name.png)
 
-1. Go back to previous IAM tab to attach permissions, refresh the list then search for **QuickSightSAMLPolicy** and click the tick box. Click **Next**
+1. Go back to previous IAM tab to attach permissions, refresh the list then search for **Quick SightSAMLPolicy** and click the tick box. Click **Next**
 
 ![Images/sso_iam_add_policy.png](images/customizations/sso_legacy/sso_iam_add_policy.png)
 
-1. Provide a Role name as **QuickSightSAMLRole** and click Create role
+1. Provide a Role name as **Quick SightSAMLRole** and click Create role
 
 ![Images/sso_iam_role_name.png](images/customizations/sso_legacy/sso_iam_role_name.png)
 
@@ -183,7 +183,7 @@ Note: This step is done in the target account where the CID lives, this may diff
 
 ![Images/sso_iam_tr.png](images/customizations/sso_legacy/sso_iam_tr.png)
 
-1. Replace the json with the below, replacing your `ACCOUNT_ID` with your `CID Quicksight` account `ID`.
+1. Replace the json with the below, replacing your `ACCOUNT_ID` with your `CID Quick Sight` account `ID`.
 
 ```
         {
@@ -192,7 +192,7 @@ Note: This step is done in the target account where the CID lives, this may diff
                 {
                 "Effect": "Allow",
                 "Principal": {
-                        "Federated": "arn:aws:iam::ACCOUNT_ID:saml-provider/QuickSightProvider"
+                        "Federated": "arn:aws:iam::ACCOUNT_ID:saml-provider/Quick SightProvider"
                 },
                 "Action": "sts:AssumeRoleWithSAML",
                 "Condition": {
@@ -204,7 +204,7 @@ Note: This step is done in the target account where the CID lives, this may diff
                 {
                 "Effect": "Allow",
                 "Principal": {
-                        "Federated": "arn:aws:iam::ACCOUNT_ID:saml-provider/QuickSightProvider"
+                        "Federated": "arn:aws:iam::ACCOUNT_ID:saml-provider/Quick SightProvider"
                 },
                 "Action": "sts:TagSession",
                 "Condition": {
@@ -222,7 +222,7 @@ Note: This step is done in the target account where the CID lives, this may diff
 
 ## Update Attribute Mappings
 
-1. Return to your **IAM Identity Center** and find your Amazon Quicksight
+1. Return to your **IAM Identity Center** and find your Amazon Quick Sight
    application for CID and click into it.
 
 ![Images/sso_iic_app.png](images/customizations/sso_legacy/sso_iic_app.png)
@@ -231,11 +231,11 @@ Note: This step is done in the target account where the CID lives, this may diff
 
 ![Images/sso_iic_edit_mapping.png](images/customizations/sso_legacy/sso_iic_edit_mapping.png)
 
-1. Add two new mappings by clicking on **Add new attribute mapping**, replacing your `ACCOUNT_ID` with your `CID Quicksight` account `ID`.
+1. Add two new mappings by clicking on **Add new attribute mapping**, replacing your `ACCOUNT_ID` with your `CID Quick Sight` account `ID`.
    - ADD **Attribute:**
      `https://aws.amazon.com/SAML/Attributes/Role`
      **Value:**
-     `arn:aws:iam::111122223333:role/QuickSightSAMLRole, arn:aws:iam::111122223333:saml-provider/QuickSightProvider`
+     `arn:aws:iam::111122223333:role/Quick SightSAMLRole, arn:aws:iam::111122223333:saml-provider/Quick SightProvider`
    - ADD: **Attribute:**
      `https://aws.amazon.com/SAML/Attributes/PrincipalTag:Email`
      **Value**

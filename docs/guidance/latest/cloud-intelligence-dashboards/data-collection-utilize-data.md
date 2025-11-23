@@ -32,17 +32,17 @@ Now that you have pulled together optimization data there are different
 ways in which you can analyze & visualize it to make infrastructure
 optimization decisions.
 
-### Visualization of Trusted Advisor data with Amazon QuickSight
+### Visualization of Trusted Advisor data with Amazon Quick Sight
 
 You can visualize Trusted Advisor Data with the [Trusted Advisor Organizational (TAO) Dashboard.](trusted-advisor-dashboard.md "trusted-advisor-dashboard.md") To deploy the TAO Dashboard please follow [TAO Dashboard
 deployment steps](trusted-advisor-dashboard.md#trusted-advisor-dashboard-prerequisites "trusted-advisor-dashboard.md#trusted-advisor-dashboard-prerequisites") and specify the organizational data collection bucket created in this lab as a source.
 
-### Visualization of Compute Optimizer data with Amazon QuickSight
+### Visualization of Compute Optimizer data with Amazon Quick Sight
 
 You can visualize Compute Optimizer Data with [Compute Optimizer Dashboard](compute-optimizer-dashboard.md "compute-optimizer-dashboard.md"). To deploy the Compute Optimizer Dashboard please follow the [Compute Optimizer deployment
 steps](compute-optimizer-dashboard.md "compute-optimizer-dashboard.md") which also delivers Athena Tables and Views.
 
-### Visualization of AWS Budgets data with Amazon QuickSight
+### Visualization of AWS Budgets data with Amazon Quick Sight
 
 You can visualize AWS Budgets Data with [AWS Budgets Dashboard](budgets-dashboard.md "budgets-dashboard.md"). To deploy the AWS Budgets Dashboard please follow the [AWS Budgets Dashboard deployment steps](budgets-dashboard.md "budgets-dashboard.md") which also delivers Athena Tables and Views.
 
@@ -50,7 +50,7 @@ You can visualize AWS Budgets Data with [AWS Budgets Dashboard](budgets-dashboar
 
 You can integrate organizational structure with OUs and tags specified in AWS Organizations to the dashboards. Learn more how to add organizational taxonomy to Cloud Intelligence Dashboards following [Add Organizational Taxonomy](add-org-taxonomy.md "add-org-taxonomy.md") guide.
 
-### RDS Graviton Eligibility and Savings Estimation with Amazon QuickSight
+### RDS Graviton Eligibility and Savings Estimation with Amazon Quick Sight
 
 You can get insights into Graviton migration savings opportunities with [Graviton Savings Dashboards](graviton-savings-dashboard.md "graviton-savings-dashboard.md"). To deploy the Graviton Savings Dashboards please follow the [Graviton Savings Dashboards](graviton-savings-dashboard.md "graviton-savings-dashboard.md") which also delivers Athena Tables and Views.
 

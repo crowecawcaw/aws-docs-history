@@ -30,15 +30,15 @@ and Cost Categories.
 3. [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/") allows querying data
    directly from the S3 bucket using an [AWS
    Glue](https://aws.amazon.com/glue/ "https://aws.amazon.com/glue/") table schema definition.
-4. [Amazon QuickSight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") creates datasets
+4. [Amazon Quick Sight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") creates datasets
    from [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/"), refreshes daily and
    caches in
    [SPICE](../../../quicksight/latest/user/spice.md "../../../quicksight/latest/user/spice.md")(Super-fast,
    Parallel, In-memory Calculation Engine) for
-   [Amazon QuickSight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
+   [Amazon Quick Sight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
 5. User Teams (Executives, FinOps, Engineers) can access Cloud
    Intelligence Dashboards in [Amazon
-   QuickSight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"). Access is secured through [AWS
+   Quick Sight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"). Access is secured through [AWS
    IAM](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/"), IIC ([AWS IAM Identity
    Center](https://aws.amazon.com/iam/identity-center/ "https://aws.amazon.com/iam/identity-center/"), formerly SSO), and optional
    [Row
@@ -117,9 +117,9 @@ Follow [deployment guide](deployment-in-global-regions.md "deployment-in-global-
 - Aaron Edell, Head of Accelerators, AWS
 - Aidin Khosrowshahi, AWS Sr. Technical Account Manager
 - Yuriy Prykhodko, AWS Principal Technical Account Manager
-- Arun Santhosh, Principal Specialist SA (Amazon QuickSight)
+- Arun Santhosh, Principal Specialist SA (Amazon Quick Sight)
 - Kareem Syed-Mohammed, Senior Product Manager - Technical (Amazon
-  QuickSight)
+  Quick Sight)
 - Timur Tulyaganov, Ex-Amazonian
 
 [Watch

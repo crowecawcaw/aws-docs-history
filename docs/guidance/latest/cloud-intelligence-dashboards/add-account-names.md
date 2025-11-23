@@ -41,10 +41,10 @@ FROM
     "optimization_data"."organization_data"
 ```
 
-Also you must update the role that QuickSight uses to update datasets.
-This can be a standard QuickSight role that you can manage in QuickSight
+Also you must update the role that Quick Sight uses to update datasets.
+This can be a standard Quick Sight role that you can manage in Quick Sight
 Admin space (Security and Permissions section). Or this can be a role
-named CidQuickSightDataSourceRole. This role can be managed by
+named CidQuick SightDataSourceRole. This role can be managed by
 Cloud-Intelligence-Dashboards stack in CloudFormation. Please make
 sure that you configure there the same bucket name as in [Data Collection Lab](data-collection.md "data-collection.md").
 
@@ -242,10 +242,10 @@ LEFT JOIN (
     (database).(tablename) ) b ON (b.account_id = a.line_item_usage_account_id))
 ```
 
-You must update the role that QuickSight uses to update datasets. This
-can be a standard QuickSight role that you can manage in QuickSight
+You must update the role that Quick Sight uses to update datasets. This
+can be a standard Quick Sight role that you can manage in Quick Sight
 Admin space (Security and Permissions section). Or this can be a role
-named CidQuickSightDataSourceRole. This role can be managed by
+named CidQuick SightDataSourceRole. This role can be managed by
 Cloud-Intelligence-Dashboards stack in CloudFormation. Please make
 sure that you configure there the same bucket name as in
 [Data Collection Lab](data-collection.md "data-collection.md").
@@ -260,6 +260,6 @@ cid-cmd map --account-map-source csv --account-map-file FILE.CSV
 ### Final Steps
 
 Once you update and test the account_map view in Athena, you need to
-make sure QuickSight has access to the bucket containing Optimization
+make sure Quick Sight has access to the bucket containing Optimization
 Data Collection data and then refresh summary_view dataset in
-QuickSight.
+Quick Sight.

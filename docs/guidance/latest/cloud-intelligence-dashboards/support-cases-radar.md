@@ -14,7 +14,7 @@ Get more familiar with Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo?dashboard=support-cases-radar "https://cid.workshops.aws.dev/demo?dashboard=support-cases-radar")
 
-![image of a support cases radar dashboard in QuickSight](images/support_cases_radar_dashboard.png)
+![image of a support cases radar dashboard in Quick Sight](images/support_cases_radar_dashboard.png)
 
 ## Architecture Overview
 
@@ -23,7 +23,7 @@ dashboard following this
 The Data Collection Stack collects the information about cases on a
 daily basis. Only the cases which have changes are collected. An Amazon
 Step Function saves case information on Amazon S3 and sends an event
-with case reference to the Default Bus of EventBridge. The QuickSight
+with case reference to the Default Bus of EventBridge. The Quick Sight
 dashboard is refreshed every night to provide case summary and insights.
 
 ## Prerequisites

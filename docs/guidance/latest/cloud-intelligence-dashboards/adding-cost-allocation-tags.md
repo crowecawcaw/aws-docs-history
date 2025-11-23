@@ -37,7 +37,7 @@ This guide assumes you have enabled one or more
 or
 [AWS](../../../awsaccountbilling/latest/aboutv2/activate-built-in-tags.md "../../../awsaccountbilling/latest/aboutv2/activate-built-in-tags.md")
 tags and waited up to 24 hours for the tags to become available in the
-CUR data, and for Amazon QuickSight to refresh datasets.
+CUR data, and for Amazon Quick Sight to refresh datasets.
 
 ### Step 1. Modify Queries in Athena
 
@@ -62,7 +62,7 @@ Legacy CUR
 8. Under Views, scroll down until you locate the **summary_view**.
 9. Select the three dots to the right of the view and select **Show/edit query** from the context menu.
 
-![Athena Query editor highlighting the summary view query and its context menu to select show edit query](images/cust_showedit_qry.png)
+![Athena Query editor highlighting the summary view query and its context menu to select show edit query](/images/guidance/latest/cloud-intelligence-dashboards/images/cust_showedit_qry.png)
 
 1. On the line after, `, "line_item_usage_account_id" "linked_account_id"` in the query add a blank line below that.
 
@@ -154,24 +154,24 @@ GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 
 
 ![Inset show the run again button of the query window and the successful result](images/cust_runagain.png) 13. Repeat the steps above on the **hourly_view** and **resource_view** datasets.
 
-### Step 2. Modify Data Set in Amazon QuickSight
+### Step 2. Modify Data Set in Amazon Quick Sight
 
-Next the data set in Amazon QuickSight needs to be updated so that you
+Next the data set in Amazon Quick Sight needs to be updated so that you
 can see the added fields to use them in your Dashboards and Analyses.
 
-1. Navigate to Amazon QuickSight in the console.
+1. Navigate to Amazon Quick Sight in the console.
 
-![AWS Console search with results for QuickSight](images/cust_navqs.png) 2. Select Datasets on the left side of the page.
+![AWS Console search with results for Quick Sight](images/cust_navqs.png) 2. Select Datasets on the left side of the page.
 
-![Left navigation in QuickSight with datasets option highlighted](images/cust_qs_ds.png) 3. Locate **summary_view** in the list of datasets and click on the dataset. 4. Click on the **EDIT DATASET** button in the top right of the page.
+![Left navigation in Quick Sight with datasets option highlighted](images/cust_qs_ds.png) 3. Locate **summary_view** in the list of datasets and click on the dataset. 4. Click on the **EDIT DATASET** button in the top right of the page.
 
-![QuickSight edit dataset button](images/cust_editds.png) 5. Allow the fields and dataset preview windows to load. 6. Confirm that you can see the fields you’ve added in the list. This can
+![Quick Sight edit dataset button](images/cust_editds.png) 5. Allow the fields and dataset preview windows to load. 6. Confirm that you can see the fields you’ve added in the list. This can
 be accomplished by entering the **friendly name** of the field in the
 search fields input.
 
-![Close up of QuickSight edit dataset field search and list](images/cust_fieldsrch.png) 7. Once you have confirmed you see all your fields, click the **Save & Publish** button in the top right of the dataset editor page.
+![Close up of Quick Sight edit dataset field search and list](images/cust_fieldsrch.png) 7. Once you have confirmed you see all your fields, click the **Save & Publish** button in the top right of the dataset editor page.
 
-![QuickSight save & publish button](images/cust_savepublish.png) 8. A refresh of the dataset will be triggered. Monitor the status to confirm that it completed successfully.
+![Quick Sight save & publish button](images/cust_savepublish.png) 8. A refresh of the dataset will be triggered. Monitor the status to confirm that it completed successfully.
 
 ![Summary view dataset summary tab showing dataset refresh status](images/cust_ds_load.png) 9. Repeat the steps above on the **hourly_view** and **resource_view**
 datasets.
@@ -184,7 +184,7 @@ confirm that the query view has run and updated successfully. Also make
 sure you are searching for the friendly name you gave the field in the
 Athena view.
 
-### Step 3. Modify QuickSight Analysis - CUDOS Dashboard
+### Step 3. Modify Quick Sight Analysis - CUDOS Dashboard
 
 After the dataset has been updated you can now add those fields to
 different visualizations. Here we will demonstrate how you can update
@@ -206,15 +206,15 @@ published dashboard changes
 1. First we’ll need to [save the dashboard as an analysis](create-analysis.md "create-analysis.md") so we can make changes.
 2. Open the CUDOS dashboard and select the save icon, selecting "save as" in the drop down selection to save the dashboard as an analysis.
 
-![QuickSight save as analysis dialog](images/cust_saveasanaly.png) 3. Open the analysis. 4. Select the tab **Executive: Billing Summary** and click into a visual
+![Quick Sight save as analysis dialog](images/cust_saveasanaly.png) 3. Open the analysis. 4. Select the tab **Executive: Billing Summary** and click into a visual
 you wish to group by tag. 5. In the Data column on the left, search for the **friendly name**
 (`cost_center_tag` in this example) for one of the tags you added.
 
-![QuickSight field list with search for cost center](images/cust_frndname.png) 6. Drag and Drop that field into the **Group/Color for Bars** area of the
+![Quick Sight field list with search for cost center](images/cust_frndname.png) 6. Drag and Drop that field into the **Group/Color for Bars** area of the
 **Visuals** column. You can add it as a drill down layer, or replace the
 original field.
 
-![QuickSight edit visualization showing custom field added to visual field well](images/cust_addcc.png) 7. Repeat this customization for any additional visuals you wish to
+![Quick Sight edit visualization showing custom field added to visual field well](images/cust_addcc.png) 7. Repeat this customization for any additional visuals you wish to
 change.
 
 ### Step 4. (Optional) Modify TAGsplorer sheet
@@ -229,9 +229,9 @@ include tags using the above steps.
 2. In the Data column on the left, search for the **friendly name** of the tag you want to add as primary.
 3. Drag and Drop that field into the **Group/Color** area of the **Visuals** column.
 
-![QuickSight tagsplorer primary tag added to visualization](images/cust_tagsprimary.png) 4. Select the **Cost Per Secondary TAG Previous Month** visual. 5. In the Data column on the left, search for the tag you want to add as secondary. 6. Drag and Drop that field into the **Group/Color** area of the **Visuals** column.
+![Quick Sight tagsplorer primary tag added to visualization](images/cust_tagsprimary.png) 4. Select the **Cost Per Secondary TAG Previous Month** visual. 5. In the Data column on the left, search for the tag you want to add as secondary. 6. Drag and Drop that field into the **Group/Color** area of the **Visuals** column.
 
-![QuickSight tagsplorer secondary tag added to visualization](images/cust_tagssecond.png) 7. Save and publish your analysis.
+![Quick Sight tagsplorer secondary tag added to visualization](images/cust_tagssecond.png) 7. Save and publish your analysis.
 
 ## Summary
 

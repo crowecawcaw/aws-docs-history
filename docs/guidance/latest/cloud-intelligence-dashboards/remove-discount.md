@@ -14,7 +14,7 @@ In this customization playbook we will describe how you can remove all
 Discounts information from Cloud Intelligence Dashboards (in this
 example CUDOS). This can be helpful if you do not want to expose
 Discount information to dashboard users, including Authors of customized
-dashboards in Amazon QuickSight.
+dashboards in Amazon Quick Sight.
 
 ## Prerequisites
 
@@ -54,16 +54,16 @@ AND line_item_line_item_type NOT IN ('Refund',  'Credit' , 'Tax')   -- New Line:
 
 1. Repeat the steps above on the **resource_view** dataset.
 
-### Step 2 of 2. Update DataSet in Amazon QuickSight
+### Step 2 of 2. Update DataSet in Amazon Quick Sight
 
-Next the data set in Amazon QuickSight needs to be refreshed in order to
+Next the data set in Amazon Quick Sight needs to be refreshed in order to
 view the changes immediately.
 
-1. Navigate to Amazon QuickSight in the console.
+1. Navigate to Amazon Quick Sight in the console.
 
-![AWS Console search with results for QuickSight](images/cust_navqs.png) 2. Select Datasets on the left side of the page.
+![AWS Console search with results for Quick Sight](images/cust_navqs.png) 2. Select Datasets on the left side of the page.
 
-![Left navigation in QuickSight with datasets option highlighted](images/cust_qs_ds.png) 3. Locate **summary_view** in the list of datasets and click on the
+![Left navigation in Quick Sight with datasets option highlighted](images/cust_qs_ds.png) 3. Locate **summary_view** in the list of datasets and click on the
 dataset. 4. Click on the **Refresh** tab in the top left of the page. 5. Click on **Refresh Now** button in the top right of the page. 6. Repeat the steps to refresh **resource_view** dataset as well.
 
 ## Test

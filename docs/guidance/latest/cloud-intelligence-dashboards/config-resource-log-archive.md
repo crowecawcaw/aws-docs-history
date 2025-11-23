@@ -13,7 +13,7 @@ Follow the same installation instructions for the Log Archive account.
 The installation process consists of two steps:
 
 1. Data pipeline resources for the dashboard, via CloudFormation stack.
-2. QuickSight resources for the dashboard and the necessary Athena views, using the [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md") command line tool.
+2. Quick Sight resources for the dashboard and the necessary Athena views, using the [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md") command line tool.
 
 ![CRCD Dashboard: deployment steps on Log Archive account](images/images/dashboards/crcd-deployment-steps-log-archive-account.png)
 
@@ -21,7 +21,7 @@ The installation process consists of two steps:
 
 ###### Note
 
-Ensure you are in the Region where both your Log Archive bucket and Amazon QuickSight are deployed.
+Ensure you are in the Region where both your Log Archive bucket and Amazon Quick Sight are deployed.
 
 ##### Step 1
 
@@ -37,7 +37,7 @@ Ensure you are in the Region where both your Log Archive bucket and Amazon Quick
 
 
 
-    	+ CloudFormation will create an IAM policy that grants Amazon QuickSight permissions to use the key for decrypt operations.
+    	+ CloudFormation will create an IAM policy that grants Amazon Quick Sight permissions to use the key for decrypt operations.
     	+ You may prefer managing key permissions on the key policy, rather than IAM. In his case, leave the parameter empty. You’ll have to manually grant key permissions in the key policy (more details below).
     * `Dashboard account ID` Enter the same value as the `Log Archive account ID` (Required).
     * `Dashboard bucket` Enter the same value as the `Log Archive bucket` (Required).
@@ -67,7 +67,7 @@ Ensure you are in the Region where both your Log Archive bucket and Amazon Quick
 
 Skip this section if you do not utilize a KMS key to encrypt your Dashboard bucket, or if you specified the key ARN in the CloudFormation parameter `ARN of the KMS key that encrypts the Dashboard bucket` in Step 1.
 
-Follow these steps to [edit](../../../kms/latest/developerguide/key-policy-modifying.md "../../../kms/latest/developerguide/key-policy-modifying.md") the key policy and grant the QuickSight role permissions to use the key for decrypt operations.
+Follow these steps to [edit](../../../kms/latest/developerguide/key-policy-modifying.md "../../../kms/latest/developerguide/key-policy-modifying.md") the key policy and grant the Quick Sight role permissions to use the key for decrypt operations.
 
 1. Ensure you are logged into the AWS Management Console on the Log Archive account and Region where you created the KMS key that encrypts the Log Archive bucket.
 2. Open the AWS Key Management Service console and click on the KMS key.
@@ -75,7 +75,7 @@ Follow these steps to [edit](../../../kms/latest/developerguide/key-policy-modif
 
 ```
 {
-    "Sid": "CRCD Dashboard allow QuickSight Role access",
+    "Sid": "CRCD Dashboard allow Quick Sight Role access",
     "Effect": "Allow",
     "Principal": {
         "AWS": "arn:aws:iam::ACCOUNT_ID:role/QUICKSIGHT_DATASOURCE_ROLE"
@@ -90,7 +90,7 @@ Follow these steps to [edit](../../../kms/latest/developerguide/key-policy-modif
 Where:
 
 - `ACCOUNT_ID` is the AWS account ID where you installed thedashboard.
-- `QUICKSIGHT_DATASOURCE_ROLE` is the value of the output `QuickSightDataSourceRole` from the CloudFormation template.
+- `QUICKSIGHT_DATASOURCE_ROLE` is the value of the output `Quick SightDataSourceRole` from the CloudFormation template.
 
 **Manual setup of S3 event notification**
 
@@ -151,7 +151,7 @@ cid-cmd deploy \
    - If you have installed other CID/CUDOS dashboards, select the existing datasource `CID-CMD-Athena`.
    - Otherwise select `CID-CMD-Athena <CREATE NEW DATASOURCE>`.
 
-2. When prompted `[quicksight-datasource-role] Please choose a QuickSight role. It must have access to Athena:` select `CidCmdQuickSightDataSourceRole <ADD NEW ROLE>` or `CidCmdQuickSightDataSourceRole` (the second option will appear by default if you have other CID/CUDOS dashboards).
+2. When prompted `[quicksight-datasource-role] Please choose a Quick Sight role. It must have access to Athena:` select `CidCmdQuick SightDataSourceRole <ADD NEW ROLE>` or `CidCmdQuick SightDataSourceRole` (the second option will appear by default if you have other CID/CUDOS dashboards).
 3. In certain cases the installer will show an updated IAM policy JSON code and prompt `? [confirm-policy-AthenaAccess] Please confirm:`. Select `yes`.
 4. When prompted `[timezone] Please select timezone for datasets scheduled refresh.:` select the time zone for dataset scheduled refresh in your Region (it is already preselected).
 5. When prompted `Select taxonomy fields to add as dashboard filters and group by fields` select `Looks good` without adding taxonomy items. Taxonomy is not yet supported by the dashboard.
@@ -159,6 +159,6 @@ cid-cmd deploy \
 
 ## Visualize the dashboard
 
-1. Navigate to QuickSight and then `Dashboards`.
+1. Navigate to Quick Sight and then `Dashboards`.
 2. Ensure you are in the correct Region.
 3. Click on the **AWS Config Resource Compliance Dashboard (CRCD)** dashboard.

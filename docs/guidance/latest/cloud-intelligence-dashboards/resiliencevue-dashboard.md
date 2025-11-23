@@ -20,13 +20,13 @@ To learn more about AWS Resilience Hub, See:
 ![Architecture](images/images/architecture/rh_architecture.png)
 
 1. The "[Data Collection Lab](data-collection.md "data-collection.md")" provides an Amazon Lambda function that assumes a role in one or multiple Linked accounts to retrieve daily the AWS Resilience Hub assessment Data and store it on Amazon S3. The Lambda only pulls data that are updated since the last retrieval. The stack also provides AWS Glue Tables to query collected data.
-2. Cloud Intelligence Dashboards provide Amazon Athena views for querying data directly from the S3 bucket using an AWS Glue tables and Amazon QuickSight Datasets and Dashboards, allowing Enterprise Teams access to AWS Resilience Hub data. Access can be secured through AWS IAM, IIC (SSO), and optional Row Level Security.
+2. Cloud Intelligence Dashboards provide Amazon Athena views for querying data directly from the S3 bucket using an AWS Glue tables and Amazon Quick Sight Datasets and Dashboards, allowing Enterprise Teams access to AWS Resilience Hub data. Access can be secured through AWS IAM, IIC (SSO), and optional Row Level Security.
 
 ## Demo Dashboard
 
 Get more familiar with Dashboard using the live, interactive demo dashboard following this [link](https://cid.workshops.aws.dev/demo?dashboard=resiliencevue "https://cid.workshops.aws.dev/demo?dashboard=resiliencevue")
 
-![Image of ResilienceVue dashboard in QuickSight](images/rv_demo.png)
+![Image of ResilienceVue dashboard in Quick Sight](images/rv_demo.png)
 
 ## Prerequisites
 

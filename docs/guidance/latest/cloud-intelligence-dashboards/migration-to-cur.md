@@ -78,7 +78,7 @@ deployment (cid-cmd).
 2. Open [CloudFormation Console](https://console.aws.amazon.com/cloudformation/home?#/stacks "https://console.aws.amazon.com/cloudformation/home?#/stacks") in your Destination/Dashboard Account. Make sure to use the same region where you deployed the stack previously.
 3. Update the stack (default name is Cloud-Intelligence-Dashboards) with the version you get from GitHub and set the parameter "CURVersion = 2". If you want to keep Legacy CUR, set "Keep Legacy CUR Table" (KeepLegacyCURTable) parameter to "Yes" and proceed with CLI update (Step 2.2).
 
-These steps update the role used by QuickSight DataSources to access
+These steps update the role used by Quick Sight DataSources to access
 Amazon S3 bucket and Athena Database with CUR2. At this point your
 dashboard will not be updated (if you choose to KeepLegacyCURTable).
 
@@ -118,8 +118,8 @@ on how it was created.
 
 ### I do not see data on dashboards after migration
 
-1. Run `cid-cmd status` to get more info about dataset status. Or manually check dataset status in QuickSight UI
-2. Double check that QuickSight has permissions to read from your CUR bucket. If you use a default QuickSight Role please add manually permissions to read from `cid-ACCOUNTID-data-exports` bucket.
+1. Run `cid-cmd status` to get more info about dataset status. Or manually check dataset status in Quick Sight UI
+2. Double check that Quick Sight has permissions to read from your CUR bucket. If you use a default Quick Sight Role please add manually permissions to read from `cid-ACCOUNTID-data-exports` bucket.
 3. Check if data are in Athena table and view `SELECT * FROM summary_view LIMIT 10`
 
 ### How I can rollback

@@ -79,20 +79,20 @@ ELSE 0 END) "net_amortized_cost"
 1. click the **Run again** button and confirm that the query view updates
    successfully.
 
-### Step 2 of 3. Modify/Refresh DataSet in Amazon QuickSight
+### Step 2 of 3. Modify/Refresh DataSet in Amazon Quick Sight
 
-Next the data set in Amazon QuickSight needs to be refreshed in order to
+Next the data set in Amazon Quick Sight needs to be refreshed in order to
 see the added fields and use them in your analysis and dashboard.
 
-1. Navigate to Amazon QuickSight in the console.
+1. Navigate to Amazon Quick Sight in the console.
 
-![AWS Console search with results for QuickSight](images/cust_navqs.png) 2. Select Datasets on the left side of the page.
+![AWS Console search with results for Quick Sight](images/cust_navqs.png) 2. Select Datasets on the left side of the page.
 
-![Left navigation in QuickSight with datasets option highlighted](images/cust_qs_ds.png) 3. Locate **summary_view** in the list of datasets and click on the
+![Left navigation in Quick Sight with datasets option highlighted](images/cust_qs_ds.png) 3. Locate **summary_view** in the list of datasets and click on the
 dataset. 4. Click on Edit Dataset under the **summary** tab in the top right of the
 page.
 
-![QuickSight edit dataset button](images/cust_editds.png) 5. Allow the dataset preview windows to load. 6. Click on **Save & Publish** button in the top right of the page. this
+![Quick Sight edit dataset button](/images/guidance/latest/cloud-intelligence-dashboards/images/cust_editds.png) 5. Allow the dataset preview windows to load. 6. Click on **Save & Publish** button in the top right of the page. this
 will trigger a refresh of the dataset and import net_amortized field
 
 ![Save and Publish the dataset to trigger full refresh and import new columns](images/net_dataset_save_publish.png) 7. Repeat the steps to refresh **resource_view** and **hourly_view** dataset

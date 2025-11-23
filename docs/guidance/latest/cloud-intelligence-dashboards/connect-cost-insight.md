@@ -30,7 +30,7 @@ Get more familiar with Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo?dashboard=amazon-connect-cost-insight-dashboard "https://cid.workshops.aws.dev/demo?dashboard=amazon-connect-cost-insight-dashboard")
 
-![Image of Amazon Connect Cost Insight Dashboard in QuickSight](images/Amazon_Connect_dash.png)
+![Image of Amazon Connect Cost Insight Dashboard in Quick Sight](images/Amazon_Connect_dash.png)
 
 ## Prerequisites
 

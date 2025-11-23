@@ -51,7 +51,7 @@ GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 
 
 - Repeat the same process in the `UNION ALL` section - find the last existing cost allocation tag line, add your cost allocation tag below it, and bump the `GROUP BY` numbers shown as above
 - Run the query, it should quickly complete
-- Log into QuickSight, edit the `scad_cca_summary_view` dataset, click `Save & publish` on the top right, and wait for the dataset to finish refreshing
+- Log into Quick Sight, edit the `scad_cca_summary_view` dataset, click `Save & publish` on the top right, and wait for the dataset to finish refreshing
 
-Once the QuickSight dataset refresh is completed successfully, the new cost allocation tag column will be available in the QuickSight analysis, for you to add to visuals.
+Once the Quick Sight dataset refresh is completed successfully, the new cost allocation tag column will be available in the Quick Sight analysis, for you to add to visuals.
 You may now save the dashboard as analysis and create visuals with the labels/tags, or continue to the [Total Cost of Ownership Using Kubernetes Labels and AWS Tags](scad-containers-dashboard-tco.md "scad-containers-dashboard-tco.md") chapter for 2 examples on using K8s pods labels/ECS tasks tags in the dashboard.

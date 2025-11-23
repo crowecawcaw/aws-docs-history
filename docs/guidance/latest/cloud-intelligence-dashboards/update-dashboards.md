@@ -34,7 +34,7 @@ cid-cmd update
 
 ###### Note
 
-After update QuickSight
+After update Quick Sight
 datasets will be refreshed automatically. During the refresh process you
 may see "Dataset changed too much" error which should disappear once
 datasets are fully refreshed
@@ -42,7 +42,7 @@ datasets are fully refreshed
 ### Recursive Update
 
 In some cases the update of underlying
-QuickSight Datasets and views is required. This can be useful also to
+Quick Sight Datasets and views is required. This can be useful also to
 reset dashboards to factory settings if any issue. Please note that it
 might impact customizations you did on the dashboards. The tool will
 provide you an interactive prompt when it will detect the difference and

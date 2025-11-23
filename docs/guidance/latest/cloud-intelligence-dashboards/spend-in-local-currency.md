@@ -22,7 +22,7 @@ rate data that you can obtain from public sources.
 ## Prerequisites
 
 - [CUDOS v5](cudos-cid-kpi.md "cudos-cid-kpi.md") Dashboard deployed
-- Access to upload CSV to S3, create external table in Athena and amend Quicksight Dataset and Dashboards.
+- Access to upload CSV to S3, create external table in Athena and amend Quick Sight Dataset and Dashboards.
 - Currency conversion rate file in CSV format [example.csv](samples/currency-conversion-rate.csv.md "samples/currency-conversion-rate.csv.md"), averaging currency conversion on monthly basis. For this example we use USD to GBP change rate, assuming that the CUR is in USD and we want to show it in GBP.
 
 ```
@@ -85,7 +85,7 @@ This customization requires several manual steps:
 
 ![Preview Table](images/customizations/currency-conversion/preview-external-table.png)
 
-1. In Quicksight, go to "Datasets" section and select summary_view
+1. In Quick Sight, go to "Datasets" section and select summary_view
    dataset. Click on "Edit", then click on "Add data" in the top right
    corner. From the dropdown menu, choose "Data source". In the data
    source options, select CID datasource and then choose the
@@ -100,7 +100,7 @@ This customization requires several manual steps:
 
 ![Add join](images/customizations/currency-conversion/add-join.png)
 
-1. In the Quicksight, go to the dashboards, then click CUDOS Dashboard
+1. In the Quick Sight, go to the dashboards, then click CUDOS Dashboard
    and save it as new analyses.
 
 ![Save analysis](images/customizations/currency-conversion/save-analysis.png)
@@ -192,7 +192,7 @@ switch( ${Currency},
 
 ### Changing the symbol
 
-As of today (Feb 2025) Amazon QuickSight do not allow dynamically
+As of today (Feb 2025) Amazon Quick Sight do not allow dynamically
 changing a symbol on labels, so the only way to indicate changing
 currency is to use titles of visuals.
 

@@ -13,7 +13,7 @@ transferable across clouds, tools, and organizations.
 
 CID FOCUS Dashboard is an open source and customizable dashboard which
 provides pre-defined visuals to get actionable insights from FOCUS data
-in Amazon QuickSight. It allows you to quickly get started with using
+in Amazon Quick Sight. It allows you to quickly get started with using
 FOCUS in your organization. FOCUS Dashboard provides the following
 features:
 

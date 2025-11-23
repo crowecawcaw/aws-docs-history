@@ -18,7 +18,7 @@ dashboard so you can see everything grouped by tags.
 
 For this solution you must have the following:
 
-- Ability to save and publish dashboards in Amazon QuickSight
+- Ability to save and publish dashboards in Amazon Quick Sight
 
 ## Step 1 create a parameter and control
 
@@ -69,6 +69,6 @@ leveraged additional fields for filtering.
 ## Additional information
 
 - [Amazon
-  QuickSight parameter documentation](../../../quicksight/latest/user/parameters-in-quicksight.md "../../../quicksight/latest/user/parameters-in-quicksight.md")
+  Quick Sight parameter documentation](../../../quicksight/latest/user/parameters-in-quicksight.md "../../../quicksight/latest/user/parameters-in-quicksight.md")
 - [Using
-  dataset parameters in Amazon QuickSight](../../../quicksight/latest/user/dataset-parameters.md "../../../quicksight/latest/user/dataset-parameters.md")
+  dataset parameters in Amazon Quick Sight](../../../quicksight/latest/user/dataset-parameters.md "../../../quicksight/latest/user/dataset-parameters.md")

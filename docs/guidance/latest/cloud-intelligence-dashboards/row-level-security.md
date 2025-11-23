@@ -39,9 +39,9 @@ For this solution you must have the following:
 This solution will use tags from your
 [AWS Organization](https://aws.amazon.com/organizations/ "https://aws.amazon.com/organizations/") resources to
 create a dataset that will be used for the Row Level Security for all
-CID Datasets in [Amazon QuickSight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/").
+CID Datasets in [Amazon Quick Sight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/").
 
-The RLS rules can be based on Amazon QuickSight Groups or Individual
+The RLS rules can be based on Amazon Quick Sight Groups or Individual
 Users.
 
 ![Row level security architecture diagram](images/customizations/rls/customizations_rls_architecture.png)
@@ -51,8 +51,8 @@ Users.
     AWS OU or per Account.
 
         * **Tag key**: `cid_user` / **Tag value**: a list
-        of email of user (the same as in QuickSight), with a separator `:`
-        * **Tag key**: `cid_group` / **Tag value**: a list of QuickSight group
+        of email of user (the same as in Quick Sight), with a separator `:`
+        * **Tag key**: `cid_group` / **Tag value**: a list of Quick Sight group
         names.
         Tags will be propagated to all children OUs. The more specific tag on
         children OU or on Account level can override values commit from higher
@@ -64,14 +64,14 @@ Users.
     Accounts and retrieves account tags via the
     [AWS Organizations](https://aws.amazon.com/organizations/ "https://aws.amazon.com/organizations/") API. Also it
     retrieves a list of Users of [Amazon
-    QuickSight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") in the local AWS Account. Then the Lambda function generates
+    Quick Sight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") in the local AWS Account. Then the Lambda function generates
     a CSV file with RLS rules, and uploads the CSV file to an
     [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/") Bucket. (Existing Bucket defined
     during CloudFormation deployment).
-1.  [Amazon QuickSight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") refreshes the
+1.  [Amazon Quick Sight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") refreshes the
     RLS dataset every hour.
-1.  The **RLS dataset** is applied to QuickSight datasets.
-1.  The **QuickSight User** can visualize only the data based on RLS rules.
+1.  The **RLS dataset** is applied to Quick Sight datasets.
+1.  The **Quick Sight User** can visualize only the data based on RLS rules.
 
 ## Step by Step Guide
 
@@ -117,9 +117,9 @@ Stack](https://github.com/awslabs/cid-framework/tree/main/data-collection/deploy
 ### Part 2: Tag your AWS Organization Resources
 
 You must tag the AWS Organization Resources with the emails of the
-Quicksight Users that you wish to allow access to see the resources cost
+Quick Sight Users that you wish to allow access to see the resources cost
 data. The below will show you how to tag a resource and this can be
-repeated. We will be using **AWS Quicksight User Emails**, see more
+repeated. We will be using **AWS Quick Sight User Emails**, see more
 [here](../../../quicksight/latest/user/managing-users.md "../../../quicksight/latest/user/managing-users.md").
 If you have a large list of accounts and want to use a script, please
 see the section below [Use script to tag accounts](#row-levelsecutiy-script-to-tag-account "#row-levelsecutiy-script-to-tag-account").
@@ -156,7 +156,7 @@ You can select different levels of access. Tag one of the following and then use
 ### Part 3: Deploy Lambda Function
 
 Using AWS CloudFormation we will deploy the lambda function to collect these
-tags. This is done in the QuickSight Cloud Intelligence Dashboards
+tags. This is done in the Quick Sight Cloud Intelligence Dashboards
 Account aka Data Collection Account.
 
 [![Launch Stack button](images/LaunchStack.svg)](<https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https%3A%2F%2Faws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com%2Fcfn%2Frls%2Fdeploy_cid_rls.yaml&stackName=CIDRowLevelSecurity&param_ResourcePrefix=CID-DC-&param_DestinationBucket=&param_ManagementAccountRole=Lambda-Assume-Role-Management-Account&param_Schedule=rate(1%20hour)&param_CodeBucket=aws-managed-cost-intelligence-dashboards&param_CodeKey=cfn%2Frls%2Fcreate_rls.zip&param_ManagementAccountID=> "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https%3A%2F%2Faws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com%2Fcfn%2Frls%2Fdeploy_cid_rls.yaml&stackName=CIDRowLevelSecurity¶m_ResourcePrefix=CID-DC-¶m_DestinationBucket=¶m_ManagementAccountRole=Lambda-Assume-Role-Management-Account¶m_Schedule=rate(1%20hour)¶m_CodeBucket=aws-managed-cost-intelligence-dashboards¶m_CodeKey=cfn%2Frls%2Fcreate_rls.zip¶m_ManagementAccountID=")
@@ -170,7 +170,7 @@ Account aka Data Collection Account.
    - `DestinationBucket` - Amazon S3 Bucket in your account in the same
      region (this can be one from your Optimization data collector where
      where your CUR is stored). This bucket must have access to Amazon
-     Quicksight
+     Quick Sight
    - `ManagementAccountID` - List of Payer/Management Account IDs you
      wish to collect data for. Can just be one Accounts(Ex:
      111222333,444555666,777888999)
@@ -223,29 +223,29 @@ get your first set of data in Amazon S3.
 
 ### Part 5: Create RLS
 
-We will now create the RLS Dataset in Amazon QuickSight and attach it to
+We will now create the RLS Dataset in Amazon Quick Sight and attach it to
 your datasets for CID. Please ensure the bucket you have placed the RLS
-file into has access to Amazon QuickSight, see
+file into has access to Amazon Quick Sight, see
 [here](../../../quicksight/latest/user/troubleshoot-connect-S3.md "../../../quicksight/latest/user/troubleshoot-connect-S3.md")
 
 1. Download and replace `<bucket>` with the bucket you can see your
    data in. If any syntax errors, reference
    [Manifest
-   file format for Amazon QuickSight](../../../quicksight/latest/user/supported-manifest-file-format.md#quicksight-manifest-file-format "../../../quicksight/latest/user/supported-manifest-file-format.md#quicksight-manifest-file-format")
+   file format for Amazon Quick Sight](../../../quicksight/latest/user/supported-manifest-file-format.md#quicksight-manifest-file-format "../../../quicksight/latest/user/supported-manifest-file-format.md#quicksight-manifest-file-format")
 
 [s3 json manifest file](samples/qs_s3_manifest.json.md "samples/qs_s3_manifest.json.md")
 
-![QuickSight dataset screen with dataset navigation and new dataset button highlighted](images/customizations/rls/04_2025/s3_manifest_json.png)
+![Quick Sight dataset screen with dataset navigation and new dataset button highlighted](images/customizations/rls/04_2025/s3_manifest_json.png)
 
-1. Go to Amazon QuickSight
+1. Go to Amazon Quick Sight
 2. Go to Datasets and click on **New dataset** drop down menu, then click
    on **NEW RULES DATASET**
 
-![QuickSight dataset screen with dataset navigation and new dataset button highlighted](images/customizations/rls/04_2025/new_rls_dataset.png)
+![Quick Sight dataset screen with dataset navigation and new dataset button highlighted](images/customizations/rls/04_2025/new_rls_dataset.png)
 
 1. Create new Dataset by clicking **S3**
 
-![QuickSight new dataset screen with S3 datasource highlighted](images/customizations/rls/04_2025/new_s3_data_source.png)
+![Quick Sight new dataset screen with S3 datasource highlighted](images/customizations/rls/04_2025/new_s3_data_source.png)
 
 1. Set Data source name as **CID RLS** and the qs_s3_manifest.json file you edited earlier into the **Upload** box
 
@@ -300,7 +300,7 @@ For this you will need:
 - a list of all of your accounts you wish to tag. If you do not have one, you can
   export your AWS Organizations using this
   [guide](../../../organizations/latest/userguide/orgs_manage_accounts_export.md "../../../organizations/latest/userguide/orgs_manage_accounts_export.md")
-- a list of all QuickSight users email which you wish to tag this
+- a list of all Quick Sight users email which you wish to tag this
   Organization with. Currently you cannot directly download this data but
   you can use the following cli command replacing 111122223333 with your
   Management account
@@ -314,7 +314,7 @@ aws quicksight list-users --namespace default --output text --aws-account-id 111
 
 1. Download this [example file](samples/rls_data.csv.md "samples/rls_data.csv.md") and this [code file](samples/aws_org_tagger_lambda.py.md "samples/aws_org_tagger_lambda.py.md") file and save as aws_org_tagger_lambda.py
 2. In the file, remove the example line and add your list of account id’s
-   in the first column. Then add the relevant QuickSight users emails that
+   in the first column. Then add the relevant Quick Sight users emails that
    you want to have access to the account. Remember if multiple they need
    to be **separated by :**
 3. Save this file.

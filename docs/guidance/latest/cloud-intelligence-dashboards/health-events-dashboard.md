@@ -66,7 +66,7 @@ Collection Account (Can be the same with your other CID dashboards).
    data.
 2. Cloud Intelligence Dashboards provide Amazon Athena views for querying
    data directly from the S3 bucket using an AWS Glue tables and Amazon
-   QuickSight Datasets and Dashboards, allowing Operation Teams acceding
+   Quick Sight Datasets and Dashboards, allowing Operation Teams acceding
    AWS Health data. Access can be secured through AWS IAM, IIC (SSO), and
    optional Row Level Security.
 
@@ -97,7 +97,7 @@ higher required. 3. Prepare Athena
 If this is the first time you will be using Athena you will need to
 complete a few setup steps before you are able to create the views
 needed. If you are already a regular Athena user you can skip these
-steps and move on to the Enable Amazon Quicksight section below.
+steps and move on to the Enable Amazon Quick Sight section below.
 
 1. From the services list, choose **S3**
 2. Create a new S3 bucket for Athena queries to be logged to. Keep to the same region as the S3 bucket created for your Compute Optimizer data created via Data Collection Lab.
@@ -136,19 +136,19 @@ you need to set up a query result location in Amazon S3**.
 
     ![Athena edit workgroup with the query results location input highlighted](images/co_athena_v5.png)
 
-1. Enable Amazon QuickSight
+1. Enable Amazon Quick Sight
 
-Amazon QuickSight is the AWS Business Intelligence tool that will allow
+Amazon Quick Sight is the AWS Business Intelligence tool that will allow
 you to not only view the Standard AWS provided insights into all of your
 accounts, but will also allow to produce new versions of the Dashboards
 we provide or create something entirely customized to you. If you are
-already a regular Amazon QuickSight user you can skip these steps.
+already a regular Amazon Quick Sight user you can skip these steps.
 
-1. Log into your AWS Account and search for **QuickSight** in the list of
+1. Log into your AWS Account and search for **Quick Sight** in the list of
    Services
 2. You will be asked to **sign up** before you will be able to use it
 
-![Page with a button to sign up for Amazon QuickSight](images/qs.png) 3. After pressing the **Sign up** button you will be presented with 2
+![Page with a button to sign up for Amazon Quick Sight](images/qs.png) 3. After pressing the **Sign up** button you will be presented with 2
 options, please ensure you select the **Enterprise Edition** during this
 step 4. Select **continue** and you will need to fill in a series of options in
 order to finish creating your account.
@@ -158,20 +158,20 @@ order to finish creating your account.
 
 
 
-    ![QuickSight configuration page with the Amazon S3 checkbox highlighted](images/co_qs_v2.png)
+    ![Quick Sight configuration page with the Amazon S3 checkbox highlighted](images/co_qs_v2.png)
     * Enable the Amazon S3 option and select the bucket where your Compute
     Optimizer data created via Data Collection Lab are located
 
 
 
-    ![QuickSight Amazon S3 bucket selection dialog](images/co_qs_v3.png)
+    ![Quick Sight Amazon S3 bucket selection dialog](images/co_qs_v3.png)
 
 5. Click **Finish** & wait for the congratulations screen to display
-6. Click **Go to Amazon QuickSight**
+6. Click **Go to Amazon Quick Sight**
 
-![Amazon QuickSight finished configuration page with button to go to QuickSight](images/co_qs_v4.png) 7. Check you have **Amazon QuickSight Enterprise Edition**
+![Amazon Quick Sight finished configuration page with button to go to Quick Sight](images/co_qs_v4.png) 7. Check you have **Amazon Quick Sight Enterprise Edition**
 
-![QuickSight page with callouts to select Manage QuickSight from the menu to confirm the QuickSight edition](images/co_qs_v5.png)
+![Quick Sight page with callouts to select Manage Quick Sight from the menu to confirm the Quick Sight edition](images/co_qs_v5.png)
 
 ## Deployment
 
