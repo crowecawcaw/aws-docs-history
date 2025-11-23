@@ -17,7 +17,7 @@ following.
  -Daws.sessionToken={YourAwsSessionToken}
  -Djava.library.path={NativeLibraryPath}"`
 
-4. Sign in to the AWS Management Console and open the [Kinesis Video Streams console](https://console.aws.amazon.com/kinesisvideo/home/ "https://console.aws.amazon.com/kinesisvideo/home/").
+4. Sign in to the AWS Management Console and open the [Kinesis Video Streams console](https://console.aws.amazon.com//kinesisvideo/home/ "https://console.aws.amazon.com//kinesisvideo/home/").
 
 On the **Manage Streams** page, choose your stream. 5. The sample video will play in the embedded player. You might need to wait a
 short time (up to ten seconds under typical bandwidth and processor conditions)

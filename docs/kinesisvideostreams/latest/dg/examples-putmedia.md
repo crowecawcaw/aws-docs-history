@@ -226,6 +226,6 @@ java -classpath target/kinesisvideo-java-demo-1.0-SNAPSHOT.jar:$classpath_values
 ```
 
 8. Open the [Kinesis Video Streams
-   console](https://console.aws.amazon.com/kinesisvideo/home/ "https://console.aws.amazon.com/kinesisvideo/home/"), and choose your stream on the **Manage
+   console](https://console.aws.amazon.com//kinesisvideo/home/ "https://console.aws.amazon.com//kinesisvideo/home/"), and choose your stream on the **Manage
    Streams** page. The video plays in the **Video
    Preview** pane.

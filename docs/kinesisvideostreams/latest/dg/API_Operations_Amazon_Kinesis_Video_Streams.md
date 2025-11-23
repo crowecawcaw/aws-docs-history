@@ -14,6 +14,7 @@ The following actions are supported by Amazon Kinesis Video Streams:
 - [DescribeNotificationConfiguration](API_DescribeNotificationConfiguration.md "API_DescribeNotificationConfiguration.md")
 - [DescribeSignalingChannel](API_DescribeSignalingChannel.md "API_DescribeSignalingChannel.md")
 - [DescribeStream](API_DescribeStream.md "API_DescribeStream.md")
+- [DescribeStreamStorageConfiguration](API_DescribeStreamStorageConfiguration.md "API_DescribeStreamStorageConfiguration.md")
 - [GetDataEndpoint](API_GetDataEndpoint.md "API_GetDataEndpoint.md")
 - [GetSignalingChannelEndpoint](API_GetSignalingChannelEndpoint.md "API_GetSignalingChannelEndpoint.md")
 - [ListEdgeAgentConfigurations](API_ListEdgeAgentConfigurations.md "API_ListEdgeAgentConfigurations.md")
@@ -32,3 +33,4 @@ The following actions are supported by Amazon Kinesis Video Streams:
 - [UpdateNotificationConfiguration](API_UpdateNotificationConfiguration.md "API_UpdateNotificationConfiguration.md")
 - [UpdateSignalingChannel](API_UpdateSignalingChannel.md "API_UpdateSignalingChannel.md")
 - [UpdateStream](API_UpdateStream.md "API_UpdateStream.md")
+- [UpdateStreamStorageConfiguration](API_UpdateStreamStorageConfiguration.md "API_UpdateStreamStorageConfiguration.md")

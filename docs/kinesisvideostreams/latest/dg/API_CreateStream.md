@@ -24,6 +24,9 @@ Content-type: application/json
    "KmsKeyId": "`string`",
    "MediaType": "`string`",
    "StreamName": "`string`",
+   "StreamStorageConfiguration": {
+      "DefaultStorageTier": "`string`"
+   },
    "Tags": {
       "`string`" : "`string`"
    }
@@ -124,6 +127,16 @@ Length Constraints: Minimum length of 1. Maximum length of 256.
 Pattern: `[a-zA-Z0-9_.-]+`
 
 Required: Yes
+
+**[StreamStorageConfiguration](#API_CreateStream_RequestSyntax "#API_CreateStream_RequestSyntax")**
+
+The configuration for the stream's storage, including the default storage tier for stream data. This configuration determines how stream data is stored and accessed, with different tiers offering varying levels of performance and cost optimization.
+
+If not specified, the stream will use the default storage configuration with HOT tier for optimal performance.
+
+Type: [StreamStorageConfiguration](API_StreamStorageConfiguration.md "API_StreamStorageConfiguration.md") object
+
+Required: No
 
 **[Tags](#API_CreateStream_RequestSyntax "#API_CreateStream_RequestSyntax")**
 

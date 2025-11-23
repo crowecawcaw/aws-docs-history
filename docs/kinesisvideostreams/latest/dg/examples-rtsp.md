@@ -124,7 +124,7 @@ export AWS_DEFAULT_REGION=`YourAWSRegion`
 ./kvs_gstreamer_sample `YourStreamName` `YourRtspUrl`
 ```
 
-3. Sign into the AWS Management Console and open the [Kinesis Video Streams console](https://console.aws.amazon.com/kinesisvideo/home/ "https://console.aws.amazon.com/kinesisvideo/home/").
+3. Sign into the AWS Management Console and open the [Kinesis Video Streams console](https://console.aws.amazon.com//kinesisvideo/home/ "https://console.aws.amazon.com//kinesisvideo/home/").
 
 View the stream. 4. To exit the Docker container, close the terminal window or type
 `exit`.

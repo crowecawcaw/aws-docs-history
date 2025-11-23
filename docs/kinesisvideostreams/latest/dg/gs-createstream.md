@@ -9,7 +9,7 @@ This section contains the following procedures:
 
 ## Create a video stream using the console
 
-1. Open the console at [https://console.aws.amazon.com/kinesisvideo/home](https://console.aws.amazon.com/kinesisvideo/home "https://console.aws.amazon.com/kinesisvideo/home").
+1. Open the console at [https://console.aws.amazon.com//kinesisvideo/home](https://console.aws.amazon.com//kinesisvideo/home "https://console.aws.amazon.com//kinesisvideo/home").
 2. On the **Video streams** page, choose
    **Create video stream**.
 3. On the **Create a new video stream** page, enter

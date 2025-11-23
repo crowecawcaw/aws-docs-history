@@ -37,7 +37,7 @@ These values have the following constraints:
 8. Enter the code that you receive by email, and choose **Confirm**. Choose
    **Ok**.
 9. On the next page, keep the default values, and choose **Stream**.
-10. Sign in to the AWS Management Console and open the [Kinesis Video Streams console](https://console.aws.amazon.com/kinesisvideo/home/ "https://console.aws.amazon.com/kinesisvideo/home/") in the US West (Oregon) Region.
+10. Sign in to the AWS Management Console and open the [Kinesis Video Streams console](https://console.aws.amazon.com//kinesisvideo/home/ "https://console.aws.amazon.com//kinesisvideo/home/") in the US West (Oregon) Region.
 
 On the **Manage Streams** page, choose
 **demo-stream**. 11. The streaming video plays in the embedded player. You might need to wait a

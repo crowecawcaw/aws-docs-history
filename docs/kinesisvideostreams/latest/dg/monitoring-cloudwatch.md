@@ -4,7 +4,7 @@ You can monitor a Kinesis video stream using Amazon CloudWatch, which collects a
 readable, near real-time metrics. These statistics are recorded for a period of 15 months so that you can access
 historical information and gain a better perspective on how your web application or service is performing.
 
-In the [Amazon Kinesis Video Streams console](https://console.aws.amazon.com/kinesisvideo/home/ "https://console.aws.amazon.com/kinesisvideo/home/"), you can view CloudWatch metrics for a Amazon Kinesis video stream in two
+In the [Amazon Kinesis Video Streams console](https://console.aws.amazon.com//kinesisvideo/home/ "https://console.aws.amazon.com//kinesisvideo/home/"), you can view CloudWatch metrics for a Amazon Kinesis video stream in two
 ways:
 
 - In the **Dashboard** page, choose the **Video

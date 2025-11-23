@@ -25,6 +25,7 @@ The following data types are supported by Amazon Kinesis Video Streams:
 - [SingleMasterConfiguration](API_SingleMasterConfiguration.md "API_SingleMasterConfiguration.md")
 - [StreamInfo](API_StreamInfo.md "API_StreamInfo.md")
 - [StreamNameCondition](API_StreamNameCondition.md "API_StreamNameCondition.md")
+- [StreamStorageConfiguration](API_StreamStorageConfiguration.md "API_StreamStorageConfiguration.md")
 - [Tag](API_Tag.md "API_Tag.md")
 - [UploaderConfig](API_UploaderConfig.md "API_UploaderConfig.md")
   The following data types are supported by Amazon Kinesis Video Streams Media:
