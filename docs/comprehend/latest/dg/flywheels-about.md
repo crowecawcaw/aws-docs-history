@@ -6,7 +6,7 @@ and train a new model for the flywheel. Use flywheels with plain-text custom mod
 custom entity recognition.
 
 You can configure and manage flywheels using the Amazon Comprehend console or API. You can also configure flywheels using
-AWS CloudFormation.
+CloudFormation.
 
 When you create a flywheel, Amazon Comprehend creates a _data lake_ in your account. The
 [data lake](flywheels-datalake.md "flywheels-datalake.md") stores and manages all the flywheel data, such as the training data and test data for all versions of the

@@ -89,7 +89,7 @@ When you create the VPC endpoint, configure these values:
 - Specify the service as `com.amazonaws.`region`.s3`
 - Select **Gateway** as the VPC Endpoint type
 
-If you're using AWS CloudFormation to create the VPC endpoint, follow the [AWS CloudFormation VPCEndpoint](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md") documentation. The following example shows the **VPCEndpoint** configuration in a AWS CloudFormation template.
+If you're using CloudFormation to create the VPC endpoint, follow the [CloudFormation VPCEndpoint](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md") documentation. The following example shows the **VPCEndpoint** configuration in a CloudFormation template.
 
 ```
 

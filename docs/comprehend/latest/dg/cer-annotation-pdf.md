@@ -21,7 +21,7 @@ installation.
 - [Setting up your environment](#cer-annotation-pdf-set-up "#cer-annotation-pdf-set-up")
 - [Uploading a PDF to an S3 bucket](#cer-annotation-pdf-upload "#cer-annotation-pdf-upload")
 - [Creating an annotation job](#cer-annotation-pdf-job "#cer-annotation-pdf-job")
-- [Annotating with SageMaker AI Ground Truth](#w199aac33c23c21c19c15 "#w199aac33c23c21c19c15")
+- [Annotating with SageMaker AI Ground Truth](#w2aac33c23c21c19c15 "#w2aac33c23c21c19c15")
 
 ## Setting up your environment
 
@@ -36,16 +36,16 @@ installation.
    includes a choice of `Makefiles` that you run to install dependencies, setup a Python virtualenv,
    and deploy the required resources. Review the **readme** file to make your choice.
 5. The recommended option uses a single command to install all dependencies into a virtualenv, builds the
-   AWS CloudFormation stack from the template, and deploys the stack to your AWS account with interactive guidance. Run the
+   CloudFormation stack from the template, and deploys the stack to your AWS account with interactive guidance. Run the
    following command:
 
 `make ready-and-deploy-guided`
 
 This command presents a set of configuration options. Be sure your AWS Region is correct. For all other
-fields, you can either accept the default values or fill in custom values. If you modify the AWS CloudFormation stack name,
+fields, you can either accept the default values or fill in custom values. If you modify the CloudFormation stack name,
 write it down as you need it in the next steps.
 
-![Terminal session showing AWS CloudFormation configuration options.](images/deploy_guided_anno.png)
+![Terminal session showing CloudFormation configuration options.](images/deploy_guided_anno.png)
 
 The CloudFormation stack creates and manage the [AWS
 lambdas](https://aws.amazon.com/lambda/ "https://aws.amazon.com/lambda/"), [AWS IAM](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/") roles, and [AWS S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/") buckets required for the annotation tool.
@@ -53,7 +53,7 @@ lambdas](https://aws.amazon.com/lambda/ "https://aws.amazon.com/lambda/"), [AWS 
 You can review each of these resources in the stack details page in the CloudFormation console. 6. The command prompts you to start the deployment. CloudFormation creates all the resources in the specified
 Region.
 
-![Terminal session showing the deployed AWS CloudFormation configuration.](images/deploy_guided_anno_2.png)
+![Terminal session showing the deployed CloudFormation configuration.](images/deploy_guided_anno_2.png)
 
 When the CloudFormation stack status transitions to create-complete, the resources are ready to use.
 
