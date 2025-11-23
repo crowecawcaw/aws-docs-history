@@ -9,7 +9,7 @@ data access with a serverless data mesh architecture.
 
 ![Reference architecture diagram showing how to create connected mobility data products and democratize data access with a serverless data mesh architecture](images/connected-mobility-data-lake.png)
 
-1. Ingest vehicle data through a network provider to **AWS IoT Core**. Ingest factory data through **AWS Direct Connect** and **[Amazon Kinesis Data Streams](../../../streams/latest/dev/building-producers.md "../../../streams/latest/dev/building-producers.md")**. Sync a customer relationship management
+1. Ingest vehicle data through a network provider to **AWS IoT Core**. Ingest factory data through **Direct Connect** and **[Amazon Kinesis Data Streams](../../../streams/latest/dev/building-producers.md "../../../streams/latest/dev/building-producers.md")**. Sync a customer relationship management
    (CRM) database to **Amazon Simple Storage Service** (Amazon S3) with **[AWS DataSync](https://aws.amazon.com/blogs/storage/synchronizing-your-data-to-amazon-s3-using-aws-datasync/ "https://aws.amazon.com/blogs/storage/synchronizing-your-data-to-amazon-s3-using-aws-datasync/")**.
 2. Forward messages from **AWS IoT Core** based on rules and
    use **AWS Lambda** to process messages and ingest into
