@@ -154,7 +154,7 @@ It may also help to consult the [TinkerPop documentation](https://tinkerpop.apac
 about [Grape](http://docs.groovy-lang.org/latest/html/documentation/grape.html "http://docs.groovy-lang.org/latest/html/documentation/grape.html") configuration. 3. In the `conf` subdirectory of the extracted directory, create a file
 named `neptune-remote.yaml`.
 
-If you used the AWS CloudFormation template to create your Neptune DB cluster, a
+If you used the CloudFormation template to create your Neptune DB cluster, a
 `neptune-remote.yaml` file will already exist. In that case, all you
 have to do is edit the existing file to include the channelizer setting shown
 below.

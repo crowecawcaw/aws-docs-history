@@ -48,7 +48,7 @@ under link prediction.
 
 For Neptune ML use-cases, we have a very rich set of notebooks designed to give you a
 hands-on understanding of each use-case. You can create these notebooks along with your Neptune
-cluster when you use the [Neptune ML AWS CloudFormation template](machine-learning-quick-start.md "machine-learning-quick-start.md")
+cluster when you use the [Neptune ML CloudFormation template](machine-learning-quick-start.md "machine-learning-quick-start.md")
 to create a Neptune ML cluster. These notebooks are also available on [github](https://github.com/aws/graph-notebook/tree/main/src/graph_notebook/notebooks/04-Machine-Learning "https://github.com/aws/graph-notebook/tree/main/src/graph_notebook/notebooks/04-Machine-Learning")
 as well.
 

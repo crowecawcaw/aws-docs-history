@@ -8,7 +8,7 @@ openCypher query hint is only available from engine release
 In Amazon Neptune, you can use the `USING` clause to specify query hints for openCypher queries. These hints
 allow you to control optimization and evaluation strategies.
 
-The syntax for quert hints is:
+The syntax for query hints is:
 
 ```
 USING {scope}:{hint} {value}
@@ -33,10 +33,12 @@ MATCH (a:Person {firstName: "Erin", lastName: $lastName})
 
 ###### Note
 
-Currently, only the **Query** scope query hint **PLANCACHE**
-is supported. Supported query hints are listed below.
+Currently, the **Query** scope query hints **PLANCACHE**,
+**TIMEOUTMILLISECONDS**, and **assumeConsistentDataTypes**
+are supported. Supported query hints are listed below.
 
 ###### Topics
 
 - [openCypher query plan cache hint](opencypher-query-hints-qpc-hint.md "opencypher-query-hints-qpc-hint.md")
 - [AssumeConsistentDataTypes hint](opencypher-query-hints-AssumeConsistentDataTypes.md "opencypher-query-hints-AssumeConsistentDataTypes.md")
+- [openCypher query timeout hint](opencypher-query-hints-timeout-hint.md "opencypher-query-hints-timeout-hint.md")

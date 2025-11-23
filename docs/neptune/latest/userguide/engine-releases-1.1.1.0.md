@@ -1,6 +1,6 @@
-# Amazon Neptune maintenance release, version 1.1.1.0.R2 (2022-05-16)
+# Amazon Neptune Engine Version 1.1.1.0.R6 (2022-09-23)
 
-As of 2022-05-16, engine version 1.1.1.0.R2 is being generally deployed. Please note
+As of 2022-09-23, engine version 1.1.1.0.R6 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ###### Important
@@ -59,9 +59,34 @@ Starting with engine release `1.1.1.0`, the protocol must be omitted:
 
 See [Using the Bolt protocol](access-graph-opencypher-bolt.md "access-graph-opencypher-bolt.md") for examples.
 
+## Improvements in This Engine Release
+
+- Improved performance of Gremlin `order-by` queries. Gremlin
+  queries with an `order-by` at the end of a `NeptuneGraphQueryStep`
+  now use a larger chunk size for better performance. This does not apply to
+  `order-by` on an internal (non-root) node of the query plan.
+- Improved performance of Gremlin update queries. Vertices and edges
+  must now be locked against deletion while adding edges or properties. This change
+  eliminates duplicate locks within a transaction, which improves performance.
+
+## Defects Fixed in This Engine Release
+
+- Fixed an openCypher bug in the `MERGE` clause that in some
+  cases caused duplicate node and edge creation.
+- Fixed a bug in the handling of SPARQL queries that contain
+  `(NOT) EXISTS` within an `OPTIONAL` clause, where in some
+  cases query results would be missing.
+- Fixed a bug that delayed server restart when a bulk load was in
+  progress.
+- Fixed a bug where an openCypher variable-length pattern bi-directional
+  traversal with a filter on the relationship property would result in an error.
+  An example of such a variable-length pattern is `(n)-[r*1..2]->(m)`.
+- Fixed a bug related to how cached data is sent back to the client,
+  that in some cases resulted in unexpectedly long latency.
+
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.1.1.0.R2, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.1.1.0.R6, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.5.2`
@@ -69,13 +94,10 @@ with these query-language versions:
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade paths to engine release 1.1.1.0.R2
+## Upgrade paths to engine release 1.1.1.0.R6
 
-Your cluster will be upgraded to this maintenance patch release automatically
-during your next maintenance window if you are running engine version
-`1.1.1.0`.
-
-You can manually upgrade any previous Neptune engine release to this release.
+Your cluster will be upgraded to this patch release automatically during your next
+maintenance window if you are running engine version `1.1.1.0`.
 
 ## Upgrading to This Release
 

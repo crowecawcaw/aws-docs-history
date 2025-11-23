@@ -1,22 +1,22 @@
 # Prerequisites for setting up Amazon Neptune using AWS CloudFormation
 
-Before you create an Amazon Neptune cluster using an AWS CloudFormation template, you need
+Before you create an Amazon Neptune cluster using an CloudFormation template, you need
 to have the following:
 
 - An Amazon EC2 key pair.
-- The permissions required for using AWS CloudFormation.
+- The permissions required for using CloudFormation.
 
-## Create an Amazon EC2 Key Pair to use for launching a Neptune cluster using AWS CloudFormation
+## Create an Amazon EC2 Key Pair to use for launching a Neptune cluster using CloudFormation
 
-In order to launch a Neptune DB cluster using an AWS CloudFormation template, you must have an
+In order to launch a Neptune DB cluster using an CloudFormation template, you must have an
 Amazon EC2key pair (and its associated PEM file) available in the region where you create
-the AWS CloudFormation stack.
+the CloudFormation stack.
 
 If you need to create the key pair, see either [Creating
 a Key Pair Using Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair") in the Amazon EC2 User Guide, or [Creating a Key Pair Using Amazon EC2](../../../AWSEC2/latest/WindowsGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair "../../../AWSEC2/latest/WindowsGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair") in the Amazon EC2 User Guide for
 instructions.
 
-## Add IAM policies to grant permissions needed to use the AWS CloudFormation template
+## Add IAM policies to grant permissions needed to use the CloudFormation template
 
 First, you need to have an IAM user set up with permissions needed for working with
 Neptune, as described in [Creating an IAM user with permissions for Neptune](manage-console-iam-user.md "manage-console-iam-user.md").

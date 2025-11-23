@@ -3,9 +3,9 @@
 You can monitor the progress of the Neptune Blue/Green solution by going to the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/") and looking at logs in the
 `/aws/neptune/`(Neptune Blue/Green deployment ID)``
 CloudWatch log group. You can find a link to the CloudWatch logs in the outputs of the solution's
-AWS CloudFormation stack:
+CloudFormation stack:
 
-![Screenshot of the Blue/Green AWS CloudFormation stack output](images/BG-stack-output.png)
+![Screenshot of the Blue/Green CloudFormation stack output](images/BG-stack-output.png)
 If you provided a public subnet as a stack parameter, you can also SSH to your
 Amazon EC2 instance created as part of the stack and refer to the log in
 `/var/log/cloud-init-output.log`.

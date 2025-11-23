@@ -1,13 +1,13 @@
 # Using the Neptune ML AWS CloudFormation template to get started quickly in a new DB cluster
 
-The easiest way to get started with Neptune ML is to use the AWS CloudFormation quick-start
+The easiest way to get started with Neptune ML is to use the CloudFormation quick-start
 template. This template installs all necessary components, including a new Neptune
 DB cluster, all the necessary IAM roles, and a new Neptune graph-notebook to
 make working with Neptune ML easier.
 
 ###### To create the Neptune ML quick-start stack
 
-1. To launch the AWS CloudFormation stack on the AWS CloudFormation console, choose one of the **Launch
+1. To launch the CloudFormation stack on the CloudFormation console, choose one of the **Launch
    Stack** buttons in the following table:
 
 | Region                    | View                                                                                                                                                                                                                                    | View in Designer                                                                                                                                                                                                                                                                                                                                                                                                                                          | Launch                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -48,12 +48,12 @@ make working with Neptune ML easier.
          with custom names.
         * The second acknowledges that AWS CloudFormation might require the `CAPABILITY_AUTO_EXPAND`
          capability for the new stack. `CAPABILITY_AUTO_EXPAND` explicitly allows
-         AWS CloudFormation to expand macros automatically when creating the stack, without prior review.
+         CloudFormation to expand macros automatically when creating the stack, without prior review.
 
 
         Customers often create a change set from a processed template so that the
          changes made by macros can be reviewed before actually creating the stack.
-         For more information, see the AWS CloudFormation [CreateStack](../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md "../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md") API.
+         For more information, see the CloudFormation [CreateStack](../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md "../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md") API.
 
     Then choose **Create**.
     The quick-start template creates and sets up the following:
@@ -78,7 +78,7 @@ For example, see the [%neptune_ml](notebooks-magics.md#notebooks-line-magics-nep
 [%%neptune_ml](notebooks-magics.md#notebooks-cell-magics-neptune_ml "notebooks-magics.md#notebooks-cell-magics-neptune_ml") cell magic
 that these notebooks support.
 
-You can also use the following AWS CLI command to run the quick-start AWS CloudFormation template:
+You can also use the following AWS CLI command to run the quick-start CloudFormation template:
 
 ```
 aws cloudformation create-stack \

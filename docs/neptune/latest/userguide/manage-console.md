@@ -28,7 +28,7 @@ or downtime for performing backups.
 - [Performance and Scaling in Amazon Neptune](manage-console-performance-scaling.md "manage-console-performance-scaling.md")
 - [Auto-scaling the number of replicas in an Amazon Neptune DB cluster](manage-console-autoscaling.md "manage-console-autoscaling.md")
 - [Maintaining your Amazon Neptune DB Cluster](cluster-maintenance.md "cluster-maintenance.md")
-- [Using a AWS CloudFormation template to update the engine
+- [Using a CloudFormation template to update the engine
   version of your Neptune DB Cluster](cfn-engine-update.md "cfn-engine-update.md")
 - [Database Cloning in Neptune](manage-console-cloning.md "manage-console-cloning.md")
 - [Managing Amazon Neptune Instances](manage-console-instances.md "manage-console-instances.md")

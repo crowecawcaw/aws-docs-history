@@ -1,6 +1,6 @@
-# Amazon Neptune Engine Version 1.2.1.2 (2024-08-05)
+# Amazon Neptune Engine Version 1.2.1.1 (2024-03-11)
 
-As of 2024-08-05, engine version 1.2.1.2 is being generally deployed. Please note
+As of 2024-03-11, engine version 1.2.1.1 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ###### Note
@@ -39,23 +39,43 @@ a support case may help you explore additional strategies for bringing it down.
   In other languages, the `/openCypher` can be appended to the endpoint
   URI. See [Using the Bolt protocol](access-graph-opencypher-bolt.md "access-graph-opencypher-bolt.md") for examples.
 
-###### Warning
+## Improvements in This Engine Release
 
-An issue was detected with the SPARQL 1.1 Graph Store HTTP Protocol (GSP) that may be present under certain conditions
-when GSP is used with action-based authorization policies. If you are using the SPARQL 1.1 Graph Store HTTP Protocol
-with action-based authorization policies, we recommend to upgrade to the latest minor Neptune engine version
-(at least 1.2.1.2) which includes a fix for this issue.
+**General improvements**
+
+Neptune has improved the warning shown in profile/explain.
+
+###### Gremlin Improvements
+
+- Improved DFE statistics computation to avoid very high NCUs of Serverless instance.
+- Gremlin performance improvement for WITHIN.
 
 ## Defects Fixed in This Engine Release
 
+###### Gremlin fixes
+
+- Bug fixes with ordering of Gremlin DFE engine query plan.
+- Bug fix with Gremlin out-of-memory error when originally reported as InternalFailureException.
+- Bug fix where IAM ARN was not present in audit log for a successful initial websocket connection request.
+- Bug fix for Gremlin queries with TinkerPop session enabled when queries in a session fail even when all
+  of them are read only and connect to a reader instance.
+
+###### openCypher fixes
+
+- Bug fixes in openCypher SET clause to allow setting on non-variable expression (ie: match(n:TEST) set(case when
+  n.prop = 2 then n end).prop = 3 return n.prop.
+- Bug fix for failing openCypher queries involving aggregation and order by.
+- Improved UNWIND of large list containing static maps.
+- Bug fix openCypher MERGE query using custom id with duplicate values.
+
 ###### SPARQL fixes
 
-- Fixed an issue with the SPARQL 1.1 Graph Store HTTP Protocol (GSP) that may be present under certain conditions
-  when GSP is used with action-based authorization policies.
+- Bug fixes in SPARQL DFE query planner.
+- Bug fix for SPARQL when used with BIND and OPTIONAL keywords.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.2.1.2, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.2.1.1, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.6.2`
@@ -63,7 +83,7 @@ with these query-language versions:
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.2.1.2
+## Upgrade Paths to Engine Release 1.2.1.1
 
 You can upgrade to this release from [engine
 release 1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md") or above.
@@ -80,7 +100,7 @@ For Linux, OS X, or Unix:
 ```
 aws neptune modify-db-cluster \
     --db-cluster-identifier `(your-neptune-cluster)` \
-    --engine-version 1.2.1.2 \
+    --engine-version 1.2.1.1 \
     --allow-major-version-upgrade \
     --apply-immediately
 ```
@@ -90,7 +110,7 @@ For Windows:
 ```
 aws neptune modify-db-cluster ^
     --db-cluster-identifier `(your-neptune-cluster)` ^
-    --engine-version 1.2.1.2 ^
+    --engine-version 1.2.1.1 ^
     --allow-major-version-upgrade ^
     --apply-immediately
 ```

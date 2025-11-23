@@ -19,7 +19,7 @@ The HTTP endpoint for SPARQL queries to a Neptune DB instance is
 
 1. You can get the SPARQL endpoint for your Neptune cluster from the
    **SparqlEndpoint** item in the **Outputs** section of
-   the AWS CloudFormation stack.
+   the CloudFormation stack.
 2. Enter the following to submit a SPARQL **`UPDATE`** using HTTP `POST` and the **curl** command.
 
 ```

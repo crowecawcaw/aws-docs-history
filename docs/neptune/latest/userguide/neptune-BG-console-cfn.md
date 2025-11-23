@@ -1,4 +1,4 @@
-# Using an AWS CloudFormation template to run the Neptune Blue/Green solution
+# Using an CloudFormation template to run the Neptune Blue/Green solution
 
 You can use AWS CloudFormation to deploy the Neptune Blue/Green solution. The CloudFormation
 template creates an Amazon EC2 instance in the same VPC as your blue source Neptune database,
@@ -6,7 +6,7 @@ installs the solution there, and runs it. You can monitor its progress in CloudW
 explained in [Monitoring progress](neptune-BG-monitoring.md "neptune-BG-monitoring.md").
 
 You can use these links to review the solution template, or select the
-**Launch Stack** button to launch it in the AWS CloudFormation console:
+**Launch Stack** button to launch it in the CloudFormation console:
 
 |                                                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

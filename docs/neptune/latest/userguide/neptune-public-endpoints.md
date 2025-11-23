@@ -384,10 +384,10 @@ JSON
 More about the `rds:PublicAccessEnabled` IAM condition key:
 [Amazon RDS Service Authorization Reference](../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-rds_PubliclyAccessible "../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-rds_PubliclyAccessible")
 
-## AWS CloudFormation support
+## CloudFormation support
 
-You can use AWS CloudFormation to launch Neptune clusters with public endpoints enabled by specifying the
-`PubliclyAccessible` parameter in your AWS CloudFormation template.
+You can use CloudFormation to launch Neptune clusters with public endpoints enabled by specifying the
+`PubliclyAccessible` parameter in your CloudFormation template.
 
 ## Compatibility with Neptune features
 

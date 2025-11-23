@@ -1,6 +1,6 @@
 # Run a Neptune-Export job using the Neptune-Export API
 
-The **Outputs** tab of the AWS CloudFormation stack also includes the
+The **Outputs** tab of the CloudFormation stack also includes the
 `NeptuneExportApiUri`. Use this URI whenever you send a request to
 the Neptune-Export endpoint.
 
@@ -8,11 +8,11 @@ the Neptune-Export endpoint.
 
 - Be sure that the user or role under which the export runs has
   been granted `execute-api:Invoke` permission.
-- If you set the `EnableIAM` parameter to `true` in the AWS CloudFormation
+- If you set the `EnableIAM` parameter to `true` in the CloudFormation
   stack when you installed Neptune-Export, you need to `Sigv4` sign all requests to
   the Neptune-Export API. We recommend using [awscurl](https://github.com/okigan/awscurl "https://github.com/okigan/awscurl")
   to make requests to the API. All the examples here assume that IAM auth is enabled.
-- If you set the `VPCOnly` parameter to `true` in the AWS CloudFormation
+- If you set the `VPCOnly` parameter to `true` in the CloudFormation
   stack when you installed Neptune-Export, you must call the Neptune-Export API from within
   the VPC, typically from an Amazon EC2 instance located in the VPC.
   To start exporting data, send a request to the `NeptuneExportApiUri`

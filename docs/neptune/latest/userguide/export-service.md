@@ -9,7 +9,7 @@ Use an AWS CloudFormation template to create the stack:
 
 ###### To install the Neptune-Export service
 
-1. Launch the AWS CloudFormation stack on the AWS CloudFormation console by choosing one of the
+1. Launch the CloudFormation stack on the CloudFormation console by choosing one of the
    **Launch Stack** buttons in the following table:
 
 | Region                    | View                                                                                                                                                                                                                                                                          | View in Designer                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Launch                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -101,7 +101,7 @@ Use an AWS CloudFormation template to create the stack:
 4. Choose **Next**.
 5. On the **Options** page, choose **Next**.
 6. On the **Review** page, select the first check box to acknowledge that
-   AWS CloudFormation will create IAM resources. Select the second check box to acknowledge
+   CloudFormation will create IAM resources. Select the second check box to acknowledge
    `CAPABILITY_AUTO_EXPAND` for the new stack.
 
 ###### Note
@@ -109,14 +109,14 @@ Use an AWS CloudFormation template to create the stack:
 `CAPABILITY_AUTO_EXPAND` explicitly acknowledges that macros will be expanded when
 creating the stack, without prior review. Users often create a change set from a processed
 template so that the changes made by macros can be reviewed before actually creating the
-stack. For more information, see the AWS CloudFormation [CreateStack](../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md "../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md") API.
+stack. For more information, see the CloudFormation [CreateStack](../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md "../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md") API.
 
 Then choose **Create**.
 
 ## Enable access to Neptune from Neptune-Export
 
 After the Neptune-Export installation has completed, update your [Neptune VPC security group](get-started-vpc.md#security-vpc-security-group "get-started-vpc.md#security-vpc-security-group") to allow access
-from Neptune-Export. When the Neptune-Export AWS CloudFormation stack has been created, the **Outputs**
+from Neptune-Export. When the Neptune-Export CloudFormation stack has been created, the **Outputs**
 tab includes a `NeptuneExportSecurityGroup` ID. Update your Neptune VPC security
 group to allow access from this Neptune-Export security group.
 
@@ -125,4 +125,4 @@ group to allow access from this Neptune-Export security group.
 If you make your Neptune-Export endpoint VPC-only, you can only access it from within
 the VPC in which the Neptune-Export service is installed. To allow connectivity from an
 Amazon EC2 instance in the VPC from which you can make Neptune-Export API calls, attach the
-`NeptuneExportSecurityGroup` created by the AWS CloudFormation stack to that Amazon EC2 instance.
+`NeptuneExportSecurityGroup` created by the CloudFormation stack to that Amazon EC2 instance.

@@ -26,7 +26,7 @@ instance](../../../AWSEC2/latest/UserGuide/AccessingInstances.md "../../../AWSEC
 
 If you are using a Linux or macOS command line to connect to the EC2 instance, you can paste
 the SSH command from the **SSHAccess** item in the **Outputs**
-section of the AWS CloudFormation stack. You must have the PEM file in the current directory and the PEM file
+section of the CloudFormation stack. You must have the PEM file in the current directory and the PEM file
 permissions must be set to 400 (`chmod 400 `keypair.pem``).
 
 ###### To create a VPC with both private and public subnets

@@ -2,24 +2,24 @@
 
 Replication with the Streams Consumer Application
 
-You can use an AWS CloudFormation template to set up the Neptune streams consumer application to
+You can use an CloudFormation template to set up the Neptune streams consumer application to
 support Neptune-to-Neptune replication.
 
 ###### Topics
 
-- [Choose an AWS CloudFormation template for Your
+- [Choose an CloudFormation template for Your
   Region](#streams-consumer-cfn-by-region "#streams-consumer-cfn-by-region")
 - [Add details About the Neptune streams
   consumer stack you're creating](#streams-consumer-cfn-stack-details "#streams-consumer-cfn-stack-details")
-- [Run the AWS CloudFormation Template](#streams-consumer-cfn-complete "#streams-consumer-cfn-complete")
+- [Run the CloudFormation Template](#streams-consumer-cfn-complete "#streams-consumer-cfn-complete")
 - [To update the stream poller with the
   latest Lambda artifacts](#streams-consumer-cfn-update "#streams-consumer-cfn-update")
 
-## Choose an AWS CloudFormation template for Your
+## Choose an CloudFormation template for Your
 
 Region
 
-To launch the appropriate AWS CloudFormation stack on the AWS CloudFormation console, choose one of the
+To launch the appropriate CloudFormation stack on the CloudFormation console, choose one of the
 **Launch Stack** buttons in the following table, depending on the AWS
 Region that you want to use.
 
@@ -61,7 +61,7 @@ The **Specify Stack Details** page provides properties and parameters
 that you can use to control the setup of the application:
 
 **Stack Name**   –  
-The name of the new AWS CloudFormation stack that you're creating. You can generally use
+The name of the new CloudFormation stack that you're creating. You can generally use
 the default value, `NeptuneStreamPoller`.
 
 Under **Parameters**, provide the following:
@@ -216,16 +216,16 @@ cannot also specify `TargetNeptuneClusterEndpoint`, and the setting of
 For destination of the alarm notification, you can add SNS only, email only, or
 both SNS and email.
 
-## Run the AWS CloudFormation Template
+## Run the CloudFormation Template
 
 Now you can complete the process of provisioning a Neptune streams consumer
 application instance as follows:
 
-1. In AWS CloudFormation, on the **Specify Stack Details** page, choose
+1. In CloudFormation, on the **Specify Stack Details** page, choose
    **Next**.
 2. On the **Options** page, choose **Next**.
 3. On the **Review** page, select the first check box to acknowledge that
-   AWS CloudFormation will create IAM resources. Select the second check box to acknowledge
+   CloudFormation will create IAM resources. Select the second check box to acknowledge
    `CAPABILITY_AUTO_EXPAND` for the new stack.
 
 ###### Note
@@ -233,7 +233,7 @@ application instance as follows:
 `CAPABILITY_AUTO_EXPAND` explicitly acknowledges that macros will be expanded when
 creating the stack, without prior review. Users often create a change set from a
 processed template so that the changes made by macros can be reviewed before actually
-creating the stack. For more information, see the AWS CloudFormation [CreateStack](../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md "../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md") API in the
+creating the stack. For more information, see the CloudFormation [CreateStack](../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md "../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md") API in the
 _AWS CloudFormation API Reference_.
 
 Then choose **Create**.
@@ -244,7 +244,7 @@ latest Lambda artifacts
 
 You can update the stream poller with the latest Lambda code artifacts as follows:
 
-1. In the AWS Management Console, navigate to AWS CloudFormation and select the main parent AWS CloudFormation stack.
+1. In the AWS Management Console, navigate to CloudFormation and select the main parent CloudFormation stack.
 2. Select the **Update** option for the stack.
 3. Select **Replace current template**.
 4. For the template source, choose **Amazon S3 URL** and enter
@@ -254,7 +254,7 @@ You can update the stream poller with the latest Lambda code artifacts as follow
 https://aws-neptune-customer-samples.s3.amazonaws.com/neptune-stream/neptune_to_neptune.json
 ```
 
-5. Select **Next** without changing any AWS CloudFormation parameters.
+5. Select **Next** without changing any CloudFormation parameters.
 6. Choose **Update Stack**.
 
 The stack will now update the Lambda artifacts with the most recent ones.

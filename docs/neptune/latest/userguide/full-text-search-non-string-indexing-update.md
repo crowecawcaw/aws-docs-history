@@ -28,8 +28,8 @@ in GitHub](https://github.com/awslabs/amazon-neptune-tools/blob/master/export-ne
 After the export of Neptune data to OpenSearch has completed successfully,
 take the following steps:
 
-    * In the AWS Management Console, navigate to AWS CloudFormation.
-    * Choose the main parent AWS CloudFormation stack.
+    * In the AWS Management Console, navigate to CloudFormation.
+    * Choose the main parent CloudFormation stack.
     * Select the **Update** option for that stack.
     * Select **Replace current template from options**.
     * For the template source, select **Amazon S3 URL**.
@@ -40,8 +40,8 @@ take the following steps:
     ```
     https://aws-neptune-customer-samples.s3.amazonaws.com/neptune-stream/neptune_to_elastic_search.json
     ```
-    * Choose **Next** without changing any of the AWS CloudFormation parameters.
-    * Select **Update stack**. AWS CloudFormation will replace the Lambda
+    * Choose **Next** without changing any of the CloudFormation parameters.
+    * Select **Update stack**. CloudFormation will replace the Lambda
      code artifacts for the stream poller with the latest artifacts.
 
 5. **Start the stream poller again.**

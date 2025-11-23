@@ -85,7 +85,7 @@ prompt you to adjust your approach before failures escalate.
 
 ### Other CloudWatch metrics
 
-Other [Neptune metrics](../../../https:/docs.aws.amazon.com/neptune/latest/userguide/cw-metrics.md "../../../https:/docs.aws.amazon.com/neptune/latest/userguide/cw-metrics.md") like
+Other [Neptune metrics](cw-metrics.md "cw-metrics.md") like
 `CPUUtilization`, `TotalRequestsPerSecond`, and query latency provide additional context.
 For example, high CPU and I/O combined with growing queue lengths might indicate that your cluster is overloaded
 or that queries are too large or too frequent. [CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") can be set on these metrics

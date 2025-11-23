@@ -5,7 +5,7 @@ database is unavailable while the updates are being installed and verified.
 This is true whether they are initiated manually or automatically.
 
 Neptune provides a Blue/Green deployment solution that you can run using
-an AWS CloudFormation stack and that greatly reduces such downtime. It creates a green staging
+an CloudFormation stack and that greatly reduces such downtime. It creates a green staging
 environment that is synchronized with your blue production environment. You can
 then update that staging environment to perform a minor or major engine version upgrade,
 a graph data model change, or an operating-system update, and test the result.

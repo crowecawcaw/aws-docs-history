@@ -1,11 +1,11 @@
-# Using a AWS CloudFormation template to update the engine
+# Using a CloudFormation template to update the engine
 
 version of your Neptune DB Cluster
 
-You can re-use the Neptune AWS CloudFormation template that you used to create your
+You can re-use the Neptune CloudFormation template that you used to create your
 Neptune DB Cluster to update its engine version.
 
-Neptune engine version upgrades can be minor or major. Using an AWS CloudFormation template
+Neptune engine version upgrades can be minor or major. Using an CloudFormation template
 can help with major version upgrades, which often contain significant changes. Since
 major version upgrades can contain database changes that are not backward-compatible
 with existing applications, you may also need to make changes to your applications
@@ -16,9 +16,9 @@ snapshot of your DB cluster before upgrading.
 Note that you have to do a separate engine upgrade for each major version.
 You can't skip a major version and upgrade directly to the major version following.
 
-Prior to May 17, 2023, if you used the Neptune AWS CloudFormation stack to upgrade your engine
+Prior to May 17, 2023, if you used the Neptune CloudFormation stack to upgrade your engine
 version, it simply created a new, empty DB cluster in place your current one. As of
-May 17, 2023, however, the Neptune AWS CloudFormation stack now supports in-place engine
+May 17, 2023, however, the Neptune CloudFormation stack now supports in-place engine
 upgrades that preserve your existing data.
 
 ###### Note

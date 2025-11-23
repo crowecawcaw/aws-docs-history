@@ -1,15 +1,15 @@
-# Setting up Neptune ML without using the quick-start AWS CloudFormation template
+# Setting up Neptune ML without using the quick-start CloudFormation template
 
-This guide provides step-by-step instructions for setting up Amazon Neptune ML without using the AWS AWS CloudFormation quick-start
+This guide provides step-by-step instructions for setting up Amazon Neptune ML without using the AWS CloudFormation quick-start
 template. It assumes you already have a working Neptune DB cluster and covers the necessary setup, including installing
 the Neptune-Export service, creating custom IAM roles, and configuring your DB cluster to enable Neptune ML.
 The guide also explains how to create two SageMaker AI endpoints in your Neptune VPC to give the Neptune engine access to
 the necessary SageMaker AI management APIs. By following these instructions, you can set up Neptune ML on your existing Neptune
-infrastructure without relying on the AWS CloudFormation template.
+infrastructure without relying on the CloudFormation template.
 
 ## Start with a working Neptune DB cluster
 
-If you don't use the AWS CloudFormation quick-start template to set up Neptune ML, you will
+If you don't use the CloudFormation quick-start template to set up Neptune ML, you will
 need an existing Neptune DB cluster to work with. If you want, you can use one you
 already have, or clone one that you are already using, or you can create a new one
 (see [Create Neptune cluster](get-started-create-cluster.md "get-started-create-cluster.md")).

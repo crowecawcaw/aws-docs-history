@@ -1,11 +1,11 @@
-# Using AWS CloudFormation to Create a Lambda Function to Use in
+# Using CloudFormation to Create a Lambda Function to Use in
 
 Neptune
 
-You can use an AWS CloudFormation template to create an AWS Lambda function that can access
+You can use an CloudFormation template to create an AWS Lambda function that can access
 Neptune.
 
-1. To launch the Lambda function stack on the AWS CloudFormation console, choose one of the
+1. To launch the Lambda function stack on the CloudFormation console, choose one of the
    **Launch Stack** buttons in the following table.
 
 | Region                    | View                                                                                                                                                                                                                                                        | View in Designer                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Launch                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
@@ -40,7 +40,7 @@ Neptune.
    **Next**.
 3. On the **Specify Details** page, set the following options:
    1. Choose the Lambda runtime, depending on what language you want to use in your Lambda
-      function. These AWS CloudFormation templates currently support the following languages:
+      function. These CloudFormation templates currently support the following languages:
       - **Python 3.9** (maps to `python39` in the Amazon S3
         URL)
       - **NodeJS 18** (maps to `nodejs18x` in the Amazon S3
@@ -54,7 +54,7 @@ Neptune.
 4. Choose **Next**.
 5. On the **Options** page, choose **Next**.
 6. On the **Review** page, select the first check box to acknowledge that
-   AWS CloudFormation will create IAM resources.
+   CloudFormation will create IAM resources.
 
 Then choose **Create**.
 If you need to make your own changes to the Lambda runtime, you can download a generic one

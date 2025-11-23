@@ -1,11 +1,11 @@
 # Filtering what fields are indexed in Neptune full-text search
 
-There are two fields in the AWS CloudFormation template details that let you specify property
+There are two fields in the CloudFormation template details that let you specify property
 or predicate keys or datatypes to exclude from OpenSearch indexing:
 
 ## Filter by property or predicate name
 
-You can use the optional AWS CloudFormation template parameter named `Properties to exclude
+You can use the optional CloudFormation template parameter named `Properties to exclude
  from being inserted into Elastic Search Index` to provide a comma-delimited
 list of property or predicate keys to exclude from OpenSearch indexing.
 
@@ -36,12 +36,12 @@ PREFIX ex: <http://my/example#>
 INSERT DATA { ex:s1 ex:bob "test"}.
 ```
 
-If you don't enter anything in this AWS CloudFormation template parameter, all the property
+If you don't enter anything in this CloudFormation template parameter, all the property
 keys not otherwise excluded will be indexed.
 
 ## Filter by property or predicate value type
 
-You can use the optional AWS CloudFormation template parameter named `Datatypes to exclude
+You can use the optional CloudFormation template parameter named `Datatypes to exclude
  from being inserted into Elastic Search Index` to provide a comma-delimited
 list of property or predicate value datatypes to exclude from OpenSearch indexing.
 
@@ -109,6 +109,6 @@ PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>
 INSERT DATA { ex:s1 ex:bob "11"^^xsd:int }.
 ```
 
-If you don't enter anything in this AWS CloudFormation template parameter, all the properties
+If you don't enter anything in this CloudFormation template parameter, all the properties
 whose values can be safely converted to OpenSearch equivalents will be indexed.
 Listed types that are unsupported by the query language are ignored.

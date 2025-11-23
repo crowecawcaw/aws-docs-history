@@ -1,8 +1,8 @@
 # Creating an Amazon Neptune cluster using AWS CloudFormation
 
-You can use an AWS CloudFormation template to set up a Neptune DB Cluster.
+You can use an CloudFormation template to set up a Neptune DB Cluster.
 
-1. To launch the AWS CloudFormation stack on the AWS CloudFormation console, choose one of the **Launch
+1. To launch the CloudFormation stack on the CloudFormation console, choose one of the **Launch
    Stack** buttons in the following table.
 
 | Region                    | View                                                                                                                                                                                                                                                          | View in Designer                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Launch                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -45,7 +45,7 @@ You can use an AWS CloudFormation template to set up a Neptune DB Cluster.
 
 This key pair is required to access the EC2 instance. Ensure that you have the PEM
 file for the key pair that you choose. 4. Choose **Next**. 5. On the **Options** page, choose **Next**. 6. On the **Review** page, select the first check box to acknowledge that
-AWS CloudFormation will create IAM resources. Select the second check box to acknowledge
+CloudFormation will create IAM resources. Select the second check box to acknowledge
 `CAPABILITY_AUTO_EXPAND` for the new stack.
 
 ###### Note
@@ -53,11 +53,11 @@ AWS CloudFormation will create IAM resources. Select the second check box to ack
 `CAPABILITY_AUTO_EXPAND` explicitly acknowledges that macros will be expanded when
 creating the stack, without prior review. Users often create a change set from a processed
 template so that the changes made by macros can be reviewed before actually creating the
-stack. For more information, see the AWS CloudFormation [CreateStack](../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md "../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md") API.
+stack. For more information, see the CloudFormation [CreateStack](../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md "../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md") API.
 
 Then choose **Create**.
 
 ###### Note
 
-You can also use your AWS CloudFormation template to [upgrade
+You can also use your CloudFormation template to [upgrade
 your DB cluster's engine version.](cfn-engine-update.md "cfn-engine-update.md")

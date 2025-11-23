@@ -138,4 +138,4 @@ Outputs:
       Ref: NeptuneDBCluster
 ```
 
-Now use AWS CloudFormation to run the revised template.
+Now use CloudFormation to run the revised template.

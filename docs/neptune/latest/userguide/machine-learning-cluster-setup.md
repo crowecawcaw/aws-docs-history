@@ -1,6 +1,6 @@
 # Using the AWS CLI to set up Neptune ML on a DB cluster
 
-In addition to the AWS CloudFormation quick-start template and the AWS Management Console, you can also set
+In addition to the CloudFormation quick-start template and the AWS Management Console, you can also set
 up Neptune ML using the AWS CLI.
 
 ## Create a DB cluster parameter
@@ -115,7 +115,7 @@ Neptune ML needs two SageMaker AI endpoints in your Neptune DB cluster's VPC:
 - `com.amazonaws.`(AWS region, like us-east-1)`.sagemaker.runtime`
 - `com.amazonaws.`(AWS region, like us-east-1)`.sagemaker.api`
 
-If you haven't used the quick-start AWS CloudFormation template, which creates these automatically
+If you haven't used the quick-start CloudFormation template, which creates these automatically
 for you, you can use the following AWS CLI commands to create them:
 
 This one creates the `sagemaker.runtime` endpoint:

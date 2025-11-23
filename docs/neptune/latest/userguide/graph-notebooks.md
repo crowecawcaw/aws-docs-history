@@ -1,13 +1,13 @@
 # Using Amazon Neptune with graph notebooks
 
-To work with Neptune graphs you can use a Neptune graph notebook or create a new Neptune database using an AWS CloudFormation [template](get-started-cfn-create.md "get-started-cfn-create.md").
+To work with Neptune graphs you can use a Neptune graph notebook or create a new Neptune database using an CloudFormation [template](get-started-cfn-create.md "get-started-cfn-create.md").
 
 Whether you're new to graphs and want to learn and experiment, or
 you're experienced and want to refine your queries, the Neptune [workbench](#graph-notebooks-workbench "#graph-notebooks-workbench") offers an interactive
 development environment (IDE) that can boost your productivity when you're building
 graph applications. The Workbench provides a user-friendly interface for interacting with your Neptune database, writing queries, and visualizing your data.
 
-By using the AWS CloudFormation template to set up your Neptune database, and the Workbench to develop your graph applications, you can get started with Neptune quickly and efficiently, without the need for additional tooling. This allows you to focus on building your applications rather than setting up the underlying infrastructure.
+By using the CloudFormation template to set up your Neptune database, and the Workbench to develop your graph applications, you can get started with Neptune quickly and efficiently, without the need for additional tooling. This allows you to focus on building your applications rather than setting up the underlying infrastructure.
 
 ###### Note
 
@@ -383,7 +383,7 @@ bucket:
 
 ###### Note
 
-[AWS CLI](../../../https:/awscli.amazonaws.com/v2/documentation/api/latest/index.md "../../../https:/awscli.amazonaws.com/v2/documentation/api/latest/index.md") should be pre-installed on SageMaker AI notebooks.
+[AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/index.html") should be pre-installed on SageMaker AI notebooks.
 
 ###### Steps
 
@@ -426,7 +426,7 @@ one-time transfers.
 
 ###### Steps
 
-Follow the [Mount an EFS file system to an Amazon SageMaker AI notebook](https://aws.amazon.com/blogs/machine-learning/mount-an-efs-file-system-to-an-amazon-sagemaker-notebook-with-lifecycle-configurations/ "https://aws.amazon.com/blogs/machine-learning/mount-an-efs-file-system-to-an-amazon-sagemaker-notebook-with-lifecycle-configurations/")
+Follow the [Mount an EFS file system to an Amazon SageMaker AI notebook](https://aws.amazon.com/blogs//machine-learning/mount-an-efs-file-system-to-an-amazon-sagemaker-notebook-with-lifecycle-configurations/ "https://aws.amazon.com/blogs//machine-learning/mount-an-efs-file-system-to-an-amazon-sagemaker-notebook-with-lifecycle-configurations/")
 blog to use an Amazon EFS file system with your notebook instances.
 
 In addition, there are also a few more steps that apply specifically to migrating Neptune notebooks to the
@@ -605,8 +605,8 @@ For detailed instructions on setting up the open-source
 [graph-explorer](https://github.com/aws/graph-explorer "https://github.com/aws/graph-explorer") packages, refer to the following official AWS
 documentation and GitHub repositories:
 
-- [https://docs.aws.amazon.com/neptune/latest/userguide/graph-notebooks.html#graph-notebooks-local](graph-notebooks.md#graph-notebooks-local "graph-notebooks.md#graph-notebooks-local")
-- [https://docs.aws.amazon.com/neptune/latest/userguide/get-started-connect-ec2-same-vpc.html](get-started-connect-ec2-same-vpc.md "get-started-connect-ec2-same-vpc.md")
+- [https://docs.aws.amazon.com//neptune/latest/userguide/graph-notebooks.html#graph-notebooks-local](graph-notebooks.md#graph-notebooks-local "graph-notebooks.md#graph-notebooks-local")
+- [https://docs.aws.amazon.com//neptune/latest/userguide/get-started-connect-ec2-same-vpc.html](get-started-connect-ec2-same-vpc.md "get-started-connect-ec2-same-vpc.md")
 - [https://github.com/aws/graph-notebook/tree/main/additional-databases/neptune](https://github.com/aws/graph-notebook/tree/main/additional-databases/neptune "https://github.com/aws/graph-notebook/tree/main/additional-databases/neptune")
 - [https://github.com/aws/graph-explorer/blob/main/additionaldocs/getting-started/README.md#amazon-ec2-setup](https://github.com/aws/graph-explorer/blob/main/additionaldocs/getting-started/README.md#amazon-ec2-setup "https://github.com/aws/graph-explorer/blob/main/additionaldocs/getting-started/README.md#amazon-ec2-setup")
 

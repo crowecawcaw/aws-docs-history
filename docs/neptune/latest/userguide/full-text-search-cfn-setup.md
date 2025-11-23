@@ -1,7 +1,7 @@
 # Amazon Neptune-to-OpenSearch replication
 
 Amazon Neptune supports full-text search in Gremlin and SPARQL queries using Amazon OpenSearch Service (OpenSearch Service).
-You can use an AWS CloudFormation stack to link an OpenSearch Service domain to Neptune. The AWS CloudFormation template
+You can use an AWS CloudFormation stack to link an OpenSearch Service domain to Neptune. The CloudFormation template
 creates a streams-consumer application instance that provides Neptune-to-OpenSearch
 replication.
 

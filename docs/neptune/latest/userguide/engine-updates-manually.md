@@ -7,8 +7,8 @@ and provide for plenty of time for testing and validation, the best way to insta
 a new major version is generally to use the [Neptune
 Blue-Green deployment solution](neptune-BG-deployments.md "neptune-BG-deployments.md").
 
-In some cases you can also use the AWS CloudFormation template with which you created your
-DB cluster to install a major version upgrade (see [Using a AWS CloudFormation template to update the engine
+In some cases you can also use the CloudFormation template with which you created your
+DB cluster to install a major version upgrade (see [Using a CloudFormation template to update the engine
 version of your Neptune DB Cluster](cfn-engine-update.md "cfn-engine-update.md")).
 
 If you want to install a major version update immediately, you can use a

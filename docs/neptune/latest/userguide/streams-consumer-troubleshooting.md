@@ -94,7 +94,7 @@ Make a note of the values in the `commitNum` and `opNum` fields
 in the `lastEventId` object in the response. 5. Use the [export-neptune-to-elasticsearch](https://github.com/awslabs/amazon-neptune-tools/tree/master/export-neptune-to-elasticsearch "https://github.com/awslabs/amazon-neptune-tools/tree/master/export-neptune-to-elasticsearch")
 tool on github to perform a one-time synchronization from the cloned database to the OpenSearch
 domain. 6. Go to the DynamoDB table for the replication stack. The name of the table will be
-the **Application Name** you specified in the AWS CloudFormation template (the default
+the **Application Name** you specified in the CloudFormation template (the default
 is `NeptuneStream`) with a `-LeaseTable` suffix. In other words,
 the default table name is `NeptuneStream-LeaseTable`.
 
@@ -109,5 +109,5 @@ values you recorded above:
 
 7. Re-enable the replication process as described in [Re-enabling the stream poller
    process](full-text-search-re-enable-poller.md "full-text-search-re-enable-poller.md").
-8. Delete the cloned database and the AWS CloudFormation stack created for the
+8. Delete the cloned database and the CloudFormation stack created for the
    `export-neptune-to-elasticsearch` tool.

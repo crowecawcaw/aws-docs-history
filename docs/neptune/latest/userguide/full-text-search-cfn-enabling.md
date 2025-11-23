@@ -26,10 +26,10 @@ Here are the steps required:
 5. Use the [export-neptune-to-elasticsearch](https://github.com/awslabs/amazon-neptune-tools/tree/master/export-neptune-to-elasticsearch "https://github.com/awslabs/amazon-neptune-tools/tree/master/export-neptune-to-elasticsearch")
    tool on github to perform a one-time synchronization from the cloned database to the OpenSearch
    domain.
-6. Use the [AWS CloudFormation
+6. Use the [CloudFormation
    template for your region](full-text-search-cfn-create.md#full-text-search-cfn-by-region "full-text-search-cfn-create.md#full-text-search-cfn-by-region") to start synchronization from your original database
    with continuous updating (no configuration change is needed in the template).
-7. Delete the cloned database and the AWS CloudFormation stack created for the
+7. Delete the cloned database and the CloudFormation stack created for the
    `export-neptune-to-elasticsearch` tool.
 
 ###### Note
@@ -58,12 +58,12 @@ curl "https://`(your neptune endpoint)`:`(port)`/`(propertygraph or sparql)`/str
 Make a note of the values in the `commitNum` and `opNum` fields
 in the `lastEventId` object in the response. 4. Use the [export-neptune-to-elasticsearch](https://github.com/awslabs/amazon-neptune-tools/tree/master/export-neptune-to-elasticsearch "https://github.com/awslabs/amazon-neptune-tools/tree/master/export-neptune-to-elasticsearch")
 tool on github to perform a one-time synchronization from the cloned database to the OpenSearch
-domain. 5. Use the [AWS CloudFormation
+domain. 5. Use the [CloudFormation
 template for your region](full-text-search-cfn-create.md#full-text-search-cfn-by-region "full-text-search-cfn-create.md#full-text-search-cfn-by-region") to start synchronization from your original database
 with continuous updating.
 
 Make the following change while creating the stack: on the stack details page,
 in the **Parameters** section, set the value of the `StartingCheckpoint`
 field to `*commitNum*`:`*opnum*`
-using the the `commitNum` and `opNum` values you recorded above. 6. Delete the cloned database and the AWS CloudFormation stack created for the
+using the the `commitNum` and `opNum` values you recorded above. 6. Delete the cloned database and the CloudFormation stack created for the
 `export-neptune-to-elasticsearch` tool.

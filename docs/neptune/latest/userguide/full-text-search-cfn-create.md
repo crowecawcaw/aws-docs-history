@@ -1,9 +1,9 @@
 # Using an AWS CloudFormation template to start Neptune-to-OpenSearch replication
 
-## Launch an AWS CloudFormation stack specific to your region
+## Launch an CloudFormation stack specific to your region
 
-Each of the AWS CloudFormation templates below creates a streams-consumer application instance in
-a specific AWS region. To launch the corresponding stack using the AWS CloudFormation console,
+Each of the CloudFormation templates below creates a streams-consumer application instance in
+a specific AWS region. To launch the corresponding stack using the CloudFormation console,
 choose one of the **Launch Stack** buttons in the following table,
 depending on the AWS Region that you want to use.
 
@@ -46,7 +46,7 @@ The **Specify Stack Details** page provides properties and parameters
 that you can use to control the setup of full-text search:
 
 **Stack Name** – 
-The name of the new AWS CloudFormation stack that you're creating. You can generally use
+The name of the new CloudFormation stack that you're creating. You can generally use
 the default value, `NeptuneStreamPoller`.
 
 Under **Parameters**, provide the following:
@@ -181,16 +181,16 @@ Under **Parameters**, provide the following:
 For destination of the alarm notification, you can add SNS only, email only, or
 both SNS and email.
 
-## Run the AWS CloudFormation Template
+## Run the CloudFormation Template
 
 Now you can complete the process of provisioning a Neptune streams consumer application
 instance as follows:
 
-1. In AWS CloudFormation, on the **Specify Stack Details** page, choose
+1. In CloudFormation, on the **Specify Stack Details** page, choose
    **Next**.
 2. On the **Options** page, choose **Next**.
 3. On the **Review** page, select the first check box to acknowledge that
-   AWS CloudFormation will create IAM resources. Select the second check box to acknowledge
+   CloudFormation will create IAM resources. Select the second check box to acknowledge
    `CAPABILITY_AUTO_EXPAND` for the new stack.
 
 ###### Note
@@ -198,7 +198,7 @@ instance as follows:
 `CAPABILITY_AUTO_EXPAND` explicitly acknowledges that macros will be expanded when
 creating the stack, without prior review. Users often create a change set from a
 processed template so that the changes made by macros can be reviewed before actually
-creating the stack. For more information, see the AWS CloudFormation [CreateStack](../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md "../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md") API operation in the
+creating the stack. For more information, see the CloudFormation [CreateStack](../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md "../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md") API operation in the
 _AWS CloudFormation API Reference_.
 
 Then choose **Create**.

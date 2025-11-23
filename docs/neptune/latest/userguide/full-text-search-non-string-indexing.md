@@ -6,7 +6,7 @@ that can safely be converted to a corresponding OpenSearch mapping or datatype i
 then replicated to OpenSearch.
 
 For non-string indexing to be enabled on a new stack, the `Enable Non-String Indexing`
-flag in the AWS CloudFormation template must be set to `true`. This is the default
+flag in the CloudFormation template must be set to `true`. This is the default
 setting. To update an existing stack to support non-string indexing, see [Updating an existing stack](full-text-search-non-string-indexing-update.md "full-text-search-non-string-indexing-update.md") below.
 
 ###### Note

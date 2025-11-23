@@ -6,7 +6,7 @@ instances in a serverless DB cluster to and from serverless instances. You can o
 Neptune Serverless in one of the AWS Regions where it's supported, with
 a few other limitations (see [Amazon Neptune Serverless constraints](neptune-serverless.md#neptune-serverless-limitations "neptune-serverless.md#neptune-serverless-limitations")).
 
-You can also use the [Neptune AWS CloudFormation
+You can also use the [Neptune CloudFormation
 stack](get-started-cfn-create.md "get-started-cfn-create.md") to create a Neptune Serverless DB cluster.
 
 ## Creating a new DB cluster that uses Serverless
