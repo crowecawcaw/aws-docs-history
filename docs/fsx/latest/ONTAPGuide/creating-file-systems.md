@@ -122,7 +122,7 @@ system](getting-started.md#getting-started-step1 "getting-started.md#getting-sta
 
     Amazon FSx manages these route tables for Multi-AZ file systems using tag-based authentication.
     These route tables are tagged with `Key: AmazonFSx; Value: ManagedByAmazonFSx`.
-    When creating FSx for ONTAP Multi-AZ file systems using AWS CloudFormation we recommend that you add the
+    When creating FSx for ONTAP Multi-AZ file systems using CloudFormation we recommend that you add the
     `Key: AmazonFSx; Value: ManagedByAmazonFSx` tag manually.
     - For **Network type**, select either **IPv4**
       (for only IPv4 support) or **Dual-stack** (for both IPv4

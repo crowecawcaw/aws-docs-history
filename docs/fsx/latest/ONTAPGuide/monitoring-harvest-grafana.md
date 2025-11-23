@@ -65,17 +65,17 @@ The following Harvest dashboards are _not_ supported by FSx for ONTAP.
 - ONTAP: Shelf
 - ONTAP: S3 Object Stores
 
-## AWS CloudFormation template
+## CloudFormation template
 
-To get started, you can deploy an AWS CloudFormation template that automatically launches an
-Amazon EC2 instance running Harvest and Grafana. As an input to the AWS CloudFormation template, you
+To get started, you can deploy an CloudFormation template that automatically launches an
+Amazon EC2 instance running Harvest and Grafana. As an input to the CloudFormation template, you
 specify the `fsxadmin` user and the Amazon FSx management endpoint for the
 file system which will be added as part of this deployment. After the deployment is
 completed, you can log in to the Grafana dashboard to monitor your file system.
 
-This solution uses AWS CloudFormation to automate the deployment of the Harvest and Grafana
+This solution uses CloudFormation to automate the deployment of the Harvest and Grafana
 solution. The template creates an Amazon EC2 Linux instance and installs Harvest and
-Grafana software. To use this solution, download the [fsx-ontap-harvest-grafana.template](https://solution-references.s3.amazonaws.com/fsx/harvest-grafana/harvest-grafana.yaml "https://solution-references.s3.amazonaws.com/fsx/harvest-grafana/harvest-grafana.yaml") AWS CloudFormation template.
+Grafana software. To use this solution, download the [fsx-ontap-harvest-grafana.template](https://solution-references.s3.amazonaws.com/fsx/harvest-grafana/harvest-grafana.yaml "https://solution-references.s3.amazonaws.com/fsx/harvest-grafana/harvest-grafana.yaml") CloudFormation template.
 
 ###### Note
 
@@ -123,8 +123,8 @@ see [Creating file systems](creating-file-systems.md "creating-file-systems.md")
 
 ###### To launch the Harvest/Grafana solution stack
 
-1. Download the [fsx-ontap-harvest-grafana.template](https://solution-references.s3.amazonaws.com/fsx/harvest-grafana/harvest-grafana.yaml "https://solution-references.s3.amazonaws.com/fsx/harvest-grafana/harvest-grafana.yaml") AWS CloudFormation template. For more information on creating an
-   AWS CloudFormation stack, see [Creating a stack on
+1. Download the [fsx-ontap-harvest-grafana.template](https://solution-references.s3.amazonaws.com/fsx/harvest-grafana/harvest-grafana.yaml "https://solution-references.s3.amazonaws.com/fsx/harvest-grafana/harvest-grafana.yaml") CloudFormation template. For more information on creating an
+   CloudFormation stack, see [Creating a stack on
    the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the _AWS CloudFormation User Guide_.
 
 ###### Note
@@ -151,7 +151,7 @@ them for the needs of your file system. This solution uses the following default
    check box acknowledging that the template create IAM resources.
 6. Choose **Create** to deploy the stack.
 
-You can view the status of the stack in the AWS CloudFormation console in the **Status**
+You can view the status of the stack in the CloudFormation console in the **Status**
 column. You should see a status of **CREATE_COMPLETE** in about five
 minutes.
 
@@ -181,7 +181,7 @@ setting up Harvest and Grafana with FSx for ONTAP, check the following topics fo
 
 ### SVM and volume dashboards are blank
 
-If the AWS CloudFormation stack deployed successfully and can contact Grafana but the SVM and volume dashboards are blank,
+If the CloudFormation stack deployed successfully and can contact Grafana but the SVM and volume dashboards are blank,
 use the following procedure to troubleshoot your environment. You will need SSH access to the Amazon EC2 instance
 that Harvest and Grafana is deployed on.
 

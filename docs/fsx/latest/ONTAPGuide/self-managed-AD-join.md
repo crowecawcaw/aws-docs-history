@@ -68,8 +68,8 @@ range, except:
 ###### Note
 
 If you join your SVM to an AWS Directory Service Active Directory, you must provide an OU that's within the default OU
-that AWS Directory Service creates for the directory objects that are related to AWS. This is
-because the AWS Directory Service doesn't provide access to your Active Directory's default
+that Directory Service creates for the directory objects that are related to AWS. This is
+because the Directory Service doesn't provide access to your Active Directory's default
 `Computers` OU. For example, if your Active Directory domain is
 `example.com`, you can specify the following OU:
 `OU=Computers,OU=example,DC=example,DC=com`.

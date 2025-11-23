@@ -19,8 +19,8 @@ following parameters:
 ###### Topics
 
 - [Architecture overview](#storage-inc-architecture "#storage-inc-architecture")
-- [AWS CloudFormation template](#storage-capacity-CFN-template "#storage-capacity-CFN-template")
-- [Automated deployment with AWS CloudFormation](#fsx-dynamic-storage-increase-deployment "#fsx-dynamic-storage-increase-deployment")
+- [CloudFormation template](#storage-capacity-CFN-template "#storage-capacity-CFN-template")
+- [Automated deployment with CloudFormation](#fsx-dynamic-storage-increase-deployment "#fsx-dynamic-storage-increase-deployment")
 
 ## Architecture overview
 
@@ -30,7 +30,7 @@ Deploying this solution builds the following resources in the AWS Cloud.
 
 The diagram illustrates the following steps:
 
-1. The AWS CloudFormation template deploys a CloudWatch alarm, an AWS Lambda function, an Amazon Simple Notification Service (Amazon SNS) queue,
+1. The CloudFormation template deploys a CloudWatch alarm, an AWS Lambda function, an Amazon Simple Notification Service (Amazon SNS) queue,
    and all required AWS Identity and Access Management (IAM) roles. The IAM role gives the Lambda
    function permission to invoke the Amazon FSx API operations.
 2. CloudWatch triggers an alarm when the file system’s used storage capacity exceeds
@@ -46,11 +46,11 @@ To receive notifications about the actions that are performed as a response to t
 CloudWatch alarm, you must confirm the Amazon SNS topic subscription by following the link
 provided in the **Subscription Confirmation** email.
 
-## AWS CloudFormation template
+## CloudFormation template
 
-This solution uses AWS CloudFormation to automate deploying the components that are used to
+This solution uses CloudFormation to automate deploying the components that are used to
 automatically increase the storage capacity of an FSx for ONTAP file system. To use
-this solution, download the [FSxOntapDynamicStorageScaling](https://solution-references.s3.amazonaws.com/fsx/DynamicScaling/FSxOntapDynamicStorageScaling.yaml "https://solution-references.s3.amazonaws.com/fsx/DynamicScaling/FSxOntapDynamicStorageScaling.yaml") AWS CloudFormation template.
+this solution, download the [FSxOntapDynamicStorageScaling](https://solution-references.s3.amazonaws.com/fsx/DynamicScaling/FSxOntapDynamicStorageScaling.yaml "https://solution-references.s3.amazonaws.com/fsx/DynamicScaling/FSxOntapDynamicStorageScaling.yaml") CloudFormation template.
 
 The template uses the **Parameters** described as follows. Review
 the template parameters and their default values, and modify them for the needs of
@@ -93,9 +93,9 @@ operation isn't attempted again.
 Default is **196608**. Specifies the maximum
 supported storage capacity for the SSD storage.
 
-## Automated deployment with AWS CloudFormation
+## Automated deployment with CloudFormation
 
-The following procedure configures and deploys an AWS CloudFormation stack to automatically
+The following procedure configures and deploys an CloudFormation stack to automatically
 increase the storage capacity of an FSx for ONTAP file system. It takes a few
 minutes to deploy. For more information about creating a CloudFormation stack,
 see [Creating a
@@ -113,14 +113,14 @@ creating Amazon FSx resources, see [Getting started with Amazon FSx for NetApp O
 
 ###### To launch the automatic storage capacity increase solution stack
 
-1. Download the [FSxOntapDynamicStorageScaling](https://solution-references.s3.amazonaws.com/fsx/DynamicScaling/FSxOntapDynamicStorageScaling.yaml "https://solution-references.s3.amazonaws.com/fsx/DynamicScaling/FSxOntapDynamicStorageScaling.yaml") AWS CloudFormation template.
+1. Download the [FSxOntapDynamicStorageScaling](https://solution-references.s3.amazonaws.com/fsx/DynamicScaling/FSxOntapDynamicStorageScaling.yaml "https://solution-references.s3.amazonaws.com/fsx/DynamicScaling/FSxOntapDynamicStorageScaling.yaml") CloudFormation template.
 
 ###### Note
 
 Amazon FSx is currently only available in specific AWS Regions. You must
 launch this solution in an AWS Region where Amazon FSx is available. For more
 information, see [Amazon FSx endpoints and quotas](../../../general/latest/gr/fsxn.md "../../../general/latest/gr/fsxn.md") in the
-_AWS General Reference_. 2. From the AWS CloudFormation console, choose **Create stack > With new
+_AWS General Reference_. 2. From the CloudFormation console, choose **Create stack > With new
 resources**. 3. Choose **Template is ready**. In the **Specify
 template** section, choose **Upload a template
 file** and upload the template that you
@@ -139,7 +139,7 @@ template. 7. Enter the **Options** settings that you want for your
 custom solution, and then choose **Next**. 8. For **Review**, review and confirm the solution settings. You must select the
 check box acknowledging that the template creates IAM resources. 9. Choose **Create** to deploy the stack.
 
-You can view the status of the stack in the AWS CloudFormation console in the
+You can view the status of the stack in the CloudFormation console in the
 **Status** column. You should see a status of
 **CREATE_COMPLETE** in a few minutes.
 

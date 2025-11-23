@@ -49,7 +49,7 @@ Before you begin using the procedures described in the following sections, be su
   primary SSD storage tier. File metadata is always stored on the SSD-based primary tier, regardless of the volume's
   data tiering policy. We recommend that you assume a ratio of 1 : 10 for primary tier : capacity pool tier storage capacity.
 - The source and destination file systems are connected in the same VPC, or are
-  in networks that are peered using Amazon VPC Peering, Transit Gateway, AWS Direct Connect or AWS VPN.
+  in networks that are peered using Amazon VPC Peering, Transit Gateway, AWS Direct Connect or Site-to-Site VPN.
   For more information, see [Accessing data from within the AWS Cloud](supported-fsx-clients.md#access-environments "supported-fsx-clients.md#access-environments") and
   [What is VPC peering?](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md")
   in the _Amazon VPC Peering Guide_.

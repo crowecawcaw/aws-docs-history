@@ -15,7 +15,7 @@ This section describes issues and resolutions related to being unable to access 
 - [The compute instance's VPC security group lacks the
   required outbound rules](#compute-instance-lacks-inbound-rules "#compute-instance-lacks-inbound-rules")
 - [The compute instance's subnet doesn't use any of the route tables associated with your file system](#subnet-route-tables "#subnet-route-tables")
-- [Amazon FSx can't update route table for Multi-AZ file systems created using AWS CloudFormation](#vpc-route-tables-not-tagged "#vpc-route-tables-not-tagged")
+- [Amazon FSx can't update route table for Multi-AZ file systems created using CloudFormation](#vpc-route-tables-not-tagged "#vpc-route-tables-not-tagged")
 - [Can't access a file system over iSCSI from a client in another VPC](#file-system-iscsi "#file-system-iscsi")
 - [The owning account has stopped sharing the VPC subnet](#unshared-vpc-subnet "#unshared-vpc-subnet")
 - [Can't access a file system over NFS, SMB, the ONTAP CLI,
@@ -100,11 +100,11 @@ file system, associate one of your file system's route tables with your client's
 subnet. For information about updating your file system's Amazon VPC route tables, see
 [Updating file systems](updating-file-system.md "updating-file-system.md").
 
-## Amazon FSx can't update route table for Multi-AZ file systems created using AWS CloudFormation
+## Amazon FSx can't update route table for Multi-AZ file systems created using CloudFormation
 
 Amazon FSx manages VPC route tables for Multi-AZ file systems using tag-based authentication.
 These route tables are tagged with `Key: AmazonFSx; Value: ManagedByAmazonFSx`.
-When creating or updating FSx for ONTAP Multi-AZ file systems using AWS CloudFormation we recommend that you add the
+When creating or updating FSx for ONTAP Multi-AZ file systems using CloudFormation we recommend that you add the
 `Key: AmazonFSx; Value: ManagedByAmazonFSx` tag manually.
 
 If you're unable to reach your Multi-AZ file system, check to see if the VPC route tables

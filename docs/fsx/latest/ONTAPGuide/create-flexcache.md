@@ -28,7 +28,7 @@ The procedures in this section use the following NetApp ONTAP CLI commands.
 Before you begin using the procedures in the following sections, be sure that you have met the following prerequisites:
 
 - The source and destination file systems are connected in the same VPC, or are in networks that are peered using
-  Amazon VPC, AWS Transit Gateway, AWS Direct Connect, or AWS VPN. For more information, see [Accessing data from within the AWS Cloud](supported-fsx-clients.md#access-environments "supported-fsx-clients.md#access-environments")
+  Amazon VPC, AWS Transit Gateway, Direct Connect, or Site-to-Site VPN. For more information, see [Accessing data from within the AWS Cloud](supported-fsx-clients.md#access-environments "supported-fsx-clients.md#access-environments")
   and [What is VPC peering?](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md") in the Amazon VPC Peering Guide.
 - The VPC security group for the FSx for ONTAP file system has inbound and outbound rules allowing ICMP as well as TCP on ports
   11104 and 11105 for your inter-cluster endpoints (LIFs).

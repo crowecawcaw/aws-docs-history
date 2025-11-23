@@ -167,7 +167,7 @@ for the endpoint IP address range by default.
   For this option we recommend using a range that is inside the VPC's IP address range.
 
 Only [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc "https://aws.amazon.com/transit-gateway/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc") supports routing to floating IP addresses, which is also known as transitive peering.
-VPC Peering, AWS Direct Connect, and AWS VPN don't support transitive peering. Therefore,
+VPC Peering, Direct Connect, and Site-to-Site VPN don't support transitive peering. Therefore,
 you are required to use Transit Gateway in order to access these interfaces from networks that are outside of
 your file system's VPC.
 
@@ -189,7 +189,7 @@ required?](#when-is-transit-gateway-required "#when-is-transit-gateway-required"
 
 Amazon FSx manages VPC route tables for Multi-AZ file systems using tag-based authentication.
 These route tables are tagged with `Key: AmazonFSx; Value: ManagedByAmazonFSx`.
-When creating or updating FSx for ONTAP Multi-AZ file systems using AWS CloudFormation we recommend that you add the
+When creating or updating FSx for ONTAP Multi-AZ file systems using CloudFormation we recommend that you add the
 `Key: AmazonFSx; Value: ManagedByAmazonFSx` tag manually.
 
 #### Accessing NFS, SMB, or
@@ -200,12 +200,12 @@ The endpoints used to access FSx for ONTAP Single-AZ file systems over NFS or
 SMB, and for administering file systems using the ONTAP CLI or REST API, are
 secondary IP addresses on the ENI of the active file server. The secondary IP
 addresses are within the VPC’s CIDR range, so clients can access data and
-management ports using VPC Peering, AWS Direct Connect, or AWS VPN without requiring AWS Transit Gateway.
+management ports using VPC Peering, AWS Direct Connect, or Site-to-Site VPN without requiring AWS Transit Gateway.
 
-The following diagram illustrates using AWS VPN or AWS Direct Connect for NFS, SMB, or management access
+The following diagram illustrates using Site-to-Site VPN or Direct Connect for NFS, SMB, or management access
 to a Single-AZ file system that is in a different VPC than the clients accessing it.
 
-![Using AWS VPN or AWS Direct Connect to access NFS, SMB, and ONTAP management endpoints on a Single-AZ file system that is in a different VPC than the clients accessing it.](images/fsx-ontap-single-az-access-vpc-peering.png)
+![Using Site-to-Site VPN or Direct Connect to access NFS, SMB, and ONTAP management endpoints on a Single-AZ file system that is in a different VPC than the clients accessing it.](images/fsx-ontap-single-az-access-vpc-peering.png)
 
 #### When is Transit Gateway
 
@@ -242,7 +242,7 @@ Peering Guide_.
 
 ## Accessing data from on-premises
 
-You can access your FSx for ONTAP file systems from on-premises using [AWS VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/") and [AWS Direct Connect](https://aws.amazon.com/getting-started/projects/connect-data-center-to-aws/ "https://aws.amazon.com/getting-started/projects/connect-data-center-to-aws/"); more specific use case guidelines are available in the following
+You can access your FSx for ONTAP file systems from on-premises using [Site-to-Site VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/") and [Direct Connect](https://aws.amazon.com/getting-started/projects/connect-data-center-to-aws/ "https://aws.amazon.com/getting-started/projects/connect-data-center-to-aws/"); more specific use case guidelines are available in the following
 sections. In addition to any requirements listed below for accessing different
 FSx for ONTAP resources from on-premises, you also need to ensure that your file system's
 VPC security group allows data to flow between your file system and clients; for a list
@@ -264,7 +264,7 @@ systems, Amazon FSx uses floating IP addresses for the interfaces used for NFS, 
 and ONTAP management endpoints.
 
 Because the NFS, SMB, and management endpoints use floating IP addresses, you must use
-[AWS Transit Gateway](https://aws.amazon.com/transit-gateway/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc "https://aws.amazon.com/transit-gateway/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc") in conjunction with AWS Direct Connect or AWS VPN to access
+[AWS Transit Gateway](https://aws.amazon.com/transit-gateway/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc "https://aws.amazon.com/transit-gateway/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc") in conjunction with AWS Direct Connect or Site-to-Site VPN to access
 these interfaces from an on-premises network. The floating IP addresses used for
 these interfaces are within the `EndpointIPv4AddressRange` or `EndpointIPv6AddressRange` you specify
 when creating your Multi-AZ file system. The endpoint IP address range uses the
@@ -323,7 +323,7 @@ used for Active Directory traffic.
 Because a file system's inter-cluster endpoints use IP addresses that are within the CIDR
 range of the VPC you provide when you create your FSx for ONTAP file system, you are not required
 to use a Transit Gateway for routing inter-cluster traffic between on-premises and
-the AWS Cloud. However, on-premises clients still must use AWS VPN or AWS Direct Connect to
+the AWS Cloud. However, on-premises clients still must use Site-to-Site VPN or Direct Connect to
 establish a secure connection to your VPC.
 
 For more information, see [Configure routing to access Multi-AZ file systems from on-premises](configure-routing-maz-on-prem.md "configure-routing-maz-on-prem.md").

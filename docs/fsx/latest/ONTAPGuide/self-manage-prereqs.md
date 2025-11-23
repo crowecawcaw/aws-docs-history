@@ -26,7 +26,7 @@ This Active Directory should have the following configuration:
 
 ###### Note
 
-If you are using AWS Directory Service, FSx for ONTAP doesn't support joining SVMs to the Simple Active
+If you are using Directory Service, FSx for ONTAP doesn't support joining SVMs to the Simple Active
 Directory.
 
 ## Network configuration requirements
@@ -41,7 +41,7 @@ interfaces (LIFs)) on the SVM.
 
 - The DNS server and Active Directory domain controller IP addresses.
 - Connectivity between the Amazon VPC where you're creating the file system and your
-  self-managed Active Directory using [AWS Direct Connect](https://aws.amazon.com/directconnect/ "https://aws.amazon.com/directconnect/"), [AWS VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/"), or [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/ "https://aws.amazon.com/transit-gateway/").
+  self-managed Active Directory using [Direct Connect](https://aws.amazon.com/directconnect/ "https://aws.amazon.com/directconnect/"), [Site-to-Site VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/"), or [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/ "https://aws.amazon.com/transit-gateway/").
 - The security group and the VPC Network ACLs for the subnets on which you're creating the
   file system must allow traffic on the ports and in the directions shown in the following
   diagram.

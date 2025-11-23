@@ -3,7 +3,7 @@
 You access your Amazon FSx for NetApp ONTAP file systems and SVMs using the DNS name or the IP address
 of one of their endpoints, depending on what type of access it is. The DNS name maps to the private
 IP address of the file system's or SVM's elastic network interface in your VPC. Only resources within
-the associated VPC, or resources connected with the associated VPC by AWS Direct Connect or VPN, can access
+the associated VPC, or resources connected with the associated VPC by Direct Connect or VPN, can access
 the data in your file system over the NFS, SMB, or iSCSI protocols. For more information,
 see [What is
 Amazon VPC?](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") in the _Amazon VPC User Guide._

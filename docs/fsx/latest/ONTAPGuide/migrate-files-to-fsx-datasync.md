@@ -8,7 +8,7 @@ If you're transferring files between FSx for ONTAP and NetApp ONTAP, we recommen
 [NetApp SnapMirror](migrating-fsx-ontap-snapmirror.md "migrating-fsx-ontap-snapmirror.md"). AWS DataSync is a
 data transfer service that simplifies, automates, and accelerates moving and replicating data
 between self-managed storage systems and AWS storage services over the internet or
-AWS Direct Connect. DataSync can transfer your file system data and metadata, such as ownership, timestamps,
+Direct Connect. DataSync can transfer your file system data and metadata, such as ownership, timestamps,
 and access permissions.
 
 You can use DataSync to transfer files between two FSx for ONTAP file systems, and also move data to

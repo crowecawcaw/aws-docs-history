@@ -29,7 +29,7 @@ console, AWS CLI, and API:
 
 Amazon FSx manages VPC route tables for Multi-AZ file systems using tag-based authentication.
 These route tables are tagged with `Key: AmazonFSx; Value: ManagedByAmazonFSx`.
-When creating or updating FSx for ONTAP Multi-AZ file systems using AWS CloudFormation we recommend that you add the
+When creating or updating FSx for ONTAP Multi-AZ file systems using CloudFormation we recommend that you add the
 `Key: AmazonFSx; Value: ManagedByAmazonFSx` tag manually.
 The following procedures provide you with instructions on how to make updates to an existing FSx for ONTAP
 file system using the AWS Management Console.
