@@ -3,7 +3,7 @@
 You can use an available backup to create a new file system, effectively restoring a
 point-in-time snapshot of another file system. You can restore a backup using the Amazon FSx console, AWS CLI,
 or one of the AWS SDKs. You can also restore backups using the AWS Backup console. For more information about using the AWS Backup console,
-see [Restore an FSx file System](../../../https:/docs.aws.amazon.com/aws-backup/latest/devguide/restoring-fsx.md "../../../https:/docs.aws.amazon.com/aws-backup/latest/devguide/restoring-fsx.md")
+see [Restore an FSx file System](../../../aws-backup/latest/devguide/restoring-fsx.md "../../../aws-backup/latest/devguide/restoring-fsx.md")
 in the AWS Backup Developer Guide.
 
 ###### Note

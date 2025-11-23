@@ -71,7 +71,7 @@ Additionally, you can optionally specify the VPC route tables in which rules for
 the VPC's default route table.
 
 Only [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc "https://aws.amazon.com/transit-gateway/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc") supports routing to floating IP addresses, which is also known as transitive peering.
-VPC Peering, AWS Direct Connect, and AWS VPN don't support transitive peering. Therefore,
+VPC Peering, Direct Connect, and Site-to-Site VPN don't support transitive peering. Therefore,
 you are required to use Transit Gateway in order to access these interfaces from networks that are outside of
 your file system's VPC.
 

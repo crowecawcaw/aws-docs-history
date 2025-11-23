@@ -3,7 +3,7 @@
 We recommend using AWS DataSync to transfer data between FSx for OpenZFS file systems. DataSync is a
 data transfer service that simplifies, automates, and accelerates moving and replicating data
 between self-managed storage systems and AWS storage services over the internet or
-AWS Direct Connect. DataSync can transfer your file system data and metadata, such as ownership, timestamps,
+Direct Connect. DataSync can transfer your file system data and metadata, such as ownership, timestamps,
 and access permissions.
 
 You can use DataSync to transfer files between two FSx for OpenZFS file systems, and also move data to

@@ -13,11 +13,11 @@ _Amazon CloudWatch Events User Guide_.
 
 Deploying this solution builds the following resources in the AWS Cloud:
 
-![Diagram showing the custom snapshot schedule AWS CloudFormation template.](images/openzfs-custom-snapshot-architecture.png)
+![Diagram showing the custom snapshot schedule CloudFormation template.](images/openzfs-custom-snapshot-architecture.png)
 
 The diagram illustrates the following custom snapshot schedule workflow:
 
-1. The solution AWS CloudFormation template deploys an CloudWatch Event, an AWS Lambda function, an Amazon Simple Notification Service (Amazon SNS) queue, and an IAM
+1. The solution CloudFormation template deploys an CloudWatch Event, an AWS Lambda function, an Amazon Simple Notification Service (Amazon SNS) queue, and an IAM
    role. The IAM role gives the Lambda function permission to invoke the necessary Amazon FSx API
    operations.
 2. The CloudWatch event runs on a schedule you define as a CRON pattern, during the initial
@@ -32,7 +32,7 @@ The diagram illustrates the following custom snapshot schedule workflow:
 
 ### Required permissions
 
-The following permissions are required to use the custom snapshot schedule AWS CloudFormation template:
+The following permissions are required to use the custom snapshot schedule CloudFormation template:
 
 - `AWSCloudFormationFullAccess`
 - `AmazonS3FullAccess`
@@ -42,10 +42,10 @@ The following permissions are required to use the custom snapshot schedule AWS C
 - `AWSKeyManagementServicePowerUser`
 - `AWSLambda_FullAccess`
 
-## AWS CloudFormation template
+## CloudFormation template
 
-This solution uses AWS CloudFormation to automate the deployment of the Amazon FSx custom snapshot scheduling
-solution. To use this solution, download the [fsx-openzfs-scheduled-snapshot.template](https://solution-references.s3.amazonaws.com/fsx/snapshot/fsx-openzfs-scheduled-snapshot.yaml "https://solution-references.s3.amazonaws.com/fsx/snapshot/fsx-openzfs-scheduled-snapshot.yaml") AWS CloudFormation template.
+This solution uses CloudFormation to automate the deployment of the Amazon FSx custom snapshot scheduling
+solution. To use this solution, download the [fsx-openzfs-scheduled-snapshot.template](https://solution-references.s3.amazonaws.com/fsx/snapshot/fsx-openzfs-scheduled-snapshot.yaml "https://solution-references.s3.amazonaws.com/fsx/snapshot/fsx-openzfs-scheduled-snapshot.yaml") CloudFormation template.
 
 ## Automated deployment
 
@@ -61,9 +61,9 @@ information, see the pricing details pages for those services.
 
 ###### To launch the custom snapshot solution stack
 
-1. Download the [fsx-openzfs-scheduled-snapshot.template](https://solution-references.s3.amazonaws.com/fsx/snapshot/fsx-openzfs-scheduled-snapshot.yaml "https://solution-references.s3.amazonaws.com/fsx/snapshot/fsx-openzfs-scheduled-snapshot.yaml") AWS CloudFormation template. For more information on creating an
-   AWS CloudFormation stack, see [Creating a stack on
-   the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the _AWS CloudFormation User Guide_.
+1. Download the [fsx-openzfs-scheduled-snapshot.template](https://solution-references.s3.amazonaws.com/fsx/snapshot/fsx-openzfs-scheduled-snapshot.yaml "https://solution-references.s3.amazonaws.com/fsx/snapshot/fsx-openzfs-scheduled-snapshot.yaml") CloudFormation template. For more information on creating an
+   CloudFormation stack, see [Creating a stack on
+   the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the _CloudFormation User Guide_.
 
 ###### Note
 
@@ -88,7 +88,7 @@ them for the needs of your file system volumes. This solution uses the following
    check box acknowledging that the template creates IAM resources.
 6. Choose **Create** to deploy the stack.
 
-You can view the status of the stack in the AWS CloudFormation console in the **Status**
+You can view the status of the stack in the CloudFormation console in the **Status**
 column. You should see a status of **CREATE_COMPLETE** in about five
 minutes.
 
@@ -98,7 +98,7 @@ You can use the Lambda function created by this solution to perform custom sched
 of more than one FSx for OpenZFS volume. The volume ID is passed to the Amazon FSx function in the
 input JSON for the CloudWatch event. The default JSON passed to the Lambda function is as follows, where
 the values for `VolumeId` and `SuccessNotification` are passed from the
-parameters specified when launching the AWS CloudFormation stack.
+parameters specified when launching the CloudFormation stack.
 
 ```
 {
@@ -118,5 +118,5 @@ volume to back up in place of `${VolumeId}`. Also, substitute either
 `Yes` or `No` in place of `${SuccessNotification}` in the JSON
 above.
 
-Any additional CloudWatch Event rules you create manually aren't part of the AWS CloudFormation stack for
+Any additional CloudWatch Event rules you create manually aren't part of the CloudFormation stack for
 the Amazon FSx custom scheduled snapshot solution. Thus, they aren't removed if you delete the stack.

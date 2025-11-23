@@ -1,8 +1,8 @@
 # Using AWS PrivateLink to configure interface VPC endpoints
 
 You can improve the security posture of your VPC by configuring Amazon FSx to use an interface VPC endpoint.
-Interface VPC endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/https://aws.amazon.com/privatelink/ "https://aws.amazon.com/https://aws.amazon.com/privatelink/"), a technology that enables you to privately
-access Amazon FSx APIs without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
+Interface VPC endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.com/privatelink/"), a technology that enables you to privately
+access Amazon FSx APIs without an internet gateway, NAT device, VPN connection, or Direct Connect connection.
 Instances in your VPC don't need public IP addresses to communicate with Amazon FSx APIs. Traffic between your VPC and Amazon FSx
 does not leave the AWS network.
 

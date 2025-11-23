@@ -2,7 +2,7 @@
 
 You access your Amazon FSx for OpenZFS file systems and volumes using the file system's DNS name. The DNS name maps to the private
 IP address of the file system's elastic network interface in your VPC. Only resources within
-the associated VPC, or resources connected with the associated VPC by AWS Direct Connect or VPN, can access
+the associated VPC, or resources connected with the associated VPC by Direct Connect or VPN, can access
 the data in your file system over the NFS protocol. For more information,
 see [What is
 Amazon VPC?](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") in the _Amazon VPC User Guide._

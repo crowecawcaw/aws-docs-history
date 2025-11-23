@@ -29,7 +29,7 @@ The diagram illustrates the following periodic replication workflow.
 
 ## Required permissions
 
-The following permissions are required to use the custom snapshot schedule AWS CloudFormation template.
+The following permissions are required to use the custom snapshot schedule CloudFormation template.
 
 - `AmazonS3FullAccess`
 - `AWSCloudFormationFullAccess`
