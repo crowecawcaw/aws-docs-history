@@ -92,6 +92,6 @@ come in from the internet.
 ## Private connectivity
 
 The AWS Panorama Appliance does not need internet access if you deploy it in a private VPC subnet with a VPN connection
-to AWS. You can use Site-to-Site VPN or AWS Direct Connect to create a VPN connection between an on-premises router and AWS. Within
+to AWS. You can use Site-to-Site VPN or Direct Connect to create a VPN connection between an on-premises router and AWS. Within
 your private VPC subnet, you create endpoints that let the appliance connect to Amazon Simple Storage Service, AWS IoT, and other
 services. For more information, see [Connecting an appliance to a private subnet](api-endpoints.md#services-vpc-appliance "api-endpoints.md#services-vpc-appliance").

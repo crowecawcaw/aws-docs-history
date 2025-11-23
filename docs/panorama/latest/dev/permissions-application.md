@@ -9,7 +9,7 @@ applications do not have any permissions. You create an application role in IAM 
 during deployment. To grant your application only the permissions that it needs, create a role for it with
 permissions for specific API actions.
 
-The [sample application](gettingstarted-sample.md "gettingstarted-sample.md") includes an AWS CloudFormation template and script that
+The [sample application](gettingstarted-sample.md "gettingstarted-sample.md") includes an CloudFormation template and script that
 create an application role. It is a [service role](permissions-services.md "permissions-services.md") that AWS Panorama can assume.
 This role grants permission for the application to call CloudWatch to upload metrics.
 

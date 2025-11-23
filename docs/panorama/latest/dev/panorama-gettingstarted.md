@@ -17,7 +17,7 @@ console](https://console.aws.amazon.com/panorama/home#get-device-quote "https://
 
 The [AWS Panorama sample application](gettingstarted-sample.md "gettingstarted-sample.md") demonstrates use of AWS Panorama features. It
 includes a model that has been trained with SageMaker AI and sample code that uses the AWS Panorama Application SDK to run inference and output
-video. The sample application include a AWS CloudFormation template and scripts that show how to automate development and
+video. The sample application include a CloudFormation template and scripts that show how to automate development and
 deployment workflows from the command line.
 
 The final two topics in this chapter detail [requirements for models

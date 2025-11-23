@@ -39,14 +39,14 @@ The AWS Panorama Appliance can connect to AWS over a private VPN connection with
 services, you can create a private subnet that extends to your data center. The appliance connects to the private
 subnet and accesses AWS services through VPC endpoints.
 
-Site-to-Site VPN and AWS Direct Connect are services for connecting your data center to Amazon VPC securely. With Site-to-Site VPN, you can use
-commercially available network devices to connect. AWS Direct Connect uses an AWS device to connect.
+Site-to-Site VPN and Direct Connect are services for connecting your data center to Amazon VPC securely. With Site-to-Site VPN, you can use
+commercially available network devices to connect. Direct Connect uses an AWS device to connect.
 
 ######
 
 - **Site-to-Site VPN** – [What is
   AWS Site-to-Site VPN?](../../../vpn/latest/s2svpn.md "../../../vpn/latest/s2svpn.md")
-- **AWS Direct Connect** – [What is
+- **Direct Connect** – [What is
   AWS Direct Connect?](../../../directconnect/latest/UserGuide.md "../../../directconnect/latest/UserGuide.md")
 
 After you've connected your local network to a private subnet in a VPC, create VPC endpoints for the following

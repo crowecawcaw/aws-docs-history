@@ -11,7 +11,7 @@ Use these samples to learn best practices and automate development workflows.
 
 - [Sample applications](#samples-applications "#samples-applications")
 - [Utility scripts](#samples-scripts "#samples-scripts")
-- [AWS CloudFormation templates](#samples-templates "#samples-templates")
+- [CloudFormation templates](#samples-templates "#samples-templates")
 - [More samples and tools](#samples-more "#samples-more")
 
 ## Sample applications
@@ -67,9 +67,9 @@ workflows.
 
 For usage details, see [the README](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts").
 
-## AWS CloudFormation templates
+## CloudFormation templates
 
-Use the AWS CloudFormation templates in the `cloudformation-templates` directory to create resources for AWS Panorama
+Use the CloudFormation templates in the `cloudformation-templates` directory to create resources for AWS Panorama
 applications.
 
 ######
@@ -90,7 +90,7 @@ applications.
   subnet service access to the AWS Panorama service. Resources inside of the VPC can connect to AWS Panorama to monitor and
   manage AWS Panorama resources without connecting to the internet.
 
-The `create-stack.sh` script in this directory creates AWS CloudFormation stacks. It takes a variable number of
+The `create-stack.sh` script in this directory creates CloudFormation stacks. It takes a variable number of
 arguments. The first argument is the name of the template, and the remaining arguments are overrides for
 parameters in the template.
 

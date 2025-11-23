@@ -233,7 +233,7 @@ The sample application uses the AWS SDK for Python (Boto) to send metrics to Ama
 a role that grants the application permission to send metrics, and redeploy the application with the role
 attached.
 
-The sample application includes a AWS CloudFormation template that creates a role with the permissions that it needs. To
+The sample application includes a CloudFormation template that creates a role with the permissions that it needs. To
 create the role, use the `aws cloudformation deploy` command.
 
 ```

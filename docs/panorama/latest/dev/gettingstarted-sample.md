@@ -443,7 +443,7 @@ The sample application uses the SDK for Python to upload metrics to Amazon Cloud
 ```
 
 It gets permission from a runtime role that you assign during deployment. The role is defined in the
-`aws-panorama-sample.yml` AWS CloudFormation template.
+`aws-panorama-sample.yml` CloudFormation template.
 
 ###### Example [aws-panorama-sample.yml](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/aws-panorama-sample.yml "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/aws-panorama-sample.yml")
 
@@ -488,7 +488,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 ```
 
 To use the AWS SDK in your application code, first modify the template to add permissions for all API
-actions that the application uses. Update the AWS CloudFormation stack by running the `1-create-role.sh` each time
+actions that the application uses. Update the CloudFormation stack by running the `1-create-role.sh` each time
 you make a change. Then, deploy changes to your application code.
 
 For actions that modify or use existing resources, it is a best practice to minimize the scope of this policy
