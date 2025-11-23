@@ -75,6 +75,31 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [ApplicationProvisioningPolicy](../../../aws-managed-policy/latest/reference/ApplicationProvisioningPolicy.md "../../../aws-managed-policy/latest/reference/ApplicationProvisioningPolicy.md") in the _AWS Managed Policy
 Reference Guide_.
 
+## AWS managed policy:
+
+SignInLocalDevelopmentAccess
+
+The `SignInLocalDevelopmentAccess` policy grants permissions for programmatic
+access to AWS using your console credentials.
+
+You can attach `SignInLocalDevelopmentAccess` to your users, groups, and
+roles.
+
+**Permissions details**
+
+This policy includes the following permissions:
+
+- **Authorizing OAuth2 access** - Grants permission to authenticate through a browser and obtain
+  an OAuth 2.0 authorization code for credential exchange
+- **OAuth2 token creation** - Grants permission to exchange an authorization code for
+  OAuth 2.0 access token and refresh token that can be used to access AWS services from developer tools and applications
+
+For more information, see
+[Login with console credentials (Recommended)](command-line-sign-in.md#command-line-sign-in-local-development "command-line-sign-in.md#command-line-sign-in-local-development"). To view more details about the policy, including the latest version of the JSON policy
+document, see
+[SignInLocalDevelopmentAccess](../../../aws-managed-policy/latest/reference/SignInLocalDevelopmentAccess.md "../../../aws-managed-policy/latest/reference/SignInLocalDevelopmentAccess.md")
+in the _AWS Managed Policy Reference Guide_.
+
 ## AWS Sign-In updates to AWS managed
 
 policies
@@ -85,6 +110,7 @@ to the RSS feed on the AWS Sign-In Document history page.
 
 | Change                                                                                                                                                                  | Description                                                                                                                                                                                                                                                | Date               |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [SignInLocalDevelopmentAccess](#security-iam-awsmanpol-SignInLocalDevelopmentAccess "#security-iam-awsmanpol-SignInLocalDevelopmentAccess") – New policy                | Added a new AWS managed policy that grants permissions for programmatic access to AWS using your existing console credentials.                                                                                                                             | November 19, 2025  |
 | [ApplicationProvisioningPolicy](#security-iam-awsmanpol-ApplicationProvisioningPolicy "#security-iam-awsmanpol-ApplicationProvisioningPolicy") – New policy             | Added a new AWS managed policy that grants comprehensive<br>permissions for application provisioning and identity management<br>operations, including IAM role and policy management, IAM Identity Center<br>configuration, and Identity Store operations. | September 30, 2025 |
 | [AmazonManagedSignUpServicePolicy](#security-iam-awsmanpol-AmazonManagedSignUpServicePolicy "#security-iam-awsmanpol-AmazonManagedSignUpServicePolicy") – New<br>policy | Added a new AWS managed policy that grants permissions required<br>for AWS account sign-up processes, including customer verification<br>and payment setup operations.                                                                                     | September 30, 2025 |
 | AWS Sign-In started tracking<br>changes                                                                                                                                 | AWS Sign-In started tracking changes for its AWS managed<br>policies.                                                                                                                                                                                      | September 30, 2025 |

@@ -476,4 +476,4 @@ verify the following:
   `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
 - If you're using AD Connector, verify that the credentials for the service
   account are correct and have not expired. For more information, see [Update
-  your AD Connector service account credentials in AWS Directory Service](../../../directoryservice/latest/admin-guide/ad_connector_update_creds.md "../../../directoryservice/latest/admin-guide/ad_connector_update_creds.md").
+  your AD Connector service account credentials in Directory Service](../../../directoryservice/latest/admin-guide/ad_connector_update_creds.md "../../../directoryservice/latest/admin-guide/ad_connector_update_creds.md").
