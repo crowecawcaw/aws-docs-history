@@ -1,87 +1,127 @@
-# Oracle Alert Log and PostgreSQL error log
+# Oracle and PostgreSQL session parameters
 
-With AWS DMS, you can capture and analyze database logs to monitor migration tasks and troubleshoot issues. The Oracle Alert Log and PostgreSQL error log provide detailed information about database events, errors, and warnings during the migration process.
+With AWS DMS, you can configure session parameters for Oracle and PostgreSQL databases to optimize performance and customize behavior during migration tasks. Session parameters are special configuration options that influence how the database engine operates and processes data.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                                                                                                                                                                     |
-| ------------------------------ | ---------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| One star feature compatibility | N/A                                | N/A                       | Use [Event Notifications Subscription](../../../AmazonRDS/latest/UserGuide/USER_Events.md "../../../AmazonRDS/latest/UserGuide/USER_Events.md") with [Amazon Simple Notification Service](https://aws.amazon.com/sns "https://aws.amazon.com/sns"). |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                        |
+| ------------------------------ | ---------------------------------- | ------------------------- | ------------------------------------------------------ |
+| One star feature compatibility | N/A                                | N/A                       | SET options are significantly different in PostgreSQL. |
 
 ## Oracle usage
 
-The primary Oracle error log file is the Alert Log. It contains verbose information about database activity including informational messages and errors. Each event includes a timestamp indicating when the event occurred. The Alert Log filename format is `alert<sid>.log`.
+Certain Oracle database parameters and configuration options are modifiable at the session level using the `ALTER SESSION` command. However, not all Oracle configuration options and parameters can be modified on a per-session basis. To view a list of all configurable parameters that can be set for the scope of a specific session, query the `v$parameter` view as shown in the following example.
 
-The Alert Log is the first place to look when troubleshooting or investigating errors, failures, and other messages indicating a potential database problem. Common events logged in the Alert Log include:
-
-- Database startup or shutdown.
-- Database redo log switch.
-- Database errors and warnings, which begin with `ORA-` followed by an Oracle error number.
-- Network and connection issues.
-- Links for a detailed trace files about specific database events.
-
-The Oracle Alert Log can be found inside the database Automatic Diagnostics Repository (ADR), which is a hierarchical file-based repository for diagnostic information: `$ADR_BASE/diag/rdbms/{DB-name}/{SID}/trace`.
-
-In addition, several other Oracle server components have unique log files such as the database listener and the Automatic Storage Manager (ASM).
+```
+SELECT NAME, VALUE FROM V$PARAMETER WHERE ISSES_MODIFIABLE='TRUE';
+```
 
 **Examples**
 
-The following screenshot displays partial contents of the Oracle database Alert Log File.
+Change the `NLS_LANAUGE` codepage parameter of the current session.
 
-![Contents of the Oracle database Alert Log File](images/pb-oracle-database-alert-log-file.png)
+```
+alter session set nls_language='SPANISH'
 
-For more information, see [Monitoring Errors and Alerts](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/monitoring-the-database.html#GUID-E5F89E8E-7FBC-47DD-BA5D-96AFD9CE4BC7 "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/monitoring-the-database.html#GUID-E5F89E8E-7FBC-47DD-BA5D-96AFD9CE4BC7") in the _Oracle documentation_.
+Sesi≤n modificada.
+
+alter session set nls_language='ENGLISH';
+
+Session altered.
+
+alter session set nls_language='FRENCH';
+
+Session modifiΘe.
+
+alter session set nls_language='GERMAN';
+
+Session wurde geΣndert.
+```
+
+Specify the format of date values returned from the database using the `NLS_DATE_FORMAT` session parameter.
+
+```
+select sysdate from dual;
+
+SYSDATE
+SEP-09-17
+
+alter session set nls_date_format='DD-MON-RR';
+
+Session altered.
+
+select sysdate from dual;
+
+SYSDATE
+09-SEP-17
+
+alter session set nls_date_format='MM-DD-YYYY';
+
+Session altered.
+
+select sysdate from dual;
+
+SYSDATE
+09-09-2017
+
+alter session set nls_date_format='DAY-MON-RR';
+
+Session altered.
+```
+
+For more information, see [Changing Parameter Values in a Parameter File](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/changing-parameter-values-in-a-parameter-file.html#GUID-4C578B21-DE2B-4210-8EB7-EF28D36CC1CB "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/changing-parameter-values-in-a-parameter-file.html#GUID-4C578B21-DE2B-4210-8EB7-EF28D36CC1CB") in the _Oracle documentation_.
 
 ## PostgreSQL usage
 
-PostgreSQL provides detailed logging and reporting of errors that occur during the database and connected sessions lifecycle. In an Amazon Aurora deployment, these informational and error messages are accessible using the Amazon RDS console.
+PostgreSQL provides session-modifiable parameters that are configured using the `SET SESSION` command. Configuration of parameters using `SET SESSION` will only be applicable in the current session. To view the list of parameters that can be set with `SET SESSION`, you can query `pg_settings`.
 
-### PostgreSQL and Oracle error codes
+```
+SELECT * FROM pg_settings where context = 'user';
+```
 
-| Oracle                                                | PostgreSQL                                                                                                   |
-| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| ORA-00001: unique constraint (string.string) violated | SQLSTATE[23505]: Unique violation: 7 ERROR: duplicate key value violates unique constraint "constraint_name" |
+Find the commonly used session parameters following:
 
-For more information, see [PostgreSQL Error Codes](https://www.postgresql.org/docs/10/errcodes-appendix.html "https://www.postgresql.org/docs/10/errcodes-appendix.html") in the _PostgreSQL documentation_.
-
-### PostgreSQL error log types
-
-| Log type      | Information written to log                                            |
-| ------------- | --------------------------------------------------------------------- |
-| DEBUG1…DEBUG5 | Provides successively-more-detailed information for use by developers |
-| INFO          | Provides information implicitly requested by the user                 |
-| NOTICE        | Provides information that might be helpful to users                   |
-| WARNING       | Provides warnings of likely problems                                  |
-| ERROR         | Reports an error that caused the current command to abort             |
-| LOG           | Reports information of interest to administrators                     |
-| FATAL         | Reports an error that caused the current session to abort             |
-| PANIC         | Reports an error that caused all database sessions to abort           |
-
-For more information, see [Error Reporting and Logging](https://www.postgresql.org/docs/13/runtime-config-logging.html "https://www.postgresql.org/docs/13/runtime-config-logging.html") in the _PostgreSQL documentation_.
+- `client_encoding` configures the connected client character set.
+- `force_parallel_mode` forces use of parallel query for the session.
+- `lock_timeout` sets the maximum allowed duration of time to wait for a database lock to release.
+- `search_path` sets the schema search order for object names that are not schema-qualified.
+- `transaction_isolation` sets the current Transaction Isolation Level for the session.
 
 **Examples**
 
-Access the PostgreSQL error log using the Amazon RDS or Aurora management console.
+Change the Time zone of the connected session.
 
-1. Sign in to your AWS console and choose **RDS**.
-2. Choose **Databases** and select your database.
-3. Choose **Logs & events**.
+```
+set session DateStyle to POSTGRES, DMY;
+SET
 
-![Logs and events tab](images/pb-logs-events.png) 4. Scroll down to the Logs section and select the log to inspect. For example, select the log during the hour the data was experiencing problems. The following screen shot displays partial contents of a PostgreSQL database error log as viewed from the Amazon RDS Management Console.
+select now();
 
-![Logs](images/pb-logs.png) 5. Choose one of the logs.
+now
+Sat 09 Sep 11:03:43.597202 2017 UTC
+(1 row)
 
-![View log](images/pb-view-log.png)
+set session DateStyle to ISO, MDY;
+SET
 
-### PostgreSQL error log configuration
+select now();
 
-The following tables shows parameters that control how and where PostgreSQL log and errors files will be placed.
+now
+2017-09-09 11:04:01.3859+00
+(1 row)
+```
 
-| Parameter                    | Description                                                                                                                                                         |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `log_filename`               | Sets the file name pattern for log files. Modifiable by an Aurora Database Parameter Group.                                                                         |
-| `log_rotation_age`           | (min) Automatic log file rotation will occur after N minutes. Modifiable by an Aurora Database Parameter Group.                                                     |
-| `log_rotation_size`          | (kB) Automatic log file rotation will occur after N kilobytes. Modifiable by an Aurora Database Parameter Group.                                                    |
-| `log_min_messages`           | Sets the message levels that are logged (`DEBUG`, `ERROR`, `INFO`, and so on). Modifiable by an Aurora Database Parameter Group                                     |
-| `log_min_error_statement`    | Causes all statements generating error at or above this level to be logged (`DEBUG`, `ERROR`, `INFO`, and so on). Modifiable by an Aurora Database Parameter Group. |
-| `log_min_duration_statement` | Sets the minimum run time above which statements will be logged (ms). Modifiable by an Aurora Database Parameter Group                                              |
+## Summary
 
-Modifications to certain parameters, such as `log_directory` (which sets the destination directory for log files) or `logging_collector` (which start a subprocess to capture stderr output and/or csvlogs into log files) are disabled for Aurora PostgreSQL instances.
+The following table includes a partial list of parameters and is meant to highlight various session-level configuration parameters in both Oracle and PostgreSQL. Not all parameters are directly comparable.
+
+| Parameter purpose                                | Oracle                                                                                                                               | PostgreSQL                                          |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------- |
+| Configure time and date format                   | `<br>ALTER SESSION<br>SET nls_date_format =<br>'dd/mm/yyyy hh24:mi:ss';<br>`                                                         | `<br>SET SESSION<br>datestyle to 'SQL, DMY';<br>`   |
+| Configure the current default schema or database | `<br>ALTER SESSION<br>SET current schema='schema_name'<br>`                                                                          | `<br>SET SESSION<br>SEARCH_PATH TO schemaname;<br>` |
+| Generate traces for specific errors              | `<br>ALTER SESSION SET<br>events '10053 trace name<br>context forever';<br>`                                                         | N/A                                                 |
+| Run trace for a SQL statement                    | `<br>ALTER SESSION<br>SET sql_trace=TRUE;<br>ALTER SYSTEM<br>SET EVENTS 'sql_trace<br>[sql:&&sql_id]<br>bindd=true, wait=true';<br>` | N/A                                                 |
+| Modify query optimizer cost for index access     | `<br>ALTER SESSION<br>SET optimizer_index_cost_adj = 50<br>`                                                                         | `<br>SET SESSION random_page_cost TO 6;<br>`        |
+| Modify query optimizer row access strategy       | `<br>ALTER SESSION<br>SET optimizer_mode=all_rows;<br>`                                                                              | N/A                                                 |
+| Memory allocated to sort operations              | `<br>ALTER SESSION<br>SET sort_area_size=6321;<br>`                                                                                  | `<br>SET SESSION work_mem TO '6MB';<br>`            |
+| Memory allocated to hash joins                   | `<br>ALTER SESSION<br>SET hash_area_size=1048576000;<br>`                                                                            | `<br>SET SESSION work_mem TO '6MB';<br>`            |
+
+For more information, see [SET](https://www.postgresql.org/docs/13/sql-set.html "https://www.postgresql.org/docs/13/sql-set.html") in the _PostgreSQL documentation_.

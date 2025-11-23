@@ -1,96 +1,140 @@
-# MERGE statement
+# Oracle DBMS_RANDOM and PostgreSQL RANDOM function
 
-With AWS DMS, you can perform Oracle `MERGE` statements and the PostgreSQL equivalent to conditionally insert, update, or delete rows in a target table based on the results of a join with a source table.
+With AWS DMS, you can generate random numbers or randomly select data for various purposes, such as testing, sampling, or introducing randomness in your applications. Oracle `DBMS_RANDOM` and PostgreSQL `RANDOM` function provide methods to generate random numbers or randomly select data from a specified dataset.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                          | Key differences                                            |
-| -------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
-| Three star feature compatibility | No automation                      | [Merge](chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.merge "chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.merge") | MERGE isn’t supported by PostgreSQL, workaround available. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                            |
+| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------ |
+| Three star feature compatibility | No automation                      | N/A                       | Different syntax may require code rewrite. |
 
 ## Oracle usage
 
-The `MERGE` statement provides a means to specify single SQL statements that conditionally perform `INSERT`, `UPDATE`, or `DELETE` operations on a target table—a task that would otherwise require multiple logical statements.
+Oracle `DBMS_RANDOM` package provides functionality for generating random numbers or strings as part of an SQL statement or PL/SQL procedure.
 
-The `MERGE` statement selects record(s) from the source table and then, by specifying a logical structure, automatically performs multiple DML operations on the target table. Its main advantage is to help avoid the use of multiple inserts, updates or deletes. It is important to note that `MERGE` is a deterministic statement. That is, once a row has been processed by the MERGE statement, it can’t be processed again using the same `MERGE` statement. `MERGE` is also sometimes known as `UPSERT`.
+The `DBMS_RANDOM` Package stored procedures include:
+
+- **NORMAL** — Returns random numbers in a standard normal distribution.
+- **SEED** — Resets the seed that generates random numbers or strings.
+- **STRING** — Returns a random string.
+- **VALUE** — Returns a number greater than or equal to 0 and less than 1 with 38 digits to the right of the decimal. Alternatively, you could generate a random number greater than or equal to a low parameter and less than a high parameter.
+
+`DBMS_RANDOM.RANDOM` produces integers in the range [-2^^31, 2^^31].
+
+`DBMS_RANDOM.VALUE` produces numbers in the range [0,1] with 38 digits of precision.
 
 **Examples**
 
-Use `MERGE` to insert or update employees who are entitled to a bonus (by year).
+Generate a random number.
 
 ```
-CREATE TABLE EMP_BONUS(EMPLOYEE_ID NUMERIC,BONUS_YEAR VARCHAR2(4),
-SALARY NUMERIC,BONUS NUMERIC, PRIMARY KEY (EMPLOYEE_ID, BONUS_YEAR));
+select dbms_random.value() from dual;
 
-MERGE INTO EMP_BONUS E1
-USING (SELECT EMPLOYEE_ID, FIRST_NAME, SALARY, DEPARTMENT_ID
-FROM EMPLOYEES) E2 ON (E1.EMPLOYEE_ID = E2.EMPLOYEE_ID) WHEN MATCHED THEN
-UPDATE SET E1.BONUS = E2.SALARY * 0.5
-DELETE WHERE (E1.SALARY >= 10000)
-WHEN NOT MATCHED THEN
-INSERT (E1.EMPLOYEE_ID, E1.BONUS_YEAR, E1.SALARY , E1.BONUS)
-VALUES (E2.EMPLOYEE_ID, EXTRACT(YEAR FROM SYSDATE), E2.SALARY,
-E2.SALARY * 0.5)
-WHERE (E2.SALARY < 10000);
+DBMS_RANDOM.VALUE()
+.859251508
 
-SELECT * FROM EMP_BONUS;
+select dbms_random.value() from dual;
 
-EMPLOYEE_ID BONUS_YEAR SALARY BONUS
-103         2017       9000   4500
-104         2017       6000   3000
-105         2017       4800   2400
-106         2017       4800   2400
-107         2017       4200   2100
-109         2017       9000   4500
-110         2017       8200   4100
-111         2017       7700   3850
-112         2017       7800   3900
-113         2017       6900   3450
-115         2017       3100   1550
+DBMS_RANDOM.VALUE()
+.364792387
 ```
 
-For more information, see [MERGE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/MERGE.html#GUID-5692CCB7-24D9-4C0E-81A7-A22436DC968F "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/MERGE.html#GUID-5692CCB7-24D9-4C0E-81A7-A22436DC968F") in the _Oracle documentation_.
+Generate a random string. The first character determines the returned string type and the number specifies the length.
+
+```
+select dbms_random.string('p',10) from dual;
+DBMS_RANDOM.STRING('P',10)
+
+la'?z[Q&/2
+
+select dbms_random.string('p',10) from dual;
+DBMS_RANDOM.STRING('P',10)
+
+t?!Gf2M60q
+```
+
+For more information, see [DBMS_RANDOM](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_RANDOM.html#GUID-8DC48B0C-3707-4172-A306-C0308DD2EB0F "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_RANDOM.html#GUID-8DC48B0C-3707-4172-A306-C0308DD2EB0F") in the _Oracle documentation_.
 
 ## PostgreSQL usage
 
-PostgreSQL doesn’t support the use of the `MERGE` SQL command. As an alternative, consider using the `INSERT… ON CONFLICT` clause, which can handle cases where insert clauses might cause a conflict, and then redirect the operation as an update.
+PostgreSQL doesn’t provide a dedicated package equivalent to Oracle `DBMS_RANDOM`, a 1:1 migration isn’t possible. However, you can use other PostgreSQL functions as workarounds under certain conditions. For example, generating random numbers can be performed using the `random()` function. For generating random strings, you can use the value returned from the `random()` function coupled with an `md5()` function.
 
 **Examples**
 
-Using the `ON CONFLICT` clause to handle a similar scenario as shown for the Oracle `MERGE` command.
+Generate a random number.
 
 ```
-CREATE TABLE EMP_BONUS (
-EMPLOYEE_ID NUMERIC,
-BONUS_YEAR VARCHAR(4),
-SALARY NUMERIC,
-BONUS NUMERIC,
-PRIMARY KEY (EMPLOYEE_ID, BONUS_YEAR));
+select random();
+random
 
-INSERT INTO EMP_BONUS (EMPLOYEE_ID, BONUS_YEAR, SALARY)
-SELECT EMPLOYEE_ID, EXTRACT(YEAR FROM NOW()), SALARY
-FROM EMPLOYEES
-WHERE SALARY < 10000
-ON CONFLICT (EMPLOYEE_ID, BONUS_YEAR)
-DO UPDATE SET BONUS = EMP_BONUS.SALARY * 0.5;
+0.866594325285405
+(1 row)
 
-SELECT * FROM EMP_BONUS;
+select random();
+random
 
-employee_id  bonus_year  salary   bonus
-103          2017        9000.00  4500.000
-104          2017        6000.00  3000.000
-105          2017        4800.00  2400.000
-106          2017        4800.00  2400.000
-107          2017        4200.00  2100.000
-109          2017        9000.00  4500.000
-110          2017        8200.00  4100.000
-111          2017        7700.00  3850.000
-112          2017        7800.00  3900.000
-113          2017        6900.00  3450.000
-115          2017        3100.00  1550.000
-116          2017        2900.00  1450.000
-117          2017        2800.00  1400.000
-118          2017        2600.00  1300.000
+0.524613124784082
+(1 row)
 ```
 
-Running the same operation multiple times using the `ON CONFLICT` clause doesn’t generate an error because the existing records are redirected to the update clause.
+Generate a random string.
 
-For more information, see [INSERT](https://www.postgresql.org/docs/13/sql-insert.html "https://www.postgresql.org/docs/13/sql-insert.html") and [Unsupported Features](https://www.postgresql.org/docs/13/unsupported-features-sql-standard.htm "https://www.postgresql.org/docs/13/unsupported-features-sql-standard.htm") in the _PostgreSQL documentation_.
+```
+select md5(random()::text);
+md5
+
+f83e73114eccfed571b43777b99e0795
+(1 row)
+
+select md5(random()::text);
+md5
+
+d46de3ce24a99d5761bb34bfb6579848
+(1 row)
+```
+
+To generate a random string of the specified length, you can use the following function.
+
+```
+create or replace function random_string(length integer) returns text as
+$$
+declare
+  chars text[] := '{0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z}';
+  result text := '';
+  i integer := 0;
+begin
+  if length < 0 then
+    raise exception 'Given length cannot be less than 0';
+  end if;
+  for i in 1..length loop
+    result := result || chars[1+random()*(array_length(chars, 1)-1)];
+  end loop;
+  return result;
+end;
+$$ language plpgsql;
+```
+
+The following code example shows the result of using this function.
+
+```
+select random_string(15);
+random_string
+
+5emZKMYxB9C2vT6
+(1 row)
+
+select random_string(10);
+random_string
+
+tMAxfql0iM
+(1 row)
+```
+
+## Summary
+
+| Description                               | Oracle                                         | PostgreSQL                           |
+| ----------------------------------------- | ---------------------------------------------- | ------------------------------------ |
+| Generate a random number                  | `select dbms_random.value() from dual;`        | `select random();`                   |
+| Generate a random number between 1 to 100 | `select dbms_random.value(1,100) from dual;`   | `select random()*100;`               |
+| Generate a random string                  | `select dbms_random.string('p',10) from dual;` | `select md5(random()::text);`        |
+| Generate a random string in upper case    | `select dbms_random.string('U',10) from dual;` | `select upper(md5(random()::text));` |
+
+For more information, see [Mathematical Functions and Operators](https://www.postgresql.org/docs/13/functions-math.html "https://www.postgresql.org/docs/13/functions-math.html") and [String Functions and Operators](https://www.postgresql.org/docs/10/functions-string.html "https://www.postgresql.org/docs/10/functions-string.html") in the _PostgreSQL documentation_.

@@ -1,125 +1,94 @@
-# Overall Oracle and PostgreSQL indexes summary
+# Oracle automatic indexing and self-managed PostgreSQL
 
-With AWS DMS, you can assess the indexing strategies of your Oracle and PostgreSQL databases before migrating them to a new environment. Overall Oracle and PostgreSQL indexes summary provides a comprehensive analysis of the indexes in your source databases, including their types, usage statistics, and potential redundancies.
+With AWS DMS, you can migrate databases to Amazon Aurora PostgreSQL with the self-managed PostgreSQL option or Oracle databases with the automatic indexing feature. Self-managed PostgreSQL provides more control over database configurations and settings, while automatic indexing optimizes indexes for Oracle databases automatically.
 
-## Usage
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                | Key differences                                                                                                                                             |
+| ------------------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| One star feature compatibility | No automation                      | [Indexes](chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.indexes "chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.indexes") | PostgreSQL doesn’t provide an automatic indexing feature but in self-managed PostgreSQL instances you can use some extensions for automatic index creation. |
 
-PostgreSQL supports multiple types of Indexes using different indexing algorithms that can provide performance benefits for different types of queries. The built-in PostgreSQL Index types include:
+## Oracle usage
 
-- **B-Tree** — Default indexes that you can use for equality and range for the majority of queries. These indexes can operate against all datatypes. You can use B-Tree indexes to retrieve NULL values. B-Tree index values are sorted in ascending order by default.
-- **Hash** — Hash Indexes are practical for equality operators. These types of indexes are rarely used because they aren’t transaction-safe. They need to be rebuilt manually in case of failures.
-- **GIN** (Generalized Inverted Indexes) — GIN indexes are useful when an index needs to map a large amount of values to one row, while B-Tree indexes are optimized for cases when a row has a single key value. GIN indexes work well for indexing fulltext search and for indexing array values.
-- **GiST** (Generalized Search Tree) — GiST indexes aren’t viewed as a single type of index but rather as an index infrastructure; a base to create different indexing strategies. GiST indexes enable building general B-Tree structures that you can use for operations more complex than equality and range comparisons. They are mainly used to create indexes for geometric data types and they support full-text search indexing.
-- **BRIN** (Block Range Indexes) — BRIN Indexes store summary data for values stored in sequential physical table block ranges. A BRIN index contains only the minimum and maximum values contained in a group of database pages. Its main advantage is that it can rule out the presence of certain records and therefore reduce query run time.
+Oracle 19 introduces automatic indexing feature. This feature automates the index management tasks by automatically creating, rebuilding, and dropping indexes based on the changes in application workload, thus improving database performance.
 
-Additional PostgreSQL indexes (such as SP-GiST) exist but are currently not supported because they require a loadable extension not currently available in Amazon Aurora PostgreSQL.
+Important functionality provided by automatic indexing:
 
-Starting with PostgreSQL 12 it is now possible to monitor progress of `CREATE INDEX` and `REINDEX` operartions by querying system view `pg_stat_progress_create_index`.
+- Automatic indexing process runs in the background at a predefined time interval and analyzes application workload. It identifies the tables/columns that are candidates for new indexes and creates new indexes.
+- The auto indexes as initially created as invisible indexes. These invisible auto indexes are verified against SQL statements and if the performance is improved, then these indexes are converted as visible indexes.
+- Identify and drop any existing under-performing auto indexes or any auto indexes not used for long period.
+- Rebuilds the auto indexes that are marked unusable due to DDL operations.
+- Provides package DBMS_AUTO_INDEX to configure automatic indexing and for generating reports related to automatic indexing operations.
 
-## CREATE INDEX synopsis
+###### Note
 
-```
-CREATE [ UNIQUE ] INDEX [ CONCURRENTLY ] [ [ IF NOT EXISTS ] name ]
-ON table_name [ USING method ]
-( { column_name | ( expression ) } [ COLLATE collation ] [ opclass ] [ ASC | DESC
-] [ NULLS { FIRST | LAST } ] [, ...] )
-[ WITH ( storage_parameter = value [, ... ] ) ]
-[ TABLESPACE tablespace_name ]
-[ WHERE predicate ]
-```
+Up to date table statistics are very important for the Auto indexing to function efficiently. Tables without statistics or with stale statistics aren’t considered for auto indexing.
 
-By default, the `CREATE INDEX` statement creates a B-Tree index.
+Package `DBMS_AUTO_INDEX` is used to configuring auto indexes and generating reports. Following are some of the configuration options which can be set by using `CONFIGURE` procedure of `DBMS_AUTO_INDEX` package:
 
-**Examples**
+- Enabling and disabling automatic indexing in a database.
+- Specifying schemas and tables that can use auto indexes.
+- Specifying a retention period for unused auto indexes. By default, the unused auto indexes are deleted after 373 days.
+- Specifying a retention period for unused non-auto indexes.
+- Specifying a tablespace and a percentage of tablespace to store auto indexes.
 
-Oracle `CREATE/DROP` Index.
+Following are some of the reports related to automatic indexing operations which you can generate using `REPORT_ACTIVITY` and `REPORT_LAST_ACTIVITY` functions of the `DBMS_AUTO_INDEX` package.
 
-```
-CREATE UNIQUE INDEX IDX_EMP_ID ON EMPLOYEES (EMPLOYEE_ID DESC);
-DROP INDEX IDX_EMP_ID;
-```
+- Report of automatic indexing operations for a specific period.
+- Report of the last automatic indexing operation.
 
-PostgreSQL `CREATE/DROP` Index.
+For more information, see [Managing Indexes](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-indexes.html#GUID-E4149397-FF37-4367-A12F-675433715904 "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-indexes.html#GUID-E4149397-FF37-4367-A12F-675433715904") in the _Oracle documentation_.
 
-```
-demo=> CREATE UNIQUE INDEX IDX_EMP_ID ON EMPLOYEES (EMPLOYEE_ID DESC);
-demo=> DROP INDEX IDX_EMP_ID;
-```
+## PostgreSQL usage
 
-Oracle `ALTER INDEX …​ RENAME`.
+PostgreSQL doesn’t provide an automatic indexing feature. However, in self-managed PostgreSQL instances, you can use extensions such as [Dexter](https://github.com/ankane/dexter "https://github.com/ankane/dexter") or [HypoPG](https://hypopg.readthedocs.io/en/latest/ "https://hypopg.readthedocs.io/en/latest/") to generate indexes with limitations. Amazon Aurora PostgreSQL doesn’t support these extensions.
 
-```
-ALTER INDEX IDX_EMP_ID RENAME TO IDX_EMP_ID_OLD;
-```
+These extensions use the following approach:
 
-PostgreSQL `ALTER INDEX …​ RENAME`.
+- Identify the queries.
+- Update the table statistics if they haven’t been analyzed recently.
+- Get the initial cost of the queries and create hypothetical indexes on columns that aren’t already indexes.
+- Get costs again and see if any hypothetical indexes were used. Hypothetical indexes that were used and significantly reduced cost are selected to be indexes.
 
-```
-demo=> ALTER INDEX IDX_EMP_ID RENAME TO IDX_EMP_ID_OLD;
-```
+Find the examples and user guides for [Dexter](https://github.com/ankane/dexter "https://github.com/ankane/dexter") or [HypoPG](https://hypopg.readthedocs.io/en/latest/ "https://hypopg.readthedocs.io/en/latest/") in the official documentation.
 
-Oracle `ALTER INDEX …​ TABLESPACE`.
+Another applicable option for Aurora for PostgreSQL would be to run a scheduled set of queries to estimate if additional indexes are needed.
+
+The following queries can help determine that.
+
+Find user-tables without primary keys.
 
 ```
-ALTER INDEX IDX_EMP_ID REBUILD TABLESPACE USER_IDX;
+SELECT c.table_schema, c.table_name, c.table_type
+FROM information_schema.tables c
+WHERE c.table_schema NOT IN('information_schema', 'pg_catalog') AND c.table_type = 'BASE TABLE'
+AND NOT EXISTS(SELECT i.tablename FROM pg_catalog.pg_indexes i
+  WHERE i.schemaname = c.table_schema
+  AND i.tablename = c.table_name AND indexdef LIKE '%UNIQUE%')
+AND NOT EXISTS (SELECT cu.table_name FROM information_schema.key_column_usage cu
+  WHERE cu.table_schema = c.table_schema AND
+  cu.table_name = c.table_name)
+ORDER BY c.table_schema, c.table_name;
 ```
 
-PostgreSQL `ALTER INDEX …​ TABLESPACE`.
+Query all geometry tables that have no index on the geometry column.
 
 ```
-demo=> CREATE TABLESPACE PGIDX LOCATION '/data/indexes';
-demo=> ALTER INDEX IDX_EMP_ID SET TABLESPACE PGIDX;
+SELECT c.table_schema, c.table_name, c.column_name
+FROM (SELECT * FROM information_schema.tables WHERE table_type = 'BASE TABLE') As t
+INNER JOIN (SELECT * FROM information_schema.columns WHERE udt_name = 'geometry') c
+  ON (t.table_name = c.table_name AND t.table_schema = c.table_schema)
+  LEFT JOIN pg_catalog.pg_indexes i ON
+  (i.tablename = c.table_name AND i.schemaname = c.table_schema
+  AND indexdef LIKE '%' || c.column_name || '%')
+WHERE i.tablename IS NULL
+ORDER BY c.table_schema, c.table_name;
 ```
 
-Oracle `REBUILD INDEX`.
+Unused indexes that can probably be dropped.
 
 ```
-ALTER INDEX IDX_EMP_ID REBUILD;
+SELECT s.relname, indexrelname, i.indisunique, idx_scan
+FROM pg_catalog.pg_stat_user_indexes s, pg_index i
+WHERE i.indexrelid = s.indexrelid and idx_scan = 0;
 ```
 
-PostgreSQL `REINDEX (REBUILD) INDEX`.
-
-```
-demo=> REINDEX INDEX IDX_EMP_ID;
-```
-
-Oracle `REBUILD INDEX ONLINE`.
-
-```
-ALTER INDEX IDX_EMP_ID REBUILD ONLINE;
-```
-
-PostgreSQL `REINDEX (REBUILD) INDEX ONLINE`.
-
-```
-demo=> CREATE INDEX CONCURRENTLY IDX_EMP_ID1 ON EMPLOYEES(EMPLOYEE_ID);
-demo=> DROP INDEX CONCURRENTLY IDX_EMP_ID;
-```
-
-For more information, see [Building Indexes Concurrently](https://www.postgresql.org/docs/13/sql-createindex.html#SQL-CREATEINDEX-CONCURRENTLY "https://www.postgresql.org/docs/13/sql-createindex.html#SQL-CREATEINDEX-CONCURRENTLY"), [ALTER INDEX](https://www.postgresql.org/docs/13/sql-alterindex.html "https://www.postgresql.org/docs/13/sql-alterindex.html"), and [REINDEX](https://www.postgresql.org/docs/13/sql-reindex.html "https://www.postgresql.org/docs/13/sql-reindex.html") in the _PostgreSQL documentation_.
-
-## Summary
-
-| Oracle indexes types and features                   | PostgreSQL compatibility                                                           | PostgreSQL equivalent                      |
-| --------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------ |
-| B-Tree Index                                        | Supported                                                                          | B-Tree Index                               |
-| Index-Organized Tables                              | Supported                                                                          | PostgreSQL CLUSTER                         |
-| Reverse key indexes                                 | Not supported                                                                      | N/A                                        |
-| Descending indexes                                  | Supported                                                                          | ASC (default) / DESC                       |
-| B-tree cluster indexes                              | Not supported                                                                      | N/A                                        |
-| Unique / non-unique indexes                         | Supported                                                                          | Syntax is identical                        |
-| Function-based indexes                              | Supported                                                                          | PostgreSQL expression indexes              |
-| Application domain indexes                          | Not supported                                                                      | N/A                                        |
-| BITMAP index / Bitmap join indexes                  | Not supported                                                                      | Consider BRIN index                        |
-| Composite indexes                                   | Supported                                                                          | Multicolumn indexes                        |
-| Invisible indexes                                   | Not supported                                                                      | Extension hypopg isn’t currently supported |
-| Local and global indexes                            | Not supported                                                                      | N/A                                        |
-| Partial Indexes for Partitioned Tables (Oracle 12c) | Not supported                                                                      | N/A                                        |
-| CREATE INDEX… / DROP INDEX…                         | Supported                                                                          | High percentage of syntax similarity       |
-| ALTER INDEX… (General Definitions)                  | Supported                                                                          | N/A                                        |
-| ALTER INDEX… REBUILD                                | Supported                                                                          | REINDEX                                    |
-| ALTER INDEX… REBUILD ONLINE                         | Limited support                                                                    | CONCURRENTLY                               |
-| Index metadata                                      | PG_INDEXES (Oracle USER_INDEXES)                                                   | N/A                                        |
-| Index tablespace allocation                         | Supported                                                                          | SET TABLESPACE                             |
-| Index Parallel Operations                           | Not supported                                                                      | N/A                                        |
-| Index compression                                   | No direct equivalent to Oracle index key compression or advanced index compression | N/A                                        |
+All of these should not be implemented in a script to decide if indexes should be created or dropped in a production environment. The Oracle automatic indexes will first assess if a new index is needed and if so, it will create an invisible index and only after ensuring nothing is harmed, then the index will become visible. This process can’t be used in PostgreSQL to avoid any production performance issues as PostgreSQL doesn’t allow for indexes be created have them be invisible.
