@@ -81,7 +81,7 @@ Alarm
 
 A CloudWatch alarm watches a single metric over a specified time
 period, and performs one or more actions: sending a notification
-to an Amazon Simple Notification Service (Amazon SNS) topic or Auto Scaling policy. The action or
+to an Amazon Simple Notification Service (Amazon SNS) topic or Amazon EC2 Auto Scaling policy. The action or
 actions are based on the value of the metric relative to a given
 threshold over a number of time periods that you specify. CloudWatch
 can also send you an Amazon SNS message when the alarm changes state.
