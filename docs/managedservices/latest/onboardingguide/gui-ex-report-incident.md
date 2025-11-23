@@ -77,6 +77,6 @@ Click **Load More** if there is more correspondence than will fit on one page.
 
 Don't forget to rate the communication!
 
-![Correspondence section showing a test message from Amazon Web Services with rating stars.](images/guiSRcorrespond.png)
+![Correspondence section showing a test message from Amazon Web Services with rating stars.](/images/managedservices/latest/onboardingguide/images/guiSRcorrespond.png)
 
 Your incident displays on the **Incidents** list page.

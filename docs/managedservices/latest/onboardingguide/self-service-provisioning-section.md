@@ -7,7 +7,7 @@ responsibility. In many cases, Self-Service Provisioning services (SSPS) are sel
 or serverless, and don’t require management of certain operational tasks like patching. You benefit
 from using these services within the environment boundary defined by AMS guardrails and any IAM changes
 (including service linked roles, service roles, cross-account roles, or policy updates) need to be approved
-by AMS Operations to maintain the baseline security of the platform. You can leverage AWS CloudFormation
+by AMS Operations to maintain the baseline security of the platform. You can leverage CloudFormation
 templates to automate deployment of these services, but this isn't supported for all SSP services.
 
 ###### Important

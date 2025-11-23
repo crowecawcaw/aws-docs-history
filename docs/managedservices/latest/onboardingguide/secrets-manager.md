@@ -34,7 +34,7 @@ After it's provisioned in your account, you must onboard the
 Full functionality of AWS Secrets Manager is available in your AMS account, along with automatic
 rotation functionality of secrets. However, note that setting up your rotation using
 'Create a new Lambda function to perform rotation' is not supported because it requires
-elevated permissions to create the AWS CloudFormation stack (IAM Role and Lambda function creation),
+elevated permissions to create the CloudFormation stack (IAM Role and Lambda function creation),
 which bypasses the Change Management process. AMS Advanced only supports 'Use an
 existing Lambda function to perform rotation' where you manage your Lambda functions
 to rotate secrets using the AWS Lambda SSPS Admin role. AMS Advanced doesn't create

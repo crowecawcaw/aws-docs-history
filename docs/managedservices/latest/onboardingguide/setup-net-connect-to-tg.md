@@ -9,7 +9,7 @@ For information about using Direct Connect with AWS services, see
 [Getting Started at an AWS Direct Connect Location](../../../directconnect/latest/UserGuide/getstarted.md "../../../directconnect/latest/UserGuide/getstarted.md").
 
 ![AWS Transit Gateway network diagram showing connections to VPCs and Direct Connect.](images/malzEdgeConnect.png)
-To use an existing Direct Connect dedicated connection, the connection must not have more than 3 transit virtual interfaces created on it. This is because AWS Direct Connect dedicated connections have a limit of 4 transit virtual interfaces per connection.
+To use an existing Direct Connect dedicated connection, the connection must not have more than 3 transit virtual interfaces created on it. This is because Direct Connect dedicated connections have a limit of 4 transit virtual interfaces per connection.
 
 For additional information on Direct Connect Limits, see [AWS Direct Connect Limits](../../../directconnect/latest/UserGuide/limits.md "../../../directconnect/latest/UserGuide/limits.md").
 
@@ -29,4 +29,4 @@ The ASN provided for the Direct Connect gateway and the Transit Gateway must be 
 
 To increase the resiliency of your connectivity, it's a best practice to attach at least 2 transit virtual interfaces, from different
 AWS Direct Connect locations, to the Direct Connect gateway. For more information, see
-[AWS Direct Connect resiliency recommendation](https://aws.amazon.com/directconnect/resiliency-recommendation/ "https://aws.amazon.com/directconnect/resiliency-recommendation/").
+[Direct Connect resiliency recommendation](https://aws.amazon.com/directconnect/resiliency-recommendation/ "https://aws.amazon.com/directconnect/resiliency-recommendation/").

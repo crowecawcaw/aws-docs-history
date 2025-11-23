@@ -21,7 +21,7 @@ In addition to the network and transport layer protections that come with
 AWS Shield Standard, AWS Shield Advanced provides additional detection and mitigation against large
 and sophisticated DDoS attacks, near real-time visibility into attacks, and integration
 with AWS WAF, a web application firewall. AWS Shield Advanced also gives you 24x7 access to the
-AWS Shield Response Team (SRT) and protection against DDoS related spikes in your Amazon Elastic Compute Cloud (Amazon EC2), Elastic Load Balancing (Elastic Load Balancing),
+AWS Shield Response Team (SRT) and protection against DDoS related spikes in your Amazon Elastic Compute Cloud (Amazon EC2), Elastic Load Balancing (ELB),
 Amazon CloudFront, AWS Global Accelerator, and Amazon Route 53 charges.
 
 ## Shield Advanced in AWS Managed Services FAQ

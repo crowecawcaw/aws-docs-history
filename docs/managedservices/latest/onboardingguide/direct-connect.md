@@ -1,12 +1,12 @@
-# AWS Direct Connect Setup
+# Direct Connect Setup
 
-This section describes the basic steps for setting up a AWS Direct Connect (DX) to communicate between your AMS-managed
+This section describes the basic steps for setting up a Direct Connect (DX) to communicate between your AMS-managed
 VPC and your internal network.
 
 ###### Note
 
 For information about using a DX with AWS services, see
-[Getting Started at an AWS Direct Connect Location](../../../directconnect/latest/UserGuide/getstarted.md "../../../directconnect/latest/UserGuide/getstarted.md").
+[Getting Started at an Direct Connect Location](../../../directconnect/latest/UserGuide/getstarted.md "../../../directconnect/latest/UserGuide/getstarted.md").
 
 To set up a DX connection, you need to complete the following steps:
 

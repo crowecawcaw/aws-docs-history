@@ -8,7 +8,7 @@
      - **onboarding_role_minimal.json** (longer, grants
        [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege "https://en.wikipedia.org/wiki/Principle_of_least_privilege"))
 
-2. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+2. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 
 ![CloudFormation Stacks interface showing no stacks and options to create or view guide.](images/image1.png) 3. Choose **Create Stack**. You see the following page.

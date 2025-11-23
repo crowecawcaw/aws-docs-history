@@ -2,7 +2,7 @@
 
 AMS multi-account landing zone requires the provisioning of a new Amazon Web Services (AWS) account to act as the management account in the AMS multi-account landing zone
 environment. To create an AWS account, follow these step-by-step instructions:
-[How do I create and activate a new Amazon Web Services account?](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/ "https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/")
+[How do I create and activate a new Amazon Web Services account?](https://aws.amazon.com//premiumsupport/knowledge-center/create-and-activate-aws-account/ "https://aws.amazon.com//premiumsupport/knowledge-center/create-and-activate-aws-account/")
 
 The simple steps are:
 Go to [Create Account](https://aws.amazon.com/resources/create-account/ "https://aws.amazon.com/resources/create-account/"), and click **Sign Up Now** and, on the page that opens, click
