@@ -18,7 +18,7 @@ When creating or editing server or machine learning product information, you can
 your product to specific AWS Regions where your users can install and use the
 product.
 
-For server products, including Amazon Machine Image (AMI)-, container-, and AWS CloudFormation-based
+For server products, including Amazon Machine Image (AMI)-, container-, and CloudFormation-based
 products, you can select specific Regions where the product is available. You can also choose
 to automatically make your product available in new US Regions, non-US Regions, or all Regions
 as they become available.

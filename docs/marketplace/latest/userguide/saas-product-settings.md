@@ -217,10 +217,12 @@ created. 5. Define the prices for each dimension you've added, and then choose
 ###### Note
 
 You can only add dimensions for the pricing model selected for your
-product (for example, contract, usage, or contract with consumption). For
-limited products, the prices for the newly added dimensions are set to
-$0.01. You can update the prices when the product is ready for public
-visibility. 6. Choose **Submit** to submit your request for review. 7. In the **Requests** tab, verify that the request status is
+product (for example, contract, usage, contract with consumption, or Free). For
+limited products using non-free pricing models, the prices for the newly added
+dimensions are set to $0.01. For products using the Free pricing model, newly added
+dimensions must be set to $0.00. For non-free pricing models, you can update the prices
+when the product is ready for public visibility. If all dimensions are set to $0.00,
+the product will automatically convert to the Free pricing model. 6. Choose **Submit** to submit your request for review. 7. In the **Requests** tab, verify that the request status is
 **Under review**. When the request is complete, the status
 changes to **Succeeded**.
 
@@ -311,7 +313,7 @@ To update the URL that is used to fulfill your SaaS product, use the
 SaaS products listed in AWS Marketplace often require AWS resources to be deployed in the
 subscribing buyer's account (for example, IAM roles). Quick Launch allows you to
 provide your buyers with guided, step-by-step instructions and resource deployment
-using AWS CloudFormation templates. Buyers use the CloudFormation templates to configure and launch
+using CloudFormation templates. Buyers use the CloudFormation templates to configure and launch
 products. To learn more about the Quick Launch configuration process, see the [Enable SaaS Quick Launch](https://catalog.workshops.aws/mpseller/en-US/saas/quick-launch-integration "https://catalog.workshops.aws/mpseller/en-US/saas/quick-launch-integration") lab.
 
 To configure a Quick Launch experience that customers can use to launch your SaaS
@@ -329,7 +331,7 @@ options** tab. 3. For **Quick Launch**, choose the **Activate and
 configure** button. 4. For **Account login details**, provide a URL for your
 site where the buyer can log in or create an account. This URL opens a new
 tab in the buyer experience. Buyers then log in or create an account and
-return to AWS Marketplace to launch the template. 5. Create an AWS CloudFormation template.
+return to AWS Marketplace to launch the template. 5. Create an CloudFormation template.
 
 ###### Tip
 
@@ -339,7 +341,7 @@ account. For more information and resources, [AWS
 Well-Architected](https://aws.amazon.com/architecture/well-architected/ "https://aws.amazon.com/architecture/well-architected/") and read the [AWS
 Well-Architected Framework](../../../wellarchitected/latest/framework/welcome.md "../../../wellarchitected/latest/framework/welcome.md").
 
-For **AWS CloudFormation template**, choose the **Add AWS CloudFormation
+For **CloudFormation template**, choose the **Add CloudFormation
 template** button and provide the following information:
 
     * **Title** – Provide the name of your

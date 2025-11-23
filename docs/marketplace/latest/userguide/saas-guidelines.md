@@ -24,7 +24,10 @@ All SaaS products must adhere to the following product setup guidelines:
 
 - Pricing dimensions can't be limited to private offers only. Buyers should be able to
   subscribe to any of the pricing dimensions on public products.
-- At least one pricing dimension must have a price greater than $0.00.
+- Pricing dimensions must meet the following requirements:
+  - For products using the Free pricing model, all pricing dimensions must be set to $0.00.
+  - For products using other pricing models (contract, usage, or contract with consumption), at least one pricing dimension must have a price greater than $0.00. If all dimensions are set to $0.00, the product will automatically convert to the Free pricing model.
+
 - All pricing dimensions must relate to actual software and cannot include any other
   products or services unrelated to the software.
 - SaaS products offered exclusively in the AWS GovCloud (US) Regions must include
@@ -136,7 +139,7 @@ You must include an architecture diagram for review. You can't make the diagrams
     used in the customer's account.
   - You must provide instructions or deployment templates that enable buyers to
     deploy the required resources in their AWS accounts.
-  - If you provide AWS CloudFormation templates (CFTs) for deploying resources to the buyer's
+  - If you provide CloudFormation templates (CFTs) for deploying resources to the buyer's
     AWS account, they must comply with [AWS Marketplace policies for CFTs](cloudformation.md#aws-cloudformation-template-preparation "cloudformation.md#aws-cloudformation-template-preparation"). You must publish those CFTs as part of your SaaS
     listing by following the method provided when you enable the [SaaS Quick Launch deployment option](saas-product-settings.md#saas-quick-launch "saas-product-settings.md#saas-quick-launch") for your buyers. SaaS Quick Launch
     makes it easier for your buyers to configure your SaaS solution.

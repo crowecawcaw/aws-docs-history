@@ -1,7 +1,9 @@
 # Amazon Bedrock AgentCore Runtime for AWS Marketplace
 
-This document provides information for AWS Marketplace sellers who want to list AI agents or tools that can be deployed on Bedrock AgentCore Runtime.
-It outlines the technical requirements, configuration guidelines, and best practices for preparing your Bedrock AgentCore Runtime supported container for AWS Marketplace.
+This document provides information for AWS Marketplace sellers who want to list AI agents or
+tools that can be deployed on Amazon Bedrock AgentCore Runtime. It outlines the technical requirements,
+configuration guidelines, and best practices for preparing your Bedrock AgentCore Runtime
+supported container for AWS Marketplace.
 
 ###### Topics
 
@@ -15,7 +17,10 @@ It outlines the technical requirements, configuration guidelines, and best pract
 
 ## Overview
 
-Amazon Bedrock AgentCore Runtime provides a secure, serverless and purpose-built hosting environment for deploying and running AI agents or tools. When listing your Bedrock AgentCore Runtime container on AWS Marketplace, you need to ensure it meets specific requirements to function properly within the Bedrock AgentCore environment.
+Amazon Bedrock AgentCore Runtime provides a secure, serverless and purpose-built hosting environment
+for deploying and running AI agents or tools. When listing your Bedrock AgentCore
+Runtime container on AWS Marketplace, you need to ensure it meets specific requirements to
+function properly within the Bedrock AgentCore environment.
 
 ###### Note
 
@@ -23,10 +28,12 @@ To learn more see the [Getting started with Amazon Bedrock AgentCore Runtime](..
 
 ## Bedrock AgentCore container technical requirements
 
-Amazon Bedrock AgentCore Runtime has different technical requirements for listing AI agents and MCP servers.
+Amazon Bedrock AgentCore Runtime has different technical requirements for listing AI agents, MCP
+servers, and A2A servers.
 
 - **Agent requirements**
 - **MCP server requirements**
+- **A2A server requirements**
 
 ### Agent requirements
 
@@ -93,9 +100,15 @@ data: {"event": "final response"}
 
 ### MCP server requirements
 
-Amazon Bedrock AgentCore Runtime enables you to deploy and run Model Context Protocol (MCP) servers. When you configure Amazon Bedrock AgentCore Runtime with the MCP protocol, the service expects MCP server containers at the path `0.0.0.0:8000/mcp`. This is the default path that most official MCP server SDKs support.
+Amazon Bedrock AgentCore Runtime enables you to deploy and run Model Context Protocol (MCP)
+servers. When you configure Amazon Bedrock AgentCore Runtime with the MCP protocol, the service
+expects MCP server containers at the path `0.0.0.0:8000/mcp`. This is the
+default path that most official MCP server SDKs support.
 
-Because Amazon Bedrock AgentCore Runtime provides session isolation by default, it requires stateless streamable-HTTP servers. The runtime automatically adds an `Mcp-Session-Id` header for any request that doesn't include one. This allows MCP clients to maintain connection continuity to the same Amazon Bedrock AgentCore Runtime session.
+Because Amazon Bedrock AgentCore Runtime provides session isolation by default, it requires
+stateless streamable-HTTP servers. The runtime automatically adds an
+`Mcp-Session-Id` header for any request that doesn't include one.
+This allows MCP clients to maintain connection continuity to the same Amazon Bedrock AgentCore Runtime session.
 
 The `InvokeAgentRuntime` API passes through payload data directly, which enables easy proxying of RPC messages for protocols like MCP.
 
@@ -205,6 +218,95 @@ Content-Type: application/json
 
 ```
 
+### A2A Server requirements
+
+Amazon Bedrock AgentCore Runtime lets you deploy and run Agent-to-Agent (A2A) servers in the AgentCore Runtime. Amazon Bedrock AgentCore's A2A protocol support enables seamless integration with A2A servers by acting as a transparent proxy layer. When configured for A2A, Amazon Bedrock AgentCore expects containers to run stateless, streamable HTTP servers on port `9000` at the root path (`0.0.0.0:9000/`), which aligns with the default A2A server configuration.
+
+The service provides enterprise-grade session isolation while maintaining protocol transparency - JSON-RPC payloads from the InvokeAgentRuntime API are passed through directly to the A2A container without modification. This architecture preserves the standard A2A protocol features like built-in agent discovery through Agent Cards at `/.well-known/agent-card.json` and JSON-RPC communication, while adding enterprise authentication (SigV4/OAuth 2.0) and scalability.
+
+The key differentiators from other protocols are the port (9000 vs 8080 for HTTP), mount path (`/` vs `/invocations`), and the standardized agent discovery mechanism, making Amazon Bedrock AgentCore an ideal deployment platform for A2A agents in production environments.
+
+Requirements:
+
+- **Port** - A2A servers run on port 9000 (vs 8080 for HTTP, 8000 for MCP)
+- **Host** - Container must listen on `0.0.0.0`
+- **Path**
+  - A2A servers are mounted at `/` (vs `/invocations` for HTTP, `/mcp` for MCP)
+  - Health checks at `/ping` using GET
+
+- **Agent Cards** - A2A provides built-in agent discovery through Agent Cards at `/.well-known/agent-card.json`
+- **Protocol** - Uses JSON-RPC for agent-to-agent communication
+- **Authentication** - Supports both SigV4 and OAuth 2.0 authentication schemes
+
+To learn more about A2A server requirements see [Deploy A2A servers in AgentCore Runtime](../../../bedrock-agentcore/latest/devguide/runtime-a2a.md "../../../bedrock-agentcore/latest/devguide/runtime-a2a.md").
+
+#### `/` - POST
+
+This is the primary agent interaction endpoint when customers call the A2A server with InvokeAgentRuntime.
+
+**Example agent invocation request:**
+
+```
+
+Content-Type: application/json
+{
+  "jsonrpc": "2.0",
+  "id": "req-001",
+  "method": "message/send",
+  "params": {
+    "message": {
+      "role": "user",
+      "parts": [
+        {
+          "kind": "text",
+          "text": "what is 101 * 11?"
+        }
+      ],
+      "messageId": "12345678-1234-1234-1234-123456789012"
+    }
+  }
+}
+
+```
+
+**Example agent invocation response:**
+
+JSON response (non-streaming):
+
+```
+
+Content-Type: application/json
+{
+  "jsonrpc": "2.0",
+  "id": "req-001",
+  "result": {
+    "artifacts": [
+      {
+        "parts": [
+          {
+            "kind": "text",
+            "text": "101 * 11 is 1111"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+```
+
+**Example agent card retrieval:**
+
+```
+
+curl https://bedrock-agentcore.<REGION>.amazonaws.com/runtimes/{escaped_agent_arn}/invocations/.well-known/agent-card.json
+
+```
+
+#### `/ping` - GET
+
+This is the endpoint for performing health checks.
+
 ## Testing your Bedrock AgentCore Runtime container
 
 Before submitting your container to AWS Marketplace, test it thoroughly:
@@ -250,6 +352,27 @@ curl -X POST http://localhost:8000/mcp \
 
 ```
 
+### Local A2A Server Testing
+
+Test your A2A server locally using Docker
+
+```
+
+docker run -p 9000:9000 <your-container-image>
+
+# Test ping endpoint
+curl http://localhost:9000/ping
+
+# Retrieve agent card
+curl http://localhost:9000/.well-known/agent-card.json
+
+# Test A2A endpoint with message/send
+curl -X POST http://localhost:9000/ \
+     -H "Content-Type: application/json" \
+     -d '{ "jsonrpc": "2.0", "id": "req-001", "method": "message/send", "params": { "message": {  "role": "user",  "parts": [  {  "kind": "text",  "text": "what is 101 * 11?"}],"messageId": "12345678-1234-1234-1234-123456789012" }}}'
+
+```
+
 ### Testing on Bedrock AgentCore Runtime
 
 After you test your container locally, upload it to Amazon Elastic Container Registry (Amazon ECR) and deploy it to Amazon Bedrock AgentCore Runtime. You can deploy using either the Amazon Bedrock AgentCore Runtime console or the AWS Command Line Interface (AWS CLI).
@@ -280,11 +403,11 @@ After you test your container locally, upload it to Amazon Elastic Container Reg
 
 When you submit your AgentCore Runtime container to AWS Marketplace, include:
 
-- **Container image** - Your container image pushed to Amazon ECR
-- **Documentation** - Comprehensive documentation on how to use your agent or MCP server
-- **Usage examples** - Clear examples of how to invoke your agent or MCP server
-- **Support information** - Contact information for support
-- **Pricing information** - Clear pricing structure for your agent or MCP server
+- **Container image** – Your container image pushed to Amazon ECR
+- **Documentation** – Comprehensive documentation on how to use your agent or MCP server
+- **Usage examples** – Clear examples of how to invoke your agent or MCP server
+- **Support information** – Contact information for support
+- **Pricing information** – Clear pricing structure for your agent or MCP server
 
 ## Additional Resources
 

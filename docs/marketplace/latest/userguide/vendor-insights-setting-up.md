@@ -183,7 +183,7 @@ profile.
 You need the following AWS services and resources for automated assessments:
 
 - **AWS Audit Manager** – To simplify AWS Marketplace Vendor Insights setup, we use
-  AWS CloudFormation Stacks and StackSets, which take care of provisioning and configuring the necessary
+  CloudFormation Stacks and StackSets, which take care of provisioning and configuring the necessary
   resources. The stack set creates an automated assessment containing controls that are
   automatically populated by AWS Config.
 
@@ -237,7 +237,7 @@ avoids increased configuration recording and rule evaluations.
     simultaneously. The administrator role assumes the execution role to deploy the
     necessary parent and nested stacks as part of the AWS Marketplace Vendor Insights setup process. For more
     information about self-managed permissions, see [Grant
-    self-managed permissions](../../../AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.md") in the _AWS CloudFormation User
+    self-managed permissions](../../../AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.md") in the _CloudFormation User
     Guide_.
   - The `AWSVendorInsightsRole` role provides AWS Marketplace Vendor Insights with access to read
     the assessments in AWS Audit Manager resources. AWS Marketplace Vendor Insights displays the evidence found on the
@@ -256,12 +256,12 @@ To enable AWS Audit Manager automated assessments, you must deploy the onboardin
 
 ### Deploy the onboarding stacks
 
-To simplify AWS Marketplace Vendor Insights setup, we use AWS CloudFormation Stacks and StackSets, which take care of
+To simplify AWS Marketplace Vendor Insights setup, we use CloudFormation Stacks and StackSets, which take care of
 provisioning and configuring the necessary resources. If you have a multiple account or
 multiple AWS Region SaaS solution, StackSets allow you to deploy the onboarding stacks
 from a central management account.
 
-For more information about CloudFormation StackSets, see [Working with AWS CloudFormation
+For more information about CloudFormation StackSets, see [Working with CloudFormation
 StackSets](../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md "../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md") in the _AWS CloudFormation User Guide_.
 
 AWS Marketplace Vendor Insights setup requires that you use the following CloudFormation templates:
@@ -287,7 +287,7 @@ IAM permissions to start onboarding stack sets.
 1. Review and download the latest
    `VendorInsightsPrerequisiteCFT.yml` file from the [AWS Samples Repo for Vendor Insights templates folder](https://github.com/aws-samples/aws-marketplace-vendor-assessment-onboarding "https://github.com/aws-samples/aws-marketplace-vendor-assessment-onboarding") on the GitHub
    website.
-2. Sign in to the AWS Management Console using your AWS Marketplace seller account, and then open the AWS CloudFormation
+2. Sign in to the AWS Management Console using your AWS Marketplace seller account, and then open the CloudFormation
    console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 3. In the CloudFormation console navigation pane, choose **Stacks**, and
    then choose **Create stack** and **With new resources
@@ -333,7 +333,7 @@ _AWS CloudFormation User Guide_.
 1. Review and download the latest
    `VendorInsightsOnboardingCFT.yml` file from the [AWS Samples Repo for Vendor Insights templates folder](https://github.com/aws-samples/aws-marketplace-vendor-assessment-onboarding "https://github.com/aws-samples/aws-marketplace-vendor-assessment-onboarding") on the GitHub
    website.
-2. Sign in to the AWS Management Console using your AWS Marketplace seller account, and then open the AWS CloudFormation
+2. Sign in to the AWS Management Console using your AWS Marketplace seller account, and then open the CloudFormation
    console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/")..
 3. In the CloudFormation console navigation pane, choose **Create
    StackSet**. (If the navigation pane is not visible, in the upper left

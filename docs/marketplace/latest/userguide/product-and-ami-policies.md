@@ -45,7 +45,7 @@ Exceptions:
      used, they must be randomly generated for each instance, used once by the service administrator for initial authentication, and changed immediately after first login.
 
 - AMI must not contain hardcoded secrets such as system user and service passwords (including hashed passwords), private keys, or credentials.
-- AMIs must not request AWS credentials to access AWS services. If your product requires access to AWS services, an instance should be assigned a minimally privileged AWS Identity and Access Management (IAM) role. Users can create roles manually or by using a AWS CloudFormation template. When single-AMI launch is enabled for products with a CloudFormation delivery method, usage instructions must include clear guidance for creating minimally privileged IAM roles. For more information, see [Delivering your AMI-based product using AWS CloudFormation](cloudformation.md "cloudformation.md").
+- AMIs must not request AWS credentials to access AWS services. If your product requires access to AWS services, an instance should be assigned a minimally privileged AWS Identity and Access Management (IAM) role. Users can create roles manually or by using a CloudFormation template. When single-AMI launch is enabled for products with a CloudFormation delivery method, usage instructions must include clear guidance for creating minimally privileged IAM roles. For more information, see [Delivering your AMI-based product using AWS CloudFormation](cloudformation.md "cloudformation.md").
 - A seller must not have access to instances run by a customer. In case such access is required for support or other purpose, the customer can be instructed to explicitly enable it.
 
 ### SSH (Secure Shell) access policies

@@ -18,12 +18,12 @@ encrypted Amazon S3 bucket. This topic shows you how to access and unsubscribe f
    To do so, you can [watch this YouTube video](https://www.youtube.com/watch?v=heCsZdOT-hw "https://www.youtube.com/watch?v=heCsZdOT-hw") or follow the steps below.
 
 The video and the steps explain how to use a
-[AWS CloudFormation template](https://s3.amazonaws.com/aws-marketplace-reports-resources/DataFeedsResources.yaml "https://s3.amazonaws.com/aws-marketplace-reports-resources/DataFeedsResources.yaml") that helps simplify configuration.
+[CloudFormation template](https://s3.amazonaws.com/aws-marketplace-reports-resources/DataFeedsResources.yaml "https://s3.amazonaws.com/aws-marketplace-reports-resources/DataFeedsResources.yaml") that helps simplify configuration.
 
     1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/"), then go to [Set up
      customer data storage](https://aws.amazon.com/marketplace/management/reports/data-feed-configuration "https://aws.amazon.com/marketplace/management/reports/data-feed-configuration").
-    2. Choose **Create resources with AWS CloudFormation template** to open the template
-     in the AWS CloudFormation console in another window.
+    2. Choose **Create resources with CloudFormation template** to open the template
+     in the CloudFormation console in another window.
     3. In the template, specify the following and then choose
      **Next**:
 
@@ -103,7 +103,7 @@ The sample queries in this guide were written for AWS Athena. You may need to mo
     * Connect your data to a visualization tool such as PowerBI or Tableau.
     * Map data to your CRM, ERP, or financial tools, such as Salesforce, Infor, or Netsuite.
 
-For more information about AWS CloudFormation templates, see [Working with AWS CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") in the
+For more information about CloudFormation templates, see [Working with CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") in the
 _AWS CloudFormation User Guide_.
 
 ## Data feed policies

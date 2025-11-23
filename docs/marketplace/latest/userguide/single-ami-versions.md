@@ -82,7 +82,7 @@ For information about creating an AMI for AWS Marketplace, see [Best practices f
 ###### Note
 
 You can also choose **Test 'Add version'** to scan your AMI and
-AWS CloudFormation template(s) without adding a new version. For more information, refer
+CloudFormation template(s) without adding a new version. For more information, refer
 to
 [Scanning your AMI for publishing requirements](best-practices-for-building-your-amis.md#self-service-scanning "best-practices-for-building-your-amis.md#self-service-scanning")
 . 4. In the **Version information** section, provide the following

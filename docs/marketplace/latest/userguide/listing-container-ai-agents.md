@@ -129,15 +129,16 @@ Only container products with versions that support Amazon Bedrock AgentCore Runt
 4. Select **Add delivery option**.
 5. For **Delivery method**, select **Container image** and fill in:
    - **Supported services**: select the environment that buyers can launch the software in.
-   - For **Bedrock AgentCore** service, **Type** select
-     **AI Agent** or **MCP Server**
+   - For **Bedrock AgentCore** service, select
+     **AI Agent, MCP Server, or A2A Server** in the **Type** field.
    - **Container image**: _Repository URL_ and _version tag_
      you specified previously.
    - **Delivery option title** and **Deployment option description**:
      Enter a title and description for this delivery option.
    - **Usage instructions**: Enter detailed information to help your buyers use your software after launching it.
+   - **Environment Variables**: Specify the environment variables buyers must provide to configure the runtime behavior of the agent. These variables can be used to pass settings, credentials, or custom flags to the container at startup. For each variable, provide the name as expected by your container, a description, and an optional default value. For variables such as credentials or API keys that are unique, do not provide a default value. You can use the description to specify details about the variable as well as possible values. All of the provided variables with their default values will be pre-populated when buyers launch your product.
 
-6. If you selected an **AI agent** tool type, confirm that your agent uses
+6. If you selected an **AI agent** or **A2A Server** tool type, confirm that your agent uses
    reasoning LLMs and demonstrates autonomous capabilities. These requirements help
    ensure that agents offered on AWS Marketplace meet a high quality bar. If your
    agent does not meet both requirements, choose a different tool type.
@@ -192,6 +193,15 @@ Agent Requirements
 - **Port**: Container must expose port `8080` for HTTP-based agent communication
 - No hardcoded credentials
 - Free of Common Vulnerabilities and Exposures (CVEs)
+
+A2A Server Requirements
+
+- **Port**: A2A servers run on port 9000 (vs 8080 for HTTP, 8000 for MCP)
+- **Host**: Container must listen on `0.0.0.0`
+- **Path**: A2A servers are mounted at `/` (vs `/invocations` for HTTP, `/mcp` for MCP)
+- **Agent Cards**: A2A provides built-in agent discovery through Agent Cards at `/.well-known/agent-card.json`
+- **Protocol**: Uses JSON-RPC for agent-to-agent communication
+- **Authentication**: Supports both SigV4 and OAuth 2.0 authentication schemes
 
 Usage instructions
 

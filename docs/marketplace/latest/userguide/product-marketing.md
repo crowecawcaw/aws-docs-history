@@ -172,7 +172,7 @@ independent software vendors (ISVs), Channel Partners (CPs), Distributors (DPs).
 
 ###### Note
 
-For more information about Buy with AWS features, see [Buy with AWS](https://aws.amazon.com/partners/marketplace/buy-with-aws/ "https://aws.amazon.com/partners/marketplace/buy-with-aws/").
+For more information about Buy with AWS features, see [Buy with AWS](https://aws.amazon.com//partners/marketplace/buy-with-aws/ "https://aws.amazon.com//partners/marketplace/buy-with-aws/").
 
 The CTA buttons include:
 
@@ -206,8 +206,8 @@ To enable Buy with AWS, you must:
 - Be an authorized seller or reseller in AWS Marketplace and agreed to the [Service Terms for AWS Marketplace
   Sellers](https://aws.amazon.com/legal/seller-terms/ "https://aws.amazon.com/legal/seller-terms/").
 - Adhere to the [AWS trademark
-  guidelines](https://aws.amazon.com/trademark-guidelines/ "https://aws.amazon.com/trademark-guidelines/").
-- Adhere to the [Buy with AWS Trademark License](https://aws.amazon.com/legal/buy-with-aws-trademarks-license/ "https://aws.amazon.com/legal/buy-with-aws-trademarks-license/").
+  guidelines](https://aws.amazon.com//trademark-guidelines/ "https://aws.amazon.com//trademark-guidelines/").
+- Adhere to the [Buy with AWS Trademark License](https://aws.amazon.com//legal/buy-with-aws-trademarks-license/ "https://aws.amazon.com//legal/buy-with-aws-trademarks-license/").
 - Have at least one public SaaS product listing in AWS Marketplace.
 
 ###### Note

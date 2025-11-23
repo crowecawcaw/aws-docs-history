@@ -87,9 +87,9 @@ Example upgrade instructions:
 
 When using CloudFormation delivery, you must also include the following:
 
-- A purpose for each AWS Identity and Access Management (IAM) role and IAM policy created by the AWS CloudFormation
+- A purpose for each AWS Identity and Access Management (IAM) role and IAM policy created by the CloudFormation
   template
-- A purpose and location of each key created by the AWS CloudFormation template
+- A purpose and location of each key created by the CloudFormation template
 - Network configuration details in deployments involving more than a single element
 - A detailed guide on how your applications are launched and how they're configured to
   communicate if the deployment includes multiple AWS resources

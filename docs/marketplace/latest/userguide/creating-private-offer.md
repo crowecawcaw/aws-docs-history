@@ -9,7 +9,7 @@ how to create and manage private offers.
 
 To be eligible to issue private offers, you must have at least one active public listing.
 If you have a public listing, and you don't have access to the Private Offers tab, see [IAM Permissions](detailed-management-portal-permissions.md "detailed-management-portal-permissions.md") or [contact AWS Marketplace
-support](https://aws.amazon.com/marketplace/management/contact-us "https://aws.amazon.com/marketplace/management/contact-us").
+support](https://aws.amazon.com//marketplace/management/contact-us "https://aws.amazon.com//marketplace/management/contact-us").
 
 ###### Topics
 

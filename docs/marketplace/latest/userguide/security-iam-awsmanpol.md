@@ -77,7 +77,7 @@ abilities:
 - Subscribe and unsubscribe to AWS Marketplace software.
 - Manage AWS Marketplace software instances from AWS Marketplace.
 - Create and manage a private marketplace in your account.
-- Provide access to Amazon EC2, AWS CloudFormation, and Amazon EC2 Systems Manager.
+- Provide access to Amazon EC2, CloudFormation, and Amazon EC2 Systems Manager.
 
 To view the permissions for this policy, see
 [AWSMarketplaceFullAccess](../../../aws-managed-policy/latest/reference/AWSMarketplaceFullAccess.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceFullAccess.md")

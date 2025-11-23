@@ -29,7 +29,7 @@ endpoint.
 
 A [VPC endpoint](../../../AmazonVPC/latest/UserGuide/vpc-endpoints.md "../../../AmazonVPC/latest/UserGuide/vpc-endpoints.md") is a virtual device that enables AWS customers to create a private
 connection between their VPC and another AWS service without requiring access over the
-internet, through a NAT device, a VPN connection, or AWS Direct Connect. You can create an
+internet, through a NAT device, a VPN connection, or Direct Connect. You can create an
 endpoint service through AWS Marketplace that makes it possible for buyers
 to use this technology to connect to your service. This connection method is more secure for your
 buyers because they access your service through the Amazon private network rather than

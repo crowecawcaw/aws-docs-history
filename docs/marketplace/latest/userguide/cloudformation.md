@@ -31,7 +31,7 @@ guidelines in the following sections.
 
 ### Template prerequisites
 
-- Verify that the template is launched successfully through the AWS CloudFormation console
+- Verify that the template is launched successfully through the CloudFormation console
   **in all AWS Regions enabled for your product**. You
   can use the [TaskCat tool](https://github.com/aws-quickstart/taskcat "https://github.com/aws-quickstart/taskcat")
   to test your templates.
@@ -45,10 +45,10 @@ guidelines in the following sections.
 - Build templates so that they do not depend on the use in a particular Availability
   Zone (AZ). Not all customers have access to all AZs, and AZs are mapped differently for
   different accounts.
-- If you're building a clustered solution using an Auto Scaling group, we recommend that you
+- If you're building a clustered solution using an Amazon EC2 Auto Scaling group, we recommend that you
   account for a scaling event. The new node should join the running cluster
   automatically.
-- Even for single-node products, we recommend using an [Auto Scaling
+- Even for single-node products, we recommend using an [Amazon EC2 Auto Scaling
   group](../../../autoscaling/latest/userguide/create-asg-from-instance.md "../../../autoscaling/latest/userguide/create-asg-from-instance.md").
 - If your solution involves a cluster of multiple instances, consider using placement
   groups if you want low network latency, high network throughput, or both among the
@@ -61,7 +61,7 @@ guidelines in the following sections.
 ###### Note
 
 If you create an **Amazon Machine Image (AMI) or AMI with
-CloudFormation** on the [server products](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page of the seller portal and are prompted to
+CloudFormation** on the [server products](https://aws.amazon.com//marketplace/management/products/server "https://aws.amazon.com//marketplace/management/products/server") page of the seller portal and are prompted to
 download the [product load form](product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product "product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product"), see [Requirements for AMI details using the
 product load form](#ami-requirements-product-load-form "#ami-requirements-product-load-form") instead.
 
@@ -130,7 +130,7 @@ product load form
 ###### Note
 
 When you create an **Amazon Machine Image (AMI) or AMI with
-CloudFormation** on the [server products](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page of the seller portal and are not
+CloudFormation** on the [server products](https://aws.amazon.com//marketplace/management/products/server "https://aws.amazon.com//marketplace/management/products/server") page of the seller portal and are not
 immediately prompted to download the [product load form](product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product "product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product"), see [Requirements for AMI details](#ami-requirements-sse "#ami-requirements-sse") instead.
 
 AMIs must be in a mapping table for each Region. The AWS Marketplace team updates the AMI IDs
@@ -314,7 +314,7 @@ template.
 - For sensitive input parameters such as passwords, choose the `NoEcho`
   property and enable stronger regular expression. For other input parameters, set the
   most common inputs along with appropriate helper text.
-- Use AWS CloudFormation parameter types for inputs where available.
+- Use CloudFormation parameter types for inputs where available.
 - Use `AWS::CloudFormation::Interface` to group and sort input
   parameters.
 - Don't set any default values for the following input parameters:
@@ -360,10 +360,10 @@ The diagram must meet the following criteria:
 - Depict logically where resources are deployed. For example, resources like Amazon EC2
   instances are in the correct subnet.
 - Use the most current AWS product icons for each AWS service deployed through the
-  AWS CloudFormation template. To download the current set of architecture icons, see [AWS Architecture
+  CloudFormation template. To download the current set of architecture icons, see [AWS Architecture
   Icons](https://aws.amazon.com/architecture/icons/ "https://aws.amazon.com/architecture/icons/").
-- Include metadata for all the services deployed by the AWS CloudFormation template.
-- Include all networks, VPCs, and subnets deployed by the AWS CloudFormation template.
+- Include metadata for all the services deployed by the CloudFormation template.
+- Include all networks, VPCs, and subnets deployed by the CloudFormation template.
 - Show integration points, including third party assets, APIs and on-premises, hybrid
   assets.
 - Diagrams must be 1100 x 700 pixels in size. Maintain original diagram proportions
@@ -380,7 +380,7 @@ the [product load form](product-submission.md#aws-cloudformation-launched-produc
 without using the product load form. If you are publishing a new product, see [Preparing your CloudFormation templates](cloudformation.md#aws-cloudformation-template-preparation "cloudformation.md#aws-cloudformation-template-preparation").
 
 If you create an **Amazon Machine Image (AMI) or AMI with
-CloudFormation** on the [server products](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page of the seller portal and are prompted to
+CloudFormation** on the [server products](https://aws.amazon.com//marketplace/management/products/server "https://aws.amazon.com//marketplace/management/products/server") page of the seller portal and are prompted to
 download the [product load form](product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product "product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product"), see [Requirements for AMI details using the
 product load form](#ami-requirements-product-load-form "#ami-requirements-product-load-form").
 

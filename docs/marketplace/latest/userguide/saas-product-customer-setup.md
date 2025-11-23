@@ -14,8 +14,7 @@ addresses if you plan to contact them through email for usage notifications.
 The registration landing page must be able to identify and accept the
 `x-amzn-marketplace-token` token in the form data from AWS Marketplace with the
 customer’s identiﬁer for billing. It should then pass that token value to the AWS Marketplace Metering Service to
-resolve for the unique customer AWS account ID, customer identiﬁer (deprecated after December
-31, 2025), and corresponding product code. For a code example, see [ResolveCustomer code
+resolve for the unique customer AWS account ID, customer identiﬁer, and corresponding product code. For a code example, see [ResolveCustomer code
 example](saas-code-examples.md#saas-resolvecustomer-example "saas-code-examples.md#saas-resolvecustomer-example").
 
 ###### Note

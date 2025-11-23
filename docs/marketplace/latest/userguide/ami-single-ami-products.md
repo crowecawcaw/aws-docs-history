@@ -125,7 +125,7 @@ experience](#understand-ami-self-service-exp "#understand-ami-self-service-exp")
      24 dimensions for the product. All charges are still incurred by the
      customer.
    - **AMI with contract pricing** – A
-     Single-AMI product or Single-AMI with an AWS CloudFormation stack that the buyer
+     Single-AMI product or Single-AMI with an CloudFormation stack that the buyer
      pays an upfront fee for.
 
 4. The self-service experience guides you through the steps to create an

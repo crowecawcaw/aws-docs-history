@@ -10,8 +10,8 @@ templates that deploy resources from AWS Serverless Application Repository until
 
 You can create a product that includes an Amazon Machine Image (AMI), delivered
 using a AWS CloudFormation template, with serverless components incorporated into the product.
-For example, you can create a product with an AMI configured as a controller server and deliver it as a AWS CloudFormation stack.
-The AWS CloudFormation template used to create the stack can include the definition to set up an AWS Lambda function that is triggered by an event
+For example, you can create a product with an AMI configured as a controller server and deliver it as a CloudFormation stack.
+The CloudFormation template used to create the stack can include the definition to set up an AWS Lambda function that is triggered by an event
 in the server. When you use this approach to design your product, you can simplify the architecture and
 make it easier for your buyers to launch. This approach can also make it easier for you to
 update your product. Thes following sections show you how to create and offer this type of product.
@@ -21,7 +21,7 @@ product, see [Add CloudFormation templates to your product](cloudformation.md "c
 
 When you define your serverless application, you use an AWS Serverless Application Model (AWS SAM) template that you
 store in the AWS Serverless Application Repository. AWS SAM is an open-source framework for building serverless applications.
-During deployment, AWS SAM transforms and expands the AWS Serverless Application Model syntax into AWS CloudFormation syntax. The
+During deployment, AWS SAM transforms and expands the AWS Serverless Application Model syntax into CloudFormation syntax. The
 AWS Serverless Application Repository is a managed repository for serverless applications. It makes it possible for you to store
 and share reusable applications so buyers can assemble and deploy serverless architectures.
 
@@ -29,7 +29,7 @@ and share reusable applications so buyers can assemble and deploy serverless arc
 
 - AWS Marketplace reviews and validates your product before your listing is created. If there are issues
   you must resolve before the offer is listed, we will send you an email message.
-- As part of fulfilling a subscription, we copy the AMIs, serverless applications, and AWS CloudFormation
+- As part of fulfilling a subscription, we copy the AMIs, serverless applications, and CloudFormation
   templates to an AWS Marketplace-owned repository in each AWS Region. When a buyer subscribes to your
   product, we give them access, and also notify them when you update your software.
 
@@ -376,5 +376,5 @@ Keep the following in mind before you submit your product:
 
 After you submit your listing, AWS Marketplace reviews and validates the product load form.
 Additionally, AWS Marketplace regionalizes AMIs and serverless applications, and updates the regional
-mapping for your AWS CloudFormation template on your behalf. If any issues occur, the AWS Marketplace Seller Operations team will
+mapping for your CloudFormation template on your behalf. If any issues occur, the AWS Marketplace Seller Operations team will
 contact you by email.

@@ -24,19 +24,19 @@ which approach to use. The following table lists configurations and the approach
 submit your request. The first column is the pricing model for your product, and the other three
 columns describe how the product is deployed to the customer.
 
-| Pricing model                                 | Products launched using single-node AMI | Products launched with AWS CloudFormation | Products launched as software as a service (SaaS) |
-| --------------------------------------------- | --------------------------------------- | ----------------------------------------- | ------------------------------------------------- |
-| Bring Your Own License (BYOL)                 | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                       |                                                   |
-| Free                                          | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                       |                                                   |
-| Paid Hourly                                   | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                       |                                                   |
-| Paid Hourly with Annual                       | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                       |                                                   |
-| Paid Monthly                                  | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                       |                                                   |
-| Hourly with Monthly                           | \*_Assets_<br>• tab                     | \*_Assets_<br>• tab                       |                                                   |
-| Paid Usage (AWS Marketplace Metering Service) | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                       |                                                   |
-| Contract Pricing                              | \*_Products_<br>• tab                   |                                           |                                                   |
-| SaaS Subscription                             |                                         |                                           | \*_Products_<br>• tab                             |
-| SaaS Contract                                 |                                         |                                           | \*_Products_<br>• tab                             |
-| SaaS Legacy                                   |                                         |                                           | \*_Assets_<br>• tab                               |
+| Pricing model                                 | Products launched using single-node AMI | Products launched with CloudFormation | Products launched as software as a service (SaaS) |
+| --------------------------------------------- | --------------------------------------- | ------------------------------------- | ------------------------------------------------- |
+| Bring Your Own License (BYOL)                 | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                   |                                                   |
+| Free                                          | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                   |                                                   |
+| Paid Hourly                                   | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                   |                                                   |
+| Paid Hourly with Annual                       | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                   |                                                   |
+| Paid Monthly                                  | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                   |                                                   |
+| Hourly with Monthly                           | \*_Assets_<br>• tab                     | \*_Assets_<br>• tab                   |                                                   |
+| Paid Usage (AWS Marketplace Metering Service) | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                   |                                                   |
+| Contract Pricing                              | \*_Products_<br>• tab                   |                                       |                                                   |
+| SaaS Subscription                             |                                         |                                       | \*_Products_<br>• tab                             |
+| SaaS Contract                                 |                                         |                                       | \*_Products_<br>• tab                             |
+| SaaS Legacy                                   |                                         |                                       | \*_Assets_<br>• tab                               |
 
 You can submit products individually or, if you use a product load form, you can submit
 multiple products or product updates at the same time. You cannot use the **Products** tab to submit multiple products.
@@ -51,7 +51,7 @@ have any problems making your submissions, contact the [AWS Marketplace Seller O
   software](#paid-repackaged-software "#paid-repackaged-software")
 - [Requirements for products with a hardware
   component](#product-requirements-hardware "#product-requirements-hardware")
-- [AWS CloudFormation-launched product (free or paid) or usage-based paid AMI product](#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product "#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product")
+- [CloudFormation-launched product (free or paid) or usage-based paid AMI product](#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product "#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product")
 - [Product changes and updates](#product-changes-and-updates "#product-changes-and-updates")
 - [Timing and expectations](#timing-and-expectations "#timing-and-expectations")
 - [Submitting AMIs to AWS Marketplace](#submitting-amis-to-aws-marketplace "#submitting-amis-to-aws-marketplace")
@@ -189,18 +189,18 @@ or sensor), you must meet the following requirements:
   listing must be obtained separately. Review the product details for more
   information._
 
-## AWS CloudFormation-launched product (free or paid) or usage-based paid AMI product
+## CloudFormation-launched product (free or paid) or usage-based paid AMI product
 
 ###### Note
 
 Some pricing models no longer require you to use the product load form described in this
-section to publish AMI with CloudFormation products. When you create a **Amazon Machine Image (AMI) or AMI with CloudFormation** on the [server products](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server")
+section to publish AMI with CloudFormation products. When you create a **Amazon Machine Image (AMI) or AMI with CloudFormation** on the [server products](https://aws.amazon.com//marketplace/management/products/server "https://aws.amazon.com//marketplace/management/products/server")
 page in the seller portal, and are not immediately prompted to download the product load
 form, see [Creating AMI-based products](ami-single-ami-products.md "ami-single-ami-products.md") and [Add
 CloudFormation templates to your listing](cloudformation.md "cloudformation.md").
 
 Use a product load form (PLF) to submit products that AWS Marketplace customers launch by using
-AWS CloudFormation templates. The PLF is available through the AWS Marketplace Management Portal.
+CloudFormation templates. The PLF is available through the AWS Marketplace Management Portal.
 
 You follow these broad steps to submit a product:
 
@@ -337,7 +337,7 @@ must complete.
 11. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/products/? "https://aws.amazon.com/marketplace/management/products/?").
 12. On the **Assets** tab, choose **File Upload**.
 13. On the **File Uploads** page, upload your PLF and any
-    AWS CloudFormation templates. The file uploader provides a secure transfer mechanism and a history of
+    CloudFormation templates. The file uploader provides a secure transfer mechanism and a history of
     submitted files. The uploader automatically notifies the AWS Marketplace,
     which reviews your submission for policy and security compliance, software vulnerabilities, and product usability.
     If the team has any questions or issues with a request, they send you an email message.
@@ -360,7 +360,7 @@ update is prepared, follow these steps:
 3. From the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/products/? "https://aws.amazon.com/marketplace/management/products/?"), under the **Assets** tab, choose **File
    Upload**.
 4. On the **File Uploads** page, upload your updated PLF and any
-   AWS CloudFormation templates. The file uploader provides a secure transfer mechanism and a history of
+   CloudFormation templates. The file uploader provides a secure transfer mechanism and a history of
    submitted files. The uploader automatically notifies the AWS Marketplace team to begin processing
    your request. Include a description of the submission (adding new version, changing
    price, changing metadata, and so forth).
