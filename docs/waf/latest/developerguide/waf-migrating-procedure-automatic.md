@@ -77,12 +77,12 @@ migration API, to store the AWS CloudFormation template that it generates.
    to exclude rules that can't be migrated, or to stop the migration. For
    information about rules that can't be migrated, see [Migration caveats and limitations](waf-migrating-caveats.md "waf-migrating-caveats.md").
 8. Choose **Next**.
-9. For **Create AWS CloudFormation template**, verify your settings, then
-   choose **Start creating AWS CloudFormation template** to begin the
+9. For **Create CloudFormation template**, verify your settings, then
+   choose **Start creating CloudFormation template** to begin the
    migration process. This can take a few minutes, depending on the complexity of
    your protection pack (web ACL).
-10. In **Create and run AWS CloudFormation stack to complete migration**, you
+10. In **Create and run CloudFormation stack to complete migration**, you
     can choose to go to the AWS CloudFormation console to create a stack from the
     template, to create the new protection pack (web ACL) and its resources. To do this, choose
-    **Create AWS CloudFormation stack**.
+    **Create CloudFormation stack**.
     After the automatic migration process completes, you're ready to proceed to the manual follow-up steps. See [Migrating a protection pack (web ACL): manual follow-up](waf-migrating-procedure-manual-finish.md "waf-migrating-procedure-manual-finish.md").

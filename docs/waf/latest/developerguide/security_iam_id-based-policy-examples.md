@@ -60,7 +60,7 @@ recommendations:
 - **Use conditions in IAM policies to further restrict access**
   – You can add a condition to your policies to limit access to actions and resources. For example, you can write a policy condition to specify that all requests must
   be sent using SSL. You can also use conditions to grant access to service actions
-  if they are used through a specific AWS service, such as AWS CloudFormation. For more information, see
+  if they are used through a specific AWS service, such as CloudFormation. For more information, see
   [IAM JSON policy elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
 - **Use IAM Access Analyzer to validate your IAM policies to ensure secure and functional permissions**
   – IAM Access Analyzer validates new and existing policies so that the policies adhere to the IAM policy language (JSON) and IAM best practices.
@@ -146,32 +146,36 @@ which distribution is associated with a protection pack (web ACL), and to monito
 requests in CloudWatch. These users can't create, update, or delete AWS WAF
 resources.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
+
  {
- "Action": [
- "wafv2:Get*",
- "wafv2:List*",
- "cloudfront:GetDistribution",
- "cloudfront:GetDistributionConfig",
- "cloudfront:ListDistributions",
- "cloudfront:ListDistributionsByWebACLId",
- "cloudfront:ListDistributionTenantsByCustomization",
- "cloudfront:ListDistributionTenants",
- "cloudfront:GetDistributionTenant",
- "cloudwatch:ListMetrics",
- "cloudwatch:GetMetricStatistics",
- "ec2:DescribeRegions"
- ],
- "Effect": "Allow",
- "Resource": "*"
- }
- ]
-}`
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "wafv2:Get*",
+                "wafv2:List*",
+                "cloudfront:GetDistribution",
+                "cloudfront:GetDistributionConfig",
+                "cloudfront:ListDistributions",
+                "cloudfront:ListDistributionsByWebACLId",
+                "cloudfront:ListDistributionTenantsByCustomization",
+                "cloudfront:ListDistributionTenants",
+                "cloudfront:GetDistributionTenant",
+                "cloudwatch:GetMetricData",
+                "cloudwatch:ListMetrics",
+                "cloudwatch:GetMetricStatistics",
+                "ec2:DescribeRegions",
+                "pricingplanmanager:GetSubscription",
+                "pricingplanmanager:ListSubscriptions",
+                "route53:ListHostedZones",
+                "route53:GetHostedZone"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
+}
 
 ```
 
@@ -183,38 +187,48 @@ The following policy lets users perform any AWS WAF operation, perform any
 operation on CloudFront web distributions, and monitor metrics and a sample of requests in
 CloudWatch. It's useful for users who are AWS WAF administrators.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
+
  {
- "Action": [
- "wafv2:*",
- "cloudfront:CreateDistribution",
- "cloudfront:ListDistributions",
- "cloudfront:ListDistributionsByWebACLId",
- "cloudfront:UpdateDistribution",
- "cloudfront:GetDistributionConfig",
- "cloudfront:GetDistribution",
- "cloudfront:DisassociateDistributionTenantWebACL",
- "cloudfront:DisassociateDistributionWebACL",
- "cloudfront:AssociateDistributionTenantWebACL",
- "cloudfront:AssociateDistributionWebACL",
- "cloudfront:ListDistributionTenantsByCustomization",
- "cloudfront:ListDistributionTenants",
- "cloudfront:DeleteDistribution",
- "cloudfront:GetDistributionTenant",
- "cloudwatch:ListMetrics",
- "cloudwatch:GetMetricStatistics",
- "ec2:DescribeRegions"
- ],
- "Effect": "Allow",
- "Resource": "*"
- }
- ]
-}`
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "wafv2:*",
+                "cloudfront:CreateDistribution",
+                "cloudfront:ListDistributions",
+                "cloudfront:ListDistributionsByWebACLId",
+                "cloudfront:UpdateDistribution",
+                "cloudfront:GetDistributionConfig",
+                "cloudfront:GetDistribution",
+                "cloudfront:DisassociateDistributionTenantWebACL",
+                "cloudfront:DisassociateDistributionWebACL",
+                "cloudfront:AssociateDistributionTenantWebACL",
+                "cloudfront:AssociateDistributionWebACL",
+                "cloudfront:ListDistributionTenantsByCustomization",
+                "cloudfront:ListDistributionTenants",
+                "cloudfront:DeleteDistribution",
+                "cloudfront:GetDistributionTenant",
+                "cloudfront:DeleteDistributionTenant",
+                "cloudwatch:GetMetricData",
+                "cloudwatch:ListMetrics",
+                "cloudwatch:GetMetricStatistics",
+                "ec2:DescribeRegions",
+                "pricingplanmanager:GetSubscription",
+                "pricingplanmanager:ListSubscriptions",
+                "pricingplanmanager:UpdateSubscription",
+                "pricingplanmanager:CancelSubscription",
+                "pricingplanmanager:CancelSubscriptionChange",
+                "pricingplanmanager:AssociateResourcesToSubscription",
+                "pricingplanmanager:DisassociateResourcesFromSubscription",
+                "route53:ListHostedZones",
+                "route53:GetHostedZone"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
+}
 
 ```
 

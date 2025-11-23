@@ -14,8 +14,8 @@ information, see [Getting Started with
 AWS Config](../../../config/latest/developerguide/getting-started.md "../../../config/latest/developerguide/getting-started.md") in the _AWS Config Developer Guide_.
 
 You must enable AWS Config for each AWS Region that contains the tracked resources. You can
-enable AWS Config manually, or you can use the AWS CloudFormation template "Enable AWS Config" at [AWS CloudFormation StackSets Sample
-Templates](../../../AWSCloudFormation/latest/UserGuide/stacksets-sampletemplates.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-sampletemplates.md") in the _AWS CloudFormation User Guide_.
+enable AWS Config manually, or you can use the CloudFormation template "Enable AWS Config" at [CloudFormation StackSets Sample
+Templates](../../../AWSCloudFormation/latest/UserGuide/stacksets-sampletemplates.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-sampletemplates.md") in the _CloudFormation User Guide_.
 
 If you enable AWS Config, you're charged as detailed on the [AWS Config Pricing](https://aws.amazon.com/config/pricing/ "https://aws.amazon.com/config/pricing/") page.
 

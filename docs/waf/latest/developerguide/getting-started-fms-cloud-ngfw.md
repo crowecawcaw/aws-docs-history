@@ -119,9 +119,9 @@ more information about tags to define policy scope, see [Using the AWS Firewall 
 
 Resource tags can only have non-null values. If you omit the value for a tag,
 Firewall Manager saves the tag with an empty string value: "". Resource tags only match with tags that have the same key
-and the same value. 16. For **Grant cross-account access**, choose **Download AWS CloudFormation
-template**. This downloads an AWS CloudFormation template that you can use to
-create an AWS CloudFormation stack. This stack creates an AWS Identity and Access Management role that grants Firewall Manager cross-account permissions to manage Palo Alto Networks Cloud NGFW resources. For information about stacks, see [Working with stacks](../../../AWSCloudFormation/latest/gsg/stacks.md "../../../AWSCloudFormation/latest/gsg/stacks.md") in the _AWS CloudFormation User
+and the same value. 16. For **Grant cross-account access**, choose **Download CloudFormation
+template**. This downloads an CloudFormation template that you can use to
+create an CloudFormation stack. This stack creates an AWS Identity and Access Management role that grants Firewall Manager cross-account permissions to manage Palo Alto Networks Cloud NGFW resources. For information about stacks, see [Working with stacks](../../../AWSCloudFormation/latest/gsg/stacks.md "../../../AWSCloudFormation/latest/gsg/stacks.md") in the _CloudFormation User
 Guide_. 17. Choose **Next**. 18. For **Policy tags**, add any identifying tags that you want
 to add to the Firewall Manager policy resource. For more information about tags, see [Working with Tag Editor](../../../awsconsolehelpdocs/latest/gsg/tag-editor.md "../../../awsconsolehelpdocs/latest/gsg/tag-editor.md"). 19. Choose **Next**. 20. Review the new policy settings and return to any pages where you need to any adjustments.
 

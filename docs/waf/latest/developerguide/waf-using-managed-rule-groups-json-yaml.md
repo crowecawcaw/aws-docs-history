@@ -52,9 +52,9 @@ action has been overridden to Count.
 
 ###### YAML
 
-You can reference and modify managed rule groups within a rule statement using the AWS CloudFormation
+You can reference and modify managed rule groups within a rule statement using the CloudFormation
 YAML template. The following listing shows the AWS Managed Rules rule group,
-`AWSManagedRulesCommonRuleSet`, in AWS CloudFormation template. The
+`AWSManagedRulesCommonRuleSet`, in CloudFormation template. The
 RuleActionOverrides specification lists a rule whose
 action has been overridden to Count.
 

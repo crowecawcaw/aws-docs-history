@@ -74,7 +74,7 @@ providing the resource-based policy settings to the AWS WAF API call
 `PutPermissionPolicy` or to an equivalent CLI or SDK call. For
 additional information, including examples and links to documentation for the other
 available languages, see [PutPermissionPolicy](../APIReference/API_PutPermissionPolicy.md "../APIReference/API_PutPermissionPolicy.md") in the AWS WAF API Reference. This functionality isn't
-available through other means, such as the console or AWS CloudFormation.
+available through other means, such as the console or CloudFormation.
 
 ## Policy actions
 

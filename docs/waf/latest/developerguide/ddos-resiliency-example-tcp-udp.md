@@ -36,7 +36,7 @@ learn more about the options, see [Resource protections in AWS Shield Advanced](
 The following reference diagram depicts an example DDoS resilient architecture for TCP and
 UDP applications.
 
-![The diagram shows users connected to Route 53 and to an AWS Global Accelerator. The accelerator is connected to an Elastic Load Balancing icon that's protected by AWS Shield Advanced and AWS WAF. The Elastic Load Balancing is itself connected to an Amazon EC2 instance. This Elastic Load Balancing instance and the Amazon EC2 instance are in Region 1. The AWS Global Accelerator is also directly connected to another Amazon EC2 instance, which isn't behind a protected Elastic Load Balancing intsance. This second Amazon EC2 instance is in Region n.](images/shield-resilient-tcp-udp-app-arch.png)
+![The diagram shows users connected to Route 53 and to an AWS Global Accelerator. The accelerator is connected to an ELB icon that's protected by AWS Shield Advanced and AWS WAF. The ELB is itself connected to an Amazon EC2 instance. This ELB instance and the Amazon EC2 instance are in Region 1. The AWS Global Accelerator is also directly connected to another Amazon EC2 instance, which isn't behind a protected ELB intsance. This second Amazon EC2 instance is in Region n.](images/shield-resilient-tcp-udp-app-arch.png)
 The benefits that this approach provides to your application include the following:
 
 - Protection against the largest known infrastructure layer (layer 3

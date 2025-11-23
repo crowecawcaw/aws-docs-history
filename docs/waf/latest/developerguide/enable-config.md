@@ -21,7 +21,7 @@ In order for Firewall Manager to monitor policy compliance, AWS Config must cont
 1. Enable AWS Config for each of your AWS Organizations member accounts, including the Firewall Manager administrator account. For more information,
    see [Getting Started with AWS Config](../../../config/latest/developerguide/getting-started.md "../../../config/latest/developerguide/getting-started.md").
 2. Enable AWS Config for each AWS Region that contains the resources that you want to protect.
-   You can enable AWS Config manually, or you can use the AWS CloudFormation template "Enable AWS Config" at
+   You can enable AWS Config manually, or you can use the CloudFormation template "Enable AWS Config" at
    [AWS CloudFormation StackSets Sample Templates](../../../AWSCloudFormation/latest/UserGuide/stacksets-sampletemplates.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-sampletemplates.md").
 
 If you don't want to enable AWS Config for all resources, then you must enable the

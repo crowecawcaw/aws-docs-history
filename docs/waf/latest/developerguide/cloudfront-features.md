@@ -16,6 +16,7 @@ the rules you define in your protection packs (web ACLs), with different impleme
 ###### Topics
 
 - [How AWS WAF works with different distribution types](#cloudfront-features-distribution-types "#cloudfront-features-distribution-types")
+- [Using AWS WAF with CloudFront Flat-Rate Pricing Plans](#waf-cf-pricing-plans "#waf-cf-pricing-plans")
 - [Common use cases for protecting CloudFront distributions with AWS WAF](cloudfront-waf-use-cases.md "cloudfront-waf-use-cases.md")
 
 ## How AWS WAF works with different distribution types
@@ -69,3 +70,33 @@ These two tiers make multi-tenant distributions optimal for sharing AWS WAF prot
 | Rule management                                   | Rules affect a single distribution             | Multi-tenant distribution rules affect all associated tenants; distribution tenant-specific rules affect only that tenant |
 | Managed rule groups                               | Applied to individual distributions            | Can be applied at multi-tenant distribution level for all tenants or at tenant level for specific applications            |
 | Logging                                           | Standard AWS WAF logs                          | Logs include tenant identifiers for security event attribution                                                            |
+
+## Using AWS WAF with CloudFront Flat-Rate Pricing Plans
+
+CloudFront flat-rate pricing plans combine the Amazon CloudFront global content delivery network (CDN) with
+multiple AWS services and features into a monthly price with no overage charges,
+regardless of traffic spikes or attacks.
+
+Flat-rate pricing plans include the following AWS services and features for a simple
+monthly price:
+
+- CloudFront CDN
+- AWS WAF and DDoS protection
+- Bot management and analytics
+- Amazon Route 53 DNS
+- Amazon CloudWatch Logs ingestion
+- TLS certificate
+- Serverless edge compute
+- Amazon S3 storage credits each month
+
+Plans are available in Free, Pro, Business, and Premium tiers to match your application's needs. Plans do not need an annual commitment to get the best available rates. Start with the Free plan and upgrade to access more capabilities and larger usage allowances.
+
+For more information and a complete list of plans and features, see [CloudFront flat-rate pricing plans](../../../AmazonCloudFront/latest/DeveloperGuide/flat-rate-pricing-plan.md "../../../AmazonCloudFront/latest/DeveloperGuide/flat-rate-pricing-plan.md") in the _Amazon CloudFront Developer Guide_.
+
+###### Important
+
+A valid AWS WAF protection pack (web ACL) must remain associated with your CloudFront distribution when using
+any pricing plan. You cannot remove the protection pack (web ACL) association unless you switch back to pay-as-you-go
+pricing.
+
+While a AWS WAF web ACL must remain associated with your distribution, you maintain full control over your security configuration. You can customize your protection by adjusting which rules are enabled or disabled in your web ACL, and modify rule settings to match your security requirements. For information about managing web ACL rules, see [AWS WAF Rules](waf-rules.md "waf-rules.md").

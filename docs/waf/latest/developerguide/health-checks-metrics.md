@@ -46,4 +46,4 @@ resources, see the following sections in the resource guides:
 - Amazon Elastic Compute Cloud –
   [List the available CloudWatch metrics for your instances](../../../AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.md "../../../AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.md") in the https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/.
 - Amazon EC2 Auto Scaling –
-  [Monitoring CloudWatch metrics for your Auto Scaling groups and instances](../../../autoscaling/ec2/userguide/as-instance-monitoring.md "../../../autoscaling/ec2/userguide/as-instance-monitoring.md") in the Amazon EC2 Auto Scaling User Guide.
+  [Monitoring CloudWatch metrics for your Amazon EC2 Auto Scaling groups and instances](../../../autoscaling/ec2/userguide/as-instance-monitoring.md "../../../autoscaling/ec2/userguide/as-instance-monitoring.md") in the Amazon EC2 Auto Scaling User Guide.

@@ -19,7 +19,7 @@ The following sections cover requirements for creating and deleting resource set
 
 ###### Topics
 
-- [Considerations when working with resource sets in Firewall Manager](#w524aac19c30c15 "#w524aac19c30c15")
+- [Considerations when working with resource sets in Firewall Manager](#w2aac19c30c15 "#w2aac19c30c15")
 - [Creating resource sets in Firewall Manager](fms-creating-resource-set.md "fms-creating-resource-set.md")
 - [Deleting a resource set in Firewall Manager](fms-deleting-resource-set.md "fms-deleting-resource-set.md")
 

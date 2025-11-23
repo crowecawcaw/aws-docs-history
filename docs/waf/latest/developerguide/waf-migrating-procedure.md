@@ -17,9 +17,9 @@ The following lists the high-level steps for migrating a protection pack (web AC
 
 1. The automated migration reads everything related to your existing protection pack (web ACL), without modifying
    or deleting anything in AWS WAF Classic. It creates a representation of the web
-   ACL and its related resources, compatible with AWS WAF. It generates an AWS CloudFormation
+   ACL and its related resources, compatible with AWS WAF. It generates an CloudFormation
    template for the new protection pack (web ACL) and stores it in an Amazon S3 bucket.
-2. You deploy the template into AWS CloudFormation, in order to recreate the protection pack (web ACL) and related resources in
+2. You deploy the template into CloudFormation, in order to recreate the protection pack (web ACL) and related resources in
    AWS WAF.
 3. You review the protection pack (web ACL), and manually complete the migration, making sure
    that your new protection pack (web ACL) takes full advantage of the capabilities of the latest AWS WAF.

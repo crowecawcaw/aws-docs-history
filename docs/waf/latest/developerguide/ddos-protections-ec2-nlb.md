@@ -16,7 +16,7 @@ attached to an Elastic IP address and applies the appropriate detections and mit
 for that resource. This includes configuring network ACLs that are specific to the
 Elastic IP address. For more information about using Elastic IP addresses with your
 AWS resources, see the following guides: [Amazon Elastic Compute Cloud documentation](../../../ec2.md "../../../ec2.md") or
-[Elastic Load Balancing documentation](../../../elasticloadbalancing.md "../../../elasticloadbalancing.md").
+[ELB documentation](../../../elasticloadbalancing.md "../../../elasticloadbalancing.md").
 
 During an attack,
 Shield Advanced automatically deploys your network ACLs to the border of the AWS network.
