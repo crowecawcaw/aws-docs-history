@@ -2,7 +2,7 @@
 
 Publication date: **October 15, 2021 ([Diagram history](#diagram-history "#diagram-history"))**
 
-This architecture provides a scalable Andon system to help optimize processes, support the transition to predictive maintenance, and prevent future equipment issues. This architecture can also be [deployed on AWS](../../../solutions/latest/amazon-virtual-andon/welcome.md "../../../solutions/latest/amazon-virtual-andon/welcome.md") using an AWS CloudFormation template that launches, configures, and runs the AWS services required to deploy this solution using AWS best practices for security and availability.
+This architecture provides a scalable Andon system to help optimize processes, support the transition to predictive maintenance, and prevent future equipment issues. This architecture can also be [deployed on AWS](../../../solutions/latest/amazon-virtual-andon/welcome.md "../../../solutions/latest/amazon-virtual-andon/welcome.md") using an CloudFormation template that launches, configures, and runs the AWS services required to deploy this solution using AWS best practices for security and availability.
 
 ## Amazon Virtual Andon
 
