@@ -29,9 +29,9 @@ fleet**
 11. Select the **host CPU architecture**.
 12. Select the minimum and maximum vCPU and memory **Hardware
     capabilities** to meet the workload demands of your fleets.
-13. Select an Auto Scaling type. For more information, see [Use EventBridge to handle Auto Scaling events](../../../autoscaling/ec2/userguide/automating-ec2-auto-scaling-with-eventbridge.md "../../../autoscaling/ec2/userguide/automating-ec2-auto-scaling-with-eventbridge.md").
+13. Select an Amazon EC2 Auto Scaling type. For more information, see [Use EventBridge to handle Amazon EC2 Auto Scaling events](../../../autoscaling/ec2/userguide/automating-ec2-auto-scaling-with-eventbridge.md "../../../autoscaling/ec2/userguide/automating-ec2-auto-scaling-with-eventbridge.md").
     - **No scaling**: You are creating an
-      on-premises fleet and want opt out of Deadline Cloud Auto Scaling.
+      on-premises fleet and want opt out of Deadline Cloud Amazon EC2 Auto Scaling.
     - **Scaling recommendations**: You are creating
       an Amazon Elastic Compute Cloud (Amazon EC2) fleet.
 

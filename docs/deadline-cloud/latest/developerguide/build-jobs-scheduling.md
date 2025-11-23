@@ -111,6 +111,14 @@ As a worker completes section actions, additional session actions can be sent to
 worker. The worker reuses existing environments and job attachments in the session to
 complete tasks more efficiently.
 
+On service-managed fleet workers, session directories are deleted after the session ends,
+but other directories are retained between sessions. This allows you to implement caching strategies
+for data that can be reused across multiple sessions. To cache data between sessions, store it
+under the home directory of the user running the job. For example, conda packages are cached under
+the job user's home directory at `C:\Users\job-user\.conda-pkgs` on Windows workers and
+`/home/job-user/.conda-pkgs` on Linux workers. This data remains available until the
+worker shuts down.
+
 Job attachments are created by the submitter that you use as part of your Deadline Cloud CLI job
 bundle. You can also create job attachments using the `--attachments` option for
 the `create-job` AWS CLI command. Environments are defined in two places: queue

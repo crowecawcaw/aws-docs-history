@@ -21,7 +21,7 @@ ways:
 
 - [Step 1: Configure the queue environment](#configure-queue-environment "#configure-queue-environment")
 - [Step 2: (Optional) License proxy instance setup](#license-proxy "#license-proxy")
-- [Step 3: AWS CloudFormation template setup](#byol-cfn-template "#byol-cfn-template")
+- [Step 3: CloudFormation template setup](#byol-cfn-template "#byol-cfn-template")
 
 ## Step 1: Configure the queue environment
 
@@ -356,15 +356,15 @@ listen license-server
 After completing the steps, license requests sent to localhost from the forwarding queue
 environment should be forwarded to the specified license server.
 
-## Step 3: AWS CloudFormation template setup
+## Step 3: CloudFormation template setup
 
-You can use a AWS CloudFormation template to configure an entire farm to use your own
+You can use a CloudFormation template to configure an entire farm to use your own
 licensing.
 
 1. Modify the template provided in the next step to add any required licensing
    environment variables to the **variables** section under
    **BYOLQueueEnvironment**.
-2. Use the following AWS CloudFormation template.
+2. Use the following CloudFormation template.
 
 ```
 
@@ -686,7 +686,7 @@ Resources:
 
 ```
 
-3. When deploying the AWS CloudFormation template, provide the following parameters:
+3. When deploying the CloudFormation template, provide the following parameters:
    - Update the **LicenseInstanceID** with the Amazon EC2 Instance ID of
      your license server or proxy instance
    - Update the **LicensePorts** with a comma-separated list of ports

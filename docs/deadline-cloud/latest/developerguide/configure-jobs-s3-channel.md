@@ -19,7 +19,7 @@ of the Deadline Cloud integrated applications can be used.
 
 You can use an AWS CloudFormation template to create a Deadline Cloud farm that includes a package building
 queue, or you can follow the instructions below to create the example farm yourself. For the
-AWS CloudFormation template, see [A starter AWS Deadline Cloud farm](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm")
+CloudFormation template, see [A starter AWS Deadline Cloud farm](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm")
 in the Deadline Cloud samples repository on GitHub.
 
 ###### Topics
@@ -28,7 +28,7 @@ in the Deadline Cloud samples repository on GitHub.
 - [Configure production queue permissions
   for custom conda packages](#s3-channel-configure-permissions "#s3-channel-configure-permissions")
 - [Add a conda channel to a queue environment](#s3-channel-add-channel "#s3-channel-add-channel")
-- [Create a conda package for an application](conda-package.md "conda-package.md")
+- [Create a conda package for an application or plugin](conda-package.md "conda-package.md")
 - [Create a conda build recipe for
   Blender](create-conda-recipe-blender.md "create-conda-recipe-blender.md")
 - [Create a conda build recipe for Autodesk Maya](create-conda-recipe-maya.md "create-conda-recipe-maya.md")

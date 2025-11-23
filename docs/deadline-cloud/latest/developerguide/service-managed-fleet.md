@@ -5,7 +5,7 @@ in Deadline Cloud
 AWS CloudShell does not provide enough compute capacity to test larger workloads. It's also not
 configured to work with jobs that distribute tasks on multiple worker hosts.
 
-Instead of using CloudShell, you can add an Auto Scaling service-managed fleet (SMF) to your
+Instead of using CloudShell, you can add an Amazon EC2 Auto Scaling service-managed fleet (SMF) to your
 developer farm. An SMF provides sufficient compute capacity for larger workloads and can
 handle jobs that need to distribute job tasks across multiple worker hosts.
 

@@ -8,7 +8,7 @@ example you create a separate storage profile for each. You can create a storage
 using any of the following:
 
 - [CreateStorageProfile API](../APIReference/API_CreateStorageProfile.md "../APIReference/API_CreateStorageProfile.md")
-- [AWS::Deadline::StorageProfile](../../../AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.md") AWS CloudFormation resource
+- [AWS::Deadline::StorageProfile](../../../AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.md") CloudFormation resource
 - [AWS
   console](../userguide/storage-shared.md#storage-profile "../userguide/storage-shared.md#storage-profile")
   A storage profile is made up of a list of file system locations that each tell Deadline Cloud

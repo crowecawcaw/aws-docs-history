@@ -20,5 +20,5 @@ The following topics show you how to create a basic CMF using Amazon EC2 instanc
 - [Configure networking to allow AWS endpoint connections](cmf-network.md "cmf-network.md")
 - [Test the configuration of your worker host](test-software.md "test-software.md")
 - [Create an Amazon Machine Image](create-ami.md "create-ami.md")
-- [Create fleet infrastructure with an Amazon EC2 Auto Scaling
+- [Create fleet infrastructure with an Amazon EC2 Amazon EC2 Auto Scaling
   group](create-auto-scaling.md "create-auto-scaling.md")

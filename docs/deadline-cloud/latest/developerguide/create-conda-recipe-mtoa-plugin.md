@@ -4,18 +4,11 @@ You can package plugins for commercial applications as conda packages. Plugins a
 that use an application binary interface (ABI) provided by an application to extend the functionality of that application.
 The Maya to Arnold (MtoA) plugin adds the Arnold renderer as an option within Maya.
 
-Creating a package for a plugin is like packaging an application, but the package integrates with a host application
-contained in a different package. The following list describes requirements to make this work.
-
-- Include the host application package as both a build and a run dependency in the build recipe `meta.yaml`
-  and `recipe.yaml`. Use a version constraint so that the build recipe is only installed with compatible packages.
-  - The MtoA sample build recipe depends on the **Maya** package
-    and uses an `==` constraint for the version.
-
-- Follow the host application package conventions for registering the plugin.
-  - The Maya package configures a Maya module path in the virtual environment,
-    `$PREFIX/usr/autodesk/maya$MAYA_VERSION/modules`, for the plugin to place a `.mod` file in.
-    The MtoA sample build recipe creates a file `mtoa.mod` in this directory.
+- The MtoA sample build recipe depends on the **Maya** package
+  and uses an `==` constraint for the version.
+- The Maya package configures a Maya module path in the virtual environment,
+  `$PREFIX/usr/autodesk/maya$MAYA_VERSION/modules`, for the plugin to place a `.mod` file in.
+  The MtoA sample build recipe creates a file `mtoa.mod` in this directory.
 
 ###### Write the recipe metadata
 

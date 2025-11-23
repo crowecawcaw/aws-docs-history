@@ -1,4 +1,4 @@
-# Create a conda package for an application
+# Create a conda package for an application or plugin
 
 You can combine an entire application, including dependencies, into a conda package. The
 packages Deadline Cloud provides in the [deadline-cloud channel](../userguide/create-queue-environment.md#conda-queue-environment "../userguide/create-queue-environment.md#conda-queue-environment") for service-managed fleets use this binary repackaging
@@ -31,3 +31,12 @@ non-interactive jobs, but some applications still require it to run without a gr
 interface. You must provide those dependencies within the package you create. 4. Ensure you follow the copyright and license agreements for the applications you
 package. We recommend using a private Amazon S3 bucket for your conda channel to control
 distribution and limit package access to your farm.
+Sample recipes for all the packages in the deadline-cloud channel are available
+in the [Deadline Cloud Samples GitHub repository](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes").
+
+###### To package a plugin for conda
+
+- Application plugins can be packaged as their own conda packages. When creating a plugin package:
+  - Include the host application package as both a build and a run dependency in the build recipe `meta.yaml`
+    and `recipe.yaml`. Use a version constraint so that the build recipe is only installed with compatible packages.
+  - Follow the host application package conventions for registering the plugin.

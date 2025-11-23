@@ -5,7 +5,7 @@ application that is available as a simple relocatable archive file and under ope
 Commercial applications are often distributed via installers and may have a license management
 system to work with.
 
-The following list builds on the basics covered in [Create a conda package for an application](conda-package.md "conda-package.md") with requirements commonly involved with
+The following list builds on the basics covered in [Create a conda package for an application or plugin](conda-package.md "conda-package.md") with requirements commonly involved with
 packaging commercial applications. The details in sub-bullets illustrate how you can apply
 the guidelines to Maya.
 
@@ -46,7 +46,7 @@ the guidelines to Maya.
     MtoA package places a .mod file in one of these directories to load at
     Maya startup.
 
-###### Write the recipe metada
+###### Write the recipe metadata
 
 1. Open the GitHub [deadline-cloud-samples/conda_recipes/maya-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2025") directory in your browser or in a text editor in your
    local clone of the repository.
