@@ -6,23 +6,23 @@ End of support notice: On September 30, 2026, AWS will discontinue support for A
 
 App Mesh gives customers the ability to interact with its APIs indirectly using tools such as:
 
-- AWS CloudFormation
+- CloudFormation
 - AWS Cloud Development Kit (AWS CDK)
 - App Mesh Controller for Kubernetes
 - Terraform
 
-## App Mesh and AWS CloudFormation
+## App Mesh and CloudFormation
 
-AWS CloudFormation is a service that lets you create a template with all the resources you need for your
-application, and then AWS CloudFormation will configure and provision the resouces for you. It will also configure
+CloudFormation is a service that lets you create a template with all the resources you need for your
+application, and then CloudFormation will configure and provision the resouces for you. It will also configure
 all the dependencies, so you can focus more on you application and less on managing resources.
 
-For more information and examples on using AWS CloudFormation with App Mesh, see the [AWS CloudFormation
+For more information and examples on using CloudFormation with App Mesh, see the [CloudFormation
 documentation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.md").
 
 ## App Mesh and AWS CDK
 
-AWS CDK is a development framework for using code to define your cloud infrastructure and using AWS CloudFormation
+AWS CDK is a development framework for using code to define your cloud infrastructure and using CloudFormation
 to provision it. AWS CDK supports multiple programming languages including TypeScript, JavaScript,
 Python, Java, and C#/.Net.
 

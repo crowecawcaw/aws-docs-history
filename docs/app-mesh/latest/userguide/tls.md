@@ -108,7 +108,7 @@ IAM Policies](../../../IAM/latest/UserGuide/access_policies_create-console.md ".
 You pay a monthly fee for the operation of each AWS Private CA until you delete
 it. You also pay for the private certificates you issue each month and
 private certificates that you export. For more information, see [AWS Certificate Manager
-Pricing](https://aws.amazon.com/certificate-manager/pricing/ "https://aws.amazon.com/certificate-manager/pricing/").
+Pricing](https://aws.amazon.com//certificate-manager/pricing/ "https://aws.amazon.com//certificate-manager/pricing/").
 
 When you enable [proxy
 authorization](proxy-authorization.md "proxy-authorization.md") for the Envoy Proxy that a

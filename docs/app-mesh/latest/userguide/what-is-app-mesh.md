@@ -126,7 +126,7 @@ Cmdlet Reference](../../../powershell/v4/reference.md "../../../powershell/v4/re
 **AWS CloudFormation**
 
 Enables you to create a template that describes all of the AWS resources that you want.
-Using the template, AWS CloudFormation provisions and configures the resources for you. To get started, see
+Using the template, CloudFormation provisions and configures the resources for you. To get started, see
 [AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md"). For more information about the App Mesh resource types, see [App Mesh
 Resource Type Reference](../../../AWSCloudFormation/latest/UserGuide/AWS_AppMesh.md "../../../AWSCloudFormation/latest/UserGuide/AWS_AppMesh.md") in the [AWS CloudFormation Template
 Reference](../../../AWSCloudFormation/latest/UserGuide/template-reference.md "../../../AWSCloudFormation/latest/UserGuide/template-reference.md").
