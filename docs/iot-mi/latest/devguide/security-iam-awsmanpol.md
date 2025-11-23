@@ -30,7 +30,7 @@ You can attach the `AWSIoTManagedIntegrationsFullAccess` policy to your IAM
 identities.
 
 This policy grants full access permissions to managed integrations and related services. To view
-this policy in the AWS Management Console, see [AWSIoTManagedIntegrationsFullAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSIoTManagedIntegrationsFullAccess?section=permissions "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSIoTManagedIntegrationsFullAccess?section=permissions").
+this policy in the AWS Management Console, see [AWSIoTManagedIntegrationsFullAccess](https://console.aws.amazon.com//iam/home#/policies/arn:aws:iam::aws:policy/AWSIoTManagedIntegrationsFullAccess?section=permissions "https://console.aws.amazon.com//iam/home#/policies/arn:aws:iam::aws:policy/AWSIoTManagedIntegrationsFullAccess?section=permissions").
 
 **Permissions details**
 
@@ -78,7 +78,7 @@ IAM identities.
 This policy grants managed integrations permission to publish Amazon CloudWatch logs and metrics on your
 behalf.
 
-To view this policy in the AWS Management Console, see [AWSIoTManagedIntegrationsRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSIoTManagedIntegrationsRolePolicy?section=permissions "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSIoTManagedIntegrationsRolePolicy?section=permissions").
+To view this policy in the AWS Management Console, see [AWSIoTManagedIntegrationsRolePolicy](https://console.aws.amazon.com//iam/home#/policies/arn:aws:iam::aws:policy/AWSIoTManagedIntegrationsRolePolicy?section=permissions "https://console.aws.amazon.com//iam/home#/policies/arn:aws:iam::aws:policy/AWSIoTManagedIntegrationsRolePolicy?section=permissions").
 
 **Permissions details**
 

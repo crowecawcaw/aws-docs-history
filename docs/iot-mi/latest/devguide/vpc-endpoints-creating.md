@@ -5,7 +5,7 @@ You can create a VPC endpoint for the AWS IoT Managed integrations service using
 ## To create an interface VPC endpoint for AWS IoT Managed integrations (console)
 
 1. Open the Amazon VPC Console at
-   [Amazon VPC Console](https://console.aws.amazon.com/https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/https://console.aws.amazon.com/vpc/").
+   [Amazon VPC Console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
 2. In the navigation pane, choose **Endpoints**.
 3. Choose **Create endpoint**.
 4. For **Service category**, choose **AWS services**.
