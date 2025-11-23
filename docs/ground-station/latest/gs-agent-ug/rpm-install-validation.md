@@ -4,25 +4,18 @@ The latest RPM version, MD5 hash validated from RPM, and SHA256 hash using sha25
 
 ## Latest Agent Version
 
-### Version 1.0.3555.0
+### Version 1.0.4382.0
 
-Release Date: 03/27/2024
+Release Date: 11/18/2025
 
 RPM Checksums:
 
-- SHA256: `108f3aceb00e5af549839cd766c56149397e448a6e1e1429c89a9eebb6bc0fc1`
-- MD5: `65b72fa507fb0af32651adbb18d2e30f`
+- SHA256: `620fd307124f1276194f2faa0104fe0549427ae18e4f5655444f8c30b919c640`
+- MD5: `73e06dcad44adaccbe2ab005218abfc7`
 
 Changes:
 
-- Add Agent metric for selected executable version during tasking startup.
-- Add config file support for avoiding specific executable versions when other versions are available.
-- Add network and routing diagnostics.
-- Additional security features.
-- Fix issue where some metric reporting errors were written to stdout/journal instead of log file.
-- Gracefully handle network unreachable socket errors.
-- Measure packet loss and latency between source and destination agents.
-- Release aws-gs-datapipe version 2.0 to support new protocol features and the ability to transparently upgrade contacts to the new protocol.
+- Update client retry behavior when server indicates overload.
 
 ## Verify the RPM
 

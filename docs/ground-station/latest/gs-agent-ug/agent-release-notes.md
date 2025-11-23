@@ -2,6 +2,21 @@
 
 ## Latest Agent Version
 
+### Version 1.0.4382.0
+
+Release Date: 11/18/2025
+
+RPM Checksums:
+
+- SHA256: `620fd307124f1276194f2faa0104fe0549427ae18e4f5655444f8c30b919c640`
+- MD5: `73e06dcad44adaccbe2ab005218abfc7`
+
+Changes:
+
+- Update client retry behavior when server indicates overload.
+
+## Deprecated Agent Versions
+
 ### Version 1.0.3555.0
 
 Release Date: 03/27/2024
@@ -21,8 +36,6 @@ Changes:
 - Gracefully handle network unreachable socket errors.
 - Measure packet loss and latency between source and destination agents.
 - Release aws-gs-datapipe version 2.0 to support new protocol features and the ability to transparently upgrade contacts to the new protocol.
-
-## Deprecated Agent Versions
 
 ### Version 1.0.2942.0
 

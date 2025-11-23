@@ -2,12 +2,12 @@
 
 The AWS Ground Station Agent can be installed in the following ways:
 
-1. AWS CloudFormation template (recommended).
+1. CloudFormation template (recommended).
 2. Manual install on Amazon EC2.
 
-## Use a AWS CloudFormation template
+## Use a CloudFormation template
 
-The EC2 data delivery AWS CloudFormation template creates the required AWS resources to deliver data to your EC2 instance. This AWS CloudFormation template uses the AWS Ground Station managed AMI that has the AWS Ground Station Agent pre-installed.
+The EC2 data delivery CloudFormation template creates the required AWS resources to deliver data to your EC2 instance. This CloudFormation template uses the AWS Ground Station managed AMI that has the AWS Ground Station Agent pre-installed.
 The created EC2 instance’s boot script then populates the agent configuration file and applies the necessary performance tuning ([Tune your EC2 instance for performance](ec2-instance-performance-tuning.md "ec2-instance-performance-tuning.md")).
 
 ### Step 1: Create AWS resources
