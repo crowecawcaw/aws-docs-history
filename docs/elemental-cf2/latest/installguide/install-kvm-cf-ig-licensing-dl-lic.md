@@ -8,7 +8,7 @@ latest version. For prior versions, see the _Archive_ section of
    [AWS Elemental Support Center Activations](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/activations "https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/activations").
 2. Hover over the three-bar icon on the right of the screen to bring up a small menu. Choose **License(s)**.
 
-![Three-bar icon with dropdown menu showing "License(s)" and "Download" options.](images/install-licorderdetail-shared-png.png) 3. On the **License Information** page, choose **Generate**.
+![Three-bar icon with dropdown menu showing "License(s)" and "Download" options.](/images/elemental-cf2/latest/installguide/images/install-licorderdetail-shared-png.png) 3. On the **License Information** page, choose **Generate**.
 
 ![Generate button highlighted on a License Information page interface.](images/install-licinfo-shared-png.png) 4. On the **Generate Licenses** page, select **Choose File** to browse to and select your `.key` file. 5. This returns you to the **Generate Licenses** page,
 with your `.key` file selected. Choose **Upload License Key**.
