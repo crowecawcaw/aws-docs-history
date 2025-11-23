@@ -2,18 +2,18 @@ Amazon Forecast is no longer available to new customers. Existing customers of
 Amazon Forecast can continue to use the service as normal.
 [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/ "https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/")
 
-# Automating with AWS CloudFormation
+# Automating with CloudFormation
 
 In this tutorial, you use an AWS CloudFormation automation stack to launch an Amazon Forecast pipeline
 and generate forecasts using a demonstration dataset.
 
-The AWS Forecast AWS CloudFormation stack:
+The AWS Forecast CloudFormation stack:
 
-- Deploys the [Improving Forecast Accuracy with Machine Learning Solution](../../../solutions/latest/improving-forecast-accuracy-with-machine-learning/automated-deployment.md "../../../solutions/latest/improving-forecast-accuracy-with-machine-learning/automated-deployment.md") AWS CloudFormation
+- Deploys the [Improving Forecast Accuracy with Machine Learning Solution](../../../solutions/latest/improving-forecast-accuracy-with-machine-learning/automated-deployment.md "../../../solutions/latest/improving-forecast-accuracy-with-machine-learning/automated-deployment.md") CloudFormation
   template.
 - Deploys the [NYC Taxi Datasets](https://registry.opendata.aws/nyc-tlc-trip-records-pds/ "https://registry.opendata.aws/nyc-tlc-trip-records-pds/") to the Forecast Data Amazon S3 bucket.
 - Automatically starts the demo NYC taxi forecast pipeline in Forecast.
-  The AWS CloudFormation template is preloaded with target time-series, related time-series, and item
+  The CloudFormation template is preloaded with target time-series, related time-series, and item
   metadata demonstration datasets.
   Relevant
   fields in the console are pre-filled with their respective S3 locations.
@@ -28,7 +28,7 @@ The following diagram shows the components used in this tutorial.
 ## Prerequisites
 
 Before starting the tutorial, make sure you have logged into your AWS account and
-installed the AWS CloudFormation template:
+installed the CloudFormation template:
 
 1. Log in to your AWS account. If you do not
    already have one, [create an AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/ "https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/").
@@ -50,7 +50,7 @@ installed the AWS CloudFormation template:
 This deploys a demonstration stack using the [NYC Taxi
 Dataset](https://registry.opendata.aws/nyc-tlc-trip-records-pds/ "https://registry.opendata.aws/nyc-tlc-trip-records-pds/").
 
-## Deploying an AWS CloudFormation Template for Forecast
+## Deploying an CloudFormation Template for Forecast
 
 automation
 
@@ -71,24 +71,24 @@ and choose **Next**.
 **Next**.
 
 **Step 4**: For Capabilities, select both check boxes to
-allow AWS CloudFormation to create AWS Identity and Access Management (IAM) resources and nested stacks. Choose
+allow CloudFormation to create AWS Identity and Access Management (IAM) resources and nested stacks. Choose
 **Create stack**.
 
 ![Capabilities section with checkboxes for IAM resources and CloudFormation capability acknowledgments.](images/cloudformationautomation-step4.png)
 
-You have deployed an AWS CloudFormation template in Forecast.
+You have deployed an CloudFormation template in Forecast.
 
 ## Clean Up
 
-After deploying this AWS CloudFormation template, you can clean up newly created resources, deploy
-the AWS CloudFormation stack using your own datasets, and explore other deployment options.
+After deploying this CloudFormation template, you can clean up newly created resources, deploy
+the CloudFormation stack using your own datasets, and explore other deployment options.
 
 - **Cleaning up**: Deleting the demo stack retains the
   "Improving Forecast Accuracy with Machine Learning" stack. Deleting the
   "Improving Forecast Accuracy with Machine Learning" stack retains all S3,
   Athena, QuickSight, and Forecast data.
 - **Using your own datasets**: To deploy
-  this AWS CloudFormation template with your own time-series data, enter the S3 locations of
+  this CloudFormation template with your own time-series data, enter the S3 locations of
   your datasets in the Datasets Configuration section in **Step 2**.
 - **Other deployment options**: For more deployment
   options, see [Automated Deployment](../../../solutions/latest/improving-forecast-accuracy-with-machine-learning/automated-deployment.md "../../../solutions/latest/improving-forecast-accuracy-with-machine-learning/automated-deployment.md").

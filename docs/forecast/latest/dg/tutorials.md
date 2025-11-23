@@ -11,5 +11,5 @@ notebooks, see the Amazon Forecast [GitHub Samples](https://github.com/aws-sampl
 **Tutorials**
 
 - [Automating Forecast with
-  CloudFormation](tutorial-cloudformation.md "tutorial-cloudformation.md") - Use an AWS CloudFormation stack to automatically deploy datasets to
+  CloudFormation](tutorial-cloudformation.md "tutorial-cloudformation.md") - Use an CloudFormation stack to automatically deploy datasets to
   an S3 bucket and trigger a Forecast pipeline.
