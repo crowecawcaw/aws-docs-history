@@ -10,7 +10,7 @@ When you use the CloudWatch console to create a canary, you can use a blueprint 
 create your canary or you can write your own
 script. For more information, see [Using canary blueprints](CloudWatch_Synthetics_Canaries_Blueprints.md "CloudWatch_Synthetics_Canaries_Blueprints.md").
 
-You can also create a canary using AWS CloudFormation if you are using your own script for the canary.
+You can also create a canary using CloudFormation if you are using your own script for the canary.
 For more information, see [AWS::Synthetics::Canary](../../../AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.md") in the _AWS CloudFormation User Guide_.
 
 If you are writing your own script, you can use several functions that

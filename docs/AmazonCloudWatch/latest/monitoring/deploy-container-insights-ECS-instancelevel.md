@@ -26,15 +26,15 @@ agent is temporarily unavailable.
 ###### Topics
 
 - [Quick setup
-  using AWS CloudFormation](#deploy-container-insights-ECS-instancelevel-quickstart "#deploy-container-insights-ECS-instancelevel-quickstart")
+  using CloudFormation](#deploy-container-insights-ECS-instancelevel-quickstart "#deploy-container-insights-ECS-instancelevel-quickstart")
 - [Manual and custom
   setup](#deploy-container-insights-ECS-instancelevel-manual "#deploy-container-insights-ECS-instancelevel-manual")
 
 ## Quick setup
 
-using AWS CloudFormation
+using CloudFormation
 
-To use the quick setup, enter the following command to use AWS CloudFormation to install the
+To use the quick setup, enter the following command to use CloudFormation to install the
 agent. Replace `cluster-name` and
 `cluster-region` with the name and Region of your Amazon ECS
 cluster.
@@ -88,7 +88,7 @@ aws cloudformation create-stack --stack-name CWAgentECS-${ClusterName}-${Region}
 
 **Troubleshooting the quick setup**
 
-To check the status of the AWS CloudFormation stack, enter the following command.
+To check the status of the CloudFormation stack, enter the following command.
 
 ```
 ClusterName=`cluster-name`
@@ -123,9 +123,9 @@ aws ecs describe-services --services cwagent-daemon-service --cluster $ClusterNa
 You can also use the CloudWatch Logs console to check the agent log. Look for the
 **/ecs/ecs-cwagent-daemon-service** log group.
 
-**Deleting the AWS CloudFormation stack for the CloudWatch agent**
+**Deleting the CloudFormation stack for the CloudWatch agent**
 
-If you need to delete the AWS CloudFormation stack, enter the following command.
+If you need to delete the CloudFormation stack, enter the following command.
 
 ```
 ClusterName=`cluster-name`

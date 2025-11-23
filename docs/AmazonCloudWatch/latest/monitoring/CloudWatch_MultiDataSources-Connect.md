@@ -27,11 +27,11 @@ The subsections in this topic include notes about managing and querying with eac
    wizard discovers the resources and populates them into the selection dropdown.
 
 For more notes about the data source you are using, see the sections after this procedure. 8. To have CloudWatch connect to the data source in a VPC, choose **Use a VPC**
-and select the VPC to use. Then select the subnet and security group. 9. Choose **I acknowledge that AWS CloudFormation will create IAM resources**. This resource is the Lambda function
+and select the VPC to use. Then select the subnet and security group. 9. Choose **I acknowledge that CloudFormation will create IAM resources**. This resource is the Lambda function
 execution role. 10. Choose **Create data source**.
 
 The new source that you just added doesn't
-appear until the AWS CloudFormation stack is done creating it. To check progress, you can choose
+appear until the CloudFormation stack is done creating it. To check progress, you can choose
 **View the status of my CloudFormation stack**. Or you can choose the
 refresh icon to update this list.
 

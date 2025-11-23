@@ -7,7 +7,7 @@ intervention.
 
 The algorithms generate an outlier detection model. The model generates a range of expected values that represent normal metric behavior.
 
-You can enable outlier detection using the AWS Management Console, the AWS CLI, AWS CloudFormation, or the AWS
+You can enable outlier detection using the AWS Management Console, the AWS CLI, CloudFormation, or the AWS
 SDK. You can enable outlier detection on metrics vended by AWS and also on custom
 metrics. In an account set up as a monitoring account for CloudWatch cross-account observability, you can
 create anomaly detectors on metrics in source accounts in addition to metrics in the monitoring account.

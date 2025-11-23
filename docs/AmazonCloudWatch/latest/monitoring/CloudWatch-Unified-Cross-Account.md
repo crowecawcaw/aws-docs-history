@@ -89,13 +89,13 @@ Pricing](http://aws.amazon.com/cloudwatch/pricing "http://aws.amazon.com/cloudwa
   - [Step 1: Set
     up a monitoring account](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-ConfigureMonitoringAccount "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-ConfigureMonitoringAccount")
   - [Step 2: (Optional)
-    Download an AWS CloudFormation template or URL](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-TemplateOrURL "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-TemplateOrURL")
+    Download an CloudFormation template or URL](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-TemplateOrURL "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-TemplateOrURL")
   - [Step 3: Link
     the source accounts](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-ConfigureSourceAccount "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-ConfigureSourceAccount")
-    - [Use an AWS CloudFormation
+    - [Use an CloudFormation
       template to set up all accounts in an organization or an organizational unit
       as source accounts](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-OrgTemplate "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-OrgTemplate")
-    - [Use an AWS CloudFormation
+    - [Use an CloudFormation
       template to set up individual source accounts](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-SingleTemplate "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-SingleTemplate")
     - [Use a URL to set
       up individual source accounts](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-SingleURL "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-SingleURL")

@@ -8,6 +8,7 @@ add-on Auto monitor advanced configuration.
 - [Enable Application Signals on an Amazon EKS cluster using the console](#CloudWatch-Application-Signals-Enable-EKS-Console "#CloudWatch-Application-Signals-Enable-EKS-Console")
 - [Enable Application Signals on an Amazon EKS cluster using the CloudWatch Observability add-on advanced configuration](#CloudWatch-Application-Signals-Enable-EKS-Addon "#CloudWatch-Application-Signals-Enable-EKS-Addon")
 - [Enable Application Signals on Amazon EKS using AWS CDK](#CloudWatch-Application-Signals-EKS-CDK "#CloudWatch-Application-Signals-EKS-CDK")
+- [Enable Application Signals on Amazon EKS using Model Context Protocol (MCP)](#CloudWatch-Application-Signals-EKS-MCP "#CloudWatch-Application-Signals-EKS-MCP")
 
 ## Enable Application Signals on an Amazon EKS cluster using the console
 
@@ -409,3 +410,68 @@ const deployment = {
 
 cluster.addManifest('`sample-app`', deployment)
 ```
+
+## Enable Application Signals on Amazon EKS using Model Context Protocol (MCP)
+
+You can use the CloudWatch Application Signals Model Context Protocol (MCP) server to enable Application Signals on your Amazon EKS clusters through conversational AI interactions. This provides a natural language interface for setting up Application Signals monitoring.
+
+The MCP server automates the enablement process by understanding your requirements and generating the appropriate configuration. Instead of manually following console steps or writing CDK code, you can simply describe what you want to enable.
+
+### Prerequisites
+
+Before using the MCP server to enable Application Signals, ensure you have:
+
+- A Development Environment that supports MCP (such as Kiro, Claude Desktop, VSCode with MCP extensions, or other MCP-compatible tools)
+- The CloudWatch Application Signals MCP server configured in your IDE. For detailed setup instructions, see [CloudWatch Application Signals MCP Server documentation](https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server "https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server").
+
+### Using the MCP server
+
+Once you have configured the CloudWatch Application Signals MCP server in your IDE, you can request enablement guidance using natural language prompts. While the coding assistant can infer context from your project structure, providing specific details in your prompts helps ensure more accurate and relevant guidance. Include information such as your application language, Amazon EKS cluster name, and absolute paths to your infrastructure and application code.
+
+**Best practice prompts (specific and complete):**
+
+```
+"Enable Application Signals for my Python service running on EKS.
+My app code is in /home/user/flask-api and IaC is in /home/user/flask-api/terraform"
+
+"I want to add observability to my Node.js application on EKS cluster 'production-cluster'.
+The application code is at /Users/dev/checkout-service and
+the Kubernetes manifests are at /Users/dev/checkout-service/k8s"
+
+"Help me instrument my Java Spring Boot application on EKS with Application Signals.
+Application directory: /opt/apps/payment-api
+CDK infrastructure: /opt/apps/payment-api/cdk"
+```
+
+**Less effective prompts:**
+
+```
+"Enable monitoring for my app"
+→ Missing: platform, language, paths
+
+"Enable Application Signals. My code is in ./src and IaC is in ./infrastructure"
+→ Problem: Relative paths instead of absolute paths
+
+"Enable Application Signals for my EKS service at /home/user/myapp"
+→ Missing: programming language
+```
+
+**Quick template:**
+
+```
+"Enable Application Signals for my [LANGUAGE] service on EKS.
+App code: [ABSOLUTE_PATH_TO_APP]
+IaC code: [ABSOLUTE_PATH_TO_IAC]"
+```
+
+### Benefits of using the MCP server
+
+Using the CloudWatch Application Signals MCP server offers several advantages:
+
+- **Natural language interface:** Describe what you want to enable without memorizing commands or configuration syntax
+- **Context-aware guidance:** The MCP server understands your specific environment and provides tailored recommendations
+- **Reduced errors:** Automated configuration generation minimizes manual typing errors
+- **Faster setup:** Get from intention to implementation more quickly
+- **Learning tool:** See the generated configurations and understand how Application Signals works
+
+For more information about configuring and using the CloudWatch Application Signals MCP server, see the [MCP server documentation](https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server "https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server").

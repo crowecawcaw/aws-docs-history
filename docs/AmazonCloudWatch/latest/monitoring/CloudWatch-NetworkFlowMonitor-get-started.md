@@ -2,7 +2,7 @@
 
 To help you get started, the section provides a high level overview of the steps to configure,
 and then gain insights, with Network Flow Monitor. For details, see the additional sections in this guide
-about initializing Network Flow Monitor, configuring agents, and creating monitors.
+about initializing Network Flow Monitor, deploying agents, and creating monitors.
 
 - Initialize Network Flow Monitor, to accept service-linked role permissions, create a
   _scope_ for monitoring in Network Flow Monitor, and create an initial topology. If you want

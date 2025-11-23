@@ -364,6 +364,8 @@ to complete the following actions:
   their associated time exclusion windows.
 - `autoscaling` – Retrieve application tags from Amazon EC2
   Autoscaling group.
+- `resource-explorer-2` – Retrieve current AWS resources information from AWS Resource Explorer.
+- `cloudtrail` – Enable creation of service-linked channels for retrieving CloudTrail events.
 
 The complete contents of
 **CloudWatchApplicationSignalsServiceRolePolicy** are as
@@ -600,18 +602,12 @@ service-linked role permissions policy allows CloudWatch to complete the followi
 actions:
 
 - `sts:AssumeRole`
-
-`logs:CreateLogGroup`
-
-`logs:CreateLogStream`
-
-`logs:PutLogEvents`
-
-`kms:Encrypt`
-
-`kms:Decrypt`
-
-`kms:GenerateDataKey`
+- `logs:CreateLogGroup`
+- `logs:CreateLogStream`
+- `logs:PutLogEvents`
+- `kms:Encrypt`
+- `kms:Decrypt`
+- `kms:GenerateDataKey`
 
 The **AWSObservabilityAdminLogsCentralizationServiceRolePolicy**
 service-linked role trusts the
@@ -858,6 +854,7 @@ subscribe to the RSS feed on the CloudWatch Document history page.
 
 | Change                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                                                                                  | Date               |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| [AWSServiceRoleForCloudWatchApplicationSignals](#service-linked-role-signals "#service-linked-role-signals")<br>– Update to permissions of service-linked role<br>policy                   | Updated the [CloudWatchApplicationSignalsServiceRolePolicy](using-service-linked-roles.md#service-linked-role-signals "using-service-linked-roles.md#service-linked-role-signals")<br>to include `resource-explorer-2:Search` and<br>`cloudtrail:CreateServiceLinkedChannel`<br>to enable new Application Signals features.                                  | November 12, 2025  |
 | [AWSObservabilityAdminLogsCentralizationServiceRolePolicy](#service-linked-role-logscentralization "#service-linked-role-logscentralization") – New service-linked role policy.            | Added information about the [AWSObservabilityAdminLogsCentralizationServiceRolePolicy](#service-linked-role-logscentralization "#service-linked-role-logscentralization")<br>that grants CloudWatch the permissions necessary to enable and manage<br>telemetry configurations for AWS resources based on telemetry<br>rules.                                | September 5, 2025  |
 | [AWSObservabilityAdminTelemetryEnablementServiceRolePolicy](#service-linked-role-telemetry-enablement "#service-linked-role-telemetry-enablement")<br>– New service-linked role policy.    | Added information about the [AWSObservabilityAdminTelemetryEnablementServiceRolePolicy](#service-linked-role-telemetry-enablement "#service-linked-role-telemetry-enablement")<br>that grants CloudWatch the permissions necessary to enable and manage<br>telemetry configurations for AWS resources based on telemetry<br>rules.                           | July 17, 2025      |
 | [AWSServiceRoleForCloudWatchApplicationSignals](#service-linked-role-signals "#service-linked-role-signals")<br>– Update to permissions of service-linked role<br>policy                   | Updated the [CloudWatchApplicationSignalsServiceRolePolicy](using-service-linked-roles.md#service-linked-role-signals "using-service-linked-roles.md#service-linked-role-signals") to<br>exclude time windows from impacting the SLO attainment rate,<br>error budget, and burn rate metrics. CloudWatch can retrieve exclusion<br>windows on behalf of you. | March 13, 2025     |

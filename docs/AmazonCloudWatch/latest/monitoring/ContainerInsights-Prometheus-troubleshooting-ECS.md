@@ -20,7 +20,7 @@ CloudWatch agent. The following steps guide you to do the debugging.
 mode**
 
 First, change the CloudWatch agent to debug mode by adding the following bold lines to
-your AWS CloudFormation template file,
+your CloudFormation template file,
 `cwagent-ecs-prometheus-metric-for-bridge-host.yaml` or
 `cwagent-ecs-prometheus-metric-for-awsvpc.yaml`. Then save the
 file.
@@ -35,8 +35,8 @@ cwagentconfig.json: |
         "metrics_collected": {
 ```
 
-Create a new AWS CloudFormation changeset against the existing stack. Set other parameters in
-the changeset to the same values as in your existing AWS CloudFormation stack. The following
+Create a new CloudFormation changeset against the existing stack. Set other parameters in
+the changeset to the same values as in your existing CloudFormation stack. The following
 example is for a CloudWatch agent installed in an Amazon ECS cluster using the EC2 launch type
 and the bridge network mode.
 
@@ -59,7 +59,7 @@ aws cloudformation create-change-set --stack-name CWAgent-Prometheus-ECS-${ECS_C
     --change-set-name $NEW_CHANGESET_NAME
 ```
 
-Go to the AWS CloudFormation console to review the new changeset,
+Go to the CloudFormation console to review the new changeset,
 `$NEW_CHANGESET_NAME`. There should be one change applied to the
 **CWAgentConfigSSMParameter** resource. Execute the changeset and
 restart the CloudWatch agent task by entering the following commands.
@@ -174,6 +174,6 @@ discovered Prometheus targets, this could be caused by one of the following:
 - The CloudWatch agent’s ECS task role might not have the
   **CloudWatchAgentServerPolicy** managed policy. The CloudWatch
   agent’s ECS task role needs to have this policy to be able to send the Prometheus
-  metrics as log events. If you used the sample AWS CloudFormation template to create the IAM
+  metrics as log events. If you used the sample CloudFormation template to create the IAM
   roles automatically, both the ECS task role and the ECS execution role are granted
   with the least privilege to perform the Prometheus monitoring.

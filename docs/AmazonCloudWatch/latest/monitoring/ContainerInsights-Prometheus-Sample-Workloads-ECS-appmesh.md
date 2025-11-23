@@ -20,7 +20,7 @@ in the following steps.
 
 ###### To install the CloudWatch agent with Prometheus monitoring for testing
 
-1. Download the AWS CloudFormation template by entering the following command.
+1. Download the CloudFormation template by entering the following command.
 
 ```
 curl -O https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/ecs-task-definition-templates/deployment-mode/replica-service/cwagent-prometheus/cloudformation-quickstart/cwagent-ecs-prometheus-metric-for-bridge-host.yaml
@@ -33,7 +33,7 @@ export ECS_CLUSTER_NAME=${ENVIRONMENT_NAME}
 export ECS_NETWORK_MODE=bridge
 ```
 
-3. Create the AWS CloudFormation stack by entering the following commands.
+3. Create the CloudFormation stack by entering the following commands.
 
 ```
 aws cloudformation create-stack --stack-name CWAgent-Prometheus-ECS-${ECS_CLUSTER_NAME}-EC2-${ECS_NETWORK_MODE} \
@@ -48,7 +48,7 @@ aws cloudformation create-stack --stack-name CWAgent-Prometheus-ECS-${ECS_CLUSTE
     --profile ${AWS_PROFILE}
 ```
 
-4. (Optional) When the AWS CloudFormation stack is created, you see a
+4. (Optional) When the CloudFormation stack is created, you see a
    `CREATE_COMPLETE` message. If you to check the
    status before you see that message, enter the following command.
 
@@ -76,7 +76,7 @@ enter `json`.
 ## Uninstall the CloudWatch agent with Prometheus monitoring
 
 When you are finished testing, enter the following command to uninstall the CloudWatch
-agent by deleting the AWS CloudFormation stack.
+agent by deleting the CloudFormation stack.
 
 ```
 aws cloudformation delete-stack \

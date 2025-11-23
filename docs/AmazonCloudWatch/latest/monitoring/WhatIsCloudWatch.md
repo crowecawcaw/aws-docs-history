@@ -104,7 +104,7 @@ you specify. Each monitor also generates a network health indicator (NHI), which
 were AWS network issues for the network flows tracked by your monitor during the time period that you're
 evaluating.
 
-When you connect by using AWS Direct Connect, you can use synthetic monitors in [Network Synthetic Monitor](what-is-network-monitor.md "what-is-network-monitor.md") to proactively monitor network connectivity
+When you connect by using Direct Connect, you can use synthetic monitors in [Network Synthetic Monitor](what-is-network-monitor.md "what-is-network-monitor.md") to proactively monitor network connectivity
 by running synthetic tests between a VPC and on-premises endpoints. When you create a synthetic monitor, you
 specify probes by providing a VPC subnet and on-premises IP addresses. AWS creates and manages the
 infrastructure in the background that is required to perform round-trip time and packet loss measurements

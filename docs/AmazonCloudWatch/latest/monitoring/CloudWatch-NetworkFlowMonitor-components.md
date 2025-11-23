@@ -3,8 +3,8 @@
 Network Flow Monitor uses or references the following concepts.
 
 **Agents**
-An _agent_ in Network Flow Monitor is a software application that you install on your Amazon EC2
-instance resources. The application has two parts:
+An _agent_ in Network Flow Monitor is a software application that you install on your
+AWS compute resources (Amazon EC2 and Amazon EKS). The application has two parts:
 
 - The first part receives events related to TCP connections and is registered
   within the Linux kernel using eBPF. eBPF is the Linux extended Berkley Packet Filter (eBPF)
@@ -29,7 +29,7 @@ network flows that you choose for the monitor.
 **Local and remote resources**
 A _local resource_ is the host location—or
 a location of multiple hosts—where a Network Flow Monitor agent is installed. It can be a
-subnet, a VPC, an Availability Zone, or an AWS Region. For example, consider a workload
+subnet, a VPC, an Availability Zone, an Amazon EKS cluster, or an AWS Region. For example, consider a workload
 that consists of an interaction between a web service and a backend database, for
 example, DynamoDB. In this scenario, the local resource is the subnet of the EC2 instance
 hosting the web service, which also runs the agent. A network flow is typically

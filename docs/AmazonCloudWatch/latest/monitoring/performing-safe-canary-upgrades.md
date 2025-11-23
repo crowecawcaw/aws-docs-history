@@ -104,12 +104,12 @@ aws synthetics get-canary \
 
 The _State_, _StateReason_, and _StateReasonCode_ displays the status of the dry run.
 
-**Using AWS CloudFormation**
+**Using CloudFormation**
 
 In your template for a Synthetics Canary, provide the field `DryRunAndUpdate` which accepts a boolean value `true` or `false`.
 
-when the value is `true` every update executes a dry run to validate the changes before automatically updating the canary. When the dry run fails, the canary does not update and fails the deployment and AWS CloudFormation deployment with a valid reason. To debug this issue, use the [AWS Synthetics console](CloudWatch_Synthetics_Canaries_Troubleshoot.md "CloudWatch_Synthetics_Canaries_Troubleshoot.md")
-or if using an API, get the `ArtifactS3Location` using the `GetCanaryRuns` API, and download the `*-log.txt` files to review the canary log executions for errors. After validation, modify the AWS CloudFormation template and retry the deployment or use the above API to validate.
+when the value is `true` every update executes a dry run to validate the changes before automatically updating the canary. When the dry run fails, the canary does not update and fails the deployment and CloudFormation deployment with a valid reason. To debug this issue, use the [AWS Synthetics console](CloudWatch_Synthetics_Canaries_Troubleshoot.md "CloudWatch_Synthetics_Canaries_Troubleshoot.md")
+or if using an API, get the `ArtifactS3Location` using the `GetCanaryRuns` API, and download the `*-log.txt` files to review the canary log executions for errors. After validation, modify the CloudFormation template and retry the deployment or use the above API to validate.
 
 When the value is `false`, synthetics will not execute a dry run to validate changes and will directly commit your updates.
 

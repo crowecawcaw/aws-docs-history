@@ -11,4 +11,4 @@ The instructions in this section describe how to delete a connector to a data so
 4. Choose **Manage in CloudFormation** in the row of the data source that you
    want to delete.
 
-You are taken to the AWS CloudFormation console. 5. In the section with the name of your data source, choose **Delete**. 6. In the confirmation pop-up, choose **Delete**.
+You are taken to the CloudFormation console. 5. In the section with the name of your data source, choose **Delete**. 6. In the confirmation pop-up, choose **Delete**.

@@ -235,7 +235,7 @@ Use the following steps to set up monitoring for your SAP HANA database
    performed to resolve operational work items, called OpsItems, that are
    related to your AWS resources, provide an SNS topic ARN.
 7. You can optionally enter tags to help you identify and organize your
-   resources. CloudWatch Application Insights supports both tag-based and AWS CloudFormation stack-based resource groups,
+   resources. CloudWatch Application Insights supports both tag-based and CloudFormation stack-based resource groups,
    with the exception of Application Auto Scaling groups. For more
    information, see [Tag Editor](../../../ARG/latest/userguide/tag-editor.md "../../../ARG/latest/userguide/tag-editor.md") in the
    _AWS Resource Groups and Tags User Guide_.
@@ -390,7 +390,7 @@ The log group widget in the problem dashboard shows the `ACCESS
  DENIED` event. This includes additional information, such as the S3
 bucket, the S3 bucket folder, and the S3 bucket Region.
 
-![Log group showing out of memory.](images/appinsights-backup-stopped-2.png)
+![Log group showing out of memory.](/images/AmazonCloudWatch/latest/monitoring/images/appinsights-backup-stopped-2.png)
 
 ## Detecting outliers for SAP HANA
 

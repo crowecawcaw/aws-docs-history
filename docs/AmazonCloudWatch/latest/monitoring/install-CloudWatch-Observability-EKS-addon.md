@@ -83,7 +83,7 @@ Identity association](../../../eks/latest/userguide/pod-id-association.md#pod-id
 Identity agent.
 
 Then install the Amazon CloudWatch Observability EKS add-on. To install the add-on, you can use
-the AWS CLI, the Amazon EKS console, AWS CloudFormation, or Terraform.
+the AWS CLI, the Amazon EKS console, CloudFormation, or Terraform.
 
 AWS CLI
 
@@ -147,9 +147,9 @@ Amazon EKS console
    **Create**. After the add-on installation is complete, you
    see your installed add-on.
 
-AWS CloudFormation
+CloudFormation
 
-###### To use AWS CloudFormation to install the Amazon CloudWatch Observability EKS add-on
+###### To use CloudFormation to install the Amazon CloudWatch Observability EKS add-on
 
 1. First, run the following AWS CLI command to attach the necessary IAM policy
    to your IAM role. Replace `my-role` with the role
@@ -236,7 +236,7 @@ aws iam attach-role-policy \
 ```
 
 Then install the Amazon CloudWatch Observability EKS add-on. To install the add-on, you can use
- the AWS CLI, the console, AWS CloudFormation, or Terraform.
+ the AWS CLI, the console, CloudFormation, or Terraform.
 
 
 
@@ -292,8 +292,8 @@ Amazon EKS console
  see your installed add-on.
 
 
-AWS CloudFormation
-###### To use AWS CloudFormation to install the Amazon CloudWatch Observability EKS add-on
+CloudFormation
+###### To use CloudFormation to install the Amazon CloudWatch Observability EKS add-on
 
 
 Replace ``my-cluster-name`` with the name

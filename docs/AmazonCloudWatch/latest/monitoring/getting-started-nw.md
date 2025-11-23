@@ -41,7 +41,7 @@ the monitor a name and defining the aggregation period. Optionally, you can also
 ###### Note
 
 A shorter aggregation period provides faster detection of network issues. However, the
-aggregation period that you choose can affect your billing costs. For more information about pricing, see the [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/") page. 5. (Optional) For **Tags**, add **Key** and
+aggregation period that you choose can affect your billing costs. For more information about pricing, see the [Amazon CloudWatch pricing](https://aws.amazon.com//cloudwatch/pricing/ "https://aws.amazon.com//cloudwatch/pricing/") page. 5. (Optional) For **Tags**, add **Key** and
 **Value** pairs to help identify this resource, so that you can
 search or filter on specific information.
 

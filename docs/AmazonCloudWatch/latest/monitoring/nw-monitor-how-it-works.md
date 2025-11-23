@@ -72,14 +72,14 @@ of detecting packet loss.
 ## Network health indicator for AWS
 
 Network Synthetic Monitor publishes a network health indicator (NHI) metric that provides information on
-issues with the AWS network for paths that include destinations connected through AWS Direct Connect.
+issues with the AWS network for paths that include destinations connected through Direct Connect.
 
 The NHI binary value is based on a statistical measure of the health of the AWS-controlled
 network path from the AWS hosted resource, where the monitor is deployed, to the Direct
 Connect location. Network Synthetic Monitor uses outlier detection to calculate availability drops or lower performance
 along the network paths.
 
-NHI is not accurate for AWS Direct Connect attachments that use intermediary routing, such as
+NHI is not accurate for Direct Connect attachments that use intermediary routing, such as
 connections that are created using Cloud WAN or that use AWS Transit Gateway. When you
 have a hybrid network that includes AWS Transit Gateway
 or other intermediary routing segments, do not use the NHI value as an indication of a performance issue.

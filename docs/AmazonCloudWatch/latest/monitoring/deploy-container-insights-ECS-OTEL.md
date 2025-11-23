@@ -14,12 +14,12 @@ for ECS EC2 instance level metrics](https://aws-otel.github.io/docs/setup/ecs#3-
 
 ###### Topics
 
-- [Quick setup using AWS CloudFormation](#container-insights-ECS-OTEL-quicksetup "#container-insights-ECS-OTEL-quicksetup")
+- [Quick setup using CloudFormation](#container-insights-ECS-OTEL-quicksetup "#container-insights-ECS-OTEL-quicksetup")
 - [Manual and custom setup](#container-insights-ECS-OTEL-custom "#container-insights-ECS-OTEL-custom")
 
-## Quick setup using AWS CloudFormation
+## Quick setup using CloudFormation
 
-Download the AWS CloudFormation template file for installing the AWS Distro for OpenTelemetry
+Download the CloudFormation template file for installing the AWS Distro for OpenTelemetry
 collector for Amazon ECS on EC2. Run the following curl command.
 
 ```
@@ -28,7 +28,7 @@ curl -O https://raw.githubusercontent.com/aws-observability/aws-otel-collector/m
 
 After you download the template file, open it and replace
 `PATH_TO_CloudFormation_TEMPLATE` with the path where you
-saved the template file. Then export the following parameters and run the AWS CloudFormation command,
+saved the template file. Then export the following parameters and run the CloudFormation command,
 as shown in the following command.
 
 - **Cluster_Name**– The Amazon ECS cluster
@@ -36,7 +36,7 @@ as shown in the following command.
 - **AWS_Region**– The Region where the data
   will be sent
 - **PATH_TO_CloudFormation_TEMPLATE**– The
-  path where you saved the AWS CloudFormation template file.
+  path where you saved the CloudFormation template file.
 - **command**– To enable the AWS Distro for
   OpenTelemetry collector to collect the instance-level metrics for Amazon ECS on Amazon EC2,
   you must specify `--config=/etc/ecs/otel-instance-metrics-config.yaml`
@@ -60,7 +60,7 @@ running.
 
 ### Troubleshooting the quick setup
 
-To check the status of the AWS CloudFormation stack, enter the following command.
+To check the status of the CloudFormation stack, enter the following command.
 
 ```
 ClusterName=`cluster-name`

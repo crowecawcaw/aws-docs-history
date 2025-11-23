@@ -49,7 +49,7 @@ Below are the key advantages of the solution:
 - Automates metric collection for EC2 instances eliminating manual instrumentation.
 - Provides a pre-configured, consolidated CloudWatch dashboard for EC2 instance metrics. The dashboard will
   automatically handle metrics from new EC2 instances configured using the solution, even if those metrics don't
-  exist when you first create the dashboard. It also allows you to observe EC2 instances managed via Auto Scaling groups.
+  exist when you first create the dashboard. It also allows you to observe EC2 instances managed via Amazon EC2 Auto Scaling groups.
 
 The following image is an example of the dashboard for this solution.
 
@@ -110,7 +110,7 @@ The following information is intended to help you understand how to customize th
 
 ###### Note
 
-If an EC2 instance is not part of an Auto Scaling group, the CloudWatch agent drops the `AutoScalingGroupName`
+If an EC2 instance is not part of an Amazon EC2 Auto Scaling group, the CloudWatch agent drops the `AutoScalingGroupName`
 dimension entirely. This behavior helps to prevent dimension names with null/empty values. Each metric widget included in
 the solution dashboard searches for metrics which include and exclude the `AutoScalingGroup` dimension. This helps to ensure
 that all EC2 instances where the solution is applied are supported by the same dashboard.
@@ -205,7 +205,7 @@ The deployment process includes the following steps:
 
 - Step 1: Ensure that the target EC2 instances have the required IAM permissions.
 - Step 2: Store the recommended agent configuration file in the Systems Manager Parameter Store.
-- Step 3: Install the CloudWatch agent on one or more EC2 instances using an AWS CloudFormation stack.
+- Step 3: Install the CloudWatch agent on one or more EC2 instances using an CloudFormation stack.
 - Step 4: Verify the agent setup is configured properly.
 
 ### Step 1: Ensure the target EC2 instances have the required IAM permissions
@@ -241,13 +241,13 @@ Use the following steps to store the recommended CloudWatch agent configuration 
    7. In the **Value** box, paste the agent configuration JSON provided earlier in this document.
    8. Choose **Create parameter**.
 
-### Step 3: Install the CloudWatch agent and apply the configuration using an AWS CloudFormation template
+### Step 3: Install the CloudWatch agent and apply the configuration using an CloudFormation template
 
-You can use AWS CloudFormation to install the agent and configure it to use the CloudWatch agent configuration that you created in the previous steps.
+You can use CloudFormation to install the agent and configure it to use the CloudWatch agent configuration that you created in the previous steps.
 
 ###### To install and configure the CloudWatch agent for this solution
 
-1. Open the AWS CloudFormation **Quick create stack** wizard using this link:
+1. Open the CloudFormation **Quick create stack** wizard using this link:
    [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json") .
 2. Verify that the selected Region on the console is the Region where the EC2 instances are running.
 3. For **Stack name**, enter a name to identity this stack, such as `CWAgentInstallationStack`.
@@ -259,15 +259,15 @@ You can use AWS CloudFormation to install the agent and configure it to use the 
          to install the CloudWatch agent with this configuration. You can list a single instance or several instances.
       2. If you are deploying at scale, you can specify the **TagKey** and the corresponding **TagValue**
          to target all EC2 instances with this tag and value. If you specify a **TagKey**, you must specify a corresponding
-         **TagValue**. (For an Auto Scaling group, specify `aws:autoscaling:groupName` for the **TagKey**
-         and specify the Auto Scaling group name for the **TagValue** to deploy to all instances within the Auto Scaling group.)If you specify both the **InstanceIds** and the **TagKeys** parameters,
+         **TagValue**. (For an Amazon EC2 Auto Scaling group, specify `aws:autoscaling:groupName` for the **TagKey**
+         and specify the Amazon EC2 Auto Scaling group name for the **TagValue** to deploy to all instances within the Amazon EC2 Auto Scaling group.)If you specify both the **InstanceIds** and the **TagKeys** parameters,
          the **InstanceIds** will take precedence and the tags will be ignored.
 
 5. Review the settings, then choose **Create stack**.
 
 If you want to edit the template file first to customize it, choose the **Upload a template file** option
 under **Create Stack Wizard** to upload the edited template. For more information, see
-[Creating a stack on AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md"). You can use the following link to download the template: [https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json "https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json") .
+[Creating a stack on CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md"). You can use the following link to download the template: [https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json "https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json") .
 
 ###### Note
 
@@ -288,7 +288,7 @@ If the CloudWatch agent is not installed and running, make sure you have set up 
 - Be sure you have attached a role with correct permissions for the EC2 instance as described in
   [Step 1: Ensure the target EC2 instances have the required IAM permissions](#Solution-EC2-Health-Deploy-Step1 "#Solution-EC2-Health-Deploy-Step1").
 - Be sure you have correctly configured the JSON for the Systems Manager parameter. Follow the steps in
-  [Troubleshooting installation of the CloudWatch agent with AWS CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting "Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting").
+  [Troubleshooting installation of the CloudWatch agent with CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting "Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting").
 
 ###### To verify that EC2 health metrics are being published to CloudWatch
 
@@ -315,11 +315,11 @@ By using the CloudWatch console to create a dashboard, you can preview the dashb
 
 ###### Note
 
-The dashboard created with AWS CloudFormation in this solution displays metrics from the Region where the solution is deployed.
-Be sure to create the AWS CloudFormation stack in the Region where your EC2 metrics are published.
+The dashboard created with CloudFormation in this solution displays metrics from the Region where the solution is deployed.
+Be sure to create the CloudFormation stack in the Region where your EC2 metrics are published.
 
 If you've specified a custom namespace other than `CWAgent` in the CloudWatch agent configuration, you'll have to change
-the AWS CloudFormation template for the dashboard to replace `CWAgent` with the customized namespace you are using.
+the CloudFormation template for the dashboard to replace `CWAgent` with the customized namespace you are using.
 
 ###### To create the dashboard via CloudWatch Console
 
@@ -331,9 +331,9 @@ the AWS CloudFormation template for the dashboard to replace `CWAgent` with the 
 To easily differentiate this dashboard from similar dashboards in other Regions, we recommend including the Region name
 in the dashboard name, such as `EC2HealthDashboard-us-east-1`. 4. Preview the dashboard and choose **Save** to create the dashboard.
 
-###### To create the dashboard via AWS CloudFormation
+###### To create the dashboard via CloudFormation
 
-1. Open the AWS CloudFormation **Quick create stack** wizard using this link:
+1. Open the CloudFormation **Quick create stack** wizard using this link:
    [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json") .
 2. Verify that the selected Region on the console is the Region where the EC2 instances are running.
 3. For **Stack name**, enter a name to identity this stack, such as `EC2HealthDashboardStack`.
@@ -341,14 +341,14 @@ in the dashboard name, such as `EC2HealthDashboard-us-east-1`. 4. Preview the da
 
 To easily differentiate this dashboard from similar dashboards in other Regions, we recommend including the Region name
 in the dashboard name, such as `EC2HealthDashboard-us-east-1`. 5. Acknowledge access capabilities for transforms under **Capabilities and transforms**.
-Note that AWS CloudFormation doesn't add any IAM resources. 6. Review the settings, then choose **Create stack**. 7. After the stack status is **CREATE_COMPLETE**, choose the **Resources** tab under
+Note that CloudFormation doesn't add any IAM resources. 6. Review the settings, then choose **Create stack**. 7. After the stack status is **CREATE_COMPLETE**, choose the **Resources** tab under
 the created stack and then choose the link under **Physical ID** to go to the dashboard. You can also access the
 dashboard in the CloudWatch console by choosing **Dashboards** in the left navigation pane of the console,
 and finding the dashboard name under **Custom Dashboards**.
 
 If you want to edit the template file to customize it for any purpose, you can use the **Upload a template file** option
 under **Create Stack Wizard** to upload the edited template. For more information, see
-[Creating a stack on AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
+[Creating a stack on CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
 You can use this link to download the template:
 [https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json "https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json")
 

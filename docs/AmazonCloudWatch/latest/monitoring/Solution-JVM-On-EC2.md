@@ -255,7 +255,7 @@ The deployment process includes the following steps:
 
 - Step 1: Ensure that the target EC2 instances have the required IAM permissions.
 - Step 2: Store the recommended agent configuration file in the Systems Manager Parameter Store.
-- Step 3: Install the CloudWatch agent on one or more EC2 instances using an AWS CloudFormation stack.
+- Step 3: Install the CloudWatch agent on one or more EC2 instances using an CloudFormation stack.
 - Step 4: Verify the agent setup is configured properly.
 
 ### Step 1: Ensure the target EC2 instances have the required IAM permissions
@@ -296,14 +296,14 @@ parameter in Parameter Store.
       grouping dimension value and port number as described.
    8. Choose **Create parameter**.
 
-### Step 3: Install the CloudWatch agent and apply the configuration using an AWS CloudFormation template
+### Step 3: Install the CloudWatch agent and apply the configuration using an CloudFormation template
 
 You can use AWS CloudFormation to install the agent and configure it to use the CloudWatch agent
 configuration that you created in the previous steps.
 
 ###### To install and configure the CloudWatch agent for this solution
 
-1. Open the AWS CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json") .
+1. Open the CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json](cloudformation/home.md#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json "cloudformation/home.md#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json") .
 2. Verify that the selected Region on the console is the Region where the JVM workload is running.
 3. For **Stack name**, enter a name to identity this stack,
    such as `CWAgentInstallationStack`.
@@ -316,8 +316,8 @@ configuration that you created in the previous steps.
          You can list a single instance or several instances.
       2. If you are deploying at scale, you can specify the **TagKey** and the corresponding **TagValue**
          to target all EC2 instances with this tag and value. If you specify a **TagKey**, you must specify a corresponding **TagValue**.
-         (For an Auto Scaling group, specify `aws:autoscaling:groupName` for the **TagKey** and specify the Auto Scaling group name for
-         the **TagValue** to deploy to all instances within the Auto Scaling group.)
+         (For an Amazon EC2 Auto Scaling group, specify `aws:autoscaling:groupName` for the **TagKey** and specify the Amazon EC2 Auto Scaling group name for
+         the **TagValue** to deploy to all instances within the Amazon EC2 Auto Scaling group.)
 
       If you specify both the **InstanceIds** and the **TagKeys** parameters,
       the **InstanceIds** will take precedence and the tags will be ignored.
@@ -326,7 +326,7 @@ configuration that you created in the previous steps.
 
 If you want to edit the template file first to customize it, choose the **Upload a template file** option
 under **Create Stack Wizard** to upload the edited template. For more information,
-see [Creating a stack on AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
+see [Creating a stack on CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
 You can use the following link to download the template: [https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json "https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-1.0.0.json") .
 
 ###### Note
@@ -350,7 +350,7 @@ not installed and running, make sure you have set up everything correctly.
   EC2 instance as described in [Step 1: Ensure the target EC2 instances have the required IAM permissions](#Solution-JVM-Agent-Step1 "#Solution-JVM-Agent-Step1").
 - Be sure you have correctly configured the JSON for the Systems Manager parameter. Follow the steps in
   [Troubleshooting
-  installation of the CloudWatch agent with AWS CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting "Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting").
+  installation of the CloudWatch agent with CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting "Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting").
 
 If everything is set up correctly, then you should see the
 JVM metrics being published to CloudWatch. You can check the CloudWatch console to verify they are being published.
@@ -390,8 +390,8 @@ By using the CloudWatch console to create a dashboard, you can preview the dashb
 
 ###### Note
 
-The dashboard created with AWS CloudFormation in this solution displays metrics from the Region where the solution is deployed.
-Be sure to create the AWS CloudFormation stack in the Region where your JVM metrics are published.
+The dashboard created with CloudFormation in this solution displays metrics from the Region where the solution is deployed.
+Be sure to create the CloudFormation stack in the Region where your JVM metrics are published.
 
 If CloudWatch agent metrics are getting published to a different namespace than `CWAgent` (for example, if you've provided
 a customized namespace), you'll have to change the CloudFormation configuration
@@ -418,9 +418,9 @@ count metric `jvm.gc.collections.count`.
 To easily differentiate this dashboard from similar dashboards in other Regions, we recommend including the Region name
 in the dashboard name, such as `JVMDashboard-us-east-1`. 4. Preview the dashboard and choose **Save** to create the dashboard.
 
-###### To create the dashboard via AWS CloudFormation
+###### To create the dashboard via CloudFormation
 
-1. Open the AWS CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json") .
+1. Open the CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](cloudformation/home.md#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "cloudformation/home.md#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json") .
 2. Verify that the selected Region on the console is the Region where the JVM workload is running.
 3. For **Stack name**, enter a name to identity this stack,
    such as `JVMDashboardStack`.
@@ -436,7 +436,7 @@ and finding the dashboard name under **Custom Dashboards**.
 
 If you want to edit the template file to customize it for any purpose, you can use **Upload a template file** option
 under **Create Stack Wizard** to upload the edited template. For more information, see
-[Creating a stack on AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
+[Creating a stack on CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
 You can use this link to download the template: [https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
 
 ###### Note

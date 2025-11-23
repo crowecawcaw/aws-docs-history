@@ -1,16 +1,16 @@
-# Using Transaction Search with AWS CloudFormation
+# Using Transaction Search with CloudFormation
 
-You can use AWS CloudFormation to enable and configure X-Ray Transaction Search.
+You can use CloudFormation to enable and configure X-Ray Transaction Search.
 
 ###### Note
 
-To create a AWS CloudFormation stack, see [Creating your first stack](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md") .
+To create a CloudFormation stack, see [Creating your first stack](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md") .
 
 ## Prerequisites
 
-- You must have access to an AWS account with an IAM user or role that has permissions to use Amazon EC2, Amazon S3, AWS CloudFormation, or have administrative user access.
+- You must have access to an AWS account with an IAM user or role that has permissions to use Amazon EC2, Amazon S3, CloudFormation, or have administrative user access.
 - You must have a Virtual Private Cloud (VPC) that has access to the internet. To keep things simple, you can use the default VPC that comes with your account. The default VPC and default subnets are sufficient for this configuration.
-- Make sure Transaction Search is disabled before you enable using AWS CDK or AWS CloudFormation.
+- Make sure Transaction Search is disabled before you enable using AWS CDK or CloudFormation.
 
 ## Enabling Transaction Search
 
@@ -253,7 +253,7 @@ export class XRayTransactionSearchStack extends cdk.Stack {
 
 ## Verifying the configuration
 
-After deploying your AWS CloudFormation stack, you can verify the configuration using the AWS CLI.
+After deploying your CloudFormation stack, you can verify the configuration using the AWS CLI.
 
 **aws xray get-trace-segment-destination**
 

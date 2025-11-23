@@ -70,6 +70,12 @@ with one of the following options:
      and X-Ray trace information in this account. For more information, see
      [Using the
      X-Ray Trace Map](../../../xray/latest/devguide/xray-console-servicemap.md "../../../xray/latest/devguide/xray-console-servicemap.md").
+    * **Include read-only access for Database Insights**.
+     If you select this option, users in
+     the monitoring account can also view Database Insights telemetry in this account. For more information, see
+     [Set up cross-account cross-region monitoring for CloudWatch Database Insights](Database-Insights-Cross-Account-Cross-Region.md "Database-Insights-Cross-Account-Cross-Region.md")
+
+    .
     * **Full read-only access to everything in your account**. This option enables
      the accounts that you use for sharing to create cross-account
      dashboards that include widgets that contain CloudWatch data from
@@ -271,7 +277,7 @@ To disable cross-account functionality for CloudWatch, follow these steps.
 
 **Step 1: Remove the cross-account stacks or roles**
 
-The best method is to remove the AWS CloudFormation stacks that were used to enable cross-account
+The best method is to remove the CloudFormation stacks that were used to enable cross-account
 functionality.
 
 - In each of the sharing accounts, remove the
@@ -281,7 +287,7 @@ functionality.
   **CloudWatch-CrossAccountListAccountsRole** stack in
   the organization's management account.
 
-If you didn't use the AWS CloudFormation stacks to enable cross-account functionality, do the following:
+If you didn't use the CloudFormation stacks to enable cross-account functionality, do the following:
 
 - In each of the sharing accounts, delete the
   **CloudWatch-CrossAccountSharingRole** IAM role.

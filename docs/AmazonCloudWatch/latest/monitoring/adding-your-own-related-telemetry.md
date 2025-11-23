@@ -78,7 +78,7 @@ key value pairs:
   pair identifies the entity as an AWS resource.
 - `"ResourceType": "*<resource-type>*"`
   – The string value of the `ResourceType` is
-  the AWS CloudFormation [resource type](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") string. For example,
+  the CloudFormation [resource type](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") string. For example,
   `AWS::DynamoDB::Table`.
 - `"Identifier": "*<resource-id>*"`
   – The primary identifier for the resource. For more
@@ -92,7 +92,7 @@ key value pairs:
 - `"Type": "AWS::Service"` – This key-value
   pair identifies the entity as an AWS service.
 - `"Name": "*<service-name>*"`
-  – The value of the `Name` is the AWS CloudFormation
+  – The value of the `Name` is the CloudFormation
   [service name](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") string. For example,
   `AWS::DynamoDB`.
 

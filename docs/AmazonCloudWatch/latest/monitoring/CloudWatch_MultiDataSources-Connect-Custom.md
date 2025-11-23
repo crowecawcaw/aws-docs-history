@@ -51,7 +51,7 @@ resource tags to the Lambda function.
 9. Choose **Create data source**.
 
 The new custom source that you just
-added doesn't appear until the AWS CloudFormation stack finishes creating it. To check progress, you
+added doesn't appear until the CloudFormation stack finishes creating it. To check progress, you
 can choose **View the status of my CloudFormation stack**. Or you can
 choose the refresh icon to update this list.
 
@@ -357,7 +357,7 @@ Step 3: Attach a resource tag to the Lambda function
 
 The CloudWatch console determines which of your Lambda functions are data source connectors by using
 a tag. When you create a data source using one of the wizards, the tag is automatically
-applied by the AWS CloudFormation stack that configures it. When you create a data source yourself, you
+applied by the CloudFormation stack that configures it. When you create a data source yourself, you
 can use the following tag for your Lambda function. This makes your
 connector appear in the **Data source** dropdown in the CloudWatch console when
 you query metrics.

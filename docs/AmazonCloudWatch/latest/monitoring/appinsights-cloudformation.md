@@ -5,16 +5,16 @@ CloudFormation templates
 You can add Application Insights monitoring, including key metrics and telemetry, to your
 application, database, and web server, directly from AWS CloudFormation templates.
 
-This section provides sample AWS CloudFormation templates in both JSON and YAML formats to help you
+This section provides sample CloudFormation templates in both JSON and YAML formats to help you
 create and configure Application Insights monitoring.
 
-To view the Application Insights resource and property reference in the _AWS CloudFormation User
+To view the Application Insights resource and property reference in the _CloudFormation User
 Guide_, see [ApplicationInsights resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_ApplicationInsights.md "../../../AWSCloudFormation/latest/UserGuide/AWS_ApplicationInsights.md").
 
 ###### Sample templates
 
 - [Create an Application Insights
-  application for the entire AWS CloudFormation stack](#appinsights-cloudformation-apply-to-stack "#appinsights-cloudformation-apply-to-stack")
+  application for the entire CloudFormation stack](#appinsights-cloudformation-apply-to-stack "#appinsights-cloudformation-apply-to-stack")
 - [Create an Application Insights
   application with detailed settings](#appinsights-cloudformation-apply-detailed "#appinsights-cloudformation-apply-detailed")
 - [Create an Application Insights application
@@ -27,7 +27,7 @@ Guide_, see [ApplicationInsights resource type reference](../../../AWSCloudForma
 
 ## Create an Application Insights
 
-application for the entire AWS CloudFormation stack
+application for the entire CloudFormation stack
 
 To apply the following template, you must create AWS resources and one or more
 resource groups from which to create Application Insights applications to monitor those

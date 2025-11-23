@@ -25,7 +25,7 @@ console or the AWS Command Line Interface. To work with Network Synthetic Monito
 ###### Note
 
 A shorter aggregation period provides faster detection of network issues. However, the
-aggregation period that you choose can affect your billing costs. For more information about pricing, see the [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/") page. 6. (Optional) In the **Tags** section, add **Key** and
+aggregation period that you choose can affect your billing costs. For more information about pricing, see the [Amazon CloudWatch pricing](https://aws.amazon.com//cloudwatch/pricing/ "https://aws.amazon.com//cloudwatch/pricing/") page. 6. (Optional) In the **Tags** section, add **Key** and
 **Value** pairs to further help identify this resource, allowing you to
 search or filter on specific information. You can also just change the
 **Value** of any current **Key**.

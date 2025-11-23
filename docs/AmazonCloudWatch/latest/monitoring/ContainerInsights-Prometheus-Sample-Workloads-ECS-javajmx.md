@@ -64,7 +64,7 @@ Amazon ECS](deploy-container-insights-ECS.md "deploy-container-insights-ECS.md")
   }
 ```
 
-The default setting of the CloudWatch agent in the AWS CloudFormation template enables both docker
+The default setting of the CloudWatch agent in the CloudFormation template enables both docker
 label-based service discovery and task definition ARN-based service discovery. To view
 these default settings, see line 65 of the [CloudWatch agent YAML configuration file](https://github.com/aws-samples/amazon-cloudwatch-container-insights/blob/latest/ecs-task-definition-templates/deployment-mode/replica-service/cwagent-prometheus/cloudformation-quickstart/cwagent-ecs-prometheus-metric-for-bridge-host.yaml#L65 "https://github.com/aws-samples/amazon-cloudwatch-container-insights/blob/latest/ecs-task-definition-templates/deployment-mode/replica-service/cwagent-prometheus/cloudformation-quickstart/cwagent-ecs-prometheus-metric-for-bridge-host.yaml#L65"). The containers with the
 `ECS_PROMETHEUS_EXPORTER_PORT` label will be auto-discovered based on the

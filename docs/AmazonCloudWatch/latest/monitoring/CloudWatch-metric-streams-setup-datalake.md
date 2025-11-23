@@ -108,9 +108,9 @@ Use the following steps to create a CloudWatch metric stream.
 
 ## AWS CloudFormation
 
-You can use AWS CloudFormation to set up a metric stream. For more information, see [AWS::CloudWatch::MetricStream](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.md").
+You can use CloudFormation to set up a metric stream. For more information, see [AWS::CloudWatch::MetricStream](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.md").
 
-###### To use AWS CloudFormation to create a metric stream
+###### To use CloudFormation to create a metric stream
 
 1. If you're streaming to Amazon S3, first create the bucket. For more information, see [Creating a bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md").
 2. Create the Firehose delivery stream. For more information, see
@@ -118,7 +118,7 @@ You can use AWS CloudFormation to set up a metric stream. For more information, 
 3. Create an IAM role that enables CloudWatch to write to the Firehose delivery stream.
    For more information about the contents of this role, see
    [Trust between CloudWatch and Firehose](CloudWatch-metric-streams-trustpolicy.md "CloudWatch-metric-streams-trustpolicy.md").
-4. Create the stream in AWS CloudFormation. For more information,
+4. Create the stream in CloudFormation. For more information,
    see [AWS::CloudWatch::MetricStream](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.md").
 
 ## AWS Cloud Development Kit (AWS CDK)

@@ -13,7 +13,7 @@ Synthetics provides.
 - [Packaging structure, JSON schema, and configuration settings](#CloudWatch_Synthetics_MultiCheck_Packaging "#CloudWatch_Synthetics_MultiCheck_Packaging")
 - [Creating a multi check canary in AWS Management Console](#CloudWatch_Synthetics_MultiCheck_Console "#CloudWatch_Synthetics_MultiCheck_Console")
 - [Creating a multi check canary using AWS Synthetics APIs](#CloudWatch_Synthetics_MultiCheck_API "#CloudWatch_Synthetics_MultiCheck_API")
-- [Creating a multi check canary in AWS CloudFormation](#CloudWatch_Synthetics_MultiCheck_CloudFormation "#CloudWatch_Synthetics_MultiCheck_CloudFormation")
+- [Creating a multi check canary in CloudFormation](#CloudWatch_Synthetics_MultiCheck_CloudFormation "#CloudWatch_Synthetics_MultiCheck_CloudFormation")
 - [Authentication configuration](#CloudWatch_Synthetics_MultiCheck_Authentication "#CloudWatch_Synthetics_MultiCheck_Authentication")
 - [Troubleshooting](#CloudWatch_Synthetics_MultiCheck_Troubleshooting "#CloudWatch_Synthetics_MultiCheck_Troubleshooting")
 
@@ -21,9 +21,9 @@ Synthetics provides.
 
 - Must be using syn-nodejs-3.0+ in order to create a multi check canary
 - When using Authentication and Secrets Manager configuration, you must ensure the canary
-  [ExecutionRoleArn](../../../https:/docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.md "../../../https:/docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.md") allows for the permissions to access these secrets
+  [ExecutionRoleArn](../../../AmazonSynthetics/latest/APIReference/API_CreateCanary.md "../../../AmazonSynthetics/latest/APIReference/API_CreateCanary.md") allows for the permissions to access these secrets
 - When using Authentication for Sigv4, you must ensure the canary
-  [ExecutionRoleArn](../../../https:/docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.md "../../../https:/docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.md") allows for the permissions to access the related role
+  [ExecutionRoleArn](../../../AmazonSynthetics/latest/APIReference/API_CreateCanary.md "../../../AmazonSynthetics/latest/APIReference/API_CreateCanary.md") allows for the permissions to access the related role
 
 ## Limitations
 
@@ -79,9 +79,9 @@ aws synthetics create-canary \
 
 ```
 
-## Creating a multi check canary in AWS CloudFormation
+## Creating a multi check canary in CloudFormation
 
-In your AWS CloudFormation template for a multi check canary, within the `Code` parameter, provide the field/value `BlueprintTypes="multi-checks"` instead of `Handler`.
+In your CloudFormation template for a multi check canary, within the `Code` parameter, provide the field/value `BlueprintTypes="multi-checks"` instead of `Handler`.
 When both `BlueprintTypes` and `Handler` are specified, a `ValidationException` is displayed. The runtime version provided must be `syn-nodejs-3.0 or later`.
 
 An example template:
@@ -290,7 +290,7 @@ The underlying code for multi check blueprint is written in Typescript. See the 
 ### JSON check configuration syntax errors
 
 When there are any syntactic errors related to the canary's JSON check configuration, the AWS Management Console will provide you a failure reason when you attempt to create the canary.
-If you are creating a canary using an API or AWS CloudFormation, you will see the failure when the canary is executed for the first time. It is recommended to use the safe canary updates workflow for multi check canary.
+If you are creating a canary using an API or CloudFormation, you will see the failure when the canary is executed for the first time. It is recommended to use the safe canary updates workflow for multi check canary.
 For more information, see [Performing safe canary updates](performing-safe-canary-upgrades.md "performing-safe-canary-upgrades.md") .
 
 ### Networking or timeout failures

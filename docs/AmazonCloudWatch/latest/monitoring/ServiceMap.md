@@ -34,6 +34,8 @@ application's operational health:
   filter text box. As you choose each property, you are guided through filter criteria. You
   will see the complete filter below the filter text box. Choose **Clear
   filters** at any time to remove the filter.
+- Monitor services across multiple AWS accounts in a single unified application map. Services from different accounts are clearly identified with account information, enabling unified observability for distributed applications.
+- Identify services not yet instrumented in your application. Application Signals automatically detects and displays services that haven't been instrumented yet, helping you achieve complete observability coverage. Un-instrumented services are visually distinguished on the map to help you prioritize instrumentation efforts.
 - Group and filter services to create customized views that match your workflows. This organization helps you quickly find and access the services you use most frequently
 - Save your filtered and grouped views to quickly return to frequently used configurations
 
@@ -41,7 +43,7 @@ application's operational health:
 
 When you visit the application map, by default it shows services grouped by **Related services**. Related services group services based on their dependencies. For example, if Service A calls Service B, which calls Service C, they're grouped under Service A. You can view SLI health, metrics and service count for all services in each group.
 
-![CloudWatch default application map grouped by related services.](images/Explore_map.png)
+![CloudWatch default application map grouped by related services.](images/explore-application-map-overview.png)
 
 ### Dynamic grouping and filtering
 
@@ -52,18 +54,39 @@ You can click the **Group by** dropdown to use different grouping options. By de
 
 If you want to define your own custom grouping, click **Manage groups** to define custom groups and then tag your services or add OTEL Resource Attributes with the group key.
 
+###### Note
+
+To enable grouping via OTEL resource attributes, the CloudWatch agent version must be v1.300056.0 or later.
+
+![Create custom grouping panel](images/explore-application-map-create-custom-grouping.png)
+
 Default grouping in Application Signals automatically organizes services based on their downstream dependencies. The system analyzes the service dependency graph and creates groups where the root node (a service with no upstream dependencies) becomes the group name. All services that depend on this root service, either directly or indirectly, are automatically included in the group. For example, if Service A calls Service B, which in turn calls Service C, all three services will be grouped together with Service A as the group name since it's the root of the dependency chain. This automatic grouping mechanism provides a natural way to visualize and manage related services based on their actual runtime interactions and dependencies.
 
 ### Group actions and insights
 
 For each group, you can perform the following actions:
 
-- Click **View insight** to view metrics charts and last deployment time for the group
-- Click **View dashboard** to view metrics dashboard and service list for the group
+- Click **View more** to view metrics charts, the last two change events, and last deployment time for the group
 
-You can also use **Group and filter** on the left bar to filter groups which have services with deployment time, SLI health status or compute platform type.
+![View more drawer for group in application map](images/explore-application-map-view-more.png)
 
-Use the **Search and filter** bar to search groups by name or search groups which contain specific service environment or dependency.
+- Click **View dashboard** to view metrics dashboard, change events table, and service list for the group
+
+![View application dashboard for group](images/explore-application-map-team-overview.png)
+
+![View application dashboard for group with metrics graphs](images/explore-application-map-team-overview-2.png)
+
+You can use **Group and filter** on the left bar to filter groups which have services with deployment time, SLI health status or compute platform type.
+
+![Grouping and filter services on the application dashboard](images/explore-application-map-grouping-filter.png)
+
+You can also filter by account to view services from specific AWS accounts in your cross-account observability setup.
+
+![Filter services by account on the application dashboard](images/explore-application-map-account-filter.png)
+
+Use the **Search and filter** bar to search groups by name or search groups which contain specific service environment or dependency. Filter by account ID to focus on services from specific accounts.
+
+![Search and filter services in application map](images/explore-application-map-search-and-filter.png)
 
 ### Configuring custom groups
 
@@ -166,34 +189,65 @@ To view services and their dependencies in a group, click on the Group name. It 
 
 ![CloudWatch application map services within group.](images/View-services-groups.png)
 
+Un-instrumented services are displayed with a distinctive visual indicator (such as a dashed border or different color) to differentiate them from instrumented services. Hover over an un-instrumented service node to see instrumentation guidance and links to setup documentation.
+
+![Filter by uninstrumented services on application map](images/explore-application-map-uninstrumented-filter.png)
+
 All Canaries, RUM Clients and AWS Service nodes will be collapsed by default. If services in this group call services which are not part of this group, they will also be collapsed by default.
 
+![Canary nodes are collapsed into a group in application map](images/explore-application-map-canary-collapse.png)
+
 If your map is still too large to investigate effectively, you can apply nested grouping to narrow down your investigation. For example, after grouping services by **Business Unit**, if you still have too many services in a group, use the Group by dropdown to select **Team**, creating a nested grouping structure.
+
+![Nested grouping in application map](images/explore-application-map-nested-grouping.png)
 
 ### Service insights and details
 
 While on this page you can also click **Save view** next to search bar to save your view so next time you don't have to apply the same grouping and filtering again.
 
-Click on **View insights** in service node to view Service Audit, Change events, SLI health and Metrics graphs.
+![Save grouping configuration](images/explore-application-map-save-view.png)
 
-![CloudWatch application map service insights.](images/View_insights.png)
+Click on **View more** in service node to view Service Audit, Change events, SLI health and Metrics graphs.
 
-If you want to view service operation and other service detail, click on **view more details** to go to service overview page.
+![CloudWatch application map service insights.](images/explore-application-map-service-view-more.png)
+
+If you want to view service operation and other service detail, click on **View dashboard** to go to service overview page.
+
+![CloudWatch application map service overview.](images/explore-application-map-service-overview.png)
 
 Alternatively you can click on Edge to view metrics of a specific dependency call of a service.
 
-### Last deployment tracking
+![CloudWatch application map node edge drawer](images/explore-application-map-edge.png)
 
-Track deployment activities with Application Signals' automatic processing of CloudTrail events. Monitor deployment times for services and their dependencies, providing immediate context for operational analysis and troubleshooting. Application Signals automatically correlates deployment times with performance changes, helping you quickly identify if recent deployments contributed to service issues. View deployment history and impact across your services without additional configuration or setup requirements.
+### Change Events
+
+Track change events across your application with Application Signals' automatic processing of CloudTrail events. Monitor configuration and deployment events for services and their dependencies, providing immediate context for operational analysis and troubleshooting. Change event detection is enabled alongside service discovery enablement through the CloudWatch Console or StartDiscovery API. For EKS services, deployment detection requires that the EKS services are instrumented with the Application Signals instrumentation SDK. Application Signals automatically correlates deployment times with performance changes, helping you quickly identify if recent deployments contributed to service issues. View change event history and impact across your services without additional configuration or setup requirements.
 
 ### Audit findings
 
-Discover critical insights through Application Signals' audit findings. Application Signals analyzes your applications to report significant observations. These automated findings help you easily identify root cause of service health issues. Application Signals employs advanced analytics to detect patterns, highlight resource inefficiencies, and suggest optimization opportunities. Findings are prioritized based on severity and potential business impact, enabling teams to focus on the most critical issues first. Get actionable recommendations for improving service reliability and performance without manual analysis.
+Discover critical insights through Application Signals' audit findings. The service analyzes your applications to report significant observations and potential problems, simplifying root cause analysis. These automated findings consolidate relevant traces, eliminating the need to navigate through multiple clicks. The audit system helps teams quickly identify issues and their underlying causes, enabling faster problem resolution.
+
+### Cross-Account Observability on Application Map
+
+Application Signals supports cross-account observability, allowing you to monitor and visualize services distributed across multiple AWS accounts in a single unified application map. This capability is essential for organizations with multi-account architectures following AWS best practices.
+
+**Key Capabilities:**
+
+- _Unified View_: View services from multiple AWS accounts in a single application map, providing a complete picture of your distributed application architecture.
+- _Account Identification_: Each service node clearly displays its account ID and region, making it easy to identify service ownership and location.
+- _Centralized Monitoring_: Monitor the health, performance, and SLO status of services across all connected accounts from a single monitoring account.
+- _Cross-Account Filtering_: Filter and group services by account ID to focus on specific accounts or view cross-account interactions.
+
+**How It Works:**
+
+Application Signals uses AWS Organizations and cross-account sharing to enable observability across multiple accounts. To setup cross account observability please refer to [CloudWatch cross-account observability](CloudWatch-Unified-Cross-Account.md "CloudWatch-Unified-Cross-Account.md").
 
 Choose a tab for information about exploring each kind of node and the edges (connections)
 between them.
 
 View your application services
+**Service (Instrumented)**
+
 You can view your application services and the status of their SLOs and service
 level indicators (SLIs) in the **Application Map**. If you didn't create
 SLOs for a service, choose the **Create SLO** button below the service
@@ -214,7 +268,7 @@ information:
 - The option to view more information about an SLO.
 - The `Cluster`, `Namespace`, and `Workload` for services hosted in Amazon EKS, or Environment for services hosted in Amazon ECS or Amazon EC2. For Amazon EKS-hosted services, choose any link to open CloudWatch Container Insights.
 - AccountId and region.
-- The **Change** section showing recent deployment history and timing.
+- The **Change** section showing recent change events and the last deployment time.
 - The **Operational Audit** tab providing automated audit findings and recommendations.
 - Service Metrics chart of Availability, latency, fault and errors.
 
@@ -233,11 +287,38 @@ When you select a edge node, a pane opens displaying detailed service informatio
 - Top path by latency
 - Top path by error rate
 
+**Service (Un-instrumented)**
+
+Un-instrumented services appear on the Application Map even when they haven't been configured with Application Signals. These services are automatically discovered by leveraging Resource Explorer using application names and tags. The system can automatically detect up to 3,000 resources in your AWS account.
+
+When you select an un-instrumented service node, a pane opens displaying:
+
+- Service name and identification information
+- AccountId and region where the service is detected
+- Instrumentation status and guidance
+- Call to action button "Enable Application Signals" that provides setup instructions
+- Compute platform type (if detectable)
+
+Un-instrumented services help you:
+
+- Identify gaps in your observability coverage
+- Prioritize which services to instrument next based on their position in your architecture
+- Understand the complete application topology even before full instrumentation
+- Plan instrumentation rollout across your organization
+
+###### Note
+
+Un-instrumented services display limited telemetry data since they don't actively send metrics or traces.
+
+![CloudWatch application map instrumentation filter](images/explore-application-map-instrumentation-filter.png)
+
 View dependencies
 Your application dependencies are displayed on the application map, connected to the
 services that call them.
 
 Choose a dependency node to open a pane containing error rate and fault rate, metrics chart for request, availability, latency, fault rate, and error rate.
+
+If the dependency node is a service or resource, then the pane will display change events for the requested time range.
 
 ![A CloudWatch application map displaying an expandable AWS service dependency node.](images/service-map-dependency.png)
 

@@ -19,13 +19,13 @@ for your organization.
 - [Step 1: Set
   up a monitoring account](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-ConfigureMonitoringAccount "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-ConfigureMonitoringAccount")
 - [Step 2: (Optional)
-  Download an AWS CloudFormation template or URL](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-TemplateOrURL "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-TemplateOrURL")
+  Download an CloudFormation template or URL](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-TemplateOrURL "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-TemplateOrURL")
 - [Step 3: Link
   the source accounts](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-ConfigureSourceAccount "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-ConfigureSourceAccount")
-  - [Use an AWS CloudFormation
+  - [Use an CloudFormation
     template to set up all accounts in an organization or an organizational unit
     as source accounts](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-OrgTemplate "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-OrgTemplate")
-  - [Use an AWS CloudFormation
+  - [Use an CloudFormation
     template to set up individual source accounts](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-SingleTemplate "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-SingleTemplate")
   - [Use a URL to set
     up individual source accounts](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-SingleURL "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-SingleURL")
@@ -267,7 +267,7 @@ We recommend creating a new AWS account to use as your organization's
 monitoring account.
 
 1. Set up a dedicated monitoring account.
-2. (Optional) Download an AWS CloudFormation template or copy a URL to link source
+2. (Optional) Download an CloudFormation template or copy a URL to link source
    accounts.
 3. Link source accounts to the monitoring account.
 
@@ -321,7 +321,7 @@ Separate the entries in this list with commas.
 
 When you enter an organization path, follow the exact format. The ou-id must end with a `/` (a slash character).
 For example: `o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-def0-awsbbbb/` 7. For **Define a label to use to identify your source account**,
-you can define alabel that is used to create a AWS CloudFormation template. The label is then applied to source accounts when that template is used to link the source accounts to this monitoring account.
+you can define alabel that is used to create a CloudFormation template. The label is then applied to source accounts when that template is used to link the source accounts to this monitoring account.
 
 You can specify whether to use account names or email addresses in this label, and also use variables such as `$AccountName`, `$AcccountEmail`,
 and `$AcccountEmailNoDomain`.
@@ -340,21 +340,21 @@ sections.
 
 ## Step 2: (Optional)
 
-Download an AWS CloudFormation template or URL
+Download an CloudFormation template or URL
 
 To link source accounts to a monitoring account, we recommend using an AWS CloudFormation
 template or a URL.
 
 - **If you are linking an entire organization**
-  – CloudWatch provides an AWS CloudFormation template.
+  – CloudWatch provides an CloudFormation template.
 - **If you are linking individual accounts**
-  – Use either an AWS CloudFormation template or a URL that CloudWatch provides.
+  – Use either an CloudFormation template or a URL that CloudWatch provides.
 
-To use an AWS CloudFormation template, you must download it during these steps. After you link
-the monitoring account with at least one source account, the AWS CloudFormation template is no
+To use an CloudFormation template, you must download it during these steps. After you link
+the monitoring account with at least one source account, the CloudFormation template is no
 longer available to download.
 
-###### To download an AWS CloudFormation template or copy a URL for linking source accounts to the
+###### To download an CloudFormation template or copy a URL for linking source accounts to the
 
 monitoring account
 
@@ -379,7 +379,7 @@ monitoring account
      **Download CloudFormation template** or
      **Copy URL**.
 
-7. (Optional) Repeat steps 5-6 to download both the AWS CloudFormation template and
+7. (Optional) Repeat steps 5-6 to download both the CloudFormation template and
    the URL.
 
 ## Step 3: Link
@@ -393,21 +393,21 @@ To link monitoring accounts with source accounts, you must have certain
 permissions. For more information, see [Necessary
 permissions](#CloudWatch-Unified-Cross-Account-Setup-permissions "#CloudWatch-Unified-Cross-Account-Setup-permissions").
 
-### Use an AWS CloudFormation
+### Use an CloudFormation
 
 template to set up all accounts in an organization or an organizational unit
 as source accounts
 
-These steps assume that you already downloaded the necessary AWS CloudFormation template by
+These steps assume that you already downloaded the necessary CloudFormation template by
 performing the steps in [Step 2: (Optional)
-Download an AWS CloudFormation template or URL](#Unified-Cross-Account-Setup-TemplateOrURL "#Unified-Cross-Account-Setup-TemplateOrURL").
+Download an CloudFormation template or URL](#Unified-Cross-Account-Setup-TemplateOrURL "#Unified-Cross-Account-Setup-TemplateOrURL").
 
-###### To use an AWS CloudFormation template to link accounts in an organization or
+###### To use an CloudFormation template to link accounts in an organization or
 
 organizational unit to the monitoring account
 
 1. Sign in to the organization's management account.
-2. Open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+2. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 3. In the left navigation bar, choose
    **StackSets**.
 4. Check that you are signed in to the Region that you want, then choose
@@ -434,20 +434,20 @@ organizational unit to the monitoring account
     until you see that your stack instances have the status
     **CREATE_COMPLETE**.
 
-### Use an AWS CloudFormation
+### Use an CloudFormation
 
 template to set up individual source accounts
 
-These steps assume that you already downloaded the necessary AWS CloudFormation template by
+These steps assume that you already downloaded the necessary CloudFormation template by
 performing the steps in [Step 2: (Optional)
-Download an AWS CloudFormation template or URL](#Unified-Cross-Account-Setup-TemplateOrURL "#Unified-Cross-Account-Setup-TemplateOrURL").
+Download an CloudFormation template or URL](#Unified-Cross-Account-Setup-TemplateOrURL "#Unified-Cross-Account-Setup-TemplateOrURL").
 
-###### To use an AWS CloudFormation template to set up individual source accounts for CloudWatch
+###### To use an CloudFormation template to set up individual source accounts for CloudWatch
 
 cross-account observability
 
 1. Sign in to the source account.
-2. Open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+2. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 3. In the left navigation bar, choose **Stacks**.
 4. Check that you are signed in to the Region that you want, then choose
    **Create stack**, **With new resources (standard)**.
@@ -476,7 +476,7 @@ up individual source accounts
 
 These steps assume that you already copied the necessary URL by performing
 the steps in [Step 2: (Optional)
-Download an AWS CloudFormation template or URL](#Unified-Cross-Account-Setup-TemplateOrURL "#Unified-Cross-Account-Setup-TemplateOrURL").
+Download an CloudFormation template or URL](#Unified-Cross-Account-Setup-TemplateOrURL "#Unified-Cross-Account-Setup-TemplateOrURL").
 
 ###### To use a URL to link individual source accounts to the monitoring
 

@@ -60,8 +60,8 @@ SEARCH('{AWS/ECS ClusterName}, MetricName="CPUUtilization" ', 'Average')
 SEARCH(' {AWS/EBS} MetricName="CPUUtilization" ', 'Average')
 ```
 
-The following example returns the Elastic Load Balancing metric named `ConsumedLCUs` as well
-as all Elastic Load Balancing metrics or dimensions that contain the token `flow`.
+The following example returns the ELB metric named `ConsumedLCUs` as well
+as all ELB metrics or dimensions that contain the token `flow`.
 
 ```
 SEARCH('{AWS/NetworkELB, LoadBalancer} "ConsumedLCUs" OR flow ', 'Maximum')

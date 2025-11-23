@@ -18,7 +18,7 @@ in both JavaScript and Python, and are created by a AWS CloudFormation stack. Fo
    - To use a sample custom widget provided by AWS, do the following:
      1. Select the sample in the dropdown box.
 
-     The AWS CloudFormation console launches in a new browser. In the AWS CloudFormation console, do the following: 2. (Optional) Customize the AWS CloudFormation stack name. 3. Make selections for any parameters used by the sample. 4. Select **I acknowledge that AWS CloudFormation might create IAM resources**, and choose **Create stack**.
+     The CloudFormation console launches in a new browser. In the CloudFormation console, do the following: 2. (Optional) Customize the CloudFormation stack name. 3. Make selections for any parameters used by the sample. 4. Select **I acknowledge that AWS CloudFormation might create IAM resources**, and choose **Create stack**.
 
    - To create your own custom widget provided by AWS, do the following:
      1. Choose **Next**.

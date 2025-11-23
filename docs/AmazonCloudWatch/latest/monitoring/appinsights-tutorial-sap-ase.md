@@ -209,7 +209,7 @@ Use the following steps to set up monitoring for your SAP ASE database
    performed to resolve operational work items, called OpsItems, that are
    related to your AWS resources, provide an SNS topic ARN.
 7. You can optionally enter tags to help you identify and organize your
-   resources. CloudWatch Application Insights supports both tag-based and AWS CloudFormation stack-based resource groups,
+   resources. CloudWatch Application Insights supports both tag-based and CloudFormation stack-based resource groups,
    with the exception of Application Auto Scaling groups. For more
    information, see [Tag Editor](../../../ARG/latest/userguide/tag-editor.md "../../../ARG/latest/userguide/tag-editor.md") in the
    _AWS Resource Groups and Tags User Guide_.

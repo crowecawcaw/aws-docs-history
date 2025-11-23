@@ -66,7 +66,7 @@ the solution.
 **How are solutions versioned?**
 
 Each solution provides the most up-to-date instructions and resources. We always recommend using the latest version available. While the solutions themselves are not
-versioned, the associated artifacts (such as AWS CloudFormation templates for dashboards and agent installations) are versioned.
+versioned, the associated artifacts (such as CloudFormation templates for dashboards and agent installations) are versioned.
 
-You can identify the version of a previously deployed artifact by checking the AWS CloudFormation template's description field or the filename of the template you downloaded.
+You can identify the version of a previously deployed artifact by checking the CloudFormation template's description field or the filename of the template you downloaded.
 To determine if you're using the latest version, compare your deployed version with the one currently referenced in the solution documentation.

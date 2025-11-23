@@ -1,9 +1,9 @@
 # Application
 
-Elastic Load Balancing
+ELB
 
 The following example shows a component configuration in JSON format for
-Application Elastic Load Balancing.
+Application ELB.
 
 ```
 {

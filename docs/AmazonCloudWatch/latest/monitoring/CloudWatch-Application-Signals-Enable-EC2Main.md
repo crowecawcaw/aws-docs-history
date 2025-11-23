@@ -569,6 +569,71 @@ to the following:
 --import @aws/aws-distro-opentelemetry-node-autoinstrumentation/register --experimental-loader=@opentelemetry/instrumentation/hook.mjs
 ```
 
-## (Optional) Step 4: Monitor your application health
+## Enable Application Signals on Amazon EC2 using Model Context Protocol (MCP)
+
+You can use the CloudWatch Application Signals Model Context Protocol (MCP) server to enable Application Signals on your Amazon EC2 instances through conversational AI interactions. This provides a natural language interface for setting up Application Signals monitoring.
+
+The MCP server automates the enablement process by understanding your requirements and generating the appropriate configuration. Instead of manually following setup steps, you can simply describe what you want to enable.
+
+### Prerequisites
+
+Before using the MCP server to enable Application Signals, ensure you have:
+
+- A Development Environment that supports MCP (such as Kiro, Claude Desktop, VSCode with MCP extensions, or other MCP-compatible tools)
+- The CloudWatch Application Signals MCP server configured in your IDE. For detailed setup instructions, see [CloudWatch Application Signals MCP Server documentation](https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server "https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server").
+
+### Using the MCP server
+
+Once you have configured the CloudWatch Application Signals MCP server in your IDE, you can request enablement guidance using natural language prompts. While the coding assistant can infer context from your project structure, providing specific details in your prompts helps ensure more accurate and relevant guidance. Include information such as your application language, instance details, and absolute paths to your infrastructure and application code.
+
+**Best practice prompts (specific and complete):**
+
+```
+"Enable Application Signals for my Python service running on EC2.
+My app code is in /home/ec2-user/flask-api and IaC is in /home/ec2-user/flask-api/terraform"
+
+"I want to add observability to my Java application on EC2.
+The application code is at /opt/apps/checkout-service and
+the infrastructure code is at /opt/apps/checkout-service/cloudformation"
+
+"Help me instrument my Node.js application on EC2 with Application Signals.
+Application directory: /home/ubuntu/payment-api
+Terraform code: /home/ubuntu/payment-api/terraform"
+```
+
+**Less effective prompts:**
+
+```
+"Enable monitoring for my app"
+→ Missing: platform, language, paths
+
+"Enable Application Signals. My code is in ./src and IaC is in ./infrastructure"
+→ Problem: Relative paths instead of absolute paths
+
+"Enable Application Signals for my EC2 service at /home/user/myapp"
+→ Missing: programming language
+```
+
+**Quick template:**
+
+```
+"Enable Application Signals for my [LANGUAGE] service on EC2.
+App code: [ABSOLUTE_PATH_TO_APP]
+IaC code: [ABSOLUTE_PATH_TO_IAC]"
+```
+
+### Benefits of using the MCP server
+
+Using the CloudWatch Application Signals MCP server offers several advantages:
+
+- **Natural language interface:** Describe what you want to enable without memorizing commands or configuration syntax
+- **Context-aware guidance:** The MCP server understands your specific environment and provides tailored recommendations
+- **Reduced errors:** Automated configuration generation minimizes manual typing errors
+- **Faster setup:** Get from intention to implementation more quickly
+- **Learning tool:** See the generated configurations and understand how Application Signals works
+
+For more information about configuring and using the CloudWatch Application Signals MCP server, see the [MCP server documentation](https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server "https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server").
+
+## (Optional) Monitor your application health
 
 Once you have enabled your applications on Amazon EC2, you can monitor your application health. For more information, see [Monitor the operational health of your applications with Application Signals](Services.md "Services.md").

@@ -72,12 +72,12 @@ Resources:
         - !Sub "arn:aws:lambda:${AWS::Region}:`111122223333`:layer:LambdaInsightsExtension:`53`"
 ```
 
-## Use AWS CloudFormation to update the Lambda Insights extension
+## Use CloudFormation to update the Lambda Insights extension
 
 on one or more functions
 
-To update the Lambda Insights Extension version by using AWS CloudFormation, update the extension layer in the `Layers`
-property within the function's AWS CloudFormation resource, as in the following example.
+To update the Lambda Insights Extension version by using CloudFormation, update the extension layer in the `Layers`
+property within the function's CloudFormation resource, as in the following example.
 For information about the latest release version of the Lambda Insights extension layer,
 see [Available versions of the Lambda Insights extension](Lambda-Insights-extension-versions.md "Lambda-Insights-extension-versions.md").
 

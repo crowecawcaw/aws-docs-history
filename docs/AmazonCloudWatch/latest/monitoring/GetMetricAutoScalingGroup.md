@@ -1,15 +1,15 @@
-# Aggregate statistics by Auto Scaling group
+# Aggregate statistics by Amazon EC2 Auto Scaling group
 
-You can aggregate statistics for the EC2 instances in an Auto Scaling group. Metrics are
+You can aggregate statistics for the EC2 instances in an Amazon EC2 Auto Scaling group. Metrics are
 completely separate between Regions, but you can use CloudWatch metric math to aggregate and
 transform metrics from multiple Regions. You can also use the cross-account dashboard to
 perform metric math on metrics from different accounts.
 
-This example shows you how to get the total bytes written to disk for one Auto Scaling group.
+This example shows you how to get the total bytes written to disk for one Amazon EC2 Auto Scaling group.
 The total is computed for 1-minute periods for a 24-hour interval across all EC2 instances
-in the specified Auto Scaling group.
+in the specified Amazon EC2 Auto Scaling group.
 
-###### To display DiskWriteBytes for the instances in an Auto Scaling group using the
+###### To display DiskWriteBytes for the instances in an Amazon EC2 Auto Scaling group using the
 
 console
 
@@ -20,17 +20,17 @@ console
 3. Choose the **EC2** namespace and then choose **By Auto
    Scaling Group**.
 4. Select the row for the **DiskWriteBytes** metric and the specific
-   Auto Scaling group, which displays a graph for the metric for the instances in the Auto Scaling group.
+   Amazon EC2 Auto Scaling group, which displays a graph for the metric for the instances in the Amazon EC2 Auto Scaling group.
    To change the name of the graph, choose the pencil icon. To change the time range,
    select one of the predefined values or choose **custom**.
 
-![Metrics aggregated across an Auto Scaling group](images/metric_aggregated_auto_scaling.png) 5. To change the statistic, choose the **Graphed metrics** tab. Choose
+![Metrics aggregated across an Amazon EC2 Auto Scaling group](images/metric_aggregated_auto_scaling.png) 5. To change the statistic, choose the **Graphed metrics** tab. Choose
 the column heading or an individual value and then choose one of the statistics or
 predefined percentiles, or specify a custom percentile (for example,
 `p95.45`). 6. To change the period, choose the **Graphed metrics** tab. Choose
 the column heading or an individual value and then choose a different value.
 
-###### To get DiskWriteBytes for the instances in an Auto Scaling group using the AWS CLI
+###### To get DiskWriteBytes for the instances in an Amazon EC2 Auto Scaling group using the AWS CLI
 
 Use the [get-metric-statistics](../../../cli/latest/reference/cloudwatch/get-metric-statistics.md "../../../cli/latest/reference/cloudwatch/get-metric-statistics.md") command as follows.
 

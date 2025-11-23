@@ -12,7 +12,7 @@ organization.
 
 ## Supported AWS infrastructure metrics
 
-The list below displays the AWS CloudFormation resource that support resource tags for telemetry enrichment in CloudWatch. When you enable resource tags for telemetry, CloudWatch can enrich metrics from these services with their associated resource tags.
+The list below displays the CloudFormation resource that support resource tags for telemetry enrichment in CloudWatch. When you enable resource tags for telemetry, CloudWatch can enrich metrics from these services with their associated resource tags.
 
 - AWS::ApiGatewayV2::Api
 - AWS::AppSync::GraphQLApi

@@ -46,7 +46,7 @@ information, see [Evaluating an alarm](AlarmThatSendsEmail.md#alarm-evaluation "
 - [S3ObjectLambda](#S3ObjectLambda "#S3ObjectLambda")
 - [Amazon SNS](#SNS "#SNS")
 - [Amazon SQS](#SQS "#SQS")
-- [AWS VPN](#VPN "#VPN")
+- [Site-to-Site VPN](#VPN "#VPN")
 
 ## Amazon API Gateway
 
@@ -3642,7 +3642,7 @@ producer is not sending messages.
 
 **Comparison Operator:** LESS_THAN_OR_EQUAL_TO_THRESHOLD
 
-## AWS VPN
+## Site-to-Site VPN
 
 **TunnelState**
 

@@ -3,24 +3,30 @@
 CloudWatch RUM attaches additional data to each event as metadata. Event metadata consists
 of attributes in the form of key-value pairs. You can use these attributes to search or
 filter events in the CloudWatch RUM console. By default, CloudWatch RUM creates some metadata for
-you. For more information about the default metadata, see [RUM event metadata](CloudWatch-RUM-datacollected.md#CloudWatch-RUM-datacollected-metadata "CloudWatch-RUM-datacollected.md#CloudWatch-RUM-datacollected-metadata").
+you. For more information about the default metadata, see [RUM event
+metadata](CloudWatch-RUM-datacollected.md#CloudWatch-RUM-datacollected-metadata "CloudWatch-RUM-datacollected.md#CloudWatch-RUM-datacollected-metadata").
 
-You can also use the CloudWatch RUM web client to add custom metadata to CloudWatch RUM events. The
-custom metadata can include session attributes and page attributes.
+You can also use the CloudWatch RUM web client to add custom metadata to CloudWatch RUM events.
+The custom metadata can include session attributes and page attributes.
 
-To add custom metadata, you must use version 1.10.0 or later of the CloudWatch RUM web client.
+To add custom metadata, you must use version 1.10.0 or later of the CloudWatch RUM web
+client.
 
-## Requirements and syntax
+## Requirements and
 
-Each event can include as many as 10 custom attributes in the metadata. The syntax requirements for custom attributes are as follows:
+syntax
+
+Each event can include as many as 10 custom attributes in the metadata. The syntax
+requirements for custom attributes are as follows:
 
 - **Keys**
   - Maximum of 128 characters
-  - Can include alphanumeric characters, colons (:), and underscores (\_)
+  - Can include alphanumeric characters, colons (:), and underscores
+    (\_)
   - Can't begin with `aws:`.
-  - Can't consist entirely of any of the reserved keywords listed in the
-    following section. Can use those keywords as part of a longer key
-    name.
+  - Can't consist entirely of any of the reserved keywords listed in
+    the following section. Can use those keywords as part of a longer
+    key name.
 
 - **Values**
   - Maximum of 256 characters
@@ -29,7 +35,8 @@ Each event can include as many as 10 custom attributes in the metadata. The synt
 **Reserved keywords**
 
 You can't use the following reserved keywords as complete key names. You can use
-the following keywords as part of a longer key name, such as `applicationVersion`.
+the following keywords as part of a longer key name, such as
+`applicationVersion`.
 
 - `browserLanguage`
 - `browserName`
@@ -54,20 +61,23 @@ the following keywords as part of a longer key name, such as `applicationVersion
 
 ###### Note
 
-CloudWatch RUM removes custom attributes from RUM events if an attribute includes a key or
-value that is not valid, or if the limit of 10 custom attributes per event has already been reached.
+CloudWatch RUM removes custom attributes from RUM events if an attribute
+includes a key or value that is not valid, or if the limit of 10 custom
+attributes per event has already been reached.
 
 ## Add session attributes
 
 If you configure custom session attributes, they are added to all events in a
 session. You configure session attributes either during CloudWatch RUM web client
-initialization or at runtime by using the `addSessionAttributes` command.
+initialization or at runtime by using the `addSessionAttributes`
+command.
 
-For example, you can add your application’s version as a session attribute.
-Then, in the CloudWatch RUM console, you can filter errors by version to find whether an
+For example, you can add your application’s version as a session attribute. Then,
+in the CloudWatch RUM console, you can filter errors by version to find whether an
 increased error rate is associated with a particular version of your application.
 
-**Adding a session attribute at initialization, NPM example**
+**Adding a session attribute at initialization, NPM
+example**
 
 The code section in bold adds the session attribute.
 
@@ -102,7 +112,8 @@ try {
 }
 ```
 
-**Adding a session attribute at runtime, NPM example**
+**Adding a session attribute at runtime, NPM
+example**
 
 ```
 awsRum.addSessionAttributes({
@@ -110,7 +121,8 @@ awsRum.addSessionAttributes({
 })
 ```
 
-**Adding a session attribute at initialization, embedded script example**
+**Adding a session attribute at initialization, embedded
+script example**
 
 The code section in bold adds the session attribute.
 
@@ -137,7 +149,8 @@ The code section in bold adds the session attribute.
 </script>
 ```
 
-**Adding a session attribute at runtime, embedded script example**
+**Adding a session attribute at runtime, embedded script
+example**
 
 ```
 <script>
@@ -154,13 +167,15 @@ The code section in bold adds the session attribute.
 
 If you configure custom page attributes, they are added to all events on the
 current page. You configure page attributes either during CloudWatch RUM web client
-initialization or at runtime by using the `recordPageView` command.
+initialization or at runtime by using the `recordPageView`
+command.
 
-For example, you can add your page template as a page attribute. Then, in the CloudWatch RUM
-console, you can filter errors by page templates to find whether an increased error
-rate is associated with a particular page template of your application.
+For example, you can add your page template as a page attribute. Then, in the CloudWatch
+RUM console, you can filter errors by page templates to find whether an increased
+error rate is associated with a particular page template of your application.
 
-**Adding a page attribute at initialization, NPM example**
+**Adding a page attribute at initialization, NPM
+example**
 
 The code section in bold adds the page attribute.
 
@@ -181,7 +196,8 @@ const credentialProvider = new CustomCredentialProvider();
 if(awsCreds) awsRum.setAwsCredentials(credentialProvider);
 ```
 
-**Adding a page attribute at runtime, NPM example**
+**Adding a page attribute at runtime, NPM
+example**
 
 ```
 awsRum.recordPageView({
@@ -192,7 +208,8 @@ awsRum.recordPageView({
 });
 ```
 
-**Adding a page attribute at initialization, embedded script example**
+**Adding a page attribute at initialization, embedded script
+example**
 
 The code section in bold adds the page attribute.
 
@@ -219,7 +236,8 @@ The code section in bold adds the page attribute.
 </script>
 ```
 
-**Adding a page attribute at runtime, embedded script example**
+**Adding a page attribute at runtime, embedded script
+example**
 
 ```
 <script>
@@ -234,18 +252,20 @@ The code section in bold adds the page attribute.
 </script>
 ```
 
-## Filtering by metadata attributes in the console
+## Filtering by metadata attributes in the
 
-To filter the visualizations in the CloudWatch RUM console with any built-in or
-custom metadata attribute, use the search bar. In the search bar, you can specify as
-many as 20 filter terms in the form of **key=value** to apply to
-the visualizations. For example, to filter data for only the Chrome browser, you
-could add the filter term **browserName=Chrome**.
+console
 
-By default, the CloudWatch RUM console retrieves the 100 most common attributes
-keys and values to display in the dropdown in the search bar. To add more metadata
-attributes as filter terms, enter the complete attribute key and value into the
-search bar.
+To filter the visualizations in the CloudWatch RUM console with any built-in or custom
+metadata attribute, use the search bar. In the search bar, you can specify as many
+as 20 filter terms in the form of **key=value** to apply to the
+visualizations. For example, to filter data for only the Chrome browser, you could
+add the filter term **browserName=Chrome**.
 
-A filter can include as many as 20 filter terms, and you can save up to 20 filters per app monitor.
-When you save a filter, it is saved in the **Saved filters** dropdown. You can also delete a saved filter.
+By default, the CloudWatch RUM console retrieves the 100 most common attributes keys and
+values to display in the dropdown in the search bar. To add more metadata attributes
+as filter terms, enter the complete attribute key and value into the search bar.
+
+A filter can include as many as 20 filter terms, and you can save up to 20 filters
+per app monitor. When you save a filter, it is saved in the **Saved
+filters** dropdown. You can also delete a saved filter.

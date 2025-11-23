@@ -13,7 +13,7 @@ You choose a [percentage of application traffic](IMTrafficPercentage.md "IMTraff
 monitor. The default percentage is 100%. You can update the percentage at any time, by editing the monitor.
 
 The maximum limit that you set for the number of city-networks helps to make sure that your bill is predictable. For more information, see
-[Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
+[Amazon CloudWatch Pricing](https://aws.amazon.com//cloudwatch/pricing/ "https://aws.amazon.com//cloudwatch/pricing/").
 You can also learn how different values for the number of city-networks actually monitored can affect your bill by using the CloudWatch price calculator.
 To explore options, on the [Pricing calculator for CloudWatch page](https://calculator.aws/#/addService/CloudWatch "https://calculator.aws/#/addService/CloudWatch"),
 scroll down to Internet Monitor.
@@ -33,7 +33,7 @@ limit at any time by editing your monitor.
 
 To explore options, on the [Pricing calculator for CloudWatch](https://calculator.aws/#/addService/CloudWatch "https://calculator.aws/#/addService/CloudWatch")
 page, scroll down to Internet Monitor. For more information
-on Internet Monitor pricing, see the Internet Monitor section on the [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/") page.
+on Internet Monitor pricing, see the Internet Monitor section on the [Amazon CloudWatch Pricing](https://aws.amazon.com//cloudwatch/pricing/ "https://aws.amazon.com//cloudwatch/pricing/") page.
 
 ## How to choose a city-networks maximum limit
 

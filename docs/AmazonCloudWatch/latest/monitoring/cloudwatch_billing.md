@@ -169,7 +169,7 @@ and Athena
 When you create your reports, make sure to select **Include
 resource IDs**. Otherwise, your reports won't include the
 column `line_item_resource_id`. This line helps you further
-identify costs when analyzing cost and usage data. 2. Integrate AWS Cost and Usage Reports with Athena. For more information, see [Setting up Athena using AWS CloudFormation templates](../../../cur/latest/userguide/use-athena-cf.md "../../../cur/latest/userguide/use-athena-cf.md") in the
+identify costs when analyzing cost and usage data. 2. Integrate AWS Cost and Usage Reports with Athena. For more information, see [Setting up Athena using CloudFormation templates](../../../cur/latest/userguide/use-athena-cf.md "../../../cur/latest/userguide/use-athena-cf.md") in the
 _AWS Cost and Usage Reports User Guide_. 3. Query your cost and usage reports.
 
 ###### Example of Athena query to show CloudWatch costs per month

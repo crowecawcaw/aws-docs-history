@@ -7,7 +7,7 @@ you specify accounts for your Network Flow Monitor scope, so that Network Flow M
 the accounts that you'll be tracking performance metrics for.
 
 In addition, you must install agents on your instances,
-to send performance metrics to the Network Flow Monitor backup ingestion server. For more information,
+to send performance metrics to the Network Flow Monitor ingestion server. For more information,
 see [Install Network Flow Monitor agents on EC2 and self-managed Kubernetes instances](CloudWatch-NetworkFlowMonitor-agents.md "CloudWatch-NetworkFlowMonitor-agents.md").
 
 The steps that you take to initialize Network Flow Monitor vary depending on whether you are measuring performance

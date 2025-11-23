@@ -91,7 +91,7 @@ Install the sample Memcached workload
 
 metrics
 
-1. Download the Memcached AWS CloudFormation template by entering the following
+1. Download the Memcached CloudFormation template by entering the following
    command.
 
 ```
@@ -122,7 +122,7 @@ aws cloudformation create-stack --stack-name Memcached-Prometheus-Demo-ECS-$ECS_
     --region $AWS_REGION
 ```
 
-The AWS CloudFormation stack creates four resources:
+The CloudFormation stack creates four resources:
 
 - One ECS task role
 - One ECS task execution role
@@ -193,7 +193,7 @@ metrics. Be sure to follow the existing indentation pattern.
 },
 ```
 
-3. If you already have the CloudWatch agent deployed in the Amazon ECS cluster by AWS CloudFormation,
+3. If you already have the CloudWatch agent deployed in the Amazon ECS cluster by CloudFormation,
    you can create a change set by entering the following commands.
 
 ```
@@ -214,7 +214,7 @@ aws cloudformation create-change-set --stack-name CWAgent-Prometheus-ECS-${ECS_C
     --change-set-name memcached-scraping-support
 ```
 
-4. Open the AWS CloudFormation console at
+4. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 5. Review the newly created changeset `memcached-scraping-support`.
    You should see one change applied to the `CWAgentConfigSSMParameter`

@@ -6,6 +6,8 @@ look for performance anomalies as you identify the root cause of operational iss
 [CloudWatch console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/") and choose **Services** under
 the **Application Signals** section in the left navigation pane.
 
+For un-instrumented services, the Service overview page displays limited information with prominent calls-to-action to enable Application Signals instrumentation.
+
 ## Explore operational health metrics for your services
 
 The top of the Services page includes an overall service operational health graph and several tables
@@ -41,10 +43,16 @@ The advanced filtering options allows you to:
 
 - Filter by service groups (both default and custom groupings)
 - Filter by recent deployment activity
+- Filter by Platform
+- Filter by SLI Health
+- Filter by Account ID (in cross-account observability setups)
+- Filter by instrumentation status (instrumented vs un-instrumented)
 - Filter by environment
 - Filter by service health status
 
 ![CloudWatch Services table](images/services-table-healthy-updated.png)
+
+For un-instrumented services, the Service overview page displays limited information with prominent calls-to-action to enable Application Signals instrumentation. Un-instrumented services appear in the Services table even when they haven't been configured with Application Signals, helping you identify gaps in your observability coverage and prioritize which services to instrument next based on their position in your architecture.
 
 Choose the name of any service in the table to view a [service detail page](ServiceDetail.md "ServiceDetail.md")
 containing service-level metrics, operations, and additional details. If you have associated the service's
@@ -80,7 +88,8 @@ These metrics give you immediate insight into your service's current state.
 You can visualize key operational performance indicators over time using a series of charts. To analyze trends and identify potential issues affecting your service health, adjust the time filter. All charts automatically
 update to reflect data for the selected time period.
 
-The Audit findings section automatically detects and shows critical problems in your service's behavior, so you don't need to investigate manually. You can use the **Change events** section
-to identify how recent deployments affect your service behavior.
+The Audit findings section automatically detects and shows critical problems in your service's behavior, so you don't need to investigate manually. Application Signals analyzes your applications to report significant observations and potential problems, simplifying root cause analysis. These automated findings consolidate relevant traces, eliminating the need to navigate through multiple clicks. The audit system helps teams quickly identify issues and their underlying causes, enabling faster problem resolution.
+
+You can use the Change events section to identify how recent deployments or configuration changes affect your service behavior. Application Signals automatically processes CloudTrail events to track change events across your application. Monitor configuration and deployment events for services and their dependencies, providing immediate context for operational analysis and troubleshooting. Application Signals automatically correlates deployment times with performance changes, helping you quickly identify if recent deployments contributed to service issues.
 
 ![Service overview](images/Service_detail.png)

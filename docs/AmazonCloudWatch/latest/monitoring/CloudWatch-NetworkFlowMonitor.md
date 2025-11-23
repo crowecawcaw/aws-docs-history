@@ -1,11 +1,12 @@
 # Using Network Flow Monitor
 
-Network Flow Monitor provides near real-time visibility into network performance, such
-as packet loss and latency, for traffic between Amazon EC2 instances, as well as traffic
-toward other AWS services, such as Amazon S3 and Amazon DynamoDB, or to the edge of another AWS Region.
-Network Flow Monitor receives data from lightweight software agents that you install on your instances. The agents
-gather performance statistics from TCP connections. This data is sent to the Network Flow Monitor backend
-service, and the top contributors for each metric type are calculated.
+Network Flow Monitor gives you near real-time visibility into network performance for
+traffic between compute resources (Amazon EC2 and Amazon Elastic Kubernetes Service), traffic to other AWS
+services (Amazon S3 and Amazon DynamoDB), and traffic to the edge of another AWS Region.
+Network Flow Monitor collects data from lightweight software agents that you install on
+your instances. These agents gather performance statistics from TCP connections and send
+this data to the Network Flow Monitor backend service, which calculates the top contributors
+for each metric type.
 
 Network Flow Monitor also determines if AWS is the cause of a detected network issue, and reports
 that information for network flows that you choose to monitor details for.

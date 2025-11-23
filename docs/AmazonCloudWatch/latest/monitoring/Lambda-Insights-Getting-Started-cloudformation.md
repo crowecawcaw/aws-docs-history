@@ -1,8 +1,8 @@
-# Use AWS CloudFormation to enable Lambda Insights on an
+# Use CloudFormation to enable Lambda Insights on an
 
 existing Lambda function
 
-Follow these steps to use AWS CloudFormation to enable Lambda Insights on an existing Lambda function.
+Follow these steps to use CloudFormation to enable Lambda Insights on an existing Lambda function.
 
 **Step 1: Install the layer**
 

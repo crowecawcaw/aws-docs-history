@@ -6,7 +6,7 @@ After you have an investigation group set up in your account, you can configure
 existing CloudWatch alarms to automatically create investigations when they enter the
 ALARM state. This eliminates the need to manually start investigations and ensures
 consistent response to operational issues. You can configure alarms using the AWS
-Management Console, AWS CLI, AWS CloudFormation, or AWS SDKs.
+Management Console, AWS CLI, CloudFormation, or AWS SDKs.
 
 Console
 
@@ -82,7 +82,7 @@ aws cloudwatch put-metric-alarm --alarm-name cpu-mon \
 ```
 
 CloudFormation
-This section includes AWS CloudFormation templates that you can use to configure
+This section includes CloudFormation templates that you can use to configure
 CloudWatch alarms to automatically create or update investigations. Each
 template requires that you specify an ARN for the
 `AlarmActions` parameter. For information about how to

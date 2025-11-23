@@ -17,6 +17,7 @@ You can install the add-on by using the console or by using API commands with th
 - [Prerequisites for installing the add-on](#CloudWatch-NetworkFlowMonitor-agents-kubernetes-eks-prereq "#CloudWatch-NetworkFlowMonitor-agents-kubernetes-eks-prereq")
 - [Install the add-on by using the console](#CloudWatch-NetworkFlowMonitor-agents-kubernetes-eks-console "#CloudWatch-NetworkFlowMonitor-agents-kubernetes-eks-console")
 - [Install the add-on by using the CLI](#CloudWatch-NetworkFlowMonitor-agents-kubernetes-eks-cli "#CloudWatch-NetworkFlowMonitor-agents-kubernetes-eks-cli")
+- [Configure for third party tools](CloudWatch-NetworkFlowMonitor-agents-kubernetes-eks-third-party.md "CloudWatch-NetworkFlowMonitor-agents-kubernetes-eks-third-party.md")
 
 ## Prerequisites for installing the add-on
 

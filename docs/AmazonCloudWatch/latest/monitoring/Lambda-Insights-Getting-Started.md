@@ -1,7 +1,7 @@
 # Get started with Lambda Insights
 
 To enable Lambda Insights on a Lambda function, you can use a one-click toggle in the Lambda console.
-Alternatively, you can use the AWS CLI, AWS CloudFormation, the AWS Serverless Application Model CLI, or the AWS Cloud Development Kit (AWS CDK).
+Alternatively, you can use the AWS CLI, CloudFormation, the AWS Serverless Application Model CLI, or the AWS Cloud Development Kit (AWS CDK).
 
 The following sections
 provide detailed instructions for completing these steps.
@@ -15,7 +15,7 @@ provide detailed instructions for completing these steps.
   existing Lambda function](Lambda-Insights-Getting-Started-cli.md "Lambda-Insights-Getting-Started-cli.md")
 - [Use the AWS SAM CLI to enable Lambda Insights on an
   existing Lambda function](Lambda-Insights-Getting-Started-SAM-CLI.md "Lambda-Insights-Getting-Started-SAM-CLI.md")
-- [Use AWS CloudFormation to enable Lambda Insights on an
+- [Use CloudFormation to enable Lambda Insights on an
   existing Lambda function](Lambda-Insights-Getting-Started-cloudformation.md "Lambda-Insights-Getting-Started-cloudformation.md")
 - [Use the AWS CDK to enable Lambda Insights on an
   existing Lambda function](Lambda-Insights-Getting-Started-clouddevelopmentkit.md "Lambda-Insights-Getting-Started-clouddevelopmentkit.md")

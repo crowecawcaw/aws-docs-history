@@ -36,7 +36,7 @@ services.
 - [API Gateway REST API
   stages](component-configuration-examples-api-gateway.md "component-configuration-examples-api-gateway.md")
 - [Application
-  Elastic Load Balancing](component-configuration-examples-application-elb.md "component-configuration-examples-application-elb.md")
+  ELB](component-configuration-examples-application-elb.md "component-configuration-examples-application-elb.md")
 - [AWS Lambda
   Function](component-configuration-examples-lambda.md "component-configuration-examples-lambda.md")
 - [AWS Network Firewall rule group](component-configuration-examples-firewall-rule-group.md "component-configuration-examples-firewall-rule-group.md")

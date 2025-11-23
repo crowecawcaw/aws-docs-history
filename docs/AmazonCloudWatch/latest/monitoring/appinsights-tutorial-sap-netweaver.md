@@ -140,7 +140,7 @@ Use the following steps to set up monitoring for your SAP NetWeaver application 
    [OpsItems](../../../systems-manager/latest/userguide/OpsCenter-getting-started-sns.md "../../../systems-manager/latest/userguide/OpsCenter-getting-started-sns.md"),
    that are related to your AWS resources, provide an SNS topic ARN.
 8. You can optionally enter tags to help you identify and organize your
-   resources. CloudWatch Application Insights supports both tag-based and AWS CloudFormation stack-based resource groups, with the exception of Application Auto Scaling groups.
+   resources. CloudWatch Application Insights supports both tag-based and CloudFormation stack-based resource groups, with the exception of Application Auto Scaling groups.
    For more information, see [Tag Editor](../../../ARG/latest/userguide/tag-editor.md "../../../ARG/latest/userguide/tag-editor.md") in the _AWS Resource Groups and Tags User Guide_.
 9. To review detected components, choose **Next**.
 10. On the **Review detected components** page, the monitored

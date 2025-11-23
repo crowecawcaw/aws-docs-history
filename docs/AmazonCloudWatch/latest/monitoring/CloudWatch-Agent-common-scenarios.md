@@ -180,7 +180,7 @@ To aggregate or roll up metrics collected by the agent, add an
 configuration file.
 
 For example, the following configuration file snippet rolls up metrics on the
-`AutoScalingGroupName` dimension. The metrics from all instances in each Auto Scaling
+`AutoScalingGroupName` dimension. The metrics from all instances in each Amazon EC2 Auto Scaling
 group are aggregated and can be viewed as a whole.
 
 ```
@@ -192,7 +192,7 @@ group are aggregated and can be viewed as a whole.
 ```
 
 To roll up along the combination of each `InstanceId` and
-`InstanceType` dimensions in addition to rolling up on the Auto Scaling group name, add
+`InstanceType` dimensions in addition to rolling up on the Amazon EC2 Auto Scaling group name, add
 the following.
 
 ```

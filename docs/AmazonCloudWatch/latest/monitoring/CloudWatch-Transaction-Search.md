@@ -11,9 +11,9 @@ This hierarchy forms a complete trace, mapping the flow of a transaction across 
 
 ###### Topics
 
-- [Benefits](#w29aac28c21b9 "#w29aac28c21b9")
-- [How it works](#w29aac28c21c11 "#w29aac28c21c11")
-- [Pricing](#w29aac28c21c13 "#w29aac28c21c13")
+- [Benefits](#w2aac28c21b9 "#w2aac28c21b9")
+- [How it works](#w2aac28c21c11 "#w2aac28c21c11")
+- [Pricing](#w2aac28c21c13 "#w2aac28c21c13")
 - [Enable transaction search](Enable-TransactionSearch.md "Enable-TransactionSearch.md")
 - [Spans](CloudWatch-Transaction-Search-ingesting-span-log-groups.md "CloudWatch-Transaction-Search-ingesting-span-log-groups.md")
 - [Adding custom attributes](CloudWatch-Transaction-Search-add-custom-attributes.md "CloudWatch-Transaction-Search-add-custom-attributes.md")

@@ -1,21 +1,26 @@
-# Inserting the CloudWatch app monitor code snippet into your application
+# Inserting the CloudWatch
 
-Next, you insert the code snippet that you created in the previous section into your application.
+app monitor code snippet into your application
+
+Next, you insert the code snippet that you created in the previous section into
+your application.
 
 ###### Warning
 
-The web client, downloaded and configured by the code snippet, uses cookies (or similar technologies)
-to help you collect end user data. Before you insert the code snippet, see
-[Filtering by metadata attributes in the console](CloudWatch-RUM-privacy.md "CloudWatch-RUM-privacy.md").
+The web client, downloaded and configured by the code snippet, uses cookies
+(or similar technologies) to help you collect end user data. Before you insert
+the code snippet, see [Filtering by metadata attributes in the
+console](CloudWatch-RUM-privacy.md "CloudWatch-RUM-privacy.md").
 
 If you don't have the code snippet that was previously generated, you can find it
-by following the directions in [How do I find a code snippet that I've already generated?](CloudWatch-RUM-find-code-snippet.md "CloudWatch-RUM-find-code-snippet.md").
+by following the directions in [How do I find a code snippet
+that I've already generated?](CloudWatch-RUM-find-code-snippet.md "CloudWatch-RUM-find-code-snippet.md").
 
 ###### To insert the CloudWatch RUM code snippet into your application
 
-1. Insert the code snippet that you copied or downloaded in the previous section inside the
-   `<head>` element of your application. Insert it before
-   the `<body>` element or any other
+1. Insert the code snippet that you copied or downloaded in the previous
+   section inside the `<head>` element of your application.
+   Insert it before the `<body>` element or any other
    `<script>` tags.
 
 The following is an example of a generated code snippet:
@@ -49,5 +54,5 @@ The following is an example of a generated code snippet:
 
 ```
 
-2. If your application is a multipage web application, you must repeat step 1 for each HTML page
-   that you want included in the data collection.
+2. If your application is a multipage web application, you must repeat step 1
+   for each HTML page that you want included in the data collection.

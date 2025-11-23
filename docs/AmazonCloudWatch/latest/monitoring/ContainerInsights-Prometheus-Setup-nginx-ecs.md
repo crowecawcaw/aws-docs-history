@@ -283,7 +283,7 @@ aws cloudformation create-change-set --stack-name CWAgent-Prometheus-ECS-${ECS_C
     --change-set-name nginx-scraping-support
 ```
 
-5. Open the AWS CloudFormation console at
+5. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 6. Revew the newly-created changeset
    **nginx-scraping-support**. You should see one change

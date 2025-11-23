@@ -129,21 +129,36 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
- "Sid": "CloudWatchApplicationSignalsEksReadPermissions",
+ "Sid": "CloudWatchApplicationSignalsResourceExplorerReadPermissions",
  "Effect": "Allow",
  "Action": [
- "eks:ListAddons",
- "eks:ListClusters"
+ "resource-explorer-2:ListIndexes",
+ "resource-explorer-2:Search"
  ],
  "Resource": "*"
  },
  {
- "Sid": "CloudWatchApplicationSignalsEksDescribeAddonReadPermissions",
+ "Sid": "CloudWatchApplicationSignalsResourceExplorerSLRPermissions",
  "Effect": "Allow",
  "Action": [
- "eks:DescribeAddon"
+ "iam:CreateServiceLinkedRole"
  ],
- "Resource": "arn:aws:eks:*:*:addon/*/amazon-cloudwatch-observability/*"
+ "Resource": "arn:aws:iam::*:role/aws-service-role/resource-explorer-2.amazonaws.com/AWSServiceRoleForResourceExplorer",
+ "Condition": {
+ "StringEquals": {
+ "iam:AWSServiceName": [
+ "resource-explorer-2.amazonaws.com"
+ ]
+ }
+ }
+ },
+ {
+ "Sid": "CloudWatchApplicationSignalsResourceExplorerCreateIndexPermissions",
+ "Effect": "Allow",
+ "Action": [
+ "resource-explorer-2:CreateIndex"
+ ],
+ "Resource": "arn:aws:resource-explorer-2:*:*:index/*"
  }
  ]
 }`

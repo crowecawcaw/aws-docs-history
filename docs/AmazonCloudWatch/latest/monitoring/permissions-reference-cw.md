@@ -154,7 +154,7 @@ permissions for actions
 
 permissions for actions
 
-| Amazon EC2 Auto Scaling API operations | Required permissions (API actions)                                   |
-| -------------------------------------- | -------------------------------------------------------------------- |
-| Scaling                                | `autoscaling:Scaling`<br>Required to scale an Auto Scaling group.    |
-| Trigger                                | `autoscaling:Trigger`<br>Required to trigger an Auto Scaling action. |
+| Amazon EC2 Auto Scaling API operations | Required permissions (API actions)                                              |
+| -------------------------------------- | ------------------------------------------------------------------------------- |
+| Scaling                                | `autoscaling:Scaling`<br>Required to scale an Amazon EC2 Auto Scaling group.    |
+| Trigger                                | `autoscaling:Trigger`<br>Required to trigger an Amazon EC2 Auto Scaling action. |

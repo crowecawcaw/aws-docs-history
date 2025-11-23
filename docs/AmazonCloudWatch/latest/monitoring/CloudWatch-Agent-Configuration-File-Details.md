@@ -209,7 +209,7 @@ _Amazon Web Services General Reference_.
 - `aggregation_dimensions` – Optional. Specifies the
   dimensions that collected metrics are to be aggregated on. For example, if you
   roll up metrics on the `AutoScalingGroupName` dimension, the metrics
-  from all instances in each Auto Scaling group are aggregated and can be viewed as a
+  from all instances in each Amazon EC2 Auto Scaling group are aggregated and can be viewed as a
   whole.
 
 You can roll up metrics along single or multiple dimensions. For example,
@@ -1511,7 +1511,7 @@ concurrency can help with throughput.
       ###### Note
 
       The CloudWatch agent does not validate regular expressions that you provide. It also does not limit their evaluation time. Write your expressions carefully to avoid performance issues.
-      For more information on security ricks, see [Regular expression Denial of Service - ReDoS](https://aws.amazon.com/blogs/https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS "https://aws.amazon.com/blogs/https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS") .
+      For more information on security ricks, see [Regular expression Denial of Service - ReDoS](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS "https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS") .
 
       In the example agent configuration below:
 

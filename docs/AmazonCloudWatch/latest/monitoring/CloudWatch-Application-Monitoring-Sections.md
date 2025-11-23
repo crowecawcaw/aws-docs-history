@@ -109,25 +109,33 @@ For proper functionality of Application Signals cross-account observability, ens
     + Log groups in Amazon CloudWatch Logs
     + Traces in [AWS X-Ray](../../../xray/latest/devguide/aws-xray.md "../../../xray/latest/devguide/aws-xray.md")
 
-- **Dynamic service grouping and filtering** – Group and filter services with Application Signals' dynamic grouping capabilities. Automatically aggregate metrics and SLIs of services within groups, allowing you to start from a group view and dive deep into specific problematic areas.
-  Application Signals automatically discovers and groups services based on their configuration and relationship. You can also create custom groups that align with your business needs. For example, you can group services by business units, teams, or critical tiers. View consolidated performance metrics, track group-level SLIs, and quickly identify non-performing services.
-  Using grouping, you can organize your large-scale distributed services into logical groups that align with your operational needs and simplifies monitoring them especially during incidents.
-
-The system analyzes the service dependency graph and creates groups where the root node (a service with no upstream dependencies) becomes the group name. All services that depend on this root service,
-either directly or indirectly, are automatically included in the group. For example, if Service A calls Service B, which in turn calls Service C, all three services will be grouped together with Service A as the group name since it's the root of the dependency chain. This automatic grouping mechanism provides a natural
-way to visualize and manage related services based on their actual runtime interactions and dependencies.
+- **Dynamic service grouping and filtering** – Group and filter services with Application Signals' dynamic grouping capabilities. Automatically aggregate metrics and SLIs of services within groups, allowing you to start from a group view and dive deep into specific problematic areas. Application Signals provides two default groupings: "Environment" grouping that organizes by service environment, and "Related services" grouping that groups services based on their dependencies. For example, in Related services grouping, if Service A calls Service B, which calls Service C, they're grouped under Service A. Beyond default groupings, create custom groups by selecting services that align with your organizational needs, such as Business unit or Team.
 
 Create custom groupings using AWS tags or OpenTelemetry attributes that align with your team structure, business domains, or operational requirements. Custom groupings enable you to organize services according to your
 specific monitoring and troubleshooting workflows. For more information, see [Configuring custom groups](ServiceMap.md#Application-Map-Configure-Custom-Groups "ServiceMap.md#Application-Map-Configure-Custom-Groups").
 
-- **Last deployment tracking** – You can track latest deployment tracking for each service and its dependencies, which provides crucial context for troubleshooting without any manual configuration or setup. Identify and monitor the last deployment time for each service and dependencies, providing crucial context for operational analysis and troubleshooting without additional
-  configuration or setup requirements. Correlate deployment times with performance changes, detect deployment-related issues, and maintain a comprehensive deployment history across your application landscape. This feature helps teams quickly determine if recent deployments contributed to service degradation and
-  supports faster incident resolution.
+![CloudWatch application map with grouping by related services.](images/application-map.png)
 
-Application Signals automatically correlates deployment events with performance metrics, helping you quickly identify whether recent deployments are contributing to service issues. The system tracks deployment timing and provides visual indicators when performance changes align with deployment activities.
+![CloudWatch services list page with filtering.](images/services-page.png)
 
-Maintain a comprehensive view of deployment activities across your application landscape. View deployment frequency, timing patterns, and success rates to optimize your deployment strategies and identify potential risk factors.
+- **Change Events** – Track change events across your application with Application Signals' automatic processing of CloudTrail events. Monitor configuration and deployment events for services and their dependencies, providing immediate context for operational analysis and troubleshooting. Change event detection is enabled alongside service discovery enablement through the CloudWatch Console or StartDiscovery API. For Amazon EKS services, deployment detection requires that the Amazon EKS services are instrumented with the Application Signals instrumentation SDK.
 
-- **Automated audit findings** – Discover critical insights through Application Signals' automated audit findings such as EMF logs of Application Signals RED metrics, traces, and application logs. The service analyzes your applications to report observations, including
-  finding top outliers who contributed to the latency, faults, or errors, finding issues started from dependency services, and finding the detailed error information from application logs to help better understand the root cause. The audit system employs advanced analytics to detect patterns, highlight resource
-  inefficiencies, and suggest root causes. Findings are prioritized based on severity and potential business impact, enabling teams to focus on the most critical issues first. Get actionable recommendations for improving service reliability, and performance without manual analysis.
+Change events are supported for the following resources:
+
+    + Autoscaling Group
+    + EKS Cluster
+    + EKS Workload (only deployments)
+    + ECS Cluster and Service
+    + ELB Load balancer and Target Group
+    + Lambda Function
+    + BedrockAgentCore Runtime and RuntimeEndpoint
+
+![CloudWatch application map with deployment filtering and change events in group drawer.](images/application-map-with-drawer.png)
+
+![CloudWatch application overview with change events table.](images/application-overview.png)
+
+- **Automated audit findings** – Discover critical insights through Application Signals' automated audit findings. The service analyzes your applications to report significant observations and potential problems, simplifying root cause analysis. These automated findings consolidate relevant traces, eliminating the need to navigate through multiple clicks. The audit system helps teams quickly identify issues and their underlying causes, enabling faster problem resolution.
+
+Application Signals employs advanced analytics to detect patterns, highlight resource inefficiencies, and suggest optimization opportunities. Findings are prioritized based on severity and potential business impact, enabling teams to focus on the most critical issues first. Get actionable recommendations for improving service reliability and performance without manual analysis.
+
+![CloudWatch service overview with audit findings.](images/service-overview.png)

@@ -2,8 +2,8 @@
 
 Managing access to data sources
 
-CloudWatch uses AWS CloudFormation to create the required resources in your account. We recommend that you
-use the `cloudformation:TemplateUrl` condition to control access to AWS CloudFormation templates when
+CloudWatch uses CloudFormation to create the required resources in your account. We recommend that you
+use the `cloudformation:TemplateUrl` condition to control access to CloudFormation templates when
 you grant `CreateStack` permissions to IAM users.
 
 ###### Warning
@@ -43,4 +43,4 @@ JSON
 
 ```
 
-For more information about controlling AWS CloudFormation access, see [Controlling access with AWS Identity and Access Management](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md "../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md")
+For more information about controlling CloudFormation access, see [Controlling access with AWS Identity and Access Management](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md "../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md")

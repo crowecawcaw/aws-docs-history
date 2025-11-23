@@ -120,7 +120,7 @@ different AWS Regions. For more information, see [Cross-Region inference](Invest
        boundaries can be used to narrow the resources that will be discovered
        by CloudWatch investigations in these cases.
 
-    You don't need to enter tags created by myApplications or AWS CloudFormation,
+    You don't need to enter tags created by myApplications or CloudFormation,
     because CloudWatch investigations can automatically detect those tags. 2. CloudTrail records events about changes in your system including deployment
     events. These events can often be useful to CloudWatch investigations to create hypotheses
     about root causes of issues in your system. In the **CloudTrail

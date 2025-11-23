@@ -16,7 +16,7 @@ metrics for the following workloads running in that cluster.
 roles
 
 You need two IAM roles for the CloudWatch agent task definition. If you specify
-`CreateIAMRoles=True` in the AWS CloudFormation stack to have Container
+`CreateIAMRoles=True` in the CloudFormation stack to have Container
 Insights create these roles for you, the roles will be created with the correct
 permissions. If you want to create them yourself or use existing roles, the following
 roles and permissions are required.
@@ -44,10 +44,10 @@ roles and permissions are required.
 
 ## Install the CloudWatch agent
 
-with Prometheus monitoring by using AWS CloudFormation
+with Prometheus monitoring by using CloudFormation
 
 You use AWS CloudFormation to install the CloudWatch agent with Prometheus monitoring for Amazon ECS
-clusters. The following list shows the parameters you will use in the AWS CloudFormation
+clusters. The following list shows the parameters you will use in the CloudFormation
 template.
 
 - **ECSClusterName**— Specifies the target
@@ -82,10 +82,10 @@ template.
 
 samples
 
-This section includes sample AWS CloudFormation commands to install Container Insights with
+This section includes sample CloudFormation commands to install Container Insights with
 Prometheus monitoring in various scenarios.
 
-**Create AWS CloudFormation stack for an Amazon ECS cluster in bridge network
+**Create CloudFormation stack for an Amazon ECS cluster in bridge network
 mode**
 
 ```
@@ -111,7 +111,7 @@ aws cloudformation create-stack --stack-name CWAgent-Prometheus-ECS-${ECS_CLUSTE
     --profile ${AWS_PROFILE}
 ```
 
-**Create AWS CloudFormation stack for an Amazon ECS cluster in host network
+**Create CloudFormation stack for an Amazon ECS cluster in host network
 mode**
 
 ```
@@ -138,7 +138,7 @@ aws cloudformation create-stack --stack-name CWAgent-Prometheus-ECS-${ECS_CLUSTE
     --profile ${AWS_PROFILE}
 ```
 
-**Create AWS CloudFormation stack for an Amazon ECS cluster in awsvpc network
+**Create CloudFormation stack for an Amazon ECS cluster in awsvpc network
 mode**
 
 ```
@@ -168,7 +168,7 @@ aws cloudformation create-stack --stack-name CWAgent-Prometheus-ECS-${ECS_CLUSTE
     --profile ${AWS_PROFILE}
 ```
 
-**Create AWS CloudFormation stack for a Fargate cluster in awsvpc
+**Create CloudFormation stack for a Fargate cluster in awsvpc
 network mode**
 
 ```
@@ -200,10 +200,10 @@ aws cloudformation create-stack --stack-name CWAgent-Prometheus-ECS-${ECS_CLUSTE
 
 ### AWS resources
 
-created by the AWS CloudFormation stack
+created by the CloudFormation stack
 
 The following table lists the AWS resources that are created when you use
-AWS CloudFormation to set up Container Insights with Prometheus monitoring on an Amazon ECS
+CloudFormation to set up Container Insights with Prometheus monitoring on an Amazon ECS
 cluster.
 
 | Resource type            | Resource name                                                                                    | Comments                                                                                                    |
@@ -215,7 +215,7 @@ cluster.
 | AWS::ECS::TaskDefinition | cwagent-prometheus-$`ECS_CLUSTER_NAME`-$`ECS_LAUNCH_TYPE`-$`ECS_NETWORK_MODE`                    |                                                                                                             |
 | AWS::ECS::Service        | cwagent-prometheus-replica-service-$`ECS_LAUNCH_TYPE`-$`ECS_NETWORK_MODE`                        |                                                                                                             |
 
-### Deleting the AWS CloudFormation stack
+### Deleting the CloudFormation stack
 
 for the CloudWatch agent with Prometheus monitoring
 

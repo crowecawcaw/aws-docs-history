@@ -125,8 +125,8 @@ string.
 
 You can combine partial match terms and exact match terms in a single search
 expression. For example, `SEARCH(' {AWS/NetworkELB, LoadBalancer} "ConsumedLCUs"
- OR flow ', 'Maximum')` returns the Elastic Load Balancing metric named
-`ConsumedLCUs` as well as all Elastic Load Balancing metrics or dimensions that contain the
+ OR flow ', 'Maximum')` returns the ELB metric named
+`ConsumedLCUs` as well as all ELB metrics or dimensions that contain the
 token `flow`.
 
 Using exact match is also a good way to find names with special characters, such as

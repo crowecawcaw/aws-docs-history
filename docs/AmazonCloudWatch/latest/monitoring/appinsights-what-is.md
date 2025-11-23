@@ -238,7 +238,7 @@ The following services are used along with CloudWatch Application Insights:
   you have the correct number of EC2 instances available to handle the load
   for your application. For more information, see the [_Amazon EC2 Auto Scaling User
   Guide_](../../../autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.md "../../../autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.md").
-- **Elastic Load Balancing** distributes incoming applications
+- **ELB** distributes incoming applications
   or network traffic across multiple targets, such as EC2 instances,
   containers, and IP addresses, in multiple Availability Zones. For more
   information, see the [_Elastic Load Balancing User
@@ -338,7 +338,7 @@ service).
 ## Supported application components
 
 CloudWatch Application Insights scans your resource group to identify application components. Components can
-be standalone, auto-grouped (such as instances in an Auto Scaling group or behind a
+be standalone, auto-grouped (such as instances in an Amazon EC2 Auto Scaling group or behind a
 load balancer), or custom (by grouping together individual Amazon EC2 instances).
 
 The following components are supported by CloudWatch Application Insights:
@@ -348,11 +348,11 @@ The following components are supported by CloudWatch Application Insights:
 - Amazon EC2
 - Amazon EBS
 - Amazon RDS
-- Elastic Load Balancing: Application Load Balancer and Classic Load Balancer (all target
+- ELB: Application Load Balancer and Classic Load Balancer (all target
   instances of these load balancers are identified and configured).
-- Amazon EC2 Auto Scaling groups: AWS Auto Scaling (Auto Scaling groups
+- Amazon EC2 Amazon EC2 Auto Scaling groups: AWS Amazon EC2 Auto Scaling (Auto Scaling groups
   are dynamically configured for all target instances; if your application
-  scales up, CloudWatch Application Insights automatically configures the new instances). Auto Scaling groups
+  scales up, CloudWatch Application Insights automatically configures the new instances). Amazon EC2 Auto Scaling groups
   are not supported for CloudFormation stack-based resource groups.
 - AWS Lambda
 - Amazon Simple Queue Service (Amazon SQS)

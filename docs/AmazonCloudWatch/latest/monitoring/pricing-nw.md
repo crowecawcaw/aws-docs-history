@@ -11,4 +11,4 @@ has the following two components:
   control your bill, you can adjust your subnet coverage and on-premises IP address destination
   coverage by reducing the number of resources that you monitor.
 
-For more information about pricing, see the [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/") page.
+For more information about pricing, see the [Amazon CloudWatch pricing](https://aws.amazon.com//cloudwatch/pricing/ "https://aws.amazon.com//cloudwatch/pricing/") page.

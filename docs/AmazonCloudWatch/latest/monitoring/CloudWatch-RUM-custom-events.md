@@ -1,22 +1,23 @@
 # Send custom events
 
-CloudWatch RUM records and ingests the events listed in [Information collected by the CloudWatch RUM web client](CloudWatch-RUM-datacollected.md "CloudWatch-RUM-datacollected.md"). If you use version 1.12.0 or later
-of the CloudWatch RUM web client, you can define, record, and send additional custom events. You define the event
-type name and the data to send for each event type that you define. Each custom event payload can
-be up to 6 KB.
+CloudWatch RUM records and ingests the events listed in [Information collected by the CloudWatch RUM
+web client](CloudWatch-RUM-datacollected.md "CloudWatch-RUM-datacollected.md"). If you use version 1.12.0 or later of the CloudWatch RUM web client, you can define,
+record, and send additional custom events. You define the event type name and the data
+to send for each event type that you define. Each custom event payload can be up to 6
+KB.
 
-Custom events are ingested only if the app monitor has custom events enabled. To update the
-configuration settings of your app monitor, use the CloudWatch RUM console or the
+Custom events are ingested only if the app monitor has custom events enabled. To
+update the configuration settings of your app monitor, use the CloudWatch RUM console or the
 [UpdateAppMonitor](../../../cloudwatchrum/latest/APIReference/API_UpdateAppMonitor.md "../../../cloudwatchrum/latest/APIReference/API_UpdateAppMonitor.md") API.
 
-After you enable custom events, and then define and send custom events, you can search for them. To
-search for them, use the **Events** tab in the CloudWatch RUM
+After you enable custom events, and then define and send custom events, you can search
+for them. To search for them, use the **Events** tab in the CloudWatch RUM
 console. Search by using the event type.
 
 ## Requirements and syntax
 
-Custom events consist of an event type and event details. The requirements for these
-are as follows:
+Custom events consist of an event type and event details. The requirements for
+these are as follows:
 
 - **Event type**
   - This can be either the **type** or
@@ -24,21 +25,25 @@ are as follows:
     RUM built-in event type called **JsError** has an
     event type of `com.amazon.rum.js_error_event`.
   - Must be between 1 and 256 characters.
-  - Can be a combination of alphanumeric characters, underscores, hyphens,
-    and periods.
+  - Can be a combination of alphanumeric characters, underscores,
+    hyphens, and periods.
 
 - **Event details**
-  - Contains the actual data that you want to record in CloudWatch RUM.
+  - Contains the actual data that you want to record in CloudWatch
+    RUM.
   - Must be an object that consists of fields and values.
 
-## Examples of recording custom events
+## Examples of recording custom
+
+events
 
 There are two ways to record custom events in the CloudWatch RUM web client.
 
 - Use the CloudWatch RUM web client's `recordEvent` API.
 - Use a customized plugin.
 
-**Send a custom event using the `recordEvent` API, NPM example**
+**Send a custom event using the `recordEvent` API,
+NPM example**
 
 ```
 awsRum.recordEvent('my_custom_event', {
@@ -53,7 +58,8 @@ awsRum.recordEvent('my_custom_event', {
 )
 ```
 
-**Send a custom event using the `recordEvent` API, embedded script example**
+**Send a custom event using the `recordEvent` API,
+embedded script example**
 
 ```
 cwr('recordEvent', {
@@ -70,7 +76,8 @@ cwr('recordEvent', {
 })
 ```
 
-**Example of sending a custom event using a customized plugin**
+**Example of sending a custom event using a customized
+plugin**
 
 ```
 // Example of a plugin that listens to a scroll event, and

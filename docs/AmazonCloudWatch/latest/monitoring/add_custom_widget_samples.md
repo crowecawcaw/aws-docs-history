@@ -7,7 +7,7 @@ this list.
 Alternatively,
 you can create and customize a widget by using the CloudWatch console. The links in
 this list open an AWS CloudFormation console and use
-an AWS CloudFormation quick-create link to create the custom widget.
+an CloudFormation quick-create link to create the custom widget.
 
 You can also access the custom widget samples on [GitHub](https://github.com/aws-samples/cloudwatch-custom-widgets-samples "https://github.com/aws-samples/cloudwatch-custom-widgets-samples").
 
