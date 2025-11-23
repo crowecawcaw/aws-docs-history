@@ -9,7 +9,7 @@ models** page to import and export AWS DeepRacer models in the console.
 
 - [Copy your AWS DeepRacer model to Amazon S3](#copy-to-S3 "#copy-to-S3")
 - [Import your AWS DeepRacer model to the console](#import-to-console "#import-to-console")
-- [Troubleshooting](#w3aac15c11 "#w3aac15c11")
+- [Troubleshooting](#w2aac15c11 "#w2aac15c11")
 
 ## Copy your AWS DeepRacer model to Amazon S3
 
