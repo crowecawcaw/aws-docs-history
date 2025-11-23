@@ -72,7 +72,7 @@ With
 [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/ "https://aws.amazon.com/premiumsupport/technology/trusted-advisor/"), you can provision your resources following
 best practices to improve system performance and reliability,
 increase security, and look for opportunities to save money. You
-can also turn off non-production instances and use Amazon CloudWatch and Auto Scaling to match increases or reductions in
+can also turn off non-production instances and use Amazon CloudWatch and Amazon EC2 Auto Scaling to match increases or reductions in
 demand.
 
 Finally, you can use

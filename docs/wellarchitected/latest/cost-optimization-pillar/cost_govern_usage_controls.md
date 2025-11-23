@@ -18,7 +18,7 @@ and Reserved Instances). You can create budgets at an aggregate cost level (for 
 costs), or at a more granular level where you include only specific dimensions such as linked
 accounts, services, tags, or Availability Zones.
 
-Once you set up your budget limits with AWS Budgets, use [AWS Cost Anomaly Detection](https://aws.amazon.com/https://aws.amazon.com/aws-cost-management/aws-cost-anomaly-detection/ "https://aws.amazon.com/https://aws.amazon.com/aws-cost-management/aws-cost-anomaly-detection/") to reduce your unexpected
+Once you set up your budget limits with AWS Budgets, use [AWS Cost Anomaly Detection](https://aws.amazon.com/aws-cost-management/aws-cost-anomaly-detection/ "https://aws.amazon.com/aws-cost-management/aws-cost-anomaly-detection/") to reduce your unexpected
 cost. AWS Cost Anomaly Detection is a cost management service that uses machine learning to continually monitor
 your cost and usage to detect unusual spends. It helps you identify anomalous spend and root causes, so you
 can quickly take action. First, create a cost monitor in AWS Cost Anomaly Detection, then choose your

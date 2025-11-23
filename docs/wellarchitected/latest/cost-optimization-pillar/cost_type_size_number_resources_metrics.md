@@ -48,11 +48,11 @@ and infrequent access, based on your usage patterns.
   metrics, manually or automatically select your workload resources. For compute resources, configuring AWS Auto Scaling
   or implementing code within your application can reduce the effort required if frequent changes are needed, and it can
   potentially implement changes sooner than a manual process. You can launch and automatically scale a fleet of On-Demand
-  Instances and Spot Instances within a single Auto Scaling group. In addition to receiving discounts for using Spot
+  Instances and Spot Instances within a single Amazon EC2 Auto Scaling group. In addition to receiving discounts for using Spot
   Instances, you can use Reserved Instances or a Savings Plan to receive discounted rates of the regular On-Demand Instance
   pricing. All of these factors combined help you optimize your cost savings for Amazon EC2 instances and determine the desired
   scale and performance for your application. You can also use an [attribute-based instance type selection (ABS)](../../../autoscaling/ec2/userguide/create-asg-instance-type-requirements.md "../../../autoscaling/ec2/userguide/create-asg-instance-type-requirements.md") strategy
-  in [Auto Scaling Groups (ASG)](../../../autoscaling/ec2/userguide/create-asg-instance-type-requirements.md "../../../autoscaling/ec2/userguide/create-asg-instance-type-requirements.md"), which lets you express your instance requirements as a set of attributes, such as vCPU,
+  in [Amazon EC2 Auto Scaling Groups (ASG)](../../../autoscaling/ec2/userguide/create-asg-instance-type-requirements.md "../../../autoscaling/ec2/userguide/create-asg-instance-type-requirements.md"), which lets you express your instance requirements as a set of attributes, such as vCPU,
   memory, and storage. You can automatically use newer generation instance types when they are released and access a
   broader range of capacity with Amazon EC2 Spot Instances. Amazon EC2 Fleet and Amazon EC2 Auto Scaling select and launch instances that fit
   the specified attributes, removing the need to manually pick instance types. For storage resources, you can use the
@@ -85,7 +85,7 @@ and infrequent access, based on your usage patterns.
 
 **Related examples:**
 
-- [Attribute based Instance Type Selection for Auto Scaling for Amazon EC2 Fleet](https://aws.amazon.com/blogs/aws/new-attribute-based-instance-type-selection-for-ec2-auto-scaling-and-ec2-fleet/ "https://aws.amazon.com/blogs/aws/new-attribute-based-instance-type-selection-for-ec2-auto-scaling-and-ec2-fleet/")
+- [Attribute based Instance Type Selection for Amazon EC2 Auto Scaling for Amazon EC2 Fleet](https://aws.amazon.com/blogs/aws/new-attribute-based-instance-type-selection-for-ec2-auto-scaling-and-ec2-fleet/ "https://aws.amazon.com/blogs/aws/new-attribute-based-instance-type-selection-for-ec2-auto-scaling-and-ec2-fleet/")
 - [Optimizing Amazon Elastic Container Service for cost using scheduled scaling](https://aws.amazon.com/blogs/containers/optimizing-amazon-elastic-container-service-for-cost-using-scheduled-scaling/ "https://aws.amazon.com/blogs/containers/optimizing-amazon-elastic-container-service-for-cost-using-scheduled-scaling/")
 - [Predictive scaling with Amazon EC2 Auto Scaling](https://aws.amazon.com/blogs/compute/introducing-native-support-for-predictive-scaling-with-amazon-ec2-auto-scaling/ "https://aws.amazon.com/blogs/compute/introducing-native-support-for-predictive-scaling-with-amazon-ec2-auto-scaling/")
 - [Optimize Costs and Gain Visibility into Usage with Amazon S3 Storage Lens](https://aws.amazon.com/getting-started/hands-on/amazon-s3-storage-lens/ "https://aws.amazon.com/getting-started/hands-on/amazon-s3-storage-lens/")
