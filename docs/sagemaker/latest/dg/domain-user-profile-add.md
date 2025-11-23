@@ -35,7 +35,7 @@ role** dialog box opens:
      buckets that users of your notebooks can access. If you don't want to add access to
      more buckets, choose **None**.
     2. Choose **Create role**. SageMaker AI creates a new IAM role,
-     `AmazonSageMaker-ExecutionPolicy`, with the [AmazonSageMakerFullAccess](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess") policy attached.
+     `AmazonSageMaker-ExecutionPolicy`, with the [AmazonSageMakerFullAccess](https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess "https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess") policy attached.
 
 9. (Optional) Add tags to the user profile. All resources that the user profile creates
    will have a domain ARN tag and a user profile ARN tag. The domain ARN tag is

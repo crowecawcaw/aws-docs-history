@@ -981,7 +981,7 @@ json.loads(pipeline.definition())
 This pipeline definition is ready to submit to SageMaker AI. In the next tutorial, you
 submit this pipeline to SageMaker AI and start a run.
 
-You can also use [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_pipeline "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_pipeline") or [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.md") to create a pipeline.
+You can also use [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_pipeline "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_pipeline") or [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.md") to create a pipeline.
 Creating a pipeline requires a pipeline definition, which is a JSON object that
 defines each step of the pipeline. The SageMaker SDK offers a simple way to construct the pipeline definition,
 which you can use with any of the APIs previously mentioned to create the pipeline itself. Without using the SDK,

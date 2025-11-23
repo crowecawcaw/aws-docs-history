@@ -13,7 +13,7 @@ request and then try two or more records.
 The following commands demonstrate how to request a response using the AWS CLI.
 The AWS CLI is pre-installed in Studio and SageMaker Notebook instances.
 To install the AWS CLI, follow the [installation
-guide](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/").
+guide](https://aws.amazon.com//cli/ "https://aws.amazon.com//cli/").
 
 ```
 aws sagemaker-runtime invoke-endpoint \

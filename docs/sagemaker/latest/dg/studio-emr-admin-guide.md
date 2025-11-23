@@ -6,7 +6,7 @@ deployment scenarios - when Studio and Amazon EMR are provisioned within private
 without public internet access, as well as when they need to communicate over the
 internet.
 
-It walks through how administrators can use the AWS Service Catalog to make AWS CloudFormation templates available
+It walks through how administrators can use the AWS Service Catalog to make CloudFormation templates available
 to Studio, allowing data scientists to discover and self-provision Amazon EMR clusters
 directly from within Studio. This involves creating a Service Catalog portfolio, granting
 requisite permissions, referencing the Amazon EMR templates, and parameterizing them to enable

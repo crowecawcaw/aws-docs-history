@@ -349,11 +349,11 @@ Studio Classic. 5. Verify that the domain has been created.
 aws --region `region` sagemaker list-domains
 ```
 
-For information about creating a domain using AWS CloudFormation, see [AWS::SageMaker::Domain](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.md") in the _AWS CloudFormation User
+For information about creating a domain using AWS CloudFormation, see [AWS::SageMaker::Domain](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.md") in the _CloudFormation User
 Guide._
 
-For an example of an AWS CloudFormation template that you can use to set up your domain, see
-[Creating Amazon SageMaker AI domains using AWS CloudFormation](https://github.com/aws-samples/cloudformation-studio-domain "https://github.com/aws-samples/cloudformation-studio-domain") in the `aws-samples` GitHub repository.
+For an example of an CloudFormation template that you can use to set up your domain, see
+[Creating Amazon SageMaker AI domains using CloudFormation](https://github.com/aws-samples/cloudformation-studio-domain "https://github.com/aws-samples/cloudformation-studio-domain") in the `aws-samples` GitHub repository.
 
 After the domain is set up, the administrative user can view and edit the domain.
 For information, see [View domains](domain-view.md "domain-view.md") and

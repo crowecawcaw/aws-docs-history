@@ -19,7 +19,7 @@ you prefer a visual interface or working with commands.
 - [Managing SageMaker HyperPod EKS
   clusters using the SageMaker console](sagemaker-hyperpod-eks-operate-console-ui.md "sagemaker-hyperpod-eks-operate-console-ui.md")
 - [Creating
-  SageMaker HyperPod clusters using AWS CloudFormation templates](smcluster-getting-started-eks-console-create-cluster-cfn.md "smcluster-getting-started-eks-console-create-cluster-cfn.md")
+  SageMaker HyperPod clusters using CloudFormation templates](smcluster-getting-started-eks-console-create-cluster-cfn.md "smcluster-getting-started-eks-console-create-cluster-cfn.md")
 - [Managing SageMaker HyperPod EKS
   clusters using the AWS CLI](sagemaker-hyperpod-eks-operate-cli-command.md "sagemaker-hyperpod-eks-operate-cli-command.md")
 - [HyperPod managed tiered

@@ -42,7 +42,7 @@ provision and manage. Such responsibility assumes certain tasks, including
 configuring IAM roles and policies, enforcing resource tags, enforcing encryption,
 and decoupling resources across multiple accounts. SageMaker Projects can support all
 these tasks through custom template offerings
-where organizations use AWS CloudFormation templates to define the resources needed for an
+where organizations use CloudFormation templates to define the resources needed for an
 ML workflow. Data Scientists can choose a template to bootstrap and pre-configure
 their ML workflow.
 

@@ -12,6 +12,134 @@ Amazon SageMaker HyperPod feature releases, see [Amazon SageMaker HyperPod relea
 
 ## SageMaker HyperPod AMI
 
+releases for Amazon EKS: November 07, 2025
+
+**AMI general updates**
+
+- Released updates for SageMaker HyperPod AMI for Amazon EKS versions 1.28, 1.29, 1.30,
+  1.31, 1.32, and 1.33.
+- Base DLAMI release note is available [here](../../../dlami/latest/devguide/appendix-ami-release-notes.md#appendix-ami-release-notes-base "../../../dlami/latest/devguide/appendix-ami-release-notes.md#appendix-ami-release-notes-base").
+
+**SageMaker HyperPod DLAMI for Amazon EKS support**
+
+This release includes the following updates:
+
+Kubernetes v1.28
+
+- **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
+- AL2 (x86_64):
+  - NVIDIA driver version: 570.195.03
+  - CUDA version: 12.8
+  - Kubernetes version: 1.28.15
+
+- AL2023 (x86_64):
+  - NVIDIA driver version: 580.95.05
+  - CUDA version: 13.0
+  - Kubernetes version: 1.28.15
+
+- Package updates include boto3, botocore, pip, regex, psutil, and nvidia container toolkit components.
+- Added package: annotated-doc 0.0.3
+
+Kubernetes v1.29
+
+- **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
+- AL2 (x86_64):
+  - NVIDIA driver version: 570.195.03
+  - CUDA version: 12.8
+  - Kubernetes version: 1.29.15
+
+- AL2023 (x86_64):
+  - NVIDIA driver version: 580.95.05
+  - CUDA version: 13.0
+  - Kubernetes version: 1.29.15
+
+- Package updates include kernel updates, glibc updates, and various system libraries.
+- Added package: annotated-doc 0.0.3
+
+Kubernetes v1.30
+
+- **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
+- AL2 (x86_64):
+  - NVIDIA driver version: 570.195.03
+  - CUDA version: 12.8
+  - Kubernetes version: 1.30.11
+
+- AL2023 (x86_64):
+  - NVIDIA driver version: 580.95.05
+  - CUDA version: 13.0
+  - Kubernetes version: 1.30.11
+
+- Package updates include kernel livepatch updates and system library updates.
+- Added package: annotated-doc 0.0.3
+
+Kubernetes v1.31
+
+- **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
+- AL2 (x86_64):
+  - NVIDIA driver version: 570.195.03
+  - CUDA version: 12.8
+  - Kubernetes version: 1.31.7
+
+- AL2023 (x86_64):
+  - NVIDIA driver version: 580.95.05
+  - CUDA version: 13.0
+  - Kubernetes version: 1.31.13
+
+- AL2023 (arm):
+  - NVIDIA driver version: 580.95.05
+  - CUDA version: 13.0
+  - Kubernetes version: 1.31.13
+  - Kernel version: 6.12.46-66.121.amzn2023.aarch64
+
+- Package updates include extensive system library updates, kernel updates, and boost library updates.
+- Added packages: apr-util-lmdb, kernel-livepatch-6.1.156-177.286
+
+Kubernetes v1.32
+
+- **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
+- AL2 (x86_64):
+  - NVIDIA driver version: 570.195.03
+  - CUDA version: 12.8
+  - Kubernetes version: 1.32.3
+  - AWS IAM Authenticator version: v0.6.29
+
+- AL2023 (x86_64):
+  - NVIDIA driver version: 580.95.05
+  - CUDA version: 13.0
+  - Kubernetes version: 1.32.9
+
+- AL2023 (arm):
+  - NVIDIA driver version: 580.95.05
+  - CUDA version: 13.0
+  - Kubernetes version: 1.32.9
+  - Kernel version: 6.12.46-66.121.amzn2023.aarch64
+
+- Package updates include kernel livepatch updates and system library updates.
+- Added package: annotated-doc 0.0.3
+
+Kubernetes v1.33
+
+- AL2023 (x86_64):
+  - NVIDIA driver version: 580.95.05
+  - CUDA version: 13.0
+  - Kubernetes version: 1.33.5
+  - Kernel version: 6.1.155-176.282.amzn2023.x86_64
+
+- AL2023 (arm):
+  - NVIDIA driver version: 580.95.05
+  - CUDA version: 13.0
+  - Kubernetes version: 1.33.5
+  - Kernel version: 6.12.46-66.121.amzn2023.aarch64
+
+- Package updates include extensive system library updates, kernel updates, and boost library updates.
+- Added packages: apr-util-lmdb, kernel-livepatch updates
+
+###### Note
+
+runc version has been upgraded to 1.3.2 [Security bulletin](https://aws.amazon.com/security/security-bulletins/rss/aws-2025-024/ "https://aws.amazon.com/security/security-bulletins/rss/aws-2025-024/")
+
+## SageMaker HyperPod AMI
+
 releases for Amazon EKS: October 29, 2025
 
 **AMI general updates**
@@ -101,7 +229,6 @@ Kubernetes v1.32
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.32.3
-  - AWS IAM Authenticator version: v0.6.29
 
 - AL2023 (x86_64):
   - NVIDIA driver version: 580.95.05

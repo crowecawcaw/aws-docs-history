@@ -2,7 +2,7 @@
 
 templates in the Service Catalog
 
-This topic assumes administrators are familiar with [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md"), [portfolios and
+This topic assumes administrators are familiar with [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md"), [portfolios and
 products in AWS Service Catalog](../../../servicecatalog/latest/adminguide/getstarted-portfolio.md "../../../servicecatalog/latest/adminguide/getstarted-portfolio.md"), as well as [Amazon EMR](../../../emr/latest/ManagementGuide/emr-gs.md "../../../emr/latest/ManagementGuide/emr-gs.md").
 
 To simplify the creation of Amazon EMR clusters from Studio, administrators can
@@ -13,7 +13,7 @@ to discover templates, provision clusters, and connect to Amazon EMR clusters fr
 Studio or Studio Classic, administrators need to set appropriate access
 permissions.
 
-The Amazon EMR AWS CloudFormation templates can allow end-users to customize various cluster aspects.
+The Amazon EMR CloudFormation templates can allow end-users to customize various cluster aspects.
 For example, administrators can define an approved list of instance types that users can
 choose from when creating a cluster.
 
@@ -96,7 +96,7 @@ To do so, reference the Amazon EMR template resource in the Service Catalog prod
 and then add the following tag key `"sagemaker:studio-visibility:emr"`
 set to the value `"true"` (see the example in YAML format).
 
-In the Service Catalog product definition, the AWS CloudFormation template of the cluster is referenced
+In the Service Catalog product definition, the CloudFormation template of the cluster is referenced
 via URL. The additional tag set to true ensures the visibility of the Amazon EMR
 templates in Studio or Studio Classic.
 
@@ -262,7 +262,7 @@ clusters.
     7. Choose **Create policy**.
     8. Repeat the **Create inline policy** step
      to add another policy granting the execution role the
-     permissions to provision new Amazon EMR clusters using AWS CloudFormation
+     permissions to provision new Amazon EMR clusters using CloudFormation
      templates. For details on the policy document, see *Create Amazon EMRclusters policies*
      in [Reference policies](studio-set-up-emr-permissions-reference.md "studio-set-up-emr-permissions-reference.md"). Replace the `region` and
      `accountID` with their actual values before
@@ -499,7 +499,7 @@ Amazon EMR clusters.
     9. Repeat the **Create inline policy**
      step to add another policy granting the execution role
      the permissions to provision new Amazon EMR clusters using
-     AWS CloudFormation templates. For details on the policy document, see
+     CloudFormation templates. For details on the policy document, see
      *Create Amazon EMRclusters
      policies* in [Reference policies](studio-set-up-emr-permissions-reference.md "studio-set-up-emr-permissions-reference.md"). Replace the `region` and
      `accountID` with their actual values

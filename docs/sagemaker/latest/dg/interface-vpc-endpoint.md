@@ -21,7 +21,7 @@ diagram.
 
 The VPC interface endpoint connects your VPC directly to the SageMaker API or SageMaker AI Runtime
 using AWS PrivateLink without using an internet gateway, NAT device, VPN connection, or
-AWS Direct Connect connection. The instances in your VPC do not need to connect to the public
+Direct Connect connection. The instances in your VPC do not need to connect to the public
 internet in order to communicate with the SageMaker API or SageMaker AI Runtime.
 
 You can create an AWS PrivateLink interface endpoint to connect to SageMaker AI or to SageMaker AI
@@ -185,7 +185,7 @@ VPC
 
 To call the SageMaker API and SageMaker AI Runtime through your VPC, you have to connect from an
 instance that is inside the VPC or connect your private network to your VPC by using an
-AWS Virtual Private Network (AWS VPN) or AWS Direct Connect. For information about AWS VPN, see [VPN
+AWS Virtual Private Network (Site-to-Site VPN) or Direct Connect. For information about Site-to-Site VPN, see [VPN
 Connections](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md") in the _Amazon Virtual Private Cloud User Guide_. For
 information about AWS Direct Connect, see [Creating
 a Connection](../../../directconnect/latest/UserGuide/create-connection.md "../../../directconnect/latest/UserGuide/create-connection.md") in the _AWS Direct Connect User

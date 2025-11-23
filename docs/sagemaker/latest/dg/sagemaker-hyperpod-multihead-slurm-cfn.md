@@ -1,9 +1,9 @@
 # Provisioning resources using
 
-AWS CloudFormation stacks
+CloudFormation stacks
 
 To set up multiple controller nodes in a HyperPod Slurm cluster, provision AWS
-resources through two AWS CloudFormation stacks: [Provision basic
+resources through two CloudFormation stacks: [Provision basic
 resources](#sagemaker-hyperpod-multihead-slurm-cfn-basic "#sagemaker-hyperpod-multihead-slurm-cfn-basic") and [Provision
 additional resources to support multiple controller nodes](#sagemaker-hyperpod-multihead-slurm-cfn-multihead "#sagemaker-hyperpod-multihead-slurm-cfn-multihead").
 
@@ -14,7 +14,7 @@ resources
 Follow these steps to provision basic resources for your Amazon SageMaker HyperPod Slurm cluster.
 
 1. Download the [sagemaker-hyperpod.yaml](https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/sagemaker-hyperpod.yaml "https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/sagemaker-hyperpod.yaml") template file to your machine.
-   This YAML file is an AWS CloudFormation template that defines the following
+   This YAML file is an CloudFormation template that defines the following
    resources to create for your Slurm cluster.
    - An execution IAM role for the compute node instance group
    - An Amazon S3 bucket to store the lifecycle scripts
@@ -24,7 +24,7 @@ Follow these steps to provision basic resources for your Amazon SageMaker HyperP
    - Two Amazon EC2 security groups
    - An Amazon FSx volume to store configuration files
 
-2. Run the following CLI command to create a AWS CloudFormation stack named
+2. Run the following CLI command to create a CloudFormation stack named
    `sagemaker-hyperpod`. Define the Availability Zone
    (AZ) IDs for your cluster in `PrimarySubnetAZ` and
    `BackupSubnetAZ`. For example,
@@ -51,7 +51,7 @@ Waiting for stack create/update to complete
 Successfully created/updated stack - sagemaker-hyperpod
 ```
 
-3. (Optional) Verify the stack in the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/home "https://console.aws.amazon.com/cloudformation/home").
+3. (Optional) Verify the stack in the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home "https://console.aws.amazon.com/cloudformation/home").
    - From the left navigation, choose
      **Stack**.
    - On the **Stack** page, find and choose
@@ -102,7 +102,7 @@ Follow these steps to provision additional resources for your Amazon SageMaker H
 Slurm cluster with multiple controller nodes.
 
 1. Download the [sagemaker-hyperpod-slurm-multi-headnode.yaml](https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/sagemaker-hyperpod-slurm-multi-headnode.yaml "https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/sagemaker-hyperpod-slurm-multi-headnode.yaml") template
-   file to your machine. This second YAML file is an AWS CloudFormation template
+   file to your machine. This second YAML file is an CloudFormation template
    that defines the additional resources to create for multiple
    controller nodes support in your Slurm cluster.
    - An execution IAM role for the controller node instance
@@ -111,9 +111,9 @@ Slurm cluster with multiple controller nodes.
    - An Amazon SNS topic and subscription
    - AWS Secrets Manager credentials for Amazon RDS for MariaDB
 
-2. Run the following CLI command to create a AWS CloudFormation stack named
+2. Run the following CLI command to create a CloudFormation stack named
    `sagemaker-hyperpod-mh`. This second stack uses the
-   AWS CloudFormation template to create additional AWS resources to support the
+   CloudFormation template to create additional AWS resources to support the
    multiple controller nodes architecture.
 
 ```

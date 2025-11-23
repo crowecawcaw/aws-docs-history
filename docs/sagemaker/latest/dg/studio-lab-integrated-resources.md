@@ -60,7 +60,7 @@ used to train Amazon’s own developers. With AWS MLU, any developer can learn h
 machine learning with the learn-at-your-own-pace MLU Accelerator learning series. The MLU
 Accelerator series is designed to help developers begin their ML journey. It offers three-day
 foundational courses on these three subjects: Natural Language Processing, Tabular Data, and
-Computer Vision. For more information, see [Machine Learning University](https://aws.amazon.com/machine-learning/mlu/ "https://aws.amazon.com/machine-learning/mlu/").
+Computer Vision. For more information, see [Machine Learning University](https://aws.amazon.com//machine-learning/mlu/ "https://aws.amazon.com//machine-learning/mlu/").
 
 The following procedure shows how to clone the AWS MLU Jupyter notebooks to your instance.
 

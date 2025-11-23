@@ -17,7 +17,7 @@ preserved.
 cluster, follow these steps.
 
 - [Provisioning resources using
-  AWS CloudFormation stacks](sagemaker-hyperpod-multihead-slurm-cfn.md "sagemaker-hyperpod-multihead-slurm-cfn.md")
+  CloudFormation stacks](sagemaker-hyperpod-multihead-slurm-cfn.md "sagemaker-hyperpod-multihead-slurm-cfn.md")
 - [Creating and attaching an
   IAM policy](sagemaker-hyperpod-multihead-slurm-iam.md "sagemaker-hyperpod-multihead-slurm-iam.md")
 - [Preparing and uploading

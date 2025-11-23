@@ -217,7 +217,7 @@ walkthrough.
 
 ###### Note
 
-To delete the AWS CloudFormation stack and the Amazon S3 bucket, you need to be an administrator
+To delete the CloudFormation stack and the Amazon S3 bucket, you need to be an administrator
 in Studio Classic. If you are not an administrator, ask your administrator to
 complete those steps.
 
@@ -236,7 +236,7 @@ complete those steps.
 
 This deletes the Service Catalog provisioned product that the project created. This
 includes the CodeCommit, CodePipeline, and CodeBuild resources created for the
-project. 7. Delete the AWS CloudFormation stacks that the project created. There are two stacks,
+project. 7. Delete the CloudFormation stacks that the project created. There are two stacks,
 one for staging and one for production. The names of the stacks are
 **sagemaker-`projectname`-`project-id`-deploy-staging**
 and
@@ -244,7 +244,7 @@ and
 where `projectname` is the name of your project,
 and `project-id` is the ID of your project.
 
-For information about how to delete a AWS CloudFormation stack, see [Deleting a stack on the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the _AWS CloudFormation
+For information about how to delete a CloudFormation stack, see [Deleting a stack on the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the _CloudFormation
 User Guide_. 8. Delete the Amazon S3 bucket that the project created. The name of the bucket is
 **sagemaker-project-`project-id`**,
 where `project-id` is the ID of your

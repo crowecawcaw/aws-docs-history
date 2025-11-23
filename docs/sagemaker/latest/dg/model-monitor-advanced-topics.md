@@ -2,12 +2,12 @@
 
 The following sections contain more advanced tasks that explain how to customize
 monitoring using preprocessing and postprocessing scripts, how to build your own
-container, and how to use AWS CloudFormation to create a monitoring schedule.
+container, and how to use CloudFormation to create a monitoring schedule.
 
 ###### Topics
 
 - [Custom
   monitoring schedules](model-monitor-custom-monitoring-schedules.md "model-monitor-custom-monitoring-schedules.md")
 - [Create a
-  Monitoring Schedule for a Real-time Endpoint with an AWS CloudFormation Custom
+  Monitoring Schedule for a Real-time Endpoint with an CloudFormation Custom
   Resource](model-monitor-cloudformation-monitoring-schedules.md "model-monitor-cloudformation-monitoring-schedules.md")

@@ -89,8 +89,8 @@ This template provides the following resources:
   environments.
 - An AWS CodePipeline pipeline that has source, build, deploy-to-staging, and
   deploy-to-production steps. The source step points to the third-party Git repository
-  and the build step gets the code from that repository and generates AWS CloudFormation stacks to
-  deploy. The deploy-to-staging and deploy-to-production steps deploy the AWS CloudFormation stacks
+  and the build step gets the code from that repository and generates CloudFormation stacks to
+  deploy. The deploy-to-staging and deploy-to-production steps deploy the CloudFormation stacks
   to their respective environments. There is a manual approval step between the
   staging and production build steps, so that a MLOps engineer must approve the model
   before it is deployed to production.
@@ -160,7 +160,7 @@ following resources:
 - Associations with one or more customer-specified Git repositories. Repository
   contains sample Python code that gets the [baselines](model-monitor-create-baseline.md "model-monitor-create-baseline.md")
   used by the monitors from the Amazon SageMaker Model Registry, and updates the template’s parameters for the
-  staging and production environments. It also contains a AWS CloudFormation template to create the
+  staging and production environments. It also contains a CloudFormation template to create the
   Amazon SageMaker Model Monitors.
 - An AWS CodePipeline pipeline that has source, build, and deploy steps. The source step
   points to the CodePipeline repository. The build step gets the code from that repository,

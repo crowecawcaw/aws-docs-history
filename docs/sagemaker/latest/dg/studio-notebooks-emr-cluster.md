@@ -22,7 +22,7 @@ visualize, and prepare large-scale data for machine learning using [Apache Spark
 UI to monitor the status and metrics of their Spark jobs without leaving their
 notebook.
 
-Administrators can create [AWS CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") that
+Administrators can create [CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") that
 define Amazon EMR clusters. They can then make those cluster templates available in the [AWS Service Catalog](../../../servicecatalog/latest/userguide/end-user-console.md "../../../servicecatalog/latest/userguide/end-user-console.md") for Studio and Studio Classic users to launch. Data scientists can
 then choose a predefined template to self-provision an Amazon EMR cluster directly from their
 Studio environment. Administrators can further parameterize the templates to let users
@@ -30,7 +30,7 @@ choose aspects of the cluster within predefined values. For example, users may w
 specify the number of core nodes or select the instance type of a node from a dropdown
 menu.
 
-Using AWS CloudFormation, administrators can control the organizational, security, and networking setup
+Using CloudFormation, administrators can control the organizational, security, and networking setup
 of Amazon EMR clusters. Data scientists and data engineers can then customize those templates for
 their workloads to create on-demand Amazon EMR clusters directly from Studio and Studio Classic
 without setting up complex configurations. Users can terminate Amazon EMR clusters after

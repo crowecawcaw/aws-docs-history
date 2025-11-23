@@ -26,17 +26,17 @@ Spark jobs:
 - [Step 3: Connect a
   JupyterLab notebook to the Amazon EMR cluster](#studio-notebooks-emr-cluster-quickstart-connect "#studio-notebooks-emr-cluster-quickstart-connect")
 - [Step 4: Clean up
-  your AWS CloudFormation stack](#studio-notebooks-emr-cluster-quickstart-clean-stack "#studio-notebooks-emr-cluster-quickstart-clean-stack")
+  your CloudFormation stack](#studio-notebooks-emr-cluster-quickstart-clean-stack "#studio-notebooks-emr-cluster-quickstart-clean-stack")
 
 ## Step 1: Create a SageMaker AI domain for
 
 launching Amazon EMR clusters in Studio
 
-In the following steps, you apply a AWS CloudFormation stack to automatically create a new SageMaker AI
+In the following steps, you apply a CloudFormation stack to automatically create a new SageMaker AI
 domain. The stack also creates a user profile and configures the needed environment and
 permissions. The SageMaker AI domain is configured to let you directly launch Amazon EMR clusters
 from Studio. For this example, the Amazon EMR clusters are created in the same AWS
-account as SageMaker AI without authentication. You can find additional AWS CloudFormation stacks supporting
+account as SageMaker AI without authentication. You can find additional CloudFormation stacks supporting
 various authentication methods like Kerberos in the [getting_started](https://github.com/aws-samples/sagemaker-studio-emr/tree/main/cloudformation/getting_started "https://github.com/aws-samples/sagemaker-studio-emr/tree/main/cloudformation/getting_started") GitHub repository.
 
 ###### Note
@@ -49,9 +49,9 @@ stack.
 
 Studio.
 
-1. Download the raw file of this [AWS CloudFormation template](https://github.com/aws-samples/sagemaker-studio-foundation-models/blob/main/workshop-artifacts/cfn/workshop-cfn.yaml "https://github.com/aws-samples/sagemaker-studio-foundation-models/blob/main/workshop-artifacts/cfn/workshop-cfn.yaml") from the `sagemaker-studio-emr` GitHub
+1. Download the raw file of this [CloudFormation template](https://github.com/aws-samples/sagemaker-studio-foundation-models/blob/main/workshop-artifacts/cfn/workshop-cfn.yaml "https://github.com/aws-samples/sagemaker-studio-foundation-models/blob/main/workshop-artifacts/cfn/workshop-cfn.yaml") from the `sagemaker-studio-emr` GitHub
    repository.
-2. Go to the AWS CloudFormation console: [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/")
+2. Go to the CloudFormation console: [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/")
 3. Choose **Create stack** and select **With new
    resources (standard)** from the drop down menu.
 4. In **Step 1**:
@@ -59,7 +59,7 @@ Studio.
       **Choose an existing template**.
    2. In the **Specify template** section, choose
       **Upload a template file**.
-   3. Upload the downloaded AWS CloudFormation template and choose
+   3. Upload the downloaded CloudFormation template and choose
       **Next**.
 
 5. In **Step 2**, enter a **Stack name** and a
@@ -86,7 +86,7 @@ In the following steps, you create a new Amazon EMR cluster from the Studio UI.
    **Amazon EMR Clusters**.
 5. On the Amazon EMR clusters page, choose **Create**. Select the
    template **SageMaker Studio Domain No Auth EMR** created by the
-   AWS CloudFormation stack and then choose **Next**.
+   CloudFormation stack and then choose **Next**.
 6. Enter a name for the new Amazon EMR cluster. Optionally update other parameters
    such as the instance type of core and master nodes, idle timeout, or number of
    core nodes.
@@ -219,22 +219,22 @@ system using LangChain and OpenSearch.
 
 ## Step 4: Clean up
 
-your AWS CloudFormation stack
+your CloudFormation stack
 
 After you are finished, make sure to terminate your two endpoints and delete your
-AWS CloudFormation stack to prevent continued charges. Deleting the stack cleans up all the resources
+CloudFormation stack to prevent continued charges. Deleting the stack cleans up all the resources
 that were provisioned by the stack.
 
-###### To delete your AWS CloudFormation stack when you are done with it
+###### To delete your CloudFormation stack when you are done with it
 
-1. Go to the AWS CloudFormation console: [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/")
+1. Go to the CloudFormation console: [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/")
 2. Select the stack you want to delete. You can search for it by name or find it
    in the list of stacks.
 3. Click the **Delete** button to finalize deleting the stack
    and then **Delete** again to acknowledge that this will
    delete all resources created by the stack.
 
-Wait for the stack deletion to complete. This can take a few minutes. AWS CloudFormation
+Wait for the stack deletion to complete. This can take a few minutes. CloudFormation
 automatically cleans up all resources defined in the stack template. 4. Verify that all resources created by the stack have been deleted. For example,
 check for any leftover Amazon EMR cluster.
 

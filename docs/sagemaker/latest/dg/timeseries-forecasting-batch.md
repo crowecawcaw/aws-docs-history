@@ -49,7 +49,7 @@ aws sagemaker create-model \
 
 The `--execution-role-arn` parameter specifies the IAM role that SageMaker AI
 assumes when using the model for inference. For details on the permissions required for
-this role, see CreateModel API: Execution Role Permissions. 4. ###### Create a batch transform job.
+this role, see [CreateModel API: Execution Role Permissions](../../../index.md "../../../index.md"). 4. ###### Create a batch transform job.
 
 The following example creates a transform job using the [CreateTransformJob](../../../cli/latest/reference/sagemaker/create-transform-job.md "../../../cli/latest/reference/sagemaker/create-transform-job.md") API.
 

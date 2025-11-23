@@ -58,7 +58,7 @@ recommendations:
 - **Use conditions in IAM policies to further restrict access**
   – You can add a condition to your policies to limit access to actions and resources. For example, you can write a policy condition to specify that all requests must
   be sent using SSL. You can also use conditions to grant access to service actions
-  if they are used through a specific AWS service, such as AWS CloudFormation. For more information, see
+  if they are used through a specific AWS service, such as CloudFormation. For more information, see
   [IAM JSON policy elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
 - **Use IAM Access Analyzer to validate your IAM policies to ensure secure and functional permissions**
   – IAM Access Analyzer validates new and existing policies so that the policies adhere to the IAM policy language (JSON) and IAM best practices.
@@ -1543,7 +1543,7 @@ service automatically generates a tag.
 
 - _User-defined tags_ in SageMaker AI: Users can
   add tags when they create SageMaker AI resources using SageMaker SDKs, the AWS CLI CLI,
-  SageMaker APIs, SageMaker AI Console, or AWS CloudFormation templates.
+  SageMaker APIs, SageMaker AI Console, or CloudFormation templates.
 
 ###### Note
 

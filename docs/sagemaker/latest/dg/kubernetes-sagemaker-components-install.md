@@ -56,7 +56,7 @@ Ubuntu 18.04 DLAMI version using the steps in [Launching and Configuring a
 DLAMI](../../../dlami/latest/devguide/launch-config.md "../../../dlami/latest/devguide/launch-config.md"). 2. ###### Create an IAM role to grant your gateway node access to AWS
 resources.
 
-Create an IAM role with permissions to the following resources: CloudWatch, AWS CloudFormation,
+Create an IAM role with permissions to the following resources: CloudWatch, CloudFormation,
 IAM, Amazon EC2, Amazon S3, Amazon EKS.
 
 Attach the following policies to the IAM role:

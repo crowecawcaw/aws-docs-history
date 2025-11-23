@@ -1,9 +1,9 @@
 # Create a
 
-Monitoring Schedule for a Real-time Endpoint with an AWS CloudFormation Custom
+Monitoring Schedule for a Real-time Endpoint with an CloudFormation Custom
 Resource
 
-If you are using a real-time endpoint, you can use a AWS CloudFormation custom resource to
+If you are using a real-time endpoint, you can use a CloudFormation custom resource to
 create a monitoring schedule. The custom resource is in Python. To deploy it, see
 [Python Lambda deployment](../../../lambda/latest/dg/lambda-python-how-to-create-deployment-package.md "../../../lambda/latest/dg/lambda-python-how-to-create-deployment-package.md").
 
@@ -11,11 +11,11 @@ create a monitoring schedule. The custom resource is in Python. To deploy it, se
 
 Resource
 
-Start by adding a custom resource to your AWS CloudFormation template. This points to a
+Start by adding a custom resource to your CloudFormation template. This points to a
 AWS Lambda function that you create in the next step.
 
 This resource enables you to customize the parameters for the monitoring
-schedule You can add or remove more parameters by modifying the AWS CloudFormation resource
+schedule You can add or remove more parameters by modifying the CloudFormation resource
 and the Lambda function in the following example resource.
 
 ```
@@ -49,11 +49,11 @@ and the Lambda function in the following example resource.
 
 Lambda Custom Resource Code
 
-This AWS CloudFormation custom resource uses the [Custom
+This CloudFormation custom resource uses the [Custom
 Resource Helper](https://github.com/aws-cloudformation/custom-resource-helper "https://github.com/aws-cloudformation/custom-resource-helper") AWS library, which you can install with pip using
 `pip install crhelper`.
 
-This Lambda function is invoked by AWS CloudFormation during the creation and deletion of
+This Lambda function is invoked by CloudFormation during the creation and deletion of
 the stack. This Lambda function is responsible for creating and deleting the
 monitoring schedule and using the parameters defined in the custom resource
 described in the preceding section.

@@ -169,7 +169,7 @@ managed policy: AmazonSageMakerPartnerServiceCatalogProductsCloudFormationServic
 This policy is used by AWS CloudFormation within the AWS Service Catalog provisioned products from the
 Amazon SageMaker AI portfolio. The policy is intended to be attached to an IAM role that the
 [AmazonSageMakerServiceCatalogProductsLaunchRole](https://console.aws.amazon.com/iam/home?#/roles/AmazonSageMakerServiceCatalogProductsLaunchRole "https://console.aws.amazon.com/iam/home?#/roles/AmazonSageMakerServiceCatalogProductsLaunchRole")
-passes to the AWS resources created by AWS CloudFormation that require a role.
+passes to the AWS resources created by CloudFormation that require a role.
 
 **Permissions details**
 
@@ -437,7 +437,7 @@ managed policy: AmazonSageMakerServiceCatalogProductsCloudformationServiceRolePo
 This policy is used by AWS CloudFormation within the AWS Service Catalog provisioned products from the
 Amazon SageMaker AI portfolio. The policy is intended to be attached to an IAM role that the
 [AmazonSageMakerServiceCatalogProductsLaunchRole](https://console.aws.amazon.com/iam/home?#/roles/AmazonSageMakerServiceCatalogProductsLaunchRole "https://console.aws.amazon.com/iam/home?#/roles/AmazonSageMakerServiceCatalogProductsLaunchRole")
-passes to the AWS resources created by AWS CloudFormation that require a role.
+passes to the AWS resources created by CloudFormation that require a role.
 
 **Permissions details**
 

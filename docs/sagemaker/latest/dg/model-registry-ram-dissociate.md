@@ -29,5 +29,5 @@ aws ram delete-resource-share --resource-share-arn `<resource-share-arn>`
 For more details about how to dissociate principals from a resource share,
 see [Update a
 Resource Share](../../../ram/latest/userguide/working-with-sharing-update.md "../../../ram/latest/userguide/working-with-sharing-update.md") in the [AWS RAM](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md") documentation. For
-more details about how to delete a resource share, see [Deleting a resource share](../../../https:/docs.aws.amazon.com/ram/latest/userguide/working-with-sharing-delete.md "../../../https:/docs.aws.amazon.com/ram/latest/userguide/working-with-sharing-delete.md") in the [AWS RAM](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md")
+more details about how to delete a resource share, see [Deleting a resource share](../../../ram/latest/userguide/working-with-sharing-delete.md "../../../ram/latest/userguide/working-with-sharing-delete.md") in the [AWS RAM](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md")
 documentation.

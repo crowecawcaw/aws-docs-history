@@ -16,7 +16,7 @@ SageMaker HyperPod cluster, ensure you have met all prerequisites detailed in th
 
 Usage reporting in HyperPod requires:
 
-- Deploying SageMaker HyperPod usage report AWS resources using an AWS CloudFormation
+- Deploying SageMaker HyperPod usage report AWS resources using an CloudFormation
   stack
 - Installing the SageMaker HyperPod usage report Kubernetes operator via a Helm
   chart

@@ -79,7 +79,7 @@ processing job. For more information on exporting your data, see [Export](data-w
 | ml.m5.24xlarge     | 96   | 384 GiB |
 
 For more information about the cost per hour for using the available instance types,
-see [SageMaker Pricing](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagemaker/pricing/").
+see [SageMaker Pricing](https://aws.amazon.com//sagemaker/pricing/ "https://aws.amazon.com//sagemaker/pricing/").
 
 ## The Data Flow UI
 

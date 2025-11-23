@@ -10,6 +10,19 @@ looking for these information related to HyperPod AMI releases, see [Amazon Sage
 
 ## SageMaker HyperPod release notes:
 
+November 07, 2025
+
+SageMaker HyperPod releases the following for [Orchestrating SageMaker HyperPod clusters with
+Amazon EKS](sagemaker-hyperpod-eks.md "sagemaker-hyperpod-eks.md").
+
+**New features**
+
+- Upgraded security patches
+  [SageMaker HyperPod AMI
+  releases for Amazon EKS: November 07, 2025](sagemaker-hyperpod-release-ami-eks.md#sagemaker-hyperpod-release-ami-eks-20251107 "sagemaker-hyperpod-release-ami-eks.md#sagemaker-hyperpod-release-ami-eks-20251107").
+
+## SageMaker HyperPod release notes:
+
 September 29, 2025
 
 SageMaker HyperPod releases the following for [Orchestrating SageMaker HyperPod clusters with
@@ -463,8 +476,8 @@ Slurm](sagemaker-hyperpod-slurm.md "sagemaker-hyperpod-slurm.md").
 
 - Added Amazon EKS support in SageMaker HyperPod. To learn more, see [Orchestrating SageMaker HyperPod clusters with
   Amazon EKS](sagemaker-hyperpod-eks.md "sagemaker-hyperpod-eks.md").
-- Added support for managing SageMaker HyperPod clusters through AWS CloudFormation and Terraform.
-  For more information about managing HyperPod clusters through AWS CloudFormation,
+- Added support for managing SageMaker HyperPod clusters through CloudFormation and Terraform.
+  For more information about managing HyperPod clusters through CloudFormation,
   see [CloudFormation documentation for
   `AWS::SageMaker::Cluster`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.md"). To learn about managing
   HyperPod clusters through Terraform, see [Terraform documentation for

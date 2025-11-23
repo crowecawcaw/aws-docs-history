@@ -1,7 +1,7 @@
 # Exported metrics reference
 
 The following sections present comprehensive lists of metrics exported from
-SageMaker HyperPod to Amazon Managed Service for Prometheus upon the successful configuration of the AWS CloudFormation stack for
+SageMaker HyperPod to Amazon Managed Service for Prometheus upon the successful configuration of the CloudFormation stack for
 SageMaker HyperPod observability. You can start monitoring these metrics visualized in the
 Amazon Managed Grafana dashboards.
 

@@ -10,9 +10,9 @@ SageMaker HyperPod clusters using Amazon EKS.
 ###### Important
 
 You can set up resources configuration for creating SageMaker HyperPod clusters using the
-AWS Management Console and AWS CloudFormation. For more information, see [Creating
+AWS Management Console and CloudFormation. For more information, see [Creating
 a SageMaker HyperPod cluster with Amazon EKS orchestration](sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md "sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md") and [Creating
-SageMaker HyperPod clusters using AWS CloudFormation templates](smcluster-getting-started-eks-console-create-cluster-cfn.md "smcluster-getting-started-eks-console-create-cluster-cfn.md").
+SageMaker HyperPod clusters using CloudFormation templates](smcluster-getting-started-eks-console-create-cluster-cfn.md "smcluster-getting-started-eks-console-create-cluster-cfn.md").
 
 **Requirements**
 

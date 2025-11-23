@@ -6,7 +6,7 @@ the following prerequisites are met.
 ## Enable IAM Identity Center
 
 To enable observability for your SageMaker HyperPod cluster, you must first enable IAM
-Identity Center. This is a prerequisite for deploying an AWS CloudFormation stack that sets up
+Identity Center. This is a prerequisite for deploying an CloudFormation stack that sets up
 the Amazon Managed Grafana workspace and Amazon Managed Service for Prometheus. Both of these services also require the IAM
 Identity Center for authentication and authorization, ensuring secure user access
 and management of the monitoring infrastructure.
@@ -18,7 +18,7 @@ After successfully enabling IAM Identity Center, set up a user account that will
 serve as the administrative user throughout the following configuration
 precedures.
 
-## Create and deploy an AWS CloudFormation stack for SageMaker HyperPod observability
+## Create and deploy an CloudFormation stack for SageMaker HyperPod observability
 
 Create and deploy a CloudFormation stack for SageMaker HyperPod observability to monitor
 HyperPod cluster metrics in real time using Amazon Managed Service for Prometheus and Amazon Managed Grafana. To deploy the

@@ -297,4 +297,4 @@ option to start resource provisioning and cluster creation.
   resources and creating the cluster. You can edit the downloaded
   parameter JSON file if needed. If you choose this option, see more
   instructions in [Creating
-  SageMaker HyperPod clusters using AWS CloudFormation templates](smcluster-getting-started-eks-console-create-cluster-cfn.md "smcluster-getting-started-eks-console-create-cluster-cfn.md").
+  SageMaker HyperPod clusters using CloudFormation templates](smcluster-getting-started-eks-console-create-cluster-cfn.md "smcluster-getting-started-eks-console-create-cluster-cfn.md").

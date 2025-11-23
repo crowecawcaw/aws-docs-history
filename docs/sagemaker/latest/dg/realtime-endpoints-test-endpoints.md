@@ -341,3 +341,217 @@ View the output of the invocation by checking the file output file (`output_file
 ```
 more output_file.txt
 ```
+
+## Invoke Your Model by Using the
+
+AWS SDK for Python
+
+### Invoke to Bidirectionally Stream an Inference Request and Response
+
+If you want to invoke a model endpoint in your application code to supports
+bidirectional streaming, you can use the [new experimental SDK for
+Python](https://github.com/awslabs/aws-sdk-python "https://github.com/awslabs/aws-sdk-python") that supports bidirectional streaming capability with HTTP/2 support.
+This SDK enables real-time, two-way communication between your client application and
+the SageMaker endpoint, allowing you to send inference requests incrementally while
+simultaneously receiving streaming responses as the model generates them. This is
+particularly useful for interactive applications where both the client and server need
+to exchange data continuously over a persistent connection.
+
+###### Note
+
+The new experimental SDK is different from the standard Boto3 SDK and supports
+persistent bidirectional connections for data exchange. While using the experimental
+Python SDK we strongly advise strict pinning to a version of the SDK for any
+non-experimental use cases.
+
+To invoke your endpoint with bidirectional streaming, use the
+`invoke_endpoint_with_bidirectional_stream` method. This method establishes a persistent
+connection that allows you to stream multiple payload chunks to your model while
+receiving responses in real-time as the model processes data. The connection remains
+open until you explicitly close the input stream or the endpoint closes the connection,
+supporting up to 30 minutes of connection time.
+
+### Prerequisites
+
+Before you can use bidirectional streaming in your application code, you must:
+
+1. Install the experimental SageMaker Runtime HTTP/2 SDK
+2. Set up AWS credentials for your SageMaker Runtime client
+3. Deploy a model that supports bidirectional streaming to a SageMaker endpoint
+
+### Set up the bidirectional streaming client
+
+The following example shows how to initialize the required components for bidirectional streaming:
+
+```
+from sagemaker_runtime_http2.client import SageMakerRuntimeHTTP2Client
+from sagemaker_runtime_http2.config import Config, HTTPAuthSchemeResolver
+from smithy_aws_core.identity import EnvironmentCredentialsResolver
+from smithy_aws_core.auth.sigv4 import SigV4AuthScheme
+
+# Configuration
+AWS_REGION = "us-west-2"
+BIDI_ENDPOINT = f"https://runtime.sagemaker.{AWS_REGION}.amazonaws.com:8443"
+ENDPOINT_NAME = "your-endpoint-name"
+
+# Initialize the client configuration
+config = Config(
+    endpoint_uri=BIDI_ENDPOINT,
+    region=AWS_REGION,
+    aws_credentials_identity_resolver=EnvironmentCredentialsResolver(),
+    auth_scheme_resolver=HTTPAuthSchemeResolver(),
+    auth_schemes={"aws.auth#sigv4": SigV4AuthScheme(service="sagemaker")}
+)
+
+# Create the SageMaker Runtime HTTP/2 client
+client = SageMakerRuntimeHTTP2Client(config=config)
+```
+
+### Complete bidirectional streaming client
+
+The following example demonstrates how to create a bidirectional streaming client that sends multiple text payloads to a SageMaker endpoint and processes responses in real-time:
+
+```
+import asyncio
+import logging
+from sagemaker_runtime_http2.client import SageMakerRuntimeHTTP2Client
+from sagemaker_runtime_http2.config import Config, HTTPAuthSchemeResolver
+from sagemaker_runtime_http2.models import (
+    InvokeEndpointWithBidirectionalStreamInput,
+    RequestStreamEventPayloadPart,
+    RequestPayloadPart
+)
+from smithy_aws_core.identity import EnvironmentCredentialsResolver
+from smithy_aws_core.auth.sigv4 import SigV4AuthScheme
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+class SageMakerBidirectionalClient:
+
+    def __init__(self, endpoint_name, region="us-west-2"):
+        self.endpoint_name = endpoint_name
+        self.region = region
+        self.client = None
+        self.stream = None
+        self.response_task = None
+        self.is_active = False
+
+    def _initialize_client(self):
+        bidi_endpoint = f"runtime.sagemaker.{self.region}.amazonaws.com:8443"
+        config = Config(
+            endpoint_uri=bidi_endpoint,
+            region=self.region,
+            aws_credentials_identity_resolver=EnvironmentCredentialsResolver(),
+            auth_scheme_resolver=HTTPAuthSchemeResolver(),
+            auth_schemes={"aws.auth#sigv4": SigV4AuthScheme(service="sagemaker")}
+        )
+        self.client = SageMakerRuntimeHTTP2Client(config=config)
+
+    async def start_session(self):
+        """Establish a bidirectional streaming connection with the endpoint."""
+        if not self.client:
+            self._initialize_client()
+
+        logger.info(f"Starting session with endpoint: {self.endpoint_name}")
+        self.stream = await self.client.invoke_endpoint_with_bidirectional_stream(
+            InvokeEndpointWithBidirectionalStreamInput(endpoint_name=self.endpoint_name)
+        )
+        self.is_active = True
+
+        # Start processing responses concurrently
+        self.response_task = asyncio.create_task(self._process_responses())
+
+    async def send_message(self, message):
+        """Send a single message to the endpoint."""
+        if not self.is_active:
+            raise RuntimeError("Session not active. Call start_session() first.")
+
+        logger.info(f"Sending message: {message}")
+        payload = RequestPayloadPart(bytes_=message.encode('utf-8'))
+        event = RequestStreamEventPayloadPart(value=payload)
+        await self.stream.input_stream.send(event)
+
+    async def send_multiple_messages(self, messages, delay=1.0):
+        """Send multiple messages with a delay between each."""
+        for message in messages:
+            await self.send_message(message)
+            await asyncio.sleep(delay)
+
+    async def end_session(self):
+        """Close the bidirectional streaming connection."""
+        if not self.is_active:
+            return
+
+        await self.stream.input_stream.close()
+        self.is_active = False
+        logger.info("Stream closed")
+
+        # Cancel the response processing task
+        if self.response_task and not self.response_task.done():
+            self.response_task.cancel()
+
+    async def _process_responses(self):
+        """Process incoming responses from the endpoint."""
+        try:
+            output = await self.stream.await_output()
+            output_stream = output[1]
+
+            while self.is_active:
+                result = await output_stream.receive()
+
+                if result is None:
+                    logger.info("No more responses")
+                    break
+
+                if result.value and result.value.bytes_:
+                    response_data = result.value.bytes_.decode('utf-8')
+                    logger.info(f"Received: {response_data}")
+
+        except Exception as e:
+            logger.error(f"Error processing responses: {e}")
+
+# Example usage
+async def run_bidirectional_client():
+    client = SageMakerBidirectionalClient(endpoint_name="your-endpoint-name")
+
+    try:
+        # Start the session
+        await client.start_session()
+
+        # Send multiple messages
+        messages = [
+            "I need help with",
+            "my account balance",
+            "I can help with that",
+            "and recent charges"
+        ]
+        await client.send_multiple_messages(messages)
+
+        # Wait for responses to be processed
+        await asyncio.sleep(2)
+
+        # End the session
+        await client.end_session()
+        logger.info("Session ended successfully")
+
+    except Exception as e:
+        logger.error(f"Client error: {e}")
+        await client.end_session()
+
+if __name__ == "__main__":
+    asyncio.run(run_bidirectional_client())
+```
+
+The client initializes the SageMaker Runtime HTTP/2 client with the regional
+endpoint URI on port 8443, which is required for bidirectional streaming
+connections. The start\_`session()` method calls
+`invoke_endpoint_with_bidirectional_stream()` to establish the persistent connection
+and creates an asynchronous task to process incoming responses concurrently.
+
+The `send_event()` method wraps payload data in the appropriate request objects and
+sends them through the input stream, while the `_process_responses()` method
+continuously listens for and processes responses from the endpoint as they arrive.
+This bidirectional approach enables real-time interaction where both sending
+requests and receiving responses happen simultaneously over the same
+connection.

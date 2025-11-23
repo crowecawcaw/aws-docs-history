@@ -36,7 +36,7 @@ user hasn’t been active for 2 hours).
 
 You can create these solutions using AWS Lambda functions that call the
 `DeleteApp` API and delete Canvas applications given certain
-conditions. For more information about these solutions and access to AWS CloudFormation templates
+conditions. For more information about these solutions and access to CloudFormation templates
 that you can use, see the blog [Optimizing costs for Amazon SageMaker Canvas with automatic shutdown of idle apps](https://aws.amazon.com/blogs/machine-learning/optimizing-costs-for-amazon-sagemaker-canvas-with-automatic-shutdown-of-idle-apps/ "https://aws.amazon.com/blogs/machine-learning/optimizing-costs-for-amazon-sagemaker-canvas-with-automatic-shutdown-of-idle-apps/") .
 
 ###### Note

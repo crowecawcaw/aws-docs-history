@@ -26,7 +26,7 @@ instances so that you don't pay for provisioned instances that you aren't using.
   instances](endpoint-auto-scaling-zero-instances.md "endpoint-auto-scaling-zero-instances.md")
 - [Load testing your auto scaling
   configuration](endpoint-scaling-loadtest.md "endpoint-scaling-loadtest.md")
-- [Use AWS CloudFormation to create a scaling
+- [Use CloudFormation to create a scaling
   policy](endpoint-scaling-cloudformation.md "endpoint-scaling-cloudformation.md")
 - [Update endpoints that use auto scaling](endpoint-scaling-update.md "endpoint-scaling-update.md")
 - [Delete endpoints configured for auto

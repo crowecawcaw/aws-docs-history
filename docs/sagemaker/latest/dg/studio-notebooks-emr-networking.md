@@ -129,7 +129,7 @@ Studio or Studio Classic instance security group. [Apache Livy](https://livy.apa
 enables interaction with Amazon EMR over a REST interface.
 
 The following diagram shows an example of an Amazon VPC setup that enables JupyterLab
-or Studio Classic notebooks to provision Amazon EMR clusters from AWS CloudFormation templates in the Service Catalog
+or Studio Classic notebooks to provision Amazon EMR clusters from CloudFormation templates in the Service Catalog
 and then connect to an Amazon EMR cluster within the same AWS account. The diagram
 provides an additional illustration of the required endpoints for a direct
 connection to various AWS services, such as Amazon S3 or Amazon CloudWatch, when the VPCs have
@@ -138,7 +138,7 @@ gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md#nat-gateway-working-wi
 VPCs to share a single public IP address provided by the [internet gateway](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md")
 when accessing the internet.
 
-![Architectural diagram illustrating an example of a simple Amazon VPC setup that enables Studio or Studio Classic notebooks to provision Amazon EMR clusters from AWS CloudFormation templates in the Service Catalog and then connect to an Amazon EMR cluster within the same AWS account. The diagram provides an additional illustration of the required endpoints for a direct connection to various AWS services, such as Amazon S3 or Amazon CloudWatch, when the VPCs have no internet access. Alternatively, a NAT gateway must be used to allow instances in private subnets of multiple VPCs to share a single public IP address provided by the internet gateway when accessing the internet.](images/studio/emr/studio-notebooks-emr-architecture-singleaccount-vpcendpoints.png)
+![Architectural diagram illustrating an example of a simple Amazon VPC setup that enables Studio or Studio Classic notebooks to provision Amazon EMR clusters from CloudFormation templates in the Service Catalog and then connect to an Amazon EMR cluster within the same AWS account. The diagram provides an additional illustration of the required endpoints for a direct connection to various AWS services, such as Amazon S3 or Amazon CloudWatch, when the VPCs have no internet access. Alternatively, a NAT gateway must be used to allow instances in private subnets of multiple VPCs to share a single public IP address provided by the internet gateway when accessing the internet.](images/studio/emr/studio-notebooks-emr-architecture-singleaccount-vpcendpoints.png)
 
 ## Studio
 

@@ -64,11 +64,23 @@ Studio.
         model**.
      4. In the **Add model** window, choose
         **Custom Model**.
-     5. For **Custom model name**, enter a
-        name.
-     6. For **S3 URI**, enter the URI for the
-        location in Amazon S3 where you've stored your model
-        artifacts.
+     5. Choose one of the following options:
+
+     **Use your existing model** - Select this
+     option to optimize a model that you've already created in
+     SageMaker AI.
+
+     **Existing model name** - enter the name
+     of your SageMaker AI model.
+
+     **From S3** - Select this option to
+     provide model artifacts from Amazon S3. For **S3
+     URI**, enter the URI for the location in Amazon S3
+     where you've stored your model artifacts. 6. (Optional) For \***\*Output
+     model name\*\***, you can enter a
+     custom name for the optimized model that the job creates. If
+     you don't provide a name, Studio automatically generates one
+     based on your selection.
 
 2. On the **Create inference optimization job** page, for
    **Job name**, you can accept the default name that SageMaker AI
@@ -560,6 +572,200 @@ response that the model generated, as shown by the following example:
 ```
 {'generated_text': ' Jupiter is the largest planet in the solar system. It is the fifth planet from the sun. It is a gas giant with . . .'}
 ```
+
+You can use the AWS SDK for Python (Boto3) to programmatically create and manage
+inference optimization jobs. This section provides examples for different
+optimization techniques.
+
+**Prerequisites**
+
+Before creating an optimization job with Boto3, ensure you have:
+
+- Configured AWS credentials - Set up your AWS credentials with appropriate
+  permissions
+- Created a SageMaker AI model (if using an existing model)
+- Prepared training data in S3 (for speculative decoding optimization,
+  supported context length up to 4096)
+- IAM role with necessary permissions - Your execution role must have permissions to access S3 and create SageMaker resources
+  **Example: Create an Optimization Job with EAGLE
+  Speculative Decoding (Llama 3.3 70B)**
+
+This example demonstrates creating an optimization job for a large language
+model using the EAGLE speculative decoding technique:
+
+```
+import boto3
+
+# Initialize SageMaker client
+sagemaker_client = boto3.client('sagemaker', region_name='us-west-2')
+
+# Step 1: Create a SageMaker model (if not already created)
+model_response = sagemaker_client.create_model(
+    ModelName='meta-llama-3-3-70b-instruct',
+    ExecutionRoleArn='arn:aws:iam::123456789012:role/SageMakerExecutionRole',
+    PrimaryContainer={
+        'Image': '763104351884.dkr.ecr.us-west-2.amazonaws.com/djl-inference:<tag>',
+        'ModelDataSource': {
+            'S3DataSource': {
+                'S3Uri': 's3://my-bucket/models/Llama-3.3-70B-Instruct/',
+                'S3DataType': 'S3Prefix',
+                'CompressionType': 'None'
+            }
+        },
+        'Environment': {
+            'SAGEMAKER_ENV': '1',
+            'SAGEMAKER_MODEL_SERVER_TIMEOUT': '3600'
+        }
+    }
+)
+
+# Step 2: Create optimization job with speculative decoding
+optimization_response = sagemaker_client.create_optimization_job(
+    OptimizationJobName='llama-optim-job-eagle-speculative-decoding',
+    RoleArn='arn:aws:iam::123456789012:role/SageMakerExecutionRole',
+    ModelSource={
+        'SageMakerModel': {
+            'ModelName': 'meta-llama-3-3-70b-instruct'
+        }
+    },
+    DeploymentInstanceType='ml.p4d.24xlarge',
+    # MaxInstanceCount specifies the maximum number of instances for distributed training
+    MaxInstanceCount=4,
+    OptimizationConfigs=[
+        {
+            'ModelSpeculativeDecodingConfig': {
+                'Technique': 'EAGLE',
+                'TrainingDataSource': {
+                    'S3Uri': 's3://my-bucket/training_data/ultrachat_8k/',
+                    'S3DataType': 'S3Prefix'
+                }
+            }
+        }
+    ],
+    OutputConfig={
+        'S3OutputLocation': 's3://my-bucket/optimized-models/llama-optim-output/',
+    },
+    StoppingCondition={
+        'MaxRuntimeInSeconds': 432000  # 5 days
+    }
+)
+
+print(f"Optimization job ARN: {optimization_response['OptimizationJobArn']}")
+```
+
+**Example: Create an Optimization Job from S3 Model Artifacts
+(Qwen3 32B)**
+
+This example shows how to create an optimization job using model artifacts
+directly from S3:
+
+```
+import boto3
+
+sagemaker_client = boto3.client('sagemaker', region_name='us-west-2')
+
+# Create model from S3 artifacts
+model_response = sagemaker_client.create_model(
+    ModelName='qwen3-32b',
+    ExecutionRoleArn='arn:aws:iam::123456789012:role/SageMakerExecutionRole',
+    PrimaryContainer={
+        'Image': '763104351884.dkr.ecr.us-west-2.amazonaws.com/djl-inference:<tag>',
+        'Mode': 'SingleModel',
+        'ModelDataSource': {
+            'S3DataSource': {
+                'S3Uri': 's3://my-bucket/models/qwen3-32b/',
+                'S3DataType': 'S3Prefix',
+                'CompressionType': 'None'
+            }
+        },
+        'Environment': {
+            'AWS_REGION': 'us-west-2'
+        }
+    }
+)
+
+# Create optimization job with smaller training dataset
+optimization_response = sagemaker_client.create_optimization_job(
+    OptimizationJobName='qwen3-optim-job-eagle',
+    RoleArn='arn:aws:iam::123456789012:role/SageMakerExecutionRole',
+    ModelSource={
+        'SageMakerModel': {
+            'ModelName': 'qwen3-32b'
+        }
+    },
+    DeploymentInstanceType='ml.g6.48xlarge',
+    MaxInstanceCount=4,
+    OptimizationConfigs=[
+        {
+            'ModelSpeculativeDecodingConfig': {
+                'Technique': 'EAGLE',
+                'TrainingDataSource': {
+                    'S3Uri': 's3://my-bucket/training_data/ultrachat_1k/',
+                    'S3DataType': 'S3Prefix'
+                }
+            }
+        }
+    ],
+    OutputConfig={
+        'S3OutputLocation': 's3://my-bucket/optimized-models/qwen3-optim-output/',
+    },
+    StoppingCondition={
+        'MaxRuntimeInSeconds': 432000  # 5 days
+    }
+)
+
+print(f"Optimization job ARN: {optimization_response['OptimizationJobArn']}")
+```
+
+**Example: Monitor and Manage Optimization
+Jobs**
+
+After creating an optimization job, you can monitor its progress and manage it
+using these commands:
+
+```
+import boto3
+
+sagemaker_client = boto3.client('sagemaker', region_name='us-west-2')
+
+# Describe optimization job to check status
+describe_response = sagemaker_client.describe_optimization_job(
+    OptimizationJobName='llama-optim-job-eagle-speculative-decoding'
+)
+
+print(f"Job Status: {describe_response['OptimizationJobStatus']}")
+
+# List all optimization jobs (with pagination)
+list_response = sagemaker_client.list_optimization_jobs(
+    MaxResults=10,
+    SortBy='CreationTime',
+    SortOrder='Descending'
+)
+
+print("\nRecent optimization jobs:")
+for job in list_response['OptimizationJobSummaries']:
+    print(f"- {job['OptimizationJobName']}: {job['OptimizationJobStatus']}")
+
+# Stop a running optimization job if needed
+# sagemaker_client.stop_optimization_job(
+#     OptimizationJobName='llama-optim-job-eagle-speculative-decoding'
+# )
+
+# Delete a completed or failed optimization job
+# sagemaker_client.delete_optimization_job(
+#     OptimizationJobName='llama-optim-job-eagle-speculative-decoding'
+# )
+```
+
+Speculative decoding with Eagle Heads runs four sequential training jobs. Each job
+produces output that becomes the input to the next. Only the output from the final
+job is delivered to your S3 bucket. The intermediate outputs are encrypted and
+stored in an internal SageMaker AI service bucket for upto 20 days. SageMaker AI
+does not have permissions to de-crypt them. If you want the intermediate data
+removed before that time period, ensure your job has been completed or has stopped,
+and then open a support case [[https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#creating-a-support-case](../../../awssupport/latest/user/case-management.md#creating-a-support-case "../../../awssupport/latest/user/case-management.md#creating-a-support-case")]
+for this data to be deleted. Include in the request your AWS account ID and the
+optimization job ARN.
 
 ## Limitations of the SageMaker AI draft model
 

@@ -15,6 +15,19 @@ To update existing HyperPod clusters with the latest DLAMI, see [Update the Sage
 
 ## SageMaker HyperPod release
 
+notes: November 07, 2025
+
+**The AMI includes the following:**
+
+- Supported AWS service: Amazon EC2
+- Operating System: Ubuntu 22.04
+- Compute Architecture: ARM64
+- Updated packages: NVIDIA Driver: 580.95.05
+- CUDA Versions: cuda-12.6, cuda-12.8, cuda-12.9, cuda-13.0
+- Security fixes: [Runc Security patch](https://aws.amazon.com/security/security-bulletins/rss/aws-2025-024/ "https://aws.amazon.com/security/security-bulletins/rss/aws-2025-024/")
+
+## SageMaker HyperPod release
+
 notes: September 29, 2025
 
 **The AMI includes the following:**

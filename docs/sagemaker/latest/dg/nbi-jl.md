@@ -36,7 +36,7 @@ JupyterLab 1 and JupyterLab 3 platforms reached end of standard support on June 
 
 Migrate your work to JupyterLab 4 notebook instances (the latest version's platform identifier is
 [notebook-al2023-v1](nbi-al2023.md "nbi-al2023.md")) to ensure you have a secure and supported environment. This allows you to leverage the
-latest versions of Jupyter notebooks, JupyterLab, and other ML libraries. For instructions, see [migrate your work to an SageMaker AI notebook instance with Amazon Linux 2](https://aws.amazon.com/blogs/machine-learning/migrate-your-work-to-amazon-sagemaker-notebook-instance-with-amazon-linux-2/ "https://aws.amazon.com/blogs/machine-learning/migrate-your-work-to-amazon-sagemaker-notebook-instance-with-amazon-linux-2/").
+latest versions of Jupyter notebooks, JupyterLab, and other ML libraries. For instructions, see [migrate your work to an SageMaker AI notebook instance with Amazon Linux 2](https://aws.amazon.com/blogs//machine-learning/migrate-your-work-to-amazon-sagemaker-notebook-instance-with-amazon-linux-2/ "https://aws.amazon.com/blogs//machine-learning/migrate-your-work-to-amazon-sagemaker-notebook-instance-with-amazon-linux-2/").
 
 ## JupyterLab 4
 

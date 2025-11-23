@@ -16,7 +16,7 @@ Operator](https://www.kubeflow.org/docs/components/training/ "https://www.kubefl
 ###### Important
 
 This Helm installation step is required. If you set up your Amazon EKS cluster using
-the [AWS Management Console](sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md "sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md") or [AWS CloudFormation](smcluster-getting-started-eks-console-create-cluster-cfn.md "smcluster-getting-started-eks-console-create-cluster-cfn.md"),
+the [AWS Management Console](sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md "sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md") or [CloudFormation](smcluster-getting-started-eks-console-create-cluster-cfn.md "smcluster-getting-started-eks-console-create-cluster-cfn.md"),
 you can skip this step because the installation is handled automatically during the
 setup process. If you set up the cluster directly using the APIs, use the provided
 Helm chart to configure your Amazon EKS cluster. Failure to configure your Amazon EKS cluster

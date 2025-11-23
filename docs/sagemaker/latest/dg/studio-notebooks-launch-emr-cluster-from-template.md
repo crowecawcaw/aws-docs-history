@@ -3,7 +3,7 @@
 cluster from Studio or Studio Classic
 
 Data scientists and data engineers can self-provision Amazon EMR clusters from Studio
-or Studio Classic using AWS CloudFormation templates set up by their administrators. Before users can
+or Studio Classic using CloudFormation templates set up by their administrators. Before users can
 launch a cluster, administrators must have configured the necessary settings in the
 Studio environment. For information on how administrators can configure a
 Studio environment to allow self-provisioning Amazon EMR clusters, see [Configure Amazon EMR CloudFormation

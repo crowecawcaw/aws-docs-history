@@ -64,3 +64,12 @@ they show the supported optimization techniques.
 | Mixtral-8x22B V1            | INT4-AWQ<br>INT8-SmoothQuant<br>FP8 | Yes                                     | Yes                           | TensorRT-LLM                |
 | Mixtral 8x7B                | INT4-AWQ<br>INT8-SmoothQuant<br>FP8 | Yes                                     | Yes                           | TensorRT-LLM                |
 | Mixtral 8x7B Instruct       | INT4-AWQ<br>INT8-SmoothQuant<br>FP8 | Yes                                     | Yes                           | TensorRT-LLM                |
+
+| Supported Model Architectures and EAGLE Type | Model Architecture Name | EAGLE Type |
+| -------------------------------------------- | ----------------------- | ---------- |
+| LlamaForCausalLM                             | EAGLE 3                 |
+| Qwen3ForCausalLM                             | EAGLE 3                 |
+| Qwen3NextForCausalLM                         | EAGLE 2                 |
+| Qwen3MoeForCausalLM                          | EAGLE 3                 |
+| Qwen2ForCausalLM                             | EAGLE 3                 |
+| GptOssForCausalLM                            | EAGLE 3                 |

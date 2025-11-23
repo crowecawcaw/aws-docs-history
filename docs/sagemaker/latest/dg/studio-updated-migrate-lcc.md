@@ -14,7 +14,7 @@ Amazon SageMaker Studio Classic operates in a split environment with:
   applications.
   Studio has shifted away from a split environment. Studio runs the
   JupyterLab and Code Editor, based on Code-OSS, Visual Studio Code - Open Source applications in a local runtime model. For more information
-  about the change in architecture, see [Boost productivity on Amazon SageMaker Studio](https://aws.amazon.com/blogs/machine-learning/boost-productivity-on-amazon-sagemaker-studio-introducing-jupyterlab-spaces-and-generative-ai-tools/ "https://aws.amazon.com/blogs/machine-learning/boost-productivity-on-amazon-sagemaker-studio-introducing-jupyterlab-spaces-and-generative-ai-tools/").
+  about the change in architecture, see [Boost productivity on Amazon SageMaker Studio](https://aws.amazon.com/blogs//machine-learning/boost-productivity-on-amazon-sagemaker-studio-introducing-jupyterlab-spaces-and-generative-ai-tools/ "https://aws.amazon.com/blogs//machine-learning/boost-productivity-on-amazon-sagemaker-studio-introducing-jupyterlab-spaces-and-generative-ai-tools/").
 
 ## Migrate custom images
 

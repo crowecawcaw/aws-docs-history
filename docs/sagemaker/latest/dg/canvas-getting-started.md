@@ -29,7 +29,7 @@ To set up a SageMaker Canvas application, onboard using one of the following set
       granular control over user permissions such as access to data preparation features,
       generative AI functionality, and model deployments.
 
-2. **Onboard with AWS CloudFormation.** [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
+2. **Onboard with CloudFormation.** [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
    automates the provisioning of resources and configurations so that you can set up Canvas for one or more user profiles at the same time.
    Use this option if you want to automate the onboarding process at scale and make sure that your applications are configured the same way
    every time. The following [CloudFormation template](https://github.com/aws-samples/cloudformation-studio-domain "https://github.com/aws-samples/cloudformation-studio-domain") provides

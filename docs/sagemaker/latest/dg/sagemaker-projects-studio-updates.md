@@ -7,7 +7,7 @@ The Amazon SageMaker Studio (or Studio Classic) administrator and Studio (or Stu
 project templates provided by SageMaker AI and create projects with those templates.
 By default, the administrator can view the SageMaker AI templates in the Service Catalog console.
 The administrator can see what another user creates if the user has permission
-to use SageMaker Projects. The administrator can also view the AWS CloudFormation template that the SageMaker AI project
+to use SageMaker Projects. The administrator can also view the CloudFormation template that the SageMaker AI project
 templates define in the Service Catalog console. For information about using the Service Catalog
 console, see [What Is
 Service Catalog](../../../servicecatalog/latest/adminguide/introduction.md "../../../servicecatalog/latest/adminguide/introduction.md") in the _Service Catalog User Guide_.

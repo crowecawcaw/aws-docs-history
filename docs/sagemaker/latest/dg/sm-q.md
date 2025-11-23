@@ -21,8 +21,8 @@ of an integrated AWS coding environment, Amazon Q can generate code recommendati
 based on developers' code, as well as their comments in natural language.
 
 Amazon Q has the most support for Java, Python, JavaScript, TypeScript, C#, Go, PHP, Rust,
-Kotlin, and SQL, as well as the Infrastructure as Code (IaC) languages JSON (AWS CloudFormation), YAML
-(AWS CloudFormation), HCL (Terraform), and CDK (Typescript, Python). It also supports code generation for
+Kotlin, and SQL, as well as the Infrastructure as Code (IaC) languages JSON (CloudFormation), YAML
+(CloudFormation), HCL (Terraform), and CDK (Typescript, Python). It also supports code generation for
 Ruby, C++, C, Shell, and Scala. For examples of how Amazon Q integrates with Amazon SageMaker AI and
 displays code suggestions in the Amazon SageMaker Studio Classic IDE, see [Code
 Examples](../../../amazonq/latest/qdeveloper-ug/inline-suggestions-code-examples.md "../../../amazonq/latest/qdeveloper-ug/inline-suggestions-code-examples.md") in the _Amazon Q Developer User Guide_.

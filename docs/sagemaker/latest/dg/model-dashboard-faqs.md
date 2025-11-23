@@ -86,7 +86,7 @@ You can find helpful BYOC examples in the following links:
   With Amazon SageMaker Model Monitor](model-monitor-byoc-containers.md "model-monitor-byoc-containers.md")
 - [Detecting
   data drift in NLP using BYOC Model Monitor](https://aws.amazon.com/blogs/machine-learning/detect-nlp-data-drift-using-custom-amazon-sagemaker-model-monitor "https://aws.amazon.com/blogs/machine-learning/detect-nlp-data-drift-using-custom-amazon-sagemaker-model-monitor")
-- [Detecting and analyzing incorrect predictions in CV](https://aws.amazon.com/blogs/machine-learning/detecting-and-analyzing-incorrect-model-predictions-with-amazon-sagemaker-model-monitor-and-debugger "https://aws.amazon.com/blogs/machine-learning/detecting-and-analyzing-incorrect-model-predictions-with-amazon-sagemaker-model-monitor-and-debugger")
+- [Detecting and analyzing incorrect predictions in CV](https://aws.amazon.com/blogs//machine-learning/detecting-and-analyzing-incorrect-model-predictions-with-amazon-sagemaker-model-monitor-and-debugger "https://aws.amazon.com/blogs//machine-learning/detecting-and-analyzing-incorrect-model-predictions-with-amazon-sagemaker-model-monitor-and-debugger")
   For details about how to integrate Model Monitor and Pipelines, see [Amazon Pipelines now integrates with SageMaker Model Monitor and SageMaker Clarify](https://aws.amazon.com/about-aws/whats-new/2021/12/amazon-sagemaker-pipelines-integrates-sagemaker-model-monitor-sagemaker-clarify/ "https://aws.amazon.com/about-aws/whats-new/2021/12/amazon-sagemaker-pipelines-integrates-sagemaker-model-monitor-sagemaker-clarify/") .
 
 For an example, see the GitHub sample notebook

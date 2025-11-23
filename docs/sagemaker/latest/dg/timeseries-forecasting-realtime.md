@@ -61,7 +61,7 @@ aws sagemaker create-model \
 
 The `--execution-role-arn` parameter specifies the IAM role that SageMaker AI
 assumes when using the model for inference. For details on the permissions required for
-this role, see CreateModel API: Execution Role Permissions. 4. ###### Create a SageMaker AI endpoint configuration using the model.
+this role, see [CreateModel API: Execution Role Permissions](../../../index.md "../../../index.md"). 4. ###### Create a SageMaker AI endpoint configuration using the model.
 
 The following AWS CLI command uses the [CreateEndpointConfig](../APIReference/API_CreateEndpointConfig.md "../APIReference/API_CreateEndpointConfig.md") API to create an endpoint configuration.
 

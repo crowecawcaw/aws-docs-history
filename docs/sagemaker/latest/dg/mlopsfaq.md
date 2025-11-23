@@ -15,5 +15,5 @@ The repository with name '`repository-name`' in registry
 ```
 
 then you have non-empty Amazon S3 buckets or Amazon ECR
-repositories which you need to manually delete before you delete the SageMaker AI project. AWS CloudFormation does not
+repositories which you need to manually delete before you delete the SageMaker AI project. CloudFormation does not
 automatically delete non-empty Amazon S3 buckets or Amazon ECR repositories for you.

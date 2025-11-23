@@ -50,7 +50,7 @@ The following diagram shows the preceding workflow.
 
 ![The workflow described in the preceding paragraph showing how to get inferences from SageMaker AI.](images/inference-workflow-flowchart.png)
 
-You can perform these actions using the AWS console, the AWS SDKs, the SageMaker Python SDK, AWS CloudFormation or the AWS CLI.
+You can perform these actions using the AWS console, the AWS SDKs, the SageMaker Python SDK, CloudFormation or the AWS CLI.
 
 For batch inference with batch transform, point to your model artifacts and input data
 and create a batch inference job. Instead of hosting an endpoint for inference, SageMaker AI

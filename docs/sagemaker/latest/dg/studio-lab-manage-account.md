@@ -44,8 +44,8 @@ and metadata. When requesting an account, you can optionally choose to provide 
 last name, country, organization name, occupation, and the reason for your interest in this
 product. We protect all customer personal data with encryption. For more information about how
 your personal information is handled, see the [Privacy
-Notice](https://aws.amazon.com/privacy/ "https://aws.amazon.com/privacy/").
+Notice](https://aws.amazon.com//privacy/ "https://aws.amazon.com//privacy/").
 
 When you delete your account, all of your information is deleted immediately. If you
 have an inquiry about this, submit the [Amazon SageMaker Studio Lab Form](https://pages.awscloud.com/GLOBAL_PM_PA_amazon-sagemaker_20211116_7014z000000rjq2-registration.html "https://pages.awscloud.com/GLOBAL_PM_PA_amazon-sagemaker_20211116_7014z000000rjq2-registration.html"). For information and support related to
-AWS compliance, see [Compliance support](https://aws.amazon.com/contact-us/compliance-support/ "https://aws.amazon.com/contact-us/compliance-support/").
+AWS compliance, see [Compliance support](https://aws.amazon.com//contact-us/compliance-support/ "https://aws.amazon.com//contact-us/compliance-support/").
