@@ -1,7 +1,7 @@
 # Create multi-Region replica keys
 
 You can create a [multi-Region replica key](multi-region-keys-overview.md#mrk-primary-key "multi-region-keys-overview.md#mrk-primary-key") in the
-AWS KMS console, by using the [ReplicateKey](../APIReference/API_ReplicateKey.md "../APIReference/API_ReplicateKey.md") operation, or by using a [AWS::KMS::ReplicaKey AWS CloudFormation template](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.md"). You cannot
+AWS KMS console, by using the [ReplicateKey](../APIReference/API_ReplicateKey.md "../APIReference/API_ReplicateKey.md") operation, or by using a [AWS::KMS::ReplicaKey CloudFormation template](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.md"). You cannot
 use the [CreateKey](../APIReference/API_CreateKey.md "../APIReference/API_CreateKey.md") operation to create a
 replica key.
 

@@ -105,7 +105,7 @@ You have many options for connecting the Amazon VPC to your external key store
 proxy. Choose an option that meets your performance and security needs. For a
 list, see [Connect your VPC to other
 networks](../../../vpc/latest/userguide/extend-intro.md "../../../vpc/latest/userguide/extend-intro.md") and [Network-to-Amazon VPC connectivity options](../../../whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.md "../../../whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.md"). For more details, see
-[AWS Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md"), and the [AWS Site-to-Site VPN User Guide](../../../vpn/latest/s2svpn.md "../../../vpn/latest/s2svpn.md").
+[Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md"), and the [AWS Site-to-Site VPN User Guide](../../../vpn/latest/s2svpn.md "../../../vpn/latest/s2svpn.md").
 
 ### Creating an Amazon VPC for your external key
 

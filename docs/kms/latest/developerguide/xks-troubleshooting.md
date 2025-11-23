@@ -558,7 +558,7 @@ This error might occur for the following reasons:
   and the Amazon VPC for the external key store is not operating properly. If you are
   using AWS Direct Connect, verify that your VPC and external key manager can
   communicate effectively. For help resolving any issues, see [Troubleshooting
-  AWS Direct Connect](../../../directconnect/latest/UserGuide/Troubleshooting.md "../../../directconnect/latest/UserGuide/Troubleshooting.md") in the AWS Direct Connect User Guide.
+  AWS Direct Connect](../../../directconnect/latest/UserGuide/Troubleshooting.md "../../../directconnect/latest/UserGuide/Troubleshooting.md") in the Direct Connect User Guide.
 
 |                                                                                                                                                                                                                                                                                                                                               |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

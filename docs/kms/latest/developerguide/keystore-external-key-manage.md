@@ -48,7 +48,7 @@ keys in an external key store:
   and [GenerateDataKeyPairWithoutPlaintext](../APIReference/API_GenerateDataKeyPairWithoutPlaintext.md "../APIReference/API_GenerateDataKeyPairWithoutPlaintext.md") are not supported on KMS keys in
   an external key store.
 - You cannot use an [AWS::KMS::Key
-  AWS CloudFormation template](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.md") to create an external key store or a KMS key in an external
+  CloudFormation template](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.md") to create an external key store or a KMS key in an external
   key store.
 - [Multi-Region keys](multi-region-keys-overview.md "multi-region-keys-overview.md") are not
   supported in an external key store.

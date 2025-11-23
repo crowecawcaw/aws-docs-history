@@ -1,7 +1,7 @@
 # Create an HMAC KMS key
 
 You can create HMAC KMS keys in the AWS KMS console, by using the [CreateKey](../APIReference/API_CreateKey.md "../APIReference/API_CreateKey.md") API, or by using
-the [AWS::KMS::Key AWS CloudFormation
+the [AWS::KMS::Key CloudFormation
 template](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.md").
 
 When you create an HMAC KMS key, you must select a key spec. AWS KMS supports multiple

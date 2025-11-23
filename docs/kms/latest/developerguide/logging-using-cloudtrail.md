@@ -2,7 +2,7 @@
 
 AWS KMS is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md"), a service that records
 all calls to AWS KMS by users, roles, and other AWS services. CloudTrail captures all API calls to
-AWS KMS as events, including calls from the AWS KMS console, AWS KMS APIs, AWS CloudFormation templates, the
+AWS KMS as events, including calls from the AWS KMS console, AWS KMS APIs, CloudFormation templates, the
 AWS Command Line Interface (AWS CLI), and AWS Tools for PowerShell.
 
 CloudTrail logs all AWS KMS operations, including read-only operations, such as [ListAliases](ct-listaliases.md "ct-listaliases.md") and [GetKeyRotationStatus](ct-getkeyrotationstatus.md "ct-getkeyrotationstatus.md"), operations that manage KMS keys, such as [CreateKey](ct-createkey.md "ct-createkey.md") and [PutKeyPolicy](ct-put-key-policy.md "ct-put-key-policy.md"), and [cryptographic

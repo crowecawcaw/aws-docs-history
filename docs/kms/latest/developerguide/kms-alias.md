@@ -25,7 +25,7 @@ aliases with the same name in multiple Regions and associate each alias with a K
 Region. When the code runs in each Region, the alias refers to the associated KMS key in that
 Region. For an example, see [Learn how to use aliases in your applications](alias-using.md "alias-using.md").
 
-You can create an alias for a KMS key in the AWS KMS console, by using the [CreateAlias](../APIReference/API_CreateAlias.md "../APIReference/API_CreateAlias.md") API, or by using the [AWS::KMS::Alias AWS CloudFormation template](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.md").
+You can create an alias for a KMS key in the AWS KMS console, by using the [CreateAlias](../APIReference/API_CreateAlias.md "../APIReference/API_CreateAlias.md") API, or by using the [AWS::KMS::Alias CloudFormation template](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.md").
 
 The AWS KMS API provides full control of aliases in each account and Region. The API includes
 operations to create an alias ([CreateAlias](../APIReference/API_CreateAlias.md "../APIReference/API_CreateAlias.md")), view alias names and alias ARNs ([ListAliases](../APIReference/API_ListAliases.md "../APIReference/API_ListAliases.md")), change the KMS key associated

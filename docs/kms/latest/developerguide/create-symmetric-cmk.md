@@ -3,7 +3,7 @@
 This topic explains how to create the basic KMS key, a [symmetric encryption KMS key](symm-asymm-choose-key-spec.md#symmetric-cmks "symm-asymm-choose-key-spec.md#symmetric-cmks") for a single Region with key material from AWS KMS. You
 can use this KMS key to protect your resources in an AWS service.
 
-You can create symmetric encryption KMS keys in the AWS KMS console, by using the [CreateKey](../APIReference/API_CreateKey.md "../APIReference/API_CreateKey.md") API, or by using the [AWS::KMS::Key AWS CloudFormation template](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.md").
+You can create symmetric encryption KMS keys in the AWS KMS console, by using the [CreateKey](../APIReference/API_CreateKey.md "../APIReference/API_CreateKey.md") API, or by using the [AWS::KMS::Key CloudFormation template](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.md").
 
 The default key spec, [SYMMETRIC_DEFAULT](symm-asymm-choose-key-spec.md#symmetric-cmks "symm-asymm-choose-key-spec.md#symmetric-cmks"), is the key
 spec for symmetric encryption KMS keys. When you select the **Symmetric**

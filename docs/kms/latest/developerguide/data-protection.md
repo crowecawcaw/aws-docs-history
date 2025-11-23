@@ -149,7 +149,7 @@ AWS KMS supports two network connectivity options from your private network to A
 
 - An IPSec VPN connection over the internet
 - [AWS Direct Connect](https://aws.amazon.com/directconnect/ "https://aws.amazon.com/directconnect/"), which links your
-  internal network to an AWS Direct Connect location over a standard Ethernet fiber-optic
+  internal network to an Direct Connect location over a standard Ethernet fiber-optic
   cable.
 
 All AWS KMS API calls must be signed and be transmitted using Transport Layer Security

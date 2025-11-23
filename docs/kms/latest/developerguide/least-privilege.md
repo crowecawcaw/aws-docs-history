@@ -37,7 +37,7 @@ mitigate the vulnerability of long-term credentials. You can use MFA to do the f
 
 - [AWS managed
   policies for job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md")
-- [Techniques for writing least privilege IAM policies](https://aws.amazon.com/blogs/security/techniques-for-writing-least-privilege-iam-policies/ "https://aws.amazon.com/blogs/security/techniques-for-writing-least-privilege-iam-policies/")
+- [Techniques for writing least privilege IAM policies](https://aws.amazon.com//blogs/security/techniques-for-writing-least-privilege-iam-policies/ "https://aws.amazon.com//blogs/security/techniques-for-writing-least-privilege-iam-policies/")
 
 ## Implementing least privileged
 
