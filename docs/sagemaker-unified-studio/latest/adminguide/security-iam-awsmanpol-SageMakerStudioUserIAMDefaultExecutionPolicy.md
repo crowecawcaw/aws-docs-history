@@ -35,4 +35,7 @@ resources.
 - Amazon CodeWhisperer permissions are required to generate code
   recommendation.
 - Amazon ECR permissions are required to run SageMaker training jobs.
+- Amazon MWAA permissions are required to manage and schedule workflows.
+- AWS KMS permissions are required to support customer managed key. Resources provisioned
+  by Amazon SageMaker Unified Studio can be encrypted with your customer managed key.
   To view the permissions for this policy, see [SageMakerStudioUserIAMDefaultExecutionPolicy](../../../aws-managed-policy/latest/reference/SageMakerStudioUserIAMDefaultExecutionPolicy.md "../../../aws-managed-policy/latest/reference/SageMakerStudioUserIAMDefaultExecutionPolicy.md") in the _AWS Managed Policy Reference_.

@@ -19,9 +19,9 @@ profiles, blueprints, Amazon Bedrock models, Git connections, and Amazon Q usage
 
 **Amazon Bedrock in SageMaker Unified Studio**
 
-Amazon Bedrock in SageMaker Unified Studio in Amazon SageMaker Unified Studio enables you to easily build and scale generative AI
-applications. Amazon Bedrock in SageMaker Unified Studio provides a web interface that allow users to interact with
-[Amazon
+Amazon Bedrock in SageMaker Unified Studio in Amazon SageMaker Unified Studio enables you to easily build and
+scale generative AI applications. Amazon Bedrock in SageMaker Unified Studio provides a web
+interface that allow users to interact with [Amazon
 Bedrock](../../../bedrock/latest/userguide/what-is-bedrock.md "../../../bedrock/latest/userguide/what-is-bedrock.md") foundation models and use Amazon Bedrock tools, such as Agents, Guardrails,
 Prompts, Flows, Evaluation, and Functions in a seamless unified fashion. Users can interact
 with models in a generative AI playground or collaborate on developing generative AI
@@ -36,7 +36,7 @@ upgrades and improvements. For more information, see [Amazon Q in Amazon SageMak
 In the current release of Amazon SageMaker Unified Studio, by default, all users of an Amazon SageMaker Unified Studio domain have
 access to the Free Tier release of Amazon Q.
 
-**Amazon SageMaker Lakehouse**
+**Amazon SageMaker lakehouse architecture**
 
 Amazon SageMaker Lakehouse unifies your data across Amazon S3 data lakes and Amazon
 Redshift data warehouses. Amazon SageMaker Lakehouse helps you build powerful analytics,
@@ -172,8 +172,8 @@ associated assets.
 **Git connection**
 
 Git connections enable you to check in and check out files, and manage your code
-repository. When you create an Amazon SageMaker unified domain, a default git connection
-to CodeCommit is provided for you to manage your code. You can also create and enable new 3P Git
+repository. When you create an Amazon SageMaker unified domain, a default git connection to
+CodeCommit is provided for you to manage your code. You can also create and enable new 3P Git
 connections to GitHub, GitHub Enterprise Server, GitLab, and GitLab Self-Managed. For more
 information, see [Github connections](git-connections.md#git-connections-github "git-connections.md#git-connections-github").
 
@@ -236,9 +236,9 @@ permissions on behalf of account owners.
 
 **JupyterLab**
 
-Amazon SageMaker Unified Studio provides a JupyterLab interactive development environment (in SageMaker Unified Studio) for you to use
-as you perform data integration, analytics, or machine learning in your projects. Amazon SageMaker Unified Studio
-notebooks are built on JupyterLab spaces and Amazon SageMaker Distribution.
+Amazon SageMaker Unified Studio provides a JupyterLab interactive development environment (in SageMaker Unified
+Studio) for you to use as you perform data integration, analytics, or machine learning in your
+projects. JupyterLab IDE is built on JupyterLab spaces and Amazon SageMaker Distribution.
 
 **Metadata form type**
 
@@ -278,7 +278,7 @@ In the current release of Amazon SageMaker Unified Studio, you can create the fo
 - Generative AI application development project profile
 - Custom project profile
 
-**Project**
+**Projects in Identity Center-based domains**
 
 The project entity is the mechanism by which Amazon SageMaker Unified Studio users organize their work and
 provide business context over the jobs they are performing. A project is a container for all
@@ -318,16 +318,16 @@ workflow runs.
 A project includes a dedicated git repository which serves as a central hub for users to
 manage version control for the code associated with their Amazon SageMaker Unified Studio projects. This enables
 collaboration across users within a project. All tools that generate file-based assets must use
-the project git repository for version control, e.g. Query Editor, JupyterLab in SageMaker Unified Studio, etc. By
-default, Amazon SageMaker Unified Studio uses AWS CodeCommit as the project’s repository which is created when a
-project is created. However, administrators can modify this to connect a third-party Git
-repository such as Github, Github Enterprise Server, GitLab, and BitBucket instead of the
-default repository.
+the project git repository for version control, e.g. Query Editor, JupyterLab in SageMaker
+Unified Studio, etc. By default, Amazon SageMaker Unified Studio uses AWS CodeCommit as the project’s repository
+which is created when a project is created. However, administrators can modify this to connect
+a third-party Git repository such as Github, Github Enterprise Server, GitLab, and BitBucket
+instead of the default repository.
 
 ###### Note
 
-You can't create new projects with AWS CodeCommit. Existing projects that were
-created using CodeCommit will continue to work.
+You can't create new projects with AWS CodeCommit. Existing projects that were created
+using CodeCommit will continue to work.
 
 **Project member**
 
@@ -371,5 +371,6 @@ sandboxed environment for users to run arbitrary code without interfering with o
 a project. Each space consists of a compute instance, an EBS volume, and the JupyterLab
 application. Users can access their spaces through various entry points in Amazon SageMaker Unified Studio, the
 developer tools section, or by clicking on Notebook files. The project Git repository is cloned
-into the space on first time creation of space. SageMaker Distribution is the image that
-is used to provide all the libraries, extensions, packages in the in SageMaker Unified Studio application.
+into the space on first time creation of space. SageMaker Distribution is the image that is
+used to provide all the libraries, extensions, packages in the in SageMaker Unified Studio
+application.

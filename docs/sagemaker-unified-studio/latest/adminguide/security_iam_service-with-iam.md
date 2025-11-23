@@ -44,8 +44,8 @@ _IAM User Guide_.
 
 Identity-based policy examples for Amazon SageMaker Unified Studio
 
-To view examples of Amazon SageMaker Unified Studio identity-based policies, see [Identity-based policy
-examples for Amazon SageMaker Unified Studio](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon SageMaker Unified Studio identity-based policies, see [Identity-based policy examples for
+Amazon SageMaker Unified Studio](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based
 
@@ -93,8 +93,8 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of Amazon SageMaker Unified Studio identity-based policies, see [Identity-based policy
-examples for Amazon SageMaker Unified Studio](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon SageMaker Unified Studio identity-based policies, see [Identity-based policy examples for
+Amazon SageMaker Unified Studio](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy
 
@@ -113,13 +113,12 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-To see a list of Amazon SageMaker Unified Studio resource types and their ARNs, see
-[Resources Defined by Amazon SageMaker Unified Studio](../../../IAM/latest/UserGuide/list_your_service.md#your_service-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_your_service.md#your_service-resources-for-iam-policies") in the _Service Authorization Reference_. To learn with
-which actions you can specify the ARN of each resource, see
-[Actions Defined by Amazon SageMaker Unified Studio](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") .
+To see a list of Amazon SageMaker Unified Studio resource types and their ARNs, see [Resources Defined by Amazon SageMaker Unified Studio](../../../IAM/latest/UserGuide/list_your_service.md#your_service-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_your_service.md#your_service-resources-for-iam-policies")
+in the _Service Authorization Reference_. To learn with which actions you can
+specify the ARN of each resource, see [Actions Defined by Amazon SageMaker Unified Studio](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") .
 
-To view examples of Amazon SageMaker Unified Studio identity-based policies, see [Identity-based policy
-examples for Amazon SageMaker Unified Studio](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon SageMaker Unified Studio identity-based policies, see [Identity-based policy examples for
+Amazon SageMaker Unified Studio](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy
 
@@ -142,8 +141,8 @@ To see a list of Amazon SageMaker Unified Studio condition keys, see [Condition 
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions Defined by Amazon SageMaker Unified Studio](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") .
 
-To view examples of Amazon SageMaker Unified Studio identity-based policies, see [Identity-based policy
-examples for Amazon SageMaker Unified Studio](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon SageMaker Unified Studio identity-based policies, see [Identity-based policy examples for
+Amazon SageMaker Unified Studio](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Amazon SageMaker Unified Studio
 

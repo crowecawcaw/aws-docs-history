@@ -7,11 +7,12 @@ use with no additional charge.
 
 ###### Note
 
-Note that certain features in Amazon SageMaker Unified Studio may maintain active sessions even after you log
-out of the Amazon SageMaker Unified Studio. Sometimes, these disconnected sessions can persist for up to 12
-hours. Affected features include:
+Certain features in Amazon SageMaker Unified Studio may maintain active sessions even after you log out of
+your IAM Identity Center/SSO session. Sometimes, these disconnected sessions can persist
+for up to 12 hours. Affected features include:
 
 - Spaces
+- Local IDE (Visual Studio Code) Support
 - Workflows
 - ML Experiments (MLFlow)
 - Connections
@@ -27,8 +28,8 @@ hours. Affected features include:
 - [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
 - [How Amazon SageMaker Unified Studio works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [Identity-based policy
-  examples for Amazon SageMaker Unified Studio](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [Identity-based policy examples for
+  Amazon SageMaker Unified Studio](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
 - [AWS managed policies for Amazon SageMaker Unified Studio](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [IAM roles for Amazon SageMaker Unified Studio](security-iam-roles.md "security-iam-roles.md")
 - [Access control patterns Amazon SageMaker Unified Studio](security-accesss-control-patterns.md "security-accesss-control-patterns.md")
@@ -45,8 +46,8 @@ How you use AWS Identity and Access Management (IAM) differs based on your role:
 - **Service administrator** - determine user access and
   submit permission requests (see [How Amazon SageMaker Unified Studio works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
 - **IAM administrator** - write policies to manage
-  access (see [Identity-based policy
-  examples for Amazon SageMaker Unified Studio](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
+  access (see [Identity-based policy examples for
+  Amazon SageMaker Unified Studio](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
 
 ## Authenticating with identities
 
@@ -64,7 +65,7 @@ When you create an AWS account, you begin with one sign-in identity called the A
 
 As a best practice, require human users to use federation with an identity provider to access AWS services using temporary credentials.
 
-A _federated identity_ is a user from your enterprise directory, web identity provider, or AWS Directory Service that accesses AWS services using credentials from an identity source. Federated identities assume roles that provide temporary credentials.
+A _federated identity_ is a user from your enterprise directory, web identity provider, or Directory Service that accesses AWS services using credentials from an identity source. Federated identities assume roles that provide temporary credentials.
 
 For centralized access management, we recommend AWS IAM Identity Center. For more information, see [What is IAM Identity Center?](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md") in the _AWS IAM Identity Center User Guide_.
 

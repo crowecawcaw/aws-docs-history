@@ -11,7 +11,7 @@ Amazon SageMaker Unified Studio, such as Amazon CloudWatch Logs AWS Glue, Amazon
 Amazon Redshift Data API, Amazon Redshift Serverless, Amazon S3,
 Amazon Athena, Amazon Bedrock, Amazon CodeWhisperer, Amazon DataZone,
 Amazon Q, Amazon SageMaker AI, AWS SQL Workbench, Amazon EventBridge Scheduler,
-and AWS CloudFormation.
+and CloudFormation.
 
 Additional access is provided for the following services:
 
@@ -31,4 +31,7 @@ Additional access is provided for the following services:
   connections.
 - Amazon ECR permissions are required to run Amazon SageMaker AI training
   jobs.
+- Amazon MWAA permissions are required to manage and schedule workflows.
+- AWS KMS permissions are required to support customer managed key. Resources provisioned
+  by Amazon SageMaker Unified Studio can be encrypted with your customer managed key.
   To view the permissions for this policy, see [SageMakerStudioUserIAMPermissiveExecutionPolicy](../../../aws-managed-policy/latest/reference/SageMakerStudioUserIAMPermissiveExecutionPolicy.md "../../../aws-managed-policy/latest/reference/SageMakerStudioUserIAMPermissiveExecutionPolicy.md") in the _AWS Managed Policy Reference_.

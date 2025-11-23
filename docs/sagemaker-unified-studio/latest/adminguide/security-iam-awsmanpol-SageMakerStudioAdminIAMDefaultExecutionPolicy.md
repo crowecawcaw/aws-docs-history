@@ -20,7 +20,7 @@ account. This does not grant access to data resources.
   and allow SageMaker ML workloads.
 - Amazon S3 permissions are required to create S3 buckets, access service
   CloudFormation templates in S3, and delete S3 bucket policies.
-- AWS CloudFormation permissions are required to manage CloudFormation stack for managing
+- CloudFormation permissions are required to manage CloudFormation stack for managing
   resources of other services.
 - Amazon CloudWatch Logs permissions are required to access logs from
   workloads in Amazon SageMaker Unified Studio.
@@ -47,4 +47,7 @@ account. This does not grant access to data resources.
 - Amazon EventBridge Scheduler permissions are required to interact with one-click
   scheduling in Amazon SageMaker Unified Studio.
 - Amazon ECR permissions are required to run SageMaker training jobs.
+- Amazon MWAA permissions are required to manage and schedule workflows.
+- AWS KMS permissions are required to support customer managed key. Resources provisioned
+  by Amazon SageMaker Unified Studio can be encrypted with your customer managed key.
   To view the permissions for this policy, see [SageMakerStudioAdminIAMDefaultExecutionPolicy](../../../aws-managed-policy/latest/reference/SageMakerStudioAdminIAMDefaultExecutionPolicy.md "../../../aws-managed-policy/latest/reference/SageMakerStudioAdminIAMDefaultExecutionPolicy.md") in the _AWS Managed Policy Reference_.

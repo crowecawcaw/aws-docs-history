@@ -1,8 +1,8 @@
 # Delete domains
 
-When deleting a domain, note that the act of deleting a domain is final. Another important
-note to remember is that not all items created by Amazon SageMaker Unified Studio are deleted. The following items
-can only be deleted in their service consoles:
+When deleting a domain, note that the act of deleting a domain is final. Another
+important note to remember is that not all items created by Amazon SageMaker Unified Studio are deleted. The
+following items can only be deleted in their service consoles:
 
 - AWS resources - except for this domain - will NOT be deleted.
 - Subscription grants will NOT be removed.
@@ -12,9 +12,9 @@ can only be deleted in their service consoles:
 
 To delete a domain, complete the following procedure:
 
-1. Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and use the region selector in the top
-   navigation bar to choose the appropriate AWS Region.
-2. Choose **View domains** and choose the domain’s name from the list.
+1. Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and use the region selector in the
+   top navigation bar to choose the appropriate AWS Region.
+2. Choose **View domains** and choose the domain's name from the list.
    The name is a hyperlink.
 3. On the details page for the domain, expand **Actions** and then
    choose **Delete**.

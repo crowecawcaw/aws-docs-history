@@ -41,8 +41,7 @@ created using CodeCommit will continue to work.
 - Amazon Q permissions are required for users to interact with Amazon Q within
   Amazon SageMaker Unified Studio.
 - Amazon EMR permissions are required for users to create and access Amazon EMR
-  clusters. AWS KMS permissions are required to use CMK in the various services
-  integrated with Amazon SageMaker Unified Studio.
+  clusters.
 - AWS CodeCommit permissions are required for users to use the default Git
   repository, and perform operations such as committing changes.
 - AWS Secrets Manager permissions are required for accessing the secret for
@@ -52,6 +51,8 @@ created using CodeCommit will continue to work.
   Bedrock IDE, a development experience in Amazon SageMaker Unified Studio that
   lets you easily discover Amazon Bedrock models and build generative AI apps that
   use Amazon Bedrock models and features.
+- AWS KMS permissions are required to support customer managed keys. Resources provisioned
+  by Amazon SageMaker Unified Studio can be encrypted with your customer managed key.
   To view the permissions for this policy, see [SageMakerStudioProjectUserRolePolicy](../../../aws-managed-policy/latest/reference/SageMakerStudioProjectUserRolePolicy.md "../../../aws-managed-policy/latest/reference/SageMakerStudioProjectUserRolePolicy.md") in the _AWS
   Managed Policy Reference_.
 

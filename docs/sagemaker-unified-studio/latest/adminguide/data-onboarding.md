@@ -15,6 +15,12 @@ management and governance.
   This eliminates the need for periodic ingestion jobs, reduces stale metadata risk, and
   lowers your operational costs while ensuring your teams have access to the freshest
   metadata.
+- Continuous Real-time data quality sync: After onboarding existing Amazon SageMaker datasets,
+  the catalog continuously keeps data quality results current via real-time streaming. Metrics
+  such as completeness, timeliness, and accuracy are
+  automatically synchronized, enabling data consumers to visualize quality scores and track changes
+  over time. This eliminates manual dataSourceRuns and ensures immediate visibility into data health
+  status.
 - Direct sharing: data owners can now proactively grant access to their assets without
   waiting for data access requests. This enables smoother cross-team collaboration, helping
   accelerate projects and reduce handoffs while maintaining strong governance.

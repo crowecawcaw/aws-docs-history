@@ -14,41 +14,42 @@ review these important considerations to ensure a smooth upgrade process.
   upgrade process from the domain details page of your Amazon DataZone domain.
 - The upgrade process requires the following roles to be configured (you can select
   existing roles or have Amazon SageMaker Unified Studio create the roles on your behalf):
-  - Domain Execution role - for an Amazon DataZone domain, you're using the [AmazonDataZoneDomainExecutionRole](../../../datazone/latest/userguide/AmazonDataZoneDomainExecutionRole.md "../../../datazone/latest/userguide/AmazonDataZoneDomainExecutionRole.md") that is required by Amazon DataZone to
-    catalog, discover, govern, share, and analyze data in your domain. With an Amazon
-    SageMaker unified domain, you must either use the existing of create a new [AmazonSageMakerDomainExecution](AmazonSageMakerDomainExecution.md "AmazonSageMakerDomainExecution.md") role.
+  - Domain Execution role - for an Amazon DataZone domain, you're using the [AmazonDataZoneDomainExecutionRole](../../../datazone/latest/userguide/AmazonDataZoneDomainExecutionRole.md "../../../datazone/latest/userguide/AmazonDataZoneDomainExecutionRole.md") that is required by Amazon DataZone
+    to catalog, discover, govern, share, and analyze data in your domain. With an
+    Amazon SageMaker unified domain, you must either use the existing of create a new
+    [AmazonSageMakerDomainExecution](AmazonSageMakerDomainExecution.md "AmazonSageMakerDomainExecution.md") role.
   - Domain Service role - Amazon DataZone does not require a Domain Service role.
-    With an Amazon SageMaker unified domain, you must either use the existing of create
-    a new [AmazonSageMakerDomainService](AmazonSageMakerDomainService.md "AmazonSageMakerDomainService.md") role. This is a service role for domain
+    With an Amazon SageMaker unified domain, you must either use the existing of
+    create a new [AmazonSageMakerDomainService](AmazonSageMakerDomainService.md "AmazonSageMakerDomainService.md") role. This is a service role for domain
     level actions performed by Amazon SageMaker Unified Studio.
 
 - Root domain ownership considerations:
   - IAM users or SSO users/groups can be optionally assigned as root domain owners
     during the upgrade process.
-  - If the root domain unit only has IAM roles assigned as owners, it is recommended
-    that you add an IAM user or an SSO user/group as owner. For more information, see
-    [User management](user-management.md "user-management.md") in the Amazon SageMaker Unified Studio Administrator Guide.
+  - If the root domain unit only has IAM roles assigned as owners, it is
+    recommended that you add an IAM user or an SSO user/group as owner. For more
+    information, see [User management](user-management.md "user-management.md") in the Amazon SageMaker Unified Studio Administrator Guide.
   - **Important**: IAM roles cannot log in to the
     Amazon SageMaker Unified Studio.
 
 - Associated accounts and AWS Resource Access Manager (AWS RAM) changes:
   - Associated accounts use resource shares from AWS RAM to permit API actions
     from the root domain account.
-  - The upgrade process changes the underlying managed permissions for the AWS RAM
-    share that is created and managed by Amazon DataZone. The affected managed
+  - The upgrade process changes the underlying managed permissions for the AWS
+    RAM share that is created and managed by Amazon DataZone. The affected managed
     permissions are
     `AWSRAMPermissionsAmazonDatazoneDomainExtendedServiceAccess` and
     `AWSRAMPermissionsAmazonDatazoneDomainExtendedServiceWithPortalAccess`.
 
-- Amazon Q subscription changes - the upgraded domain will have Amazon Q subscription
-  defaulted to the free-tier. Domain administrators can change this after the domain
-  upgrade is complete.
+- Amazon Q subscription changes - the upgraded domain will have Amazon Q
+  subscription defaulted to the free-tier. Domain administrators can change this after
+  the domain upgrade is complete.
 - After the upgrade, the domain's `domainVersion` attribute changes from
   `V1` to `V2`.
 
-## Upgrade your Amazon DataZone domain to an Amazon
+## Upgrade your Amazon DataZone domain to an
 
-SageMaker unified domain
+Amazon SageMaker unified domain
 
 For detailed steps on now to initialize the domain upgrade process, see [Upgrade
 Amazon DataZone domains to Amazon SageMaker unified domains](../../../datazone/latest/userguide/upgrade-domain.md "../../../datazone/latest/userguide/upgrade-domain.md").
@@ -57,8 +58,8 @@ Amazon DataZone domains to Amazon SageMaker unified domains](../../../datazone/l
 
 DataZone domains to Amazon SageMaker unified domains
 
-- **Which properties and configurations carry over with the domain
-  after the upgrade?**
+- **Which properties and configurations carry over with the
+  domain after the upgrade?**
 
 All properties configured on the Amazon DataZone domain carry over to the upgraded
 Amazon SageMaker unified domain. This includes data encryption properties,
@@ -68,8 +69,8 @@ authentication application properties, etc.
   users?**
 
 No. Your IAM Identity Center SSO application associated to the domain will carry
-over to the upgraded Amazon SageMaker unified domain. Additionally, any IAM user or role
-assigned to the domain will be available in the upgraded Amazon SageMaker unified
+over to the upgraded Amazon SageMaker unified domain. Additionally, any IAM user or
+role assigned to the domain will be available in the upgraded Amazon SageMaker unified
 domain.
 
 - **Can I still use the Amazon DataZone portal after the
@@ -100,28 +101,28 @@ through the Amazon DataZone portal.
 All entity identifiers, including the domain and projects, will remain the same
 after the upgrade.
 
-- **Will my AWS CloudFormation (CFN) stacks continue to work for
-  the newly upgrade Amazon SageMaker unified domain?**
+- **Will my AWS CloudFormation (CFN) stacks continue to work
+  for the newly upgrade Amazon SageMaker unified domain?**
 
-Amazon SageMaker Unified Studio uses the same APIs as Amazon DataZone. However, some modifications to the
-logic within CFN templates will be needed. For example, domains from Amazon DataZone are
-distinguished from Amazon SageMaker unified domains by an attribute named domainVersion
-(values V1 | V2).
+Amazon SageMaker Unified Studio uses the same APIs as Amazon DataZone. However, some modifications to
+the logic within CFN templates will be needed. For example, domains from Amazon
+DataZone are distinguished from Amazon SageMaker unified domains by an attribute named
+domainVersion (values V1 | V2).
 
 - **What happens when the upgrade is rolled
   back?**
   - Rolling back the upgrade changes the domain version from V2 to V1. Amazon SageMaker Unified Studio
     will no longer be accessible. The console view for the domain will return to the
-    Amazon DataZone view. Resources created before the roll back will remain so long as
-    they are not tied to a project that was created from Amazon SageMaker Unified Studio - rolling back is
-    only permitted when no projects that were created from within Amazon SageMaker Unified Studio are
+    Amazon DataZone view. Resources created before the roll back will remain so long
+    as they are not tied to a project that was created from Amazon SageMaker Unified Studio - rolling back
+    is only permitted when no projects that were created from within Amazon SageMaker Unified Studio are
     present.
   - Settings such as AWS Q subscription will also persist after the roll
     back.
   - If VPCs were created for the use of Amazon SageMaker, these will persist after
     the roll back. VPC's created by the SageMaker service will have tag: Name =
     SageMakerUnifiedStudioVPC
-  - The managed permission under the RAM resource share will not be rolled back. The
-    managed permission is a superset of both Amazon DataZone and Amazon SageMaker Unified Studio.
+  - The managed permission under the RAM resource share will not be rolled back.
+    The managed permission is a superset of both Amazon DataZone and Amazon SageMaker Unified Studio.
   - A domain that had been rolled back can again be upgraded to Amazon SageMaker
     unified domain.
