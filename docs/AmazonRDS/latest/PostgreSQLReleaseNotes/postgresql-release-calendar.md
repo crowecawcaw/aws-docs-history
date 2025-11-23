@@ -83,8 +83,8 @@ exact date when it is known.
 | 14.16\*\*                       | 13 February 2025       | 13 February 2025 | March 2026                       |
 | 14.15                           | 21 November 2024       | 21 November 2024 | March 2026                       |
 | 14.14\*\*                       | 14 November 2024       | 14 November 2024 | March 2026                       |
-| 13.23                           | 13 November 2025       | 13 November 2025 | March 2027                       |
-| 13.22                           | 14 August 2025         | 14 August 2025   | September 2026                   |
+| 13.23                           | 13 November 2025       | 13 November 2025 | 28 February 2026                 |
+| 13.22                           | 14 August 2025         | 14 August 2025   | 28 February 2026                 |
 | 13.21                           | 08 May 2025            | 08 May 2025      | 28 February 2026                 |
 | 13.20                           | 20 February 2025       | 21 February 2025 | 28 February 2026                 |
 | 13.19\*\*                       | 13 February 2025       | 13 February 2025 | 28 February 2026                 |
