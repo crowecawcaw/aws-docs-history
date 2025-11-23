@@ -24,7 +24,7 @@ operations with a SQL client.
 
 The cluster that you provision for this exercise runs in a live environment. As long as
 it's running, it accrues charges to your AWS account. For pricing information,
-see the [Amazon Redshift pricing page](https://aws.amazon.com/redshift/pricing/ "https://aws.amazon.com/redshift/pricing/").
+see the [Amazon Redshift pricing page](https://aws.amazon.com//redshift/pricing/ "https://aws.amazon.com//redshift/pricing/").
 
 To avoid unnecessary charges, delete your cluster when you are done with
 it. The final section of this chapter explains how to do so.

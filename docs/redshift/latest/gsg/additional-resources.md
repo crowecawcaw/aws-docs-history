@@ -34,5 +34,5 @@ about the concepts introduced in this guide by using the following Amazon Redshi
   - [Configuring manual workload management (WLM) queues](../dg/tutorial-configuring-workload-management.md "../dg/tutorial-configuring-workload-management.md"): This tutorial describes how to configure manual workload management (WLM) in Amazon Redshift.
   - [Getting started with Amazon Redshift ML](../dg/getting-started-machine-learning.md "../dg/getting-started-machine-learning.md"): This section describes how users can create, train, and deploy machine learning models using familiar SQL commands.
 
-- [What's new](https://aws.amazon.com/redshift/whats-new "https://aws.amazon.com/redshift/whats-new"): This webpage
+- [What's new](https://aws.amazon.com//redshift/whats-new "https://aws.amazon.com//redshift/whats-new"): This webpage
   lists Amazon Redshift new features and product updates.

@@ -7,7 +7,7 @@ Existing Python UDFs will continue to function as normal. For more information, 
 
 ###### Note
 
-For a description of new features in Amazon Redshift, see [What's new](https://aws.amazon.com/redshift/whats-new "https://aws.amazon.com/redshift/whats-new").
+For a description of new features in Amazon Redshift, see [What's new](https://aws.amazon.com//redshift/whats-new "https://aws.amazon.com//redshift/whats-new").
 
 The following table describes the important documentation changes to the _Amazon Redshift Getting
 Started Guide_.
