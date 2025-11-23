@@ -55,7 +55,7 @@ The following guidelines apply to each specified endpoint type:
     That is, health check options that you specify in Global Accelerator are used for Amazon EC2 and
     Elastic IP address health checks, but not for health checks on load balancer endpoints.
 
-  For load balancer endpoints, configure health checks by using Elastic Load Balancing configuration options.
+  For load balancer endpoints, configure health checks by using ELB configuration options.
   For more information, see [Health checks for your target groups](../../../elasticloadbalancing/latest/network/target-group-health-checks.md "../../../elasticloadbalancing/latest/network/target-group-health-checks.md").
   - Global Accelerator considers an Application Load Balancer healthy if every target group has at least one healthy target. For more information,
     see [Health checks for your target groups](../../../elasticloadbalancing/latest/network/target-group-health-checks.md "../../../elasticloadbalancing/latest/network/target-group-health-checks.md").

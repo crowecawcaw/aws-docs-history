@@ -1,32 +1,36 @@
-#
+# Endpoint groups for standard accelerators in AWS Global Accelerator
 
-Add a standard endpoint group
+An endpoint group routes requests to one or more registered endpoints in AWS Global Accelerator. When you
+add a listener in a standard accelerator, you specify the endpoint groups for Global Accelerator to direct traffic
+to. An endpoint group, and all the endpoints in it, must be in one AWS Region. You can add different
+endpoint groups for different purposes, for example, for blue/green deployment
+testing.
 
-You work with endpoint groups on the AWS Global Accelerator console or by using an API operation. You
-can add or remove endpoints from an endpoint group at any time.
+Global Accelerator directs traffic to endpoint groups in standard accelerators based on the location of the client
+and the health
+of the endpoint group. If you like, you can also set the percentage of traffic to send to an
+endpoint group. You do that by using the traffic dial to increase (dial up) or decrease
+(dial down) traffic to the group. The percentage is applied only to the traffic that Global Accelerator
+is already directing to the endpoint group, not all traffic coming to a listener.
 
-This section explains how to add a standard endpoint groups on the AWS Global Accelerator console. If you
-want to use API operations with Global Accelerator, see the [AWS Global Accelerator API Reference](../api/Welcome.md "../api/Welcome.md").
+You can define health check settings for Global Accelerator for each endpoint group. By updating health
+check settings, you can change your requirements for polling and verifying the health of
+Amazon EC2 instance and Elastic IP address endpoints. For Network Load Balancer and Application Load Balancer endpoints, configure health
+check settings on the ELB console.
 
-# To add a standard endpoint group
+Global Accelerator continually monitors the health of all endpoints that are included in a standard endpoint group,
+and routes requests only to the active endpoints that are healthy. For more information, see
+[Ensure health check access for your accelerator](about-endpoint-groups-health-check-options.md "about-endpoint-groups-health-check-options.md")
+If there aren't any healthy endpoints to route traffic to, Global Accelerator routes requests to all endpoints.
 
-1. Open the Global Accelerator console at [https://us-west-2.console.aws.amazon.com/globalaccelerator/home#GlobalAcceleratorHome:](https://us-west-2.console.aws.amazon.com/globalaccelerator/home#GlobalAcceleratorHome: "https://us-west-2.console.aws.amazon.com/globalaccelerator/home#GlobalAcceleratorHome:").
-2. On the **Accelerators** page, choose an accelerator.
-3. In the **Listeners** section, for **Listener ID**,
-   choose the ID of the listener that you want to add an endpoint group to.
-4. Choose **Add endpoint group**.
-5. In the section for a listener, specify a Region for the endpoint group by choosing one
-   from the dropdown list.
-6. Optionally, for **Traffic dial**, enter a number from 0 to 100 to set a
-   percentage of traffic for this endpoint group. The percentage is applied only to
-   the traffic that is already directed to this endpoint group, not all listener
-   traffic. By default, the traffic dial is set to 100.
-7. Optionally, to override the listener port used for routing traffic to endpoints and reroute
-   traffic to specific ports on your endpoints, choose **Configure port overrides**.
-   For more information, see [Override listener ports for restricted ports or connection collisions](about-endpoint-groups-port-override.md "about-endpoint-groups-port-override.md").
-8. Optionally, to specify custom health check values to be applied to EC2 instance and
-   Elastic IP address endpoints, choose **Configure health checks**. For more
-   information, see [Ensure health check access for your accelerator](about-endpoint-groups-health-check-options.md "about-endpoint-groups-health-check-options.md").
-9. Optionally, choose **Add endpoint group** to add additional endpoint groups for this listener
-   or other listeners.
-10. Choose **Add endpoint group**.
+This section explains how to work with endpoint groups for standard accelerators on the AWS Global Accelerator console.
+If you want to use API operations with Global Accelerator, see the [AWS Global Accelerator API Reference](../api/Welcome.md "../api/Welcome.md").
+
+###### Contents
+
+- [Add a standard endpoint group](about-endpoint-groups.md "about-endpoint-groups.md")
+- [Edit a standard endpoint group](about-endpoint-groups.md "about-endpoint-groups.md")
+- [Remove a standard endpoint group](about-endpoint-groups.md "about-endpoint-groups.md")
+- [Use traffic dials to adjust traffic flow to Regions](about-endpoint-groups-traffic-dial.md "about-endpoint-groups-traffic-dial.md")
+- [Override listener ports for restricted ports or connection collisions](about-endpoint-groups-port-override.md "about-endpoint-groups-port-override.md")
+- [Ensure health check access for your accelerator](about-endpoint-groups-health-check-options.md "about-endpoint-groups-health-check-options.md")

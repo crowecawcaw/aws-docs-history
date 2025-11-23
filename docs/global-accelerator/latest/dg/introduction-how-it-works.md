@@ -193,7 +193,7 @@ Global Accelerator includes default health checks that are run automatically, bu
 timing for the checks and other options. If you've configured custom health check
 settings, Global Accelerator uses those settings in specific ways, depending on your configuration. You configure
 those settings in Global Accelerator for Amazon EC2 instance or Elastic IP address endpoints or by
-configuring settings on the Elastic Load Balancing console for Network Load Balancers or Application Load Balancers. For more
+configuring settings on the ELB console for Network Load Balancers or Application Load Balancers. For more
 information, see [Ensure health check access for your accelerator](about-endpoint-groups-health-check-options.md "about-endpoint-groups-health-check-options.md").
 
 When you add an endpoint to a standard accelerator, it must pass a health check to be considered healthy

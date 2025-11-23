@@ -1,23 +1,25 @@
 #
 
-Create a cross-account attachment in AWS Global Accelerator
+How cross-account works in Global Accelerator
 
-Follow the steps in this section to create a cross-account attachment using
-the AWS Global Accelerator console.
+With cross-account support in Global Accelerator, resource owners control whether their resources are shared with accelerators
+owned by other accounts. To enable resource sharing for your resources, you—as a resource owner—create a Global Accelerator
+_cross-account attachment_ to authorize resources in your account to be added
+to an accelerator by another account.
 
-This section explains how to create a cross-acount attachment by using
-the AWS Global Accelerator console. To learn about using API operations with Global Accelerator, see the [AWS Global Accelerator API Reference](../api/Welcome.md "../api/Welcome.md").
+You create the cross-account attachment in Global Accelerator. The attachment lists the _resources_
+that you want to share, and the _principals_—other accounts or specific accelerator ARNs—
+that are authorized to use the resources. Resources can be AWS resources, like Network Load Balancers, that you add as endpoints to accelerator
+endpoint groups, or resources can be IP address ranges that you've brought to Global Accelerator with the bring your own IP address
+(BYOIP) process.
 
-# To create a cross-account attachment
+###### Important
 
-1. Open the Global Accelerator console at [https://console.aws.amazon.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home "https://console.aws.amazon.com/globalaccelerator/home").
-2. Choose **Create cross-account attachment**.
-3. On the **Create cross-account attachment** page, enter a name for the attachment.
-4. Add the AWS accounts or the ARNs for the accelerators, or both, that you want to allow to
-   add your resources.
-5. Select the resources that you want to allow to be used. For example, to add resources that can added as endpoints,
-   for each resource, choose an AWS Region. Then, from the drop-down menus, select an endpoint type (resource type) and the
-   endpoint (resource) to add.
-6. Choose **Create attachment**.
-   Note: To see the new cross-account attachment in your list of attachments, refresh the **Cross-account
-   attachments** page.
+Before you can add a BYOIP IP address range to a cross-account attachment to share with principals, you
+must complete the process to _provision_ and _advertise_ the address range.
+For more information, see [Bring your own IP addresses (BYOIP) in Global Accelerator](using-byoip.md "using-byoip.md").
+
+After you, as a resource owner, create an attachment, principals listed in the attachment can work with resources that are
+listed in the attachment. That is, they can add as endpoints AWS resources that are listed, or select as a static
+IP address a BYOIP address from CIDR prefixes that are listed. When a principal wants to add a cross-account resource for an accelerator,
+they must specify the cross-account attachment that authorizes them as a principal with permission to use the resource.

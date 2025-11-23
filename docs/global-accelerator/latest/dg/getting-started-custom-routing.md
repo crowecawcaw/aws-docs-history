@@ -23,7 +23,7 @@ traffic to. A custom routing accelerator endpoint must be a virtual private clou
 include multiple Amazon EC2 instances. For instructions for creating the resources see
 the following:
 
-- Create a VPC subnet. For more information, see [Create and Configure Your VPC](../../../directoryservice/latest/admin-guide/gsg_create_vpc.md "../../../directoryservice/latest/admin-guide/gsg_create_vpc.md") in the _AWS Directory Service Administration Guide_.
+- Create a VPC subnet. For more information, see [Create and Configure Your VPC](../../../directoryservice/latest/admin-guide/gsg_create_vpc.md "../../../directoryservice/latest/admin-guide/gsg_create_vpc.md") in the _Directory Service Administration Guide_.
 - Optionally, launch one or more Amazon EC2 instances in your VPC. For more information, see [Create your EC2 resources and launch
   your EC2 instance](../../../efs/latest/ug/gs-step-one-create-ec2-resources.md "../../../efs/latest/ug/gs-step-one-create-ec2-resources.md") in the _Amazon EC2 User Guide_.
 

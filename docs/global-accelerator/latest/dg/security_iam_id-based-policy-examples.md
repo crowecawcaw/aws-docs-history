@@ -47,7 +47,7 @@ recommendations:
 - **Use conditions in IAM policies to further restrict access**
   – You can add a condition to your policies to limit access to actions and resources. For example, you can write a policy condition to specify that all requests must
   be sent using SSL. You can also use conditions to grant access to service actions
-  if they are used through a specific AWS service, such as AWS CloudFormation. For more information, see
+  if they are used through a specific AWS service, such as CloudFormation. For more information, see
   [IAM JSON policy elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
 - **Use IAM Access Analyzer to validate your IAM policies to ensure secure and functional permissions**
   – IAM Access Analyzer validates new and existing policies so that the policies adhere to the IAM policy language (JSON) and IAM best practices.
@@ -121,13 +121,13 @@ use `List*` or `Describe*` operations.
 
 Attach the second policy, `GlobalAcceleratorFullAccess`, to users who need to create
 or make updates to accelerators. The full access policy includes _full_ permissions for Global Accelerator as
-well as _describe_ permissions for Amazon EC2 and Elastic Load Balancing.
+well as _describe_ permissions for Amazon EC2 and ELB.
 
 ###### Note
 
 If you create an identity-based permissions policy that does not include
-the required permissions for Amazon EC2 and Elastic Load Balancing, users with that policy will not be able to
-add Amazon EC2 and Elastic Load Balancing resources to accelerators.
+the required permissions for Amazon EC2 and ELB, users with that policy will not be able to
+add Amazon EC2 and ELB resources to accelerators.
 
 For more information, see the Global Accelerator [AWS
 managed policies page](security-iam-awsmanpol-aga.md "security-iam-awsmanpol-aga.md") or [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the

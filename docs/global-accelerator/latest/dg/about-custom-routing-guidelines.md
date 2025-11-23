@@ -81,5 +81,5 @@ Updating a subnet or specific destination to allow or deny traffic takes time to
 internet. To determine if a change has propagated, you can call the `DescribeCustomRoutingAccelerator`
 API action to check the accelerator status. For more information, see [DescribeCustomRoutingAccelerator](../api/API_DescribeCustomRoutingAccelerator.md "../api/API_DescribeCustomRoutingAccelerator.md").
 
-**AWS CloudFormation is not supported**
-AWS CloudFormation is not supported for custom routing accelerators.
+**CloudFormation is not supported**
+CloudFormation is not supported for custom routing accelerators.

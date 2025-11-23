@@ -1,48 +1,51 @@
-# How the client IP address is preserved in AWS Global Accelerator
+# AWS Region availability for AWS Global Accelerator
 
-AWS Global Accelerator preserves the source IP address of the client differently for
-Amazon EC2 instances, Network Load Balancers, and Application Load Balancers:
+For detailed information about Regional support and service endpoints for AWS Global Accelerator,
+see [AWS Global Accelerator
+endpoints and quotas](../../../general/latest/gr/global_accelerator.md "../../../general/latest/gr/global_accelerator.md") in the _Amazon Web Services General Reference_.
 
-- For an EC2 instance endpoint, the client’s IP address is preserved
-  for all traffic.
-- For a Network Load Balancer endpoint with client IP address preservation, Global Accelerator works together
-  with the Network Load Balancer to include the IP address of the original client in the IP header of the packet
-  so that your application can access it.
-- For an Application Load Balancer endpoint with client IP
-  address preservation, Global Accelerator works together with the Application Load Balancer to provide an
-  `X-Forwarded` header, `X-Forwarded-For`, that includes the
-  IP address of the original client so that your web tier can access it.
-  HTTP requests and HTTP responses use header fields to send information about the HTTP
-  messages. Header fields are colon-separated name-value pairs that are separated by a
-  carriage return (CR) and a line feed (LF). A standard set of HTTP header fields is
-  defined in RFC 2616, [Message Headers](https://tools.ietf.org/html/rfc2616#section-4.2 "https://tools.ietf.org/html/rfc2616#section-4.2"). There are also non-standard HTTP headers available that
-  are widely used by the applications. Some of the non-standard HTTP headers have an
-  `X-Forwarded` prefix.
+###### Note
 
-Because an Application Load Balancer terminates incoming TCP connections and creates new connections to
-your backend targets, it does not preserve client IP addresses all the way to your target
-code (such as instances, containers, or Lambda code). The source IP address that your targets
-see in the TCP packet is the IP address of the Application Load Balancer. However, an Application Load Balancer does preserve the
-original client IP address by removing it from the original packet’s reply address and
-inserting it into an HTTP header before it sends the request to your backend over a new
-TCP connection.
+AWS Global Accelerator is a global service. However, you must specify the US West (Oregon)
+Region (that is, specify the parameter `--region us-west-2`) in Regional Global Accelerator AWS CLI commands. That is, when
+you create resources, such as accelerators.
 
-The `X-Forwarded-For` request header is formatted like this:
+Global Accelerator is currently available in the following AWS Regions. Availability Zone (AZ) exceptions are noted.
+Adding endpoints in AWS Local Zones is not supported.
 
-```
-X-Forwarded-For: `client-ip-address`
-```
-
-The following example shows an `X-Forwarded-For` request header for a client
-with an IP address of 203.0.113.7.
-
-```
-X-Forwarded-For: 203.0.113.7
-```
-
-The following example shows an `X-Forwarded-For` request header for a client
-with an IPv6 address of 2001:DB8::21f:5bff:febf:ce22:8a2e.
-
-```
-X-Forwarded-For: 2001:DB8::21f:5bff:febf:ce22:8a2e
-```
+| Region Name               | Region                                 |
+| ------------------------- | -------------------------------------- |
+| US East (Ohio)            | `us-east-2`                            |
+| US East (N. Virginia)     | `us-east-1`                            |
+| US West (N. California)   | `us-west-1 (except AZ usw1-az2)`       |
+| US West (Oregon)          | `us-west-2`                            |
+| Africa (Cape Town)        | `af-south-1`                           |
+| Asia Pacific (Hong Kong)  | `ap-east-1`                            |
+| Asia Pacific (Taipei)     | `ap-east-2`                            |
+| Asia Pacific (Mumbai)     | `ap-south-1`                           |
+| Asia Pacific (Hyderabad)  | `ap-south-2`                           |
+| Asia Pacific (Jakarta)    | `ap-southeast-3`                       |
+| Asia Pacific (Melbourne)  | `ap-southeast-4`                       |
+| Asia Pacific (Osaka)      | `ap-northeast-3`                       |
+| Asia Pacific (Singapore)  | `ap-southeast-1`                       |
+| Asia Pacific (Sydney)     | `ap-southeast-2`                       |
+| Asia Pacific (Malaysia)   | `ap-southeast-5`                       |
+| Asia Pacific (Thailand)   | `ap-southeast-7`                       |
+| Asia Pacific (Tokyo)      | `ap-northeast-1 (except AZ apne1-az3)` |
+| Asia Pacific (Seoul)      | `ap-northeast-2`                       |
+| Canada (Central)          | `ca-central-1 (except AZ cac1-az3)`    |
+| Canada West (Calgary)     | `ca-west-1`                            |
+| Canada West (Calgary)     | `ca-west-1`                            |
+| Europe (Frankfurt)        | `eu-central-1`                         |
+| Europe (Ireland)          | `eu-west-1`                            |
+| Europe (London)           | `eu-west-2`                            |
+| Europe (Milan)            | `eu-south-1`                           |
+| Europe (Paris)            | `eu-west-3`                            |
+| Europe (Spain)            | `eu-south-2`                           |
+| Europe (Stockholm)        | `eu-north-1`                           |
+| Europe (Zurich)           | `eu-central-2`                         |
+| Israel (Tel Aviv)         | `il-central-1`                         |
+| Mexico (Central)          | `mx-central-1`                         |
+| Middle East (Bahrain)     | `me-south-1`                           |
+| Middle East (UAE)         | `me-central-1`                         |
+| South America (São Paulo) | `sa-east-1`                            |
