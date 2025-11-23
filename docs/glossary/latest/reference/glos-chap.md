@@ -96,7 +96,7 @@ change in an alarm's state (for example, from `OK` to `ALARM`).
 The state change might be caused by a metric reaching the alarm threshold, or by a
 `SetAlarmState` request. Each alarm can have one or more actions
 assigned to each state. Actions are performed once each time the alarm changes to a
-state that has an action assigned. Example actions include an [Amazon SNS](#SNS "#SNS") notification, running an [Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling")
+state that has an action assigned. Example actions include an [Amazon SNS](#SNS "#SNS") notification, running an [Amazon EC2 Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling")
 [policy](#policy "#policy"), and an [Amazon EC2 instance](#ec2instance "#ec2instance") stop/terminate action.
 
 active trusted key groups
@@ -123,16 +123,16 @@ Information that's checked for integrity but not encrypted, such as headers or
 other contextual metadata.
 
 administrative suspension
-[Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling") might suspend processes
-for [Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup") that
-repeatedly fail to launch instances. Auto Scaling groups that most commonly experience
+[Amazon EC2 Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling") might suspend processes
+for [Amazon EC2 Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup") that
+repeatedly fail to launch instances. Amazon EC2 Auto Scaling groups that most commonly experience
 administrative suspension have zero running instances, have been trying to launch
 instances for more than 24 hours, and have not succeeded in that time.
 
 alarm
 An item that watches a single metric over a specified time period and starts an
 [Amazon SNS](#SNS "#SNS")
-[topic](#topic "#topic") or an [Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling")
+[topic](#topic "#topic") or an [Amazon EC2 Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling")
 [policy](#policy "#policy"). These actions are started if the
 value of the metric crosses a threshold value over a predetermined number of time
 periods.
@@ -379,7 +379,7 @@ resources that are part of your application and to configure dynamic scaling.
 
 See also [https://aws.amazon.com/autoscaling/](https://aws.amazon.com/autoscaling/ "https://aws.amazon.com/autoscaling/").
 
-Auto Scaling group
+Amazon EC2 Auto Scaling group
 A representation of multiple [EC2 instances](#ec2instance "#ec2instance") that
 share similar characteristics, and that are treated as a logical grouping for the
 purposes of instance scaling and management.
@@ -499,7 +499,7 @@ Amazon Braket is a fully managed quantum computing service that helps you run qu
 See also [https://aws.amazon.com/braket](https://aws.amazon.com/braket/ "https://aws.amazon.com/braket/").
 
 breach
-[Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling"): The condition where a
+[Amazon EC2 Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling"): The condition where a
 user-set threshold (upper or lower boundary) is passed. If the duration of the breach
 is significant, as set by a breach duration parameter, it can possibly start a [scaling activity](#ScalingActivity "#ScalingActivity").
 
@@ -575,7 +575,7 @@ The process of converting data into a standard format that a service such as [Am
 can recognize.
 
 capacity
-The amount of available compute size at a given time. Each [Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup") is defined with a
+The amount of available compute size at a given time. Each [Amazon EC2 Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup") is defined with a
 minimum and maximum compute size. A [scaling activity](#ScalingActivity "#ScalingActivity") increases or decreases the capacity within the defined
 minimum and maximum values.
 
@@ -588,7 +588,7 @@ _Cartesian data processor_.
 
 AWS CDK
 AWS Cloud Development Kit (AWS CDK) is an open-source software development framework for defining your cloud
-infrastructure in code and provisioning it through AWS CloudFormation.
+infrastructure in code and provisioning it through CloudFormation.
 
 See also [https://aws.amazon.com/cdk/](https://aws.amazon.com/cdk/ "https://aws.amazon.com/cdk/").
 
@@ -960,8 +960,8 @@ AWS Control Tower is a service used to set up and govern a secure, multi-account
 See also [https://aws.amazon.com/controltower](https://aws.amazon.com/controltower/ "https://aws.amazon.com/controltower/").
 
 cooldown period
-Amount of time that [Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling")
-doesn't allow the desired size of the [Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup") to be changed by any other notification from an [CloudWatch](#AmazonCW "#AmazonCW")
+Amount of time that [Amazon EC2 Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling")
+doesn't allow the desired size of the [Amazon EC2 Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup") to be changed by any other notification from an [CloudWatch](#AmazonCW "#AmazonCW")
 [alarm](#alarm "#alarm").
 
 core node
@@ -1279,7 +1279,7 @@ EngineName=mysql), that contains additional information to identify a metric.
 
 Direct Connect
 AWS Direct Connect is a web service that simplifies establishing a dedicated network connection from
-your premises to AWS. Using AWS Direct Connect, you can establish private connectivity
+your premises to AWS. Using Direct Connect, you can establish private connectivity
 between AWS and your data center, office, or colocation environment.
 
 See also [https://aws.amazon.com/directconnect](https://aws.amazon.com/directconnect/ "https://aws.amazon.com/directconnect/").
@@ -1418,7 +1418,7 @@ centers.
 
 See also [https://aws.amazon.com/ec2](https://aws.amazon.com/ec2/ "https://aws.amazon.com/ec2/").
 
-Amazon EC2 Auto Scaling
+Amazon EC2 Amazon EC2 Auto Scaling
 Amazon EC2 Auto Scaling is a web service that launches or terminates instances automatically based on user-defined [policies](#policy "#policy"), schedules,
 and [health checks](#healthcheck "#healthcheck").
 
@@ -2001,7 +2001,7 @@ AWS Health is a service that provides ongoing visibility into AWS customers' acc
 See also [https://aws.amazon.com/premiumsupport/technology/aws-health-dashboard](https://aws.amazon.com/premiumsupport/technology/aws-health-dashboard/ "https://aws.amazon.com/premiumsupport/technology/aws-health-dashboard/").
 
 health check
-A system call to check on the health status of each instance in an [Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling") group.
+A system call to check on the health status of each instance in an [Amazon EC2 Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling") group.
 
 HealthLake
 AWS HealthLake is a HIPAA-eligible service that helps customers store, query, and generate artificial intelligence (AI) and machine learning (ML) insights from healthcare data and enables healthcare data interoperability.
@@ -2530,9 +2530,9 @@ AWS services or call it directly from any web or mobile app.
 See also [https://aws.amazon.com/lambda/](https://aws.amazon.com/lambda/ "https://aws.amazon.com/lambda/").
 
 launch configuration
-A set of descriptive parameters used to create new [EC2 instances](#ec2instance "#ec2instance") in an [Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling") activity.
+A set of descriptive parameters used to create new [EC2 instances](#ec2instance "#ec2instance") in an [Amazon EC2 Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling") activity.
 
-A template that an [Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup") uses to launch new EC2 instances. The launch
+A template that an [Amazon EC2 Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup") uses to launch new EC2 instances. The launch
 configuration contains information such as the [Amazon Machine Image
 (AMI)](#AmazonMachineImage "#AmazonMachineImage") ID, the instance
 type, key pairs, [security groups](#SecurityGroup "#SecurityGroup"), and
@@ -2554,16 +2554,16 @@ Amazon Lex is a fully managed artificial intelligence (AI) service with advanced
 See also [https://aws.amazon.com/lex/](https://aws.amazon.com/lex/ "https://aws.amazon.com/lex/").
 
 lifecycle
-The lifecycle state of the [EC2 instance](#ec2instance "#ec2instance") contained in an [Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup"). EC2 instances progress through several states over their lifespan; these include
+The lifecycle state of the [EC2 instance](#ec2instance "#ec2instance") contained in an [Amazon EC2 Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup"). EC2 instances progress through several states over their lifespan; these include
 _Pending_, _InService_,
 _Terminating_ and _Terminated_.
 
 lifecycle action
-An action that can be paused by Auto Scaling, such as launching or terminating an EC2
+An action that can be paused by Amazon EC2 Auto Scaling, such as launching or terminating an EC2
 instance.
 
 lifecycle hook
-A feature for pausing Auto Scaling after it launches or terminates an EC2 instance so that
+A feature for pausing Amazon EC2 Auto Scaling after it launches or terminates an EC2 instance so that
 you can perform a custom action while the instance isn't in service.
 
 Lightsail
@@ -2594,7 +2594,7 @@ Amazon Location Service is a fully managed service that makes it easy for a deve
 See also [https://aws.amazon.com/location/](https://aws.amazon.com/location/ "https://aws.amazon.com/location/").
 
 logical name
-A case-sensitive unique string within an [CloudFormation](#CloudFormation "#CloudFormation") template that identifies a [resource](#resource "#resource"), [mapping](#mapping "#mapping"), parameter, or output. In an AWS CloudFormation template, each parameter,
+A case-sensitive unique string within an [CloudFormation](#CloudFormation "#CloudFormation") template that identifies a [resource](#resource "#resource"), [mapping](#mapping "#mapping"), parameter, or output. In an CloudFormation template, each parameter,
 [resource](#resource "#resource"), property, mapping, and output
 must be declared with a unique logical name. You use the logical name when
 dereferencing these items using the `Ref` function.
@@ -3286,7 +3286,7 @@ See also [PERSONALIZED_RANKING recipes](#personalized-ranking-recipes "#personal
 
 physical name
 A unique label that [CloudFormation](#CloudFormation "#CloudFormation") assigns to each [resource](#resource "#resource") when creating
-a [stack](#stack "#stack"). Some AWS CloudFormation commands accept the
+a [stack](#stack "#stack"). Some CloudFormation commands accept the
 physical name as a value with the `--physical-name` parameter.
 
 pilot light
@@ -3313,10 +3313,10 @@ what users can do in AWS. A policy typically [allows](#allow "#allow") access to
 actions are allowed for specific [resources](#resource "#resource"), such as [EC2 instances](#ec2instance "#ec2instance") or [Amazon S3](#amazons3 "#amazons3")
 [buckets](#bucket "#bucket"). Policies can also explicitly [deny](#deny "#deny") access.
 
-[Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling"): An object that stores
-the information that's needed to launch or terminate instances for an Auto Scaling group.
+[Amazon EC2 Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling"): An object that stores
+the information that's needed to launch or terminate instances for an Amazon EC2 Auto Scaling group.
 Running the policy causes instances to be launched or terminated. You can configure
-an [alarm](#alarm "#alarm") to invoke an Auto Scaling policy.
+an [alarm](#alarm "#alarm") to invoke an Amazon EC2 Auto Scaling policy.
 
 policy generator
 A tool in the [IAM](#IAM "#IAM")
@@ -3753,7 +3753,7 @@ resource property
 A value required when including an AWS [resource](#resource "#resource") in an [CloudFormation](#CloudFormation "#CloudFormation")
 [stack](#stack "#stack"). Each resource can have one or more
 properties associated with it. For example, an `AWS::EC2::Instance`
-resource might have a `UserData` property. In an AWS CloudFormation template, resources
+resource might have a `UserData` property. In an CloudFormation template, resources
 must declare a properties section, even if the resource has no properties.
 
 resource record
@@ -3808,7 +3808,7 @@ rollback
 A return to a previous state that follows the failure to create an object, such as
 [CloudFormation](#CloudFormation "#CloudFormation")
 [stack](#stack "#stack"). All [resources](#resource "#resource") that are associated with the failure are deleted during the rollback.
-For AWS CloudFormation, you can override this behavior using the `--disable-rollback`
+For CloudFormation, you can override this behavior using the `--disable-rollback`
 option on the command line.
 
 root
@@ -3905,17 +3905,17 @@ and the mailbox simulator. To get out of the sandbox, you must apply for product
 access. Accounts in the sandbox also have lower [sending limits](#sendinglimits "#sendinglimits") than production accounts.
 
 scale in
-To remove EC2 instances from an [Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup").
+To remove EC2 instances from an [Amazon EC2 Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup").
 
 scale out
-To add EC2 instances to an [Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup").
+To add EC2 instances to an [Amazon EC2 Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup").
 
 scaling activity
-A process that changes the size, configuration, or makeup of an [Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup") by launching or
+A process that changes the size, configuration, or makeup of an [Amazon EC2 Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup") by launching or
 terminating instances.
 
 scaling policy
-A description of how Auto Scaling automatically scales an [Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup") in response to
+A description of how Amazon EC2 Auto Scaling automatically scales an [Amazon EC2 Auto Scaling group](#AutoScalingGroup "#AutoScalingGroup") in response to
 changing demand.
 
 See also [scale in](#scale-in "#scale-in").
@@ -3994,7 +3994,7 @@ application with AWS services such as [Amazon S3](#amazons3 "#amazons3"), [Amazo
 See also [https://aws.amazon.com/sdk-for-php/](https://aws.amazon.com/sdk-for-php/ "https://aws.amazon.com/sdk-for-php/").
 
 SDK for Python (Boto3)
-AWS SDK for Python (Boto3) is a software development kit for using Python to access AWS services such as [Amazon EC2](#ec2 "#ec2"), [Amazon EMR](#AmazonElasticMapReduce "#AmazonElasticMapReduce"), [Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling"),
+AWS SDK for Python (Boto3) is a software development kit for using Python to access AWS services such as [Amazon EC2](#ec2 "#ec2"), [Amazon EMR](#AmazonElasticMapReduce "#AmazonElasticMapReduce"), [Amazon EC2 Amazon EC2 Auto Scaling](#AutoScaling "#AutoScaling"),
 [Kinesis](#AmazonKinesis "#AmazonKinesis"), or [Lambda](#lambda "#lambda").
 
 See also [http://boto.readthedocs.org/en/latest/](http://boto.readthedocs.org/en/latest/ "http://boto.readthedocs.org/en/latest/").
@@ -4623,13 +4623,13 @@ bytes. A terabyte (TB) is 10^12 or 1,000,000,000,000 bytes. 1,024 TiB is a [pebi
 template format version
 The version of an [CloudFormation](#CloudFormation "#CloudFormation")
 template design that determines the available features. If you omit the
-`AWSTemplateFormatVersion` section from your template, AWS CloudFormation assumes
+`AWSTemplateFormatVersion` section from your template, CloudFormation assumes
 the most recent format version.
 
 template validation
 The process of confirming the use of [JSON](#json "#json")
 code in an [CloudFormation](#CloudFormation "#CloudFormation") template.
-You can validate any AWS CloudFormation template using the `cfn-validate-template`
+You can validate any CloudFormation template using the `cfn-validate-template`
 command.
 
 temporary security credentials
@@ -4946,14 +4946,14 @@ instance, a [VPN connection](#VPNconnection "#VPNconnection"), or [Direct Connec
 
 VPGSee [virtual private gateway (VGW)](#VPNgateway "#VPNgateway").
 
-AWS VPN
+Site-to-Site VPN
 AWS Virtual Private Network provides functionality that establishes encrypted connections between
-your network or device, and AWS. AWS VPN is comprised of two services: [AWS Client VPN](#client-vpn "#client-vpn") and [AWS Site-to-Site VPN](#site-to-site-vpn "#site-to-site-vpn").
+your network or device, and AWS. Site-to-Site VPN is comprised of two services: [AWS Client VPN](#client-vpn "#client-vpn") and [AWS Site-to-Site VPN](#site-to-site-vpn "#site-to-site-vpn").
 
 See also [https://aws.amazon.com/vpn](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/").
 
-AWS VPN CloudHub
-AWS VPN CloudHub is a feature that enables secure communication between branch offices using a simple hub-and-spoke model, with or without a VPN.
+Site-to-Site VPN CloudHub
+Site-to-Site VPN CloudHub is a feature that enables secure communication between branch offices using a simple hub-and-spoke model, with or without a VPN.
 
 VPN connection
 [Amazon Web Services
