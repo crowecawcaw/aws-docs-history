@@ -71,7 +71,7 @@ authentication and authorization requirements:
   existing credentials, streamlining the authentication
   process and simplifying the account management
   provisioning and de-provisioning processes.
-- **AWS Directory Service:**Facilitate your migration by
+- **Directory Service:**Facilitate your migration by
   integrating with corporate directories, enhancing user
   experience and reducing operational burdens.
 - **AWS IAM Identity Center:**Centrally coordinate workforce
@@ -203,7 +203,7 @@ Create secure data transmission utilizing virtual private networks (VPNs) or ded
 
 For more detail, see the following:
 
-- [AWS VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/")
+- [Site-to-Site VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/")
 - [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/ "https://aws.amazon.com/transit-gateway/")
 
 **Suggestion 6.1.2:** Use
