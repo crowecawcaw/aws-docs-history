@@ -276,7 +276,7 @@ BGP connectivity status will be down until the Amazon EVS environment is deploye
 
 ## Create a transit gateway for on-premises connectivity
 
-You can configure connectivity for your on-premises data center to your AWS infrastructure using AWS Direct Connect with an associated transit gateway, or using an AWS Site-to-Site VPN attachment to a transit gateway.
+You can configure connectivity for your on-premises data center to your AWS infrastructure using Direct Connect with an associated transit gateway, or using an AWS Site-to-Site VPN attachment to a transit gateway.
 For more information, see [Configure on-premises network connectivity (optional)](getting-started.md#getting-started-connect-on-prem "getting-started.md#getting-started-connect-on-prem").
 
 ## Create an Amazon EC2 Capacity Reservation

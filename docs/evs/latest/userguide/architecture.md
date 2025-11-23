@@ -48,7 +48,7 @@ Amazon EVS supports only one tier-0 gateway for an Active/Standby NSX Edge clust
 This tier-0 gateway connects to and advertises all overlay networks that you configure for use with Amazon EVS.
 
 The two network layers are connected by an Active/Standby NSX Edge cluster with two NSX Edge nodes.
-The NSX Edge nodes enable communication over the VPC between virtual machines in the VLANs, as well as internet connectivity, and private connectivity using AWS Direct Connect or AWS Site-to-Site VPN with a transit gateway.
+The NSX Edge nodes enable communication over the VPC between virtual machines in the VLANs, as well as internet connectivity, and private connectivity using Direct Connect or AWS Site-to-Site VPN with a transit gateway.
 
 ### Amazon EVS networking considerations
 

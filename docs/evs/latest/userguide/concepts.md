@@ -101,5 +101,5 @@ For more information about common NSX concepts, see [Key Concepts](https://techd
 VMware Hybrid Cloud Extension (VMware HCX) is an application mobility platform designed for simplifying application migration, rebalancing workloads, and optimizing disaster recovery across data centers and clouds.
 You can use HCX to migrate your VMware-based workloads to Amazon EVS.
 
-You can configure connectivity for VMware HCX using AWS Direct Connect with an associated transit gateway, or using an AWS Site-to-Site VPN attachment to a transit gateway.
+You can configure connectivity for VMware HCX using Direct Connect with an associated transit gateway, or using an AWS Site-to-Site VPN attachment to a transit gateway.
 For more information, see [Migrate workloads to Amazon EVS using VMware HCX](migrate-evs-hcx.md "migrate-evs-hcx.md").

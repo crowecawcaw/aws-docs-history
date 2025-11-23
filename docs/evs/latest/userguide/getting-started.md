@@ -595,7 +595,7 @@ For more information about Amazon Time Sync Service, see [Precision clock and ti
 3. Verify time synchronization.
    For more information about DHCP option set configuration, see [Configure your VPC’s DHCP option set](setting-up.md#vpc-dhcp "setting-up.md#vpc-dhcp").
 
-You can configure connectivity for your on-premises data center to your AWS infrastructure using AWS Direct Connect with an associated transit gateway, or using an AWS Site-to-Site VPN attachment to a transit gateway.
+You can configure connectivity for your on-premises data center to your AWS infrastructure using Direct Connect with an associated transit gateway, or using an AWS Site-to-Site VPN attachment to a transit gateway.
 
 To enable connectivity to on-premises systems for successful environment deployment, you must configure the VPC’s main route table to allow traffic to these systems.
 For more information, see [Configure the VPC main route table](setting-up.md#vpc-main-rt "setting-up.md#vpc-main-rt").
@@ -603,7 +603,7 @@ For more information, see [Configure the VPC main route table](setting-up.md#vpc
 After the Amazon EVS environment is created, you must update the transit gateway route tables with the VPC CIDRs created within the Amazon EVS environment.
 For more information, see [Configure transit gateway route tables and Direct Connect prefixes for on-premises connectivity (optional)](#getting-started-config-tgw-assoc "#getting-started-config-tgw-assoc").
 
-For more information about setting up an AWS Direct Connect connection, see [AWS Direct Connect gateways and transit gateway associations](../../../directconnect/latest/UserGuide/direct-connect-transit-gateways.md "../../../directconnect/latest/UserGuide/direct-connect-transit-gateways.md").
+For more information about setting up an Direct Connect connection, see [Direct Connect gateways and transit gateway associations](../../../directconnect/latest/UserGuide/direct-connect-transit-gateways.md "../../../directconnect/latest/UserGuide/direct-connect-transit-gateways.md").
 For more information about using AWS Site-to-Site VPN with AWS Transit Gateway, see [AWS Site-to-Site VPN attachments in Amazon VPC Transit Gateways](../../../vpc/latest/tgw/tgw-vpn-attachments.md "../../../vpc/latest/tgw/tgw-vpn-attachments.md") in the _Amazon VPC Transit Gateway User Guide_.
 
 ###### Note
@@ -1271,7 +1271,7 @@ AWS CLI
 
 2.  Repeat the step to associate additional EIPs.
 
-If you are configuring on-premises network connectivity using AWS Direct Connect or AWS Site-to-Site VPN with a transit gateway, you must update the transit gateway route tables with the VPC CIDRs created within the Amazon EVS environment.
+If you are configuring on-premises network connectivity using Direct Connect or AWS Site-to-Site VPN with a transit gateway, you must update the transit gateway route tables with the VPC CIDRs created within the Amazon EVS environment.
 For more information, see [Transit gateway route tables in Amazon VPC Transit Gateways](../../../vpc/latest/tgw/tgw-route-tables.md "../../../vpc/latest/tgw/tgw-route-tables.md").
 
 If you are using AWS Direct Connect, you may need to also update your Direct Connect prefixes to send and receive updated routes from the VPC.
