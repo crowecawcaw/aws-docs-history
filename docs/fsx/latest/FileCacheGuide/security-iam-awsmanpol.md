@@ -51,7 +51,7 @@ This policy includes the following permissions.
 
 - `fsx` – Allows principals full access to perform all Amazon FSx actions,
   except for `BypassSnaplockEnterpriseRetention`.
-- `ds` – Allows principals to view information about the AWS Directory Service directories.
+- `ds` – Allows principals to view information about the Directory Service directories.
 - `ec2`
   - Allows principals to create tags under the specified conditions.
   - To provide enhanced security group validation of all security groups that can be used with a VPC.
@@ -81,7 +81,7 @@ This policy includes the following permissions.
 - `fsx` – Allows principals to perform all actions in the Amazon FSx management console,
   except for `BypassSnaplockEnterpriseRetention`.
 - `cloudwatch` – Allows principals to view CloudWatch Alarms and metrics in the Amazon FSx management console.
-- `ds` – Allows principals to list information about an AWS Directory Service directory.
+- `ds` – Allows principals to list information about an Directory Service directory.
 - `ec2`
   - Allows principals to create tags on route tables, list network interfaces, route tables,
     security groups, subnets and the VPC associated with an Amazon FSx file system.
@@ -110,7 +110,7 @@ This policy includes the following permissions.
 
 - `fsx` – Allows principals to view information about Amazon FSx file systems, including all tags, in the Amazon FSx Management Console.
 - `cloudwatch` – Allows principals to view CloudWatch Alarms and metrics in the Amazon FSx Management Console.
-- `ds` – Allows principals to view information about an AWS Directory Service directory in the Amazon FSx Management Console.
+- `ds` – Allows principals to view information about an Directory Service directory in the Amazon FSx Management Console.
 - `ec2`
   - Allows principals to view network interfaces, security groups, subnets and the VPC associated with an Amazon FSx
     file system in the Amazon FSx Management Console.

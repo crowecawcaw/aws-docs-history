@@ -47,7 +47,7 @@ following:
   You can adapt the script as needed, especially for gracefully shutting down your
   application. For more information about best practices for handling Spot Instance
   interruptions, see [Best
-  practices for handling EC2 Spot Instance interruptions](https://aws.amazon.com/blogs/compute/best-practices-for-handling-ec2-spot-instance-interruptions/ "https://aws.amazon.com/blogs/compute/best-practices-for-handling-ec2-spot-instance-interruptions/").
+  practices for handling EC2 Spot Instance interruptions](https://aws.amazon.com/blogs//compute/best-practices-for-handling-ec2-spot-instance-interruptions/ "https://aws.amazon.com/blogs//compute/best-practices-for-handling-ec2-spot-instance-interruptions/").
 
 ```
 #!/bin/bash

@@ -17,15 +17,15 @@ resources and configurations meet the following requirements:
   - 172.16.0.0-172.31.255.255 (172.16/12 prefix)
   - 192.168.0.0-192.168.255.255 (192.168/16 prefix)
 
-- You must establish an AWS Direct Connect or VPN connection between your on-premises network and the
-  Amazon VPC where your Amazon File Cache is located. For more information about AWS Direct Connect,
-  see the [_AWS Direct Connect User Guide_](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md").
+- You must establish an Direct Connect or VPN connection between your on-premises network and the
+  Amazon VPC where your Amazon File Cache is located. For more information about Direct Connect,
+  see the [_Direct Connect User Guide_](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md").
   For more information about setting up a VPC connection, see
   the [_Amazon VPC User Guide_](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md").
 
 ###### Important
 
-Use an AWS VPN connection if you want to encrypt data as it transits between your
+Use an Site-to-Site VPN connection if you want to encrypt data as it transits between your
 Amazon VPC and your on-premises network. For more information, see [What is AWS Site-to-Site VPN?](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md")
 
 - Your on-premises firewall must allow traffic between IP addresses in your

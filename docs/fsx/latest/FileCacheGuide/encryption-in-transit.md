@@ -8,11 +8,11 @@ in Transit](../../../AWSEC2/latest/UserGuide/data-protection.md#encryption-trans
 Amazon File Cache encrypts traffic between the cache and your S3 data repositories using HTTPS (TLS). Amazon File Cache does
 not encrypt traffic between the cache and your NFSv3 data repositories, as the NFSv3 protocol does not encrypt data at
 the protocol level. For encryption in transit between your on-premises file systems and Amazon File Cache, you can use a virtual private network (VPN)
-to ensure encrypted data transfers between your VPC and your on-premises network. If you're using AWS Direct Connect,
-you can use AWS VPN to combine one or more AWS Direct Connect dedicated network connections with AWS VPN. Additionally, you can use
+to ensure encrypted data transfers between your VPC and your on-premises network. If you're using Direct Connect,
+you can use Site-to-Site VPN to combine one or more Direct Connect dedicated network connections with Site-to-Site VPN. Additionally, you can use
 [MAC Security](../../../directconnect/latest/UserGuide/MACsec.md "../../../directconnect/latest/UserGuide/MACsec.md") (MACsec) to encrypt
-your data from your corporate data center to the AWS Direct Connect location. For more information, see
-[Encryption in AWS Direct Connect](../../../directconnect/latest/UserGuide/encryption-in-transit.md "../../../directconnect/latest/UserGuide/encryption-in-transit.md").
+your data from your corporate data center to the Direct Connect location. For more information, see
+[Encryption in Direct Connect](../../../directconnect/latest/UserGuide/encryption-in-transit.md "../../../directconnect/latest/UserGuide/encryption-in-transit.md").
 
 You can explicitly prohibit some or all users in your organization from creating Amazon File Cache resources linked to NFSv3
 file systems using the `fsx:NfsDataRepositoryEncryptionInTransitEnabled` and `fsx:NfsDataRepositoryAuthenticationEnabled`

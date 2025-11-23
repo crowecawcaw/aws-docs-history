@@ -4,7 +4,7 @@ a peered Amazon VPC
 
 You can access your cache in two ways. One is from Amazon EC2 instances located in an Amazon VPC
 that's peered to the cache's VPC. The other is from on-premises clients that are connected to
-your cache's VPC using AWS Direct Connect or VPN.
+your cache's VPC using Direct Connect or VPN.
 
 Connect the client's VPC and your Amazon File Cache's VPC using either a VPC peering
 connection or a VPC transit gateway. When you use either option, Amazon EC2 instances that are in
