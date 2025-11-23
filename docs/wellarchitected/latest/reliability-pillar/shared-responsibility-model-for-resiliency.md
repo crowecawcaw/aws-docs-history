@@ -34,7 +34,7 @@ determines the amount of configuration work you must perform as part of your res
 responsibilities. For example, a service such as Amazon Elastic Compute Cloud (Amazon EC2) requires the customer to
 perform all of the necessary resiliency configuration and management tasks. Customers that
 deploy Amazon EC2 instances are responsible for [deploying Amazon EC2 instances across multiple locations](use-fault-isolation-to-protect-your-workload.md "use-fault-isolation-to-protect-your-workload.md") (such as AWS Availability
-Zones), [implementing self-healing](design-your-workload-to-withstand-component-failures.md "design-your-workload-to-withstand-component-failures.md") using services like Auto Scaling, and using [resilient
+Zones), [implementing self-healing](design-your-workload-to-withstand-component-failures.md "design-your-workload-to-withstand-component-failures.md") using services like Amazon EC2 Auto Scaling, and using [resilient
 workload architecture best practices](workload-architecture.md "workload-architecture.md") for applications installed on the instances.
 For managed services, such as Amazon S3 and Amazon DynamoDB, AWS operates the infrastructure layer, the
 operating system, and platforms, and customers access the endpoints to store and retrieve

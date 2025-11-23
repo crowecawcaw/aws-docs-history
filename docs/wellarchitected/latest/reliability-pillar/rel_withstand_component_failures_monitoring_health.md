@@ -69,7 +69,7 @@ failures, see
   - Determine if
     [detailed
     monitoring for EC2 instances](../../../AWSEC2/latest/UserGuide/using-cloudwatch-new.md "../../../AWSEC2/latest/UserGuide/using-cloudwatch-new.md") and
-    [Auto Scaling](../../../autoscaling/ec2/userguide/as-instance-monitoring.md "../../../autoscaling/ec2/userguide/as-instance-monitoring.md") is necessary. Detailed monitoring
+    [Amazon EC2 Auto Scaling](../../../autoscaling/ec2/userguide/as-instance-monitoring.md "../../../autoscaling/ec2/userguide/as-instance-monitoring.md") is necessary. Detailed monitoring
     provides one minute interval metrics, and default
     monitoring provides five minute interval metrics.
   - Determine if
@@ -118,7 +118,7 @@ failures, see
   not working properly and to indicate when to automatically
   scale resources. Alarms can be visually displayed on
   dashboards, send alerts through Amazon SNS or email, and
-  work with Auto Scaling to scale workload resources up or
+  work with Amazon EC2 Auto Scaling to scale workload resources up or
   down.
 - Create
   [dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md")
@@ -159,7 +159,7 @@ failures, see
 - [Enhanced
   Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md")
 - [Monitoring
-  Your Auto Scaling Groups and Instances Using Amazon CloudWatch](../../../autoscaling/ec2/userguide/as-instance-monitoring.md "../../../autoscaling/ec2/userguide/as-instance-monitoring.md")
+  Your Amazon EC2 Auto Scaling Groups and Instances Using Amazon CloudWatch](../../../autoscaling/ec2/userguide/as-instance-monitoring.md "../../../autoscaling/ec2/userguide/as-instance-monitoring.md")
 - [Publishing
   Custom Metrics](../../../AmazonCloudWatch/latest/monitoring/publishingMetrics.md "../../../AmazonCloudWatch/latest/monitoring/publishingMetrics.md")
 - [Using
