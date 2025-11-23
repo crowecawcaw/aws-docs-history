@@ -47,9 +47,9 @@ pre-production environment that exactly mirrored production.
 
 Based on this event, you can create a question that asks:
 
-| How are you ensuring that you do not impact customers when using AWS CloudFormation to manage<br>AWS resources? |
-| --------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                 |
+| How are you ensuring that you do not impact customers when using CloudFormation to manage<br>AWS resources? |
+| ----------------------------------------------------------------------------------------------------------- |
+|                                                                                                             |
 
 The guidance for this question would be the following:
 
