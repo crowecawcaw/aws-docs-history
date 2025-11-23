@@ -398,7 +398,7 @@ We recommend that you use an IAM user with appropriate permissions to [perform t
 
 ## Restore IAM Administrator access to the AWS Management Console for AWS GovCloud (US)
 
-The most common use of AWS GovCloud (US) account root user access keys is to restore administrator access to the [AWS GovCloud (US) console](../../../https:/console.amazonaws-us-gov.md "../../../https:/console.amazonaws-us-gov.md"). In this section, you will learn how to restore AWS Management Console access for the `Administrator`
+The most common use of AWS GovCloud (US) account root user access keys is to restore administrator access to the [AWS GovCloud (US) console](https://console.amazonaws-us-gov.com "https://console.amazonaws-us-gov.com"). In this section, you will learn how to restore AWS Management Console access for the `Administrator`
 IAM user in your AWS GovCloud (US) account using your AWS GovCloud (US) account root user access keys.
 
 Any additional IAM administrative task not requiring AWS GovCloud (US) account root user access keys are recommended to be completed in the AWS GovCloud (US) console as the `Administrator`
@@ -437,7 +437,7 @@ With the `Administrator`
 IAM user created you can now set a new password to access the AWS GovCloud (US) console. It is recommended you set a temporary password when using the AWS CLI and require the password to be changed once you sign in to the AWS GovCloud (US) console.
 
 Copy and paste the following AWS CLI command into your terminal window to set a new temporary password for the `Administrator`
-IAM user. Sign in to the [AWS GovCloud (US) console](../../../https:/console.amazonaws-us-gov.md "../../../https:/console.amazonaws-us-gov.md") with the temporary password to set your new password for the `Administrator`
+IAM user. Sign in to the [AWS GovCloud (US) console](https://console.amazonaws-us-gov.com "https://console.amazonaws-us-gov.com") with the temporary password to set your new password for the `Administrator`
 IAM user.
 
 ```

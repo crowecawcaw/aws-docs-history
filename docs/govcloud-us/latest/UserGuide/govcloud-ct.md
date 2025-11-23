@@ -13,7 +13,7 @@ To continue receiving global service events outside of AWS GovCloud (US-West), b
 In contrast, the **Event history** in the CloudTrail console and the **aws cloudtrail lookup-events** command will show these events in the Region where they occurred.
 
 - For all AWS GovCloud (US) accounts created after 12/15/2014, AWS CloudTrail event log delivery to Amazon S3 is enabled automatically. However, you must set up Amazon SNS notifications. You can turn off logging through the AWS CloudTrail console for the AWS GovCloud (US) Region.
-- If you are using AWS Direct Connect, you must enable CloudTrail in your standard AWS account (not your AWS GovCloud (US) account) and enable logging.
+- If you are using Direct Connect, you must enable CloudTrail in your standard AWS account (not your AWS GovCloud (US) account) and enable logging.
 - The Amazon S3 and Amazon SNS policy statements must refer to the ARN for AWS GovCloud (US) Regions. For more information, see [Amazon Resource Names (ARNs) in GovCloud (US) Regions](using-govcloud-arns.md "using-govcloud-arns.md").
 - The following CloudTrail Lake features are currently not available in the AWS GovCloud (US) Regions:
   - CloudTrail Lake integrations

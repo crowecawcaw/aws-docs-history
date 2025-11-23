@@ -9,6 +9,8 @@ Amazon Bedrock provides a broad set of capabilities you need to build generative
 - Model availability for all regions, including AWS GovCloud (US), is available at [Model support by AWS Region](../../../bedrock/latest/userguide/models-regions.md "../../../bedrock/latest/userguide/models-regions.md").
 - The following models have FedRAMP and IL4/5 authorization
   - All Titan Models
+  - Claude Sonnet 4.5
+  - Claude 3.7 Sonnet
   - Claude 3.5 Sonnet v1
   - Claude 3 Haiku
   - Llama 3 8B

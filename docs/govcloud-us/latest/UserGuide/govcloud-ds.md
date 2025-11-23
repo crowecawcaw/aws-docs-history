@@ -37,7 +37,7 @@ If you are using the Amazon Linux AMI, the AWS CLI is already installed and conf
   - [https://ds.us-gov-east-1.amazonaws.com](https://ds.us-gov-east-1.amazonaws.com "https://ds.us-gov-east-1.amazonaws.com")
 
 - Automatic DNS forwarding is not enabled by default and must be configured.
-- The AWS Directory Service Data API is not available.
+- The Directory Service Data API is not available.
 
 ## Documentation for AWS Directory Service
 

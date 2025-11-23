@@ -10,7 +10,7 @@ AWS Site-to-Site VPN enables you to securely connect your on-premises network or
 
 ## Documentation for AWS Site-to-Site VPN
 
-[AWS VPN documentation](../../../vpn.md "../../../vpn.md").
+[Site-to-Site VPN documentation](../../../vpn.md "../../../vpn.md").
 
 ## Export-controlled content
 

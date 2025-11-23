@@ -4,7 +4,7 @@ The steps in this section describe how to sign in and create an account alias an
 
 ###### To sign in to the AWS GovCloud (US) console:
 
-1. Open the [AWS GovCloud (US) console](../../../https:/console.amazonaws-us-gov.md "../../../https:/console.amazonaws-us-gov.md").
+1. Open the [AWS GovCloud (US) console](https://console.amazonaws-us-gov.com "https://console.amazonaws-us-gov.com").
 2. Sign in using your account number and IAM administrator user credentials. For your user name, type `Administrator`.
 
 ###### Note

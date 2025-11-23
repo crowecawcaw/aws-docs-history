@@ -68,6 +68,7 @@ The following list indicates the differences in the feature availability in AWS 
   - [Discovery:Kubernetes/AnomalousBehavior.PermissionChecked](../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolecreated "../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolecreated")
 
 - In [Malware Protection for EC2](../../../guardduty/latest/ug/malware-protection.md "../../../guardduty/latest/ug/malware-protection.md"), the support for scanning instances with `productCode` as `marketplace` is not supported. GuardDuty will skip the malware scan for such instances and log the skip reason as `UNSUPPORTED_PRODUCT_CODE_TYPE`.
+- In [Malware Protection for Backup](../../../guardduty/latest/ug/malware-protection-backup.md "../../../guardduty/latest/ug/malware-protection-backup.md"), the scanning of EC2 and EBS Recovery points is not supported. In these cases GuardDuty will not perform a scan on the input recovery point resource.
 - Cross-region data transfer is not supported in AWS GovCloud (US) Regions.
 - Member accounts invitation notifications through AWS Health Dashboard and email are not supported in AWS GovCloud (US) Regions.
 - In AWS GovCloud (US) Regions, AWS doesn’t use or store Customer Content processed by Amazon GuardDuty to develop and improve the service or technologies of AWS or its affiliates. Opt-out policies are currently not applicable to these Regions.

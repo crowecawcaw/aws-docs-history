@@ -35,7 +35,7 @@ The following sections describe the differences between the AWS GovCloud (US) Re
 - [AWS Database Migration Service in AWS GovCloud (US)](govcloud-dms.md "govcloud-dms.md")
 - [AWS DataSync in AWS GovCloud (US)](govcloud-dsy.md "govcloud-dsy.md")
 - [AWS Deep Learning AMIs in AWS GovCloud (US)](govcloud-deeplearningamis.md "govcloud-deeplearningamis.md")
-- [AWS Direct Connect in AWS GovCloud (US)](govcloud-dc.md "govcloud-dc.md")
+- [Direct Connect in AWS GovCloud (US)](govcloud-dc.md "govcloud-dc.md")
 - [AWS Directory Service in AWS GovCloud (US)](govcloud-ds.md "govcloud-ds.md")
 - [AWS Elastic Beanstalk in AWS GovCloud (US)](govcloud-beanstalk.md "govcloud-beanstalk.md")
 - [AWS Elastic Disaster Recovery in AWS GovCloud (US)](govcloud-drs.md "govcloud-drs.md")

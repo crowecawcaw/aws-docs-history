@@ -7,7 +7,7 @@ Amazon Keyspaces is serverless, so you pay for only the resources that you use, 
 ## How Amazon Keyspaces differs for AWS GovCloud (US)
 
 - Amazon Keyspaces Multi-Region replication is not supported.
-- Amazon Keyspaces integration with AWS CloudFormation is not supported.
+- Amazon Keyspaces integration with CloudFormation is not supported.
 
 This section describes the Amazon Keyspaces quotas and default values in AWS GovCloud (US) Regions that differ from Amazon Keyspaces
 [quotas](../../../keyspaces/latest/devguide/quotas.md "../../../keyspaces/latest/devguide/quotas.md") in other AWS Regions.

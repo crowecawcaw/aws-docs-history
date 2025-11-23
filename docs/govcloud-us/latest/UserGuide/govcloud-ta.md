@@ -91,7 +91,7 @@ The following table lists the Trusted Advisor checks for operational excellence 
 | Amazon ECS clusters with Container Insights disabled                              | Business and Enterprise |
 | Amazon S3 does not have Event Notifications enabled                               | Business and Enterprise |
 | Amazon VPC Without Flow Logs                                                      | Business and Enterprise |
-| AWS CloudFormation Stack Notification                                             | Business and Enterprise |
+| CloudFormation Stack Notification                                                 | Business and Enterprise |
 | AWS CloudTrail data events logging for objects in an S3 bucket                    | Business and Enterprise |
 | AWS CodeBuild Project Logging                                                     | Business and Enterprise |
 | AWS Elastic Beanstalk Enhanced Health Reporting Is Not Configured                 | Business and Enterprise |
@@ -100,7 +100,7 @@ The following table lists the Trusted Advisor checks for operational excellence 
 | AWS Systems Manager State Manager Association in Non-compliant Status             | Business and Enterprise |
 | Application Load Balancers and Classic Load Balancers Without Access Logs Enabled | Business and Enterprise |
 | CloudTrail trails is not configured with Amazon CloudWatch Logs                   | Business and Enterprise |
-| Elastic Load Balancing Deletion Protection Not Enabled for Load Balancers         | Business and Enterprise |
+| ELB Deletion Protection Not Enabled for Load Balancers                            | Business and Enterprise |
 | RDS Cluster Deletion Protection Check                                             | Business and Enterprise |
 | RDS DB Instance Automatic Minor Version Upgrade Check                             | Business and Enterprise |
 
@@ -151,7 +151,7 @@ The following table lists the checks for Trusted Advisor service quotas, formerl
 | Amazon DynamoDB Throughput                        | All support levels |
 | Auto Scaling Groups                               | All support levels |
 | Auto Scaling Launch Configurations                | All support levels |
-| AWS CloudFormation Stacks                         | All support levels |
+| CloudFormation Stacks                             | All support levels |
 | DynamoDB Read Capacity                            | All support levels |
 | DynamoDB Write Capacity                           | All support levels |
 | EBS Active Snapshots                              | All support levels |

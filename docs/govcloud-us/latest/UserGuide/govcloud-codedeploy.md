@@ -55,9 +55,9 @@ https://s3-us-gov-west-1.amazonaws.com/aws-codedeploy-us-gov-west-1/samples/late
 https://s3-us-gov-west-1.amazonaws.com/aws-codedeploy-us-gov-west-1/samples/latest/SampleApp_Windows.zip
 ```
 
-### AWS CloudFormation template location
+### CloudFormation template location
 
-Location of AWS CloudFormation template for launching Amazon EC2 instance configured for CodeDeploy deployments:
+Location of CloudFormation template for launching Amazon EC2 instance configured for CodeDeploy deployments:
 
 ```
 https://s3-us-gov-west-1.amazonaws.com/aws-codedeploy-us-gov-west-1/templates/latest/CodeDeploy_SampleCF_Template.json
