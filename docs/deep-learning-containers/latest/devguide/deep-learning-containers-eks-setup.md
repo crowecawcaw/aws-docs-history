@@ -222,7 +222,7 @@ type.
 
 Refer to the previous discussion on using the **eksctl**
 command to launch a GPU cluster, and modify `node-type` to use
-an instance with Habana Gaudi accelerators, such as the [DL1 instance](https://aws.amazon.com/https://aws.amazon.com/ec2/instance-types/dl1/ "https://aws.amazon.com/https://aws.amazon.com/ec2/instance-types/dl1/") type.
+an instance with Habana Gaudi accelerators, such as the [DL1 instance](https://aws.amazon.com/ec2/instance-types/dl1/ "https://aws.amazon.com/ec2/instance-types/dl1/") type.
 
 ## Test Your Clusters
 
