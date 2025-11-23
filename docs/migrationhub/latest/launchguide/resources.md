@@ -24,7 +24,7 @@ access.
   your migration to AWS](https://aws.amazon.com/blogs/mt/maximizing-resource-tagging-at-scale-and-across-teams-for-your-migration-to-aws/ "https://aws.amazon.com/blogs/mt/maximizing-resource-tagging-at-scale-and-across-teams-for-your-migration-to-aws/")
 - Training video explaining how to tag resources on AWS[[English]](https://youtu.be/MX9DaAQS15I "https://youtu.be/MX9DaAQS15I")
   [[Spanish]](https://youtu.be/cVGf81f9-n8 "https://youtu.be/cVGf81f9-n8")
-- [Tagging with AWS CloudFormation](https://github.com/aws-cloudformation/cfn-lint "https://github.com/aws-cloudformation/cfn-lint")
+- [Tagging with CloudFormation](https://github.com/aws-cloudformation/cfn-lint "https://github.com/aws-cloudformation/cfn-lint")
 - [AWS Config Conformance Pack](https://github.com/aws-samples/map20-tag-conformance-pack "https://github.com/aws-samples/map20-tag-conformance-pack")
 - [Service control policies (SCPs)](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md")
 - [Enforcing tagging on resource creation](../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.md")

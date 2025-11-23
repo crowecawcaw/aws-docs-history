@@ -62,12 +62,12 @@ recursos en AWS para mejorar operaciones en la nube](https://youtu.be/cVGf81f9-n
 
 ## MAP tagging best practices
 
-- **Tagging with AWS CloudFormation:**
+- **Tagging with CloudFormation:**
   - You can use CloudFormation Linter to enforce tags. You can create rules to enforce
     certain tag keys, and include linting steps in pipelines. For more information, see
     [AWS CloudFormation Linter](https://github.com/aws-cloudformation/cfn-lint "https://github.com/aws-cloudformation/cfn-lint") on GitHub.
   - When you create or update an AWS CFN stack, set tags in the AWS Management
-    Console or by using the AWS CLI. AWS CloudFormation propagates these tags to all the AWS resources
+    Console or by using the AWS CLI. CloudFormation propagates these tags to all the AWS resources
     that you create in the stack. For more information, see [create-stack](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/create-stack.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/create-stack.html") and [update-stack](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/update-stack.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/update-stack.html") in the AWS CLI command reference.
 
 - **Tagging with AWS Config:**
