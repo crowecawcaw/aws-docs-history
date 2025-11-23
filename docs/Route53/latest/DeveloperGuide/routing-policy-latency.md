@@ -16,7 +16,7 @@ you've created latency records for, determines which Region gives the user the l
 selects a latency record for that Region. Route 53 responds with the value from the selected record, such as the IP address
 for a web server.
 
-For example, suppose you have Elastic Load Balancing load balancers in the US West (Oregon) Region and in the Asia Pacific (Singapore) Region.
+For example, suppose you have ELB load balancers in the US West (Oregon) Region and in the Asia Pacific (Singapore) Region.
 You create a latency record for each load balancer. Here's what happens when a user in London enters the name
 of your domain in a browser:
 

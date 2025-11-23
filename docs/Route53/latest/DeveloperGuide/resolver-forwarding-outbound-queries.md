@@ -7,7 +7,7 @@ outbound endpoint and one or more rules:
 To forward DNS queries from your VPCs to your network, you create an outbound endpoint. An outbound endpoint specifies
 the IP addresses that queries originate from. Those IP addresses, which you choose from the range of IP addresses available to your VPC,
 aren't public IP addresses. This means that, for each outbound endpoint, you need to connect your VPC to your network using
-AWS Direct Connect connection, a VPN connection, or a network address translation (NAT) gateway. Note that you can use the same
+Direct Connect connection, a VPN connection, or a network address translation (NAT) gateway. Note that you can use the same
 outbound endpoint for multiple VPCs in the same Region, or you can create multiple outbound endpoints. If you want your outbound endpoint to use DNS64, you can enable DNS64 using Amazon Virtual Private Cloud. For more information, see [DNS64 and NAT64](../../../vpc/latest/userguide/vpc-nat-gateway.md#nat-gateway-nat64-dns64 "../../../vpc/latest/userguide/vpc-nat-gateway.md#nat-gateway-nat64-dns64") in the _Amazon VPC User
 Guide_.
 

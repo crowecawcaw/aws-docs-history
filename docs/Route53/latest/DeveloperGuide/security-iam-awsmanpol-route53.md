@@ -32,7 +32,7 @@ This policy includes the following permissions.
 - `route53:*` – Lets you perform all Route 53 actions
   _except_ the following:
   - Create and update alias records for which the value of **Alias
-    Target** is a CloudFront distribution, an Elastic Load Balancing load balancer, an
+    Target** is a CloudFront distribution, an ELB load balancer, an
     Elastic Beanstalk environment, or an Amazon S3 bucket. (With these permissions, you can
     create alias records for which the value of **Alias
     Target** is another record in the same hosted zone.)

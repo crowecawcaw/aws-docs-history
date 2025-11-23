@@ -15,9 +15,9 @@ Route 53 name servers within 60 seconds.
 
 1. If you're not editing alias records, skip to step 2.
 
-If you're editing alias records that route traffic to an Elastic Load Balancing Classic Load Balancer, Application Load Balancer, or Network Load Balancer, and if you
+If you're editing alias records that route traffic to an ELB Classic Load Balancer, Application Load Balancer, or Network Load Balancer, and if you
 created your Route 53 hosted zone and your load balancer using different accounts, perform the procedure
-[Getting the DNS name for an Elastic Load Balancing load balancer](resource-record-sets-creating.md#resource-record-sets-elb-dns-name-procedure "resource-record-sets-creating.md#resource-record-sets-elb-dns-name-procedure")
+[Getting the DNS name for an ELB load balancer](resource-record-sets-creating.md#resource-record-sets-elb-dns-name-procedure "resource-record-sets-creating.md#resource-record-sets-elb-dns-name-procedure")
 to get the DNS name for the load balancer.
 
 If you're editing alias records for any other AWS resource, skip to step 2. 2. Sign in to the AWS Management Console and open the Route 53 console at

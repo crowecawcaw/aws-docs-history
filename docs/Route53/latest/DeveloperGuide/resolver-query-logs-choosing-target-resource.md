@@ -99,4 +99,4 @@ For information about the pricing for Resolver query logging, see [Amazon CloudW
 
 CloudWatch Vended Logs charges apply when using Resolver logs, even when logs are published
 directly to Amazon S3. For more information, see [_Logs pricing_ at Amazon
-CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/#Vended_Logs "https://aws.amazon.com/cloudwatch/pricing/#Vended_Logs").
+CloudWatch pricing](https://aws.amazon.com//cloudwatch/pricing/#Vended_Logs "https://aws.amazon.com//cloudwatch/pricing/#Vended_Logs").

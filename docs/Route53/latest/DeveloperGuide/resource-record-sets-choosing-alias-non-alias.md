@@ -23,7 +23,7 @@ When Route 53 receives a DNS query for an alias record, Route 53 responds with
 - **App Runner service** – Route 53 responds with one or more IP addresses.
 - **An Elastic Beanstalk environment** – Route 53 responds with one or more IP addresses
   for the environment.
-- **An Elastic Load Balancing load balancer** – Route 53 responds with one or more
+- **An ELB load balancer** – Route 53 responds with one or more
   IP addresses for the load balancer. This includes Application Load Balancer, Classic Load Balancer and, Network Load Balancer.
 - **An AWS Global Accelerator accelerator** – Route 53 responds with the IP
   addresses for the accelerator.
@@ -39,12 +39,12 @@ When Route 53 receives a DNS query for an alias record, Route 53 responds with
   For more information, see [Routing internet traffic to your AWS resources](routing-to-aws-resources.md "routing-to-aws-resources.md").
 
 When you use an alias record to route traffic to an AWS resource, Route 53 automatically recognizes changes in the resource.
-For example, suppose an alias record for example.com points to an Elastic Load Balancing load balancer at lb1-1234.us-east-2.elb.amazonaws.com.
+For example, suppose an alias record for example.com points to an ELB load balancer at lb1-1234.us-east-2.elb.amazonaws.com.
 If the IP address of the load balancer changes, Route 53 automatically starts to respond to DNS queries using the new IP address.
 
 If an alias record points to an AWS resource, you can't set the time to live (TTL); Route 53 uses the default TTL for the resource.
 If an alias record points to another record in the same hosted zone, Route 53 uses the TTL of the record that the alias record
-points to. For more information about the current TTL value for Elastic Load Balancing, go to
+points to. For more information about the current TTL value for ELB, go to
 [Request routing](../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#request-routing "../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#request-routing") in the
 _Elastic Load Balancing User Guide_ and search for "ttl".
 

@@ -1,19 +1,21 @@
 # Managed Domain Lists
 
-Managed Domain Lists contain domain names that are associated with malicious activity or
+Managed Domain Lists contain domain names that are associated with malicious
+activity or
 other potential threats. AWS maintains these lists to enable Route 53 Resolver customers
 to check outbound DNS queries against them for free when using DNS Firewall.
 
-Keeping up to date on the constantly changing threat landscape can be time consuming and
+Keeping up to date on the constantly changing threat landscape can be time
+consuming and
 expensive. Managed Domain Lists can save you time when you implement and use
 DNS Firewall. AWS automatically updates the lists when new vulnerabilities and threats
 emerge. AWS is often notified of new vulnerabilities before public disclosure, so
 DNS Firewall can deploy mitigations for you often before a new threat has become
 widely known.
 
-Managed domain lists are designed to help protect you from common web threats and they add
-another layer of security for your applications. The AWS Managed Domain Lists source their data
-from both internal AWS sources as well as [RecordedFuture](https://partners.amazonaws.com/partners/001E000001V9CaHIAV/Recorded%20Future "https://partners.amazonaws.com/partners/001E000001V9CaHIAV/Recorded%20Future"), and are continually updated. However, AWS Managed Domain Lists aren't
+Managed domain lists are designed to help protect you from common web threats and
+they add another layer of security for your applications. The AWS Managed Domain Lists source their
+data from both internal AWS sources as well as [RecordedFuture](https://partners.amazonaws.com/partners/001E000001V9CaHIAV/Recorded%20Future "https://partners.amazonaws.com/partners/001E000001V9CaHIAV/Recorded%20Future"), and are continually updated. However, AWS Managed Domain Lists aren't
 intended as a replacement for other security controls, such as
 Amazon GuardDuty, which are determined by the AWS resources that you
 select.
@@ -29,35 +31,39 @@ action setting as needed.
 This section describes the Managed Domain Lists that are currently available.
 When you're in a Region where these lists are supported, you see them on the
 console when you manage domain lists and when you specify the domain list for a
-rule. In the logs, the domain list is logged within the
-`firewall_domain_list_id field`.
+rule. In the logs, the domain list is logged within the `firewall_domain_list_id
+ field`.
 
 AWS provides the following Managed Domain Lists, in the Regions they are
 available, for all users of Route 53 Resolver DNS Firewall.
 
 - `AWSManagedDomainsMalwareDomainList` – – Domains
-  associated with sending malware, hosting malware, or distributing
-  malware.
+  associated with sending malware, hosting malware, or distributing malware.
 - `AWSManagedDomainsBotnetCommandandControl` – Domains
   associated with controlling networks of computers that are infected with
   spamming malware.
-- `AWSManagedDomainsAggregateThreatList` – Domains associated with
-  multiple DNS threat categories including malware, ransomware, botnet,
-  spyware, and DNS tunneling to help block multiple types of threats.
-  `AWSManagedDomainsAggregateThreatList` includes all the
-  domains in the other AWS Managed Domain Lists listed here.
-- `AWSManagedDomainsAmazonGuardDutyThreatList` – Domains associated with
-  Amazon GuardDuty DNS security findings. The domains are sourced from the GuardDuty's
-  threat intelligence systems only, and do not contain domains sourced from
-  external third-party sources. More specifically, currently this list will only block domains
-  that are internally generated and used for following detections in
-  GuardDuty: Impact:EC2/AbusedDomainRequest.Reputation, Impact:EC2/BitcoinDomainRequest.Reputation,
-  Impact:EC2/MaliciousDomainRequest.Reputation, Impact:Runtime/AbusedDomainRequest.Reputation,
-  Impact:Runtime/BitcoinDomainRequest.Reputation, and Impact:Runtime/MaliciousDomainRequest.Reputation.
+- `AWSManagedDomainsAggregateThreatList` – Domains
+  associated with multiple DNS threat categories including malware,
+  ransomware, botnet, spyware, and DNS tunneling to help block multiple types
+  of threats. `AWSManagedDomainsAggregateThreatList` includes all
+  the domains in the other AWS Managed Domain Lists listed here.
+- `AWSManagedDomainsAmazonGuardDutyThreatList` – Domains
+  associated with Amazon GuardDuty DNS security findings. The domains are sourced
+  from the GuardDuty's threat intelligence systems only, and do not contain
+  domains sourced from external third-party sources. More specifically,
+  currently this list will only block domains that are internally generated
+  and used for following detections in GuardDuty:
+  Impact:EC2/AbusedDomainRequest.Reputation,
+  Impact:EC2/BitcoinDomainRequest.Reputation,
+  Impact:EC2/MaliciousDomainRequest.Reputation,
+  Impact:Runtime/AbusedDomainRequest.Reputation,
+  Impact:Runtime/BitcoinDomainRequest.Reputation, and
+  Impact:Runtime/MaliciousDomainRequest.Reputation.
 
-For more information see
-[Finding types](../../../guardduty/latest/ug/guardduty_finding-types-active.md "../../../guardduty/latest/ug/guardduty_finding-types-active.md") in the _Amazon GuardDuty User Guide_.
-AWS Managed Domain Lists cannot be downloaded or browsed. To protect intellectual property, you can't view
+For more information see [Finding
+types](../../../guardduty/latest/ug/guardduty_finding-types-active.md "../../../guardduty/latest/ug/guardduty_finding-types-active.md") in the _Amazon GuardDuty User Guide_.
+AWS Managed Domain Lists cannot be downloaded or browsed. To protect intellectual property, you
+can't view
 or edit the individual domain specifications within an AWS Managed Domain Lists. This restriction
 also helps to prevent malicious users from designing threats that specifically
 circumvent published lists.
@@ -85,11 +91,13 @@ AWSManagedDomainsAmazonGuardDutyThreatList**
 - controldomain2.aggregatelist.firewall.route53resolver.us-east-1.amazonaws.com
 - controldomain3.aggregatelist.firewall.route53resolver.us-east-1.amazonaws.com
 
-These domains will resolve to 1.2.3.4 if they aren't blocked. If you're using the Managed
+These domains will resolve to 1.2.3.4 if they aren't blocked. If you're using the
+Managed
 Domain Lists in a VPC, querying for these domains will return the response that a
 block action in the rule is set to (for example NODATA).
 
-For more information about Managed Domain Lists, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
+For more information about Managed Domain Lists, contact the
+[AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
 The following table lists the Region availability for AWS Managed Domain Lists.
 

@@ -130,7 +130,7 @@ The domain list used by the rule that matched the domain name in the query.
 
 `firewall-protection`
 
-The DNS Firewall Advanced protection, either DGA or DNS_TUNNELING.
+The DNS Firewall Advanced protection: DGA, DICTIONARY_DGA, or DNS_TUNNELING.
 For more information, see DNS Firewall [Route 53 Resolver DNS Firewall Advanced](firewall-advanced.md "firewall-advanced.md").
 
 `resourcese`
@@ -286,7 +286,7 @@ The domain list used by the rule that matched the domain name in the query.
 
 `firewall-protection`
 
-The DNS Firewall Advanced protection, either DGA or DNS_TUNNELING.
+The DNS Firewall Advanced protection: DGA, DICTIONARY_DGA, or DNS_TUNNELING.
 For more information, see DNS Firewall [Route 53 Resolver DNS Firewall Advanced](firewall-advanced.md "firewall-advanced.md").
 
 `resourcese`

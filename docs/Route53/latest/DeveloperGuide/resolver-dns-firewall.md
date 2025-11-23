@@ -6,7 +6,8 @@ in DNS Firewall rule groups, associate the rule groups to your VPC, and then mon
 DNS Firewall logs and metrics. Based on the activity, you can adjust the behavior of DNS Firewall
 accordingly.
 
-DNS Firewall provides protection for outbound DNS requests from your VPCs. These requests route
+DNS Firewall provides protection for outbound DNS requests from your VPCs. These requests
+route
 through Resolver for domain name resolution. A primary use of DNS Firewall protections is to help
 prevent DNS exfiltration of your data. DNS exfiltration can happen when a bad actor
 compromises an application instance in your VPC and then uses DNS lookup to send data out of
@@ -15,8 +16,10 @@ domains that your applications can query. You can deny access to the domains tha
 to be bad and allow all other queries to pass through. Alternately, you can deny access to
 all domains except for the ones that you explicitly trust.
 
-You can also use DNS Firewall to block resolution requests to resources in private hosted zones (shared or local)
-including VPC endpoint names. It can also block requests for public or private Amazon EC2 instance names.
+You can also use DNS Firewall to block resolution requests to resources in private hosted
+zones (shared or local)
+including VPC endpoint names. It can also block requests for public or private Amazon EC2
+instance names.
 
 DNS Firewall is a feature of Route 53 Resolver and doesn't require any additional Resolver setup to
 use.
@@ -26,8 +29,8 @@ use.
 You can use Firewall Manager to centrally configure and manage your DNS Firewall rule group
 associations for your VPCs across your accounts in AWS Organizations. Firewall Manager automatically adds
 associations for VPCs that come into scope of your Firewall Manager DNS Firewall policy. For more
-information, see [AWS Firewall Manager](../../../waf/latest/developerguide/fms-chapter.md "../../../waf/latest/developerguide/fms-chapter.md") in the
-_AWS WAF, AWS Firewall Manager, and AWS Shield Advanced Developer Guide_.
+information, see [AWS Firewall Manager](../../../waf/latest/developerguide/fms-chapter.md "../../../waf/latest/developerguide/fms-chapter.md") in the _AWS WAF,
+AWS Firewall Manager, and AWS Shield Advanced Developer Guide_.
 
 ###### How DNS Firewall works with AWS Network Firewall
 

@@ -16,7 +16,8 @@ A short description that provides more context for the rule group.
 
 **Region**
 
-The AWS Region that you choose when you create the rule group. A rule group that you
+The AWS Region that you choose when you create the rule group. A
+rule group that you
 create in one Region is available only in that Region. To use the same
 rule group in more than one Region, you must create it in each
 Region.
@@ -29,12 +30,10 @@ information, see the following section.
 **Tags**
 
 Specify one or more keys and the corresponding values. For example,
-you might specify **Cost center** for
-**Key** and specify **456** for
-**Value**.
+you might specify **Cost center** for **Key**
+and specify **456** for **Value**.
 
 These are the tags that AWS Billing and Cost Management provides for organizing your AWS
-bill. For more information about using tags for cost allocation, see
-[Using cost
-allocation tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md") in the
-_AWS Billing User Guide_.
+bill. For more information about using tags for cost allocation, see [Using cost
+allocation tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md") in the _AWS Billing User Guide_
+.

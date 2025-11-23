@@ -1,6 +1,7 @@
 # How Route 53 Resolver DNS Firewall works
 
-Route 53 Resolver DNS Firewall lets you control access to sites and block DNS-level threats for DNS queries
+Route 53 Resolver DNS Firewall lets you control access to sites and block DNS-level threats for DNS
+queries
 going out from your VPC through the Route 53 Resolver. With DNS Firewall, you define domain name
 filtering rules in rule groups that you associate with your VPCs. You can specify lists
 of domain names to allow or block, or Route 53 Resolver DNS Firewall Advanced rules that offer protection from DNS
@@ -38,7 +39,8 @@ rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.m
 
 **DNS Firewall rule**
 
-Defines a filtering rule for DNS queries in a DNS Firewall rule group. Each rule specifies
+Defines a filtering rule for DNS queries in a DNS Firewall rule group.
+Each rule specifies
 one domain list, or DNS Firewall protection and an action to take on DNS
 queries whose domains match the domain specifications in the rule. You
 can allow (rules with domain lists only), block, or alert on matching
@@ -73,17 +75,26 @@ For more information, see [Route 53 Resolver DNS Firewall domain lists](resolver
 
 **Domain redirection setting (Domain lists only)**
 
-The domain redirection setting allows you to configure a DNS Firewall rule to inspect all the domains in the DNS redirection chain (default), such as CNAME, DNAME, etc.,
-or just the first domain and trust the rest. If you choose to inspect the entire DNS redirection chain, you must add the subsequent domains to a domain list set to ALLOW in the rule.
-If you choose to inspect the entire DNS redirection chain, you must add the subsequent domains to a domain list and set to the action you want the rule to take, either ALLOW, BLOCK, or ALERT.
+The domain redirection setting allows you to configure a DNS Firewall rule
+to inspect all the domains in the DNS redirection chain (default), such
+as CNAME, DNAME, etc.,
+or just the first domain and trust the rest. If you choose to inspect
+the entire DNS redirection chain, you must add the subsequent domains to
+a domain list set to ALLOW in the rule.
+If you choose to inspect the entire DNS redirection chain, you must add
+the subsequent domains to a domain list and set to the action you want
+the rule to take, either ALLOW, BLOCK, or ALERT.
 
 For more information, see [Rule settings in
 DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
 
 **Query type (Domain lists only)**
 
-The query type setting allows you to configure a DNS Firewall rule to filter a particular DNS query type. If you don't select a query type, the rule is applied to all
-DNS query types. For example, you might want to block all the query types for a particular
+The query type setting allows you to configure a DNS Firewall rule to
+filter a particular DNS query type. If you don't select a query type,
+the rule is applied to all
+DNS query types. For example, you might want to block all the query
+types for a particular
 domain, but allow MX records.
 
 For more information, see [Rule settings in
@@ -91,19 +102,27 @@ DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule
 
 **DNS Firewall Advanced protection**
 
-Detects suspicious DNS queries based on known threat signatures in DNS queries. Each
+Detects suspicious DNS queries based on known threat signatures in DNS
+queries. Each
 rule in a rule group requires a single DNS Firewall Advanced protection setting. You
 can choose protection from:
 
 - Domain Generation Algorithms (DGAs)
 
-DGAs are used by attackers to generate a large number of domains to launch malware
+DGAs are used by attackers to generate a large number of
+domains to launch malware
 attacks.
 
 - DNS
   tunneling
 
-DNS tunneling is used by attackers to exfiltrate data from the client by using the DNS tunnel without making a network connection to the client.
+DNS tunneling is used by attackers to exfiltrate data from the
+client by using the DNS tunnel without making a network
+connection to the client.
+
+- Dictionary DGA
+
+Dictionary DGAs are used by attackers to generate domains using dictionary words to evade detection in malware command-and-control communications.
 
 In a DNS Firewall Advanced rule you can choose to either block, or alert
 on a query that matches the threat. The threat protection algorithms are
@@ -114,11 +133,15 @@ For more information, see [Route 53 Resolver DNS Firewall Advanced](firewall-adv
 **Confidence threshold(DNS Firewall Advanced protection only)**
 
 The confidence threshold for DNS threat protection.
-You must provide this value when you create a DNS Firewall Advanced rule. The confidence level values mean:
+You must provide this value when you create a DNS Firewall Advanced rule. The
+confidence level values mean:
 
-- High – Detects only the most well corroborated threats with a low rate of false positives.
-- Medium – Provides a balance between detecting threats and false positives.
-- Low – Provides the highest detection rate for threats, but also increases false positives.
+- High – Detects only the most well corroborated threats
+  with a low rate of false positives.
+- Medium – Provides a balance between detecting threats
+  and false positives.
+- Low – Provides the highest detection rate for threats,
+  but also increases false positives.
 
 For more information, see [Rule settings in
 DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
@@ -152,13 +175,16 @@ configuration](resolver-dns-firewall-vpc-configuration.md "resolver-dns-firewall
 
 **Monitoring DNS Firewall actions**
 
-You can use Amazon CloudWatch to monitor the number of DNS queries that are filtered by DNS Firewall rule groups.
-CloudWatch collects and processes raw data into readable, near real-time metrics.
+You can use Amazon CloudWatch to monitor the number of DNS queries that are
+filtered by DNS Firewall rule groups.
+CloudWatch collects and processes raw data into readable, near real-time
+metrics.
 
 For more information, see [Monitoring Route 53 Resolver DNS Firewall rule
 groups with Amazon CloudWatch](monitoring-resolver-dns-firewall-with-cloudwatch.md "monitoring-resolver-dns-firewall-with-cloudwatch.md").
 
-You can use Amazon EventBridge, a serverless service that uses events to connect application components together,
+You can use Amazon EventBridge, a serverless service that uses events to connect
+application components together,
 to build scalable event-driven applications.
 
 For more information, see [Managing Route 53 Resolver DNS Firewall events using Amazon EventBridge](dns-firewall-eventbridge-integration.md "dns-firewall-eventbridge-integration.md").
@@ -186,17 +212,18 @@ Resolver:
   rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md") and [Enabling Route 53 Resolver DNS Firewall
   protections for your VPC](resolver-dns-firewall-vpc-protections.md "resolver-dns-firewall-vpc-protections.md").
 - Within each rule group, DNS Firewall evaluates the DNS query against each
-  rule's domain list or DNS Firewall Advanced protections until it finds a match or exhausts all rules. DNS Firewall
-  evaluates the rules in order of priority, starting with the lowest numeric
-  setting. For more information, see [DNS Firewall rule groups and
+  rule's domain list or DNS Firewall Advanced protections until it finds a match or
+  exhausts all rules. DNS Firewall evaluates the rules in order of priority,
+  starting with the lowest numeric setting. For more information, see [DNS Firewall rule groups and
   rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
-- When DNS Firewall finds a match with a rule's domain list, or anomalies identified by
-  DNS Firewall Advanced rule protections, it terminates the query evaluation and responds
-  to Resolver with the result. If the action is `alert`, DNS Firewall
-  also sends an alert to the configured Resolver logs. For more information, see
-  [Rule actions in
+- When DNS Firewall finds a match with a rule's domain list, or anomalies
+  identified by DNS Firewall Advanced rule protections, it terminates the query evaluation
+  and responds to Resolver with the result. If the action is `alert`,
+  DNS Firewall also sends an alert to the configured Resolver logs. For more
+  information, see [Rule actions in
   DNS Firewall](resolver-dns-firewall-rule-actions.md "resolver-dns-firewall-rule-actions.md"), [Route 53 Resolver DNS Firewall domain lists](resolver-dns-firewall-domain-lists.md "resolver-dns-firewall-domain-lists.md"), and [Route 53 Resolver DNS Firewall Advanced](firewall-advanced.md "firewall-advanced.md").
-- If DNS Firewall evaluates all rule groups without finding a match, it responds to the query
+- If DNS Firewall evaluates all rule groups without finding a match, it responds
+  to the query
   as normal.
 
 Resolver routes the query according to the response from DNS Firewall. In the unlikely
@@ -211,7 +238,8 @@ Route 53 Resolver DNS Firewall
 To implement Route 53 Resolver DNS Firewall filtering in your Amazon Virtual Private Cloud VPC, you perform the
 following high-level steps.
 
-- **Define your filtering approach, your domain lists, or DNS Firewall
+- **Define your filtering approach, your domain lists,
+  or DNS Firewall
   protections** – Decide how you want to filter queries,
   identify the domain specifications that you'll need, and define the logic
   you'll use to evaluate queries. For example, you might want to allow all
@@ -222,8 +250,8 @@ following high-level steps.
   domain lists that AWS manages for you. For DNS Firewall protections you can
   filter the queries by blocking them all, or you can alert on any suspicious
   query traffic to domains that may contain anomalies associated with threats
-  (DGA, DNS tunneling) to test your DNS Firewall settings. For more information,
-  see [Route 53 Resolver DNS Firewall domain lists](resolver-dns-firewall-domain-lists.md "resolver-dns-firewall-domain-lists.md") and [Route 53 Resolver DNS Firewall Advanced](firewall-advanced.md "firewall-advanced.md").
+  (DGA, DNS tunneling, Dictionary DGA) to test your DNS Firewall settings. For
+  more information, see [Route 53 Resolver DNS Firewall domain lists](resolver-dns-firewall-domain-lists.md "resolver-dns-firewall-domain-lists.md") and [Route 53 Resolver DNS Firewall Advanced](firewall-advanced.md "firewall-advanced.md").
 - **Create a firewall rule group** – In
   DNS Firewall, create a rule group to filter DNS queries for your VPC. You must
   create a rule group in each Region where you want to use it. You might also

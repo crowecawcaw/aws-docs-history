@@ -84,11 +84,11 @@ You must have one of the following connections between your network and
 the VPCs that you create endpoints in:
 
 - **Inbound endpoints** – You
-  must set up either an [AWS Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") connection or a [VPN connection](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md")
+  must set up either an [Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") connection or a [VPN connection](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md")
   between your network and each VPC that you create an inbound
   endpoint for.
 - **Outbound endpoints** – You
-  must set up an [AWS Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") connection, a [VPN connection](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md"),
+  must set up an [Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") connection, a [VPN connection](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md"),
   or a [network address
   translation (NAT) gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") between your network and each
   VPC that you create an outbound endpoint for.

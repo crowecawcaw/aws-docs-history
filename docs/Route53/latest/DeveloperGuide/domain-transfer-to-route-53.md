@@ -519,7 +519,7 @@ the internet.
     For example, when someone enters your domain name in a browser and
     that query is forwarded to Route 53, do you want Route 53 to respond to
     the query with the IP address of a web server in your data center or
-    with the name of an Elastic Load Balancing load balancer?
+    with the name of an ELB load balancer?
 
     For more information, see [Working with records](rrsets-working-with.md "rrsets-working-with.md").
 

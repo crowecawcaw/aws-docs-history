@@ -3,7 +3,7 @@
 To forward DNS queries from your network to Resolver, you create an inbound endpoint. An inbound endpoint specifies the IP addresses
 (from the range of IP addresses available to your VPC) that you want DNS resolvers on your network to forward DNS queries to.
 Those IP addresses aren't public IP addresses, so for each inbound endpoint, you need to connect your VPC to your network
-using either an AWS Direct Connect connection or a VPN connection.
+using either an Direct Connect connection or a VPN connection.
 
 When implementing inbound delegation, you're delegating DNS authority for a subdomain from your on-premises DNS
 infrastructure to Route 53 Resolver. To properly configure this delegation, you must use the inbound endpoint's IP addresses

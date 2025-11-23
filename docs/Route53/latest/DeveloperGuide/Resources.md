@@ -17,8 +17,8 @@ Several helpful guides, forums, and other resources are available from Amazon We
   A reference guide that includes the schema location; complete descriptions of the API actions, parameters, and data types;
   and a list of errors that the service returns.
 - **[AWS::Route53::RecordSet Type](../../../AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.md") in the
-  _AWS CloudFormation User Guide_** – A property for using Amazon Route 53 with AWS CloudFormation to create customized DNS names for your
-  AWS CloudFormation stacks.
+  _AWS CloudFormation User Guide_** – A property for using Amazon Route 53 with CloudFormation to create customized DNS names for your
+  CloudFormation stacks.
 - **[Discussion Forums](https://forums.aws.amazon.com/forum.jspa?forumID=87 "https://forums.aws.amazon.com/forum.jspa?forumID=87")** –
   A community-based forum for developers to discuss technical questions related to Route 53.
 - [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") – This site brings together information about your

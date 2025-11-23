@@ -52,7 +52,7 @@ The diagram illustrates the following steps:
 3. The query is forwarded to an outbound endpoint.
 4. The outbound endpoint forwards the query to the on-premises DNS resolver through a
    private connection between AWS and the data center. The connection can be either
-   AWS Direct Connect or AWS Site-to-Site VPN, depicted as a virtual private gateway.
+   Direct Connect or AWS Site-to-Site VPN, depicted as a virtual private gateway.
 5. The on-premises DNS resolver resolves the DNS query for internal.example.com and
    returns the answer to the Amazon EC2 instance via the same path in reverse.
    **Inbound (dashed arrows a–d):**
@@ -62,7 +62,7 @@ The diagram illustrates the following steps:
 7. The on-premises DNS resolver has a forwarding rule that points queries to
    dev.example.com to an inbound endpoint.
 8. The query arrives at the inbound endpoint through a private connection, such as
-   AWS Direct Connect or AWS Site-to-Site VPN, depicted as a virtual gateway.
+   Direct Connect or AWS Site-to-Site VPN, depicted as a virtual gateway.
 9. The inbound endpoint sends the query to Route 53 Resolver, and Route 53 Resolver resolves the DNS query for
    dev.example.com and returns the answer to the client via the same path in
    reverse.

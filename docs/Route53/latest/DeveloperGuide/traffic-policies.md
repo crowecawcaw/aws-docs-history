@@ -338,20 +338,20 @@ If you endpoint doesn't receive DNS traffic via an alias record, uncheck this an
 For more information, see [Creating and updating health checks](health-checks-creating.md "health-checks-creating.md").
 
 **Endpoint**
-Choose this option to specify the resource, such as a CloudFront distribution or an Elastic Load Balancing load balancer,
+Choose this option to specify the resource, such as a CloudFront distribution or an ELB load balancer,
 that you want to route DNS queries to.
 
 **Existing rule**
 Choose this option when you want to route DNS queries to an existing rule in this traffic policy.
 For example, you might create two or more geolocation rules that route queries for different countries to the same
-failover rule. The failover rule might then routes queries to two Elastic Load Balancing load balancers.
+failover rule. The failover rule might then routes queries to two ELB load balancers.
 
 This option isn't available if the traffic policy doesn't include any rules.
 
 **Existing endpoint**
 Choose this option when you want to route DNS queries to an existing endpoint. For example,
 if you have two failover rules, you might want to route DNS queries for both **On failover**
-(secondary) options to the same Elastic Load Balancing load balancer.
+(secondary) options to the same ELB load balancer.
 
 This option isn't available if the traffic policy doesn't include any endpoints.
 
@@ -372,19 +372,19 @@ CloudFront alias endpoints don't support evaluate health check. You can however,
 [Creating and updating health checks](health-checks-creating.md "health-checks-creating.md").
 
 **ELB Application load balancer**
-Choose this option if you want to route traffic to an Elastic Load Balancing Application load balancer. The
+Choose this option if you want to route traffic to an ELB Application load balancer. The
 option is available only if you chose either **A: IP address
 in IPv4 format** or **AAAA: IP address in IPv6
 format** for **DNS type**.
 
 **ELB Classic load balancer**
-Choose this option if you want to route traffic to an Elastic Load Balancing Classic load balancer. The option
+Choose this option if you want to route traffic to an ELB Classic load balancer. The option
 is available only if you chose either **A: IP address in
 IPv4 format** or **AAAA: IP address in IPv6
 format** for **DNS type**.
 
 **ELB Network load balancer**
-Choose this option if you want to route traffic to an Elastic Load Balancing Network load balancer. The option
+Choose this option if you want to route traffic to an ELB Network load balancer. The option
 is available only if you chose either **A: IP address in
 IPv4 format** or **AAAA: IP address in IPv6
 format** for **DNS type**.
@@ -415,15 +415,15 @@ Choose a CloudFront distribution from the list of distributions that are associa
 current AWS account.
 
 **ELB Application load balancer**
-Choose an Elastic Load Balancing Application load balancer from the list of load balancers that are associated with the
+Choose an ELB Application load balancer from the list of load balancers that are associated with the
 current AWS account.
 
 **ELB Classic load balancer**
-Choose an Elastic Load Balancing Classic load balancer from the list of load balancers that are associated with the
+Choose an ELB Classic load balancer from the list of load balancers that are associated with the
 current AWS account.
 
 **ELB Network load balancer**
-Choose an Elastic Load Balancing Network load balancer from the list of load balancers that are associated with the
+Choose an ELB Network load balancer from the list of load balancers that are associated with the
 current AWS account.
 
 **Elastic Beanstalk environment**

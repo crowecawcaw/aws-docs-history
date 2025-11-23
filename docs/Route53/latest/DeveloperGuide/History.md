@@ -70,7 +70,7 @@ Added Route 53 Resolver DNS Firewall findings to the Security Hub. For more info
 
 **November 15, 2024**
 Added Route 53 Resolver DNS Firewall Advanced, a new set of features on Route 53 Resolver DNS Firewall that allows you to identify and block DNS traffic associated with advanced DNS threats,
-such as DNS tunneling and Domain Generation Algorithm (DGA) based threats.
+such as DNS tunneling, Domain Generation Algorithm (DGA), and Dictionary DGA based threats.
 For more information, see [Route 53 Resolver DNS Firewall Advanced](firewall-advanced.md "firewall-advanced.md").
 
 **October 29, 2024**
@@ -298,7 +298,7 @@ You can now programmatically check whether a domain can be transferred to Route�
 _Amazon Route 53 API Reference_.
 
 **September 11, 2017**
-You can now create Route 53 alias records that route internet traffic to Elastic Load Balancing Network Load Balancers.
+You can now create Route 53 alias records that route internet traffic to ELB Network Load Balancers.
 For more information about alias records, see
 [Choosing between alias and non-alias records](resource-record-sets-choosing-alias-non-alias.md "resource-record-sets-choosing-alias-non-alias.md").
 
@@ -464,7 +464,7 @@ With this release, Route 53 adds the following new features:
 - **Alias records in private hosted zones** – In the past,
   you could create alias records that route DNS queries only to other Route 53 records in the same
   hosted zone. With this release, you can also create alias records that route DNS queries to Elastic Beanstalk environments
-  that have regionalized subdomains, Elastic Load Balancing load balancers, and Amazon S3 buckets. (You still can't create alias records
+  that have regionalized subdomains, ELB load balancers, and Amazon S3 buckets. (You still can't create alias records
   that route DNS queries to a CloudFront distribution.) For more information, see the following documentation:
   - **Route 53 console** – See
     [Choosing between alias and non-alias records](resource-record-sets-choosing-alias-non-alias.md "resource-record-sets-choosing-alias-non-alias.md").

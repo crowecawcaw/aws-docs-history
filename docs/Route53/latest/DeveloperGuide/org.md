@@ -1,4 +1,6 @@
-# .org.nz (New Zealand)
+# .org
+
+Used by all kinds of organizations.
 
 [Return to index](registrar-tld-list.md#index "registrar-tld-list.md#index")
 
@@ -6,29 +8,13 @@
 
 One to ten years.
 
-**Restrictions**
-
-Your can register the following second-level domains with Route 53:
-.co.nz, .net.nz, and .org.nz. You can't register .nz (first-level)
-domains with Route 53 or transfer .nz domains to Route 53.
-
-Open to the public, with some restrictions:
-
-- Individuals must be at least 18.
-- Organizations must be registered.
-
 **Privacy protection**
 
-Not supported.
+All information is hidden.
 
 **Domain locking to prevent unauthorized transfers**
 
-Not supported. We recommend that you prevent unauthorized
-transfers by restricting access to the [RetrieveDomainAuthCode](../APIReference/API_domains_RetrieveDomainAuthCode.md "../APIReference/API_domains_RetrieveDomainAuthCode.md") API action. (When you restrict
-access to this Route 53 API, you also restrict who can generate an
-authorization code using the Route 53 console, AWS SDKs, and other
-programmatic methods.) For more information, see [Identity and access management in
-Amazon Route 53](auth-and-access-control.md "auth-and-access-control.md").
+Supported.
 
 **Internationalized domain names**
 
@@ -47,9 +33,8 @@ Supported for domain registration. For more information, see [Configuring DNSSEC
 - Renewal is possible: Until the expiration date
 - Late renewal with Route 53 is possible: Until 44 days after
   expiration
-- Domain is deleted from Route 53: 44 days after
-  expiration
-- Restoration with the registry is possible: Between 44 days
-  and 134 days after expiration
-- Domain is deleted from the registry: 134 days after
+- Domain is deleted from Route 53: 45 days after expiration
+- Restoration with the registry is possible: Between 45 days and
+  75 days after expiration
+- Domain is deleted from the registry: 75 days after
   expiration

@@ -68,9 +68,9 @@ If you use AWS Elastic Beanstalk to deploy and manage applications in the AWS Cl
 for your domain, such as example.com, to an Elastic Beanstalk environment. For more information, see
 [Routing traffic to an AWS Elastic Beanstalk environment](routing-to-beanstalk-environment.md "routing-to-beanstalk-environment.md").
 
-**Elastic Load Balancing**
+**ELB**
 If you host a website on multiple Amazon EC2 instances, you can distribute traffic to your website across the
-instances by using an Elastic Load Balancing (ELB) load balancer. The ELB service automatically scales the load balancer as traffic
+instances by using an ELB (ELB) load balancer. The ELB service automatically scales the load balancer as traffic
 to your website changes over time. The load balancer also can monitor the health of its registered instances and
 route domain traffic only to healthy instances.
 

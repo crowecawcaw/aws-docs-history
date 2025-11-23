@@ -73,12 +73,11 @@ shared with the current account:
    for or that you want to share with another account.
 
 On the **Rule group: `rule group
- name`** page, the value under
-**Owner** displays the ID of the account that created the
-rule group. That's the current account unless the value of **Sharing
-status** is **Shared with me**. In that case,
-**Owner** is the account that created the rule group and
-shared it with the current account. 5. Choose **Share** to view additional information or to share
+ name`** page, the value under **Owner**
+displays the ID of the account that created the rule group. That's the current
+account unless the value of **Sharing
+status** is **Shared with me**. In that case, **Owner** is the account that created the rule group and shared it with
+the current account. 5. Choose **Share** to view additional information or to share
 the rule group with another account. A page in the AWS RAM console appears,
 depending on the value of **Sharing status**:
 
@@ -87,13 +86,11 @@ depending on the value of **Sharing status**:
      share the rule group with another account, organizational unit (OU), or
      organization, go to the step that follows this one.
     * **Shared by me**: The **Shared
-     resources** page shows the rule groups and other resources
-     that are owned by the current account and shared with other
-     accounts.
+     resources** page shows the rule groups and other resources that
+     are owned by the current account and shared with other accounts.
     * **Shared with me**: The **Shared
-     resources** page shows the rule groups and other resources
-     that are owned by other accounts and shared with the current
-     account.
+     resources** page shows the rule groups and other resources that
+     are owned by other accounts and shared with the current account.
 
 6. To share a rule group with another AWS account, OU, or organization, specify
    the following values.
@@ -122,12 +119,9 @@ name.
 **Tags**
 
 Specify one or more keys and the corresponding values. For
-example, you might specify **Cost center** for
-**Key** and specify **456**
-for **Value**.
+example, you might specify **Cost center** for **Key** and specify **456** for **Value**.
 
 These are the tags that AWS Billing and Cost Management provides for organizing your
 AWS bill; you can use also tags for other purposes. For more
 information about using tags for cost allocation, see [Using cost allocation
-tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md") in the
-_AWS Billing User Guide_.
+tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md") in the _AWS Billing User Guide_.

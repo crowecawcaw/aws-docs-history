@@ -16,7 +16,7 @@ _Your network_ can include any network that is reachable from your VPC, such as 
 
 - The VPC itself
 - Another peered VPC
-- An on-premises network that is connected to AWS with AWS Direct Connect, a VPN, or a
+- An on-premises network that is connected to AWS with Direct Connect, a VPN, or a
   network address translation (NAT) gateway
   Before you start to forward queries, you create Resolver inbound and/or outbound endpoints in the connected VPC.
   These endpoints provide a path for inbound or outbound queries:

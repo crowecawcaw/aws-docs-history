@@ -2,7 +2,7 @@
 
 Geolocation routing lets you choose the resources that serve your traffic based on the geographic location
 of your users, meaning the location that DNS queries originate from. For example, you might want all queries from Europe
-to be routed to an Elastic Load Balancing load balancer in the Frankfurt Region.
+to be routed to an ELB load balancer in the Frankfurt Region.
 
 When you use geolocation routing, you can localize your content and present some or all of your website in the language
 of your users. You can also use geolocation routing to restrict distribution of content to only the locations in which you have

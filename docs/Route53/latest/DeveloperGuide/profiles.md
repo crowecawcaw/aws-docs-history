@@ -33,7 +33,7 @@ to a Profile are:
 Once you enable the Profile settings for the preceding configurations, and associate the
 Profile to a VPC, the Profile settings take effect immediately.
 
-You can also use AWS CloudFormation to set up consistent DNS settings for newly provisioned VPCs.
+You can also use CloudFormation to set up consistent DNS settings for newly provisioned VPCs.
 
 You can associate one Profile per VPC and the number of resources you can associate per
 Profile varies. For more information, see [Quotas on
