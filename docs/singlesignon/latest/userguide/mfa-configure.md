@@ -17,7 +17,7 @@ organizational preferences.
   will not be able to retrieve the verification code and would be unable to sign in
   to the AWS access portal. For more information, see [Configure MFA device
   enforcement](how-to-configure-mfa-device-enforcement.md "how-to-configure-mfa-device-enforcement.md").
-- If you are already using RADIUS MFA that you configured with AWS Directory Service, you do not
+- If you are already using RADIUS MFA that you configured with Directory Service, you do not
   need to enable MFA within IAM Identity Center. MFA in IAM Identity Center is an alternative to RADIUS MFA
   for Microsoft Active Directory users of IAM Identity Center. For more
   information, see [RADIUS MFA](mfa-types.md#about-radius "mfa-types.md#about-radius").

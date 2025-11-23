@@ -234,5 +234,5 @@ an Amazon Redshift administrator
 Enabling trusted identity propagation to Amazon Redshift requires an Amazon Redshift cluster
 administrator or Amazon Redshift Serverless administrator to perform a number of
 tasks in the Amazon Redshift console. For more information, see [Integrate Identity Provider (IdP) with Amazon Redshift Query Editor V2 and SQL
-Client using IAM Identity Center for seamless Single Sign-On](https://aws.amazon.com/blogs/big-data/integrate-identity-provider-idp-with-amazon-redshift-query-editor-v2-and-sql-client-using-aws-iam-identity-center-for-seamless-single-sign-on/ "https://aws.amazon.com/blogs/big-data/integrate-identity-provider-idp-with-amazon-redshift-query-editor-v2-and-sql-client-using-aws-iam-identity-center-for-seamless-single-sign-on/") in the
+Client using IAM Identity Center for seamless Single Sign-On](https://aws.amazon.com/blogs//big-data/integrate-identity-provider-idp-with-amazon-redshift-query-editor-v2-and-sql-client-using-aws-iam-identity-center-for-seamless-single-sign-on/ "https://aws.amazon.com/blogs//big-data/integrate-identity-provider-idp-with-amazon-redshift-query-editor-v2-and-sql-client-using-aws-iam-identity-center-for-seamless-single-sign-on/") in the
 _AWS Big Data Blog_.

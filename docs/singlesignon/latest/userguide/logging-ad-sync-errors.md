@@ -73,7 +73,7 @@ occurred.
 `sync_source`
 
 The sync source is where entities are being synced from. For IAM Identity Center, this is an
-Active Directory (AD) managed by AWS Directory Service. The sync source contains the domain and ARN
+Active Directory (AD) managed by Directory Service. The sync source contains the domain and ARN
 of the directory affected.
 
 `sync_target`

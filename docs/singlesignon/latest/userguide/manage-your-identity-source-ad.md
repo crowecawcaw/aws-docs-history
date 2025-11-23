@@ -9,11 +9,11 @@ sign-on access. After connecting your corporate directory to IAM Identity Center
 users or groups access to AWS accounts, applications, or both.
 
 AWS Directory Service helps you to set up and run a standalone AWS Managed Microsoft AD directory hosted in the
-AWS Cloud. You can also use AWS Directory Service to connect your AWS resources with an existing
+AWS Cloud. You can also use Directory Service to connect your AWS resources with an existing
 self-managed AD. To configure AWS Directory Service to work with your self-managed AD, you must first set up
 trust relationships to extend authentication to the cloud.
 
-IAM Identity Center uses the connection provided by AWS Directory Service to perform pass-through authentication to the
+IAM Identity Center uses the connection provided by Directory Service to perform pass-through authentication to the
 source AD instance. When you use AWS Managed Microsoft AD as your identity source, IAM Identity Center can work with users
 from AWS Managed Microsoft AD or from any domain connected through an AD trust. If you want to locate your
 users in four or more domains, users must use the `DOMAIN\user` syntax as their user
@@ -22,7 +22,7 @@ name when performing sign-ins to IAM Identity Center.
 ###### Notes
 
 - As a prerequisite step, make sure your AD Connector or directory in AWS Managed Microsoft AD in
-  AWS Directory Service resides within your AWS Organizations management account.
+  Directory Service resides within your AWS Organizations management account.
 - IAM Identity Center does not support SAMBA 4-based Simple AD as a connected directory.
   For a demonstration on the process of using Active Directory as an identity source for
   IAM Identity Center, see the following YouTube video:
@@ -65,7 +65,7 @@ otherwise, it must be in the management account.
 
 Directory
 
-IAM Identity Center uses the connection provided by the AWS Directory Service to synchronize user, group, and membership
+IAM Identity Center uses the connection provided by the Directory Service to synchronize user, group, and membership
 information from your source directory in Active Directory to the IAM Identity Center identity store. No
 password information is synchronized to IAM Identity Center, because user authentication takes place
 directly from the source directory in Active Directory. This identity data is used by

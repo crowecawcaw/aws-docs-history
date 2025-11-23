@@ -48,5 +48,5 @@ control to AWS Glue Data Catalog and for Athena query results in Amazon S3.
 
 To enable trusted identity propagation for users of
 _custom-developed applications_, see to [Access AWS services programmatically using trusted identity
-propagation](https://aws.amazon.com/blogs/security/access-aws-services-programmatically-using-trusted-identity-propagation/ "https://aws.amazon.com/blogs/security/access-aws-services-programmatically-using-trusted-identity-propagation/") in the _AWS Security
+propagation](https://aws.amazon.com/blogs//security/access-aws-services-programmatically-using-trusted-identity-propagation/ "https://aws.amazon.com/blogs//security/access-aws-services-programmatically-using-trusted-identity-propagation/") in the _AWS Security
 Blog_.

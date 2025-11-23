@@ -16,7 +16,7 @@ AWS IAM Identity Center requires a two-way trust so that it has permissions to r
 information from your domain to synchronize user and group metadata. IAM Identity Center uses this
 metadata when assigning access to permission sets or applications. User and group metadata
 is also used by applications for collaboration, like when you share a dashboard with
-another user or group. The trust from AWS Directory Service for Microsoft Active Directory to your domain
+another user or group. The trust from Directory Service for Microsoft Active Directory to your domain
 permits IAM Identity Center to trust your domain for authentication. The trust in the opposite direction
 grants AWS permissions to read user and group metadata.
 
@@ -25,8 +25,8 @@ _AWS Directory Service Administration Guide_.
 
 ###### Note
 
-In order to use AWS applications, like IAM Identity Center to read AWS Directory Service directory users from
-trusted domains, the AWS Directory Service accounts require permissions to the userAccountControl
+In order to use AWS applications, like IAM Identity Center to read Directory Service directory users from
+trusted domains, the Directory Service accounts require permissions to the userAccountControl
 attribute on the trusted users. Without read permissions to this attribute, AWS
 applications are unable to determine if the account is enabled or disabled.
 
@@ -45,7 +45,7 @@ accounts under the AWS Reserved OU (prefixed with AWS\_).
     reset their passwords from the AWS access portal.
   - If you use AD Connector to connect your Active Directory Domain Service to
     IAM Identity Center, IAM Identity Center only has access to the users and groups of the single domain to which
-    AD Connector attaches. If you need to support multiple domains or forests, use AWS Directory Service
+    AD Connector attaches. If you need to support multiple domains or forests, use Directory Service
     for Microsoft Active Directory.
 
 ###### Note

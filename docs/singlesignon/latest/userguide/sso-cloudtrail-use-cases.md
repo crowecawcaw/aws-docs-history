@@ -136,7 +136,7 @@ Directory and Okta Universal Directory).
   directory. Note that IAM Identity Center doesn't emit this value in CloudTrail.
 - `username` – A customer-provided value that users usually sign
   in with. The value can change (for example, with a SCIM update). Note that when the
-  identity source is AWS Directory Service, the username that IAM Identity Center emits in CloudTrail matches the username
+  identity source is Directory Service, the username that IAM Identity Center emits in CloudTrail matches the username
   that you enter to authenticate. The username doesn't need to be an exact match to the
   username in the IAM Identity Center directory.
 
@@ -146,7 +146,7 @@ For more details about username in `additionalEventData`, refer to [Username in 
 events](username-sign-in-cloudtrail-events.md "username-sign-in-cloudtrail-events.md").
 
 The mapping of these two user attributes to corresponding user attributes in an
-external directory is defined in IAM Identity Center when the identity source is the AWS Directory Service. For
+external directory is defined in IAM Identity Center when the identity source is the Directory Service. For
 infomration, see [Attribute mappings between IAM Identity Center and External
 Identity Providers directory](attributemappingsconcept.md "attributemappingsconcept.md"). External IdPs that provision users with SCIM
 have their own mapping. Even if you use the IAM Identity Center directory as the identity source, you

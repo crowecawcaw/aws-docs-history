@@ -50,7 +50,7 @@ users that are immediate members of an explicitly assigned group can be read and
 Microsoft Entra ID doesn't recursively unpack the group memberships of indirectly assigned users or groups
 (users or groups that are members of a group that is directly assigned). For more information,
 see [Assignment-based scoping](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/how-provisioning-works#assignment-based-scoping "https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/how-provisioning-works#assignment-based-scoping") in the Microsoft documentation.
-Alternatively, you can use [IAM Identity Center configurable AD sync](https://aws.amazon.com/blogs/security/managing-identity-source-transition-for-aws-iam-identity-center/ "https://aws.amazon.com/blogs/security/managing-identity-source-transition-for-aws-iam-identity-center/") to integrate Active Directory groups with
+Alternatively, you can use [IAM Identity Center configurable AD sync](https://aws.amazon.com/blogs//security/managing-identity-source-transition-for-aws-iam-identity-center/ "https://aws.amazon.com/blogs//security/managing-identity-source-transition-for-aws-iam-identity-center/") to integrate Active Directory groups with
 IAM Identity Center.
 
 Dynamic Groups
@@ -861,7 +861,7 @@ IAM Identity Center does not expect the email address to contain the
 - For general SCIM troubleshooting tips, see [Troubleshooting IAM Identity Center issues](troubleshooting.md "troubleshooting.md").
 - For Microsoft Entra ID troubleshooting, see [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity/saas-apps/aws-single-sign-on-provisioning-tutorial#troubleshooting-tips "https://learn.microsoft.com/en-us/entra/identity/saas-apps/aws-single-sign-on-provisioning-tutorial#troubleshooting-tips").
 - To learn more about federation across multiple AWS accounts, see [Securing AWS accounts with Azure Active Directory
-  Federation](https://aws.amazon.com/blogs/apn/securing-aws-accounts-with-azure-active-directory-federation/ "https://aws.amazon.com/blogs/apn/securing-aws-accounts-with-azure-active-directory-federation/").
+  Federation](https://aws.amazon.com//blogs/apn/securing-aws-accounts-with-azure-active-directory-federation/ "https://aws.amazon.com//blogs/apn/securing-aws-accounts-with-azure-active-directory-federation/").
 
 The following resources can help you troubleshoot as you work with AWS:
 

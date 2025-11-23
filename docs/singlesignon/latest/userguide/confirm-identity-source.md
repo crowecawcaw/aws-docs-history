@@ -41,7 +41,7 @@ directory](quick-start-default-idc.md "quick-start-default-idc.md").
 **Active Directory**
 
 If you are already managing users and groups in either your AWS Managed Microsoft AD directory using
-AWS Directory Service or your self-managed directory in Active Directory (AD), we recommend
+Directory Service or your self-managed directory in Active Directory (AD), we recommend
 that you connect that directory when you enable IAM Identity Center. Don't create any users and groups in
 the default Identity Center directory. IAM Identity Center uses the connection provided by the AWS Directory Service
 to synchronize user, group, and membership information from your source directory in Active

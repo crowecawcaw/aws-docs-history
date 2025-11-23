@@ -111,7 +111,7 @@ lists well-known third-party authenticator apps to choose from.
 [Remote Authentication Dial-In
 User Service (RADIUS)](https://en.wikipedia.org/wiki/RADIUS "https://en.wikipedia.org/wiki/RADIUS") is an industry-standard client-server protocol
 that provides authentication, authorization, and accounting management so users can
-connect to network services. AWS Directory Service includes a RADIUS client that connects to the
+connect to network services. Directory Service includes a RADIUS client that connects to the
 RADIUS server upon which you have implemented your MFA solution. For more
 information, see [Enable Multi-Factor Authentication for AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/ms_ad_mfa.md "../../../directoryservice/latest/admin-guide/ms_ad_mfa.md").
 
@@ -123,8 +123,8 @@ When you enable MFA in IAM Identity Center, your users need an MFA device to sig
 AWS access portal. If you had previously used RADIUS MFA, enabling MFA in IAM Identity Center
 effectively overrides RADIUS MFA for users who sign in to the AWS access portal. However,
 RADIUS MFA continues to challenge users when they sign in to all other applications
-that work with AWS Directory Service, such as Amazon RDS for SQL Server.
+that work with Directory Service, such as Amazon RDS for SQL Server.
 
 If your MFA is **Disabled** on the IAM Identity Center console and you have
-configured RADIUS MFA with AWS Directory Service, RADIUS MFA governs AWS access portal sign-in. This means
+configured RADIUS MFA with Directory Service, RADIUS MFA governs AWS access portal sign-in. This means
 that IAM Identity Center falls back to RADIUS MFA configuration if MFA is disabled.

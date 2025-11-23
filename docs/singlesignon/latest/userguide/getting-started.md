@@ -12,7 +12,7 @@ IAM Identity Center](identity-center-instances.md "identity-center-instances.md"
 
 ###### Note
 
-After IAM Identity Center is enabled, you can sign in and open the [IAM Identity Center console](https://console.aws.amazon.com/singlesignon/ "https://console.aws.amazon.com/singlesignon/") by doing either of the following:
+After IAM Identity Center is enabled, you can sign in and open the [IAM Identity Center console](https://console.aws.amazon.com//singlesignon/ "https://console.aws.amazon.com//singlesignon/") by doing either of the following:
 
     * **Organization instance** - Sign in to AWS using credentials
      with administrative permissions in the management account.

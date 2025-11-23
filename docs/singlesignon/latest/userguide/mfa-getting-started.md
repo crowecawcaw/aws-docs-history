@@ -70,7 +70,7 @@ manages MFA settings, rather than IAM Identity Center managing them.
 
    ###### Note
 
-   If you are already using RADIUS MFA with AWS Directory Service, and want to
+   If you are already using RADIUS MFA with Directory Service, and want to
    continue using it as your default MFA type, then you can leave
    the authentication mode as disabled to bypass MFA capabilities
    in IAM Identity Center. Changing from **Disabled** mode to

@@ -10,7 +10,7 @@ Directory credentials.
 AWS CLI integration with IAM Identity Center offers the following benefits:
 
 - Enterprises can enable their developers to sign in using credentials from IAM Identity Center or Active
-  Directory by connecting IAM Identity Center to their Active Directory using AWS Directory Service.
+  Directory by connecting IAM Identity Center to their Active Directory using Directory Service.
 - Developers can sign in from the CLI for faster access.
 - Developers can list and switch between accounts and roles to which they have assigned access.
 - Developers can generate and save named role profiles in their CLI configuration automatically

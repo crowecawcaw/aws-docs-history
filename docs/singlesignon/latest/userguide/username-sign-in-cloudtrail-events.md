@@ -10,7 +10,7 @@ in.
 
 - `CredentialChallenge`
   - When `CredentialType` is "`PASSWORD`" – applies
-    to password authentication with AWS Directory Service or IAM Identity Center directory.
+    to password authentication with Directory Service or IAM Identity Center directory.
   - When `CredentialType` is "`EMAIL_OTP`" –
     applies only to the IAM Identity Center directory when a user created with a `CreateUser`
     API call attempts to sign in for the first time, and the user receives a
@@ -29,7 +29,7 @@ in.
   the `UserName` field in the IAM Identity Center directory.
 - When the identity source is an IAM Identity Center directory, the value emitted is equal to the
   `UserName` field in this directory.
-- When the identity source is the AWS Directory Service, the value emitted is equal to the
+- When the identity source is the Directory Service, the value emitted is equal to the
   username that the user enters during authentication. For example, a user who has the
   username `anyuser@company.com`, can authenticate with
   `anyuser`, `anyuser@company.com`, or

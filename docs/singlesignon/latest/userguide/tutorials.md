@@ -33,7 +33,7 @@ Before starting any of these tutorials, enable IAM Identity Center. For more inf
 - [Using Ping Identity products with IAM Identity Center](pingidentity.md "pingidentity.md")
 - [Configure user access with the default IAM Identity Center
   directory](quick-start-default-idc.md "quick-start-default-idc.md")
-- [Video tutorials](#w26aac15c31 "#w26aac15c31")
+- [Video tutorials](#w2aac15c31 "#w2aac15c31")
 
 ## Video tutorials
 

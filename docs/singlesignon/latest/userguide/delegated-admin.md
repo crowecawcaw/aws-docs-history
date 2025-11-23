@@ -82,7 +82,7 @@ administration:
 store actions in the delegated administration account with external identity
 sources
 
-If you use an external identity source such as an IdP or AWS Directory Service, you should
+If you use an external identity source such as an IdP or Directory Service, you should
 implement policies that limit the identity store actions that an IAM Identity Center admin can
 take from within the delegated administration account. Write and delete
 operations should be carefully considered. Generally, the external identity
@@ -112,7 +112,7 @@ admins using a service control policy (SCP).
 
 The example SCP below prevents assigning users to groups through the Identity Store
 API and the AWS Management Console, which is recommended when your identity source is
-external. This does not affect user sync from AWS Directory Service or from an external IdP (via
+external. This does not affect user sync from Directory Service or from an external IdP (via
 SCIM).
 
 ###### Note
@@ -169,7 +169,7 @@ identity store actions in the delegated administration account for locally
 managed users
 
 If you create your users and groups directly in IAM Identity Center, rather than using an
-external IdP or AWS Directory Service, then you should take precautions for who can create
+external IdP or Directory Service, then you should take precautions for who can create
 users, reset passwords, and control group membership. These actions give the
 administrator great powers for who can sign in and who can gain access through
 membership in groups. These policies are best implemented as in-line policies

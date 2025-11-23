@@ -6,7 +6,7 @@ process. To learn more about the prerequisites, see [Prerequisites and considera
 ## Creation
 
 After you connect your self-managed directory in Active Directory or your AWS Managed Microsoft AD
-directory that is managed by AWS Directory Service to IAM Identity Center, you can explicitly configure the Active
+directory that is managed by Directory Service to IAM Identity Center, you can explicitly configure the Active
 Directory users and groups that you want to sync into the IAM Identity Center identity store. The
 identities that you choose will be synchronized every three hours or so into the IAM Identity Center
 identity store. Depending on the size of your directory, the sync process might take

@@ -45,7 +45,7 @@ propagation to Amazon Redshift:
   Tableau Prep
   - To enable trusted identity propagation for users of
     Tableau, refer to [Integrate Tableau and Okta with Amazon Redshift using
-    IAM Identity Center](https://aws.amazon.com/blogs/big-data/integrate-tableau-and-okta-with-amazon-redshift-using-aws-iam-identity-center/ "https://aws.amazon.com/blogs/big-data/integrate-tableau-and-okta-with-amazon-redshift-using-aws-iam-identity-center/") in the _AWS Big Data
+    IAM Identity Center](https://aws.amazon.com/blogs//big-data/integrate-tableau-and-okta-with-amazon-redshift-using-aws-iam-identity-center/ "https://aws.amazon.com/blogs//big-data/integrate-tableau-and-okta-with-amazon-redshift-using-aws-iam-identity-center/") in the _AWS Big Data
     Blog_.
 
 - **SQL Clients** (DBeaver and
@@ -54,5 +54,5 @@ propagation to Amazon Redshift:
     Clients (DBeaver and
     DBVisualizer), refer to [Integrate Identity Provider (IdP) with Amazon Redshift Query
     Editor V2 and SQL Client using IAM Identity Center for seamless Single
-    Sign-On](https://aws.amazon.com/blogs/big-data/integrate-identity-provider-idp-with-amazon-redshift-query-editor-v2-and-sql-client-using-aws-iam-identity-center-for-seamless-single-sign-on/ "https://aws.amazon.com/blogs/big-data/integrate-identity-provider-idp-with-amazon-redshift-query-editor-v2-and-sql-client-using-aws-iam-identity-center-for-seamless-single-sign-on/") in the _AWS Big Data
+    Sign-On](https://aws.amazon.com/blogs//big-data/integrate-identity-provider-idp-with-amazon-redshift-query-editor-v2-and-sql-client-using-aws-iam-identity-center-for-seamless-single-sign-on/ "https://aws.amazon.com/blogs//big-data/integrate-identity-provider-idp-with-amazon-redshift-query-editor-v2-and-sql-client-using-aws-iam-identity-center-for-seamless-single-sign-on/") in the _AWS Big Data
     Blog_.

@@ -1,6 +1,6 @@
 # Using Active Directory as an identity source
 
-If you are managing users in either your AWS Managed Microsoft AD directory using AWS Directory Service or your
+If you are managing users in either your AWS Managed Microsoft AD directory using Directory Service or your
 self-managed directory in Active Directory (AD), you can change your IAM Identity Center identity source
 to work with those users. We recommend that you consider connecting this identity source
 when you enable IAM Identity Center and choose your identity source. Doing this before you create any

@@ -104,7 +104,7 @@ compatibility purposes.
   prefixes
 - [Service
   endpoints](../../../general/latest/gr/sso.md#sso_region "../../../general/latest/gr/sso.md#sso_region") containing `sso` and `identitystore`
-- [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/AWS_SSO.md "../../../AWSCloudFormation/latest/UserGuide/AWS_SSO.md") resources containing `AWS::SSO` prefixes
+- [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/AWS_SSO.md "../../../AWSCloudFormation/latest/UserGuide/AWS_SSO.md") resources containing `AWS::SSO` prefixes
 - [Service-linked role](using-service-linked-roles.md#slr-permissions "using-service-linked-roles.md#slr-permissions") containing `AWSServiceRoleForSSO`
 - Console URLs containing `sso` and `singlesignon`
 - Documentation URLs containing `singlesignon`

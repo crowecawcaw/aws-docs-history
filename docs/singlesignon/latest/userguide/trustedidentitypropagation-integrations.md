@@ -62,7 +62,7 @@ AWS services:
   - [Configuring an Amazon Q Business application using
     IAM Identity Center](../../../amazonq/latest/qbusiness-ug/create-application.md "../../../amazonq/latest/qbusiness-ug/create-application.md").
   - [Configure Amazon Q Business with IAM Identity Center trusted identity
-    propagation](https://aws.amazon.com/blogs/machine-learning/configuring-amazon-q-business-with-aws-iam-identity-center-trusted-identity-propagation/ "https://aws.amazon.com/blogs/machine-learning/configuring-amazon-q-business-with-aws-iam-identity-center-trusted-identity-propagation/").
+    propagation](https://aws.amazon.com/blogs//machine-learning/configuring-amazon-q-business-with-aws-iam-identity-center-trusted-identity-propagation/ "https://aws.amazon.com/blogs//machine-learning/configuring-amazon-q-business-with-aws-iam-identity-center-trusted-identity-propagation/").
 
 - **Amazon OpenSearch Service** - for guidance, see:
   - [IAM Identity Center Trusted Identity Propagation Support for
