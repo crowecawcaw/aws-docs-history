@@ -226,7 +226,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break SimSpace Weaver functionality.
 Edit service roles only when SimSpace Weaver provides guidance to do so.
 
-The SimSpace Weaver app SDK scripts use an AWS CloudFormation template to create resources in
+The SimSpace Weaver app SDK scripts use an CloudFormation template to create resources in
 other AWS services to support your simulation. One of these resources is the
 _app role_ for your simulation. SimSpace Weaver assumes the app role
 to perform actions in your AWS account on your behalf, such as to write

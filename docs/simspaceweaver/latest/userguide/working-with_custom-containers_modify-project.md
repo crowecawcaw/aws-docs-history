@@ -45,7 +45,7 @@ more efficient.
    ```
 
    2. Find the name of your project's simulation app role:
-      1. In a text editor, open the AWS CloudFormation template:
+      1. In a text editor, open the CloudFormation template:
 
       ```
       `sdk-folder`\PackagingTools\sample-stack-template.yaml

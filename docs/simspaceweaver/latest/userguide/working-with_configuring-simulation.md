@@ -33,7 +33,7 @@ For more information about running the quick-start script, see the [Detailed tut
 The simulation schema contains bootstrapping information, including:
 
 - Simulation properties – SDK version and compute configuration
-  (type and number of [workers](w27aac51.md#glossary_worker "w27aac51.md#glossary_worker"))
+  (type and number of [workers](w2aac51.md#glossary_worker "w2aac51.md#glossary_worker"))
 - Clocks – tick rate and tolerances
 - Spatial partitioning strategies – spatial topology (such as a grid),
   bounds, and placement groups (spatial partition grouping on workers)

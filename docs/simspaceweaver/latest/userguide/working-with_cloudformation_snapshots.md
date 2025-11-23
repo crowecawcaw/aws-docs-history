@@ -9,14 +9,14 @@ A [snapshot](working-with_snapshots.md "working-with_snapshots.md") is a backup
 of a simulation. The following example
 starts a new simulation from a snapshot instead of from a schema. The
 snapshot in this example was created from a SimSpace Weaver app SDK
-project simulation. AWS CloudFormation creates the new simulation resource
+project simulation. CloudFormation creates the new simulation resource
 and initializes it with data from the snapshot. The new simulation
 can have a different `MaximumDuration` than the
 original simulation.
 
 We recommend that you make and use a copy of your original
 simulation's app role. The original simulation's app role could
-be deleted if you delete that simulation's AWS CloudFormation
+be deleted if you delete that simulation's CloudFormation
 stack.
 
 ```
