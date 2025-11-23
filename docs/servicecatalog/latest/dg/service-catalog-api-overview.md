@@ -61,20 +61,20 @@ Use these operations to request, update, or terminate provisioning for a product
 
 Requests provisioning for a product. To provision a product is to
 launch the resources needed to bring that product online for actual use.
-For example, provisioning a product backed by an AWS CloudFormation template means
-launching an AWS CloudFormation stack and all its underlying resources.
+For example, provisioning a product backed by an CloudFormation template means
+launching an CloudFormation stack and all its underlying resources.
 
 [UpdateProvisionedProduct](API_UpdateProvisionedProduct.md "API_UpdateProvisionedProduct.md")
 
 Updates the configuration of a provisioned product. For example,
-a product backed by AWS CloudFormation gets its underlying AWS CloudFormation stack updated. The
+a product backed by CloudFormation gets its underlying CloudFormation stack updated. The
 requester must have sufficient access permissions to the specified
 ProvisionedProduct.
 
 [TerminateProvisionedProduct](API_TerminateProvisionedProduct.md "API_TerminateProvisionedProduct.md")
 
 Requests termination of a provisioned product. For example, for
-a product backed by AWS CloudFormation, this deletes the underlying AWS CloudFormation stack. The
+a product backed by CloudFormation, this deletes the underlying CloudFormation stack. The
 requester must have sufficient access permissions to the specified
 provisioned product.
 
