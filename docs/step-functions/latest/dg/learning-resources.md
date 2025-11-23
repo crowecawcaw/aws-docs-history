@@ -14,7 +14,7 @@ For specific scenarios, see the following tutorials:
   state machine](tutorial-handling-error-conditions.md "tutorial-handling-error-conditions.md")
 - [Create a Step Functions state machine using
   AWS SAM](tutorial-state-machine-using-sam.md "tutorial-state-machine-using-sam.md")
-- [Using AWS CloudFormation to create a workflow in Step Functions](tutorial-lambda-state-machine-cloudformation.md "tutorial-lambda-state-machine-cloudformation.md")
+- [Using CloudFormation to create a workflow in Step Functions](tutorial-lambda-state-machine-cloudformation.md "tutorial-lambda-state-machine-cloudformation.md")
 - [Using AWS CDK to create an Express workflow in Step Functions](tutorial-step-functions-rest-api-integration-cdk.md "tutorial-step-functions-rest-api-integration-cdk.md")
 - [Using AWS CDK to create a Standard workflow in Step Functions](tutorial-lambda-state-machine-cdk.md "tutorial-lambda-state-machine-cdk.md")
 - [Examining state machine executions in Step Functions](debug-sm-exec-using-ui.md "debug-sm-exec-using-ui.md")

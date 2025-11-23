@@ -35,3 +35,5 @@ Step Functions Local does **not** provide feature parity and is **unsupported**.
 
 You might consider third party solutions that emulate Step Functions for testing
 purposes.
+
+As an alternative to Step Functions Local, you can use the TestState API to unit test your state machine logic before deploying to your AWS account. For more information, see [Testing state machines with TestState API](test-state-isolation.md "test-state-isolation.md").

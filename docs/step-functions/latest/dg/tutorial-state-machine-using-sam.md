@@ -171,8 +171,8 @@ the default options provided in the interactive experience.
 
 This command deploys your application to the AWS cloud. It take the deployment
 artifacts you build with the `sam build` command, packages and uploads them
-to an Amazon S3 bucket created by AWS SAM CLI, and deploys the application using AWS CloudFormation. In the
-output of the deploy command you can see the changes being made to your AWS CloudFormation
+to an Amazon S3 bucket created by AWS SAM CLI, and deploys the application using CloudFormation. In the
+output of the deploy command you can see the changes being made to your CloudFormation
 stack.
 
 You can verify the example Step Functions state machine was successfully deployed by following
@@ -230,12 +230,12 @@ Up AWS Credentials](../../../serverless-application-model/latest/developerguide/
 ## Clean Up
 
 If you no longer need the AWS resources you created by running this tutorial, you can
-remove them by deleting the AWS CloudFormation stack that you deployed.
+remove them by deleting the CloudFormation stack that you deployed.
 
-To delete the AWS CloudFormation stack created with this tutorial using the AWS Management Console, follow these
+To delete the CloudFormation stack created with this tutorial using the AWS Management Console, follow these
 steps:
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. In the left navigation pane, choose **Stacks**.
 3. In the list of stacks, choose **sam-app** (or the name of
@@ -245,7 +245,7 @@ steps:
 When done, the status of the of the stack will change to
 **DELETE_COMPLETE**.
 
-Alternatively, you can delete the AWS CloudFormation stack by executing the following AWS CLI
+Alternatively, you can delete the CloudFormation stack by executing the following AWS CLI
 command:
 
 ```
@@ -256,7 +256,7 @@ command:
 
 Stack
 
-For both methods of deleting the AWS CloudFormation stack, you can verify it was deleted by
+For both methods of deleting the CloudFormation stack, you can verify it was deleted by
 going to the [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"), choosing **Stacks** in the left
 navigation pane, and choosing **Deleted** in the dropdown to the
 right of the search text box. You should see your stack name

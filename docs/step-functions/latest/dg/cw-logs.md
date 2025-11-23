@@ -22,7 +22,7 @@ be configured to send logs to CloudWatch Logs.
 
 For Express workflows, Step Functions can create a role with the necessary AWS Identity and Access Management (IAM) policy
 for CloudWatch Logs. If you create a Standard Workflow, or an Express Workflow using the API, CLI, or
-AWS CloudFormation, Step Functions will not enable logging by default, and you will need ensure your role has the
+CloudFormation, Step Functions will not enable logging by default, and you will need ensure your role has the
 necessary permissions.
 
 For each execution started from the console, Step Functions provides a link to CloudWatch Logs, configured

@@ -46,18 +46,18 @@ The following table shows ASL-based definition format support by tool.
 | Step Functions Local               | Stringified ASL             |
 | AWS Toolkit for Visual Studio Code | JSON, YAML                  |
 | AWS SAM                            | JSON, YAML                  |
-| AWS CloudFormation                 | JSON, YAML, Stringified ASL |
+| CloudFormation                     | JSON, YAML, Stringified ASL |
 
 YAML single line comments in the state machine definition of a template will not
 be carried forward into the created resource’s definition. If you need to persist a
 comment, you should use the `Comment` property within the state machine
 definition. For information, see [State machine structure](statemachine-structure.md "statemachine-structure.md").
 
-With AWS CloudFormation and AWS SAM, you can upload your state machine definitions to Amazon S3 (JSON
+With CloudFormation and AWS SAM, you can upload your state machine definitions to Amazon S3 (JSON
 or YAML format) and provide the definition's Amazon S3 location in the template. For
 information see the [AWS::StepFunctions::StateMachine S3Location](../../../AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.md") page.
 
-The following example AWS CloudFormation templates show how you can provide the same state machine
+The following example CloudFormation templates show how you can provide the same state machine
 definition using different input formats.
 
 JSON with Definition
@@ -355,17 +355,17 @@ With the AWS toolkit, you can use Workflow Studio from within VS Code to visuali
 
 ## Deploying your workflows
 
-After you have defined and debugged your workflows, you'll probably want to deploy using Infrastructure as Code frameworks. You can choose to deploy your state machines using a variety of IaC options, including: AWS Serverless Application Model, AWS CloudFormation, AWS CDK, and Terraform.
+After you have defined and debugged your workflows, you'll probably want to deploy using Infrastructure as Code frameworks. You can choose to deploy your state machines using a variety of IaC options, including: AWS Serverless Application Model, CloudFormation, AWS CDK, and Terraform.
 
 **AWS Serverless Application Model**
 You can use AWS Serverless Application Model with Step Functions to build workflows and deploy the infrastructure you need, including Lambda functions, APIs and events, to create serverless applications. You can also use the AWS SAM CLI in conjunction with the AWS Toolkit for Visual Studio Code as part of an integrated experience.
 
 For more information, see [Using AWS SAM to build Step Functions workflows](concepts-sam-sfn.md "concepts-sam-sfn.md").
 
-**AWS CloudFormation**
-You can use your state machine definitions directly in AWS CloudFormation templates.
+**CloudFormation**
+You can use your state machine definitions directly in CloudFormation templates.
 
-For more information, see [Using AWS CloudFormation to create a workflow in Step Functions](tutorial-lambda-state-machine-cloudformation.md "tutorial-lambda-state-machine-cloudformation.md").
+For more information, see [Using CloudFormation to create a workflow in Step Functions](tutorial-lambda-state-machine-cloudformation.md "tutorial-lambda-state-machine-cloudformation.md").
 
 **AWS CDK**
 You can build Standard and Express state machines with AWS CDK.

@@ -18,7 +18,7 @@ the _Amazon VPC User Guide_.
 ## Creating the Endpoint
 
 You can create an AWS Step Functions endpoint in your VPC using the AWS Management Console, the AWS Command Line Interface
-(AWS CLI), an AWS SDK, the AWS Step Functions API, or AWS CloudFormation.
+(AWS CLI), an AWS SDK, the AWS Step Functions API, or CloudFormation.
 
 For information about creating and configuring an endpoint using the Amazon VPC console or the
 AWS CLI, see [Creating
@@ -48,8 +48,8 @@ SfnClient.builder()
   .build();
 ```
 
-For information about creating and configuring an endpoint using AWS CloudFormation, see the [AWS::EC2::VPCEndpoint](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md") resource
-in the _AWS CloudFormation User Guide_.
+For information about creating and configuring an endpoint using CloudFormation, see the [AWS::EC2::VPCEndpoint](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md") resource
+in the _CloudFormation User Guide_.
 
 ## Amazon VPC Endpoint Policies
 

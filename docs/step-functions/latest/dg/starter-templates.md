@@ -6,7 +6,7 @@ console](https://console.aws.amazon.com/states/home?region=us-east-1#/ "https://
 You can use these sample projects to deploy and run them as is, or use the workflow prototypes to build on them. If you build upon these projects, Step Functions creates the workflow prototype, but doesn't deploy the resources listed in the workflow definition.
 
 When you deploy the sample projects, they provision a fully functional state machine, and create the
-related resources for the state machine to run. When you create a sample project, Step Functions uses AWS CloudFormation to create
+related resources for the state machine to run. When you create a sample project, Step Functions uses CloudFormation to create
 the related resources referenced by the state machine.
 
 ###### List of starter templates

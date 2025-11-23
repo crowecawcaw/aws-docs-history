@@ -4,7 +4,7 @@ This tutorial shows you how to deploy a human approval project that allows an AW
 execution to pause during a task, and wait for a user to respond to an email. The workflow
 progresses to the next state once the user has approved the task to proceed.
 
-Deploying the AWS CloudFormation stack included in this tutorial will create all necessary resources,
+Deploying the CloudFormation stack included in this tutorial will create all necessary resources,
 including:
 
 - Amazon API Gateway resources
@@ -15,22 +15,22 @@ including:
 
 ###### Note
 
-You will need to provide a valid email address that you have access to when you create the AWS CloudFormation stack.
+You will need to provide a valid email address that you have access to when you create the CloudFormation stack.
 
 For more information, see [Working with
 CloudFormation Templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") and the `AWS::StepFunctions::StateMachine` resource in the
 _AWS CloudFormation User Guide_.
 
-## Step 1: Create an AWS CloudFormation template
+## Step 1: Create an CloudFormation template
 
-1. Copy the example code from the [AWS CloudFormation Template Source Code](#human-approval-yaml "#human-approval-yaml") section.
-2. Paste the source of the AWS CloudFormation template into a file on your local machine.
+1. Copy the example code from the [CloudFormation Template Source Code](#human-approval-yaml "#human-approval-yaml") section.
+2. Paste the source of the CloudFormation template into a file on your local machine.
 
 For this example the file is called `human-approval.yaml`.
 
 ## Step 2: Create a stack
 
-1. Log into the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/home "https://console.aws.amazon.com/cloudformation/home").
+1. Log into the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home "https://console.aws.amazon.com/cloudformation/home").
 2. Choose **Create Stack**, and then choose **With new resources (standard)**.
 3. On the **Create stack** page, do the following:
    1. In the **Prerequisite - Prepare template** section, make sure **Template is ready** is selected.
@@ -44,10 +44,10 @@ For this example the file is called `human-approval.yaml`.
    2. Under **Parameters**, enter a valid email address. You'll use this email address to subscribe to the Amazon SNS topic.
 
 6. Choose **Next**, and then choose **Next** again.
-7. On the **Review** page, choose **I acknowledge that AWS CloudFormation might create IAM resources** and then choose
+7. On the **Review** page, choose **I acknowledge that CloudFormation might create IAM resources** and then choose
    **Create**.
 
-AWS CloudFormation begins to create your stack and displays the **CREATE_IN_PROGRESS** status. When the process is complete, AWS CloudFormation displays the
+CloudFormation begins to create your stack and displays the **CREATE_IN_PROGRESS** status. When the process is complete, CloudFormation displays the
 **CREATE_COMPLETE** status. 8. (Optional) To display the resources in your stack, select the stack and choose the **Resources** tab.
 
 ## Step 3: Approve the Amazon SNS subscription
@@ -55,7 +55,7 @@ AWS CloudFormation begins to create your stack and displays the **CREATE_IN_PROG
 Once the Amazon SNS topic is created, you will receive an email requesting that you confirm
 subscription.
 
-1. Open the email account you provided when you created the AWS CloudFormation stack.
+1. Open the email account you provided when you created the CloudFormation stack.
 2. Open the message **AWS Notification - Subscription Confirmation**
    from **no-reply@sns.amazonaws.com**
 
@@ -104,7 +104,7 @@ The workflow continues based on your choice.
 
 ![Execution waiting for callback](images/tutorial-human-approval-continue.png)
 
-## AWS CloudFormation Template Source Code
+## CloudFormation Template Source Code
 
 Use this AWS CloudFormation template to deploy an example of a human approval process
 workflow.

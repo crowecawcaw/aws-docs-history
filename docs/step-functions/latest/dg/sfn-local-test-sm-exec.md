@@ -525,6 +525,8 @@ Step Functions Local does **not** provide feature parity and is **unsupported**.
 You might consider third party solutions that emulate Step Functions for testing
 purposes.
 
+As an alternative to Step Functions Local, you can use the TestState API to unit test your state machine logic before deploying to your AWS account. For more information, see [Testing state machines with TestState API](test-state-isolation.md "test-state-isolation.md").
+
 To use mocked service integrations, you must first create a mock configuration file named `MockConfigFile.json` containing your mock configurations. Then provide Step Functions Local with the mock configuration file. This configuration file defines test cases, which contain mock states that use mocked service integration responses. The following section contains information about the structure of mock configuration that includes the mock states and mocked responses:
 
 ### Mock configuration file structure

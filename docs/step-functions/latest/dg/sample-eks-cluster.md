@@ -35,7 +35,7 @@ _Standard charges apply for services deployed to your account._
 If you chose the **Run a demo** option, all related resources will be deployed and ready to run. If you chose the **Build on it** option, you might need to set placeholder values and create additional resources before you can run your custom workflow.
 
 1. Choose **Deploy and run**.
-2. Wait for the AWS CloudFormation stack to deploy. This can take up to 10 minutes.
+2. Wait for the CloudFormation stack to deploy. This can take up to 10 minutes.
 3. After the **Start execution** option appears, review the **Input** and choose **Start execution**.
 
 ###### Congratulations!

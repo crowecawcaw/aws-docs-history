@@ -6,7 +6,7 @@ function.
 
 You will define AWS infrastructure using one of the CDK's
 supported languages. After you define your infrastructure, you will synthesize your app to
-an AWS CloudFormation template and deploy it to your AWS account.
+an CloudFormation template and deploy it to your AWS account.
 
 You will use this method to define a Step Functions state machine containing a Lambda function, and
 then run the state machine from the use the Step Functions AWS Management Console.
@@ -21,7 +21,7 @@ following command at the AWS CLI:
 npm install -g aws-cdk
 ```
 
-This tutorial produces the same result as [Using AWS CloudFormation to create a workflow in Step Functions](tutorial-lambda-state-machine-cloudformation.md "tutorial-lambda-state-machine-cloudformation.md"). However, in this tutorial, the
+This tutorial produces the same result as [Using CloudFormation to create a workflow in Step Functions](tutorial-lambda-state-machine-cloudformation.md "tutorial-lambda-state-machine-cloudformation.md"). However, in this tutorial, the
 AWS CDK doesn't require you to create any IAM roles; the
 AWS CDK does it for you. The AWS CDK version also includes a [Succeed workflow state](state-succeed.md "state-succeed.md") step to illustrate how to add
 additional steps to your state machine.
@@ -482,7 +482,7 @@ namespace Step
 2. Save the source file, and then run the `cdk synth` command in
    the app's main directory.
 
-AWS CDK runs the app and synthesizes an AWS CloudFormation
+AWS CDK runs the app and synthesizes an CloudFormation
 template from it. AWS CDK then displays the template.
 
 ###### Note

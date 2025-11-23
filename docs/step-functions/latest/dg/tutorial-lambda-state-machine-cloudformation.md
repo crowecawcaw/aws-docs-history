@@ -1,7 +1,7 @@
-# Using AWS CloudFormation to create a workflow in Step Functions
+# Using CloudFormation to create a workflow in Step Functions
 
 In this tutorial, you will create a AWS Lambda function using AWS CloudFormation. You'll use
-the AWS CloudFormation console and a YAML template to create a _stack_ (IAM
+the CloudFormation console and a YAML template to create a _stack_ (IAM
 roles, the Lambda function, and the state machine). Then, you'll use the Step Functions console to
 start the state machine execution.
 
@@ -9,10 +9,10 @@ For more information, see [Working with
 CloudFormation Templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") and the `AWS::StepFunctions::StateMachine` resource in the
 _AWS CloudFormation User Guide_.
 
-## Step 1: Set up your AWS CloudFormation template
+## Step 1: Set up your CloudFormation template
 
 Before you use the [example
-templates](#lambda-state-machine-cfn-step-2 "#lambda-state-machine-cfn-step-2"), you should understand how to declare the different parts of an AWS CloudFormation
+templates](#lambda-state-machine-cfn-step-2 "#lambda-state-machine-cfn-step-2"), you should understand how to declare the different parts of an CloudFormation
 template.
 
 ### To create an IAM
@@ -242,12 +242,12 @@ JSON
           }
 ```
 
-## Step 2: Use the AWS CloudFormation template to create a
+## Step 2: Use the CloudFormation template to create a
 
 Lambda State Machine
 
-Once you understand the components of the AWS CloudFormation template, you can put them together
-and use the template to create an AWS CloudFormation stack.
+Once you understand the components of the CloudFormation template, you can put them together
+and use the template to create an CloudFormation stack.
 
 ### To create the Lambda state
 
@@ -437,7 +437,7 @@ JSON
   }
 ```
 
-2. Open the [AWS CloudFormation
+2. Open the [CloudFormation
    console](https://console.aws.amazon.com/cloudformation/home "https://console.aws.amazon.com/cloudformation/home") and choose **Create Stack**.
 3. On the **Select Template** page, choose **Upload a
    template to Amazon S3**. Choose your `MyStateMachine` file, and
@@ -446,12 +446,12 @@ JSON
    name**, enter `MyStateMachine`, and then choose
    **Next**.
 5. On the **Options** page, choose **Next**.
-6. On the **Review** page, choose **I acknowledge that AWS CloudFormation
+6. On the **Review** page, choose **I acknowledge that CloudFormation
    might create IAM resources.** and then choose
    **Create**.
 
-AWS CloudFormation begins to create the `MyStateMachine` stack and displays the
-**CREATE_IN_PROGRESS** status. When the process is complete, AWS CloudFormation
+CloudFormation begins to create the `MyStateMachine` stack and displays the
+**CREATE_IN_PROGRESS** status. When the process is complete, CloudFormation
 displays the **CREATE_COMPLETE** status. 7. (Optional) To display the resources in your stack, select the stack and choose the
 **Resources** tab.
 
@@ -466,7 +466,7 @@ After you create your Lambda state machine, you can start its execution.
 execution
 
 1. Open the [Step Functions console](https://console.aws.amazon.com/states/home "https://console.aws.amazon.com/states/home") and
-   choose the name of the state machine that you created using AWS CloudFormation.
+   choose the name of the state machine that you created using CloudFormation.
 2. On the **`MyStateMachine-ABCDEFGHIJ1K`**
    page, choose **New execution**.
 

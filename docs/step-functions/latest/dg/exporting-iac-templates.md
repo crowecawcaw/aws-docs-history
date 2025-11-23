@@ -18,7 +18,7 @@ apply to your state machine.
   level](cw-logs.md#cloudwatch-log-level "cw-logs.md#cloudwatch-log-level") is _not_ set to `OFF`.
 - Replace resource references with DefinitionSubstitutions – This option generates [DefinitionSubstitutions](concepts-sam-sfn.md#sam-definition-substitution-eg "concepts-sam-sfn.md#sam-definition-substitution-eg") for the following components:
   - [Distributed Map](state-map-distributed.md "state-map-distributed.md") S3 fields.
-  - `Activity` resources. The export includes `Activity` resources in the AWS CloudFormation template for any `Run Activity`
+  - `Activity` resources. The export includes `Activity` resources in the CloudFormation template for any `Run Activity`
     task. The export also provides `DefinitionSubstitutions` referencing the created `Activity` resources.
   - Any `ARN` or `S3URI` in the Payload field for all service integrations.
   - In addition to the `ARN` and `S3URI` fields, the export generates `DefinitionSubstitutions` for other

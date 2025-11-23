@@ -11,10 +11,10 @@ method.
 
 With AWS CDK is an Infrastructure as Code (IAC) framework, you define AWS infrastructure
 using a programming language. You define an app in one of the CDK's supported
-languages, synthesize the code into an AWS CloudFormation template, and then deploy the infrastructure to
+languages, synthesize the code into an CloudFormation template, and then deploy the infrastructure to
 your AWS account.
 
-You will use AWS CloudFormation to define an API Gateway REST API, which is integrated with Synchronous
+You will use CloudFormation to define an API Gateway REST API, which is integrated with Synchronous
 Express State Machine as the backend, then use the AWS Management Console to initiate execution.
 
 Before starting this tutorial, set up your AWS CDK development environment as described in
@@ -623,7 +623,7 @@ func env() *awscdk.Environment {
 ```
 
 Save the source file, then issue `cdk synth` in the app's main
-directory. The AWS CDK runs the app and synthesizes an AWS CloudFormation template from it, then
+directory. The AWS CDK runs the app and synthesizes an CloudFormation template from it, then
 displays the template.
 
 To actually deploy the Amazon API Gateway and the AWS Step Functions state machine to your AWS

@@ -66,7 +66,7 @@ ID**, which Step Functions uses to encrypt your data.
 
 **Prerequisite:** Before you can create a state machine with customer managed AWS KMS keys, your user or role must have AWS KMS permissions to `DescribeKey` and `GenerateDataKey`.
 
-You can perform the following steps in the AWS console, through the API, or by provisioning infrastructure through AWS CloudFormation resources. (CloudFormation examples are presented later in this guide.)
+You can perform the following steps in the AWS console, through the API, or by provisioning infrastructure through CloudFormation resources. (CloudFormation examples are presented later in this guide.)
 
 ### Step 1: Create AWS KMS key
 
@@ -415,9 +415,9 @@ permissions in the key policy or IAM policy for the role.
 
 When an IAM role or user calls the Step Functions API, the Step Functions service calls AWS KMS on behalf of the API caller. In this case, you must grant AWS KMS permission to the API caller. When an execution role calls AWS KMS directly, you must grant AWS KMS permissions on the execution role.
 
-## AWS CloudFormation resources for encryption configuration
+## CloudFormation resources for encryption configuration
 
-AWS CloudFormation resource types for Step Functions can provision state machine and activity resources with encryption configurations.
+CloudFormation resource types for Step Functions can provision state machine and activity resources with encryption configurations.
 
 By default, Step Functions provides transparent server-side encryption. Both [`AWS::StepFunctions::Activity`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.md") and [`AWS::StepFunctions::StateMachine`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md") accept an optional `EncryptionConfiguration` property which can configure a customer managed AWS KMS key for server-side encryption.
 
@@ -425,7 +425,7 @@ By default, Step Functions provides transparent server-side encryption. Both [`A
 
 Updates to StateMachine requires [No interruption](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md#update-no-interrupt "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md#update-no-interrupt"). Updates to Activity resources requires: [Replacement](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md#update-replacement "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md#update-replacement").
 
-To declare an **`EncryptionConfiguration`** property in your AWS CloudFormation template, use the following syntax:
+To declare an **`EncryptionConfiguration`** property in your CloudFormation template, use the following syntax:
 
 **JSON**
 
@@ -451,7 +451,7 @@ Type: String
 - **KmsKeyId** - Alias, alias ARN, key ID, or key ARN of the symmetric encryption AWS KMS key that encrypts the data key. To specify a AWS KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For information regarding kmsKeyId, see [KeyId](../../../kms/latest/APIReference/API_DescribeKey.md#API_DescribeKey_RequestParameters "../../../kms/latest/APIReference/API_DescribeKey.md#API_DescribeKey_RequestParameters") in AWS KMS docs.
 - **KmsDataKeyReusePeriodSeconds** - Maximum duration for which SFN will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey`. This setting can only be set when **Type** is `CUSTOMER_MANAGED_KMS_KEY`. The value can range from 60-900 seconds. Default is 300 seconds.
 
-### AWS CloudFormation examples
+### CloudFormation examples
 
 #### Example: StateMachine with customer managed key
 
