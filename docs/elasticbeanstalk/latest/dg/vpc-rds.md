@@ -25,7 +25,7 @@ console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc
 3. Choose **VPC with Public and Private Subnets**, and then choose
    **Select**.
 
-![Choose VPC with Public and Private Subnets, then choose Select.](images/Case2_Wizard_Page2.png) 4. Your Elastic Load Balancing load balancer and your Amazon EC2 instances must be in the same Availability
+![Choose VPC with Public and Private Subnets, then choose Select.](images/Case2_Wizard_Page2.png) 4. Your ELB load balancer and your Amazon EC2 instances must be in the same Availability
 Zone so they can communicate with each other. Choose the same Availability Zone from each
 **Availability Zone** list.
 
@@ -119,7 +119,7 @@ more information.
 When you update the option settings, you need to specify at least the following:
 
 - **VPCId**–Contains the ID of the VPC.
-- **Subnets**–Contains the ID of the Auto Scaling group subnet. In this example, this is the ID of the private subnet.
+- **Subnets**–Contains the ID of the Amazon EC2 Auto Scaling group subnet. In this example, this is the ID of the private subnet.
 - **ELBSubnets**–Contains the ID of the subnet for the load balancer. In this example, this is the ID of the public
   subnet.
 - **SecurityGroups**–Contains the ID of the security groups.

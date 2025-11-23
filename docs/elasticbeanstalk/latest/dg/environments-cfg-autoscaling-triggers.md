@@ -1,6 +1,6 @@
-# Auto Scaling triggers for your Elastic Beanstalk environment
+# Amazon EC2 Auto Scaling triggers for your Elastic Beanstalk environment
 
-The Auto Scaling group in your Elastic Beanstalk environment uses two Amazon CloudWatch alarms to trigger scaling operations. The default triggers scale when the average outbound
+The Amazon EC2 Auto Scaling group in your Elastic Beanstalk environment uses two Amazon CloudWatch alarms to trigger scaling operations. The default triggers scale when the average outbound
 network traffic from each instance is higher than 6 MB or lower than 2 MB over a period of five minutes. To use Amazon EC2 Auto Scaling effectively, configure triggers
 that are appropriate for your application, instance type, and service requirements. You can scale based on several statistics including latency, disk I/O,
 CPU utilization, and request count.
@@ -8,9 +8,9 @@ CPU utilization, and request count.
 For more information about CloudWatch metrics and alarms, see [Amazon CloudWatch Concepts](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md") in the
 _Amazon CloudWatch User Guide_.
 
-## Configuring Auto Scaling triggers
+## Configuring Amazon EC2 Auto Scaling triggers
 
-You can configure the triggers that adjust the number of instances in your environment's Auto Scaling group in the Elastic Beanstalk console.
+You can configure the triggers that adjust the number of instances in your environment's Amazon EC2 Auto Scaling group in the Elastic Beanstalk console.
 
 ###### To configure triggers in the Elastic Beanstalk console
 
@@ -20,7 +20,7 @@ You can configure the triggers that adjust the number of instances in your envir
 3. In the navigation pane, choose **Configuration**.
 4. In the **Capacity** configuration category, choose **Edit**.
 5. In the **Scaling triggers** section, configure the following settings:
-   - **Metric** – Metric used for your Auto Scaling trigger.
+   - **Metric** – Metric used for your Amazon EC2 Auto Scaling trigger.
    - **Statistic** – Statistic calculation the trigger should use, such as `Average`.
    - **Unit** – Unit for the trigger metric, such as **Bytes**.
    - **Period** – Specifies how frequently Amazon CloudWatch measures the metrics for your trigger.
@@ -35,7 +35,7 @@ You can configure the triggers that adjust the number of instances in your envir
 
 ## The aws:autoscaling:trigger namespace
 
-Elastic Beanstalk provides [configuration options](command-options.md "command-options.md") for Auto Scaling settings in the [aws:autoscaling:trigger](command-options-general.md#command-options-general-autoscalingtrigger "command-options-general.md#command-options-general-autoscalingtrigger") namespace. Settings in this namespace are organized by
+Elastic Beanstalk provides [configuration options](command-options.md "command-options.md") for Amazon EC2 Auto Scaling settings in the [aws:autoscaling:trigger](command-options-general.md#command-options-general-autoscalingtrigger "command-options-general.md#command-options-general-autoscalingtrigger") namespace. Settings in this namespace are organized by
 the resource that they apply to.
 
 ```

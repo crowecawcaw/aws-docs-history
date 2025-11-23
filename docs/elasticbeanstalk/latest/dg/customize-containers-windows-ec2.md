@@ -133,8 +133,8 @@ Valid values: `plain` | `base64`
 
 `authentication`
 
-(Optional) The name of a [AWS CloudFormation authentication method](../../../AWSCloudFormation/latest/UserGuide/aws-resource-authentication.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-authentication.md") to use. You can add
-authentication methods to the Auto Scaling group metadata with the Resources key.
+(Optional) The name of a [CloudFormation authentication method](../../../AWSCloudFormation/latest/UserGuide/aws-resource-authentication.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-authentication.md") to use. You can add
+authentication methods to the Amazon EC2 Auto Scaling group metadata with the Resources key.
 
 ### Examples
 

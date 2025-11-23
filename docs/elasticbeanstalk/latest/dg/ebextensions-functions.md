@@ -1,7 +1,7 @@
 # Functions
 
 You can use functions in your configuration files to populate values for resource properties with information from other resources or from Elastic Beanstalk
-configuration option settings. Elastic Beanstalk supports AWS CloudFormation functions (`Ref`, `Fn::GetAtt`, `Fn::Join`), and one Elastic Beanstalk-specific
+configuration option settings. Elastic Beanstalk supports CloudFormation functions (`Ref`, `Fn::GetAtt`, `Fn::Join`), and one Elastic Beanstalk-specific
 function, `Fn::GetOptionSetting`.
 
 ###### Functions
@@ -23,10 +23,10 @@ classic, or a custom VPC.
 
 ###### Note
 
-For details on each resource type, including the return value(s) of `Ref`, see [AWS Resource Types Reference](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") in the _AWS CloudFormation User
+For details on each resource type, including the return value(s) of `Ref`, see [AWS Resource Types Reference](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") in the _CloudFormation User
 Guide_.
 
-From the sample [Auto Scaling lifecycle hook](environment-resources.md "environment-resources.md"):
+From the sample [Amazon EC2 Auto Scaling lifecycle hook](environment-resources.md "environment-resources.md"):
 
 ```
 Resources:
@@ -36,7 +36,7 @@ Resources:
       AutoScalingGroupName: { "Ref" : "AWSEBAutoScalingGroup" }
 ```
 
-You can also use `Ref` to retrieve the value of a AWS CloudFormation parameter defined elsewhere in the same file or in a different configuration
+You can also use `Ref` to retrieve the value of a CloudFormation parameter defined elsewhere in the same file or in a different configuration
 file.
 
 ## Fn::GetAtt
@@ -47,7 +47,7 @@ Use `Fn::GetAtt` to retrieve the value of an attribute on an AWS resource.
 { "Fn::GetAtt" : [ "`resource name`", "`attribute name`"] }
 ```
 
-From the sample [Auto Scaling lifecycle hook](environment-resources.md "environment-resources.md"):
+From the sample [Amazon EC2 Auto Scaling lifecycle hook](environment-resources.md "environment-resources.md"):
 
 ```
 Resources:

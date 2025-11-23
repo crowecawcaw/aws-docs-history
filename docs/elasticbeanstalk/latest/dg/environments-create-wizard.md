@@ -116,7 +116,7 @@ recommended values for several [configuration options](command-options.md "comma
 
 The **High availability** presets include a load balancer, and are recommended for production environments. Choose them if you want
 an environment that can run multiple instances for high availability and scale in response to load. The **Single instance** presets are
-primarily recommended for development. Two of the presets enable Spot Instance requests. For details about Elastic Beanstalk capacity configuration, see [Auto Scaling group](using-features.managing.md "using-features.managing.md").
+primarily recommended for development. Two of the presets enable Spot Instance requests. For details about Elastic Beanstalk capacity configuration, see [Amazon EC2 Auto Scaling group](using-features.managing.md "using-features.managing.md").
 
 The last preset, **Custom configuration**, removes all recommended values except role settings and uses the API defaults. Choose
 this option if you are deploying a source bundle with [configuration files](ebextensions.md "ebextensions.md") that set configuration options.
@@ -162,7 +162,7 @@ Use the **Modify instances** configuration page to configure the Amazon EC2 inst
 
 #### Capacity
 
-Use the **Modify capacity** configuration page to configure the compute capacity of your environment and **Auto Scaling
+Use the **Modify capacity** configuration page to configure the compute capacity of your environment and **Amazon EC2 Auto Scaling
 group** settings to optimize the number and type of instances you're using. You can also change your environment capacity based on triggers
 or on a schedule.
 
@@ -176,7 +176,7 @@ A single-instance environment isn't production ready. If the instance becomes un
 instance during a configuration update, your application can be unavailable for a period of time. Use single-instance environments for development,
 testing, or staging. Use load-balanced environments for production.
 
-For more information about environment capacity settings, see [Auto Scaling your Elastic Beanstalk environment instances](using-features.managing.md "using-features.managing.md") and [The Amazon EC2 instances for your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+For more information about environment capacity settings, see [Amazon EC2 Auto Scaling your Elastic Beanstalk environment instances](using-features.managing.md "using-features.managing.md") and [The Amazon EC2 instances for your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
 
 ![Modify capacity configuration page](images/wizard-capacity.png)
 

@@ -41,7 +41,7 @@ You can create a custom VPC in one of the following ways:
      use case requires a specific number of subnets. For more information, see [VPCs and
      subnets](../../../vpc/latest/userguide/VPC_Subnets.md "../../../vpc/latest/userguide/VPC_Subnets.md").
     * Create a VPC using the [elastic-beanstalk-samples](https://github.com/awsdocs/elastic-beanstalk-samples/ "https://github.com/awsdocs/elastic-beanstalk-samples/") repository on the GitHub website if you prefer to use AWS CloudFormation templates with your Elastic Beanstalk
-     environments. This repository includes AWS CloudFormation templates. For more information, see [Using Elastic Beanstalk with Amazon VPC](vpc.md "vpc.md").
+     environments. This repository includes CloudFormation templates. For more information, see [Using Elastic Beanstalk with Amazon VPC](vpc.md "vpc.md").
 
 ###### Note
 
@@ -94,7 +94,7 @@ Before you begin, you must have a VPC. You can create a non-default (custom) VPC
   use case requires a specific number of subnets. For more information, see [VPCs and
   subnets](../../../vpc/latest/userguide/VPC_Subnets.md "../../../vpc/latest/userguide/VPC_Subnets.md").
 - Create a VPC using the [elastic-beanstalk-samples](https://github.com/awsdocs/elastic-beanstalk-samples/ "https://github.com/awsdocs/elastic-beanstalk-samples/") repository on the GitHub website if you prefer to use AWS CloudFormation templates with your Elastic Beanstalk
-  environments. This repository includes AWS CloudFormation templates. For more information, see [Using Elastic Beanstalk with Amazon VPC](vpc.md "vpc.md").
+  environments. This repository includes CloudFormation templates. For more information, see [Using Elastic Beanstalk with Amazon VPC](vpc.md "vpc.md").
   In the following steps, you use the generated VPC ID and subnet IDs when you configure the VPC in the new environment.
 
 1. Create a new environment that includes the same configuration as your existing environment. You can do this by using one of the following

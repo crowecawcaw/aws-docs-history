@@ -198,10 +198,10 @@ to it, serves static assets, and generates access and error logs.
   code, logs, and other artifacts that are created when you use Elastic Beanstalk.
 - **Amazon CloudWatch alarms** – Two CloudWatch alarms that monitor
   the load on the instances in your environment and are triggered if the load is too high or too
-  low. When an alarm is triggered, your Auto Scaling group scales up or down in response.
-- **AWS CloudFormation stack** – Elastic Beanstalk uses AWS CloudFormation to launch the
+  low. When an alarm is triggered, your Amazon EC2 Auto Scaling group scales up or down in response.
+- **CloudFormation stack** – Elastic Beanstalk uses CloudFormation to launch the
   resources in your environment and propagate configuration changes. The resources are defined
-  in a template that you can view in the [AWS CloudFormation
+  in a template that you can view in the [CloudFormation
   console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
 - **Domain name** – A domain name that routes to your
   web app in the form

@@ -94,13 +94,13 @@ queue to see why they are failing.
 
 ## Other resources
 
-_4 active instances is below Auto Scaling group minimum size 5_
+_4 active instances is below Amazon EC2 Auto Scaling group minimum size 5_
 
 The number of instances running in your environment is fewer than the minimum configured
-for the Auto Scaling group.
+for the Amazon EC2 Auto Scaling group.
 
-_Auto Scaling group (groupname) notifications have been deleted or
+_Amazon EC2 Auto Scaling group (groupname) notifications have been deleted or
 modified_
 
-The notifications configured for your Auto Scaling group have been modified outside of
+The notifications configured for your Amazon EC2 Auto Scaling group have been modified outside of
 Elastic Beanstalk.

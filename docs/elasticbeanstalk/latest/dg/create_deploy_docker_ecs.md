@@ -18,7 +18,7 @@ running Docker containers. Elastic Beanstalk takes care of Amazon ECS tasks incl
 environment run the same set of containers, which are defined in a `Dockerrun.aws.json` v2 file. In order to get the most out of Docker, Elastic Beanstalk
 lets you create an environment where your Amazon EC2 instances run multiple Docker containers side by side.
 
-The following diagram shows an example Elastic Beanstalk environment configured with three Docker containers running on each Amazon EC2 instance in an Auto Scaling
+The following diagram shows an example Elastic Beanstalk environment configured with three Docker containers running on each Amazon EC2 instance in an Amazon EC2 Auto Scaling
 group:
 
 ![Elastic Beanstalk environment with load balancer, auto scaling group, and containerized tasks.](images/aeb-multicontainer-docker-example.png)
@@ -29,7 +29,7 @@ When you create an environment using the ECS managed Docker platform, Elastic Be
 building the environment. In doing so, it creates the necessary containers on each Amazon EC2 instance.
 
 - **Amazon ECS Cluster** – Container instances in Amazon ECS are organized into clusters. When used with Elastic Beanstalk, one cluster
-  is always created for each ECS managed Docker environment. An ECS cluster also contains Auto Scaling group capacity providers and other
+  is always created for each ECS managed Docker environment. An ECS cluster also contains Amazon EC2 Auto Scaling group capacity providers and other
   resources.
 - **Amazon ECS Task Definition** – Elastic Beanstalk uses the `Dockerrun.aws.json` v2 in your project to generate the
   Amazon ECS task definition that is used to configure container instances in the environment.

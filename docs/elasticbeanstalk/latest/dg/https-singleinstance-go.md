@@ -114,7 +114,7 @@ server {
 
 In a single instance environment, you must also modify the
 instance's security group to allow traffic on port 443. The following configuration file
-retrieves the security group's ID using an AWS CloudFormation [function](ebextensions-functions.md "ebextensions-functions.md") and adds a rule to it.
+retrieves the security group's ID using an CloudFormation [function](ebextensions-functions.md "ebextensions-functions.md") and adds a rule to it.
 
 ###### Example .ebextensions/https-instance-single.config
 

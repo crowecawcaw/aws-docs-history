@@ -44,7 +44,7 @@ This policy is grouped into statements based on the set of permissions provided.
 - _`ElasticBeanstalkPermissions`_ – This group of permissions is for calling the Elastic Beanstalk service actions (Elastic Beanstalk
   APIs).
 - _`AllowPassRoleToElasticBeanstalkAndDownstreamServices`_ – This group of permissions allows any role to be
-  passed to Elastic Beanstalk and to other downstream services like AWS CloudFormation.
+  passed to Elastic Beanstalk and to other downstream services like CloudFormation.
 - _`ReadOnlyPermissions`_ – This group of permissions is for collecting information about the running
   environment.
 - *`*OperationPermissions`\* – Groups with this naming pattern are for calling the necessary operations to perform

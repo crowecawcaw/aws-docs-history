@@ -27,7 +27,7 @@ response status.
 
 This configuration depends on your environment's platform. Find the folder for your platform in the [`https-redirect`](https://github.com/awsdocs/elastic-beanstalk-samples/tree/master/configuration-files/aws-provided/security-configuration/https-redirect "https://github.com/awsdocs/elastic-beanstalk-samples/tree/master/configuration-files/aws-provided/security-configuration/https-redirect") collection on GitHub, and use the example configuration file in that folder.
 
-If your environment uses [Elastic Load Balancing health checks](using-features.md#using-features.healthstatus.understanding "using-features.md#using-features.healthstatus.understanding"), the load balancer expects a healthy
+If your environment uses [ELB health checks](using-features.md#using-features.healthstatus.understanding "using-features.md#using-features.healthstatus.understanding"), the load balancer expects a healthy
 instance to respond to the HTTP health check messages with HTTP 200 (OK) responses. Therefore, your web server shouldn't redirect these messages to HTTPS.
 The example configuration files in [`https-redirect`](https://github.com/awsdocs/elastic-beanstalk-samples/tree/master/configuration-files/aws-provided/security-configuration/https-redirect "https://github.com/awsdocs/elastic-beanstalk-samples/tree/master/configuration-files/aws-provided/security-configuration/https-redirect") handle this requirement correctly.
 

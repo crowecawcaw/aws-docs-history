@@ -35,7 +35,7 @@ For more information, see [Migrating your Elastic Beanstalk Linux application to
 ### Amazon Linux 2023
 
 AWS announced the [general
-availability](https://aws.amazon.com/blogs/aws/amazon-linux-2023-a-cloud-optimized-linux-distribution-with-long-term-support/ "https://aws.amazon.com/blogs/aws/amazon-linux-2023-a-cloud-optimized-linux-distribution-with-long-term-support/") of Amazon Linux 2023 in March of 2023. The _Amazon Linux 2023 User Guide_ summarizes key differences between
+availability](https://aws.amazon.com//blogs/aws/amazon-linux-2023-a-cloud-optimized-linux-distribution-with-long-term-support/ "https://aws.amazon.com//blogs/aws/amazon-linux-2023-a-cloud-optimized-linux-distribution-with-long-term-support/") of Amazon Linux 2023 in March of 2023. The _Amazon Linux 2023 User Guide_ summarizes key differences between
 Amazon Linux 2 and Amazon Linux 2023. For more information, see [Comparing
 Amazon Linux 2 and Amazon Linux 2023](../../../linux/al2023/ug/compare-with-al2.md "../../../linux/al2023/ug/compare-with-al2.md") in the user guide.
 

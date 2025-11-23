@@ -25,11 +25,11 @@ your environment without further delay.
 
 ## Why the error occurs
 
-When you deploy an application in Elastic Beanstalk, the service creates an underlying AWS CloudFormation stack. Elastic Beanstalk calls the AWS CloudFormation service to launch the resources in
+When you deploy an application in Elastic Beanstalk, the service creates an underlying AWS CloudFormation stack. Elastic Beanstalk calls the CloudFormation service to launch the resources in
 your environment and propagate configuration changes.
 
 If Elastic Beanstalk performs an operation on an environment without having access to a required resource, the environment’s underlying CloudFormation stack can enter
-a failed state. Other issues can also lead to this state, although permission issues are the primary cause. As a result of the stack’s failed state, AWS CloudFormation
+a failed state. Other issues can also lead to this state, although permission issues are the primary cause. As a result of the stack’s failed state, CloudFormation
 blocks Elastic Beanstalk operation requests from performing further stack updates, causing the failure of Elastic Beanstalk operations, such as UpdateEnvironment and
 RetrieveEnvironmentInfo.
 

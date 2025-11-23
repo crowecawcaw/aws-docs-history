@@ -17,7 +17,7 @@ can cause your application to become unavailable. For more information, see [Enh
 ## Amazon EC2 instance logs
 
 The Amazon EC2 instances in your Elastic Beanstalk environment generate logs that you can view to troubleshoot issues with your application or configuration files. Logs
-created by the web server, application server, Elastic Beanstalk platform scripts, and AWS CloudFormation are stored locally on individual instances. You can easily retrieve them by
+created by the web server, application server, Elastic Beanstalk platform scripts, and CloudFormation are stored locally on individual instances. You can easily retrieve them by
 using the [environment management console](environments-console.md "environments-console.md") or the EB CLI. You can also configure your environment to stream logs
 to Amazon CloudWatch Logs in real time. For more information, see [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.md "using-features.md").
 

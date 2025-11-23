@@ -33,10 +33,6 @@ The following table lists upcoming Elastic Beanstalk platform branches and their
 
 | Runtime version / platform branch | Operating System  | Target release date |
 | --------------------------------- | ----------------- | ------------------- |
-| Corretto 25                       | Amazon Linux 2023 | October 2025        |
-| Corretto 25 with Tomcat 11        | Amazon Linux 2023 | October 2025        |
-| Python 3.14                       | Amazon Linux 2023 | November 2025       |
-| Node.js 24                        | Amazon Linux 2023 | November 2025       |
 | .NET 10                           | Amazon Linux 2023 | December 2025       |
 | PHP 8.5                           | Amazon Linux 2023 | January 2026        |
 | Ruby 3.5                          | Amazon Linux 2023 | February 2026       |

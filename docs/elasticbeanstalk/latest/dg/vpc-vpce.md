@@ -5,7 +5,7 @@ also provides instructions to create an interface VPC endpoint to an Elastic Bea
 
 A VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC
 endpoint services powered by AWS PrivateLink, without requiring an internet gateway, NAT device,
-VPN connection, or AWS Direct Connect connection.
+VPN connection, or Direct Connect connection.
 
 Instances in your VPC don't require public IP addresses to communicate with resources in the
 service. Traffic between your VPC and the other service doesn't leave the Amazon network. For
@@ -50,7 +50,7 @@ endpoints](../../../general/latest/gr/elasticbeanstalk.md#elasticbeanstalk_regio
 
 ###### Requests to Elastic Beanstalk
 
-When you send requests to the Elastic Beanstalk service with the [AWS CLI](../../../cli/latest/reference/elasticbeanstalk.md "../../../cli/latest/reference/elasticbeanstalk.md") or the [AWS SDK](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/") you can specify an IPv4 endpoint or a dual-stack
+When you send requests to the Elastic Beanstalk service with the [AWS CLI](../../../cli/latest/reference/elasticbeanstalk.md "../../../cli/latest/reference/elasticbeanstalk.md") or the [AWS SDK](https://aws.amazon.com//developer/tools/ "https://aws.amazon.com//developer/tools/") you can specify an IPv4 endpoint or a dual-stack
 endpoint. The AWS CLI and AWS SDK use the IPv4-only endpoints by default if an endpoint URL
 isn't specified.
 
@@ -81,7 +81,7 @@ print(dual_stack_eb_client.list_available_solution_stacks())
 
 To configure your Elastic Beanstalk VPC endpoints to support dual-stack traffic, specify
 **dualstack** for the **IP address type** parameter of
-the VPC endpoint. You can specify this field via the [AWS CLI](../../../cli/latest/reference/elasticbeanstalk.md "../../../cli/latest/reference/elasticbeanstalk.md"), the [AWS SDK](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/"), or the AWS PrivateLink console. For instructions
+the VPC endpoint. You can specify this field via the [AWS CLI](../../../cli/latest/reference/elasticbeanstalk.md "../../../cli/latest/reference/elasticbeanstalk.md"), the [AWS SDK](https://aws.amazon.com//developer/tools/ "https://aws.amazon.com//developer/tools/"), or the AWS PrivateLink console. For instructions
 to do so in the AWS PrivateLink console, see [Create a VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md")
 in the _AWS PrivateLink Guide_.
 

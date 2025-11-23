@@ -1,7 +1,7 @@
-# Other AWS CloudFormation template keys
+# Other CloudFormation template keys
 
-We've already introduced configuration file keys from AWS CloudFormation such as `Resources`, `files`, and `packages`. Elastic Beanstalk adds the
-contents of configurations files to the AWS CloudFormation template that supports your environment, so you can use other AWS CloudFormation sections to perform advanced tasks in your
+We've already introduced configuration file keys from CloudFormation such as `Resources`, `files`, and `packages`. Elastic Beanstalk adds the
+contents of configurations files to the CloudFormation template that supports your environment, so you can use other CloudFormation sections to perform advanced tasks in your
 configuration files.
 
 ###### Keys
@@ -14,10 +14,10 @@ configuration files.
 
 Parameters are an alternative to Elastic Beanstalk's own [custom options](configuration-options-custom.md "configuration-options-custom.md") that you can use to define values that
 you use in other places in your configuration files. Like custom options, you can use parameters to gather user configurable values in one place. Unlike
-custom options, you can not use Elastic Beanstalk's API to set parameter values, and the number of parameters you can define in a template is limited by AWS CloudFormation.
+custom options, you can not use Elastic Beanstalk's API to set parameter values, and the number of parameters you can define in a template is limited by CloudFormation.
 
-One reason you might want to use parameters is to make your configuration files double as AWS CloudFormation templates. If you use parameters instead of custom
-options, you can use the configuration file to create the same resource in AWS CloudFormation as its own stack. For example, you could have a configuration file that
+One reason you might want to use parameters is to make your configuration files double as CloudFormation templates. If you use parameters instead of custom
+options, you can use the configuration file to create the same resource in CloudFormation as its own stack. For example, you could have a configuration file that
 adds an Amazon EFS file system to your environment for testing, and then use the same file to create an independent file system that isn't tied to your
 environment's lifecycle for production use.
 
@@ -39,10 +39,10 @@ Parameters:
 
 ## Outputs
 
-You can use an `Outputs` block to export information about created resources to AWS CloudFormation. You can then use the `Fn::ImportValue`
-function to pull the value into a AWS CloudFormation template outside of Elastic Beanstalk.
+You can use an `Outputs` block to export information about created resources to CloudFormation. You can then use the `Fn::ImportValue`
+function to pull the value into a CloudFormation template outside of Elastic Beanstalk.
 
-The following example creates an Amazon SNS topic and exports its ARN to AWS CloudFormation with the name `NotificationTopicArn`.
+The following example creates an Amazon SNS topic and exports its ARN to CloudFormation with the name `NotificationTopicArn`.
 
 ###### Example [sns-topic.config](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/resource-configuration/sns-topic.config "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/resource-configuration/sns-topic.config")
 
@@ -59,7 +59,7 @@ Outputs:
       Name: NotificationTopicArn
 ```
 
-In a configuration file for a different environment, or a AWS CloudFormation template outside of Elastic Beanstalk, you can use the `Fn::ImportValue` function to
+In a configuration file for a different environment, or a CloudFormation template outside of Elastic Beanstalk, you can use the `Fn::ImportValue` function to
 get the exported ARN. This example assigns the exported value to an environment property named `TOPIC_ARN`.
 
 ###### Example env.config

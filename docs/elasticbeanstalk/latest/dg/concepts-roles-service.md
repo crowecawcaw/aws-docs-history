@@ -1,7 +1,7 @@
 # Elastic Beanstalk service role
 
 A service role is the IAM role that Elastic Beanstalk assumes when calling other services on your
-behalf. For example, Elastic Beanstalk uses a service role when it calls Amazon Elastic Compute Cloud (Amazon EC2), Elastic Load Balancing, and
+behalf. For example, Elastic Beanstalk uses a service role when it calls Amazon Elastic Compute Cloud (Amazon EC2), ELB, and
 Amazon EC2 Auto Scaling APIs to gather information. The service role that Elastic Beanstalk uses is the one that you
 specified when you create the Elastic Beanstalk environment.
 
@@ -29,7 +29,7 @@ This policy is grouped into statements based on the set of permissions provided.
 - _`ElasticBeanstalkPermissions`_ – This group of permissions is for calling the Elastic Beanstalk service actions (Elastic Beanstalk
   APIs).
 - _`AllowPassRoleToElasticBeanstalkAndDownstreamServices`_ – This group of permissions allows any role to be
-  passed to Elastic Beanstalk and to other downstream services like AWS CloudFormation.
+  passed to Elastic Beanstalk and to other downstream services like CloudFormation.
 - _`ReadOnlyPermissions`_ – This group of permissions is for collecting information about the running
   environment.
 - *`*OperationPermissions`\* – Groups with this naming pattern are for calling the necessary operations to perform

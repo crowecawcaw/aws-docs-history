@@ -188,7 +188,7 @@ Be aware of the following details regarding the platform branch version that you
     * Replace ``x.y.z`` in the following command with the latest version of the platform branch *.NET 6 on
      AL2023*.
     * To locate the latest platform branch version see [.NET Core on
-     Linux](../../../https:/docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.md#platforms-supported.dotnetlinux "../../../https:/docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.md#platforms-supported.dotnetlinux")
+     Linux](../platforms/platforms-supported.md#platforms-supported.dotnetlinux "../platforms/platforms-supported.md#platforms-supported.dotnetlinux")
     *Supported platforms* in the *AWS Elastic Beanstalk Platforms* guide.
     * An example of a solution stack name that includes the version number is `64bit-amazon-linux-2023-v**3.1.1**-running-.net-6`. In this example the branch version is *3.1.1*.
 
@@ -261,10 +261,10 @@ to it, serves static assets, and generates access and error logs.
   code, logs, and other artifacts that are created when you use Elastic Beanstalk.
 - **Amazon CloudWatch alarms** – Two CloudWatch alarms that monitor
   the load on the instances in your environment and are triggered if the load is too high or too
-  low. When an alarm is triggered, your Auto Scaling group scales up or down in response.
-- **AWS CloudFormation stack** – Elastic Beanstalk uses AWS CloudFormation to launch the
+  low. When an alarm is triggered, your Amazon EC2 Auto Scaling group scales up or down in response.
+- **CloudFormation stack** – Elastic Beanstalk uses CloudFormation to launch the
   resources in your environment and propagate configuration changes. The resources are defined
-  in a template that you can view in the [AWS CloudFormation
+  in a template that you can view in the [CloudFormation
   console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
 - **Domain name** – A domain name that routes to your
   web app in the form

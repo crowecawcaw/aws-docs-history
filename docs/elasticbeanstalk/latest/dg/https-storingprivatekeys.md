@@ -31,7 +31,7 @@ files:
 ```
 
 Replace the bucket name and URL in the example with your own. The first entry in this file adds an authentication method named `S3Auth` to
-the environment's Auto Scaling group's metadata. If you have configured a custom [instance profile](concepts-roles-instance.md "concepts-roles-instance.md") for your
+the environment's Amazon EC2 Auto Scaling group's metadata. If you have configured a custom [instance profile](concepts-roles-instance.md "concepts-roles-instance.md") for your
 environment, that will be used, otherwise the default value of `aws-elasticbeanstalk-ec2-role` is applied. The default instance profile
 has permission to read from the Elastic Beanstalk storage bucket. If you use a different bucket, [add
 permissions to the instance profile](iam-instanceprofile.md#iam-instanceprofile-addperms "iam-instanceprofile.md#iam-instanceprofile-addperms").

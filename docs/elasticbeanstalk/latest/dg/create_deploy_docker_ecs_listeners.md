@@ -1,10 +1,10 @@
-# Using multiple Elastic Load Balancing listeners
+# Using multiple ELB listeners
 
-You can configure multiple Elastic Load Balancing listeners on a ECS managed Docker environment in order to support inbound traffic for proxies or other services that
+You can configure multiple ELB listeners on a ECS managed Docker environment in order to support inbound traffic for proxies or other services that
 don't run on the default HTTP port.
 
 Create a `.ebextensions` folder in your source bundle and add a file with a `.config` file extension. The
-following example shows a configuration file that creates an Elastic Load Balancing listener on port 8080.
+following example shows a configuration file that creates an ELB listener on port 8080.
 
 **`.ebextensions/elb-listener.config`**
 
@@ -36,7 +36,7 @@ Resources:
 
 For more information on the configuration file format, see [Adding and customizing Elastic Beanstalk environment resources](environment-resources.md "environment-resources.md") and [Option settings](ebextensions-optionsettings.md "ebextensions-optionsettings.md").
 
-In addition to adding a listener to the Elastic Load Balancing configuration and opening a port in the security group, you need to map the port on the host instance
+In addition to adding a listener to the ELB configuration and opening a port in the security group, you need to map the port on the host instance
 to a port on the Docker container in the `containerDefinitions` section of the `Dockerrun.aws.json` v2 file. The following
 excerpt shows an example:
 

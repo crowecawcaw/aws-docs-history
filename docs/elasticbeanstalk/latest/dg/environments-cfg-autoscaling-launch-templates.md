@@ -8,9 +8,9 @@ Accounts created prior to that date might have launch configurations.
 We recommend migrating to **launch templates** for the following benefits:
 
 - Improved availability for your applications
-- Better optimization of workloads in your Auto Scaling groups
-- Access to the latest EC2 and Auto Scaling features
-  For more information, see [Auto Scaling
+- Better optimization of workloads in your Amazon EC2 Auto Scaling groups
+- Access to the latest EC2 and Amazon EC2 Auto Scaling features
+  For more information, see [Amazon EC2 Auto Scaling
   launch configurations](../../../autoscaling/ec2/userguide/launch-configurations.md "../../../autoscaling/ec2/userguide/launch-configurations.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 ## Option settings for
@@ -111,7 +111,7 @@ For more information, see [Managing Elastic Beanstalk service roles](iam-service
 
 templates
 
-To learn more about launch templates, see [Auto Scaling launch templates](../../../autoscaling/ec2/userguide/launch-templates.md "../../../autoscaling/ec2/userguide/launch-templates.md") in
+To learn more about launch templates, see [Amazon EC2 Auto Scaling launch templates](../../../autoscaling/ec2/userguide/launch-templates.md "../../../autoscaling/ec2/userguide/launch-templates.md") in
 the _Amazon EC2 Auto Scaling User Guide_.
 
 To learn more about the AWS transition to launch templates and the benefits they

@@ -7,11 +7,11 @@ upgrade that environment to a load-balanced, scalable environment when the appli
 ###### Note
 
 A worker environment tier for a web application that processes background tasks doesn't include a load balancer. However, a worker environment does
-effectively scale out by adding instances to the Auto Scaling group to process data from the Amazon SQS queue when the load necessitates it.
+effectively scale out by adding instances to the Amazon EC2 Auto Scaling group to process data from the Amazon SQS queue when the load necessitates it.
 
 ## Load-balanced, scalable environment
 
-A load-balanced and scalable environment uses the Elastic Load Balancing and Amazon EC2 Auto Scaling services to provision the Amazon EC2 instances that are required for your deployed
+A load-balanced and scalable environment uses the ELB and Amazon EC2 Auto Scaling services to provision the Amazon EC2 instances that are required for your deployed
 application. Amazon EC2 Auto Scaling automatically starts additional instances to accommodate increasing load on your application. If the load on your application decreases,
 Amazon EC2 Auto Scaling stops instances but always leaves your specified minimum number of instances running. If your application requires scalability with the option of
 running in multiple Availability Zones, use a load-balanced, scalable environment. If you're not sure which environment type to select, you can pick
@@ -45,9 +45,9 @@ scalable environment so that it can scale to meet the demands of your customers.
 4. In the **Capacity** category, choose **Edit**.
 5. From the **Environment Type** list, select the type of environment that you want.
 
-![The Auto Scaling group section of the modify capacity page](images/using-features-managing-env-types.png) 6. Choose **Save**.
+![The Amazon EC2 Auto Scaling group section of the modify capacity page](images/using-features-managing-env-types.png) 6. Choose **Save**.
 
 It can take several minutes for the environment to update while Elastic Beanstalk provisions AWS resources.
 
-If your environment is in a VPC, select subnets to place Elastic Load Balancing and Amazon EC2 instances in. Each Availability Zone that your application runs in must have
+If your environment is in a VPC, select subnets to place ELB and Amazon EC2 instances in. Each Availability Zone that your application runs in must have
 both. See [Using Elastic Beanstalk with Amazon VPC](vpc.md "vpc.md") for details.

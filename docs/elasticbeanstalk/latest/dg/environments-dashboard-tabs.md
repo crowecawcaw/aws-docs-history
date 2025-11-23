@@ -62,7 +62,7 @@ For more information, see [Viewing logs from Amazon EC2 instances in your Elasti
 ## Monitoring
 
 The **Monitoring** page shows an overview of health information for your environment. This includes the default set of metrics
-provided by Elastic Load Balancing and Amazon EC2, and graphs that show how the environment's health has changed over time.
+provided by ELB and Amazon EC2, and graphs that show how the environment's health has changed over time.
 
 For more information, see [Monitoring environment health in the AWS management console](environment-health-console.md "environment-health-console.md").
 

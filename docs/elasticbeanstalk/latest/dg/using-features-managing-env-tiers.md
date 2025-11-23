@@ -156,7 +156,7 @@ For periodic tasks, the worker daemon sets the following additional headers.
 ## Use Amazon CloudWatch for automatic scaling in worker environment tiers
 
 Together, Amazon EC2 Auto Scaling and CloudWatch monitor the CPU utilization of the running instances in the worker environment. How you configure the automatic scaling limit
-for CPU capacity determines how many instances the Auto Scaling group runs to appropriately manage the throughput of messages in the Amazon SQS queue. Each EC2
+for CPU capacity determines how many instances the Amazon EC2 Auto Scaling group runs to appropriately manage the throughput of messages in the Amazon SQS queue. Each EC2
 instance publishes its CPU utilization metrics to CloudWatch. Amazon EC2 Auto Scaling retrieves from CloudWatch the average CPU usage across all instances in the worker
 environment. You configure the upper and lower threshold as well as how many instances to add or terminate according to CPU capacity. When Amazon EC2 Auto Scaling
 detects that you have reached the specified upper threshold on CPU capacity, Elastic Beanstalk creates new instances in the worker environment. The instances are
@@ -168,7 +168,7 @@ Messages that have not been processed at the time an instance is terminated are 
 to the queue where they can be processed by another daemon on an instance that is still
 running.
 
-You can also set other CloudWatch alarms, as needed, by using the Elastic Beanstalk console, CLI, or the options file. For more information, see [Using Elastic Beanstalk with Amazon CloudWatch](AWSHowTo.md "AWSHowTo.md") and [Create an Auto Scaling group with Step Scaling Policies](../../../autoscaling/ec2/userguide/as-scaling-simple-step.md#policy-creating-asg-console "../../../autoscaling/ec2/userguide/as-scaling-simple-step.md#policy-creating-asg-console").
+You can also set other CloudWatch alarms, as needed, by using the Elastic Beanstalk console, CLI, or the options file. For more information, see [Using Elastic Beanstalk with Amazon CloudWatch](AWSHowTo.md "AWSHowTo.md") and [Create an Amazon EC2 Auto Scaling group with Step Scaling Policies](../../../autoscaling/ec2/userguide/as-scaling-simple-step.md#policy-creating-asg-console "../../../autoscaling/ec2/userguide/as-scaling-simple-step.md#policy-creating-asg-console").
 
 ## Configuring worker
 

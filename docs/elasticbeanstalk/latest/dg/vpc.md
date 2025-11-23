@@ -26,12 +26,12 @@ Elastic Beanstalk doesn't support proxy settings like `HTTPS_PROXY` for configur
 - **NTP** – Instances in your Elastic Beanstalk environment use Network Time Protocol (NTP) to synchronize the system clock.
   If instances are unable to communicate on UDP port 123, the clock may go out of sync, causing issues with Elastic Beanstalk health reporting. Ensure that your VPC
   security groups and network ACLs allow inbound and outbound UDP traffic on port 123 to avoid these issues.
-  The [elastic-beanstalk-samples](https://github.com/awsdocs/elastic-beanstalk-samples/ "https://github.com/awsdocs/elastic-beanstalk-samples/") repository provides AWS CloudFormation templates that you can use to create a VPC for use with your Elastic Beanstalk environments.
+  The [elastic-beanstalk-samples](https://github.com/awsdocs/elastic-beanstalk-samples/ "https://github.com/awsdocs/elastic-beanstalk-samples/") repository provides CloudFormation templates that you can use to create a VPC for use with your Elastic Beanstalk environments.
 
-###### To create resources with a AWS CloudFormation template
+###### To create resources with a CloudFormation template
 
 1. Clone the samples repository or download a template using the links in the [README](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/cfn-templates/README.md "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/cfn-templates/README.md").
-2. Open the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/home "https://console.aws.amazon.com/cloudformation/home").
+2. Open the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home "https://console.aws.amazon.com/cloudformation/home").
 3. Choose **Create stack**.
 4. Choose **Upload a template to Amazon S3**.
 5. Choose **Upload file** and upload the template file from your local machine.
@@ -51,7 +51,7 @@ Elastic Beanstalk doesn't support proxy settings like `HTTPS_PROXY` for configur
 
 ## Public VPC
 
-**AWS CloudFormation template** – [vpc-public.yaml](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/cfn-templates/vpc-public.yaml "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/cfn-templates/vpc-public.yaml")
+**CloudFormation template** – [vpc-public.yaml](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/cfn-templates/vpc-public.yaml "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/cfn-templates/vpc-public.yaml")
 
 ###### Settings (load balanced)
 
@@ -84,7 +84,7 @@ instance security groups created by Elastic Beanstalk. It is the least expensive
 
 ## Public/private VPC
 
-**AWS CloudFormation template** – [vpc-privatepublic.yaml](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/cfn-templates/vpc-privatepublic.yaml "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/cfn-templates/vpc-privatepublic.yaml")
+**CloudFormation template** – [vpc-privatepublic.yaml](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/cfn-templates/vpc-privatepublic.yaml "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/cfn-templates/vpc-privatepublic.yaml")
 
 ###### Settings (load balanced)
 
@@ -100,7 +100,7 @@ private subnets can only communicate with the internet through the load balancer
 
 ## Private VPC
 
-**AWS CloudFormation template** – [vpc-private.yaml](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/cfn-templates/vpc-private.yaml "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/cfn-templates/vpc-private.yaml")
+**CloudFormation template** – [vpc-private.yaml](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/cfn-templates/vpc-private.yaml "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/cfn-templates/vpc-private.yaml")
 
 ###### Settings (load balanced)
 

@@ -6,15 +6,15 @@ tier work together.
 ![AWS Elastic Beanstalk web server tier architecture diagram.](images/aeb-architecture2.png)
 The environment is the heart of the application. In the diagram, the environment is shown within the top-level solid line. When you create an
 environment, Elastic Beanstalk provisions the resources required to run your application. AWS resources created for an environment include one elastic load balancer
-(ELB in the diagram), an Auto Scaling group, and one or more Amazon Elastic Compute Cloud (Amazon EC2) instances.
+(ELB in the diagram), an Amazon EC2 Auto Scaling group, and one or more Amazon Elastic Compute Cloud (Amazon EC2) instances.
 
 Every environment has a CNAME (URL) that points to a load balancer. The environment has a URL, such as
-`myapp.us-west-2.elasticbeanstalk.com`. This URL is aliased in [Amazon Route 53](https://aws.amazon.com/route53/ "https://aws.amazon.com/route53/") to an Elastic Load Balancing
+`myapp.us-west-2.elasticbeanstalk.com`. This URL is aliased in [Amazon Route 53](https://aws.amazon.com/route53/ "https://aws.amazon.com/route53/") to an ELB
 URL—something like `abcdef-123456.us-west-2.elb.amazonaws.com`—by using a CNAME record. [Amazon
 Route 53](https://aws.amazon.com/route53/ "https://aws.amazon.com/route53/") is a highly available and scalable Domain Name System (DNS) web service. It provides secure and reliable routing to your infrastructure.
 Your domain name that you registered with your DNS provider will forward requests to the CNAME.
 
-The load balancer sits in front of the Amazon EC2 instances, which are part of an Auto Scaling group. Amazon EC2 Auto Scaling automatically starts additional Amazon EC2 instances to
+The load balancer sits in front of the Amazon EC2 instances, which are part of an Amazon EC2 Auto Scaling group. Amazon EC2 Auto Scaling automatically starts additional Amazon EC2 instances to
 accommodate increasing load on your application. If the load on your application decreases, Amazon EC2 Auto Scaling stops instances, but always leaves at least one
 instance running.
 

@@ -28,12 +28,12 @@ creating an environment.
 
 - Amazon Elastic Compute Cloud
 - Elastic Load Balancing
-- Auto Scaling
+- Amazon EC2 Auto Scaling
 - Amazon CloudWatch
 - Amazon Simple Storage Service
 - Amazon Simple Notification Service
 - Amazon Relational Database Service
-- AWS CloudFormation
+- CloudFormation
 
 Note that this policy is an example. It gives a broad set of permissions to the AWS
 services that Elastic Beanstalk uses to manage applications and environments. For example,

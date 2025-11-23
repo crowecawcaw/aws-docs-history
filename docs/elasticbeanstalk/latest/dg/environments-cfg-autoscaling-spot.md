@@ -12,7 +12,7 @@ options.
 ###### Minimize Spot instance interruptions with Capacity Rebalancing
 
 To help minimize the impact of Spot Instance interruptions to your application, you can
-enable the Capacity Rebalancing option included with Amazon EC2 Auto Scaling.
+enable the Capacity Rebalancing option included with Amazon EC2 Amazon EC2 Auto Scaling.
 
 ###### Important
 
@@ -22,14 +22,14 @@ Amazon EC2 instances are available. It's always possible that your Spot Instance
 interrupted.
 
 When you enable Capacity Rebalancing, EC2 automatically attempts to replace Spot Instances
-in an Auto Scaling group before they are interrupted. To enable this feature use the Elastic Beanstalk console to
+in an Amazon EC2 Auto Scaling group before they are interrupted. To enable this feature use the Elastic Beanstalk console to
 [configure the Auto Scaling
 group](environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-console "environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-console"). Alternatively, you can set the Elastic Beanstalk `EnableCapacityRebalancing`
 [configuration option](environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-namespace "environments-cfg-autoscaling-configuration-approaches.md#environments-cfg-autoscaling-namespace") to
 `true` in the [aws:autoscaling:asg](command-options-general.md#command-options-general-autoscalingasg "command-options-general.md#command-options-general-autoscalingasg") namespace.
 
 For more information, see [Capacity Rebalancing](../../../autoscaling/ec2/userguide/capacity-rebalance.md "../../../autoscaling/ec2/userguide/capacity-rebalance.md") in the
-_Amazon EC2 Auto Scaling User Guide_ and [Spot Instance Interruptions](../../../AWSEC2/latest/UserGuide/spot-interruptions.md "../../../AWSEC2/latest/UserGuide/spot-interruptions.md") in the
+_Amazon EC2 Amazon EC2 Auto Scaling User Guide_ and [Spot Instance Interruptions](../../../AWSEC2/latest/UserGuide/spot-interruptions.md "../../../AWSEC2/latest/UserGuide/spot-interruptions.md") in the
 _Amazon EC2 User Guide_.
 
 ###### Older Instance Types and Spot Instance Support

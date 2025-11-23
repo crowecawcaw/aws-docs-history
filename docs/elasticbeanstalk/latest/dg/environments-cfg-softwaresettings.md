@@ -118,18 +118,18 @@ option_settings:
     API_ENDPOINT: www.example.com/api
 ```
 
-If you use configuration files or AWS CloudFormation templates to create [custom resources](environment-resources.md "environment-resources.md"), you can use an AWS CloudFormation
+If you use configuration files or CloudFormation templates to create [custom resources](environment-resources.md "environment-resources.md"), you can use an CloudFormation
 function to get information about the resource and assign it to an environment property dynamically during deployment. The following example from the
 [elastic-beanstalk-samples](https://github.com/awsdocs/elastic-beanstalk-samples/ "https://github.com/awsdocs/elastic-beanstalk-samples/") GitHub repository uses the [Ref function](ebextensions-functions.md "ebextensions-functions.md") to
 get the ARN of an Amazon SNS topic that it creates, and assigns it to an environment property named `NOTIFICATION_TOPIC`.
 
 ###### Notes
 
-- If you use an AWS CloudFormation function to define an environment property, the Elastic Beanstalk console displays the value of the property before the function is
+- If you use an CloudFormation function to define an environment property, the Elastic Beanstalk console displays the value of the property before the function is
   evaluated. You can use the [get-config platform script](custom-platforms-scripts.md "custom-platforms-scripts.md") to confirm the values of environment
   properties that are available to your application.
-- The [Multicontainer Docker](create_deploy_docker_ecs.md "create_deploy_docker_ecs.md") platform doesn't use AWS CloudFormation to create container resources. As a result, this
-  platform doesn't support defining environment properties using AWS CloudFormation functions.
+- The [Multicontainer Docker](create_deploy_docker_ecs.md "create_deploy_docker_ecs.md") platform doesn't use CloudFormation to create container resources. As a result, this
+  platform doesn't support defining environment properties using CloudFormation functions.
 
 ###### Example .Ebextensions/[sns-topic.config](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/resource-configuration/sns-topic.config "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/resource-configuration/sns-topic.config")
 
@@ -143,7 +143,7 @@ option_settings:
     NOTIFICATION_TOPIC: '`{"Ref" : "NotificationTopic"}`'
 ```
 
-You can also use this feature to propagate information from [AWS CloudFormation pseudo parameters](../../../AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.md "../../../AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.md").
+You can also use this feature to propagate information from [CloudFormation pseudo parameters](../../../AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.md "../../../AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.md").
 This example gets the current region and assigns it to a property named `AWS_REGION`.
 
 ###### Example .Ebextensions/[env-regionname.config](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/instance-configuration/env-regionname.config "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/instance-configuration/env-regionname.config")
