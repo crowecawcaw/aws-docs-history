@@ -1,6 +1,6 @@
 # The template to create AMS roles
 
-The following AMS role grants permissions to your AMS cloud architect (CA). The following zip file contains Terraform code and AWS CloudFormation template that simplifies creating
+The following AMS role grants permissions to your AMS cloud architect (CA). The following zip file contains Terraform code and CloudFormation template that simplifies creating
 the IAM role, permissions policy, and trust policy. For more information, consult with your CA.
 
 | Role Name                             | Required by                          | Sample Templates                                                                                       |
@@ -9,5 +9,5 @@ the IAM role, permissions policy, and trust policy. For more information, consul
 
 ###### Note
 
-After you select and download a sample template (one per role), you will upload these as definitions of AWS CloudFormation stacks in
-[Create aws_managedservices_onboarding_role with AWS CloudFormation for Accelerate](acc-onb-create-roles-with-cf.md "acc-onb-create-roles-with-cf.md").
+After you select and download a sample template (one per role), you will upload these as definitions of CloudFormation stacks in
+[Create aws_managedservices_onboarding_role with CloudFormation for Accelerate](acc-onb-create-roles-with-cf.md "acc-onb-create-roles-with-cf.md").

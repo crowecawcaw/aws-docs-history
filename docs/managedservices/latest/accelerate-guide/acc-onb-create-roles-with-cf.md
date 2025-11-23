@@ -1,6 +1,6 @@
-# Create `aws_managedservices_onboarding_role` with AWS CloudFormation for Accelerate
+# Create `aws_managedservices_onboarding_role` with CloudFormation for Accelerate
 
-You can create the AWS Identity and Access Management role, `aws_managedservices_onboarding_role`, with AWS CloudFormation from the AWS Management Console. Or, you can use commands from AWS CloudShell to deploy the role.
+You can create the AWS Identity and Access Management role, `aws_managedservices_onboarding_role`, with CloudFormation from the AWS Management Console. Or, you can use commands from AWS CloudShell to deploy the role.
 
 ###### Note
 
@@ -9,7 +9,7 @@ Before starting, have a JSON or YAML file for each role ready to upload. For mor
 
 To create the role from the AWS Management Console, complete the following steps:
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 
 ![CloudFormation Stacks interface showing no stacks and options to create or view guide.](images/image1.png) 2. Choose **Create Stack > With new resources (standard)**. You see the following page.

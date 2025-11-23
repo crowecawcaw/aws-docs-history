@@ -25,6 +25,6 @@ For more information on limits, see [AWS Systems Manager endpoints and quotas](.
 ###### Topics
 
 - [Create a recurring "Patch Tuesday" maintenance window from the AMS console (recommended)](acc-p-maint-window-ams-console.md "acc-p-maint-window-ams-console.md")
-- [Create a patch maintenance window using AWS CloudFormation for AMS Accelerate](acc-p-maint-window-cfn.md "acc-p-maint-window-cfn.md")
+- [Create a patch maintenance window using CloudFormation for AMS Accelerate](acc-p-maint-window-cfn.md "acc-p-maint-window-cfn.md")
 - [Create a maintenance window from the Systems Manager console for AMS Accelerate](acc-p-maint-window-console.md "acc-p-maint-window-console.md")
 - [Create a maintenance window with the Systems Manager command line interface (CLI) for AMS Accelerate](acc-p-maint-window-cli.md "acc-p-maint-window-cli.md")

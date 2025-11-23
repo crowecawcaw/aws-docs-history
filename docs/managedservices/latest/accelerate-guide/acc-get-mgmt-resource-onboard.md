@@ -11,10 +11,10 @@ and a Service Level Agreement (SLA).
 **You grant permissions to AMS roles**
 
 You need to grant access to AMS
-processes and to your Cloud Architect. You do this by creating a AWS CloudFormation stack for
+processes and to your Cloud Architect. You do this by creating a CloudFormation stack for
 each role. See
 [The template to create AMS roles](acc-onb-roles.md "acc-onb-roles.md") and then
-[Create aws_managedservices_onboarding_role with AWS CloudFormation for Accelerate](acc-onb-create-roles-with-cf.md "acc-onb-create-roles-with-cf.md").
+[Create aws_managedservices_onboarding_role with CloudFormation for Accelerate](acc-onb-create-roles-with-cf.md "acc-onb-create-roles-with-cf.md").
 For more details see
 [Access management in AMS Accelerate](acc-access.md "acc-access.md").
 

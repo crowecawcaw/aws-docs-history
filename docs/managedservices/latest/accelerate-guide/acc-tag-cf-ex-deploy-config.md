@@ -1,6 +1,6 @@
-# Deploying a configuration profile with AWS CloudFormation for Accelerate
+# Deploying a configuration profile with CloudFormation for Accelerate
 
-If you wish to deploy your `CustomerManagedTags` configuration profile using AWS CloudFormation,
+If you wish to deploy your `CustomerManagedTags` configuration profile using CloudFormation,
 you can use the following CloudFormation templates. Put your desired JSON configuration in
 the `AMSResourceTaggerConfigurationVersion.Content` field.
 

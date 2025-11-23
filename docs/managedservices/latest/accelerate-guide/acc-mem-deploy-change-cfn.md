@@ -1,10 +1,10 @@
-# Using AWS CloudFormation to deploy Accelerate configuration changes
+# Using CloudFormation to deploy Accelerate configuration changes
 
 If you wish to deploy your `CustomerManagedAlarms`
-configuration profile using AWS CloudFormation, you can use the following AWS CloudFormation templates.
+configuration profile using CloudFormation, you can use the following CloudFormation templates.
 Put your desired JSON configuration in the `AMSAlarmManagerConfigurationVersion.Content` field.
 
-When you deploy the templates in a AWS CloudFormation Stack or Stack Set,
+When you deploy the templates in a CloudFormation Stack or Stack Set,
 the deployment of the `AMSResourceTaggerDeployment` resource will fail if you have not followed the required JSON format for the configuration.
 See [Accelerate Configuration profile: monitoring](acc-mem-config-doc-format.md "acc-mem-config-doc-format.md") for details on the expected format.
 

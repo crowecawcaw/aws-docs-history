@@ -13,6 +13,6 @@ identify them, these resources are tagged with the following:
 
 ###### Note
 
-These tags are applied using AWS CloudFormation stack-level tags, and rely on AWS CloudFormation propagating the tags to created
+These tags are applied using CloudFormation stack-level tags, and rely on CloudFormation propagating the tags to created
 resources. For more information, see
 [Resource tag](../../../AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.md").

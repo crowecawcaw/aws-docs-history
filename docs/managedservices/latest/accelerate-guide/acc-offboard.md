@@ -18,7 +18,7 @@ using and how to request to offboard an account.
 
 While preparing to offboard from Accelerate, keep the following considerations in mind.
 
-- **Access**: The `ams-access-management` AWS CloudFormation stack that defines the `ams-access-management` AWS Identity and Access Management role isn't deleted.
+- **Access**: The `ams-access-management` CloudFormation stack that defines the `ams-access-management` AWS Identity and Access Management role isn't deleted.
   After offboarding, these resources remain, but are unused by other components that are left behind. You can delete the stack and role at your convenience.
 - **AMS resource retention**: After offboarding, some AMS resources remain in your account. To see which resources are retained and what you can
   do with them, see the
@@ -71,7 +71,7 @@ While preparing to offboard from Accelerate, keep the following considerations i
 
 ## Offboarding from AMS Accelerate with dependencies on Alarm Manager and Resource Tagger
 
-Customized AWS CloudFormation stacks that deploy configurations related to Alarm Manager or Resource Tagger, along with the AMS-supplied Alarm Manager and Resource Tagger configuration stacks, remain in your account when you offboard from AWS Managed Services.
+Customized CloudFormation stacks that deploy configurations related to Alarm Manager or Resource Tagger, along with the AMS-supplied Alarm Manager and Resource Tagger configuration stacks, remain in your account when you offboard from AWS Managed Services.
 
 To delete the AMS configuration stacks during the offboarding process, you must remove any dependencies and references on Alarm Manager or Resource Tagger from the custom CloudFormation templates before you initiate the offboarding process. Removing the references helps make sure that the stacks are properly removed from your account when you offboard from AMS.
 

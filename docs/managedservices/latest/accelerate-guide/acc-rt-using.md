@@ -344,7 +344,7 @@ in the **AMSInfrastructure** environment.
 To override tag rules:
 
 Any of the existing tag rules can be overridden by updating the customization profile
-either with AWS CloudFormation by [Deploying a configuration profile with AWS CloudFormation for Accelerate](acc-tag-cf-ex-deploy-config.md "acc-tag-cf-ex-deploy-config.md") or, or directly using using AppConfig’s [**CreateHostedConfigurationVersion**](../../../appconfig/2019-10-09/APIReference/API_CreateHostedConfigurationVersion.md "../../../appconfig/2019-10-09/APIReference/API_CreateHostedConfigurationVersion.md") API. Using the same
+either with CloudFormation by [Deploying a configuration profile with CloudFormation for Accelerate](acc-tag-cf-ex-deploy-config.md "acc-tag-cf-ex-deploy-config.md") or, or directly using using AppConfig’s [**CreateHostedConfigurationVersion**](../../../appconfig/2019-10-09/APIReference/API_CreateHostedConfigurationVersion.md "../../../appconfig/2019-10-09/APIReference/API_CreateHostedConfigurationVersion.md") API. Using the same
 **ConfigurationID** as a default configuration tag rule overrides the
 default rule, and applies the custom rule in its place.
 

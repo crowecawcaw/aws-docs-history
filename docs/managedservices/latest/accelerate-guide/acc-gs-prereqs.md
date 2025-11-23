@@ -36,7 +36,7 @@ For information about how to configure AWS VPC endpoints, see
 ###### Note
 
 If you are creating VPC endpoints in your account for all of the above mentioned services,
-then see this [sample AWS CloudFormation template](https://maxis-file-service-prod-dub.dub.proxy.amazon.com/issues/d2db9efe-7f92-4e17-98c6-1522449f43aa/attachments/d0469f4d1fadfa88580a640666f0886bdef5dccfc6272104ab4ca37c3c7a1eb4_f317b3ec-e76b-43cc-8ca2-847f0671d445 "https://maxis-file-service-prod-dub.dub.proxy.amazon.com/issues/d2db9efe-7f92-4e17-98c6-1522449f43aa/attachments/d0469f4d1fadfa88580a640666f0886bdef5dccfc6272104ab4ca37c3c7a1eb4_f317b3ec-e76b-43cc-8ca2-847f0671d445"). You can update this template and remove or add VPC endpoints
+then see this [sample CloudFormation template](https://maxis-file-service-prod-dub.dub.proxy.amazon.com/issues/d2db9efe-7f92-4e17-98c6-1522449f43aa/attachments/d0469f4d1fadfa88580a640666f0886bdef5dccfc6272104ab4ca37c3c7a1eb4_f317b3ec-e76b-43cc-8ca2-847f0671d445 "https://maxis-file-service-prod-dub.dub.proxy.amazon.com/issues/d2db9efe-7f92-4e17-98c6-1522449f43aa/attachments/d0469f4d1fadfa88580a640666f0886bdef5dccfc6272104ab4ca37c3c7a1eb4_f317b3ec-e76b-43cc-8ca2-847f0671d445"). You can update this template and remove or add VPC endpoints
 definition as per your use-case.
 
 ## Outbound internet connectivity in Accelerate

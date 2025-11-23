@@ -27,13 +27,13 @@ started automatically for patch installation.
 After you use this template to create a Quick Start stack, use the following steps to exclude specific instances from Management/Monitoring, Patching, or Backup:
 
 - **Management and Monitoring:** To exclude an EC2 instance from being managed and monitored by AMS, add this tag to the instance: `ExcludeFromAMSQuickStartMonitoring=true`.
-- **Patching:** EC2 instances that are members of an Auto Scaling group, Amazon Elastic Container Service, or Amazon Elastic Kubernetes Service cluster are excluded from Patching by this Quick Start template.
+- **Patching:** EC2 instances that are members of an Amazon EC2 Auto Scaling group, Amazon Elastic Container Service, or Amazon Elastic Kubernetes Service cluster are excluded from Patching by this Quick Start template.
 
 To disable the creation of a Patching Window and patch-related tagging of EC2 instances, set the CloudFormation stack parameter to `EnablePatching=false`.
 
 To exclude an EC2 instance from being targeted by the Quick Start patching window when `EnablePatching=true`, add this tag to the instance: `ExcludeFromAMSQuickStartPatching=true`.
 
-- **Backup:** EC2 instances that are members of an Auto Scaling groups, ECS, or EKS cluster are excluded from Backup by this Quick Start template.
+- **Backup:** EC2 instances that are members of an Amazon EC2 Auto Scaling groups, ECS, or EKS cluster are excluded from Backup by this Quick Start template.
 
 To exclude an EC2 instance from being targeted by the default AMS Backup Plan, when `EnableBackup=true`, add this tag to that instance: `ExcludeFromAMSQuickStartBackup=true`.
 

@@ -2,7 +2,7 @@
 
 To allow your users to read and configure AMS Accelerate capabilities, like accessing
 the AMS Console or configuring backups, you must grant explicit permissions to their IAM
-roles to perform those actions. The following AWS CloudFormation template contains the policies required
+roles to perform those actions. The following CloudFormation template contains the policies required
 to read and configure services associated with AMS so you can assign them to your IAM
 roles. They are designed to closely align with common job responsibilities in the IT industry,
 where Administrator or Read-Only permissions are required; however, if you need to

@@ -12,5 +12,5 @@ to monitor.
 
 - [Accelerate tags using Resource Tagger](acc-mem-tag-alarms-use-rt.md "acc-mem-tag-alarms-use-rt.md")
 - [Accelerate tags without Resource Tagger](acc-mem-tags-no-rt.md "acc-mem-tags-no-rt.md")
-- [Accelerate tags using AWS CloudFormation](acc-mem-tags-cfn.md "acc-mem-tags-cfn.md")
+- [Accelerate tags using CloudFormation](acc-mem-tags-cfn.md "acc-mem-tags-cfn.md")
 - [Accelerate tags using Terraform](acc-mem-tags-terraform.md "acc-mem-tags-terraform.md")

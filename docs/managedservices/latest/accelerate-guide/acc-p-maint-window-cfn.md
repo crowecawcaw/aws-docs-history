@@ -1,4 +1,4 @@
-# Create a patch maintenance window using AWS CloudFormation for AMS Accelerate
+# Create a patch maintenance window using CloudFormation for AMS Accelerate
 
 To create an AMS Accelerate patch maintenance window using AWS CloudFormation, first log into your Accelerate account and select the AWS Region
 where your target instances reside. Then follow these steps on the [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"):
@@ -7,10 +7,10 @@ where your target instances reside. Then follow these steps on the [https://cons
 
         * Patch Tuesday Scheduling: Microsoft releases patches for its operating systems on the second Tuesday of each month, also know as Patch Tuesday, to
          schedule patch maintenance windows on the first or second weekends after Patch Tuesday: Once logged into the Accelerate console, use this link
-         [PatchTuesdayScheduling CloudFormation template](https://console.aws.amazon.com/cloudformation/home?#/stacks/create/parameters?templateURL=https://ams-patch-templates-us-east-1.s3.amazonaws.com/AmsPatchMaintenanceWindowTemplatePatchTuesdayScheduling.yml "https://console.aws.amazon.com/cloudformation/home?#/stacks/create/parameters?templateURL=https://ams-patch-templates-us-east-1.s3.amazonaws.com/AmsPatchMaintenanceWindowTemplatePatchTuesdayScheduling.yml")
+         [PatchTuesdayScheduling CloudFormation template](cloudformation/home.md#/stacks/create/parameters?templateURL=https://ams-patch-templates-us-east-1.s3.amazonaws.com/AmsPatchMaintenanceWindowTemplatePatchTuesdayScheduling.yml "cloudformation/home.md#/stacks/create/parameters?templateURL=https://ams-patch-templates-us-east-1.s3.amazonaws.com/AmsPatchMaintenanceWindowTemplatePatchTuesdayScheduling.yml")
          .
         * CRON Scheduling: To create patch maintenance windows using CRON to define the start day, use this link
-         [CRONScheduling CloudFormation template](https://console.aws.amazon.com/cloudformation/home?#/stacks/create/parameters?templateURL=https://ams-patch-templates-us-east-1.s3.amazonaws.com/AmsPatchMaintenanceWindowTemplateCronScheduling.yml "https://console.aws.amazon.com/cloudformation/home?#/stacks/create/parameters?templateURL=https://ams-patch-templates-us-east-1.s3.amazonaws.com/AmsPatchMaintenanceWindowTemplateCronScheduling.yml").
+         [CRONScheduling CloudFormation template](cloudformation/home.md#/stacks/create/parameters?templateURL=https://ams-patch-templates-us-east-1.s3.amazonaws.com/AmsPatchMaintenanceWindowTemplateCronScheduling.yml "cloudformation/home.md#/stacks/create/parameters?templateURL=https://ams-patch-templates-us-east-1.s3.amazonaws.com/AmsPatchMaintenanceWindowTemplateCronScheduling.yml").
 
          Remember that Systems Manager CRON numbers days 1-7 (for details on Systems Manager CRON, see
          [Reference: Cron and rate expressions for Systems Manager](../../../systems-manager/latest/userguide/reference-cron-and-rate-expressions.md "../../../systems-manager/latest/userguide/reference-cron-and-rate-expressions.md")).

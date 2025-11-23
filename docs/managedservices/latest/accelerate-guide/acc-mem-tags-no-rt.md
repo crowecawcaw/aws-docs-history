@@ -4,7 +4,7 @@ The tag-based Alarm Manager manages the lifecycle of per-resource CloudWatch ala
 it requires that the managed resources have specific tags defined by AMS Accelerate. AMS Accelerate provides a
 default configuration profile that assumes that your tags have been applied by Resource Tagger.
 
-If you want to use an alternate method of applying tags to your resources, such as AWS CloudFormation
+If you want to use an alternate method of applying tags to your resources, such as CloudFormation
 or Terraform, and not Resource Tagger, you need to disable the Resource Tagger so that it doesn’t apply tags to your
 resources and compete with your chosen tagging method. For instructions on changing your custom Resource Tagger configuration profile
 to enable read-only mode, see [Preventing Resource Tagger from modifying resources](acc-rt-using.md#acc-rt-preventing-rt-changes "acc-rt-using.md#acc-rt-preventing-rt-changes").

@@ -13,7 +13,7 @@ After onboarding, use one of the following methods to create applications:
 1. **AWS console:** To learn more about creating an application in AppRegistry through the AWS console,
    see [Creating Applications](../../../servicecatalog/latest/arguide/create-apps.md "../../../servicecatalog/latest/arguide/create-apps.md") in the _AWS Service Catalog AppRegistry Administrator Guide_.
 2. **CloudFormation:** You can define your AppRegistry application just like you define any other resource. For more information,
-   see [AWS Service Catalog AppRegistry resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalogAppRegistry.md "../../../AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalogAppRegistry.md") in the _AWS CloudFormation User Guide_.
+   see [AWS Service Catalog AppRegistry resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalogAppRegistry.md "../../../AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalogAppRegistry.md") in the _CloudFormation User Guide_.
 3. **AMS automation:** To simplify the application registration process, AMS provides you with the SSM automation document `AWSManagedServices-CreateAppRegistryApplication`.
    To use this method, invoke the document from the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/"), or with the AWS CLI as described in the following example.
 

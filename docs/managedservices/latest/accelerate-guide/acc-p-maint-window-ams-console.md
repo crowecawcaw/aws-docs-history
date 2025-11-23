@@ -30,4 +30,4 @@ Visit the [SSM Maintenance Window console](https://console.aws.amazon.com/system
 , search for your newly created patch maintenance window, and verify the next execution time.
 If you have any questions or need to edit your patch maintenance window, create a service request to talk with an AMS patch expert
 
-To schedule a CRON-based patch maintenance window using CloudFormation, see [Create a patch maintenance window using AWS CloudFormation for AMS Accelerate](acc-p-maint-window-cfn.md "acc-p-maint-window-cfn.md").
+To schedule a CRON-based patch maintenance window using CloudFormation, see [Create a patch maintenance window using CloudFormation for AMS Accelerate](acc-p-maint-window-cfn.md "acc-p-maint-window-cfn.md").

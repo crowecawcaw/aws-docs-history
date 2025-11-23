@@ -2,7 +2,7 @@
 
 ###### Note
 
-Make sure you have set Resource Tagger to read-only mode first before applying tags using AWS CloudFormation, otherwise Resource Tagger
+Make sure you have set Resource Tagger to read-only mode first before applying tags using CloudFormation, otherwise Resource Tagger
 may modify the tags based on the configuration profile. For information on setting Resource Tagger to read-only mode, and guidelines
 on providing your own tags, see [Accelerate tags without Resource Tagger](acc-mem-tags-no-rt.md "acc-mem-tags-no-rt.md").
 

@@ -1,7 +1,7 @@
 # Changing the Accelerate alarm configuration
 
 To add or update new alarm definitions, you can either deploy configuration document
-[Using AWS CloudFormation to deploy Accelerate configuration changes](acc-mem-deploy-change-cfn.md "acc-mem-deploy-change-cfn.md"), or invoke the
+[Using CloudFormation to deploy Accelerate configuration changes](acc-mem-deploy-change-cfn.md "acc-mem-deploy-change-cfn.md"), or invoke the
 [CreateHostedConfigurationVersion](../../../appconfig/2019-10-09/APIReference/API_CreateHostedConfigurationVersion.md "../../../appconfig/2019-10-09/APIReference/API_CreateHostedConfigurationVersion.md") API.
 
 This is a Linux command line command that generates the parameter value in base64, which is what the AppConfig CLI command expects. For information, see the

@@ -8,7 +8,7 @@ the Resource Tagger and ignore the drift it causes; see [Configuring Terraform t
 
 Some AMS Accelerate service components require tags with the **ams:rt:** prefix.
 Resource Tagger believes that it owns these tags, and deletes them if no Resource Tagger configuration rules permit them.
-You must deploy a Resource Tagger configuration profile for these tags, even if you are using AWS CloudFormation or Terraform.
+You must deploy a Resource Tagger configuration profile for these tags, even if you are using CloudFormation or Terraform.
 
 The following is an example of how you can apply the tag **ams:rt:ams-managed** with the
 value **true** to an Amazon EC2 instance managed by Terraform. The **ams:rt:ams-managed** tag

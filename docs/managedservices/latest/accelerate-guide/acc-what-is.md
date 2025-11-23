@@ -20,5 +20,5 @@ AMS Accelerate doesn't access or validate your application configurations withou
 knowledge and approval. AMS Accelerate services and changes are provided directly in the
 AWS console and APIs, so you continue to leverage your existing accounts with
 AWS and available AWS marketplace solutions. AMS Accelerate doesn't modify
-code in your infrastructure-as-code templates (for example, AWS CloudFormation templates), but can guide
+code in your infrastructure-as-code templates (for example, CloudFormation templates), but can guide
 your teams on which changes are required to follow best operational and security practices.

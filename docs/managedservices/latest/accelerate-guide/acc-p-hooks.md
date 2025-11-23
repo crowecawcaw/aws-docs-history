@@ -43,7 +43,7 @@ To create an SSM Command document, follow these steps:
 
 ###### Note
 
-SSM documents for AMS patch hooks can also be created with AWS CLI or AWS CloudFormation.
+SSM documents for AMS patch hooks can also be created with AWS CLI or CloudFormation.
 If you need assistance creating SSM documents for your AMS patch hooks, contact your Cloud Architect.
 
 ## Configure AMS patch maintenance window to use your SSM Command documents as AMS patch hooks
