@@ -10,7 +10,7 @@ repository links that are used to sync git repositories with AWS Proton, you can
 repository sync definition and status using the AWS CLI.
 
 AWS Management Console
-List and view linked repository details using the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/").
+List and view linked repository details using the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/").
 
 1. To list of your linked repositories, choose **Repositories** in
    the navigation pane.

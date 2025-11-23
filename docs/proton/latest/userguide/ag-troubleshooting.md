@@ -9,9 +9,9 @@ Learn to troubleshoot issues with AWS Proton.
 
 ###### Topics
 
-- [Deployment errors that reference AWS CloudFormation dynamic parameters](#cfn-dynamic-params "#cfn-dynamic-params")
+- [Deployment errors that reference CloudFormation dynamic parameters](#cfn-dynamic-params "#cfn-dynamic-params")
 
-## Deployment errors that reference AWS CloudFormation dynamic parameters
+## Deployment errors that reference CloudFormation dynamic parameters
 
 If you see deployment errors that reference your [CloudFormation dynamic variables](../../../AWSCloudFormation/latest/UserGuide/dynamic-references.md "../../../AWSCloudFormation/latest/UserGuide/dynamic-references.md"), verify
 that they are [Jinja escaped](https://jinja.palletsprojects.com/en/2.11.x/templates/#escaping "https://jinja.palletsprojects.com/en/2.11.x/templates/#escaping"). These errors can be caused by Jinja misinterpretation of your dynamic variables. The CloudFormation dynamic parameter
@@ -27,7 +27,7 @@ Example AWS Proton parameter Jinja syntax:
 
 To avoid these misinterpretation errors, Jinja escape your CloudFormation dynamic parameters as shown in the following examples.
 
-This example is from the AWS CloudFormation User Guide. The AWS Secrets Manager secret-name and json-key segments can be used to retrieve the sign-in credentials stored in the secret.
+This example is from the CloudFormation User Guide. The AWS Secrets Manager secret-name and json-key segments can be used to retrieve the sign-in credentials stored in the secret.
 
 ```
 MyRDSInstance:

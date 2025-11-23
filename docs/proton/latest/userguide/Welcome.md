@@ -40,7 +40,7 @@ more information about _templates_, see [AWS Proton templates](ag-templates.md "
 
 You can use the following infrastructure as code providers with AWS Proton:
 
-- [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
+- [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
 - [Terraform](https://www.terraform.io/ "https://www.terraform.io/")
 
 ## AWS Proton for developers
@@ -70,7 +70,7 @@ As an **Administrator**, you create and register a **Service Template**
 with AWS Proton, which defines the related infrastructure, monitoring, and CI/CD resources as well as compatible **Environment
 Templates**.
 
-![Number 4 in a red circle icon, commonly used to indicate a notification count.](images/label-four.png)
+![Number 4 in a red circle icon, commonly used to indicate a notification count.](/images/proton/latest/userguide/images/label-four.png)
 As a **Developer**, you select a registered **Service Template** and
 provide a link to your **Source code** repository.
 

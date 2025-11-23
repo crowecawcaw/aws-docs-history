@@ -35,7 +35,7 @@ AWS Management Console
 
 ###### Use the console to register and publish a new environment template.
 
-1.  In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Environment templates**.
+1.  In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Environment templates**.
 2.  Choose **Create environment template**.
 3.  In the **Create environment template** page, in the **Template options** section, choose one of the two
     available template options.
@@ -83,7 +83,7 @@ created (1.0). As an alternative, you can choose **Publish** in the info alert a
 
 For more information, see [Versioned templates](ag-template-versions.md "ag-template-versions.md").
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Environment Templates**.
+1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Environment Templates**.
 2. In the list of environment templates, choose the name of the environment template that you want to create a major or minor version
    for.
 3. In the environment template detail view, choose **Create new version** in the **Template versions**
@@ -297,7 +297,7 @@ AWS Management Console
 
 ###### Use the console to register and publish a new service template.
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Service templates**.
+1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Service templates**.
 2. Choose **Create service template**.
 3. In the **Create service template** page, in the **Template bundle source** section, choose one of the
    available template options.
@@ -342,7 +342,7 @@ created (1.0). As an alternative, you can choose **Publish** in the info alert a
 
 For more information, see [Versioned templates](ag-template-versions.md "ag-template-versions.md").
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Service Templates**.
+1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Service Templates**.
 2. In the list of service templates, choose the name of the service template that you want to create a major or minor version for.
 3. In the service template detail view, choose **Create new version** in the **Template versions**
    section.

@@ -8,7 +8,7 @@ Guide](proton-end-of-support.md "proton-end-of-support.md").
 - **Infrastructure as code (IaC) files**
 
 AWS Proton audits templates for the correct file format. However, AWS Proton doesn't check for template development, dependency, and logic errors. For
-example, assume that you specified the creation of an Amazon S3 bucket in your AWS CloudFormation IaC file as part of your service or environment template. A service is
+example, assume that you specified the creation of an Amazon S3 bucket in your CloudFormation IaC file as part of your service or environment template. A service is
 created based on those templates. Now, suppose at some point you want to delete the service. If the specified S3 bucket _isn't_
 empty and the CloudFormation IaC file _doesn't_ mark it as `Retain` in the `DeletionPolicy`, AWS Proton fails on the
 service delete operation.

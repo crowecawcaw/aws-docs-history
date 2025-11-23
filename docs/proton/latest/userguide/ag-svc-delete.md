@@ -15,7 +15,7 @@ Delete a service using the console as described in the following steps.
 
 ###### In the service detail page.
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Services**.
+1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Services**.
 2. In the list of services, choose the name of the service that you want to delete.
 3. On the service detail page, choose **Actions** and then **Delete**.
 4. A modal prompts you to confirm the delete action.

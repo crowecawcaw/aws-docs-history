@@ -8,7 +8,7 @@ Guide](proton-end-of-support.md "proton-end-of-support.md").
 You can view and list service detail data using the AWS Proton console or the AWS CLI.
 
 AWS Management Console
-List and view service details using the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/") as shown in the
+List and view service details using the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/") as shown in the
 following steps.
 
 1. To view a list of your services, choose **Services** in the navigation pane.

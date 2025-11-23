@@ -41,7 +41,7 @@ The role permissions policy named `AWSProtonCodeBuildProvisioningServiceRolePoli
 AWS Proton to complete the following actions on the specified resources:
 
 - Action: _create, manage, and read_ on
-  _AWS CloudFormation stacks and transforms_
+  _CloudFormation stacks and transforms_
 - Action: _create, manage, and read_ on
   _CodeBuild projects and builds_
 

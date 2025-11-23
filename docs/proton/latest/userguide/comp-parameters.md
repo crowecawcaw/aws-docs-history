@@ -116,7 +116,7 @@ Resources:
  Value: !Ref S3BucketAccessPolicy**
 ```
 
-When AWS Proton renders an AWS CloudFormation template for your service instance and replaces all parameters with actual values, the template might look like the
+When AWS Proton renders an CloudFormation template for your service instance and replaces all parameters with actual values, the template might look like the
 following file.
 
 ###### Example service instance CloudFormation rendered IaC file

@@ -3,7 +3,7 @@ End of support notice: On October 7, 2026, AWS will end support for AWS Proton. 
 will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
 Guide](proton-end-of-support.md "proton-end-of-support.md").
 
-# Component AWS CloudFormation example
+# Component CloudFormation example
 
 Here is a complete example of an AWS Proton directly defined component and how you can use it in an AWS Proton service. The component provisions an Amazon Simple Storage Service
 (Amazon S3) bucket and related access policy. The service instance can refer to this bucket and use it. The bucket name is based on the names of the
@@ -11,7 +11,7 @@ environment, service, service instance, and component, meaning that the bucket i
 specific service instance. Developers can create multiple components based on this component template, to provision Amazon S3 buckets for different service
 instances and functional needs.
 
-The example covers authoring the various required AWS CloudFormation infrastructure as code (IaC) files and creating a required AWS Identity and Access Management (IAM) role. The example
+The example covers authoring the various required CloudFormation infrastructure as code (IaC) files and creating a required AWS Identity and Access Management (IAM) role. The example
 groups steps by the owning people roles.
 
 ## Administrator steps
@@ -186,10 +186,10 @@ infrastructure:
 
 4. Create a directly defined component. AWS Proton assumes the component role that the administrator defined to provision the component.
 
-In the AWS Proton console, on the [Components](https://console.aws.amazon.com/proton/#/components "https://console.aws.amazon.com/proton/#/components") page, choose **Create
+In the AWS Proton console, on the [Components](https://console.aws.amazon.com//proton/#/components "https://console.aws.amazon.com//proton/#/components") page, choose **Create
 component**. For **Component settings**, enter a **Component name** and an optional **Component
 description**. For **Component attachment**, choose **Attach the component to a service instance.**
-Select your environment, service, and service instance. For **Component source**, choose **AWS CloudFormation**, and then
+Select your environment, service, and service instance. For **Component source**, choose **CloudFormation**, and then
 choose the component IaC file.
 
 ###### Note

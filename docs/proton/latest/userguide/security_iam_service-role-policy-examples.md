@@ -16,7 +16,7 @@ uses that role's credentials. Use a service role to explicitly specify the actio
 You create the service role and its permission policy with the IAM service. For more information about creating a service role, see [Creating a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in
 the _IAM User Guide_.
 
-## AWS Proton service role for provisioning using AWS CloudFormation
+## AWS Proton service role for provisioning using CloudFormation
 
 As a member of the platform team, you can as an administrator create an AWS Proton service role and provide it to AWS Proton when you create an environment as
 the environment's CloudFormation service role (the `protonServiceRoleArn` parameter of the [CreateEnvironment](../APIReference/API_CreateEnvironment.md "../APIReference/API_CreateEnvironment.md") API action). This role allows AWS Proton to make API calls to other
@@ -260,7 +260,7 @@ To provision service pipelines, AWS Proton needs permissions to make API calls t
 roles you provide when you create environments. However, the roles for creating pipelines are shared among all services in your AWS account, and you
 provide these roles as **Account settings** in the console, or through the [UpdateAccountSettings](../APIReference/API_UpdateAccountSettings.md "../APIReference/API_UpdateAccountSettings.md") API action.
 
-When you use the AWS Proton console to update account settings and choose to create a new role for either the AWS CloudFormation or the CodeBuild service roles, the
+When you use the AWS Proton console to update account settings and choose to create a new role for either the CloudFormation or the CodeBuild service roles, the
 policies that AWS Proton adds to the service roles it creates for you are the same as the policies described in the previous sections, [AWS-managed provisioning role](#proton-svc-role "#proton-svc-role") and [CodeBuild provisioning role](#codebuild-proton-svc-role "#codebuild-proton-svc-role"). When scoping down permission on this policy, keep in mind that AWS Proton fails on `Access
  Denied` errors.
 

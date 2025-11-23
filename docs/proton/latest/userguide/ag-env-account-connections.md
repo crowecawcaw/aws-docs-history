@@ -9,7 +9,7 @@ Overview
 
 Learn how to create and manage an AWS Proton environment in one account and provision its
 infrastructure resources in another account. This can help improve visibility and efficiency
-at scale. Environment account connections only support standard provisioning with AWS CloudFormation
+at scale. Environment account connections only support standard provisioning with CloudFormation
 infrastructure as code.
 
 ###### Note
@@ -75,7 +75,7 @@ connection.
 
 In the environment account, create an AWS Proton service role that's scoped down to only the
 permissions that are needed for provisioning your environment infrastructure resources. For
-more information, see [AWS Proton service role for provisioning using AWS CloudFormation](security_iam_service-role-policy-examples.md#proton-svc-role "security_iam_service-role-policy-examples.md#proton-svc-role").
+more information, see [AWS Proton service role for provisioning using CloudFormation](security_iam_service-role-policy-examples.md#proton-svc-role "security_iam_service-role-policy-examples.md#proton-svc-role").
 
 Then, create and send an environment account connection request to your management
 account. When the request is accepted, AWS Proton can use the associated IAM role that permits
@@ -138,7 +138,7 @@ to the management account as shown in the next steps.
    management account or choose the name of an existing environment that requires an
    environment account connection.
 2. In an environment account, in the [AWS Proton
-   console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Environment account connections** in
+   console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Environment account connections** in
    the navigation pane.
 3. In the **Environment account connections** page, choose
    **Request to connect**.
@@ -164,7 +164,7 @@ in. 4. In the **Request to connect** page:
     The role that AWS Proton automatically creates for you has broad permissions.
      We recommend that you scope down the role to the permissions required to
      provision your environment infrastructure resources. For more information,
-     see [AWS Proton service role for provisioning using AWS CloudFormation](security_iam_service-role-policy-examples.md#proton-svc-role "security_iam_service-role-policy-examples.md#proton-svc-role").
+     see [AWS Proton service role for provisioning using CloudFormation](security_iam_service-role-policy-examples.md#proton-svc-role "security_iam_service-role-policy-examples.md#proton-svc-role").
     3. (Optional) In the **Tags** section, choose **Add
      new tag** to create a customer managed tag for your environment
      account connection.
@@ -177,7 +177,7 @@ in. 4. In the **Request to connect** page:
 ###### Accept or reject an environment account connection request.
 
 1. In a management account, in the [AWS Proton
-   console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Environment account connections** in
+   console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Environment account connections** in
    the navigation pane.
 2. In the **Environment account connections** page, in the
    **Environment account connection requests** table, choose the
@@ -200,7 +200,7 @@ connection. 3. Choose **Reject** or **Accept**.
 ###### Delete an environment account connection.
 
 1. In an environment account, in the [AWS Proton
-   console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Environment account connections** in
+   console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Environment account connections** in
    the navigation pane.
 
 ###### Note

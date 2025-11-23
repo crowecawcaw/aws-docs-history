@@ -11,7 +11,7 @@ version of its associated template. An out-of-date deployed resource might need 
 
 ## View the dashboard in the AWS Proton console
 
-To view the AWS Proton dashboard, open the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), and then, in the navigation pane,
+To view the AWS Proton dashboard, open the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), and then, in the navigation pane,
 choose **Dashboard**.
 
 ### Resources

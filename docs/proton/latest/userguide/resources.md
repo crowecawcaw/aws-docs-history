@@ -165,7 +165,7 @@ page.
 
 ###### Create or edit a tag
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), open an AWS Proton resource detail page where you can see a list of tags.
+1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), open an AWS Proton resource detail page where you can see a list of tags.
 2. Choose **Manage tags**.
 3. In the **Manage tags** page, you can view, create, remove and edit tags. You can’t modify the AWS managed tags listed at the
    top. However, you can add to and modify the customer managed tags with editing fields, listed after the AWS managed tags.

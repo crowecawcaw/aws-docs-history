@@ -8,7 +8,7 @@ Guide](proton-end-of-support.md "proton-end-of-support.md").
 AWS Proton can provision infrastructure in one of several ways:
 
 - AWS-managed provisioning – AWS Proton calls the provisioning engine on your behalf. This method supports only
-  AWS CloudFormation template bundles. For more information, see [AWS CloudFormation IaC files](ag-infrastructure-tmp-files-cloudformation.md "ag-infrastructure-tmp-files-cloudformation.md").
+  AWS CloudFormation template bundles. For more information, see [CloudFormation IaC files](ag-infrastructure-tmp-files-cloudformation.md "ag-infrastructure-tmp-files-cloudformation.md").
 - CodeBuild provisioning – AWS Proton uses AWS CodeBuild to run
   shell commands that you provide. Your commands can read inputs that AWS Proton provides, and
   are responsible for provisioning or deprovisioning infrastructure and generating output
@@ -51,9 +51,9 @@ When an environment or a service uses AWS-managed provisioning, infrastructure i
 
 1. An AWS Proton customer (an administrator or a developer) creates the AWS Proton resource (an environment or a service). The customer selects a template
    for the resource and provides the required parameters. For more information, see the following section, [Considerations for AWS-managed provisioning](#ag-works-prov-methods-direct-consider "#ag-works-prov-methods-direct-consider").
-2. AWS Proton renders a complete AWS CloudFormation template for provisioning the resource.
-3. AWS Proton calls AWS CloudFormation to start provisioning using the rendered template.
-4. AWS Proton continuously monitors the AWS CloudFormation deployment.
+2. AWS Proton renders a complete CloudFormation template for provisioning the resource.
+3. AWS Proton calls CloudFormation to start provisioning using the rendered template.
+4. AWS Proton continuously monitors the CloudFormation deployment.
 5. When provisioning completes, AWS Proton reports back errors in case of failure, and captures provisioning outputs, like Amazon VPC ID, in case of
    success.
 
@@ -66,7 +66,7 @@ The following diagram shows that AWS Proton takes care of most of these steps di
 - _Infrastructure provisioning role_ – When an environment or any of the service instances running in it might use
   AWS-managed provisioning, an administrator needs to configure an IAM role (either directly or as part of an AWS Proton environment account
   connection). AWS Proton uses this role to provision the infrastructure of these AWS-managed provisioning resources. The role should have permissions
-  to use AWS CloudFormation to create all the resources that the templates of these resources include.
+  to use CloudFormation to create all the resources that the templates of these resources include.
 
 For more information, see [IAM Roles](ag-environment-roles.md "ag-environment-roles.md") and [AWS Proton IAM service role policy examples](security_iam_service-role-policy-examples.md "security_iam_service-role-policy-examples.md").
 
@@ -74,7 +74,7 @@ For more information, see [IAM Roles](ag-environment-roles.md "ag-environment-ro
   environment, AWS Proton uses the role provided to that environment to provision infrastructure for the service instance. Developers don't see this role
   and can't change it.
 - _Service with pipeline_ – A service template that uses AWS-managed provisioning may include a pipeline definition
-  written in the AWS CloudFormation YAML schema. AWS Proton also creates the pipeline by calling AWS CloudFormation. The role that AWS Proton uses to create a pipeline is separate from
+  written in the CloudFormation YAML schema. AWS Proton also creates the pipeline by calling CloudFormation. The role that AWS Proton uses to create a pipeline is separate from
   the role for each individual environment. This role is provided to AWS Proton separately, only once at the AWS account level, and it's used to
   provision and manage all AWS-managed pipelines. This role should have permissions to create pipelines and other resources that your pipelines
   need.
@@ -85,7 +85,7 @@ AWS Proton console
 
 ###### To provide the pipeline role
 
-    1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), on the navigation pane, choose **Settings > Account
+    1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), on the navigation pane, choose **Settings > Account
      settings**, and then choose **Configure**.
     2. Use the **Pipeline AWS-managed role** section to configure a new or existing pipeline role for AWS-managed
      provisioning.
@@ -153,7 +153,7 @@ AWS Proton console
 
 ###### To provide the pipeline role
 
-    1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), on the navigation pane, choose **Settings > Account
+    1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), on the navigation pane, choose **Settings > Account
      settings**, and then choose **Configure**.
     2. Use the **Codebuild pipeline provisioning role** section to configure a new or existing pipeline role for CodeBuild
      provisioning.
@@ -238,7 +238,7 @@ AWS Proton console
 
 ###### To provide the pipeline role
 
-    1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), on the navigation pane, choose **Settings > Account
+    1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), on the navigation pane, choose **Settings > Account
      settings**, and then choose **Configure**.
     2. Use the **CI/CD pipeline repository** section to configure a new or existing repository link.
 

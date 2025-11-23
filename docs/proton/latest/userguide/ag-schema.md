@@ -111,7 +111,7 @@ schema:                            # required
 
 In the following example, the schema only includes a list of outputs that replicate the outputs from the IaC that you used to provision your
 _customer managed_ infrastructure. You need to define output value types as _strings only_
-(_not_ lists, arrays or other types). For example, the next code snippet shows the outputs section of an external AWS CloudFormation
+(_not_ lists, arrays or other types). For example, the next code snippet shows the outputs section of an external CloudFormation
 template. This is from the template shown in [Example 1](ag-infrastructure-tmp-files-cloudformation.md#ag-env-cfn-example "ag-infrastructure-tmp-files-cloudformation.md#ag-env-cfn-example"). It can be used to create external
 _customer managed_ infrastructure for an AWS Proton Fargate service created from [Example
 4](ag-infrastructure-tmp-files-cloudformation.md#ag-proton-svc-cfn-example "ag-infrastructure-tmp-files-cloudformation.md#ag-proton-svc-cfn-example").

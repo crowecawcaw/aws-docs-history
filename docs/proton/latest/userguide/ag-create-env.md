@@ -83,7 +83,7 @@ AWS Management Console
 
 account
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose
+1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose
    **Environments**.
 2. Choose **Create environment**.
 3. In the **Choose an environment template** page, select a
@@ -192,7 +192,7 @@ AWS.
 1. Identify the AWS account IDs for the management and environment account, and copy
    them for later use.
 2. In the environment account, create an AWS Proton service role with minimum permissions
-   for the environment to create. For more information, see [AWS Proton service role for provisioning using AWS CloudFormation](security_iam_service-role-policy-examples.md#proton-svc-role "security_iam_service-role-policy-examples.md#proton-svc-role").
+   for the environment to create. For more information, see [AWS Proton service role for provisioning using CloudFormation](security_iam_service-role-policy-examples.md#proton-svc-role "security_iam_service-role-policy-examples.md#proton-svc-role").
 
 AWS Management Console
 
@@ -203,7 +203,7 @@ another.
 1. ###### In the environment account, create an environment account connection, and use
 
    it to send a request to connect to the management account.
-   1. In [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose
+   1. In [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose
       **Environment account connections** in the navigation
       pane.
    2. In the **Environment account connections** page, choose
@@ -400,7 +400,7 @@ AWS Management Console
 
 provisioning.
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose
+1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose
    **Environments**.
 2. Choose **Create environment**.
 3. In the **Choose an environment template** page, select a

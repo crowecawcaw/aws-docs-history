@@ -11,7 +11,7 @@ AWS CLI.
 AWS Management Console
 You can view lists of environments with details and individual
 environments with detail data by using the [AWS Proton
-console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/").
+console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/").
 
 1. To view a list of your environments, choose **Environments** in
    the navigation pane.

@@ -51,7 +51,7 @@ Use the console or AWS CLI to make updates or cancel update deployments.
 AWS Management Console
 Update a service instance using the console by following these steps.
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Service instances** in the navigation
+1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Service instances** in the navigation
    pane.
 2. In the list of service instances, choose the name of the service instance that you want to update.
 3. Choose **Actions** and then choose one of the update options, **Edit** to update spec or
@@ -155,7 +155,7 @@ Response:
 AWS Management Console
 Cancel a service instance deployment using the console as shown in the following steps.
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Service instances** in the navigation
+1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Service instances** in the navigation
    pane.
 2. In the list of service instances, choose the name of the service instance with the deployment update that you want to cancel.
 3. If your update deployment status is **In progress**, in the service instance detail page, choose

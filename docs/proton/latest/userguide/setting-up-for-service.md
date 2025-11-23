@@ -48,7 +48,7 @@ _AWS CodePipeline User Guide_.
 
 ###### To set up a CodeStar connection.
 
-1. Open the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/").
+1. Open the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/").
 2. In the navigation pane, select **Settings** and then **Repository connections** to take you to the
    **Connections** page in **Developer Tools**
    **Settings**. The page displays a list of connections.
@@ -67,7 +67,7 @@ pipelines and you configure them once in your account settings.
 
 ###### To create pipeline service roles using the console
 
-1.  Open the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/").
+1.  Open the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/").
 2.  In the navigation pane, choose **Settings**, and then choose **Account settings**.
 3.  In the **Account CI/CD settings** page, choose **Configure**.
 4.  Do one of the following:

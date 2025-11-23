@@ -28,20 +28,20 @@ Implement least privilege access. For more information, see [Policies and permis
 
 ## Do not embed credentials in your templates and template bundles
 
-Rather than embedding sensitive information in your AWS CloudFormation templates and template bundles, we recommend you use _dynamic
+Rather than embedding sensitive information in your CloudFormation templates and template bundles, we recommend you use _dynamic
 references_ in your stack template.
 
 Dynamic references provide a compact, powerful way for you to reference external values that are stored and managed in other services,
 such as the AWS Systems Manager Parameter Store or AWS Secrets Manager. When you use a dynamic reference, CloudFormation retrieves the value of the
 specified reference when necessary during stack and change set operations, and passes the value to the appropriate resource. However,
 CloudFormation never stores the actual reference value. For more information, see [Using Dynamic References to Specify Template Values](../../../AWSCloudFormation/latest/UserGuide/dynamic-references.md "../../../AWSCloudFormation/latest/UserGuide/dynamic-references.md") in the
-_AWS CloudFormation User Guide_.
+_CloudFormation User Guide_.
 
 [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") helps you to securely encrypt,
 store, and retrieve credentials for your databases and other services. The [AWS Systems Manager Parameter Store](../../../systems-manager/latest/userguide/systems-manager-parameter-store.md "../../../systems-manager/latest/userguide/systems-manager-parameter-store.md") provides secure,
 hierarchical storage for configuration data management.
 
-For more information on defining template parameters, see [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") in the _AWS CloudFormation User Guide_.
+For more information on defining template parameters, see [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") in the _CloudFormation User Guide_.
 
 ## Use encryption to protect sensitive data
 

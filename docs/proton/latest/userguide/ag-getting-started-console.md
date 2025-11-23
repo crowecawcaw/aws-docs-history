@@ -14,7 +14,7 @@ Guide](proton-end-of-support.md "proton-end-of-support.md").
 
 ## Step 1: Open the AWS Proton console
 
-- Open the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/")
+- Open the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/")
 
 ## Step 2: Prepare to use the example templates
 
@@ -161,7 +161,7 @@ environment details.
 
 application
 
-1. Open the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/").
+1. Open the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/").
 2. In the navigation pane, choose **Services**.
 3. In the **Services** page, choose **Create
    service**.
@@ -214,7 +214,7 @@ You see an AWS Proton graphic in the web page. 14. After the service is created,
 
 ## Step 7: Clean up.
 
-1. Open the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/").
+1. Open the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/").
 2. ###### Delete a service (if you created one)
    1. In the navigation pane, choose **Services**.
    2. In the **Services** page, choose the service name

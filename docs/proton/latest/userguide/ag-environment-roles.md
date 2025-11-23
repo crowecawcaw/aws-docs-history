@@ -11,7 +11,7 @@ owned and managed by developers. You create an IAM role to control your develope
 ## AWS Proton service role
 
 When you create a new environment, you provide a related IAM service role. The role contains all permissions that are necessary to update
-all provisioned infrastructure defined in both the environment templates and the service templates. For role examples, see [AWS Proton service role for provisioning using AWS CloudFormation](security_iam_service-role-policy-examples.md#proton-svc-role "security_iam_service-role-policy-examples.md#proton-svc-role"). If you use environment account connections and environment accounts, you create the role in
+all provisioned infrastructure defined in both the environment templates and the service templates. For role examples, see [AWS Proton service role for provisioning using CloudFormation](security_iam_service-role-policy-examples.md#proton-svc-role "security_iam_service-role-policy-examples.md#proton-svc-role"). If you use environment account connections and environment accounts, you create the role in
 a selected environment account. For more information, see [Create an environment in one account and
 provision in another account](ag-create-env.md#ag-create-env-deploy-other "ag-create-env.md#ag-create-env-deploy-other") and
 [Environment account connections](ag-env-account-connections.md "ag-env-account-connections.md").

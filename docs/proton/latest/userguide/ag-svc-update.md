@@ -19,7 +19,7 @@ Edit a service using the console as described in the following steps.
 
 ###### In the list of services.
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Services**.
+1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Services**.
 2. In the list of services, choose the radio button to the left of the service that you want to update.
 3. Choose **Edit**.
 4. In the **Configure service** page, fill out the form and choose **Next**.
@@ -28,7 +28,7 @@ Edit a service using the console as described in the following steps.
 
 ###### In the service detail page.
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Services**.
+1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Services**.
 2. In the list of services, choose the name of the service that you want to edit.
 3. In the service detail page, choose **Edit**.
 4. In the **Configure service** page, fill out the form and choose **Next**.
@@ -91,7 +91,7 @@ instances to be added or removed. Deletion-failed instances are included in this
 AWS Management Console
 Edit your service to add or remove service instances using the console.
 
-In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/")
+In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/")
 
 1. In the navigation pane, choose **Services**.
 2. Select the service that you want to edit.

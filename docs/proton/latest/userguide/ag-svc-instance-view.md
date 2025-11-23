@@ -11,7 +11,7 @@ A service instance belongs to a service. You can only create or delete an instan
 instances from a service, see [Edit a service](ag-svc-update.md "ag-svc-update.md").
 
 AWS Management Console
-List and view service instance details using the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/") as shown in
+List and view service instance details using the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/") as shown in
 the following steps.
 
 1. To view a list of your service instances, choose **Services instances** in the navigation pane.

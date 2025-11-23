@@ -7,7 +7,7 @@ Guide](proton-end-of-support.md "proton-end-of-support.md").
 
 creation
 
-Infrastructure as a Code (IaaC) tools like AWS CloudFormation and Terraform require permissions for the
+Infrastructure as a Code (IaaC) tools like CloudFormation and Terraform require permissions for the
 many different types of AWS resources. For example, if an IaaC template declares an Amazon S3
 bucket, it needs permissions to create, read, update, and delete Amazon S3 buckets. It's considered
 a security best practice to limit roles to the minimal permissions required. Given the breadth

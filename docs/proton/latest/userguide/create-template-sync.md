@@ -95,7 +95,7 @@ AWS Management Console
 
 ###### Create a template and template sync configuration using the console.
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose
+1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose
    **Environment templates**.
 2. Choose **Create environment template**.
 3. In the **Create environment template** page, in the

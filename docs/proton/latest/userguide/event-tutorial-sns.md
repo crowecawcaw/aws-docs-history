@@ -21,7 +21,7 @@ Create an Amazon SNS topic to serve as an _event target_ for the _event rule_ th
 
 ###### Create an Amazon SNS topic
 
-1. Log in and open the [Amazon SNS console](https://console.aws.amazon.com/sns/v3/ "https://console.aws.amazon.com/sns/v3/").
+1. Log in and open the [Amazon SNS console](https://console.aws.amazon.com//sns/v3/ "https://console.aws.amazon.com//sns/v3/").
 2. In the navigation pane, choose **Topics**, **Create topic**.
 3. In **Create topic** page:
    1. Choose **Type**
@@ -44,7 +44,7 @@ Register an _event rule_ that captures status changes for your AWS Proton servic
 
 ###### Create an event rule.
 
-1. Open the [Amazon EventBridge console](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
+1. Open the [Amazon EventBridge console](https://console.aws.amazon.com//events/ "https://console.aws.amazon.com//events/").
 2. In the navigation pane, choose **Events**, **Rules**.
 3. In the **Rules** page, in the **Rules** section, choose **Create rule**.
 4. In the **Create rule** page:
@@ -55,7 +55,7 @@ Register an _event rule_ that captures status changes for your AWS Proton servic
       3. For **Service name**, choose **AWS Proton**.
       4. For **Event type**, choose **AWS Proton Service Status Change**.
 
-      The **Event pattern** appears in a text editor. 5. Open the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"). 6. In the navigation pane, choose **Services**. 7. In **Services** page, choose the name of your AWS Proton service. 8. In **Service details** page, copy the service Amazon Resource Name (ARN). 9. Navigate back to the _EventBridge console_ and your tutorial rule and choose **Edit** at the text
+      The **Event pattern** appears in a text editor. 5. Open the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"). 6. In the navigation pane, choose **Services**. 7. In **Services** page, choose the name of your AWS Proton service. 8. In **Service details** page, copy the service Amazon Resource Name (ARN). 9. Navigate back to the _EventBridge console_ and your tutorial rule and choose **Edit** at the text
       editor. 10. In the text editor, for `"resources":`, enter the service ARN that you copied in step viii.
 
       ```
@@ -78,7 +78,7 @@ Register an _event rule_ that captures status changes for your AWS Proton servic
 
 Verify that your _event rule_ is working by adding an instance to your AWS Proton service.
 
-1. Switch to the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/").
+1. Switch to the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/").
 2. In the navigation pane, choose **Services**.
 3. In **Services** page, choose the name of your service.
 4. In **Service details** page, choose **Edit**.
@@ -137,7 +137,7 @@ Delete your Amazon SNS topic and subscription and delete your EventBridge rule.
 
 ###### Delete your Amazon SNS topic and subscription.
 
-1. Navigate to the [Amazon SNS console](https://console.aws.amazon.com/sns/v3/ "https://console.aws.amazon.com/sns/v3/").
+1. Navigate to the [Amazon SNS console](https://console.aws.amazon.com//sns/v3/ "https://console.aws.amazon.com//sns/v3/").
 2. In the navigation panel, choose **Subscriptions**.
 3. In the **Subscriptions** page, choose the subscription that you made to the topic named
    `tutorial-service-status-change` and then choose **Delete**.
@@ -148,14 +148,14 @@ Delete your Amazon SNS topic and subscription and delete your EventBridge rule.
 
 ###### Delete your EventBridge rule.
 
-1. Navigate to the [Amazon EventBridge console](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
+1. Navigate to the [Amazon EventBridge console](https://console.aws.amazon.com//events/ "https://console.aws.amazon.com//events/").
 2. In the navigation pane, choose **Events**, **Rules**.
 3. In the **Rules** page, choose the rule named `tutorial-rule` and then choose **Delete**.
 4. A modal prompts you to verify the deletion. Choose **Delete**.
 
 ###### Delete the added service instance.
 
-1. Navigate to the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/").
+1. Navigate to the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/").
 2. In the navigation pane, choose **Services**.
 3. In the **Services** page, choose the name of your service.
 4. In the **Service** detail page, choose **Edit** and then **Next**.

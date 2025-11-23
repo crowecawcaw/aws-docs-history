@@ -3,12 +3,12 @@ End of support notice: On October 7, 2026, AWS will end support for AWS Proton. 
 will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
 Guide](proton-end-of-support.md "proton-end-of-support.md").
 
-# AWS CloudFormation IaC files
+# CloudFormation IaC files
 
-Learn how to use AWS CloudFormation infrastructure as code files with AWS Proton. AWS CloudFormation is an infrastructure as code (IaC) service that helps you model and set up
+Learn how to use AWS CloudFormation infrastructure as code files with AWS Proton. CloudFormation is an infrastructure as code (IaC) service that helps you model and set up
 your AWS resources. You define your infrastructure resources in templates, using Jinja on top of the CloudFormation template file format for
 parametrization. AWS Proton expands parameters and renders the full CloudFormation template. CloudFormation provisions the defined resources as CloudFormation stack. For
-more information, see [What is AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") in _the AWS CloudFormation
+more information, see [What is CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") in _the CloudFormation
 User Guide_.
 
 AWS Proton supports [AWS-managed provisioning](ag-works-prov-methods.md#ag-works-prov-methods-direct "ag-works-prov-methods.md#ag-works-prov-methods-direct") for CloudFormation IaC.
@@ -17,7 +17,7 @@ AWS Proton supports [AWS-managed provisioning](ag-works-prov-methods.md#ag-works
 
 You can adapt _your own existing_ infrastructure as code (IaC) files for use with AWS Proton.
 
-The following AWS CloudFormation examples, [Example 1](#ag-env-cfn-example "#ag-env-cfn-example"), and [Example 2](#ag-svc-cfn-example "#ag-svc-cfn-example"),
+The following CloudFormation examples, [Example 1](#ag-env-cfn-example "#ag-env-cfn-example"), and [Example 2](#ag-svc-cfn-example "#ag-svc-cfn-example"),
 represent _your own existing_ CloudFormation IaC files. CloudFormation can use these files to create two different CloudFormation
 stacks.
 

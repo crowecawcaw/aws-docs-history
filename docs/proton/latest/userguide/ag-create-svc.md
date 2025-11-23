@@ -56,7 +56,7 @@ AWS Management Console
 
 ###### Create a service as shown in the following console steps.
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Services**.
+1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Services**.
 2. Choose **Create service**.
 3. In the **Choose a service template** page, select a template and choose **Configure**.
 

@@ -20,7 +20,7 @@ following two options.
 
 ###### In the list of environments.
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose
+1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose
    **Environments**.
 2. In the list of environments, select the radio button to the left of the
    environment that you want to delete.
@@ -30,7 +30,7 @@ following two options.
 
 ###### In the environment detail page.
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose
+1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose
    **Environments**.
 2. In the list of environments, choose the name of the environment that you want to
    delete.

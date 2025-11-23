@@ -5,7 +5,7 @@ Guide](proton-end-of-support.md "proton-end-of-support.md").
 
 # View template data
 
-You can view lists of templates with details and view individual templates with detail data by using the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/") and AWS CLI.
+You can view lists of templates with details and view individual templates with detail data by using the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/") and AWS CLI.
 
 _Customer managed_ environment template data includes the `provisioned` parameter with the value
 `CUSTOMER_MANAGED`.

@@ -36,13 +36,13 @@ environment template. Don't supply manifests or infrastructure files in the temp
 Only supply the schema.
 
 The schema below outlines a list of outputs using the open API format and replicates the
-outputs from an AWS CloudFormation template.
+outputs from an CloudFormation template.
 
 ###### Important
 
 Only string inputs are allowed for the outputs.
 
-The following example is a snippet of the output sections of an AWS CloudFormation template for a
+The following example is a snippet of the output sections of an CloudFormation template for a
 corresponding Fargate template.
 
 ```
@@ -86,7 +86,7 @@ schema:
 
 At the time of registering the template, you indicate that this template is imported and
 provides the Amazon S3 bucket location for the bundle. AWS Proton validates that the schema only
-contains `environment_input_type` and no AWS CloudFormation template parameters before putting
+contains `environment_input_type` and no CloudFormation template parameters before putting
 the template in draft.
 
 You provide the following to create an imported environment.

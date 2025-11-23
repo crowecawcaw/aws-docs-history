@@ -181,7 +181,7 @@ AWS Proton depends on.
 The policy includes the following key action namespaces:
 
 - `cloudformation` – Allows AWS Proton CodeBuild-based provisioning limited
-  access to AWS CloudFormation APIs.
+  access to CloudFormation APIs.
 - `codebuild` – Allows AWS Proton CodeBuild-based provisioning limited access
   to CodeBuild APIs.
 - `iam` – Allows administrators to pass roles to AWS Proton. This is

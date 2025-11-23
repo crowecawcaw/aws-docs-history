@@ -41,7 +41,7 @@ To create an administrator user, choose one of the following options.
 There are a few IAM roles that you might want to create for different parts of your AWS Proton solution. You can create them in advance using the IAM
 console, or you can use the AWS Proton console to create them for you.
 
-Create AWS Proton _environment roles_ to allow AWS Proton to make API calls to other AWS services, like AWS CloudFormation, AWS CodeBuild, and various
+Create AWS Proton _environment roles_ to allow AWS Proton to make API calls to other AWS services, like CloudFormation, AWS CodeBuild, and various
 compute and storage services, on your behalf to provision resources for you. A _AWS-managed provisioning role_ is required when an environment or
 any of the service instances running in it use [AWS-managed provisioning](ag-works-prov-methods.md#ag-works-prov-methods-direct "ag-works-prov-methods.md#ag-works-prov-methods-direct"). A _CodeBuild
 role_ is required when an environment or any of its service instances use [CodeBuild
