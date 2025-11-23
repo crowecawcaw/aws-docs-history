@@ -24,7 +24,7 @@ administrators per account per region.
 
 ###### Create an admin user in the Lake Formation console
 
-1. Open the AWS Lake Formation console: [Lake Formation console](https://console.aws.amazon.com/lakeformation "https://console.aws.amazon.com/lakeformation")
+1. Open the AWS Lake Formation console: [Lake Formation console](https://console.aws.amazon.com//lakeformation "https://console.aws.amazon.com//lakeformation")
 2. If the console displays the **Welcome to Lake Formation** panel, choose **Get started**.
 
 Lake Formation adds you to the **Data lake administrators** table. 3. Otherwise, from the left menu, choose **Administative roles and tasks**. 4. Add any additional administrators as required.
@@ -40,7 +40,7 @@ a group, so that you can access data in Amazon Athena or other AWS services (suc
 
 users
 
-1. Open the AWS Lake Formation console: [Lake Formation console](https://console.aws.amazon.com/lakeformation "https://console.aws.amazon.com/lakeformation")
+1. Open the AWS Lake Formation console: [Lake Formation console](https://console.aws.amazon.com//lakeformation "https://console.aws.amazon.com//lakeformation")
 2. In the primary navigation bar, choose **Databases**.
 3. In the **Databases** table, select the desired database.
 4. From the **Create** menu, choose **Resource link**.
@@ -53,7 +53,7 @@ users
 
 A Lake Formation database administrator can grant access to the shared resource using the following procedure.
 
-1. Open the AWS Lake Formation console: [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation "https://console.aws.amazon.com/lakeformation")
+1. Open the AWS Lake Formation console: [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com//lakeformation "https://console.aws.amazon.com//lakeformation")
 2. In the primary navigation bar, choose **Databases**.
 3. On the **Databases** page, select the resource link you previously created.
 4. From the **Actions** menu, choose **Grant on target**.

@@ -14,7 +14,7 @@ annotation stores are represented as zero-based, half-closed half-open intervals
 
 The following example shows how to run a simple query.
 
-1. Open the Athena Query editor: [Athena Query editor](https://console.aws.amazon.com/athena "https://console.aws.amazon.com/athena")
+1. Open the Athena Query editor: [Athena Query editor](https://console.aws.amazon.com//athena "https://console.aws.amazon.com//athena")
 2. Under **Workgroup**, select the workgroup that you created during setup.
 3. Verify that **Data source** is **AwsDataCatalog**.
 4. For **Database**, select the database resource link that you created during the Lake Formation setup.
@@ -35,7 +35,7 @@ store.
 
 ###### Run a complex query
 
-1. Open the Athena Query editor: [Athena Query editor](https://console.aws.amazon.com/athena "https://console.aws.amazon.com/athena")
+1. Open the Athena Query editor: [Athena Query editor](https://console.aws.amazon.com//athena "https://console.aws.amazon.com//athena")
 2. Under**Workgroup**, select the workgroup that you created during setup.
 3. Verify that **Data source** is **AwsDataCatalog**.
 4. For **Database**, select the database resource link that you created during the Lake Formation setup.

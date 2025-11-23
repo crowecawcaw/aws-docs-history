@@ -19,7 +19,7 @@ setup tasks:
 
 To configure a query results location, follow these steps.
 
-1. Open the Athena console: [Athena console](https://console.aws.amazon.com/athena "https://console.aws.amazon.com/athena")
+1. Open the Athena console: [Athena console](https://console.aws.amazon.com//athena "https://console.aws.amazon.com//athena")
 2. In the primary navigation bar, choose **Query editor**.
 3. In the query editor, choose the **Settings** tab, then choose
    **Manage**.
@@ -29,7 +29,7 @@ To configure a query results location, follow these steps.
 
 To configure a workgroup, follow these steps.
 
-1. Open the Athena console: [Athena console](https://console.aws.amazon.com/athena "https://console.aws.amazon.com/athena")
+1. Open the Athena console: [Athena console](https://console.aws.amazon.com//athena "https://console.aws.amazon.com//athena")
 2. In the primary navigation bar, choose **Workgroups**, then **Create workgroup**.
 3. Enter a name for the workgroup.
 4. Select **Athena SQL** as the type of engine.

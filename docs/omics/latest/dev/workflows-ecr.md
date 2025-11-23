@@ -1,7 +1,7 @@
 # Container images for private workflows
 
 HealthOmics supports container images hosted in Amazon ECR private repositories. You can create container images and upload
-them to the private repository. You can also your Amazon ECR private registry as a pull through cache to synchronize the
+them to the private repository. You can also use your Amazon ECR private registry as a pull through cache to synchronize the
 contents of upstream registries.
 
 Your Amazon ECR repository must reside in the same AWS Region as the account calling the service. A different

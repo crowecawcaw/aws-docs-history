@@ -31,7 +31,7 @@ The trust policy allows the HealthOmics service to assume the role.
 ###### Topics
 
 - [Example IAM service policies](#permissions-service-samplepolicies "#permissions-service-samplepolicies")
-- [Example AWS CloudFormation template](#permissions-service-sampletemplates "#permissions-service-sampletemplates")
+- [Example CloudFormation template](#permissions-service-sampletemplates "#permissions-service-sampletemplates")
 
 ## Example IAM service policies
 
@@ -145,9 +145,9 @@ JSON
 
 ```
 
-## Example AWS CloudFormation template
+## Example CloudFormation template
 
-The following sample AWS CloudFormation template creates a service role that gives HealthOmics permission to access Amazon S3 buckets that
+The following sample CloudFormation template creates a service role that gives HealthOmics permission to access Amazon S3 buckets that
 have names prefixed with `omics-`, and to upload workflow logs.
 
 ###### Example Reference
