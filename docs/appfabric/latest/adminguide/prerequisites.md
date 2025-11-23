@@ -153,7 +153,7 @@ following topics:
 - AWS Management Console instructions – [Creating an Amazon Data Firehose
   Delivery Stream](../../../firehose/latest/dev/basic-create.md "../../../firehose/latest/dev/basic-create.md") in the _Amazon Data Firehose Developer
   Guide_
-- AWS CLI instructions – create-delivery-stream in the _AWS CLI Command Reference_
+- AWS CLI instructions – [create-delivery-stream](../../../index.md "../../../index.md") in the _AWS CLI Command Reference_
 - AWS APIs and SDKs instructions – [CreateDeliveryStream](../../../firehose/latest/APIReference/API_CreateDeliveryStream.md "../../../firehose/latest/APIReference/API_CreateDeliveryStream.md") in the _Amazon Data Firehose
   API Reference_
 
