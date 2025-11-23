@@ -1,12 +1,12 @@
 AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
 
-# Working with AWS CloudFormation templates
+# Working with CloudFormation templates
 
 and stacks in Application Manager
 
 Application Manager, a tool in AWS Systems Manager, helps you provision and manage resources for your
-applications by integrating with AWS CloudFormation. You can create, edit, and delete AWS CloudFormation
+applications by integrating with AWS CloudFormation. You can create, edit, and delete CloudFormation
 templates and stacks in Application Manager. A _stack_ is a collection of
 AWS resources that you can manage as a single unit. This means you can create,
 update, or delete a collection of AWS resources by using CloudFormation stacks. A
@@ -43,7 +43,7 @@ AWS Cost Explorer console.
 
 ###### Note
 
-Cost Explorer uses tags to track your application costs. If your AWS CloudFormation stack-based
+Cost Explorer uses tags to track your application costs. If your CloudFormation stack-based
 application isn't configured with the `AppManagerCFNStackKey` tag
 key, Cost Explorer fails to present accurate cost data in Application Manager. When the
 `AppManagerCFNStackKey` tag key is not detected, you will be
@@ -69,7 +69,7 @@ edit, or delete CloudFormation templates and stacks by using Application Manager
 
 - [What is
   AWS CloudFormation?](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
-- [AWS CloudFormation best
+- [CloudFormation best
   practices](../../../AWSCloudFormation/latest/UserGuide/best-practices.md "../../../AWSCloudFormation/latest/UserGuide/best-practices.md")
 - [Learn
   template basics](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md")
@@ -83,6 +83,6 @@ edit, or delete CloudFormation templates and stacks by using Application Manager
 ###### Topics
 
 - [Using Application Manager
-  to manage AWS CloudFormation templates](application-manager-working-templates-overview.md "application-manager-working-templates-overview.md")
+  to manage CloudFormation templates](application-manager-working-templates-overview.md "application-manager-working-templates-overview.md")
 - [Using Application Manager to
-  manage AWS CloudFormation stacks](application-manager-working-stacks-overview.md "application-manager-working-stacks-overview.md")
+  manage CloudFormation stacks](application-manager-working-stacks-overview.md "application-manager-working-stacks-overview.md")

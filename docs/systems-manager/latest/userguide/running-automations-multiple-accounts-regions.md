@@ -93,14 +93,14 @@ procedure describes how to create the
 to create this role in the Automation central account. This procedure also describes
 how to create the `AWS-SystemsManager-AutomationExecutionRole` role. You
 must create this role in _every_ account that you want to target
-to run multi-Region and multi-account automations. We recommend using AWS CloudFormation
+to run multi-Region and multi-account automations. We recommend using CloudFormation
 StackSets to create the `AWS-SystemsManager-AutomationExecutionRole` role
 in the accounts you want to target to run multi-Region and multi-account
 automations.
 
 ###### To create the required IAM administration role for multi-Region and
 
-multi-account automations by using AWS CloudFormation
+multi-account automations by using CloudFormation
 
 1. Download and unzip the [`AWS-SystemsManager-AutomationAdministrationRole.zip`](samples/AWS-SystemsManager-AutomationAdministrationRole.md "samples/AWS-SystemsManager-AutomationAdministrationRole.md").
 
@@ -112,19 +112,19 @@ If your accounts are managed by AWS Organizations [`AWS-SystemsManager-Automatio
 These files contain the
 `AWS-SystemsManager-AutomationAdministrationRole.yaml`
 and `AWS-SystemsManager-AutomationAdministrationRole (org).yaml`
-AWS CloudFormation template files, respectively. 2. Open the AWS CloudFormation console at
+CloudFormation template files, respectively. 2. Open the CloudFormation console at
 [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"). 3. Choose **Create stack**. 4. In the **Specify template** section, choose
 **Upload a template**. 5. Choose **Choose file**, and then choose the
 `AWS-SystemsManager-AutomationAdministrationRole.yaml`
 or `AWS-SystemsManager-AutomationAdministrationRole
- (org).yaml` AWS CloudFormation template file, depending on your selection
+ (org).yaml` CloudFormation template file, depending on your selection
 in step 1. 6. Choose **Next**. 7. On the **Specify stack details** page, in the
 **Stack name** field, enter a name. 8. Choose **Next**. 9. On the **Configure stack options** page, enter values for
 any options you want to use. Choose **Next**. 10. On the **Review** page, scroll down and choose the
-**I acknowledge that AWS CloudFormation might create IAM resources with
+**I acknowledge that CloudFormation might create IAM resources with
 custom names** option. 11. Choose **Create stack**.
 
-AWS CloudFormation shows the **CREATE_IN_PROGRESS** status for approximately
+CloudFormation shows the **CREATE_IN_PROGRESS** status for approximately
 three minutes. The status changes to **CREATE_COMPLETE**.
 
 You must repeat the following procedure in _every_ account that
@@ -132,7 +132,7 @@ you want to target to run multi-Region and multi-account automations.
 
 ###### To create the required IAM automation role for multi-Region and
 
-multi-account automations by using AWS CloudFormation
+multi-account automations by using CloudFormation
 
 1. Download the [`AWS-SystemsManager-AutomationExecutionRole.zip`](samples/AWS-SystemsManager-AutomationExecutionRole.md "samples/AWS-SystemsManager-AutomationExecutionRole.md").
 
@@ -144,13 +144,13 @@ If your accounts are managed by AWS Organizations [`AWS-SystemsManager-Automatio
 These files contains the
 `AWS-SystemsManager-AutomationExecutionRole.yaml` and
 `AWS-SystemsManager-AutomationExecutionRole
- (org).yaml`AWS CloudFormation template files,
-respectively. 2. Open the AWS CloudFormation console at
+ (org).yaml`CloudFormation template files,
+respectively. 2. Open the CloudFormation console at
 [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"). 3. Choose **Create stack**. 4. In the **Specify template** section, choose
 **Upload a template**. 5. Choose **Choose file**, and then choose the
 `AWS-SystemsManager-AutomationExecutionRole.yaml` or
 `AWS-SystemsManager-AutomationExecutionRole
- (org).yaml` AWS CloudFormation template file, depending on your selection
+ (org).yaml` CloudFormation template file, depending on your selection
 in step 1. 6. Choose **Next**. 7. On the **Specify stack details** page, in the
 **Stack name** field, enter a name. 8. In the **Parameters** section, in the
 **AdminAccountId** field, enter the ID for the
@@ -158,10 +158,10 @@ Automation central account. 9. If you are setting up this role for an AWS Organi
 another field in the section called **OrganizationID**.
 Enter the ID of your AWS organization. 10. Choose **Next**. 11. On the **Configure stack options** page, enter values for
 any options you want to use. Choose **Next**. 12. On the **Review** page, scroll down and choose the
-**I acknowledge that AWS CloudFormation might create IAM resources with
+**I acknowledge that CloudFormation might create IAM resources with
 custom names** option. 13. Choose **Create stack**.
 
-AWS CloudFormation shows the **CREATE_IN_PROGRESS** status for approximately
+CloudFormation shows the **CREATE_IN_PROGRESS** status for approximately
 three minutes. The status changes to **CREATE_COMPLETE**.
 
 ## Run an automation in multiple Regions and

@@ -27,7 +27,7 @@ provided by Automation, and other Systems Manager tools with other AWS services.
       and patch the AMI](automation-tutorial-update-patch-golden-ami.md#create-custom-ami-update-runbook "automation-tutorial-update-patch-golden-ami.md#create-custom-ami-update-runbook")
 
   - [Updating AMIs using Automation and Jenkins](automation-tutorial-update-patch-ami-jenkins-integration.md "automation-tutorial-update-patch-ami-jenkins-integration.md")
-  - [Updating AMIs for Auto Scaling groups](automation-tutorial-update-patch-windows-ami-autoscaling.md "automation-tutorial-update-patch-windows-ami-autoscaling.md")
+  - [Updating AMIs for Amazon EC2 Auto Scaling groups](automation-tutorial-update-patch-windows-ami-autoscaling.md "automation-tutorial-update-patch-windows-ami-autoscaling.md")
     - [Create the
       PatchAMIAndUpdateASG runbook](automation-tutorial-update-patch-windows-ami-autoscaling.md#create-autoscaling-update-runbook "automation-tutorial-update-patch-windows-ami-autoscaling.md#create-autoscaling-update-runbook")
 
@@ -43,7 +43,7 @@ provided by Automation, and other Systems Manager tools with other AWS services.
         - [Granting
           permissions by using IAM policies](automation-ec2rescue.md#automation-ec2rescue-access-iam "automation-ec2rescue.md#automation-ec2rescue-access-iam")
         - [Granting
-          permissions by using an AWS CloudFormation template](automation-ec2rescue.md#automation-ec2rescue-access-cfn "automation-ec2rescue.md#automation-ec2rescue-access-cfn")
+          permissions by using an CloudFormation template](automation-ec2rescue.md#automation-ec2rescue-access-cfn "automation-ec2rescue.md#automation-ec2rescue-access-cfn")
 
     - [Running the
       Automation](automation-ec2rescue.md#automation-ec2rescue-executing "automation-ec2rescue.md#automation-ec2rescue-executing")
@@ -58,7 +58,7 @@ provided by Automation, and other Systems Manager tools with other AWS services.
         - [Granting
           permissions by using IAM policies](automation-ec2reset.md#automation-ec2reset-access-iam "automation-ec2reset.md#automation-ec2reset-access-iam")
         - [Granting
-          permissions by using an AWS CloudFormation template](automation-ec2reset.md#automation-ec2reset-access-cfn "automation-ec2reset.md#automation-ec2reset-access-cfn")
+          permissions by using an CloudFormation template](automation-ec2reset.md#automation-ec2reset-access-cfn "automation-ec2reset.md#automation-ec2reset-access-cfn")
 
     - [Running the
       Automation](automation-ec2reset.md#automation-ec2reset-executing "automation-ec2reset.md#automation-ec2reset-executing")

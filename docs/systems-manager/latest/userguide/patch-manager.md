@@ -21,7 +21,7 @@ upgrades on Linux nodes. You can patch fleets of Amazon Elastic Compute Cloud (A
 on-premises servers, and virtual machines (VMs) by operating system type. This includes
 supported versions of several operating systems, as listed in [Patch Manager prerequisites](patch-manager-prerequisites.md "patch-manager-prerequisites.md"). You
 can scan instances to see only a report of missing patches, or you can scan and
-automatically install all missing patches. To get started with Patch Manager, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/patch-manager "https://console.aws.amazon.com/systems-manager/patch-manager"). In the
+automatically install all missing patches. To get started with Patch Manager, open the [Systems Manager console](https://console.aws.amazon.com//systems-manager/patch-manager "https://console.aws.amazon.com//systems-manager/patch-manager"). In the
 navigation pane, choose **Patch Manager**.
 
 AWS doesn't test patches before making them available in Patch Manager. Also, Patch Manager

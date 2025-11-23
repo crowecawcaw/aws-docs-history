@@ -209,7 +209,7 @@ accounts
 Use AWS CloudFormation stacksets to create an `OpsItemGroup` resource
 policy and an IAM execution role that give users permission to work with
 OpsItems across accounts. To get started, download and unzip the [`OpsCenterCrossAccountMembers.zip`](samples/OpsCenterCrossAccountMembers.md "samples/OpsCenterCrossAccountMembers.md") file. This
-file contains the `OpsCenterCrossAccountMembers.yaml` AWS CloudFormation
+file contains the `OpsCenterCrossAccountMembers.yaml` CloudFormation
 template file. When you create a stack set by using this template,
 CloudFormation automatically creates the
 `OpsItemCrossAccountResourcePolicy` resource policy and the
@@ -247,7 +247,7 @@ and interact with related resources, which you will complete in this task.
 
 To get started, download and unzip the [`OpsCenterCrossAccountManagementRole.zip`](samples/OpsCenterCrossAccountManagementRole.md "samples/OpsCenterCrossAccountManagementRole.md") file.
 This file contains the `OpsCenterCrossAccountManagementRole.yaml`
-AWS CloudFormation template file. When you create a stack by using this template,
+CloudFormation template file. When you create a stack by using this template,
 CloudFormation automatically creates the
 `OpsCenterCrossAccountManagementRole` IAM role in the
 account. For more information about creating a stack, see [Creating a stack on the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the

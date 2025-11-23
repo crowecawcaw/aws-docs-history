@@ -3,7 +3,7 @@ AWS Systems Manager Change Manager is no longer open to new customers. Existing
 
 # `aws:createStack` –
 
-Create an AWS CloudFormation stack
+Create an CloudFormation stack
 
 Creates an AWS CloudFormation stack from a template.
 
@@ -96,7 +96,7 @@ review all permissions associated with them and edit their permissions, if
 necessary.
 
 For more information, see [Acknowledging
-IAM Resources in AWS CloudFormation Templates](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md#capabilities "../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md#capabilities").
+IAM Resources in CloudFormation Templates](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md#capabilities "../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md#capabilities").
 
 ###### CAPABILITY_AUTO_EXPAND
 

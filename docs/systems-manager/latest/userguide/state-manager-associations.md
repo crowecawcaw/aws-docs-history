@@ -14,7 +14,7 @@ AWS Systems Manager console, the AWS Command Line Interface (AWS CLI), and AWS T
   of an association](state-manager-associations-edit.md "state-manager-associations-edit.md")
 - [Deleting
   associations](systems-manager-state-manager-delete-association.md "systems-manager-state-manager-delete-association.md")
-- [Running Auto Scaling groups with
+- [Running Amazon EC2 Auto Scaling groups with
   associations](systems-manager-state-manager-asg.md "systems-manager-state-manager-asg.md")
 - [Viewing association
   histories](state-manager-associations-history.md "state-manager-associations-history.md")

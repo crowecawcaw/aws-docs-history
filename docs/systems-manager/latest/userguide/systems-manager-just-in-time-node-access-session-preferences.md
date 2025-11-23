@@ -5,7 +5,7 @@ AWS Systems Manager Change Manager is no longer open to new customers. Existing
 
 With just-in-time node access, you can specify general session and logging
 preferences in each AWS account and AWS Region in your organization.
-Alternatively, you can use AWS CloudFormation StackSets to create a session preferences document
+Alternatively, you can use CloudFormation StackSets to create a session preferences document
 in multiple accounts and Regions to help you have consistent session preferences.
 For information about the schema for session preferences documents, see [Session document schema](session-manager-schema.md "session-manager-schema.md").
 

@@ -26,7 +26,7 @@ For information about using the command line to update existing Session Manager
 preferences, see [Update Session Manager
 preferences (command line)](getting-started-configure-preferences-cli.md "getting-started-configure-preferences-cli.md").
 
-For an example of how to create session preferences using AWS CloudFormation, see [Create a Systems Manager document for Session Manager preferences](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.md#aws-resource-ssm-document--examples "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.md#aws-resource-ssm-document--examples") in the
+For an example of how to create session preferences using CloudFormation, see [Create a Systems Manager document for Session Manager preferences](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.md#aws-resource-ssm-document--examples "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.md#aws-resource-ssm-document--examples") in the
 _AWS CloudFormation User Guide_.
 
 ###### Note

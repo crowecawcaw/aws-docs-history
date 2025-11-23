@@ -3,7 +3,7 @@ AWS Systems Manager Change Manager is no longer open to new customers. Existing
 
 # Using Application Manager to
 
-manage AWS CloudFormation stacks
+manage CloudFormation stacks
 
 Application Manager, a tool in AWS Systems Manager, helps you provision and manage resources for
 your applications by integrating with AWS CloudFormation. You can create, edit, and
@@ -87,9 +87,9 @@ the AWS Management Console.
      IAM Amazon Resource Name (ARN). The system uses the
      specified service role to create all resources specified
      in your stack. If you don't specify an IAM role, then
-     AWS CloudFormation uses a temporary session that the system generates
+     CloudFormation uses a temporary session that the system generates
      from your user credentials. For more information about
-     this IAM role, see [AWS CloudFormation
+     this IAM role, see [CloudFormation
      service role](../../../AWSCloudFormation/latest/UserGuide/using-iam-servicerole.md "../../../AWSCloudFormation/latest/UserGuide/using-iam-servicerole.md") in the
      _AWS CloudFormation User Guide_.
    - Choose **Next**.
@@ -106,7 +106,7 @@ create and provision the stack, see the following topics in the
 _AWS CloudFormation User Guide_.
 
 - [Stack status codes](../../../AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.md#w2ab1c23c15c17c11 "../../../AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.md#w2ab1c23c15c17c11")
-- [Troubleshooting AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md "../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md")
+- [Troubleshooting CloudFormation](../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md "../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md")
 
 After your stack resources are provisioned and running, users can edit
 resources directly by using the underlying service that created the

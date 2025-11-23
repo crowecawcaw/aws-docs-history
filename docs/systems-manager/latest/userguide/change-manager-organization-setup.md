@@ -295,7 +295,7 @@ that was created for the job function you configured. For example,
 ###### Note
 
 Quick Setup uses AWS CloudFormation StackSets to deploy your configurations. You can also
-view information about a completed deployment configuration in the AWS CloudFormation
+view information about a completed deployment configuration in the CloudFormation
 console. For information about StackSets, see [Working
 with AWS CloudFormation StackSets](../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md "../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md") in the
 _AWS CloudFormation User Guide_.

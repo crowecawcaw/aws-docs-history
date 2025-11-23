@@ -9,7 +9,7 @@ strings, Amazon Machine Image (AMI) IDs, and license codes as parameter values. 
 as plain text or encrypted data. You can reference Systems Manager parameters in your scripts,
 commands, SSM documents, and configuration and automation workflows by using the unique
 name that you specified when you created the parameter. To get started with Parameter Store, open
-the [Systems Manager console](https://console.aws.amazon.com/systems-manager/parameters "https://console.aws.amazon.com/systems-manager/parameters"). In the
+the [Systems Manager console](https://console.aws.amazon.com//systems-manager/parameters "https://console.aws.amazon.com//systems-manager/parameters"). In the
 navigation pane, choose **Parameter Store**.
 
 Parameter Store is also integrated with Secrets Manager. You can retrieve Secrets Manager secrets when using other

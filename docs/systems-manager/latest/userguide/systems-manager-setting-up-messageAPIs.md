@@ -202,7 +202,7 @@ Systems Manager delegated administrators who manage OpsItems in OpsCenter requir
 access to this API action so they can view related resource details about
 OpsItems across multiple AWS accounts. Specifically, this API gives a
 delegated administrator permission to view the following OpsItem details in the
-AWS Management Console: the OpsItem description, tags, AWS CloudFormation template, AWS Config changes,
+AWS Management Console: the OpsItem description, tags, CloudFormation template, AWS Config changes,
 CloudWatch Logs alarms, and AWS CloudTrail events. For more information about working with
 OpsItems across accounts, see [(Optional)
 Manually set up OpsCenter to centrally manage OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md "OpsCenter-getting-started-multiple-accounts.md"). For more

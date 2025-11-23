@@ -96,7 +96,7 @@ StackSets failed: delegatedAdmin` error in a
    red banner in the Quick Setup console, sign in to the delegated
    administrator account and the AWS Region designated as the
    Quick Setup home Region.
-2. Open the AWS CloudFormation console at
+2. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 3. Choose the stack created by your Quick Setup configuration. The
    stack name includes the following:
@@ -133,7 +133,7 @@ configuration
 
 1. Sign in to the AWS account and the AWS Region where the
    failure occurred.
-2. Open the AWS CloudFormation console at
+2. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 3. Choose the stack created by your Quick Setup configuration. The
    stack name includes the following:
@@ -160,5 +160,5 @@ If a stack status shows
 has previously onboarded to OpsCenter cross-account management by
 using the [manual method](OpsCenter-getting-started-multiple-accounts.md "OpsCenter-getting-started-multiple-accounts.md"). To resolve this issue, you must delete
 the AWS CloudFormation stacks or stack sets created during Steps 4 and 5 of
-the manual onboarding process. For more information, see [Delete a stack set](../../../AWSCloudFormation/latest/UserGuide/stacksets-delete.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-delete.md") and [Deleting a stack on the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the
+the manual onboarding process. For more information, see [Delete a stack set](../../../AWSCloudFormation/latest/UserGuide/stacksets-delete.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-delete.md") and [Deleting a stack on the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the
 _AWS CloudFormation User Guide_.

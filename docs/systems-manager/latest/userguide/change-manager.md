@@ -15,7 +15,7 @@ requesting, approving, implementing, and reporting on operational changes to you
 application configuration and infrastructure. From a single _delegated administrator account_, if you use AWS Organizations, you can manage changes across multiple
 AWS accounts and across AWS Regions. Alternatively, using a _local account_, you can manage changes for a single AWS account. Use
 Change Manager for managing changes to both AWS resources and on-premises resources. To get
-started with Change Manager, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/change-manager "https://console.aws.amazon.com/systems-manager/change-manager"). In the navigation pane, choose
+started with Change Manager, open the [Systems Manager console](https://console.aws.amazon.com//systems-manager/change-manager "https://console.aws.amazon.com//systems-manager/change-manager"). In the navigation pane, choose
 **Change Manager**.
 
 With Change Manager, you can use pre-approved _change templates_ to help automate change processes for your resources and

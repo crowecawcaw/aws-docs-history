@@ -3,7 +3,7 @@ AWS Systems Manager Change Manager is no longer open to new customers. Existing
 
 # Create service roles for
 
-Automation by using AWS CloudFormation
+Automation by using CloudFormation
 
 You can create a service role for Automation, a tool in AWS Systems Manager, from an
 AWS CloudFormation template. After you create the service role, you can specify the service
@@ -11,24 +11,24 @@ role in runbooks using the parameter `AutomationAssumeRole`.
 
 ## Create the service role using
 
-AWS CloudFormation
+CloudFormation
 
 Use the following procedure to create the required AWS Identity and Access Management (IAM) role for
-Systems Manager Automation by using AWS CloudFormation.
+Systems Manager Automation by using CloudFormation.
 
 ###### To create the required IAM role
 
 1. Download and unzip the [`AWS-SystemsManager-AutomationServiceRole.zip`](samples/AWS-SystemsManager-AutomationServiceRole.md "samples/AWS-SystemsManager-AutomationServiceRole.md")
    file. This file includes the
-   `AWS-SystemsManager-AutomationServiceRole.yaml` AWS CloudFormation
+   `AWS-SystemsManager-AutomationServiceRole.yaml` CloudFormation
    template file.
-2. Open the AWS CloudFormation console at
+2. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 3. Choose **Create Stack**.
 4. In the **Specify template** section, choose
    **Upload a template file**.
 5. Choose **Browse**, and then choose the
-   `AWS-SystemsManager-AutomationServiceRole.yaml` AWS CloudFormation
+   `AWS-SystemsManager-AutomationServiceRole.yaml` CloudFormation
    template file.
 6. Choose **Next**.
 7. On the **Specify stack details** page, in the
@@ -36,7 +36,7 @@ Systems Manager Automation by using AWS CloudFormation.
 8. On the **Configure stack options** page, you don’t
    need to make any selections. Choose **Next**.
 9. On the **Review** page, scroll down and choose the
-   **I acknowledge that AWS CloudFormation might create IAM
+   **I acknowledge that CloudFormation might create IAM
    resources** option.
 10. Choose **Create**.
 
@@ -66,7 +66,7 @@ policy or customer managed policy to invoke other AWS services](automation-setup
 Automation
 
 Use the following procedure to copy information about the Automation service
-role from the AWS CloudFormation console. You must specify these roles when you use a
+role from the CloudFormation console. You must specify these roles when you use a
 runbook.
 
 ###### Note
@@ -79,7 +79,7 @@ policies.
 
 ###### To copy the role names
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Select the Automation **Stack name** you created in
    the previous procedure.

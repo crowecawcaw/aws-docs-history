@@ -129,7 +129,17 @@ them. If a maintenance windows specifies one patching operation, but a patch pol
 specifies a different one for the same time, consider removing the task from the
 maintenance window.
 
-If you determine that conflicting patching operations weren't the cause of the
+**Possible cause**: When patching managed nodes, the document execution may be interrupted and
+marked as failed even though patches were successfully installed. This can occur if the system initiates
+an unexpected reboot during the patching operation (for example, to apply updates to firmware or
+features like SecureBoot). The SSM Agent cannot persist and resume the document execution state
+across external reboots, resulting in the execution being reported as failed.
+
+**Solution**: To verify patch installation status after a failed execution,
+run a `Scan` patching operations, then check the patch compliance data in Patch Manager
+to assess the current compliance state.
+
+If you determine that conflicting patching operations or external reboots weren't the cause of the
 failure in this scenario, we recommend contacting [AWS Support](#patch-manager-troubleshooting-contact-support "#patch-manager-troubleshooting-contact-support").
 
 ## Issue: Unexpected patch

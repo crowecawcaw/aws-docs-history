@@ -12,7 +12,7 @@ for Linux Server](../../../AWSEC2/latest/UserGuide/Linux-Server-EC2Rescue.md "..
 EC2Rescue for Windows Server](../../../AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.md "../../../AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.md"). Or, you can run the tool automatically
 by using Systems Manager Automation and the **`AWSSupport-ExecuteEC2Rescue`** runbook. Automation
 is a tool in AWS Systems Manager. The **`AWSSupport-ExecuteEC2Rescue`** runbook is designed
-to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions
+to perform a combination of Systems Manager actions, CloudFormation actions, and Lambda functions
 that automate the steps normally required to use EC2Rescue.
 
 You can use the **`AWSSupport-ExecuteEC2Rescue`** runbook to troubleshoot
@@ -89,7 +89,7 @@ following options.
 - [Granting
   permissions by using IAM policies](#automation-ec2rescue-access-iam "#automation-ec2rescue-access-iam")
 - [Granting
-  permissions by using an AWS CloudFormation template](#automation-ec2rescue-access-cfn "#automation-ec2rescue-access-cfn")
+  permissions by using an CloudFormation template](#automation-ec2rescue-access-cfn "#automation-ec2rescue-access-cfn")
 
 #### Granting
 
@@ -197,12 +197,12 @@ JSON
 
 #### Granting
 
-permissions by using an AWS CloudFormation template
+permissions by using an CloudFormation template
 
-AWS CloudFormation automates the process of creating IAM roles and policies
+CloudFormation automates the process of creating IAM roles and policies
 by using a preconfigured template. Use the following procedure to
 create the required IAM roles and policies for the EC2Rescue
-Automation by using AWS CloudFormation.
+Automation by using CloudFormation.
 
 ###### To create the required IAM roles and policies for
 
@@ -217,7 +217,7 @@ EC2Rescue
    partition.
 
 For example, for the China Regions, change all cases of
-`arn:aws` to `arn:aws-cn`. 3. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+`arn:aws` to `arn:aws-cn`. 3. Sign in to the AWS Management Console and open the CloudFormation console at
 [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"). 4. Choose **Create stack**, **With
 new resources (standard)**. 5. On the **Create stack** page, for
 **Prerequisite - Prepare template**,
@@ -238,10 +238,10 @@ might want to tag a stack to identify the type of tasks it
 runs, the types of targets or other resources involved, and
 the environment it runs in. 11. Choose **Next** 12. On the **Review** page, review the stack
 details, and then scroll down and choose the **I
-acknowledge that AWS CloudFormation might create IAM
+acknowledge that CloudFormation might create IAM
 resources** option. 13. Choose **Create stack**.
 
-AWS CloudFormation shows the **CREATE_IN_PROGRESS**
+CloudFormation shows the **CREATE_IN_PROGRESS**
 status for a few minutes. The status changes to
 **CREATE_COMPLETE** after the stack has
 been created. You can also choose the refresh icon to check
@@ -289,9 +289,9 @@ Automation
       specify an instance type for the EC2Rescue instance. The
       default instance type is `t2.medium`.
    3. For **AutomationAssumeRole**, if you
-      created roles for this Automation by using the AWS CloudFormation
+      created roles for this Automation by using the CloudFormation
       procedure described earlier in this topic, then choose the
-      ARN of the AssumeRole that you created in the AWS CloudFormation
+      ARN of the AssumeRole that you created in the CloudFormation
       console.
    4. (Optional) For **LogDestination**,
       specify an S3 bucket if you want to collect operating

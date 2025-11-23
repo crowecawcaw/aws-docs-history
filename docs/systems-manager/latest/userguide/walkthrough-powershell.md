@@ -333,7 +333,7 @@ document
 
 Using Run Command, you can quickly join a managed node to an AWS Directory Service domain.
 Before executing this command, [create a directory](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_create_directory.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_create_directory.md"). We also recommend that you learn more about the
-AWS Directory Service. For more information, see the [AWS Directory Service Administration
+Directory Service. For more information, see the [AWS Directory Service Administration
 Guide](../../../directoryservice/latest/admin-guide.md "../../../directoryservice/latest/admin-guide.md").
 
 You can only join a managed node to a domain. You can't remove a node from a
@@ -363,7 +363,7 @@ Get-SSMDocumentDescription `
 
 node to a domain
 
-The following command joins a managed node to the given AWS Directory Service domain and
+The following command joins a managed node to the given Directory Service domain and
 uploads any generated output to the example Amazon Simple Storage Service (Amazon S3) bucket.
 
 ```

@@ -57,7 +57,6 @@ For information about using the visual designer to create a custom runbook, see 
 ###### Contents
 
 - [Visual design experience for Automation runbooks](automation-visual-designer.md "automation-visual-designer.md")
-  - [Before you begin](automation-visual-designer.md#visual-designer-prerequisites "automation-visual-designer.md#visual-designer-prerequisites")
   - [Overview of the visual design experience
     interface](visual-designer-interface-overview.md "visual-designer-interface-overview.md")
     - [Actions browser](visual-designer-interface-overview.md#visual-designer-actions "visual-designer-interface-overview.md#visual-designer-actions")

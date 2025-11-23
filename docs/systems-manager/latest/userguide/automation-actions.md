@@ -51,13 +51,13 @@ policy or customer managed policy to invoke other AWS services](automation-setup
 - [aws:createImage – Create
   an Amazon Machine Image](automation-action-create.md "automation-action-create.md")
 - [aws:createStack –
-  Create an AWS CloudFormation stack](automation-action-createstack.md "automation-action-createstack.md")
+  Create an CloudFormation stack](automation-action-createstack.md "automation-action-createstack.md")
 - [aws:createTags –
   Create tags for AWS resources](automation-action-createtag.md "automation-action-createtag.md")
 - [aws:deleteImage – Delete
   an Amazon Machine Image](automation-action-delete.md "automation-action-delete.md")
 - [aws:deleteStack –
-  Delete an AWS CloudFormation stack](automation-action-deletestack.md "automation-action-deletestack.md")
+  Delete an CloudFormation stack](automation-action-deletestack.md "automation-action-deletestack.md")
 - [aws:executeAutomation
   – Run another automation](automation-action-executeAutomation.md "automation-action-executeAutomation.md")
 - [aws:executeAwsApi

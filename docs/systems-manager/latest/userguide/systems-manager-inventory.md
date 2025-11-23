@@ -10,7 +10,7 @@ data and quickly determine which nodes are running the software and configuratio
 by your software policy, and which nodes need to be updated. You can configure Inventory on
 all of your managed nodes by using a one-click procedure. You can also configure and view
 inventory data from multiple AWS Regions and AWS accounts by using Amazon Athena. To get
-started with Inventory, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/inventory "https://console.aws.amazon.com/systems-manager/inventory"). In the navigation pane, choose
+started with Inventory, open the [Systems Manager console](https://console.aws.amazon.com//systems-manager/inventory "https://console.aws.amazon.com//systems-manager/inventory"). In the navigation pane, choose
 **Inventory**.
 
 If the pre-configured metadata types collected by Systems Manager Inventory don't meet your needs,

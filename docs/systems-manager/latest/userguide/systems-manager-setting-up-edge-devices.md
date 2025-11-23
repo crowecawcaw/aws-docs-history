@@ -200,7 +200,7 @@ aws iam attach-role-policy ^
 ```
 
 (Optional) Run the following command to allow SSM Agent to access
-AWS Directory Service on your behalf for requests to join the domain from edge
+Directory Service on your behalf for requests to join the domain from edge
 devices. The service role needs this policy only if you join your
 edge devices to a Microsoft AD directory.
 
@@ -310,7 +310,7 @@ Register-IAMRolePolicy `
 ```
 
 (Optional) Run the following command to allow SSM Agent to access
-AWS Directory Service on your behalf for requests to join the domain from edge
+Directory Service on your behalf for requests to join the domain from edge
 devices. The service role needs this policy only if you join your
 edge devices to a Microsoft AD directory.
 

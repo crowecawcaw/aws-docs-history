@@ -50,6 +50,8 @@ in your patching operations.
   recommended for patching managed nodes](#patch-manager-ssm-documents-recommended "#patch-manager-ssm-documents-recommended")
 - [Legacy SSM documents for
   patching managed nodes](#patch-manager-ssm-documents-legacy "#patch-manager-ssm-documents-legacy")
+- [Known limitations of the SSM documents for
+  patching managed nodes](#patch-manager-ssm-documents-known-limitations "#patch-manager-ssm-documents-known-limitations")
 - [SSM Command document for
   patching: AWS-RunPatchBaseline](patch-manager-aws-runpatchbaseline.md "patch-manager-aws-runpatchbaseline.md")
 - [SSM Command
@@ -307,3 +309,16 @@ the following parameter configuration with the recommended replacement document,
 - `Allow Reboot` = `True`
 - `Include Kbs` = `comma-separated list of KB
 articles`
+
+## Known limitations of the SSM documents for
+
+patching managed nodes
+
+### External reboot interruptions
+
+If a reboot is initiated by the system on the node during patch installation (for example, to apply updates to firmware or features like SecureBoot),
+the patching document execution may be interrupted and marked as failed even though patches were successfully installed. This occurs because the SSM Agent cannot
+persist and resume the document execution state across external reboots.
+
+To verify patch installation status after a failed execution, run a `Scan` patching operation,
+then check the patch compliance data in Patch Manager to assess the current compliance state.

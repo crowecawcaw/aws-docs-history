@@ -8,7 +8,7 @@ compliance and configuration inconsistencies. You can collect and aggregate data
 multiple AWS accounts and Regions, and then drill down into specific resources that aren’t
 compliant. By default, Compliance displays current compliance data about patching in
 Patch Manager and associations in State Manager. (Patch Manager and State Manager are also both tools in
-AWS Systems Manager.) To get started with Compliance, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/compliance "https://console.aws.amazon.com/systems-manager/compliance"). In the navigation pane, choose
+AWS Systems Manager.) To get started with Compliance, open the [Systems Manager console](https://console.aws.amazon.com//systems-manager/compliance "https://console.aws.amazon.com//systems-manager/compliance"). In the navigation pane, choose
 **Compliance**.
 
 Patch compliance data from Patch Manager can be sent to AWS Security Hub. Security Hub gives you a

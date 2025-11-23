@@ -19,37 +19,6 @@ following:
   you're finished, you can save your runbook, run it, and examine the results in the Systems Manager
   Automation console.
 
-## Before you begin
-
-To use the visual design experience, you need an AWS account, and credentials that provide the
-correct permissions for any resources that you want to use.
-
-In the visual design experience, Automation integrates with Amazon CodeGuru Security to help you detect
-security policy violations and vulnerabilities in your Python scripts. To use
-this feature for `aws:executeScript` actions, your AWS Identity and Access Management (IAM) policy must
-include the following permissions:
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "codeguru-security:CreateUploadUrl",
- "codeguru-security:CreateScan",
- "codeguru-security:GetScan",
- "codeguru-security:GetFindings"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
-
 ###### Topics
 
 - [Interface overview](visual-designer-interface-overview.md "visual-designer-interface-overview.md")

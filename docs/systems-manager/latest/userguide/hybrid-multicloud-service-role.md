@@ -63,7 +63,7 @@ Amazon Simple Storage Service (Amazon S3) buckets, Patch Manager patching operat
      policy for S3 bucket access](setup-instance-permissions.md#instance-profile-custom-s3-policy "setup-instance-permissions.md#instance-profile-custom-s3-policy"), search for
      it and select the check box next to its name.
    - If you plan to join non-EC2 machines to an Active Directory
-     managed by AWS Directory Service, search for
+     managed by Directory Service, search for
      **AmazonSSMDirectoryServiceAccess** and select
      the check box next to its name.
    - If you plan to use EventBridge or CloudWatch Logs to manage or monitor your managed
@@ -230,7 +230,7 @@ aws iam attach-role-policy ^
 ```
 
 (Optional) Run the following command to allow SSM Agent to
-access AWS Directory Service on your behalf for requests to join the domain by
+access Directory Service on your behalf for requests to join the domain by
 the managed node. Your service role needs this policy only if
 you join your nodes to a Microsoft AD
 directory.
@@ -353,7 +353,7 @@ Register-IAMRolePolicy `
 ```
 
 (Optional) Run the following command to allow SSM Agent to
-access AWS Directory Service on your behalf for requests to join the domain by
+access Directory Service on your behalf for requests to join the domain by
 the managed node. Your server role needs this policy only if you
 join your nodes to a Microsoft AD directory.
 

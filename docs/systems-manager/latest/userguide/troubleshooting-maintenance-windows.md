@@ -104,7 +104,7 @@ For information about the role permissions needed by an AWS managed
 Automation runbook, see the runbook descriptions in the [AWS Systems Manager Automation Runbook Reference](../../../systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.md").
 
 For information about the role permissions needed by an AWS managed
-SSM document, review the content of the document in the [Documents](https://console.aws.amazon.com/systems-manager/documents "https://console.aws.amazon.com/systems-manager/documents")
+SSM document, review the content of the document in the [Documents](https://console.aws.amazon.com//systems-manager/documents "https://console.aws.amazon.com//systems-manager/documents")
 section Systems Manager console.
 
 For information about the role permissions needed for Step Functions tasks, Lambda

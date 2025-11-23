@@ -29,7 +29,7 @@ actions on the specified resources:
 - `organizations` (AWS Organizations) – Reads information about
   the member accounts that belong to an organization as configured in
   Organizations.
-- `cloudformation` (AWS CloudFormation) – Reads information about
+- `cloudformation` (CloudFormation) – Reads information about
   CloudFormation stacks used to manage the state of resources and CloudFormation
   stackset operations.
 

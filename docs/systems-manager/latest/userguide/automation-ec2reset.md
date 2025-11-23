@@ -127,7 +127,7 @@ following options.
 - [Granting
   permissions by using IAM policies](#automation-ec2reset-access-iam "#automation-ec2reset-access-iam")
 - [Granting
-  permissions by using an AWS CloudFormation template](#automation-ec2reset-access-cfn "#automation-ec2reset-access-cfn")
+  permissions by using an CloudFormation template](#automation-ec2reset-access-cfn "#automation-ec2reset-access-cfn")
 
 #### Granting
 
@@ -234,12 +234,12 @@ JSON
 
 #### Granting
 
-permissions by using an AWS CloudFormation template
+permissions by using an CloudFormation template
 
-AWS CloudFormation automates the process of creating IAM roles and policies
+CloudFormation automates the process of creating IAM roles and policies
 by using a preconfigured template. Use the following procedure to
 create the required IAM roles and policies for the EC2Rescue
-Automation by using AWS CloudFormation.
+Automation by using CloudFormation.
 
 ###### To create the required IAM roles and policies for
 
@@ -254,7 +254,7 @@ EC2Rescue
    partition.
 
 For example, for the China Regions, change all cases of
-`arn:aws` to `arn:aws-cn`. 3. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+`arn:aws` to `arn:aws-cn`. 3. Sign in to the AWS Management Console and open the CloudFormation console at
 [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"). 4. Choose **Create stack**, **With
 new resources (standard)**. 5. On the **Create stack** page, for
 **Prerequisite - Prepare template**,
@@ -275,8 +275,8 @@ might want to tag a stack to identify the type of tasks it
 runs, the types of targets or other resources involved, and
 the environment it runs in. 11. Choose **Next** 12. On the **Review** page, review the stack
 details, and then scroll down and choose the **I
-acknowledge that AWS CloudFormation might create IAM
-resources** option. 13. AWS CloudFormation shows the **CREATE_IN_PROGRESS**
+acknowledge that CloudFormation might create IAM
+resources** option. 13. CloudFormation shows the **CREATE_IN_PROGRESS**
 status for a few minutes. The status changes to
 **CREATE_COMPLETE** after the stack has
 been created. You can also choose the refresh icon to check
@@ -336,9 +336,9 @@ the _Amazon EC2 User Guide_.
    runbook. 3. For **EC2RescueInstanceType**, specify an
    instance type for the EC2Rescue instance. The default
    instance type is `t2.medium`. 4. For **AssumeRole**, if you created roles
-   for this Automation by using the AWS CloudFormation procedure described
+   for this Automation by using the CloudFormation procedure described
    earlier in this topic, then specify the AssumeRole ARN that
-   you noted in the AWS CloudFormation console.
+   you noted in the CloudFormation console.
 
 9. (Optional) In the **Tags** area, apply one or
    more tag key name/value pairs to help identify the automation, for

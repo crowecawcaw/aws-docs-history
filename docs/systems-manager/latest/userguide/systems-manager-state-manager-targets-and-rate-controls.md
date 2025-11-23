@@ -54,7 +54,7 @@ automations with State Manager associations](scheduling-automations-state-manage
 
 As a best practice, we recommend using tags when creating associations that
 use a Command or Policy document. We also recommend using tags when creating
-associations to run Auto Scaling groups. For more information, see [Running Auto Scaling groups with
+associations to run Amazon EC2 Auto Scaling groups. For more information, see [Running Amazon EC2 Auto Scaling groups with
 associations](systems-manager-state-manager-asg.md "systems-manager-state-manager-asg.md").
 
 ###### Note

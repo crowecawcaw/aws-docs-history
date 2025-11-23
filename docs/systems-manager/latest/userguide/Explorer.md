@@ -18,7 +18,7 @@ applications, how they trend over time, and how they vary by category. You can g
 filter information in Explorer to focus on items that are relevant to you and that require
 action. When you identify high priority issues, you can use Systems Manager OpsCenter to run
 Automation runbooks and quickly resolve those issues. To get started with Explorer, open the
-[Systems Manager console](https://console.aws.amazon.com/systems-manager/explorer "https://console.aws.amazon.com/systems-manager/explorer"). In the
+[Systems Manager console](https://console.aws.amazon.com//systems-manager/explorer "https://console.aws.amazon.com//systems-manager/explorer"). In the
 navigation pane, choose **Explorer**.
 
 The following image shows some of the individual report boxes, called

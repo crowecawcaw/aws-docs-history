@@ -3,7 +3,7 @@ AWS Systems Manager Change Manager is no longer open to new customers. Existing
 
 # `aws:deleteStack` –
 
-Delete an AWS CloudFormation stack
+Delete an CloudFormation stack
 
 Deletes an AWS CloudFormation stack.
 

@@ -131,7 +131,7 @@ the value of the parameter applied to the AWS CloudFormation stack that is
 used in creating your patch policy configuration. To retrieve this
 ID, do the following:
 
-    1. Open the AWS CloudFormation console at
+    1. Open the CloudFormation console at
      [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
     2. Select the name of the stack that is used to create your
      patch policy. The name is in a format such as

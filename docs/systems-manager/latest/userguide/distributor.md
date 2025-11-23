@@ -9,7 +9,7 @@ AWS-provided agent software packages, such as **AmazonCloudWatchAgent**,
 or third-party packages such as **Trend Micro.** Publishing a package
 advertises specific versions of the package's document to managed nodes that you identify
 using node IDs, AWS account IDs, tags, or an AWS Region. To get started with Distributor,
-open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/distributor "https://console.aws.amazon.com/systems-manager/distributor"). In
+open the [Systems Manager console](https://console.aws.amazon.com//systems-manager/distributor "https://console.aws.amazon.com//systems-manager/distributor"). In
 the navigation pane, choose **Distributor**.
 
 After you create a package in Distributor, you can install the package in one of the

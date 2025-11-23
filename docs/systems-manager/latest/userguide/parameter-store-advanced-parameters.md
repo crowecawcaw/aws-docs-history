@@ -107,7 +107,7 @@ Here are some examples of automatic upgrades:
 - Your AWS CloudFormation templates provision numerous parameters when they're
   run. When this process causes you to reach the 10,000 parameter quota in
   the standard-parameter tier, Intelligent-Tiering automatically upgrades
-  you to the advanced-parameter tier, and your AWS CloudFormation processes aren't
+  you to the advanced-parameter tier, and your CloudFormation processes aren't
   interrupted.
 - You store a certificate value in a parameter, rotate the certificate
   value regularly, and the content is less than the 4 KB quota of the

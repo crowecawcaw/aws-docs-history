@@ -17,7 +17,7 @@ Use the information in this topic to help you prepare to use Quick Setup.
 Quick Setup onboarding
 
 Quick Setup launched a new console experience and a new API. Now you can interact
-with this API using the console, AWS CLI, AWS CloudFormation, and SDKs. If you opt in to the new
+with this API using the console, AWS CLI, CloudFormation, and SDKs. If you opt in to the new
 experience, your existing configurations are recreated using the new API. Depending
 on the number of existing configurations in your account, this process can take
 several minutes.
@@ -203,7 +203,7 @@ operations for the Quick Setup API.
 During onboarding, Quick Setup creates the following AWS Identity and Access Management (IAM) roles on your
 behalf:
 
-- `AWS-QuickSetup-LocalExecutionRole` – Grants AWS CloudFormation
+- `AWS-QuickSetup-LocalExecutionRole` – Grants CloudFormation
   permissions to use any template, excluding the patch policy template, and
   create the necessary resources.
 - `AWS-QuickSetup-LocalAdministrationRole` – Grants
@@ -244,7 +244,7 @@ _AWS Organizations User Guide_.
 
 ###### Note
 
-Quick Setup uses AWS CloudFormation StackSets to deploy your configurations across
+Quick Setup uses CloudFormation StackSets to deploy your configurations across
 AWS accounts and Regions. If the number of target accounts multiplied by the
 number of Regions exceeds 10,000, the configuration fails to deploy. We
 recommend reviewing your use case and creating configurations that use fewer
@@ -267,9 +267,9 @@ completed from your AWS Organizations management account.
 
 ###### To complete manual onboarding for Quick Setup
 
-1. Activate trusted access for AWS CloudFormation with Organizations. This provides the
+1. Activate trusted access for CloudFormation with Organizations. This provides the
    management account with the permissions needed to create and manage StackSets
-   for your organization. You can use AWS CloudFormation's
+   for your organization. You can use CloudFormation's
    `ActivateOrganizationsAccess` API action to complete this
    step. For more information, see [ActivateOrganizationsAccess](../../../AWSCloudFormation/latest/APIReference/API_ActivateOrganizationsAccess.md "../../../AWSCloudFormation/latest/APIReference/API_ActivateOrganizationsAccess.md") in the
    _AWS CloudFormation API Reference_.
@@ -319,7 +319,7 @@ JSON
    `ExplorerEnablingRoleArn` request parameter. For more
    information, see [UpdateServiceSettings](../../../quick-setup/latest/APIReference/API_UpdateServiceSettings.md "../../../quick-setup/latest/APIReference/API_UpdateServiceSettings.md") in the _Quick Setup API
    Reference_.
-5. Create the required IAM roles for AWS CloudFormation StackSets to use. You must
+5. Create the required IAM roles for CloudFormation StackSets to use. You must
    create an _execution_ role and an
    _administration_ role.
    1. Create the execution role. The execution role should have at least

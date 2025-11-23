@@ -57,7 +57,7 @@ with AWS Config](../../../config/latest/developerguide/getting-started.md "../..
 
 Use the procedures in this section to create a resource data sync for Inventory by
 using the Amazon S3 and AWS Systems Manager consoles. You can also use AWS CloudFormation to create or
-delete a resource data sync. To use AWS CloudFormation, add the [`AWS::SSM::ResourceDataSync`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.md") resource to your AWS CloudFormation
+delete a resource data sync. To use CloudFormation, add the [`AWS::SSM::ResourceDataSync`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.md") resource to your CloudFormation
 template. For information, see one of the following documentation resources:
 
 - [AWS CloudFormation resource for resource data sync in AWS Systems Manager](https://aws.amazon.com/blogs/mt/aws-cloudformation-resource-for-resource-data-sync-in-aws-systems-manager/ "https://aws.amazon.com/blogs/mt/aws-cloudformation-resource-for-resource-data-sync-in-aws-systems-manager/")

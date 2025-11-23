@@ -45,20 +45,20 @@ them in the **Custom applications** category.
 
 **(Optional) Set up and deploy your AWS resources by using [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")**
 
-AWS CloudFormation allows you to create and provision AWS infrastructure
+CloudFormation allows you to create and provision AWS infrastructure
 deployments predictably and repeatedly. It helps you use AWS services
-such as Amazon EC2, Amazon Elastic Block Store (Amazon EBS), Amazon Simple Notification Service (Amazon SNS), Elastic Load Balancing, and AWS
-Auto Scaling. With CloudFormation, you can build reliable, scalable, cost-effective
+such as Amazon EC2, Amazon Elastic Block Store (Amazon EBS), Amazon Simple Notification Service (Amazon SNS), ELB, and AWS
+Amazon EC2 Auto Scaling. With CloudFormation, you can build reliable, scalable, cost-effective
 applications in the cloud without worrying about creating and
 configuring the underlying AWS infrastructure.
 
-Application Manager automatically imports all of your AWS CloudFormation resources and lists
-them in the **AWS CloudFormation stacks** category. You can create
+Application Manager automatically imports all of your CloudFormation resources and lists
+them in the **CloudFormation stacks** category. You can create
 CloudFormation stacks and templates in Application Manager. Stack and template changes
 are automatically synchronized between Application Manager and CloudFormation. You can
 also create applications in Application Manager and move stacks into them. This
 helps you view operations information for resources in your stacks in
-the context of an application. For pricing information, see [AWS CloudFormation
+the context of an application. For pricing information, see [CloudFormation
 Pricing](https://aws.amazon.com/cloudformation/pricing/ "https://aws.amazon.com/cloudformation/pricing/").
 
 **(Optional) Set up and deploy your applications by using AWS Launch Wizard**

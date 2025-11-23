@@ -189,7 +189,7 @@ This policy includes the following permissions.
   instance status; and creating, deleting, and describing tags. These permissions
   enable Automation runbooks to manage Amazon EC2 resources during execution.
 - `cloudformation` – Allows principals to create, describe,
-  update, and delete AWS CloudFormation stacks. This enables Automation runbooks to manage
+  update, and delete CloudFormation stacks. This enables Automation runbooks to manage
   infrastructure as code through CloudFormation.
 - `ssm` – Allows principals to use all Systems Manager actions. This
   comprehensive access is required for Automation runbooks to interact with all
@@ -446,7 +446,7 @@ This policy includes the following permissions.
   AWS Organizations. This is required so Quick Setup can identify all accounts in an
   organization where resource health checks are to be performed.
 - `cloudformation` – Allows principals to read information
-  from AWS CloudFormation. This is required so Quick Setup can gather data about the AWS CloudFormation stacks
+  from CloudFormation. This is required so Quick Setup can gather data about the CloudFormation stacks
   used to manage the state of resources and CloudFormation stackset operations.
 
 To view more details about the policy, including the latest version of the JSON policy
@@ -486,28 +486,28 @@ This policy includes the following permissions.
 
 - `ssm` – Allows principals to read, create, update, and
   delete SSM documents with names beginning with "AWSQuickSetup-" or
-  "AWSOperationsPack-" when called via AWS CloudFormation; to read specific AWS owned
+  "AWSOperationsPack-" when called via CloudFormation; to read specific AWS owned
   documents including "AWSQuickSetupType-ManageInstanceProfile"; to create,
   update, and delete associations for Quick Setup documents and AWS owned documents
-  when called via AWS CloudFormation; and to clean up legacy resources tagged with
+  when called via CloudFormation; and to clean up legacy resources tagged with
   `QuickSetupID`. This enables Quick Setup to deploy and manage
   automation workflows and associations.
 - `cloudformation` – Allows principals to read information
-  about AWS CloudFormation stacks and stack sets; and to create, update, and delete AWS CloudFormation
+  about CloudFormation stacks and stack sets; and to create, update, and delete CloudFormation
   stacks and change sets for resources with names beginning with
   "StackSet-AWS-QuickSetup-". This enables Quick Setup to manage infrastructure
   deployments across accounts and regions.
 - `config` – Allows principals to read information about
   AWS Config conformance packs and their status; and to create and delete
   conformance packs with names beginning with "AWS-QuickSetup-" when called via
-  AWS CloudFormation. This enables Quick Setup to deploy compliance monitoring
+  CloudFormation. This enables Quick Setup to deploy compliance monitoring
   configurations.
 - `events` – Allows principals to manage EventBridge rules and
   targets for resources with names containing "QuickSetup-". This enables Quick Setup
   to create scheduled automation workflows.
 - `iam` – Allows principals to create service-linked roles for
   AWS Config and Systems Manager; to create, manage, and delete IAM roles with names
-  beginning with "AWS-QuickSetup-" or "AWSOperationsPack-" when called via AWS CloudFormation;
+  beginning with "AWS-QuickSetup-" or "AWSOperationsPack-" when called via CloudFormation;
   to pass these roles to Systems Manager and EventBridge services; to attach specific AWS managed
   policies to these roles; and to set permissions boundaries using specific
   Quick Setup managed policies. This enables Quick Setup to create the necessary service
@@ -542,9 +542,9 @@ This policy includes the following permissions.
 - `iam` – Allows principals to manage and delete IAM roles
   required for Automation configuration tasks; and to manage Automation role
   policies.
-- `cloudformation` – Allows principals to read AWS CloudFormation stack
-  information; and to control AWS CloudFormation stacks that were created by Quick Setup using
-  AWS CloudFormation stack sets.
+- `cloudformation` – Allows principals to read CloudFormation stack
+  information; and to control CloudFormation stacks that were created by Quick Setup using
+  CloudFormation stack sets.
 - `ssm` – Allows principals to create, update, read, and
   delete Automation runbooks required for configuration tasks; and to create,
   update, and delete State Manager associations.
@@ -702,7 +702,7 @@ This policy includes the following permissions.
 - `iam` – Allows principals to create service-linked roles for
   DevOps Guru and Systems Manager; and to list roles that help enable Explorer.
 - `cloudformation` – Allows principals to list and describe
-  AWS CloudFormation stacks.
+  CloudFormation stacks.
 - `sns` – Allows principals to list and create Amazon SNS
   topics.
 - `devops-guru` – Allows principals to configure DevOps Guru; and to
@@ -1284,7 +1284,7 @@ Managed Policy Reference Guide_.
 ## AWS managed policy: AWSQuickSetupSSMLifecycleManagementExecutionPolicy
 
 The `AWSQuickSetupSSMLifecycleManagementExecutionPolicy` policy grants
-administrative permissions that allow Quick Setup to run the a AWS CloudFormation custom resource on
+administrative permissions that allow Quick Setup to run the a CloudFormation custom resource on
 lifecycle events during Quick Setup deployment in Systems Manager.
 
 You can attach this policy to your IAM entities. Systems Manager also attaches this policy
@@ -1327,15 +1327,15 @@ This policy includes the following permissions.
 - `ssm` – Allows principals to manage associations for certain
   resources that are created using AWS CloudFormation templates and a specific set of SSM
   documents; to manage roles and role policies using for diagnosing and
-  remediating managed nodes through AWS CloudFormation templates; and to attach and delete
+  remediating managed nodes through CloudFormation templates; and to attach and delete
   policies for Quick Setup lifecycle events
 - `iam` – Allows principals to tag roles and pass roles
   permissions for the Systems Manager service and Lambda service, and to pass role
   permissions for diagnosis operations.
 - `lambda` – Allows principals to tag and manage functions for
-  the Quick Setup lifecycle in the principal account using AWS CloudFormation templates.
+  the Quick Setup lifecycle in the principal account using CloudFormation templates.
 - `cloudformation` – Allows principals to read information
-  from AWS CloudFormation. This is required so Quick Setup can gather data about the AWS CloudFormation stacks
+  from CloudFormation. This is required so Quick Setup can gather data about the CloudFormation stacks
   used to manage the state of resources and CloudFormation stackset operations.
 
 To view more details about the policy, including the latest version of the JSON policy
@@ -1347,7 +1347,7 @@ Reference Guide_.
 The `AWSQuickSetupSSMDeploymentS3BucketRolePolicy` policy grants
 permissions for listing all S3 buckets in an account; and for managing and retrieving
 information about specific buckets in the principal account that are managed through
-AWS CloudFormation templates.
+CloudFormation templates.
 
 You can attach `AWSQuickSetupSSMDeploymentS3BucketRolePolicy` to your IAM
 entities. Systems Manager also attaches this policy to a service role that allows Systems Manager to
@@ -1359,7 +1359,7 @@ This policy includes the following permissions.
 
 - `s3` – Allows principals list all S3 buckets in an account;
   and to manage and retrieve information about specific buckets in the principal
-  account that are managed through AWS CloudFormation templates.
+  account that are managed through CloudFormation templates.
 
 To view more details about the policy, including the latest version of the JSON policy
 document, see [AWSQuickSetupSSMDeploymentS3BucketRolePolicy](../../../aws-managed-policy/latest/reference/AWSQuickSetupSSMDeploymentS3BucketRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSQuickSetupSSMDeploymentS3BucketRolePolicy.md") in the _AWS Managed
@@ -1502,11 +1502,11 @@ associated with just-in-time node access.
 This policy includes the following permissions.
 
 - `cloudformation` – Allows principals to create, update,
-  delete, and read AWS CloudFormation stacks.
+  delete, and read CloudFormation stacks.
 - `ssm` – Allows principals to create, delete, update, and
-  read State Manager associations that are called by AWS CloudFormation.
+  read State Manager associations that are called by CloudFormation.
 - `iam` – Allows principals create, delete, read and tag IAM
-  roles that are called by AWS CloudFormation.
+  roles that are called by CloudFormation.
 
 To view more details about the policy, including the latest version of the JSON policy
 document, see [AWSQuickSetupJITNADeploymentRolePolicy](../../../aws-managed-policy/latest/reference/AWSQuickSetupJITNADeploymentRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSQuickSetupJITNADeploymentRolePolicy.md") in the _AWS Managed
@@ -1832,9 +1832,9 @@ Systems Manager [Document history](systems-manager-release-history.md "systems-m
 | [AWS-SSM-RemediationAutomation-ExecutionRolePolicy](#security-iam-awsmanpol-AWS-SSM-RemediationAutomation-ExecutionRolePolicy "#security-iam-awsmanpol-AWS-SSM-RemediationAutomation-ExecutionRolePolicy")<br>– New policy                                                                                                                                                                                                                                                                                                                                                                                                                                    | Systems Manager added a new policy to support starting Automation workflows<br>that remediate issues in managed nodes in a targeted account and<br>Region.                                                                                                                                                                                                                                                                                                                                                                                                                                           | November 21, 2024  |
 | [AWSQuickSetupSSMDeploymentRolePolicy](#security-iam-awsmanpol-AWSQuickSetupSSMDeploymentRolePolicy "#security-iam-awsmanpol-AWSQuickSetupSSMDeploymentRolePolicy") – Update to<br>an policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Systems Manager added permissions to allow Systems Manager to tag IAM<br>roles and Lambda created for the unified console.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | May 7th, 2025      |
 | [AWSQuickSetupSSMManageResourcesExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupSSMManageResourcesExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupSSMManageResourcesExecutionPolicy")<br>– New policy                                                                                                                                                                                                                                                                                                                                                                                                                                             | Systems Manager added a new policy to support running an operation in Quick Setup<br>that creates IAM roles for Quick Setup associations, which in turn are<br>created by a `AWSQuickSetupType-SSM` deployment.                                                                                                                                                                                                                                                                                                                                                                                      | November 21, 2024  |
-| [AWSQuickSetupSSMLifecycleManagementExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupSSMLifecycleManagementExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupSSMLifecycleManagementExecutionPolicy")<br>– New policy                                                                                                                                                                                                                                                                                                                                                                                                                                 | Systems Manager added a new policy to support Quick Setup running a AWS CloudFormation custom<br>resource on lifecycle events during a Quick Setup deployment.                                                                                                                                                                                                                                                                                                                                                                                                                                       | November 21, 2024  |
+| [AWSQuickSetupSSMLifecycleManagementExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupSSMLifecycleManagementExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupSSMLifecycleManagementExecutionPolicy")<br>– New policy                                                                                                                                                                                                                                                                                                                                                                                                                                 | Systems Manager added a new policy to support Quick Setup running a CloudFormation custom<br>resource on lifecycle events during a Quick Setup deployment.                                                                                                                                                                                                                                                                                                                                                                                                                                           | November 21, 2024  |
 | [AWSQuickSetupSSMDeploymentRolePolicy](#security-iam-awsmanpol-AWSQuickSetupSSMDeploymentRolePolicy "#security-iam-awsmanpol-AWSQuickSetupSSMDeploymentRolePolicy")<br>– New policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Systems Manager added a new policy to support granting administrative<br>permissions that allow Quick Setup to create resources that are using<br>during the Systems Manager onboarding process.                                                                                                                                                                                                                                                                                                                                                                                                     | November 21, 2024  |
-| [AWSQuickSetupSSMDeploymentS3BucketRolePolicy](#security-iam-awsmanpol-AWSQuickSetupSSMDeploymentS3BucketRolePolicy "#security-iam-awsmanpol-AWSQuickSetupSSMDeploymentS3BucketRolePolicy")<br>– New policy                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Systems Manager added a new policy to support managing and retrieving<br>information about specific buckets in the principal account that are<br>managed through AWS CloudFormation templates                                                                                                                                                                                                                                                                                                                                                                                                        | November 21, 2024  |
+| [AWSQuickSetupSSMDeploymentS3BucketRolePolicy](#security-iam-awsmanpol-AWSQuickSetupSSMDeploymentS3BucketRolePolicy "#security-iam-awsmanpol-AWSQuickSetupSSMDeploymentS3BucketRolePolicy")<br>– New policy                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Systems Manager added a new policy to support managing and retrieving<br>information about specific buckets in the principal account that are<br>managed through CloudFormation templates                                                                                                                                                                                                                                                                                                                                                                                                            | November 21, 2024  |
 | [AWSQuickSetupEnableDHMCExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupEnableDHMCExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupEnableDHMCExecutionPolicy")<br>– New policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Systems Manager is introducing a new policy to allow Quick Setup to create an<br>IAM role that itself uses the existing [AmazonSSMManagedEC2InstanceDefaultPolicy](#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy "#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy").<br>This policy contains all the permissions required for SSM Agent to<br>communicate with Systems Manager service. The new policy also allows modifications<br>to the Systems Manager service settings.                                                                                     | November 21, 2024  |
 | [AWSQuickSetupEnableAREXExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupEnableAREXExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupEnableAREXExecutionPolicy")<br>– New policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Systems Manager added a new policy to allow Quick Setup to create a service-linked<br>role for AWS Resource Explorer, for accessing Resource Explorer views and aggregator<br>indexes.                                                                                                                                                                                                                                                                                                                                                                                                               | November 21, 2024  |
 | [AWSQuickSetupManagedInstanceProfileExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupManagedInstanceProfileExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupManagedInstanceProfileExecutionPolicy")<br>– New policy                                                                                                                                                                                                                                                                                                                                                                                                                                 | Systems Manager added a new policy to allow Quick Setup to create a default<br>Quick Setup instance profile and to attach it to any Amazon EC2 instances<br>that lack an associated instance profile. This new policy also<br>allows Quick Setup to attach permissions to existing profiles to ensure<br>that all required Systems Manager permissions have been granted.                                                                                                                                                                                                                            | November 21, 2024  |
@@ -1868,7 +1868,7 @@ policies are also supported by Systems Manager.
   AWS managed policy that allows access to view automation executions and send
   approval decisions to automation that is waiting for approval.
 - [`AmazonSSMDirectoryServiceAccess`](../../../aws-managed-policy/latest/reference/AmazonSSMDirectoryServiceAccess.md "../../../aws-managed-policy/latest/reference/AmazonSSMDirectoryServiceAccess.md") –
-  AWS managed policy that that allows SSM Agent to access AWS Directory Service on behalf of the
+  AWS managed policy that that allows SSM Agent to access Directory Service on behalf of the
   user for requests to join the domain by the managed node.
 - [`AmazonSSMFullAccess`](../../../aws-managed-policy/latest/reference/AmazonSSMFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonSSMFullAccess.md") – AWS managed
   policy that grants full access to the Systems Manager API and documents.

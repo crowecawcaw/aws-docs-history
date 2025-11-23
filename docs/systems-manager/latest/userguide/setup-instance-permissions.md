@@ -211,7 +211,7 @@ profile for Systems Manager managed instances (console)
      policy for S3 bucket access](#instance-profile-custom-s3-policy "#instance-profile-custom-s3-policy"), search
      for it and select the check box next to its name.
    - If you plan to join instances to an Active Directory managed
-     by AWS Directory Service, search for
+     by Directory Service, search for
      **AmazonSSMDirectoryServiceAccess** and
      select the check box next to its name.
    - If you plan to use EventBridge or CloudWatch Logs to manage or monitor your
@@ -255,7 +255,7 @@ permissions for Systems Manager to an existing role (console)
      custom S3 bucket policies for an instance profile, see [(Optional) Create a custom
      policy for S3 bucket access](#instance-profile-custom-s3-policy "#instance-profile-custom-s3-policy").
    - If you plan to join instances to an Active Directory managed
-     by AWS Directory Service, search for
+     by Directory Service, search for
      **AmazonSSMDirectoryServiceAccess** and
      select the check box next to its name.
    - If you plan to use EventBridge or CloudWatch Logs to manage or monitor your

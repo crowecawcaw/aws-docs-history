@@ -10,7 +10,7 @@ are called _events_. When you create a Change Calendar entry, you're creating a
 [Systems Manager document](documents.md "documents.md") of the type `ChangeCalendar`.
 In Change Calendar, the document stores [iCalendar 2.0](https://icalendar.org/ "https://icalendar.org/")
 data in plaintext format. Events that you add to the Change Calendar entry become part of the
-document. To get started with Change Calendar, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/change-calendar "https://console.aws.amazon.com/systems-manager/change-calendar"). In the navigation pane,
+document. To get started with Change Calendar, open the [Systems Manager console](https://console.aws.amazon.com//systems-manager/change-calendar "https://console.aws.amazon.com//systems-manager/change-calendar"). In the navigation pane,
 choose **Change Calendar**.
 
 You can create a calendar and its events in the Systems Manager console. You can also import an

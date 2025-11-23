@@ -29,7 +29,7 @@ resources.
   remediate application issues](application-manager-working-runbooks.md "application-manager-working-runbooks.md")
 - [Tag resources in
   Application Manager](application-manager-working-tags.md "application-manager-working-tags.md")
-- [Working with AWS CloudFormation templates
+- [Working with CloudFormation templates
   and stacks in Application Manager](application-manager-working-stacks.md "application-manager-working-stacks.md")
 - [Working with clusters
   in Application Manager](application-manager-working-clusters.md "application-manager-working-clusters.md")

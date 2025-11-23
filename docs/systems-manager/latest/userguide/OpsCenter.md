@@ -12,7 +12,7 @@ resources. OpsCenter also provides Systems Manager Automation runbooks that you 
 resolve issues. You can specify searchable, custom data for each OpsItem. You can also view
 automatically-generated summary reports about OpsItems by status and source. To get started
 with OpsCenter, open the [Systems Manager
-console](https://console.aws.amazon.com/systems-manager/opsitems "https://console.aws.amazon.com/systems-manager/opsitems"). In the navigation pane, choose **OpsCenter**.
+console](https://console.aws.amazon.com//systems-manager/opsitems "https://console.aws.amazon.com//systems-manager/opsitems"). In the navigation pane, choose **OpsCenter**.
 
 OpsCenter is integrated with Amazon EventBridge and Amazon CloudWatch. This means you can configure these
 services to automatically create an OpsItem in OpsCenter when a CloudWatch alarm enters the

@@ -44,7 +44,7 @@ For **Applications**, the list includes the following:
 - Container cluster information provided by Amazon ECS.
   To help you remediate issues with components or resources, Application Manager also provides
   runbooks that you can associate with your applications. To get started with Application Manager, open
-  the [Systems Manager console](https://console.aws.amazon.com/systems-manager/appmanager "https://console.aws.amazon.com/systems-manager/appmanager"). In the
+  the [Systems Manager console](https://console.aws.amazon.com//systems-manager/appmanager "https://console.aws.amazon.com//systems-manager/appmanager"). In the
   navigation pane, choose **Application Manager**.
 
 ## What are the benefits of using
@@ -79,7 +79,7 @@ predefined application and cluster categories.
 
 Application Manager helps you provision and manage resources for your applications by
 integrating with [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md"). You
-can create, edit, and delete AWS CloudFormation templates and stacks in Application Manager. Application Manager
+can create, edit, and delete CloudFormation templates and stacks in Application Manager. Application Manager
 also includes a template library where you can clone, create, and store
 templates. Application Manager and CloudFormation display the same information about the
 current status of a stack. Templates and template updates are stored in Systems Manager
@@ -111,7 +111,7 @@ information for each instance in your application.
     	- `INSUFFICIENT_DATA` – The alarm has just
     	 started, the metric is not available, or not enough data is
     	 available for the metric to determine the alarm state.
-    + Auto Scaling group health for the parent and individual autoscaling
+    + Amazon EC2 Auto Scaling group health for the parent and individual autoscaling
      groups
 
 - **View operational metrics and alarms for an application
@@ -174,7 +174,7 @@ operations information about that resource without having to leave Systems Manag
 
 If you make changes to a resource in a service console, and that resource is
 part of an application in Application Manager, then Systems Manager automatically displays those
-changes. For example, if you update a stack in the AWS CloudFormation console, and if that
+changes. For example, if you update a stack in the CloudFormation console, and if that
 stack is part of an Application Manager application, then the stack updates are
 automatically reflected in Application Manager.
 

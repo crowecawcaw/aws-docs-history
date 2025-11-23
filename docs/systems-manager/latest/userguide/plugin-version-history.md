@@ -34,6 +34,7 @@ plugin.
 
 | Version   | Release date       | Details                                                                                                                                                                                                         |
 | --------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1.2.764.0 | November 19, 2024  | **Enhancement**: Added<br>support for signing OpenDataChannel request.<br>**Bug fix**: Fix checkstyle<br>issues to support newer Go version.                                                                    |
 | 1.2.707.0 | February 6, 2025   | **Enhancement**: Upgraded<br>the Go version to 1.23 in the Dockerfile. Updated the<br>version configuration step in the README.                                                                                 |
 | 1.2.694.0 | November 20, 2024  | **Bug fix**: Rolled back<br>change that added credentials to OpenDataChannel<br>requests.                                                                                                                       |
 | 1.2.688.0 | November 6, 2024   | **This version was deprecated on<br>11/20/2024.**<br>**Enhancements**:<br>• Added credentials to OpenDataChannel<br>requests.<br>• Upgraded the `testify` and<br>`objx` dependent packages.                     |

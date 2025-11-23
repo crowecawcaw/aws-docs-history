@@ -21,7 +21,7 @@ Amazon Simple Storage Service (Amazon S3) buckets, Amazon Simple Queue Service (
 
 For a full list of supported resource types that you can include in a maintenance window
 target, see [Resources you can use with AWS Resource Groups and Tag Editor](../../../ARG/latest/userguide/supported-resources.md#supported-resources-console "../../../ARG/latest/userguide/supported-resources.md#supported-resources-console") in the _AWS Resource Groups
-User Guide_. To get started with Maintenance Windows, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/maintenance-windows "https://console.aws.amazon.com/systems-manager/maintenance-windows"). In the navigation
+User Guide_. To get started with Maintenance Windows, open the [Systems Manager console](https://console.aws.amazon.com//systems-manager/maintenance-windows "https://console.aws.amazon.com//systems-manager/maintenance-windows"). In the navigation
 pane, choose **Maintenance Windows**.
 
 Each maintenance window has a schedule, a maximum duration, a set of registered targets
@@ -79,7 +79,7 @@ selected targets.
 - Run AWS Lambda functions that invokes additional actions, such as scanning your
   nodes for patch updates.
 - Run AWS Step Functions state machines to perform tasks such as removing a node from an
-  Elastic Load Balancing environment, patching the node, and then adding the node back to the Elastic Load Balancing
+  ELB environment, patching the node, and then adding the node back to the ELB
   environment.
 - Target nodes that are offline by specifying an AWS resource group as the
   target.

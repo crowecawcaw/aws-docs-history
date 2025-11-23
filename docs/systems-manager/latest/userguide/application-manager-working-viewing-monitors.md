@@ -67,7 +67,7 @@ You can perform the following actions on this page:
     so that when you zoom in or zoom out on one chart, the other chart
     zooms in or zooms out at the same time. You can unlink charts to
     limit zoom to one chart.
-  - Hide Auto Scaling alarms.
+  - Hide Amazon EC2 Auto Scaling alarms.
 
 ![The Action menu of the Application Manager Monitoring tab.](images/application-manager-Monitoring-4.png)
 

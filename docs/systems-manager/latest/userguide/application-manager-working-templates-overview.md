@@ -3,7 +3,7 @@ AWS Systems Manager Change Manager is no longer open to new customers. Existing
 
 # Using Application Manager
 
-to manage AWS CloudFormation templates
+to manage CloudFormation templates
 
 Application Manager, a tool in AWS Systems Manager, includes a template library and other tools to
 help you manage AWS CloudFormation templates. This section includes the following
@@ -52,14 +52,14 @@ template in either JSON or YAML. If you're unfamiliar with JSON or YAML, you
 can use AWS Infrastructure Composer, a tool for visually creating and
 modifying templates. For more information, see [Create templates visually with Infrastructure Composer](../../../AWSCloudFormation/latest/UserGuide/infrastructure-composer-for-cloudformation.md "../../../AWSCloudFormation/latest/UserGuide/infrastructure-composer-for-cloudformation.md") in the
 _AWS CloudFormation User Guide_. For information about the
-structure and syntax of a template, see [AWS CloudFormation template
+structure and syntax of a template, see [CloudFormation template
 sections](../../../AWSCloudFormation/latest/UserGuide/template-anatomy.md "../../../AWSCloudFormation/latest/UserGuide/template-anatomy.md") in the _AWS CloudFormation User Guide_.
 
 You can also construct a template from multiple template snippets.
 Template snippets are examples that demonstrate how to write templates for a
 particular resource. For example, you can view snippets for Amazon Elastic Compute Cloud
-(Amazon EC2) instances, Amazon Simple Storage Service (Amazon S3) domains, AWS CloudFormation mappings, and more.
-Snippets are grouped by resource. You can find general-purpose AWS CloudFormation
+(Amazon EC2) instances, Amazon Simple Storage Service (Amazon S3) domains, CloudFormation mappings, and more.
+Snippets are grouped by resource. You can find general-purpose CloudFormation
 snippets in the [General
 template snippets](../../../AWSCloudFormation/latest/UserGuide/quickref-general.md "../../../AWSCloudFormation/latest/UserGuide/quickref-general.md") section of the
 _AWS CloudFormation User Guide_.

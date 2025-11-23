@@ -5,7 +5,7 @@ AWS Systems Manager Change Manager is no longer open to new customers. Existing
 
 State Manager, a tool in AWS Systems Manager, is a secure and scalable configuration management service
 that automates the process of keeping your managed nodes and other AWS resources in a
-state that you define. To get started with State Manager, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/state-manager "https://console.aws.amazon.com/systems-manager/state-manager"). In the navigation pane,
+state that you define. To get started with State Manager, open the [Systems Manager console](https://console.aws.amazon.com//systems-manager/state-manager "https://console.aws.amazon.com//systems-manager/state-manager"). In the navigation pane,
 choose **State Manager**.
 
 ###### Note
@@ -160,5 +160,5 @@ State Manager is available at no additional charge.
 
 - [Combating Configuration Drift Using Amazon EC2 Systems Manager and Windows
   PowerShell DSC](https://aws.amazon.com/blogs/mt/combating-configuration-drift-using-amazon-ec2-systems-manager-and-windows-powershell-dsc/ "https://aws.amazon.com/blogs/mt/combating-configuration-drift-using-amazon-ec2-systems-manager-and-windows-powershell-dsc/")
-- [Configure Amazon EC2 Instances in an Auto Scaling Group Using
+- [Configure Amazon EC2 Instances in an Amazon EC2 Auto Scaling Group Using
   State Manager](https://aws.amazon.com/blogs/mt/configure-amazon-ec2-instances-in-an-auto-scaling-group-using-state-manager/ "https://aws.amazon.com/blogs/mt/configure-amazon-ec2-instances-in-an-auto-scaling-group-using-state-manager/")

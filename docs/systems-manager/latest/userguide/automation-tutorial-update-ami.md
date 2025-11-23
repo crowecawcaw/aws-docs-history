@@ -16,7 +16,7 @@ latest patches.
 - [Update a golden
   AMI using Automation, AWS Lambda, and Parameter Store](automation-tutorial-update-patch-golden-ami.md "automation-tutorial-update-patch-golden-ami.md")
 - [Updating AMIs using Automation and Jenkins](automation-tutorial-update-patch-ami-jenkins-integration.md "automation-tutorial-update-patch-ami-jenkins-integration.md")
-- [Updating AMIs for Auto Scaling groups](automation-tutorial-update-patch-windows-ami-autoscaling.md "automation-tutorial-update-patch-windows-ami-autoscaling.md")
+- [Updating AMIs for Amazon EC2 Auto Scaling groups](automation-tutorial-update-patch-windows-ami-autoscaling.md "automation-tutorial-update-patch-windows-ami-autoscaling.md")
 
 ## Update a Linux AMI (AWS CLI)
 

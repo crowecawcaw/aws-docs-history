@@ -61,7 +61,7 @@ following methods.
 ###### Topics
 
 - [Create service roles for
-  Automation by using AWS CloudFormation](automation-setup-cloudformation.md "automation-setup-cloudformation.md")
+  Automation by using CloudFormation](automation-setup-cloudformation.md "automation-setup-cloudformation.md")
 - [Create the service roles for Automation using
   the console](automation-setup-iam.md "automation-setup-iam.md")
 - [Allowing Automation to adapt to your
