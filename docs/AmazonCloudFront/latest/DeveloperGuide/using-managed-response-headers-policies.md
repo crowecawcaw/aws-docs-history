@@ -15,7 +15,7 @@ common use cases.
 To use a managed response headers policy, you attach it to a cache behavior in your
 distribution. The process is the same as when you create a custom response headers
 policy. However, instead of creating a new policy, you attach one of the managed
-policies. You attach the policy either by name (with the console) or by ID (with AWS CloudFormation,
+policies. You attach the policy either by name (with the console) or by ID (with CloudFormation,
 the AWS CLI, or the AWS SDKs). The names and IDs are listed in the following
 section.
 
@@ -43,7 +43,7 @@ This policy combines the [SimpleCORS](#managed-response-headers-policies-cors "#
 and [SecurityHeadersPolicy](#managed-response-headers-policies-security "#managed-response-headers-policies-security") policies into
 one.
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `e61eb60c-9c35-4d20-a928-2b84e02af89c`
 
@@ -70,7 +70,7 @@ If the response that CloudFront receives from the origin includes any of these h
 CloudFront uses the received header (and its value) in its response to the viewer. CloudFront
 doesn't use the header in this policy.
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `5cc3b908-e619-4b99-88e5-2cf7f45965bd`
 
@@ -88,7 +88,7 @@ Use this managed policy to allow CORS requests from any origin. This includes
 preflight requests. This policy also adds a set of security headers to all responses
 that CloudFront sends to viewers. This policy combines the [CORS-With-Preflight](#managed-response-headers-policies-cors-preflight "#managed-response-headers-policies-cors-preflight") and [SecurityHeadersPolicy](#managed-response-headers-policies-security "#managed-response-headers-policies-security") policies into one.
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `eaab4381-ed33-4a86-88ca-d9558dc6cd63`
 
@@ -118,7 +118,7 @@ headers in this policy, if the response that CloudFront receives from the origin
 the header, CloudFront uses the received header (and its value) in its response to the
 viewer. It doesn't use the header in this policy.
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `67f7725c-6f97-4210-82d7-5512b31e9d03`
 
@@ -144,7 +144,7 @@ If the response that CloudFront receives from the origin includes the
 value) in its response to the viewer. CloudFront doesn't use the header in this
 policy.
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `60669652-455b-4ae9-85a4-c4c02393f86c`
 

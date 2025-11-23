@@ -36,7 +36,8 @@ Lambda@Edge is ideal for the following use cases:
   To get started with Lambda@Edge, see [Customize at the edge with Lambda@Edge](lambda-at-the-edge.md "lambda-at-the-edge.md").
 
 To help you choose the option for your use case, use the following table to understand
-the differences between CloudFront Functions and Lambda@Edge. For information about differences that apply for origin modification helper methods, see [Choose between CloudFront Functions and Lambda@Edge](helper-functions-origin-modification.md#origin-modification-considerations "helper-functions-origin-modification.md#origin-modification-considerations").
+the differences between CloudFront Functions and Lambda@Edge. For information about differences that apply for origin modification helper methods, see [Choose between CloudFront Functions
+and Lambda@Edge](helper-functions-origin-modification.md#origin-modification-considerations "helper-functions-origin-modification.md#origin-modification-considerations").
 
 |                                                                                           | CloudFront Functions                                                                                                                               | Lambda@Edge                                                                                                                                                                                                                                          |
 | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -43,7 +43,7 @@ serve the compressed objects.
 - You must use [cache
   policies](controlling-the-cache-key.md "controlling-the-cache-key.md") to use Brotli compression. Brotli doesn't support legacy
   cache settings.
-- To enable compression by using [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.md") or the [CloudFront](../../../cloudfront/latest/APIReference/Welcome.md "../../../cloudfront/latest/APIReference/Welcome.md") API, set
+- To enable compression by using [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.md") or the [CloudFront](../../../cloudfront/latest/APIReference/Welcome.md "../../../cloudfront/latest/APIReference/Welcome.md") API, set
   the `Compress`, `EnableAcceptEncodingGzip`,
   `EnableAcceptEncodingBrotli` parameters to
   `true`.

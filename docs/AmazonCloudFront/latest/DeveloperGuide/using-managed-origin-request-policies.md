@@ -38,7 +38,7 @@ this policy in the CloudFront console](https://console.aws.amazon.com/cloudfront
 This policy includes all values (headers, cookies, and query strings) from the
 viewer request.
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `216adef6-5c7f-47e4-b989-5492eafa07d3`
 
@@ -61,7 +61,7 @@ viewer request, and all [CloudFront headers](adding-cloudfront-headers.md "addin
 that were released through June 2022 (CloudFront headers released after June 2022 are not
 included).
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `33f36d7e-f396-46d9-90e0-52428a34d9dc`
 
@@ -119,7 +119,7 @@ When you use this managed origin request policy to remove the viewer's
 `Host` header, CloudFront adds a new `Host` header with the
 origin's domain name to the origin request.
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `b689b0a8-53d0-40ab-baf2-68738e2966ac`
 
@@ -141,7 +141,7 @@ this policy in the CloudFront console](https://console.aws.amazon.com/cloudfront
 This policy includes the header that enables cross-origin resource sharing (CORS)
 requests when the origin is a custom origin.
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `59781a5b-3903-41f3-afcb-af62929ccde1`
 
@@ -164,7 +164,7 @@ this policy in the CloudFront console](https://console.aws.amazon.com/cloudfront
 This policy includes the headers that enable cross-origin resource sharing (CORS)
 requests when the origin is an Amazon S3 bucket.
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `88a5eaf4-2fd4-4709-b370-b4c650ea3fcf`
 
@@ -189,7 +189,7 @@ this policy in the CloudFront console](https://console.aws.amazon.com/cloudfront
 This policy is intended for use with an origin that is an AWS Elemental MediaTailor
 endpoint.
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `775133bc-15f2-49f9-abea-afb2e0bf67d2`
 
@@ -216,7 +216,7 @@ this policy in the CloudFront console](https://console.aws.amazon.com/cloudfront
 This policy includes only the `Host` header from the
 origin request. It doesn't include any query strings or cookies.
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `bf0718e1-ba1e-49d1-88b1-f726733018ae`
 
@@ -236,7 +236,7 @@ this policy in the CloudFront console](https://console.aws.amazon.com/cloudfront
 This policy includes only the `User-Agent` and `Referer`
 headers. It doesn't include any query strings or cookies.
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `acba4595-bd28-49b8-b9fe-13317c0390fa`
 

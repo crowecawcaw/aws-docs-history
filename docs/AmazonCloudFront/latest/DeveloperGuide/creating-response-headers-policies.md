@@ -95,10 +95,10 @@ behavior**.
 5. Choose **Create distribution** to create the
    distribution.
 
-AWS CloudFormation
-To create a response headers policy with AWS CloudFormation, use the
+CloudFormation
+To create a response headers policy with CloudFormation, use the
 `AWS::CloudFront::ResponseHeadersPolicy` resource type. The following
-example shows the AWS CloudFormation template syntax, in YAML format, for creating a response
+example shows the CloudFormation template syntax, in YAML format, for creating a response
 headers policy.
 
 ```

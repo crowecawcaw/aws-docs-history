@@ -21,7 +21,7 @@ following benefits:
   This solution creates an SSL/TLS certificate in [AWS Certificate Manager
   (ACM)](../../../acm/latest/userguide/acm-overview.md "../../../acm/latest/userguide/acm-overview.md"), and attaches it to the CloudFront distribution. This certificate
   enables the distribution to serve your domain’s website securely with HTTPS.
-- **Is configured and deployed with [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")** – This solution uses an AWS CloudFormation template to set
+- **Is configured and deployed with [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")** – This solution uses an CloudFormation template to set
   up all the components, so you can focus more on your website’s content and less on
   configuring components.
   This solution is open source on GitHub. To view the code, submit a pull request, or open
@@ -57,7 +57,7 @@ solution
 To deploy this secure static website solution, you can choose from either of the
 following options:
 
-- Use the AWS CloudFormation console to deploy the solution with default content, then upload
+- Use the CloudFormation console to deploy the solution with default content, then upload
   your website content to Amazon S3.
 - Clone the solution to your computer to add your website content. Then, deploy
   the solution with the AWS Command Line Interface
@@ -70,7 +70,7 @@ You must use the US East (N. Virginia) Region to deploy the CloudFormation templ
 ###### Topics
 
 - [Prerequisites](#deploy-website-cloudformation-prerequisites "#deploy-website-cloudformation-prerequisites")
-- [Use the AWS CloudFormation
+- [Use the CloudFormation
   console](#deploy-website-cloudformation-console "#deploy-website-cloudformation-console")
 - [Clone the solution
   locally](#deploy-website-cloudformation-clone "#deploy-website-cloudformation-clone")
@@ -94,13 +94,13 @@ You are responsible for the costs incurred while using this solution. For more
 information about costs, see [the pricing pages
 for each AWS service](https://aws.amazon.com/pricing/ "https://aws.amazon.com/pricing/").
 
-### Use the AWS CloudFormation
+### Use the CloudFormation
 
 console
 
 ###### To deploy using the CloudFormation console
 
-1. [Launch this solution in the AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=amazon-cloudfront-secure-static-site-templates-main&templateURL=https://s3.amazonaws.com/solution-builders-us-east-1/amazon-cloudfront-secure-static-site/latest/main.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=amazon-cloudfront-secure-static-site-templates-main&templateURL=https://s3.amazonaws.com/solution-builders-us-east-1/amazon-cloudfront-secure-static-site/latest/main.yaml"). If necessary, sign in to your AWS account.
+1. [Launch this solution in the CloudFormation console](cloudformation/home.md#/stacks/new?stackName=amazon-cloudfront-secure-static-site-templates-main&templateURL=https://s3.amazonaws.com/solution-builders-us-east-1/amazon-cloudfront-secure-static-site/latest/main.yaml "cloudformation/home.md#/stacks/new?stackName=amazon-cloudfront-secure-static-site-templates-main&templateURL=https://s3.amazonaws.com/solution-builders-us-east-1/amazon-cloudfront-secure-static-site/latest/main.yaml"). If necessary, sign in to your AWS account.
 2. The **Create stack** wizard opens in the CloudFormation
    console, with prepopulated fields that specify this solution’s CloudFormation
    template.

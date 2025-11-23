@@ -221,13 +221,13 @@ Enable these settings when any of the following are true:
   HTTP header with `gzip` as a value). In this case,
   use the **Gzip enabled** setting (set
   `EnableAcceptEncodingGzip` to `true`
-  in the CloudFront API, AWS SDKs, AWS CLI, or AWS CloudFormation).
+  in the CloudFront API, AWS SDKs, AWS CLI, or CloudFormation).
 - Your origin returns Brotli compressed objects when viewers
   support them (requests contain the `Accept-Encoding`
   HTTP header with `br` as a value). In this case, use
   the **Brotli enabled** setting (set
   `EnableAcceptEncodingBrotli` to `true`
-  in the CloudFront API, AWS SDKs, AWS CLI, or AWS CloudFormation).
+  in the CloudFront API, AWS SDKs, AWS CLI, or CloudFormation).
 - The cache behavior that this cache policy is attached to is
   configured with [CloudFront
   compression](ServingCompressedFiles.md "ServingCompressedFiles.md"). In this case, you can enable caching for

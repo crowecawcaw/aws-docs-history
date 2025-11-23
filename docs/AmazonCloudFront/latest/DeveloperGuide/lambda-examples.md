@@ -1526,7 +1526,7 @@ is not enabled by default.
 - To enable this setting in the CloudFront console, select the check box for
   **Include Body** in the **Lambda Function
   Association**.
-- To enable this setting in the CloudFront API or with AWS CloudFormation, set the
+- To enable this setting in the CloudFront API or with CloudFormation, set the
   `IncludeBody` field to `true` in
   `LambdaFunctionAssociation`.
 

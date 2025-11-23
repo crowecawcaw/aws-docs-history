@@ -673,11 +673,11 @@ If you use Amazon EC2 for a custom origin, we recommend that you do the followin
 
 - Use an Amazon Machine Image that automatically installs the software for a
   web server. For more information, see the [Amazon EC2 documentation](../../../ec2/index.md "../../../ec2/index.md").
-- Use an Elastic Load Balancing load balancer to handle traffic across multiple Amazon EC2
+- Use an ELB load balancer to handle traffic across multiple Amazon EC2
   instances and to isolate your application from changes to Amazon EC2 instances.
   For example, if you use a load balancer, you can add and delete Amazon EC2
   instances without changing your application. For more information, see the
-  [Elastic Load Balancing
+  [ELB
   documentation](../../../elasticloadbalancing/index.md "../../../elasticloadbalancing/index.md").
 - When you create your CloudFront distribution, specify the URL of the load
   balancer for the domain name of your origin server. For more information,

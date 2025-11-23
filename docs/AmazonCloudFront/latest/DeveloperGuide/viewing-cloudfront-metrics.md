@@ -112,7 +112,7 @@ following error codes: `401`, `403`,
 `404`, `502`, `503`, and
 `504`.
 
-You can turn on additional metrics in the CloudFront console, with AWS CloudFormation, with the
+You can turn on additional metrics in the CloudFront console, with CloudFormation, with the
 AWS Command Line Interface (AWS CLI), or with the CloudFront API.
 
 Console
@@ -141,7 +141,7 @@ CSV files](cloudwatch-csv.md "cloudwatch-csv.md").
 CloudFormation
 To turn on additional metrics with CloudFormation, use the
 `AWS::CloudFront::MonitoringSubscription` resource type.
-The following example shows the AWS CloudFormation template syntax, in YAML format,
+The following example shows the CloudFormation template syntax, in YAML format,
 for enabling additional metrics.
 
 ```

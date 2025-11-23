@@ -1,8 +1,14 @@
-# Helper methods for origin modification
+# Helper methods for origin
 
-This section applies if you dynamically update or change the origin used on the request inside your CloudFront Functions code. You can update the origin on _viewer request_ CloudFront Functions only. CloudFront Functions has a module that provides helper methods to dynamically update or change the origin.
+modification
 
-To use this module, create a CloudFront function using JavaScript runtime 2.0 and include the following statement in the first line of the function code:
+This section applies if you dynamically update or change the origin used on the
+request inside your CloudFront Functions code. You can update the origin on _viewer
+request_ CloudFront Functions only. CloudFront Functions has a module that provides
+helper methods to dynamically update or change the origin.
+
+To use this module, create a CloudFront function using JavaScript runtime 2.0 and include
+the following statement in the first line of the function code:
 
 ```
 import cf from 'cloudfront';
@@ -13,28 +19,48 @@ CloudFront Functions](functions-javascript-runtime-20.md "functions-javascript-r
 
 ###### Note
 
-The Test API and Test console pages don't test whether an origin modification has occurred. However, testing ensures that the function code executes without error.
+The Test API and Test console pages don't test whether an origin modification has
+occurred. However, testing ensures that the function code executes without
+error.
 
-## Choose between CloudFront Functions and Lambda@Edge
+## Choose between CloudFront Functions
+
+and Lambda@Edge
 
 You can update your origins by using either CloudFront Functions or Lambda@Edge.
 
-When using CloudFront Functions to update origins, you use the _viewer request_ event trigger, which means this logic will run on every request when this function is used. When using Lambda@Edge, the origin updating capabilities are on the _origin request_ event trigger, which means this logic only runs on cache misses.
+When using CloudFront Functions to update origins, you use the _viewer
+request_ event trigger, which means this logic will run on every
+request when this function is used. When using Lambda@Edge, the origin updating
+capabilities are on the _origin request_ event trigger, which
+means this logic only runs on cache misses.
 
-Your choice depends largely on your workload and any existing usage of CloudFront Functions and Lambda@Edge on your distributions. The following considerations can help you decide whether to use CloudFront Functions or Lambda@Edge to update your origins.
+Your choice depends largely on your workload and any existing usage of
+CloudFront Functions and Lambda@Edge on your distributions. The following considerations
+can help you decide whether to use CloudFront Functions or Lambda@Edge to update your
+origins.
 
 CloudFront Functions is most useful in the following situations:
 
-- When your requests are dynamic (meaning they cannot be cached) and will always go to origin. CloudFront Functions provides better performance and lower overall cost.
-- When you already have an existing viewer request CloudFront function that will run on every request, you can add the origin updating logic into the existing function.
+- When your requests are dynamic (meaning they cannot be cached) and will
+  always go to origin. CloudFront Functions provides better performance and lower
+  overall cost.
+- When you already have an existing viewer request CloudFront function that will
+  run on every request, you can add the origin updating logic into the
+  existing function.
 
-To use CloudFront Functions to update origins, see the helper methods in the following topics.
+To use CloudFront Functions to update origins, see the helper methods in the following
+topics.
 
 Lambda@Edge is most useful in the following situations:
 
-- When you have highly cacheable content, Lambda@Edge can be more cost-efficient because it runs only on cache misses, while CloudFront Functions runs on every request.
-- When you already have an existing origin request Lambda@Edge function, you can add the origin updating logic into the existing function.
-- When your origin update logic requires fetching data from third-party data sources, such as Amazon DynamoDB or Amazon S3.
+- When you have highly cacheable content, Lambda@Edge can be more
+  cost-efficient because it runs only on cache misses, while CloudFront Functions
+  runs on every request.
+- When you already have an existing origin request Lambda@Edge function, you
+  can add the origin updating logic into the existing function.
+- When your origin update logic requires fetching data from third-party data
+  sources, such as Amazon DynamoDB or Amazon S3.
 
 For more information about Lambda@Edge, see [Customize at the edge with Lambda@Edge](lambda-at-the-edge.md "lambda-at-the-edge.md").
 
@@ -64,7 +90,9 @@ distribution.
   The secondary origin remains unchanged. Any response code from the
   modified origin that matches the failover criteria will trigger a
   failover to the secondary origin.
-- If you are changing the origin type and have OAC enabled, make sure that the origin type in `originAccessControlConfig` matches the new origin type.
+- If you are changing the origin type and have OAC enabled, make sure
+  that the origin type in `originAccessControlConfig` matches
+  the new origin type.
 - You can't use the `updateRequestOrigin()` method to update
   [VPC origins](private-content-vpc-origins.md "private-content-vpc-origins.md"). The
   request will fail.
@@ -86,8 +114,8 @@ name from the assigned origin is used instead.
 
 Specify a DNS domain name, such as
 `www.example.com`. The domain name can't
-include a colon (:) and can't be an IP address. The domain
-name can be up to 253 characters.
+include a colon (`:`) and can't be an IP address.
+The domain name can be up to 253 characters.
 
 **For S3 origins**
 
@@ -95,6 +123,16 @@ Specify the DNS domain name of the Amazon S3 bucket, such as
 `amzn-s3-demo-bucket.s3.eu-west-1.amazonaws.com`.
 The name can be up to 128 characters, and must be all
 lowercase.
+
+**hostHeader (optional, for non-S3 custom origins)**
+
+The host header to use when making the request to the origin. If this
+is not provided, the value from the domainName parameter is used. If
+neither host header or domain name parameter are provided, the domain
+name from the assigned origin is used or the host header from the
+incoming request if the forward to origin (FTO) policy includes the
+host. The host header can't include a colon (`:`) and can't
+be an IP address. The host header can be up to 253 characters.
 
 **originPath (optional)**
 
@@ -319,7 +357,42 @@ information, see [Minimum origin SSL
 protocol](DownloadDistValuesOrigin.md#DownloadDistValuesOriginSSLProtocols "DownloadDistValuesOrigin.md#DownloadDistValuesOriginSSLProtocols").
 
 **ipAddressType (optional)**
-Specifies the IP address type that CloudFront uses to connect to the origin. Valid values include `ipv4`, `ipv6`, and `dualstack`. Changing `ipAddressType` is only supported when the `domainName` property is also being changed.
+
+Specifies the IP address type that CloudFront uses to connect to
+the origin. Valid values include `ipv4`,
+`ipv6`, and `dualstack`. Changing
+`ipAddressType` is only supported when the
+`domainName` property is also being
+changed.
+
+**sni (optional, for non-S3 custom origins)**
+
+The Server Name Indication (SNI) is an extension to the Transport
+Layer Security (TLS) protocol by which a client indicates which hostname
+it's attempting to connect to at the start of the TLS handshake process.
+This value should match a common name on a TLS certificate on your
+origin server. Otherwise, your origin server may throw an error.
+
+If this is not provided, the value from the `hostHeader`
+parameter is used. If the host header not provided, the value from the
+`domainName` parameter is used.
+
+If neither host header or domain name parameter are provided, the
+domain name from the assigned origin is used or the host header from the
+incoming request if the forward to origin (FTO) policy includes the
+host. The SNI can't include a colon (`:`) and can't be an IP
+address. The SNI can be up to 253 characters.
+
+**allowedCertificateNames (optional, for non-S3 custom origins)**
+
+You can include a list of valid certificate names to be used by CloudFront
+to validate the domain matching from your origin server TLS certificate
+during the TLS handshake with your origin server. This field expects an
+array of valid domain names and can include wildcard domains, such as
+`*.example.com`.
+
+You can specify up to 20 allowed certificate names. Each certificate
+name can have up to 64 characters.
 
 ###### Example – Update to Amazon S3 request origin
 
@@ -373,13 +446,91 @@ cf.updateRequestOrigin({
 });
 ```
 
-## selectRequestOriginById() method
+###### Example – Update the host header, SNI, and allowed certificate names
 
-Use `selectRequestOriginById()` to update an existing origin by selecting a different origin that's already configured in your distribution. This method uses all the same settings that are defined by the updated origin.
+###### Warning
 
-This method only accepts origins that are already defined in the same distribution used when running the function. Origins are referenced by the origin ID, which is the origin name that you defined when setting up the origin.
+For most use cases, you won't need to use this type of modification to
+requests going to your origin. These parameters shouldn't be used unless you
+understand the impact of changing these values.
 
-If you have a VPC origin configured in your distribution, you can use this method to update your origin to your VPC origin. For more information, see [Restrict access with VPC origins](private-content-vpc-origins.md "private-content-vpc-origins.md").
+The following example changes the domain name, the host header, SNI, and
+allowed certificates on the request to the origin.
+
+```
+cf.updateRequestOrigin({
+    "domainName": "www.example.com",
+    "hostHeader": "test.example.com",
+    "sni": "test.example.net",
+    "allowedCertificateNames": ["*.example.com", "*.example.net"],
+});
+```
+
+## selectRequestOriginById()
+
+method
+
+Use `selectRequestOriginById()` to update an existing origin by
+selecting a different origin that's already configured in your distribution. This
+method uses all the same settings that are defined by the updated origin.
+
+This method only accepts origins that are already defined in the same distribution
+used when running the function. Origins are referenced by the origin ID, which is
+the origin name that you defined when setting up the origin.
+
+If you have a VPC origin configured in your distribution, you can use this method
+to update your origin to your VPC origin. For more information, see [Restrict access with VPC origins](private-content-vpc-origins.md "private-content-vpc-origins.md").
+
+**Request**
+
+```
+cf.selectRequestOriginById(origin_id, {origin_overrides})
+```
+
+In the previous example, `origin_id` is a string that points to the
+origin name of an origin in the distribution that's running the function. The
+`origin_overrides` parameter can contain the following:
+
+**hostHeader (optional, for non-S3 custom origins)**
+
+The host header to use when making the request to the origin. If this
+is not provided, the value from the `domainName` parameter is
+used.
+
+If neither host header or domain name parameter are provided, the
+domain name from the assigned origin is used or the host header from the
+incoming request if the forward to origin (FTO) policy includes the
+host. The host header can't include a colon (`:`) and can't
+be an IP address. The host header can be up to 253 characters.
+
+**sni (optional, for non-S3 custom origins)**
+
+The Server Name Indication (SNI) is an extension to the Transport
+Layer Security (TLS) protocol by which a client indicates which hostname
+it's attempting to connect to at the start of the TLS handshake process.
+This value should match a common name on a TLS certificate on your
+origin server. Otherwise, your origin server may throw an error.
+
+If this is not provided, the value from the `hostHeader`
+parameter is used. If the host header not provided, the value from the
+`domainName` parameter is used.
+
+If neither host header or domain name parameter are provided, the
+domain name from the assigned origin is used or the host header from the
+incoming request if the forward to origin (FTO) policy includes the
+host. The SNI can't include a colon (`:`) and can't be an IP
+address. The SNI can be up to 253 characters.
+
+**allowedCertificateNames (optional, for non-S3 custom origins)**
+
+You can include a list of valid certificate names to be used by CloudFront
+to validate the domain matching from your origin server TLS certificate
+during the TLS handshake with your origin server. This field expects an
+array of valid domain names and can include wildcard domains, such as
+`*.example.com`.
+
+You can specify up to 20 allowed certificate names. Each certificate
+name can have up to 64 characters.
 
 **Request**
 
@@ -387,11 +538,15 @@ If you have a VPC origin configured in your distribution, you can use this metho
 selectRequestOriginById(origin_id)
 ```
 
-In the preceding example, `origin_id` is a string that points to the origin name of an origin in the distribution that's running the function.
+In the preceding example, `origin_id` is a string that points to the
+origin name of an origin in the distribution that's running the function.
 
 ###### Example – Select Amazon S3 request origin
 
-The following example selects the origin named `amzn-s3-demo-bucket-in-us-east-1` from the list of origins associated with the distribution, and applies the configuration settings of the `amzn-s3-demo-bucket-in-us-east-1` origin to the request.
+The following example selects the origin named
+`amzn-s3-demo-bucket-in-us-east-1` from the list of origins
+associated with the distribution, and applies the configuration settings of the
+`amzn-s3-demo-bucket-in-us-east-1` origin to the request.
 
 ```
 cf.selectRequestOriginById("amzn-s3-demo-bucket-in-us-east-1");
@@ -399,10 +554,26 @@ cf.selectRequestOriginById("amzn-s3-demo-bucket-in-us-east-1");
 
 ###### Example – Select Application Load Balancer request origin
 
-The following example selects an Application Load Balancer origin named `myALB-prod` from the list of origins associated with the distribution, and applies the configuration settings of `myALB-prod` to the request.
+The following example selects an Application Load Balancer origin named `myALB-prod`
+from the list of origins associated with the distribution, and applies the
+configuration settings of `myALB-prod` to the request.
 
 ```
 cf.selectRequestOriginById("myALB-prod");
+```
+
+###### Example – Select Application Load Balancer request origin and override the host header
+
+Like the previous example, the following example selects an Application Load Balancer origin named
+`myALB-prod` from the list of origins associated with the
+distribution, and applies the configuration settings of `myALB-prod`
+to the request. However, this example overrides the host header value using
+`origin_overrides`.
+
+```
+cf.overrideRequestOrigin("myALB-prod",{
+        "hostHeader" : "test.example.com"
+});
 ```
 
 ## createRequestOriginGroup() method
@@ -417,7 +588,8 @@ CloudFront. When you create or update an origin group using this method, you can
 the origin group instead of a single origin. CloudFront will failover from the primary
 origin to the secondary origin, using the failover criteria.
 
-If you have a VPC origin configured in your distribution, you can use this method to create an origin group using a VPC origin. For more information, see [Restrict access with VPC origins](private-content-vpc-origins.md "private-content-vpc-origins.md").
+If you have a VPC origin configured in your distribution, you can use this method
+to create an origin group using a VPC origin. For more information, see [Restrict access with VPC origins](private-content-vpc-origins.md "private-content-vpc-origins.md").
 
 ### Request
 
@@ -429,7 +601,70 @@ In the preceding example, the `origin_group_properties` can contain
 the following:
 
 **originIds (required)**
-Array of `origin_ids`, where the `origin_id` is a string that points to the origin name of an origin in the distribution running the function. You must provide two origins as part of the array. The first origin in the list is the primary origin and the second serves as the second origin for failover purposes.
+
+Array of `origin_ids`, where the `origin_id`
+is a string that points to the origin name of an origin in the
+distribution running the function. You must provide two origins as
+part of the array. The first origin in the list is the primary
+origin and the second serves as the second origin for failover
+purposes.
+
+**originOverrides (optional)**
+
+A few advanced settings are allowed to be overwritten by using
+the `{origin_overrides}` parameter. The `origin
+ overrides` can contain the following:
+
+**hostHeader (optional, for non-S3 custom origins)**
+
+The host header to use when making the request to the
+origin. If this is not provided, the value from the
+`domainName` parameter is used.
+
+If neither host header or domain name parameter are
+provided, the domain name from the assigned origin is
+used or the host header from the incoming request if the
+forward to origin (FTO) policy includes the host. The
+host header can't include a colon (`:`) and
+can't be an IP address. The host header can be up to 253
+characters.
+
+**sni (optional, for non-S3 custom origins)**
+
+The Server Name Indication (SNI) is an extension to
+the Transport Layer Security (TLS) protocol by which a
+client indicates which hostname it is attempting to
+connect to at the start of the TLS handshaking process.
+This value should match a common name on a TLS
+certificate on your origin server, otherwise your origin
+server may throw an error.
+
+If this is not provided, the value from the
+`hostHeader` parameter is used. If the
+host header not provided, the value from the
+`domainName` parameter is used.
+
+If neither host header or domain name parameter are
+provided, the domain name from the assigned origin is
+used or the host header from the incoming request if the
+forward to origin (FTO) policy includes the host. The
+SNI can't include a colon (`:`) and can't be
+an IP address. The SNI can be up to 253
+characters.
+
+**allowedCertificateNames (optional, for non-S3 custom
+origins)**
+
+You can include a list of valid certificate names to
+be used by CloudFront to validate the domain matching from
+your origin server TLS certificate during the TLS
+handshake with your origin server. This field expects an
+array of valid domain names and can include wildcard
+domains, such as `*.example.com`.
+
+You can specify up to 20 allowed certificate names.
+Each certificate name can have up to 64
+characters.
 
 **selectionCriteria (optional)**
 
@@ -465,11 +700,39 @@ The following example creates an origin group for a request using the
 origin IDs. These origin IDs come from the origin group configuration for
 the distribution used to run this function.
 
+Optionally, you can use `originOverrides` to override the
+origin group configurations for `sni`, `hostHeader`,
+and `allowedCertificateNames`.
+
 ```
-cf.createRequestOriginGroup({
-    originIds: ["us-east-1-s3-origin", "us-west-2-s3-origin"],
-    failoverCriteria: {
-        statusCodes: [500, 502, 503, 504]
-    }
-});
+import cf from 'cloudfront';
+
+function handler(event) {
+    cf.createRequestOriginGroup({
+        "originIds": [
+            {
+                "originId": "origin-1",
+                "originOverrides": {
+                    "hostHeader": "hostHeader.example.com",
+                    "sni": "sni.example.com",
+                    "allowedCertificateNames": ["cert1.example.com", "cert2.example.com", "cert3.example.com"]
+                }
+            },
+            {
+                "originId": "origin-2",
+                "originOverrides": {
+                    "hostHeader": "hostHeader2.example.com",
+                    "sni": "sni2.example.com",
+                    "allowedCertificateNames": ["cert4.example.com", "cert5.example.com"]
+                }
+            }
+        ],
+        "failoverCriteria": {
+            "statusCodes": [500]
+        }
+    });
+
+    event.request.headers['x-hookx'] = { value: 'origin-overrides' };
+    return event.request;
+}
 ```

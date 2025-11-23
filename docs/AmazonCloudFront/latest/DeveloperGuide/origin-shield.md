@@ -243,7 +243,7 @@ settings in a CloudFront distribution. Origin Shield is a property of the origin
 origin in your CloudFront distributions, you can separately enable Origin Shield in whichever
 AWS Region provides the best performance for that origin.
 
-You can enable Origin Shield in the CloudFront console, with AWS CloudFormation, or with the CloudFront
+You can enable Origin Shield in the CloudFront console, with CloudFormation, or with the CloudFront
 API.
 
 Console
@@ -299,8 +299,8 @@ Shield is ready. This takes a few minutes.
 When your distribution status is **Deployed**, Origin
 Shield is ready. This takes a few minutes.
 
-AWS CloudFormation
-To enable Origin Shield with AWS CloudFormation, use the `OriginShield`
+CloudFormation
+To enable Origin Shield with CloudFormation, use the `OriginShield`
 property in the `Origin` property type in an
 `AWS::CloudFront::Distribution` resource. You can add the
 `OriginShield` property to an existing `Origin`,

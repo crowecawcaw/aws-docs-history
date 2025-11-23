@@ -15,7 +15,7 @@ If your use case requires dual access to web applications from both CloudFront a
 
 - APIs that must go through CloudFront. In this case, consider using a separate private Application Load Balancer as an origin.
 - APIs that require access through Application Load Balancer. In this case, you bypass CloudFront.
-  Alternatively, for a web application or other content that’s served by an internet-facing Application Load Balancer in Elastic Load Balancing, CloudFront can cache objects and serve them directly to users (viewers), reducing the load on your Application Load Balancer. An internet-facing load balancer has a publicly resolvable DNS name and routes requests from clients to targets over the internet.
+  Alternatively, for a web application or other content that’s served by an internet-facing Application Load Balancer in ELB, CloudFront can cache objects and serve them directly to users (viewers), reducing the load on your Application Load Balancer. An internet-facing load balancer has a publicly resolvable DNS name and routes requests from clients to targets over the internet.
 
 For more information, see the following topics. After you complete these steps, users can
 only access your Application Load Balancer through CloudFront.
@@ -47,7 +47,7 @@ behave as though the requests came from CloudFront when they did not. To prevent
 keep the custom header name and value secret.
 
 You can configure CloudFront to add a custom HTTP header to origin requests with the CloudFront
-console, AWS CloudFormation, or the CloudFront API.
+console, CloudFormation, or the CloudFront API.
 
 **To add a custom HTTP header (CloudFront console)**
 
@@ -65,9 +65,9 @@ you create or edit an origin for an existing CloudFront distribution, and when y
 create a new distribution. For more information, see [Update a distribution](HowToUpdateDistribution.md "HowToUpdateDistribution.md")
 and [Create a distribution](distribution-web-creating-console.md "distribution-web-creating-console.md").
 
-**To add a custom HTTP header (AWS CloudFormation)**
+**To add a custom HTTP header (CloudFormation)**
 
-In an AWS CloudFormation template, use the `OriginCustomHeaders` property,
+In an CloudFormation template, use the `OriginCustomHeaders` property,
 as shown in the following example.
 
 ###### Note
@@ -178,7 +178,7 @@ requests
 
 To configure CloudFront to use HTTPS for origin requests, set the **Origin Protocol
 Policy** setting to **HTTPS Only**. This setting is available
-in the CloudFront console, AWS CloudFormation, and the CloudFront API. For more information, see [Protocol (custom origins
+in the CloudFront console, CloudFormation, and the CloudFront API. For more information, see [Protocol (custom origins
 only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy "DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy").
 
 The following also applies when you configure CloudFront to use HTTPS for origin
@@ -209,7 +209,7 @@ requests:
   can also configure CloudFront to prefer (or even require) HTTPS connections from the end
   users. To do this, use the **Viewer Protocol Policy** setting. You can
   set it to redirect end users from HTTP to HTTPS, or to reject requests that use HTTP.
-  This setting is available in the CloudFront console, AWS CloudFormation, and the CloudFront API. For more
+  This setting is available in the CloudFront console, CloudFormation, and the CloudFront API. For more
   information, see [Viewer protocol
   policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy").
 
@@ -243,4 +243,4 @@ CloudFront from reaching your Application Load Balancer at the network layer (la
 4).
 
 For more information, see the [Limit access to your origins using the AWS-managed prefix list
-for Amazon CloudFront](https://aws.amazon.com/blogs/networking-and-content-delivery/limit-access-to-your-origins-using-the-aws-managed-prefix-list-for-amazon-cloudfront/ "https://aws.amazon.com/blogs/networking-and-content-delivery/limit-access-to-your-origins-using-the-aws-managed-prefix-list-for-amazon-cloudfront/") blog post.
+for Amazon CloudFront](https://aws.amazon.com//blogs/networking-and-content-delivery/limit-access-to-your-origins-using-the-aws-managed-prefix-list-for-amazon-cloudfront/ "https://aws.amazon.com//blogs/networking-and-content-delivery/limit-access-to-your-origins-using-the-aws-managed-prefix-list-for-amazon-cloudfront/") blog post.

@@ -5,7 +5,8 @@ latency-sensitive CDN customizations. Your function code can manipulate the requ
 responses that flow through CloudFront, perform basic authentication and authorization, generate
 HTTP responses at the edge, and more.
 
-To help you write function code for CloudFront Functions, see the following topics. For code examples, see [CloudFront Functions examples for CloudFront](service_code_examples_cloudfront_functions_examples.md "service_code_examples_cloudfront_functions_examples.md") and the [amazon-cloudfront-functions repository](https://github.com/aws-samples/amazon-cloudfront-functions "https://github.com/aws-samples/amazon-cloudfront-functions") on GitHub.
+To help you write function code for CloudFront Functions, see the following topics. For code
+examples, see [CloudFront Functions examples for CloudFront](service_code_examples_cloudfront_functions_examples.md "service_code_examples_cloudfront_functions_examples.md") and the [amazon-cloudfront-functions repository](https://github.com/aws-samples/amazon-cloudfront-functions "https://github.com/aws-samples/amazon-cloudfront-functions") on GitHub.
 
 ###### Topics
 
@@ -14,8 +15,11 @@ To help you write function code for CloudFront Functions, see the following topi
 - [JavaScript runtime
   features](functions-javascript-runtime-features.md "functions-javascript-runtime-features.md")
 - [Helper methods for key value stores](functions-custom-methods.md "functions-custom-methods.md")
-- [Helper methods for origin modification](helper-functions-origin-modification.md "helper-functions-origin-modification.md")
+- [Helper methods for origin
+  modification](helper-functions-origin-modification.md "helper-functions-origin-modification.md")
 - [Helper methods for CloudFront SaaS Manager
   properties](saas-specific-logic-function-code.md "saas-specific-logic-function-code.md")
 - [Use async and
   await](async-await-syntax.md "async-await-syntax.md")
+- [CWT support for CloudFront Functions](cwt-support-cloudfront-functions.md "cwt-support-cloudfront-functions.md")
+- [General helper methods](general-helper-methods.md "general-helper-methods.md")

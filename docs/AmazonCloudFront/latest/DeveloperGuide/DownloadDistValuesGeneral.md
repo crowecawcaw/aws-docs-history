@@ -149,7 +149,7 @@ the distribution, choose how you want CloudFront to serve HTTPS requests:
 
 To apply this setting using the CloudFront API, specify
 `sni-only` in the `SSLSupportMethod` field. In
-AWS CloudFormation, the field is named `SslSupportMethod` (note the
+CloudFormation, the field is named `SslSupportMethod` (note the
 different capitalization).
 
 - **Legacy Clients Support** – With this setting, older
@@ -160,7 +160,7 @@ different capitalization).
   SSL**.
 
 To apply this setting using the CloudFront API, specify `vip` in
-the `SSLSupportMethod` field. In AWS CloudFormation, the field is named
+the `SSLSupportMethod` field. In CloudFormation, the field is named
 `SslSupportMethod` (note the different
 capitalization).
 

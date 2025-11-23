@@ -3,7 +3,7 @@
 behavior
 
 You have several options to manage how CloudFront responds when there’s an error. To
-configure custom error responses, you can use the CloudFront console, the CloudFront API, or AWS CloudFormation.
+configure custom error responses, you can use the CloudFront console, the CloudFront API, or CloudFormation.
 Regardless of how you choose to update the configuration, consider the following tips
 and recommendations:
 
@@ -48,7 +48,7 @@ Console
 5. After entering the desired values, choose
    **Create**.
 
-CloudFront API or AWS CloudFormationTo configure custom error responses with the CloudFront API or AWS CloudFormation, use the
+CloudFront API or CloudFormationTo configure custom error responses with the CloudFront API or CloudFormation, use the
 `CustomErrorResponse` type in a distribution. For more information,
 see the following:
 

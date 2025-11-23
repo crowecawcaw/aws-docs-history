@@ -1,68 +1,94 @@
-# Configure distributions
+# Use WebSockets with CloudFront
 
-You create an Amazon CloudFront distribution to tell CloudFront from where you want content to be delivered,
-and the details about how to track and manage content delivery.
+distributions
 
-When you create your CloudFront distribution, CloudFront automatically configures most distribution settings for you, based on your content origin type. For more details about the preconfigured settings, see [Preconfigured distribution settings reference](template-preconfigured-origin-settings.md "template-preconfigured-origin-settings.md"). Optionally, you can choose to manually edit your distribution settings. For more information, see [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md").
+Amazon CloudFront supports using WebSocket, a TCP-based protocol that is useful when you need
+long-lived bidirectional connections between clients and servers. A persistent
+connection is often a requirement with real-time applications. The scenarios in which
+you might use WebSockets include social chat platforms, online collaboration workspaces,
+multi-player gaming, and services that provide real-time data feeds like financial
+trading platforms. Data over a WebSocket connection can flow in both directions for
+full-duplex communication.
 
-The following settings can be configured:
+WebSocket functionality is automatically enabled to work with any distribution. To use
+WebSockets, configure one of the following in the cache behavior that's attached to your
+distribution:
 
-- **Your content origin**—The Amazon S3 bucket, AWS Elemental MediaPackage
-  channel, AWS Elemental MediaStore container, Elastic Load Balancing load balancer, or HTTP server from which
-  CloudFront gets the files to distribute. You can specify any combination of up to 25
-  origins for a single distribution.
-- **Access**—Whether you want access to the files to be
-  available to everyone or restricted to some users.
-- **Security**—Whether you want to enable AWS WAF
-  protection and require users to use HTTPS to access your content. For multi-tenant distributions, only AWS WAF V2 web access control lists (ACLs) are supported.
-- **Cache key**—Which values, if any, you want to
-  include in the _cache key_. The cache key
-  uniquely identifies each file in the cache for a given distribution.
-- **Origin request settings**—Whether you want CloudFront to
-  include HTTP headers, cookies, or query strings in requests that it sends to
-  your origin.
-- **Geographic restrictions**—Whether you want CloudFront to
-  prevent users in selected countries from accessing your content.
-- **Logs**—Whether you want CloudFront to create standard logs
-  or real-time logs that show viewer activity.
-  For more information, see [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md").
+- Forward all viewer request headers to your origin. You can use the [AllViewer managed origin
+  request policy](using-managed-origin-request-policies.md#managed-origin-request-policy-all-viewer "using-managed-origin-request-policies.md#managed-origin-request-policy-all-viewer").
+- Specifically forward the `Sec-WebSocket-Key` and
+  `Sec-WebSocket-Version` request headers in your origin request
+  policy.
 
-For the current maximum number of distributions that you can create for each AWS account,
-see [General quotas on distributions](cloudfront-limits.md#limits-web-distributions "cloudfront-limits.md#limits-web-distributions").
-There is no maximum number of files that you can serve per distribution.
+## How the
 
-You can use distributions to serve the following content over HTTP or HTTPS:
+WebSocket protocol works
 
-- Static and dynamic download content, such as HTML, CSS, JavaScript, and image files, using
-  HTTP or HTTPS.
-- Video on demand in different formats, such as Apple HTTP Live
-  Streaming (HLS) and Microsoft Smooth Streaming. (For multi-tenant distributions, Smooth Streaming is not supported.) For more information, see
-  [Deliver video on demand with CloudFront](on-demand-video.md "on-demand-video.md").
-- A live event, such as a meeting, conference, or concert, in real time. For live
-  streaming, you can create the distribution automatically by using an AWS CloudFormation stack. For more
-  information, see [Deliver video streaming with CloudFront and AWS Media
-  Services](live-streaming.md "live-streaming.md").
-  The following topics provide more details about CloudFront distributions and how to configure them to meet your business needs. For more information about creating a distribution, see
-  [Create a distribution](distribution-web-creating-console.md "distribution-web-creating-console.md").
+The WebSocket protocol is an independent, TCP-based protocol that allows you to
+avoid some of the overhead—and potentially increased latency—of
+HTTP.
 
-###### Topics
+To establish a WebSocket connection, the client sends a regular HTTP request that
+uses HTTP's upgrade semantics to change the protocol. The server can then complete
+the handshake. The WebSocket connection remains open and either the client or server
+can send data frames to each other without having to establish new connections each
+time.
 
-- [Understand how multi-tenant distributions work](distribution-config-options.md "distribution-config-options.md")
-- [Create a distribution](distribution-web-creating-console.md "distribution-web-creating-console.md")
-- [Preconfigured distribution settings reference](template-preconfigured-origin-settings.md "template-preconfigured-origin-settings.md")
-- [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md")
-- [Test a distribution](distribution-web-testing.md "distribution-web-testing.md")
-- [Update a distribution](HowToUpdateDistribution.md "HowToUpdateDistribution.md")
-- [Tag a distribution](tagging.md "tagging.md")
-- [Delete a distribution](HowToDeleteDistribution.md "HowToDeleteDistribution.md")
-- [Use various origins with CloudFront
-  distributions](DownloadDistS3AndCustomOrigins.md "DownloadDistS3AndCustomOrigins.md")
-- [Enable IPv6 for CloudFront distributions](cloudfront-enable-ipv6.md "cloudfront-enable-ipv6.md")
-- [Use CloudFront continuous deployment to safely test CDN
-  configuration changes](continuous-deployment.md "continuous-deployment.md")
-- [Use custom URLs by adding alternate domain names (CNAMEs)](CNAMEs.md "CNAMEs.md")
-- [Use WebSockets with CloudFront
-  distributions](distribution-working-with.md "distribution-working-with.md")
-- [Request Anycast static IPs to use for
-  allowlisting](request-static-ips.md "request-static-ips.md")
-- [Using gRPC with CloudFront distributions](distribution-using-grpc.md "distribution-using-grpc.md")
+By default, the WebSocket protocol uses port 80 for regular WebSocket connections
+and port 443 for WebSocket connections over TLS. The options that you choose for
+your CloudFront [Viewer protocol
+policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy") and [Protocol (custom origins
+only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy "DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy") apply to WebSocket
+connections and also HTTP traffic.
+
+## WebSocket
+
+requirements
+
+WebSocket requests must comply with [RFC 6455](https://datatracker.ietf.org/doc/html/rfc6455 "https://datatracker.ietf.org/doc/html/rfc6455") in the
+following standard formats.
+
+###### Example Sample client request
+
+```
+GET /chat HTTP/1.1
+Host: server.example.com
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==
+Origin: https://example.com
+Sec-WebSocket-Protocol: chat, superchat
+Sec-WebSocket-Version: 13
+```
+
+###### Example Sample server response
+
+```
+HTTP/1.1 101 Switching Protocols
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=
+Sec-WebSocket-Protocol: chat
+
+```
+
+If the WebSocket connection is disconnected by the client or server, or by a
+network disruption, client applications are expected to re-initiate the connection
+with the server.
+
+## Recommended WebSocket headers
+
+To avoid unexpected compression-related issues when using WebSockets, we recommend
+that you include the following headers in an [origin request
+policy](origin-request-create-origin-request-policy.md "origin-request-create-origin-request-policy.md"):
+
+- `Sec-WebSocket-Key`
+- `Sec-WebSocket-Version`
+- `Sec-WebSocket-Protocol`
+- `Sec-WebSocket-Accept`
+- `Sec-WebSocket-Extensions`
+
+###### Note
+
+Currently, CloudFront only supports WebSocket connections over the HTTP/1.1
+protocol.

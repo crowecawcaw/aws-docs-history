@@ -127,7 +127,7 @@ distribution's behavior settings.
 
 ### Create the origin access control
 
-To create an OAC, you can use the AWS Management Console, AWS CloudFormation, the AWS CLI, or the CloudFront
+To create an OAC, you can use the AWS Management Console, CloudFormation, the AWS CLI, or the CloudFront
 API.
 
 Console
@@ -181,9 +181,9 @@ locations. When an edge location receives the new configuration, it
 signs all requests that it sends to the MediaStore bucket origin.
 
 CloudFormation
-To create an origin access control (OAC) with AWS CloudFormation, use the
+To create an origin access control (OAC) with CloudFormation, use the
 `AWS::CloudFront::OriginAccessControl` resource type.
-The following example shows the AWS CloudFormation template syntax, in YAML
+The following example shows the CloudFormation template syntax, in YAML
 format, for creating an origin access control.
 
 ```
@@ -313,19 +313,19 @@ specific need for the advanced settings.
 
 Origin access control contains a setting named **Signing
 behavior** (in the console), or `SigningBehavior` (in the
-API, CLI, and AWS CloudFormation). This setting provides the following options:
+API, CLI, and CloudFormation). This setting provides the following options:
 
 **Always sign origin requests (recommended setting)**
 
 We recommend using this setting, named **Sign requests
 (recommended)** in the console, or `always` in
-the API, CLI, and AWS CloudFormation. With this setting, CloudFront always signs all
+the API, CLI, and CloudFormation. With this setting, CloudFront always signs all
 requests that it sends to the MediaStore origin.
 
 **Never sign origin requests**
 
 This setting is named **Do not sign requests** in the
-console, or `never` in the API, CLI, and AWS CloudFormation. Use this
+console, or `never` in the API, CLI, and CloudFormation. Use this
 setting to turn off origin access control for all origins in all
 distributions that use this origin access control. This can save time
 and effort compared to removing an origin access control from all
@@ -346,7 +346,7 @@ header**
 
 This setting is named **Do not override authorization
 header** in the console, or `no-override` in the
-API, CLI, and AWS CloudFormation. Use this setting when you want CloudFront to sign origin
+API, CLI, and CloudFormation. Use this setting when you want CloudFront to sign origin
 requests only when the corresponding viewer request does not include an
 `Authorization` header. With this setting, CloudFront passes on
 the `Authorization` header from the viewer request when one

@@ -54,7 +54,7 @@ CloudFront, make sure you request (or import) the certificate in the
 US East (N. Virginia) Region (`us-east-1`).
 
 If you want to require HTTPS between CloudFront and your origin, and you’re using a load
-balancer in Elastic Load Balancing as your origin, you can request or import the certificate in
+balancer in ELB as your origin, you can request or import the certificate in
 any AWS Region.
 
 ## Certificate format

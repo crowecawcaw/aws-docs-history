@@ -13,7 +13,8 @@ For more information about `Promise` objects, see [Promise](https://developer.mo
 
 You must use JavaScript runtime 2.0 for the following code samples.
 
-`await` can be used inside `async` functions only. `async` arguments and closures are not supported.
+`await` can be used inside `async` functions only.
+`async` arguments and closures are not supported.
 
 ```
 async function answer() {

@@ -18,7 +18,7 @@ updates to edge locations.
 ###### To remove an alternate domain name from a distribution
 
 1. To start, route internet traffic for your domain to another resource that isn’t your CloudFront distribution,
-   such as an Elastic Load Balancing load balancer. Or you can delete the DNS record that’s routing traffic to CloudFront.
+   such as an ELB load balancer. Or you can delete the DNS record that’s routing traffic to CloudFront.
 
 Do one of the following, depending on the DNS service for your domain:
 

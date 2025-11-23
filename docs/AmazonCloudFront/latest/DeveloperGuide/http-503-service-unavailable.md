@@ -45,7 +45,7 @@ solutions:
   - For more information, see [Optimizing Amazon S3 performance](../../../AmazonS3/latest/userguide/optimizing-performance.md "../../../AmazonS3/latest/userguide/optimizing-performance.md") in
     the _Amazon Simple Storage Service User Guide_.
 
-- **If you use Elastic Load Balancing as your origin
+- **If you use ELB as your origin
   server**:
 
       + Make sure that your backend instances can respond to health

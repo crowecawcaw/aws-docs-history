@@ -27,7 +27,7 @@ do the following:
 ## Require HTTPS for custom origins
 
 The following procedure explains how to configure CloudFront to use HTTPS to communicate with an
-Elastic Load Balancing load balancer, an Amazon EC2 instance, or another custom origin. For information
+ELB load balancer, an Amazon EC2 instance, or another custom origin. For information
 about using the CloudFront API to update a distribution, see [UpdateDistribution](../../../cloudfront/latest/APIReference/API_UpdateDistribution.md "../../../cloudfront/latest/APIReference/API_UpdateDistribution.md") in the
 _Amazon CloudFront API Reference_.
 
@@ -91,10 +91,10 @@ your custom origin
 You can use an SSL/TLS certificate from the following sources on your custom
 origin:
 
-- If your origin is an Elastic Load Balancing load balancer, you can use a certificate provided by AWS Certificate Manager
+- If your origin is an ELB load balancer, you can use a certificate provided by AWS Certificate Manager
   (ACM). You also can use a certificate that is signed by a trusted
   third-party certificate authority and imported into ACM.
-- For origins other than Elastic Load Balancing load balancers, you must use a certificate that is signed by
+- For origins other than ELB load balancers, you must use a certificate that is signed by
   a trusted third-party certificate authority (CA), for example, Comodo,
   DigiCert, or Symantec.
 

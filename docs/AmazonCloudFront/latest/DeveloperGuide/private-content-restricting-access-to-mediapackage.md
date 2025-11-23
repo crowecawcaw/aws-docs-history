@@ -84,7 +84,7 @@ JSON
 
 ### Creating the OAC
 
-To create an OAC, you can use the AWS Management Console, AWS CloudFormation, the AWS CLI, or the CloudFront API.
+To create an OAC, you can use the AWS Management Console, CloudFormation, the AWS CLI, or the CloudFront API.
 
 Console
 
@@ -128,9 +128,9 @@ location receives the new configuration, it signs all requests that it sends to 
 MediaPackage v2 origin.
 
 CloudFormation
-To create an OAC with AWS CloudFormation, use the
+To create an OAC with CloudFormation, use the
 `AWS::CloudFront::OriginAccessControl` resource type. The following
-example shows the AWS CloudFormation template syntax, in YAML format, for creating an OAC.
+example shows the CloudFormation template syntax, in YAML format, for creating an OAC.
 
 ```
 Type: AWS::CloudFront::OriginAccessControl
@@ -242,20 +242,20 @@ cases. Use the recommended settings unless you have a specific need for the adva
 settings.
 
 OAC contains a setting named **Signing behavior** (in the console), or
-`SigningBehavior` (in the API, CLI, and AWS CloudFormation). This setting provides the
+`SigningBehavior` (in the API, CLI, and CloudFormation). This setting provides the
 following options:
 
 **Always sign origin requests (recommended setting)**
 
 We recommend using this setting, named **Sign requests
 (recommended)** in the console, or `always` in the API, CLI, and
-AWS CloudFormation. With this setting, CloudFront always signs all requests that it sends to the MediaPackage v2
+CloudFormation. With this setting, CloudFront always signs all requests that it sends to the MediaPackage v2
 origin.
 
 **Never sign origin requests**
 
 This setting is named **Do not sign requests** in the console, or
-`never` in the API, CLI, and AWS CloudFormation. Use this setting to turn off OAC for
+`never` in the API, CLI, and CloudFormation. Use this setting to turn off OAC for
 all origins in all distributions that use this OAC. This can save time and effort
 compared to removing an OAC from all origins and distributions that use it, one by one.
 With this setting, CloudFront doesn't sign any requests that it sends to the MediaPackage v2
@@ -272,7 +272,7 @@ Guide_.
 **Don't override the viewer (client) `Authorization` header**
 
 This setting is named **Do not override authorization header** in
-the console, or `no-override` in the API, CLI, and AWS CloudFormation. Use this setting
+the console, or `no-override` in the API, CLI, and CloudFormation. Use this setting
 when you want CloudFront to sign origin requests only when the corresponding viewer request
 does not include an `Authorization` header. With this setting, CloudFront passes on
 the `Authorization` header from the viewer request when one is present, but

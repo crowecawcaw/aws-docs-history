@@ -348,19 +348,19 @@ following must be true:
 
 - The cache behavior’s **Viewer Protocol Policy**
   must be set to **Redirect HTTP to HTTPS** or
-  **HTTPS Only**. (In AWS CloudFormation or the CloudFront API,
+  **HTTPS Only**. (In CloudFormation or the CloudFront API,
   `ViewerProtocolPolicy` must be set to
   `redirect-to-https` or `https-only`.)
 - The cache behavior’s **Allowed HTTP Methods**
   must be set to **GET, HEAD, OPTIONS, PUT, POST, PATCH,
-  DELETE**. (In AWS CloudFormation or the CloudFront API,
+  DELETE**. (In CloudFormation or the CloudFront API,
   `AllowedMethods` must be set to `GET`,
   `HEAD`, `OPTIONS`, `PUT`,
   `POST`, `PATCH`, `DELETE`. These
   can be specified in any order.)
 - The origin setting’s **Origin Protocol Policy**
   must be set to **Match Viewer** or **HTTPS
-  Only**. (In AWS CloudFormation or the CloudFront API,
+  Only**. (In CloudFormation or the CloudFront API,
   `OriginProtocolPolicy` must be set to
   `match-viewer` or `https-only`.)
 

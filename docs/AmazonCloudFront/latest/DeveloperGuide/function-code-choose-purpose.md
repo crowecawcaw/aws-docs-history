@@ -28,10 +28,11 @@ Your function can modify the HTTP request that CloudFront receives from the view
 example, your function code might normalize the [cache key](understanding-the-cache-key.md "understanding-the-cache-key.md") or modify request
 headers.
 
-After you create and publish a function that modifies the HTTP request, make sure to add an association for the
-_viewer request_ event type. For more information, see [Create the function](functions-tutorial.md#functions-tutorial-create "functions-tutorial.md#functions-tutorial-create"). This makes
-the function run each time that CloudFront receives a request from a viewer, before
-checking to see whether the requested object is in the CloudFront cache.
+After you create and publish a function that modifies the HTTP request, make sure
+to add an association for the _viewer request_
+event type. For more information, see [Create the function](functions-tutorial.md#functions-tutorial-create "functions-tutorial.md#functions-tutorial-create"). This makes the function run each
+time that CloudFront receives a request from a viewer, before checking to see whether the
+requested object is in the CloudFront cache.
 
 ###### Example
 

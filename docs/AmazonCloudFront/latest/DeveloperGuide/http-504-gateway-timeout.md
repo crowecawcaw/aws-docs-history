@@ -186,7 +186,7 @@ timeouts:
   server. This option helps to avoid latencies that occur when
   connections must be re-established for subsequent requests or
   users.
-- **If you use Elastic Load Balancing as your origin**,
+- **If you use ELB as your origin**,
   the following are possible causes for a 504 error:
 
       + The load balancer fails to establish a connection to the

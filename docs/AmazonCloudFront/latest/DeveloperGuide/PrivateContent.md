@@ -25,7 +25,7 @@ To configure CloudFront to serve private content, do the following tasks:
         * **Custom origin** – See [Restrict access to files on custom
          origins](private-content-overview.md#forward-custom-headers-restrict-access "private-content-overview.md#forward-custom-headers-restrict-access").
 
-    Custom origins include Amazon EC2, Amazon S3 buckets configured as website endpoints, Elastic Load Balancing, and your own HTTP web
+    Custom origins include Amazon EC2, Amazon S3 buckets configured as website endpoints, ELB, and your own HTTP web
     servers.
 
 2.  Specify the _trusted key groups_ or _trusted signers_ that you want to use to create signed

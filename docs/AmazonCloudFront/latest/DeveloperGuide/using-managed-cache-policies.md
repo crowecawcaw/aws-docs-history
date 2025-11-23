@@ -32,7 +32,7 @@ this policy in the CloudFront console](https://console.aws.amazon.com/cloudfront
 
 This policy is designed for use with an origin that is an [AWS Amplify](https://aws.amazon.com/amplify/ "https://aws.amazon.com/amplify/") web app.
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `2e54312d-136d-493c-8eb9-b001f22f67d2`
 
@@ -93,7 +93,7 @@ this policy in the CloudFront console](https://console.aws.amazon.com/cloudfront
 This policy disables caching. This policy is useful for dynamic content and for
 requests that are not cacheable.
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `4135ea2d-6df8-44a3-9df3-4b5a84be39ad`
 
@@ -122,7 +122,7 @@ the cache key, and only includes the normalized `Accept-Encoding` header.
 This enables CloudFront to separately cache objects in the Gzip and Brotli compressions
 formats when the origin returns them or when [CloudFront edge compression](ServingCompressedFiles.md "ServingCompressedFiles.md") is enabled.
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `658327ea-f89d-4fab-a63d-7e88639e58f6`
 
@@ -158,7 +158,7 @@ included in the cache key. No query strings, headers, or cookies are included. T
 policy is identical to the previous one, but it disables the cache compressed
 objects setting.
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `b2884449-e4de-46a7-ac36-70bc7f1ddd6d`
 
@@ -190,7 +190,7 @@ this policy in the CloudFront console](https://console.aws.amazon.com/cloudfront
 This policy is designed for use with an origin that is an AWS Elemental MediaPackage
 endpoint.
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `08627262-05a9-4f76-9ded-b50ca2e3a84f`
 
@@ -229,7 +229,7 @@ this policy in the CloudFront console](https://console.aws.amazon.com/cloudfront
 
 This policy is designed for use with an origin that returns `Cache-Control` HTTP response headers and does not serve different content based on values present in the query string. If your origin serves different content based on values present in the query string, consider using [UseOriginCacheControlHeaders-QueryStrings](#managed-cache-policy-origin-cache-headers-query-strings "#managed-cache-policy-origin-cache-headers-query-strings").
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `83da9c7e-98b4-4e11-a168-04f0df8e2c65`
 
@@ -265,7 +265,7 @@ this policy in the CloudFront console](https://console.aws.amazon.com/cloudfront
 
 This policy is designed for use with an origin that returns `Cache-Control` HTTP response headers and serves different content based on values present in the query string. If your origin does not serve different content based on values present in the query string, consider using [UseOriginCacheControlHeaders](#managed-cache-policy-origin-cache-headers "#managed-cache-policy-origin-cache-headers").
 
-When using AWS CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
+When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this policy is:
 
 `4cc15a8a-d715-48a4-82b8-cc0b614638fe`
 
