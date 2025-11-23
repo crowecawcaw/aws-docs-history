@@ -10,7 +10,7 @@ Red Hat uses the Support API to open cases for customers when necessary.
 AWS Business, Enterprise, and Enterprise On-Ramp support plans enable continuous phone, web, and chat access to support engineers.
 For more information about Support plans, see [Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-For steps to enable an Support plan, see [How do I sign up for an Support plan?](https://aws.amazon.com/premiumsupport/knowledge-center/sign-up-support/ "https://aws.amazon.com/premiumsupport/knowledge-center/sign-up-support/")
+For steps to enable an Support plan, see [How do I sign up for an Support plan?](https://aws.amazon.com//premiumsupport/knowledge-center/sign-up-support/ "https://aws.amazon.com//premiumsupport/knowledge-center/sign-up-support/")
 
 For information about creating an Support case, see [Creating support cases and case management](../../../awssupport/latest/user/case-management.md "../../../awssupport/latest/user/case-management.md").
 

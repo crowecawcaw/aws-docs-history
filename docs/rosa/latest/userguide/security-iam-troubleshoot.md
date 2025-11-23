@@ -71,4 +71,4 @@ To resolve this issue, follow these steps:
 aws iam get-role --role-name "AWSServiceRoleForElasticLoadBalancing"
 ```
 
-2. If you don’t have this role, follow the instructions to create the role found in [Create the service-linked role](../../../elasticloadbalancing/latest/userguide/elb-service-linked-roles.md "../../../elasticloadbalancing/latest/userguide/elb-service-linked-roles.md") in the _Elastic Load Balancing User Guide_.
+2. If you don’t have this role, follow the instructions to create the role found in [Create the service-linked role](../../../elasticloadbalancing/latest/userguide/elb-service-linked-roles.md "../../../elasticloadbalancing/latest/userguide/elb-service-linked-roles.md") in the _ELB User Guide_.

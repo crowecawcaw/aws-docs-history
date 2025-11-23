@@ -232,7 +232,7 @@ To create a Multi-AZ cluster, specify `--multi-az` in the command, and then sele
 
 If you use a firewall, you must configure it so that ROSA can access the sites that it requires to function.
 
-For more information, see [Requirements for using AWS PrivateLink clusters](../../../https:/docs.redhat.com/en/documentation/red_hat_openshift_service_on_aws/4/html/install_rosa_classic_clusters/rosa-aws-privatelink-creating-cluster.md#osd-aws-privatelink-required-resources_rosa-aws-privatelink-creating-cluster "../../../https:/docs.redhat.com/en/documentation/red_hat_openshift_service_on_aws/4/html/install_rosa_classic_clusters/rosa-aws-privatelink-creating-cluster.md#osd-aws-privatelink-required-resources_rosa-aws-privatelink-creating-cluster") in the Red Hat documentation.
+For more information, see [Requirements for using AWS PrivateLink clusters](https://docs.redhat.com/en/documentation/red_hat_openshift_service_on_aws/4/html/install_rosa_classic_clusters/rosa-aws-privatelink-creating-cluster#osd-aws-privatelink-required-resources_rosa-aws-privatelink-creating-cluster "https://docs.redhat.com/en/documentation/red_hat_openshift_service_on_aws/4/html/install_rosa_classic_clusters/rosa-aws-privatelink-creating-cluster#osd-aws-privatelink-required-resources_rosa-aws-privatelink-creating-cluster") in the Red Hat documentation.
 
 1. Create the required IAM account roles and policies using `--mode auto` or `--mode manual`.
    - ```

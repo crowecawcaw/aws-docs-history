@@ -41,7 +41,7 @@ ROSA service fees are metered through AWS Marketplace and appear on your AWS bil
 
 **AWS infrastructure fees**
 
-Standard fees that AWS charges for the AWS services underlying ROSA clusters, including Amazon EC2, Amazon EBS, Amazon S3, and Elastic Load Balancing.
+Standard fees that AWS charges for the AWS services underlying ROSA clusters, including Amazon EC2, Amazon EBS, Amazon S3, and ELB.
 Fees are metered through the AWS service being used and appear on your AWS bill.
 
 ## ROSA payments and billing
@@ -53,7 +53,7 @@ ROSA with HCP service fees accrue on demand by default at a flat hourly rate bas
 ROSA classic service fees accrue on demand based on the number of worker node vCPUs.
 ROSA classic does not charge service fees for the control plane or required infrastructure nodes.
 
-ROSA customers also pay standard AWS infrastructure fees for the AWS services underlying ROSA clusters, including Amazon EC2, Amazon EBS, Amazon S3, and Elastic Load Balancing.
+ROSA customers also pay standard AWS infrastructure fees for the AWS services underlying ROSA clusters, including Amazon EC2, Amazon EBS, Amazon S3, and ELB.
 AWS infrastructure fees are a separate billing item from the ROSA service fees that are metered through AWS Marketplace.
 AWS infrastructure fees vary by AWS Region and are based on hourly usage by default.
 For additional AWS infrastructure cost savings, you can purchase Amazon EC2 savings plans or reserved instances.

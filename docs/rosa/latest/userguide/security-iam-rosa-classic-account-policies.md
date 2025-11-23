@@ -234,7 +234,7 @@ Permissions defined in this policy document specify which actions are allowed or
 
 You can attach `[Prefix]-ControlPlane-Role-Policy` to your IAM entities.
 Before you can create a ROSA classic cluster, you must first attach this policy to an IAM role named `[Prefix]-ControlPlane-Role`.
-This policy grants required permissions to ROSA classic to manage Amazon EC2 and Elastic Load Balancing resources that host the ROSA control plane, as well as read KMS keys.
+This policy grants required permissions to ROSA classic to manage Amazon EC2 and ELB resources that host the ROSA control plane, as well as read KMS keys.
 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
