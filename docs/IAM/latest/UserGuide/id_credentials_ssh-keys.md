@@ -102,7 +102,7 @@ also the only method that works with federated access and temporary credentials.
 See
 the following topics for more information:
 
-- To learn more about federated access, see [Identity providers and federation](id_roles_providers.md "id_roles_providers.md") and [Access to externally
+- To learn more about federated access, see [Identity providers and federation into AWS](id_roles_providers.md "id_roles_providers.md") and [Access to externally
   authenticated users (identity federation)](id_roles_common-scenarios_federated-users.md "id_roles_common-scenarios_federated-users.md").
 - To learn more about temporary credentials, see [Temporary security credentials in IAM](id_credentials_temp.md "id_credentials_temp.md") and [Temporary Access to CodeCommit
   Repositories](../../../codecommit/latest/userguide/temporary-access.md "../../../codecommit/latest/userguide/temporary-access.md").

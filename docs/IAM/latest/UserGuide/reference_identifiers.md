@@ -26,7 +26,7 @@ simulator API based on user path](reference_policies_examples_iam_policy-sim-pat
 a friendly name can be specified, see [the User API
 documentation](../APIReference/API_User.md "../APIReference/API_User.md"). For additional examples of how you might use paths, see [IAM ARNs](#identifiers-arns "#identifiers-arns").
 
-When you use AWS CloudFormation to create resources, you can specify a path for users, IAM groups,
+When you use CloudFormation to create resources, you can specify a path for users, IAM groups,
 and roles, and customer managed policies.
 
 If you have a user and user group in the same path, IAM doesn't automatically put the

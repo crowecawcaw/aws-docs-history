@@ -48,7 +48,7 @@ are stored outside of AWS. The distinction is where the external system residesâ
 your data center or an external third party on the web. To compare features of temporary
 security credentials for identity federation, see [Compare AWS STS credentials](id_credentials_sts-comparison.md "id_credentials_sts-comparison.md").
 
-For more information about external identity providers, see [Identity providers and federation](id_roles_providers.md "id_roles_providers.md").
+For more information about external identity providers, see [Identity providers and federation into AWS](id_roles_providers.md "id_roles_providers.md").
 
 - **OpenID Connect (OIDC) federation** â€“ You can
   let users sign in using a well-known third-party identity provider such as Login with

@@ -1,4 +1,4 @@
-# Identity providers and federation
+# Identity providers and federation into AWS
 
 As a best practice, we recommend that you require human users to use federation with an
 identity provider to access AWS resources instead of creating individual IAM users in your

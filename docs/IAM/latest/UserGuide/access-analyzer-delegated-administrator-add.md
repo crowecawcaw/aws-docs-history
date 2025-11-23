@@ -25,7 +25,7 @@ The account must be a member of your organization. 6. Choose **Save changes**.
 ###### To add a delegated administrator using the AWS CLI or the AWS SDKs
 
 When you create an analyzer to analyzer access across the organization in a delegated
-administrator account using the AWS CLI, AWS API (using the AWS SDKs) or AWS CloudFormation,
+administrator account using the AWS CLI, AWS API (using the AWS SDKs) or CloudFormation,
 you must use AWS Organizations APIs to enable service access for IAM Access Analyzer and register the
 member account as a delegated administrator.
 

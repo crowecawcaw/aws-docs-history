@@ -18,7 +18,7 @@ There are different types of users in AWS, each with their own security credenti
   AWS IAM Identity Center.
 - **Federated principals** — Users from external
   identity providers who are granted temporary access to AWS through federation. For more
-  information about federated identities, see [Identity providers and federation](id_roles_providers.md "id_roles_providers.md").
+  information about federated identities, see [Identity providers and federation into AWS](id_roles_providers.md "id_roles_providers.md").
 - **IAM users** — Individual users created within
   the AWS Identity and Access Management (IAM) service.
   Users have either long-term or temporary security credentials. Root user, IAM user,

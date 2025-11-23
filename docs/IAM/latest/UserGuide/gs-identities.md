@@ -43,4 +43,4 @@ For more information, see [Assign user access](../../../singlesignon/latest/user
   AWS actions and resources that the person assuming the role is allowed or denied
   access to.
 
-For more information, see [Identity providers and federation](id_roles_providers.md "id_roles_providers.md")
+For more information, see [Identity providers and federation into AWS](id_roles_providers.md "id_roles_providers.md")

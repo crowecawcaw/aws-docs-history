@@ -227,7 +227,7 @@ You can specify conditions under which a policy statement is in effect. That way
 grant access to actions and resources, but only if the access request meets specific
 conditions. For example, you can write a policy condition to specify that all requests must be
 sent using TLS. You can also use conditions to grant access to service actions, but only if
-they are used through a specific AWS service, such as AWS CloudFormation. For more information, see [IAM JSON policy elements:
+they are used through a specific AWS service, such as CloudFormation. For more information, see [IAM JSON policy elements:
 Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md").
 
 ## Verify public and cross-account access to resources with

@@ -38,7 +38,7 @@ Audit your security configuration in the following situations:
 - If you have stopped using one or more individual AWS services to verify that you
   have removed permissions that users in your account no longer need.
 - If you've added or removed software in your accounts, such as applications on Amazon EC2
-  instances, OpsWorks stacks, AWS CloudFormation templates, etc.
+  instances, OpsWorks stacks, CloudFormation templates, etc.
 - If you suspect that an unauthorized person might have accessed your account.
 
 ## Guidelines for auditing

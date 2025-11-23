@@ -1,9 +1,9 @@
-# IAM tutorial: Use an AWS CloudFormation template to create a SAML
+# IAM tutorial: Use an CloudFormation template to create a SAML
 
 Identity Provider (IdP)
 
 To set up SAML federation for your AWS account, you need to create a SAML Identity
-Provider (IdP). This tutorial shows you how to use an AWS CloudFormation template to create a SAML IdP
+Provider (IdP). This tutorial shows you how to use an CloudFormation template to create a SAML IdP
 that establishes trust between AWS and your external IdP.
 
 The template creates a SAML IdP configured with your IdP's metadata document. Federated
@@ -21,7 +21,7 @@ This tutorial assumes that you have the following already in place:
   used in this tutorial for formatting your IdP's SAML metadata XML file.
 - A SAML metadata document from your external IdP saved as an XML file.
 
-## Create a SAML IdP using AWS CloudFormation
+## Create a SAML IdP using CloudFormation
 
 To create the SAML IdP, you'll create an CloudFormation template and use it to create a
 stack containing the IdP resource.
@@ -40,7 +40,7 @@ First, create the CloudFormation template.
 
 Next, use the template you've saved to provision a CloudFormation stack.
 
-1. Open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the **Stacks** page, from the **Create
    stack** menu, choose **with new resources
    (standard)**.
@@ -112,7 +112,7 @@ Next, use the template you've saved to provision a CloudFormation stack.
 
 6. Review the stack details and choose **Submit**.
 
-AWS CloudFormation creates the stack. Once the stack creation is complete, the stack resources
+CloudFormation creates the stack. Once the stack creation is complete, the stack resources
 are ready to use. You can use the **Resources** tab on the stack
 detail page to view the resources that were provisioned in your account.
 
@@ -127,7 +127,7 @@ The stack will output the following values, which you can view on the
   `my-saml-stack-saml-provider` if you used the default
   naming).
 
-These outputs are also exported, allowing them to be imported by other AWS CloudFormation
+These outputs are also exported, allowing them to be imported by other CloudFormation
 stacks using the `Fn::ImportValue` function.
 
 ## Verify the SAML IdP
@@ -156,7 +156,7 @@ roles and access AWS resources.
 
 As a final step, you'll delete the stack and the resources it contains.
 
-1. Open the AWS CloudFormation console.
+1. Open the CloudFormation console.
 2. On the **Stacks** page, choose the stack created from the
    template, and choose **Delete**, then confirm
    **Delete**.
@@ -168,7 +168,7 @@ includes.
 
 ### Resources
 
-The AWS CloudFormation template for this tutorial will create the following resource in your
+The CloudFormation template for this tutorial will create the following resource in your
 account:
 
 [`AWS::IAM::SAMLProvider`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.md"): A SAML IdP that establishes

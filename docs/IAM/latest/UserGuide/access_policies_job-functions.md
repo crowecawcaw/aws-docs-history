@@ -214,7 +214,7 @@ updates, see [Updates to AWS managed policies
 for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
 
 **Policy description:** This policy grants permissions to
-create and maintain network resources in Auto Scaling, Amazon EC2, AWS Direct Connect, Route 53, Amazon CloudFront,
+create and maintain network resources in Amazon EC2 Auto Scaling, Amazon EC2, AWS Direct Connect, Route 53, Amazon CloudFront,
 Elastic Load Balancing, AWS Elastic Beanstalk, Amazon SNS, CloudWatch, CloudWatch Logs, Amazon S3, IAM, and Amazon Virtual Private Cloud. For more information
 about the managed policy, see [NetworkAdministrator](../../../aws-managed-policy/latest/reference/NetworkAdministrator.md "../../../aws-managed-policy/latest/reference/NetworkAdministrator.md") in _AWS Managed Policy Reference
 Guide_.
@@ -255,6 +255,28 @@ list of services and actions that this policy supports. For more information abo
 policy, see [ReadOnlyAccess](../../../aws-managed-policy/latest/reference/ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/ReadOnlyAccess.md") in
 _AWS Managed Policy Reference Guide_. If you need a similar policy that
 does not grant access to read data in storage services, see [View-only user job function](#jf_view-only-user "#jf_view-only-user").
+
+## MCP service actions full access
+
+**AWS managed policy name:**
+[AWSMcpServiceActionsFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSMcpServiceActionsFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSMcpServiceActionsFullAccess")
+
+**Use case:** This user requires access to AWS services
+using AWS MCP servers. This policy does not grant access to actions taken by an MCP service
+to other AWS services.
+
+**Policy updates:** AWS maintains and updates this policy.
+For a history of changes for this policy, view the policy in the IAM console and then choose
+the **Policy versions** tab. For more information about job function policy
+updates, see [Updates to AWS managed policies
+for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
+
+**Policy description:** This policy grants permissions to
+call any AWS MCP service action. You can use when you do not need to specify permissions
+per AWS MCP service. It does not grant permissions to actions taken by the MCP service to
+other AWS services, those permissions must always be granted separately and in addition to
+MCP service actions. For more information about the managed policy, see [AWSMcpServiceActionsFullAccess](../../../aws-managed-policy/latest/reference/AWSMcpServiceActionsFullAccess.md "../../../aws-managed-policy/latest/reference/AWSMcpServiceActionsFullAccess.md") in _AWS Managed Policy Reference
+Guide_.
 
 ## Security auditor job function
 

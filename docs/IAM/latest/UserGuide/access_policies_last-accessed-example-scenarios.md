@@ -144,7 +144,7 @@ developer named Nikhil Jayashankar, who previously filled the role of a security
 Because of the change in job requirements, Nikhil is a member of both the
 `app-dev` group and the `security-team` group. The
 `app-dev` group for his new job grants permissions to multiple services
-including Amazon EC2, Amazon EBS, Auto Scaling, Amazon S3, Route 53, and Elastic Transcoder. The `security-team` group
+including Amazon EC2, Amazon EBS, Amazon EC2 Auto Scaling, Amazon S3, Route 53, and Elastic Transcoder. The `security-team` group
 for his old job grants permissions to IAM and CloudTrail.
 
 As an administrator, Martha signs into the IAM console and chooses **Users**, chooses the name `nikhilj`, and then chooses

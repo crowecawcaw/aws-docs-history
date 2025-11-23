@@ -421,7 +421,7 @@ the service-linked role documentation for that service. Find the **Service-Linke
 Permissions** section for that service to view the service principal.
 
 The following example shows a policy that can be attached to a service role. The policy
-enables two services, Amazon ECS and Elastic Load Balancing, to assume the role. The services can then perform any
+enables two services, Amazon ECS and ELB, to assume the role. The services can then perform any
 tasks granted by the permissions policy assigned to the role (not shown). To specify multiple
 service principals, you do not specify two `Service` elements; you can have only
 one. Instead, you use an array of multiple service principals as the value of a single

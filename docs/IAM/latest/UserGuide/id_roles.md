@@ -211,7 +211,7 @@ you define the principals that you _trust_ to assume
 the role. A role trust policy is a required [resource-based policy](access_policies.md#policies_resource-based "access_policies.md#policies_resource-based") that is attached to a role in IAM. The [principals](reference_policies_elements_principal.md "reference_policies_elements_principal.md") that you can specify
 in the trust policy include users, roles, accounts, and services. For more information,
 see [How to
-use trust policies in IAM roles](https://aws.amazon.com/blogs/security/how-to-use-trust-policies-with-iam-roles/ "https://aws.amazon.com/blogs/security/how-to-use-trust-policies-with-iam-roles/") in _AWS Security
+use trust policies in IAM roles](https://aws.amazon.com/blogs//security/how-to-use-trust-policies-with-iam-roles/ "https://aws.amazon.com/blogs//security/how-to-use-trust-policies-with-iam-roles/") in _AWS Security
 Blog_.
 
 \***\*Role for cross-account access\*\***
@@ -250,9 +250,9 @@ Principal](reference_policies_elements_principal.md "reference_policies_elements
   user also receives temporary credentials that allow the user to access your AWS
   resources.
 
-For more information about federated principals, see [Identity providers and federation](id_roles_providers.md "id_roles_providers.md").
+For more information about federated principals, see [Identity providers and federation into AWS](id_roles_providers.md "id_roles_providers.md").
 
-- **Federated principals** are existing identities from AWS Directory Service, your
+- **Federated principals** are existing identities from Directory Service, your
   enterprise user directory, or an OIDC provider. AWS assigns a role to a federated
   principal when access is requested through an [identity
   provider](id_roles_providers.md "id_roles_providers.md").

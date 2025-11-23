@@ -8,7 +8,7 @@ then authorized to perform actions in AWS accounts. IAM entities include IAM use
 IAM roles. For definitions for commonly used terms, see [Terms](introduction_identity-management.md#intro-structure-terms "introduction_identity-management.md#intro-structure-terms").
 
 You can federate existing identities from an external identity provider. These identities
-will assume IAM roles to access AWS resources. For more information, see [Identity providers and federation](id_roles_providers.md "id_roles_providers.md").
+will assume IAM roles to access AWS resources. For more information, see [Identity providers and federation into AWS](id_roles_providers.md "id_roles_providers.md").
 
 You can also use AWS IAM Identity Center to create and manage identities and access to AWS resources.
 IAM Identity Center permission sets automatically create the IAM roles needed to provide access to

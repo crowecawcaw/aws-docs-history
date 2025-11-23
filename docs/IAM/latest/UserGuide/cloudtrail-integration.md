@@ -108,7 +108,7 @@ _AWS CloudTrail User Guide_.
 
 ## Logging user sign-in events
 
-CloudTrail logs sign-in events to the AWS Management Console, the AWS discussion forums, and AWS Marketplace. CloudTrail
+CloudTrail logs sign-in events to the AWS Management Console, local development tools like AWS CLI and SDKs, the AWS discussion forums, and AWS Marketplace. CloudTrail
 logs successful and failed sign-in attempts for IAM users, SAML and OIDC federated principals, and AWS STS federated user principals.
 
 To view sample CloudTrail events for successful and unsuccessful root user sign-ins, see [Example event records for root users](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.md#cloudtrail-event-reference-aws-console-sign-in-events-root "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.md#cloudtrail-event-reference-aws-console-sign-in-events-root") in the
@@ -906,6 +906,120 @@ The following example shows a CloudTrail log entry for a successful sign-in even
 }
 ```
 
+The following example shows a CloudTrail log entry for a successful authorization code request.
+
+```
+
+{
+"eventVersion": "1.11",
+"userIdentity": {
+"type": "AssumedRole",
+"principalId": "AROATJHQDX737YZP72NTF:thesjain-Isengard",
+"arn": "arn:aws:sts::225989345271:assumed-role/Admin/thesjain-Isengard",
+"accountId": "225989345271",
+"sessionContext": {
+"sessionIssuer": {
+"type": "Role",
+"principalId": "AROATJHQDX737YZP72NTF",
+"arn": "arn:aws:iam::225989345271:role/Admin",
+"accountId": "225989345271",
+"userName": "Admin"
+},
+"attributes": {
+"creationDate": "2025-11-17T22:50:14Z",
+"mfaAuthenticated": "false"
+}
+}
+},
+"eventTime": "2025-11-17T22:51:32Z",
+"eventSource": "signin.amazonaws.com",
+"eventName": "AuthorizeOAuth2Access",
+"awsRegion": "us-east-1",
+"sourceIPAddress": "52.94.133.136",
+"userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+"requestParameters": {
+"scope": "openid",
+"redirect_uri": "http://127.0.0.1:53037/oauth/callback",
+"code_challenge_method": "SHA-256",
+"client_id": "arn:aws:signin:::devtools/same-device"
+},
+"responseElements": null,
+"additionalEventData": {
+"success": "true",
+"x-amzn-vpce-id": ""
+},
+"requestID": "e2854c76-1cba-4360-9fd1-5037b591466b",
+"eventID": "59e1720d-3deb-44ff-933d-6828be2a860a",
+"readOnly": true,
+"eventType": "AwsApiCall",
+"managementEvent": true,
+"recipientAccountId": "225989345271",
+"eventCategory": "Management",
+"tlsDetails": {
+"tlsVersion": "TLSv1.3",
+"cipherSuite": "TLS_AES_128_GCM_SHA256",
+"clientProvidedHostHeader": "us-east-1.signin.aws.amazon.com"
+}
+}
+
+
+```
+
+The following example shows a CloudTrail log entry for a successful OAuth2 token creation request.
+
+```
+
+{
+"eventVersion": "1.11",
+"userIdentity": {
+"type": "AssumedRole",
+"principalId": "AROATJHQDX737YZP72NTF:jacobjoj-Isengard",
+"arn": "arn:aws:sts::225989345271:assumed-role/Admin/jacobjoj-Isengard",
+"accountId": "225989345271",
+"sessionContext": {
+"sessionIssuer": {
+"type": "Role",
+"principalId": "AROATJHQDX737YZP72NTF",
+"arn": "arn:aws:iam::225989345271:role/Admin",
+"accountId": "225989345271",
+"userName": "Admin"
+},
+"attributes": {
+"creationDate": "2025-11-18T20:38:10Z",
+"mfaAuthenticated": "false"
+}
+}
+},
+"eventTime": "2025-11-18T20:38:44Z",
+"eventSource": "signin.amazonaws.com",
+"eventName": "CreateOAuth2Token",
+"awsRegion": "us-east-1",
+"sourceIPAddress": "15.248.6.6",
+"userAgent": "aws-cli/2.32.0 md/awscrt#0.28.4 ua/2.1 os/macos#24.6.0 md/arch#arm64 lang/python#3.13.9 md/pyimpl#CPython m/b,AA,Z,E cfg/retry-mode#standard md/installer#exe sid/35033f4ca1bd md/prompt#off md/command#login",
+"requestParameters": {
+"client_id": "arn:aws:signin:::devtools/same-device"
+},
+"responseElements": null,
+"additionalEventData": {
+"success": "true",
+"x-amzn-vpce-id": ""
+},
+"requestID": "94562943-c85b-4dc1-bf72-43b0fd42d6de",
+"eventID": "0b338fac-6a10-4740-b34d-1bb6923e799e",
+"readOnly": true,
+"eventType": "AwsApiCall",
+"managementEvent": true,
+"recipientAccountId": "225989345271",
+"eventCategory": "Management",
+"tlsDetails": {
+"tlsVersion": "TLSv1.3",
+"cipherSuite": "TLS_AES_128_GCM_SHA256",
+"clientProvidedHostHeader": "us-east-1.signin.aws.amazon.com"
+}
+}
+
+```
+
 For more details about the information contained in CloudTrail log files, see [CloudTrail Event Reference](../../../awscloudtrail/latest/userguide/eventreference.md "../../../awscloudtrail/latest/userguide/eventreference.md") in the
 _AWS CloudTrail User Guide_.
 
@@ -1009,4 +1123,4 @@ and this field is only present in CloudTrail logs for these roles when they assu
 most cases, it is not necessary for an IAM role to assume itself. AWS recommends updating
 your processes, code, or configurations to remove this behavior or updating your role trust
 policies to explicitly allow for this behavior. For more information, see [Announcing an update
-to IAM role trust policy behavior](https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/ "https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/").
+to IAM role trust policy behavior](https://aws.amazon.com/blogs//security/announcing-an-update-to-iam-role-trust-policy-behavior/ "https://aws.amazon.com/blogs//security/announcing-an-update-to-iam-role-trust-policy-behavior/").

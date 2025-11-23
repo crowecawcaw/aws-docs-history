@@ -3,7 +3,7 @@
 You can use identity providers instead of creating IAM users in your AWS account. With
 an identity provider (IdP), you can manage your user identities outside of AWS and give these
 external user identities permissions to access AWS resources in your account. For more
-information about federation and identity providers, see [Identity providers and federation](id_roles_providers.md "id_roles_providers.md").
+information about federation and identity providers, see [Identity providers and federation into AWS](id_roles_providers.md "id_roles_providers.md").
 
 ## Creating a role for OIDC and SAML
 

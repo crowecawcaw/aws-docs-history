@@ -73,7 +73,7 @@ the name, and prefixes to identify the source service for the tag. For example:
 
 - `aws:ec2spot:fleet-request-id` identifies the Amazon EC2 Spot Instance Request
   that launched the instance.
-- `aws:cloudformation:stack-name` identifies the AWS CloudFormation stack that created
+- `aws:cloudformation:stack-name` identifies the CloudFormation stack that created
   the resource.
 - `elasticbeanstalk:environment-name` identifies the application that
   created the resource.

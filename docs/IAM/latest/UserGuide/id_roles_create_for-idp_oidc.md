@@ -5,7 +5,7 @@
 You can use OpenID Connect (OIDC) federated identity providers instead of creating AWS Identity and Access Management
 users in your AWS account. With an identity provider (IdP), you can manage your user
 identities outside of AWS and give these external user identities permissions to access AWS
-resources in your account. For more information about federation and IdPs, see [Identity providers and federation](id_roles_providers.md "id_roles_providers.md").
+resources in your account. For more information about federation and IdPs, see [Identity providers and federation into AWS](id_roles_providers.md "id_roles_providers.md").
 
 ## Prerequisites for creating a role for OIDC
 

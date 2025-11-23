@@ -46,7 +46,10 @@ You can access AWS in different ways depending on the IAM user credentials:
   interactive sessions such as the AWS Management Console. Disabling the password (console access) for an
   IAM user prevents them from signing in to the AWS Management Console using their sign-in credentials.
   It does not change their permissions or prevent them from accessing the console using an
-  assumed role.
+  assumed role. IAM users with console access enabled can also use these same credentials
+  to authenticate for AWS CLI and SDK access using the `aws login` AWS CLI command. These users will
+  need to have [SignInLocalDevelopmentAccess](../../../aws-managed-policy/latest/reference/SignInLocalDevelopmentAccess.md "../../../aws-managed-policy/latest/reference/SignInLocalDevelopmentAccess.md") permissions.
+  See [Authentication and access credentials for the AWS CLI](../../../cli/latest/userguide/cli-chap-authentication.md "../../../cli/latest/userguide/cli-chap-authentication.md") in the _AWS Command Line Interface User Guide_ for more details.
 - [Access
   keys](id_credentials_access-keys.md "id_credentials_access-keys.md"): Used to make programmatic calls to AWS. However, there are
   more secure alternatives to consider before you create access keys for IAM users. For

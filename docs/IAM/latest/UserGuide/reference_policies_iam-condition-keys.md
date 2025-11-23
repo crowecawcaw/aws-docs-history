@@ -495,6 +495,166 @@ JSON
 
 ```
 
+**iam:DelegationDuration**
+
+Works with [numeric operators](reference_policies_elements_condition_operators.md#Conditions_Numeric "reference_policies_elements_condition_operators.md#Conditions_Numeric").
+
+Filters access based on the duration of temporary access requested in a
+delegation request.
+
+Product providers can use this condition key to control the maximum duration
+they allow in delegation requests sent to customers. The duration is specified in
+seconds and determines how long temporary credentials remain valid after the
+customer releases the exchange token. This helps product providers enforce
+internal policies around access duration limits based on their use case.
+
+This condition key is supported by the `CreateDelegationRequest` API
+operation.
+
+In this example, you allow creating delegation requests only if the requested
+duration is 7200 seconds (2 hours) or less.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "iam:CreateDelegationRequest",
+            "Resource": "*",
+            "Condition": {
+                "NumericLessThanEquals": {
+                    "iam:DelegationDuration": "7200"
+                }
+            }
+        }
+    ]
+}
+```
+
+**iam:NotificationChannel**
+
+Works with [ARN operators](reference_policies_elements_condition_operators.md#Conditions_ARN "reference_policies_elements_condition_operators.md#Conditions_ARN").
+
+Filters access based on the Amazon SNS topic ARN specified for receiving
+delegation request notifications.
+
+Product providers can use this condition key to restrict which SNS topics can
+be used for delegation request notifications in the CreateDelegationRequest API
+call. Product providers must specify an SNS topic to receive state change
+notifications and exchange tokens. This ensures that notifications are sent only
+to approved channels within the product provider's organization.
+
+This condition key is supported by the `CreateDelegationRequest` API
+operation.
+
+In this example, you allow creating delegation requests only if they use a
+specific SNS topic for notifications.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "iam:CreateDelegationRequest",
+            "Resource": "*",
+            "Condition": {
+                "ArnEquals": {
+                    "iam:NotificationChannel": "arn:aws:sns:us-east-1:123456789012:delegation-notifications"
+                }
+            }
+        }
+    ]
+}
+```
+
+**iam:TemplateArn**
+
+Works with [ARN operators](reference_policies_elements_condition_operators.md#Conditions_ARN "reference_policies_elements_condition_operators.md#Conditions_ARN").
+
+Filters access based on the policy template ARN used to define permissions in a
+delegation request.
+
+Product providers can use this condition key to control which policy templates
+can be used in the CreateDelegationRequest API call. Policy templates define the
+temporary permissions that product providers request in customer accounts. This
+allows product providers to restrict which registered policy templates can be used
+when creating delegation requests.
+
+This condition key is supported by the `CreateDelegationRequest` API
+operation.
+
+In this example, you allow creating delegation requests only if they use a
+policy template from a specific partner domain.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "iam:CreateDelegationRequest",
+            "Resource": "*",
+            "Condition": {
+                "ArnLike": {
+                    "iam:TemplateArn": "arn:aws:iam:::delegation-template/partner_*"
+                }
+            }
+        }
+    ]
+}
+```
+
+**iam:DelegationRequestOwner**
+
+Works with [ARN operators](reference_policies_elements_condition_operators.md#Conditions_ARN "reference_policies_elements_condition_operators.md#Conditions_ARN").
+
+Filters access based on the AWS identity or principal that owns the delegation
+request.
+
+Customers can use this condition key to control who can perform actions on
+delegation requests based on ownership. The owner of a delegation request is the
+AWS identity or principal in the customer account that initiated or received the
+delegation request.
+
+This condition key is supported by the following API operations:
+
+- `GetDelegationRequest`
+- `AcceptDelegationRequest`
+- `RejectDelegationRequest`
+- `SendDelegatedToken`
+- `ListDelegationRequests`
+- `UpdateDelegationRequest`
+
+In this example, you allow users to manage only delegation requests that they
+own.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetDelegationRequest",
+                "iam:AcceptDelegationRequest",
+                "iam:RejectDelegationRequest",
+                "iam:SendDelegatedToken",
+                "iam:UpdateDelegationRequest",
+                "iam:ListDelegationRequests"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "ArnEquals": {
+                    "iam:DelegationRequestOwner": "${aws:PrincipalArn}"
+                }
+            }
+        }
+    ]
+}
+```
+
 ## Available keys for AWS OIDC federation
 
 You can use OIDC federation to give temporary security credentials to users who have
@@ -1228,12 +1388,12 @@ use with a specific service.
 Works with [numeric operators](reference_policies_elements_condition_operators.md#Conditions_Numeric "reference_policies_elements_condition_operators.md#Conditions_Numeric").
 
 Use this key to specify the duration (in seconds) that a principal can use when
-getting an AWS STS bearer token.
+getting an AWS AWS STS bearer token or a JSON Web Token from the [GetWebIdentityToken](../../../STS/latest/APIReference/API_GetWebIdentityToken.md "../../../STS/latest/APIReference/API_GetWebIdentityToken.md") API.
 
 **Availability** – This key is present in
-requests that get a bearer token. You cannot make a direct call to AWS STS to get a
+requests that get a bearer token or a JSON Web Token from the GetWebIdentityToken API. You cannot make a direct call to AWS STS to get a
 bearer token. When you perform some operations in other services, the service
-requests the bearer token on your behalf. The key is not present for AWS STS
+requests the bearer token on your behalf. The key is not applicable for AWS STS
 assume-role operations.
 
 Some AWS services require that you have permission to get an AWS STS service
@@ -1242,6 +1402,69 @@ AWS CodeArtifact requires principals to use bearer tokens to perform some operat
 `aws codeartifact get-authorization-token` command returns a bearer
 token. You can then use the bearer token to perform AWS CodeArtifact operations. For more
 information about bearer tokens, see [Service bearer tokens](id_credentials_bearer.md "id_credentials_bearer.md").
+
+**sts:IdentityTokenAudience**
+
+Works with [string operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String").
+
+Use this key to specify the audience for which an IAM principal can request JSON Web Tokens (JWTs) using the [GetWebIdentityToken](../../../STS/latest/APIReference/API_GetWebIdentityToken.md "../../../STS/latest/APIReference/API_GetWebIdentityToken.md") API. When this condition key is present in an IAM policy, IAM principals can only request tokens for the audiences specified in the policy. External services validate the audience ("aud") claim in the JSON Web Token to ensure the token was intended for them.
+
+**Availability** – This key is present in requests to the GetWebIdentityToken API which is used to obtain JSON Web Tokens (JWTs) for authentication with external services.
+
+When you use this condition key in a policy, specify the audience value that matches the intended recipient's identifier (for example, https://api.example.com).
+
+The following example policy allows a principal to request tokens for the specified external services:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "sts:GetWebIdentityToken",
+            "Resource": "*",
+            "Condition": {
+                "ForAnyValue:StringEquals": {
+                    "sts:IdentityTokenAudience": [
+                        "https://api2.example.com",
+                        "https://api1.example.com"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
+**sts:SigningAlgorithm**
+
+Works with [string operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String").
+
+Use this key to specify the cryptographic algorithm AWS AWS STS uses to sign JSON Web Tokens (JWTs) generated by the [GetWebIdentityToken](../../../STS/latest/APIReference/API_GetWebIdentityToken.md "../../../STS/latest/APIReference/API_GetWebIdentityToken.md") API. When you use this condition key in a policy, specify either ES384 (ECDSA with P-384 curve and SHA-384) or RS256 (RSA with SHA-256).
+
+**Availability** – This key is present in requests to the GetWebIdentityToken API which is used to obtain JSON Web Tokens (JWTs) for authentication with external services.
+
+You can use this condition key to enforce that IAM principals request tokens using signing algorithms compatible with your security requirements or the external services you integrate with. ES384 provides optimal security and performance, while RS256 offers broader compatibility with systems that do not support ECDSA.
+
+The following example policy requires principals to use the ES384 signing algorithm:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "sts:GetWebIdentityToken",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "sts:SigningAlgorithm": "ES384"
+                }
+            }
+        }
+    ]
+}
+```
 
 **sts:ExternalId**
 

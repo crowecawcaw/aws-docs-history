@@ -1,8 +1,8 @@
-# IAM tutorial: Use an AWS CloudFormation template to
+# IAM tutorial: Use an CloudFormation template to
 
 create a SAML Identity Provider (IdP) and SAML federated IAM role
 
-To get familiar with SAML federation and its capabilities, you'll use an AWS CloudFormation template to
+To get familiar with SAML federation and its capabilities, you'll use an CloudFormation template to
 set up a SAML Identity Provider (IdP) and associated federated IAM role. This tutorial shows
 you how to create both resources together in a single stack.
 
@@ -28,7 +28,7 @@ This tutorial assumes that you have the following already in place:
 
 ## Create a SAML IdP and role using
 
-AWS CloudFormation
+CloudFormation
 
 To create the SAML IdP and federated role, you'll create an CloudFormation template and use it
 to create a stack containing both resources.
@@ -47,7 +47,7 @@ First, create the CloudFormation template.
 
 Next, use the template you've saved to provision a CloudFormation stack.
 
-1.  Open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+1.  Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2.  On the **Stacks** page, from the **Create stack**
     menu, choose **with new resources (standard)**.
 3.  Specify the template:
@@ -149,7 +149,7 @@ Next, use the template you've saved to provision a CloudFormation stack.
 
 6.  Review the stack details and choose **Submit**.
 
-AWS CloudFormation creates the stack. Once the stack creation is complete, the stack resources are
+CloudFormation creates the stack. Once the stack creation is complete, the stack resources are
 ready to use. You can use the **Resources** tab on the stack detail page to
 view the resources that were provisioned in your account.
 
@@ -193,7 +193,7 @@ resources
 
 As a final step, you'll delete the stack and the resources it contains.
 
-1. Open the AWS CloudFormation console.
+1. Open the CloudFormation console.
 2. On the **Stacks** page, choose the stack created from the template,
    and choose **Delete**, then confirm **Delete**.
 
@@ -205,7 +205,7 @@ details
 
 ### Resources
 
-The AWS CloudFormation template for this tutorial will create the following resources in your
+The CloudFormation template for this tutorial will create the following resources in your
 account:
 
 - [`AWS::IAM::SAMLProvider`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.md"): A SAML IdP that establishes trust

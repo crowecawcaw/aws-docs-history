@@ -56,9 +56,9 @@ operators only with multivalued condition keys. Do not use set operators with
 single-valued condition keys. For more information, see [Set operators
 for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
 
-| Properties of the principal                                                                                                                                                                                                                                                            | Properties of a role session                                                                                                                                                                                                                                                                                                                                                                                                                          | Properties of the network                                                                                                                | Properties of the resource                                                                          | Properties of the request                                                                                                                                                                                                                                                                                                                               |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `aws:PrincipalArn`<br>`aws:PrincipalAccount`<br>`aws:PrincipalOrgPaths`<br>`aws:PrincipalOrgID`<br>`aws:PrincipalTag/tag-key`<br>`aws:PrincipalIsAWSService`<br>`aws:PrincipalServiceName`<br>`aws:PrincipalServiceNamesList`<br>`aws:PrincipalType`<br>`aws:userid`<br>`aws:username` | `aws:AssumedRoot`<br>`aws:FederatedProvider`<br>`aws:TokenIssueTime`<br>`aws:MultiFactorAuthAge`<br>`aws:MultiFactorAuthPresent`<br>`aws:ChatbotSourceArn`<br>`aws:Ec2InstanceSourceVpc`<br>`aws:Ec2InstanceSourcePrivateIPv4`<br>`aws:SourceIdentity`<br>`ec2:RoleDelivery`<br>`ec2:SourceInstanceArn`<br>`glue:RoleAssumedBy`<br>`glue:CredentialIssuingService`<br>`lambda:SourceFunctionArn`<br>`ssm:SourceInstanceArn`<br>`identitystore:UserId` | `aws:SourceIp`<br>`aws:SourceVpc`<br>`aws:SourceVpce`<br>`aws:VpceAccount`<br>`aws:VpceOrgID`<br>`aws:VpceOrgPaths`<br>`aws:VpcSourceIp` | `aws:ResourceAccount`<br>`aws:ResourceOrgID`<br>`aws:ResourceOrgPaths`<br>`aws:ResourceTag/tag-key` | `aws:CalledVia`<br>`aws:CalledViaFirst`<br>`aws:CalledViaLast`<br>`aws:ViaAWSService`<br>`aws:CurrentTime`<br>`aws:EpochTime`<br>`aws:referer`<br>`aws:RequestedRegion`<br>`aws:RequestTag/tag-key`<br>`aws:TagKeys`<br>`aws:SecureTransport`<br>`aws:SourceAccount`<br>`aws:SourceArn`<br>`aws:SourceOrgID`<br>`aws:SourceOrgPaths`<br>`aws:UserAgent` |
+| Properties of the principal                                                                                                                                                                                                                                                            | Properties of a role session                                                                                                                                                                                                                                                                                                                                                                                                                          | Properties of the network                                                                                                                                      | Properties of the resource                                                                          | Properties of the request                                                                                                                                                                                                                                                                                                                                                           |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `aws:PrincipalArn`<br>`aws:PrincipalAccount`<br>`aws:PrincipalOrgPaths`<br>`aws:PrincipalOrgID`<br>`aws:PrincipalTag/tag-key`<br>`aws:PrincipalIsAWSService`<br>`aws:PrincipalServiceName`<br>`aws:PrincipalServiceNamesList`<br>`aws:PrincipalType`<br>`aws:userid`<br>`aws:username` | `aws:AssumedRoot`<br>`aws:FederatedProvider`<br>`aws:TokenIssueTime`<br>`aws:MultiFactorAuthAge`<br>`aws:MultiFactorAuthPresent`<br>`aws:ChatbotSourceArn`<br>`aws:Ec2InstanceSourceVpc`<br>`aws:Ec2InstanceSourcePrivateIPv4`<br>`aws:SourceIdentity`<br>`ec2:RoleDelivery`<br>`ec2:SourceInstanceArn`<br>`glue:RoleAssumedBy`<br>`glue:CredentialIssuingService`<br>`lambda:SourceFunctionArn`<br>`ssm:SourceInstanceArn`<br>`identitystore:UserId` | `aws:SourceIp`<br>`aws:SourceVpc`<br>`aws:SourceVpcArn`<br>`aws:SourceVpce`<br>`aws:VpceAccount`<br>`aws:VpceOrgID`<br>`aws:VpceOrgPaths`<br>`aws:VpcSourceIp` | `aws:ResourceAccount`<br>`aws:ResourceOrgID`<br>`aws:ResourceOrgPaths`<br>`aws:ResourceTag/tag-key` | `aws:CalledVia`<br>`aws:CalledViaFirst`<br>`aws:CalledViaLast`<br>`aws:ViaAWSService`<br>`aws:CurrentTime`<br>`aws:EpochTime`<br>`aws:referer`<br>`aws:RequestedRegion`<br>`aws:RequestTag/tag-key`<br>`aws:TagKeys`<br>`aws:SecureTransport`<br>`aws:SourceAccount`<br>`aws:SourceArn`<br>`aws:SourceOrgID`<br>`aws:SourceOrgPaths`<br>`aws:UserAgent`<br>`aws:IsMcpServiceAction` |
 
 ## Sensitive condition keys
 
@@ -752,7 +752,7 @@ happen:
   temporary credentials on behalf of the user.
 - If an IAM user makes a call to an AWS service, the service re-uses the
   user's credentials to make another request to a different service. For
-  example, when calling Athena to access an Amazon S3 bucket, or when using AWS CloudFormation to
+  example, when calling Athena to access an Amazon S3 bucket, or when using CloudFormation to
   create an Amazon EC2 instance. For the subsequent request, AWS uses temporary
   credentials.
 
@@ -1470,8 +1470,83 @@ JSON
 
 ```
 
-For an example of how to apply this key in a resource-based policy, see [Restricting access to a specific VPC](../../../AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.md#example-bucket-policies-restrict-access-vpc "../../../AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.md#example-bucket-policies-restrict-access-vpc") in the
-_Amazon Simple Storage Service User Guide_.
+###### Note
+
+AWS recommends to use `aws:SourceVpcArn` instead of `aws:SourceVpc` if `aws:SourceVpcArn` is supported by the service you are
+targeting. Please refer to [aws:SourceVpcArn](#condition-keys-sourcevpcarn "#condition-keys-sourcevpcarn") for the list of supported services.
+
+### aws:SourceVpcArn
+
+Use this key to verify the ARN of the VPC through which a request was made via a VPC endpoint. This key returns the ARN of the VPC to which the VPC endpoint is attached.
+
+- **Availability** – This key is included in the request context for supported services when a request is made through a VPC endpoint. The key is not included for requests made through public service endpoints. The following services support this key:
+  - AWS App Runner (prefix: [`apprunner`](../../../service-authorization/latest/reference/list_awsapprunner.md "../../../service-authorization/latest/reference/list_awsapprunner.md"))
+  - AWS Application Discovery Service (prefix: [`discovery`](../../../service-authorization/latest/reference/list_awsapplicationdiscoveryservice.md "../../../service-authorization/latest/reference/list_awsapplicationdiscoveryservice.md"))
+  - Amazon Athena (prefix: [`athena`](../../../service-authorization/latest/reference/list_amazonathena.md "../../../service-authorization/latest/reference/list_amazonathena.md"))
+  - AWS Cloud Map (prefix: [`servicediscovery`](../../../service-authorization/latest/reference/list_awscloudmap.md "../../../service-authorization/latest/reference/list_awscloudmap.md"))
+  - Amazon CloudWatch Application Insights (prefix: [`applicationinsights`](../../../service-authorization/latest/reference/list_amazoncloudwatchapplicationinsights.md "../../../service-authorization/latest/reference/list_amazoncloudwatchapplicationinsights.md"))
+  - AWS CloudFormation (prefix: [`cloudformation`](../../../service-authorization/latest/reference/list_awscloudformation.md "../../../service-authorization/latest/reference/list_awscloudformation.md"))
+  - Amazon Comprehend Medical (prefix: [`comprehendmedical`](../../../service-authorization/latest/reference/list_amazoncomprehendmedical.md "../../../service-authorization/latest/reference/list_amazoncomprehendmedical.md"))
+  - AWS Compute Optimizer (prefix: [`compute-optimizer`](../../../service-authorization/latest/reference/list_awscomputeoptimizer.md "../../../service-authorization/latest/reference/list_awscomputeoptimizer.md"))
+  - Amazon; Elastic Container Registry (prefix: [`ecr`](../../../service-authorization/latest/reference/list_amazonelasticcontainerregistry.md "../../../service-authorization/latest/reference/list_amazonelasticcontainerregistry.md"))
+  - Amazon Elastic Container Service (prefix: [`ecs`](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md"))
+  - Amazon Kinesis Analytics (prefix: [`kinesisanalytics`](../../../service-authorization/latest/reference/list_amazonkinesisanalytics.md "../../../service-authorization/latest/reference/list_amazonkinesisanalytics.md"))
+  - Amazon Route 53 (prefix: [`route53`](../../../service-authorization/latest/reference/list_amazonroute53.md "../../../service-authorization/latest/reference/list_amazonroute53.md"))
+  - AWS DataSync (prefix: [`datasync`](../../../service-authorization/latest/reference/list_awsdatasync.md "../../../service-authorization/latest/reference/list_awsdatasync.md"))
+  - Amazon Elastic Block Store (prefix: [`ebs`](../../../service-authorization/latest/reference/list_amazonelasticblockstore.md "../../../service-authorization/latest/reference/list_amazonelasticblockstore.md"))
+  - Amazon EventBridge Scheduler (prefix: [`scheduler`](../../../service-authorization/latest/reference/list_amazoneventbridgescheduler.md "../../../service-authorization/latest/reference/list_amazoneventbridgescheduler.md"))
+  - Amazon Data Firehose (prefix: [`firehose`](../../../service-authorization/latest/reference/list_amazonkinesisfirehose.md "../../../service-authorization/latest/reference/list_amazonkinesisfirehose.md"))
+  - AWS HealthImaging (prefix: [`medical-imaging`](../../../service-authorization/latest/reference/list_awshealthimaging.md "../../../service-authorization/latest/reference/list_awshealthimaging.md"))
+  - AWS HealthLake (prefix: [`healthlake`](../../../service-authorization/latest/reference/list_awshealthlake.md "../../../service-authorization/latest/reference/list_awshealthlake.md"))
+  - AWS HealthOmics (prefix: [`omics`](../../../service-authorization/latest/reference/list_awshealthomics.md "../../../service-authorization/latest/reference/list_awshealthomics.md"))
+  - AWS Identity and Access Management (except for the `iam:PassRole` action)
+    (prefix: [`iam`](../../../service-authorization/latest/reference/list_awsidentityandaccessmanagementiam.md "../../../service-authorization/latest/reference/list_awsidentityandaccessmanagementiam.md"))
+  - AWS IoT FleetWise (prefix: [`iotfleetwise`](../../../service-authorization/latest/reference/list_awsiotfleetwise.md "../../../service-authorization/latest/reference/list_awsiotfleetwise.md"))
+  - AWS IoT Wireless (prefix: [`iotwireless`](../../../service-authorization/latest/reference/list_awsiotwireless.md "../../../service-authorization/latest/reference/list_awsiotwireless.md"))
+  - AWS Key Management Service (prefix: [`kms`](../../../service-authorization/latest/reference/list_awskeymanagementservice.md "../../../service-authorization/latest/reference/list_awskeymanagementservice.md"))
+  - AWS Lambda (prefix: [`lambda`](../../../service-authorization/latest/reference/list_awslambda.md "../../../service-authorization/latest/reference/list_awslambda.md"))
+  - AWS Payment Cryptography (prefix: [`payment-cryptography`](../../../service-authorization/latest/reference/list_awspaymentcryptography.md "../../../service-authorization/latest/reference/list_awspaymentcryptography.md"))
+  - Amazon Polly (prefix: [`polly`](../../../service-authorization/latest/reference/list_amazonpolly.md "../../../service-authorization/latest/reference/list_amazonpolly.md"))
+  - AWS Private Certificate Authority (prefix: [`acm-pca`](../../../service-authorization/latest/reference/list_awsprivatecertificateauthority.md "../../../service-authorization/latest/reference/list_awsprivatecertificateauthority.md"))
+  - AWS Recycle Bin (prefix: [`rbin`](../../../service-authorization/latest/reference/list_awsrecyclebin.md "../../../service-authorization/latest/reference/list_awsrecyclebin.md"))
+  - Amazon Rekognition (prefix: [`rekognition`](../../../service-authorization/latest/reference/list_amazonrekognition.md "../../../service-authorization/latest/reference/list_amazonrekognition.md"))
+  - Service Quotas (prefix: [`servicequotas`](../../../service-authorization/latest/reference/list_servicequotas.md "../../../service-authorization/latest/reference/list_servicequotas.md"))
+  - Amazon Simple Storage Service (prefix: [`s3`](../../../service-authorization/latest/reference/list_amazons3.md "../../../service-authorization/latest/reference/list_amazons3.md"))
+  - AWS Storage Gateway (prefix: [`storagegateway`](../../../service-authorization/latest/reference/list_awsstoragegateway.md "../../../service-authorization/latest/reference/list_awsstoragegateway.md"))
+  - AWS Systems Manager Incident Manager Contacts (prefix: [`ssm-contacts`](../../../service-authorization/latest/reference/list_awssystemsmanagerincidentmanagercontacts.md "../../../service-authorization/latest/reference/list_awssystemsmanagerincidentmanagercontacts.md"))
+  - Amazon Textract (prefix: [`textract`](../../../service-authorization/latest/reference/list_amazontextract.md "../../../service-authorization/latest/reference/list_amazontextract.md"))
+  - Amazon Transcribe (prefix: [`transcribe`](../../../service-authorization/latest/reference/list_amazontranscribe.md "../../../service-authorization/latest/reference/list_amazontranscribe.md"))
+  - AWS Transfer Family (prefix: [`transfer`](../../../service-authorization/latest/reference/list_awstransferfamily.md "../../../service-authorization/latest/reference/list_awstransferfamily.md"))
+
+- **Data type** – ARN
+
+AWS recommends that you use [ARN operators](reference_policies_elements_condition_operators.md#Conditions_ARN "reference_policies_elements_condition_operators.md#Conditions_ARN") instead of [string operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String") when comparing ARNs.
+
+- **Value type** – Single-valued
+- **Example value** – `arn:aws:ec2:us-east-1:123456789012:vpc/vpc-0e9801d129EXAMPLE`
+
+The following is an example of a bucket policy that denies access to `amzn-s3-demo-bucket` and its objects from anywhere outside VPC `vpc-1a2b3c4d`.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement": [
+     {
+       "Sid": "Access-to-specific-VPC-only",
+       "Principal": "*",
+       "Action": "s3:*",
+       "Effect": "Deny",
+       "Resource": ["arn:aws:s3:::amzn-s3-demo-bucket",
+                    "arn:aws:s3:::amzn-s3-demo-bucket/*"],
+       "Condition": {
+         "ArnNotEquals": {
+           "aws:SourceVpcArn": "arn:aws:ec2:us-east-1:*:vpc/vpc-1a2b3c4d"
+         }
+       }
+     }
+   ]
+}
+```
 
 ### aws:SourceVpce
 
@@ -1514,6 +1589,10 @@ The following services support this key:
     + AWS CloudFormation (prefix: [`cloudformation`](../../../service-authorization/latest/reference/list_awscloudformation.md "../../../service-authorization/latest/reference/list_awscloudformation.md"))
     + Amazon Comprehend Medical (prefix: [`comprehendmedical`](../../../service-authorization/latest/reference/list_amazoncomprehendmedical.md "../../../service-authorization/latest/reference/list_amazoncomprehendmedical.md"))
     + AWS Compute Optimizer (prefix: [`compute-optimizer`](../../../service-authorization/latest/reference/list_awscomputeoptimizer.md "../../../service-authorization/latest/reference/list_awscomputeoptimizer.md"))
+    + Amazon; Elastic Container Registry (prefix: [`ecr`](../../../service-authorization/latest/reference/list_amazonelasticcontainerregistry.md "../../../service-authorization/latest/reference/list_amazonelasticcontainerregistry.md"))
+    + Amazon Elastic Container Service (prefix: [`ecs`](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md"))
+    + Amazon Kinesis Analytics (prefix: [`kinesisanalytics`](../../../service-authorization/latest/reference/list_amazonkinesisanalytics.md "../../../service-authorization/latest/reference/list_amazonkinesisanalytics.md"))
+    + Amazon Route 53 (prefix: [`route53`](../../../service-authorization/latest/reference/list_amazonroute53.md "../../../service-authorization/latest/reference/list_amazonroute53.md"))
     + AWS DataSync (prefix: [`datasync`](../../../service-authorization/latest/reference/list_awsdatasync.md "../../../service-authorization/latest/reference/list_awsdatasync.md"))
     + Amazon Elastic Block Store (prefix: [`ebs`](../../../service-authorization/latest/reference/list_amazonelasticblockstore.md "../../../service-authorization/latest/reference/list_amazonelasticblockstore.md"))
     + Amazon EventBridge Scheduler (prefix: [`scheduler`](../../../service-authorization/latest/reference/list_amazoneventbridgescheduler.md "../../../service-authorization/latest/reference/list_amazoneventbridgescheduler.md"))
@@ -1613,6 +1692,10 @@ The following services support this key:
     + AWS CloudFormation (prefix: [`cloudformation`](../../../service-authorization/latest/reference/list_awscloudformation.md "../../../service-authorization/latest/reference/list_awscloudformation.md"))
     + Amazon Comprehend Medical (prefix: [`comprehendmedical`](../../../service-authorization/latest/reference/list_amazoncomprehendmedical.md "../../../service-authorization/latest/reference/list_amazoncomprehendmedical.md"))
     + AWS Compute Optimizer (prefix: [`compute-optimizer`](../../../service-authorization/latest/reference/list_awscomputeoptimizer.md "../../../service-authorization/latest/reference/list_awscomputeoptimizer.md"))
+    + Amazon; Elastic Container Registry (prefix: [`ecr`](../../../service-authorization/latest/reference/list_amazonelasticcontainerregistry.md "../../../service-authorization/latest/reference/list_amazonelasticcontainerregistry.md"))
+    + Amazon Elastic Container Service (prefix: [`ecs`](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md"))
+    + Amazon Kinesis Analytics (prefix: [`kinesisanalytics`](../../../service-authorization/latest/reference/list_amazonkinesisanalytics.md "../../../service-authorization/latest/reference/list_amazonkinesisanalytics.md"))
+    + Amazon Route 53 (prefix: [`route53`](../../../service-authorization/latest/reference/list_amazonroute53.md "../../../service-authorization/latest/reference/list_amazonroute53.md"))
     + AWS DataSync (prefix: [`datasync`](../../../service-authorization/latest/reference/list_awsdatasync.md "../../../service-authorization/latest/reference/list_awsdatasync.md"))
     + Amazon Elastic Block Store (prefix: [`ebs`](../../../service-authorization/latest/reference/list_amazonelasticblockstore.md "../../../service-authorization/latest/reference/list_amazonelasticblockstore.md"))
     + Amazon EventBridge Scheduler (prefix: [`scheduler`](../../../service-authorization/latest/reference/list_amazoneventbridgescheduler.md "../../../service-authorization/latest/reference/list_amazoneventbridgescheduler.md"))
@@ -1715,6 +1798,10 @@ The following services support this key:
     + AWS CloudFormation (prefix: [`cloudformation`](../../../service-authorization/latest/reference/list_awscloudformation.md "../../../service-authorization/latest/reference/list_awscloudformation.md"))
     + Amazon Comprehend Medical (prefix: [`comprehendmedical`](../../../service-authorization/latest/reference/list_amazoncomprehendmedical.md "../../../service-authorization/latest/reference/list_amazoncomprehendmedical.md"))
     + AWS Compute Optimizer (prefix: [`compute-optimizer`](../../../service-authorization/latest/reference/list_awscomputeoptimizer.md "../../../service-authorization/latest/reference/list_awscomputeoptimizer.md"))
+    + Amazon; Elastic Container Registry (prefix: [`ecr`](../../../service-authorization/latest/reference/list_amazonelasticcontainerregistry.md "../../../service-authorization/latest/reference/list_amazonelasticcontainerregistry.md"))
+    + Amazon Elastic Container Service (prefix: [`ecs`](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md"))
+    + Amazon Kinesis Analytics (prefix: [`kinesisanalytics`](../../../service-authorization/latest/reference/list_amazonkinesisanalytics.md "../../../service-authorization/latest/reference/list_amazonkinesisanalytics.md"))
+    + Amazon Route 53 (prefix: [`route53`](../../../service-authorization/latest/reference/list_amazonroute53.md "../../../service-authorization/latest/reference/list_amazonroute53.md"))
     + AWS DataSync (prefix: [`datasync`](../../../service-authorization/latest/reference/list_awsdatasync.md "../../../service-authorization/latest/reference/list_awsdatasync.md"))
     + Amazon Elastic Block Store (prefix: [`ebs`](../../../service-authorization/latest/reference/list_amazonelasticblockstore.md "../../../service-authorization/latest/reference/list_amazonelasticblockstore.md"))
     + Amazon EventBridge Scheduler (prefix: [`scheduler`](../../../service-authorization/latest/reference/list_amazoneventbridgescheduler.md "../../../service-authorization/latest/reference/list_amazoneventbridgescheduler.md"))
@@ -2323,9 +2410,9 @@ condition key supports AWS services.
 
 The `aws:CalledVia` key is a [multivalued key](reference_policies_condition-single-vs-multi-valued-context-keys.md "reference_policies_condition-single-vs-multi-valued-context-keys.md"). However, you can't enforce order using this key in a
 condition. Using the example above, **User 1** makes a request to
-AWS CloudFormation, which calls DynamoDB, which calls AWS KMS. These are three separate requests. The
+CloudFormation, which calls DynamoDB, which calls AWS KMS. These are three separate requests. The
 final call to AWS KMS is performed by User 1 _via_
-AWS CloudFormation and then DynamoDB.
+CloudFormation and then DynamoDB.
 
 ![Example using aws:CalledVia](images/condition-key-calledvia-example-diagram.png)
 
@@ -2376,7 +2463,7 @@ you can use the `aws:CalledViaFirst` and `aws:CalledViaLast`
 keys. For example, the following policy allows managing the key named
 `my-example-key` in AWS KMS. These AWS KMS operations are allowed only if
 multiple requests were included in the chain. The first request must be made via
-AWS CloudFormation and the last via DynamoDB. If other services make requests in the middle of the
+CloudFormation and the last via DynamoDB. If other services make requests in the middle of the
 chain, the operation is still allowed.
 
 JSON
@@ -2411,11 +2498,11 @@ JSON
 The `aws:CalledViaFirst` and `aws:CalledViaLast` keys
 are present in the request when a service uses an IAM principal's credentials to
 call another service. They indicate the first and last services that made calls in
-the chain of requests. For example, assume that AWS CloudFormation calls another service named
+the chain of requests. For example, assume that CloudFormation calls another service named
 `X Service`, which calls DynamoDB, which then calls AWS KMS. The final
 call to AWS KMS is performed by `User 1`
-_via_ AWS CloudFormation, then `X Service`, and then
-DynamoDB. It was first called via AWS CloudFormation and last called via DynamoDB.
+_via_ CloudFormation, then `X Service`, and then
+DynamoDB. It was first called via CloudFormation and last called via DynamoDB.
 
 ![Example using aws:CalledViaFirst and aws:CalledViaLast](images/condition-key-calledviafirstlast-example-diagram.png)
 
@@ -3026,6 +3113,18 @@ they choose. As a result, `aws:UserAgent` should not be used to
 prevent unauthorized parties from making direct AWS requests. You can use it
 to allow only specific client applications, and only after testing your
 policy.
+
+### aws:IsMcpServiceAction
+
+Use this key to verify that the action being authorized is an MCP Service action.
+This key does not refer to actions taken by the MCP service to other AWS
+services.
+
+- **Availability** – This key is included
+  in the request context and set to True only when the MCP service is
+  authorizing an MCP service action.
+- **Data type** – [Boolean](reference_policies_elements_condition_operators.md#Conditions_Boolean "reference_policies_elements_condition_operators.md#Conditions_Boolean")
+- **Value type** – Single-valued
 
 ## Other cross-service condition keys
 

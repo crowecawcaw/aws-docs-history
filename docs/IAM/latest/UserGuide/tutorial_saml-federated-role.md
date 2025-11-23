@@ -1,10 +1,10 @@
-# IAM tutorial: Use an AWS CloudFormation template to
+# IAM tutorial: Use an CloudFormation template to
 
 create a SAML federated IAM role
 
 When you have an existing SAML Identity Provider (IdP) configured in your AWS account,
 you can create federated IAM roles that trust that IdP. This tutorial shows you how to use
-an AWS CloudFormation template to create a SAML federated IAM role that can be assumed by users
+an CloudFormation template to create a SAML federated IAM role that can be assumed by users
 authenticated through your external IdP.
 
 The template creates a federated IAM role with a trust policy that allows your SAML IdP
@@ -23,7 +23,7 @@ The deployed resource consists of the following:
 This tutorial assumes that you have the following already in place:
 
 - An existing SAML IdP configured in your AWS account. If you don't have one,
-  you can create it using the [IAM tutorial: Use an AWS CloudFormation template to create a SAML
+  you can create it using the [IAM tutorial: Use an CloudFormation template to create a SAML
   Identity Provider (IdP)](tutorial_saml-idp.md "tutorial_saml-idp.md") tutorial.
 - The ARN of your SAML IdP, which you'll need to specify as a parameter when
   creating the stack.
@@ -32,7 +32,7 @@ This tutorial assumes that you have the following already in place:
 
 ## Create a SAML federated role using
 
-AWS CloudFormation
+CloudFormation
 
 To create the SAML federated role, you'll create an CloudFormation template and use it to
 create a stack containing the role.
@@ -51,7 +51,7 @@ First, create the CloudFormation template.
 
 Next, use the template you've saved to provision a CloudFormation stack.
 
-1.  Open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+1.  Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2.  On the **Stacks** page, from the **Create
     stack** menu, choose **with new resources
     (standard)**.
@@ -75,7 +75,7 @@ Next, use the template you've saved to provision a CloudFormation stack.
 
     ###### Note
 
-    If you created your SAML IdP using the [IAM tutorial: Use an AWS CloudFormation template to create a SAML
+    If you created your SAML IdP using the [IAM tutorial: Use an CloudFormation template to create a SAML
     Identity Provider (IdP)](tutorial_saml-idp.md "tutorial_saml-idp.md") tutorial, you can find
     the provider ARN in the Outputs tab of that CloudFormation
     stack. 3. For **RoleName**, you can leave this empty to
@@ -129,7 +129,7 @@ Next, use the template you've saved to provision a CloudFormation stack.
 
 6.  Review the stack details and choose **Submit**.
 
-AWS CloudFormation creates the stack. Once the stack creation is complete, the stack resources
+CloudFormation creates the stack. Once the stack creation is complete, the stack resources
 are ready to use. You can use the **Resources** tab on the stack
 detail page to view the resources that were provisioned in your account.
 
@@ -180,7 +180,7 @@ assume this role to access AWS resources.
 
 As a final step, you'll delete the stack and the resources it contains.
 
-1. Open the AWS CloudFormation console.
+1. Open the CloudFormation console.
 2. On the **Stacks** page, choose the stack created from the
    template, and choose **Delete**, then confirm
    **Delete**.
@@ -194,7 +194,7 @@ details
 
 ### Resources
 
-The AWS CloudFormation template for this tutorial will create the following resource in your
+The CloudFormation template for this tutorial will create the following resource in your
 account:
 
 - [`AWS::IAM::Role`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md"): A federated IAM role that

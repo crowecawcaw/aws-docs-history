@@ -110,12 +110,14 @@ AWS Management Console if MFA is not already enabled.
 ## Don't create access keys for the root user
 
 Access keys let you run commands in the AWS Command Line Interface (AWS CLI) or use API
-operations from one of the AWS SDKs. We strongly recommend that you do not create access key
-pairs for your root user because the root user has full access to all AWS services and resources
+operations from one of the AWS SDKs. We strongly recommend that you do not create access keys
+for your root user because the root user has full access to all AWS services and resources
 in the account, including billing information.
 
 Since only a few tasks require the root user and you typically perform those tasks
-infrequently, we recommend signing in to the AWS Management Console to perform root user tasks. Before
+infrequently, we recommend signing in to the AWS Management Console to perform root user tasks. For programmatic access,
+instead of creating access keys for the root user, use the `aws login` command with your root credentials to authenticate to the AWS CLI and SDKs.
+This approach provides temporary, automatically rotated credentials that enhance your security posture while eliminating the need to manage long-term access keys. Before
 creating access keys, review the [Alternatives to
 long-term access keys](security-creds-programmatic-access.md#security-creds-alternatives-to-long-term-access-keys "security-creds-programmatic-access.md#security-creds-alternatives-to-long-term-access-keys").
 

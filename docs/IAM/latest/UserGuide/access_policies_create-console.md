@@ -71,11 +71,11 @@ You can switch between the **Visual** and **JSON**
 editor options anytime. However, if you make changes or choose **Next**
 in the **Visual** editor, IAM might restructure your policy to
 optimize it for the visual editor. For more information, see [Policy restructuring](troubleshoot_policies.md#troubleshoot_viseditor-restructure "troubleshoot_policies.md#troubleshoot_viseditor-restructure"). 7. (Optional) When you create or edit a policy in the AWS Management Console, you can generate a JSON
-or YAML policy template that you can use in AWS CloudFormation templates.
+or YAML policy template that you can use in CloudFormation templates.
 
 To do this, in the **Policy editor** choose
 **Actions**, and then choose **Generate CloudFormation
-template**. To learn more about AWS CloudFormation see [AWS Identity and Access Management resource type
+template**. To learn more about CloudFormation see [AWS Identity and Access Management resource type
 reference](../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md "../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md") in the AWS CloudFormation User Guide. 8. When you are finished adding permissions to the policy, choose
 **Next**. 9. On the **Review and create** page, type a **Policy
 Name** and a **Description** (optional) for the policy that
@@ -183,11 +183,11 @@ You can switch between the **Visual** and **JSON**
 editor options anytime. However, if you make changes or choose **Next**
 in the **Visual** editor, IAM might restructure your policy to
 optimize it for the visual editor. For more information, see [Policy restructuring](troubleshoot_policies.md#troubleshoot_viseditor-restructure "troubleshoot_policies.md#troubleshoot_viseditor-restructure"). 9. (Optional) When you create or edit a policy in the AWS Management Console, you can generate a JSON
-or YAML policy template that you can use in AWS CloudFormation templates.
+or YAML policy template that you can use in CloudFormation templates.
 
 To do this, in the **Policy editor** choose
 **Actions**, and then choose **Generate CloudFormation
-template**. To learn more about AWS CloudFormation see [AWS Identity and Access Management resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md "../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md") in the
+template**. To learn more about CloudFormation see [AWS Identity and Access Management resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md "../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md") in the
 AWS CloudFormation User Guide. 10. When you are finished adding permissions to the policy, choose
 **Next**. 11. On the **Review and create** page, type a **Policy
 Name** and a **Description** (optional) for the policy that

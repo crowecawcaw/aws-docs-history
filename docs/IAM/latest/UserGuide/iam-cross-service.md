@@ -3,12 +3,12 @@
 While IAM is the primary AWS service you will use to manage IAM resources, all other
 AWS services work with IAM to control access to the resources in your account.
 
-- AWS CloudFormation
+- CloudFormation
 
-AWS CloudFormation integrates with IAM by allowing you to define and manage IAM
-resources as part of your AWS CloudFormation
-templates. You can use AWS CloudFormation to specify the necessary IAM permissions for other
-AWS resources you provision. AWS CloudFormation also supports the use of IAM roles to
+CloudFormation integrates with IAM by allowing you to define and manage IAM
+resources as part of your CloudFormation
+templates. You can use CloudFormation to specify the necessary IAM permissions for other
+AWS resources you provision. CloudFormation also supports the use of IAM roles to
 manage the credentials required for provisioning and managing your AWS
 infrastructure, and its drift detection feature helps you maintain the integrity of
 your IAM configurations.

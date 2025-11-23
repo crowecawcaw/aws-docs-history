@@ -168,7 +168,7 @@ Other AWS services make use of Amazon S3 buckets, Amazon SNS topics, Amazon SQS 
 The scenario for managing permissions in these cases varies by service. Here are some
 examples of how permissions are handled for different services:
 
-- In Amazon EC2 Auto Scaling, users must have permission to use Auto Scaling, but don't need to be explicitly
+- In Amazon EC2 Auto Scaling, users must have permission to use Amazon EC2 Auto Scaling, but don't need to be explicitly
   granted permission to manage Amazon EC2 instances.
 - In AWS Data Pipeline, an IAM role determines what a pipeline can do; users need permission to
   assume the role. (For details, see [Granting

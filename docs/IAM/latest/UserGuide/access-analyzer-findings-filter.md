@@ -155,6 +155,9 @@ access:
   part of the VPC ID that allows external entities access to resources in the
   current account when using the specified VPC. To learn more, see [AWS global
   condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md").
+- **Source VPC ARN** – To filter by Source VPC ARN, type all or part of the VPC ARN that allows external entities access to resources in the current account when using the specified VPC.
+  To learn more, see [AWS global
+  condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md").
 - **Source VPCE** – To filter by Source VPCE, type all
   or part of the VPC endpoint ID that allows external entities access to resources
   in the current account when using the specified VPC endpoint. To learn more, see

@@ -107,7 +107,7 @@ FS, part of Windows Server), Shibboleth, or another compatible SAML 2.0 provider
 To improve federation resiliency, we recommend that you configure your IdP and AWS
 federation to support multiple SAML sign-in endpoints. For details, see the AWS Security
 Blog article [How to use regional SAML
-endpoints for failover](https://aws.amazon.com/blogs/security/how-to-use-regional-saml-endpoints-for-failover "https://aws.amazon.com/blogs/security/how-to-use-regional-saml-endpoints-for-failover").
+endpoints for failover](https://aws.amazon.com/blogs//security/how-to-use-regional-saml-endpoints-for-failover "https://aws.amazon.com/blogs//security/how-to-use-regional-saml-endpoints-for-failover").
 
 ###### Configure your organization's IdP and AWS to trust each other
 

@@ -31,8 +31,8 @@ checks and actionable recommendations, see [IAM Access Analyzer policy
 validation](access-analyzer-policy-validation.md "access-analyzer-policy-validation.md").
 
 You can use the AWS Management Console, AWS CLI, or AWS API to create customer managed policies in IAM.
-For more information about using AWS CloudFormation templates to add or update policies, see [AWS Identity and Access Management resource
-type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md "../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md") in the _AWS CloudFormation User Guide_.
+For more information about using CloudFormation templates to add or update policies, see [AWS Identity and Access Management resource
+type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md "../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md") in the _CloudFormation User Guide_.
 
 ###### Topics
 
