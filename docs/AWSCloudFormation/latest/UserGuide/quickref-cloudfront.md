@@ -1,6 +1,6 @@
 # Amazon CloudFront template snippets
 
-Use these sample template snippets with your Amazon CloudFront distribution resource in AWS CloudFormation. For
+Use these sample template snippets with your Amazon CloudFront distribution resource in CloudFormation. For
 more information, see the [Amazon CloudFront resource type reference](../TemplateReference/AWS_CloudFront.md "../TemplateReference/AWS_CloudFront.md").
 
 ###### Topics
@@ -13,7 +13,7 @@ more information, see the [Amazon CloudFront resource type reference](../Templat
   multi-origin support](#scenario-cloudfront-multiorigin "#scenario-cloudfront-multiorigin")
 - [Amazon CloudFront distribution with a Lambda
   function as origin](#scenario-cloudfront-lambda-origin "#scenario-cloudfront-lambda-origin")
-- [See also](#w71aac11c39c27c15 "#w71aac11c39c27c15")
+- [See also](#w2aac11c41c27c15 "#w2aac11c41c27c15")
 
 ## Amazon CloudFront distribution resource with an
 

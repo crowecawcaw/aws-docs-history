@@ -13,7 +13,7 @@ permissions) or organization's management account (if using service-managed perm
 in a Region that is disabled by default, you must first enable that
 Region for the administrator or management account.
 
-For AWS CloudFormation to successfully create or update a stack instance:
+For CloudFormation to successfully create or update a stack instance:
 
 - The target account must reside in a Region that's currently
   enabled for that target account.

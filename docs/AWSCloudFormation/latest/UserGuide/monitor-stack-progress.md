@@ -7,6 +7,8 @@ progress and any issues encountered during the deployment.
 ###### Topics
 
 - [View stack events](view-stack-events.md "view-stack-events.md")
+- [View stack events by
+  operation](view-stack-events-by-operation.md "view-stack-events-by-operation.md")
 - [View stack deployment timeline
   graph](stack-deployment-timeline-graph.md "stack-deployment-timeline-graph.md")
 - [Understand stack creation

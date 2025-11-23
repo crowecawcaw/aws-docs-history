@@ -5,7 +5,7 @@ Change event detail
 Below are the detail fields for Resource Sync Status Change events.
 
 The `source` and `detail-type` fields are included
-because they contain specific values for AWS CloudFormation events.
+because they contain specific values for CloudFormation events.
 
 ```
 {

@@ -1,4 +1,4 @@
-# Data protection in AWS CloudFormation
+# Data protection in CloudFormation
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
 applies to data protection in AWS CloudFormation. As described in this model, AWS is
@@ -23,7 +23,7 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
   available FIPS endpoints, see [Federal
   Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
   We strongly recommend that you never put confidential or sensitive information, such as your
-  customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with AWS CloudFormation or other AWS services
+  customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with CloudFormation or other AWS services
   using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into
   tags or free-form text fields used for names may be used for billing or diagnostic logs. If you
   provide a URL to an external server, we strongly recommend that you do not include credentials
@@ -31,7 +31,7 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
 
 ## Encryption at rest
 
-Following the AWS shared responsibility model, AWS CloudFormation stores your data encrypted at
+Following the AWS shared responsibility model, CloudFormation stores your data encrypted at
 rest. Customers are responsible for setting encryption and storage policies for data stored in their
 accounts. For example, we recommend enabling at-rest encryption for templates and other data stored
 in S3 buckets or SNS topics. Customers similarly define encryption settings for any data storage systems
@@ -39,10 +39,10 @@ provisioned by CloudFormation.
 
 ## Encryption in transit
 
-AWS CloudFormation uses encrypted channels for service communications under the shared responsibility
+CloudFormation uses encrypted channels for service communications under the shared responsibility
 model.
 
 ## Internetwork traffic privacy
 
-AWS CloudFormation service communications are securely encrypted by default between Regions or
+CloudFormation service communications are securely encrypted by default between Regions or
 Availability Zones.

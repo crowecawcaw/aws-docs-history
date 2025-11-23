@@ -1,4 +1,4 @@
-# Import stacks into AWS CloudFormation StackSets
+# Import stacks into CloudFormation StackSets
 
 A stack import operation can import existing stacks into new or existing StackSets, so that
 you can migrate existing stacks to a StackSet in one operation.
@@ -28,6 +28,6 @@ StackSets:
 
 ###### Topics
 
-- [Self-managed stack import for AWS CloudFormation StackSets](self-managed-import.md "self-managed-import.md")
-- [Service-managed stack import for AWS CloudFormation StackSets](service-managed-import.md "service-managed-import.md")
-- [Revert stack imports into AWS CloudFormation StackSets](revert-stackset-import.md "revert-stackset-import.md")
+- [Self-managed stack import for CloudFormation StackSets](self-managed-import.md "self-managed-import.md")
+- [Service-managed stack import for CloudFormation StackSets](service-managed-import.md "service-managed-import.md")
+- [Revert stack imports into CloudFormation StackSets](revert-stackset-import.md "revert-stackset-import.md")

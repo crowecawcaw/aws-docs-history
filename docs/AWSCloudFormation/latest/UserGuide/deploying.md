@@ -10,7 +10,7 @@ CloudFormation includes a set of helper scripts (`cfn-init`, `cfn-signal`,
 `cloud-init`. You call these helper scripts from your CloudFormation templates to
 install, configure, and update applications on Amazon EC2 instances that are in the same template.
 For more information, see the [CloudFormation helper scripts reference](../TemplateReference/cfn-helper-scripts-reference.md "../TemplateReference/cfn-helper-scripts-reference.md") in the
-_AWS CloudFormation Template Reference Guide_.
+_CloudFormation Template Reference Guide_.
 
 In the [getting started tutorial](gettingstarted.md "gettingstarted.md"), you
 created a simple web server using `UserData` with a basic bash script. While this
@@ -306,7 +306,7 @@ text editor on your local machine and add the template. Save the file with the n
 
 ###### To launch the stack template
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Choose **Create stack**, **With new resources
    (standard)**.
@@ -425,7 +425,7 @@ To continue learning:
   CloudFormation stacks](cfn-windows-stacks-bootstrapping.md "cfn-windows-stacks-bootstrapping.md").
 - Explore more complex bootstrap scenarios with multiple configuration sets. For more
   information, see [cfn-init](../TemplateReference/cfn-init.md "../TemplateReference/cfn-init.md") and
-  [AWS::CloudFormation::Init](../TemplateReference/aws-resource-init.md "../TemplateReference/aws-resource-init.md") in the _AWS CloudFormation Template Reference Guide_.
+  [AWS::CloudFormation::Init](../TemplateReference/aws-resource-init.md "../TemplateReference/aws-resource-init.md") in the _CloudFormation Template Reference Guide_.
 - Learn about `cfn-signal` for reporting bootstrap completion status. For
   more information, see [cfn-signal](../TemplateReference/cfn-signal.md "../TemplateReference/cfn-signal.md") in
-  the _AWS CloudFormation Template Reference Guide_.
+  the _CloudFormation Template Reference Guide_.

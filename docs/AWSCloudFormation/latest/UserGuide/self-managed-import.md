@@ -1,4 +1,4 @@
-# Self-managed stack import for AWS CloudFormation StackSets
+# Self-managed stack import for CloudFormation StackSets
 
 The CloudFormation stack import operation can import existing stacks into new or existing StackSets,
 so that you can migrate existing stacks to a StackSet in one operation. By using stack import,
@@ -29,7 +29,7 @@ set.
 
 Before you begin, identify the stack that you want to import.
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. From the navigation pane, choose **StackSets**.
 3. At the top of the **StackSets** page, choose **Create
@@ -67,7 +67,7 @@ StackSet (console)
 
 Before you begin, identify the stack that you want to import.
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. From the navigation pane, choose **StackSets**.
 3. On the **StackSets** page, choose the StackSet that you want to

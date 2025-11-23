@@ -10,7 +10,7 @@ clear.
 
 ###### To determine the root cause of a stack failure
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the **Stacks** page, choose the failed stack.
 3. Choose the **Events** tab.

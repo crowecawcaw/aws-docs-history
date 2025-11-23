@@ -15,6 +15,7 @@ using the CloudFormation console, AWS CLI, or CloudFormation API.
 
 - [Create a change set for a CloudFormation stack](using-cfn-updating-stacks-changesets-create.md "using-cfn-updating-stacks-changesets-create.md")
 - [View a change set for a CloudFormation stack](using-cfn-updating-stacks-changesets-view.md "using-cfn-updating-stacks-changesets-view.md")
+- [Using drift-aware change sets](drift-aware-change-sets.md "drift-aware-change-sets.md")
 - [Execute a change set for a CloudFormation stack](using-cfn-updating-stacks-changesets-execute.md "using-cfn-updating-stacks-changesets-execute.md")
 - [Delete a change set for a CloudFormation stack](using-cfn-updating-stacks-changesets-delete.md "using-cfn-updating-stacks-changesets-delete.md")
 - [Example change sets for CloudFormation stacks](using-cfn-updating-stacks-changesets-samples.md "using-cfn-updating-stacks-changesets-samples.md")

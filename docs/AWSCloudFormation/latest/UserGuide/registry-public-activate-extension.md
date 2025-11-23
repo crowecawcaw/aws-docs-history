@@ -31,7 +31,7 @@ Follow the steps in this section to use the console to:
 
 ###### To activate a public extension for use in your account
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the navigation bar at the top of the screen, choose your
    AWS Region.
@@ -95,7 +95,7 @@ must specify `ENABLED` for the `HookInvocationStatus`
 property. This operation enables the Hook’s properties that are defined in
 the Hook’s schema `properties` section. For more information, see
 [Hook configuration schema syntax reference](../../../cloudformation-cli/latest/hooks-userguide/hook-configuration-schema.md "../../../cloudformation-cli/latest/hooks-userguide/hook-configuration-schema.md") in the
-_AWS CloudFormation Hooks User Guide_.
+_CloudFormation Hooks User Guide_.
 
 ###### To specify the configuration data
 
@@ -167,7 +167,7 @@ aws cloudformation set-type-configuration \
 
 For more information on the `HookConfiguration`
 configuration options, see [Hook configuration schema syntax reference](../../../cloudformation-cli/latest/hooks-userguide/hook-configuration-schema.md "../../../cloudformation-cli/latest/hooks-userguide/hook-configuration-schema.md") in the
-_AWS CloudFormation Hooks User Guide_.
+_CloudFormation Hooks User Guide_.
 
 ### Activate public
 

@@ -15,7 +15,7 @@ To create a macro definition, you must create the following:
   optional properties to assist with debugging. To create this resource within an
   account, author a template that includes the
   `AWS::CloudFormation::Macro` resource, and then create either a
-  stack or stack set with self-managed permissions from the template. AWS CloudFormation StackSets
+  stack or stack set with self-managed permissions from the template. CloudFormation StackSets
   doesn't currently support creating or updating stack sets with service-managed
   permissions from templates that reference macros.
   To use a macro, reference the macro in your template:

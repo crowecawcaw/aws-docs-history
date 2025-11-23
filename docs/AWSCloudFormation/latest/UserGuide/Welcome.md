@@ -1,6 +1,6 @@
-# What is AWS CloudFormation?
+# What is CloudFormation?
 
-AWS CloudFormation is a service that helps you model and set up your AWS resources so that you can
+CloudFormation is a service that helps you model and set up your AWS resources so that you can
 spend less time managing those resources and more time focusing on your applications that
 run in AWS. You create a template that describes all the AWS resources that you want
 (like Amazon EC2 instances or Amazon RDS DB instances), and CloudFormation takes care of provisioning and
@@ -13,14 +13,14 @@ following scenarios demonstrate how CloudFormation can help.
 management
 
 For a scalable web application that also includes a backend database, you might use an
-Auto Scaling group, an Elastic Load Balancing load balancer, and an Amazon Relational Database Service database instance. You might use
+Amazon EC2 Auto Scaling group, an ELB load balancer, and an Amazon Relational Database Service database instance. You might use
 each individual service to provision these resources and after you create the resources,
 you would have to configure them to work together. All these tasks can add complexity
 and time before you even get your application up and running.
 
 Instead, you can create a CloudFormation template or modify an existing one. A
 _template_ describes all your resources and their properties.
-When you use that template to create a CloudFormation stack, CloudFormation provisions the Auto Scaling
+When you use that template to create a CloudFormation stack, CloudFormation provisions the Amazon EC2 Auto Scaling
 group, load balancer, and database for you. After the stack has been successfully
 created, your AWS resources are up and running. You can delete the stack just as
 easily, which deletes all the resources in the stack. By using CloudFormation, you easily
@@ -47,8 +47,8 @@ changes to your infrastructure
 
 In some cases, you might have underlying resources that you want to upgrade
 incrementally. For example, you might change to a higher performing instance type in
-your Auto Scaling launch configuration so that you can reduce the maximum number of instances in
-your Auto Scaling group. If problems occur after you complete the update, you might need to roll
+your Amazon EC2 Auto Scaling launch configuration so that you can reduce the maximum number of instances in
+your Amazon EC2 Auto Scaling group. If problems occur after you complete the update, you might need to roll
 back your infrastructure to the original settings. To do this manually, you not only
 have to remember which resources were changed, you also have to know what the original
 settings were.

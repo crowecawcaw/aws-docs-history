@@ -54,7 +54,7 @@ available from the **StackSets** console page.
 
 ###### To detect drift on a StackSet
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the **StackSets** page, select the StackSet on which you
    want to perform drift detection.
@@ -423,7 +423,7 @@ a StackSet.
 
 StackSet (console)
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the **StackSets** page, select the name of the StackSet.
 

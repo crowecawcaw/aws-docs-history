@@ -4,7 +4,7 @@ Amazon Elastic File System (Amazon EFS) is a file storage service for Amazon Ela
 your applications have storage when they need it because storage capacity grows and shrinks
 automatically as you add and remove files.
 
-The following sample template deploys EC2 instances (in an Auto Scaling group) that are associated
+The following sample template deploys EC2 instances (in an Amazon EC2 Auto Scaling group) that are associated
 with an Amazon EFS file system. To associate the instances with the file system, the instances run
 the cfn-init helper script, which downloads and installs the `nfs-utils` yum package,
 creates a new directory, and then uses the file system's DNS name to mount the file system at

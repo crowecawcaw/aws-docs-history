@@ -675,7 +675,7 @@ Resources:
       - !Ref RootRole
 ```
 
-### IAM role with Auto Scaling group
+### IAM role with Amazon EC2 Auto Scaling group
 
 In this example, the instance profile is referenced by the
 `IamInstanceProfile` property of an Amazon EC2 Auto Scaling launch

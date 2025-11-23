@@ -14,12 +14,12 @@ permissions to use one or more CloudFormation actions.
 
 ###### Topics
 
-- [Require a specific template URL](#w71aac43c23c17b9 "#w71aac43c23c17b9")
-- [Deny all CloudFormation import operations](#w71aac43c23c17c11 "#w71aac43c23c17c11")
-- [Allow import operations for specific resource types](#w71aac43c23c17c13 "#w71aac43c23c17c13")
-- [Deny IAM resources in stack templates](#w71aac43c23c17c15 "#w71aac43c23c17c15")
-- [Allow stack creation with specific resource types](#w71aac43c23c17c17 "#w71aac43c23c17c17")
-- [Control access based on resource-mutating API actions](#w71aac43c23c17c19 "#w71aac43c23c17c19")
+- [Require a specific template URL](#w2aac43c23c17b9 "#w2aac43c23c17b9")
+- [Deny all CloudFormation import operations](#w2aac43c23c17c11 "#w2aac43c23c17c11")
+- [Allow import operations for specific resource types](#w2aac43c23c17c13 "#w2aac43c23c17c13")
+- [Deny IAM resources in stack templates](#w2aac43c23c17c15 "#w2aac43c23c17c15")
+- [Allow stack creation with specific resource types](#w2aac43c23c17c17 "#w2aac43c23c17c17")
+- [Control access based on resource-mutating API actions](#w2aac43c23c17c19 "#w2aac43c23c17c19")
 - [Restrict stack
   set operations based on Region and resource types](#resource-level-permissions-service-managed-stack-set "#resource-level-permissions-service-managed-stack-set")
 - [Allow all IaC generator

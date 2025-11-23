@@ -2,7 +2,7 @@
 
 pipeline for test and production stacks
 
-Imagine a release process where you submit an AWS CloudFormation template, which CloudFormation then uses to
+Imagine a release process where you submit an CloudFormation template, which CloudFormation then uses to
 automatically build a test stack. After you review the test stack, you can preview how your
 changes will modify your production stack, and then choose whether to implement them. To
 accomplish this workflow, you could use CloudFormation to build your test stack, delete the test
@@ -70,7 +70,7 @@ two configuration files specify parameter values for the WordPress template. Cod
 when it creates the WordPress stacks. One file contains parameter values for a test stack, and
 the other for a production stack. You'll need to edit the configuration files, for example, to
 specify an existing EC2 key-pair name that you own. For more information about artifacts, see
-[AWS CloudFormation artifacts](continuous-delivery-codepipeline-cfn-artifacts.md "continuous-delivery-codepipeline-cfn-artifacts.md").
+[CloudFormation artifacts](continuous-delivery-codepipeline-cfn-artifacts.md "continuous-delivery-codepipeline-cfn-artifacts.md").
 
 After you build your artifact, you'll upload it to an S3 bucket.
 
@@ -153,7 +153,7 @@ Internet. Check that your default VPC and subnet allow traffic to the Internet.
 3. Choose an AWS Region that supports CodePipeline and CloudFormation.
 
 For more information, see [CodePipeline endpoints and quotas](../../../general/latest/gr/codepipeline.md "../../../general/latest/gr/codepipeline.md") and
-[AWS CloudFormation endpoints and quotas](../../../general/latest/gr/cfn.md "../../../general/latest/gr/cfn.md") in the _AWS General Reference_. 4. Choose **Create stack**. 5. Under **Specify template**, choose **Upload a template
+[CloudFormation endpoints and quotas](../../../general/latest/gr/cfn.md "../../../general/latest/gr/cfn.md") in the _AWS General Reference_. 4. Choose **Create stack**. 5. Under **Specify template**, choose **Upload a template
 file**, and then choose the template that you just downloaded,
 `basic-pipeline.yml`. 6. Choose **Next**. 7. For **Stack name**, type
 `sample-WordPress-pipeline`. 8. In the **Parameters** section, specify the following parameter
@@ -426,11 +426,11 @@ the sample template and artifacts as a starting point for building your own.
 
 The following related resources can help you as you work with these parameters.
 
-- For more information about the CloudFormation action parameters in CodePipeline, see the [AWS CloudFormation deploy
+- For more information about the CloudFormation action parameters in CodePipeline, see the [CloudFormation deploy
   action configuration reference](../../../codepipeline/latest/userguide/action-reference-CloudFormation.md "../../../codepipeline/latest/userguide/action-reference-CloudFormation.md") in the
   _AWS CodePipeline User Guide_.
 - For example template values by action provider, such as for the `Owner`
   field or the `configuration` fields, see the [Action structure
   reference](../../../codepipeline/latest/userguide/action-reference.md "../../../codepipeline/latest/userguide/action-reference.md") in the _AWS CodePipeline User Guide_.
 - To download example pipeline stack templates in YAML or JSON format, see [Tutorial: Create a
-  pipeline with AWS CloudFormation](../../../codepipeline/latest/userguide/tutorials-cloudformation.md "../../../codepipeline/latest/userguide/tutorials-cloudformation.md") in the _AWS CodePipeline User Guide_.
+  pipeline with CloudFormation](../../../codepipeline/latest/userguide/tutorials-cloudformation.md "../../../codepipeline/latest/userguide/tutorials-cloudformation.md") in the _AWS CodePipeline User Guide_.

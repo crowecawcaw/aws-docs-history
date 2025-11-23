@@ -283,7 +283,7 @@ For information about writing stack policies, see [Defining a stack policy](#sta
 
 when you create a stack (console)
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the navigation bar at the top of the screen, choose the AWS Region to create the
    stack in.
@@ -341,7 +341,7 @@ permission to update them.
 
 resource (console)
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Select the stack that you want to update, choose **Stack actions**,
    and then choose **Update stack**.

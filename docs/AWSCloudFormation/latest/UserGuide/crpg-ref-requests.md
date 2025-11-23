@@ -60,7 +60,7 @@ _Type_: String
 `ResponseURL`
 
 The response URL identifies a presigned S3 bucket that receives responses
-from the custom resource provider to AWS CloudFormation.
+from the custom resource provider to CloudFormation.
 
 _Required_: Yes
 
@@ -105,7 +105,7 @@ _Type_: String
 `LogicalResourceId`
 
 The template developer-chosen name (logical ID) of the custom resource in the
-AWS CloudFormation template. This is provided to facilitate
+CloudFormation template. This is provided to facilitate
 communication between the custom resource provider and the template developer.
 
 _Required_: Yes
@@ -117,7 +117,7 @@ A required custom resource provider-defined physical ID that is unique
 for that provider.
 
 The value returned for a `PhysicalResourceId` can change custom resource update operations.
-If the value returned is the same, it is considered a normal update. If the value returned is different, AWS CloudFormation recognizes the update
+If the value returned is the same, it is considered a normal update. If the value returned is different, CloudFormation recognizes the update
 as a replacement and sends a delete request to the old resource. For more information,
 see [`AWS::CloudFormation::CustomResource`](../TemplateReference/aws-resource-cloudformation-customresource.md "../TemplateReference/aws-resource-cloudformation-customresource.md").
 

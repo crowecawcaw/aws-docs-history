@@ -1,15 +1,15 @@
 # Configure Application Auto Scaling resources with
 
-AWS CloudFormation
+CloudFormation
 
-This section provides AWS CloudFormation template examples for Application Auto Scaling scaling policies and scheduled
+This section provides CloudFormation template examples for Application Auto Scaling scaling policies and scheduled
 actions for different AWS resources.
 
 ###### Important
 
 When an Application Auto Scaling snippet is included in the template, you might need to declare a
 dependency on the specific scalable resource that's created through the template using the
-`DependsOn` attribute. This overrides the default parallelism and directs AWS CloudFormation
+`DependsOn` attribute. This overrides the default parallelism and directs CloudFormation
 to operate on resources in a specified order. Otherwise, the scaling configuration might be
 applied before the resource has been set up completely.
 
@@ -18,15 +18,15 @@ attribute](../TemplateReference/aws-attribute-dependson.md "../TemplateReference
 
 ###### Snippet categories
 
-- [Create a scaling policy for an AppStream fleet](#w71aac11c39c15c19b9 "#w71aac11c39c15c19b9")
-- [Create a scaling policy for an Aurora DB cluster](#w71aac11c39c15c19c11 "#w71aac11c39c15c19c11")
-- [Create a scaling policy for a DynamoDB table](#w71aac11c39c15c19c13 "#w71aac11c39c15c19c13")
+- [Create a scaling policy for an AppStream fleet](#w2aac11c41c15c19b9 "#w2aac11c41c15c19b9")
+- [Create a scaling policy for an Aurora DB cluster](#w2aac11c41c15c19c11 "#w2aac11c41c15c19c11")
+- [Create a scaling policy for a DynamoDB table](#w2aac11c41c15c19c13 "#w2aac11c41c15c19c13")
 - [Create a scaling policy for an Amazon ECS service (metrics: average CPU and
-  memory)](#w71aac11c39c15c19c15 "#w71aac11c39c15c19c15")
+  memory)](#w2aac11c41c15c19c15 "#w2aac11c41c15c19c15")
 - [Create a scaling policy for an Amazon ECS service (metric: average request count per
-  target)](#w71aac11c39c15c19c17 "#w71aac11c39c15c19c17")
-- [Create a scheduled action with a cron expression for a Lambda function](#w71aac11c39c15c19c19 "#w71aac11c39c15c19c19")
-- [Create a scheduled action with an at expression for a Spot Fleet](#w71aac11c39c15c19c21 "#w71aac11c39c15c19c21")
+  target)](#w2aac11c41c15c19c17 "#w2aac11c41c15c19c17")
+- [Create a scheduled action with a cron expression for a Lambda function](#w2aac11c41c15c19c19 "#w2aac11c41c15c19c19")
+- [Create a scheduled action with an at expression for a Spot Fleet](#w2aac11c41c15c19c21 "#w2aac11c41c15c19c21")
 
 ## Create a scaling policy for an AppStream fleet
 
@@ -238,8 +238,8 @@ information, see [Intrinsic function reference](../TemplateReference/intrinsic-f
 
 ###### Note
 
-For more information about how to create an AWS CloudFormation template for DynamoDB resources, see
-the blog post [How to use AWS CloudFormation to configure auto scaling for Amazon DynamoDB tables and
+For more information about how to create an CloudFormation template for DynamoDB resources, see
+the blog post [How to use CloudFormation to configure auto scaling for Amazon DynamoDB tables and
 indexes](https://aws.amazon.com/blogs/database/how-to-use-aws-cloudformation-to-configure-auto-scaling-for-amazon-dynamodb-tables-and-indexes/ "https://aws.amazon.com/blogs/database/how-to-use-aws-cloudformation-to-configure-auto-scaling-for-amazon-dynamodb-tables-and-indexes/") on the AWS Database Blog.
 
 ### JSON
@@ -598,7 +598,7 @@ You can't allocate provisioned concurrency on an alias that points to the unpubl
 version
 (`$LATEST`).
 
-For more information about how to create an AWS CloudFormation template for Lambda resources, see
+For more information about how to create an CloudFormation template for Lambda resources, see
 the blog post [Scheduling AWS Lambda Provisioned Concurrency for recurring peak usage](https://aws.amazon.com/blogs/compute/scheduling-aws-lambda-provisioned-concurrency-for-recurring-peak-usage/ "https://aws.amazon.com/blogs/compute/scheduling-aws-lambda-provisioned-concurrency-for-recurring-peak-usage/") on the
 AWS Compute Blog.
 

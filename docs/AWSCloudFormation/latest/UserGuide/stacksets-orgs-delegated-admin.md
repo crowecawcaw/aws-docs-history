@@ -37,14 +37,14 @@ Please be aware of the following:
   Europe (London), Europe (Paris), Europe (Stockholm), Israel (Tel Aviv),
   South America (São Paulo), AWS GovCloud (US-East), and AWS GovCloud (US-West).
 
-You can register and deregister delegated administrators using the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"), [AWS CLI](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/"), or [AWS SDKs](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/").
+You can register and deregister delegated administrators using the [CloudFormation console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"), [AWS CLI](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/"), or [AWS SDKs](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/").
 
 ## To register a
 
 delegated administrator (console)
 
 1. Sign in to AWS as an administrator of the management account and open
-   the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+   the CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. From the navigation pane, choose
    **StackSets**.
 3. Under **Delegated administrators**, choose
@@ -61,7 +61,7 @@ been registered as a delegated administrator.
 deregister a delegated administrator (console)
 
 1. Sign in to AWS as an administrator of the management account and open
-   the AWS CloudFormation console at [https://console.aws.amazon.com/](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
+   the CloudFormation console at [https://console.aws.amazon.com/](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
 2. From the navigation pane, choose
    **StackSets**.
 3. Under **Delegated administrators**, select the

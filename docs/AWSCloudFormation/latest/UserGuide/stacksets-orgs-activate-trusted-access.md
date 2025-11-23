@@ -55,7 +55,7 @@ updated based on marketing guidelines.
 
 ###### To deactivate trusted access
 
-See [AWS CloudFormation StackSets and AWS Organizations](../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md "../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md") in the
+See [CloudFormation StackSets and AWS Organizations](../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md "../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md") in the
 _AWS Organizations User Guide_.
 
 Before you can deactivate trusted access with AWS Organizations, you must deregister all
@@ -84,5 +84,5 @@ service-linked role. You can modify or delete this role only under two condition
 if trusted access with AWS Organizations is deactivated, or if the account is removed from
 the target organization or organizational unit (OU).
 
-For more information, see [AWS CloudFormation StackSets and AWS Organizations](../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md "../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md") in the
+For more information, see [CloudFormation StackSets and AWS Organizations](../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md "../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md") in the
 _AWS Organizations User Guide_.

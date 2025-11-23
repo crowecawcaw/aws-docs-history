@@ -18,7 +18,7 @@ The total size of the response body can't exceed 4096 bytes.
 
 `Status`
 
-The status value sent by the custom resource provider in response to an AWS CloudFormation-generated
+The status value sent by the custom resource provider in response to an CloudFormation-generated
 request.
 
 Must be either `SUCCESS` or `FAILED`.
@@ -42,7 +42,7 @@ vendor, and can be up to 1 KB in size. The value must be a non-empty string and 
 the same resource.
 
 The value returned for a `PhysicalResourceId` can change custom resource update operations.
-If the value returned is the same, it is considered a normal update. If the value returned is different, AWS CloudFormation recognizes the update
+If the value returned is the same, it is considered a normal update. If the value returned is different, CloudFormation recognizes the update
 as a replacement and sends a delete request to the old resource. For more information,
 see [`AWS::CloudFormation::CustomResource`](../TemplateReference/aws-resource-cloudformation-customresource.md "../TemplateReference/aws-resource-cloudformation-customresource.md").
 
@@ -70,7 +70,7 @@ _Type_: String
 `LogicalResourceId`
 
 The template developer-chosen name (logical ID) of the custom resource in the
-AWS CloudFormation template. This response value should be copied _verbatim_ from the request.
+CloudFormation template. This response value should be copied _verbatim_ from the request.
 
 _Required_: Yes
 
@@ -80,7 +80,7 @@ _Type_: String
 
 Optional. Indicates whether to mask the output of the custom resource when retrieved by using the `Fn::GetAtt` function.
 If set to `true`, all returned values are masked with asterisks (\*\*\*\*\*), _except for those stored in the `Metadata` section of the
-template_. AWS CloudFormation does not transform, modify, or redact any information you include in the `Metadata` section. The default value is `false`.
+template_. CloudFormation does not transform, modify, or redact any information you include in the `Metadata` section. The default value is `false`.
 
 For more information about using `NoEcho` to mask sensitive
 information, see the [Do not embed

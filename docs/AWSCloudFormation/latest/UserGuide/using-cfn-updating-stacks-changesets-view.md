@@ -9,7 +9,7 @@ View a change set (console)
 
 ###### To view a change set
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the navigation bar at the top of the screen, choose your AWS Region.
 3. On the **Stacks** page, choose the name of the stack that
@@ -67,7 +67,7 @@ View a change set for nested stack (console)
 
 ###### To view a change set for nested stacks (console)
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the navigation bar at the top of the screen, choose your AWS Region.
 3. On the **Stacks** page, choose the name of the stack that

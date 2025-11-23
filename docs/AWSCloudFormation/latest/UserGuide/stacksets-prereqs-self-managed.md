@@ -676,7 +676,7 @@ you protect your data for all services with service principals that have been gi
 access to resources in your account.
 
 We recommend using the [aws:SourceArn](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") and [aws:SourceAccount](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount") global condition context keys in
-resource policies to limit the permissions that AWS CloudFormation StackSets gives another service to the
+resource policies to limit the permissions that CloudFormation StackSets gives another service to the
 resource. If you use both global condition context keys, the
 `aws:SourceAccount` value and the account in the
 `aws:SourceArn` value must use the same account ID when used in the

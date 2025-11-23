@@ -13,7 +13,7 @@ For more information about launch templates, see [Store instance launch
 parameters in Amazon EC2 launch templates](../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md "../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md") in the
 _Amazon EC2 User Guide_.
 
-For information about creating launch templates for use with Auto Scaling groups, see [Auto Scaling
+For information about creating launch templates for use with Amazon EC2 Auto Scaling groups, see [Amazon EC2 Auto Scaling
 launch templates](../../../autoscaling/ec2/userguide/launch-templates.md "../../../autoscaling/ec2/userguide/launch-templates.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 ###### Snippet categories

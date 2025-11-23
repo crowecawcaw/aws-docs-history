@@ -25,7 +25,7 @@ A unique ID for the request.
 `ResponseURL`
 
 The response URL identifies a presigned S3 bucket that receives responses
-from the custom resource provider to AWS CloudFormation.
+from the custom resource provider to CloudFormation.
 
 `ResourceType`
 
@@ -37,7 +37,7 @@ and can include alphanumeric and the following characters:
 `LogicalResourceId`
 
 The template developer-chosen name (logical ID) of the custom resource in the
-AWS CloudFormation template.
+CloudFormation template.
 
 `StackId`
 
@@ -49,7 +49,7 @@ A required custom resource provider-defined physical ID that is unique
 for that provider.
 
 The value returned for a `PhysicalResourceId` can change custom resource update operations.
-If the value returned is the same, it is considered a normal update. If the value returned is different, AWS CloudFormation recognizes the update
+If the value returned is the same, it is considered a normal update. If the value returned is different, CloudFormation recognizes the update
 as a replacement and sends a delete request to the old resource. For more information,
 see [`AWS::CloudFormation::CustomResource`](../TemplateReference/aws-resource-cloudformation-customresource.md "../TemplateReference/aws-resource-cloudformation-customresource.md").
 
@@ -95,7 +95,7 @@ A unique ID for the request. This response value should be copied _verbatim_ fro
 `LogicalResourceId`
 
 The template developer-chosen name (logical ID) of the custom resource in the
-AWS CloudFormation template. This response value should be copied _verbatim_ from the request.
+CloudFormation template. This response value should be copied _verbatim_ from the request.
 
 `StackId`
 
@@ -108,7 +108,7 @@ vendor, and can be up to 1 KB in size. The value must be a non-empty string and 
 the same resource.
 
 The value returned for a `PhysicalResourceId` can change custom resource update operations.
-If the value returned is the same, it is considered a normal update. If the value returned is different, AWS CloudFormation recognizes the update
+If the value returned is the same, it is considered a normal update. If the value returned is different, CloudFormation recognizes the update
 as a replacement and sends a delete request to the old resource. For more information,
 see [`AWS::CloudFormation::CustomResource`](../TemplateReference/aws-resource-cloudformation-customresource.md "../TemplateReference/aws-resource-cloudformation-customresource.md").
 

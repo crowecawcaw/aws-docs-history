@@ -1,7 +1,7 @@
 # Amazon CloudWatch Logs template snippets
 
 Amazon CloudWatch Logs can monitor your system, application, and custom log files from Amazon EC2 instances
-or other sources. You can use AWS CloudFormation to provision and manage log groups and metric filters.
+or other sources. You can use CloudFormation to provision and manage log groups and metric filters.
 For more information about Amazon CloudWatch Logs, see the [Amazon CloudWatch Logs User Guide](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md").
 
 ###### Topics
@@ -10,7 +10,7 @@ For more information about Amazon CloudWatch Logs, see the [Amazon CloudWatch Lo
   instance](#quickref-cloudwatchlogs-example1 "#quickref-cloudwatchlogs-example1")
 - [Send logs to CloudWatch Logs from a Windows
   instance](#quickref-cloudwatchlogs-example2 "#quickref-cloudwatchlogs-example2")
-- [See also](#w71aac11c39c35c11 "#w71aac11c39c35c11")
+- [See also](#w2aac11c41c35c11 "#w2aac11c41c35c11")
 
 ## Send logs to CloudWatch Logs from a Linux
 

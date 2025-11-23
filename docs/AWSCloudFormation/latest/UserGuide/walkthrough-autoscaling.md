@@ -4,8 +4,8 @@ application
 
 For this walkthrough, you create a stack that helps you set up a scaled and load-balanced
 application. The walkthrough provides a sample template that you use to create the stack. The
-example template provisions an Auto Scaling group, an Application Load Balancer, security groups that control traffic to the
-load balancer and to the Auto Scaling group, and an Amazon SNS notification configuration to publish
+example template provisions an Amazon EC2 Auto Scaling group, an Application Load Balancer, security groups that control traffic to the
+load balancer and to the Amazon EC2 Auto Scaling group, and an Amazon SNS notification configuration to publish
 notifications about scaling activities.
 
 This template creates one or more Amazon EC2 instances and an Application Load Balancer. You will be billed for the
@@ -408,7 +408,7 @@ Resources:
 ## Template walkthrough
 
 The first part of this template specifies the `Parameters`. Each parameter must
-be assigned a value at runtime for AWS CloudFormation to successfully provision the stack. Resources
+be assigned a value at runtime for CloudFormation to successfully provision the stack. Resources
 specified later in the template reference these values and use the data.
 
 - `InstanceType`: The type of EC2 instance that Amazon EC2 Auto Scaling provisions. If not
@@ -457,19 +457,19 @@ specifies the stack resources and their properties.
 
 - `Port`, `Protocol`, and `HealthCheckProtocol` specify
   the EC2 instance port (80) and protocol (HTTP) that the
-  `ApplicationLoadBalancer` routes traffic to and that Elastic Load Balancing uses to check the
+  `ApplicationLoadBalancer` routes traffic to and that ELB uses to check the
   health of the EC2 instances.
 - `HealthCheckIntervalSeconds` specifies that the EC2 instances have an
   interval of 30 seconds between health checks. The `HealthCheckTimeoutSeconds`
-  is defined as the length of time Elastic Load Balancing waits for a response from the health check target
-  (15 seconds in this example). After the timeout period lapses, Elastic Load Balancing marks that EC2
+  is defined as the length of time ELB waits for a response from the health check target
+  (15 seconds in this example). After the timeout period lapses, ELB marks that EC2
   instance's health check as unhealthy. When an EC2 instance fails three consecutive health
-  checks (`UnhealthyThresholdCount`), Elastic Load Balancing stops routing traffic to that EC2
+  checks (`UnhealthyThresholdCount`), ELB stops routing traffic to that EC2
   instance until that instance has five consecutive healthy health checks
-  (`HealthyThresholdCount`). At that point, Elastic Load Balancing considers the instance
+  (`HealthyThresholdCount`). At that point, ELB considers the instance
   healthy and begins routing traffic to the instance again.
 - `TargetGroupAttributes` updates the deregistration delay value of the
-  target group to 20 seconds. By default, Elastic Load Balancing waits 300 seconds before completing the
+  target group to 20 seconds. By default, ELB waits 300 seconds before completing the
   deregistration process.
 
 [AWS::ElasticLoadBalancingV2::Listener](../TemplateReference/aws-resource-elasticloadbalancingv2-listener.md "../TemplateReference/aws-resource-elasticloadbalancingv2-listener.md") resource `ALBListener`
@@ -510,9 +510,9 @@ resource `NotificationTopic`
 [AWS::AutoScaling::AutoScalingGroup](../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md "../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md") resource `WebServerGroup`
 
 - `MinSize` and `MaxSize` set the minimum and maximum number of
-  EC2 instances in the Auto Scaling group.
+  EC2 instances in the Amazon EC2 Auto Scaling group.
 - `TargetGroupARNs` takes the ARN of the target group with the logical name
-  `EC2TargetGroup`. As this Auto Scaling group scales, it automatically registers and
+  `EC2TargetGroup`. As this Amazon EC2 Auto Scaling group scales, it automatically registers and
   deregisters instances with this target group.
 - `VPCZoneIdentifier` takes the value of the `Subnets` input
   parameter as the list of public subnets where the EC2 instances can be created.
@@ -520,7 +520,7 @@ resource `NotificationTopic`
 ## Step 1: Launch the stack
 
 Before you launch the stack, check that you have AWS Identity and Access Management (IAM) permissions to use all
-of the following services: Amazon EC2, Amazon EC2 Auto Scaling, AWS Systems Manager, Elastic Load Balancing, Amazon SNS, and AWS CloudFormation.
+of the following services: Amazon EC2, Amazon EC2 Auto Scaling, AWS Systems Manager, ELB, Amazon SNS, and CloudFormation.
 
 The following procedure involves uploading the sample stack template from a file. Open a
 text editor on your local machine and add one of the templates. Save the file with the name
@@ -528,7 +528,7 @@ text editor on your local machine and add one of the templates. Save the file wi
 
 ###### To launch the stack template
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Choose **Create stack**, **With new resources
    (standard)**.
@@ -547,15 +547,15 @@ text editor on your local machine and add one of the templates. Save the file wi
 8. On the **Review** page, review and confirm the settings.
 9. Choose **Submit**.
 
-You can view the status of the stack in the AWS CloudFormation console in the
-**Status** column. When AWS CloudFormation has successfully created the stack, you
+You can view the status of the stack in the CloudFormation console in the
+**Status** column. When CloudFormation has successfully created the stack, you
 receive a status of **CREATE_COMPLETE**.
 
 ###### Note
 
 After you create the stack, you must confirm the subscription before the email
 address can start to receive notifications. For more information, see [Get Amazon SNS
-notifications when your Auto Scaling group scales](../../../autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.md") in the
+notifications when your Amazon EC2 Auto Scaling group scales](../../../autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.md") in the
 _Amazon EC2 Auto Scaling User Guide_.
 
 ## Step 2: Clean up your sample
@@ -566,13 +566,13 @@ To make sure that you aren't charged for unused sample resources, delete the sta
 
 ###### To delete the stack
 
-1. In the AWS CloudFormation console, select the **SampleLoadBalancedAppStack**
+1. In the CloudFormation console, select the **SampleLoadBalancedAppStack**
    stack.
 2. Choose **Delete**.
 3. In the confirmation message, choose **Delete stack**.
 
 The status for **SampleLoadBalancedAppStack** changes to
-**DELETE_IN_PROGRESS**. When AWS CloudFormation completes the deletion of the stack,
+**DELETE_IN_PROGRESS**. When CloudFormation completes the deletion of the stack,
 it removes the stack from the list.
 
 Use the sample template from this walkthrough to build your own stack templates. For more

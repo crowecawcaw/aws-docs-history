@@ -3,15 +3,15 @@
 override functions with CodePipeline pipelines
 
 In a CodePipeline stage, you can specify [parameter overrides](continuous-delivery-codepipeline-action-reference.md "continuous-delivery-codepipeline-action-reference.md") for
-AWS CloudFormation actions. Parameter overrides let you specify template parameter values that override
-values in a template configuration file. AWS CloudFormation provides functions to help you to specify dynamic
+CloudFormation actions. Parameter overrides let you specify template parameter values that override
+values in a template configuration file. CloudFormation provides functions to help you to specify dynamic
 values (values that are unknown until the pipeline runs).
 
 ###### Topics
 
-- [Fn::GetArtifactAtt](#w71aac21c17b7 "#w71aac21c17b7")
-- [Fn::GetParam](#w71aac21c17b9 "#w71aac21c17b9")
-- [See also](#w71aac21c17c11 "#w71aac21c17c11")
+- [Fn::GetArtifactAtt](#w2aac21c17b7 "#w2aac21c17b7")
+- [Fn::GetParam](#w2aac21c17b9 "#w2aac21c17b9")
+- [See also](#w2aac21c17c11 "#w2aac21c17c11")
 
 ## `Fn::GetArtifactAtt`
 
@@ -24,8 +24,8 @@ When you run a pipeline, CodePipeline copies and writes files to the pipeline's 
 unknown before you run the pipeline.
 
 For example, in your pipeline, you might have a source stage where CodePipeline copies your
-AWS Lambda function source code to the artifact store. In the next stage, you have an AWS CloudFormation
-template that creates the Lambda function, but AWS CloudFormation requires the file name to create the
+AWS Lambda function source code to the artifact store. In the next stage, you have an CloudFormation
+template that creates the Lambda function, but CloudFormation requires the file name to create the
 function. You must use the `Fn::GetArtifactAtt` function to pass the exact S3
 bucket and file names.
 
@@ -85,8 +85,8 @@ The Amazon Simple Storage Service (Amazon S3) URL of the artifact, such as
 The `Fn::GetParam` function returns a value from a key-value pair in a
 JSON-formatted file. The JSON file must be included in an artifact.
 
-Use this function to retrieve output values from an AWS CloudFormation stack and use them as input for
-another action. For example, if you specify an output file name for an AWS CloudFormation action, CodePipeline
+Use this function to retrieve output values from an CloudFormation stack and use them as input for
+another action. For example, if you specify an output file name for an CloudFormation action, CodePipeline
 saves the output in a JSON file and then adds it to the output artifact's `.zip`
 file. Use the `Fn::GetParam` function to retrieve the output value, and use it as
 input for another action.
@@ -129,9 +129,9 @@ file that is in the `WebStackOutput` artifact.
 }
 ```
 
-#### AWS CloudFormation template snippets
+#### CloudFormation template snippets
 
-The following AWS CloudFormation template snippets, from a CodePipeline pipeline, demonstrate how to pass
+The following CloudFormation template snippets, from a CodePipeline pipeline, demonstrate how to pass
 stack outputs. These snippets show two stages of pipeline definition. The first stage
 creates a stack and saves its outputs in the `TestOutput.json` file in the
 `StackAOutput` artifact. These values are specified by the
@@ -211,11 +211,11 @@ the value associated with the `StackAOutputName` key.
 
 The following related resources can help you as you work with these parameters.
 
-- For more information about the CloudFormation action parameters in CodePipeline, see the [AWS CloudFormation deploy
+- For more information about the CloudFormation action parameters in CodePipeline, see the [CloudFormation deploy
   action configuration reference](../../../codepipeline/latest/userguide/action-reference-CloudFormation.md "../../../codepipeline/latest/userguide/action-reference-CloudFormation.md") in the
   _AWS CodePipeline User Guide_.
 - For example template values by action provider, such as for the `Owner`
   field or the `configuration` fields, see the [Action structure
   reference](../../../codepipeline/latest/userguide/action-reference.md "../../../codepipeline/latest/userguide/action-reference.md") in the _AWS CodePipeline User Guide_.
 - To download example pipeline stack templates in YAML or JSON format, see [Tutorial: Create a
-  pipeline with AWS CloudFormation](../../../codepipeline/latest/userguide/tutorials-cloudformation.md "../../../codepipeline/latest/userguide/tutorials-cloudformation.md") in the _AWS CodePipeline User Guide_.
+  pipeline with CloudFormation](../../../codepipeline/latest/userguide/tutorials-cloudformation.md "../../../codepipeline/latest/userguide/tutorials-cloudformation.md") in the _AWS CodePipeline User Guide_.

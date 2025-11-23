@@ -66,7 +66,7 @@ all actions whose names begin with the word `Get`, as follows:
 
 To see a complete list of actions associated with the `cloudformation`
 service prefix, see [Actions,
-resources, and condition keys for AWS CloudFormation](../../../service-authorization/latest/reference/list_awscloudformation.md "../../../service-authorization/latest/reference/list_awscloudformation.md") and [Actions,
+resources, and condition keys for CloudFormation](../../../service-authorization/latest/reference/list_awscloudformation.md "../../../service-authorization/latest/reference/list_awscloudformation.md") and [Actions,
 resources, and condition keys for AWS Cloud Control API](../../../service-authorization/latest/reference/list_awscloudcontrolapi.md "../../../service-authorization/latest/reference/list_awscloudcontrolapi.md") in the
 _Service Authorization Reference_.
 
@@ -178,9 +178,9 @@ or objects that the statement covers. For CloudFormation, each IAM policy statem
 applies to the resources that you specify using their Amazon Resource Names (ARNs). The
 specific ARN format depends on the resource.
 
-For a complete list of CloudFormation resource types and their ARNs, see [Resource types defined by AWS CloudFormation](../../../service-authorization/latest/reference/list_awscloudformation.md#awscloudformation-resources-for-iam-policies "../../../service-authorization/latest/reference/list_awscloudformation.md#awscloudformation-resources-for-iam-policies") in the
+For a complete list of CloudFormation resource types and their ARNs, see [Resource types defined by CloudFormation](../../../service-authorization/latest/reference/list_awscloudformation.md#awscloudformation-resources-for-iam-policies "../../../service-authorization/latest/reference/list_awscloudformation.md#awscloudformation-resources-for-iam-policies") in the
 _Service Authorization Reference_. To learn with which actions you can specify with
-each resource's ARN, see [Actions defined by AWS CloudFormation](../../../service-authorization/latest/reference/list_awscloudformation.md#awscloudformation-actions-as-permissions "../../../service-authorization/latest/reference/list_awscloudformation.md#awscloudformation-actions-as-permissions").
+each resource's ARN, see [Actions defined by CloudFormation](../../../service-authorization/latest/reference/list_awscloudformation.md#awscloudformation-actions-as-permissions "../../../service-authorization/latest/reference/list_awscloudformation.md#awscloudformation-actions-as-permissions").
 
 You can specify actions for a specific stack, as shown in the following policy
 example. When you provide an ARN, replace the `placeholder
@@ -328,7 +328,7 @@ resource types that are in their template. For more information about the
 `ResourceTypes` parameter, see the [CreateStack](../APIReference/API_CreateStack.md "../APIReference/API_CreateStack.md")
 action in the _AWS CloudFormation API Reference_.
 
-For a list of resource types, see [AWS CloudFormation Template Reference Guide](../TemplateReference/introduction.md "../TemplateReference/introduction.md").
+For a list of resource types, see [CloudFormation Template Reference Guide](../TemplateReference/introduction.md "../TemplateReference/introduction.md").
 
 Use the three-part resource naming convention to specify which resource
 types users can work with, from all resources across an organization, down to

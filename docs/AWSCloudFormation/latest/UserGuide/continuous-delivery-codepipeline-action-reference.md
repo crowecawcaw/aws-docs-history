@@ -1,9 +1,9 @@
-# AWS CloudFormation configuration properties reference
+# CloudFormation configuration properties reference
 
-When you build a CodePipeline pipeline, you add a `Deploy` action to the pipeline with AWS CloudFormation as a provider.
-You then must specify which AWS CloudFormation action the pipeline invokes and the action's settings. This topic describes the
-AWS CloudFormation configuration properties. To specify properties, you can use the CodePipeline console, or you can create a JSON object to use for the AWS CLI,
-CodePipeline API, or AWS CloudFormation templates.
+When you build a CodePipeline pipeline, you add a `Deploy` action to the pipeline with CloudFormation as a provider.
+You then must specify which CloudFormation action the pipeline invokes and the action's settings. This topic describes the
+CloudFormation configuration properties. To specify properties, you can use the CodePipeline console, or you can create a JSON object to use for the AWS CLI,
+CodePipeline API, or CloudFormation templates.
 
 ###### Topics
 
@@ -28,22 +28,22 @@ When you create a pipeline, you can specify the **Create or update a stack** or
 
 **Action mode**
 
-The AWS CloudFormation action that CodePipeline invokes when processing the associated stage. Choose one of the following action
+The CloudFormation action that CodePipeline invokes when processing the associated stage. Choose one of the following action
 modes:
 
 - **Create or replace a change set** creates the change set if it doesn't exist based on the
-  stack name and template that you submit. If the change set exists, AWS CloudFormation deletes it, and then creates a new
+  stack name and template that you submit. If the change set exists, CloudFormation deletes it, and then creates a new
   one.
 - **Create or update a stack** creates the stack if the specified stack doesn't exist. If
-  the stack exists, AWS CloudFormation updates the stack. Use this action to update existing stacks. CodePipeline won't replace the
+  the stack exists, CloudFormation updates the stack. Use this action to update existing stacks. CodePipeline won't replace the
   stack.
 - **Delete a stack** deletes a stack. If you specify a stack that doesn't exist, the action
   is completed successfully without deleting a stack.
 - **Execute a change set** executes a change set.
 - **Replace a failed stack** creates the stack if the specified stack doesn't exist. If the
   stack exists and is in a failed state (reported as `ROLLBACK_COMPLETE`, `ROLLBACK_FAILED`,
-  `CREATE_FAILED`, `DELETE_FAILED`, or `UPDATE_ROLLBACK_FAILED`), AWS CloudFormation deletes
-  the stack and then creates a new one. If the stack isn't in a failed state, AWS CloudFormation updates it. Use this action to
+  `CREATE_FAILED`, `DELETE_FAILED`, or `UPDATE_ROLLBACK_FAILED`), CloudFormation deletes
+  the stack and then creates a new one. If the stack isn't in a failed state, CloudFormation updates it. Use this action to
   replace failed stacks without recovering or troubleshooting them. You would typically choose this mode for
   testing.
 
@@ -64,7 +64,7 @@ stack.
 
 **Template**
 
-The location of an AWS CloudFormation template file, which follows the format
+The location of an CloudFormation template file, which follows the format
 ``ArtifactName`::`TemplateFileName``.
 
 **Template configuration**
@@ -72,11 +72,11 @@ The location of an AWS CloudFormation template file, which follows the format
 The location of a template configuration file, which follows the format
 ``ArtifactName`::`TemplateConfigurationFileName``.
 The template configuration file can contain template parameter values, a stack policy, and tags. If you include
-sensitive information, such as passwords, restrict access to this file. For more information, see [AWS CloudFormation artifacts](continuous-delivery-codepipeline-cfn-artifacts.md "continuous-delivery-codepipeline-cfn-artifacts.md").
+sensitive information, such as passwords, restrict access to this file. For more information, see [CloudFormation artifacts](continuous-delivery-codepipeline-cfn-artifacts.md "continuous-delivery-codepipeline-cfn-artifacts.md").
 
 **Capabilities**
 
-For stacks that contain certain resources, explicit acknowledgment that AWS CloudFormation might create or update those
+For stacks that contain certain resources, explicit acknowledgment that CloudFormation might create or update those
 resources. For example, you must specify `CAPABILITY_IAM` if your stack template contains AWS Identity and Access Management
 (IAM) resources. For more information, see [CreateStack](../APIReference/API_CreateStack.md "../APIReference/API_CreateStack.md") API operation request parameters.
 
@@ -86,7 +86,7 @@ You can specify more than one capability.
 
 **Role name**
 
-The name of the IAM service role that AWS CloudFormation assumes when it operates on resources in the specified
+The name of the IAM service role that CloudFormation assumes when it operates on resources in the specified
 stack.
 
 **Output file name**
@@ -94,7 +94,7 @@ stack.
 In the **Advanced** section, you can specify an output file name, such as
 `CreateStackOutput.json`, that CodePipeline adds to the [output
 artifact](../../../codepipeline/latest/userguide/concepts.md#concepts-artifacts "../../../codepipeline/latest/userguide/concepts.md#concepts-artifacts") after it performs the specified action. The output artifact contains a JSON file with the
-contents of the `Outputs` section of the AWS CloudFormation template.
+contents of the `Outputs` section of the CloudFormation template.
 
 If you don't specify a name, CodePipeline doesn't generate an output artifact.
 
@@ -131,25 +131,25 @@ object)
 
 When you specify `CloudFormation` as a provider for a stage action, define the following properties
 in the `Configuration` property. Use the JSON object for the AWS CLI, CodePipeline
-API, or AWS CloudFormation templates. For examples, see [Walkthrough: Building a
-pipeline for test and production stacks](continuous-delivery-codepipeline-basic-walkthrough.md "continuous-delivery-codepipeline-basic-walkthrough.md") and [AWS CloudFormation configuration properties reference](continuous-delivery-codepipeline-action-reference.md "continuous-delivery-codepipeline-action-reference.md").
+API, or CloudFormation templates. For examples, see [Walkthrough: Building a
+pipeline for test and production stacks](continuous-delivery-codepipeline-basic-walkthrough.md "continuous-delivery-codepipeline-basic-walkthrough.md") and [CloudFormation configuration properties reference](continuous-delivery-codepipeline-action-reference.md "continuous-delivery-codepipeline-action-reference.md").
 
 `ActionMode`
 
-The AWS CloudFormation action that CodePipeline invokes when it processes the associated stage. Specify only one of the following
+The CloudFormation action that CodePipeline invokes when it processes the associated stage. Specify only one of the following
 action modes:
 
 - `CHANGE_SET_EXECUTE` executes a change set.
 - `CHANGE_SET_REPLACE` creates the change set, if it doesn't exist, based on the stack name and
-  template that you submit. If the change set exists, AWS CloudFormation deletes it, and then creates a new one.
+  template that you submit. If the change set exists, CloudFormation deletes it, and then creates a new one.
 - `CREATE_UPDATE` creates the stack if the specified stack doesn't exist. If the stack exists,
-  AWS CloudFormation updates the stack. Use this action to update existing stacks. CodePipeline won't replace the stack.
+  CloudFormation updates the stack. Use this action to update existing stacks. CodePipeline won't replace the stack.
 - `DELETE_ONLY` deletes a stack. If you specify a stack that doesn't exist, the action is
   completed successfully without deleting a stack.
 - `REPLACE_ON_FAILURE` creates a stack, if the specified stack doesn't exist. If the stack exists
   and is in a failed state (reported as `ROLLBACK_COMPLETE`, `ROLLBACK_FAILED`,
-  `CREATE_FAILED`, `DELETE_FAILED`, or `UPDATE_ROLLBACK_FAILED`), AWS CloudFormation deletes
-  the stack and then creates a new stack. If the stack isn't in a failed state, AWS CloudFormation updates it. Use this action
+  `CREATE_FAILED`, `DELETE_FAILED`, or `UPDATE_ROLLBACK_FAILED`), CloudFormation deletes
+  the stack and then creates a new stack. If the stack isn't in a failed state, CloudFormation updates it. Use this action
   to automatically replace failed stacks without recovering or troubleshooting them. You would typically choose
   this mode for testing.
 
@@ -157,7 +157,7 @@ This property is required.
 
 `Capabilities`
 
-For stacks that contain certain resources, explicit acknowledgment that AWS CloudFormation might create or update those
+For stacks that contain certain resources, explicit acknowledgment that CloudFormation might create or update those
 resources. For example, you must specify `CAPABILITY_IAM` if your stack template contains AWS Identity and Access Management
 (IAM) resources. For more information, see [CreateStack](../APIReference/API_CreateStack.md "../APIReference/API_CreateStack.md") API operation request parameters.
 
@@ -205,7 +205,7 @@ This property is required for the following action modes: `CHANGE_SET_REPLACE` a
 `OutputFileName`
 
 A name for the output file, such as `CreateStackOutput.json`. CodePipeline adds the file to the [output artifact](../../../codepipeline/latest/userguide/concepts.md#concepts-artifacts "../../../codepipeline/latest/userguide/concepts.md#concepts-artifacts") after it performs the specified action. The output
-artifact contains a JSON file with the contents of the `Outputs` section of the AWS CloudFormation template.
+artifact contains a JSON file with the contents of the `Outputs` section of the CloudFormation template.
 
 This property is optional. If you don't specify a name, CodePipeline doesn't generate an output artifact.
 
@@ -273,7 +273,7 @@ This property is optional.
 
 `RoleArn`
 
-The Amazon Resource Name (ARN) of the IAM service role that AWS CloudFormation assumes when it operates on resources in
+The Amazon Resource Name (ARN) of the IAM service role that CloudFormation assumes when it operates on resources in
 a stack.
 
 This property is required for the following action modes: `CREATE_UPDATE`,
@@ -304,13 +304,13 @@ creates a `TemplateConfiguration` name as shown in this example:
 
 The template configuration file can contain template parameter values and a stack policy. If you include
 sensitive information, such as passwords, restrict access to this file. For an example template configuration
-file, see [AWS CloudFormation artifacts](continuous-delivery-codepipeline-cfn-artifacts.md "continuous-delivery-codepipeline-cfn-artifacts.md").
+file, see [CloudFormation artifacts](continuous-delivery-codepipeline-cfn-artifacts.md "continuous-delivery-codepipeline-cfn-artifacts.md").
 
 This property is optional.
 
 `TemplatePath`
 
-`TemplatePath` represents the AWS CloudFormation template file. You include the file in an input artifact to
+`TemplatePath` represents the CloudFormation template file. You include the file in an input artifact to
 this action. The file name follows this format:
 
 ``Artifactname`::`TemplateFileName``
@@ -331,11 +331,11 @@ is ignored.
 
 The following related resources can help you as you work with these parameters.
 
-- For more information about the CloudFormation action parameters in CodePipeline, see the [AWS CloudFormation deploy
+- For more information about the CloudFormation action parameters in CodePipeline, see the [CloudFormation deploy
   action configuration reference](../../../codepipeline/latest/userguide/action-reference-CloudFormation.md "../../../codepipeline/latest/userguide/action-reference-CloudFormation.md") in the
   _AWS CodePipeline User Guide_.
 - For example template values by action provider, such as for the `Owner`
   field or the `configuration` fields, see the [Action structure
   reference](../../../codepipeline/latest/userguide/action-reference.md "../../../codepipeline/latest/userguide/action-reference.md") in the _AWS CodePipeline User Guide_.
 - To download example pipeline stack templates in YAML or JSON format, see [Tutorial: Create a
-  pipeline with AWS CloudFormation](../../../codepipeline/latest/userguide/tutorials-cloudformation.md "../../../codepipeline/latest/userguide/tutorials-cloudformation.md") in the _AWS CodePipeline User Guide_.
+  pipeline with CloudFormation](../../../codepipeline/latest/userguide/tutorials-cloudformation.md "../../../codepipeline/latest/userguide/tutorials-cloudformation.md") in the _AWS CodePipeline User Guide_.

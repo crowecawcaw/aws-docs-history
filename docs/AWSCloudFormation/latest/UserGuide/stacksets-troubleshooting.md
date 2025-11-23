@@ -1,4 +1,4 @@
-# Troubleshooting AWS CloudFormation StackSets
+# Troubleshooting CloudFormation StackSets
 
 This topic contains some common StackSets issues, and suggested solutions for those
 issues.
@@ -112,7 +112,7 @@ completing the following tasks.
 1. Use **Delete Stacks from StackSets** option and enable
    **RetainStacks** during configuration, then proceed to
    delete stack instances from your StackSet. For more information, For more
-   information, see [Delete stacks from AWS CloudFormation StackSets](stackinstances-delete.md "stackinstances-delete.md") .
+   information, see [Delete stacks from CloudFormation StackSets](stackinstances-delete.md "stackinstances-delete.md") .
 2. You will see the stack instances of the StackSet are updated to remove the
    `INOPERABLE` stack instance.
 3. Fix the stack instances according to the import failure error and retry the

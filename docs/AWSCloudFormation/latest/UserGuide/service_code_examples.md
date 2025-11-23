@@ -1355,7 +1355,7 @@ for a resource are valid for that resource. Nor does it determine the number of
 resources that will exist when the stack is created.
 
 To check the operational validity, you need to attempt to create the stack. There
-is no sandbox or test area for AWS CloudFormation stacks, so you are charged for the resources
+is no sandbox or test area for CloudFormation stacks, so you are charged for the resources
 you create during testing.
 
 ###### Example availability

@@ -12,7 +12,7 @@ You can update a CloudFormation stack template by using a text editor or [Infras
 
 ###### To update an existing stack template by using Infrastructure Composer
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the **Stacks** page, choose the name of the stack to
    update.

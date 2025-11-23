@@ -241,7 +241,7 @@ which should be replaced with the desired name for your S3 bucket.
 
 If you use this resource declaration to create a stack, CloudFormation will create an
 Amazon S3 bucket with default settings. For other resources, such as an Amazon EC2 instance or
-Auto Scaling group, CloudFormation requires more information.
+Amazon EC2 Auto Scaling group, CloudFormation requires more information.
 
 #### JSON
 

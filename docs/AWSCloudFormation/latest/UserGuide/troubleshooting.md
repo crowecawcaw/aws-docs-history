@@ -4,7 +4,7 @@ When you use CloudFormation, you might encounter issues when you create, update,
 CloudFormation stacks. The following sections can help you troubleshoot some common issues that
 you might encounter.
 
-For general questions about CloudFormation, see the [AWS CloudFormation FAQs](https://aws.amazon.com/cloudformation/faqs/ "https://aws.amazon.com/cloudformation/faqs/"). You can also search for
+For general questions about CloudFormation, see the [CloudFormation FAQs](https://aws.amazon.com/cloudformation/faqs/ "https://aws.amazon.com/cloudformation/faqs/"). You can also search for
 answers and post questions in the [CloudFormation community](https://repost.aws/tags/TAm3R3LNU3RfSX9L23YIpo3w "https://repost.aws/tags/TAm3R3LNU3RfSX9L23YIpo3w") on AWS re:Post.
 
 ###### Topics
@@ -20,13 +20,20 @@ messages or logs to help you learn more about the issue. The following tasks des
 general methods for troubleshooting a CloudFormation issue. For information about specific
 errors and solutions, see the [Troubleshooting errors](#troubleshooting-errors "#troubleshooting-errors") section.
 
-- Use the [CloudFormation console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/")
-  to view the status of your stack. In the console, you can view a list of stack
-  events while your stack is being created, updated, or deleted. From this list,
-  find the failure event and then view the status reason for that event. The
-  status reason might contain an error message from CloudFormation or from a
-  particular service that can help you troubleshoot your problem. For more
-  information about viewing stack events, see [View CloudFormation stack events](view-stack-events.md "view-stack-events.md").
+- Use operation IDs and failure filtering for targeted troubleshooting.
+  CloudFormation assigns unique operation IDs to deployment events, making it easier
+  to track and correlate related events. You can filter stack events by operation
+  ID to focus on specific deployment phases and use failure filters to quickly
+  identify the root cause of deployment failures. See [View stack events by operation](view-stack-events-by-operation.md "view-stack-events-by-operation.md")
+- Use the CloudFormation console to view the status of your stack. In the console,
+  you can view a list of stack events while your stack is being created, updated,
+  or deleted. Stack events include operation IDs that help you correlate related
+  events and track individual operation. You can click on the operation ID for a
+  focused troubleshooting. From the operation event list, find the failure event
+  and then view the status reason for that event. The status reason might contain
+  an error message from CloudFormation or from a particular service that can help you
+  troubleshoot your problem. For more information about viewing stack events with
+  operation IDs, see [View stack events by operation](view-stack-events-by-operation.md "view-stack-events-by-operation.md").
 - For Amazon EC2 issues, view the `cloud-init` and cfn logs. These logs
   are published on the Amazon EC2 instance in the `/var/log/`
   directory. These logs capture processes and command outputs while CloudFormation is
@@ -232,7 +239,7 @@ that failed to update but didn't receive a signal to start rolling back is in an
 
 A nested stack might fail to roll back because of changes that were made outside
 of CloudFormation, when the stack template doesn't accurately reflect the state of the
-stack. A nested stack might also fail if an Auto Scaling group in a nested stack had an
+stack. A nested stack might also fail if an Amazon EC2 Auto Scaling group in a nested stack had an
 insufficient resource signal timeout period when the group was created or
 updated.
 
@@ -315,9 +322,9 @@ update rollback failures:
 Use the [signal-resource](../../../cli/latest/reference/cloudformation/signal-resource.md "../../../cli/latest/reference/cloudformation/signal-resource.md") command to manually send the
 required number of successful signals to the resource that's
 waiting for them, and then continue rolling back the update. For
-example, during an update rollback, instances in an Auto Scaling group
+example, during an update rollback, instances in an Amazon EC2 Auto Scaling group
 might fail to signal success within the specified timeout
-duration. Manually send success signals to the Auto Scaling group. When
+duration. Manually send success signals to the Amazon EC2 Auto Scaling group. When
 you continue the update rollback, CloudFormation sees your signals
 and proceeds with the rollback.
 
@@ -383,7 +390,7 @@ To resolve this situation, try the following:
 - Ensure that the AMI you're using has the CloudFormation helper scripts
   installed. If the AMI doesn't include the helper scripts, you can also
   download them to your instance. For more information, see the [CloudFormation helper scripts reference](../TemplateReference/cfn-helper-scripts-reference.md "../TemplateReference/cfn-helper-scripts-reference.md") in the
-  _AWS CloudFormation Template Reference Guide_.
+  _CloudFormation Template Reference Guide_.
 - Verify that the `cfn-signal` command was successfully run on
   the instance. You can view logs, such as
   `/var/log/cloud-init.log` or
@@ -450,8 +457,9 @@ support, gather the following information:
 
 ###### Important
 
-Don't make changes to the resources in the stack outside of CloudFormation. Making changes to the
-resources in your stack outside of CloudFormation might put your stack in an unrecoverable state.
+Don't make changes to the resources in the stack outside of CloudFormation.
+Making changes to the resources in your stack outside of CloudFormation might
+put your stack in an unrecoverable state.
 
 - Any stack error messages. For information about viewing stack error messages,
   see the [Troubleshooting guide](#basic-ts-guide "#basic-ts-guide")
@@ -463,4 +471,5 @@ resources in your stack outside of CloudFormation might put your stack in an unr
   `%ProgramFiles%\Amazon\EC2ConfigService` and
   `C:\cfn\log`.
 
-You can also search for answers and post questions in the [CloudFormation community](https://repost.aws/tags/TAm3R3LNU3RfSX9L23YIpo3w "https://repost.aws/tags/TAm3R3LNU3RfSX9L23YIpo3w") on AWS re:Post.
+You can also search for answers and post questions in the [CloudFormation community](https://repost.aws/tags/TAm3R3LNU3RfSX9L23YIpo3w "https://repost.aws/tags/TAm3R3LNU3RfSX9L23YIpo3w") on
+AWS re:Post.

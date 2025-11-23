@@ -1,7 +1,7 @@
-# AWS CloudFormation StackSets sample templates
+# CloudFormation StackSets sample templates
 
 This section includes links to some sample CloudFormation templates that can help you use
-AWS CloudFormation StackSets in your enterprise. Templates listed in this section enable [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or [AWS Config](../../../config/latest/developerguide/WhatIsConfig.md "../../../config/latest/developerguide/WhatIsConfig.md") and rules within
+CloudFormation StackSets in your enterprise. Templates listed in this section enable [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or [AWS Config](../../../config/latest/developerguide/WhatIsConfig.md "../../../config/latest/developerguide/WhatIsConfig.md") and rules within
 it.
 
 ###### Important

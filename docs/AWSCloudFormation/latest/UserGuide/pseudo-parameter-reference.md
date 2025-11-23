@@ -191,7 +191,7 @@ Resources:
 
 AWS::NotificationARNs
 
-The following examples configure an Auto Scaling group to send notifications for instance launch
+The following examples configure an Amazon EC2 Auto Scaling group to send notifications for instance launch
 events and launch errors. The configuration uses the `AWS::NotificationARNs`
 pseudo parameter, which provides a list of Amazon SNS topic ARNs that were specified during stack
 creation. The `Fn::Select` function chooses the first ARN from that list.

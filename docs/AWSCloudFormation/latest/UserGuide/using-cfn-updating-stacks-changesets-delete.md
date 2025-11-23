@@ -9,7 +9,7 @@ Delete a change set
 
 ###### To delete a change set (console)
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the navigation bar at the top of the screen, choose your AWS Region.
 3. On the **Stacks** page, select the name of the stack that
@@ -27,7 +27,7 @@ Delete a change set for nested stacks (console)
 
 ###### To delete a change set for nested stacks
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the navigation bar at the top of the screen, choose your AWS Region.
 3. On the **Stacks** page, select the stack name associated with

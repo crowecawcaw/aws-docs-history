@@ -367,7 +367,7 @@ To learn more about StackSets, explore the following topics:
 - [Override parameter values on stacks within
   your CloudFormation StackSet](stackinstances-override.md "stackinstances-override.md") – Learn how to override
   parameter values for specific accounts and Regions.
-- [Create AWS CloudFormation StackSets with
+- [Create CloudFormation StackSets with
   service-managed permissions](stacksets-orgs-associate-stackset-with-org.md "stacksets-orgs-associate-stackset-with-org.md") –
   Explore creating StackSets for multi-account deployments with
   AWS Organizations.

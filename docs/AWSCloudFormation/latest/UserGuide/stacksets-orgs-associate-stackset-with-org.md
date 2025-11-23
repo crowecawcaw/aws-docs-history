@@ -1,4 +1,4 @@
-# Create AWS CloudFormation StackSets with
+# Create CloudFormation StackSets with
 
 service-managed permissions
 
@@ -53,7 +53,7 @@ with service-managed permissions (console)
 
 ###### To create a StackSet
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the navigation bar at the top of the screen, choose the AWS Region
    that you want to manage the StackSet from.
@@ -159,6 +159,10 @@ deploy stacks in. 17. For **Deployment options**, do the following:
     	 Maintains your specified concurrency level (the value of
     	 **Maximum concurrent accounts**)
     	 regardless of failures.
+    * For StackSet **dependencies**, add dependent StackSet
+     ARNs, staying within 10 dependencies maximum. For more information,
+     see [Enable or disable automatic
+     deployments for StackSets in AWS Organizations](stacksets-orgs-manage-auto-deployment.md "stacksets-orgs-manage-auto-deployment.md").
 
 18. Choose **Next** to continue.
 19. On the **Review** page, verify that your StackSet will deploy
@@ -199,7 +203,7 @@ aws cloudformation create-stack-set \
   --stack-set-name `my-stackset` \
   --template-url `https://s3.region-code.amazonaws.com/amzn-s3-demo-bucket/MyApp.template` \
   --permission-model `SERVICE_MANAGED` \
-  --auto-deployment Enabled=`true`,RetainStacksOnAccountRemoval=`true`
+  --auto-deployment Enabled=`true`,RetainStacksOnAccountRemoval=`true`,DependsOn=`ARN1,ARN2`
 ```
 
 2. Use the [list-stack-sets](../../../cli/latest/reference/cloudformation/list-stack-sets.md "../../../cli/latest/reference/cloudformation/list-stack-sets.md") command to

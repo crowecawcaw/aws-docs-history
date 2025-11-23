@@ -6,7 +6,7 @@ drop different resources to build your application visually.
 
 _Infrastructure Composer in CloudFormation console mode_ is the recommended tool
 to work with CloudFormation templates visually. This version of Infrastructure Composer that you can access from the
-CloudFormation console is an improvement from an older tool called AWS CloudFormation Designer.
+CloudFormation console is an improvement from an older tool called CloudFormation Designer.
 
 With Infrastructure Composer in CloudFormation console mode, you can drag, drop, configure, and connect a variety
 of resources, called _cards_, onto a visual canvas. This visual approach

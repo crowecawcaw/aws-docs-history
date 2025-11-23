@@ -1,4 +1,4 @@
-# Elastic Load Balancing template snippets
+# ELB template snippets
 
 To create an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer, use the V2 resource types, which start with `AWS::ElasticLoadBalancingV2`.
 To create a Classic Load Balancer, use the resource types that start with `AWS::ElasticLoadBalancing`.

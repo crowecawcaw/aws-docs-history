@@ -1,4 +1,4 @@
-# Best practices for using AWS CloudFormation StackSets
+# Best practices for using CloudFormation StackSets
 
 This section describes the best practices for defining a StackSet template, creating or adding
 stacks to a StackSet, or updating a StackSet.
@@ -8,9 +8,9 @@ CloudFormation more effectively and securely.
 
 ###### Topics
 
-- [Defining the template](#w71aac15c41b9 "#w71aac15c41b9")
-- [Creating or adding stacks to the StackSet](#w71aac15c41c11 "#w71aac15c41c11")
-- [Updating stacks in a StackSet](#w71aac15c41c13 "#w71aac15c41c13")
+- [Defining the template](#w2aac15c41b9 "#w2aac15c41b9")
+- [Creating or adding stacks to the StackSet](#w2aac15c41c11 "#w2aac15c41c11")
+- [Updating stacks in a StackSet](#w2aac15c41c13 "#w2aac15c41c13")
 
 ## Defining the template
 

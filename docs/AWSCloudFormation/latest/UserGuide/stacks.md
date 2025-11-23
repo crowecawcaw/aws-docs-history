@@ -1,4 +1,4 @@
-# Managing AWS resources as a single unit with AWS CloudFormation stacks
+# Managing AWS resources as a single unit with CloudFormation stacks
 
 A stack is a collection of AWS resources that you can manage as a single unit. In other
 words, you can create, update, and delete a collection of resources by creating, updating, and
@@ -55,6 +55,7 @@ deleted.
   resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md")
 - [Update CloudFormation stacks using change
   sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md")
+- [Validate stack deployments](validate-stack-deployments.md "validate-stack-deployments.md")
 - [Update stacks directly](using-cfn-updating-stacks-direct.md "using-cfn-updating-stacks-direct.md")
 - [Cancel a stack update](using-cfn-stack-update-cancel.md "using-cfn-stack-update-cancel.md")
 - [Delete a stack from the CloudFormation console](cfn-console-delete-stack.md "cfn-console-delete-stack.md")

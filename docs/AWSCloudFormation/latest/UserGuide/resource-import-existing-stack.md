@@ -116,7 +116,7 @@ The CloudFormation console doesn't support the use of the intrinsic function
 `Fn::Transform` when importing resources. You can use the AWS CLI to import resources
 that use the `Fn::Transform` function.
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the **Stacks** page, choose the stack you want to import resources
    into.

@@ -21,7 +21,7 @@ Follow the steps in this section to deploy your template and create a stack.
 
 ###### To create a stack (console)
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the navigation bar at the top of the screen, choose the AWS Region to create
    the stack in.
@@ -173,7 +173,7 @@ will be updated accordingly.
 
 An existing IAM service role that CloudFormation can assume. Instead of using
 your account credentials, CloudFormation uses the role's credentials to create your
-stack. For more information, see [AWS CloudFormation service role](using-iam-servicerole.md "using-iam-servicerole.md").
+stack. For more information, see [CloudFormation service role](using-iam-servicerole.md "using-iam-servicerole.md").
 
 **Stack failure options**
 

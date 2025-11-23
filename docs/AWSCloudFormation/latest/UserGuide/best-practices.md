@@ -12,7 +12,7 @@ experience from current CloudFormation customers.
   velocity](#shortenfeedbackloop "#shortenfeedbackloop")
 - [Organize your stacks by lifecycle and ownership](#organizingstacks "#organizingstacks")
 - [Use cross-stack references to return the value of an output exported by another stack](#cross-stack "#cross-stack")
-- [Use AWS CloudFormation StackSets for multi-account and multi-region deployments](#stack-sets "#stack-sets")
+- [Use CloudFormation StackSets for multi-account and multi-region deployments](#stack-sets "#stack-sets")
 - [Reuse templates to replicate stacks in multiple environments](#reuse "#reuse")
 - [Verify quotas for all resource types](#limits "#limits")
 - [Use modules to reuse resource configurations](#modules-reuse "#modules-reuse")
@@ -73,23 +73,23 @@ production. This early-testing, fail-fast approach gives you the benefits of red
 wait time, reducing potential areas of impact, and increasing your level of confidence in
 having successful provisioning operations.
 
-Tooling choices that help you achieve fail-fast practices include the [AWS CloudFormation Linter](https://github.com/aws-cloudformation/cfn-lint "https://github.com/aws-cloudformation/cfn-lint")
+Tooling choices that help you achieve fail-fast practices include the [CloudFormation Linter](https://github.com/aws-cloudformation/cfn-lint "https://github.com/aws-cloudformation/cfn-lint")
 (`cfn-lint`) and [TaskCat](https://github.com/aws-ia/taskcat "https://github.com/aws-ia/taskcat")
 command line tools. The `cfn-lint` tool gives you the ability to validate your
-CloudFormation templates against the [AWS CloudFormation Resource Specification](../TemplateReference/cfn-resource-specification.md "../TemplateReference/cfn-resource-specification.md"). This
+CloudFormation templates against the [CloudFormation Resource Specification](../TemplateReference/cfn-resource-specification.md "../TemplateReference/cfn-resource-specification.md"). This
 includes checking valid values for resource properties, as well as best practices. Plugins for
 `cfn-lint` are [available for a number
 of code editors](https://github.com/aws-cloudformation/cfn-lint#editor-plugins "https://github.com/aws-cloudformation/cfn-lint#editor-plugins"); this gives you the ability to visualize issues within your editor
 and to get direct linter feedback. You can also choose to integrate `cfn-lint` in
 your source code repository’s configuration, so that you can perform template validation when
-you commit your contributions. For more information, see [Git pre-commit validation of AWS CloudFormation templates with `cfn-lint`](https://aws.amazon.com/blogs/mt/git-pre-commit-validation-of-aws-cloudformation-templates-with-cfn-lint/ "https://aws.amazon.com/blogs/mt/git-pre-commit-validation-of-aws-cloudformation-templates-with-cfn-lint/"). Once you
+you commit your contributions. For more information, see [Git pre-commit validation of CloudFormation templates with `cfn-lint`](https://aws.amazon.com/blogs/mt/git-pre-commit-validation-of-aws-cloudformation-templates-with-cfn-lint/ "https://aws.amazon.com/blogs/mt/git-pre-commit-validation-of-aws-cloudformation-templates-with-cfn-lint/"). Once you
 have performed your initial linting—and fixed any issues `cfn-lint` might have
 raised—you can use TaskCat to test your templates by programmatically creating stacks in the
 AWS Regions you choose. TaskCat also generates a report with a pass/fail grades for each
 Region you chose.
 
 For a step-by-step, hands-on walkthrough on how to use both tools to shorten the feedback
-loop, follow the [Linting and Testing lab](https://catalog.workshops.aws/cfn101/en-US/basics/templates/linting-and-testing "https://catalog.workshops.aws/cfn101/en-US/basics/templates/linting-and-testing") of the [AWS CloudFormation Workshop](https://catalog.workshops.aws/cfn101/en-US "https://catalog.workshops.aws/cfn101/en-US").
+loop, follow the [Linting and Testing lab](https://catalog.workshops.aws/cfn101/en-US/basics/templates/linting-and-testing "https://catalog.workshops.aws/cfn101/en-US/basics/templates/linting-and-testing") of the [CloudFormation Workshop](https://catalog.workshops.aws/cfn101/en-US "https://catalog.workshops.aws/cfn101/en-US").
 
 ## Organize your stacks by lifecycle and ownership
 
@@ -139,9 +139,9 @@ resources, you allow all stacks with public web applications to use them. For mo
 information, see [Get exported outputs from a deployed CloudFormation
 stack](using-cfn-stack-exports.md "using-cfn-stack-exports.md").
 
-## Use AWS CloudFormation StackSets for multi-account and multi-region deployments
+## Use CloudFormation StackSets for multi-account and multi-region deployments
 
-AWS CloudFormation StackSets extend the capability of stacks by enabling you to create, update,
+CloudFormation StackSets extend the capability of stacks by enabling you to create, update,
 or delete stacks across multiple accounts and regions with a single operation. Use StackSets
 for deploying common infrastructure components, compliance controls, or shared services across
 your organization.
@@ -310,7 +310,7 @@ scripts to ensure that your launched instances get the latest helper scripts:
 ```
 
 For more information about getting the latest helper scripts, see the [CloudFormation helper
-scripts reference](../TemplateReference/cfn-helper-scripts-reference.md "../TemplateReference/cfn-helper-scripts-reference.md") in the _AWS CloudFormation Template Reference Guide_.
+scripts reference](../TemplateReference/cfn-helper-scripts-reference.md "../TemplateReference/cfn-helper-scripts-reference.md") in the _CloudFormation Template Reference Guide_.
 
 ## Validate templates before using them
 
@@ -444,7 +444,7 @@ commands. Enable logging and specify an Amazon S3 bucket to store the logs. That
 need to, you can audit who made what CloudFormation call in your account.
 
 For more information, see
-[Logging AWS CloudFormation API calls with AWS CloudTrail](cfn-api-logging-cloudtrail.md "cfn-api-logging-cloudtrail.md").
+[Logging CloudFormation API calls with AWS CloudTrail](cfn-api-logging-cloudtrail.md "cfn-api-logging-cloudtrail.md").
 
 ## Use code reviews and revision controls to manage your templates
 
@@ -583,7 +583,7 @@ In most cases, users require full access to manage all of the resources in a tem
 CloudFormation makes calls to create, modify, and delete those resources on their behalf. To separate
 permissions between a user and the CloudFormation service, use a service role. CloudFormation uses the service
 role's policy to make calls instead of the user's policy. For more information, see
-[AWS CloudFormation service role](using-iam-servicerole.md "using-iam-servicerole.md").
+[CloudFormation service role](using-iam-servicerole.md "using-iam-servicerole.md").
 
 ## Apply the principle of least privilege
 

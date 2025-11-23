@@ -15,7 +15,7 @@ protection directly on a nested stack. If a user attempts to directly delete a n
 belonging with a stack that has termination protection enabled, the operation fails and the
 nested stack remains unchanged.
 
-However, if a user performs a stack update that would delete the nested stack, AWS CloudFormation
+However, if a user performs a stack update that would delete the nested stack, CloudFormation
 deletes the nested stack accordingly.
 
 Termination protection is different than disabling rollback. Termination protection
@@ -31,7 +31,7 @@ stack** wizard, under **Advanced options**, expand the
 
 ###### To enable or disable termination protection on an existing stack
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the navigation bar at the top of the screen, choose your AWS Region.
 3. Select the stack that you want.
@@ -53,7 +53,7 @@ If **NESTED** is displayed next to the stack name, the stack is a
 nested stack. You can only change termination protection on the root stack to which the
 nested stack belongs. To change termination protection on the root stack:
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the navigation bar at the top of the screen, choose your AWS Region.
 3. Select the nested stack that you want.
@@ -79,7 +79,7 @@ To enable or disable termination protection on stacks, a user requires permissio
 the `cloudformation:UpdateTerminationProtection` action. For example, the
 policy below allows users to enable or disable termination protection on stacks.
 
-For more information on specifying permissions in AWS CloudFormation, see [Control CloudFormation access with AWS Identity and Access Management](control-access-with-iam.md "control-access-with-iam.md").
+For more information on specifying permissions in CloudFormation, see [Control CloudFormation access with AWS Identity and Access Management](control-access-with-iam.md "control-access-with-iam.md").
 
 ###### Example A sample policy that grants permissions to change stack termination
 

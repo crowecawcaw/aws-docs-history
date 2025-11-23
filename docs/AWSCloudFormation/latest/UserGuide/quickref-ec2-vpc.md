@@ -125,7 +125,7 @@ with the network interfaces using [AWS::EC2::EIPAssociation](../TemplateReferenc
 The `Outputs` section defines values or resources that you want to access after
 the stack is created. In this snippet, the defined output is `InstancePublicIp`,
 which represents the public IP address of the EC2 instance created by the stack. You can
-retrieve this output in the **Output** tab on the AWS CloudFormation console, or using the
+retrieve this output in the **Output** tab on the CloudFormation console, or using the
 [describe-stacks](../../../cli/latest/reference/cloudformation/describe-stacks.md "../../../cli/latest/reference/cloudformation/describe-stacks.md") command.
 
 For more information about elastic network interfaces, see [Elastic network interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md").

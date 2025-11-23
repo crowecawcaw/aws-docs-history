@@ -4,7 +4,7 @@ deployments using CloudFormation
 
 The process of using CloudFormation to perform your ECS blue/green deployments through CodeDeploy
 is different from a standard ECS deployment using just CodeDeploy. For a detailed understanding of
-these differences, see [Differences between Amazon ECS blue/green deployments through CodeDeploy and AWS CloudFormation](../../../codedeploy/latest/userguide/deployments-create-ecs-cfn.md#differences-ecs-bg-cfn "../../../codedeploy/latest/userguide/deployments-create-ecs-cfn.md#differences-ecs-bg-cfn") in the
+these differences, see [Differences between Amazon ECS blue/green deployments through CodeDeploy and CloudFormation](../../../codedeploy/latest/userguide/deployments-create-ecs-cfn.md#differences-ecs-bg-cfn "../../../codedeploy/latest/userguide/deployments-create-ecs-cfn.md#differences-ecs-bg-cfn") in the
 _AWS CodeDeploy User Guide_.
 
 When managing your blue/green deployment using CloudFormation, there are certain limitations

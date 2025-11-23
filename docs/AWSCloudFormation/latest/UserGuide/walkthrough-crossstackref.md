@@ -64,7 +64,7 @@ resources, they can specify from which stack the resources are imported.
 
 stack
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the **Stacks** page, choose **Create stack** at
    top right, and then choose **With new resources (standard)**.

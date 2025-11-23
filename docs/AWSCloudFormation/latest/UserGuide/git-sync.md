@@ -35,7 +35,7 @@ South America (São Paulo).
 
 For information about using Git sync with a multi-account strategy, see
 the following blog post [Use
-AWS CloudFormation Git sync to configure resources in customer accounts](https://aws.amazon.com/blogs/devops/use-aws-cloudformation-git-sync-to-configure-resources-in-customer-accounts/ "https://aws.amazon.com/blogs/devops/use-aws-cloudformation-git-sync-to-configure-resources-in-customer-accounts/").
+CloudFormation Git sync to configure resources in customer accounts](https://aws.amazon.com/blogs/devops/use-aws-cloudformation-git-sync-to-configure-resources-in-customer-accounts/ "https://aws.amazon.com/blogs/devops/use-aws-cloudformation-git-sync-to-configure-resources-in-customer-accounts/").
 
 ###### Topics
 

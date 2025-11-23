@@ -2,7 +2,7 @@
 
 With Elastic Beanstalk, you can quickly deploy and manage applications in AWS without worrying about
 the infrastructure that runs those applications. The following sample template can help you
-describe Elastic Beanstalk resources in your AWS CloudFormation template.
+describe Elastic Beanstalk resources in your CloudFormation template.
 
 ## Elastic Beanstalk sample PHP
 

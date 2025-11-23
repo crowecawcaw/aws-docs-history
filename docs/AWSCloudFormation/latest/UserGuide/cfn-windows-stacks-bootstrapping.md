@@ -67,7 +67,7 @@ You call the scripts directly from your template. The scripts work in conjunctio
 resource metadata that's defined in the same template. The scripts run on the Amazon EC2
 instance during the stack creation process.
 
-For more information, see the [CloudFormation helper scripts reference](../TemplateReference/cfn-helper-scripts-reference.md "../TemplateReference/cfn-helper-scripts-reference.md") in the _AWS CloudFormation Template
+For more information, see the [CloudFormation helper scripts reference](../TemplateReference/cfn-helper-scripts-reference.md "../TemplateReference/cfn-helper-scripts-reference.md") in the _CloudFormation Template
 Reference Guide_.
 
 ## Example of bootstrapping a

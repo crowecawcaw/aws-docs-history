@@ -444,9 +444,9 @@ To complete the stack, the template creates an Amazon EC2 security group.
 ```
 
 This example uses a single Amazon EC2 instance, but you can use the same mechanisms on more
-complex solutions that make use of Elastic Load Balancing and Amazon EC2 Auto Scaling groups to manage a
-collection of application servers. There are, however, some special considerations for Auto Scaling
-groups. For more information, see [Updating Auto Scaling groups](#updating.autoscaling "#updating.autoscaling").
+complex solutions that make use of ELB and Amazon EC2 Auto Scaling groups to manage a
+collection of application servers. There are, however, some special considerations for Amazon EC2 Auto Scaling
+groups. For more information, see [Updating Amazon EC2 Auto Scaling groups](#updating.autoscaling "#updating.autoscaling").
 
 ## Create the initial stack
 
@@ -628,22 +628,22 @@ versioning can have specific versions.
     }
 ```
 
-### Updating Auto Scaling groups
+### Updating Amazon EC2 Auto Scaling groups
 
-If you are using Auto Scaling groups in your template, as opposed to Amazon EC2 instance resources,
+If you are using Amazon EC2 Auto Scaling groups in your template, as opposed to Amazon EC2 instance resources,
 updating the application will work in exactly the same way; however, CloudFormation doesn't
-provide any synchronization or serialization across the Amazon EC2 instances in an Auto Scaling group.
+provide any synchronization or serialization across the Amazon EC2 instances in an Amazon EC2 Auto Scaling group.
 The cfn-hup daemon on each host will run independently and update the application on its own
 schedule. When you use cfn-hup to update the on-instance configuration, each instance will
 run the cfn-hup hooks on its own schedule; there is no coordination between the instances in
 the stack. You should consider the following:
 
-- If the cfn-hup changes run on all Amazon EC2 instances in the Auto Scaling group at the same
+- If the cfn-hup changes run on all Amazon EC2 instances in the Amazon EC2 Auto Scaling group at the same
   time, your service might be unavailable during the update.
 - If the cfn-hup changes run at different times, old and new versions of the software
   may be running at the same.
 
-To avoid these issues, consider forcing a rolling update on your instances in the Auto Scaling
+To avoid these issues, consider forcing a rolling update on your instances in the Amazon EC2 Auto Scaling
 group. For more information, see [UpdatePolicy
 attribute](../TemplateReference/aws-attribute-updatepolicy.md "../TemplateReference/aws-attribute-updatepolicy.md").
 
@@ -822,19 +822,19 @@ triggers a stack update in the same way as we initiated the one above.
 
 ### Update the Amazon EC2 launch configuration for
 
-an Auto Scaling group
+an Amazon EC2 Auto Scaling group
 
-If you are using Auto Scaling groups rather than Amazon EC2 instances, the process of updating the
-running instances is a little different. With Auto Scaling resources, the configuration of the Amazon EC2
-instances, such as the instance type or the AMI ID is encapsulated in the Auto Scaling launch
+If you are using Amazon EC2 Auto Scaling groups rather than Amazon EC2 instances, the process of updating the
+running instances is a little different. With Amazon EC2 Auto Scaling resources, the configuration of the Amazon EC2
+instances, such as the instance type or the AMI ID is encapsulated in the Amazon EC2 Auto Scaling launch
 configuration. You can make changes to the launch configuration in the same way as we made
 changes to the Amazon EC2 instance resources in the previous sections. However, changing the
-launch configuration doesn't impact any of the running Amazon EC2 instances in the Auto Scaling group. An
+launch configuration doesn't impact any of the running Amazon EC2 instances in the Amazon EC2 Auto Scaling group. An
 updated launch configuration applies only to new instances that are created after the
 update.
 
 If you want to propagate the change to your launch configuration across all the
-instances in your Auto Scaling group, you can use an update attribute. For more information, see
+instances in your Amazon EC2 Auto Scaling group, you can use an update attribute. For more information, see
 [UpdatePolicy attribute](../TemplateReference/aws-attribute-updatepolicy.md "../TemplateReference/aws-attribute-updatepolicy.md").
 
 ## Adding resource properties
@@ -949,7 +949,7 @@ by changing its resources during an update.
     }
 ```
 
-2. Convert the EC2 instance in the template into an Auto Scaling Launch Configuration. The
+2. Convert the EC2 instance in the template into an Amazon EC2 Auto Scaling Launch Configuration. The
    properties are identical, so we only need to change the type name from:
 
 ```
@@ -970,7 +970,7 @@ For clarity in the template, we changed the name of the resource from
 _WebServerInstance_ to _LaunchConfig_, so you'll
 need to update the resource name referenced by cfn-init and cfn-hup (just search for
 WebServerInstance and replace it with LaunchConfig, except for cfn-signal). For
-cfn-signal, you'll need to signal the Auto Scaling group (WebServerGroup) not the instance, as
+cfn-signal, you'll need to signal the Amazon EC2 Auto Scaling group (WebServerGroup) not the instance, as
 shown in the following snippet:
 
 ```
@@ -981,7 +981,7 @@ shown in the following snippet:
              "         --region ", { "Ref" : "AWS::Region" }, "\n"
 ```
 
-3. Add an Auto Scaling group resource.
+3. Add an Amazon EC2 Auto Scaling group resource.
 
 ```
     "WebServerGroup" : {

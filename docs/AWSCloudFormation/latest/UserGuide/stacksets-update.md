@@ -1,4 +1,4 @@
-# Update AWS CloudFormation StackSets
+# Update CloudFormation StackSets
 
 You can update your StackSet using either the CloudFormation console or the AWS CLI.
 
@@ -18,7 +18,7 @@ stacks](stackinstances-override.md "stackinstances-override.md").
 
 ###### To update a StackSet
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the navigation bar at the top of the screen, choose the AWS Region
    you created the StackSet in.
@@ -114,6 +114,11 @@ deployment failures don't exceed a specified failure tolerance.
     		 – Maintains your specified concurrency level
     		 (the value of **Maximum concurrent
     		 accounts**) regardless of failures.
+    	* [Service-managed permissions] For StackSet
+    	 **dependencies**, add dependent StackSet
+    	 ARNs, staying within 10 dependencies maximum. For more
+    	 information, see [Enable or disable automatic
+    	 deployments for StackSets in AWS Organizations](stacksets-orgs-manage-auto-deployment.md "stacksets-orgs-manage-auto-deployment.md").
     4. Choose **Next** to continue.
 
 17. On the **Review** page, review your choices. To make

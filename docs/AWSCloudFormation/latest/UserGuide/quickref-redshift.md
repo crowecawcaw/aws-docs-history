@@ -1,7 +1,7 @@
 # Amazon Redshift template snippets
 
 Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud. You can use
-AWS CloudFormation to provision and manage Amazon Redshift clusters.
+CloudFormation to provision and manage Amazon Redshift clusters.
 
 ## Amazon Redshift cluster
 

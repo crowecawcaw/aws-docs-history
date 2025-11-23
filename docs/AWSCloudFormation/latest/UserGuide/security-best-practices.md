@@ -1,6 +1,6 @@
 # Security best practices for CloudFormation
 
-AWS CloudFormation provides a number of security features to consider as you develop and implement your
+CloudFormation provides a number of security features to consider as you develop and implement your
 own security policies. The following best practices are general guidelines and don’t
 represent a complete security solution. Because these best practices might not be
 appropriate or sufficient for your environment, treat them as helpful considerations rather
@@ -26,7 +26,7 @@ In most cases, users require full access to manage all of the resources in a tem
 CloudFormation makes calls to create, modify, and delete those resources on their behalf. To
 separate permissions between a user and the CloudFormation service, use a service role.
 CloudFormation uses the service role's policy to make calls instead of the user's policy.
-For more information, see [AWS CloudFormation service role](using-iam-servicerole.md "using-iam-servicerole.md").
+For more information, see [CloudFormation service role](using-iam-servicerole.md "using-iam-servicerole.md").
 
 ## Do not embed credentials in your templates
 
@@ -56,4 +56,4 @@ AWS CloudTrail tracks anyone making CloudFormation API calls in your AWS account
 are logged whenever anyone uses the CloudFormation API, the CloudFormation console, a back-end
 console, or CloudFormation AWS CLI commands. Enable logging and specify an Amazon S3 bucket to
 store the logs. That way, if you ever need to, you can audit who made what CloudFormation
-call in your account. For more information, see [Logging AWS CloudFormation API calls with AWS CloudTrail](cfn-api-logging-cloudtrail.md "cfn-api-logging-cloudtrail.md").
+call in your account. For more information, see [Logging CloudFormation API calls with AWS CloudTrail](cfn-api-logging-cloudtrail.md "cfn-api-logging-cloudtrail.md").

@@ -1,4 +1,4 @@
-# AWS CloudFormation service role
+# CloudFormation service role
 
 A _service role_ is an AWS Identity and Access Management (IAM) role that allows CloudFormation to
 make calls to resources in a stack on your behalf. You can specify an IAM role that allows

@@ -1,16 +1,16 @@
-# Configure Amazon EC2 Auto Scaling resources with AWS CloudFormation
+# Configure Amazon EC2 Auto Scaling resources with CloudFormation
 
 The following examples show different snippets to include in templates for use with
 Amazon EC2 Auto Scaling.
 
 ###### Snippet categories
 
-- [Create a single instance Auto Scaling
+- [Create a single instance Amazon EC2 Auto Scaling
   group](#scenario-single-instance-as-group "#scenario-single-instance-as-group")
-- [Create an Auto Scaling group with an attached load
+- [Create an Amazon EC2 Auto Scaling group with an attached load
   balancer](#scenario-as-group "#scenario-as-group")
-- [Create an Auto Scaling group with notifications](#scenario-as-notification "#scenario-as-notification")
-- [Create an Auto Scaling group that uses a
+- [Create an Amazon EC2 Auto Scaling group with notifications](#scenario-as-notification "#scenario-as-notification")
+- [Create an Amazon EC2 Auto Scaling group that uses a
   CreationPolicy and an UpdatePolicy](#scenario-as-updatepolicy "#scenario-as-updatepolicy")
 - [Create a step scaling policy](#scenario-step-scaling-policy "#scenario-step-scaling-policy")
 - [Mixed instances group
@@ -18,12 +18,12 @@ Amazon EC2 Auto Scaling.
 - [Launch configuration
   examples](#scenario-launch-config-template-examples "#scenario-launch-config-template-examples")
 
-## Create a single instance Auto Scaling
+## Create a single instance Amazon EC2 Auto Scaling
 
 group
 
 This example shows an [`AWS::AutoScaling::AutoScalingGroup`](../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md "../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md") resource with a single instance
-to help you get started. The `VPCZoneIdentifier` property of the Auto Scaling group
+to help you get started. The `VPCZoneIdentifier` property of the Amazon EC2 Auto Scaling group
 specifies a list of existing subnets in three different Availability Zones. You must specify
 the applicable subnet IDs from your account before you create your stack. The
 `LaunchTemplate` property references an [`AWS::EC2::LaunchTemplate`](../TemplateReference/aws-resource-ec2-launchtemplate.md "../TemplateReference/aws-resource-ec2-launchtemplate.md") resource with the logical name
@@ -77,7 +77,7 @@ myASG:
     MinSize: '1'
 ```
 
-## Create an Auto Scaling group with an attached load
+## Create an Amazon EC2 Auto Scaling group with an attached load
 
 balancer
 
@@ -86,13 +86,13 @@ over multiple servers. It specifies the logical names of AWS resources declared 
 in the same template.
 
 1. The `VPCZoneIdentifier` property specifies the logical names of two
-   [`AWS::EC2::Subnet`](../TemplateReference/aws-resource-ec2-subnet.md "../TemplateReference/aws-resource-ec2-subnet.md") resources where the Auto Scaling group's EC2
+   [`AWS::EC2::Subnet`](../TemplateReference/aws-resource-ec2-subnet.md "../TemplateReference/aws-resource-ec2-subnet.md") resources where the Amazon EC2 Auto Scaling group's EC2
    instances will be created: `myPublicSubnet1` and
    `myPublicSubnet2`.
 2. The `LaunchTemplate` property specifies an [`AWS::EC2::LaunchTemplate`](../TemplateReference/aws-resource-ec2-launchtemplate.md "../TemplateReference/aws-resource-ec2-launchtemplate.md") resource with the logical name
    `myLaunchTemplate`.
 3. The `TargetGroupARNs` property lists the target groups for an Application Load Balancer or
-   Network Load Balancer used to route traffic to the Auto Scaling group. In this example, one target group is
+   Network Load Balancer used to route traffic to the Amazon EC2 Auto Scaling group. In this example, one target group is
    specified, an [`AWS::ElasticLoadBalancingV2::TargetGroup`](../TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md "../TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md") resource with the
    logical name `myTargetGroup`.
 
@@ -142,23 +142,23 @@ myServerGroup:
 
 ### See also
 
-For a detailed example that creates an Auto Scaling group with a target tracking scaling
+For a detailed example that creates an Amazon EC2 Auto Scaling group with a target tracking scaling
 policy based on the `ALBRequestCountPerTarget` predefined metric for your
 Application Load Balancer, see the [Examples](../TemplateReference/aws-resource-autoscaling-scalingpolicy.md#aws-resource-autoscaling-scalingpolicy--examples "../TemplateReference/aws-resource-autoscaling-scalingpolicy.md#aws-resource-autoscaling-scalingpolicy--examples") section in the `AWS::AutoScaling::ScalingPolicy`
 resource.
 
-## Create an Auto Scaling group with notifications
+## Create an Amazon EC2 Auto Scaling group with notifications
 
 This example shows an [`AWS::AutoScaling::AutoScalingGroup`](../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md "../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md") resource that sends Amazon SNS
 notifications when the specified events take place. The
-`NotificationConfigurations` property specifies the SNS topic where AWS CloudFormation sends
-a notification and the events that will cause AWS CloudFormation to send notifications. When the events
-specified by `NotificationTypes` occur, AWS CloudFormation will send a notification to the SNS
-topic specified by `TopicARN`. When you launch the stack, AWS CloudFormation creates an [`AWS::SNS::Subscription`](../TemplateReference/aws-resource-sns-subscription.md "../TemplateReference/aws-resource-sns-subscription.md") resource
+`NotificationConfigurations` property specifies the SNS topic where CloudFormation sends
+a notification and the events that will cause CloudFormation to send notifications. When the events
+specified by `NotificationTypes` occur, CloudFormation will send a notification to the SNS
+topic specified by `TopicARN`. When you launch the stack, CloudFormation creates an [`AWS::SNS::Subscription`](../TemplateReference/aws-resource-sns-subscription.md "../TemplateReference/aws-resource-sns-subscription.md") resource
 (`snsTopicForAutoScalingGroup`) that's declared within the same
 template.
 
-The `VPCZoneIdentifier` property of the Auto Scaling group specifies a list of
+The `VPCZoneIdentifier` property of the Amazon EC2 Auto Scaling group specifies a list of
 existing subnets in three different Availability Zones. You must specify the applicable
 subnet IDs from your account before you create your stack. The `LaunchTemplate`
 property references the logical name of an [`AWS::EC2::LaunchTemplate`](../TemplateReference/aws-resource-ec2-launchtemplate.md "../TemplateReference/aws-resource-ec2-launchtemplate.md") resource declared elsewhere in the same
@@ -230,16 +230,16 @@ myASG:
           - autoscaling:TEST_NOTIFICATION
 ```
 
-## Create an Auto Scaling group that uses a
+## Create an Amazon EC2 Auto Scaling group that uses a
 
 `CreationPolicy` and an `UpdatePolicy`
 
 The following example shows how to add `CreationPolicy` and
 `UpdatePolicy` attributes to an [`AWS::AutoScaling::AutoScalingGroup`](../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md "../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md") resource.
 
-The sample creation policy prevents the Auto Scaling group from reaching
-`CREATE_COMPLETE` status until AWS CloudFormation receives `Count` number of
-success signals when the group is ready. To signal that the Auto Scaling group is ready, a
+The sample creation policy prevents the Amazon EC2 Auto Scaling group from reaching
+`CREATE_COMPLETE` status until CloudFormation receives `Count` number of
+success signals when the group is ready. To signal that the Amazon EC2 Auto Scaling group is ready, a
 `cfn-signal` helper script added to the launch template's user data (not shown)
 is run on the instances. If the instances don't send a signal within the specified
 `Timeout`, CloudFormation assumes that the instances were not created, the resource
@@ -247,10 +247,10 @@ creation fails, and CloudFormation rolls the stack back.
 
 The sample update policy instructs CloudFormation to perform a rolling update using the
 `AutoScalingRollingUpdate` property. The rolling update makes changes to the
-Auto Scaling group in small batches (for this example, instance by instance) based on the
+Amazon EC2 Auto Scaling group in small batches (for this example, instance by instance) based on the
 `MaxBatchSize` and a pause time between batches of updates based on the
 `PauseTime`. The `MinInstancesInService` attribute specifies the
-minimum number of instances that must be in service within the Auto Scaling group while CloudFormation
+minimum number of instances that must be in service within the Amazon EC2 Auto Scaling group while CloudFormation
 updates old instances.
 
 The `WaitOnResourceSignals` attribute is set to `true`. CloudFormation
@@ -259,11 +259,11 @@ before continuing the update. While the stack update is in progress, the followi
 Scaling processes are suspended: `HealthCheck`, `ReplaceUnhealthy`,
 `AZRebalance`, `AlarmNotification`, and
 `ScheduledActions`. Note: Don't suspend the `Launch`,
-`Terminate`, or `AddToLoadBalancer` (if the Auto Scaling group is being used
-with Elastic Load Balancing) process types because doing so can prevent the rolling update from functioning
+`Terminate`, or `AddToLoadBalancer` (if the Amazon EC2 Auto Scaling group is being used
+with ELB) process types because doing so can prevent the rolling update from functioning
 properly.
 
-The `VPCZoneIdentifier` property of the Auto Scaling group specifies a list of
+The `VPCZoneIdentifier` property of the Amazon EC2 Auto Scaling group specifies a list of
 existing subnets in three different Availability Zones. You must specify the applicable
 subnet IDs from your account before you create your stack. The `LaunchTemplate`
 property references the logical name of an [`AWS::EC2::LaunchTemplate`](../TemplateReference/aws-resource-ec2-launchtemplate.md "../TemplateReference/aws-resource-ec2-launchtemplate.md") resource declared elsewhere in the same
@@ -360,7 +360,7 @@ Resources:
 
 ## Create a step scaling policy
 
-This example shows an [`AWS::AutoScaling::ScalingPolicy`](../TemplateReference/aws-resource-autoscaling-scalingpolicy.md "../TemplateReference/aws-resource-autoscaling-scalingpolicy.md") resource that scales out the Auto Scaling
+This example shows an [`AWS::AutoScaling::ScalingPolicy`](../TemplateReference/aws-resource-autoscaling-scalingpolicy.md "../TemplateReference/aws-resource-autoscaling-scalingpolicy.md") resource that scales out the Amazon EC2 Auto Scaling
 group using a step scaling policy. The `AdjustmentType` property specifies
 `ChangeInCapacity`, which means that the `ScalingAdjustment`
 represents the number of instances to add (if `ScalingAdjustment` is positive) or
@@ -460,7 +460,7 @@ resource.
 
 examples
 
-### Create an Auto Scaling
+### Create an Amazon EC2 Auto Scaling
 
 group using attribute-based instance type selection
 
@@ -468,9 +468,9 @@ This example shows an [`AWS::AutoScaling::AutoScalingGroup`](../TemplateReferenc
 information to launch a mixed instances group using attribute-based instance type
 selection. You specify the minimum and maximum values for the `VCpuCount`
 property and the minimum value for the `MemoryMiB` property. Any instance types
-used by the Auto Scaling group must match your required instance attributes.
+used by the Amazon EC2 Auto Scaling group must match your required instance attributes.
 
-The `VPCZoneIdentifier` property of the Auto Scaling group specifies a list of
+The `VPCZoneIdentifier` property of the Amazon EC2 Auto Scaling group specifies a list of
 existing subnets in three different Availability Zones. You must specify the applicable
 subnet IDs from your account before you create your stack. The `LaunchTemplate`
 property references the logical name of an [`AWS::EC2::LaunchTemplate`](../TemplateReference/aws-resource-ec2-launchtemplate.md "../TemplateReference/aws-resource-ec2-launchtemplate.md") resource declared elsewhere in the same
@@ -559,7 +559,7 @@ examples
 
 ### Create a launch configuration
 
-This example shows an [`AWS::AutoScaling::LaunchConfiguration`](../TemplateReference/aws-resource-autoscaling-launchconfiguration.md "../TemplateReference/aws-resource-autoscaling-launchconfiguration.md") resource for an Auto Scaling group
+This example shows an [`AWS::AutoScaling::LaunchConfiguration`](../TemplateReference/aws-resource-autoscaling-launchconfiguration.md "../TemplateReference/aws-resource-autoscaling-launchconfiguration.md") resource for an Amazon EC2 Auto Scaling group
 where you specify values for the `ImageId`, `InstanceType`, and
 `SecurityGroups` properties. The `SecurityGroups` property
 specifies both the logical name of an [`AWS::EC2::SecurityGroup`](../TemplateReference/aws-resource-ec2-securitygroup.md "../TemplateReference/aws-resource-ec2-securitygroup.md") resource that's specified elsewhere in
@@ -593,12 +593,12 @@ mySimpleConfig:
       - `myExistingEC2SecurityGroup`
 ```
 
-### Create an Auto Scaling
+### Create an Amazon EC2 Auto Scaling
 
 group that uses a launch configuration
 
 This example shows an [`AWS::AutoScaling::AutoScalingGroup`](../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md "../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md") resource with a single
-instance. The `VPCZoneIdentifier` property of the Auto Scaling group specifies a list
+instance. The `VPCZoneIdentifier` property of the Amazon EC2 Auto Scaling group specifies a list
 of existing subnets in three different Availability Zones. You must specify the applicable
 subnet IDs from your account before you create your stack. The
 `LaunchConfigurationName` property references an [`AWS::AutoScaling::LaunchConfiguration`](../TemplateReference/aws-resource-autoscaling-launchconfiguration.md "../TemplateReference/aws-resource-autoscaling-launchconfiguration.md") resource with the logical

@@ -1,12 +1,11 @@
 # StackSets concepts
 
-When you use StackSets, you work with _StackSets_,
-_stack instances_, and _stacks_.
+The following terminology and concepts are central to your understanding and use of StackSets.
 
 ###### Topics
 
 - [Administrator and target accounts](#stacksets-concepts-accts "#stacksets-concepts-accts")
-- [AWS CloudFormation StackSets](#stacksets-concepts-stackset "#stacksets-concepts-stackset")
+- [CloudFormation StackSets](#stacksets-concepts-stackset "#stacksets-concepts-stackset")
 - [Permission models for
   StackSets](#stacksets-concepts-stackset-permission-models "#stacksets-concepts-stackset-permission-models")
 - [Stack instances](#stacksets-concepts-stackinstances "#stacksets-concepts-stackinstances")
@@ -27,7 +26,7 @@ A _target account_ is the account into which you create, update, or
 delete one or more stacks in your StackSet. Before you can use a StackSet to create stacks in a target
 account, set up a trust relationship between the administrator and target accounts.
 
-## AWS CloudFormation StackSets
+## CloudFormation StackSets
 
 A _StackSet_ serves as a container for multiple stacks that are deployed
 across specified AWS accounts and Regions. Each stack is based on the same CloudFormation
@@ -79,7 +78,7 @@ permissions, see the following topics:
   StackSets with AWS Organizations](stacksets-orgs-activate-trusted-access.md "stacksets-orgs-activate-trusted-access.md")
 - [Register a delegated administrator
   member account](stacksets-orgs-delegated-admin.md "stacksets-orgs-delegated-admin.md")
-- [Create AWS CloudFormation StackSets with
+- [Create CloudFormation StackSets with
   service-managed permissions](stacksets-orgs-associate-stackset-with-org.md "stacksets-orgs-associate-stackset-with-org.md")
 
 ## Stack instances
@@ -181,7 +180,7 @@ tolerance** setting.
 Concurrency mode
 
 This setting, available in create, update, and delete workflows, lets you choose how
-the concurrency level behaves during StackSet operations. For more information, see [Choose the Concurrency Mode for AWS CloudFormation StackSets](concurrency-mode.md "concurrency-mode.md").
+the concurrency level behaves during StackSet operations. For more information, see [Choose the Concurrency Mode for CloudFormation StackSets](concurrency-mode.md "concurrency-mode.md").
 
 Failure tolerance
 
@@ -210,7 +209,7 @@ Region.
 Retain stacks
 
 This setting, available in delete stack workflows, lets you keep stacks and their
-resources running even after removing stacks from a StackSet. When you retain stacks, AWS CloudFormation
+resources running even after removing stacks from a StackSet. When you retain stacks, CloudFormation
 leaves stacks in individual accounts and Regions intact. Stacks disassociate from the
 StackSet, but saves the stack and its resources. After a delete stacks operation is
 complete, you manage retained stacks in CloudFormation, in the target account (not the
@@ -249,7 +248,7 @@ names of any tags with the string `aws:`.
 
 ## StackSets status codes
 
-AWS CloudFormation StackSets generates status codes for StackSet operations.
+CloudFormation StackSets generates status codes for StackSet operations.
 
 The following table describes status codes for StackSet operations.
 
@@ -301,7 +300,7 @@ The operation has stopped, at the user's request.
 
 ## Stack instance status codes
 
-AWS CloudFormation StackSets generates status codes for stack instances.
+CloudFormation StackSets generates status codes for stack instances.
 
 The following table describes status codes for stack instances within
 StackSets.

@@ -1,8 +1,8 @@
-# AWS CloudFormation artifacts
+# CloudFormation artifacts
 
-CodePipeline performs tasks on artifacts as CodePipeline runs a pipeline. For AWS CloudFormation, artifacts can include
+CodePipeline performs tasks on artifacts as CodePipeline runs a pipeline. For CloudFormation, artifacts can include
 a stack template file, a template configuration file, or both. CodePipeline uses these artifacts to
-work with AWS CloudFormation stacks and change sets.
+work with CloudFormation stacks and change sets.
 
 If you use Amazon Simple Storage Service (Amazon S3) as a source repository, you must zip the template and template
 configuration files into a single file before you upload them to an S3 bucket. For other
@@ -17,14 +17,14 @@ This topic describes each artifact type.
 
 ###### Topics
 
-- [Stack template file](#w71aac21c15c13 "#w71aac21c15c13")
-- [Template configuration file](#w71aac21c15c15 "#w71aac21c15c15")
-- [See also](#w71aac21c15c17 "#w71aac21c15c17")
+- [Stack template file](#w2aac21c15c13 "#w2aac21c15c13")
+- [Template configuration file](#w2aac21c15c15 "#w2aac21c15c15")
+- [See also](#w2aac21c15c17 "#w2aac21c15c17")
 
 ## Stack template file
 
-A stack template file defines the resources that AWS CloudFormation provisions and configures. These
-files are the same template files that you use when you create or update stacks using AWS CloudFormation.
+A stack template file defines the resources that CloudFormation provisions and configures. These
+files are the same template files that you use when you create or update stacks using CloudFormation.
 You can use YAML or JSON-formatted templates. For more information about templates, see [CloudFormation template sections](template-anatomy.md "template-anatomy.md").
 
 ## Template configuration file
@@ -88,11 +88,11 @@ resource.
 
 The following related resources can help you as you work with these parameters.
 
-- For more information about the CloudFormation action parameters in CodePipeline, see the [AWS CloudFormation deploy
+- For more information about the CloudFormation action parameters in CodePipeline, see the [CloudFormation deploy
   action configuration reference](../../../codepipeline/latest/userguide/action-reference-CloudFormation.md "../../../codepipeline/latest/userguide/action-reference-CloudFormation.md") in the
   _AWS CodePipeline User Guide_.
 - For example template values by action provider, such as for the `Owner`
   field or the `configuration` fields, see the [Action structure
   reference](../../../codepipeline/latest/userguide/action-reference.md "../../../codepipeline/latest/userguide/action-reference.md") in the _AWS CodePipeline User Guide_.
 - To download example pipeline stack templates in YAML or JSON format, see [Tutorial: Create a
-  pipeline with AWS CloudFormation](../../../codepipeline/latest/userguide/tutorials-cloudformation.md "../../../codepipeline/latest/userguide/tutorials-cloudformation.md") in the _AWS CodePipeline User Guide_.
+  pipeline with CloudFormation](../../../codepipeline/latest/userguide/tutorials-cloudformation.md "../../../codepipeline/latest/userguide/tutorials-cloudformation.md") in the _AWS CodePipeline User Guide_.

@@ -17,10 +17,10 @@ validating resource configurations against specific requirements. If a
 Hook detects any configurations that don't comply with its logic, it can
 either issue a warning or fail the provisioning process to prevent
 non-compliant resources from being deployed. For more information, see
-the [AWS CloudFormation Hooks User Guide](../../../cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.md "../../../cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.md").
+the [CloudFormation Hooks User Guide](../../../cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.md "../../../cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.md").
 
 For documentation on how to configure Hooks using the CloudFormation
-console, see the following sections of the _AWS CloudFormation Hooks User
+console, see the following sections of the _CloudFormation Hooks User
 Guide_:
 
 - [AWS Control Tower proactive controls as Hooks](../../../cloudformation-cli/latest/hooks-userguide/proactive-controls-hooks.md "../../../cloudformation-cli/latest/hooks-userguide/proactive-controls-hooks.md")
@@ -92,4 +92,4 @@ Privately registered extensions and activated third-party public extensions
 may implement event handlers that run during create, read, update, list, and
 delete operations. Using these extensions in your CloudFormation stacks may incur
 charges to your account, in addition to any charges for the resources created.
-For more information, see [AWS CloudFormation pricing](https://aws.amazon.com/cloudformation/pricing/ "https://aws.amazon.com/cloudformation/pricing/").
+For more information, see [CloudFormation pricing](https://aws.amazon.com/cloudformation/pricing/ "https://aws.amazon.com/cloudformation/pricing/").

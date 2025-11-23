@@ -2,7 +2,7 @@
 
 breach with rollback triggers
 
-With rollback triggers, you can have AWS CloudFormation monitor the state of your application during
+With rollback triggers, you can have CloudFormation monitor the state of your application during
 stack creation and updating, and roll back that operation if the application breaches the
 threshold of the alarms you've specified. For each rollback trigger you create, you specify
 the CloudWatch alarm that CloudFormation should monitor. CloudFormation monitors the specified alarms

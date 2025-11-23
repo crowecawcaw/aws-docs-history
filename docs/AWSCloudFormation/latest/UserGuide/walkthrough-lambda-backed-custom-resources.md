@@ -25,7 +25,7 @@ Store](dynamic-references-ssm.md "dynamic-references-ssm.md").
 - [Launching the stack](#walkthrough-lambda-backed-custom-resources-createfunction-createstack "#walkthrough-lambda-backed-custom-resources-createfunction-createstack")
 - [Cleaning
   up resources](#walkthrough-lambda-backed-custom-resources-createfunction-cleanup "#walkthrough-lambda-backed-custom-resources-createfunction-cleanup")
-- [Related information](#w71aac11c43b9c22b9c23 "#w71aac11c43b9c22b9c23")
+- [Related information](#w2aac11c45b9c22b9c23 "#w2aac11c45b9c22b9c23")
 
 ## Overview
 

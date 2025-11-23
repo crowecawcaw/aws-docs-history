@@ -8,7 +8,7 @@ use the `AWS::CloudFormation::Stack` resource to reference this template from
 within another template. For more information on nested stacks, see [Split a template into reusable pieces using nested
 stacks](using-cfn-nested-stacks.md "using-cfn-nested-stacks.md").
 
-AWS CloudFormation only supports one level of nesting using `resource import`. This means
+CloudFormation only supports one level of nesting using `resource import`. This means
 that you can't import a stack into a child stack or import a stack that has children.
 
 If you're new to importing, we recommend that you first review the introductory information
@@ -19,7 +19,7 @@ manually](import-resources-manually.md "import-resources-manually.md") topic.
 
 validation
 
-During a nested stack import operation, AWS CloudFormation performs the following validations.
+During a nested stack import operation, CloudFormation performs the following validations.
 
 - The nested `AWS::CloudFormation::Stack` definition in the parent stack
   template matches the actual nested stack's template.
@@ -107,7 +107,7 @@ Resources:
  KeyName: mykey`
 ```
 
-2. Open the AWS CloudFormation console.
+2. Open the CloudFormation console.
 3. On the **Stacks** page, with the parent stack selected, choose
    **Stack actions**, and then choose **Import resources
    into stack**.
@@ -154,7 +154,7 @@ page for your parent stack displays.
 
 It's not necessary to run drift detection on the parent stack after this import
 operation because the `AWS::CloudFormation::Stack` resource was already
-managed by AWS CloudFormation.
+managed by CloudFormation.
 
 ## Nest an existing stack using the
 
@@ -337,4 +337,4 @@ aws cloudformation execute-change-set --change-set-name `ImportChangeSet`
 
 It's not necessary to run drift detection on the parent stack after this import
 operation because the `AWS::CloudFormation::Stack` resource is already
-managed by AWS CloudFormation.
+managed by CloudFormation.

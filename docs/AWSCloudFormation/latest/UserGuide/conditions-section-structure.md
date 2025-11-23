@@ -552,4 +552,4 @@ conditions evaluate to true.
 ###### Note
 
 For more complex examples of using conditions, see the [Condition attribute](../TemplateReference/aws-attribute-condition.md "../TemplateReference/aws-attribute-condition.md") topic in the
-_AWS CloudFormation Template Reference Guide_.
+_CloudFormation Template Reference Guide_.

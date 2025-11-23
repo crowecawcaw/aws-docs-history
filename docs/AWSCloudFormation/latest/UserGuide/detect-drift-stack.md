@@ -8,7 +8,7 @@ the drift status of each resource in the stack that supports drift detection.
 
 stack using the AWS Management Console
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. From the list of stacks, select the stack on which you want to perform drift
    detection. In the stack details pane, choose **Stack actions**,

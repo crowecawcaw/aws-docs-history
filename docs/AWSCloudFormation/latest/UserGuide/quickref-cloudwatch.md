@@ -1,6 +1,6 @@
 # Amazon CloudWatch template snippets
 
-Use these sample template snippets to help describe your Amazon CloudWatch resources in AWS CloudFormation. For
+Use these sample template snippets to help describe your Amazon CloudWatch resources in CloudFormation. For
 more information, see the [Amazon CloudWatch resource type reference](../TemplateReference/AWS_CloudWatch.md "../TemplateReference/AWS_CloudWatch.md").
 
 ###### Topics

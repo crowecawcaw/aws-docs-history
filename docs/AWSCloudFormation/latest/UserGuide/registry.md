@@ -1,6 +1,6 @@
 # Managing extensions with the CloudFormation registry
 
-The AWS CloudFormation registry serves as a centralized hub for managing extensions that can be
+The CloudFormation registry serves as a centralized hub for managing extensions that can be
 integrated into the CloudFormation templates in your AWS account. Extensions include resource
 types, modules, and Hooks from AWS and third-party publishers, and your own custom
 extensions. The registry makes it easier to discover and provision extensions in your
@@ -38,7 +38,7 @@ documentation:
   resource types using the CloudFormation CLI](../../../cloudformation-cli/latest/userguide/resource-types.md "../../../cloudformation-cli/latest/userguide/resource-types.md") in the _CloudFormation
   Command Line Interface User Guide_
 - [Developing custom Hooks using the CloudFormation CLI](../../../cloudformation-cli/latest/hooks-userguide/hooks-develop.md "../../../cloudformation-cli/latest/hooks-userguide/hooks-develop.md") in the
-  _AWS CloudFormation Hooks User Guide_
+  _CloudFormation Hooks User Guide_
 
 Additionally, all provisionable AWS resource types available in the CloudFormation
 registry can be used with the AWS Cloud Control API, with their attributes and properties defined

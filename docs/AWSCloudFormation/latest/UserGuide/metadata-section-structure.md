@@ -19,7 +19,7 @@ sorts parameters by their logical ID.
 
 `AWS::CloudFormation::Designer`
 
-AWS CloudFormation Designer (Designer) reached end of life on
+CloudFormation Designer (Designer) reached end of life on
 February 5, 2025.
 
 ###### Important

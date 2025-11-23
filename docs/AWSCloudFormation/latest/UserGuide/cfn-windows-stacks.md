@@ -8,7 +8,7 @@ commonly used in Windows-based deployments.
 CloudFormation provides support for deploying and managing Microsoft Windows
 stacks through Infrastructure as Code (IaC). You can use CloudFormation for
 automated provisioning of Windows-based EC2 instances, SQL Server on Amazon RDS,
-and Microsoft Active Directory through AWS Directory Service.
+and Microsoft Active Directory through Directory Service.
 
 AWS provides pre-configured Amazon Machine Images (AMIs) specifically designed for
 Windows platforms to help you quickly deploy applications on Amazon EC2. These AMIs include

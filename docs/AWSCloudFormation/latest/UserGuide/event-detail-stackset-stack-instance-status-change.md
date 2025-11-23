@@ -5,7 +5,7 @@ Instance Status Change event detail
 Below are the detail fields for StackSet stack instance status events.
 
 The `source` and `detail-type` fields are included
-because they contain specific values for AWS CloudFormation events.
+because they contain specific values for CloudFormation events.
 
 ```
 {

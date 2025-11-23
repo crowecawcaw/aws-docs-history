@@ -68,7 +68,7 @@ methods:
 
 values (console)
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the navigation bar at the top of the screen, choose your AWS Region.
 3. From the left navigation pane, choose **Exports**.
@@ -126,7 +126,7 @@ methods:
 
 exported output value (console)
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. From the left navigation pane, choose **Exports**.
 3. To see which stacks import a given export value, choose the **Export

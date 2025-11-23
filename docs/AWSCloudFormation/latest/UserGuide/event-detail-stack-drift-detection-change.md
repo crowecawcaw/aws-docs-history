@@ -5,7 +5,7 @@ Change event detail
 Below are the detail fields for stack drift detection events.
 
 The `source` and `detail-type` fields are included
-because they contain specific values for AWS CloudFormation events.
+because they contain specific values for CloudFormation events.
 
 ```
 {

@@ -301,8 +301,8 @@ _Amazon EC2 User Guide_.
 
 ###### Scenarios
 
-- [Specify the block device mappings for two EBS volumes](#w71aac11c39c43c13b9c11 "#w71aac11c39c43c13b9c11")
-- [Specify the block device mapping for an instance store volume](#w71aac11c39c43c13b9c13 "#w71aac11c39c43c13b9c13")
+- [Specify the block device mappings for two EBS volumes](#w2aac11c41c43c13b9c11 "#w2aac11c41c43c13b9c11")
+- [Specify the block device mapping for an instance store volume](#w2aac11c41c43c13b9c13 "#w2aac11c41c43c13b9c13")
 
 ### Specify the block device mappings for two EBS volumes
 

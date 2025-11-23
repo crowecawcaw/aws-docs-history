@@ -92,7 +92,7 @@ Create stack
 
 ###### To preserve successfully provisioned resources during a create stack operation
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. From the **Stacks** page, choose **Create stack** at
    top right, and then choose **With new resources (standard)**.
@@ -122,7 +122,7 @@ Update stack
 
 ###### To preserve successfully provisioned resources during an update stack operation
 
-1.  Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1.  Sign in to the AWS Management Console and open the CloudFormation console at
     [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2.  Select the stack you want to update and then choose **Update**.
 3.  On the **Update stack** page, choose a stack template by using one of
@@ -160,7 +160,7 @@ You can initiate a change set for a stack with a status of `CREATE_FAILED` or
 
 ###### To Preserve successfully provisioned resources during a change set operation
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Select the stack that contains the change set you want to initiate, and then choose the
    **Change sets** tab.

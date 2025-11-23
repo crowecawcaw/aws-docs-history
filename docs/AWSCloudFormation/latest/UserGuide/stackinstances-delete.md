@@ -1,4 +1,4 @@
-# Delete stacks from AWS CloudFormation StackSets
+# Delete stacks from CloudFormation StackSets
 
 You can delete stacks from StackSets using either the CloudFormation console or the
 AWS CLI.
@@ -21,7 +21,7 @@ StackSet target.
 
 ###### To delete stacks
 
-1.  Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1.  Sign in to the AWS Management Console and open the CloudFormation console at
     [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2.  On the navigation bar at the top of the screen, choose the AWS Region
     you created the StackSet in.

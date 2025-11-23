@@ -20,7 +20,7 @@ public extension in your account (console)
 
 ###### To deactivate a public extension in your account
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the navigation bar at the top of the screen, choose your
    AWS Region.
@@ -65,5 +65,5 @@ aws cloudformation set-type-configuration \
   --type-arn `"arn:aws:cloudformation:us-west-2:123456789012:type/hook/MyTestHook"` --region `us-west-2`
 ```
 
-For more information, see [Disable and enable AWS CloudFormation Hooks](../../../cloudformation-cli/latest/hooks-userguide/hooks-disable-enable.md "../../../cloudformation-cli/latest/hooks-userguide/hooks-disable-enable.md") in the _AWS CloudFormation Hooks User
+For more information, see [Disable and enable CloudFormation Hooks](../../../cloudformation-cli/latest/hooks-userguide/hooks-disable-enable.md "../../../cloudformation-cli/latest/hooks-userguide/hooks-disable-enable.md") in the _CloudFormation Hooks User
 Guide_.

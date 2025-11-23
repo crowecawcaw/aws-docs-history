@@ -1,6 +1,6 @@
-# Logging AWS CloudFormation API calls with AWS CloudTrail
+# Logging CloudFormation API calls with AWS CloudTrail
 
-AWS CloudFormation is integrated with AWS CloudTrail, a service that provides a record of actions taken by a
+CloudFormation is integrated with AWS CloudTrail, a service that provides a record of actions taken by a
 user, role, or an AWS service in CloudFormation. CloudTrail captures all API calls for CloudFormation as
 events, including calls from the CloudFormation console and from code calls to the CloudFormation APIs.
 If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket,

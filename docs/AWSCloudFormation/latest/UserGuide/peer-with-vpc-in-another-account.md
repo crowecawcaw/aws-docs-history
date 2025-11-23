@@ -37,7 +37,7 @@ account_.
 
 ###### To create a VPC and a cross-account access role
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. From the **Stacks** page, choose **Create stack** at
    top right, and then choose **With new resources (standard)**.
@@ -172,7 +172,7 @@ Outputs:
    the AWS account ID of the _requester account_ in the
    **PeerRequesterAccountId** field.
 7. Accept the defaults, and then choose **Next**.
-8. Choose **I acknowledge that AWS CloudFormation might create IAM resources**, and
+8. Choose **I acknowledge that CloudFormation might create IAM resources**, and
    then choose **Create stack**.
 
 ## Step 2: Create a
@@ -184,7 +184,7 @@ another AWS account (the _requester account_).
 
 ###### To create a template that includes the [AWS::EC2::VPCPeeringConnection](../TemplateReference/aws-resource-ec2-vpcpeeringconnection.md "../TemplateReference/aws-resource-ec2-vpcpeeringconnection.md") resource
 
-1. Go back to the AWS CloudFormation console home page.
+1. Go back to the CloudFormation console home page.
 2. From the **Stacks** page, choose **Create stack** at
    top right, and then choose **With new resources (standard)**.
 3. For **Prerequisite - Prepare template**, choose **Choose an
@@ -291,7 +291,7 @@ Outputs:
 6. Give the stack a name (for example,
    `VPC-peering-connection`).
 7. Accept the defaults, and then choose **Next**.
-8. Choose **I acknowledge that AWS CloudFormation might create IAM resources**, and
+8. Choose **I acknowledge that CloudFormation might create IAM resources**, and
    then choose **Create stack**.
 
 ## Create a template with a

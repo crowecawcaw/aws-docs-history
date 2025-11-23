@@ -4,7 +4,7 @@
 
 You can use AWS PrivateLink to create a private connection between your VPC and CloudFormation.
 You can access CloudFormation as if it were in your VPC, without the use of an internet gateway,
-NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC don't need public
+NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public
 IP addresses to access CloudFormation.
 
 You establish this private connection by creating an _interface
@@ -51,7 +51,7 @@ interface endpoint for CloudFormation:
   `cloudformation-waitcondition-us-west-2` bucket.
 
 For a list of AWS Regions where CloudFormation is currently available, see the
-[AWS CloudFormation endpoints and quotas](../../../general/latest/gr/cfn.md "../../../general/latest/gr/cfn.md") page
+[CloudFormation endpoints and quotas](../../../general/latest/gr/cfn.md "../../../general/latest/gr/cfn.md") page
 in the _Amazon Web Services General Reference_.
 
 - VPC endpoints currently don't support cross-Region requests — ensure
@@ -88,7 +88,7 @@ interface endpoint for CloudFormation using the following service name:
   – Creates an endpoint for the CloudFormation API that complies with [Federal Information Processing
   Standard (FIPS) 140-2](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
 
-For a complete list of CloudFormation endpoints, see [AWS CloudFormation endpoints and quotas](../../../general/latest/gr/cfn.md "../../../general/latest/gr/cfn.md") in the
+For a complete list of CloudFormation endpoints, see [CloudFormation endpoints and quotas](../../../general/latest/gr/cfn.md "../../../general/latest/gr/cfn.md") in the
 _Amazon Web Services General Reference_.
 
 ## Creating a VPC endpoint policy for

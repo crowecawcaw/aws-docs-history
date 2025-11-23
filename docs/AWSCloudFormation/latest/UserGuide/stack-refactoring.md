@@ -2,16 +2,16 @@
 
 With stack refactoring, you can reorganize resources in your CloudFormation stacks while
 preserving existing resource properties and data. You can move resources between stacks,
-split large stacks into smaller ones, or combine multiple stacks into one stack.
+split large stacks into smaller ones, or combine multiple stacks into one.
 
 ###### Topics
 
 - [How stack refactoring works](#stack-refactoring-overview "#stack-refactoring-overview")
 - [Stack refactoring
   considerations](#stack-refactoring-considerations "#stack-refactoring-considerations")
-- [AWS CLI commands for stack
-  refactoring](#stack-refactoring-cli-commands "#stack-refactoring-cli-commands")
-- [Refactor a stack using the AWS CLI](#stack-refactoring-cli "#stack-refactoring-cli")
+- [Prerequisites](#stack-refactoring-prerequisites "#stack-refactoring-prerequisites")
+- [Refactor stacks (console)](#stack-refactoring-console "#stack-refactoring-console")
+- [Refactor stacks (AWS CLI)](#stack-refactoring-cli "#stack-refactoring-cli")
 - [Resource limitations](#stack-refactoring-resource-limitations "#stack-refactoring-resource-limitations")
 
 ## How stack refactoring works
@@ -26,8 +26,8 @@ Refactoring stacks involves these phases:
    and operational limits. These can affect the CloudFormation validation later.
 3. Determine the destination stacks –
    Decide which stacks you will refactor resources into. You can move resources
-   between at least 2 stacks, and a maximum of 5 stacks. Resources can be moved
-   between nested stacks.
+   between at least 2 stacks (using the console), and a maximum of 5 stacks (using
+   the AWS CLI). Resources can be moved between nested stacks.
 4. Update your templates – Change your
    CloudFormation templates to reflect the planned change, such as moving resource
    definitions between templates. You can rename logical IDs during this
@@ -55,11 +55,10 @@ considerations
 
 As you refactor your stacks, keep the following in mind:
 
-- Refactor operations don't allow new resource creations, resource deletions, or
-  changes to resource configurations.
-- You can't change or add new parameters, conditions, or mappings during a stack
-  refactor. A possible workaround is to update your stack before performing the
-  refactor.
+- Stack refactoring is limited to reorganizing existing resources. You cannot
+  create or delete resources, modify resource configurations, or change or add new
+  parameters, conditions, or mappings during refactoring. To make these changes,
+  update your stacks first, and then perform the stack refactor.
 - You can't refactor the same resource into multiple stacks.
 - You can't refactor resources that refer to pseudo parameters whose values
   differ between the source and destination stacks, such as
@@ -81,9 +80,85 @@ Resources:
 - Stack refactor doesn't support stacks that have stack policies attached,
   regardless of what the policies allow or deny.
 
-## AWS CLI commands for stack
+## Prerequisites
 
-refactoring
+To refactor stacks, you must have already created the revised templates.
+
+Use the [get-template](../../../cli/latest/reference/cloudformation/get-template.md "../../../cli/latest/reference/cloudformation/get-template.md")
+command to retrieve the CloudFormation templates for the stacks that you want to
+refactor.
+
+```
+aws cloudformation get-template --stack-name `Stack1`
+```
+
+When you have the templates, use the integrated development environment (IDE) of your
+choice to update them to use the desired structure and resource organization.
+
+## Refactor stacks (console)
+
+Use the following procedure to refactor stacks using the console.
+
+###### To refactor stacks
+
+1. Sign in to the AWS Management Console and open the CloudFormation console at
+   [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+2. On the navigation bar at the top of the screen, choose the AWS Region where
+   your stacks are located.
+3. In the navigation pane on the left, choose **Stack
+   refactors**.
+4. On the **Stack refactors** page, choose **Start stack
+   refactor**.
+5. For **Description**, provide a description to help you
+   identify your stack refactor. Then, choose **Next**.
+6. For Stack 1, do the following:
+   1. Choose either **Update the template for an existing
+      stack** or **Create new stack**.
+
+   If you chose **Update the template for an existing
+   stack**, then select an existing stack from the list. Or
+   choose **Enter a stack ARN** to enter the ARN of an
+   existing stack.
+
+   If you chose **Create new stack**, for
+   **Stack name**, provide a name for the new
+   stack. 2. Under **Replace existing template with refactored
+   template**, choose **Amazon S3 URL** or
+   **Upload a template file** to upload the desired
+   template for Stack 1. 3. Choose **Next**.
+
+7. For Stack 2, do the following:
+   1. Choose either **Update the template for an existing
+      stack** or **Create new stack**.
+
+   If you chose **Update the template for an existing
+   stack**, then select an existing stack from the list. Or
+   choose **Enter a stack ARN** to enter the ARN of an
+   existing stack.
+
+   If you chose **Create new stack**, for
+   **Stack name**, provide a name for the new
+   stack. 2. Under **Replace existing template with refactored
+   template**, choose **Amazon S3 URL** or
+   **Upload template file** to upload the desired
+   template for Stack 2. 3. Choose **Next**.
+
+8. On the **Specify logical resource ID renames** page, make
+   sure CloudFormation knows how to refactor stacks by mapping any resources shown to
+   their correct logical IDs. As part of the stack refactor, if any resource's
+   logical IDs were changed, you need to specify how it was renamed by providing
+   the source stack name, the original logical ID, the destination stack name and
+   the renamed logical ID. In some instances, the CloudFormation console might
+   automatically detect the resource mapping, and you can simply verify that the
+   pre-filled resource mapping is correct before proceeding.
+9. Choose **Next**.
+10. On the **Review and execute** page, review all of your
+    selections from the previous steps and confirm that everything is set up
+    correctly.
+11. When you are ready to refactor the stacks, choose **Execute stack
+    refactor**.
+
+## Refactor stacks (AWS CLI)
 
 The AWS CLI commands for stack refactoring include:
 
@@ -93,30 +168,20 @@ The AWS CLI commands for stack refactoring include:
   stack refactoring operation.
 - [execute-stack-refactor](../../../cli/latest/reference/cloudformation/execute-stack-refactor.md "../../../cli/latest/reference/cloudformation/execute-stack-refactor.md") to complete the validated stack refactoring
   operation.
-- [get-template](../../../cli/latest/reference/cloudformation/get-template.md "../../../cli/latest/reference/cloudformation/get-template.md") to retrieve the template for an existing stack.
 - [list-stack-refactors](../../../cli/latest/reference/cloudformation/list-stack-refactors.md "../../../cli/latest/reference/cloudformation/list-stack-refactors.md") to list all stack refactoring operations in
   your account with their current status and basic information.
 - [list-stack-refactor-actions](../../../cli/latest/reference/cloudformation/list-stack-refactor-actions.md "../../../cli/latest/reference/cloudformation/list-stack-refactor-actions.md") to show a preview of the specific
   actions CloudFormation will perform on each stack and resource during the refactor
   execution.
 
-## Refactor a stack using the AWS CLI
-
 Use the following procedure to refactor a stack using the AWS CLI.
 
-1. Use the [get-template](../../../cli/latest/reference/cloudformation/get-template.md "../../../cli/latest/reference/cloudformation/get-template.md") command to retrieve the CloudFormation templates for the
-   stacks that you want to refactor.
+###### To refactor stacks
 
-```
-aws cloudformation get-template --stack-name `Stack1`
-```
-
-When you have the templates, use the integrated development environment (IDE)
-of your choice to update them to use the desired structure and resource
-organization. 2. Use the [create-stack-refactor](../../../cli/latest/reference/cloudformation/create-stack-refactor.md "../../../cli/latest/reference/cloudformation/create-stack-refactor.md") command and provide the stack names and
-updated templates for the stacks to refactor. Include the
-`--enable-stack-creation` option to allow CloudFormation to create
-new stacks if they don't already exist.
+1. Use the [create-stack-refactor](../../../cli/latest/reference/cloudformation/create-stack-refactor.md "../../../cli/latest/reference/cloudformation/create-stack-refactor.md") command and provide the stack names and
+   updated templates for the stacks to refactor. Include the
+   `--enable-stack-creation` option to allow CloudFormation to create
+   new stacks if they don't already exist.
 
 ```
 aws cloudformation create-stack-refactor \
@@ -165,7 +230,7 @@ The following is an example `resource-mapping.json` file.
 ]
 ```
 
-3. Use the [describe-stack-refactor](../../../cli/latest/reference/cloudformation/describe-stack-refactor.md "../../../cli/latest/reference/cloudformation/describe-stack-refactor.md") command to make sure the
+2. Use the [describe-stack-refactor](../../../cli/latest/reference/cloudformation/describe-stack-refactor.md "../../../cli/latest/reference/cloudformation/describe-stack-refactor.md") command to make sure the
    `Status` is `CREATE_COMPLETE`. This verifies that the
    validation is complete.
 
@@ -188,7 +253,7 @@ Example output:
 }
 ```
 
-4. Use the [list-stack-refactor-actions](../../../cli/latest/reference/cloudformation/list-stack-refactor-actions.md "../../../cli/latest/reference/cloudformation/list-stack-refactor-actions.md") command to preview the specific actions
+3. Use the [list-stack-refactor-actions](../../../cli/latest/reference/cloudformation/list-stack-refactor-actions.md "../../../cli/latest/reference/cloudformation/list-stack-refactor-actions.md") command to preview the specific actions
    that will be performed.
 
 ```
@@ -260,7 +325,7 @@ Example output:
 }
 ```
 
-5. After reviewing and confirming your changes, use the [execute-stack-refactor](../../../cli/latest/reference/cloudformation/execute-stack-refactor.md "../../../cli/latest/reference/cloudformation/execute-stack-refactor.md") command to complete the stack refactoring
+4. After reviewing and confirming your changes, use the [execute-stack-refactor](../../../cli/latest/reference/cloudformation/execute-stack-refactor.md "../../../cli/latest/reference/cloudformation/execute-stack-refactor.md") command to complete the stack refactoring
    operation.
 
 ```
@@ -268,7 +333,7 @@ aws cloudformation execute-stack-refactor \
   --stack-refactor-id `9c384f70-4e07-4ed7-a65d-fee5eb430841`
 ```
 
-6. Use the [describe-stack-refactor](../../../cli/latest/reference/cloudformation/describe-stack-refactor.md "../../../cli/latest/reference/cloudformation/describe-stack-refactor.md") command to monitor the execution
+5. Use the [describe-stack-refactor](../../../cli/latest/reference/cloudformation/describe-stack-refactor.md "../../../cli/latest/reference/cloudformation/describe-stack-refactor.md") command to monitor the execution
    status.
 
 ```

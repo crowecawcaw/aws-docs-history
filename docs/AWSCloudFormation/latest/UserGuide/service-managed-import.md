@@ -1,4 +1,4 @@
-# Service-managed stack import for AWS CloudFormation StackSets
+# Service-managed stack import for CloudFormation StackSets
 
 The CloudFormation stack import operation can import existing stacks into new or existing StackSets,
 so that you can migrate existing stacks to a StackSet in one operation. StackSets extends the
@@ -38,7 +38,7 @@ Import a stack into a new StackSet using the AWS Management Console
 To import a new stack into a StackSet, identify a stack that contains the resource you
 want to import.
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. From the navigation pane, choose **StackSets**.
 3. At the top of the **StackSets** page, choose **Create
@@ -86,7 +86,7 @@ resource you want to import.
 
 ###### To create a StackSet and import a stack
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. From the navigation pane, choose **StackSets**.
 3. At the top of the **StackSets** page, choose **Create
@@ -135,7 +135,7 @@ Choose your StackSet and identify the stack you want to import.
 
 a stack to an existing StackSet
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. From the navigation pane, choose **StackSets**.
 3. Choose the StackSet you want to import a stack to, and then choose **Add stacks

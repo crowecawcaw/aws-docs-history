@@ -1,15 +1,15 @@
-# AWS CloudFormation template snippets
+# CloudFormation template snippets
 
 ###### Topics
 
-- [Nested stacks](#w71aac11c39c23b5 "#w71aac11c39c23b5")
-- [Wait condition](#w71aac11c39c23b7 "#w71aac11c39c23b7")
+- [Nested stacks](#w2aac11c41c23b5 "#w2aac11c41c23b5")
+- [Wait condition](#w2aac11c41c23b7 "#w2aac11c41c23b7")
 
 ## Nested stacks
 
 ### Nesting a stack in a template
 
-This example template contains a nested stack resource called `myStack`. When AWS CloudFormation creates a stack from the template, it creates the `myStack`, whose template is specified in the `TemplateURL` property.
+This example template contains a nested stack resource called `myStack`. When CloudFormation creates a stack from the template, it creates the `myStack`, whose template is specified in the `TemplateURL` property.
 The output value `StackRef` returns the stack ID for `myStack` and the value `OutputFromNestedStack` returns the output value `BucketName` from within the `myStack` resource.
 The `Outputs.`nestedstackoutputname`` format is reserved for specifying output values from nested stacks and can be used anywhere within the containing template.
 
@@ -59,7 +59,7 @@ Outputs:
 
 template
 
-This example template contains a stack resource that specifies input parameters. When AWS CloudFormation creates a stack from this template, it uses the value pairs declared within the `Parameters` property as the input parameters for the template used to create the `myStackWithParams` stack. In this example, the `InstanceType` and `KeyName` parameters are specified.
+This example template contains a stack resource that specifies input parameters. When CloudFormation creates a stack from this template, it uses the value pairs declared within the `Parameters` property as the input parameters for the template used to create the `myStackWithParams` stack. In this example, the `InstanceType` and `KeyName` parameters are specified.
 
 For more information, see [AWS::CloudFormation::Stack](../TemplateReference/aws-resource-cloudformation-stack.md "../TemplateReference/aws-resource-cloudformation-stack.md").
 
@@ -105,7 +105,7 @@ instance
 
 ###### Important
 
-For Amazon EC2 and Auto Scaling resources, we recommend that you use a CreationPolicy attribute instead of wait conditions.
+For Amazon EC2 and Amazon EC2 Auto Scaling resources, we recommend that you use a CreationPolicy attribute instead of wait conditions.
 Add a CreationPolicy attribute to those resources, and use the cfn-signal helper script to signal when an instance creation process has completed successfully.
 
 If you can't use a creation policy, you view the following example template, which

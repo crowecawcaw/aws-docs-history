@@ -11,7 +11,7 @@ GitHub.
 
 - [Minimal sample using default values](#scenario-timestream-influxdb-example-1 "#scenario-timestream-influxdb-example-1")
 - [More complete example with parameters](#scenario-timestream-influxdb-example-2 "#scenario-timestream-influxdb-example-2")
-  These AWS CloudFormation templates create the following resources that are needed to successfully create, connect to, and
+  These CloudFormation templates create the following resources that are needed to successfully create, connect to, and
   monitor a Amazon Timestream for InfluxDB instance:
 
 ###### Amazon VPC

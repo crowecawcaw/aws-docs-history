@@ -1,4 +1,4 @@
-# Prerequisites for using AWS CloudFormation StackSets
+# Prerequisites for using CloudFormation StackSets
 
 StackSets extend the functionality of stacks, so you can create, update, or delete
 stacks across multiple accounts and Regions with a single operation.
@@ -20,7 +20,7 @@ _service-managed_ permissions.
 
 ###### Note
 
-Activating trusted access with AWS Organizations for AWS CloudFormation StackSets isn't currently supported in the
+Activating trusted access with AWS Organizations for CloudFormation StackSets isn't currently supported in the
 China Beijing and Ningxia Regions.
 
 ###### Topics
