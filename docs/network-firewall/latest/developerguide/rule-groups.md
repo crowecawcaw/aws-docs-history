@@ -7,7 +7,7 @@ firewalls, see [Firewall policies](firewall-policies.md "firewall-policies.md") 
 [Firewalls and firewall endpoints](firewalls.md "firewalls.md").
 
 You can use your own rule groups and you can use rule groups that are managed for you by AWS. For information on managed rule groups,
-see [Using AWS managed rule groups](nwfw-managed-rule-groups.md "nwfw-managed-rule-groups.md").
+see [Using managed rule groups](nwfw-managed-rule-groups.md "nwfw-managed-rule-groups.md").
 
 Network Firewall rule groups are either _stateless_ or
 _stateful_. These rule groups determine how packets are evaluated in your network traffic inspection.

@@ -1,4 +1,4 @@
-# AWS managed rule groups in AWS Network Firewall
+# Managed rule groups in AWS Network Firewall
 
 Managed rule groups are collections of predefined, ready-to-use rules that AWS
 writes and maintains for you. Most AWS managed rule groups are available for at no additional to Network Firewall customers.
@@ -22,6 +22,7 @@ and how you can configure them to meet your security needs.
 - [AWS active threat defense for AWS Network Firewall](aws-managed-rule-groups-atd.md "aws-managed-rule-groups-atd.md")
 - [AWS domain and IP managed rule groups for AWS Network Firewall](aws-managed-rule-groups-domain-list.md "aws-managed-rule-groups-domain-list.md")
 - [AWS threat signature managed rule groups for AWS Network Firewall](aws-managed-rule-groups-threat-signature.md "aws-managed-rule-groups-threat-signature.md")
+- [Using AWS Marketplace rule groups](aws-marketplace-rule-groups.md "aws-marketplace-rule-groups.md")
 - [Working with AWS managed rule groups in the Network Firewall console](nwfw-using-managed-rule-groups-console.md "nwfw-using-managed-rule-groups-console.md")
 - [Troubleshooting AWS managed rule groups in Network Firewall](nwfw-using-managed-rule-groups-mitigating-false-positive.md "nwfw-using-managed-rule-groups-mitigating-false-positive.md")
 - [Considerations and disclaimers for using AWS managed rule groups in Network Firewall](aws-managed-rule-groups-disclaimer.md "aws-managed-rule-groups-disclaimer.md")

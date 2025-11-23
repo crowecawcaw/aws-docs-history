@@ -4,7 +4,7 @@ AWS Network Firewall is a stateful, managed, network firewall and intrusion dete
 prevention service for your virtual private cloud (VPC) that you create in Amazon Virtual Private Cloud
 (Amazon VPC). With Network Firewall, you can filter traffic at the perimeter of your VPC. This includes
 filtering traffic going to and coming from an internet gateway, NAT gateway, or over VPN or
-AWS Direct Connect.
+Direct Connect.
 
 Network Firewall uses the open source intrusion prevention system (IPS), Suricata,
 for stateful inspection, and supports Suricata compatible rules.
@@ -170,7 +170,7 @@ https://network-firewall.`<region>`.amazonaws.com
 - **AWS CloudFormation** – Helps you model and set up your
   Amazon Web Services resources so that you can spend less time managing those resources and
   more time focusing on your applications that run in AWS. You create a template
-  that describes all the AWS resources that you want and AWS CloudFormation takes care of
+  that describes all the AWS resources that you want and CloudFormation takes care of
   provisioning and configuring those resources for you. For more information, see
   [Network Firewall resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_NetworkFirewall.md "../../../AWSCloudFormation/latest/UserGuide/AWS_NetworkFirewall.md") in the _AWS CloudFormation
   User Guide_.

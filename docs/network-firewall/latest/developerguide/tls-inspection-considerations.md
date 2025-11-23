@@ -49,7 +49,7 @@ visibility of those rules because the decrypted traffic is visible to the inspec
 engine. You can also create custom rules based on inner protocols, which are
 available for inspection. For example, you can match with an HTTP header within the
 decrypted HTTPS stream. For more information about using managed rules with Network Firewall,
-see [AWS managed rule groups in AWS Network Firewall](nwfw-managed-rule-groups.md "nwfw-managed-rule-groups.md").
+see [Managed rule groups in AWS Network Firewall](nwfw-managed-rule-groups.md "nwfw-managed-rule-groups.md").
 
 ###### Stateful rules
 

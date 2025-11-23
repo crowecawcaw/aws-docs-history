@@ -6,7 +6,7 @@ AWS Network Firewall is a stateful, managed, network firewall and intrusion dete
 prevention service for your virtual private cloud (VPC) that you create in Amazon Virtual Private Cloud
 (Amazon VPC). With Network Firewall, you can filter traffic at the perimeter of your VPC. This includes
 filtering traffic going to and coming from an internet gateway, NAT gateway, or over VPN or
-AWS Direct Connect. Network Firewall uses the open source intrusion prevention system (IPS), Suricata,
+Direct Connect. Network Firewall uses the open source intrusion prevention system (IPS), Suricata,
 for stateful inspection. Network Firewall supports Suricata compatible rules.
 
 This section describes how to make requests to the Network Firewall API for creating and

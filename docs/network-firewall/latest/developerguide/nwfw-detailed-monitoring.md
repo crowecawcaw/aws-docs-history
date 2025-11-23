@@ -31,7 +31,7 @@ If your firewall sends logs to Amazon S3, ensure the following:
 You can enable firewall monitoring in any of the following ways:
 
 - During firewall creation, using the logging configuration widget in the **Configure advanced settings** workflow.
-  For more information, see .
+  For more information, see [Creating a firewall in AWS Network Firewall](creating-firewall.md "creating-firewall.md").
 - From the **Edit Logging Configuration** page of an existing firewall
   For more information, see [Updating a firewall in AWS Network Firewall](firewall-updating.md "firewall-updating.md").
 - Directly from the **Monitoring** tab in the firewall details page
