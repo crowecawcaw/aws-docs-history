@@ -14,7 +14,7 @@ resources related to setting up and using AWS Storage Gateway:
   new gateway.
 - [File attribute support](s3-dos-attribute-support.md "s3-dos-attribute-support.md") - Learn how your gateway
   handles DOS and Windows file attributes.
-- [Using AWS Direct Connect](using-dx.md "using-dx.md") - Learn how to create a
+- [Using Direct Connect](using-dx.md "using-dx.md") - Learn how to create a
   dedicated network connection between your on-premises gateway and the AWS
   cloud.
 - [Active Directory

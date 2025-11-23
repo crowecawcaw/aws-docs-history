@@ -172,7 +172,7 @@ VPC endpoint.
 
 ###### Note
 
-Use the [Amazon VPC console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/") to verify the
+Use the [Amazon VPC console](https://console.aws.amazon.com//vpc/ "https://console.aws.amazon.com//vpc/") to verify the
 security group that's attached to the VPC endpoint. View your Storage Gateway VPC
 endpoint from the console, and then choose the **Security
 Groups** tab.
@@ -317,7 +317,7 @@ gateways from that VPC to the public endpoint.
 
 ###### To disable the private DNS name option:
 
-1. Open the [Amazon VPC console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+1. Open the [Amazon VPC console](https://console.aws.amazon.com//vpc/ "https://console.aws.amazon.com//vpc/").
 2. In the navigation pane, choose **Endpoints**.
 3. Choose your Storage Gateway VPC endpoint.
 4. Choose **Actions**.

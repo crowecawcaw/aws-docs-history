@@ -40,6 +40,13 @@ created or deleted.
   strategy
 - **Force case sensitivity** - choose whether the client or the
   gateway controls case sensitivity for file and directory names
+
+###### Note
+
+If the file share currently has Force case sensitivity activated, deactivating
+it may make files with identical names but different cases (e.g., file.txt, File.txt)
+inaccessible. Only one version will remain accessible to case-insensitive clients.
+
 - **Access based enumeration for files and directories** -
   choose whether to make the files and folders on the share visible to all users
   during directory enumeration, or only to users who have read access
