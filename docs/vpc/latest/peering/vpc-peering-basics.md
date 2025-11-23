@@ -95,7 +95,7 @@ are not peered, and you cannot use VPC A as a transit point for peering between 
 and VPC C. If you want to enable routing of traffic between VPC B and VPC C, you must
 create a unique VPC peering connection between them.
 
-![One VPC peered with two VPCs](/images/vpc/latest/peering/images/one-vpc-peered-to-two.png)
+![One VPC peered with two VPCs](images/one-vpc-peered-to-two.png)
 
 ## VPC peering limitations
 
@@ -150,8 +150,8 @@ gateway scenarios](../tgw/how-transit-gateways-work.md#TGW_Scenarios "../tgw/how
   internet.
 - If VPC A has a VPN connection to a corporate network, resources in VPC B can't
   use the VPN connection to communicate with the corporate network.
-- If VPC A has an AWS Direct Connect connection to a corporate network, resources in VPC B
-  can't use the AWS Direct Connect connection to communicate with the corporate
+- If VPC A has an Direct Connect connection to a corporate network, resources in VPC B
+  can't use the Direct Connect connection to communicate with the corporate
   network.
 - If VPC A has a gateway endpoint that provides connectivity to Amazon S3 to private
   subnets in VPC A, resources in VPC B can't use the gateway endpoint to access
