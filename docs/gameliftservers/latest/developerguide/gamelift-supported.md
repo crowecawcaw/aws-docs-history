@@ -182,24 +182,24 @@ resources:
 
 Use the following tools to create, update, and monitor your Amazon GameLift Servers managed hosting resources.
 
-- AWS Management Console – The AWS Console is a web-based application
+- [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/") – The AWS Console is a web-based application
   that provides centralized access to all individual AWS service consoles,
   including Amazon GameLift Servers. Use the Console to create or sign into an AWS account and
   open the Amazon GameLift Servers console to work with your game hosting resources. You can
   configure and deploy hosting fleets and other resources, view usage and
   performance metrics, track resources in the dashboard, and many other tasks.
-  [Go to the Amazon GameLift Servers console.](https://console.aws.amazon.com/gamelift "https://console.aws.amazon.com/gamelift")
+  [Go to the Amazon GameLift Servers console.](https://console.aws.amazon.com//gamelift "https://console.aws.amazon.com//gamelift")
 - [Service API for
   Amazon GameLift Servers](../apireference/Welcome.md "../apireference/Welcome.md") – This API gives you programmatic access to all of
   your Amazon GameLift Servers resources. It is part of the AWS SDK, which you can download for
-  use with most popular programming languages. [Get the AWS SDK.](https://aws.amazon.com/developer "https://aws.amazon.com/developer")
+  use with most popular programming languages. [Get the AWS SDK.](https://aws.amazon.com//developer "https://aws.amazon.com//developer")
 - [AWS command line interface (CLI)](../../../cli.md "../../../cli.md") – The
   AWS CLI lets you interact with AWS services using a command-line shell. The
   tools provides direct access to the public APIs for AWS services as well as
   customized commands that are available for a service. [Get the AWS CLI.](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
 - [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") for
-  Amazon GameLift Servers – The AWS CloudFormation service helps you model and set up AWS resources to
-  streamline infrastructure deployment and management. Create an AWS CloudFormation template to
+  Amazon GameLift Servers – The CloudFormation service helps you model and set up AWS resources to
+  streamline infrastructure deployment and management. Create an CloudFormation template to
   describe the Amazon GameLift Servers resources for your hosting solution, and then use the
   template to build additional resources or update configurations. View the [Amazon GameLift Servers resource
   type reference.](../../../AWSCloudFormation/latest/UserGuide/AWS_GameLift.md "../../../AWSCloudFormation/latest/UserGuide/AWS_GameLift.md")

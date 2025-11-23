@@ -84,7 +84,7 @@ structure contains the following fields:
 - `FlushIntervalMs` - The interval in milliseconds for flushing metrics data.
 - `MaxPacketSize` - The maximum size of metrics packets in bytes.
 
-For more information about the MetricsParameters structure, see [Server SDK 5.x for C# data types](../../../https:/docs.aws.amazon.com/gameliftservers/latest/developerguide/integration-server-sdk5-csharp-datatypes.md "../../../https:/docs.aws.amazon.com/gameliftservers/latest/developerguide/integration-server-sdk5-csharp-datatypes.md").
+For more information about the MetricsParameters structure, see [Server SDK 5.x for C# data types](integration-server-sdk5-csharp-datatypes.md "integration-server-sdk5-csharp-datatypes.md").
 
 ### Return value
 

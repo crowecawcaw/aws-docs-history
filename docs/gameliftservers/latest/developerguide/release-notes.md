@@ -978,7 +978,7 @@ security. This operating system is available in all AWS Regions with the
 exception of the China Regions.
 
 Customers can use the newer Linux operating systems and continue to receive
-critical security updates when support ends for Amazon Linux (AL1) in December 2023. Support for Amazon Linux 2 continues through June 30, 2025.
+critical security updates when support ends for Amazon Linux (AL1) in December 2023. Support for Amazon Linux 2 continues through June 30, 2026.
 
 ###### Learn more:
 
@@ -1230,7 +1230,7 @@ compared to the equivalent Intel-based compute options.
   processor](https://aws.amazon.com/ec2/graviton/ "https://aws.amazon.com/ec2/graviton/")
   The Amazon GameLift Servers plugin for Unity version 1.0.0 contains libraries and native UI that makes it easier to
   access Amazon GameLift Servers resources and integrate Amazon GameLift Servers into your Unity game. You can use the
-  Amazon GameLift Servers plugin for Unity to access Amazon GameLift Servers APIs and deploy AWS CloudFormation templates for common gaming
+  Amazon GameLift Servers plugin for Unity to access Amazon GameLift Servers APIs and deploy CloudFormation templates for common gaming
   scenarios. The plugin also includes a sample game that works with the sample
   scenarios. You can use Amazon GameLift Servers Local to see messages passed between the game
   client and the game server to learn how a typical game interacts with
@@ -1344,7 +1344,7 @@ as needed. All fleets that were created before this release are single-location
 fleets. Using multi-location fleets does not affect your hosting costs. Amazon GameLift Servers
 pricing is based on the type, location, and volume of instances that you use.
 (For more information, see [Amazon GameLift Servers
-pricing](https://aws.amazon.com/gamelift/servers/pricing/ "https://aws.amazon.com/gamelift/servers/pricing/").) AWS CloudFormation support for multi-location fleets will be available
+pricing](https://aws.amazon.com/gamelift/servers/pricing/ "https://aws.amazon.com/gamelift/servers/pricing/").) CloudFormation support for multi-location fleets will be available
 soon.
 
 ###### Note
@@ -1662,12 +1662,12 @@ resources, use the Amazon GameLift Servers API actions `TagResource()`,
   Reference_
   **Updated SDK versions:** AWS SDK [1.7.210](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.210 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.210")
 
-AWS CloudFormation templates for Amazon GameLift Servers
+CloudFormation templates for Amazon GameLift Servers
 
-Amazon GameLift Servers resources can now be created and managed through AWS CloudFormation. The existing
-AWS CloudFormation build and fleet templates have been updated to align with the current
+Amazon GameLift Servers resources can now be created and managed through CloudFormation. The existing
+CloudFormation build and fleet templates have been updated to align with the current
 resources, and new templates are now available for scripts, queues, matchmaking
-configurations, and matchmaking rule sets. AWS CloudFormation templates greatly simplify the
+configurations, and matchmaking rule sets. CloudFormation templates greatly simplify the
 task of managing groups of related AWS resources, particularly when deploying
 games across multiple Regions.
 
@@ -1675,4 +1675,4 @@ games across multiple Regions.
 
 - [Amazon GameLift Servers resource type
   reference](../../../AWSCloudFormation/latest/UserGuide/AWS_GameLift.md "../../../AWSCloudFormation/latest/UserGuide/AWS_GameLift.md") in the _AWS CloudFormation User Guide_
-- [Manage Amazon GameLift Servers hosting resources using AWS CloudFormation](resources-cloudformation.md "resources-cloudformation.md") in the _Amazon GameLift Servers Developer Guide_
+- [Manage Amazon GameLift Servers hosting resources using CloudFormation](resources-cloudformation.md "resources-cloudformation.md") in the _Amazon GameLift Servers Developer Guide_

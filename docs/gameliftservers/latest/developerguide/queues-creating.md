@@ -80,7 +80,7 @@ choose **Queues**.
    section. Event notifications are required for queues that process a high
    volume of placement requests. For queues that process low volumes, such
    as for development or testing purposes, you can track the status of
-   placement requests by polling with[DescribeGameSessionPlacement](../../../https:/docs.aws.amazon.com/gameliftservers/latest/apireference/API_DescribeGameSessionPlacement.md "../../../https:/docs.aws.amazon.com/gameliftservers/latest/apireference/API_DescribeGameSessionPlacement.md"). For more details, see [Set up event notification for game session
+   placement requests by polling with[DescribeGameSessionPlacement](../apireference/API_DescribeGameSessionPlacement.md "../apireference/API_DescribeGameSessionPlacement.md"). For more details, see [Set up event notification for game session
    placement](queue-notification.md "queue-notification.md").
    You can update a queue's event notification settings at any time.
 8. Choose **Create** to generate a new queue with

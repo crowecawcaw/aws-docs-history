@@ -1,40 +1,40 @@
-# Manage Amazon GameLift Servers hosting resources using AWS CloudFormation
+# Manage Amazon GameLift Servers hosting resources using CloudFormation
 
-You can use AWS CloudFormation to manage your Amazon GameLift Servers resources. In AWS CloudFormation, you create a template that
+You can use CloudFormation to manage your Amazon GameLift Servers resources. In CloudFormation, you create a template that
 models each resource and then use the template to create your resources. To update
-resources, you make the changes to your template and use AWS CloudFormation to implement the updates. You
+resources, you make the changes to your template and use CloudFormation to implement the updates. You
 can organize your resources into logical groups, called stacks and stack sets.
 
-Using AWS CloudFormation to maintain your Amazon GameLift Servers hosting resources offers a more efficient way to manage
+Using CloudFormation to maintain your Amazon GameLift Servers hosting resources offers a more efficient way to manage
 sets of AWS resources. You can use version control to track template changes over time and
 coordinate updates made by multiple team members. You can also reuse templates. For example,
 when deploying a game across multiple Regions, you might use the same template to create
 identical resources in each Region. You can also use these templates to deploy the same sets
 of resources in another partition.
 
-For more information about AWS CloudFormation, see the [AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md"). To view template information for
+For more information about CloudFormation, see the [AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md"). To view template information for
 Amazon GameLift Servers resources, see the [Amazon GameLift Servers resource
 type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_GameLift.md "../../../AWSCloudFormation/latest/UserGuide/AWS_GameLift.md").
 
 ## Best practices
 
-For detailed guidance on using AWS CloudFormation, see the [AWS CloudFormation best practices](../../../AWSCloudFormation/latest/UserGuide/best-practices.md "../../../AWSCloudFormation/latest/UserGuide/best-practices.md") in the
+For detailed guidance on using CloudFormation, see the [CloudFormation best practices](../../../AWSCloudFormation/latest/UserGuide/best-practices.md "../../../AWSCloudFormation/latest/UserGuide/best-practices.md") in the
 _AWS CloudFormation User Guide_. In addition, these best
 practices have special relevance with Amazon GameLift Servers.
 
 - **Consistently manage your resources through
-  AWS CloudFormation.** If you change your resources outside of AWS CloudFormation your
+  CloudFormation.** If you change your resources outside of CloudFormation your
   resources will get out of sync with your resource templates.
-- **Use AWS CloudFormation stacks and stack sets to efficiently manage
+- **Use CloudFormation stacks and stack sets to efficiently manage
   multiple resources.**
   - Use stacks to manage groups of connected resources. For example, a
     stack that contains a build, a fleet that references the build, and an
     alias that references the fleet. If you update your template to replace
-    a build, AWS CloudFormation replaces the fleets connected to the build. AWS CloudFormation then
+    a build, CloudFormation replaces the fleets connected to the build. CloudFormation then
     updates the existing aliases to point to the new fleets. For more
     information, see [Working with
     stacks](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md") in the _AWS CloudFormation User Guide_.
-  - Use AWS CloudFormation stack sets if you're deploying identical stacks across
+  - Use CloudFormation stack sets if you're deploying identical stacks across
     multiple regions or AWS accounts. For more information, see [Working with stack
     sets](../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md "../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md") in the _AWS CloudFormation User Guide_.
 
@@ -55,9 +55,9 @@ practices have special relevance with Amazon GameLift Servers.
 - **Create a separate alias for each fleet in the
   stack.**
 
-## Using AWS CloudFormation stacks
+## Using CloudFormation stacks
 
-We recommend the following structures to use when setting up AWS CloudFormation stacks for Amazon GameLift Servers
+We recommend the following structures to use when setting up CloudFormation stacks for Amazon GameLift Servers
 resources. Your optimal stack structure varies depending on if you are deploying your
 game in one location or multiple locations.
 
@@ -78,7 +78,7 @@ structure:
   Amazon Redshift clusters, and Lambda functions.
 - **Amazon GameLift Servers stack** – This stack contains
   all of your Amazon GameLift Servers resources, including the build or script, a set of fleets,
-  aliases, and game session queue. AWS CloudFormation creates a build or script resource
+  aliases, and game session queue. CloudFormation creates a build or script resource
   with files stored in the S3 bucket location and deploys the build or script
   to one or more fleet resources. Each fleet should have a corresponding
   alias. The game session queue references some or all of the fleet aliases.
@@ -88,7 +88,7 @@ structure:
 The diagram below illustrates a two-stack structure for deploying resources in a
 single AWS Region.
 
-![Diagram with 2 AWS CloudFormation stacks for Amazon GameLift Servers resources and supporting AWS services.](images/resources-cf_single_vsd.png)
+![Diagram with 2 CloudFormation stacks for Amazon GameLift Servers resources and supporting AWS services.](images/resources-cf_single_vsd.png)
 
 ### Stacks for
 
@@ -113,7 +113,7 @@ following structure.
 - **Regional Amazon GameLift Servers stacks** –This stack
   contains the Amazon GameLift Servers resources that must exist in each region where your game
   is being deployed, including the build or script, a set of fleets, and
-  aliases. AWS CloudFormation creates a build or script resource with files in an S3 bucket
+  aliases. CloudFormation creates a build or script resource with files in an S3 bucket
   location, and deploys the build or script to one or more fleet resources.
   Each fleet should have a corresponding alias. The game session queue
   references some or all of the fleet aliases. You can maintain one template
@@ -130,9 +130,9 @@ The diagrams below illustrates a multistack structure for deploying resources in
 several AWS Regions. The first diagram shows a structure for a single game session
 queue. The second diagram shows a structure with multiple queues.
 
-![Diagram with AWS CloudFormation resource stacks containing region-specific and global resources.](images/resources-cf_multi_vsd.png)
+![Diagram with CloudFormation resource stacks containing region-specific and global resources.](images/resources-cf_multi_vsd.png)
 
-![Diagram shows how regional AWS CloudFormation stacks can share global resources such as queues.](images/resources-cf_multiqueue_vsd.png)
+![Diagram shows how regional CloudFormation stacks can share global resources such as queues.](images/resources-cf_multiqueue_vsd.png)
 
 ## Updating builds
 
@@ -152,10 +152,10 @@ behaviors of stack resources](../../../AWSCloudFormation/latest/UserGuide/using-
 automatically
 
 When updating a stack containing related build, fleet and alias resources, the
-default AWS CloudFormation behavior is to automatically perform these steps in sequence. You
+default CloudFormation behavior is to automatically perform these steps in sequence. You
 trigger this update by first uploading the new build files to a new S3 location.
-Then you modify your AWS CloudFormation build template to point to the new S3 location. When you
-update your stack with the new S3 location, this triggers the following AWS CloudFormation
+Then you modify your CloudFormation build template to point to the new S3 location. When you
+update your stack with the new S3 location, this triggers the following CloudFormation
 sequence:
 
 1. Retrieves the new files from S3, validates the files, and creates a new
@@ -174,7 +174,7 @@ adding and removing instances from each set of fleets as player traffic fluctuat
 Alternatively, you can specify an initial desired instance count to quickly ramp up
 for the switch and enable auto scaling later.
 
-You can also have AWS CloudFormation retain resources instead of deleting them. For more
+You can also have CloudFormation retain resources instead of deleting them. For more
 information, see [RetainResources](../../../AWSCloudFormation/latest/APIReference/API_DeleteStack.md "../../../AWSCloudFormation/latest/APIReference/API_DeleteStack.md") in the _AWS CloudFormation API Reference_.
 
 ### Deploy build updates
@@ -185,7 +185,7 @@ If you want to have more control over when new fleets go live for players, you
 have some options. You can choose to manage aliases manually using the Amazon GameLift Servers console
 or the CLI. Alternatively, instead of updating your build template to replace the
 build and fleets, you can add a second set of build and fleet definitions to your
-template. When you update the template, AWS CloudFormation creates a second build resource and
+template. When you update the template, CloudFormation creates a second build resource and
 corresponding fleets. Since the existing resources are not replaced, they are not
 deleted, and the aliases remain pointing at original fleets.
 
@@ -197,13 +197,13 @@ time.
 
 The following diagram illustrates this process.
 
-![Diagram shows how to you can use AWS CloudFormation stacks to update game server builds.](images/resources-cf_updating_vsd.png)
+![Diagram shows how to you can use CloudFormation stacks to update game server builds.](images/resources-cf_updating_vsd.png)
 
 ### How rollbacks
 
 work
 
-When executing a resource update, if any step is not completed successfully, AWS CloudFormation
+When executing a resource update, if any step is not completed successfully, CloudFormation
 automatically initiates a rollback. This process reverses each step in sequence,
 deleting the newly created resources.
 

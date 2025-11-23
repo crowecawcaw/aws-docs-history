@@ -128,7 +128,7 @@ to **Configured**.
 This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0,
 which uses server SDK 4.x or earlier.
 
-A scenario uses an AWS CloudFormation template to create the resources you need to deploy a cloud
+A scenario uses an CloudFormation template to create the resources you need to deploy a cloud
 hosting solution for your game. This section describes the scenarios Amazon GameLift Servers provides and
 how to use them.
 
@@ -141,7 +141,7 @@ Each scenario requires permissions to the following resources:
 
 - Amazon GameLift Servers
 - Amazon S3
-- AWS CloudFormation
+- CloudFormation
 - API Gateway
 - AWS Lambda
 - AWS WAFV2
@@ -214,7 +214,7 @@ resources:
 - A separate Lambda function to listen to FlexMatch match events.
 
 To avoid unnecessary charges on your AWS account, remove the resources created by
-each scenario after you are done using them. Delete the corresponding AWS CloudFormation stack.
+each scenario after you are done using them. Delete the corresponding CloudFormation stack.
 
 ### Update AWS
 
@@ -286,7 +286,7 @@ For more information about Amazon S3 buckets, see [Creating, configuring, and wo
 This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0,
 which uses server SDK 4.x or earlier.
 
-You can use a scenario to test your game with Amazon GameLift Servers. Each scenario uses a AWS CloudFormation
+You can use a scenario to test your game with Amazon GameLift Servers. Each scenario uses a CloudFormation
 template to create a stack with the required resources. Most of the scenarios
 require a game server executable and build path. When you deploy the scenario, Amazon GameLift Servers
 copies game assets to the bootstrap location as part of deployment.
@@ -302,7 +302,7 @@ scenario.
    UI**.
 3. In the **Deployment** window, choose a scenario.
 4. Enter a **Game Name**. It must be unique. The game name
-   is part of the AWS CloudFormation stack name when you deploy the scenario.
+   is part of the CloudFormation stack name when you deploy the scenario.
 5. Choose the **Game Server Build Folder Path**. The build
    folder path points to the folder containing the server executable and
    dependencies.
@@ -335,17 +335,17 @@ scenario
 This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0,
 which uses server SDK 4.x or earlier.
 
-To delete the resources created for the scenario, delete the corresponding AWS CloudFormation
+To delete the resources created for the scenario, delete the corresponding CloudFormation
 stack.
 
 ###### To delete resources created by the scenario
 
 1. In the Amazon GameLift Servers plugin for Unity **Deployment** window, select
-   **View AWS CloudFormation Console** to open the AWS CloudFormation console.
-2. In the AWS CloudFormation console, choose **Stacks**, and then choose
+   **View AWS CloudFormation Console** to open the CloudFormation console.
+2. In the CloudFormation console, choose **Stacks**, and then choose
    the stack that includes the game name specified during deployment.
 3. Choose **Delete** to delete the stack. It may take a few
-   minutes to delete a stack. After AWS CloudFormation deletes the stack used by the
+   minutes to delete a stack. After CloudFormation deletes the stack used by the
    scenario, its status changes to `ROLLBACK_COMPLETE`.
 
 ## Integrate games with Amazon GameLift Servers in Unity

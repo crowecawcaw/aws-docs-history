@@ -24,7 +24,7 @@ The plugin is available for the following game engines:
 - Libraries for the Amazon GameLift Servers service API with client-side functionality.
 - Libraries for the Amazon GameLift Servers server SDK (version 5).
 - Sample assets for use with testing a server integration.
-- Editable configurations, in the form of AWS CloudFormation templates, that define your game
+- Editable configurations, in the form of CloudFormation templates, that define your game
   server solution.
 
 ###### Topics

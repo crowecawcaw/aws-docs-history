@@ -297,7 +297,7 @@ if you don't remove them.
 Delete the following resources:
 
 - Managed container resource stack. The resources in this stack depends on the deployment
-  scenario you selected. To delete the entire stack, use the AWS CloudFormation console.
+  scenario you selected. To delete the entire stack, use the CloudFormation console.
   Stacks that are generated from the Amazon GameLift Servers plugin use the following naming
   convention: `GameLiftPluginForUnreal-{GameName}-Containers`. Wait
   for the stack deletion process to complete before you initiate a new managed

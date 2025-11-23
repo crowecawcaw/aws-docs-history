@@ -49,7 +49,7 @@ _Examples_
 
 ```
 aws gamelift upload-build \
- --operating-system AMAZON\_LINUX\_2023 \
+    --operating-system AMAZON_LINUX_2023 \
  --server-sdk-version "5.0.0" \
     --build-root "~/mygame" \
     --name "My Game Nightly Build" \

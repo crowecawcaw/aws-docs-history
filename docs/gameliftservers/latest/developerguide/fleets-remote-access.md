@@ -135,8 +135,7 @@ aws gamelift describe-build /
 "Build": {
   "BuildId": "build-1111aaaa-22bb-33cc-44dd-5555eeee66ff",
   "Name": "My_Game_Server_Build_One",
- "OperatingSystem": "AMAZON\_LINUX\_2023",
-
+  "OperatingSystem": "AMAZON_LINUX_2023",
   "ServerSdkVersion": "5.1.1",
   . . .
 }

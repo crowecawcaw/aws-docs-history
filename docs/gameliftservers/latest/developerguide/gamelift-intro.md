@@ -122,5 +122,5 @@ service. For more information, see [Get Amazon GameLift Servers development tool
 
 Use AWS CloudFormation to model, provision, and manage AWS resources for your game hosting
 solution by treating infrastructue as code. Create templates that describe the
-resources, and AWS CloudFormation automates the tasks of configuring and deploying resources to the
+resources, and CloudFormation automates the tasks of configuring and deploying resources to the
 locations you specify.

@@ -195,13 +195,13 @@ fleet location, see [Geographic locations](gamelift-compute.md#gamelift-compute-
 - Set up standby fleets in other AWS Regions and modify queues and auto
   scaling to handle failovers if needed.
 - Set up hosting observability tools, including analytics and logging. See [Monitoring Amazon GameLift Servers](monitoring-overview.md "monitoring-overview.md").
-- Automate your deployment using [infrastructure as code (IaC)](../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md "../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md"). See [Manage Amazon GameLift Servers hosting resources using AWS CloudFormation](resources-cloudformation.md "resources-cloudformation.md").
+- Automate your deployment using [infrastructure as code (IaC)](../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md "../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md"). See [Manage Amazon GameLift Servers hosting resources using CloudFormation](resources-cloudformation.md "resources-cloudformation.md").
 
 Amazon GameLift Servers supports the use of AWS CloudFormation templates for any deployment-specific
 configurations. You can also use the AWS Cloud Development Kit (AWS CDK) to define your Amazon GameLift Servers
 resources. For more information about the AWS CDK, see the [AWS Cloud Development Kit (AWS CDK) Developer Guide](../../../cdk/v2/guide.md "../../../cdk/v2/guide.md").
 
-To manage the deployment of your AWS CloudFormation stacks, we recommend using
+To manage the deployment of your CloudFormation stacks, we recommend using
 continuous integration and continuous delivery (CI/CD) tools and services
 such as AWS CodePipeline. These tools help you deploy automatically or with
 approval whenever you build game server binary. With a CI/CD tool or
@@ -214,4 +214,4 @@ this:
     + Add the new fleets to your game session queue and remove the fleets with
      the previous build version.
     + When the fleets with the previous build are no longer hosting active game
-     sessions, delete the AWS CloudFormation stacks of those fleets.
+     sessions, delete the CloudFormation stacks of those fleets.

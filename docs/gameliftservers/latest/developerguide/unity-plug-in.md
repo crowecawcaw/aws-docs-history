@@ -38,7 +38,7 @@ The plugin includes these components:
 - C# libraries for the Amazon GameLift Servers server SDK (version 5.x).
 - Sample game content, including assets and scenes, so you can try out
   Amazon GameLift Servers even if you don't have a build-ready multiplayer game.
-- Solution configurations, provided as AWS CloudFormation templates, that the plugin uses
+- Solution configurations, provided as CloudFormation templates, that the plugin uses
   when deploying your game server to the cloud for hosting.
 
 This plugin uses AWS CloudFormation

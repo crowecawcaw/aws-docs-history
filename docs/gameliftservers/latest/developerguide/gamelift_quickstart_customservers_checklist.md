@@ -34,7 +34,7 @@ game ready
 - [Plan the rollout of fleets to your target
   locations](gamelift-regions.md "gamelift-regions.md"), considering your game's queue and fleet structure.
 - [Automate your deployment](resources-cloudformation.md "resources-cloudformation.md") using
-  infrastructure as code (IaC) with AWS CloudFormation and the AWS Cloud Development Kit (AWS CDK).
+  infrastructure as code (IaC) with CloudFormation and the AWS Cloud Development Kit (AWS CDK).
 - [Collect logs and analytics](monitoring-overview.md "monitoring-overview.md") using
   Amazon CloudWatch and Amazon Simple Storage Service (Amazon S3).
 

@@ -46,7 +46,7 @@ The plugin includes these components:
 - Content for testing, including a startup game map and two testing maps
   with basic blueprints and UI elements for use with testing a server
   integration.
-- Editable configurations, in the form of AWS CloudFormation templates, that the plugin
+- Editable configurations, in the form of CloudFormation templates, that the plugin
   uses when deploying your game server for hosting.
 
 This plugin uses AWS CloudFormation
@@ -72,7 +72,7 @@ and fine-tuning your solution as you prepare for game launch. Consider these opt
 - Set up automatic capacity scaling to meet expected player demand. See [Scaling game hosting capacity with Amazon GameLift Servers](fleets-manage-capacity.md "fleets-manage-capacity.md").
 - Set up hosting observability tools, including analytics and logging. See [Monitoring Amazon GameLift Servers](monitoring-overview.md "monitoring-overview.md").
 - Automate your deployment using [infrastructure as code (IaC)](../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md "../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md"). The plugin's guided workflows for managed solutions use AWS CloudFormation
-  templates. You can customize these as needed. See [Manage Amazon GameLift Servers hosting resources using AWS CloudFormation](resources-cloudformation.md "resources-cloudformation.md").
+  templates. You can customize these as needed. See [Manage Amazon GameLift Servers hosting resources using CloudFormation](resources-cloudformation.md "resources-cloudformation.md").
 
 ###### Topics
 
