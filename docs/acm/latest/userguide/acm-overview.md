@@ -28,7 +28,7 @@ stand-alone secure server on an Amazon EC2 instance, the following tutorial has 
 ACM supports IPv4 and IPv6 on public endpoints. Visit [AWS Regions and Endpoints](../../../general/latest/gr/rande.md#acm_region "../../../general/latest/gr/rande.md#acm_region") in the
 _AWS General Reference_ or the [AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/") to see the regional availability for ACM.
 
-Certificates in ACM are regional resources. To use a certificate with Elastic Load Balancing for the
+Certificates in ACM are regional resources. To use a certificate with ELB for the
 same fully qualified domain name (FQDN) or set of FQDNs in more than one AWS region,
 you must request or import a certificate for each region. For certificates provided by
 ACM, this means you must revalidate each domain name in the certificate for each

@@ -8,7 +8,7 @@ services are provided for both public and private ACM certificates.
 A certificate is eligible for automatic renewal subject to the following
 considerations:
 
-- ELIGIBLE if associated with another AWS service, such as Elastic Load Balancing or CloudFront.
+- ELIGIBLE if associated with another AWS service, such as ELB or CloudFront.
 - ELIGIBLE if exported since being issued or last renewed.
 - ELIGIBLE if it is a private certificate issued by calling the ACM [RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md") API
   _and_ then exported or associated with another

@@ -15,17 +15,17 @@ Install a LAMP web server with the Amazon Linux AMI](../../../AWSEC2/latest/User
 
 ACM certificates are supported by the following services:
 
-**Elastic Load Balancing**
+**ELB**
 
-Elastic Load Balancing automatically distributes your incoming application traffic across multiple
+ELB automatically distributes your incoming application traffic across multiple
 Amazon EC2 instances. It detects unhealthy instances and reroutes traffic to healthy
-instances until the unhealthy instances have been restored. Elastic Load Balancing automatically scales
+instances until the unhealthy instances have been restored. ELB automatically scales
 its request handling capacity in response to incoming traffic. For more information
 about load balancing, see the [Elastic Load Balancing User Guide](../../../elasticloadbalancing/latest/userguide.md "../../../elasticloadbalancing/latest/userguide.md").
 
 In general, to serve secure content over SSL/TLS, load balancers require that
 SSL/TLS certificates be installed on either the load balancer or the back-end Amazon EC2
-instance. ACM is integrated with Elastic Load Balancing to deploy ACM certificates on the load
+instance. ACM is integrated with ELB to deploy ACM certificates on the load
 balancer. For more information, see [Create an Application Load
 Balancer](../../../elasticloadbalancing/latest/application/create-application-load-balancer.md "../../../elasticloadbalancing/latest/application/create-application-load-balancer.md")
 
@@ -125,26 +125,26 @@ to a Nitro Enclave.
 
 **AWS CloudFormation**
 
-AWS CloudFormation helps you model and set up your Amazon Web Services resources. You create a template
-that describes the AWS resources that you want to use, such as Elastic Load Balancing or API Gateway. Then
-AWS CloudFormation takes care of provisioning and configuring those resources for you. You don't need
+CloudFormation helps you model and set up your Amazon Web Services resources. You create a template
+that describes the AWS resources that you want to use, such as ELB or API Gateway. Then
+CloudFormation takes care of provisioning and configuring those resources for you. You don't need
 to individually create and configure AWS resources and figure out what's dependent on
-what; AWS CloudFormation handles all of that. ACM certificates are included as a template resource,
-which means that AWS CloudFormation can request ACM certificates that you can use with AWS
+what; CloudFormation handles all of that. ACM certificates are included as a template resource,
+which means that CloudFormation can request ACM certificates that you can use with AWS
 services to enable secure connections. In addition, ACM certificates are included with
-many of the AWS resources that you can set up with AWS CloudFormation.
+many of the AWS resources that you can set up with CloudFormation.
 
-For general information about CloudFormation, see the [AWS CloudFormation
+For general information about CloudFormation, see the [CloudFormation
 User Guide](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md"). For information about ACM resources supported by CloudFormation, see
 [AWS::CertificateManager::Certificate](../../../AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.md").
 
-With the powerful automation provided by AWS CloudFormation, it is easy to exceed your [certificate quota](acm-limits.md "acm-limits.md"), especially with new AWS
+With the powerful automation provided by CloudFormation, it is easy to exceed your [certificate quota](acm-limits.md "acm-limits.md"), especially with new AWS
 accounts. We recommend that you follow the ACM [best
-practices](acm-bestpractices.md#best-practices-cloudformation "acm-bestpractices.md#best-practices-cloudformation") for AWS CloudFormation.
+practices](acm-bestpractices.md#best-practices-cloudformation "acm-bestpractices.md#best-practices-cloudformation") for CloudFormation.
 
 ###### Note
 
-If you create an ACM certificate with AWS CloudFormation, the AWS CloudFormation stack remains in the
+If you create an ACM certificate with CloudFormation, the CloudFormation stack remains in the
 **CREATE_IN_PROGRESS** state. Any further stack
 operations are delayed until you act upon the instructions in the certificate
 validation email. For more information, see [Resource Failed to Stabilize During a Create, Update, or Delete Stack

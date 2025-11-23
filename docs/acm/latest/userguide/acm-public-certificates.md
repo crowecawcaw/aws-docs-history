@@ -11,7 +11,7 @@ exportable public certificates.
 
 **Public certificates**
 
-Use ACM public certificates with integrated AWS services like Elastic Load Balancing,
+Use ACM public certificates with integrated AWS services like ELB,
 Amazon CloudFront, and Amazon API Gateway. For more information, see [Services integrated with ACM](acm-services.md "acm-services.md").
 
 ###### Note

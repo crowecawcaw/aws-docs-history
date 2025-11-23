@@ -58,7 +58,7 @@ The following are some ACM certificate limitations:
 
 You are subject to an additional charge for exportable public SSL/TLS certificates
 that you create with AWS Certificate Manager. For the latest ACM pricing information, see the [AWS Certificate Manager Service
-Pricing](https://aws.amazon.com/certificate-manager/pricing/ "https://aws.amazon.com/certificate-manager/pricing/") page on the AWS website.
+Pricing](https://aws.amazon.com//certificate-manager/pricing/ "https://aws.amazon.com//certificate-manager/pricing/") page on the AWS website.
 
 ## Best practices
 

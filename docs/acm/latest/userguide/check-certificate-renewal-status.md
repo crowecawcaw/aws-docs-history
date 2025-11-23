@@ -35,7 +35,7 @@ One or more domain names were not validated before the certificate
 expired, and ACM did not renew the certificate. You can [request a new certificate](gs-acm-request-public.md "gs-acm-request-public.md").
 
 A certificate is eligible for renewal if it is associated with another AWS service,
-such as Elastic Load Balancing or CloudFront, or if it has been exported since being issued or last
+such as ELB or CloudFront, or if it has been exported since being issued or last
 renewed.
 
 ###### Note

@@ -7,7 +7,7 @@ certificates that have been previously exported.
 ###### Important
 
 When you renew an ACM exportable public certificates, you're charged an additional fee. For the
-latest ACM pricing information, see the [AWS Certificate Manager Service Pricing](https://aws.amazon.com/certificate-manager/pricing/ "https://aws.amazon.com/certificate-manager/pricing/") page on
+latest ACM pricing information, see the [AWS Certificate Manager Service Pricing](https://aws.amazon.com//certificate-manager/pricing/ "https://aws.amazon.com//certificate-manager/pricing/") page on
 the AWS website.
 
 ## Renew a certificate (console)

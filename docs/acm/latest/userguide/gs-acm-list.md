@@ -22,7 +22,7 @@ console can list up to 500 certificates in a page, and the CLI up to 1000.
   **Revoked** | **Failed** |
   **Validation timed out**
 - **In use?** – Whether the ACM certificate is
-  actively associated with an AWS service such as Elastic Load Balancing or CloudFront. The value can
+  actively associated with an AWS service such as ELB or CloudFront. The value can
   be **No** or **Yes**.
 - **Renewal eligibility** – Whether the certificate can
   be renewed automatically by ACM when it approaches expiration. Possible values

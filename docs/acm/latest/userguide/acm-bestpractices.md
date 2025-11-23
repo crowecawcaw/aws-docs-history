@@ -58,11 +58,11 @@ JSON
 ## AWS CloudFormation
 
 With AWS CloudFormation you can create a template that describes the AWS resources that
-you want to use. AWS CloudFormation then provisions and configures those resources for you. AWS CloudFormation
+you want to use. CloudFormation then provisions and configures those resources for you. CloudFormation
 can provision resources that are supported by ACM such as Elastic Load Balancing, Amazon CloudFront, and
 Amazon API Gateway. For more information, see [Services integrated with ACM](acm-services.md "acm-services.md").
 
-If you use AWS CloudFormation to quickly create and delete multiple test environments, we
+If you use CloudFormation to quickly create and delete multiple test environments, we
 recommend that you do not create a separate ACM certificate for each environment.
 Doing so will quickly exhaust your certificate quota. For more information, see
 [Quotas](acm-limits.md "acm-limits.md"). Instead, create a
@@ -77,11 +77,11 @@ create instead a single wildcard certificate for
 
 If you're using Amazon CloudFront distributions, note that HTTP validation doesn't
 support wildcard certificates. When including wildcard certificates in your
-AWS CloudFormation templates for use with Amazon CloudFront, you must use either DNS validation or
+CloudFormation templates for use with Amazon CloudFront, you must use either DNS validation or
 email validation. We recommend DNS validation for automated renewal
 capabilities.
 
-Include the wildcard certificate in the template that AWS CloudFormation uses to create your
+Include the wildcard certificate in the template that CloudFormation uses to create your
 test environment.
 
 ## Custom Trust Stores
