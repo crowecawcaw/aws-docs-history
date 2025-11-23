@@ -9,7 +9,7 @@ launch a cluster.
 
 - [Schedulers](#emrcluster-schedulers "#emrcluster-schedulers")
 - [Amazon EMR Release Versions](#dp-emrcluster-release-versions "#dp-emrcluster-release-versions")
-- [Amazon EMR permissions](#w40aac52c17b9c11 "#w40aac52c17b9c11")
+- [Amazon EMR permissions](#w2aac52c17b9c11 "#w2aac52c17b9c11")
 - [Syntax](#emrcluster-syntax "#emrcluster-syntax")
 - [Examples](emrcluster-example.md "emrcluster-example.md")
 - [See Also](#emrcluster-seealso "#emrcluster-seealso")
