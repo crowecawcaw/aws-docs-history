@@ -73,7 +73,7 @@ In the **Status** column, the following are valid values:
   a user to a project](#projects-members-add "#projects-members-add")
 - [Canceling an invitation](#projects-members-cancel-invite "#projects-members-cancel-invite")
 - [Removing a user from your project](#projects-members-remove "#projects-members-remove")
-- [Accepting or declining an invitation for a project](#w5aac27c19c15c25 "#w5aac27c19c15c25")
+- [Accepting or declining an invitation for a project](#w2aac27c19c15c25 "#w2aac27c19c15c25")
 
 ## Inviting
 

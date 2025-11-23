@@ -6,7 +6,7 @@ function
 
 The following example workflow includes the **AWS Lambda invoke** action, along
 with a deploy action. The workflow sends out a Slack notification indicating that a deployment
-has started, and then deploys an application into AWS using an AWS CloudFormation template. The workflow
+has started, and then deploys an application into AWS using an CloudFormation template. The workflow
 consists of the following building blocks that run sequentially:
 
 - A **trigger** – This trigger starts the workflow run
@@ -18,11 +18,11 @@ consists of the following building blocks that run sequentially:
   AWS account and Region (`my-aws-account`, and `us-west-2`). On
   invocation, the Lambda function sends a Slack notification indicating a deployment has
   started.
-- A **Deploy AWS CloudFormation stack** action (`Deploy`) – On
-  completion of the **AWS Lambda invoke** action, the **Deploy AWS CloudFormation
+- A **Deploy CloudFormation stack** action (`Deploy`) – On
+  completion of the **AWS Lambda invoke** action, the **Deploy CloudFormation
   stack** action runs the template (`cfn-template.yml`) to deploy your
-  application stack. For more information about the **Deploy AWS CloudFormation stack**
-  action, see [Deploying an AWS CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md").
+  application stack. For more information about the **Deploy CloudFormation stack**
+  action, see [Deploying an CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md").
 
 ###### Note
 
@@ -35,11 +35,11 @@ In the YAML code that follows, you can omit the `Connections:` sections if
 you want. If you omit these sections, you must ensure that the role specified in the
 **Default IAM role** field in your environment includes the permissions
 and trust policies required by the **AWS Lambda invoke** and
-**Deploy AWS CloudFormation stack** actions. For more information about setting up an
+**Deploy CloudFormation stack** actions. For more information about setting up an
 environment with a default IAM role, see [Creating an environment](deploy-environments-creating-environment.md "deploy-environments-creating-environment.md"). For more information about the
 permissions and trust policies required by the **AWS Lambda invoke** and
-**Deploy AWS CloudFormation stack** actions, see the description of the
-`Role` property in the ['AWS Lambda invoke' action YAML](lam-invoke-action-ref.md "lam-invoke-action-ref.md") and ['Deploy AWS CloudFormation stack' action YAML](deploy-action-ref-cfn.md "deploy-action-ref-cfn.md").
+**Deploy CloudFormation stack** actions, see the description of the
+`Role` property in the ['AWS Lambda invoke' action YAML](lam-invoke-action-ref.md "lam-invoke-action-ref.md") and ['Deploy CloudFormation stack' action YAML](deploy-action-ref-cfn.md "deploy-action-ref-cfn.md").
 
 ```
 Name: codecatalyst-lamda-invoke-workflow

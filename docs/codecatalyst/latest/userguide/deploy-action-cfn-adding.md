@@ -1,13 +1,13 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Adding the 'Deploy AWS CloudFormation stack' action
+# Adding the 'Deploy CloudFormation stack' action
 
-Use the following instructions to add the **Deploy AWS CloudFormation stack** action
+Use the following instructions to add the **Deploy CloudFormation stack** action
 to your workflow.
 
 Visual
 
-###### To add the 'Deploy AWS CloudFormation stack' action using the visual editor
+###### To add the 'Deploy CloudFormation stack' action using the visual editor
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
@@ -20,13 +20,13 @@ Visual
 7. At the top-left, choose **+ Actions** to open the action
    catalog.
 8. From the drop-down list, choose **Amazon CodeCatalyst**.
-9. Search for the **Deploy AWS CloudFormation stack** action, and do one of the
+9. Search for the **Deploy CloudFormation stack** action, and do one of the
    following:
    - Choose the plus sign (**+**) to add the action to the
      workflow diagram and open its configuration pane.
 
    Or
-   - Choose **Deploy AWS CloudFormation stack**. The action details dialog
+   - Choose **Deploy CloudFormation stack**. The action details dialog
      box appears. On this dialog box:
      - (Optional) Choose **Download** to [view the action's source
        code](workflows-view-source.md#workflows-view-source.title "workflows-view-source.md#workflows-view-source.title").
@@ -35,7 +35,7 @@ Visual
 
 10. In the **Inputs** and **Configuration** tabs,
     complete the fields according to your needs. For a description of each field, see
-    the ['Deploy AWS CloudFormation stack' action YAML](deploy-action-ref-cfn.md "deploy-action-ref-cfn.md").
+    the ['Deploy CloudFormation stack' action YAML](deploy-action-ref-cfn.md "deploy-action-ref-cfn.md").
     This reference provides detailed information about each field (and corresponding
     YAML property value) as it appears in both the YAML and visual editors.
 11. (Optional) Choose **Validate** to validate the workflow's YAML
@@ -45,7 +45,7 @@ Visual
 
 YAML
 
-###### To add the 'Deploy AWS CloudFormation stack' action using the YAML editor
+###### To add the 'Deploy CloudFormation stack' action using the YAML editor
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
@@ -58,13 +58,13 @@ YAML
 7. At the top-left, choose **+ Actions** to open the action
    catalog.
 8. From the drop-down list, choose **Amazon CodeCatalyst**.
-9. Search for the **Deploy AWS CloudFormation stack** action, and do one of the
+9. Search for the **Deploy CloudFormation stack** action, and do one of the
    following:
    - Choose the plus sign (**+**) to add the action to the
      workflow diagram and open its configuration pane.
 
    Or
-   - Choose **Deploy AWS CloudFormation stack**. The action details dialog
+   - Choose **Deploy CloudFormation stack**. The action details dialog
      box appears. On this dialog box:
      - (Optional) Choose **Download** to [view the action's source
        code](workflows-view-source.md#workflows-view-source.title "workflows-view-source.md#workflows-view-source.title").
@@ -72,7 +72,7 @@ YAML
        workflow diagram and open its configuration pane.
 
 10. Modify the properties in the YAML code according to your needs. An explanation
-    of each available property is provided in the ['Deploy AWS CloudFormation stack' action YAML](deploy-action-ref-cfn.md "deploy-action-ref-cfn.md").
+    of each available property is provided in the ['Deploy CloudFormation stack' action YAML](deploy-action-ref-cfn.md "deploy-action-ref-cfn.md").
 11. (Optional) Choose **Validate** to validate the workflow's YAML
     code before committing.
 12. Choose **Commit**, enter a commit message, and choose

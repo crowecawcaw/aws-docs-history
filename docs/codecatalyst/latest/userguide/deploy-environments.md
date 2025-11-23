@@ -70,7 +70,7 @@ deployment information displayed on the **Deployment activity** and
 The following workflow actions support having their deployment information
 displayed:
 
-- **Deploy AWS CloudFormation stack** – For more information, see [Deploying an AWS CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md")
+- **Deploy CloudFormation stack** – For more information, see [Deploying an CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md")
 - **Deploy to Amazon ECS** – For more information, see [Deploying to Amazon ECS with a workflow](deploy-action-ecs.md "deploy-action-ecs.md")
 - **Deploy to Kubernetes cluster** – For more information, see [Deploying to Amazon EKS with a
   workflow](deploy-action-eks.md "deploy-action-eks.md")

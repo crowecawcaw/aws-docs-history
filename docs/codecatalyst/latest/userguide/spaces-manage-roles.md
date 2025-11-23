@@ -34,7 +34,7 @@ You can add roles to your account connections by using one of the following meth
 ###### Topics
 
 - [CodeCatalystWorkflowDevelopmentRole-spaceName role](#spaces-manage-roles-createrole "#spaces-manage-roles-createrole")
-- [AWSRoleForCodeCatalystSupport role](#w5aac25c29c18c17 "#w5aac25c29c18c17")
+- [AWSRoleForCodeCatalystSupport role](#w2aac25c29c18c17 "#w2aac25c29c18c17")
 - [Creating an IAM role and using the CodeCatalyst
   trust policy](#ipa-connect-account-createrole "#ipa-connect-account-createrole")
 

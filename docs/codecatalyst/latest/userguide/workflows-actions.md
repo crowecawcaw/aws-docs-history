@@ -78,9 +78,9 @@ This action invokes an AWS Lambda function. For more information, see [Invoking 
 This action is a _CodeCatalyst_ action that allows you to run
 GitHub Actions within a CodeCatalyst workflow. For more information, see [Invoking a Lambda function using a workflow](lam-invoke-action.md "lam-invoke-action.md").
 
-- **Deploy AWS CloudFormation stack**
+- **Deploy CloudFormation stack**
 
-This action deploys AWS CloudFormation stacks. For more information, see [Deploying an AWS CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md").
+This action deploys CloudFormation stacks. For more information, see [Deploying an CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md").
 
 - **Deploy to Amazon ECS**
 

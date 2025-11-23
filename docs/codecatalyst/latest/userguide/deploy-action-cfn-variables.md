@@ -1,8 +1,8 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# 'Deploy AWS CloudFormation stack' variables
+# 'Deploy CloudFormation stack' variables
 
-The **Deploy AWS CloudFormation stack** action produces and sets the following
+The **Deploy CloudFormation stack** action produces and sets the following
 variables at run time. These are known as _predefined variables_.
 
 For information about referencing these variables in a workflow, see [Using predefined variables](workflows-using-predefined-variables.md "workflows-using-predefined-variables.md").

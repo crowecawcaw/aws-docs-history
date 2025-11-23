@@ -13,7 +13,7 @@ workflow again to see if the fixes worked.
 
 ###### Tip
 
-Consider using Super-Linter to lint YAML files, such as [AWS CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md").
+Consider using Super-Linter to lint YAML files, such as [CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md").
 
 ###### Topics
 

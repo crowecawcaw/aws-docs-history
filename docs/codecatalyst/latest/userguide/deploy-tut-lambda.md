@@ -8,7 +8,7 @@ CloudFormation stack using a workflow.
 The application in this tutorial is a simple web application that outputs a 'Hello World'
 message. It consists of an AWS Lambda function and an Amazon API Gateway, and you build it using the
 [AWS Serverless Application Model
-(AWS SAM)](../../../serverless-application-model/latest/developerguide/what-is-sam.md "../../../serverless-application-model/latest/developerguide/what-is-sam.md"), which is an extension of [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md").
+(AWS SAM)](../../../serverless-application-model/latest/developerguide/what-is-sam.md "../../../serverless-application-model/latest/developerguide/what-is-sam.md"), which is an extension of [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md").
 
 ###### Topics
 
@@ -81,8 +81,8 @@ You have now created a repository called
 
 In this step, you create the following AWS IAM roles:
 
-- **Deploy role** – Grants the CodeCatalyst **Deploy AWS CloudFormation stack** action permission to access your AWS account and
-  CloudFormation service where you’ll deploy your serverless application. The **Deploy AWS CloudFormation stack** action is part of your workflow.
+- **Deploy role** – Grants the CodeCatalyst **Deploy CloudFormation stack** action permission to access your AWS account and
+  CloudFormation service where you’ll deploy your serverless application. The **Deploy CloudFormation stack** action is part of your workflow.
 - **Build role** – Grants the CodeCatalyst build action permission to
   access your AWS account and write to Amazon S3 where your serverless application package will
   be stored. The build action is part of your workflow.
@@ -468,9 +468,9 @@ the repository.
 
 The `sam-template.yml` file contains the instructions for deploying
 the Lambda function and API Gateway and configuring them together. It follows the [AWS Serverless Application Model
-template specification](../../../serverless-application-model/latest/developerguide/sam-specification.md "../../../serverless-application-model/latest/developerguide/sam-specification.md"), which extends the AWS CloudFormation template specification.
+template specification](../../../serverless-application-model/latest/developerguide/sam-specification.md "../../../serverless-application-model/latest/developerguide/sam-specification.md"), which extends the CloudFormation template specification.
 
-You use an AWS SAM template in this tutorial instead of a regular AWS CloudFormation template because
+You use an AWS SAM template in this tutorial instead of a regular CloudFormation template because
 AWS SAM offers a helpful [AWS::Serverless::Function](../../../serverless-application-model/latest/developerguide/sam-resource-function.md "../../../serverless-application-model/latest/developerguide/sam-resource-function.md") resource type. This type performs much
 behind-the-scenes configuration that you normally have to write out to use the basic
 CloudFormation syntax. For example, the `AWS::Serverless::Function` creates a Lambda
@@ -478,7 +478,7 @@ function, Lambda execution role, and event source mappings that start the functi
 to code all of this if you want to write it using basic CloudFormation.
 
 Although this tutorial uses a pre-written template, you can generate one as part of your
-workflow using a build action. For more information, see [Deploying an AWS CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md").
+workflow using a build action. For more information, see [Deploying an CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md").
 
 ###### To add the sam-template.yml file
 
@@ -845,7 +845,7 @@ In the preceding code, replace:
     * Both instances of `us-west-2` with the Region where your
      Amazon S3 bucket resides (first instance) and where your stack will be deployed (second
      instance). These Regions can be different. This tutorial assumes that both Regions are
-     set to `us-west-2`. For details about Regions supported by Amazon S3 and AWS CloudFormation,
+     set to `us-west-2`. For details about Regions supported by Amazon S3 and CloudFormation,
      see [Service endpoints and quotas](../../../general/latest/gr/aws-service-information.md "../../../general/latest/gr/aws-service-information.md") in the
      *AWS General Reference*.
     * `codecatalyst-deploy-role` with the name of the deploy
@@ -865,7 +865,7 @@ In the preceding code, replace:
      the name or ARN of the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role. For more information about this role,
      see [Step 2: Create AWS roles](#deploy-tut-lambda-cfn-roles "#deploy-tut-lambda-cfn-roles").
 
-For information about the properties in the code shown previously, see the ['Deploy AWS CloudFormation stack' action YAML](deploy-action-ref-cfn.md "deploy-action-ref-cfn.md"). 8. (Optional) Choose **Validate** to make sure the YAML code is valid
+For information about the properties in the code shown previously, see the ['Deploy CloudFormation stack' action YAML](deploy-action-ref-cfn.md "deploy-action-ref-cfn.md"). 8. (Optional) Choose **Validate** to make sure the YAML code is valid
 before committing. 9. Choose **Commit**. 10. On the **Commit workflow** dialog box, enter the following:
 
     1. For **Workflow file name**, keep the default,
@@ -910,7 +910,7 @@ following:
      action, choose the deploy action, and then choose the **Summary**
      tab. Scroll to the **CloudFormation events** section to view the detailed
      error message. If a rollback occurred, delete the
-     `codecatalyst-cfn-stack` stack through the AWS CloudFormation console in AWS
+     `codecatalyst-cfn-stack` stack through the CloudFormation console in AWS
      before re-running the workflow.
 
 ###### To verify the deployment
@@ -1022,7 +1022,7 @@ them.
 ###### To clean up in the AWS Management Console
 
 1. Clean up in CloudFormation, as follows:
-   1. Open the AWS CloudFormation console at
+   1. Open the CloudFormation console at
       [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
    2. Delete the `codecatalyst-cfn-stack`.
 
@@ -1047,4 +1047,4 @@ them.
    7. Delete the `codecatalyst-stack-role`.
 
 In this tutorial, you learned how to deploy a serverless application as a CloudFormation stack
-using a CodeCatalyst workflow and a **Deploy AWS CloudFormation stack** action.
+using a CodeCatalyst workflow and a **Deploy CloudFormation stack** action.

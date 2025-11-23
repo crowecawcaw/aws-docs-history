@@ -72,7 +72,7 @@ resources. Projects use a tool called Projen to synthesize projects by syncing t
 updates and generating support files. These files may include `package.json`,
 `Makefile`, `eslint`, and more based on your application
 type and language. Project blueprints can generate files supporting AWS resources such as
-CDK constructs, AWS CloudFormation templates, and AWS Serverless Application Model templates.
+CDK constructs, CloudFormation templates, and AWS Serverless Application Model templates.
 
 For more information about project blueprints, see [Creating a comprehensive project with CodeCatalyst blueprints](project-blueprints.md "project-blueprints.md").
 

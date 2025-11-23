@@ -1,9 +1,9 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# 'Deploy AWS CloudFormation stack' action YAML
+# 'Deploy CloudFormation stack' action YAML
 
-The following is the YAML definition of the **Deploy AWS CloudFormation stack**
-action. To learn how to use this action, see [Deploying an AWS CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md").
+The following is the YAML definition of the **Deploy CloudFormation stack**
+action. To learn how to use this action, see [Deploying an CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md").
 
 This action definition exists as a section within a broader workflow definition file. For
 more information about this file, see [Workflow YAML definition](workflow-reference.md "workflow-reference.md").
@@ -244,8 +244,8 @@ Corresponding UI: One of the following depending on the action version:
 
 (Required if [Connections](#deploy.action.cfn.environment.connections "#deploy.action.cfn.environment.connections") is included)
 
-Specify the name of the IAM role that the **Deploy AWS CloudFormation stack** action
-uses to access AWS and the AWS CloudFormation service. Make sure that you have [added the role to your CodeCatalyst space](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md"), and that
+Specify the name of the IAM role that the **Deploy CloudFormation stack** action
+uses to access AWS and the CloudFormation service. Make sure that you have [added the role to your CodeCatalyst space](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md"), and that
 the role includes the following policies.
 
 If you do not specify an IAM role, then the action uses the default IAM role listed in
@@ -299,7 +299,7 @@ The `Inputs` section defines the data that the
 ###### Note
 
 A maximum of four inputs (one source and three artifacts) are allowed per
-**Deploy AWS CloudFormation stack** action.
+**Deploy CloudFormation stack** action.
 
 If you need to refer to files residing in different inputs (say a source and an
 artifact), the source input is the primary input, and the artifact is the secondary
@@ -361,7 +361,7 @@ Corresponding UI: **Configuration** tab
 
 (Required)
 
-Specify a name for the CloudFormation stack that the **Deploy AWS CloudFormation
+Specify a name for the CloudFormation stack that the **Deploy CloudFormation
 stack** action creates or updates.
 
 Corresponding UI: Configuration tab/**Stack name**
@@ -474,17 +474,17 @@ Corresponding UI: Configuration tab/**Stack role - optional**
 
 (Required)
 
-Specify a list of IAM capabilities that are required to allow AWS CloudFormation to create certain stacks. In
+Specify a list of IAM capabilities that are required to allow CloudFormation to create certain stacks. In
 most cases, you can leave `capabilities` with the default value of
 `CAPABILITY_IAM,CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND`.
 
 If you see `##[error] requires capabilities:
- [`capability-name`]` in your **Deploy AWS CloudFormation
+ [`capability-name`]` in your **Deploy CloudFormation
 stack** action's logs, see [How do I fix IAM capabilities
 errors?](troubleshooting-workflows.md#troubleshooting-workflows-capabilities "troubleshooting-workflows.md#troubleshooting-workflows-capabilities") for information about how to fix the
 problem.
 
-For more information about IAM capabilities, see [Acknowledging IAM resources in AWS CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md#using-iam-capabilities "../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md#using-iam-capabilities") in the
+For more information about IAM capabilities, see [Acknowledging IAM resources in CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md#using-iam-capabilities "../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md#using-iam-capabilities") in the
 _IAM User Guide_.
 
 Corresponding UI: Configuration tab/Advanced/**Capabilities**
@@ -495,7 +495,7 @@ Corresponding UI: Configuration tab/Advanced/**Capabilities**
 
 (Optional)
 
-Specify parameters in your AWS CloudFormation or AWS SAM template that don't have default values, or for
+Specify parameters in your CloudFormation or AWS SAM template that don't have default values, or for
 which you want to specify non-default values. For more information about parameters, see [Parameters](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md")
 in the _AWS CloudFormation User Guide_.
 
@@ -600,12 +600,12 @@ For more information about specifying CloudFormation parameters in a JSON file, 
 
 ``param-1`=`value-1`,`param-2`=`value-2``
 
-For example, assuming the following AWS CloudFormation template:
+For example, assuming the following CloudFormation template:
 
 ```
 ##My CloudFormation template
 
-Description: My AWS CloudFormation template
+Description: My CloudFormation template
 
 Parameters:
   InstanceType:
@@ -663,7 +663,7 @@ Specify whether you want CodeCatalyst to create the CloudFormation change set an
 running it. This gives you the opportunity to review the change set in the CloudFormation console. If
 you determine that the change set looks good, disable this option and then re-run the workflow so
 that CodeCatalyst can create and run the change set without stopping. The default is to create and run
-the change set without stopping. For more information, see the AWS CloudFormation [deploy](../../../cli/latest/reference/cloudformation/deploy/index.md "../../../cli/latest/reference/cloudformation/deploy/index.md") parameter in the
+the change set without stopping. For more information, see the CloudFormation [deploy](../../../cli/latest/reference/cloudformation/deploy/index.md "../../../cli/latest/reference/cloudformation/deploy/index.md") parameter in the
 _AWS CLI Command Reference_. For more information about viewing change sets, see [Viewing
 a change set](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets-view.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets-view.md") in the _AWS CloudFormation User Guide_.
 
@@ -676,13 +676,13 @@ set**
 
 (Optional)
 
-Specify whether you want CodeCatalyst to fail the **Deploy AWS CloudFormation stack**
+Specify whether you want CodeCatalyst to fail the **Deploy CloudFormation stack**
 action if the CloudFormation change set is empty. (If a change set is empty, it means there were no
 changes made to the stack during the latest deployment.) The default is to allow the action to
 proceed if the change set is empty, and to return an `UPDATE_COMPLETE` message even
 though the stack was not updated.
 
-For more information about this setting, see the AWS CloudFormation [deploy](../../../cli/latest/reference/cloudformation/deploy/index.md "../../../cli/latest/reference/cloudformation/deploy/index.md") parameter in the
+For more information about this setting, see the CloudFormation [deploy](../../../cli/latest/reference/cloudformation/deploy/index.md "../../../cli/latest/reference/cloudformation/deploy/index.md") parameter in the
 _AWS CLI Command Reference_. For more information about change sets, see [Updating
 stacks using change sets](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.md") in the _AWS CloudFormation User Guide_.
 
@@ -697,10 +697,10 @@ changeset**
 
 Specify whether you want CodeCatalyst to roll back the stack deployment if it fails. The rollback
 returns the stack to the last known stable state. The default is to enable rollbacks. For more
-information about this setting, see the AWS CloudFormation [deploy](../../../cli/latest/reference/cloudformation/deploy/index.md "../../../cli/latest/reference/cloudformation/deploy/index.md") parameter in the
+information about this setting, see the CloudFormation [deploy](../../../cli/latest/reference/cloudformation/deploy/index.md "../../../cli/latest/reference/cloudformation/deploy/index.md") parameter in the
 _AWS CLI Command Reference_.
 
-For more information about how the **Deploy AWS CloudFormation stack** action handles
+For more information about how the **Deploy CloudFormation stack** action handles
 rollbacks, see [Configuring rollbacks](deploy-consumption-enable-alarms.md "deploy-consumption-enable-alarms.md").
 
 For more information about rolling back a stack, see [Stack failure
@@ -715,7 +715,7 @@ rollback**
 
 (Optional)
 
-Specify whether you want the **Deploy AWS CloudFormation stack** to add termination
+Specify whether you want the **Deploy CloudFormation stack** to add termination
 protection to the stack that it is deploying. If a user attempts to delete a stack with termination protection
 enabled, the deletion fails and the stack, including its status, remains unchanged. The default is
 to disable termination protection. For more information, see [Protecting a
@@ -751,9 +751,9 @@ timeout**
 
 Specify the ARN of an Amazon SNS topic that you want CodeCatalyst to send notification messages to. For
 example, `arn:aws:sns:us-east-1:111222333:MyTopic`. When the **Deploy
-AWS CloudFormation stack** action runs, CodeCatalyst coordinates with CloudFormation to send one
-notification per AWS CloudFormation event that occurs during the stack creation or update process. (The events
-are visible in the AWS CloudFormation console's **Events** tab for the stack.) You can specify
+CloudFormation stack** action runs, CodeCatalyst coordinates with CloudFormation to send one
+notification per CloudFormation event that occurs during the stack creation or update process. (The events
+are visible in the CloudFormation console's **Events** tab for the stack.) You can specify
 up to five topics. For more information, see [What is Amazon SNS?](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md").
 
 Corresponding UI: Configuration tab/Advanced/**Notification
@@ -803,7 +803,7 @@ Specify tags to attach to your CloudFormation stack. Tags are arbitrary key-valu
 identify your stack for purposes such as cost allocation. For more information about what tags
 are and how they can be used, see [Tagging your
 resources](../../../index.md "../../../index.md") in the _Amazon EC2 User Guide_. For more information about
-tagging in CloudFormation, see [Setting AWS CloudFormation stack
+tagging in CloudFormation, see [Setting CloudFormation stack
 options](../../../AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.md") in the _AWS CloudFormation User Guide_.
 
 A key can have alphanumeric characters or spaces, and can have up to 127 characters. A value

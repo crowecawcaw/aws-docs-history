@@ -22,7 +22,7 @@ then it does not produce variables.
 
 - ['BranchName' and 'CommitId'
   variables](workflows-sources-variables.md "workflows-sources-variables.md")
-- ['Deploy AWS CloudFormation stack' variables](deploy-action-cfn-variables.md "deploy-action-cfn-variables.md")
+- ['Deploy CloudFormation stack' variables](deploy-action-cfn-variables.md "deploy-action-cfn-variables.md")
 - ['Deploy to Amazon ECS' variables](deploy-action-ecs-variables.md "deploy-action-ecs-variables.md")
 - ['Deploy to Kubernetes
   cluster' variables](deploy-action-eks-variables.md "deploy-action-eks-variables.md")

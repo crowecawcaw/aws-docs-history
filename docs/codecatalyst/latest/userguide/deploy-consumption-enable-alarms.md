@@ -2,8 +2,8 @@ Amazon CodeCatalyst is no longer open to new customers. Existing customers can c
 
 # Configuring rollbacks
 
-By default, if the **Deploy AWS CloudFormation stack** action fails, it will cause
-AWS CloudFormation to roll back the stack to the last known stable state. You can change the behavior so
+By default, if the **Deploy CloudFormation stack** action fails, it will cause
+CloudFormation to roll back the stack to the last known stable state. You can change the behavior so
 that rollbacks occur not only when the action fails, but also when a specified Amazon CloudWatch alarm
 occurs. For more information about CloudWatch alarms, see [Using
 Amazon CloudWatch alarms](../../../index.md "../../../index.md") in the _Amazon CloudWatch User Guide_.
@@ -22,14 +22,14 @@ Visual
 ###### Before you begin
 
 1. Make sure you have a [workflow](workflow.md "workflow.md") that includes a
-   functioning **Deploy AWS CloudFormation stack** action. For more information,
-   see [Deploying an AWS CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md").
+   functioning **Deploy CloudFormation stack** action. For more information,
+   see [Deploying an CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md").
 2. In the role specified in the **Stack role - optional** field of
-   the **Deploy AWS CloudFormation stack** action, make sure to include the
+   the **Deploy CloudFormation stack** action, make sure to include the
    **CloudWatchFullAccess** permission. For information about creating
    this role with the appropriate permissions, see [Step 2: Create AWS roles](deploy-tut-lambda.md#deploy-tut-lambda-cfn-roles "deploy-tut-lambda.md#deploy-tut-lambda-cfn-roles").
 
-###### To configure rollback alarms for the 'Deploy AWS CloudFormation stack' action
+###### To configure rollback alarms for the 'Deploy CloudFormation stack' action
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
@@ -39,7 +39,7 @@ Visual
    by workflow name or status.
 5. Choose **Edit**.
 6. Choose **Visual**.
-7. Choose your **Deploy AWS CloudFormation stack** action.
+7. Choose your **Deploy CloudFormation stack** action.
 8. In the details pane, choose **Configuration**.
 9. At the bottom, expand **Advanced**.
 10. Under **Monitor alarm ARNs**, choose **Add
@@ -67,52 +67,52 @@ Visual
 
 YAML
 
-###### To configure rollback triggers for the 'Deploy AWS CloudFormation stack' action
+###### To configure rollback triggers for the 'Deploy CloudFormation stack' action
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
 3. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
-4. Choose the name of a workflow that includes the **Deploy AWS CloudFormation
+4. Choose the name of a workflow that includes the **Deploy CloudFormation
    stack** action. You can filter by the source repository or branch name
    where the workflow is defined, or filter by workflow name or status.
 5. Choose **Edit**.
 6. Choose **YAML**.
 7. Add the `monitor-alarm-arns` and
    `monitor-timeout-in-minutes` properties in the YAML code to add
-   rollback triggers. For an explanation of each property, see ['Deploy AWS CloudFormation stack' action YAML](deploy-action-ref-cfn.md "deploy-action-ref-cfn.md").
+   rollback triggers. For an explanation of each property, see ['Deploy CloudFormation stack' action YAML](deploy-action-ref-cfn.md "deploy-action-ref-cfn.md").
 8. In the role specified in the `role-arn` property of the
-   **Deploy AWS CloudFormation stack** action, make sure to include the
+   **Deploy CloudFormation stack** action, make sure to include the
    **CloudWatchFullAccess** permission. For information about creating
    this role with the appropriate permissions, see [Step 2: Create AWS roles](deploy-tut-lambda.md#deploy-tut-lambda-cfn-roles "deploy-tut-lambda.md#deploy-tut-lambda-cfn-roles").
 
 Visual
 
-###### To turn off rollbacks for the 'Deploy AWS CloudFormation stack' action
+###### To turn off rollbacks for the 'Deploy CloudFormation stack' action
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
 3. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
-4. Choose the name of a workflow that includes the **Deploy AWS CloudFormation
+4. Choose the name of a workflow that includes the **Deploy CloudFormation
    stack** action. You can filter by the source repository or branch name
    where the workflow is defined, or filter by workflow name or status.
 5. Choose **Edit**.
 6. Choose **Visual**.
-7. Choose your **Deploy AWS CloudFormation stack** action.
+7. Choose your **Deploy CloudFormation stack** action.
 8. In the details pane, choose **Configuration**.
 9. At the bottom, expand **Advanced**.
 10. Turn on **Disable rollback**.
 
 YAML
 
-###### To turn off rollbacks for the 'Deploy AWS CloudFormation stack' action
+###### To turn off rollbacks for the 'Deploy CloudFormation stack' action
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
 3. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
-4. Choose the name of a workflow that includes the **Deploy AWS CloudFormation
+4. Choose the name of a workflow that includes the **Deploy CloudFormation
    stack** action. You can filter by the source repository or branch name
    where the workflow is defined, or filter by workflow name or status.
 5. Choose **Edit**.
 6. Choose **YAML**.
 7. Add the `disable-rollback: 1` property in the YAML code to stop
-   rollbacks. For an explanation of this property, see ['Deploy AWS CloudFormation stack' action YAML](deploy-action-ref-cfn.md "deploy-action-ref-cfn.md").
+   rollbacks. For an explanation of this property, see ['Deploy CloudFormation stack' action YAML](deploy-action-ref-cfn.md "deploy-action-ref-cfn.md").

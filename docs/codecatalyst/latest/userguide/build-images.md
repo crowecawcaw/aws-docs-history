@@ -166,7 +166,7 @@ the action starts.
 ###### Note
 
 The following actions do not support custom runtime environment Docker images:
-**Deploy AWS CloudFormation stack**, **Deploy to ECS**, and
+**Deploy CloudFormation stack**, **Deploy to ECS**, and
 **GitHub Actions**. custom runtime environment Docker images
 also do not support the **Lambda** compute type.
 

@@ -74,7 +74,7 @@ option creates a service role that contains the permissions policy and trust pol
 development role.
 
 The developer role is an AWS IAM role that enables your CodeCatalyst workflows to access
-AWS resources such as Amazon S3, Lambda, and AWS CloudFormation. The role will have a name `CodeCatalystWorkflowDevelopmentRole-`spaceName``
+AWS resources such as Amazon S3, Lambda, and CloudFormation. The role will have a name `CodeCatalystWorkflowDevelopmentRole-`spaceName``
 with a unique identifier appended. For more information about the role and role policy, see
 [Understanding the CodeCatalystWorkflowDevelopmentRole-spaceName service role](ipa-iam-roles.md#ipa-iam-roles-service-role "ipa-iam-roles.md#ipa-iam-roles-service-role"). 14. Choose **Create development role**. 15. On the connection page, under **IAM roles available to
 CodeCatalyst**, view the developer role in the list of IAM roles added to your

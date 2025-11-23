@@ -2,7 +2,7 @@ Amazon CodeCatalyst is no longer open to new customers. Existing customers can c
 
 # Removing a deployment target
 
-You can remove a deployment target such as an Amazon ECS cluster or AWS CloudFormation stack from the
+You can remove a deployment target such as an Amazon ECS cluster or CloudFormation stack from the
 **Deployment targets** page in the CodeCatalyst console.
 
 ###### Important

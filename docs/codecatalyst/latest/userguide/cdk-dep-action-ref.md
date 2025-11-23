@@ -266,7 +266,7 @@ Corresponding UI: Outputs tab/**Artifacts**
 
 (Required if [Artifacts - output](#cdk.dep.outputs.artifacts "#cdk.dep.outputs.artifacts") is included)
 
-Specify the name of the artifact that will contain the AWS CloudFormation template that is synthesized by
+Specify the name of the artifact that will contain the CloudFormation template that is synthesized by
 the **AWS CDK deploy** action at runtime. The default value is
 `cdk_artifact`. If you do not specify an artifact, then the action synthesizes the
 template but won't save it in an artifact. Consider saving the synthesized template in an artifact
@@ -282,7 +282,7 @@ artifact name**
 (Required if [Artifacts - output](#cdk.dep.outputs.artifacts "#cdk.dep.outputs.artifacts") is included)
 
 Specify the files to include in the artifact. You must specify
-`"cdk.out/**/*"` to include your AWS CDK app's synthesized AWS CloudFormation template.
+`"cdk.out/**/*"` to include your AWS CDK app's synthesized CloudFormation template.
 
 ###### Note
 
@@ -650,11 +650,11 @@ variables associated with your AWS CDK app. Once you know what all the CloudForm
 you can specify which ones you want to convert to workflow output variables using the
 `CfnOutputVariables` property.
 
-For more information about AWS CloudFormation output variables, see the documentation for the
+For more information about CloudFormation output variables, see the documentation for the
 `CfnOutput` construct, available at [class CfnOutput (construct)](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md") in the
 _AWS Cloud Development Kit (AWS CDK) API Reference_.
 
-Corresponding UI: Configuration tab/**AWS CloudFormation output variables**
+Corresponding UI: Configuration tab/**CloudFormation output variables**
 
 ## CloudAssemblyRootPath
 
@@ -664,7 +664,7 @@ Corresponding UI: Configuration tab/**AWS CloudFormation output variables**
 
 If you have already synthesized your AWS CDK app's stack into a cloud assembly (using the
 `cdk synth` operation), specify the root path of the cloud assembly directory
-(`cdk.out`). The AWS CloudFormation template located in the specified cloud assembly
+(`cdk.out`). The CloudFormation template located in the specified cloud assembly
 directory will be deployed by the **AWS CDK deploy** action into your
 AWS account using the `cdk deploy --app` command. When the `--app`
 option is present, the `cdk synth` operation does not occur.

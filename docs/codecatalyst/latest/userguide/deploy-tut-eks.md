@@ -1328,7 +1328,7 @@ storage and compute resources used by this tutorial.
          name of the cluster you created.
 
     After 5-10 minutes, the cluster and associated resources are deleted, including
-    but not limited to AWS CloudFormation stacks, nodes groups (in Amazon EC2), and load balancers.###### Important
+    but not limited to CloudFormation stacks, nodes groups (in Amazon EC2), and load balancers.###### Important
 
 If the `eksctl delete cluster` command doesn't work, you may need to
 refresh your AWS credentials or your `kubectl` credentials. If you're not

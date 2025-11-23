@@ -404,7 +404,7 @@ After your project is ready, you can add resources and tasks.
 - To work with build actions similar to those in your new project that deploy build
   artifacts to an Amazon S3 bucket, see [Building with workflows](build-workflow-actions.md "build-workflow-actions.md") and [Tutorial: Upload artifacts to Amazon S3](build-deploy.md "build-deploy.md").
 - To start with an empty project and work with deploying a similar serverless application
-  with an AWS CloudFormation stack deployment, see [Tutorial: Deploy a serverless application](deploy-tut-lambda.md "deploy-tut-lambda.md").
+  with an CloudFormation stack deployment, see [Tutorial: Deploy a serverless application](deploy-tut-lambda.md "deploy-tut-lambda.md").
 - To add an issues planning board, see [Track and organize work with issues in CodeCatalyst](issues.md "issues.md").
 - To view the project overview, project status, recent team activity, and assigned work,
   see [Getting a list of projects](projects-view.md "projects-view.md").

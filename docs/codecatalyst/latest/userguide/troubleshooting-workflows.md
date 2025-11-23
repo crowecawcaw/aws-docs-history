@@ -296,14 +296,14 @@ deployments.
 
 errors?
 
-**Problem**: You are using a [Deploy AWS CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md") action, and you see
+**Problem**: You are using a [Deploy CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md") action, and you see
 `##[error] requires capabilities:
- [`capability-name`]` in your **Deploy AWS CloudFormation
+ [`capability-name`]` in your **Deploy CloudFormation
 stack** action's logs.
 
 **Possible fixes**: Complete the following procedure to
 add the capability to the workflow definition file. For more information about IAM
-capabilities, see [Acknowledging IAM resources in AWS CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md#using-iam-capabilities "../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md#using-iam-capabilities") in the
+capabilities, see [Acknowledging IAM resources in CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md#using-iam-capabilities "../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md#using-iam-capabilities") in the
 _IAM User Guide_.
 
 Visual
@@ -318,7 +318,7 @@ Visual
    by workflow name or status.
 5. Choose **Edit**.
 6. Choose **Visual**.
-7. In the workflow diagram, choose your **Deploy AWS CloudFormation
+7. In the workflow diagram, choose your **Deploy CloudFormation
    stack** action.
 8. Choose the **Configuration** tab.
 9. At the bottom, choose **Advanced -
@@ -347,7 +347,7 @@ YAML
    by workflow name or status.
 5. Choose **Edit**.
 6. Choose **YAML**.
-7. In the **Deploy AWS CloudFormation stack** action, add a
+7. In the **Deploy CloudFormation stack** action, add a
    `capabilities` property, like this:
 
 ```
@@ -360,7 +360,7 @@ Replace `capability-name` with the name
 of the IAM capability shown in the error message. Use commas and
 no spaces to list multiple capabilities. For more information, see
 the description of the `capabilities` property in the
-['Deploy AWS CloudFormation stack' action YAML](deploy-action-ref-cfn.md "deploy-action-ref-cfn.md"). 8. (Optional) Choose **Validate** to validate the
+['Deploy CloudFormation stack' action YAML](deploy-action-ref-cfn.md "deploy-action-ref-cfn.md"). 8. (Optional) Choose **Validate** to validate the
 workflow's YAML code before committing. 9. Choose **Commit**, enter a commit message, and
 choose **Commit** again. 10. If a new workflow run doesn't start automatically, run the
 workflow manually to see if the changes fix the error. For more

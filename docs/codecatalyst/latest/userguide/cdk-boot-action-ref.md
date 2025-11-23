@@ -242,7 +242,7 @@ Corresponding UI: Outputs tab/**Artifacts**
 
 (Required if [Artifacts - output](#cdk.boot.outputs.artifacts "#cdk.boot.outputs.artifacts") is included)
 
-Specify the name of the artifact that will contain the AWS CloudFormation template that is synthesized by
+Specify the name of the artifact that will contain the CloudFormation template that is synthesized by
 the **AWS CDK bootstrap** action at runtime. The default value is
 `cdk_bootstrap_artifacts`. If you do not specify an artifact, then the action
 synthesizes the template, but won't save it in an artifact.
@@ -260,7 +260,7 @@ artifact name**
 (Required if [Artifacts - output](#cdk.boot.outputs.artifacts "#cdk.boot.outputs.artifacts") is included)
 
 Specify the files to include in the artifact. You must specify
-`"cdk.out/**/*"` to include your AWS CDK app's synthesized AWS CloudFormation template.
+`"cdk.out/**/*"` to include your AWS CDK app's synthesized CloudFormation template.
 
 ###### Note
 

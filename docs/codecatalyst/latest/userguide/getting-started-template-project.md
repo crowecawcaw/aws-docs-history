@@ -19,11 +19,11 @@ AWS Cloud.
 
 The following illustration shows how tools in CodeCatalyst are used to create an issue for
 tracking, merge and automatically build the change, and then start a workflow in the CodeCatalyst
-project that runs actions to allow AWS CDK and AWS CloudFormation to provision your infrastructure.
+project that runs actions to allow AWS CDK and CloudFormation to provision your infrastructure.
 
 The actions generate resources in the associated AWS account and deploy your application
 to a serverless AWS Lambdafunction with an API Gateway endpoint. The AWS Cloud Development Kit (AWS CDK) action converts one or
-more AWS CDK stacks to AWS CloudFormation templates and deploys stacks to your AWS account. Resources in your
+more AWS CDK stacks to CloudFormation templates and deploys stacks to your AWS account. Resources in your
 stacks include Amazon CloudFront resources to distribute dynamic web content, an Amazon DynamoDB instance for
 your application data, and the roles and policies that support the deployed application.
 
@@ -575,11 +575,11 @@ for all members.
 2. Choose the **General** tab.
 3. Under the project name, choose **Delete project**.
 
-###### To delete resources in AWS CloudFormation and Amazon S3
+###### To delete resources in CloudFormation and Amazon S3
 
 1. Sign in to the AWS Management Console with the same account that you added to your CodeCatalyst
    space.
-2. Go to the **AWS CloudFormation** service.
+2. Go to the **CloudFormation** service.
 3. Delete the **mysfits`string`** stack.
 4. Delete the **development-mysfits`string`**
    stack.

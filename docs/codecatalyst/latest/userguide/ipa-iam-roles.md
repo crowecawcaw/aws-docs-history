@@ -205,12 +205,12 @@ connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
 
 For CodeCatalyst workflow build actions, you can use the default **CodeCatalystWorkflowDevelopmentRole-`spaceName`** service role, or
 you can create an IAM role named **CodeCatalystBuildRoleforS3Access**. This role uses a policy with scoped permissions
-that CodeCatalyst needs to run tasks on AWS CloudFormation resources in your AWS account.
+that CodeCatalyst needs to run tasks on CloudFormation resources in your AWS account.
 
 This role gives permissions to do the following:
 
 - Write to Amazon S3 buckets.
-- Support building of resources with AWS CloudFormation. This requires Amazon S3 access.
+- Support building of resources with CloudFormation. This requires Amazon S3 access.
 
 This role uses the following policy:
 
@@ -226,16 +226,16 @@ is available.
 
 ### CodeCatalyst build role for
 
-AWS CloudFormation
+CloudFormation
 
 For CodeCatalyst workflow build actions, you can use the default **CodeCatalystWorkflowDevelopmentRole-`spaceName`** service role, or
 you can create an IAM role with the necessary permissions. This role uses a policy with
-scoped permissions that CodeCatalyst needs to run tasks on AWS CloudFormation resources in your AWS account.
+scoped permissions that CodeCatalyst needs to run tasks on CloudFormation resources in your AWS account.
 
 This role gives permissions to do the following:
 
-- Support building of resources with AWS CloudFormation. This is required along with the CodeCatalyst
-  build role for Amazon S3 access and the CodeCatalyst deploy role for AWS CloudFormation.
+- Support building of resources with CloudFormation. This is required along with the CodeCatalyst
+  build role for Amazon S3 access and the CodeCatalyst deploy role for CloudFormation.
 
 The following AWS managed policies should be attached to this role:
 
@@ -250,12 +250,12 @@ The following AWS managed policies should be attached to this role:
 For CodeCatalyst workflows that run CDK build actions, such as Modern three-tier web application, you can
 use the default **CodeCatalystWorkflowDevelopmentRole-`spaceName`** service role, or you can create an IAM role with the necessary
 permissions. This role uses a policy with scoped permissions that CodeCatalyst needs to bootstrap
-and run CDK build commands for AWS CloudFormation resources in your AWS account.
+and run CDK build commands for CloudFormation resources in your AWS account.
 
 This role gives permissions to do the following:
 
 - Write to Amazon S3 buckets.
-- Support building of CDK constructs and AWS CloudFormation resource stacks. This requires access
+- Support building of CDK constructs and CloudFormation resource stacks. This requires access
   to Amazon S3 for artifact storage, Amazon ECR for image repository support, and SSM for system
   governance and monitoring for virtual instances.
 
@@ -273,17 +273,17 @@ is available.
 
 ### CodeCatalyst deploy role for
 
-AWS CloudFormation
+CloudFormation
 
-For CodeCatalyst workflow deploy actions that use AWS CloudFormation, you can use the default **CodeCatalystWorkflowDevelopmentRole-`spaceName`**
+For CodeCatalyst workflow deploy actions that use CloudFormation, you can use the default **CodeCatalystWorkflowDevelopmentRole-`spaceName`**
 service role, or you can use a policy with scoped permissions that CodeCatalyst needs to run tasks
-on AWS CloudFormation resources in your AWS account.
+on CloudFormation resources in your AWS account.
 
 This role gives permissions to do the following:
 
 - Allow CodeCatalyst to invoke a Λ function to perform blue/green deployment through
-  AWS CloudFormation.
-- Allow CodeCatalyst to create and update stacks and changesets in AWS CloudFormation.
+  CloudFormation.
+- Allow CodeCatalyst to create and update stacks and changesets in CloudFormation.
 
 This role uses the following policy:
 
@@ -498,13 +498,13 @@ is available.
 
 For CodeCatalyst workflow actions, you can use the default **CodeCatalystWorkflowDevelopmentRole-`spaceName`** service role, or you can
 create an IAM role with the necessary permissions. This role uses a policy with scoped
-permissions that CodeCatalyst needs to run tasks on AWS SAM and AWS CloudFormation resources in your AWS account.
+permissions that CodeCatalyst needs to run tasks on AWS SAM and CloudFormation resources in your AWS account.
 
 This role gives permissions to do the following:
 
 - Allow CodeCatalyst to invoke a Lambda function to perform deployment of serverless and
   AWS SAM CLI applications.
-- Allow CodeCatalyst to create and update stacks and changesets in AWS CloudFormation.
+- Allow CodeCatalyst to create and update stacks and changesets in CloudFormation.
 
 This role uses the following policy:
 
@@ -751,7 +751,7 @@ described further on in this procedure to the deploy role.
 ###### Tip
 
 If you're unsure which policies to add, you can omit them for now. When you test
-the action, if you don't have the right permissions, AWS CloudFormation generates errors that
+the action, if you don't have the right permissions, CloudFormation generates errors that
 show which permissions you need to add. 8. Choose **Next: Tags**. 9. Choose **Next: Review**. 10. For **Role name**, enter:
 
 ```
@@ -773,7 +773,7 @@ IAM
 
 You can choose to create and use AWS CloudFormation templates to create the policies and roles you
 need to access resources in an AWS account for your CodeCatalyst projects and
-workflows. AWS CloudFormation is a service that helps you model and set up your AWS resources so that you
+workflows. CloudFormation is a service that helps you model and set up your AWS resources so that you
 can spend less time managing those resources and more time focusing on your applications that
 run on AWS. If you intend to create roles in multiple AWS accounts, creating
 a template can help you perform this task more quickly.

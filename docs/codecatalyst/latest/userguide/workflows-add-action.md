@@ -49,7 +49,7 @@ actions](workflows-actions.md#workflows-actions-types-cc "workflows-actions.md#w
     * [Adding the test action](test-add-action.md "test-add-action.md")
     * [Adding the 'Deploy to Amazon ECS' action](deploy-action-ecs-adding.md "deploy-action-ecs-adding.md")
     * [Adding the 'Deploy to Kubernetes cluster' action](deploy-action-eks-adding.md "deploy-action-eks-adding.md")
-    * [Adding the 'Deploy AWS CloudFormation stack' action](deploy-action-cfn-adding.md "deploy-action-cfn-adding.md")
+    * [Adding the 'Deploy CloudFormation stack' action](deploy-action-cfn-adding.md "deploy-action-cfn-adding.md")
     * [Adding the 'AWS CDK deploy' action](cdk-dep-action-add.md "cdk-dep-action-add.md")
     * [Adding the 'AWS CDK bootstrap' action](cdk-boot-action-add.md "cdk-boot-action-add.md")
     * [Adding the 'Amazon S3 publish' action](s3-pub-action-add.md "s3-pub-action-add.md")

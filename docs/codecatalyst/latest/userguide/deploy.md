@@ -43,10 +43,10 @@ The high-level steps to deploy an application or resource are as follows.
 
 The following deploy actions are available:
 
-- Deploy AWS CloudFormation stack – This action creates a CloudFormation stack in AWS based on
-  an [AWS CloudFormation
+- Deploy CloudFormation stack – This action creates a CloudFormation stack in AWS based on
+  an [CloudFormation
   template](../../../serverless-application-model/latest/developerguide/sam-specification.md "../../../serverless-application-model/latest/developerguide/sam-specification.md") or [AWS Serverless Application Model template](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md")
-  that you provide. For more information, see [Deploying an AWS CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md").
+  that you provide. For more information, see [Deploying an CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md").
 - Deploy to Amazon ECS – This action registers a [task
   definition](../../../AmazonECS/latest/developerguide/Welcome.md#welcome-task-definitions "../../../AmazonECS/latest/developerguide/Welcome.md#welcome-task-definitions") file that you provide. For more information, see [Deploying to Amazon ECS with a workflow](deploy-action-ecs.md "deploy-action-ecs.md").
 - Deploy to Kubernetes cluster – This action deploys an application to an Amazon Elastic Kubernetes Service
@@ -104,7 +104,7 @@ want to use a CodeCatalyst workflow to do so:
 - AWS CodeDeploy – see [What is CodeDeploy?](../../../codedeploy/latest/userguide/welcome.md "../../../codedeploy/latest/userguide/welcome.md")
 - AWS CodeBuild and AWS CodePipeline – see [What is AWS CodeBuild?](../../../codebuild/latest/userguide/welcome.md "../../../codebuild/latest/userguide/welcome.md") and [What is
   AWS CodePipeline?](../../../codepipeline/latest/userguide/welcome.md "../../../codepipeline/latest/userguide/welcome.md")
-- AWS CloudFormation – see [What is AWS CloudFormation?](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
+- CloudFormation – see [What is CloudFormation?](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
 
 Use CodeDeploy, CodeBuild, CodePipeline, and CloudFormation services for complex, enterprise
 deployments.
@@ -114,7 +114,7 @@ deployments.
 - [Deploying to Amazon ECS with a workflow](deploy-action-ecs.md "deploy-action-ecs.md")
 - [Deploying to Amazon EKS with a
   workflow](deploy-action-eks.md "deploy-action-eks.md")
-- [Deploying an AWS CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md")
+- [Deploying an CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md")
 - [Deploying an AWS CDK app with a workflow](cdk-dep-action.md "cdk-dep-action.md")
 - [Bootstrapping an AWS CDK app with a workflow](cdk-boot-action.md "cdk-boot-action.md")
 - [Publishing files to Amazon S3 with a workflow](s3-pub-action.md "s3-pub-action.md")

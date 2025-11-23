@@ -17,7 +17,7 @@ following building blocks that run sequentially:
   succeeded.
 - An **AWS CDK deploy** action (`AWS CDKDeploy`) – On
   completion of the **AWS CDK bootstrap** action, the **AWS CDK
-  deploy** action synthesizes your AWS CDK app code into an AWS CloudFormation template and
+  deploy** action synthesizes your AWS CDK app code into an CloudFormation template and
   deploys the stack defined in the template into AWS.
 
 ###### Note
