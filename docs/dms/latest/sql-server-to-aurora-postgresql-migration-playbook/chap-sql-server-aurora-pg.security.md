@@ -1,108 +1,156 @@
-# Users and roles for Aurora PostgreSQL
+# Data control language for Aurora PostgreSQL
 
-This topic provides reference information about the security and authentication differences between Microsoft SQL Server and Amazon Aurora PostgreSQL. You can understand how user management, role-based access control, and authentication mechanisms differ between these two database systems. The topic explains the fundamental concepts of users, roles, and permissions in both SQL Server and PostgreSQL, highlighting the key differences in terminology and implementation.
+This topic provides reference information about user permissions and access control in Amazon Aurora PostgreSQL, comparing it to Microsoft SQL Server. You can understand how Aurora PostgreSQL implements the ANSI standard for data control language commands, including GRANT and REVOKE. The topic explains the various permission levels available in Aurora PostgreSQL, from individual object permissions to schema-wide access.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                     |
-| -------------------------------- | ---------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | Syntax and option differences, similar functionality. There are no users in PostgreSQL, only roles. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                           |
+| ------------------------------- | ---------------------------------- | ------------------------- | ----------------------------------------- |
+| Five star feature compatibility | N/A                                | N/A                       | Similar syntax and similar functionality. |
 
 ## SQL Server Usage
 
-SQL Server provides two layers of security principals: logins at the server level and users at the database level. Logins are mapped to users in one or more databases. Administrators can grant logins server-level permissions that aren’t mapped to particular databases such as database creator, system administrator, and security administrator.
+The ANSI standard specifies, and most Relational Database Management Systems (RDBMS) use, `GRANT` and `REVOKE` commands to control permissions.
 
-SQL Server also supports roles for both the server and the database levels. At the database level, administrators can create custom roles in addition to the general purpose built-in roles.
+However, SQL Server also provides a `DENY` command to explicitly restrict access to a resource. `DENY` takes precedence over GRANT and is needed to avoid potentially conflicting permissions for users having multiple logins. For example, if a user has DENY for a resource through group membership but GRANT access for a personal login, the user is denied access to that resource.
 
-For each database, administrators can create users and associate them with logins. At the database level, the built-in roles include `db_owner`, `db_datareader`, `db_securityadmin`, and others. A database user can belong to one or more roles (users are assigned to the public role by default and can’t be removed). Administrators can grant permissions to roles and then assign individual users to the roles to simplify security management.
+In SQL Server, you can grant permissions at multiple levels from lower-level objects such as columns to higher-level objects such as servers. Permissions are categorized for specific services and features such as the service broker.
 
-Logins are authenticated using either Windows Authentication, which uses the Windows Server Active Directory framework for integrated single sign-on, or SQL authentication, which is managed by the SQL Server service and requires a password, certificate, or asymmetric key for identification. You can create logins that use Windows Authentication for individual users and domain groups.
-
-In previous versions of SQL server, the concepts of user and schema were interchangeable. For backward compatibility, each database has several existing schemas, including a default schema named dbo which is owned by the `db_owner` role. Logins with system administrator privileges are automatically mapped to the dbo user in each database. Typically, you don’t need to migrate these schemas.
-
-### Examples
-
-Create a login.
-
-```
-CREATE LOGIN MyLogin WITH PASSWORD = 'MyPassword'
-```
-
-Create a database user for `MyLogin`.
-
-```
-USE MyDatabase; CREATE USER MyUser FOR LOGIN MyLogin;
-```
-
-Assign `MyLogin` to a server role.
-
-```
-ALTER SERVER ROLE dbcreator ADD MEMBER 'MyLogin'
-```
-
-Assign `MyUser` to the `db_datareader` role.
-
-```
-ALTER ROLE db_datareader ADD MEMBER 'MyUser';
-```
-
-For more information, see [Database-level roles](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15") in the _SQL Server documentation_.
-
-## PostgreSQL Usage
-
-PostgreSQL supports only roles; there are no users. However, there is a `CREATE USER` command, which is an alias for `CREATE ROLE` that automatically includes the `LOGIN` permission.
-
-Roles are defined at the database cluster level and are valid in all databases in the PostgreSQL cluster.
+You can use permissions in conjunction with database users and roles. For more information, see [Users and Roles](chap-sql-server-aurora-pg.security.md "chap-sql-server-aurora-pg.security.md").
 
 ### Syntax
 
-The following example shows a simplified syntax for `CREATE ROLE` in Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL).
+Simplified syntax for SQL Server DCL commands:
 
 ```
-CREATE ROLE name [ [ WITH ] option [ ... ] ]
+GRANT { ALL [ PRIVILEGES ] } | <permission> [ ON <securable> ] TO <principal>
 
-where option can be:
+DENY { ALL [ PRIVILEGES ] } | <permission> [ ON <securable> ] TO <principal>
 
-  SUPERUSER | NOSUPERUSER
-  | CREATEDB | NOCREATEDB
-  | CREATEROLE | NOCREATEROLE
-  | INHERIT | NOINHERIT
-  | LOGIN | NOLOGIN
-  | REPLICATION | NOREPLICATION
-  | BYPASSRLS | NOBYPASSRLS
-  | CONNECTION LIMIT connlimit
-  | [ ENCRYPTED | UNENCRYPTED ] PASSWORD 'password'
-  | VALID UNTIL 'timestamp'
-  | IN ROLE role_name [, ...]
-  | IN GROUP role_name [, ...]
-  | ROLE role_name [, ...]
-  | ADMIN role_name [, ...]
-  | USER role_name [, ...]
-  | SYSID uid
+REVOKE [ GRANT OPTION FOR ] {[ ALL [ PRIVILEGES ] ]|<permission>} [ ON <securable> ] { TO | FROM } <principal>
 ```
 
-The `UNENCRYPTED PASSWORD` option was dropped in PostgreSQL 10, the password must be kept encrypted.
+For more information, see [Permissions Hierarchy (Database Engine)](https://docs.microsoft.com/en-us/sql/relational-databases/security/permissions-hierarchy-database-engine?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/permissions-hierarchy-database-engine?view=sql-server-ver15") in the _SQL Server documentation_.
 
-### Example
+## PostgreSQL Usage
 
-Create a new database role called `hr_role`. Users can use this role to create new databases in the PostgreSQL cluster. Note that this role isn’t able to login to the database and act as a database user. In addition, grant `SELECT`, `INSERT`, and `DELETE` privileges on the `hr.employees` table to the role.
+Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) supports the ANSI Data Control Language (DCL) commands `GRANT` and `REVOKE`.
+
+Administrators can grant or revoke permissions for individual objects such as a column, a stored function, or a table. You can grant permissions to multiple objects using `ALL % IN SCHEMA`. In the example preceding, `%` can be `TABLES`, `SEQUENCES`, or `FUNCTIONS`.
+
+Use the following command to grant select on all tables in schema to a specific user.
 
 ```
-CREATE ROLE hr_role;
-GRANT SELECT, INSERT,DELETE on hr.employees to hr_role;
+GRANT SELECT ON ALL TABLES IN SCHEMA <Schema Name> TO <Role Name>;
 ```
 
-## Summary
+Aurora PostgreSQL provides a `GRANT` permission option that is similar to SQL Server `WITH GRANT OPTION` clause. This permission grants a user permission to further grant the same permission to other users.
 
-The following table summarizes common security tasks and the differences between SQL Server and Aurora PostgreSQL.
+```
+GRANT EXECUTE
+ON FUNCTION demo.Procedure1
+TO UserY
+WITH GRANT OPTION;
+```
 
-| Task                       | SQL Server                                             | Aurora PostgreSQL                                                    |
-| -------------------------- | ------------------------------------------------------ | -------------------------------------------------------------------- |
-| View database users        | `SELECT Name FROM sys.sysusers`                        | `SELECT<br>• FROM pg_roles where rolcanlogin = true;`                |
-| Create a user and password | `CREATE USER <User Name> WITH PASSWORD = <PassWord>;`  | `CREATE USER <User Name> WITH PASSWORD '<PassWord>';`                |
-| Create a role              | `CREATE ROLE <Role Name>`                              | `CREATE ROLE <Role Name>`                                            |
-| Change a user’s password   | `ALTER LOGIN <SQL Login> WITH PASSWORD = <PassWord>;`  | `ALTER USER <SQL Login> WITH PASSWORD '<PassWord>';`                 |
-| External authentication    | Windows Authentication                                 | N/A                                                                  |
-| Add a user to a role       | `ALTER ROLE <Role Name> ADD MEMBER <User Name>`        | `ALTER ROLE <Role Name> SET <property and value>`                    |
-| Lock a user                | `ALTER LOGIN <Login Name> DISABLE`                     | `REVOKE CONNECT ON DATABASE <database_name> from <Role Name>;`       |
-| Grant `SELECT` on a schema | `GRANT SELECT ON SCHEMA::<Schema Name> to <User Name>` | `GRANT SELECT ON ALL TABLES IN SCHEMA <Schema Name> TO <User Name>;` |
+The following table identifies Aurora PostgreSQL privileges.
 
-For more information, see [CREATE ROLE](https://www.postgresql.org/docs/13/sql-createrole.html "https://www.postgresql.org/docs/13/sql-createrole.html") in the _PostgreSQL documentation_.
+| Permissions               | Use to                                                                                                                                                                                                                                   |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SELECT`                  | Use to query rows from table.                                                                                                                                                                                                            |
+| `INSERT`                  | Use to insert rows into a table.                                                                                                                                                                                                         |
+| `UPDATE`                  | Use to update rows in table.                                                                                                                                                                                                             |
+| `DELETE`                  | Use to delete rows from table.                                                                                                                                                                                                           |
+| `TRUNCATE`                | Use to truncate a table.                                                                                                                                                                                                                 |
+| `REFERENCES`              | Use to create a foreign key constraint.                                                                                                                                                                                                  |
+| `TRIGGER`                 | Use to create a trigger on the specified table.                                                                                                                                                                                          |
+| `CREATE`                  | The purpose of this permission depends on the target object. For more information, see [GRANT](https://www.postgresql.org/docs/13/sql-grant.html "https://www.postgresql.org/docs/13/sql-grant.html") in the _PostgreSQL documentation_. |
+| `CONNECT`                 | Use to connect to the specified database.                                                                                                                                                                                                |
+| `TEMPORARY` or `TEMP`     | Use to create temporary tables.                                                                                                                                                                                                          |
+| `EXECUTE`                 | Use to run a function.                                                                                                                                                                                                                   |
+| `USAGE`                   | The purpose of this permission depends on the target object. For more information, see [GRANT](https://www.postgresql.org/docs/13/sql-grant.html "https://www.postgresql.org/docs/13/sql-grant.html") in the _PostgreSQL documentation_. |
+| `ALL` or `ALL PRIVILEGES` | Grant all available privileges.                                                                                                                                                                                                          |
+
+### Syntax
+
+```
+GRANT { { SELECT | INSERT | UPDATE | DELETE | TRUNCATE | REFERENCES | TRIGGER }
+  [, ...] | ALL [ PRIVILEGES ] }
+  ON { [ TABLE ] table_name [, ...]
+    | ALL TABLES IN SCHEMA schema_name [, ...] }
+  TO role_specification [, ...] [ WITH GRANT OPTION ]
+
+GRANT { { SELECT | INSERT | UPDATE | REFERENCES } ( column_name [, ...] )
+  [, ...] | ALL [ PRIVILEGES ] ( column_name [, ...] ) }
+  ON [ TABLE ] table_name [, ...]
+  TO role_specification [, ...] [ WITH GRANT OPTION ]
+
+GRANT { { USAGE | SELECT | UPDATE }
+  [, ...] | ALL [ PRIVILEGES ] }
+  ON { SEQUENCE sequence_name [, ...]
+    | ALL SEQUENCES IN SCHEMA schema_name [, ...] }
+  TO role_specification [, ...] [ WITH GRANT OPTION ]
+
+GRANT { { CREATE | CONNECT | TEMPORARY | TEMP } [, ...] | ALL [ PRIVILEGES ] }
+  ON DATABASE database_name [, ...]
+  TO role_specification [, ...] [ WITH GRANT OPTION ]
+
+GRANT { USAGE | ALL [ PRIVILEGES ] }
+  ON DOMAIN domain_name [, ...]
+  TO role_specification [, ...] [ WITH GRANT OPTION ]
+
+GRANT { USAGE | ALL [ PRIVILEGES ] }
+  ON FOREIGN DATA WRAPPER fdw_name [, ...]
+  TO role_specification [, ...] [ WITH GRANT OPTION ]
+
+GRANT { USAGE | ALL [ PRIVILEGES ] }
+  ON FOREIGN SERVER server_name [, ...]
+  TO role_specification [, ...] [ WITH GRANT OPTION ]
+
+GRANT { EXECUTE | ALL [ PRIVILEGES ] }
+  ON { FUNCTION function_name ( [ [ argmode ] [ arg_name ] arg_type [, ...] ] ) [,...]
+    | ALL FUNCTIONS IN SCHEMA schema_name [, ...] }
+  TO role_specification [, ...] [ WITH GRANT OPTION ]
+
+GRANT { USAGE | ALL [ PRIVILEGES ] }
+  ON LANGUAGE lang_name [, ...]
+  TO role_specification [, ...] [ WITH GRANT OPTION ]
+
+GRANT { { SELECT | UPDATE } [, ...] | ALL [ PRIVILEGES ] }
+  ON LARGE OBJECT loid [, ...]
+  TO role_specification [, ...] [ WITH GRANT OPTION ]
+
+GRANT { { CREATE | USAGE } [, ...] | ALL [ PRIVILEGES ] }
+  ON SCHEMA schema_name [, ...]
+  TO role_specification [, ...] [ WITH GRANT OPTION ]
+
+GRANT { CREATE | ALL [ PRIVILEGES ] }
+  ON TABLESPACE tablespace_name [, ...]
+  TO role_specification [, ...] [ WITH GRANT OPTION ]
+
+GRANT { USAGE | ALL [ PRIVILEGES ] }
+  ON TYPE type_name [, ...]
+  TO role_specification [, ...] [ WITH GRANT OPTION ]
+
+where role_specification can be:
+  [ GROUP ] role_name
+  | PUBLIC
+  | CURRENT_USER
+  | SESSION_USER
+
+GRANT role_name [, ...] TO role_name [, ...] [ WITH ADMIN OPTION ]
+```
+
+### Examples
+
+Grant `SELECT` permission to a user on all tables in the demo database.
+
+```
+GRANT SELECT ON ALL TABLES IN SCHEMA emps TO John;
+```
+
+Revoke `EXECUTE` permissions from a user on the `EmployeeReport` stored procedure.
+
+```
+REVOKE EXECUTE ON FUNCTION EmployeeReport FROM John;
+```
+
+For more information, see [GRANT](https://www.postgresql.org/docs/13/sql-grant.html "https://www.postgresql.org/docs/13/sql-grant.html") in the _PostgreSQL documentation_.

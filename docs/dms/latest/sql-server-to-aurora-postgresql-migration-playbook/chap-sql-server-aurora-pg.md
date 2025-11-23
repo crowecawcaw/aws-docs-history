@@ -1,10 +1,17 @@
-# Migrating security features to Aurora PostgreSQL
+# Migrating management features to Aurora PostgreSQL
 
-This topic provides conceptual content comparing the security and encryption features of Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can gain a comprehensive understanding of how encryption, user permissions, access control, and authentication mechanisms differ between these two database systems. The content explores encryption functions, data protection at rest, user management, and role-based access control, highlighting similarities and key differences in implementation. By understanding these concepts, you can make informed decisions about securing your data and implementing robust security measures when migrating from SQL Server to Aurora PostgreSQL. This knowledge is crucial for database administrators and developers to ensure a smooth transition while maintaining data integrity and compliance in the new database environment.
+This topic provides conceptual content comparing various aspects of Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL in the context of database migration. It covers key differences in features and functionalities such as task scheduling, alerting, email capabilities, ETL processes, data export/import, logging, maintenance tasks, monitoring, resource management, linked servers, and scripting. By understanding these differences, you can better plan and execute your migration strategy from SQL Server to Aurora PostgreSQL. The content highlights alternative solutions and workarounds available in the AWS ecosystem to replicate or replace SQL Server-specific features, helping you anticipate challenges and adapt your database management practices. This comprehensive comparison enables database administrators and developers to make informed decisions and smooth their transition when migrating from SQL Server to Aurora PostgreSQL.
 
 ###### Topics
 
-- [Column encryption for Aurora PostgreSQL](chap-sql-server-aurora-pg.security.md "chap-sql-server-aurora-pg.security.md")
-- [Data control language for Aurora PostgreSQL](chap-sql-server-aurora-pg.security.md "chap-sql-server-aurora-pg.security.md")
-- [Transparent data encryption Aurora PostgreSQL](chap-sql-server-aurora-pg.security.md "chap-sql-server-aurora-pg.security.md")
-- [Users and roles for Aurora PostgreSQL](chap-sql-server-aurora-pg.security.md "chap-sql-server-aurora-pg.security.md")
+- [SQL Server Agent and PostgreSQL](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Alerting features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Database mail features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [ETL features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Export and import features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Viewing server logs](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Maintenance plans](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Monitoring features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Resource governor features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Linked servers](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Scripting features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
