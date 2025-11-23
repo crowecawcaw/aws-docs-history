@@ -1,10 +1,10 @@
-# How Elastic Load Balancing works with IAM
+# How ELB works with IAM
 
-Before you use IAM to manage access to Elastic Load Balancing, learn what IAM features are
-available to use with Elastic Load Balancing.
+Before you use IAM to manage access to ELB, learn what IAM features are
+available to use with ELB.
 
-| IAM features you can use with Elastic Load Balancing                                                                                                                        | IAM feature | Elastic Load Balancing support |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------------------------ |
+| IAM features you can use with ELB                                                                                                                                           | IAM feature | ELB support |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------- |
 | [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")                                              | Yes         |
 | [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")                                  | No          |
 | [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")                                       | Yes         |
@@ -17,7 +17,7 @@ available to use with Elastic Load Balancing.
 | [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")                                                             | No          |
 | [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")                                           | Yes         |
 
-## Identity-based policies for Elastic Load Balancing
+## Identity-based policies for ELB
 
 **Supports identity-based policies:**
 
@@ -36,7 +36,7 @@ _IAM User Guide_.
 
 ## Resource-based
 
-policies within Elastic Load Balancing
+policies within ELB
 
 **Supports resource-based policies:**
 
@@ -52,7 +52,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions for Elastic Load Balancing
+## Policy actions for ELB
 
 **Supports policy actions:**
 
@@ -64,11 +64,11 @@ Administrators can use AWS JSON policies to specify who has access to what. That
 The `Action` element of a JSON policy describes the
 actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
-To see a list of Elastic Load Balancing actions, see [Actions defined by Elastic Load Balancing V2](../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-actions-as-permissions "../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-actions-as-permissions") and
-[Actions defined by Elastic Load Balancing V1](../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-actions-as-permissions "../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-actions-as-permissions") in the
+To see a list of ELB actions, see [Actions defined by ELB V2](../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-actions-as-permissions "../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-actions-as-permissions") and
+[Actions defined by ELB V1](../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-actions-as-permissions "../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-actions-as-permissions") in the
 _Service Authorization Reference_.
 
-Policy actions in Elastic Load Balancing use the following prefix before the action:
+Policy actions in ELB use the following prefix before the action:
 
 ```
 elasticloadbalancing
@@ -91,7 +91,7 @@ action:
 "Action": "elasticloadbalancing:Describe*"
 ```
 
-For the complete list of the API actions for Elastic Load Balancing, see the following
+For the complete list of the API actions for ELB, see the following
 documentation:
 
 - Application Load Balancers, Network Load Balancers, and Gateway Load Balancers —
@@ -99,7 +99,7 @@ documentation:
 - Classic Load Balancers —
   [API Reference version 2012-06-01](../../2012-06-01/APIReference.md "../../2012-06-01/APIReference.md")
 
-## Policy resources for Elastic Load Balancing
+## Policy resources for ELB
 
 **Supports policy resources:**
 
@@ -114,7 +114,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-Some Elastic Load Balancing API actions support multiple resources. To specify multiple
+Some ELB API actions support multiple resources. To specify multiple
 resources in a single statement, separate the ARNs with commas.
 
 ```
@@ -124,14 +124,14 @@ resources in a single statement, separate the ARNs with commas.
 ]
 ```
 
-To see a list of Elastic Load Balancing resource types and their ARNs, see
-[Resources defined by Elastic Load Balancing V2](../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-resources-for-iam-policies "../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-resources-for-iam-policies") and
-[Resources defined by Elastic Load Balancing V1](../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-resources-for-iam-policies "../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-resources-for-iam-policies") in the _Service Authorization Reference_. To learn with
+To see a list of ELB resource types and their ARNs, see
+[Resources defined by ELB V2](../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-resources-for-iam-policies "../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-resources-for-iam-policies") and
+[Resources defined by ELB V1](../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-resources-for-iam-policies "../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-resources-for-iam-policies") in the _Service Authorization Reference_. To learn with
 which actions you can specify the ARN of each resource, see
-[Actions defined by Elastic Load Balancing V2](../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-actions-as-permissions "../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-actions-as-permissions") and
-[Actions defined by Elastic Load Balancing V1](../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-actions-as-permissions "../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-actions-as-permissions").
+[Actions defined by ELB V2](../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-actions-as-permissions "../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-actions-as-permissions") and
+[Actions defined by ELB V1](../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-actions-as-permissions "../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-actions-as-permissions").
 
-## Policy condition keys for Elastic Load Balancing
+## Policy condition keys for ELB
 
 **Supports service-specific policy condition keys:**
 
@@ -146,11 +146,11 @@ policy with values in the request. To see all AWS global
 condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
 _IAM User Guide_.
 
-To see a list of Elastic Load Balancing condition keys, see [Condition keys for Elastic Load Balancing V2](../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-policy-keys "../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-policy-keys") and
-[Condition keys for Elastic Load Balancing V1](../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-policy-keys "../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-policy-keys")
+To see a list of ELB condition keys, see [Condition keys for ELB V2](../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-policy-keys "../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-policy-keys") and
+[Condition keys for ELB V1](../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-policy-keys "../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-policy-keys")
 in the _Service Authorization Reference_. To learn with which actions and
-resources you can use a condition key, see [Actions defined by Elastic Load Balancing V2](../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-actions-as-permissions "../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-actions-as-permissions") and
-[Actions defined by Elastic Load Balancing V1](../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-actions-as-permissions "../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-actions-as-permissions").
+resources you can use a condition key, see [Actions defined by ELB V2](../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-actions-as-permissions "../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md#awselasticloadbalancingv2-actions-as-permissions") and
+[Actions defined by ELB V1](../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-actions-as-permissions "../../../service-authorization/latest/reference/list_awselasticloadbalancing.md#awselasticloadbalancing-actions-as-permissions").
 
 ###### Condition keys
 
@@ -326,7 +326,7 @@ JSON
 
 ###### Important
 
-Elastic Load Balancing accepts all capitalizations of security group IDs. However,
+ELB accepts all capitalizations of security group IDs. However,
 make sure to use the appropriate case insensitive condition
 operators, for example `StringEqualsIgnoreCase`.
 
@@ -375,7 +375,7 @@ security groups for their load balancers.
 
 ###### Important
 
-Elastic Load Balancing accepts all capitalizations of subnet IDs. However,
+ELB accepts all capitalizations of subnet IDs. However,
 make sure to use the appropriate case insensitive condition
 operators, for example `StringEqualsIgnoreCase`.
 
@@ -425,10 +425,10 @@ JSON
 ### elasticloadbalancing:ResourceTag condition key
 
 The `elasticloadbalancing:ResourceTag`/`key`
-condition key is specific to Elastic Load Balancing. All mutating actions support this condition
+condition key is specific to ELB. All mutating actions support this condition
 key.
 
-## ACLs in Elastic Load Balancing
+## ACLs in ELB
 
 **Supports ACLs:**
 
@@ -437,7 +437,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## ABAC with Elastic Load Balancing
+## ABAC with ELB
 
 **Supports ABAC (tags in policies):**
 
@@ -456,7 +456,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 
 ## Using temporary
 
-credentials with Elastic Load Balancing
+credentials with ELB
 
 **Supports temporary credentials:**
 
@@ -470,7 +470,7 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 
 ## Cross-service
 
-principal permissions for Elastic Load Balancing
+principal permissions for ELB
 
 **Supports forward access sessions (FAS):**
 
@@ -481,7 +481,7 @@ when making FAS requests, see [Forward access sessions](../../../IAM/latest/User
 
 ## Service roles for
 
-Elastic Load Balancing
+ELB
 
 **Supports service roles:**
 
@@ -493,7 +493,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 
 ## Service-linked
 
-roles for Elastic Load Balancing
+roles for ELB
 
 **Supports service-linked roles:**
 
@@ -503,4 +503,4 @@ A service-linked role is a type of service role that is linked to an AWS service
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
 but not edit the permissions for service-linked roles.
 
-For details about creating or managing Elastic Load Balancing service-linked roles, see [Elastic Load Balancing service-linked role](elb-service-linked-roles.md "elb-service-linked-roles.md").
+For details about creating or managing ELB service-linked roles, see [ELB service-linked role](elb-service-linked-roles.md "elb-service-linked-roles.md").

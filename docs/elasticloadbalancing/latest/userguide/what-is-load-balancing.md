@@ -1,9 +1,9 @@
-# What is Elastic Load Balancing?
+# What is ELB?
 
-Elastic Load Balancing automatically distributes your incoming traffic across multiple targets, such as
+ELB automatically distributes your incoming traffic across multiple targets, such as
 EC2 instances, containers, and IP addresses, in one or more Availability Zones. It
 monitors the health of its registered targets, and routes traffic only to the healthy
-targets. Elastic Load Balancing scales your load balancer capacity automatically in response to changes
+targets. ELB scales your load balancer capacity automatically in response to changes
 in incoming traffic.
 
 ## Load balancer benefits
@@ -20,11 +20,11 @@ that the load balancer sends requests only to the healthy ones. You can also off
 work of encryption and decryption to your load balancer so that your compute resources
 can focus on their main work.
 
-## Features of Elastic Load Balancing
+## Features of ELB
 
-Elastic Load Balancing supports multiple load balancer types. You can select the type of load balancer
+ELB supports multiple load balancer types. You can select the type of load balancer
 that best suits your needs.
-For more information, see [Elastic Load Balancing features](https://aws.amazon.com/elasticloadbalancing/features/ "https://aws.amazon.com/elasticloadbalancing/features/").
+For more information, see [ELB features](https://aws.amazon.com/elasticloadbalancing/features/ "https://aws.amazon.com/elasticloadbalancing/features/").
 
 For more information about the current generation load balancers, see the following documentation:
 
@@ -32,18 +32,18 @@ For more information about the current generation load balancers, see the follow
 - [User Guide for Network Load Balancers](../network.md "../network.md")
 - [User Guide for Gateway Load Balancers](../gateway.md "../gateway.md")
 
-Classic Load Balancers are the previous generation of load balancers from Elastic Load Balancing. We recommend that
+Classic Load Balancers are the previous generation of load balancers from ELB. We recommend that
 you migrate to a current generation load balancer. For more information, see [Migrate your Classic Load Balancer](migrate-classic-load-balancer.md "migrate-classic-load-balancer.md").
 
-## Accessing Elastic Load Balancing
+## Accessing ELB
 
 You can create, access, and manage your load balancers using any of the following
 interfaces:
 
 - **AWS Management Console** — Provides a web interface that
-  you can use to access Elastic Load Balancing.
+  you can use to access ELB.
 - **AWS Command Line Interface (AWS CLI)** —
-  Provides commands for a broad set of AWS services, including Elastic Load Balancing. The AWS CLI is
+  Provides commands for a broad set of AWS services, including ELB. The AWS CLI is
   supported on Windows, macOS, and Linux. For more information, see [AWS Command Line Interface](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/").
 - **AWS SDKs** — Provide language-specific
   APIs and take care of many of the connection details, such as calculating
@@ -51,7 +51,7 @@ interfaces:
   see [AWS SDKs](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/").
 - **Query API**— Provides low-level API
   actions that you call using HTTPS requests. Using the Query API is the most
-  direct way to access Elastic Load Balancing. However, the Query API requires that your
+  direct way to access ELB. However, the Query API requires that your
   application handle low-level details such as generating the hash to sign the
   request, and error handling. For more information, see the following:
   - Application Load Balancers, Network Load Balancers, and Gateway Load Balancers — [API version 2015-12-01](../APIReference.md "../APIReference.md")
@@ -59,7 +59,7 @@ interfaces:
 
 ## Related services
 
-Elastic Load Balancing works with the following services to improve the availability and scalability
+ELB works with the following services to improve the availability and scalability
 of your applications.
 
 - **Amazon EC2** — Virtual servers that run your applications
@@ -68,9 +68,9 @@ of your applications.
 - **Amazon EC2 Auto Scaling** — Ensures that you are running your
   desired number of instances, even if an instance fails. Amazon EC2 Auto Scaling also enables
   you to automatically increase or decrease the number of instances as the demand
-  on your instances changes. If you enable Auto Scaling with Elastic Load Balancing, instances that are
-  launched by Auto Scaling are automatically registered with the load balancer. Likewise,
-  instances that are terminated by Auto Scaling are automatically de-registered from the
+  on your instances changes. If you enable Amazon EC2 Auto Scaling with ELB, instances that are
+  launched by Amazon EC2 Auto Scaling are automatically registered with the load balancer. Likewise,
+  instances that are terminated by Amazon EC2 Auto Scaling are automatically de-registered from the
   load balancer. For more information, see the [Amazon EC2 Auto Scaling User Guide](../../../autoscaling/ec2/userguide.md "../../../autoscaling/ec2/userguide.md").
 - **AWS Certificate Manager** — When you create an HTTPS listener, you
   can specify certificates provided by ACM. The load balancer uses certificates
@@ -99,4 +99,4 @@ of your applications.
 ## Pricing
 
 With your load balancer, you pay only for what you use. For more information, see
-[Elastic Load Balancing pricing](https://aws.amazon.com/elasticloadbalancing/pricing/ "https://aws.amazon.com/elasticloadbalancing/pricing/").
+[ELB pricing](https://aws.amazon.com/elasticloadbalancing/pricing/ "https://aws.amazon.com/elasticloadbalancing/pricing/").

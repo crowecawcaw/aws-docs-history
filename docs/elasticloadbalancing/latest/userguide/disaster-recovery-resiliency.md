@@ -9,7 +9,7 @@ traditional single or multiple data center infrastructures.
 
 For more information about AWS Regions and Availability Zones, see [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
 
-In addition to the AWS Global Infrastructure, Elastic Load Balancing provides the following features to support
+In addition to the AWS Global Infrastructure, ELB provides the following features to support
 your data resiliency:
 
 - Distributes incoming traffic across multiple instances in a single Availability Zone

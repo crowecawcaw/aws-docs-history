@@ -1,4 +1,4 @@
-# Elastic Load Balancing API permissions to tag resources
+# ELB API permissions to tag resources
 
 during creation
 

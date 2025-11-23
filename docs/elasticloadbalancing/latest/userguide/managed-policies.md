@@ -1,4 +1,4 @@
-# AWS managed policies for Elastic Load Balancing
+# AWS managed policies for ELB
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed
 to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
@@ -19,10 +19,10 @@ _IAM User Guide_.
 
 policy: AWSElasticLoadBalancingClassicServiceRolePolicy
 
-This policy includes all the permissions that Elastic Load Balancing (Classic Load Balancer)
+This policy includes all the permissions that ELB (Classic Load Balancer)
 requires to call other AWS services on your behalf. Service-linked roles are
 predefined. With predefined roles you don't have to manually add the necessary
-permissions for Elastic Load Balancing to complete actions on your behalf. You cannot attach, detach,
+permissions for ELB to complete actions on your behalf. You cannot attach, detach,
 modify, or delete this policy.
 
 To view the permissions for this policy, see [AWSElasticLoadBalancingClassicServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSElasticLoadBalancingClassicServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSElasticLoadBalancingClassicServiceRolePolicy.md") in the _AWS Managed Policy Reference_.
@@ -31,9 +31,9 @@ To view the permissions for this policy, see [AWSElasticLoadBalancingClassicServ
 
 AWSElasticLoadBalancingServiceRolePolicy
 
-This policy includes all the permissions that Elastic Load Balancing requires to call other AWS
+This policy includes all the permissions that ELB requires to call other AWS
 services on your behalf. Service-linked roles are predefined. With predefined roles
-you don't have to manually add the necessary permissions for Elastic Load Balancing to complete
+you don't have to manually add the necessary permissions for ELB to complete
 actions on your behalf. You cannot attach, detach, modify, or delete this policy.
 
 To view the permissions for this policy, see [AWSElasticLoadBalancingServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSElasticLoadBalancingServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSElasticLoadBalancingServiceRolePolicy.md") in the _AWS Managed Policy Reference_.
@@ -42,7 +42,7 @@ To view the permissions for this policy, see [AWSElasticLoadBalancingServiceRole
 
 ElasticLoadBalancingFullAccess
 
-This policy gives full access to the Elastic Load Balancing service and limited access to other
+This policy gives full access to the ELB service and limited access to other
 services via the AWS Management Console.
 
 To view the permissions for this policy, see [ElasticLoadBalancingFullAccess](../../../aws-managed-policy/latest/reference/ElasticLoadBalancingFullAccess.md "../../../aws-managed-policy/latest/reference/ElasticLoadBalancingFullAccess.md") in the _AWS Managed Policy Reference_.
@@ -51,13 +51,13 @@ To view the permissions for this policy, see [ElasticLoadBalancingFullAccess](..
 
 ElasticLoadBalancingReadOnly
 
-This policy provides read-only access to Elastic Load Balancing and dependent services.
+This policy provides read-only access to ELB and dependent services.
 
 To view the permissions for this policy, see [ElasticLoadBalancingReadOnly](../../../aws-managed-policy/latest/reference/ElasticLoadBalancingReadOnly.md "../../../aws-managed-policy/latest/reference/ElasticLoadBalancingReadOnly.md") in the _AWS Managed Policy Reference_.
 
-## Elastic Load Balancing updates to AWS managed policies
+## ELB updates to AWS managed policies
 
-View details about updates to AWS managed policies for Elastic Load Balancing since this service
+View details about updates to AWS managed policies for ELB since this service
 began tracking these changes.
 
 | Change                                                                                                                                                              | Description                                                                                                                                                                                             | Date               |
@@ -67,6 +67,6 @@ began tracking these changes.
 | [ElasticLoadBalancingReadOnly](#ElasticLoadBalancingReadOnly "#ElasticLoadBalancingReadOnly") -<br>Update to an existing policy                                     | Added the following actions to grant permissions required for<br>zonal shift: `arc-zonal-shift:GetManagedResource`,<br>`arc-zonal-shift:ListManagedResources` and<br>`arc-zonal-shift:ListZonalShifts`. | November 28, 2023  |
 | [AWSElasticLoadBalancingServiceRolePolicy](#AWSElasticLoadBalancingServiceRolePolicy "#AWSElasticLoadBalancingServiceRolePolicy") -<br>Update to an existing policy | Added the `ec2:DescribeVpcPeeringConnections` action<br>to grant permissions required for peering connections.                                                                                          | October 11, 2021   |
 | [ElasticLoadBalancingFullAccess](#ElasticLoadBalancingFullAccess "#ElasticLoadBalancingFullAccess") -<br>Update to an existing policy                               | Added the `ec2:DescribeVpcPeeringConnections` action<br>to grant permissions required for peering connections.                                                                                          | October 11, 2021   |
-| [ElasticLoadBalancingFullAccess](#ElasticLoadBalancingFullAccess "#ElasticLoadBalancingFullAccess") -<br>New policy                                                 | Provides full access to Elastic Load Balancing and dependent services.                                                                                                                                  | September 20, 2018 |
-| [ElasticLoadBalancingReadOnly](#ElasticLoadBalancingReadOnly "#ElasticLoadBalancingReadOnly") -<br>New policy                                                       | Provides read-only access to Elastic Load Balancing and dependent services.                                                                                                                             | September 20, 2018 |
-| Elastic Load Balancing started tracking changes                                                                                                                     | Elastic Load Balancing started tracking changes for its AWS managed policies.                                                                                                                           | September 20, 2018 |
+| [ElasticLoadBalancingFullAccess](#ElasticLoadBalancingFullAccess "#ElasticLoadBalancingFullAccess") -<br>New policy                                                 | Provides full access to ELB and dependent services.                                                                                                                                                     | September 20, 2018 |
+| [ElasticLoadBalancingReadOnly](#ElasticLoadBalancingReadOnly "#ElasticLoadBalancingReadOnly") -<br>New policy                                                       | Provides read-only access to ELB and dependent services.                                                                                                                                                | September 20, 2018 |
+| ELB started tracking changes                                                                                                                                        | ELB started tracking changes for its AWS managed policies.                                                                                                                                              | September 20, 2018 |

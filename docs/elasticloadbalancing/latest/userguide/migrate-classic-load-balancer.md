@@ -1,7 +1,7 @@
 # Migrate your Classic Load Balancer
 
 Elastic Load Balancing supports the following types of load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers.
-For information about the different features of each load balancer type, see [Elastic Load Balancing features](https://aws.amazon.com/elasticloadbalancing/features/ "https://aws.amazon.com/elasticloadbalancing/features/").
+For information about the different features of each load balancer type, see [ELB features](https://aws.amazon.com/elasticloadbalancing/features/ "https://aws.amazon.com/elasticloadbalancing/features/").
 
 You can also choose to migrate an existing Classic Load Balancer in a VPC, to an Application Load Balancer or a Network Load Balancer.
 
@@ -101,11 +101,11 @@ You must manually redirect the traffic to the newly created load balancer.
 
 ## Migrate using the load balancer copy utility
 
-The load balancer copy utilities are available within the Elastic Load Balancing Tools repository, on the AWS GitHub page.
+The load balancer copy utilities are available within the ELB Tools repository, on the AWS GitHub page.
 
 ###### Resources
 
-- [Elastic Load Balancing Tools](https://github.com/aws/elastic-load-balancing-tools "https://github.com/aws/elastic-load-balancing-tools")
+- [ELB Tools](https://github.com/aws/elastic-load-balancing-tools "https://github.com/aws/elastic-load-balancing-tools")
 - [Classic Load Balancer to Application Load Balancer copy utility](https://github.com/aws/elastic-load-balancing-tools/tree/master/application-load-balancer-copy-utility "https://github.com/aws/elastic-load-balancing-tools/tree/master/application-load-balancer-copy-utility")
 - [Classic Load Balancer to Network Load Balancer copy utility](https://github.com/aws/elastic-load-balancing-tools/tree/master/network-load-balancer-copy-utility "https://github.com/aws/elastic-load-balancing-tools/tree/master/network-load-balancer-copy-utility")
 
@@ -113,7 +113,7 @@ The load balancer copy utilities are available within the Elastic Load Balancing
 
 The following information provides general instructions for manually creating a
 new Application Load Balancer or Network Load Balancer based on an existing Classic Load Balancer in a VPC. You can migrate using the
-AWS Management Console, the AWS CLI, or an AWS SDK. For more information, see [Getting started with Elastic Load Balancing](load-balancer-getting-started.md "load-balancer-getting-started.md").
+AWS Management Console, the AWS CLI, or an AWS SDK. For more information, see [Getting started with ELB](load-balancer-getting-started.md "load-balancer-getting-started.md").
 
 After you have completed the migration process, you can take advantage of the features of
 your new load balancer.
@@ -127,8 +127,8 @@ Create a load balancer with a configuration that is equivalent to the Classic Lo
 2. Create one target group for your load balancer, with the same health check settings
    that you have for your Classic Load Balancer.
 3. Do one of the following:
-   - If your Classic Load Balancer is attached to an Auto Scaling group, attach your target group to the Auto Scaling group.
-     This also registers the Auto Scaling instances with the target group.
+   - If your Classic Load Balancer is attached to an Amazon EC2 Auto Scaling group, attach your target group to the Amazon EC2 Auto Scaling group.
+     This also registers the Amazon EC2 Auto Scaling instances with the target group.
    - Register your EC2 instances with your target group.
 
 4. Create one or more listeners, each with a default rule that forwards
@@ -180,16 +180,16 @@ If you migrated your Classic Load Balancer to an Application Load Balancer or Ne
   from the `AWS/ApplicationELB` or `AWS/NetworkELB` namespace.
 - Update scripts that use **aws elb** AWS CLI commands to use
   **aws elbv2** AWS CLI commands.
-- Update AWS CloudFormation templates that use the `AWS::ElasticLoadBalancing::LoadBalancer`
+- Update CloudFormation templates that use the `AWS::ElasticLoadBalancing::LoadBalancer`
   resource to use the `AWS::ElasticLoadBalancingV2` resources.
-- Update code that uses Elastic Load Balancing API version 2012-06-01 to use version 2015-12-01.
+- Update code that uses ELB API version 2012-06-01 to use version 2015-12-01.
 
 ###### Resources
 
 - [elbv2](../../../cli/latest/reference/elbv2/index.md "../../../cli/latest/reference/elbv2/index.md") in the _AWS CLI Command Reference_
 - [Elastic Load Balancing API Reference version 2015-12-01](../APIReference.md "../APIReference.md")
 - [Identity and access management
-  for Elastic Load Balancing](load-balancer-authentication-access-control.md "load-balancer-authentication-access-control.md")
+  for ELB](load-balancer-authentication-access-control.md "load-balancer-authentication-access-control.md")
 - [Application Load Balancer metrics](../application/load-balancer-cloudwatch-metrics.md#load-balancer-metrics-alb "../application/load-balancer-cloudwatch-metrics.md#load-balancer-metrics-alb")
   in the _User Guide for Application Load Balancers_
 - [Network Load Balancer metrics](../network/load-balancer-cloudwatch-metrics.md#load-balancer-metrics-nlb "../network/load-balancer-cloudwatch-metrics.md#load-balancer-metrics-nlb")
@@ -210,8 +210,8 @@ You can delete the old Classic Load Balancer after:
 
 You can create an IAM policy that prevents users from creating Classic Load Balancers in your account.
 
-Both the [Elastic Load Balancing V2](../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md "../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md") and
-[Elastic Load Balancing V1](../../../service-authorization/latest/reference/list_awselasticloadbalancing.md "../../../service-authorization/latest/reference/list_awselasticloadbalancing.md") APIs provide a
+Both the [ELB V2](../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md "../../../service-authorization/latest/reference/list_awselasticloadbalancingv2.md") and
+[ELB V1](../../../service-authorization/latest/reference/list_awselasticloadbalancing.md "../../../service-authorization/latest/reference/list_awselasticloadbalancing.md") APIs provide a
 `CreateLoadBalancer` API action. When you create a Classic Load Balancer, you use the V1 API action,
 which creates both the load balancer and listeners. When you create an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer,
 you use the V2 API action, which creates only the load balancer. The V2 API provides a

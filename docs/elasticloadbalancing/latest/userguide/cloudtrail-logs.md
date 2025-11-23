@@ -1,10 +1,10 @@
-# Log API calls for Elastic Load Balancing using AWS CloudTrail
+# Log API calls for ELB using AWS CloudTrail
 
-Elastic Load Balancing is integrated with AWS CloudTrail, a service that provides a record of actions taken
-by a user, role, or an AWS service. CloudTrail captures API calls for Elastic Load Balancing as events. The
-calls captured include calls from the AWS Management Console and code calls to the Elastic Load Balancing API operations.
+ELB is integrated with AWS CloudTrail, a service that provides a record of actions taken
+by a user, role, or an AWS service. CloudTrail captures API calls for ELB as events. The
+calls captured include calls from the AWS Management Console and code calls to the ELB API operations.
 Using the information collected by CloudTrail, you can determine the request that was made to
-Elastic Load Balancing, the IP address from which the request was made, when it was made, and additional
+ELB, the IP address from which the request was made, when it was made, and additional
 details.
 
 Every event or log entry contains information about who generated the request. The
@@ -38,11 +38,11 @@ _CloudTrail Lake_ lets you run SQL-based queries on your events. CloudTrail Lake
 
 CloudTrail Lake event data stores and queries incur costs. When you create an event data store, you choose the [pricing option](../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option "../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option") you want to use for the event data store. The pricing option determines the cost for ingesting and storing events, and the default and maximum retention period for the event data store. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
 
-## Elastic Load Balancing management events in CloudTrail
+## ELB management events in CloudTrail
 
 [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
 
-Elastic Load Balancing logs control plane operations as management events. For a list of the
+ELB logs control plane operations as management events. For a list of the
 control plane operations, see the following:
 
 - Application Load Balancers — [Elastic Load Balancing API Reference version 2015-12-01](../APIReference.md "../APIReference.md")
@@ -50,7 +50,7 @@ control plane operations, see the following:
 - Gateway Load Balancers — [Elastic Load Balancing API Reference version 2015-12-01](../APIReference.md "../APIReference.md")
 - Classic Load Balancers — [Elastic Load Balancing API Reference version 2012-06-01](../../2012-06-01/APIReference.md "../../2012-06-01/APIReference.md")
 
-## Elastic Load Balancing event examples
+## ELB event examples
 
 An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
 
