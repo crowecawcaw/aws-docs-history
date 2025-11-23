@@ -29,7 +29,7 @@ The following table lists the Apache Kafka versions that Amazon MSK supports.
 | [3.3.2](https://archive.apache.org/dist/kafka/3.3.2/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.3.2/RELEASE_NOTES.html")         | 2023-03-02       | 2024-09-11          |
 | [3.4.0](https://archive.apache.org/dist/kafka/3.4.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.4.0/RELEASE_NOTES.html")         | 2023-05-04       | 2025-08-04          |
 | [3.5.1](https://archive.apache.org/dist/kafka/3.5.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.5.1/RELEASE_NOTES.html")         | 2023-09-26       | 2025-10-23          |
-| [3.6.0](https://archive.apache.org/dist/kafka/3.6.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.6.0/RELEASE_NOTES.html")         | 2023-11-16       | --                  |
+| [3.6.0](https://archive.apache.org/dist/kafka/3.6.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.6.0/RELEASE_NOTES.html")         | 2023-11-16       | 2026-06-01          |
 | [3.7.x](https://archive.apache.org/dist/kafka/3.7.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.7.0/RELEASE_NOTES.html")         | 2024-05-29       | --                  |
 | [3.8.x](https://downloads.apache.org/kafka/3.8.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/3.8.0/RELEASE_NOTES.html") (Recommended) | 2025-02-20       | --                  |
 | [3.9.x](https://downloads.apache.org/kafka/3.9.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/3.9.0/RELEASE_NOTES.html")               | 2025-04-21       | --                  |

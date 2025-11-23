@@ -11,7 +11,7 @@ transfer of data across Availability Zones.
 
 For information about Prometheus, see the [Prometheus documentation](https://prometheus.io/docs "https://prometheus.io/docs").
 
-For information about using Prometheus, see [Enhance operational insights for Amazon MSK using Amazon Managed Service for Prometheus and Amazon Managed Grafana](https://aws.amazon.com/blogs/big-data/enhance-operational-insights-for-amazon-msk-using-amazon-managed-service-for-prometheus-and-amazon-managed-grafana/ "https://aws.amazon.com/blogs/big-data/enhance-operational-insights-for-amazon-msk-using-amazon-managed-service-for-prometheus-and-amazon-managed-grafana/").
+For information about using Prometheus, see [Enhance operational insights for Amazon MSK using Amazon Managed Service for Prometheus and Amazon Managed Grafana](https://aws.amazon.com/blogs//big-data/enhance-operational-insights-for-amazon-msk-using-amazon-managed-service-for-prometheus-and-amazon-managed-grafana/ "https://aws.amazon.com/blogs//big-data/enhance-operational-insights-for-amazon-msk-using-amazon-managed-service-for-prometheus-and-amazon-managed-grafana/").
 
 ###### Note
 

@@ -10,13 +10,13 @@ cluster's VPC, you can create a peering connection between the two VPCs. For inf
 about VPC peering, see the [Amazon VPC Peering
 Guide](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md").
 
-## AWS Direct Connect
+## Direct Connect
 
-AWS Direct Connect links your on-premise network to AWS over a standard 1 gigabit or 10 gigabit
+Direct Connect links your on-premise network to AWS over a standard 1 gigabit or 10 gigabit
 Ethernet fiber-optic cable. One end of the cable is connected to your router, the other
-to an AWS Direct Connect router. With this connection in place, you can create virtual interfaces
+to an Direct Connect router. With this connection in place, you can create virtual interfaces
 directly to the AWS cloud and Amazon VPC, bypassing Internet service providers in your
-network path. For more information, see [AWS Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md").
+network path. For more information, see [Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md").
 
 ## AWS Transit Gateway
 

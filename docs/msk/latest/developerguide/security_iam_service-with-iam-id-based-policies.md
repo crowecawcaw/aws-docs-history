@@ -24,6 +24,8 @@ their policy. Policy statements must include either an `Action` or
 `NotAction` element. Amazon MSK defines its own set of
 actions that describe tasks that you can perform with this service.
 
+Please note, policy actions for MSK topic APIs use the `kafka-cluster` prefix before the action, refer to the [Semantics of IAM authorization policy actions and resources](kafka-actions.md "kafka-actions.md").
+
 To specify multiple actions in a single statement, separate them with commas
 as follows:
 

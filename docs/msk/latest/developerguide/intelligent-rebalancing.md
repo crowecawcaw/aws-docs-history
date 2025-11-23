@@ -4,7 +4,7 @@ Amazon MSK provides intelligent rebalancing for all new MSK Provisioned clusters
 
 Intelligent rebalancing provides fast scaling operations that complete within 30 minutes and doesn’t impact cluster availability during scaling. It’s turned on by default for all new MSK Express-based Provisioned clusters and works with the recommended maximum partition limit of 20,000 partitions per broker. Additionally, this feature is available at no additional cost and doesn’t require any configurations.
 
-Intelligent Rebalancing is currently being rolled out in the AWS Regions where Amazon MSK Express brokers are supported, in the next few weeks. Intelligent Rebalancing is available in the following AWS Regions so far : US East (Northern Virgina), US West (Oregon), US East (Ohio), Europe (Ireland), Asia Pacific (Mumbai).
+Effective 20th Nov 2025, Intelligent Rebalancing is available in all AWS Regions where Amazon MSK Express brokers are supported.
 
 ###### Topics
 

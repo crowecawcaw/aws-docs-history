@@ -297,7 +297,7 @@ For information about VPC peering, see [Working with VPC Peering Connections](..
 ### On-premises client
 
 In the case of an on-premises client that is set up to connect to the
-MSK cluster using AWS VPN, ensure the following:
+MSK cluster using Site-to-Site VPN, ensure the following:
 
 - The VPN connection status is `UP`. For information about how to
   check the VPN connection status, see [How do I check the current status of my VPN tunnel?](https://aws.amazon.com/premiumsupport/knowledge-center/check-vpn-tunnel-status/ "https://aws.amazon.com/premiumsupport/knowledge-center/check-vpn-tunnel-status/").
@@ -308,11 +308,11 @@ gateway(vgw-xxxxxxxx)`.
   port 9092 (if your cluster accepts plaintext traffic), and port 9094 (if
   your cluster accepts TLS-encrypted traffic).
 
-For more AWS VPN troubleshooting guidance, see [Troubleshooting Client VPN](../../../vpn/latest/clientvpn-admin/troubleshooting.md "../../../vpn/latest/clientvpn-admin/troubleshooting.md").
+For more Site-to-Site VPN troubleshooting guidance, see [Troubleshooting Client VPN](../../../vpn/latest/clientvpn-admin/troubleshooting.md "../../../vpn/latest/clientvpn-admin/troubleshooting.md").
 
-### AWS Direct Connect
+### Direct Connect
 
-If the client uses AWS Direct Connect, see [Troubleshooting AWS Direct Connect](../../../directconnect/latest/UserGuide/Troubleshooting.md "../../../directconnect/latest/UserGuide/Troubleshooting.md").
+If the client uses Direct Connect, see [Troubleshooting Direct Connect](../../../directconnect/latest/UserGuide/Troubleshooting.md "../../../directconnect/latest/UserGuide/Troubleshooting.md").
 
 If the previous troubleshooting guidance doesn't resolve the issue, ensure that no
 firewall is blocking network traffic. For further debugging, use tools like
@@ -350,7 +350,7 @@ When you update the [KafkaVersionsList](../../../AWSCloudFormation/latest/UserGu
 Resource of type 'AWS::MSK::Configuration' with identifier `'<identifierName>'` already exists.
 ```
 
-When you update the `KafkaVersionsList` property, AWS CloudFormation recreates a new configuration with the updated property before deleting the old configuration. The AWS CloudFormation stack update fails because the new configuration uses the same name as the existing configuration. Such an update requires a [resource replacement](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md#update-replacement "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md#update-replacement"). To successfully update `KafkaVersionsList`, you must also update the [Name](../../../AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.md#cfn-msk-configuration-name "../../../AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.md#cfn-msk-configuration-name") property in the same operation.
+When you update the `KafkaVersionsList` property, AWS CloudFormation recreates a new configuration with the updated property before deleting the old configuration. The CloudFormation stack update fails because the new configuration uses the same name as the existing configuration. Such an update requires a [resource replacement](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md#update-replacement "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md#update-replacement"). To successfully update `KafkaVersionsList`, you must also update the [Name](../../../AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.md#cfn-msk-configuration-name "../../../AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.md#cfn-msk-configuration-name") property in the same operation.
 
 In addition, if your configuration is attached with any clusters created using the AWS Management Console or AWS CLI, add the following to your configuration resource to prevent [failed resource deletion attempts](../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md#troubleshooting-errors-resource-removed-not-deleted "../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md#troubleshooting-errors-resource-removed-not-deleted").
 
