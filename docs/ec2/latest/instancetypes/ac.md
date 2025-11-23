@@ -46,6 +46,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | P5e             | `p5e.48xlarge`           |
 | P5en            | `p5en.48xlarge`          |
 | P6-B200         | `p6-b200.48xlarge`       |
+| P6-B300         | `p6-b300.48xlarge`       |
 | P6e-GB200       | `p6e-gb200.36xlarge`     |
 | Trn1            | `trn1.2xlarge`           | `trn1.32xlarge` |
 | Trn1n           | `trn1n.32xlarge`         |
@@ -78,6 +79,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | P5e             | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Linux                       |
 | P5en            | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Linux                       |
 | P6-B200         | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Linux                       |
+| P6-B300         | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
 | P6e-GB200       | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | NVIDIA Grace (arm64)          | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Linux                       |
 | Trn1            | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
 | Trn1n           | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Linux                       |
@@ -155,15 +157,15 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | g6e.24xlarge       | 768.00       | AMD EPYC 7R13               | 96    | 48        | 2                | 4 x NVIDIA L40S GPU                               | 178 GiB (4 x 44 GiB)    |
 | g6e.48xlarge       | 1536.00      | AMD EPYC 7R13               | 192   | 96        | 2                | 8 x NVIDIA L40S GPU                               | 357 GiB (8 x 44 GiB)    |
 | **G6f**            |
-| g6f.large          | 8.00         | AMD EPYC 7R13               | 2     | 1         | 2                | 0 x NVIDIA L4 GPU                                 | 0 GiB (0 x 2 GiB)       |
-| g6f.xlarge         | 16.00        | AMD EPYC 7R13               | 4     | 2         | 2                | 0 x NVIDIA L4 GPU                                 | 0 GiB (0 x 2 GiB)       |
-| g6f.2xlarge        | 32.00        | AMD EPYC 7R13               | 8     | 4         | 2                | 0 x NVIDIA L4 GPU                                 | 0 GiB (0 x 5 GiB)       |
-| g6f.4xlarge        | 64.00        | AMD EPYC 7R13               | 16    | 8         | 2                | 0 x NVIDIA L4 GPU                                 | 0 GiB (0 x 11 GiB)      |
+| g6f.large          | 8.00         | AMD EPYC 7R13               | 2     | 1         | 2                | 0 x NVIDIA L4 GPU                                 | 2 GiB (0 x 2 GiB)       |
+| g6f.xlarge         | 16.00        | AMD EPYC 7R13               | 4     | 2         | 2                | 0 x NVIDIA L4 GPU                                 | 2 GiB (0 x 2 GiB)       |
+| g6f.2xlarge        | 32.00        | AMD EPYC 7R13               | 8     | 4         | 2                | 0 x NVIDIA L4 GPU                                 | 5 GiB (0 x 5 GiB)       |
+| g6f.4xlarge        | 64.00        | AMD EPYC 7R13               | 16    | 8         | 2                | 0 x NVIDIA L4 GPU                                 | 11 GiB (0 x 11 GiB)     |
 | **Gr6**            |
 | gr6.4xlarge        | 128.00       | AMD EPYC 7R13               | 16    | 8         | 2                | 1 x NVIDIA L4 GPU                                 | 22 GiB (1 x 22 GiB)     |
 | gr6.8xlarge        | 256.00       | AMD EPYC 7R13               | 32    | 16        | 2                | 1 x NVIDIA L4 GPU                                 | 22 GiB (1 x 22 GiB)     |
 | **Gr6f**           |
-| gr6f.4xlarge       | 128.00       | AMD EPYC 7R13               | 16    | 8         | 2                | 0 x NVIDIA L4 GPU                                 | 0 GiB (0 x 11 GiB)      |
+| gr6f.4xlarge       | 128.00       | AMD EPYC 7R13               | 16    | 8         | 2                | 0 x NVIDIA L4 GPU                                 | 11 GiB (0 x 11 GiB)     |
 | **Inf1**           |
 | inf1.xlarge        | 8.00         | Intel Xeon P-8259L          | 4     | 2         | 2                | 1 x AWS Inferentia inference accelerator          | 8 GiB (1 x 8 GiB)       |
 | inf1.2xlarge       | 16.00        | Intel Xeon P-8259L          | 8     | 4         | 2                | 1 x AWS Inferentia inference accelerator          | 8 GiB (1 x 8 GiB)       |
@@ -187,6 +189,8 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | p5en.48xlarge      | 2048.00      | Intel Xeon Sapphire Rapids  | 192   | 96        | 2                | 8 x NVIDIA H200 GPU                               | 1128 GiB (8 x 141 GiB)  |
 | **P6-B200**        |
 | p6-b200.48xlarge   | 2048.00      | Intel Xeon Emerald Rapids   | 192   | 96        | 2                | 8 x NVIDIA B200 GPU                               | 1432 GiB (8 x 179 GiB)  |
+| **P6-B300**        |
+| p6-b300.48xlarge   | 4096.00      | Intel Xeon Emerald Rapids   | 192   | 96        | 2                | 8 x NVIDIA B300 GPU                               | 2148 GiB (8 x 268 GiB)  |
 | **P6e-GB200**      |
 | p6e-gb200.36xlarge | 960.00       | Nvidia Grace CPU            | 144   | 144       | 1                | 4 x NVIDIA B200 GPU                               | 740 GiB (4 x 185 GiB)   |
 | **Trn1**           |
@@ -300,6 +304,8 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | p5en.48xlarge      | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 16            | 64                      | 50                         | ✓ Yes |
 | **P6-B200**        |
 | p6-b200.48xlarge   | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 8             | 32                      | 50                         | ✓ Yes |
+| **P6-B300**        |
+| p6-b300.48xlarge   | 6400 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 17            | 68                      | 50                         | ✓ Yes |
 | **P6e-GB200**      |
 | p6e-gb200.36xlarge | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✗ No        | 17            | 39                      | 50                         | ✓ Yes |
 | **Trn1**           |
@@ -440,6 +446,8 @@ Amazon EBS and Amazon EC2 can become a performance bottleneck.
 | p5en.48xlarge      | 100000.00                           | 12500.00                                          | 400000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **P6-B200**        |
 | p6-b200.48xlarge   | 100000.00                           | 12500.00                                          | 400000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| **P6-B300**        |
+| p6-b300.48xlarge   | 100000.00                           | 12500.00                                          | 400000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **P6e-GB200**      |
 | p6e-gb200.36xlarge | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **Trn1**           |
@@ -544,6 +552,8 @@ along with the aggregated IOPS performance with 4,096 byte block size at queue d
 | p5en.48xlarge      | 8 x 3800 GB            | NVMe SSD            | 4,400,000 / 2,200,000              |                        | ✓ Yes          |
 | **P6-B200**        |
 | p6-b200.48xlarge   | 8 x 3800 GB            | NVMe SSD            | 4,400,000 / 2,200,000              |                        | ✓ Yes          |
+| **P6-B300**        |
+| p6-b300.48xlarge   | 8 x 3800 GB            | NVMe SSD            | 4,400,000 / 2,200,000              |                        | ✓ Yes          |
 | **P6e-GB200**      |
 | p6e-gb200.36xlarge | 3 x 7500 GB            | NVMe SSD            | 2,550,000 / 2,400,000              |                        | ✓ Yes          |
 | **Trn1**           |
@@ -660,6 +670,8 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | p5en.48xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | **P6-B200**        |
 | p6-b200.48xlarge   | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| **P6-B300**        |
+| p6-b300.48xlarge   | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | **P6e-GB200**      |
 | p6e-gb200.36xlarge | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | **Trn1**           |

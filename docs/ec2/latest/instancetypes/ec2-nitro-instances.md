@@ -62,15 +62,11 @@ of Nitro v4 and later instance types.
 
 - Traffic Mirroring is not supported.
 - Up to 400 Gbps\* per network card.
-- Remote direct memory access (RDMA) read and RDMA write are available with
-  EFA for the following instance type: `p6-b200.48xlarge`.
 
 ###### Nitro v5
 
 - Traffic Mirroring is not supported.
 - Up to 200 Gbps\* per network card.
-- RDMA write is available with EFA for the following instance type:
-  `p5en.48xlarge`.
 
 ###### Nitro v4
 
@@ -78,18 +74,17 @@ of Nitro v4 and later instance types.
   up to 100 Gbps\* per network card for consistency.
   Other instance types support up to 170 Gbps\* per
   network card.
-- RDMA write is available with EFA for the following instance types:
-  `p5.48xlarge`, `p5e.48xlarge`.
 - Supports ENA Express. For more information about ENA Express, including
   what specific instance types support it see [Improve network
   performance with ENA Express on your EC2 instances](../../../AWSEC2/latest/UserGuide/ena-express.md "../../../AWSEC2/latest/UserGuide/ena-express.md") in the
   _Amazon EC2 User Guide_.
+- Supports RDMA read and RDMA write for select instance types. For more
+  information, see [Elastic Fabric Adapter](../../../AWSEC2/latest/UserGuide/efa.md#efa-instance-types "../../../AWSEC2/latest/UserGuide/efa.md#efa-instance-types").
 - Traffic Mirroring is supported.
 
 ###### Nitro v3
 
 - Up to 100 Gbps\* per network card.
-- Supports RDMA read with EFA for `p4d(e).24xlarge` instances.
 - Encryption in transit.
 - Traffic Mirroring is supported.
 
@@ -112,7 +107,7 @@ Nitro v6
 - **Compute Optimized**: C8gn | C8i | C8i-flex
 - **Memory Optimized**: R8a | R8gb | R8gn | R8i | R8i-flex
 - **Storage Optimized**: I8ge
-- **Accelerated Computing**: P6-B200
+- **Accelerated Computing**: P6-B200 | P6-B300
 
 Nitro v5
 
