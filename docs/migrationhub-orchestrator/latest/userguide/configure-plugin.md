@@ -13,7 +13,7 @@ supports VMware vCenter Server 6.0, 6.5, 6.7 and 7.0.
 
 ###### Tasks
 
-- [Download and configure the plugin](#w32aac18b9 "#w32aac18b9")
+- [Download and configure the plugin](#w2aac18b9 "#w2aac18b9")
 - [Set up AWS configurations](#cli-plugin-setup-aws-config "#cli-plugin-setup-aws-config")
 - [Set up vCenter configurations](#cli-plugin-setup-vcenter-config "#cli-plugin-setup-vcenter-config")
 - [Set up source server

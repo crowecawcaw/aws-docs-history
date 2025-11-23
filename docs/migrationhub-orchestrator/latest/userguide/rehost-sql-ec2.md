@@ -11,9 +11,9 @@ Certificates, Logins and Agent Jobs that are associated with your SQL Server.
 ###### Topics
 
 - [Prerequisites](#rehost-sql-ec2 "#rehost-sql-ec2")
-- [Creating the migration workflow](#w32aac16c15b9 "#w32aac16c15b9")
-- [Running the migration workflow](#w32aac16c15c11 "#w32aac16c15c11")
-- [FAQ](#w32aac16c15c13 "#w32aac16c15c13")
+- [Creating the migration workflow](#w2aac16c15b9 "#w2aac16c15b9")
+- [Running the migration workflow](#w2aac16c15c11 "#w2aac16c15c11")
+- [FAQ](#w2aac16c15c13 "#w2aac16c15c13")
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ workflow.
 
 ###### Topics
 
-- [Source environment setup](#w32aac16c15b7b7 "#w32aac16c15b7b7")
+- [Source environment setup](#w2aac16c15b7b7 "#w2aac16c15b7b7")
 
 ### Source environment setup
 
@@ -60,10 +60,10 @@ You can customize the migration workflow once it has been created. For more info
 
 ###### Topics
 
-- [Application](#w32aac16c15b9b7b3 "#w32aac16c15b9b7b3")
-- [ServerId](#w32aac16c15b9b7b5 "#w32aac16c15b9b7b5")
-- [Source Environment Configuration](#w32aac16c15b9b7b7 "#w32aac16c15b9b7b7")
-- [Target Environment Configuration](#w32aac16c15b9b7b9 "#w32aac16c15b9b7b9")
+- [Application](#w2aac16c15b9b7b3 "#w2aac16c15b9b7b3")
+- [ServerId](#w2aac16c15b9b7b5 "#w2aac16c15b9b7b5")
+- [Source Environment Configuration](#w2aac16c15b9b7b7 "#w2aac16c15b9b7b7")
+- [Target Environment Configuration](#w2aac16c15b9b7b9 "#w2aac16c15b9b7b9")
 
 #### Application
 

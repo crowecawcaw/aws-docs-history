@@ -234,7 +234,7 @@ Migration Hub Orchestrator.
   hostname, run the `hostname` command on your database.
 - AWS Application Discovery Service server ID for SAP HANA database: Select the server ID
   where your SAP HANA database is running. The IDs in the list are available based on the
-  application configurations made in AWS Directory Service. For more information, see [Define applications](orchestrate-migrations.md#define-applications "orchestrate-migrations.md#define-applications").
+  application configurations made in Directory Service. For more information, see [Define applications](orchestrate-migrations.md#define-applications "orchestrate-migrations.md#define-applications").
 - Credentials: Select the credentials you created for your source HANA database in [Prerequisites](#prerequisites-migrate-sap "#prerequisites-migrate-sap").
 - Version: Migration Hub Orchestrator only supports migrations for SAP HANA database 2.0 versions. Verify
   that the version of your SAP HANA database is 2.0 or higher with `HDB version`

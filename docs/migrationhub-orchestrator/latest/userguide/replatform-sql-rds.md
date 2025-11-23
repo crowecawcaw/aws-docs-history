@@ -6,10 +6,10 @@ With **Replatform SQL server on Amazon RDS** template, you can replatform your S
 
 ###### Topics
 
-- [Prerequisites](#w32aac16c17b7 "#w32aac16c17b7")
-- [Creating the migration workflow](#w32aac16c17b9 "#w32aac16c17b9")
-- [Running the migration workflow](#w32aac16c17c11 "#w32aac16c17c11")
-- [FAQ](#w32aac16c17c13 "#w32aac16c17c13")
+- [Prerequisites](#w2aac16c17b7 "#w2aac16c17b7")
+- [Creating the migration workflow](#w2aac16c17b9 "#w2aac16c17b9")
+- [Running the migration workflow](#w2aac16c17c11 "#w2aac16c17c11")
+- [FAQ](#w2aac16c17c13 "#w2aac16c17c13")
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ You must set up the source environment before creating a migration workflow.
 
 ###### Topics
 
-- [Source environment setup](#w32aac16c17b7b7 "#w32aac16c17b7b7")
+- [Source environment setup](#w2aac16c17b7b7 "#w2aac16c17b7b7")
 
 ### Source environment setup
 
@@ -54,9 +54,9 @@ You can customize the migration workflow once it has been created. For more info
 
 ###### Topics
 
-- [Application](#w32aac16c17b9b9 "#w32aac16c17b9b9")
-- [ServerId](#w32aac16c17b9c11 "#w32aac16c17b9c11")
-- [Source Environment Configuration](#w32aac16c17b9c13 "#w32aac16c17b9c13")
+- [Application](#w2aac16c17b9b9 "#w2aac16c17b9b9")
+- [ServerId](#w2aac16c17b9c11 "#w2aac16c17b9c11")
+- [Source Environment Configuration](#w2aac16c17b9c13 "#w2aac16c17b9c13")
 
 ### Application
 
