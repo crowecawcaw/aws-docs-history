@@ -9,11 +9,13 @@ against these indexes in Amazon DynamoDB.
 
 - [Scenario: Using a Global Secondary Index](#GSI.scenario "#GSI.scenario")
 - [Attribute projections](#GSI.Projections "#GSI.Projections")
+- [Multi-attribute key schema](#GSI.MultiAttributeKeys "#GSI.MultiAttributeKeys")
 - [Reading data from a Global Secondary Index](#GSI.Reading "#GSI.Reading")
 - [Data synchronization between tables and Global Secondary Indexes](#GSI.Writes "#GSI.Writes")
 - [Table classes with Global Secondary Index](#GSI.tableclasses "#GSI.tableclasses")
 - [Provisioned throughput considerations for Global Secondary Indexes](#GSI.ThroughputConsiderations "#GSI.ThroughputConsiderations")
 - [Storage considerations for Global Secondary Indexes](#GSI.StorageConsiderations "#GSI.StorageConsiderations")
+- [Design patterns](GSI.md "GSI.md")
 - [Managing Global Secondary Indexes in DynamoDB](GSI.md "GSI.md")
 - [Detecting and correcting index key
   violations in DynamoDB](GSI.OnlineOps.md "GSI.OnlineOps.md")
@@ -167,6 +169,58 @@ between provisioned throughput costs and storage costs:
   writes or updates against the data in the table, consider projecting
   `KEYS_ONLY`. The global secondary index would be of minimal size, but would still
   be available when needed for query activity.
+
+## Multi-attribute key schema
+
+Global Secondary Indexes support multi-attribute keys, allowing you to compose partition keys and sort
+keys from multiple attributes. With multi-attribute keys, you can create a partition key
+from up to four attributes and a sort key from up to four attributes, for a total of up
+to eight attributes per key schema.
+
+Multi-attribute keys simplify your data model by eliminating the need to manually
+concatenate attributes into synthetic keys. Instead of creating composite strings like
+`TOURNAMENT#WINTER2024#REGION#NA-EAST`, you can use the natural
+attributes from your domain model directly. DynamoDB handles the composite key logic
+automatically, hashing multiple partition key attributes together for data distribution
+and maintaining hierarchical sort order across multiple sort key attributes.
+
+For example, consider a gaming tournament system where you want to organize matches by
+tournament and region. With multi-attribute keys, you can define your partition key as
+two separate attributes: `tournamentId` and `region`. Similarly,
+you can define your sort key using multiple attributes like `round`,
+`bracket`, and `matchId` to create a natural hierarchy. This
+approach keeps your data typed and your code clean, without string manipulation or
+parsing.
+
+When you query a global secondary index with multi-attribute keys, you must specify all partition key
+attributes using equality conditions. For sort key attributes, you can query them
+left-to-right in the order they're defined in the key schema. This means you can query
+the first sort key attribute alone, the first two attributes together, or all attributes
+together, but you cannot skip attributes in the middle. Inequality conditions such as
+`>`, `<`, `BETWEEN`, or
+`begins_with()` must be the last condition in your query.
+
+Multi-attribute keys work particularly well when creating global secondary indexes on existing tables.
+You can use attributes that already exist in your table without backfilling synthetic
+keys across your data. This makes it straightforward to add new query patterns to your
+application by creating indexes that reorganize your data using different attribute
+combinations.
+
+Each attribute in a multi-attribute key can have its own data type: `String`
+(S), `Number` (N), or `Binary` (B). When choosing data types,
+consider that `Number` attributes sort numerically without requiring
+zero-padding, while `String` attributes sort lexicographically. For example,
+if you use a `Number` type for a score attribute, the values 5, 50, 500, and
+1000 sort in natural numeric order. The same values as `String` type would
+sort as "1000", "5", "50", "500" unless you pad them with leading zeros.
+
+When designing multi-attribute keys, order your attributes from most general to most
+specific. For partition keys, combine attributes that are always queried together and
+that provide good data distribution. For sort keys, place frequently queried attributes
+first in the hierarchy to maximize query flexibility. This ordering allows you to query
+at any level of granularity that matches your access patterns.
+
+See the [Multi-attribute keys](GSI.DesignPattern.md "GSI.DesignPattern.md") for implementation examples.
 
 ## Reading data from a Global Secondary Index
 
@@ -379,6 +433,6 @@ To estimate the storage requirements for a global secondary index, you can estim
 an item in the index and then multiply by the number of items in the base table that
 have the global secondary index key attributes.
 
-If a table contains an item where a particular attribute is not defined, but that
+If a table contains an item where a particular attribute(s) is not defined, but that
 attribute is defined as an index partition key or sort key, DynamoDB doesn't write any data
 for that item to the index.

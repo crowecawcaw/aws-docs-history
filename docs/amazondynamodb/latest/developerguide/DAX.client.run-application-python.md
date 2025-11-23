@@ -1,46 +1,78 @@
-# 02-write-data.py
+# 04-query-test.py
 
-The `02-write-data.py` program writes test data to
-`TryDaxTable`.
+The `04-query-test.py` program performs `Query`
+operations on `TryDaxTable`.
 
 ```
+import argparse
+import time
+import sys
+import amazondax
 import boto3
+from boto3.dynamodb.conditions import Key
 
 
-def write_data_to_dax_table(key_count, item_size, dyn_resource=None):
+def query_test(partition_key, sort_keys, iterations, dyn_resource=None):
     """
-    Writes test data to the demonstration table.
+    Queries the table a specified number of times. The time before the
+    first iteration and the time after the last iteration are both captured
+    and reported.
 
-    :param key_count: The number of partition and sort keys to use to populate the
-                      table. The total number of items is key_count * key_count.
-    :param item_size: The size of non-key data for each test item.
+    :param partition_key: The partition key value to use in the query. The query
+                          returns items that have partition keys equal to this value.
+    :param sort_keys: The range of sort key values for the query. The query returns
+                      items that have sort key values between these two values.
+    :param iterations: The number of iterations to run.
     :param dyn_resource: Either a Boto3 or DAX resource.
+    :return: The start and end times of the test.
     """
     if dyn_resource is None:
         dyn_resource = boto3.resource("dynamodb")
 
     table = dyn_resource.Table("TryDaxTable")
-    some_data = "X" * item_size
+    key_condition_expression = Key("partition_key").eq(partition_key) & Key(
+        "sort_key"
+    ).between(*sort_keys)
 
-    for partition_key in range(1, key_count + 1):
-        for sort_key in range(1, key_count + 1):
-            table.put_item(
-                Item={
-                    "partition_key": partition_key,
-                    "sort_key": sort_key,
-                    "some_data": some_data,
-                }
-            )
-            print(f"Put item ({partition_key}, {sort_key}) succeeded.")
+    start = time.perf_counter()
+    for _ in range(iterations):
+        table.query(KeyConditionExpression=key_condition_expression)
+        print(".", end="")
+        sys.stdout.flush()
+    print()
+    end = time.perf_counter()
+    return start, end
 
 
 if __name__ == "__main__":
-    write_key_count = 10
-    write_item_size = 1000
-    print(
-        f"Writing {write_key_count*write_key_count} items to the table. "
-        f"Each item is {write_item_size} characters."
+    # pylint: disable=not-context-manager
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "endpoint_url",
+        nargs="?",
+        help="When specified, the DAX cluster endpoint. Otherwise, DAX is not used.",
     )
-    write_data_to_dax_table(write_key_count, write_item_size)
+    args = parser.parse_args()
+
+    test_partition_key = 5
+    test_sort_keys = (2, 9)
+    test_iterations = 100
+    if args.endpoint_url:
+        print(f"Querying the table {test_iterations} times, using the DAX client.")
+        # Use a with statement so the DAX client closes the cluster after completion.
+        with amazondax.AmazonDaxClient.resource(endpoint_url=args.endpoint_url) as dax:
+            test_start, test_end = query_test(
+                test_partition_key, test_sort_keys, test_iterations, dyn_resource=dax
+            )
+    else:
+        print(f"Querying the table {test_iterations} times, using the Boto3 client.")
+        test_start, test_end = query_test(
+            test_partition_key, test_sort_keys, test_iterations
+        )
+
+    print(
+        f"Total time: {test_end - test_start:.4f} sec. Average time: "
+        f"{(test_end - test_start)/test_iterations}."
+    )
 
 ```

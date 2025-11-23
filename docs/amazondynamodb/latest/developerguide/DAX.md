@@ -1,642 +1,141 @@
-# DAX access control
+# DAX cluster sizing guide
 
-DynamoDB Accelerator (DAX) is designed to work together with DynamoDB, to seamlessly add a caching
-layer to your applications. However, DAX and DynamoDB have separate access control
-mechanisms. Both services use AWS Identity and Access Management (IAM) to implement their respective security
-policies, but the security models for DAX and DynamoDB are different.
+This guide provides advice for choosing an appropriate Amazon DynamoDB Accelerator (DAX) cluster
+size and node type for your application. These instructions guide you through the steps of
+estimating your application’s DAX traffic, selecting a cluster configuration, and testing
+it.
 
-_We highly recommend that you understand both security models_, so that
-you can implement proper security measures for your applications that use DAX.
+If you have an existing DAX cluster and want to evaluate whether it has the appropriate
+number and size of nodes, please refer to [Scaling a DAX cluster](DAX.md#DAX.cluster-management.scaling "DAX.md#DAX.cluster-management.scaling").
 
-This section describes the access control mechanisms provided by DAX and provides sample
-IAM policies that you can tailor to your needs.
+###### Topics
 
-With DynamoDB, you can create IAM policies that limit the actions a user can perform on
-individual DynamoDB resources. For example, you can create a user role that only allows the
-user to perform read-only actions on a particular DynamoDB table. (For more information, see
-[Identity and Access Management for Amazon DynamoDB](security-iam.md "security-iam.md").) By comparison, the DAX
-security model focuses on cluster security, and the ability of the cluster to perform DynamoDB
-API actions on your behalf.
+- [Overview](#DAX.sizing-guide.overview "#DAX.sizing-guide.overview")
+- [Estimating traffic](#DAX.sizing-guide.estimating-traffic "#DAX.sizing-guide.estimating-traffic")
+- [Load testing](#DAX.sizing-guide.load-testing "#DAX.sizing-guide.load-testing")
 
-###### Warning
+## Overview
 
-If you are currently using IAM roles and policies to restrict access to DynamoDB tables
-data, then the use of DAX can **subvert** those policies.
-For example, a user could have access to a DynamoDB table via DAX but not have explicit
-access to the same table accessing DynamoDB directly. For more information, see [Identity and Access Management for Amazon DynamoDB](security-iam.md "security-iam.md").
+It's important to scale your DAX cluster appropriately for your workload, whether
+you're creating a new cluster or maintaining an existing cluster. As time goes on and
+your application's workload changes, you should periodically revisit your scaling
+decisions to make sure that they are still appropriate.
 
-DAX does not enforce user-level separation on data in DynamoDB. Instead, users inherit
-the permissions of the DAX cluster's IAM policy when they access that cluster. Thus,
-when accessing DynamoDB tables via DAX, the only access controls that are in effect are
-the permissions in the DAX cluster's IAM policy. No other permissions are
-recognized.
+The process typically follows these steps:
 
-If you require isolation, we recommend that you create additional DAX clusters and
-scope the IAM policy for each cluster accordingly. For example, you could create
-multiple DAX clusters and allow each cluster to access only a single table.
+1. **Estimating traffic.** In this step, you make
+   predictions about the volume of traffic that your application will send to
+   DAX, the nature of the traffic (read vs. write operations), and the expected
+   cache hit rate.
+2. **Load testing.** In this step, you create a
+   cluster and send traffic to it mirroring your estimates from the previous step.
+   Repeat this step until you find a suitable cluster configuration.
+3. **Production monitoring.** While your application
+   is using DAX in production, you should [monitor
+   the cluster](DAX.md "DAX.md") to continuously validate that it is still scaled
+   correctly as your workload changes over time.
 
-## IAM service role for
+## Estimating traffic
 
-DAX
+There are three main factors that characterize a typical DAX workload:
 
-When you create a DAX cluster, you must associate the cluster with an IAM role.
-This is known as the *service role* for the cluster.
+- Cache hit rate
+- [Read capacity
+  units](provisioned-capacity-mode.md#read-write-capacity-units "provisioned-capacity-mode.md#read-write-capacity-units") (RCUs) per second
+- [Write capacity
+  units](provisioned-capacity-mode.md#read-write-capacity-units "provisioned-capacity-mode.md#read-write-capacity-units") (WCUs) per second
 
-Suppose that you wanted to create a new DAX cluster
-named *DAXCluster01*. You could create a service role named
-_DAXServiceRole_, and associate the role
-with *DAXCluster01*. The policy
-for *DAXServiceRole* would define the DynamoDB actions
-that *DAXCluster01* could perform, on behalf of the users who
-interact with *DAXCluster01*.
+### Estimating cache hit
 
-When you create a service role, you must specify a trust relationship
-between *DAXServiceRole* and the DAX service itself. A trust
-relationship determines which entities can assume a role and make use of its
-permissions. The following is an example trust relationship document
-for *DAXServiceRole*:
+rate
 
-JSON
+If you already have a DAX cluster, you can use the `ItemCacheHits`
+and `ItemCacheMisses`
+[Amazon CloudWatch metrics](dax-metrics-dimensions-dax.md "dax-metrics-dimensions-dax.md") to determine the
+cache hit rate. The cache hit rate is equal to `ItemCacheHits` /
+(`ItemCacheHits` + `ItemCacheMisses`). If your workload
+includes `Query` or `Scan` operations, you should also look at
+the `QueryCacheHits`, `QueryCacheMisses`,
+`ScanCacheHits`, and `ScanCacheMisses` metrics. Cache hit
+rates vary from one application to another and are heavily influenced by the
+cluster's Time to Live (TTL) setting. Typical hit rates for applications using DAX are
+85–95 percent.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "dax.amazonaws.com"
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
+### Estimating read and
 
-```
+write capacity units
 
-This trust relationship allows a DAX cluster to
-assume *DAXServiceRole* and perform DynamoDB API calls on your
-behalf.
+If you already have DynamoDB tables for your application, look at the
+`ConsumedReadCapacityUnits` and
+`ConsumedWriteCapacityUnits`
+[CloudWatch metrics](dax-metrics-dimensions-dax.md "dax-metrics-dimensions-dax.md"). Use the
+`Sum` statistic and divide by the number of seconds in the period.
 
-The DynamoDB API actions that are allowed are described in an IAM policy document,
-which you attach to *DAXServiceRole*. The following is an example
-policy document.
+If you also already have a DAX cluster, remember that the DynamoDB
+`ConsumedReadCapacityUnits` metric only accounts for cache misses.
+So, to get an idea of the read capacity units per second handled by your DAX
+cluster, divide the number by your cache miss rate (that is, 1 - cache hit
+rate).
 
-JSON
+If you don't already have a DynamoDB table, see the documentation about [read and write capacity units](provisioned-capacity-mode.md#read-write-capacity-units "provisioned-capacity-mode.md#read-write-capacity-units") to estimate your traffic based on your application's estimated
+request rate, items accessed per request, and item size.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DaxAccessPolicy",
- "Effect": "Allow",
- "Action": [
- "dynamodb:DescribeTable",
- "dynamodb:PutItem",
- "dynamodb:GetItem",
- "dynamodb:UpdateItem",
- "dynamodb:DeleteItem",
- "dynamodb:Query",
- "dynamodb:Scan",
- "dynamodb:BatchGetItem",
- "dynamodb:BatchWriteItem",
- "dynamodb:ConditionCheckItem"
- ],
- "Resource": [
- "arn:aws:dynamodb:us-west-2:123456789012:table/Books"
- ]
- }
- ]
-}`
+When making traffic estimates, plan for future growth and for expected and
+unexpected peaks to ensure that your cluster has enough headroom for traffic
+increases.
 
-```
+## Load testing
 
-This policy allows DAX to perform necessary DynamoDB API actions on a DynamoDB table. The
-`dynamodb:DescribeTable` action is required for DAX to maintain
-metadata about the table, and the others are read and write actions performed on items
-in the table. The table, named `Books`, is in the us-west-2 Region and is
-owned by AWS account ID `123456789012`.
+The next step after estimating traffic is to test the cluster configuration under
+load.
+
+1. For your initial load test, we recommend that you start with the
+   `dax.r4.large` node type, the lowest-cost fixed performance,
+   memory-optimized node type.
+2. A fault-tolerant cluster requires at least three nodes, spread across three
+   Availability Zones. In this case, if an Availability Zone becomes unavailable,
+   the effective number of Availability Zones is reduced by one-third. For your
+   initial load test, we recommend that you start with a two-node cluster, which
+   simulates the failure of one Availability Zone in a three-node cluster.
+3. Drive sustained traffic (as estimated in the previous step) to your test
+   cluster for the duration of the load test.
+4. Monitor the performance of the cluster during the load test.
+
+Ideally, the traffic profile that you drive during the load test should be as similar
+as possible to your application's real traffic. This includes the distribution of
+operations (for example, 70 percent `GetItem`, 25 percent `Query`,
+and 5 percent `PutItem`), the request rate for each operation, the number of
+items accessed per request, and the distribution of item sizes. To achieve a cache hit
+rate similar to your application's expected cache hit rate, pay close attention to the
+distribution of keys in your test traffic.
 
 ###### Note
 
-DAX supports mechanisms to prevent the confused deputy problem during
-cross-Service access. For more information, see [The confused deputy
-problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md") in the _IAM User Guide_.
-
-## IAM policy to allow
-
-DAX cluster access
-
-After you create a DAX cluster, you need to grant permissions to a user so that the
-user can access the DAX cluster.
-
-For example, suppose that you want to grant access to
-_DAXCluster01_ to a user named Alice. You would first create an
-IAM policy (_AliceAccessPolicy_) that defines the DAX clusters
-and DAX API actions that the recipient can access. You would then confer access by
-attaching this policy to user Alice.
-
-The following policy document gives the recipient full access on
-_DAXCluster01_.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": [
- "dax:*"
- ],
- "Effect": "Allow",
- "Resource": [
- "arn:aws:dax:us-west-2:123456789012:cache/DAXCluster01"
- ]
- }
- ]
-}`
-
-```
-
-The policy document allows access to the DAX cluster, but it does not grant any
-DynamoDB permissions. (The DynamoDB permissions are conferred by the DAX service
-role.)
-
-For user Alice, you would first create `AliceAccessPolicy` with the policy
-document shown previously. You would then attach the policy to Alice.
-
-###### Note
-
-Instead of attaching the policy to a user, you could attach it to an IAM role.
-That way, all of the users who assume that role would have the permissions that you
-defined in the policy.
-
-The user policy, together with the DAX service role, determine the DynamoDB resources
-and API actions that the recipient can access via DAX.
-
-## Case study: Accessing DynamoDB and
-
-DAX
-
-The following scenario can help further your understanding of IAM policies for use
-with DAX. (This scenario is referred to throughout the rest of this section.) The
-following diagram shows a high-level overview of the scenario.
-
-![A high-level overview of an IAM policy scenario for using DAX.](images/dax-access-control-scenario.png)
-
-In this scenario, there are the following entities:
-
-- A user (Bob).
-- An IAM role (`BobUserRole`). Bob assumes this role at
-  runtime.
-- An IAM policy (`BobAccessPolicy`). This policy is attached to
-  `BobUserRole`. `BobAccessPolicy` defines the DynamoDB and
-  DAX resources that `BobUserRole` is allowed to access.
-- A DAX cluster (`DAXCluster01`).
-- An IAM service role (`DAXServiceRole`). This role
-  allows `DAXCluster01` to access DynamoDB.
-- An IAM policy (`DAXAccessPolicy`). This policy is attached to
-  `DAXServiceRole`. `DAXAccessPolicy` defines the DynamoDB
-  APIs and resources that `DAXCluster01` is allowed to access.
-- A DynamoDB table (`Books`).
-
-The combination of policy statements in `BobAccessPolicy` and
-`DAXAccessPolicy` determine what Bob can do with the `Books`
-table. For example, Bob might be able to access `Books` directly (using the
-DynamoDB endpoint), indirectly (using the DAX cluster), or both. Bob might also be able
-to read data from `Books`, write data to `Books`, or both.
-
-## Access to DynamoDB, but no access with
-
-DAX
-
-![Overview of an IAM policy that enables direct access to a table, but blocks indirect access using a DAX cluster.](images/dax-access-control-ddb-only.png)
-
-It is possible to allow direct access to a DynamoDB table, while preventing indirect
-access using a DAX cluster. For direct access to DynamoDB, the permissions for
-`BobUserRole` are determined by `BobAccessPolicy` (which is
-attached to the role).
-
-### Read-only access
-
-to DynamoDB (only)
-
-_Bob_ can access DynamoDB with
-`BobUserRole`. The IAM policy attached to this role
-(`BobAccessPolicy`) determines the DynamoDB tables that
-`BobUserRole` can access, and what APIs that `BobUserRole`
-can invoke.
-
-Consider the following policy document for `BobAccessPolicy`.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DynamoDBAccessStmt",
- "Effect": "Allow",
- "Action": [
- "dynamodb:GetItem",
- "dynamodb:BatchGetItem",
- "dynamodb:Query",
- "dynamodb:Scan"
- ],
- "Resource": "arn:aws:dynamodb:us-west-2:123456789012:table/Books"
- }
- ]
-}`
-
-```
-
-When this document is attached to `BobAccessPolicy`, it allows
-`BobUserRole` to access the DynamoDB endpoint and perform read-only
-operations on the `Books` table.
-
-DAX does not appear in this policy, so access via DAX is denied.
-
-### Read/write access
-
-to DynamoDB (only)
-
-If `BobUserRole` requires read/write access to DynamoDB, the following
-policy would work.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DynamoDBAccessStmt",
- "Effect": "Allow",
- "Action": [
- "dynamodb:GetItem",
- "dynamodb:BatchGetItem",
- "dynamodb:Query",
- "dynamodb:Scan",
- "dynamodb:PutItem",
- "dynamodb:UpdateItem",
- "dynamodb:DeleteItem",
- "dynamodb:BatchWriteItem",
- "dynamodb:ConditionCheckItem"
- ],
- "Resource": "arn:aws:dynamodb:us-west-2:123456789012:table/Books"
- }
- ]
-}`
-
-```
-
-Again, DAX does not appear in this policy, so access via DAX is denied.
-
-## Access to DynamoDB and to
-
-DAX
-
-![An IAM policy that grants access to both a DynamoDB table and a DAX cluster.](images/dax-access-control-ddb-and-dax.png)
-
-To allow access to a DAX cluster, you must include DAX-specific actions in an
-IAM policy.
-
-The following DAX-specific actions correspond to their similarly named counterparts
-in the DynamoDB API:
-
-- `dax:GetItem`
-- `dax:BatchGetItem`
-- `dax:Query`
-- `dax:Scan`
-- `dax:PutItem`
-- `dax:UpdateItem`
-- `dax:DeleteItem`
-- `dax:BatchWriteItem`
-- `dax:ConditionCheckItem`
-
-The same is true for the `dax:EnclosingOperation` condition key.
-
-### Read-only access to DynamoDB and read-only access to DAX
-
-Suppose that Bob requires read-only access to the `Books` table, from
-DynamoDB and from DAX. The following policy (attached to `BobUserRole`)
-confers this access.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DAXAccessStmt",
- "Effect": "Allow",
- "Action": [
- "dax:GetItem",
- "dax:BatchGetItem",
- "dax:Query",
- "dax:Scan"
- ],
- "Resource": "arn:aws:dax:us-west-2:123456789012:cache/DAXCluster01"
- },
- {
- "Sid": "DynamoDBAccessStmt",
- "Effect": "Allow",
- "Action": [
- "dynamodb:GetItem",
- "dynamodb:BatchGetItem",
- "dynamodb:Query",
- "dynamodb:Scan"
- ],
- "Resource": "arn:aws:dynamodb:us-west-2:123456789012:table/Books"
- }
- ]
-}`
-
-```
-
-The policy has a statement for DAX access (`DAXAccessStmt`) and
-another statement for DynamoDBaccess (`DynamoDBAccessStmt`). These
-statements allow Bob to
-send `GetItem`, `BatchGetItem`, `Query`,
-and `Scan` requests to `DAXCluster01`.
-
-However, the service role for `DAXCluster01` would also require
-read-only access to the `Books` table in DynamoDB. The following IAM
-policy, attached to `DAXServiceRole`, would fulfill this
-requirement.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DynamoDBAccessStmt",
- "Effect": "Allow",
- "Action": [
- "dynamodb:GetItem",
- "dynamodb:BatchGetItem",
- "dynamodb:Query",
- "dynamodb:Scan"
- ],
- "Resource": "arn:aws:dynamodb:us-west-2:123456789012:table/Books"
- }
- ]
-}`
-
-```
-
-### Read/write access to DynamoDB and read-only with DAX
-
-For a given user role, you can provide read/write access to a DynamoDB table, while
-also allowing read-only access via DAX.
-
-For Bob, the IAM policy for `BobUserRole` would need to allow DynamoDB
-read and write actions on the `Books` table, while also supporting
-read-only actions via `DAXCluster01`.
-
-The following example policy document for `BobUserRole` confers this
-access.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DAXAccessStmt",
- "Effect": "Allow",
- "Action": [
- "dax:GetItem",
- "dax:BatchGetItem",
- "dax:Query",
- "dax:Scan"
- ],
- "Resource": "arn:aws:dax:us-west-2:123456789012:cache/DAXCluster01"
- },
- {
- "Sid": "DynamoDBAccessStmt",
- "Effect": "Allow",
- "Action": [
- "dynamodb:GetItem",
- "dynamodb:BatchGetItem",
- "dynamodb:Query",
- "dynamodb:Scan",
- "dynamodb:PutItem",
- "dynamodb:UpdateItem",
- "dynamodb:DeleteItem",
- "dynamodb:BatchWriteItem",
- "dynamodb:DescribeTable",
- "dynamodb:ConditionCheckItem"
- ],
- "Resource": "arn:aws:dynamodb:us-west-2:123456789012:table/Books"
- }
- ]
-}`
-
-```
-
-In addition, `DAXServiceRole` would require an IAM policy that allows
-`DAXCluster01` to perform read-only actions on the `Books`
-table.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DynamoDBAccessStmt",
- "Effect": "Allow",
- "Action": [
- "dynamodb:GetItem",
- "dynamodb:BatchGetItem",
- "dynamodb:Query",
- "dynamodb:Scan",
- "dynamodb:DescribeTable"
- ],
- "Resource": "arn:aws:dynamodb:us-west-2:123456789012:table/Books"
- }
- ]
-}`
-
-```
-
-### Read/write access to DynamoDB and read/write access to DAX
-
-Now suppose that Bob required read/write access to the `Books` table,
-directly from DynamoDB or indirectly from `DAXCluster01`. The following
-policy document, attached to `BobAccessPolicy`, confers this
-access.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DAXAccessStmt",
- "Effect": "Allow",
- "Action": [
- "dax:GetItem",
- "dax:BatchGetItem",
- "dax:Query",
- "dax:Scan",
- "dax:PutItem",
- "dax:UpdateItem",
- "dax:DeleteItem",
- "dax:BatchWriteItem",
- "dax:ConditionCheckItem"
- ],
- "Resource": "arn:aws:dax:us-west-2:123456789012:cache/DAXCluster01"
- },
- {
- "Sid": "DynamoDBAccessStmt",
- "Effect": "Allow",
- "Action": [
- "dynamodb:GetItem",
- "dynamodb:BatchGetItem",
- "dynamodb:Query",
- "dynamodb:Scan",
- "dynamodb:PutItem",
- "dynamodb:UpdateItem",
- "dynamodb:DeleteItem",
- "dynamodb:BatchWriteItem",
- "dynamodb:DescribeTable",
- "dynamodb:ConditionCheckItem"
- ],
- "Resource": "arn:aws:dynamodb:us-west-2:123456789012:table/Books"
- }
- ]
-}`
-
-```
-
-In addition, `DAXServiceRole` would require an IAM policy that allows
-`DAXCluster01` to perform read/write actions on the
-`Books` table.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DynamoDBAccessStmt",
- "Effect": "Allow",
- "Action": [
- "dynamodb:GetItem",
- "dynamodb:BatchGetItem",
- "dynamodb:Query",
- "dynamodb:Scan",
- "dynamodb:PutItem",
- "dynamodb:UpdateItem",
- "dynamodb:DeleteItem",
- "dynamodb:BatchWriteItem",
- "dynamodb:DescribeTable"
- ],
- "Resource": "arn:aws:dynamodb:us-west-2:123456789012:table/Books"
- }
- ]
-}`
-
-```
-
-## Access
-
-to DynamoDB via DAX, but no direct access to DynamoDB
-
-In this scenario, Bob can access the `Books` table via DAX, but he does
-not have direct access to the `Books` table in DynamoDB. Thus, when Bob gains
-access to DAX, he also gains access to a DynamoDB table that he otherwise might not be
-able to access. When you configure an IAM policy for the DAX service role, remember
-that any user that is given access to the DAX cluster via the user access policy gains
-access to the tables specified in that policy. In this case,
-`BobAccessPolicy` gains access to the tables specified in
-`DAXAccessPolicy`.
-
-![A scenario where a user can access a table through a DAX cluster without direct DynamoDB access.](images/dax-access-control-dax-only.png)
-
-If you are currently using IAM roles and policies to restrict access to DynamoDB tables
-and data, using DAX can subvert those policies. In the following policy, Bob has
-access to a DynamoDB table via DAX but does not have explicit direct access to the same
-table in DynamoDB.
-
-The following policy document (`BobAccessPolicy`), attached
-to `BobUserRole`, would confer this access.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DAXAccessStmt",
- "Effect": "Allow",
- "Action": [
- "dax:GetItem",
- "dax:BatchGetItem",
- "dax:Query",
- "dax:Scan",
- "dax:PutItem",
- "dax:UpdateItem",
- "dax:DeleteItem",
- "dax:BatchWriteItem",
- "dax:ConditionCheckItem"
- ],
- "Resource": "arn:aws:dax:us-west-2:123456789012:cache/DAXCluster01"
- }
- ]
-}`
-
-```
-
-In this access policy, there are no permissions to access DynamoDB directly.
-
-Together with `BobAccessPolicy`, the following `DAXAccessPolicy`
-gives `BobUserRole` access to the DynamoDB table `Books` even though
-`BobUserRole` cannot directly access the `Books` table.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DynamoDBAccessStmt",
- "Effect": "Allow",
- "Action": [
- "dynamodb:GetItem",
- "dynamodb:BatchGetItem",
- "dynamodb:Query",
- "dynamodb:Scan",
- "dynamodb:PutItem",
- "dynamodb:UpdateItem",
- "dynamodb:DeleteItem",
- "dynamodb:BatchWriteItem",
- "dynamodb:DescribeTable",
- "dynamodb:ConditionCheckItem"
- ],
- "Resource": "arn:aws:dynamodb:us-west-2:123456789012:table/Books"
- }
- ]
-}`
-
-```
-
-As this example shows, when you configure access control for the user access policy
-and the DAX cluster access policy, you must fully understand the end-to-end access to
-ensure that the principle of least privilege is observed. Also ensure that giving a user
-access to a DAX cluster does not subvert previously established access control
-policies.
+Be careful when load testing T2 node types (`dax.t2.small` and
+`dax.t2.medium`). T2 node types provide [burstable CPU performance](../../../AWSEC2/latest/UserGuide/burstable-performance-instances.md "../../../AWSEC2/latest/UserGuide/burstable-performance-instances.md") that varies over time depending on the node's
+CPU credit balance. A DAX cluster running on T2 nodes might appear to be operating
+normally, but if any node is bursting above the [baseline performance](../../../AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.md "../../../AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.md") of its instance, the node is spending its accrued
+CPU credit balance. When the credit balance runs low, [performance is gradually lowered](../../../AWSEC2/latest/UserGuide/burstable-performance-instances-standard-mode.md "../../../AWSEC2/latest/UserGuide/burstable-performance-instances-standard-mode.md") to the baseline performance
+level.
+
+[Monitor your DAX cluster](DAX.md "DAX.md") during the load test
+to determine whether the node type that you're using for the load test is the right node
+type for you. In addition, during a load test, you should monitor your request rate and
+cache hit rate to ensure that your test infrastructure is actually driving the amount of
+traffic you intend.
+
+You should pay attention to network bytes consumption of your selected cluster instance type. Exceeding the
+available baseline bandwidth for an Amazon EC2 instance indicates that your cluster may not sustain your application's
+workload, and needs to be scaled.
+
+If load testing indicates that the selected cluster configuration can't sustain your
+application's workload, you should [switch to a larger node
+type](DAX.md#DAX.cluster-management.scaling.node-types "DAX.md#DAX.cluster-management.scaling.node-types"), especially if you see high CPU utilization on the primary node in the
+cluster, high eviction rates, or high cache memory utilization. If hit rates are
+consistently high, and the ratio of read to write traffic is high, you may want to
+consider [adding more nodes
+to your cluster](DAX.md#DAX.cluster-management.scaling.read-scaling "DAX.md#DAX.cluster-management.scaling.read-scaling"). Refer to [Scaling a DAX cluster](DAX.md#DAX.cluster-management.scaling "DAX.md#DAX.cluster-management.scaling") for additional guidance on when to
+use a larger node type (vertical scaling) or add more nodes (horizontal scaling).
+
+You should repeat your load test after making changes to your cluster
+configuration.

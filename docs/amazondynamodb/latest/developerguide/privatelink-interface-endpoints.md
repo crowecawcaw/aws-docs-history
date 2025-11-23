@@ -2,7 +2,7 @@
 
 With AWS PrivateLink for DynamoDB, you can provision *interface Amazon VPC
 endpoints* (interface endpoints) in your virtual private cloud (Amazon VPC). These
-endpoints are directly accessible from applications that are on premises over VPN and AWS Direct Connect,
+endpoints are directly accessible from applications that are on premises over VPN and Direct Connect,
 or in a different AWS Region over [Amazon VPC peering](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md"). Using AWS PrivateLink
 and interface endpoints, you can simplify private network connectivity from your applications to
 DynamoDB.
@@ -12,8 +12,8 @@ with DynamoDB using VPC interface endpoints for DynamoDB operations. Interface e
 represented by one or more elastic network interfaces (ENIs) that are assigned private IP
 addresses from subnets in your Amazon VPC. Requests to DynamoDB over interface endpoints stay on the
 Amazon network. You can also access interface endpoints in your Amazon VPC from on-premises
-applications through AWS Direct Connect or AWS Virtual Private Network (AWS VPN). For more information about how to
-connect your Amazon VPC with your on-premises network, see the [AWS Direct Connect User Guide](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") and the [AWS Site-to-Site VPN User Guide](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md").
+applications through AWS Direct Connect or AWS Virtual Private Network (Site-to-Site VPN). For more information about how to
+connect your Amazon VPC with your on-premises network, see the [Direct Connect User Guide](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") and the [AWS Site-to-Site VPN User Guide](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md").
 
 For general information about interface endpoints, see [Interface Amazon VPC endpoints
 (AWS PrivateLink)](../../../vpc/latest/privatelink/vpce-interface.md "../../../vpc/latest/privatelink/vpce-interface.md") in the _AWS PrivateLink Guide_. AWS PrivateLink is also
@@ -238,11 +238,11 @@ diagram.
 
 The diagram illustrates the following:
 
-- Your on-premises network uses AWS Direct Connect or AWS VPN to connect to Amazon VPC A.
+- Your on-premises network uses Direct Connect or Site-to-Site VPN to connect to Amazon VPC A.
 - Your applications on-premises and in Amazon VPC A use endpoint-specific DNS names to
   access DynamoDB through the DynamoDB interface endpoint.
 - On-premises applications send data to the interface endpoint in the Amazon VPC through
-  AWS Direct Connect (or AWS VPN). AWS PrivateLink moves the data from the interface endpoint to DynamoDB
+  Direct Connect (or Site-to-Site VPN). AWS PrivateLink moves the data from the interface endpoint to DynamoDB
   over the AWS network.
 - In-Amazon VPC applications also send traffic to the interface endpoint. AWS PrivateLink
   moves the data from the interface endpoint to DynamoDB over the AWS network.
@@ -263,7 +263,7 @@ endpoint-specific DNS names for DynamoDB.
 The diagram illustrates the following:
 
 - On-premises applications use endpoint-specific DNS names to send data to the
-  interface endpoint within the Amazon VPC through AWS Direct Connect (or AWS VPN). AWS PrivateLink moves the
+  interface endpoint within the Amazon VPC through Direct Connect (or Site-to-Site VPN). AWS PrivateLink moves the
   data from the interface endpoint to DynamoDB over the AWS network.
 - Using default Regional DynamoDB names, in-Amazon VPC applications send data to the gateway
   endpoint that connects to DynamoDB over the AWS network.

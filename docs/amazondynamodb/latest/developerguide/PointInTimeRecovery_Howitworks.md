@@ -20,7 +20,7 @@ until you turn off PITR for each table.
 - [Enabling point-in-time recovery](#howitworks_enabling "#howitworks_enabling")
 - [Enable PITR (console)](#howitworks-enable-pitr-console "#howitworks-enable-pitr-console")
 - [Enable PITR (AWS CLI)](#howitworks-enable-pitr-cli "#howitworks-enable-pitr-cli")
-- [Enable PITR (AWS CloudFormation)](#howitworks-enable-pitr-cfn "#howitworks-enable-pitr-cfn")
+- [Enable PITR (CloudFormation)](#howitworks-enable-pitr-cfn "#howitworks-enable-pitr-cfn")
 - [Enable PITR (API)](#howitworks-enable-pitr-api "#howitworks-enable-pitr-api")
 - [Recovery Period](#howitworks-pitr-recovery-period "#howitworks-pitr-recovery-period")
 - [Edit PITR](#howitworks-pitr-editing "#howitworks-pitr-editing")
@@ -73,7 +73,7 @@ aws dynamodb update-continuous-backups \
 --point-in-time-recovery-specification PointInTimeRecoveryEnabled=true,RecoveryPeriodInDays=35
 ```
 
-## Enable PITR (AWS CloudFormation)
+## Enable PITR (CloudFormation)
 
 Use the [AWS::DynamoDB::Table](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md") resource with the
 `PointInTimeRecoverySpecification` property turned on:

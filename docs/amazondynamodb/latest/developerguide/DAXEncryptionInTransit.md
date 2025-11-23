@@ -22,7 +22,7 @@ support unencrypted traffic, so there is no chance to misconfigure your applicat
 bypass encryption. The DAX client will use the cluster's x509 certificate to authenticate
 the identity of the cluster when it establishes connections, ensuring that your DAX
 requests go where intended. All methods of creating DAX clusters support encryption in
-transit: the AWS Management Console, AWS CLI, all SDKs, and AWS CloudFormation.
+transit: the AWS Management Console, AWS CLI, all SDKs, and CloudFormation.
 
 Encryption in transit cannot be enabled on an existing DAX cluster. To use encryption in
 transit in an existing DAX application, create a new cluster with encryption in transit

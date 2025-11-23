@@ -337,7 +337,7 @@ The following blog posts provide hands-on examples and practical details for the
 concepts covered in this guide:
 
 - For more information about using GSIs to distribute read traffic, see [Using Global Secondary Indexes to create eventually consistent secondary
-  indexes in Amazon DynamoDB](https://aws.amazon.com/blogs/database/using-global-secondary-indexes-to-create-eventually-consistent-secondary-indexes-in-amazon-dynamodb/ "https://aws.amazon.com/blogs/database/using-global-secondary-indexes-to-create-eventually-consistent-secondary-indexes-in-amazon-dynamodb/").
+  indexes in Amazon DynamoDB](https://aws.amazon.com/blogs//database/using-global-secondary-indexes-to-create-eventually-consistent-secondary-indexes-in-amazon-dynamodb/ "https://aws.amazon.com/blogs//database/using-global-secondary-indexes-to-create-eventually-consistent-secondary-indexes-in-amazon-dynamodb/").
 - For hands-on guidance about scaling DynamoDB and managing hot partitions, see
   [Part 1: Scaling DynamoDB - How partitions, hot keys, and split for heat
   impact performance](https://aws.amazon.com/blogs/database/part-1-scaling-dynamodb-how-partitions-hot-keys-and-split-for-heat-impact-performance/ "https://aws.amazon.com/blogs/database/part-1-scaling-dynamodb-how-partitions-hot-keys-and-split-for-heat-impact-performance/").

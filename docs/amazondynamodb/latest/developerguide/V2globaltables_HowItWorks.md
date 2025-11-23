@@ -34,7 +34,7 @@ becomes impaired, you can shift application traffic to a different Region and pe
 reads and writes to a different replica table in the same global table.
 
 Each replica table in a global table provides the same durability and availability as
-a single-Region DynamoDB table. Global tables offer a 99.999% availability [Service Level Agreement (SLA)](https://aws.amazon.com/dynamodb/sla/ "https://aws.amazon.com/dynamodb/sla/"),
+a single-Region DynamoDB table. Global tables offer a 99.999% availability [Service Level Agreement (SLA)](https://aws.amazon.com//dynamodb/sla/ "https://aws.amazon.com//dynamodb/sla/"),
 compared to 99.99% for single-Region tables.
 
 ## Consistency modes

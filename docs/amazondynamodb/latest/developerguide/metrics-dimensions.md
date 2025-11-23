@@ -1161,9 +1161,9 @@ manage your account's use of your service quotas. For more information, see [Vis
 
 Metrics
 
-- [AccountProvisionedWriteCapacityUnits](#w48aac39c15c13b7c11b9 "#w48aac39c15c13b7c11b9")
-- [AccountProvisionedReadCapacityUnits](#w48aac39c15c13b7c11c11 "#w48aac39c15c13b7c11c11")
-- [TableCount](#w48aac39c15c13b7c11c13 "#w48aac39c15c13b7c11c13")
+- [AccountProvisionedWriteCapacityUnits](#w2aac39c15c13b7c11b9 "#w2aac39c15c13b7c11b9")
+- [AccountProvisionedReadCapacityUnits](#w2aac39c15c13b7c11c11 "#w2aac39c15c13b7c11c11")
+- [TableCount](#w2aac39c15c13b7c11c13 "#w2aac39c15c13b7c11c13")
 
 #### AccountProvisionedWriteCapacityUnits
 
@@ -1229,14 +1229,14 @@ along any of the dimensions in the table below.
 
 ###### List of Available Dimensions
 
-- [DelegatedOperation](#w48aac39c15c13b9b7 "#w48aac39c15c13b9b7")
-- [GlobalSecondaryIndexName](#w48aac39c15c13b9b9 "#w48aac39c15c13b9b9")
-- [Operation](#w48aac39c15c13b9c11 "#w48aac39c15c13b9c11")
-- [OperationType](#w48aac39c15c13b9c13 "#w48aac39c15c13b9c13")
-- [Verb](#w48aac39c15c13b9c15 "#w48aac39c15c13b9c15")
-- [ReceivingRegion](#w48aac39c15c13b9c17 "#w48aac39c15c13b9c17")
-- [StreamLabel](#w48aac39c15c13b9c19 "#w48aac39c15c13b9c19")
-- [TableName](#w48aac39c15c13b9c21 "#w48aac39c15c13b9c21")
+- [DelegatedOperation](#w2aac39c15c13b9b7 "#w2aac39c15c13b9b7")
+- [GlobalSecondaryIndexName](#w2aac39c15c13b9b9 "#w2aac39c15c13b9b9")
+- [Operation](#w2aac39c15c13b9c11 "#w2aac39c15c13b9c11")
+- [OperationType](#w2aac39c15c13b9c13 "#w2aac39c15c13b9c13")
+- [Verb](#w2aac39c15c13b9c15 "#w2aac39c15c13b9c15")
+- [ReceivingRegion](#w2aac39c15c13b9c17 "#w2aac39c15c13b9c17")
+- [StreamLabel](#w2aac39c15c13b9c19 "#w2aac39c15c13b9c19")
+- [TableName](#w2aac39c15c13b9c21 "#w2aac39c15c13b9c21")
 
 ### DelegatedOperation
 

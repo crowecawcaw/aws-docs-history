@@ -1,22 +1,18 @@
-# Using the BEGINS_WITH function with PartiQL for DynamoDB
+# Using the MISSING function with PartiQL for DynamoDB
 
-Returns `TRUE` if the attribute specified begins with a particular substring.
+Returns `TRUE` if the item does not contain the attribute specified. Only equality and inequality operators can be used with this function.
 
 ## Syntax
 
 ```
-begins_with(`path`, `value` )
+ `attributename` IS | IS NOT  MISSING
 ```
 
 ## Arguments
 
-`path`
+`attributename`
 
-(Required) The attribute name or document path to use.
-
-`value`
-
-(Required) The string to search for.
+(Required) The attribute name to look for.
 
 ## Return type
 
@@ -25,5 +21,5 @@ begins_with(`path`, `value` )
 ## Examples
 
 ```
-SELECT * FROM "Orders" WHERE "OrderID"=1 AND begins_with("Address", '7834 24th')
+SELECT * FROM Music WHERE "Awards" is MISSING
 ```

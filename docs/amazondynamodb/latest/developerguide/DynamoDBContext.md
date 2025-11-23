@@ -1,115 +1,177 @@
-# Optimistic locking using DynamoDB and the
+# Mapping arbitrary data with DynamoDB
 
-AWS SDK for .NET object persistence model
+using the AWS SDK for .NET object persistence model
 
-Optimistic locking support in the object persistence model ensures that the item
-version for your application is the same as the item version on the server side before
-updating or deleting the item. Suppose that you retrieve an item for update. However,
-before you send your updates back, some other application updates the same item. Now
-your application has a stale copy of the item. Without optimistic locking, any update
-you perform will overwrite the update made by the other application.
+In addition to the supported .NET types (see [Supported data types](DotNetSDKHighLevel.md#DotNetDynamoDBContext.SupportedTypes "DotNetSDKHighLevel.md#DotNetDynamoDBContext.SupportedTypes")), you can use types in your
+application for which there is no direct mapping to the Amazon DynamoDB types. The object
+persistence model supports storing data of arbitrary types as long as you provide the
+converter to convert data from the arbitrary type to the DynamoDB type and vice versa. The
+converter code transforms data during both the saving and loading of the objects.
 
-The optimistic locking feature of the object persistence model provides the
-`DynamoDBVersion` tag that you can use to enable optimistic locking. To
-use this feature, you add a property to your class for storing the version number. You
-add the `DynamoDBVersion` attribute to the property. When you first save the
-object, the `DynamoDBContext` assigns a version number and increments this
-value each time you update the item.
+You can create any types on the client-side. However the data stored in the tables is
+one of the DynamoDB types, and during query and scan, any data comparisons made are against
+the data stored in DynamoDB.
 
-Your update or delete request succeeds only if the client-side object version matches
-the corresponding version number of the item on the server side. If your application has
-a stale copy, it must get the latest version from the server before it can update or
-delete that item.
+The following C# code example defines a `Book` class with `Id`,
+`Title`, `ISBN`, and `Dimension` properties. The
+`Dimension` property is of the `DimensionType` that describes
+`Height`, `Width`, and `Thickness` properties. The
+example code provides the converter methods `ToEntry` and
+`FromEntry` to convert data between the `DimensionType` and
+the DynamoDB string types. For example, when saving a `Book` instance, the
+converter creates a book `Dimension` string such as "8.5x11x.05". When you
+retrieve a book, it converts the string to a `DimensionType` instance.
 
-The following C# code example defines a `Book` class with object
-persistence attributes mapping it to the `ProductCatalog` table. The
-`VersionNumber` property in the class decorated with the
-`DynamoDBVersion` attribute stores the version number value.
+The example maps the `Book` type to the `ProductCatalog` table.
+It saves a sample `Book` instance, retrieves it, updates its dimensions, and
+saves the updated `Book` again.
 
-###### Example
-
-```
-[DynamoDBTable("ProductCatalog")]
-  public class Book
-  {
-    [DynamoDBHashKey]   //Partition key
-    public int Id { get; set; }
-    [DynamoDBProperty]
-    public string Title { get; set; }
-    [DynamoDBProperty]
-    public string ISBN { get; set; }
-    [DynamoDBProperty("Authors")]
-    public List<string> BookAuthors { get; set; }
- *[DynamoDBVersion]
- public int? VersionNumber { get; set; }*
-  }
-```
-
-###### Note
-
-You can apply the `DynamoDBVersion` attribute only to a nullable
-numeric primitive type (such as `int?`).
-
-Optimistic locking has the following impact on `DynamoDBContext`
-operations:
-
-- For a new item, `DynamoDBContext` assigns initial version number 0.
-  If you retrieve an existing item, update one or more of its properties, and try
-  to save the changes, the save operation succeeds only if the version number on
-  the client side and the server side match. `DynamoDBContext`
-  increments the version number. You don't need to set the version number.
-- The `Delete` method provides overloads that can take either a
-  primary key value or an object as parameter, as shown in the following C# code
-  example.
+For step-by-step instructions for testing the following example, see [.NET code examples](CodeSamples.md "CodeSamples.md").
 
 ###### Example
 
 ```
-DynamoDBContext context = new DynamoDBContext(client);
-...
-// Load a book.
-Book book = context.Load<ProductCatalog>(111);
-// Do other operations.
-// Delete 1 - Pass in the book object.
-context.Delete<ProductCatalog>(book);
+using System;
+using System.Collections.Generic;
+using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.DataModel;
+using Amazon.DynamoDBv2.DocumentModel;
+using Amazon.Runtime;
+using Amazon.SecurityToken;
 
-// Delete 2 - Pass in the Id (primary key)
-context.Delete<ProductCatalog>(222);
-```
+namespace com.amazonaws.codesamples
+{
+    class HighLevelMappingArbitraryData
+    {
+        private static AmazonDynamoDBClient client = new AmazonDynamoDBClient();
 
-If you provide an object as the parameter, the delete succeeds only if the
-object version matches the corresponding server-side item version. However, if
-you provide a primary key value as the parameter, `DynamoDBContext`
-is unaware of any version numbers, and it deletes the item without making the
-version check.
+        static void Main(string[] args)
+        {
+            try
+            {
+                DynamoDBContext context = new DynamoDBContext(client);
 
-Note that the internal implementation of optimistic locking in the object
-persistence model code uses the conditional update and the conditional delete
-API actions in DynamoDB.
+                // 1. Create a book.
+                DimensionType myBookDimensions = new DimensionType()
+                {
+                    Length = 8M,
+                    Height = 11M,
+                    Thickness = 0.5M
+                };
 
-## Disabling
+                Book myBook = new Book
+                {
+                    Id = 501,
+                    Title = "AWS SDK for .NET Object Persistence Model Handling Arbitrary Data",
+                    ISBN = "999-9999999999",
+                    BookAuthors = new List<string> { "Author 1", "Author 2" },
+                    Dimensions = myBookDimensions
+                };
 
-optimistic locking
+                context.Save(myBook);
 
-To disable optimistic locking, you use the `SkipVersionCheck`
-configuration property. You can set this property when creating
-`DynamoDBContext`. In this case, optimistic locking is disabled for
-any requests that you make using the context. For more information, see [Specifying optional parameters for
-DynamoDBContext](DotNetDynamoDBContext.md#OptionalConfigParams "DotNetDynamoDBContext.md#OptionalConfigParams") .
+                // 2. Retrieve the book.
+                Book bookRetrieved = context.Load<Book>(501);
 
-Instead of setting the property at the context level, you can disable optimistic
-locking for a specific operation, as shown in the following C# code example. The
-example uses the context to delete a book item. The `Delete` method sets
-the optional `SkipVersionCheck` property to true, disabling version
-checking.
+                // 3. Update property (book dimensions).
+                bookRetrieved.Dimensions.Height += 1;
+                bookRetrieved.Dimensions.Length += 1;
+                bookRetrieved.Dimensions.Thickness += 0.2M;
+                // Update the book.
+                context.Save(bookRetrieved);
 
-###### Example
+                Console.WriteLine("To continue, press Enter");
+                Console.ReadLine();
+            }
+            catch (AmazonDynamoDBException e) { Console.WriteLine(e.Message); }
+            catch (AmazonServiceException e) { Console.WriteLine(e.Message); }
+            catch (Exception e) { Console.WriteLine(e.Message); }
+        }
+    }
+    [DynamoDBTable("ProductCatalog")]
+    public class Book
+    {
+        [DynamoDBHashKey] //Partition key
+        public int Id
+        {
+            get; set;
+        }
+        [DynamoDBProperty]
+        public string Title
+        {
+            get; set;
+        }
+        [DynamoDBProperty]
+        public string ISBN
+        {
+            get; set;
+        }
+        // Multi-valued (set type) attribute.
+        [DynamoDBProperty("Authors")]
+        public List<string> BookAuthors
+        {
+            get; set;
+        }
+        // Arbitrary type, with a converter to map it to DynamoDB type.
+        [DynamoDBProperty(typeof(DimensionTypeConverter))]
+        public DimensionType Dimensions
+        {
+            get; set;
+        }
+    }
 
-```
-DynamoDBContext context = new DynamoDBContext(client);
-// Load a book.
-Book book = context.Load<ProductCatalog>(111);
-...
-// Delete the book.
-context.Delete<Book>(book, new DynamoDBContextConfig { SkipVersionCheck = true });
+    public class DimensionType
+    {
+        public decimal Length
+        {
+            get; set;
+        }
+        public decimal Height
+        {
+            get; set;
+        }
+        public decimal Thickness
+        {
+            get; set;
+        }
+    }
+
+    // Converts the complex type DimensionType to string and vice-versa.
+    public class DimensionTypeConverter : IPropertyConverter
+    {
+        public DynamoDBEntry ToEntry(object value)
+        {
+            DimensionType bookDimensions = value as DimensionType;
+            if (bookDimensions == null) throw new ArgumentOutOfRangeException();
+
+            string data = string.Format("{1}{0}{2}{0}{3}", " x ",
+                            bookDimensions.Length, bookDimensions.Height, bookDimensions.Thickness);
+
+            DynamoDBEntry entry = new Primitive
+            {
+                Value = data
+            };
+            return entry;
+        }
+
+        public object FromEntry(DynamoDBEntry entry)
+        {
+            Primitive primitive = entry as Primitive;
+            if (primitive == null || !(primitive.Value is String) || string.IsNullOrEmpty((string)primitive.Value))
+                throw new ArgumentOutOfRangeException();
+
+            string[] data = ((string)(primitive.Value)).Split(new string[] { " x " }, StringSplitOptions.None);
+            if (data.Length != 3) throw new ArgumentOutOfRangeException();
+
+            DimensionType complexData = new DimensionType
+            {
+                Length = Convert.ToDecimal(data[0]),
+                Height = Convert.ToDecimal(data[1]),
+                Thickness = Convert.ToDecimal(data[2])
+            };
+            return complexData;
+        }
+    }
+}
+
 ```

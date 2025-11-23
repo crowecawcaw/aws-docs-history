@@ -44,9 +44,9 @@ You have two connectivity options between your private network and AWS:
 - An AWS Site-to-Site VPN connection. For more information, see
   [What is
   AWS Site-to-Site VPN?](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md") in the _AWS Site-to-Site VPN User Guide_.
-- An AWS Direct Connect connection. For more information, see
+- An Direct Connect connection. For more information, see
   [What is
-  AWS Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") in the _AWS Direct Connect User Guide_.
+  Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") in the _Direct Connect User Guide_.
 
 Access to DynamoDB via the network is through AWS published APIs. Clients must support
 Transport Layer Security (TLS) 1.2. We recommend TLS 1.3. Clients must also
@@ -72,4 +72,4 @@ access to DynamoDB](../../../vpc/latest/userguide/vpc-endpoints-ddb.md "../../..
 
 ###### Note
 
-Amazon VPC endpoints are not accessible via AWS Site-to-Site VPN or AWS Direct Connect.
+Amazon VPC endpoints are not accessible via AWS Site-to-Site VPN or Direct Connect.

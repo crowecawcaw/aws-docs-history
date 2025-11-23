@@ -99,7 +99,7 @@ You can switch between modes at any time using the DynamoDB console, AWS CLI, or
 When you switch modes:
 
 - Existing CloudWatch rules are updated to match the new mode
-- Throttled key CloudWatch rules remain intact, maintaining your continuous
+- Throttled keys CloudWatch rules remain intact, maintaining your continuous
   historical data for throttling metrics:
   - When you switch from _throttled keys_ mode to
     _accessed and throttled keys_ mode, the
@@ -132,21 +132,21 @@ for accessed and throttled keys mode
 In _accessed and throttled keys_ mode, DynamoDB
 creates the following rules:
 
-- **Most accessed items (partition key)**
+- **Most accessed items (partition keys)**
   — Identifies the partition keys of the most accessed items in your
   table or global secondary index.
 
 CloudWatch rule name format:
 `DynamoDBContributorInsights-PKC-[resource_name]-[creationtimestamp]`
 
-- **Most throttled keys (partition key)**
+- **Most throttled keys (partition keys)**
   — Identifies the partition keys of the most throttled items in your
   table or global secondary index.
 
 CloudWatch rule name format:
 `DynamoDBContributorInsights-PKT-[resource_name]-[creationtimestamp]`
 
-If your table or global secondary index has a sort key, DynamoDB also creates the
+If your table or global secondary index has sort keys, DynamoDB also creates the
 following rules specific to sort keys:
 
 - **Most accessed keys (partition and sort
@@ -177,7 +177,7 @@ throttling-related rules:
 CloudWatch rule name format:
 `DynamoDBContributorInsights-PKT-[resource_name]-[creationtimestamp]`
 
-If your table or global secondary index has a sort key, DynamoDB also creates:
+If your table or global secondary index has sort keys, DynamoDB also creates:
 
 - **Most throttled keys (partition and sort
   keys)** — Identifies the partition and sort keys of the
@@ -264,10 +264,10 @@ indicates that your workload is relatively balanced across items over the given 
 window. If you see isolated points in the graph instead of connected lines, it
 indicates an item that was frequently accessed only for a brief period.
 
-If your table or global secondary index has a sort key, DynamoDB creates two graphs:
+If your table or global secondary index has sort keys, DynamoDB creates two graphs:
 one for the most accessed partition keys and one for the most accessed partition +
-sort key pairs. You can see traffic at the partition key level in the partition
-key–only graph. You can see traffic at the item level in the partition + sort key
+sort keys pairs. You can see traffic at the partition keys level in the partition
+key–only graph. You can see traffic at the item level in the partition + sort keys
 graphs.
 
 ### Most
@@ -298,10 +298,10 @@ If you see no data in this graph, it indicates that your requests are not being
 throttled. If you see isolated points in the graph instead of connected lines, it
 indicates that an item was frequently throttled for a brief period.
 
-If your table or global secondary index has a sort key, DynamoDB creates two graphs:
+If your table or global secondary index has sort keys, DynamoDB creates two graphs:
 one for most throttled partition keys and one for most throttled partition + sort
-key pairs. You can see throttle count at the partition key level in the partition
-key-only graph, and throttle count at the item-level in the partition + sort key
+keys pairs. You can see throttle count at the partition keys level in the partition
+keys-only graph, and throttle count at the item-level in the partition + sort keys
 graphs.
 
 ###### Note
@@ -315,7 +315,7 @@ performance with no throttling occurring.
 examples
 
 The following example shows the reports generated for a table with both a
-partition key and sort key in _accessed and throttled
+partition keys and sort keys in _accessed and throttled
 keys_ modes. In _throttled keys_
 mode, you see only the throttling-related portion of this report.
 
@@ -415,19 +415,19 @@ The two Contributor Insights modes have different billing characteristics.
 
 * In this mode, each item that is written or read via a [data plane](HowItWorks.md#HowItWorks.API.DataPlane "HowItWorks.md#HowItWorks.API.DataPlane") operation represents one event,
   regardless of whether the request succeeds or is throttled. If a table or
-  global secondary index includes a sort key, each item that is read or
+  global secondary index includes sort keys, each item that is read or
   written represents two events. This is because DynamoDB is identifying top
   contributors from separate time series: one for partitions keys only, and
-  one for partition and sort key pairs.
+  one for partition and sort keys pairs.
 
 - **Throttled keys mode billing** - In this
   mode, only throttled requests generate billable events. Events are only
   generated when requests result in
   `ProvisionedThroughputExceededException`,
   `ThrottlingException`, or `RequestLimitExceeded`
-  errors. If a table or global secondary index includes a sort key, each
-  throttled item represents two events (partition key tracking and partition +
-  sort key tracking).
+  errors. If a table or global secondary index includes sort keys, each
+  throttled item represents two events (partition keys tracking and partition +
+  sort keys tracking).
 
 ### Billing
 
@@ -439,22 +439,22 @@ that puts five items. Also assume that the `PutItem` operation gets
 throttled, but all other operations succeed.
 
 - **Accessed and throttled keys mode**
-  - If your table or global secondary index has only a partition key,
+  - If your table or global secondary index has only a partition keys,
     it results in 7 events (1 for the `GetItem`, 1 for the
     `PutItem`, and 5 for the
     `BatchWriteItem`).
-  - If your table or global secondary index has a partition key and
-    sort key, it results in 14 events (2 for the `GetItem`, 2
+  - If your table or global secondary index has a partition keys and
+    sort keys, it results in 14 events (2 for the `GetItem`, 2
     for the `PutItem`, and 10 for the
     `BatchWriteItem`).
 
 - **Throttled keys mode**
 
-      + If your table or global secondary index has only a partition key,
+      + If your table or global secondary index has only a partition keys,
        it results in 1 event (only for the throttled
        `PutItem`).
-      + If your table or global secondary index has a partition key and
-       sort key, it results in 2 events (2 for the throttled
+      + If your table or global secondary index has a partition keys and
+       sort keys, it results in 2 events (2 for the throttled
        `PutItem`).
 
   The successful `GetItem` and `BatchWriteItem`

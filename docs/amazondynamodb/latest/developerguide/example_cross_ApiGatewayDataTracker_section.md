@@ -25,7 +25,7 @@ For complete source code and instructions on how to set up and run, see the full
 ###### Services used in this example
 
 - API Gateway
-- AWS CloudFormation
+- CloudFormation
 - DynamoDB
 - Lambda
 

@@ -24,7 +24,7 @@ considerations apply:
 - Cross-account access using resource-based policies doesn't support encrypted tables
   with AWS managed keys because you can't grant cross-account access to the AWS managed
   KMS policy.
-  **AWS CloudFormation considerations**
+  **CloudFormation considerations**
 
 - Resource-based policies don't support [drift
   detection](../../../AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.md"). If you update a resource-based policy outside of the AWS CloudFormation stack

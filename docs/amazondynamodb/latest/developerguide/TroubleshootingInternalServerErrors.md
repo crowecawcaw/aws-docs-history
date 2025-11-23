@@ -87,7 +87,7 @@ These alarms use custom metric math to calculate the failed request percentage f
 is to configure the alarm to enter the `ALARM` state when 3 consecutive data points breach the 1% threshold,
 which means that overall 1% of requests fail within a 15-minute period.
 
-The sample below is a AWS CloudFormation template that can help you create CloudWatch alarms on your table and GSI on the table.
+The sample below is a CloudFormation template that can help you create CloudWatch alarms on your table and GSI on the table.
 
 ```
 AWSTemplateFormatVersion: "2010-09-09"

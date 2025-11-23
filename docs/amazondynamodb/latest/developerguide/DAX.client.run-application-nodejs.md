@@ -1,7 +1,7 @@
-# 05-scan-test.js
+# 06-delete-table.js
 
-The `05-scan-test.js` program performs `Scan` operations
-on `TryDaxTable`.
+The `06-delete-table.js` program deletes `TryDaxTable`.
+Run this program after you have finished testing.
 
 ```
 const AmazonDaxClient = require("amazon-dax-client");
@@ -13,47 +13,27 @@ AWS.config.update({
   region: region,
 });
 
-var ddbClient = new AWS.DynamoDB.DocumentClient();
-var daxClient = null;
+var dynamodb = new AWS.DynamoDB(); //low-level client
 
-if (process.argv.length > 2) {
-  var dax = new AmazonDaxClient({
-    endpoints: [process.argv[2]],
-    region: region,
-  });
-  daxClient = new AWS.DynamoDB.DocumentClient({ service: dax });
-}
-
-var client = daxClient != null ? daxClient : ddbClient;
 var tableName = "TryDaxTable";
-
-var iterations = 5;
 
 var params = {
   TableName: tableName,
 };
-var startTime = new Date().getTime();
-for (var i = 0; i < iterations; i++) {
-  client.scan(params, function (err, data) {
-    if (err) {
-      console.error(
-        "Unable to read item. Error JSON:",
-        JSON.stringify(err, null, 2)
-      );
-    } else {
-      // Scan succeeded
-    }
-  });
-}
 
-var endTime = new Date().getTime();
-console.log(
-  "\tTotal time: ",
-  endTime - startTime,
-  "ms - Avg time: ",
-  (endTime - startTime) / iterations,
-  "ms"
-);
+dynamodb.deleteTable(params, function (err, data) {
+  if (err) {
+    console.error(
+      "Unable to delete table. Error JSON:",
+      JSON.stringify(err, null, 2)
+    );
+  } else {
+    console.log(
+      "Deleted table. Table description JSON:",
+      JSON.stringify(data, null, 2)
+    );
+  }
+});
 
 
 ```

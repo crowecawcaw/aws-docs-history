@@ -1,429 +1,250 @@
-# Example: Global Secondary Indexes using the
+# Working with Global Secondary Indexes: .NET
 
-AWS SDK for .NET low-level API
+You can use the AWS SDK for .NET low-level API to create an Amazon DynamoDB table with one or more
+global secondary indexes, describe the indexes on the table, and perform queries using the
+indexes. These operations map to the corresponding DynamoDB operations. For more information,
+see the [Amazon DynamoDB API Reference](../APIReference.md "../APIReference.md").
 
-The following C# code example shows how to work with global secondary indexes. The
-example creates a table named `Issues`, which might be used in a simple bug
-tracking system for software development. The partition key is `IssueId` and
-the sort key is `Title`. There are three global secondary indexes on this
-table:
+The following are the common steps for table operations using the .NET low-level API.
 
-- `CreateDateIndex` — The partition key is
-  `CreateDate` and the sort key is `IssueId`. In
-  addition to the table keys, the attributes `Description` and
-  `Status` are projected into the index.
-- `TitleIndex` — The partition key is `Title` and
-  the sort key is `IssueId`. No attributes other than the table keys
-  are projected into the index.
-- `DueDateIndex` — The partition key is `DueDate`,
-  and there is no sort key. All of the table attributes are projected into the
-  index.
-  After the `Issues` table is created, the program loads the table with data
-  representing software bug reports. It then queries the data using the global secondary
-  indexes. Finally, the program deletes the `Issues` table.
+1. Create an instance of the `AmazonDynamoDBClient` class.
+2. Provide the required and optional parameters for the operation by creating the
+   corresponding request objects.
 
-For step-by-step instructions for testing the following sample, see [.NET code examples](CodeSamples.md "CodeSamples.md").
+For example, create a `CreateTableRequest` object to create a table and
+`QueryRequest` object to query a table or an index. 3. Run the appropriate method provided by the client that you created in the
+preceding step.
+
+###### Topics
+
+- [Create a table with a
+  Global Secondary Index](#GSILowLevelDotNet.CreateTableWithIndex "#GSILowLevelDotNet.CreateTableWithIndex")
+- [Describe a table with a
+  Global Secondary Index](#GSILowLevelDotNet.DescribeTableWithIndex "#GSILowLevelDotNet.DescribeTableWithIndex")
+- [Query a Global Secondary Index](#GSILowLevelDotNet.QueryAnIndex "#GSILowLevelDotNet.QueryAnIndex")
+- [Example: Global Secondary Indexes using the
+  AWS SDK for .NET low-level API](GSILowLevelDotNet.md "GSILowLevelDotNet.md")
+
+## Create a table with a
+
+Global Secondary Index
+
+You can create global secondary indexes at the same time that you create a table. To
+do this, use `CreateTable` and provide your specifications for one or more
+global secondary indexes. The following C# code example creates a table to hold
+information about weather data. The partition key is `Location` and the sort
+key is `Date`. A global secondary index named `PrecipIndex` allows fast access to
+precipitation data for various locations.
+
+The following are the steps to create a table with a global secondary index, using the .NET low-level
+API.
+
+1. Create an instance of the `AmazonDynamoDBClient` class.
+2. Create an instance of the `CreateTableRequest` class to provide the
+   request information.
+
+You must provide the table name, its primary key, and the provisioned
+throughput values. For the global secondary index, you must provide the index name, its
+provisioned throughput settings, the attribute definitions for the index sort
+key, the key schema for the index, and the attribute projection. 3. Run the `CreateTable` method by providing the request object as
+a parameter.
+
+The following C# code example demonstrates the preceding steps. The code creates a
+table (`WeatherData`) with a global secondary index (`PrecipIndex`). The index
+partition key is `Date` and its sort key is `Precipitation`. All
+of the table attributes are projected into the index. Users can query this index to
+obtain weather data for a particular date, optionally sorting the data by precipitation
+amount.
+
+Because `Precipitation` is not a key attribute for the table, it is not
+required. However, `WeatherData` items without `Precipitation` do
+not appear in `PrecipIndex`.
+
+```
+client = new AmazonDynamoDBClient();
+string tableName = "WeatherData";
+
+// Attribute definitions
+var attributeDefinitions = new List<AttributeDefinition>()
+{
+    {new AttributeDefinition{
+        AttributeName = "Location",
+        AttributeType = "S"}},
+    {new AttributeDefinition{
+        AttributeName = "Date",
+        AttributeType = "S"}},
+    {new AttributeDefinition(){
+        AttributeName = "Precipitation",
+        AttributeType = "N"}
+    }
+};
+
+// Table key schema
+var tableKeySchema = new List<KeySchemaElement>()
+{
+    {new KeySchemaElement {
+        AttributeName = "Location",
+        KeyType = "HASH"}},  //Partition key
+    {new KeySchemaElement {
+        AttributeName = "Date",
+        KeyType = "RANGE"}  //Sort key
+    }
+};
+
+// PrecipIndex
+var precipIndex = new GlobalSecondaryIndex
+{
+    IndexName = "PrecipIndex",
+    ProvisionedThroughput = new ProvisionedThroughput
+    {
+        ReadCapacityUnits = (long)10,
+        WriteCapacityUnits = (long)1
+    },
+    Projection = new Projection { ProjectionType = "ALL" }
+};
+
+var indexKeySchema = new List<KeySchemaElement> {
+    {new KeySchemaElement { AttributeName = "Date", KeyType = "HASH"}},  //Partition key
+    {new KeySchemaElement{AttributeName = "Precipitation",KeyType = "RANGE"}}  //Sort key
+};
+
+precipIndex.KeySchema = indexKeySchema;
+
+CreateTableRequest createTableRequest = new CreateTableRequest
+{
+    TableName = tableName,
+    ProvisionedThroughput = new ProvisionedThroughput
+    {
+        ReadCapacityUnits = (long)5,
+        WriteCapacityUnits = (long)1
+    },
+    AttributeDefinitions = attributeDefinitions,
+    KeySchema = tableKeySchema,
+    GlobalSecondaryIndexes = { precipIndex }
+};
+
+CreateTableResponse response = client.CreateTable(createTableRequest);
+Console.WriteLine(response.CreateTableResult.TableDescription.TableName);
+Console.WriteLine(response.CreateTableResult.TableDescription.TableStatus);
+```
+
+You must wait until DynamoDB creates the table and sets the table status to
+`ACTIVE`. After that, you can begin putting data items into the
+table.
+
+## Describe a table with a
+
+Global Secondary Index
+
+To get information about global secondary indexes on a table, use
+`DescribeTable`. For each index, you can access its name, key schema, and
+projected attributes.
+
+The following are the steps to access global secondary index information for a table using the .NET
+low-level API.
+
+1. Create an instance of the `AmazonDynamoDBClient` class.
+2. Run the `describeTable` method by providing the request object
+   as a parameter.
+
+Create an instance of the `DescribeTableRequest` class to provide
+the request information. You must provide the table name. 3.
+
+The following C# code example demonstrates the preceding steps.
 
 ###### Example
 
 ```
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Amazon.DynamoDBv2;
-using Amazon.DynamoDBv2.DataModel;
-using Amazon.DynamoDBv2.DocumentModel;
-using Amazon.DynamoDBv2.Model;
-using Amazon.Runtime;
-using Amazon.SecurityToken;
+client = new AmazonDynamoDBClient();
+string tableName = "WeatherData";
 
-namespace com.amazonaws.codesamples
-{
-    class LowLevelGlobalSecondaryIndexExample
-    {
-        private static AmazonDynamoDBClient client = new AmazonDynamoDBClient();
-        public static String tableName = "Issues";
+DescribeTableResponse response = client.DescribeTable(new DescribeTableRequest { TableName = tableName});
 
-        public static void Main(string[] args)
-        {
-            CreateTable();
-            LoadData();
+List<GlobalSecondaryIndexDescription> globalSecondaryIndexes =
+response.DescribeTableResult.Table.GlobalSecondaryIndexes;
 
-            QueryIndex("CreateDateIndex");
-            QueryIndex("TitleIndex");
-            QueryIndex("DueDateIndex");
+// This code snippet will work for multiple indexes, even though
+// there is only one index in this example.
 
-            DeleteTable(tableName);
+foreach (GlobalSecondaryIndexDescription gsiDescription in globalSecondaryIndexes) {
+     Console.WriteLine("Info for index " + gsiDescription.IndexName + ":");
 
-            Console.WriteLine("To continue, press enter");
-            Console.Read();
-        }
+     foreach (KeySchemaElement kse in gsiDescription.KeySchema) {
+          Console.WriteLine("\t" + kse.AttributeName + ": key type is " + kse.KeyType);
+     }
 
-        private static void CreateTable()
-        {
-            // Attribute definitions
-            var attributeDefinitions = new List<AttributeDefinition>()
-        {
-            {new AttributeDefinition {
-                 AttributeName = "IssueId", AttributeType = "S"
-             }},
-            {new AttributeDefinition {
-                 AttributeName = "Title", AttributeType = "S"
-             }},
-            {new AttributeDefinition {
-                 AttributeName = "CreateDate", AttributeType = "S"
-             }},
-            {new AttributeDefinition {
-                 AttributeName = "DueDate", AttributeType = "S"
-             }}
-        };
+      Projection projection = gsiDescription.Projection;
+      Console.WriteLine("\tThe projection type is: " + projection.ProjectionType);
 
-            // Key schema for table
-            var tableKeySchema = new List<KeySchemaElement>() {
-            {
-                new KeySchemaElement {
-                    AttributeName= "IssueId",
-                    KeyType = "HASH" //Partition key
-                }
-            },
-            {
-                new KeySchemaElement {
-                    AttributeName = "Title",
-                    KeyType = "RANGE" //Sort key
-                }
-            }
-        };
-
-            // Initial provisioned throughput settings for the indexes
-            var ptIndex = new ProvisionedThroughput
-            {
-                ReadCapacityUnits = 1L,
-                WriteCapacityUnits = 1L
-            };
-
-            // CreateDateIndex
-            var createDateIndex = new GlobalSecondaryIndex()
-            {
-                IndexName = "CreateDateIndex",
-                ProvisionedThroughput = ptIndex,
-                KeySchema = {
-                new KeySchemaElement {
-                    AttributeName = "CreateDate", KeyType = "HASH" //Partition key
-                },
-                new KeySchemaElement {
-                    AttributeName = "IssueId", KeyType = "RANGE" //Sort key
-                }
-            },
-                Projection = new Projection
-                {
-                    ProjectionType = "INCLUDE",
-                    NonKeyAttributes = {
-                    "Description", "Status"
-                }
-                }
-            };
-
-            // TitleIndex
-            var titleIndex = new GlobalSecondaryIndex()
-            {
-                IndexName = "TitleIndex",
-                ProvisionedThroughput = ptIndex,
-                KeySchema = {
-                new KeySchemaElement {
-                    AttributeName = "Title", KeyType = "HASH" //Partition key
-                },
-                new KeySchemaElement {
-                    AttributeName = "IssueId", KeyType = "RANGE" //Sort key
-                }
-            },
-                Projection = new Projection
-                {
-                    ProjectionType = "KEYS_ONLY"
-                }
-            };
-
-            // DueDateIndex
-            var dueDateIndex = new GlobalSecondaryIndex()
-            {
-                IndexName = "DueDateIndex",
-                ProvisionedThroughput = ptIndex,
-                KeySchema = {
-                new KeySchemaElement {
-                    AttributeName = "DueDate",
-                    KeyType = "HASH" //Partition key
-                }
-            },
-                Projection = new Projection
-                {
-                    ProjectionType = "ALL"
-                }
-            };
-
-
-
-            var createTableRequest = new CreateTableRequest
-            {
-                TableName = tableName,
-                ProvisionedThroughput = new ProvisionedThroughput
-                {
-                    ReadCapacityUnits = (long)1,
-                    WriteCapacityUnits = (long)1
-                },
-                AttributeDefinitions = attributeDefinitions,
-                KeySchema = tableKeySchema,
-                GlobalSecondaryIndexes = {
-                createDateIndex, titleIndex, dueDateIndex
-            }
-            };
-
-            Console.WriteLine("Creating table " + tableName + "...");
-            client.CreateTable(createTableRequest);
-
-            WaitUntilTableReady(tableName);
-        }
-
-        private static void LoadData()
-        {
-            Console.WriteLine("Loading data into table " + tableName + "...");
-
-            // IssueId, Title,
-            // Description,
-            // CreateDate, LastUpdateDate, DueDate,
-            // Priority, Status
-
-            putItem("A-101", "Compilation error",
-                "Can't compile Project X - bad version number. What does this mean?",
-                "2013-11-01", "2013-11-02", "2013-11-10",
-                1, "Assigned");
-
-            putItem("A-102", "Can't read data file",
-                "The main data file is missing, or the permissions are incorrect",
-                "2013-11-01", "2013-11-04", "2013-11-30",
-                2, "In progress");
-
-            putItem("A-103", "Test failure",
-                "Functional test of Project X produces errors",
-                "2013-11-01", "2013-11-02", "2013-11-10",
-                1, "In progress");
-
-            putItem("A-104", "Compilation error",
-                "Variable 'messageCount' was not initialized.",
-                "2013-11-15", "2013-11-16", "2013-11-30",
-                3, "Assigned");
-
-            putItem("A-105", "Network issue",
-                "Can't ping IP address 127.0.0.1. Please fix this.",
-                "2013-11-15", "2013-11-16", "2013-11-19",
-                5, "Assigned");
-        }
-
-        private static void putItem(
-            String issueId, String title,
-            String description,
-            String createDate, String lastUpdateDate, String dueDate,
-            Int32 priority, String status)
-        {
-            Dictionary<String, AttributeValue> item = new Dictionary<string, AttributeValue>();
-
-            item.Add("IssueId", new AttributeValue
-            {
-                S = issueId
-            });
-            item.Add("Title", new AttributeValue
-            {
-                S = title
-            });
-            item.Add("Description", new AttributeValue
-            {
-                S = description
-            });
-            item.Add("CreateDate", new AttributeValue
-            {
-                S = createDate
-            });
-            item.Add("LastUpdateDate", new AttributeValue
-            {
-                S = lastUpdateDate
-            });
-            item.Add("DueDate", new AttributeValue
-            {
-                S = dueDate
-            });
-            item.Add("Priority", new AttributeValue
-            {
-                N = priority.ToString()
-            });
-            item.Add("Status", new AttributeValue
-            {
-                S = status
-            });
-
-            try
-            {
-                client.PutItem(new PutItemRequest
-                {
-                    TableName = tableName,
-                    Item = item
-                });
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-        }
-
-        private static void QueryIndex(string indexName)
-        {
-            Console.WriteLine
-                ("\n***********************************************************\n");
-            Console.WriteLine("Querying index " + indexName + "...");
-
-            QueryRequest queryRequest = new QueryRequest
-            {
-                TableName = tableName,
-                IndexName = indexName,
-                ScanIndexForward = true
-            };
-
-
-            String keyConditionExpression;
-            Dictionary<string, AttributeValue> expressionAttributeValues = new Dictionary<string, AttributeValue>();
-
-            if (indexName == "CreateDateIndex")
-            {
-                Console.WriteLine("Issues filed on 2013-11-01\n");
-
-                keyConditionExpression = "CreateDate = :v_date and begins_with(IssueId, :v_issue)";
-                expressionAttributeValues.Add(":v_date", new AttributeValue
-                {
-                    S = "2013-11-01"
-                });
-                expressionAttributeValues.Add(":v_issue", new AttributeValue
-                {
-                    S = "A-"
-                });
-            }
-            else if (indexName == "TitleIndex")
-            {
-                Console.WriteLine("Compilation errors\n");
-
-                keyConditionExpression = "Title = :v_title and begins_with(IssueId, :v_issue)";
-                expressionAttributeValues.Add(":v_title", new AttributeValue
-                {
-                    S = "Compilation error"
-                });
-                expressionAttributeValues.Add(":v_issue", new AttributeValue
-                {
-                    S = "A-"
-                });
-
-                // Select
-                queryRequest.Select = "ALL_PROJECTED_ATTRIBUTES";
-            }
-            else if (indexName == "DueDateIndex")
-            {
-                Console.WriteLine("Items that are due on 2013-11-30\n");
-
-                keyConditionExpression = "DueDate = :v_date";
-                expressionAttributeValues.Add(":v_date", new AttributeValue
-                {
-                    S = "2013-11-30"
-                });
-
-                // Select
-                queryRequest.Select = "ALL_PROJECTED_ATTRIBUTES";
-            }
-            else
-            {
-                Console.WriteLine("\nNo valid index name provided");
-                return;
-            }
-
-            queryRequest.KeyConditionExpression = keyConditionExpression;
-            queryRequest.ExpressionAttributeValues = expressionAttributeValues;
-
-            var result = client.Query(queryRequest);
-            var items = result.Items;
-            foreach (var currentItem in items)
-            {
-                foreach (string attr in currentItem.Keys)
-                {
-                    if (attr == "Priority")
-                    {
-                        Console.WriteLine(attr + "---> " + currentItem[attr].N);
-                    }
-                    else
-                    {
-                        Console.WriteLine(attr + "---> " + currentItem[attr].S);
-                    }
-                }
-                Console.WriteLine();
-            }
-        }
-
-        private static void DeleteTable(string tableName)
-        {
-            Console.WriteLine("Deleting table " + tableName + "...");
-            client.DeleteTable(new DeleteTableRequest
-            {
-                TableName = tableName
-            });
-            WaitForTableToBeDeleted(tableName);
-        }
-
-        private static void WaitUntilTableReady(string tableName)
-        {
-            string status = null;
-            // Let us wait until table is created. Call DescribeTable.
-            do
-            {
-                System.Threading.Thread.Sleep(5000); // Wait 5 seconds.
-                try
-                {
-                    var res = client.DescribeTable(new DescribeTableRequest
-                    {
-                        TableName = tableName
-                    });
-
-                    Console.WriteLine("Table name: {0}, status: {1}",
-                              res.Table.TableName,
-                              res.Table.TableStatus);
-                    status = res.Table.TableStatus;
-                }
-                catch (ResourceNotFoundException)
-                {
-                    // DescribeTable is eventually consistent. So you might
-                    // get resource not found. So we handle the potential exception.
-                }
-            } while (status != "ACTIVE");
-        }
-
-        private static void WaitForTableToBeDeleted(string tableName)
-        {
-            bool tablePresent = true;
-
-            while (tablePresent)
-            {
-                System.Threading.Thread.Sleep(5000); // Wait 5 seconds.
-                try
-                {
-                    var res = client.DescribeTable(new DescribeTableRequest
-                    {
-                        TableName = tableName
-                    });
-
-                    Console.WriteLine("Table name: {0}, status: {1}",
-                              res.Table.TableName,
-                              res.Table.TableStatus);
-                }
-                catch (ResourceNotFoundException)
-                {
-                    tablePresent = false;
-                }
-            }
-        }
-    }
+      if (projection.ProjectionType.ToString().Equals("INCLUDE")) {
+           Console.WriteLine("\t\tThe non-key projected attributes are: "
+                + projection.NonKeyAttributes);
+      }
 }
+```
 
+## Query a Global Secondary Index
 
+You can use `Query` on a global secondary index, in much the same way you `Query`
+a table. You need to specify the index name, the query criteria for the index partition
+key and sort key (if present), and the attributes that you want to return. In this
+example, the index is `PrecipIndex`, which has a partition key of
+`Date` and a sort key of `Precipitation`. The index query
+returns all of the weather data for a particular date, where the precipitation is
+greater than zero.
+
+The following are the steps to query a global secondary index using the .NET low-level API.
+
+1. Create an instance of the `AmazonDynamoDBClient` class.
+2. Create an instance of the `QueryRequest` class to provide the
+   request information.
+3. Run the `query` method by providing the request object as a
+   parameter.
+
+The attribute name `Date` is a DynamoDB reserved word. Therefore, you must use
+an expression attribute name as a placeholder in the
+`KeyConditionExpression`.
+
+The following C# code example demonstrates the preceding steps.
+
+###### Example
+
+```
+client = new AmazonDynamoDBClient();
+
+QueryRequest queryRequest = new QueryRequest
+{
+    TableName = "WeatherData",
+    IndexName = "PrecipIndex",
+    KeyConditionExpression = "#dt = :v_date and Precipitation > :v_precip",
+    ExpressionAttributeNames = new Dictionary<String, String> {
+        {"#dt", "Date"}
+    },
+    ExpressionAttributeValues = new Dictionary<string, AttributeValue> {
+        {":v_date", new AttributeValue { S =  "2013-08-01" }},
+        {":v_precip", new AttributeValue { N =  "0" }}
+    },
+    ScanIndexForward = true
+};
+
+var result = client.Query(queryRequest);
+
+var items = result.Items;
+foreach (var currentItem in items)
+{
+    foreach (string attr in currentItem.Keys)
+    {
+        Console.Write(attr + "---> ");
+        if (attr == "Precipitation")
+        {
+            Console.WriteLine(currentItem[attr].N);
+    }
+    else
+    {
+        Console.WriteLine(currentItem[attr].S);
+    }
+
+         }
+     Console.WriteLine();
+}
 ```

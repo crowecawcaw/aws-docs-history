@@ -49,10 +49,6 @@ do a full table restore from your DynamoDB backup, or you can configure the dest
 table settings. When you do a restore, you can change the following table
 settings:
 
-- Global secondary indexes (GSIs)
-- Local secondary indexes (LSIs)
-- Billing mode
-- Provisioned read and write capacity
 - Encryption settings
 
 ###### Important

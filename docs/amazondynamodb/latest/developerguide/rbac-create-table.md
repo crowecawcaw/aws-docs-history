@@ -2,7 +2,7 @@
 
 You can add a resource-based policy while you create a table by using the DynamoDB console,
 [CreateTable](../APIReference/API_CreateTable.md "../APIReference/API_CreateTable.md") API, AWS CLI, [AWS
-SDK](rbac-attach-resource-based-policy.md#rbac-attach-policy-java-sdk "rbac-attach-resource-based-policy.md#rbac-attach-policy-java-sdk"), or an AWS CloudFormation template.
+SDK](rbac-attach-resource-based-policy.md#rbac-attach-policy-java-sdk "rbac-attach-resource-based-policy.md#rbac-attach-policy-java-sdk"), or an CloudFormation template.
 
 The following example creates a table named `MusicCollection`
 using the `create-table` AWS CLI command. This command also includes the

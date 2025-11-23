@@ -308,6 +308,15 @@ and setting `TotalSegments` to 3. Each thread scans its designated segment,
 retrieving data 1 MB at a time, and returns the data to the application's main
 thread.
 
+DynamoDB assigns items to _segments_ by applying a hash function to each item's partition key.
+For a given `TotalSegments` value, all items with the same partition key are always assigned to the same `Segment`. This means that in a table where
+_Item 1_, _Item 2_, and _Item 3_ all share `pk="account#123"` (but have different sort keys),
+these items will be processed by the same worker, regardless of the sort key values or the size of the _item collection_.
+
+Because _segment_ assignment is based solely on the partition key hash, segments can be unevenly distributed. Some segments might contain no items,
+while others might contain many partition keys with large item collections. As a result, increasing the total number of segments does not guarantee faster scan performance,
+particularly when partition keys are not uniformly distributed across the keyspace.
+
 The values for `Segment` and `TotalSegments` apply to individual
 `Scan` requests, and you can use different values at any time. You
 might need to experiment with these values, and the number of workers you use, until your

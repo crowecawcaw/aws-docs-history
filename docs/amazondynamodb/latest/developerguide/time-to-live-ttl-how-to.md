@@ -196,4 +196,4 @@ Resources:
         Enabled: true
 ```
 
-Additional details on using TTL within your AWS CloudFormation templates can be found [here](../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-timetolivespecification.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-timetolivespecification.md").
+Additional details on using TTL within your CloudFormation templates can be found [here](../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-timetolivespecification.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-timetolivespecification.md").

@@ -66,7 +66,7 @@ migration:
   including HIPAA, PCI DSS, and GDPR, enabling you to meet regulatory requirements.
 - **Integration with AWS Ecosystem**: As part of the
   AWS ecosystem, DynamoDB seamlessly integrates with other AWS services, such as AWS Lambda,
-  AWS CloudFormation, and AWS AppSync. This integration enables you to build serverless
+  CloudFormation, and AWS AppSync. This integration enables you to build serverless
   architectures, leverage infrastructure as code, and create real-time data-driven
   applications.
 

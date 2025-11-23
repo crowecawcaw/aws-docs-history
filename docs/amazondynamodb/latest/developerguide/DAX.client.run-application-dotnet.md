@@ -1,15 +1,16 @@
-# 05-Scan-Test.cs
+# 03-GetItem-Test.cs
 
-The `05-Scan-Test.cs` program performs `Scan` operations
-on `TryDaxTable`.
+The `03-GetItem-Test.cs` program performs `GetItem`
+operations on `TryDaxTable`.
 
 ```
 
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Amazon.Runtime;
 using Amazon.DAX;
 using Amazon.DynamoDBv2.Model;
+using Amazon.Runtime;
 
 namespace ClientTest
 {
@@ -28,18 +29,30 @@ namespace ClientTest
 
             var tableName = "TryDaxTable";
 
+            var pk = 1;
+            var sk = 10;
             var iterations = 5;
 
-            var startTime = DateTime.Now;
+            var startTime = System.DateTime.Now;
 
             for (var i = 0; i < iterations; i++)
             {
-                var request = new ScanRequest()
+                for (var ipk = 1; ipk <= pk; ipk++)
                 {
-                    TableName = tableName
-                };
-                var response = await client.ScanAsync(request);
-                Console.WriteLine($"{i}: Scan succeeded");
+                    for (var isk = 1; isk <= sk; isk++)
+                    {
+                        var request = new GetItemRequest()
+                        {
+                            TableName = tableName,
+                            Key = new Dictionary<string, AttributeValue>() {
+                            {"pk", new AttributeValue {N = ipk.ToString()} },
+                            {"sk", new AttributeValue {N = isk.ToString() } }
+                        }
+                        };
+                        var response = await client.GetItemAsync(request);
+                        Console.WriteLine($"GetItem succeeded for pk: {ipk},sk: {isk}");
+                    }
+                }
             }
 
             var endTime = DateTime.Now;

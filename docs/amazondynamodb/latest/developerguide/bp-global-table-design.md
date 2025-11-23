@@ -173,11 +173,12 @@ creation.
   Region that hosts a replica or witness to establish quorum. If a second Region isn't
   available, the local Region can only service eventually consistent reads.
 - In the unlikely event that a Region goes fully offline, when it comes back online
-  later, it will automatically catch up. Until it's caught up, write operations and strongly
-  consistent read operations will return errors. However, eventually consistent read
-  operations will return the data that has so far been propagated into the Region, with
-  usual local consistency behavior between the leader node and local replicas. No special
-  action is required to bring the tables back in sync.
+  later, it will automatically catch up. Until it's caught up, write operations and
+  strongly consistent read operations _only_ to the catching
+  up Region will return errors while requests to other Regions will continue to perform normally.
+  Eventually consistent read operations to the catching up Region will return the data that has
+  so far been propagated into the Region, with usual local consistency behavior between the leader
+  node and local replicas. No special action is required to bring the tables back in sync.
 
 ## MREC DynamoDB global
 

@@ -1284,7 +1284,7 @@ including:
 - Enabling TCP Keep-Alive.
 - Controlling the retry policy when encountering
   errors.
-- Specifying execution attributes that [Execution interceptor](../../../sdk-for-java/latest/developer-guide/using.md#using-execution-interceptors "../../../sdk-for-java/latest/developer-guide/using.md#using-execution-interceptors") instances can modify. Execution interceptors
+- Specifying execution attributes that [Execution interceptor](../../../sdk-for-java/latest/developer-guide/interceptors.md "../../../sdk-for-java/latest/developer-guide/interceptors.md") instances can modify. Execution interceptors
   can write code that intercept the execution of your API requests and responses.
   This enables you to perform tasks such as publishing metrics and modifying
   requests in-flight.

@@ -2,7 +2,7 @@
 
 With AWS PrivateLink for Amazon DynamoDB Streams, you can provision interface Amazon VPC endpoints
 (interface endpoints) in your virtual private cloud (Amazon VPC). These endpoints are directly
-accessible from applications that are on premises over VPN and AWS Direct Connect, or in a
+accessible from applications that are on premises over VPN and Direct Connect, or in a
 different AWS Region over Amazon VPC peering. Using AWS PrivateLink and interface endpoints, you
 can simplify private network connectivity from your applications to DynamoDB Streams.
 
@@ -10,9 +10,9 @@ Applications in your Amazon VPC do not need public IP addresses to communicate w
 Amazon VPC interface endpoints for DynamoDB Streams operations. Interface endpoints are represented by one or
 more elastic network interfaces (ENIs) that are assigned private IP addresses from subnets in
 your Amazon VPC. Requests to DynamoDB Streams over interface endpoints stay on the Amazon network. You can also
-access interface endpoints in your Amazon VPC from on-premises applications through AWS Direct Connect or
+access interface endpoints in your Amazon VPC from on-premises applications through Direct Connect or
 AWS Virtual Private Network (AWS VPN). For more information about how to connect your AWS Virtual Private Network with your
-on-premises network, see the [_AWS Direct Connect User Guide_](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") and the [_AWS Site-to-Site VPN User Guide_](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md").
+on-premises network, see the [_Direct Connect User Guide_](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") and the [_AWS Site-to-Site VPN User Guide_](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md").
 
 For general information about interface endpoints, see [Interface Amazon VPC endpoints](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") (AWS PrivateLink).
 

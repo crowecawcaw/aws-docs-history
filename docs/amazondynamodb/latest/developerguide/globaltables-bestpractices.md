@@ -18,7 +18,7 @@ against accidental deletion. You must enable deletion protection on each replica
 
 ## Using AWS CloudFormation
 
-AWS CloudFormation does not currently support the coordination of multi-Region resources like
+CloudFormation does not currently support the coordination of multi-Region resources like
 global tables across stacks. If you define each replica of a global table in a separate
 Regional stack, you will encounter errors due to detected drift across stacks when
 performing replica updates. To avoid this issue, you should choose one Region as the

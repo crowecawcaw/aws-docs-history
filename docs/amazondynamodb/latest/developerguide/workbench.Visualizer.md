@@ -1,65 +1,27 @@
-# Committing a data model to DynamoDB
+# Viewing data access patterns
 
-When you are satisfied with your data model, you can commit the model to
-Amazon DynamoDB.
+In NoSQL Workbench, _facets_ represent an application's different
+data access patterns for Amazon DynamoDB. Facets can help you visualize your data model when multiple data types
+are represented by a sort key.
+Facets give you a way to view a subset of the data in a table,
+without having to see records that don't meet the constraints of the facet. Facets are considered a visual
+data modeling tool, and don't exist as a usable construct in DynamoDB, as they are purely an aid to modeling of access patterns.
 
-###### Note
+To see an example of facets, you can import one of our sample data models with facets as part of the data model template.
 
-- This action results in the creation of server-side resources in AWS for
-  the tables and global secondary indexes represented in the data
-  model.
-- Tables are created with the following characteristics:
-  - Auto scaling is set to 70 percent target utilization.
-  - Provisioned capacity is set to 5 read capacity units and 5 write
-    capacity units.
+###### Import sample data model
 
-- Global secondary indexes are created with provisioned capacity of 10 read
-  capacity units and 5 write capacity units.
+1. On the left, choose **Amazon DynamoDB**.
+2. In the Sample data models section, hover your pointer over Music Library Data
+   Model and choose **Import**.
 
-###### To commit the data model to DynamoDB
+![Console screenshot showing import of sample data.](images/workbench/NoSQLWorkbenchImportSampleData.png) 3. In the navigation pane on the left side, choose the
+**visualizer** icon.
 
-1. In the navigation pane on the left side, choose the
-   **visualizer** icon.
+![Console screenshot showing the visualizer icon.](images/workbench/VisualizerChoose.png) 4. Choose the Songs table to expand it. You'll be shown an aggregate view of your data.
 
-![Console screenshot showing the visualizer icon in DynamoDB.](images/workbench/VisualizerChoose.png) 2. Choose **Commit to DynamoDB**.
+![Console screenshot showing aggregate data and the expanded Songs table.](images/workbench/NoSQLWorkbenchAggregateView.png) 5. Choose **Facets** drop-down arrow to expand the available facets. 6. Choose the SongDetails facet to visualize the data with the SongDetails facet applied.
 
-![Console screenshot showing the commit to DynamoDB button.](images/workbench/VisualizerCommitToDynamoDB.png) 3. Choose an already existing connection, or create a new connection by choosing
-the **Add new remote connection** tab.
-
-    * To add a new connection, specify the following information:
-
-
-
-
-    	+ **Account Alias**
-    	+ **AWS Region**
-    	+ **Access key ID**
-    	+ **Secret access key**
-    For more information about how to obtain the access keys, see [Getting an AWS access key](SettingUp.md#SettingUp.DynamoWebService.GetCredentials "SettingUp.md#SettingUp.DynamoWebService.GetCredentials").
-    * You can optionally specify the following:
-
-
-
-
-    	+ [**Session token**](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md")
-    	+ [**IAM role ARN**](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns "../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns")
-    * If you don't want to sign up for a free tier account, and prefer to
-     use [DynamoDB
-     local (downloadable version)](DynamoDBLocal.md "DynamoDBLocal.md"):
-
-
-
-
-    	1. Choose the **Add a new DynamoDB local
-    	 connection** tab.
-    	2. Specify the **Connection name** and
-    	 **Port**.
-
-4. Choose **Commit**.
-
-###### Note
-
-If you installed DynamoDB local as part of the NoSQL Workbench setup, you'll need to turn DynamoDB local on by using the
-**DynamoDB local Server** toggle at the bottom left of the NoSQL Workbench screen. See
-[Install NoSQL Workbench for DynamoDB](workbench.settingup.md "workbench.settingup.md") for more information on
-this toggle.
+![Console screenshot showing the expanded table.](images/workbench/NoSQLWorkbenchExpandSongsTable.png)
+You can also edit the facet definitions using the Data Modeler. For more information,
+see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md").

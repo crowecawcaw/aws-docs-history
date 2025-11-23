@@ -1,48 +1,129 @@
-# Tutorial: Working with Amazon DynamoDB and Apache
+# Querying data in DynamoDB
 
-Hive
+The following examples show some ways that you can use HiveQL to query data stored in
+DynamoDB.
 
-In this tutorial, you will launch an Amazon EMR cluster, and then use Apache Hive to
-process data stored in a DynamoDB table.
-
-_Hive_ is a data warehouse application for Hadoop that allows you
-to process and analyze data from multiple sources. Hive provides a SQL-like language,
-_HiveQL_, that lets you work with data stored locally in the
-Amazon EMR cluster or in an external data source (such as Amazon DynamoDB).
-
-For more information, see to the [Hive
-Tutorial](https://cwiki.apache.org/confluence/display/Hive/Tutorial "https://cwiki.apache.org/confluence/display/Hive/Tutorial").
+These examples refer to the _ddb_features_ table in the tutorial
+([Step 5: Copy data to
+DynamoDB](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")).
 
 ###### Topics
 
-- [Before you begin](#EMRforDynamoDB.Tutorial.BeforeYouBegin "#EMRforDynamoDB.Tutorial.BeforeYouBegin")
-- [Step 1: Create an Amazon EC2 key
-  pair](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 2: Launch an Amazon EMR
-  cluster](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 3: Connect
-  to the Leader node](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 4: Load data into
-  HDFS](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 5: Copy data to
-  DynamoDB](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 6: Query the data
-  in the DynamoDB table](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 7: (Optional) clean
-  up](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+- [Using aggregate
+  functions](#EMRforDynamoDB.Querying.AggregateFunctions "#EMRforDynamoDB.Querying.AggregateFunctions")
+- [Using the GROUP BY and
+  HAVING clauses](#EMRforDynamoDB.Querying.GroupByAndHaving "#EMRforDynamoDB.Querying.GroupByAndHaving")
+- [Joining two DynamoDB
+  tables](#EMRforDynamoDB.Querying.JoiningTwoTables "#EMRforDynamoDB.Querying.JoiningTwoTables")
+- [Joining
+  tables from different sources](#EMRforDynamoDB.Querying.JoiningTablesFromDifferentSources "#EMRforDynamoDB.Querying.JoiningTablesFromDifferentSources")
 
-## Before you begin
+## Using aggregate
 
-For this tutorial, you will need the following:
+functions
 
-- An AWS account. If you do not have one, see [Signing up for AWS](SettingUp.md#SettingUp.DynamoWebService.SignUpForAWS "SettingUp.md#SettingUp.DynamoWebService.SignUpForAWS").
-- An SSH client (Secure Shell). You use the SSH client to connect to the
-  leader node of the Amazon EMR cluster and run interactive commands. SSH
-  clients are available by default on most Linux, Unix, and Mac OS X
-  installations. Windows users can download and install the [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/ "http://www.chiark.greenend.org.uk/~sgtatham/putty/")
-  client, which has SSH support.
+HiveQL provides built-in functions for summarizing data values. For example, you
+can use the `MAX` function to find the largest value for a selected
+column. The following example returns the elevation of the highest feature in the
+state of Colorado.
 
-###### Next step
+```
+SELECT MAX(elev_in_ft)
+FROM ddb_features
+WHERE state_alpha = 'CO';
+```
 
-[Step 1: Create an Amazon EC2 key
-pair](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+## Using the GROUP BY and
+
+HAVING clauses
+
+You can use the `GROUP BY` clause to collect data across multiple
+records. This is often used with an aggregate function such as `SUM`,
+`COUNT`, `MIN`, or `MAX`. You can also use the
+`HAVING` clause to discard any results that do not meet certain
+criteria.
+
+The following example returns a list of the highest elevations from states that
+have more than five features in the _ddb_features_ table.
+
+```
+SELECT state_alpha, max(elev_in_ft)
+FROM ddb_features
+GROUP BY state_alpha
+HAVING count(*) >= 5;
+```
+
+## Joining two DynamoDB
+
+tables
+
+The following example maps another Hive table
+(_east_coast_states_) to a table in DynamoDB. The
+`SELECT` statement is a join across these two tables. The join is
+computed on the cluster and returned. The join does not take place in DynamoDB.
+
+Consider a DynamoDB table named EastCoastStates that contains the following
+data:
+
+```
+**StateName StateAbbrev**
+
+Maine           ME
+New Hampshire   NH
+Massachusetts   MA
+Rhode Island    RI
+Connecticut     CT
+New York        NY
+New Jersey      NJ
+Delaware        DE
+Maryland        MD
+Virginia        VA
+North Carolina  NC
+South Carolina  SC
+Georgia         GA
+Florida         FL
+```
+
+Let's assume the table is available as a Hive external table named
+east_coast_states:
+
+```
+CREATE EXTERNAL TABLE ddb_east_coast_states (state_name STRING, state_alpha STRING)
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'
+TBLPROPERTIES ("dynamodb.table.name" = "EastCoastStates",
+"dynamodb.column.mapping" = "state_name:StateName,state_alpha:StateAbbrev");
+```
+
+The following join returns the states on the East Coast of the United States that
+have at least three features:
+
+```
+SELECT ecs.state_name, f.feature_class, COUNT(*)
+FROM ddb_east_coast_states ecs
+JOIN ddb_features f on ecs.state_alpha = f.state_alpha
+GROUP BY ecs.state_name, f.feature_class
+HAVING COUNT(*) >= 3;
+```
+
+## Joining
+
+tables from different sources
+
+In the following example, s3_east_coast_states is a Hive table associated with a
+CSV file stored in Amazon S3. The _ddb_features_ table is associated
+with data in DynamoDB. The following example joins these two tables, returning the
+geographic features from states whose names begin with "New."
+
+```
+create external table s3_east_coast_states (state_name STRING, state_alpha STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+LOCATION 's3://`bucketname`/`path`/`subpath`/';
+```
+
+```
+SELECT ecs.state_name, f.feature_name, f.feature_class
+FROM s3_east_coast_states ecs
+JOIN ddb_features f
+ON ecs.state_alpha = f.state_alpha
+WHERE ecs.state_name LIKE 'New%';
+```

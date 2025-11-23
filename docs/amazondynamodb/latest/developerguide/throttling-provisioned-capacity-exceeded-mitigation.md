@@ -309,7 +309,7 @@ immediate capacity increase.
 
 - For detailed information about handling traffic spikes in DynamoDB provisioned
   capacity tables, including various strategies from utilizing Auto Scaling and
-  burst capacity to strategic throttle management, see [Handle traffic spikes with Amazon DynamoDB provisioned capacity](https://aws.amazon.com/blogs/database/handle-traffic-spikes-with-amazon-dynamodb-provisioned-capacity/ "https://aws.amazon.com/blogs/database/handle-traffic-spikes-with-amazon-dynamodb-provisioned-capacity/").
+  burst capacity to strategic throttle management, see [Handle traffic spikes with Amazon DynamoDB provisioned capacity](https://aws.amazon.com/blogs//database/handle-traffic-spikes-with-amazon-dynamodb-provisioned-capacity/ "https://aws.amazon.com/blogs//database/handle-traffic-spikes-with-amazon-dynamodb-provisioned-capacity/").
 - For information about how to use a cron expression to schedule a scaling
   policy, see [Optimize costs by scheduling provisioned capacity for DynamoDB](https://aws.amazon.com/blogs/database/optimize-costs-by-scheduling-provisioned-capacity-for-amazon-dynamodb/ "https://aws.amazon.com/blogs/database/optimize-costs-by-scheduling-provisioned-capacity-for-amazon-dynamodb/").
 - For hands-on information about monitoring and analyzing throughput utilization

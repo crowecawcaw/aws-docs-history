@@ -5,7 +5,7 @@ encounter when using Amazon DynamoDB. If you find an issue that isn't listed her
 feedback button on this page to report it.
 
 For more troubleshooting advice and answers to common support questions, visit the [AWS Knowledge
-Center](https://aws.amazon.com/premiumsupport/knowledge-center/#AWS_DynamoDB "https://aws.amazon.com/premiumsupport/knowledge-center/#AWS_DynamoDB").
+Center](https://aws.amazon.com//premiumsupport/knowledge-center/#AWS_DynamoDB "https://aws.amazon.com//premiumsupport/knowledge-center/#AWS_DynamoDB").
 
 ###### Topics
 

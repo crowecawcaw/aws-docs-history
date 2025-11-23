@@ -13,7 +13,7 @@ ensures generated code maintains the parameter compatibility established during 
 Developers can generate DynamoDB infrastructure code in multiple formats, such as:
 
 - AWS Cloud Development Kit (AWS CDK) in TypeScript, Python, and Java
-- AWS CloudFormation in YAML or JSON
+- CloudFormation in YAML or JSON
   This approach allows teams to:
 
 - Standardize database resource management

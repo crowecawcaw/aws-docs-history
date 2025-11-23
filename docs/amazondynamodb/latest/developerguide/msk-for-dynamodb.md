@@ -74,7 +74,7 @@ by performing the following operations.
 After this is completed, note down the S3 bucket name output under
 _Outputs_. You will need the name in Step 3.
 
-![AWS CloudFormation stack outputs showing S3 bucket name for MSK and DynamoDB sample.](images/msk-dynamodb-bucket-name.png) 2. Upload the downloaded ZIP file `fromMSK.zip` to the S3 bucket you
+![CloudFormation stack outputs showing S3 bucket name for MSK and DynamoDB sample.](images/msk-dynamodb-bucket-name.png) 2. Upload the downloaded ZIP file `fromMSK.zip` to the S3 bucket you
 just created.
 
 ![Image showing where you can upload files in the S3 console.](images/msk-dynamodb-zip.png) 3. Run the CloudFormation template `VPC.yaml` to create a VPC, Amazon MSK
