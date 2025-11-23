@@ -20,6 +20,12 @@ Cross Region: Connectivity includes [aws:network:route-table-disrupt-cross-regio
 
 This action targets subnets in the experiment Region. By default, it targets subnets with a [tag](../../../AWSEC2/latest/UserGuide/Using_Tags.md "../../../AWSEC2/latest/UserGuide/Using_Tags.md") named `DisruptSubnet` with a value of `Allowed`. You can add this tag to your subnets or replace the default tag with your own tag in the experiment template. By default, if no valid subnets are found this action will be skipped.
 
+### Disrupt VPC Endpoint Connectivity
+
+Cross Region: Connectivity includes [aws:network:disrupt-vpc-endpoint](fis-actions-reference.md#network-actions-reference "fis-actions-reference.md#network-actions-reference") disrupt connectivity to a service associated with the target VPC endpoints. For example, if a VPC endpoint creates a Private Link to com.amazonaws.us-east-1.ec2, then the connectivity to that service will be disrupted.
+
+This action targets VPC endpoints in the experiment region. By default, it targets interface VPC endpoints with a [tag](../../../AWSEC2/latest/UserGuide/Using_Tags.md "../../../AWSEC2/latest/UserGuide/Using_Tags.md") named DisruptVpcEndpoint with a value `Allowed`. You can add this tag to your VPC endpoints or replace the default tag with your own tag in the experiment template. By default, if no valid VPC endpoints are found this action will be skipped.
+
 ### Pause S3 Replication
 
 Cross Region: Connectivity includes [aws:s3:bucket-pause-replication](fis-actions-reference.md#s3-actions-reference-fis "fis-actions-reference.md#s3-actions-reference-fis") to pause S3 replication from the _experiment Region_ to the _destination Region_ for the targeted buckets. Replication from the _destination Region_ to the _experiment Region_ will be unaffected. After the scenario ends, bucket replication will resume from the point it was paused. Note that the time it takes for replication to keep all objects in sync will vary based on the duration of the experiment, and the rate of object upload to the bucket.
@@ -66,326 +72,339 @@ By default, if no valid clusters are found this action will be skipped.
 
 The following policy grants AWS FIS the necessary permissions to execute an experiment with the Cross-Region: Connectivity scenario. This policy must be attached to the [experiment role](getting-started-iam-service-role.md "getting-started-iam-service-role.md").
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "RouteTableDisruptConnectivity1",
- "Effect": "Allow",
- "Action": "ec2:CreateRouteTable",
- "Resource": "arn:aws:ec2:*:*:route-table/*",
- "Condition": {
- "StringEquals": {
- "aws:RequestTag/managedByFIS": "true"
- }
- }
- },
- {
- "Sid": "RouteTableDisruptConnectivity2",
- "Effect": "Allow",
- "Action": "ec2:CreateRouteTable",
- "Resource": "arn:aws:ec2:*:*:vpc/*"
- },
- {
- "Sid": "RouteTableDisruptConnectivity21",
- "Effect": "Allow",
- "Action": "ec2:CreateTags",
- "Resource": "arn:aws:ec2:*:*:route-table/*",
- "Condition": {
- "StringEquals": {
- "ec2:CreateAction": "CreateRouteTable",
- "aws:RequestTag/managedByFIS": "true"
- }
- }
- },
- {
- "Sid": "RouteTableDisruptConnectivity3",
- "Effect": "Allow",
- "Action": "ec2:CreateTags",
- "Resource": "arn:aws:ec2:*:*:network-interface/*",
- "Condition": {
- "StringEquals": {
- "ec2:CreateAction": "CreateNetworkInterface",
- "aws:RequestTag/managedByFIS": "true"
- }
- }
- },
- {
- "Sid": "RouteTableDisruptConnectivity4",
- "Effect": "Allow",
- "Action": "ec2:CreateTags",
- "Resource": "arn:aws:ec2:*:*:prefix-list/*",
- "Condition": {
- "StringEquals": {
- "ec2:CreateAction": "CreateManagedPrefixList",
- "aws:RequestTag/managedByFIS": "true"
- }
- }
- },
- {
- "Sid": "RouteTableDisruptConnectivity5",
- "Effect": "Allow",
- "Action": "ec2:DeleteRouteTable",
- "Resource": [
- "arn:aws:ec2:*:*:route-table/*",
- "arn:aws:ec2:*:*:vpc/*"
- ],
- "Condition": {
- "StringEquals": {
- "ec2:ResourceTag/managedByFIS": "true"
- }
- }
- },
- {
- "Sid": "RouteTableDisruptConnectivity6",
- "Effect": "Allow",
- "Action": "ec2:CreateRoute",
- "Resource": "arn:aws:ec2:*:*:route-table/*",
- "Condition": {
- "StringEquals": {
- "ec2:ResourceTag/managedByFIS": "true"
- }
- }
- },
- {
- "Sid": "RouteTableDisruptConnectivity7",
- "Effect": "Allow",
- "Action": "ec2:CreateNetworkInterface",
- "Resource": "arn:aws:ec2:*:*:network-interface/*",
- "Condition": {
- "StringEquals": {
- "aws:RequestTag/managedByFIS": "true"
- }
- }
- },
- {
- "Sid": "RouteTableDisruptConnectivity8",
- "Effect": "Allow",
- "Action": "ec2:CreateNetworkInterface",
- "Resource": [
- "arn:aws:ec2:*:*:subnet/*",
- "arn:aws:ec2:*:*:security-group/*"
- ]
- },
- {
- "Sid": "RouteTableDisruptConnectivity9",
- "Effect": "Allow",
- "Action": "ec2:DeleteNetworkInterface",
- "Resource": "arn:aws:ec2:*:*:network-interface/*",
- "Condition": {
- "StringEquals": {
- "ec2:ResourceTag/managedByFIS": "true"
- }
- }
- },
- {
- "Sid": "RouteTableDisruptConnectivity10",
- "Effect": "Allow",
- "Action": "ec2:CreateManagedPrefixList",
- "Resource": "arn:aws:ec2:*:*:prefix-list/*",
- "Condition": {
- "StringEquals": {
- "aws:RequestTag/managedByFIS": "true"
- }
- }
- },
- {
- "Sid": "RouteTableDisruptConnectivity11",
- "Effect": "Allow",
- "Action": "ec2:DeleteManagedPrefixList",
- "Resource": "arn:aws:ec2:*:*:prefix-list/*",
- "Condition": {
- "StringEquals": {
- "ec2:ResourceTag/managedByFIS": "true"
- }
- }
- },
- {
- "Sid": "RouteTableDisruptConnectivity12",
- "Effect": "Allow",
- "Action": "ec2:ModifyManagedPrefixList",
- "Resource": "arn:aws:ec2:*:*:prefix-list/*",
- "Condition": {
- "StringEquals": {
- "ec2:ResourceTag/managedByFIS": "true"
- }
- }
- },
- {
- "Sid": "RouteTableDisruptConnectivity13",
- "Effect": "Allow",
- "Action": [
- "ec2:DescribeNetworkInterfaces",
- "ec2:DescribeVpcs",
- "ec2:DescribeVpcPeeringConnections",
- "ec2:DescribeManagedPrefixLists",
- "ec2:DescribeSubnets",
- "ec2:DescribeRouteTables",
- "ec2:DescribeVpcEndpoints"
- ],
- "Resource": "*"
- },
- {
- "Sid": "RouteTableDisruptConnectivity14",
- "Effect": "Allow",
- "Action": "ec2:ReplaceRouteTableAssociation",
- "Resource": [
- "arn:aws:ec2:*:*:subnet/*",
- "arn:aws:ec2:*:*:route-table/*"
- ]
- },
- {
- "Sid": "RouteTableDisruptConnectivity15",
- "Effect": "Allow",
- "Action": "ec2:GetManagedPrefixListEntries",
- "Resource": "arn:aws:ec2:*:*:prefix-list/*"
- },
- {
- "Sid": "RouteTableDisruptConnectivity16",
- "Effect": "Allow",
- "Action": "ec2:AssociateRouteTable",
- "Resource": [
- "arn:aws:ec2:*:*:subnet/*",
- "arn:aws:ec2:*:*:route-table/*"
- ]
- },
- {
- "Sid": "RouteTableDisruptConnectivity17",
- "Effect": "Allow",
- "Action": "ec2:DisassociateRouteTable",
- "Resource": [
- "arn:aws:ec2:*:*:route-table/*"
- ],
- "Condition": {
- "StringEquals": {
- "ec2:ResourceTag/managedByFIS": "true"
- }
- }
- },
- {
- "Sid": "RouteTableDisruptConnectivity18",
- "Effect": "Allow",
- "Action": "ec2:DisassociateRouteTable",
- "Resource": [
- "arn:aws:ec2:*:*:subnet/*"
- ]
- },
- {
- "Sid": "RouteTableDisruptConnectivity19",
- "Effect": "Allow",
- "Action": "ec2:ModifyVpcEndpoint",
- "Resource": [
- "arn:aws:ec2:*:*:route-table/*"
- ],
- "Condition": {
- "StringEquals": {
- "ec2:ResourceTag/managedByFIS": "true"
- }
- }
- },
- {
- "Sid": "RouteTableDisruptConnectivity20",
- "Effect": "Allow",
- "Action": "ec2:ModifyVpcEndpoint",
- "Resource": [
- "arn:aws:ec2:*:*:vpc-endpoint/*"
- ]
- },
- {
- "Sid": "TransitGatewayDisruptConnectivity1",
- "Effect": "Allow",
- "Action": [
- "ec2:DisassociateTransitGatewayRouteTable",
- "ec2:AssociateTransitGatewayRouteTable"
- ],
- "Resource": [
- "arn:aws:ec2:*:*:transit-gateway-route-table/*",
- "arn:aws:ec2:*:*:transit-gateway-attachment/*"
- ]
- },
- {
- "Sid": "TransitGatewayDisruptConnectivity2",
- "Effect": "Allow",
- "Action": [
- "ec2:DescribeTransitGatewayPeeringAttachments",
- "ec2:DescribeTransitGatewayAttachments",
- "ec2:DescribeTransitGateways"
- ],
- "Resource": "*"
- },
- {
- "Sid": "S3CrossRegion1",
- "Effect": "Allow",
- "Action": [
- "s3:ListAllMyBuckets"
- ],
- "Resource": "*"
- },
- {
- "Sid": "S3CrossRegion3",
- "Effect": "Allow",
- "Action": [
- "s3:PauseReplication"
- ],
- "Resource": "arn:aws:s3:::*",
- "Condition": {
- "StringLike": {
- "s3:DestinationRegion": "*"
- }
- }
- },
- {
- "Sid": "S3CrossRegion4",
- "Effect": "Allow",
- "Action": [
- "s3:GetReplicationConfiguration",
- "s3:PutReplicationConfiguration"
- ],
- "Resource": "arn:aws:s3:::*",
- "Condition": {
- "BoolIfExists": {
- "s3:isReplicationPauseRequest": "true"
- }
- }
- },
- {
- "Sid": "DdbCrossRegion",
- "Effect": "Allow",
- "Action": [
- "dynamodb:DescribeTable",
- "dynamodb:PutResourcePolicy",
- "dynamodb:GetResourcePolicy",
- "dynamodb:DeleteResourcePolicy"
- ],
- "Resource": [
- "arn:aws:dynamodb:*:*:table/*"
- ]
- },
- {
- "Sid": "ResolveResourcesViaTags",
- "Effect": "Allow",
- "Action": [
- "tag:GetResources"
- ],
- "Resource": "*"
- },
- {
- "Sid": "MemDbCrossRegion",
- "Effect": "Allow",
- "Action": [
- "memorydb:DescribeMultiRegionClusters",
- "memorydb:PauseMultiRegionClusterReplication"
- ],
- "Resource": [
- "arn:aws:memorydb::*:multiregioncluster/*"
- ]
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "RouteTableDisruptConnectivity1",
+            "Effect": "Allow",
+            "Action": "ec2:CreateRouteTable",
+            "Resource": "arn:aws:ec2:*:*:route-table/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/managedByFIS": "true"
+                }
+            }
+        },
+        {
+            "Sid": "RouteTableDisruptConnectivity2",
+            "Effect": "Allow",
+            "Action": "ec2:CreateRouteTable",
+            "Resource": "arn:aws:ec2:*:*:vpc/*"
+        },
+        {
+            "Sid": "RouteTableDisruptConnectivity21",
+            "Effect": "Allow",
+            "Action": "ec2:CreateTags",
+            "Resource": "arn:aws:ec2:*:*:route-table/*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:CreateAction": "CreateRouteTable",
+                    "aws:RequestTag/managedByFIS": "true"
+                }
+            }
+        },
+        {
+            "Sid": "RouteTableDisruptConnectivity3",
+            "Effect": "Allow",
+            "Action": "ec2:CreateTags",
+            "Resource": "arn:aws:ec2:*:*:network-interface/*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:CreateAction": "CreateNetworkInterface",
+                    "aws:RequestTag/managedByFIS": "true"
+                }
+            }
+        },
+        {
+            "Sid": "RouteTableDisruptConnectivity4",
+            "Effect": "Allow",
+            "Action": "ec2:CreateTags",
+            "Resource": "arn:aws:ec2:*:*:prefix-list/*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:CreateAction": "CreateManagedPrefixList",
+                    "aws:RequestTag/managedByFIS": "true"
+                }
+            }
+        },
+        {
+            "Sid": "RouteTableDisruptConnectivity5",
+            "Effect": "Allow",
+            "Action": "ec2:DeleteRouteTable",
+            "Resource": [
+                "arn:aws:ec2:*:*:route-table/*",
+                "arn:aws:ec2:*:*:vpc/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ResourceTag/managedByFIS": "true"
+                }
+            }
+        },
+        {
+            "Sid": "RouteTableDisruptConnectivity6",
+            "Effect": "Allow",
+            "Action": "ec2:CreateRoute",
+            "Resource": "arn:aws:ec2:*:*:route-table/*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ResourceTag/managedByFIS": "true"
+                }
+            }
+        },
+        {
+            "Sid": "RouteTableDisruptConnectivity7",
+            "Effect": "Allow",
+            "Action": "ec2:CreateNetworkInterface",
+            "Resource": "arn:aws:ec2:*:*:network-interface/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/managedByFIS": "true"
+                }
+            }
+        },
+        {
+            "Sid": "RouteTableDisruptConnectivity8",
+            "Effect": "Allow",
+            "Action": "ec2:CreateNetworkInterface",
+            "Resource": [
+                "arn:aws:ec2:*:*:subnet/*",
+                "arn:aws:ec2:*:*:security-group/*"
+            ]
+        },
+        {
+            "Sid": "RouteTableDisruptConnectivity9",
+            "Effect": "Allow",
+            "Action": "ec2:DeleteNetworkInterface",
+            "Resource": "arn:aws:ec2:*:*:network-interface/*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ResourceTag/managedByFIS": "true"
+                }
+            }
+        },
+        {
+            "Sid": "RouteTableDisruptConnectivity10",
+            "Effect": "Allow",
+            "Action": "ec2:CreateManagedPrefixList",
+            "Resource": "arn:aws:ec2:*:*:prefix-list/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/managedByFIS": "true"
+                }
+            }
+        },
+        {
+            "Sid": "RouteTableDisruptConnectivity11",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DeleteManagedPrefixList",
+                "ec2:ModifyManagedPrefixList"
+            ],
+            "Resource": "arn:aws:ec2:*:*:prefix-list/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceTag/managedByFIS": "true"
+                }
+            }
+        },
+        {
+            "Sid": "EC2DescribeResources",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DescribeVpcs",
+                "ec2:DescribeVpcPeeringConnections",
+                "ec2:DescribeManagedPrefixLists",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeRouteTables",
+                "ec2:DescribeVpcEndpoints",
+                "ec2:DescribeTransitGatewayPeeringAttachments",
+                "ec2:DescribeTransitGatewayAttachments",
+                "ec2:DescribeTransitGateways",
+                "ec2:DescribeSecurityGroups"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "RouteTableDisruptConnectivity14",
+            "Effect": "Allow",
+            "Action": "ec2:ReplaceRouteTableAssociation",
+            "Resource": [
+                "arn:aws:ec2:*:*:subnet/*",
+                "arn:aws:ec2:*:*:route-table/*"
+            ]
+        },
+        {
+            "Sid": "RouteTableDisruptConnectivity15",
+            "Effect": "Allow",
+            "Action": "ec2:GetManagedPrefixListEntries",
+            "Resource": "arn:aws:ec2:*:*:prefix-list/*"
+        },
+        {
+            "Sid": "RouteTableDisruptConnectivity16",
+            "Effect": "Allow",
+            "Action": "ec2:AssociateRouteTable",
+            "Resource": [
+                "arn:aws:ec2:*:*:subnet/*",
+                "arn:aws:ec2:*:*:route-table/*"
+            ]
+        },
+        {
+            "Sid": "RouteTableDisruptConnectivity17",
+            "Effect": "Allow",
+            "Action": "ec2:DisassociateRouteTable",
+            "Resource": "arn:aws:ec2:*:*:route-table/*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ResourceTag/managedByFIS": "true"
+                }
+            }
+        },
+        {
+            "Sid": "RouteTableDisruptConnectivity18",
+            "Effect": "Allow",
+            "Action": "ec2:DisassociateRouteTable",
+            "Resource": "arn:aws:ec2:*:*:subnet/*"
+        },
+        {
+            "Sid": "RouteTableDisruptConnectivity19",
+            "Effect": "Allow",
+            "Action": "ec2:ModifyVpcEndpoint",
+            "Resource": "arn:aws:ec2:*:*:route-table/*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ResourceTag/managedByFIS": "true"
+                }
+            }
+        },
+        {
+            "Sid": "TransitGatewayDisruptConnectivity1",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DisassociateTransitGatewayRouteTable",
+                "ec2:AssociateTransitGatewayRouteTable"
+            ],
+            "Resource": [
+                "arn:aws:ec2:*:*:transit-gateway-route-table/*",
+                "arn:aws:ec2:*:*:transit-gateway-attachment/*"
+            ]
+        },
+        {
+            "Sid": "S3CrossRegion1",
+            "Effect": "Allow",
+            "Action": "s3:ListAllMyBuckets",
+            "Resource": "*"
+        },
+        {
+            "Sid": "S3CrossRegion3",
+            "Effect": "Allow",
+            "Action": "s3:PauseReplication",
+            "Resource": "arn:aws:s3:::*",
+            "Condition": {
+                "StringLike": {
+                    "s3:DestinationRegion": "*"
+                }
+            }
+        },
+        {
+            "Sid": "S3CrossRegion4",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetReplicationConfiguration",
+                "s3:PutReplicationConfiguration"
+            ],
+            "Resource": "arn:aws:s3:::*",
+            "Condition": {
+                "BoolIfExists": {
+                    "s3:isReplicationPauseRequest": "true"
+                }
+            }
+        },
+        {
+            "Sid": "DdbCrossRegion",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:DescribeTable",
+                "dynamodb:PutResourcePolicy",
+                "dynamodb:GetResourcePolicy",
+                "dynamodb:DeleteResourcePolicy"
+            ],
+            "Resource": [
+                "arn:aws:dynamodb:*:*:table/*"
+            ]
+        },
+        {
+            "Sid": "ResolveResourcesViaTags",
+            "Effect": "Allow",
+            "Action": "tag:GetResources",
+            "Resource": "*"
+        },
+        {
+            "Sid": "MemDbCrossRegion",
+            "Effect": "Allow",
+            "Action": [
+                "memorydb:DescribeMultiRegionClusters",
+                "memorydb:PauseMultiRegionClusterReplication"
+            ],
+            "Resource": [
+                "arn:aws:memorydb::*:multiregioncluster/*"
+            ]
+        },
+        {
+            "Sid": "DisruptVPCE1",
+            "Effect": "Allow",
+            "Action": "ec2:CreateSecurityGroup",
+            "Resource": [
+                "arn:aws:ec2:*:*:vpc/*",
+                "arn:aws:ec2:*:*:security-group/*"
+            ]
+        },
+        {
+            "Sid": "DisruptVPCE2",
+            "Effect": "Allow",
+            "Action": "ec2:CreateTags",
+            "Resource": "arn:aws:ec2:*:*:security-group/*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:CreateAction": "CreateSecurityGroup",
+                    "aws:RequestTag/managedByFIS": "true"
+                }
+            }
+        },
+        {
+            "Sid": "DisruptVPCE3",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DeleteSecurityGroup",
+                "ec2:RevokeSecurityGroupEgress"
+            ],
+            "Resource": "arn:aws:ec2:*:*:security-group/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceTag/managedByFIS": "true"
+                }
+            }
+        },
+        {
+            "Sid": "DisruptVPCE4",
+            "Effect": "Allow",
+            "Action": "vpce:AllowMultiRegion",
+            "Resource": "arn:aws:ec2:*:*:vpc-endpoint/*"
+        },
+        {
+            "Sid": "ModifyVPCE",
+            "Effect": "Allow",
+            "Action": "ec2:ModifyVpcEndpoint",
+            "Resource": [
+                "arn:aws:ec2:*:*:vpc-endpoint/*",
+                "arn:aws:ec2:*:*:security-group/*"
+            ]
+        }
+    ]
+}
 ```
 
 ## Scenario Content
@@ -409,6 +428,13 @@ The following content defines the scenario. This JSON can be saved and used to c
                         },
                         "selectionMode": "ALL",
                         "parameters": {}
+                },
+                "VPC-Endpoint": {
+                    "resourceType": "aws:ec2:vpc-endpoint",
+                    "resourceTags": {
+                        "DisruptPrivateLink": "Allowed"
+                    },
+                    "selectionMode": "ALL"
                 },
                 "S3-Bucket": {
                         "resourceType": "aws:s3:bucket",
@@ -459,6 +485,15 @@ The following content defines the scenario. This JSON can be saved and used to c
                         },
                         "targets": {
                                 "Subnets": "Subnet"
+                        }
+                },
+                "Disrupt-Vpc-Endpoint": {
+                        "actionId": "aws:network:disrupt-vpc-endpoint",
+                        "parameters": {
+                                "duration": "PT3H"
+                        },
+                        "targets": {
+                                "VPCEndpoints": "VPC-Endpoint"
                         }
                 },
                 "Pause-S3-Replication": {

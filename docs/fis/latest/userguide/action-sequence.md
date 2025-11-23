@@ -139,6 +139,7 @@ AWS FIS actions support the following resource types for action targets:
 - **Tasks** – Amazon ECS tasks
 - **TransitGateways** – Transit gateways
 - **Volumes** – Amazon EBS volumes
+- **VPCEndpoints** – Amazon VPC endpoints
 
 For examples, see [Example actions](#example-actions "#example-actions").
 

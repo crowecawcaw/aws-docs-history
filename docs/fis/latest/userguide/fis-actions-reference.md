@@ -468,7 +468,7 @@ ec2:InjectApiError](security_iam_id-based-policy-examples.md#security-iam-policy
 ### aws:ec2:asg-insufficient-instance-capacity-error
 
 Injects `InsufficientInstanceCapacity` error responses on requests made by the
-target Auto Scaling groups. This action only supports Auto Scaling groups using
+target Amazon EC2 Auto Scaling groups. This action only supports Amazon EC2 Auto Scaling groups using
 launch templates. To learn more about insufficient instance capacity errors,
 see the [Amazon EC2 user guide](../../../AWSEC2/latest/UserGuide/troubleshooting-launch.md#troubleshooting-launch-capacity "../../../AWSEC2/latest/UserGuide/troubleshooting-launch.md#troubleshooting-launch-capacity").
 
@@ -484,14 +484,14 @@ see the [Amazon EC2 user guide](../../../AWSEC2/latest/UserGuide/troubleshooting
 - **availabilityZoneIdentifiers** – The comma separated
   list of Availability Zones. Supports Zone IDs (e.g. `"use1-az1, use1-az2"`)
   and Zone names (e.g. `"us-east-1a"`).
-- **percentage** – Optional. The percentage (1-100) of the target Auto Scaling group's launch requests to inject the fault.
+- **percentage** – Optional. The percentage (1-100) of the target Amazon EC2 Auto Scaling group's launch requests to inject the fault.
   The default is 100.
 
 ###### Permissions
 
 - `ec2:InjectApiError`with condition key ec2:FisActionId
   value set to `aws:ec2:asg-insufficient-instance-capacity-error` and
-  `ec2:FisTargetArns` condition key set to target Auto Scaling groups.
+  `ec2:FisTargetArns` condition key set to target Amazon EC2 Auto Scaling groups.
 - `autoscaling:DescribeAutoScalingGroups`
 
 For an example policy, see [Example: Use condition keys for
@@ -1566,6 +1566,7 @@ AWS FIS supports the following network actions.
 - [aws:network:disrupt-connectivity](#disrupt-connectivity "#disrupt-connectivity")
 - [aws:network:route-table-disrupt-cross-region-connectivity](#route-table-disrupt-cross-region-connectivity "#route-table-disrupt-cross-region-connectivity")
 - [aws:network:transit-gateway-disrupt-cross-region-connectivity](#transit-gateway-disrupt-cross-region-connectivity "#transit-gateway-disrupt-cross-region-connectivity")
+- [aws:network:disrupt-vpc-endpoint](#disrupt-vpc-endpoint "#disrupt-vpc-endpoint")
 
 ### aws:network:disrupt-connectivity
 
@@ -1695,6 +1696,38 @@ for the specified Region.
 ###### AWS managed policy
 
 - [AWSFaultInjectionSimulatorNetworkAccess](../../../aws-managed-policy/latest/reference/AWSFaultInjectionSimulatorNetworkAccess.md "../../../aws-managed-policy/latest/reference/AWSFaultInjectionSimulatorNetworkAccess.md")
+
+### aws:network:disrupt-vpc-endpoint
+
+Blocks inbound and outbound traffic of the target interface VPC endpoints.
+FIS creates a managed security group with empty rules and temporarily replaces security groups of the target VPC endpoints with this managed security group.
+If modifications are made to the target resources during action execution, the action will fail and the resources will not be restored to their pre-experiment state.
+Additionally, if a FIS-managed security group is modified during action execution, it will not be deleted by FIS.
+.
+
+###### Resource type
+
+- **aws:ec2:vpc-endpoint**
+
+###### Parameters
+
+- `duration` – The length of time the action lasts.
+  In the AWS FIS API, the value is a string in ISO 8601 format. For example,
+  PT1M represents one minute. In the AWS FIS console, you enter the number
+  of seconds, minutes, or hours.
+
+###### Permissions
+
+- `ec2:DescribeVpcEndpoints`
+- `ec2:DescribeSecurityGroups`
+- `ec2:ModifyVpcEndpoint`
+- `ec2:CreateSecurityGroup`
+- `ec2:DeleteSecurityGroup`
+- `ec2:RevokeSecurityGroupEgress`
+- `ec2:CreateTags`
+- `vpce:AllowMultiRegion` \*
+
+\* The permission is only required if you are targeting cross-region VPC endpoints
 
 ## Amazon RDS actions
 
