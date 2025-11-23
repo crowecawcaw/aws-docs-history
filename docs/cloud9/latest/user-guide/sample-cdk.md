@@ -266,10 +266,10 @@ export class HelloCdkStack extends cdk.Stack {
 ```
 
     * The `Stack`, `App`, `StackProps`,
-     `Queue`, and `Topic` classes represent an AWS CloudFormation stack
+     `Queue`, and `Topic` classes represent an CloudFormation stack
      and its properties, an executable program, an Amazon SQS queue, and an Amazon SNS topic,
      respectively.
-    * The `HelloCdkStack` class represents the AWS CloudFormation stack for this
+    * The `HelloCdkStack` class represents the CloudFormation stack for this
      application. This stack contains the new Amazon SQS queue and Amazon SNS topic for this
      application.
 
@@ -306,20 +306,20 @@ files into `hello-cdk.js` and
 
 ## Step 3: Run the code
 
-In this step, you instruct the AWS CDK to create a AWS CloudFormation stack template based on the code
+In this step, you instruct the AWS CDK to create a CloudFormation stack template based on the code
 in the `bin/hello-cdk.js` file. You then instruct the AWS CDK to deploy
 the stack, which creates the Amazon SNS topic and Amazon SQS queue and then subscribes the queue to
 the topic. You then confirm that the topic and queue were successfully deployed by sending
 a message from the topic to the queue.
 
-1. Have the AWS CDK create the AWS CloudFormation stack template. To do this, with the terminal
+1. Have the AWS CDK create the CloudFormation stack template. To do this, with the terminal
    session still open in the IDE, from the project's root directory, run the **`cdk`** command with the **`synth`** action and the name of the stack.
 
 ```
 cdk synth HelloCdkStack
 ```
 
-If successful, the output displays the AWS CloudFormation stack template's
+If successful, the output displays the CloudFormation stack template's
 `Resources` section. 2. The first time that you deploy an AWS CDK app into an environment for a specific
 AWS account and AWS Region combination, you must install a _bootstrap
 stack_. This stack includes various resources that the AWS CDK needs to
@@ -342,7 +342,7 @@ example:
 cdk bootstrap --profile test 123456789012/us-east-1
 ```
 
-3. Have the AWS CDK run the AWS CloudFormation stack template to deploy the stack. To do this, from
+3. Have the AWS CDK run the CloudFormation stack template to deploy the stack. To do this, from
    the project's root directory, run the **`cdk`** command with the **`deploy`** action and the name of the stack.
 
 ```
@@ -373,7 +373,7 @@ aws sns publish --subject "Hello from the AWS CDK" --message "This is a message 
 
 In the preceding command, replace
 `arn:aws:sns:us-east-2:123456789012:HelloCdkStack-HelloCdkTopic1A234567-8BCD9EFGHIJ0K`
-with the ARN that AWS CloudFormation assigns to the topic. To get the ID, you can run the
+with the ARN that CloudFormation assigns to the topic. To get the ID, you can run the
 Amazon SNS**`list-topics`** command.
 
 ```
@@ -391,7 +391,7 @@ aws sqs receive-message --queue-url https://queue.amazonaws.com/123456789012/Hel
 
 In the preceding command, replace
 `https://queue.amazonaws.com/123456789012/HelloCdkStack-HelloCdkQueue1A234567-8BCD9EFGHIJ0K`
-with the ARN that AWS CloudFormation assigns to the queue. To get the URL, you can run the
+with the ARN that CloudFormation assigns to the queue. To get the URL, you can run the
 Amazon SQS**`list-queues`** command.
 
 ```
@@ -403,7 +403,7 @@ If successful, the output of the **`receive-message`** command displays informat
 ## Step 4: Clean up
 
 To prevent ongoing charges to your AWS account after you're done using this sample,
-you should delete the AWS CloudFormation stack. This deletes the the Amazon SNS topic and Amazon SQS queue. You
+you should delete the CloudFormation stack. This deletes the the Amazon SNS topic and Amazon SQS queue. You
 should also delete the environment.
 
 ### Step 4.1: Delete the stack

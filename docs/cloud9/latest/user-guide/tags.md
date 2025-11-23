@@ -40,7 +40,7 @@ the next section, [Propagating tag updates to underlying resources](#tags-propag
 
 When you use AWS Cloud9 CLI commands or API actions to add, modify, or remove the tags that are
 attached to an AWS Cloud9 environment, those changes aren't automatically propagated to underlying
-resources such as the AWS CloudFormation stack, the Amazon EC2 instance, and Amazon EC2 security groups. You must
+resources such as the CloudFormation stack, the Amazon EC2 instance, and Amazon EC2 security groups. You must
 manually propagate those changes.
 
 To make it easier to use the following procedures, you can obtain the environment ID for
@@ -55,7 +55,7 @@ the environment you're interested in. If you want to do this, follow these steps
 You need to propagate tag updates to one or more of the following locations, depending on
 what you'll use the tags for.
 
-### Propagating tag updates to the AWS CloudFormation stack
+### Propagating tag updates to the CloudFormation stack
 
 ###### Note
 
@@ -63,7 +63,7 @@ When you update tags to the AWS CloudFormation stack, those updates are automati
 propagated to the Amazon EC2 instance and Amazon EC2 security groups that are associated with the
 stack.
 
-1. Navigate to the [AWS CloudFormation
+1. Navigate to the [CloudFormation
    console.](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation")
 2. Find and choose the stack that corresponds to the AWS Cloud9 environment that you're
    interested in. If you recorded the environment ID, you can use it to filter for the

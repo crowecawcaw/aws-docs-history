@@ -147,7 +147,7 @@ You can find more information about Amazon VPC choices in [Create an EC2 Environ
 Console](create-environment-main.md#create-environment-vpc-step "create-environment-main.md#create-environment-vpc-step"), and in [VPC settings for AWS Cloud9 Development Environments](vpc-settings.md "vpc-settings.md"). 12. Add up to 50 tags by supplying a **Key** and **Value**
 for each tag. Do so by selecting **Add new tag**. The tags are attached to
 the AWS Cloud9 environment as resource tags, and are propagated to the following underlying
-resources: the AWS CloudFormation stack, the Amazon EC2 instance, and Amazon EC2 security groups. To learn more about
+resources: the CloudFormation stack, the Amazon EC2 instance, and Amazon EC2 security groups. To learn more about
 tags, see [Control Access Using AWS Resource
 Tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in the _[IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md")_ and [advanced
 information](tags.md "tags.md") in this guide.

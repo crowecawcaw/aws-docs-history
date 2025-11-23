@@ -424,7 +424,7 @@ using the AWS Toolkit for Visual Studio Code.
 
 - Make sure to choose a globally unique Amazon S3 bucket name.
 - Ensure that the credentials you configured in include the appropriate
-  read/write access to the following services: Amazon S3, AWS CloudFormation, AWS Lambda, and
+  read/write access to the following services: Amazon S3, CloudFormation, AWS Lambda, and
   Amazon API Gateway.
 - For applications with deployment type `Image`, make sure that
   you have both a globally unique Amazon S3 bucket name and an Amazon ECR repository URI
@@ -475,19 +475,19 @@ that was created as part of the application, see [Invoking remote Lambda functio
 
 Cloud
 
-Deleting a serverless application involves deleting the AWS CloudFormation stack that you
+Deleting a serverless application involves deleting the CloudFormation stack that you
 previously deployed to the AWS Cloud. Note that this procedure does not delete your
 application directory from your local host.
 
 1. Open the **AWS Explorer**.
 2. In the **AWS Explorer** window, expand the Region
    containing the deployed application that you want to delete, and then expand
-   **AWS CloudFormation**.
-3. Open the context (right-click) menu for the name of the AWS CloudFormation stack that
+   **CloudFormation**.
+3. Open the context (right-click) menu for the name of the CloudFormation stack that
    corresponds to the serverless application that you want to delete. Then, choose
    **Delete CloudFormation Stack**.
 4. To confirm that you want to delete the selected stack, choose
    **Delete**.
 
-If the stack deletion succeeds, the AWS Toolkit removes the stack name from the AWS CloudFormation
+If the stack deletion succeeds, the AWS Toolkit removes the stack name from the CloudFormation
 list in **AWS Explorer**.

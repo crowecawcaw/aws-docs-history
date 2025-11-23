@@ -367,17 +367,17 @@ environments in the AWS Cloud9 console, a message is displayed that reads "one o
 environments failed to delete," and at least one of the environments isn't deleted.
 
 **Possible cause:** AWS CloudFormation might have a problem
-deleting one or more of the environments. AWS Cloud9 relies on AWS CloudFormation to create and delete
+deleting one or more of the environments. AWS Cloud9 relies on CloudFormation to create and delete
 environments.
 
-**Recommended solution:** Try using AWS CloudFormation to delete each
+**Recommended solution:** Try using CloudFormation to delete each
 of the undeleted environments.
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the AWS navigation bar, choose the AWS Region for the
    environment.
-3. In the list of AWS CloudFormation stacks, select the entry where **Stack
+3. In the list of CloudFormation stacks, select the entry where **Stack
    name** contains the undeleted environment name and
    **Status** is **DELETE_FAILED**. For example,
    if the environment name is `my-demo-environment`, choose the stack
@@ -400,7 +400,7 @@ resources.
 Manually deleting a failed stack's resources doesn't remove the stack itself from
 your AWS account.
 
-To manually delete these resources, do the following. In the AWS CloudFormation console, choose
+To manually delete these resources, do the following. In the CloudFormation console, choose
 the failed stack, and then select the **Resources** section. Go to the
 console in AWS for each resource in this list, and then use that console to delete the
 resource.
@@ -726,7 +726,7 @@ environment from the console, an error message `unable to access your
 management of software vendor licenses across the AWS Cloud. When setting up License Manager,
 you create license configurations, which are sets of licensing rules based on the terms
 of your enterprise agreements. These license configurations can be attached to a
-mechanism, such as an Amazon Machine Image (AMI) or AWS CloudFormation. You can use one of these
+mechanism, such as an Amazon Machine Image (AMI) or CloudFormation. You can use one of these
 mechanisms to launch EC2 instances.
 
 Older versions of **AWSCloud9ServiceRolePolicy** for the
@@ -761,9 +761,9 @@ RHEL (for Amazon Linux) or Ubuntu Server, depending on the instance for that env
 ### Error message reporting "Instance profile
 
 AWSCloud9SSMInstanceProfile does not exist in account" when creating EC2 environment using
-AWS CloudFormation
+CloudFormation
 
-**Issue:** When using the [AWS::Cloud9::EnvironmentEC2](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md") AWS CloudFormation resource to create an EC2 environment, users
+**Issue:** When using the [AWS::Cloud9::EnvironmentEC2](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md") CloudFormation resource to create an EC2 environment, users
 receive an error message that **`Instance profile AWSCloud9SSMInstanceProfile
  does not exist in account.`**
 
@@ -774,19 +774,19 @@ manage the EC2 instance that backs your development environment.
 
 If you create a no-ingress environment with the console,
 `AWSCloud9SSMAccessRole` and `AWSCloud9SSMInstanceProfile` are
-created automatically. But when using AWS CloudFormation or AWS CLI to create your first no-ingress
+created automatically. But when using CloudFormation or AWS CLI to create your first no-ingress
 environment, you must create these IAM resources manually.
 
 **Recommended solution:** For information about editing
-your AWS CloudFormation template and updating IAM permissions, see [Using AWS CloudFormation to create no-ingress
+your CloudFormation template and updating IAM permissions, see [Using CloudFormation to create no-ingress
 EC2 environments](ec2-ssm.md#cfn-role-and-permissions "ec2-ssm.md#cfn-role-and-permissions")
 
 ### Error message reporting "not authorized to
 
 `perform: ssm:StartSession` on resource" when creating EC2 environment using
-AWS CloudFormation
+CloudFormation
 
-**Issue:** When using the [AWS::Cloud9::EnvironmentEC2](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md") AWS CloudFormation resource to create an EC2 environment, users
+**Issue:** When using the [AWS::Cloud9::EnvironmentEC2](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md") CloudFormation resource to create an EC2 environment, users
 receive an `AccessDeniedException` and are informed that they're "not
 authorized to perform: `ssm:StartSession` on resource."
 
@@ -795,7 +795,7 @@ authorized to perform: `ssm:StartSession` on resource."
 EC2 environments that use Systems Manager for no-ingress instances.
 
 **Recommended solution:** For information about editing
-your AWS CloudFormation template and updating IAM permissions, see [Using AWS CloudFormation to create no-ingress
+your CloudFormation template and updating IAM permissions, see [Using CloudFormation to create no-ingress
 EC2 environments](ec2-ssm.md#cfn-role-and-permissions "ec2-ssm.md#cfn-role-and-permissions").
 
 ### Error message reporting no authorization "to
@@ -861,11 +861,11 @@ following message is displayed when the environment fails to create:
  failed to create: [Instance]. . Rollback requested by user..`**
 
 You can confirm that the error is caused by the EC2 instance not being in the default
-VPC. Use AWS CloudFormation to view the stack event history for the development environment.
+VPC. Use CloudFormation to view the stack event history for the development environment.
 
-1. Open the AWS CloudFormation console. For more information, see [Logging in to the AWS CloudFormation
+1. Open the CloudFormation console. For more information, see [Logging in to the CloudFormation
    console.](../../../AWSCloudFormation/latest/UserGuide/cfn-console-login.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-login.md")
-2. In the AWS CloudFormation console, choose **Stacks**.
+2. In the CloudFormation console, choose **Stacks**.
 3. On the **Stacks** page, choose the name of the
    development environment that failed to create.
 4. On the **Stack details** page, choose the
@@ -1105,7 +1105,7 @@ environment from the console, an error message `unable to access your
 management of software vendor licenses across the AWS Cloud. When setting up License Manager,
 you create license configurations, which are sets of licensing rules based on the terms
 of your enterprise agreements. These license configurations can be attached to a
-mechanism, such as an Amazon Machine Image (AMI) or AWS CloudFormation. You can use one of these
+mechanism, such as an Amazon Machine Image (AMI) or CloudFormation. You can use one of these
 mechanisms to launch EC2 instances.
 
 Older versions of **AWSCloud9ServiceRolePolicy** for the

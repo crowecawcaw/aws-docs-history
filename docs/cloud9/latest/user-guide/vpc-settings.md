@@ -757,7 +757,7 @@ environment connects to it:
 
 The option to launch your environment's EC2 into a private subnet is available only if
 you create a "no-ingress" EC2 environment using [the console, command line,
-or AWS CloudFormation](ec2-ssm.md "ec2-ssm.md").
+or CloudFormation](ec2-ssm.md "ec2-ssm.md").
 
 You follow the [same steps to create a subnet](#create-subnet-proc "#create-subnet-proc")
 that can be made public or private. If the subnet is then associated with a route table

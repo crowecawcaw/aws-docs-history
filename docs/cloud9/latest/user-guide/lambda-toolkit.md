@@ -237,7 +237,7 @@ applications.
    Application**.
 2. In the command pane, select the [YAML template](../../../serverless-application-model/latest/developerguide/sam-specification-template-anatomy.md "../../../serverless-application-model/latest/developerguide/sam-specification-template-anatomy.md") that defines your function as a serverless application.
 3. Next, select an Amazon S3 bucket for the Lambda deployment. You can also choose to create a bucket for the deployment.
-4. Now enter the name of an AWS CloudFormation stack that you're deploying to. If you specify an
+4. Now enter the name of an CloudFormation stack that you're deploying to. If you specify an
    existing stack, the command updates the stack. If you specify a new stack, the command
    creates it.
 
@@ -256,10 +256,10 @@ You can also delete a Lambda function using the same context (right-click) menu.
 
 ###### Warning
 
-Do not use this procedure to delete Lambda functions that are associated with [AWS CloudFormation](../../../cloudformation.md "../../../cloudformation.md"). For example, do not delete the
+Do not use this procedure to delete Lambda functions that are associated with [CloudFormation](../../../cloudformation.md "../../../cloudformation.md"). For example, do not delete the
 Lambda function that was created when [creating a serverless
 application](serverless-apps-toolkit.md#sam-create "serverless-apps-toolkit.md#sam-create") earlier in this guide. These functions must be deleted through the
-AWS CloudFormation stack.
+CloudFormation stack.
 
 ######
 

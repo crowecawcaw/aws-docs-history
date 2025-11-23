@@ -390,7 +390,7 @@ The jump host must meet the following requirements:
 16. Add up to 50 tags by supplying a **Key** and a
     **Value** for each tag. Do so by selecting **Add new
     tag**. The tags are attached to the AWS Cloud9 environment as resource
-    tags, and are propagated to the following underlying resources: the AWS CloudFormation stack,
+    tags, and are propagated to the following underlying resources: the CloudFormation stack,
     the Amazon EC2 instance, and Amazon EC2 security groups. To learn more about tags, see
     [Control Access Using AWS Resource
     Tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in the _[IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md")_ and the [advanced information](tags.md "tags.md") about tags in this guide.

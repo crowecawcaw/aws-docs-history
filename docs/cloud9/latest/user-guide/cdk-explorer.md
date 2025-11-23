@@ -9,7 +9,7 @@ _apps_. You can find detailed information about the AWS CDK in the
 [AWS Cloud Development Kit (AWS CDK) Developer Guide](../../../cdk/latest/guide.md "../../../cdk/latest/guide.md").
 
 AWS CDK apps are composed of building blocks known as _[constructs](../../../cdk/latest/guide/constructs.md "../../../cdk/latest/guide/constructs.md")_. These building
-blocks include definitions for your AWS CloudFormation stacks and the AWS resources within them. Using
+blocks include definitions for your CloudFormation stacks and the AWS resources within them. Using
 the **AWS CDK Explorer**, you can see the [stacks](../../../cdk/latest/guide/stacks.md "../../../cdk/latest/guide/stacks.md") and [resources](../../../cdk/latest/guide/resources.md "../../../cdk/latest/guide/resources.md") that are defined in AWS CDK _tree view_. You can
 access this view in the Developer Tools pane within the AWS Cloud9 editor.
 

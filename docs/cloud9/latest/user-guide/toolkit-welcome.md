@@ -36,7 +36,7 @@ AWS Toolkit extension:
 
 - [AWS App Runner](using-apprunner.md "using-apprunner.md")
 - [API Gateway](api-gateway-toolkit.md "api-gateway-toolkit.md")
-- [AWS CloudFormation stacks](cloudformation-toolkit.md "cloudformation-toolkit.md")
+- [CloudFormation stacks](cloudformation-toolkit.md "cloudformation-toolkit.md")
 - [CloudWatch Logs](cloudwatch-logs-toolkit.md "cloudwatch-logs-toolkit.md")
 - [AWS Lambda](lambda-toolkit.md "lambda-toolkit.md")
 - [Resources](more-resources.md "more-resources.md")

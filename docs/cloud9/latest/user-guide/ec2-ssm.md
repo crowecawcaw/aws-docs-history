@@ -7,7 +7,7 @@ AWS Cloud9 can continue to use the service as normal.
 A "no-ingress EC2 instance" that's created for an EC2 environment enables AWS Cloud9 to connect to its
 Amazon EC2 instance without the need to open any inbound ports on that instance. You can select
 the no-ingress option when creating an EC2 environment using the console, the command line
-interface, or a [AWS CloudFormation stack](#cfn-role-and-permissions "#cfn-role-and-permissions"). For more
+interface, or a [CloudFormation stack](#cfn-role-and-permissions "#cfn-role-and-permissions"). For more
 information about how to create an
 environment using the
 console or command line interface, see [Step 1: Create an environment](tutorials-basic.md#tutorial-create-environment "tutorials-basic.md#tutorial-create-environment").
@@ -249,26 +249,26 @@ and `AWSCloud9EnvironmentMember`.
         }
 ```
 
-## Using AWS CloudFormation to create no-ingress
+## Using CloudFormation to create no-ingress
 
 EC2 environments
 
-When using an [AWS CloudFormation
+When using an [CloudFormation
 template](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md") to define a no-ingress Amazon EC2 development environment, do the
 following before creating the stack:
 
 1. Create the `AWSCloud9SSMAccessRole` service role and
    `AWSCloud9SSMInstanceProfile` instance profile. For more
    information, see [Creating service role and instance
-   profile with an AWS CloudFormation template](#creating-cfn-instance-profile "#creating-cfn-instance-profile").
-2. Update the policy for the IAM entity calling AWS CloudFormation. This way, the entity can
+   profile with an CloudFormation template](#creating-cfn-instance-profile "#creating-cfn-instance-profile").
+2. Update the policy for the IAM entity calling CloudFormation. This way, the entity can
    start a Session Manager session that connects to the EC2 instance. For more information,
    see [Adding Systems Manager permissions to an IAM
    policy](#updating-IAM-policy "#updating-IAM-policy").
 
 ### Creating service role and instance
 
-profile with an AWS CloudFormation template
+profile with an CloudFormation template
 
 You need to create the service role `AWSCloud9SSMAccessRole` and the
 instance profile `AWSCloud9SSMInstanceProfile` to enable Systems Manager to manage
@@ -280,14 +280,14 @@ role and instance profile are already available for use.
 
 ###### Note
 
-Suppose that you attempt to create an AWS CloudFormation stack for a no-ingress EC2 environment
+Suppose that you attempt to create an CloudFormation stack for a no-ingress EC2 environment
 but you didn't first create the required service role and instance profile.
 Then, the stack isn't created and the following error message is displayed:
 
 **`Instance profile AWSCloud9SSMInstanceProfile does not exist in
  account.`**
 
-When creating a no-ingress EC2 environment for the first time using AWS CloudFormation, you can define
+When creating a no-ingress EC2 environment for the first time using CloudFormation, you can define
 the `AWSCloud9SSMAccessRole` and `AWSCloud9SSMInstanceProfile`
 as IAM resources in the template.
 
@@ -333,7 +333,7 @@ Resources:
 policy
 
 After [defining a service role and
-instance profile](#creating-cfn-instance-profile "#creating-cfn-instance-profile") in the [AWS CloudFormation
+instance profile](#creating-cfn-instance-profile "#creating-cfn-instance-profile") in the [CloudFormation
 template](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md"), ensure that the IAM entity creating the stack has permission
 to start a Session Manager session. A session is a connection made to the EC2 instance using
 Session Manager.
@@ -345,7 +345,7 @@ for a no-ingress EC2 environment, an `AccessDeniedException` error is
 returned.
 
 Add the following permissions to the policy for the IAM entity by calling
-AWS CloudFormation.
+CloudFormation.
 
 ```
 {
