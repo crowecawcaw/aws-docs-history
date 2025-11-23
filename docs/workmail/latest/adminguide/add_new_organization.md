@@ -16,7 +16,7 @@ the following types:
   on-premises directory, you must first set up an AD Connector in AWS Directory Service. The
   AD Connector synchronizes your users and groups with the Amazon WorkMail address book and
   performs user authentication requests. For more information, see [Active
-  Directory Connector](../../../directoryservice/latest/admin-guide/directory_ad_connector.md "../../../directoryservice/latest/admin-guide/directory_ad_connector.md") in the _AWS Directory Service Administration
+  Directory Connector](../../../directoryservice/latest/admin-guide/directory_ad_connector.md "../../../directoryservice/latest/admin-guide/directory_ad_connector.md") in the _Directory Service Administration
   Guide_.
 
 You also have the option of selecting a
@@ -165,7 +165,7 @@ model.
 
 ###### To configure Managed AD integration for new organizations
 
-1. In the AWS Directory Service console, navigate to your Managed AD (Microsoft AD), or from
+1. In the Directory Service console, navigate to your Managed AD (Microsoft AD), or from
    the Amazon WorkMail console, select **Users** or
    **Groups** in the left navigation panel, and then click
    the directory link in the note box at the top of the page.
@@ -195,7 +195,7 @@ ds-data:UpdateUser
    directory operations** to migrate to the new Directory Service
    APIs.
 3. Finally, ensure that you have enabled **User and group
-   management** in the AWS Directory Service console and have updated your IAM
+   management** in the Directory Service console and have updated your IAM
    policies with the required DS-Data permissions as described in the previous
    section.
 
