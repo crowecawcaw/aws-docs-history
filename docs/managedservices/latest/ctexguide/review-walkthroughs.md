@@ -14,7 +14,7 @@
 - [Create listener](#ex-listener-create-col "#ex-listener-create-col")
 - [High availability one-tier stacks: Creating](#ex-HA-1-tier-create-col "#ex-HA-1-tier-create-col")
 - [Create IAM entity or policy (Managed Automation)](#ex-iam-resource-create-rr-col "#ex-iam-resource-create-rr-col")
-- [Continue rollback on custom AWS CloudFormation stack](#ex-custom-stack-cfn-template-continue-rollback-col "#ex-custom-stack-cfn-template-continue-rollback-col")
+- [Continue rollback on custom CloudFormation stack](#ex-custom-stack-cfn-template-continue-rollback-col "#ex-custom-stack-cfn-template-continue-rollback-col")
 - [Manage the VPC Subnet IPv4 Address Auto Assigment](#ex-vpc-subnet-ipv4-assignment-manage-col "#ex-vpc-subnet-ipv4-assignment-manage-col")
 - [Schedule add](#ex-res-sched-schedule-add-col "#ex-res-sched-schedule-add-col")
 - [Delete EBS snapshot (Managed Automation)](#ex-ebs-snpsht-delete-rr-col "#ex-ebs-snpsht-delete-rr-col")
@@ -1521,9 +1521,9 @@ You receive the ID of the new RFC in the response and can use it to submit and m
   For information about AMS permissions, see
   [Deploying IAM resources](../userguide/deploy-iam-resources.md "../userguide/deploy-iam-resources.md").
 
-## Continue rollback on custom AWS CloudFormation stack
+## Continue rollback on custom CloudFormation stack
 
-![AMS Advanced console, create RFC section, change type details box for ct-32r1igwrwag4i: Continue rollback on custom AWS CloudFormation stack.](images/guiCustomStackContinueRollback.png)
+![AMS Advanced console, create RFC section, change type details box for ct-32r1igwrwag4i: Continue rollback on custom CloudFormation stack.](images/guiCustomStackContinueRollback.png)
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
 2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
