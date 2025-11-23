@@ -22,14 +22,14 @@ Before you get started, make sure that you've done the following:
   system in US East (N. Virginia).
 - Established a wide-area network (WAN) connection for traffic into and out of
   your on-premises storage environment. For example, you can establish this kind
-  of connection with [AWS Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md").
+  of connection with [Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md").
 
 When you [create your DataSync
 agent](#create-agent-s3-compatible-storage "#create-agent-s3-compatible-storage"), you'll configure this WAN connection so that DataSync can
 transfer data between your Amazon S3 compatible storage that's on-premises and your
 storage resource in AWS.
 
-- Downloaded and installed the [Snowball Edge client](https://aws.amazon.com/snowball/resources/ "https://aws.amazon.com/snowball/resources/").
+- Downloaded and installed the [Snowball Edge client](https://aws.amazon.com//snowball/resources/ "https://aws.amazon.com//snowball/resources/").
 
 ## Providing DataSync access to S3
 

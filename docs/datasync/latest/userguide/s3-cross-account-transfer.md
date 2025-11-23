@@ -26,7 +26,7 @@ what a cross-account transfer using DataSync can look like:
 
 The following diagram illustrates this kind of scenario.
 
-![An example DataSync scenario of data moving from an on-premises storage system through an AWS Direct Connect connection across the internet into AWS. The data is first transferred into one AWS account (your source account), before finally making it into an Amazon S3 bucket in a different AWS account (your destination account).](images/s3-cross-account-diagram.png)
+![An example DataSync scenario of data moving from an on-premises storage system through an Direct Connect connection across the internet into AWS. The data is first transferred into one AWS account (your source account), before finally making it into an Amazon S3 bucket in a different AWS account (your destination account).](images/s3-cross-account-diagram.png)
 
 ## Prerequisite:
 

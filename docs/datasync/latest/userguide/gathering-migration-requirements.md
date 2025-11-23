@@ -250,7 +250,7 @@ options for connecting your network to AWS
 Consider the following options for establishing network connectivity for
 your DataSync transfer:
 
-- **AWS Direct Connect** - Review the [architecture and
+- **Direct Connect** - Review the [architecture and
   routing examples](direct-connect-architecture.md "direct-connect-architecture.md") for using Direct Connect with DataSync.
   You can monitor Direct Connect activity using [Amazon CloudWatch](../../../directconnect/latest/UserGuide/monitoring-cloudwatch.md "../../../directconnect/latest/UserGuide/monitoring-cloudwatch.md").
 - **VPN** - [AWS Site-to-Site VPN](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md") offers up to 1.25 Gbps throughput per

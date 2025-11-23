@@ -38,7 +38,7 @@ AWS
 When using DataSync, consider the following options for connecting your storage
 network to AWS:
 
-- **AWS Direct Connect** - With [Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md"), you can create a dedicated connection between
+- **Direct Connect** - With [Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md"), you can create a dedicated connection between
   your storage network and AWS. From a DataSync perspective, this lets
   you:
 
@@ -51,7 +51,7 @@ network to AWS:
        Processing Standard (FIPS)](choose-service-endpoint.md#choose-service-endpoint-fips "choose-service-endpoint.md#choose-service-endpoint-fips"), or [VPC](choose-service-endpoint.md#datasync-in-vpc "choose-service-endpoint.md#datasync-in-vpc") endpoints.
 
   For more information, see [DataSync architecture and routing examples with
-  AWS Direct Connect](direct-connect-architecture.md "direct-connect-architecture.md").
+  Direct Connect](direct-connect-architecture.md "direct-connect-architecture.md").
 
 - **VPN** - You can connect your storage
   network to AWS by using a VPN (such as [AWS Site-to-Site VPN](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md")).

@@ -1,8 +1,8 @@
 # DataSync architecture and routing examples with
 
-AWS Direct Connect
+Direct Connect
 
-Consider the following network architectures when using [AWS Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") with your AWS DataSync
+Consider the following network architectures when using [Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") with your AWS DataSync
 transfers.
 
 ###### Tip

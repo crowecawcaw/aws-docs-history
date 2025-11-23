@@ -107,7 +107,7 @@ correspond to the steps to create a VPC service endpoint.
 If you're transferring to or from storage that's outside AWS, the VPC should
 extend to that storage environment (for example, your storage environment might
 be a data center where your on-premises NFS file server is located). You can do
-this by using routing rules over [AWS Direct Connect](direct-connect-architecture.md "direct-connect-architecture.md") or VPN. 2. Create a DataSync VPC service endpoint by doing the following:
+this by using routing rules over [Direct Connect](direct-connect-architecture.md "direct-connect-architecture.md") or VPN. 2. Create a DataSync VPC service endpoint by doing the following:
 
     1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
     2. In the left navigation pane, choose **Endpoints**,
