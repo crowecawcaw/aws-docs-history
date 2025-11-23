@@ -61,20 +61,20 @@ then choose the connected app you just created. 10. Choose **Edit Policies**, t
 
 The following topics explain now to use AWS CloudFormation templates to set up real-time EventBridge notifications. The steps only apply to version 3.0 and later of the AWS Partner CRM connector.
 
-For AWS Partner CRM connector version 3.0 and later, you can use an AWS CloudFormation template to
+For AWS Partner CRM connector version 3.0 and later, you can use an CloudFormation template to
 configure the AWS Components for the Amazon EventBridge Integration, or you can create the components
-manually. To use AWS CloudFormation, download the templates from:
+manually. To use CloudFormation, download the templates from:
 
 ###### Topics
 
 - [Finding your domain URL](#find-domain-url "#find-domain-url")
-- [Using the AWS CloudFormation stack](#downloading-templates "#downloading-templates")
+- [Using the CloudFormation stack](#downloading-templates "#downloading-templates")
 - [Creating notification components manually](#manual-creation-of-aws-components "#manual-creation-of-aws-components")
 - [Example rules](#example-rules "#example-rules")
 
 ### Finding your domain URL
 
-The AWS CloudFormation template uses your domain URL as one of its required parameters.
+The CloudFormation template uses your domain URL as one of its required parameters.
 
 ###### To find the URL
 
@@ -85,11 +85,11 @@ The AWS CloudFormation template uses your domain URL as one of its required para
 
 ###### Note
 
-You must use the https:// prefix when you enter the URL in the AWS CloudFormation template.
+You must use the https:// prefix when you enter the URL in the CloudFormation template.
 
-### Using the AWS CloudFormation stack
+### Using the CloudFormation stack
 
-The steps in the following topics explain how to create and deploy a AWS CloudFormation stack that sets up real-time notifications.
+The steps in the following topics explain how to create and deploy a CloudFormation stack that sets up real-time notifications.
 
 1. Download the following templates:
 
@@ -101,7 +101,7 @@ You deploy each template separately, and you follow the same steps for both.
     * (Optional) AWS Marketplace integration: [https://servicecatalogconnector.s3.amazonaws.com/APIDestinationCFT\_AWSMP.json](https://servicecatalogconnector.s3.amazonaws.com/APIDestinationCFT_AWSMP.json "https://servicecatalogconnector.s3.amazonaws.com/APIDestinationCFT_AWSMP.json")
 
 2.  In the AWS Console, sign in to your AWS Marketplace seller account and ensure it runs in the **N. Virginia**. EventBridge only operates in that Region.
-3.  Still in the console, search on `cloudformation`, then open the AWS CloudFormation console.
+3.  Still in the console, search on `cloudformation`, then open the CloudFormation console.
 4.  On the **Stacks** page, choose **Create stack**.
 5.  Select the **Choose an existing template** and **Upload a template file** radio buttons.
 6.  Select **Choose file** to open the downloaded template, then choose **Next**.
