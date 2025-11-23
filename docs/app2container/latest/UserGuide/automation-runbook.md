@@ -71,7 +71,7 @@ create the roles using AWS CloudFormation or manually.
 
 You can use the following AWS CloudFormation template to create a stack which will
 create the roles and policies required to run the automation. You can create
-a stack using the [AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") or the [AWS Command Line Interface (AWS CLI)](../../../AWSCloudFormation/latest/UserGuide/using-cfn-cli-creating-stack.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-cli-creating-stack.md").
+a stack using the [CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") or the [AWS Command Line Interface (AWS CLI)](../../../AWSCloudFormation/latest/UserGuide/using-cfn-cli-creating-stack.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-cli-creating-stack.md").
 
 ```
 AWSTemplateFormatVersion: "2010-09-09"
@@ -616,5 +616,5 @@ containerization process. For more information, see [Step 4: Transform your appl
 
 After performing the containerization process with App2Container, continue with the deployment phase to
 complete the modernization process. You can use either App2Container or proprietary deployment
-tools. If you use the App2Container CLI, you can generate the required AWS CloudFormation templates. For more
+tools. If you use the App2Container CLI, you can generate the required CloudFormation templates. For more
 information about deploying your containerized application using App2Container, see [Step 5: Deploy your application](start-intro.md#start-step5-deploy "start-intro.md#start-step5-deploy").

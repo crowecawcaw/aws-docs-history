@@ -116,9 +116,9 @@ workflow. Initial steps for App2Container are the same for all applications:
       support creating a pipeline to deploy updates to your application
       container in Amazon ECR.
     - If you use the `--deploy` option for the **generate
-      app-deployment** command, App2Container deploys the AWS CloudFormation stack that creates
+      app-deployment** command, App2Container deploys the CloudFormation stack that creates
       the App Runner service for the containerized application, using the configuration
-      values in the AWS CloudFormation template that it generates. To customize the configuration,
+      values in the CloudFormation template that it generates. To customize the configuration,
       run the command without the `--deploy` option, and then manually
       deploy using the AWS CLI when you are ready.
 

@@ -297,7 +297,7 @@ Deployment successful for application `iis-colormvciis-b69c09ab`
 The URL to your Load Balancer Endpoint is:
 a2c-i-Publi-1A2BCD3EFGRW-4567890123.us-west-2.elb.amazonaws.com
 
-Successfully created Amazon ECS stack a2c-`iis-colormvciis-b69c09ab`-ECS. Check the AWS CloudFormation Console for additional details.
+Successfully created Amazon ECS stack a2c-`iis-colormvciis-b69c09ab`-ECS. Check the CloudFormation Console for additional details.
 3. Set up a pipeline for your application stack using app2container:
 
  app2container generate pipeline --application-id `iis-colormvciis-b69c09ab``
@@ -440,19 +440,19 @@ the other infrastructure that is created for your deployment. You
 can use one of the following methods to check the stack status
 for your deployment:
 
-- Sign in to the AWS Management Console and open the AWS CloudFormation console at
+- Sign in to the AWS Management Console and open the CloudFormation console at
   [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 
 In the console, you can see stacks that are being created,
 as well as existing stacks. For more information, see
 [Viewing
-AWS CloudFormation stack data and resources on the AWS Management Console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md") in the
+CloudFormation stack data and resources on the AWS Management Console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md") in the
 _AWS CloudFormation User Guide_.
 
-- Use one of these AWS CloudFormation commands in the AWS CLI:
+- Use one of these CloudFormation commands in the AWS CLI:
   **list-stacks** or **describe-stacks**.
   For more information, see **Available Commands**
   in the [AWS CLI Command Reference](../../../cli/latest/reference/cloudformation/index.md#cli-aws-cloudformation "../../../cli/latest/reference/cloudformation/index.md#cli-aws-cloudformation").
-- Use one of these AWS CloudFormation API commands: **ListStacks**
+- Use one of these CloudFormation API commands: **ListStacks**
   or **DescribeStacks**. For more information, see
   [Actions](../../../AWSCloudFormation/latest/APIReference.md "../../../AWSCloudFormation/latest/APIReference.md") in the _AWS CloudFormation API Reference_.

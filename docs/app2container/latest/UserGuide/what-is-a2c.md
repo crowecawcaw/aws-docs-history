@@ -47,7 +47,7 @@ App2Container performs the following tasks:
   - a CloudFormation template to configure required compute, network, and
     security infrastructure to deploy containers using Amazon ECS, Amazon EKS, or
     AWS App Runner.
-  - An Amazon ECR container image, Amazon ECS task definitions, or AWS CloudFormation templates
+  - An Amazon ECR container image, Amazon ECS task definitions, or CloudFormation templates
     for Amazon EKS or AWS App Runner that incorporate best practices for security and
     scalability of the application by integrating with various AWS
     services.

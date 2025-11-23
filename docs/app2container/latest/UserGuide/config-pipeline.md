@@ -131,9 +131,9 @@ false.
     enabled._
     - beta (object) –
       - clusterName (string, required\*) –
-        The name of the Amazon ECS or Amazon EKS cluster to set up in the AWS CloudFormation stack.
+        The name of the Amazon ECS or Amazon EKS cluster to set up in the CloudFormation stack.
       - serviceName (string, required\*) –
-        The name of the Amazon ECS service to set up in the AWS CloudFormation stack.
+        The name of the Amazon ECS service to set up in the CloudFormation stack.
 
       _\* Applies only to Amazon ECS pipelines._
       - enabled (Boolean, required) – A
@@ -144,11 +144,11 @@ false.
     Beta environments are not supported for App Runner.
     - prod (object) –
       - clusterName (string, required\*) –
-        The name of the Amazon ECS or Amazon EKS cluster to set up in the AWS CloudFormation stack.
+        The name of the Amazon ECS or Amazon EKS cluster to set up in the CloudFormation stack.
 
       _\* Does not apply to App Runner._
       - serviceName (string, required\*) –
-        The name of the Amazon ECS service to set up in the AWS CloudFormation stack.
+        The name of the Amazon ECS service to set up in the CloudFormation stack.
 
       _\* Applies only to Amazon ECS pipelines._
       - enabled (Boolean, required) – A

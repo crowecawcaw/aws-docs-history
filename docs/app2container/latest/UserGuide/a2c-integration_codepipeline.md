@@ -77,7 +77,7 @@ App2Container generates the following artifacts:
 Used to build the application container image and uploads it to
 Amazon ECR.
 
-**AWS CloudFormation templates**
+**CloudFormation templates**
 
 Used to create your pipeline in CodePipeline along with other
 required resources.

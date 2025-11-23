@@ -35,7 +35,7 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
 
 App2Container communicates with AWS services using standard APIs when retrieving
 artifacts from Amazon S3 or pushing Docker containers to service endpoints in the AWS
-container management suite (Amazon ECR, Amazon ECS, and Amazon EKS). It works with AWS CloudFormation and AWS CodeStar
+container management suite (Amazon ECR, Amazon ECS, and Amazon EKS). It works with CloudFormation and AWS CodeStar
 services to generate and deploy relevant container and lifecycle artifacts using
 their standard APIs.
 
@@ -52,7 +52,7 @@ their standard APIs.
   requires secure download using the HTTPS protocol using links provided for
   each package.
 - App2Container uses standard AWS APIs for the services it interacts with, including
-  Amazon ECR, Amazon ECS, Amazon EKS, AWS CloudFormation, CodePipeline, and Amazon S3. AWS APIs use HTTPS as their default
+  Amazon ECR, Amazon ECS, Amazon EKS, CloudFormation, CodePipeline, and Amazon S3. AWS APIs use HTTPS as their default
   communication protocol.
 
 ## Internetwork traffic privacy

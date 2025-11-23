@@ -12,7 +12,7 @@ AWS Fargate. This includes:
 - Creation of an IAM role with the permissions needed to enable FireLens log routing
   to the destinations that you have specified
 - Deployment artifacts that contain the FireLens parameters that you specified in
-  your JSON configuration files, including the Amazon ECS task definition and AWS CloudFormation
+  your JSON configuration files, including the Amazon ECS task definition and CloudFormation
   template files
   For more information about using FireLens for Amazon ECS, see
   [Custom log routing](../../../AmazonECS/latest/developerguide/using_firelens.md "../../../AmazonECS/latest/developerguide/using_firelens.md")

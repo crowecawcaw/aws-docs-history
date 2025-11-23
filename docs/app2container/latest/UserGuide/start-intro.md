@@ -866,7 +866,7 @@ created for you in the local directory for your application.
 
 For applications using Windows authentication, you can use the `gMSAParameters` inside of
 the `deployment.json` file to set the gMSA-related artifacts automatically during
-generation of your AWS CloudFormation template.
+generation of your CloudFormation template.
 
 Perform the actions in the list below once per Active Directory domain before you update the gMSA parameters.
 

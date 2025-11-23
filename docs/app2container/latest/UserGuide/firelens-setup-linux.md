@@ -188,7 +188,7 @@ using Ruby regular expressions.
 ## Step 3: Validate deployment artifacts
 
 The last step before deployment is to ensure that your
-Amazon ECS task definitions and AWS CloudFormation templates are configured as
+Amazon ECS task definitions and CloudFormation templates are configured as
 expected after running the **generate app-deployment**
 command, and that your log destinations were created, if applicable.
 
@@ -208,12 +208,12 @@ command, and that your log destinations were created, if applicable.
    an Amazon ECS task definition, see
    [Example: Amazon ECS
    task definition FireLens parameters](#firelens-example-ecs-task-def "#firelens-example-ecs-task-def")
-3. Verify that the AWS CloudFormation template includes the parameters
+3. Verify that the CloudFormation template includes the parameters
    that you specified and that the values are correct. For
    an example of FireLens parameters in a CloudFormation template,
    expand the following section:
    [Example:
-   AWS CloudFormation template FireLens parameters](#firelens-example-ecs-cfn-template "#firelens-example-ecs-cfn-template")
+   CloudFormation template FireLens parameters](#firelens-example-ecs-cfn-template "#firelens-example-ecs-cfn-template")
 4. If you are routing logs to Kinesis Data Streams or Firehose, verify that the streams have been
    created for you by using the AWS Management Console.
    1. Sign in to the AWS Management Console and open the Kinesis console at
@@ -495,15 +495,15 @@ with the `--deploy` option.
 √ Registered ECS Task Definition with ECS
 √ Uploaded CloudFormation resources to S3 Bucket: app2container-example
 √ Generated CloudFormation Master template at: /root/app2container/java-tomcat-9e8e4799/EcsDeployment/ecs-master.yml
-√ Initiated CloudFormation stack creation. This may take a few minutes. Please visit the AWS CloudFormation Console to track progress.
+√ Initiated CloudFormation stack creation. This may take a few minutes. Please visit the CloudFormation Console to track progress.
 ECS deployment successful for application java-tomcat-9e8e4799
 
 The URL to your Load Balancer Endpoint is:
 <your endpoint>.us-east-1.elb.amazonaws.com
-Successfully created ECS stack app2container-java-tomcat-9e8e4799-ECS. Check the AWS CloudFormation Console for additional details.`
+Successfully created ECS stack app2container-java-tomcat-9e8e4799-ECS. Check the CloudFormation Console for additional details.`
 ````
 
-Alternatively, you can deploy your application's AWS CloudFormation template using the AWS CLI as
+Alternatively, you can deploy your application's CloudFormation template using the AWS CLI as
 follows.
 
 ```

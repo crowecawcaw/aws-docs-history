@@ -183,7 +183,7 @@ When you run this command with the `--deploy` option, App2Container uses the sam
 customize your deployment resources as it does when you deploy manually. Additionally,
 it performs the following steps to complete the deployment:
 
-- Uploads AWS CloudFormation resources to an Amazon S3 bucket, if configured.
+- Uploads CloudFormation resources to an Amazon S3 bucket, if configured.
 - Creates a CloudFormation stack and deploys your application.
 
 See [pipeline.json file](config-pipeline.md#config-pipeline-json "config-pipeline.md#config-pipeline-json") for
@@ -313,7 +313,7 @@ the `--application-id` parameter.
 √ Generated CloudFormation Master template at: C:\Users\Administrator\AppData\Local\app2container\iis-smarts-51d2dbf8\EcsDeployment\ecs-master.yml
 CloudFormation templates and additional deployment artifacts generated successfully for application iis-smarts-51d2dbf8
 
-You're all set to use AWS CloudFormation to manage your application stack.
+You're all set to use CloudFormation to manage your application stack.
 
 Next Steps:
 1. Edit the CloudFormation template as necessary.
@@ -333,10 +333,10 @@ with the `--application-id` parameter and the `--deploy` option.
 √ Registered ECS Task Definition with ECS
 √ Uploaded CloudFormation resources to S3 Bucket: app2container-example
 √ Generated CloudFormation Master template at: C:\Users\Administrator\AppData\Local\app2container\iis-smarts-51d2dbf8\EcsDeployment\ecs-master.yml
-√ Initiated CloudFormation stack creation. This may take a few minutes. Please visit the AWS CloudFormation Console to track progress.
+√ Initiated CloudFormation stack creation. This may take a few minutes. Please visit the CloudFormation Console to track progress.
 ECS deployment successful for application iis-smarts-51d2dbf8
 
 The URL to your Load Balancer Endpoint is:
 <your endpoint>.us-east-1.elb.amazonaws.com
-Successfully created ECS stack app2container-iis-smarts-51d2dbf8-ECS. Check the AWS CloudFormation Console for additional details.`
+Successfully created ECS stack app2container-iis-smarts-51d2dbf8-ECS. Check the CloudFormation Console for additional details.`
 ````

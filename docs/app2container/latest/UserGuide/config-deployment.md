@@ -124,7 +124,7 @@ false.
       ID, if you want to bring your own VPC or to reuse an existing
       VPC that App2Container created for a prior deployment.
     - reuseExistingA2cStack (object)
-      – Contains references so that you can reuse AWS CloudFormation
+      – Contains references so that you can reuse CloudFormation
       resources that App2Container has already created.
       - cfnStackName (string) – The name or
         ID (ARN) of the CloudFormation stack created with App2Container for the containerized
@@ -301,7 +301,7 @@ This section is not included for applications running on Windows.
     configure a route to the internet using a NAT gateway. For
     more information about cluster networking for Amazon EKS, see
     [De-mystifying cluster networking for Amazon EKS worker
-    nodes](https://aws.amazon.com/blogs/containers/de-mystifying-cluster-networking-for-amazon-eks-worker-nodes/ "https://aws.amazon.com/blogs/containers/de-mystifying-cluster-networking-for-amazon-eks-worker-nodes/").
+    nodes](https://aws.amazon.com//blogs/containers/de-mystifying-cluster-networking-for-amazon-eks-worker-nodes/ "https://aws.amazon.com//blogs/containers/de-mystifying-cluster-networking-for-amazon-eks-worker-nodes/").
     - cfnStackName (string) – The name or
       ID (ARN) of the CloudFormation stack created with App2Container for the containerized
       application.
@@ -387,7 +387,7 @@ This section is not included for applications running on Windows.
     + createAppRunnerArtifacts (Boolean, required) –
      A flag that indicates if you are targeting App Runner for deployment.
     + stackName (string, required) – The name of the
-     AWS CloudFormation stack. *We recommend including the application ID in the stack name.*
+     CloudFormation stack. *We recommend including the application ID in the stack name.*
     + serviceName (string, required) – The name of the
      service in App Runner. *We recommend using the application ID for the service name.*
     + autoDeploymentsEnabled (Boolean, required) –
@@ -398,7 +398,7 @@ This section is not included for applications running on Windows.
      Custom tags, expressed as key/value pairs that are added to resources
      during deployment. For App Runner deployments, the key/value pairs update
      both of the resources that are created in the `apprunner.yml`
-     AWS CloudFormation template.
+     CloudFormation template.
 
 
     ###### Note

@@ -192,7 +192,7 @@ The following Linux example shows the **generate pipeline** command with the
 √ Committed files to CodeCommit repository
 Pipeline resource template generation successful for application java-tomcat-9e8e4799
 
-You're all set to use AWS CloudFormation to manage your pipeline stack.
+You're all set to use CloudFormation to manage your pipeline stack.
 
 Next Steps:
 1. Edit the CloudFormation template as necessary.
@@ -208,11 +208,11 @@ the `--application-id` parameter and the `--deploy` option that you use to creat
 `$` `sudo app2container generate pipeline `--deploy` --application-id `java-tomcat-9e8e4799```√ Generated buildspec file(s)
 √ Generated CloudFormation templates
 √ Committed files to CodeCommit repository
-√ Initiated CloudFormation stack creation. This may take a few minutes. Please visit the AWS CloudFormation Console to track progress.
+√ Initiated CloudFormation stack creation. This may take a few minutes. Please visit the CloudFormation Console to track progress.
 √ Deployed pipeline through CloudFormation
 Pipeline deployment successful for application --application-id `java-tomcat-9e8e4799`
 
-Successfully created AWS CodePipeline stack 'app2container---application-id `java-tomcat-9e8e4799`-ecs-pipeline-stack' for application. Check the AWS CloudFormation Console for additional details.`
+Successfully created AWS CodePipeline stack 'app2container---application-id `java-tomcat-9e8e4799`-ecs-pipeline-stack' for application. Check the CloudFormation Console for additional details.`
 ````
 
 The following Linux example shows the **generate pipeline** command with
@@ -227,7 +227,7 @@ the `--application-id` parameter and the `--deploy` option that you use to creat
 √ Deployed pipeline through CloudFormation
 Pipeline deployment successful for application java-tomcat-9e8e4799
 
-Successfully created AWS CodePipeline stack 'a2c---application-id `java-tomcat-9e8e4799`-ecs-pipeline-stack' for application. Check the AWS CloudFormation Console for additional details.`
+Successfully created AWS CodePipeline stack 'a2c---application-id `java-tomcat-9e8e4799`-ecs-pipeline-stack' for application. Check the CloudFormation Console for additional details.`
 ````
 
 **Windows:**
@@ -242,7 +242,7 @@ The following Tools for Windows PowerShell example shows the **generate pipeline
 √ Committed files to CodeCommit repository
 Pipeline resource template generation successful for application --application-id `iis-smarts-51d2dbf8`
 
-You're all set to use AWS CloudFormation to manage your pipeline stack.
+You're all set to use CloudFormation to manage your pipeline stack.
 
 Next Steps:
 1. Edit the CloudFormation template as necessary.
@@ -258,11 +258,11 @@ the `--application-id` parameter and the `--deploy` option that you use to creat
 `PS>` `app2container generate pipeline `--deploy` --application-id `iis-smarts-51d2dbf8```√ Generated buildspec file(s)
 √ Generated CloudFormation templates
 √ Committed files to CodeCommit repository
-√ Initiated CloudFormation stack creation. This may take a few minutes. Please visit the AWS CloudFormation Console to track progress.
+√ Initiated CloudFormation stack creation. This may take a few minutes. Please visit the CloudFormation Console to track progress.
 √ Deployed pipeline through CloudFormation
 Pipeline deployment successful for application --application-id `iis-smarts-51d2dbf8`
 
-Successfully created AWS CodePipeline stack 'app2container---application-id `iis-smarts-51d2dbf8`-ecs-pipeline-stack' for application. Check the AWS CloudFormation Console for additional details.`
+Successfully created AWS CodePipeline stack 'app2container---application-id `iis-smarts-51d2dbf8`-ecs-pipeline-stack' for application. Check the CloudFormation Console for additional details.`
 ````
 
 Jenkins
