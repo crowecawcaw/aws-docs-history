@@ -26,7 +26,7 @@ To be able to complete the steps and migrate your environment, you'll need the f
 ## Step one: Create a new Amazon MWAA environment running the latest supported Apache Airflow version
 
 You can create an environment using the detailed steps in [Getting started with Amazon MWAA](../userguide/get-started.md "../userguide/get-started.md")
-in the _Amazon MWAA User Guide_, or by using an AWS CloudFormation template. If you're migrating from an existing Amazon MWAA environment, and used an AWS CloudFormation template to create your old environment, you can change the
+in the _Amazon MWAA User Guide_, or by using an CloudFormation template. If you're migrating from an existing Amazon MWAA environment, and used an CloudFormation template to create your old environment, you can change the
 `AirflowVersion` property to specify the new version.
 
 ```
