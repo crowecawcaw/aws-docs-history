@@ -6,7 +6,7 @@ AWS Application Discovery Service is no longer open to new customers. Alternativ
 
 You can use AWS PrivateLink to create a private connection between your VPC and
 AWS Application Discovery Service. You can access Application Discovery Service as if it were in your VPC, without the use of an
-internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC
+internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC
 don't need public IP addresses to access Application Discovery Service.
 
 You establish this private connection by creating an _interface
@@ -126,7 +126,7 @@ The Agentless Collector and AWS Application Discovery Agent don't support config
 endpoints. Instead, use the private DNS feature for the `arsenal-discovery`
 Amazon VPC endpoint.
 
-- Set up the AWS Direct Connect route table to route private AWS IP addresses to the VPC.
+- Set up the Direct Connect route table to route private AWS IP addresses to the VPC.
   For example, destination = 10.0.0.0/8 and target = local. For this setup you
   need at least routing for the `arsenal-discovery` Amazon VPC endpoint
   private IP addresses to the VPC.
@@ -134,7 +134,7 @@ Amazon VPC endpoint.
   because the Agentless Collector doesn't support configurable Arsenal
   endpoints.
 - Set up the `arsenal-discovery` Amazon VPC endpoint in a private subnet
-  with the same VPC to which you are routing the AWS Direct Connect traffic.
+  with the same VPC to which you are routing the Direct Connect traffic.
 - Set up the `arsenal-discovery` Amazon VPC endpoint with a security group
   that enables inbound traffic from within the VPC (for example,
   10.0.0.0/8).
