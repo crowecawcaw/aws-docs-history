@@ -1,4 +1,4 @@
-# GENOPS04-BP02 Follow GenAIOps practices to optimize the
+# GENOPS04-BP02 Implement GenAIOps to optimize the
 
 application lifecycle
 
@@ -123,13 +123,13 @@ foundation models.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [OPS05-BP10](../framework/ops_dev_integ_auto_integ_deploy.md "../framework/ops_dev_integ_auto_integ_deploy.md")
 - [OPS05-BP07](../framework/ops_dev_integ_code_quality.md "../framework/ops_dev_integ_code_quality.md")
 - [OPS05-BP01](../framework/ops_dev_integ_version_control.md "../framework/ops_dev_integ_version_control.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [LLM
   experimentation at scale using Amazon SageMaker AI Pipelines and

@@ -50,20 +50,59 @@ usage, error rates, and throttling events. Set up custom
 dashboards to visualize these metrics, and configure alarms to
 alert you when predefined thresholds are exceeded.
 
-If you're using Amazon SageMaker AI for hosting models, use the
-invocation and resource utilization metrics available in Amazon CloudWatch, such as invocation counts, latency, and error rates,
-as well as GPU and memory utilization. The Model Monitor feature
-offers additional metrics to help you monitor and evaluate the
-performance of your models in production. You can establish
-baselines, schedule monitoring jobs, and set up alerts to detect
-deviations from predefined thresholds.
+If you're using Amazon SageMaker AI for hosting models, use
+the invocation and resource utilization metrics available in
+Amazon CloudWatch, such as invocation counts, latency, and
+error rates, as well as GPU and memory utilization. The Model
+Monitor feature offers additional metrics to help you monitor
+and evaluate the performance of your models in production. You
+can establish baselines, schedule monitoring jobs, and set up
+alerts to detect deviations from predefined thresholds.
+
+For SageMaker AI HyperPod with both Amazon EKS and Slurm
+orchestration, use the system's comprehensive one-click
+observability capabilities that automatically collect and
+visualize key metrics across operational layers.
+
+For EKS-based HyperPod, use the integrated Amazon EKS add-on
+for SageMaker AI HyperPod observability that consolidates health
+and performance data from NVIDIA DCGM, Kubernetes node
+exporters, Elastic Fabric Adapter (EFA), and file systems into
+unified Amazon Managed Grafana dashboards with metrics
+automatically published to Amazon Managed Service for Prometheus.
+
+Configure CloudWatch Container Insights for enhanced
+monitoring of CPU, GPU, Trainium, EFA, and file system metrics
+up to the container level, while implementing automated
+alerting for model invocation latency, concurrent requests,
+error rates, and token-level metrics.
+
+For Slurm-based HyperPod, implement comprehensive monitoring
+through node exporters for system metrics, NVIDIA DCGM for GPU
+health monitoring, and EFA metrics for network performance
+tracking, all integrated with the unified observability
+solution.
+
+Both systems benefit from SageMaker AI HyperPod's real-time task
+performance metric tracking with automated alerting
+capabilities, automatic root cause remediation with
+customer-defined policies, and inference observability that
+captures essential model performance data including invocation
+latency, concurrent requests, error rates, and token-level
+metrics through standardized Prometheus endpoints.
+
+Additionally, establish incident response playbooks for when
+alerts trigger, configure custom thresholds based on
+workload-specific patterns, and use a unified dashboard that
+reduces troubleshooting time from days to minutes through
+pre-built, actionable insights.
 
 To enable automated responses to specific events, consider
-implementing Amazon EventBridge. It monitors events from other AWS
-services in near real-time. Use it to send event information when
-they match rules you define, such as state change events in a
-training job you've submitted. Configure your application to
-respond automatically to these events.
+implementing Amazon EventBridge. It monitors events from other
+AWS services in near real-time. Use it to send event
+information when they match rules you define, such as state
+change events in a training job you've submitted. Configure
+your application to respond automatically to these events.
 
 ### Implementation steps
 
@@ -124,14 +163,14 @@ respond automatically to these events.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [OPS08-BP01](../operational-excellence-pillar/ops_workload_observability_analyze_workload_metrics.md "../operational-excellence-pillar/ops_workload_observability_analyze_workload_metrics.md")
 - [OPS08-BP02](../operational-excellence-pillar/ops_workload_observability_analyze_workload_logs.md "../operational-excellence-pillar/ops_workload_observability_analyze_workload_logs.md")
 - [OPS08-BP04](../operational-excellence-pillar/ops_workload_observability_create_alerts.md "../operational-excellence-pillar/ops_workload_observability_create_alerts.md")
 - [OPS08-BP05](../operational-excellence-pillar/ops_workload_observability_create_dashboards.md "../operational-excellence-pillar/ops_workload_observability_create_dashboards.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Monitor
   model invocation using CloudWatch Logs - Amazon Bedrock](../../../bedrock/latest/userguide/model-invocation-logging.md "../../../bedrock/latest/userguide/model-invocation-logging.md")
@@ -145,6 +184,11 @@ respond automatically to these events.
   Monitor](../../../sagemaker/latest/dg/model-monitor.md "../../../sagemaker/latest/dg/model-monitor.md")
 - [AWS Well-Architected Framework: Operational Excellence
   Pillar](../operational-excellence-pillar/welcome.md "../operational-excellence-pillar/welcome.md")
+- [Accelerate
+  Foundation Model Development with One-Click Observability in
+  Amazon SageMaker AI HyperPod](https://aws.amazon.com/blogs/machine-learning/accelerate-foundation-model-development-with-one-click-observability-in-amazon-sagemaker-hyperpod/ "https://aws.amazon.com/blogs/machine-learning/accelerate-foundation-model-development-with-one-click-observability-in-amazon-sagemaker-hyperpod/")
+- [Amazon SageMaker AI HyperPod launches model deployments to accelerate
+  the generative AI model development lifecycle](https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-hyperpod-launches-model-deployments-to-accelerate-the-generative-ai-model-development-lifecycle/ "https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-hyperpod-launches-model-deployments-to-accelerate-the-generative-ai-model-development-lifecycle/")
 
 **Related examples:**
 

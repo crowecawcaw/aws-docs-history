@@ -1,4 +1,4 @@
-# GENCOST03-BP01 Reduce prompt token length
+# GENCOST03-BP01 Optimize prompt token length
 
 Long prompts tend to be filled with lots of context, additional
 information, and requests for a foundation model when it is
@@ -35,11 +35,12 @@ prompt contributes to cost optimization in the long-run.
 
 ### Implementation steps
 
-1. Select a prompt to reduce.
-2. Engineer the prompt to reduce as many unnecessary words as
-   possible.
+1. Identify a verbose prompt which could be optimized.
+2. Engineer the prompt to reduce the token count, trimming as many unnecessary words as possible.
 3. Consider using a separate LLM to offer a shortened prompt
    that satisfies the end goal.
+   - Amazon Bedrock Prompt Optimization can typically optimize prompt language to help provide consistent results.
+
 4. Continue testing and optimizing the prompt to validate it
    meets the workload requirements.
    - Experiment with zero-shot prompting techniques for
@@ -53,11 +54,11 @@ prompt contributes to cost optimization in the long-run.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [COST10-BP01](../cost-optimization-pillar/cost_evaluate_new_services_review_process.md "../cost-optimization-pillar/cost_evaluate_new_services_review_process.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [AWS re:Invent 2023
 
@@ -66,6 +67,8 @@ prompt contributes to cost optimization in the long-run.
 
 **Related examples:**
 
+- [Improve the performance of your Generative AI applications with Prompt Optimization on Amazon Bedrock](https://aws.amazon.com/blogs/machine-learning/improve-the-performance-of-your-generative-ai-applications-with-prompt-optimization-on-amazon-bedrock/ "https://aws.amazon.com/blogs/machine-learning/improve-the-performance-of-your-generative-ai-applications-with-prompt-optimization-on-amazon-bedrock/")
+- [Amazon Bedrock Prompt Optimization Drives LLM Applications Innovation for Yuewen Group](https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-prompt-optimization-drives-llm-applications-innovation-for-yuewen-group/ "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-prompt-optimization-drives-llm-applications-innovation-for-yuewen-group/")
 - [Amazon Bedrock Prompt Management is now Available in GA](https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-prompt-management-is-now-available-in-ga/ "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-prompt-management-is-now-available-in-ga/")
 - [Prompt
   Engineering Guide](https://www.promptingguide.ai/ "https://www.promptingguide.ai/")

@@ -2,7 +2,7 @@
 
 long-running workflows
 
-Agentic workflows can be long-running, which incurs additional cost
+Agentic workflows can be long-running, which can incur additional cost
 to your application. Develop controls to limit agents from running
 for extended periods of time without stopping.
 
@@ -13,7 +13,7 @@ stopping conditions.
 **Benefits of establishing this best
 practice:**
 [Measure
-overall efficiency](../framework/cost-dp.md "../framework/cost-dp.md") - Agentic workflows can be long-running, which adds additional cost to your workload. By establishing stopping conditions for long-running agentic workflows, you can optimize resources, improve user experience, and optimize workload costs.
+overall efficiency](../framework/cost-dp.md "../framework/cost-dp.md") - Agentic workflows can be long-running, which can add additional cost to your workload. By establishing stopping conditions for long-running agentic workflows, you can optimize resources, improve user experience, and optimize workload costs.
 
 **Level of risk exposed if this best practice
 is not established:** High
@@ -38,8 +38,10 @@ cost savings.
 
 ### Implementation steps
 
-1. Determine the maximum time needed for an agent to complete
+1. Estimate the maximum time needed for an agent to complete
    its runtime.
+   - Include model response times, tool execution times, and network latency in the estimation.
+
 2. Implement stopping conditions that enable an agent to run to
    the maximum duration.
    - Stopping conditions may be a timeout mechanism like the
@@ -48,13 +50,17 @@ cost savings.
      the prompt flow layer or within a software abstraction
      layer.
 
+3. Re-architect your workflows to facilitate stopping conditions.
+   - Set timeouts on external tools such as Lambda functions or API endpoints, verify that your prompts understand how to handle timeout responses.
+   - Set token limits on model responses to simulate timeout functionality by stopping models from printing long-running responses.
+
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [COST01-BP06](../cost-optimization-pillar/cost_cloud_financial_management_proactive_process.md "../cost-optimization-pillar/cost_cloud_financial_management_proactive_process.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [AWS re:Invent 2023
 

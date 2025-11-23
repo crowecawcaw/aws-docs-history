@@ -67,6 +67,41 @@ long-running batch processing. In such scenarios, services like
 Amazon EMR with auto scaling may offer more efficient resource
 utilization.
 
+In Amazon SageMaker AI HyperPod with both Amazon EKS and Slurm
+orchestration, establish differentiated service-level
+objectives that balance training performance requirements with
+resource efficiency and environmental impact considerations.
+
+For EKS-based HyperPod, use Kubernetes resource quotas and
+priority classes to define different service tiers for various
+training workloads, implementing horizontal pod autoscaling
+policies that align with actual performance needs rather than
+peak theoretical capacity. Configure task governance
+capabilities to automatically prioritize critical training
+jobs while verifying that lower-priority experimentation
+workloads use sustainable resource allocation patterns.
+
+For Slurm-based HyperPod, use Slurm's fair share scheduling
+and quality of service (QoS) features to establish training
+job SLAs that correspond to business criticality, implementing
+job preemption policies that allow high-priority workloads to
+temporarily utilize resources from less critical tasks.
+
+Both systems benefit from establishing differentiated training
+SLAs where production model training receives consistent
+resources and fast completion times, while development and
+experimentation workloads operate with longer acceptable
+completion windows, enabling better resource sharing and
+utilization.
+
+Additionally, implement flexible training plans that
+automatically find cost-efficient combinations of compute
+capacity blocks, auto-resume functionality to handle
+acceptable interruptions for non-critical workloads, and usage
+reporting to continuously monitor and optimize the
+relationship between SLA commitments and actual sustainability
+impact.
+
 In summary, adopting serverless data storage and processing
 services, combined with intelligent data management practices such
 as tiering, lifecycle policies, and efficient data formats, can
@@ -111,13 +146,13 @@ data handling.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [SUS04-BP04](../sustainability-pillar/sus_sus_data_a5.md "../sustainability-pillar/sus_sus_data_a5.md")
 - [SUS04-BP03](../sustainability-pillar/sus_sus_data_a4.md "../sustainability-pillar/sus_sus_data_a4.md")
 - [SUS04-BP02](../sustainability-pillar/sus_sus_data_a3.md "../sustainability-pillar/sus_sus_data_a3.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [AWS Well Architected Framework Data Analytics Lens](../analytics-lens/analytics-lens.md "../analytics-lens/analytics-lens.md")
 - [Revolutionizing Real-World Evidence: How Generative AI Can Simplify Data

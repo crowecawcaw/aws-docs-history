@@ -3,8 +3,7 @@
 Implement comprehensive monitoring and logging across all layers of
 your generative AI application to maintain operational health,
 provide reliability, and optimize performance. This best practice
-aims to provide clear visibility into the application's behavior at
-every level, from user interactions to core model performance. By
+aims to provide clear visibility into the application's behavior, from user interactions to core model performance. By
 tracking key metrics, organizations can quickly identify and address
 issues, enhance user experiences, and make data-driven decisions to
 improve their AI systems.
@@ -47,13 +46,52 @@ a generative AI application to traverse require proactive
 monitoring and application telemetry at each layer.
 
 Managed services like Amazon Bedrock, Amazon Q Business, and
-Amazon OpenSearch Service Serverless facilitate much of this monitoring on
-your behalf. These managed services integrate well with monitoring
-and logging services like Amazon CloudWatch and AWS CloudTrail.
-Amazon SageMaker AI Inference Endpoints can also log to CloudWatch.
-Evaluate different logging solutions that best suit your needs,
-and implement monitoring at each layer of your custom generative
-AI workflow.
+Amazon OpenSearch Service Serverless facilitate much of this
+monitoring on your behalf. These managed services integrate
+well with monitoring and logging services like Amazon CloudWatch and AWS CloudTrail. Amazon SageMaker AI Inference
+Endpoints can also log to CloudWatch. Evaluate different
+logging solutions that best suit your needs, and implement
+monitoring at each layer of your custom generative AI
+workflow. These considerations should also be applied to
+generative business intelligence (BI) solutions Quick Suite Q. Monitor the appropriate Quick Suite Q
+metrics to identify operational issues when serving generative
+BI insights.
+
+In SageMaker AI HyperPod with both Amazon EKS and Slurm
+orchestration, establish comprehensive observability across
+infrastructure, service, application, and model performance
+layers using SageMaker AI HyperPod's built-in observability
+capabilities and AWS monitoring services.
+
+For EKS-based HyperPod, use the one-click observability
+feature that automatically installs Amazon EKS add-ons for
+consolidated health and performance data from multiple sources
+including NVIDIA DCGM, Kubernetes node exporters, Elastic
+Fabric Adapter (EFA), and file systems, all accessible through
+unified dashboards in Amazon Managed Grafana with metrics
+automatically published to Amazon Managed Service for Prometheus.
+
+Configure CloudWatch Container Insights for enhanced
+observability of CPU, GPU, Trainium, EFA, and file system
+metrics up to the container level, while implementing deep
+health checks and automated node recovery monitoring that
+tracks schedulable and unschedulable node status.
+
+For Slurm-based HyperPod, implement comprehensive monitoring
+through node exporters for CPU load averages, memory, disk
+usage, network traffic, and file system metrics, NVIDIA DCGM
+for GPU utilization, temperatures, power usage, and memory
+monitoring, and EFA metrics for network performance and error
+tracking.
+
+Both systems benefit from SageMaker AI HyperPod's unified
+observability solution that reduces troubleshooting time from
+days to minutes through pre-built actionable insights,
+real-time task performance metric tracking with automated
+alerting, and automatic root cause remediation with
+customer-defined policies, providing comprehensive visibility
+into training job performance, resource utilization, and
+system health across operational layers.
 
 ### Implementation steps
 
@@ -106,7 +144,7 @@ AI workflow.
 
 ## Resources
 
-Related practices:
+Related best practices:
 
 - [OPS08-BP01](../operational-excellence-pillar/ops_workload_observability_analyze_workload_metrics.md "../operational-excellence-pillar/ops_workload_observability_analyze_workload_metrics.md")
 - [OPS08-BP02](../operational-excellence-pillar/ops_workload_observability_analyze_workload_logs.md "../operational-excellence-pillar/ops_workload_observability_analyze_workload_logs.md")
@@ -114,7 +152,7 @@ Related practices:
 - [OPS08-BP04](../operational-excellence-pillar/ops_workload_observability_create_alerts.md "../operational-excellence-pillar/ops_workload_observability_create_alerts.md")
 - [OPS08-BP05](../operational-excellence-pillar/ops_workload_observability_create_dashboards.md "../operational-excellence-pillar/ops_workload_observability_create_dashboards.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Using
   Amazon CloudWatch Metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md")
@@ -137,6 +175,11 @@ Related practices:
   Amazon Q Business and Amazon Q Apps with Amazon CloudWatch](../../../amazonq/latest/qbusiness-ug/monitoring-cloudwatch.md "../../../amazonq/latest/qbusiness-ug/monitoring-cloudwatch.md")
 - [Monitoring
   Amazon Q Developer with Amazon CloudWatch](../../../amazonq/latest/qdeveloper-ug/monitoring-cloudwatch.md "../../../amazonq/latest/qdeveloper-ug/monitoring-cloudwatch.md")
+- [Accelerate
+  Foundation Model Development with One-Click Observability in
+  Amazon SageMaker AI HyperPod](https://aws.amazon.com/blogs/machine-learning/accelerate-foundation-model-development-with-one-click-observability-in-amazon-sagemaker-hyperpod/ "https://aws.amazon.com/blogs/machine-learning/accelerate-foundation-model-development-with-one-click-observability-in-amazon-sagemaker-hyperpod/")
+- [Amazon SageMaker AI HyperPod launches model deployments to accelerate
+  the generative AI model development lifecycle](https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-hyperpod-launches-model-deployments-to-accelerate-the-generative-ai-model-development-lifecycle/ "https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-hyperpod-launches-model-deployments-to-accelerate-the-generative-ai-model-development-lifecycle/")
 
 **Related tools:**
 

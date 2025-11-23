@@ -50,15 +50,19 @@ model, as not all embedding models support compressed vectors.
      introduce overlapping chunks to maintain high relevance
      on output.
 
+3. Perform latency and load testing on your data retrieval workloads to verify that model response quality is still sufficient.
+4. Re-test with increased vector size or modified document chunking strategy to improve model response quality.
+   - In some cases, changing the search algorithm may improve model response quality as well.
+
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [COST08-BP01](../cost-optimization-pillar/cost_data_transfer_modeling.md "../cost-optimization-pillar/cost_data_transfer_modeling.md")
 - [COST08-BP02](../cost-optimization-pillar/cost_data_transfer_optimized_components.md "../cost-optimization-pillar/cost_data_transfer_optimized_components.md")
 - [COST08-BP03](../cost-optimization-pillar/cost_data_transfer_implement_services.md "../cost-optimization-pillar/cost_data_transfer_implement_services.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [AWS re:Invent 2023
 

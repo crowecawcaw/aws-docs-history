@@ -25,7 +25,7 @@ prompt versions. Building a prompt catalog is possible using
 traditional database architectures. However, prompt catalogs are
 not meant for the same use as databases. Taking a prompt version
 and dynamically adding it to a prompt flow are common scenarios
-and functions which could be handled at the catalog layer.
+and functions which could be handled at the catalog layer. Thoroughly define the governance and management of a prompt catalog in your organization AI policy document, and include details such as intended prompt usage and process details for modifying prompts.
 
 Consider storing prompts in a managed prompt catalog. Amazon Bedrock's Prompt Management catalog enables customers to create
 prompts, test them against several foundation models, and manage
@@ -65,11 +65,11 @@ they are catalogued.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [SEC08-BP03](../security-pillar/sec_protect_data_rest_automate_protection.md "../security-pillar/sec_protect_data_rest_automate_protection.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Construct
   and Store Reusable Prompts with Prompt Management in Amazon Bedrock](../../../bedrock/latest/userguide/prompt-management.md "../../../bedrock/latest/userguide/prompt-management.md")

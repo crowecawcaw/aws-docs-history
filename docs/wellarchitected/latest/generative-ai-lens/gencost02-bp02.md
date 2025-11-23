@@ -43,6 +43,48 @@ model endpoint. Before committing to compute reservation, consider
 Amazon SageMaker AI Inference Recommender to evaluate if you are
 using the ideal inference endpoint type, generation, and size.
 
+In SageMaker AI HyperPod with both Amazon EKS and Slurm
+orchestration, use the system's advanced task governance
+capabilities and flexible training plans to dynamically
+allocate compute resources based on priority and demand,
+reducing costs through improved utilization.
+
+For EKS-based HyperPod, implement the managed Kubernetes
+orchestration with Hyperpod Task Governance. Configure
+automated scaling policies, priority classes, and node
+selectors to verify that your production workloads use
+cost-effective committed capacity while development tasks use
+On-Demand or Spot Instances when appropriate. Use the usage
+reporting feature to provide granular visibility into GPU,
+CPU, and Neuron Core consumption at both team and task levels,
+enabling transparent cost attribution and reducing guesswork
+in resource allocation.
+
+For Slurm-based HyperPod, use Slurm's native job scheduling
+and resource management features combined with HyperPod's
+auto-resume functionality to minimize wasted compute cycles
+during hardware failures, potentially reducing total training
+time in large clusters. Both systems benefit from implementing
+right-sizing strategies through SageMaker AI HyperPod Recipes
+that provide pre-configured, benchmarked training stacks
+optimized for specific model architectures like Llama and
+Mistral, providing optimized performance while minimizing
+resource waste.
+
+Additionally, establish flexible training plans that can set
+timeline and budget constraints, and allow HyperPod to
+automatically find the best combination of capacity blocks and
+create cost-optimized execution plans that avoid overspending
+by overprovisioning servers for training jobs.
+
+Inference workloads can be optimized using advanced techniques
+such as quantization or LoRA adaptation. These advanced
+capabilities are available for certain models in Amazon
+Bedrock or on self-hosted models on Amazon SageMaker AI. These
+advanced inference techniques can further optimize resource
+consumption for inference, thus reducing hosting and inference
+serving costs.
+
 ### Implementation steps
 
 1. Identify the nature of the demand for this workload.
@@ -56,21 +98,27 @@ using the ideal inference endpoint type, generation, and size.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [COST06-BP01](../cost-optimization-pillar/cost_type_size_number_resources_cost_modeling.md "../cost-optimization-pillar/cost_type_size_number_resources_cost_modeling.md")
 - [COST06-BP02](../cost-optimization-pillar/cost_type_size_number_resources_data.md "../cost-optimization-pillar/cost_type_size_number_resources_data.md")
 - [COST09-BP01](../cost-optimization-pillar/cost_manage_demand_resources_cost_analysis.md "../cost-optimization-pillar/cost_manage_demand_resources_cost_analysis.md")
 
-**Related guides, videos, and documentation:**
+**Related videos and documents:**
 
 - [Tagging
   Amazon Bedrock resources](../../../bedrock/latest/userguide/tagging.md "../../../bedrock/latest/userguide/tagging.md")
 - [Inference
   cost optimization best practices](../../../sagemaker/latest/dg/inference-cost-optimization.md "../../../sagemaker/latest/dg/inference-cost-optimization.md")
+- [Get
+  Started with Amazon SageMaker AI HyperPod Flexible Training
+  Plans](https://www.youtube.com/watch?v=Itcw8zhdArY "https://www.youtube.com/watch?v=Itcw8zhdArY")
 
 **Related examples:**
 
+- [Easily
+  deploy and manage hundreds of LoRA adapters with SageMaker AI
+  efficient multi-adapter inference](https://aws.amazon.com/blogs/machine-learning/easily-deploy-and-manage-hundreds-of-lora-adapters-with-sagemaker-efficient-multi-adapter-inference/ "https://aws.amazon.com/blogs/machine-learning/easily-deploy-and-manage-hundreds-of-lora-adapters-with-sagemaker-efficient-multi-adapter-inference/")
 - [Track,
   allocate and manage your generative AI cost and usage with
   Amazon Bedrock](https://aws.amazon.com/blogs/machine-learning/track-allocate-and-manage-your-generative-ai-cost-and-usage-with-amazon-bedrock/ "https://aws.amazon.com/blogs/machine-learning/track-allocate-and-manage-your-generative-ai-cost-and-usage-with-amazon-bedrock/")
@@ -82,3 +130,14 @@ using the ideal inference endpoint type, generation, and size.
 - [Analyze
   Amazon SageMaker AI spend and determine cost optimization
   opportunities based on usage, Part 1](https://aws.amazon.com/blogs/machine-learning/part-1-analyze-amazon-sagemaker-spend-and-determine-cost-optimization-opportunities-based-on-usage-part-1/ "https://aws.amazon.com/blogs/machine-learning/part-1-analyze-amazon-sagemaker-spend-and-determine-cost-optimization-opportunities-based-on-usage-part-1/")
+- [Maximize
+  Accelerator Utilization for Model Development with New Amazon SageMaker AI HyperPod Task Governance](https://aws.amazon.com/blogs/aws/maximize-accelerator-utilization-for-model-development-with-new-amazon-sagemaker-hyperpod-task-governance/ "https://aws.amazon.com/blogs/aws/maximize-accelerator-utilization-for-model-development-with-new-amazon-sagemaker-hyperpod-task-governance/")
+- [Introducing
+  Amazon SageMaker AI HyperPod to train foundation models at
+  scale](https://aws.amazon.com/blogs/machine-learning/introducing-amazon-sagemaker-hyperpod-to-train-foundation-models-at-scale/ "https://aws.amazon.com/blogs/machine-learning/introducing-amazon-sagemaker-hyperpod-to-train-foundation-models-at-scale/")
+- [Best
+  practices for Amazon SageMaker AI HyperPod task governance](https://aws.amazon.com/blogs/machine-learning/best-practices-for-amazon-sagemaker-hyperpod-task-governance/ "https://aws.amazon.com/blogs/machine-learning/best-practices-for-amazon-sagemaker-hyperpod-task-governance/")
+- [Get
+  started with Amazon SageMaker AI HyperPod task governance](https://www.youtube.com/watch?v=_wDhBAPwhoM "https://www.youtube.com/watch?v=_wDhBAPwhoM")
+- [Usage
+  reporting for cost attribution in SageMaker AI HyperPod](../../../sagemaker/latest/dg/sagemaker-hyperpod-usage-reporting.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-usage-reporting.md")

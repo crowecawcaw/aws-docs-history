@@ -43,7 +43,7 @@ hyperparameters or ranges where applicable, as these can influence
 the output of the model, similar to the prompt contents, and are
 paired with the prompt itself during evaluation.
 
-Amazon Bedrock Prompt Management is designed to simplify the
+Amazon Bedrock Prompt Management is designed to help you with the
 creation and testing of prompts for foundation models. You can use
 Bedrock Prompt Management to create, edit, version, and share
 prompts across teams. Its components include the prompts
@@ -111,12 +111,12 @@ APIs](../../../bedrock/latest/userguide/sdk-general-information-section.md "../.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [OPS05-BP10](../framework/ops_dev_integ_auto_integ_deploy.md "../framework/ops_dev_integ_auto_integ_deploy.md")
 - [OPS05-BP01](../operational-excellence-pillar/ops_dev_integ_version_control.md "../operational-excellence-pillar/ops_dev_integ_version_control.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Amazon Bedrock Prompt Template Examples](../../../bedrock/latest/userguide/prompt-templates-and-examples.md "../../../bedrock/latest/userguide/prompt-templates-and-examples.md")
 - [AWS re:Invent 2023 - Prompt engineering best practices for LLMs on

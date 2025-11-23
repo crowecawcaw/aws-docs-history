@@ -32,7 +32,7 @@ practice:**
   failure](../framework/oe-design-principles.md "../framework/oe-design-principles.md") - Periodic review of the model's performance
   levels helps you proactively identify deviations in its
   performance. This is because foundation models are inherently
-  non-deterministic, implying there is always a chance of failure.
+  non-deterministic with a realistic chance of failure.
 
 **Level of risk exposed if this best practice
 is not established:** High
@@ -59,7 +59,7 @@ You can use the model evaluation feature built-in with Amazon Bedrock or open-so
 [fmeval](https://github.com/aws/fmeval "https://github.com/aws/fmeval") or
 [ragas](https://docs.ragas.io/en/stable/ "https://docs.ragas.io/en/stable/").
 Use Amazon Bedrock model invocation logging to collect metadata,
-requests, and responses for all model invocations in your account.
+requests, and responses for model invocations in your account.
 
 For Amazon SageMaker AI, you can set up manual evaluations for a
 human workforce using Studio, automatically evaluate your model
@@ -72,6 +72,8 @@ encapsulate the logic for calculating a specific evaluation
 criterion tailored to your use case. Use this to continuously
 assess your language models using both standard metrics provided
 by fmeval and your own specialized metrics.
+
+Your organization’s AI policy should define the effective minimum performance levels for generative AI workloads, as well as how to validate performance on an ongoing basis. Consider identifying a single-threaded workload owner responsible for the operational considerations pertaining to ongoing performance evaluations. Run these evaluations when new candidate models are available, or when model customization techniques are applied. For example, fine-tuned and customized models should be subject to the same evaluation criteria and cadence as non-customized models.
 
 ### Implementation steps
 
@@ -127,11 +129,11 @@ by fmeval and your own specialized metrics.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [OPS11-BP11](../operational-excellence-pillar/ops_evolve_ops_metrics_review.md "../operational-excellence-pillar/ops_evolve_ops_metrics_review.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Amazon SageMaker AI Model Evaluation](../../../sagemaker/latest/dg/model-optimize-evaluate.md "../../../sagemaker/latest/dg/model-optimize-evaluate.md")
 - [Evaluating
@@ -139,6 +141,9 @@ by fmeval and your own specialized metrics.
 - [Data
   and model quality monitoring with Amazon SageMaker AI Model
   Monitor](../../../sagemaker/latest/dg/model-monitor.md "../../../sagemaker/latest/dg/model-monitor.md")
+
+**Related videos:**
+
 - [AWS re:Invent 2024 - Streamline RAG and model evaluation with
   Amazon Bedrock (AIM359)](https://www.youtube.com/watch?v=7BP9nwFlFws "https://www.youtube.com/watch?v=7BP9nwFlFws")
 

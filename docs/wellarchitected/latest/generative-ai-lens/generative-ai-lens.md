@@ -1,6 +1,6 @@
 # Generative AI Lens - AWS Well-Architected Framework
 
-Publication date: **April 15, 2025** ([Document revisions](document-revisions.md "document-revisions.md"))
+Publication date: **November 19, 2025** ([Document revisions](document-revisions.md "document-revisions.md"))
 
 The AWS Well-Architected Generative AI Lens is an essential
 resource for organizations seeking to harness the power of
@@ -101,6 +101,9 @@ For traditional machine learning (ML) applications built using Amazon SageMaker 
 
 ## Lens availability
 
-The Generative AI Lens is available as an AWS-official lens in the [Lens Catalog](../userguide/lens-catalog.md "../userguide/lens-catalog.md") of the [AWS Well-Architected Tool](../userguide/intro.md "../userguide/intro.md").
+Custom lenses extend the best practice guidance provided by AWS Well-Architected Tool. AWS WA Tool allows you to create your own
+[custom
+lenses](../userguide/lenses-custom.md "../userguide/lenses-custom.md"), or to use lenses created by others that have been
+shared with you.
 
-To get started, follow the steps in [Adding a lens to a workload](../userguide/lenses-add.md "../userguide/lenses-add.md") and select the **Generative AI Lens**.
+To begin reviewing your generative AI workload, download and import the [Generative AI Lens](https://github.com/aws-samples/sample-well-architected-custom-lens/blob/main/generative-ai-lens/generative-ai-lens.json "https://github.com/aws-samples/sample-well-architected-custom-lens/blob/main/generative-ai-lens/generative-ai-lens.json") into AWS Well-Architected Tool from the public [AWS Well-Architected custom lens GitHub repository](https://github.com/aws-samples/sample-well-architected-custom-lens "https://github.com/aws-samples/sample-well-architected-custom-lens").

@@ -30,6 +30,21 @@ response while encouraging the model to maintain a high degree of
 performance. Small optimizations in token count for model
 responses can improve model's generated output cost.
 
+In scenarios where a full-text response is unnecessary,
+consider introducing determinism to the model. You might
+instruct the model to evaluate its response against a set of
+keyed options, returning the key which maps to the model's
+response. For example:
+
+| End of prompt template                                                                                                                                                                                                                  |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| If after carefully evaluating all of the information<br>available to you that you respond in the affirmative,<br>simply respond with the word True. Otherwise, respond<br>False, providing a detailed explanation for your<br>decision. |
+
+Such behavior as the one shown above encourages model
+responses to be succinct. Moreover, this behavior has the
+added benefit introducing determinism into the system for
+_True_ responses.
+
 ### Implementation steps
 
 1. Understand how the model response is to be used, defined a
@@ -37,18 +52,25 @@ responses can improve model's generated output cost.
    and 1 for rejection).
 2. Inform the model in the prompt of the requested model
    response scheme, and ask the model to respond in kind.
-3. Set a hard limit on the response length by configuring the
+3. Introduce a response length control to limit response
+   tokens.
+   - Set a hard limit on the response length by configuring
+     the response length hyperparameter accordingly.
+   - Extend the prompt template to encourage deterministic
+     responses.
+
+4. Set a hard limit on the response length by configuring the
    response length hyperparameter accordingly.
-4. Continue testing and optimizing the model's response to
+5. Continue testing and optimizing the model's response to
    verify it satisfies the workload requirements.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [COST10-BP01](../cost-optimization-pillar/cost_evaluate_new_services_review_process.md "../cost-optimization-pillar/cost_evaluate_new_services_review_process.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [AWS re:Invent 2023
 

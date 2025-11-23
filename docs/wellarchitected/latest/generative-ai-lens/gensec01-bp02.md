@@ -40,38 +40,70 @@ configuration.
 AWS PrivateLink supports a range of AWS generative AI managed
 services, including Amazon Bedrock and the Amazon Q family of
 services. AWS PrivateLink facilitates private network
-communications for customers across the AWS network within their
-own account. This capability enables customers to maintain private
-network communication between generative AI managed services and
-applications making the request without using the public internet.
-AWS PrivateLink works for self-managed services as well, like
-Amazon SageMaker AI. Hosted inference endpoints in Amazon SageMaker AI
-can be deployed in a Virtual Private Cloud (VPC). In addition to
-network controls which protect and secure infrastructure,
-endpoints deployed in a VPC can be made private using AWS PrivateLink. AWS PrivateLink enables VPC instances to communicate
-with service resources without the need for public IP addresses,
-reducing potential threats from public internet exposure.
+communications for customers across the AWS network within
+their own account. This capability enables customers to
+maintain private network communication between generative AI
+managed services and applications making the request without
+using the public internet. AWS PrivateLink works for
+self-managed services as well, like Amazon SageMaker AI.
+Hosted inference endpoints in Amazon SageMaker AI can be
+deployed in a Virtual Private Cloud (VPC). In addition to
+network controls which help protect and secure infrastructure,
+endpoints deployed in a VPC can be made private using AWS PrivateLink. AWS PrivateLink enables VPC instances to
+communicate with service resources without the need for public
+IP addresses, reducing potential threats from public internet
+exposure.
+
+In Amazon SageMaker AI HyperPod using both EKS and Slurm
+orchestrators, deploy your clusters within a private VPC and
+configure the necessary subnets and security groups to
+restrict access. For EKS, place your EKS cluster and SageMaker AI
+HyperPod cluster in the same VPC, using private subnets and
+security groups that only allow required internal
+communication. For Slurm, similarly, launch your HyperPod
+cluster in a VPC with private networking, and isolate all
+compute nodes and storage (such as FSx for Lustre) from the
+public internet. In both orchestrators, you can use AWS PrivateLink (VPC Endpoint, VPCE) to securely connect to
+SageMaker AI endpoints, Amazon S3, and other AWS services without
+traversing the public internet.
+
+Verify that foundation models have private network access to
+supporting infrastructure as well, such as vector stores or
+external tools for agents. Retrieval-augmented generation
+workflows commonly access data from vector databases, and you
+should provide this access over a private network connection.
+The same is true for external tools or APIs that may be called
+by an agent. Keeping these network connections private helps
+reduce exposure to external threats.
 
 ### Implementation steps
 
-1. Determine the VPC you need to create a private endpoint in.
-2. Select the service you wish to create a private route to from
-   your VPC.
-3. Configure the endpoint to allow least privilege access for
-   your services.
-   - Network access to the interface endpoint is controlled
-     using Security Groups and Policy Documents.
+1. Determine the VPC you need to create a private endpoint
+   in.
+2. Select the service you wish to create a private route to
+   from your VPC.
+3. Configure the endpoint to allow least privilege access
+   for your services.
+
+- Network access to the interface endpoint is controlled
+  using security groups and policy documents.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [SEC05-BP01](../security-pillar/sec_network_protection_create_layers.md "../security-pillar/sec_network_protection_create_layers.md")
 - [SEC05-BP02](../security-pillar/sec_network_protection_layered.md "../security-pillar/sec_network_protection_layered.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [AWS Expert Paper on PrivateLink](../../../whitepapers/latest/aws-privatelink/aws-privatelink.md "../../../whitepapers/latest/aws-privatelink/aws-privatelink.md")
+- [Encryption
+  best practices for Amazon S3](../../../prescriptive-guidance/latest/encryption-best-practices/s3.md "../../../prescriptive-guidance/latest/encryption-best-practices/s3.md")
+- [Getting
+  started with Amazon EKS support in SageMaker AI HyperPod](../../../sagemaker/latest/dg/sagemaker-hyperpod-eks-prerequisites.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-eks-prerequisites.md")
+- [Orchestrating
+  SageMaker AI HyperPod clusters with Slurm](../../../sagemaker/latest/dg/sagemaker-hyperpod-slurm.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-slurm.md")
 
 **Related examples:**
 

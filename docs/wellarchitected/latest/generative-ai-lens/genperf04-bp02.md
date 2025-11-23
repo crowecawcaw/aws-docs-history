@@ -23,38 +23,44 @@ is not established:** Low
 ## Implementation guidance
 
 When embedding unstructured data into a vector database, it's
-important to test multiple embedding models with various vector
-sizes to optimize data retrieval and identify performance
-trade-offs. While there's a general relationship between vector
-size and accuracy within a model family, this correlation isn't
-universal across all embedding models. The performance of your
-embeddings depends on several factors: the specific data you're
-encoding, the chosen embedding model, and the vector size used
-within that model. Consider checking popular leaderboards like
+important to test multiple embedding models with various
+vector sizes to optimize data retrieval and identify
+performance trade-offs. While there's a general relationship
+between vector size and accuracy within a model family, this
+correlation isn't universal across all embedding models. The
+performance of your embeddings depends on several factors: the
+specific data you're encoding, the chosen embedding model, and
+the vector size used within that model. Consider checking
+popular leaderboards like
 [HuggingFace's
-Massive Text Embedding Benchmark (MTEB) Leaderboard](https://huggingface.co/mteb/leaderboard "https://huggingface.co/mteb/leaderboard") when
-selecting an embedding model.
+Massive Text Embedding Benchmark (MTEB) Leaderboard](https://huggingface.co/mteb/leaderboard "https://huggingface.co/mteb/leaderboard")
+when selecting an embedding model.
 
-Start with a more compact encoding, and only increase the vector
+Start with a more compact encoding, and increase the vector
 size if warranted by your use cases to improve accuracy or
-minimize loss. Consider the nature of your dataset and how focused
-the topics or language are. The more narrow and deep the content,
-the more likely fine-tuning is to improve accuracy while
-potentially reducing vector size.
+minimize loss. Consider the nature of your dataset and how
+focused the topics or language are. The more narrow and deep
+the content, the more likely fine-tuning is to improve
+accuracy while potentially reducing vector size.
 
-For use cases where higher latency is acceptable, larger vector
-sizes within a given model may offer more accuracy and nuance.
-Conversely, for low-latency requirements, smaller vector sizes
-typically result in faster retrieval. However, it's crucial to
-note that a well-tuned model with smaller dimensions (like 256)
-can sometimes outperform a more generic model with larger
-dimensions (like 1024 or greater) in both accuracy and speed.
+For use cases where higher latency is acceptable, larger
+vector sizes within a given model may offer more accuracy and
+response nuance. Conversely, for low-latency requirements,
+smaller vector sizes typically result in faster retrieval.
+However, it's crucial to note that a well-tuned model with
+smaller dimensions (like 256) can sometimes outperform a more
+generic model with larger dimensions (1024 or greater) in both
+accuracy and speed.
 
-Keep in mind that some models offer a limited range of permissible
-vector dimensions. Always test and evaluate the performance of
-different models and vector sizes with your specific dataset to
-find the optimal balance between accuracy and latency for your use
-case.
+Keep in mind that some models offer a limited range of
+permissible vector dimensions. This is particularly true for
+managed embedding model access through Amazon Bedrock. A wider
+variety of embedding models can be incorporated into a
+generative AI workflow using Amazon SageMaker AI model endpoints
+or SageMaker AI JumpStart. Always test and evaluate the
+performance of different models and vector sizes with your
+specific dataset to find the optimal balance between accuracy
+and latency for your use case.
 
 ### Implementation steps
 
@@ -64,23 +70,26 @@ case.
 2. Determine the number of vector options supported by your
    selected embedding model and design experiments meant to
    test each option.
-   - Remember to experiment on a variety of data to get a
-     clear determination of which embedding size is best for
-     this workload.
+   - Experiment on a variety of data to get a clear
+     determination of which embedding size is best for this
+     workload.
+   - Consider self-hosting an open-source embedding model
+     using Amazon SageMaker AI model endpoints if available
+     embedding options are not sufficient.
 
 3. Run the experiment and determine the most performant
    embedding model for this scenario.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [PERF03-BP01](../performance-efficiency-pillar/perf_data_use_purpose_built_data_store.md "../performance-efficiency-pillar/perf_data_use_purpose_built_data_store.md")
 - [PERF03-BP02](../performance-efficiency-pillar/perf_data_evaluate_configuration_options_data_store.md "../performance-efficiency-pillar/perf_data_evaluate_configuration_options_data_store.md")
 - [PERF03-BP03](../performance-efficiency-pillar/perf_data_collect_record_data_store_performance_metrics.md "../performance-efficiency-pillar/perf_data_collect_record_data_store_performance_metrics.md")
 - [PERF03-BP04](../performance-efficiency-pillar/perf_data_implement_strategies_to_improve_query_performance.md "../performance-efficiency-pillar/perf_data_implement_strategies_to_improve_query_performance.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Customizing
   your knowledge base](../../../bedrock/latest/userguide/kb-how-customization.md "../../../bedrock/latest/userguide/kb-how-customization.md")

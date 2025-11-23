@@ -2,14 +2,14 @@
 
 response quality
 
-Foundation model performance can be affected by inference
+Foundation model response quality can be affected by inference
 hyperparameters. Optimize inference hyperparameters for your use
-case to help maintain consistent performance and control the
+case to help maintain consistent response quality and to help control the
 non-deterministic nature of foundation models.
 
 **Desired outcome:** When
 implemented, you can reduce the variability of foundation models by
-controlling hyperparameters and identifying optimum ranges and
+setting hyperparameters and identifying optimum ranges and
 values for a use case.
 
 **Benefits of establishing this best
@@ -22,54 +22,72 @@ is not established:** Low
 
 ## Implementation guidance
 
-Every workload has unique requirements for response quality.
+Workloads have unique requirements for response quality.
 Response quality can be modified by configuring inference
 parameters. Inference parameters vary from model to model. For
 example, in text-based scenarios, the parameters
-`temperature`, `p`, and `k` are common.
+temperature, p, and
+k are common.
 
-When determining the inference parameters required for your
-workload, consider a structured approach to determining the best
-range of values for a hyperparameter. An example of this approach
-is testing the highest and lowest values for each hyperparameter
-and comparing the results of each test to your ground truth data.
-The configurations that generate responses most appropriate for
-the ground truth prompt should be accepted and iterated on. You
-might then increment or decrement a hyperparameter by half its
-possible range of values to see the effect this has on the model's
-response. Continue in this way until hyperparameter changes are
-negligible.
+Image, sound, and video models have other common
+hyperparameters. Hyperparameter values and ranges can impact
+the quality of a model's response, especially for different
+task types. When determining the inference parameters required
+for your workload, first identify the task for the model to
+complete. Common tasks for textual responses include
+summarization or question answering; image models may be asked
+to generate or modify images. The task helps inform which
+hyperparameters are most important in the context of your
+workload.
 
-To automate this testing, you might leverage the LLM-as-a-judge
-pattern. The LLM-as-a-judge pattern uses a separate LLM to
-evaluate the performance of a model in generating a response which
-is appropriate for the given prompt. This could be favorable for a
-large set of ground truth prompts or in the case where you lack
-sufficient resources to facilitate a full human-in-the-loop
-testing process.
+Consider a structured approach to determining the best range
+of values for a hyperparameter. An example is testing the
+highest and lowest values for each hyperparameter and
+comparing the results of each test to your golden data. The
+configurations that generate responses most appropriate for
+the ground truth prompt should be accepted and iterated on.
+You might then adopt a Newtonian approach to finding the ideal
+hyperparameter value by incrementing or decrementing a
+hyperparameter by half to see the effect this has on the
+model's response. Continue in this way until the affects of
+the hyperparameter changes are negligible.
 
-These are some recommendations for optimizing inference
-parameters. The majority of use cases don't need extensive testing
-of inference parameters and should take small number of iterations
-to identify acceptable ranges for these parameters.
+The _LLM-as-a-judge_ pattern is a powerful
+technique for automating the iterative nature of
+hyperparameter tuning. The LLM-as-a-judge pattern uses a
+separate LLM to evaluate the performance of a model in
+generating a response which is appropriate for the given
+prompt. This could be favorable for a large set of ground
+truth prompts or in the case where you lack sufficient
+resources to facilitate a full human-in-the-loop testing
+process. Consider adopting such a robust process for
+hyperparameter optimization in the case where workload
+requirements change regularly.
+
+Recommendations for task-specific hyperparameter ranges could
+be incorporated into an internal development guide for AI
+workloads. Consider identifying recommended hyperparameter
+ranges broken out by task into your organization's AI policy,
+clearly defining the process for changing these ranges.
 
 ### Implementation steps
 
-1. Identify a subset of ground truth data to use for
-   hyperparameter optimization.
-2. Leverage a search paradigm like grid search or bayesian
-   search to identify the best range of values for
-   hyperparameters.
-3. Use these values or ranges to encourage consistent
+1. Identify the task required of the foundation model.
+2. Identify the ground truth data to use for optimizing
+   inference hyperparameters.
+3. Select the most important hyperparameters for the task.
+4. Use an optimization method to maximize response quality.
+5. Use these values or ranges to encourage consistent
    high-performance of your applications.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [PERF05-BP01](../performance-efficiency-pillar/perf_process_culture_establish_key_performance_indicators.md "../performance-efficiency-pillar/perf_process_culture_establish_key_performance_indicators.md")
+- [MLPER-03](../machine-learning-lens/mlper-03.md "../machine-learning-lens/mlper-03.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Monitor
   the health and performance of Amazon Bedrock](../../../bedrock/latest/userguide/monitoring.md "../../../bedrock/latest/userguide/monitoring.md")

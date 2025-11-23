@@ -18,5 +18,5 @@ software and data differently than traditional systems.
 
 - [GENOPS02-BP01 Monitor all application layers](genops02-bp01.md "genops02-bp01.md")
 - [GENOPS02-BP02 Monitor foundation model metrics](genops02-bp02.md "genops02-bp02.md")
-- [GENOPS02-BP03 Implement rate limiting and throttling to
+- [GENOPS02-BP03 Implement solutions to
   mitigate the risk of system overload](genops02-bp03.md "genops02-bp03.md")

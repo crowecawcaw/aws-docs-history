@@ -1,8 +1,8 @@
 # Response validation
 
-| GENSEC02: How do you prevent generative AI applications from generating harmful, biased, or factually incorrect responses? |
-| -------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                            |
+| GENSEC02: How do you stop generative AI applications from generating harmful, biased, or factually incorrect responses? |
+| ----------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                         |
 
 It is possible for foundation models to generate harmful, biased,
 or factually incorrect responses, particularly when guardrails are

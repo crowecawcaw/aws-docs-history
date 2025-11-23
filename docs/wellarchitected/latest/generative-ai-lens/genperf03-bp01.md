@@ -1,11 +1,15 @@
-# GENPERF03-BP01 Use managed solutions for model hosting and
+# GENPERF03-BP01 Use managed solutions for model hosting,
 
-customization
+customization, and data access where appropriate
 
-There are several industry-leading model providers, and each offers
-different model families and sizes. When selecting a model,
-consistent performance can be achieved by selecting the appropriate
-model family and size for your use case.
+There are several industry-leading model providers, with new
+model families, sizes, and capabilities being introduced
+regularly. As foundation model capabilities expand, additional
+operational requirements are required for hosting the models,
+serving inference, and providing models access to data sources
+and external systems. Alleviate operational burden on your
+generative AI workload by using managed solutions where
+appropriate.
 
 **Desired outcome:** When
 implemented, this best practice facilitates model hosting and
@@ -14,89 +18,174 @@ customization for highly performant generative AI workloads.
 **Benefits of establishing this best
 practice:**
 [Use
-serverless architectures](../framework/rel-dp.md "../framework/rel-dp.md") - Serverless architectures enable
-the performance of infrastructure-bound workloads, without the
-operational overhead.
+serverless architectures](../framework/rel-dp.md "../framework/rel-dp.md") - Serverless architectures
+enhance the performance of infrastructure-bound workloads,
+without the operational overhead.
 
-**Level of risk exposed if this best practice
-is not established:** Medium
+**Level of risk exposed if this best
+practice is not established:** Medium
 
 ## Implementation guidance
 
-Foundation models often require customization to suit your domain.
-The recommended approach to initially adapt a domain is through
-prompt engineering without altering model weights. You can use
-RAG, which augments the model's outputs with relevant information
-grounded from supplied domain specific sources. Where these
-options are not sufficient, consider customizing models using
-managed model customization workflows.
+Amazon Bedrock is the primary method for managed model hosting
+on AWS. Customers select from a variety of models from
+industry-leading model families, using their selected model
+through an API. You can use Bedrock's
+[Custom
+Model Import](https://aws.amazon.com/bedrock/custom-model-import/ "https://aws.amazon.com/bedrock/custom-model-import/") capability to host your own models within
+Bedrock's hosting layer. These options help you host
+foundation models using managed hosting options.
 
-Customizing foundation models is an advanced distributed computing
-task that requires compute and memory intensive jobs to be run for
-long periods of time. These tasks require the most performant
-infrastructure to operate at high performance for extended periods
-of time. As the job continues for extended time, there are
-potential for job-halting issues to arise. Consider using managed
-solutions for model customization that automate model
-customization workflows to perform at maximum performance without
-manual intervention. Fine-tuning, continuous pre-training, and
-model distillation are three popular, time-consuming model
-customization tasks. These tasks improve model performance but are
-subject themselves to performance considerations, as they require
-a significant amount of compute and time to complete. Consider
-using the managed workflows for model customization on Amazon Bedrock to customize models in the most performant way.
+If you prefer more control than Amazon Bedrock, but less
+operational overhead than native Amazon EC2, you can host on
+managed model endpoints using Amazon SageMaker AI's model
+endpoints. Hosting on Amazon SageMaker AI managed model
+endpoints provides more flexibility than Bedrock's fully
+managed hosting and less operational overhead than a
+completely self-managed hosting solution.
 
-Some customers may be developing a foundation model from scratch,
-provisioning and orchestrating the infrastructure needed for
-foundation model pre-training themselves. Consider automating and
-managing this process through Amazon SageMaker AI HyperPod, a
-foundation model pre-training workflow automation service. This
-capability automatically handles performance considerations common
-to model pre-training, which helps you verify that the model
-pre-training job and final artifact are as performant and useful
-as possible.
+These principles similarly apply to model customization
+workloads as well. Amazon Bedrock offers fully managed model
+customization workloads for foundation models, including
+continuous pre-training, fine-tuning, and distillation. Use
+these managed model customization workflows to reap the
+benefits of model customization without having to manage these
+complex workflows yourself.
 
-Customers have the ability to bring open-source models from model
-hubs like HuggingFace to their AWS environment through
-[Amazon SageMaker AI JumpStart](https://aws.amazon.com/sagemaker-ai/jumpstart/ "https://aws.amazon.com/sagemaker-ai/jumpstart/"). Models imported from services like
-HuggingFace are hosted on Amazon SageMaker AI Inference Endpoints.
-This capability allows customers to manage the underlying
-infrastructure manually. Manual infrastructure hosting requires
-owners to manage endpoints and preserve the model's performance
-for the duration of the model's usefulness. Instead of manually
-optimizing model infrastructure and uptime, consider importing the
-model to a managed model hosting service like Amazon Bedrock using
-Amazon Bedrock Custom Model Import. This capability automates the
-performance management and maintenance of hosted models in your
-AWS environment, reducing the undifferentiated heavy lifting of
+More advanced model customization workflows can be run on
+managed model endpoints within Amazon SageMaker AI as well.
+You maintain more control over these endpoints, enabling
+advanced model customization at inference time, such as LoRA,
+all without increasing the operational burden on your
+endpoint.
+
+When you want to build your own proprietary foundation models
+using your own data, you can do so using AWS compute
+infrastructure. The operational overhead required to manage a
+fleet of EC2 instances performing distributed training over
+long-periods of time can distract engineering teams from the
+primary goal of creating a foundation model.
+
+Consider managed alternatives such as
+[Amazon SageMaker AI HyperPod](https://aws.amazon.com/sagemaker-ai/hyperpod/ "https://aws.amazon.com/sagemaker-ai/hyperpod/"), which you can use for managed
+infrastructure for long-running foundation model training
+workloads. This simplifies the model training process and
+helps your customers deliver foundation models using managed
+infrastructure.
+
+Foundation models often require customization to suit your
+domain. The recommended approach to initially adapt a domain
+is through prompt engineering without altering model weights.
+You can use RAG, which augments the model's outputs with
+relevant information grounded from supplied domain specific
+sources. Where these options are not sufficient, consider
+customizing models using managed model customization
+workflows.
+
+You can bring open-source models from model hubs like
+HuggingFace to your AWS environment through
+[Amazon SageMaker AI JumpStart](https://aws.amazon.com/sagemaker-ai/jumpstart/ "https://aws.amazon.com/sagemaker-ai/jumpstart/"). Models imported from services
+like HuggingFace are hosted on Amazon SageMaker AI Inference
+Endpoints. Then, you can manage the underlying infrastructure
+manually. Manual infrastructure hosting requires owners to
+manage endpoints and preserve the model's performance for the
+duration of the model's usefulness.
+
+Instead of manually optimizing model infrastructure and
+uptime, consider importing the model to a managed model
+hosting service like Amazon Bedrock using Amazon Bedrock
+Custom Model Import. This capability automates the performance
+management and maintenance of hosted models in your AWS
+environment, reducing the undifferentiated heavy lifting of
 model hosting.
+
+Consider using managed data integrations for generative AI
+workloads such as retrieval-augmented generation or generative
+business intelligence. A federated data access layer helps
+facilitate the scaling of your data-driven generative AI
+workloads. Consult your organization's AI usage or data
+governance policy to provide your generative AI workflows
+appropriate access to data.
+
+When using Amazon SageMaker AI HyperPod with both Amazon EKS and
+Slurm orchestration, use the system's built-in managed
+capabilities to optimize high-performance compute resources
+and reduce operational overhead during model development
+workflows.
+
+For Amazon EKS-based HyperPod, use the managed Kubernetes
+orchestration with automated scaling, deep health checks, and
+resiliency features that automatically detect and replace
+faulty nodes. Configure containerized workloads using the
+SageMaker AI HyperPod recipes that provide pre-configured
+training stacks with built-in support for model parallelism,
+automated distributed checkpointing, and optimized performance
+on NVIDIA H100, A100, and AWS Trainium accelerators. Implement
+task governance capabilities that automatically manage task
+queues and prioritize critical training jobs while efficiently
+allocating compute resources.
+
+For Slurm-based HyperPod, take advantage of the managed
+cluster provisioning and lifecycle configuration support that
+customizes computing environments with Amazon SageMaker AI
+distributed training libraries for optimal performance. Both
+systems benefit from the managed resiliency infrastructure
+that monitors cluster instances, automatically detects
+hardware failures, and replaces faulty components with minimal
+downtime—reducing total training time by up to 32% in large
+clusters.
+
+Additionally, integrate with the new observability
+capabilities through Amazon Managed Grafana and Prometheus for
+unified monitoring dashboards that reduce troubleshooting time
+from days to minutes, which helps your training workloads
+achieve peak performance while minimizing operational
+complexity.
 
 ### Implementation steps
 
-1. For models hosted on Amazon Bedrock, identify the model you
-   wish to customize. Keep in mind that not all models support
-   this capability.
-2. Run the managed model customization workflow matching your
-   required use case.
-3. For custom models, provision a model pre-training workflow
-   on Amazon SageMaker AI HyperPod.
+1. Determine the level of control your team needs to exert
+   over the hosting solution.
+2. For fully managed hosting workload, use API-based
+   hosting solutions such as Amazon Bedrock.
+3. For managed hosting with more control over the endpoint,
+   use Amazon SageMaker AI model endpoints.
+4. Apply the same logic to model customization workflows.
+5. Model training workloads should be done Amazon SageMaker AI
+   HyperPod.
+6. Provide hosted models access to the appropriate data
+   using a robust permissions model and federated data
+   access.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [PERF02-BP01](../performance-efficiency-pillar/perf_compute_hardware_select_best_compute_options.md "../performance-efficiency-pillar/perf_compute_hardware_select_best_compute_options.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Amazon SageMaker AI HyperPod](../../../sagemaker/latest/dg/sagemaker-hyperpod.md "../../../sagemaker/latest/dg/sagemaker-hyperpod.md")
 - [Customize
   your model to improve its performance for your use case](../../../bedrock/latest/userguide/custom-models.md "../../../bedrock/latest/userguide/custom-models.md")
+- [Observability
+  for Amazon SageMaker AI HyperPod cluster orchestrated by Amazon EKS](../../../sagemaker/latest/dg/sagemaker-hyperpod-eks-cluster-observability.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-eks-cluster-observability.md")
+- [SageMaker AI
+  HyperPod cluster resources monitoring](../../../sagemaker/latest/dg/sagemaker-hyperpod-cluster-observability-slurm.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-cluster-observability-slurm.md")
 
 **Related examples:**
 
 - [Amazon Bedrock
   Model Customization Workshop](https://github.com/aws-samples/amazon-bedrock-customization-workshop "https://github.com/aws-samples/amazon-bedrock-customization-workshop")
+- [Efficient and cost-effective multi-tenant LoRA serving with Amazon SageMaker AI](https://aws.amazon.com/blogs/machine-learning/efficient-and-cost-effective-multi-tenant-lora-serving-with-amazon-sagemaker/ "https://aws.amazon.com/blogs/machine-learning/efficient-and-cost-effective-multi-tenant-lora-serving-with-amazon-sagemaker/")
+- [Choosing
+  Between Amazon SageMaker AI Training Jobs and Amazon SageMaker AI HyperPod: A Quick Decision-Making Guide for ML Workloads](https://repost.aws/articles/ARqYgZU7-kTjOYeoi8pZ94ZA/choosing-between-amazon-sagemaker-training-jobs-and-amazon-sagemaker-hyperpod-a-quick-decision-making-guide-for-ml-workloads "https://repost.aws/articles/ARqYgZU7-kTjOYeoi8pZ94ZA/choosing-between-amazon-sagemaker-training-jobs-and-amazon-sagemaker-hyperpod-a-quick-decision-making-guide-for-ml-workloads")
+- [Introducing Amazon SageMaker AI HyperPod to train foundation models at scale](https://aws.amazon.com/blogs/machine-learning/introducing-amazon-sagemaker-hyperpod-to-train-foundation-models-at-scale/ "https://aws.amazon.com/blogs/machine-learning/introducing-amazon-sagemaker-hyperpod-to-train-foundation-models-at-scale/")
 - [Customize
   models in Amazon Bedrock with your own data using fine-tuning
   and continued pre-training](https://aws.amazon.com/blogs/aws/customize-models-in-amazon-bedrock-with-your-own-data-using-fine-tuning-and-continued-pre-training/ "https://aws.amazon.com/blogs/aws/customize-models-in-amazon-bedrock-with-your-own-data-using-fine-tuning-and-continued-pre-training/")
+- [Accelerate
+  foundation model development with one-click observability in Amazon SageMaker AI HyperPod](https://aws.amazon.com/blogs/machine-learning/accelerate-foundation-model-development-with-one-click-observability-in-amazon-sagemaker-hyperpod/ "https://aws.amazon.com/blogs/machine-learning/accelerate-foundation-model-development-with-one-click-observability-in-amazon-sagemaker-hyperpod/")
+- [Amazon SageMaker AI HyperPod launches model deployments to accelerate the generative AI model development lifecycle](https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-hyperpod-launches-model-deployments-to-accelerate-the-generative-ai-model-development-lifecycle/ "https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-hyperpod-launches-model-deployments-to-accelerate-the-generative-ai-model-development-lifecycle/")
+- [Implementing
+  inference observability on HyperPod clusters](../../../sagemaker/latest/dg/sagemaker-hyperpod-model-deployment-observability.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-model-deployment-observability.md")

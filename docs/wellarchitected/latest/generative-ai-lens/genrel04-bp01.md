@@ -20,51 +20,71 @@ is not established:** Medium
 
 ## Implementation guidance
 
-Prompt catalogs function as a centralized system for developing,
-testing, and managing prompts. Customers should implement a prompt
-catalog to maintain different version of prompts. Prompts should
-be released to a live version once passing the appropriate testing
-thresholds and benchmarks. In the case where a prompt results in
-unexpected or undesirable behavior, a prompt catalog enables the
-ability to roll back to the previous version.
+Prompt catalogs function as a centralized system for
+developing, testing, and managing prompts. Implement a prompt
+catalog to maintain different versions of prompts. Prompts
+should be released to a live version once passing the
+appropriate testing thresholds and benchmarks. In the case
+where a prompt results in unexpected or undesirable behavior,
+a prompt catalog enables the ability to roll back to the
+previous version.
 
-Amazon Bedrock Prompt Management helps customers maintain prompts
-and prompt versions. Additionally, Prompt Management through
-Amazon Bedrock maintains versioned information on hyperparameter
-rangers for a prompt. Prompt behavior can change drastically when
-tuning hyperparameters such as temperature,
-top_p, or top_k. Value
-ranges for these hyperparameters should be paired with and
-validated against prompt versions as part of the prompt
-engineering process.
+Additionally, maintain versioned information on hyperparameter
+ranges for prompts. Prompt behavior can change drastically
+when tuning hyperparameters such as temperature, top_p, or
+top_k. Value ranges for these hyperparameters should be paired
+with and validated against prompt versions as part of the
+prompt engineering process.
 
-Prompt catalogs should maintain test results for a prompt against
-several model versions. A given foundation model can have several
-versions, and prompt test results for each model version can vary
-accordingly. Consider using Bedrock Prompt Management or a similar
-capability to maintain prompt versions for each of the available
+Prompt catalogs should maintain test results for a prompt
+against several model versions. A given foundation model can
+have several versions, and prompt test results for each model
+version can vary accordingly. Consider developing a catalog
+that maintains prompt versions for each of the available
 models.
 
 ### Implementation steps
 
-1. Create a prompt, and identify variables and hyperparameter
-   ranges to test.
-2. Test the prompt against several models and model versions.
-3. Publish the best performing prompt for the given model for
-   use in your application stack.
-   - Integrate prompt versions into your application CI/CD
-     process to maintain continual performance evaluation and
-     tracking.
+1. Design catalog structure:
+   - Define prompt metadata schema (like version, author, and purpose)
+   - Create categorization system for different prompt types
+   - Establish naming conventions and tagging standards
+   - Define access control requirements
+
+2. Implement version control:
+   - Set up version tracking for prompts
+   - Create changelog management process
+   - Define rollback procedures
+   - Establish backup and recovery processes
+
+3. Create testing framework:
+   - Define success criteria for prompts
+   - Establish validation procedures
+   - Create test suites for different use cases
+   - Set up automated testing pipelines
+
+4. Configure prompt metadata:
+   - Document hyperparameter ranges
+   - Track performance metrics
+   - Record model compatibility
+   - Maintain usage statistics
+
+5. Establish governance processes:
+   - Define approval workflows
+   - Create audit trails
+   - Set up review procedures
+   - Implement quality controls
+   - Codify in your organizations AI usage or policy document
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [REL07-BP01](../reliability-pillar/rel_adapt_to_changes_autoscale_adapt.md "../reliability-pillar/rel_adapt_to_changes_autoscale_adapt.md")
 - [REL08-BP02](../reliability-pillar/rel_tracking_change_management_functional_testing.md "../reliability-pillar/rel_tracking_change_management_functional_testing.md")
 - [REL08-BP04](../reliability-pillar/rel_tracking_change_management_immutable_infrastructure.md "../reliability-pillar/rel_tracking_change_management_immutable_infrastructure.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [AWS re:Invent 2023
 

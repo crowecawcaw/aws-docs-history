@@ -1,4 +1,4 @@
-# GENSUS03-BP01 Leverage smaller models to reduce carbon
+# GENSUS03-BP01 Leverage smaller models and optimized inference techniques to reduce carbon
 
 footprint
 
@@ -62,7 +62,7 @@ With Amazon SageMaker AI, you can improve the performance of your
 generative AI models by applying inference optimization techniques
 to attain lower resource utilization and costs. Choose which of
 the supported optimization techniques to apply, including
-quantization, speculative decoding, and compilation. After your
+quantization, speculative decoding, LoRA and A, and compilation. After your
 model is optimized, you can run an evaluation to see performance
 metrics for latency, throughput, and price.
 
@@ -84,14 +84,15 @@ metrics for latency, throughput, and price.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [SUS02-BP01](../framework/sus_sus_user_a2.md "../framework/sus_sus_user_a2.md")
 - [SUS05-BP02](../framework/sus_sus_hardware_a3.md "../framework/sus_sus_hardware_a3.md")
 - [SUS02-BP03](../sustainability-pillar/sus_sus_user_a4.md "../sustainability-pillar/sus_sus_user_a4.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
+- [Impel enhances automative dealership customer experience with fine-tuned LLMs on SageMaker AI](https://aws.amazon.com/blogs/machine-learning/impel-enhances-automotive-dealership-customer-experience-with-fine-tuned-llms-on-amazon-sagemaker/ "https://aws.amazon.com/blogs/machine-learning/impel-enhances-automotive-dealership-customer-experience-with-fine-tuned-llms-on-amazon-sagemaker/")
 - [A
   guide to Amazon BedrockModel Distillation (preview)](https://aws.amazon.com/blogs/machine-learning/a-guide-to-amazon-bedrock-model-distillation-preview/ "https://aws.amazon.com/blogs/machine-learning/a-guide-to-amazon-bedrock-model-distillation-preview/")
 - [Fine-tune

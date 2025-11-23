@@ -5,7 +5,7 @@
 |                                                          |
 
 Agentic architectures promise significant automation potential
-across all domains. However, they can incur necessary additional
+across domains. However, they can incur necessary additional
 cost if misconfigured.
 
 ###### Best practices

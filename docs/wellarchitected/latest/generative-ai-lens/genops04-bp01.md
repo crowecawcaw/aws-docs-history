@@ -8,8 +8,7 @@ environments. This practice streamlines deployment, reduces errors,
 and enhances team collaboration. IaC helps customers achieve
 efficiency, reliability, and scalability in infrastructure
 management, which allows for rapid iteration, straightforward
-rollback, and improved governance and results in secure deployments
-aligned with compliance standards.
+rollback, and improved governance and results in secure deployments.
 
 **Desired outcome:** After
 implementing the practice of automating the lifecycle management of
@@ -53,11 +52,39 @@ development, testing and staging, and production. To maintain
 consistency across environments, use the same templates with
 different parameters.
 
-Establish practices and controls to help you maintain compliance
-of your resources, like using AWS Config to track resource
-configurations. Implement Service Catalog for standardized
-resource provisioning, and regularly audit your IaC templates for
-security best practices and compliance.
+For Hyperpod, use AWS CloudFormation, AWS CDK, or Terraform to
+define clusters, VPCs, security groups, EKS node groups,
+networking policies, and Amazon SageMaker AI resources.
+
+For Amazon EKS, describe your Kubernetes deployments, secrets
+management, and ML workflows in YAML or Helm charts, and then
+manage those using CI/CD pipelines to automatically provision
+and update infrastructure.
+
+For Slurm, automate creation and scaling of compute nodes,
+tracker scripts, and cluster configuration using the same IaC
+tools.
+
+HyperPod Recipes serve as the cornerstone for implementing
+operational task automation by providing pre-built automation
+frameworks that reduce the need for manual operational tasks
+in distributed training environments. These recipes deliver
+IaC templates that automatically provision, configure, and
+manage complex training workflows across both EKS and Slurm
+orchestrated clusters, directly addressing the core principle
+of reducing manual effort and minimizing human error in
+operational activities.
+
+Establish practices and controls to help you maintain
+compliance of your resources, like using AWS Config to track
+resource configurations. Implement Service Catalog for
+standardized resource provisioning, and regularly audit your
+IaC templates for security best practices and compliance.
+
+Be mindful of the time and cost involved in model training and
+customization when automating these activities for your
+workload, use historical data to determine when training and
+customization might be needed for your workload.
 
 ### Implementation steps
 
@@ -100,7 +127,7 @@ security best practices and compliance.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [OPS05-BP10](../framework/ops_dev_integ_auto_integ_deploy.md "../framework/ops_dev_integ_auto_integ_deploy.md")
 - [OPS06-BP03](../framework/ops_mit_deploy_risks_deploy_mgmt_sys.md "../framework/ops_mit_deploy_risks_deploy_mgmt_sys.md")
@@ -108,13 +135,17 @@ security best practices and compliance.
 - [OPS05-BP08](../framework/ops_dev_integ_multi_env.md "../framework/ops_dev_integ_multi_env.md")
 - [OPS05-BP01](../framework/ops_dev_integ_version_control.md "../framework/ops_dev_integ_version_control.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Operationalize
   generative AI applications on AWS](https://aws.amazon.com/blogs/gametech/operationalize-generative-ai-applications-on-aws-part-ii-architecture-deep-dive/ "https://aws.amazon.com/blogs/gametech/operationalize-generative-ai-applications-on-aws-part-ii-architecture-deep-dive/")
 - [AWS CloudFormation Amazon Bedrock resources](../../../bedrock/latest/userguide/creating-resources-with-cloudformation.md "../../../bedrock/latest/userguide/creating-resources-with-cloudformation.md")
 - [AWS re:Invent 2024 - Generative AI in action: From prototype to
   production (AIM276)](https://www.youtube.com/watch?v=aFQFiVOh3P0 "https://www.youtube.com/watch?v=aFQFiVOh3P0")
+- [SageMaker AI
+  HyperPod Recipes Official Documentation](../../../sagemaker/latest/dg/sagemaker-hyperpod-recipes.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-recipes.md")
+- [SageMaker AI
+  HyperPod Recipe Repository Documentation](../../../sagemaker/latest/dg/sagemaker-hyperpod-recipe-repository.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-recipe-repository.md")
 
 **Related examples:**
 
@@ -124,6 +155,8 @@ security best practices and compliance.
 - [AWS CDK Developer Guide](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md")
 - [Terraform
   AWS Provider Examples](https://github.com/terraform-providers/terraform-provider-aws/tree/main/examples "https://github.com/terraform-providers/terraform-provider-aws/tree/main/examples")
+- [Accelerate
+  Foundation Model Training and Fine-tuning with New Amazon SageMaker AI HyperPod Recipes](https://aws.amazon.com/blogs/aws/accelerate-foundation-model-training-and-fine-tuning-with-new-amazon-sagemaker-hyperpod-recipes/ "https://aws.amazon.com/blogs/aws/accelerate-foundation-model-training-and-fine-tuning-with-new-amazon-sagemaker-hyperpod-recipes/")
 - [Amazon SageMaker AI model endpoint creation with CloudFormation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.md#aws-resource-sagemaker-model--examples "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.md#aws-resource-sagemaker-model--examples")
 
 **Related tools:**

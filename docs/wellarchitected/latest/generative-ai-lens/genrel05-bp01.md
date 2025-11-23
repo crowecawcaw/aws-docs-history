@@ -3,78 +3,66 @@
 availability
 
 Inference to a foundation model may be available over a local or
-large area of availability. Verify that you have resources available
-across that area to service inference requests reliably regardless
-of where they are coming from.
+large area of availability. Verify that you have resources
+available across that area to service inference requests
+reliably regardless of where they are coming from.
 
 **Desired outcome:** When
 implemented, this best practice improves the reliability of your
-generative AI workload by creating a highly available environment
-for serving inference requests.
+generative AI workload by creating a highly available
+environment for serving inference requests.
 
 **Benefits of establishing this best
 practice:**
 [Scale
-horizontally to increase aggregate workload availability](../framework/rel-dp.md "../framework/rel-dp.md") -
-Load-balanced inference requests across horizontally scaled
-infrastructure enable inference requests to be serviced evenly
-across a region of availability.
+horizontally to increase aggregate workload availability](../framework/rel-dp.md "../framework/rel-dp.md")
 
-**Level of risk exposed if this best practice
-is not established:** Medium
+- Load-balanced inference requests across horizontally scaled
+  infrastructure enable inference requests to be serviced evenly
+  across a region of availability.
+
+**Level of risk exposed if this best
+practice is not established:** Medium
 
 ## Implementation guidance
 
-Load-balance model requests across multiple Availability Zones by
-creating a highly available environment for serving inference
-requests. Consider using managed or serverless options for model
-hosting. For example, Amazon Bedrock hosts several
-industry-leading first and third-party models in a serverless
-paradigm. This capability abstracts the need to load-balance model
-inference requests across multiple Availability Zones.
+Use load balancing and multi-Region deployment strategies to
+distribute inference requests across multiple AWS Regions and
+Availability Zones. This helps maintain consistent performance
+and availability in the face of regional disruptions or
+network issues. Consider using Amazon Bedrock's cross-Region
+inference profiles to route requests to the nearest available
+endpoint. For self-hosted models on Amazon SageMaker AI,
+implement a multi-AZ deployment with an Amazon SageMaker AI
+Inference Endpoint configured for auto-scaling to
+automatically distribute and scale traffic across Regions.
 
-Consider using managed or serverless solutions for supporting
-infrastructure like vector search databases or agentic compute.
-Amazon OpenSearch Service Serverless and AWS Lambda functions can be
-deployed across multiple Availability Zones, which provides a high
-degree of reliability for supporting infrastructure.
+This strategy provides improved reliability, reduced risk of
+single points of failure, and better geographic coverage for
+global users. Potential trade-offs include increased network
+latency and operational complexity.
 
 ### Implementation steps
 
-1. For multi-AZ inference, verify that model endpoint
-   availability exists across each availability zone.
-   - In Amazon Bedrock, access model endpoints through the
-     subnets corresponding to the Availability Zones which
-     support inference.
-   - For self-hosted models, such as an Amazon SageMaker AI
-     Inference Endpoint, consider deploying highly-available
-     infrastructure across multiple Availability Zones, with
-     network load balancing that routes requests
-     appropriately.
-   - Alternatively, consider using Amazon Bedrock's Custom
-     Model Import feature to offload model hosting
-     considerations to the managed service.
-
-2. For multi-Region inference, navigate to the model catalog in
-   Amazon Bedrock and choose Cross-Region Inference.
-3. Select the appropriate inference profile for your inference
-   requirements.
-4. Validate each Region listed in the inference profile has
-   reliable access to the same supporting infrastructure such
-   as vector databases or agent APIs.
-5. Consult a network specialist for multi-Region deployments of self-hosted models
-   that suit your architecture requirements. Consider using Amazon VPC Lattice, Amazon Transit
-   Gateway, or other cross-Region networking solutions to facilitate cross-region network
-   traffic for model inference.
+1. Configure Amazon Bedrock cross-Region inference profiles
+   or deploy self-hosted models on Amazon SageMaker AI
+   Inference Endpoints across multiple Availability Zones.
+2. Set up an Amazon SageMaker AI Inference Endpoint with
+   auto-scaling enabled to distribute traffic based on
+   health and latency.
+3. Implement health checks and automated failover to
+   maintain availability.
+4. Monitor performance metrics like latency, error rates,
+   and throughput across Regions.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [REL04-BP01](../reliability-pillar/rel_prevent_interaction_failure_identify.md "../reliability-pillar/rel_prevent_interaction_failure_identify.md")
 - [REL10-BP01](../reliability-pillar/rel_fault_isolation_multiaz_region_system.md "../reliability-pillar/rel_fault_isolation_multiaz_region_system.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Supported Regions and models for inference profiles](../../../bedrock/latest/userguide/inference-profiles-support.md "../../../bedrock/latest/userguide/inference-profiles-support.md")
 

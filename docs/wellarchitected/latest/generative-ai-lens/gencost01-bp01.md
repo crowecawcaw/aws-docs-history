@@ -44,17 +44,15 @@ acceptable model is selected. The criteria for an acceptable model
 will change based on the use case of the workload. By starting
 with the smallest model, you improve the chances of selecting a
 model with the most cost-effective token input and output cost.
-Alternatively, self-hosted model infrastructure should be
-optimized based on the model used and the workload's usage
-pattern.
+Alternatively, optimize self-hosted model infrastructure based on the model used and the workload's usage pattern. Consult the model card or technical documentation for recommendations on instance size and capacity, right-sizing based on usage patterns.
 
-Right-size as an ongoing activity. As newer models become
+Deploy multiple models to a single, multi-model endpoint where appropriate. Right-size as an ongoing activity. As newer models become
 available, the workload needs change, and as prompting and
 orchestration are refined, smaller, more cost-effective models
 should be evaluated against your workload's needs to continually
 optimize.
 
-Additionally, consider decomposing your workload and routing to
+Consider decomposing your workload and routing to
 different sized models based on the specific needs of each
 inference request. Route less complicated inferences to smaller,
 more cost-effective models while assessing quality to maintain
@@ -62,7 +60,7 @@ high quality across variably complicated inference requests. For
 managed models hosted on Amazon Bedrock, consider intelligent
 prompt routing for dynamic routing between models in the same
 model family. Alternatively, weight the benefits of developing a
-custom prompt routing layer.
+custom prompt routing layer. In some cases, real-time inference may not be required. In those instances, elect for a less expensive inference paradigm such as batch inference.
 
 ### Implementation steps
 
@@ -71,15 +69,15 @@ custom prompt routing layer.
 2. Determine the models available which meet that minimum
    performance bar.
 3. Select the most cost-efficient model based on the
-   prioritized cost dimensions (like hosting paradigm or model
-   size).
+   prioritized cost dimensions (like hosting paradigm, model
+   size, or token cost).
 4. Continuously evaluate model selection to validate the
    highest performance is being achieved at the lowest possible
    price-point.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [COST01-BP02](../cost-optimization-pillar/cost_cloud_financial_management_partnership.md "../cost-optimization-pillar/cost_cloud_financial_management_partnership.md")
 - [COST05-BP01](../cost-optimization-pillar/cost_select_service_requirements.md "../cost-optimization-pillar/cost_select_service_requirements.md")
@@ -87,7 +85,7 @@ custom prompt routing layer.
 - [COST07-BP03](../cost-optimization-pillar/cost_pricing_model_third_party.md "../cost-optimization-pillar/cost_pricing_model_third_party.md")
 - [COST09-BP01](../cost-optimization-pillar/cost_manage_demand_resources_cost_analysis.md "../cost-optimization-pillar/cost_manage_demand_resources_cost_analysis.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Tagging
   Amazon Bedrock resources](../../../bedrock/latest/userguide/tagging.md "../../../bedrock/latest/userguide/tagging.md")

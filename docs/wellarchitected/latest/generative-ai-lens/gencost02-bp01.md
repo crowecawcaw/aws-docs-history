@@ -49,23 +49,26 @@ provisioned throughput, consider purchasing a six-month plan, as
 the unit cost for six months is usually lower than purchasing
 month-over-month.
 
+Consider a scenario where you want to serve inference capabilities for a single model for small, periodic workloads. Evaluate the cost of hosting this model on an Amazon SageMaker AI inference endpoint. Compare these costs against the cost of importing the model to Amazon Bedrock using Amazon Bedrock's Custom Model Import feature and using API-based inference. Evaluate the cost to deploy this model using either paradigm and compare them with respect to the total cost of ownership. Where performance trade-offs are negligible, deploy to the most cost-effective inference paradigm.
+
 ### Implementation steps
 
 1. Identify the nature of the demand for this workload.
 2. Compare the demand to the available hosting options, and
    remove the high-cost options that do not satisfy the
    workloads hosting requirements.
-3. Select the most appropriate, lowest-cost hosting option.
+3. Select and test the available optinos that satisfy the workload requirements for latency, throughput, and response quality.
+4. Implement the most appropriate, lower-cost hosting option for your model serving paradigm (for example, managed or self-hosted).
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [COST06-BP01](../cost-optimization-pillar/cost_type_size_number_resources_cost_modeling.md "../cost-optimization-pillar/cost_type_size_number_resources_cost_modeling.md")
 - [COST06-BP02](../cost-optimization-pillar/cost_type_size_number_resources_data.md "../cost-optimization-pillar/cost_type_size_number_resources_data.md")
 - [COST09-BP01](../cost-optimization-pillar/cost_manage_demand_resources_cost_analysis.md "../cost-optimization-pillar/cost_manage_demand_resources_cost_analysis.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Tagging
   Amazon Bedrock resources](../../../bedrock/latest/userguide/tagging.md "../../../bedrock/latest/userguide/tagging.md")

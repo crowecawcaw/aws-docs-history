@@ -26,7 +26,7 @@ achieve:**
   failure](../framework/oe-design-principles.md "../framework/oe-design-principles.md") - Periodic review of the user feedback helps you
   proactively identify deviations in subjective evaluation of a
   model's performance. This is because foundation models are
-  inherently non-deterministic, implying there is always a chance
+  inherently non-deterministic with a realistic chance
   of failure.
 
 **Level of risk exposed if this best practice
@@ -54,6 +54,8 @@ Use these insights to optimize your application and identify areas
 for improvement. Use the `PutFeedback` API action
 to allow end users to provide feedback on chat responses. This
 captures user sentiment and helps improve response quality.
+
+Consult your organization’s AI policy document for guidance on how to use user feedback for workload improvements. Direct techniques for incorporating user feedback like reinforcement learning through human feedback may not be applicable for all workloads. Workload owners may be best positioned to identify the appropriate feedback incorporation strategy for a given task.
 
 ### Implementation steps
 
@@ -101,11 +103,11 @@ captures user sentiment and helps improve response quality.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [OPS04-BP03](../operational-excellence-pillar/ops_observability_customer_telemetry.md "../operational-excellence-pillar/ops_observability_customer_telemetry.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Guidance
   for Capturing and Analyzing Unstructured Customer Feedback on

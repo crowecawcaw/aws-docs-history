@@ -24,63 +24,81 @@ is not established:** Medium
 
 ## Implementation guidance
 
-Define expected behavior for generative AI applications before,
-during, and after prompts. Create layers of abstraction between
-users and models to facilitate retries, error handling, and
-graceful failures. For multi-step prompt flows, implement logic
-statements to check if your prompts contain the expected
-information. Apply similar logic to verify your model's respond
-with expected content.
+Define expected behavior for generative AI applications
+before, during, and after prompts. Create layers of
+abstraction between users and models to facilitate retries,
+error handling, and graceful failures. For multi-step prompt
+flows, implement logic statements to check if your prompts
+contain the expected information. Apply similar logic to
+verify your model's respond with expected content.
 
-For prompt flows containing data from external sources, implement
-logic to verify the relevant data from the external source exists.
-Define a fallback action or default modality in the absence of
-relevant data. Apply similar reasoning to model responses enriched
-with embeddings from a vector search engine. Consider applying
-checks on the model's response to identify the relevance of the
-returned data or a fallback action if no data is returned at all.
+For prompt flows containing data from external sources,
+implement logic to verify the relevant data from the external
+source exists. Define a fallback action or default modality in
+the absence of relevant data. Apply similar reasoning to model
+responses enriched with embeddings from a vector search
+engine. Consider applying checks on the model's response to
+identify the relevance of the returned data or a fallback
+action if no data is returned at all.
 
-Agentic workflows commonly make calls to external systems. Develop
-agents with error handling in mind. Consider how errors are
-propagated back up to agents. Upon receiving an error, an agent
-should take appropriate action to retry or gracefully fail. One
-way to accomplish this is to have the agent classify responses
-from external systems as actionable or not. Actionable responses
-are anticipated and well-understood responses (for example, a
-database query returning at least one result). An inactionable
-response traditionally requires error handling at the software
-layer (for example, error codes or empty responses). Agents can be
+Agentic workflows commonly make calls to external systems.
+Develop agents with error handling in mind. Consider how
+errors are propagated back up to agents. Upon receiving an
+error, an agent should take appropriate action to retry or
+gracefully fail. One way to accomplish this is to have the
+agent classify responses from external systems as actionable
+or not. Actionable responses are anticipated and
+well-understood responses (for example, a database query
+returning at least one result). An inactionable response
+traditionally requires error handling at the software layer
+(for example, error codes or empty responses). Agents can be
 prompted to classify responses in these cases and take action
-appropriately. This method may serve to reduce non-determinism and
-increase reliability of agent workflows.
+appropriately. This method may serve to reduce non-determinism
+and increase reliability of agent workflows.
 
-When developing multi-step prompt flows, consider using Amazon Bedrock Flows to orchestrate multi-step prompts. Bedrock Flows
-enables graceful failure and recovery for long prompt chains,
-which allows your applications to take appropriate action on
-failure. Bedrock Flows has nodes for controlling flow logic, which
-include iterator nodes and condition nodes. Customers may consider
-using these nodes to implement graceful recovery instead of
-developing a custom abstraction layer.
+When developing multistep prompt flows or prompt chains,
+consider using Amazon Bedrock Flows to orchestrate multistep
+prompts. Bedrock Flows enables graceful failure and recovery
+for long prompt chains, which allows your applications to take
+appropriate action on failure. Bedrock Flows has nodes for
+controlling flow logic, which include iterator nodes and
+condition nodes. Customers may consider using these nodes to
+implement graceful recovery instead of developing a custom
+abstraction layer.
 
 ### Implementation steps
 
-1. Leverage Amazon Bedrock Flows to capture model output and
-   dynamically determine the next step in the flow.
-2. Implement response capture and conditional logic at the
-   application layer to account for and recover from unexpected
-   model behavior.
-   - Classify systems responses based on actionable or
-     inactionable outputs.
-   - Leverage contextual grounding guardrails to capture
-     error and recover from error scenarios.
+1. Establish error classification system:
+   - Categorize common failure types
+   - Define severity levels
+   - Create response templates for each error category
+   - Set up automated detection mechanisms
+
+2. Implement recovery mechanisms:
+   - Design retries strategies with exponential backoff
+   - Create fallback prompt templates
+   - Develop circuit breaker implementations
+   - Set up automated recovery workflows
+
+3. Configure monitoring and alerting:
+   - Track recovery success rates
+   - Monitor remediation effectiveness
+   - Set up alerts for repeated failures
+   - Implement performance tracking
+
+4. Create continuous improvement process:
+   - Analyze failure patterns
+   - Update remediation strategies
+   - Refine prompt templates
+   - Optimize recovery workflows
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [REL05-BP01](../reliability-pillar/rel_mitigate_interaction_failure_graceful_degradation.md "../reliability-pillar/rel_mitigate_interaction_failure_graceful_degradation.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Demo
 

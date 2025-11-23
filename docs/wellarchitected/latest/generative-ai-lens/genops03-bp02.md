@@ -62,6 +62,8 @@ This mode allows the supervisor agent to route information
 directly to the appropriate collaborator agent, reducing
 unnecessary data transfers and overall latency.
 
+Alternatively, considering using Amazon AgentCore, which supports agent tracing by default. AgentCore gives visibility into an agent’s behavior by capturing and visualizing both the traces and spans that capture each step of the agent workflow, including tool invocations and memory. AgentCore supports OpenTelemetry to help integrate agent telemetry data with existing observability systems, including Amazon CloudWatch, Datadog, LangSmith, and Langfuse.
+
 ### Implementation steps
 
 1. Collect and aggregate trace data.
@@ -170,12 +172,13 @@ unnecessary data transfers and overall latency.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [OPS08-BP03](../framework/ops_workload_observability_analyze_workload_traces.md "../framework/ops_workload_observability_analyze_workload_traces.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
+- [Amazon Bedrock AgentCore Samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/ "https://github.com/awslabs/amazon-bedrock-agentcore-samples/")
 - [Track
   agent's step-by-step reasoning process using trace - Amazon Bedrock](../../../bedrock/latest/userguide/trace-events.md "../../../bedrock/latest/userguide/trace-events.md")
 - [Track
@@ -188,6 +191,7 @@ unnecessary data transfers and overall latency.
 
 **Related examples:**
 
+- [Introducing Amazon Bedrock AgentCore: Securely deploy and operate AI agents at any scale (preview)](https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore-securely-deploy-and-operate-ai-agents-at-any-scale/ "https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore-securely-deploy-and-operate-ai-agents-at-any-scale/")
 - [Optimize
   model inference for latency - Amazon Bedrock](../../../bedrock/latest/userguide/latency-optimized-inference.md "../../../bedrock/latest/userguide/latency-optimized-inference.md")
 - [Optimize
@@ -197,3 +201,5 @@ unnecessary data transfers and overall latency.
 **Related tools:**
 
 - [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md")
+- [OpenTelemetry](https://opentelemetry.io/ "https://opentelemetry.io/")
+- [LangFuse](https://langfuse.com/ "https://langfuse.com/")

@@ -22,70 +22,72 @@ is not established:** High
 
 ## Implementation guidance
 
-Agentic workflows take action on behalf of a user by making calls
-to external systems. External systems may themselves perform
+Agentic workflows act on behalf of a user by making calls to
+external systems. External systems may themselves perform
 several time-consuming tasks which the agent is not aware of,
-resulting in idle agents that could run for an extended period of
-time. In order to maintain a reliable agentic system, customers
-should implement controls to manage agentic timeout.
+resulting in idle agents that could run for an extended
+period. To maintain a reliable agentic system, implement
+controls to manage agentic timeout.
 
 One approach to controlling agentic runtime or lifecycle is to
 implement runtime timeouts on the external infrastructure. For
-example, if an agent makes a call to an AWS Lambda function
-through an Action Group, consider applying a timeout to the
-corresponding Lambda function. The timeout should be set to
-include the maximum allowable time needed to complete a process,
-accounting for additional latency for edge cases such as a Lambda
-cold start. You may consider rounding this value up to avoid
-unnecessary early terminations.
+example, if an agent makes a call to a function through an
+Action Group, consider applying a timeout to the corresponding
+function. The timeout should be set to include the maximum
+allowable time needed to complete a process, accounting for
+additional latency for edge cases such as cold starts. You may
+consider rounding this value up to avoid unnecessary early
+terminations.
 
-Alternatively, customers may consider connecting their agentic
-workflows to an event system, developing an asynchronous process
-management architecture. Introducing an asynchronous event system
-gives users the most flexibility and visibility into agent process
-lifecycle or flow. By requiring the compute underpinning an Amazon Bedrock Action Group to publish events, workload owners maintain
-insight into where an agent may encounter stalled flow or process.
-Consider using events to publish agent updates and take action
-appropriately to prevent long-running invocations.
+Alternatively, consider connecting agentic workflows to an
+event system, developing an asynchronous process management
+architecture. Introducing an asynchronous event system gives
+users the most flexibility and visibility into agent process
+lifecycle or flow. By requiring the compute underpinning an
+Action Group to publish events, workload owners maintain
+insight into where an agent may encounter stalled flow or
+process. Consider using events to publish agent updates and
+act appropriately to stop long-running invocations.
 
-Error handling at the agent layer should be transparent to users.
-When errors occur, communicate clear details about the issue while
-maintaining system security by avoiding exposure of sensitive
-internal information. The response should outline specific next
-steps so that users can complete their tasks independently if the
-agent remains unavailable. This approach promotes operational
-resilience while maintaining security best practices, as users
-receive actionable guidance without compromising system integrity.
-The error messaging framework should focus on user experience by
-providing alternative paths to task completion while adhering to
-the principle of least-privilege in information disclosure.
+Error handling at the agent layer should be transparent to
+users. When errors occur, communicate clear details about the
+issue while maintaining system security by avoiding exposure
+of sensitive internal information. The response should outline
+specific next steps so that users can complete their tasks
+independently if the agent remains unavailable. This approach
+promotes operational resilience while maintaining security
+best practices, as users receive actionable guidance without
+compromising system integrity.
 
 ### Implementation steps
 
-1. Create an agent within Amazon Bedrock Agents.
-2. Define an action group with one or more pieces of supporting
-   compute infrastructure.
-3. Implement control logic over the supporting infrastructure.
-   - Timeouts are an effective control mechanism. Implement
-     time-outs at the agent layer to terminate a session
-     waiting for a prompt from a user.
-   - Alternatively, timeouts can be implemented externally.
-     AWS Lambda action groups can be configured with timeouts
-     and dead letter queues to halt the execution of an
-     external process.
-   - Explore asynchronous event publishing to complement
-     timeouts and other control mechanisms.
+1. Create an agent workflow configuration:
+   - Define maximum runtime thresholds
+   - Set up timeout controls at function and workflow levels
+   - Configure event publishing for process monitoring
 
-4. Develop recovery logic for the agent to prevent the build-up
-   of half-completed executions.
+2. Implement timeout mechanisms:
+   - Add timeouts at the agent layer to terminate sessions waiting for user input
+   - Configure timeouts on external compute resources
+   - Set up dead letter queues for timed-out processes
+
+3. Establish monitoring and alerting:
+   - Track agent execution times
+   - Monitor timeout frequency
+   - Alert on repeated timeouts
+
+4. Define recovery procedures:
+   - Create graceful termination processes
+   - Implement cleanup routines for timed-out sessions
+   - Set up automated retry mechanisms where appropriate
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [REL05-BP05](../reliability-pillar/rel_mitigate_interaction_failure_client_timeouts.md "../reliability-pillar/rel_mitigate_interaction_failure_client_timeouts.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [AWS re:Invent 2023
 

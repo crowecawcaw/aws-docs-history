@@ -23,52 +23,63 @@ is not established:** Medium
 
 ## Implementation guidance
 
-Validate that data sources for your generative AI workloads are
-replicated and made available across all of the designated regions
-of availability. Configure data replication pipelines which
-replicate data creation, updates, and deletions across data
-sources, providing a consistent experience for users. Customers
-should leverage a durable storage layer which is available across
-all desired regions.
+Replicate the data required for generative AI workloads, such
+as embeddings and knowledge bases, and make that data readily
+available across all designated Regions. This helps prevent
+data access from becoming a bottleneck and maintains
+consistent performance for users regardless of their location.
+Use solutions like Amazon S3 cross-Region replication, Amazon OpenSearch Service cross-cluster replication, and AWS Glue
+data pipelines to distribute data efficiently.
 
-Amazon S3 is a common choice since it is a durable, scalable, and
-reliable storage layer which integrates simply with several data
-analytics and vector storage solutions. A modern data architecture
-backed by Amazon S3 is a recommended choice for multi-region data
-availability at scale. Consider using Amazon S3 or a similar
-storage layer. Develop data pipelines to distribute data across
-regions. Amazon S3's bucket replication capability is a managed
-version of a data pipeline which replicates data across regions.
+Consider data sovereignty requirements and regulatory
+restrictions that may limit your ability to freely replicate
+data, including embeddings, across all Regions. Carefully
+review the data residency and compliance needs for your
+specific use case and workload. Implement data distribution
+strategies that respect these constraints, such as keeping
+embeddings within a defined geographic area or using
+Region-specific data stores.
 
-Alternatively, data pipelines can be developed and orchestrated
-manually using Amazon Glue. These data pipelines should run
-frequently enough to satisfy data availability requirements across
-regions. Once replicated, verify that the data is processed by a
-replicated vector storage layer.
+Replicating data across Regions can incur additional storage
+and data transfer costs. Optimize data partitioning and
+compression to minimize the overall storage footprint. Use
+Amazon S3 Intelligent Tiering to automatically move less
+frequently accessed data to more cost-effective storage
+classes. Replicating data provides improved data availability
+and reduced latency for users. If done properly, this practice
+helps you maintain compliance with data sovereignty
+regulations. Trade-offs may include increased costs and
+potential consistency challenges within the allowed Regions.
 
 ### Implementation steps
 
-1. Create two OpenSearch clusters across two regions, where one
-   is a leader and one is a follower.
-2. Create a request for an outbound connection from the
-   follower to the leader.
-3. Accept the inbound request from the leader.
-4. Modify the leader security configuration to facilitated
-   cluster replication.
-5. Create an index for replication on the leader cluster.
-6. Run cluster replication from the follower cluster.
-7. Index documents on the leader cluster.
-8. Test document replication on the follower cluster.
+1. Assess data sovereignty requirements and regulatory
+   constraints for your generative AI workload, including
+   the distribution of embeddings.
+2. Identify the Regions where you can freely replicate
+   embeddings and other data based on your compliance
+   needs.
+3. Set up cross-Region replication for embedding data
+   stores like Amazon S3 and Amazon OpenSearch Service
+   within the allowed Regions.
+4. Implement data ingestion pipelines using AWS Glue to
+   keep the allowed Regions synchronized for embeddings and
+   other data.
+5. Configure monitoring and alerting to detect data
+   replication issues and compliance violations.
+6. Optimize data partitioning, compression, and storage
+   tiering to minimize the cost of cross-Region data
+   replication.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [REL04-BP01](../reliability-pillar/rel_prevent_interaction_failure_identify.md "../reliability-pillar/rel_prevent_interaction_failure_identify.md")
 - [REL07-BP01](../reliability-pillar/rel_adapt_to_changes_autoscale_adapt.md "../reliability-pillar/rel_adapt_to_changes_autoscale_adapt.md")
 - [REL10-BP01](../reliability-pillar/rel_fault_isolation_multiaz_region_system.md "../reliability-pillar/rel_fault_isolation_multiaz_region_system.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Supported
   Regions and Models for inference profiles](../../../bedrock/latest/userguide/inference-profiles-support.md "../../../bedrock/latest/userguide/inference-profiles-support.md")

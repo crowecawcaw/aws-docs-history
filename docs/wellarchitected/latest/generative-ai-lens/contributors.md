@@ -1,65 +1,80 @@
 # Contributors
 
-The following individuals and organizations contributed to this
-document:
+The following individuals and organizations contributed to this document:
 
-- Dan Ferguson, Global, PE Sr. SA, Amazon Web Services
-- Steven DeVries, Principal Solutions Architect, Amazon Web Services
-- Patrick Bradshaw, Global, PE Sr. SA, Amazon Web Services
-- Benon Boyadjian, Global, PE Sr. SA, Amazon Web Services
-- Jeff Runhow, Global, PE Sr. SA, Amazon Web Services
-- Huseyin Genc, Global, PE AI/ML Sr. SA, Amazon Web Services
-- Neelam Koshiya, Principal Applied AI Architect, Amazon Web Services
-- Chaitra Mathur, Pr WW Spec SA, GenAI Ops, Amazon Web Services
-- Asif Khan, Principal Solutions Architect, Amazon Web Services
-- Gopi Krishnamurthy, Sr. AI/ML Specialist SA AutoMfg, Amazon Web Services
-- Dustin Liukkonen, Sr. Solutions Architect, Amazon Web Services
-- Bharathi Srinivasan, Generative AI Data Scientist, Amazon Web Services
-- Mau Munoz, Principal Technologist, Amazon Web Services
-- Haleh Najafzadeh, Sr. Manager, Cloud Optimization Success Guidance, Amazon Web Services
-- Mahmoud Matouk, Principal Security Lead SA, Amazon Web Services
-- Ryan Dsouza, Principal Guidance Lead SA, Amazon Web Services
-- Stewart Matzek, Sr. Technical Writer, Amazon Web Services
-- Matthew Wygant, Sr. TPM Guidance, Amazon Web Services
-- Jay Michael, Principal Guidance Lead SA, Amazon Web Services
-- Shelbee Eigenbrode, Sr. Mgr., WW SSA Managed AI/ML, Amazon Web Services
-- Dominic Murphy, Sr. Mgr, Solutions Architecture, Amazon Web Services
-- Denis Batalov, Tech Leader, ML & AI, Amazon Web Services
-- Randy DeFauw, Sr. Principal SA, Amazon Web Services
-- Max Ramsay, WW Leader, Pr. Technologists, Amazon Web Services
-- Willie Lee, Sr. WW Specialist/TPM, Generative AI, Amazon Web Services
-- Nick McCarthy, Sr. WW SSA, Model Cust, GenAI, Amazon Web Services
-- Byron Arnao, Principal Technologist, Amazon Web Services
-- Cliff Donathan, Principal Technologist, AI, Amazon Web Services
-- Margaret O'Toole, WW Tech Leader, Sustainability, Amazon Web Services
-- Paul Moran, Princ TAM (UK-PS), Amazon Web Services
-- Paula Csatlos, Sr. Product Mgr, Technical, Infra. Perf
-  Services, Amazon Web Services
-- Andrew Morrow, Principal Solutions Architect, Amazon Web Services
-- Thomas Blood, Principal Solution Architect, Amazon Web Services
-- Thomas Coombs, Principal TAM (Energy), Amazon Web Services
-- Shuja Sohrawardy, Sr. Mgr Generative AI Strategy, Amazon Web Services
-- Alex Podelko, Sr. Performance Engineer, Amazon Web Services
-- Manish Chugh, Principal Startup SA, Amazon Web Services
-- Ganapathi Krishnamoorthi, Principal Specialist SA, GenAI/ML, Amazon Web Services
-- Hrushi Gangur, Principal SA, Amazon Web Services
-- Jonathan Jenkyn, Global Services Security, Amazon Web Services
-- Manish Chungh, Principal Startup SA, Amazon Web Services
-- Marcel Pividal, Sr. AI Services SA, Amazon Web Services
-- Sagar Khasnis, Sr. Builder SA-GenAI Solutions, Amazon Web Services
-- Sam Mokhtari, Accelerated Compute ANZ Sales, Amazon Web Services
+- Aaron Sempf, APJ Next-Gen Tech Lead, Amazon Web Services
+- Abhijit Singh, TAM, Amazon Web Services
 - Alessando Cere, Principl SA, Model Eval, Amazon Web Services
+- Alex Podelko, Sr. Performance Engineer, Amazon Web Services
 - Ana Echeverri, Technical BD, CAIT, Amazon Web Services
+- Anand Komandooru, Principal Delivery Consultant, Amazon Web Services
 - Andrew Kane, GenAI Security/Compliance Lead, Amazon Web Services
+- Andrew Morrow, Principal Solutions Architect, Amazon Web Services
+- Arun Nagpal, Sr TAM, Amazon Web Services
 - Arvind Raghunathan, Principal Operations Lead SA, Amazon Web Services
+- Asif Khan, Principal Solutions Architect, Amazon Web Services
+- Benon Boyadjian, Global, PE Sr. SA, Amazon Web Services
 - Bharathi Srinivasan, Gen AI Data Scientist, Amazon Web Services
-- Bruno Pistone, Sr. WW Specialist SA, GenAI, Amazon Web Services
-- Dominic Murphy, Sr. Manager Solutions Architecture, Amazon Web Services
+- Bharathi Srinivasan, Generative AI Data Scientist, Amazon Web Services
+- Bruno Pistone, Sr. WW Specialist SA, GenAI, Amazon Web Services
+- Byron Arnao, Principal Technologist, Amazon Web Services
+- Chaitra Mathur, Pr WW Spec SA, GenAI Ops, Amazon Web Services
+- Cliff Donathan, Principal Technologist, AI, Amazon Web Services
+- Dan Ferguson, Sr WW Specialist SA, GenAI, Amazon Web Services
+- Denis Batalov, Tech Leader, ML and AI, Amazon Web Services
+- Dhiraj Thakur, WW Infosys PSA, Amazon Web Services
+- Dominic Murphy, Sr. Manager Solutions Architecture, Amazon Web Services
+- Dominic Murphy, Sr. Mgr, Solutions Architecture, Amazon Web Services
+- Dustin Liukkonen, Sr. Solutions Architect, Amazon Web Services
+- Ganapathi Krishnamoorthi, Principal Specialist SA, GenAI/ML, Amazon Web Services
+- Gopi Krishnamurthy, Sr. AI/ML Specialist SA AutoMfg, Amazon Web Services
+- Haleh Najafzadeh, Sr. Manager, Cloud Optimization Success Guidance, Amazon Web Services
+- Hrushi Gangur, Principal SA, Amazon Web Services
+- Margaret O'Toole, WW Tech Leader, Sustainability, Amazon Web Services
+- Huseyin Genc, Global, PE AI/ML Sr. SA, Amazon Web Services
+- James Ferguson, Principal Solutions Architect, Amazon Web Services
+- Jay Michael, Principal Guidance Lead SA, Amazon Web Services
+- Jeff Runhow, Global, PE Sr. SA, Amazon Web Services
+- Jonathan Jenkyn, Global Services Security, Amazon Web Services
+- Laurie Kasper, Sr. Product Marketing Manager, Amazon Web Services
+- Leonardo Granja, Global, PE Sr. Advisor, Amazon Web Services
+- Mahmoud Matouk, Principal Security Lead SA, Amazon Web Services
+- Manish Chugh, Principal Startup SA, Amazon Web Services
+- Manish Chungh, Principal Startup SA, Amazon Web Services
+- Marcel Pividal, Sr. AI Services SA, Amazon Web Services
+- Margaret O'Toole, WW Tech Leader, Sustainability, Amazon Web Services
 - Mark Keating, Principal Security SA, Amazon Web Services
+- Matthew Nightingale, Sr. WW Specialist SA GenAI, Amazon Web Services
+- Matthew Wygant, Sr. TPM Guidance, Amazon Web Services
+- Mau Munoz, Principal Technologist, Amazon Web Services
+- Max Ramsay, WW Leader, Pr. Technologists, Amazon Web Services
+- Mia Mayer, Sr. Applied Scientist, Amazon Web Services
+- Neelam Koshiya, Principal Applied AI Architect, Amazon Web Services
+- Nick McCarthy, Sr. WW SSA, Model Cust, GenAI, Amazon Web Services
+- Patrick Bradshaw, Global, PE Sr. SA, Amazon Web Services
+- Paula Csatlos, Sr. Product Mgr, Technical, Infra. Perf Services, Amazon Web Services
+- Paul Moran, Princ TAM (UK-PS), Amazon Web Services
 - Piyush Bothra, PE Area Principal SA, Amazon Web Services
 - Pranav Kumar, GenAI Labs Builder SA, Amazon Web Services
 - Rachna Chadha, Principal Technologist, AI, Amazon Web Services
-- Shelbee Eigenbrode, Sr. Manager WW SSA Managed AI/ML, Amazon Web Services
-- Samantha Wylatowska, Solutions Architect, Amazon Web Services
-- James Ferguson, Principal Solutions Architect, Amazon Web Services
+- Randy DeFauw, Sr. Principal SA, Amazon Web Services
 - Riggs Goodman III, WW AI Security Principal PSA, Amazon Web Services
+- Ryan Dsouza, Principal Guidance Lead SA, Amazon Web Services
+- Ryan Moody, ESM, Amazon Web Services
+- Sagar Khasnis, Sr. Builder SA-GenAI Solutions, Amazon Web Services
+- Sam Mokhtari, Accelerated Compute ANZ Sales, Amazon Web Services
+- Samantha Wylatowska, Solutions Architect, Amazon Web Services
+- Sara Liu, Sr. TPM, Responsible AI, Amazon Web Services
+- Shelbee Eigenbrode, Sr. Manager WW SSA Managed AI/ML, Amazon Web Services
+- Shelbee Eigenbrode, Sr. Mgr., WW SSA Managed AI/ML, Amazon Web Services
+- Shuja Sohrawardy, Sr. Mgr Generative AI Strategy, Amazon Web Services
+- Sophie Hurlstone, Lens Lead Solutions Architect, Amazon Web Services
+- Steven DeVries, Principal Solutions Architect, Amazon Web Services
+- Stewart Matzek, Sr. Technical Writer, Amazon Web Services
+- Tanner McRae, Sr. Applied AI Architect, Amazon Web Services
+- Thomas Blood, Principal Solution Architect, Amazon Web Services
+- Thomas Coombs, Principal TAM (Energy), Amazon Web Services
+- Tomonori Shimomura, Principal ML Solutions Architect, Amazon Web Services
+- Varun Rajan, Sr. Solutions Architect, Amazon Web Services
+- William Rosa, Global, PE Sr. SA, Amazon Web Services
+- Willie Lee, Sr. WW Specialist/TPM, Generative AI, Amazon Web Services

@@ -4,14 +4,9 @@
 | ----------------------------------------------------------------------------------------------------- |
 |                                                                                                       |
 
-Foundation models perform well on a wide-variety of tasks, and
-their general performance is tracked using leaderboards and other
-public metric tracking solutions. However, foundation models are
-not always suited to specific tasks. An example task might be
-having a foundation model draft documents in accordance with a
-specific format, using a specific selection of words (like
-mathematics or legal documents). Here we describe how to improve
-the performance of a model for specific tasks.
+Foundation models are built to perform sufficiently well on a wide variety of tasks. Their task-specific performance is tracked using leaderboards and other public metric tracking solutions. Strong performance in one task (for example, summarization) does not indicate strong performance in another task (such as question answering).
+
+Task performance is evaluated using benchmarks built from ground truth data, and model performance against these test suites help when selecting a model for a workload. These new performance metrics expand classic performance considerations such as latency and throughput. Efficient model selection and customization requires careful consideration of the various performance requirements of a generative AI workload, which is informed by the business case.
 
 ###### Best practices
 

@@ -25,20 +25,31 @@ is not established:** High
 
 ## Implementation guidance
 
-Monitoring at the control plane and data layers should track data
-access, as well as control plane API requests to the services in
-question. Most cloud-based systems publish these events over an
-event bus for capture, storage, and eventual analysis.
+Monitoring at the control plane and data layers should track
+data access, as well as control plane API requests to the
+services in question. Most cloud-based systems publish these
+events over an event bus for capture, storage, and eventual
+analysis. These capabilities are considered normal within a
+modern data architecture. As data and AI workloads become more
+closely intertwined in your organization, solutions like
+Amazon SageMaker AI and its new Lakehouse capability help
+simplify the collection and capturing of data access requests
+by models, workloads, and users. Your organization AI policy
+document should define how data access requests are captured
+and monitored across your environment.
 
 Consider AWS CloudTrail to record management and data events.
 Amazon Bedrock, Amazon Q Business, and other generative AI
 services integrate with CloudTrail and can be used to record
 control plane operations like custom model import and runtime
-operations like `invokeAgent`. Amazon CloudWatch
-can be configured to capture logs for generative AI applications
-as well. A combination of these AWS services or the use of a
-third-party logging solution, if needed, improves visibility into
-application security.
+operations like invokeAgent. Amazon CloudWatch can be
+configured to capture logs for generative AI applications as
+well. A combination of these AWS services or the use of a
+third-party logging solution, if needed, improves visibility
+into application security. CloudWatch and CloudTrail integrate
+well with other managed AWS services powered by data, such
+Quick Suite Q, a generative business intelligence (BI)
+tool.
 
 ### Implementation steps
 
@@ -87,16 +98,19 @@ application security.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [SEC04-BP01](../security-pillar/sec_detect_investigate_events_app_service_logging.md "../security-pillar/sec_detect_investigate_events_app_service_logging.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [AWS CloudTrail Data Events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events")
 - [AWS CloudTrail Management Events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md")
 
 **Related examples:**
 
+- [Gain
+  Insights with Natural Language Query into your AWS environment
+  using Amazon CloudTrail and Amazon Q in QuickSight](https://aws.amazon.com/blogs/mt/gain-insights-with-natural-language-query-into-your-aws-environment-using-amazon-cloudtrail-and-amazon-q-in-quicksight/ "https://aws.amazon.com/blogs/mt/gain-insights-with-natural-language-query-into-your-aws-environment-using-amazon-cloudtrail-and-amazon-q-in-quicksight/")
 - [Auditing
   generative AI workloads with AWS CloudTrail](https://aws.amazon.com/blogs/mt/auditing-generative-ai-workloads-with-aws-cloudtrail/ "https://aws.amazon.com/blogs/mt/auditing-generative-ai-workloads-with-aws-cloudtrail/")

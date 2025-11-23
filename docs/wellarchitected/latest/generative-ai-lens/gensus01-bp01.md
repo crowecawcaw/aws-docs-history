@@ -62,6 +62,16 @@ services and features, organizations can achieve a more
 sustainable and cost-effective approach to generative AI
 workloads.
 
+In SageMaker AI HyperPod with both Amazon EKS and Slurm
+orchestration, use the system's managed infrastructure
+capabilities and built-in scaling mechanisms to minimize
+resource waste while maintaining optimal performance.
+
+Self-hosted models can scale to zero when not in use.
+Implement scale-to-zero for periods of low-utilization,
+configuring autoscaling policies to scale back up quickly
+where appropriate.
+
 ### Implementation steps
 
 1. Adopt serverless or fully-managed architectures.
@@ -116,13 +126,13 @@ workloads.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [SUS02-BP01](../framework/sus_sus_user_a2.md "../framework/sus_sus_user_a2.md")
 - [SUS05-BP02](../framework/sus_sus_hardware_a3.md "../framework/sus_sus_hardware_a3.md")
 - [SUS02-BP03](../sustainability-pillar/sus_sus_user_a4.md "../sustainability-pillar/sus_sus_user_a4.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Sustainability pillar – Best practices](../machine-learning-lens/sustainability-pillar-best-practices-5.md "../machine-learning-lens/sustainability-pillar-best-practices-5.md")
 - [Automatic
@@ -141,15 +151,26 @@ workloads.
   strategies](https://www.youtube.com/watch?v=8vAMOPLnN-w "https://www.youtube.com/watch?v=8vAMOPLnN-w")
 - [Optimize
   your AI/ML workloads with Amazon EC2 Graviton](https://www.youtube.com/watch?v=QIAaMlW1fVo "https://www.youtube.com/watch?v=QIAaMlW1fVo")
+- [Orchestrating
+  SageMaker AI HyperPod clusters with Amazon](../../../sagemaker/latest/dg/sagemaker-hyperpod-eks.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-eks.md")
+- [Orchestrating
+  SageMaker AI HyperPod clusters with Slurm](../../../sagemaker/latest/dg/sagemaker-hyperpod-slurm.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-slurm.md")
+- [Deploy models for inference](../../../sagemaker/latest/dg/deploy-model.md "../../../sagemaker/latest/dg/deploy-model.md")
 
 **Related examples:**
 
+- [Supercharge
+  your auto scaling for generative AI inference – Introducing
+  Container Caching in SageMaker AI Inference](https://aws.amazon.com/blogs/machine-learning/supercharge-your-auto-scaling-for-generative-ai-inference-introducing-container-caching-in-sagemaker-inference/ "https://aws.amazon.com/blogs/machine-learning/supercharge-your-auto-scaling-for-generative-ai-inference-introducing-container-caching-in-sagemaker-inference/")
 - [SageMaker AI
   Inference Recommender Example](https://github.com/aws/amazon-sagemaker-examples/tree/main/sagemaker-inference-recommender "https://github.com/aws/amazon-sagemaker-examples/tree/main/sagemaker-inference-recommender")
 - [AWS can help reduce the carbon footprint of AI workloads by up to
   99%](https://www.aboutamazon.com/news/aws/aws-carbon-footprint-ai-workload "https://www.aboutamazon.com/news/aws/aws-carbon-footprint-ai-workload")
 - [Carrier Uses
   Amazon Bedrock to Help Customers Achieve Their Sustainability Goals](https://aws.amazon.com/solutions/case-studies/carrier-bedrock-sustainability-testimonial/ "https://aws.amazon.com/solutions/case-studies/carrier-bedrock-sustainability-testimonial/")
+- [Introducing
+  Amazon SageMaker AI HyperPod, a purpose-built infrastructure for
+  distributed training at scale](https://aws.amazon.com/blogs/aws/introducing-amazon-sagemaker-hyperpod-a-purpose-built-infrastructure-for-distributed-training-at-scale/ "https://aws.amazon.com/blogs/aws/introducing-amazon-sagemaker-hyperpod-a-purpose-built-infrastructure-for-distributed-training-at-scale/")
 
 **Related tools:**
 

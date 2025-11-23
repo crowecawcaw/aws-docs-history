@@ -3,7 +3,7 @@
 boundaries for agentic workflows
 
 Implementing least privilege and permissions bounded agents limits
-the scope of agentic workflows and helps prevent them from taking
+the scope of agentic workflows and helps stop them from taking
 actions beyond their intended purpose on behalf of the user. This
 best practice describes how to reduce the risk of excessive agency.
 
@@ -51,19 +51,19 @@ have execution roles. Amazon Bedrock Flows have service roles. The
 roles attached to agents and prompt flows should be developed with
 least privilege access principles in mind. This is especially true
 concerning roles that facilitate access to data sources like
-Amazon Kendra or compute resources like AWS Lambda functions.
+Amazon Kendra or compute resources like AWS Lambda functions. Permission boundaries and least privilege access for an agent should be shared across models, particularly where multiple models or agents are servicing a prompt.
 
 Additionally, consider creating developer roles specific to the
 tasks being conducted. For example, consider creating separate IAM
 roles for the prompt engineer creating an agentic workflow and the
 security engineer creating the agent workflows IAM service role.
-Create a logical separation of duties to help to prevent excessive
+Create a logical separation of duties to help to reduce excessive
 agency for resources. Additionally, consider defining permission
 boundaries for roles. A permission boundary sets the maximum
 permissions which can be given to a role. These techniques can be
 implemented at the account level. A combination of these
 techniques may be the best approach, depending on your
-environment's specific implementation needs.
+environment's specific implementation needs. Define permission boundaries and policy documents like this in your organization’s AI policy document, with clear instructions on how to modify these as workload requirements change.
 
 ### Implementation steps
 
@@ -101,7 +101,7 @@ environment's specific implementation needs.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [SEC02-BP01](../security-pillar/sec_identities_enforce_mechanisms.md "../security-pillar/sec_identities_enforce_mechanisms.md")
 - [SEC02-BP02](../security-pillar/sec_identities_unique.md "../security-pillar/sec_identities_unique.md")
@@ -109,7 +109,7 @@ environment's specific implementation needs.
 - [SEC03-BP01](../security-pillar/sec_permissions_define.md "../security-pillar/sec_permissions_define.md")
 - [SEC03-BP02](../security-pillar/sec_permissions_least_privileges.md "../security-pillar/sec_permissions_least_privileges.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [AWS re:Invent 2023-Use new IAM Access Analyzer features on your
   jouney to least privilege](https://www.youtube.com/watch?v=JpemUkU8INA "https://www.youtube.com/watch?v=JpemUkU8INA")

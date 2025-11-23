@@ -24,12 +24,12 @@ is not established:** High
 
 ## Implementation guidance
 
-Guardrails leverage and combine complex techniques to identify
+Guardrails use and combine complex techniques to identify
 undesirable model output, ranging from keyword identification and
 regular expression matching to automated reasoning and
 constitutional AI. Implementing all of these techniques manually
 would be difficult and time-consuming. Consider using the Amazon Bedrock Guardrails API to scale the implementation of guardrails
-in your generative AI workloads.
+in your generative AI workloads. Open-source guardrail and constitutional AI libraries exist as well for self-hosted models on Amazon SageMaker AI endpoints. Your organization’s AI policy should identify best practices for guardrail implementation for all model tasks and hosting paradigms in use across the organization.
 
 There are several techniques to mitigating the generation of
 harmful, biased, or factually incorrect responses from a
@@ -97,11 +97,11 @@ a simple output disclaimer or a full human review.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [SEC07-BP02](../security-pillar/sec_data_classification_define_protection.md "../security-pillar/sec_data_classification_define_protection.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Test
   a guardrail](../../../bedrock/latest/userguide/guardrails-test.md "../../../bedrock/latest/userguide/guardrails-test.md")

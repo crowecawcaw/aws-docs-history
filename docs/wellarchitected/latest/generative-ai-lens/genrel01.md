@@ -4,10 +4,7 @@
 | ---------------------------------------------------------------------------------- |
 |                                                                                    |
 
-Foundation models perform complex tasks over detailed input, and
-they have limited throughput on the amount of inference requests
-they can service at a time. This is particularly true for managed
-and serverless model hosting paradigms.
+Foundation models perform complex tasks over detailed input, and they have limited throughput on the amount of inference requests they can service at a time. This is particularly true for managed and serverless model hosting paradigms. Understanding and managing these quotas is crucial for maintaining reliable service levels and optimal performance.
 
 ###### Best practices
 

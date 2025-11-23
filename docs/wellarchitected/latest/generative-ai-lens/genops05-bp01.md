@@ -112,12 +112,11 @@ data and model parallelism training capabilities.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [OPS04-BP01](../operational-excellence-pillar/ops_observability_identify_kpis.md "../operational-excellence-pillar/ops_observability_identify_kpis.md")
 
-**Related guides, videos, and
-documentation:**
+**Related documents:**
 
 - [Amazon Bedrock capabilities to enhance data processing and
   retrieval](https://aws.amazon.com/blogs/aws/new-amazon-bedrock-capabilities-enhance-data-processing-and-retrieval/ "https://aws.amazon.com/blogs/aws/new-amazon-bedrock-capabilities-enhance-data-processing-and-retrieval/")

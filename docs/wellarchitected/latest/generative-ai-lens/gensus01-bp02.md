@@ -108,12 +108,12 @@ their generative AI model training processes.
 
 ## Resources
 
-**Related practices:**
+**Related best practices:**
 
 - [SUS02-BP01](../framework/sus_sus_user_a2.md "../framework/sus_sus_user_a2.md")
 - [SUS05-BP02](../framework/sus_sus_hardware_a3.md "../framework/sus_sus_hardware_a3.md")
 
-**Related guides, videos, and documentation:**
+**Related documents:**
 
 - [Customize
   your model to improve its performance for your use case](../../../bedrock/latest/userguide/custom-models.md "../../../bedrock/latest/userguide/custom-models.md")

@@ -170,7 +170,7 @@ principles are often employed using tools like AWS CDK, AWS CloudFormation, or T
 systems and automated pipelines are crucial for maintaining and
 updating the system. Documentation and versioning of
 infrastructure components help maintain system stability and
-enable quick rollbacks if needed. Validate your compliance with
+enable quick rollbacks if needed. Validate your adherence with
 security and privacy requirements.
 
 ## Continuous improvement
