@@ -5,7 +5,7 @@ Returns the date that is num_days after start_date.
 ## Syntax
 
 ```
-dateadd(*start\_date*, *num\_days*)
+date_add(*start\_date*, *num\_days*)
 ```
 
 ## Arguments
@@ -28,7 +28,7 @@ DATE
 The following example adds one day to a date:
 
 ```
-SELECT dateadd('2016-07-30', 1);
+SELECT date_add('2016-07-30', 1);
 
 Result:
 2016-07-31
@@ -38,7 +38,7 @@ Result:
 The following example adds multiple days.
 
 ```
-SELECT dateadd('2016-07-30', 5);
+SELECT date_add('2016-07-30', 5);
 
 Result:
 2016-08-04

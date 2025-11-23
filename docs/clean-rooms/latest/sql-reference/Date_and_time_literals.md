@@ -59,17 +59,17 @@ to regular timestamp values during query processing.
 | `yesterday`   | Evaluates to the appropriate date and returns a timestamp with<br>zeroes for the time<br>parts.               |
 
 The following examples show how `now` and `today` work with
-the DATEADD function.
+the DATE_ADD function.
 
 ```
-select dateadd(day,1,'today');
+select date_add('today', 1);
 
 date_add
 ---------------------
 2009-11-17 00:00:00
 (1 row)
 
-select dateadd(day,1,'now');
+select date_add('now', 1);
 
 date_add
 ----------------------------
