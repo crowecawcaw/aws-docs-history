@@ -13,7 +13,7 @@ project.)
 
 (Swift Package Manager)
 
-1. Download the Package.swift file from [https://player.live-video.net/1.46.0/Package.swift](https://player.live-video.net/1.46.0/Package.swift "https://player.live-video.net/1.46.0/Package.swift").
+1. Download the Package.swift file from [https://player.live-video.net/1.47.0/Package.swift](https://player.live-video.net/1.47.0/Package.swift "https://player.live-video.net/1.47.0/Package.swift").
 2. In your project, create a new directory named AmazonIVSPlayer and add it
    to version control.
 3. Put the downloaded Package.swift file in the new directory.
@@ -50,7 +50,7 @@ Run `pod install` and the SDK will be available in your
 
 Framework Manually
 
-1. Download the latest version from [https://player.live-video.net/1.46.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.46.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.46.0/AmazonIVSPlayer.xcframework.zip").
+1. Download the latest version from [https://player.live-video.net/1.47.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.47.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.47.0/AmazonIVSPlayer.xcframework.zip").
 2. Extract the contents of the archive.
    `AmazonIVSPlayer.xcframework` contains the SDK for both
    device and simulator.

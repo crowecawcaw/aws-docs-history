@@ -3,9 +3,9 @@
 This document describes the most important functions available in the Amazon Interactive
 Video Service (IVS) Video.js player.
 
-**Latest version of Video.js player integration:** 1.46.0
+**Latest version of Video.js player integration:** 1.47.0
 ([Release
-Notes](release-notes.md#oct23-25-player-web-ll "release-notes.md#oct23-25-player-web-ll"))
+Notes](release-notes.md#nov20-25-player-web-ll "release-notes.md#nov20-25-player-web-ll"))
 
 ## Getting Started
 
@@ -32,7 +32,7 @@ To set up the Amazon IVS tech using the `script` tag:
    integration).
 
 ```
-<script src="https://player.live-video.net/1.46.0/amazon-ivs-videojs-tech.min.js"></script>
+<script src="https://player.live-video.net/1.47.0/amazon-ivs-videojs-tech.min.js"></script>
 ```
 
 2. Register the tech using the `registerIVSTech` function:
@@ -61,7 +61,7 @@ The example uses the latest version of the Amazon IVS Player.
 <head>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.14.3/video-js.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.14.3/video.min.js"></script>
-    <script src="https://player.live-video.net/1.46.0/amazon-ivs-videojs-tech.min.js"></script>
+    <script src="https://player.live-video.net/1.47.0/amazon-ivs-videojs-tech.min.js"></script>
 </head>
 
 <body>
@@ -167,7 +167,7 @@ want to import and use.
 - `TechOptions`, which describes the interface defining the
   configuration options you can send to `registerIVSTech()`.
 
-For more information on these types, see the [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.46.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.46.0/web/").
+For more information on these types, see the [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.47.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.47.0/web/").
 
 ## Events
 
@@ -184,7 +184,7 @@ player.getIVSPlayer().removeEventListener(event, callback);
 
 where `callback` is a callback you define, and `event` is one
 of: `PlayerEventType` or `PlayerState`. For more information about
-events, see the [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.46.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.46.0/web/").
+events, see the [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.47.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.47.0/web/").
 
 ## Errors
 
@@ -207,7 +207,7 @@ The callback will receive an object with the following fields:
 
 | Field     | Description                                                                                                                                                                                                                                  |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`    | The error type. Corresponds to `ErrorType` events. For<br>more information, see [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.46.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.46.0/web/"). |
+| `type`    | The error type. Corresponds to `ErrorType` events. For<br>more information, see [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.47.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.47.0/web/"). |
 | `code`    | The error code.                                                                                                                                                                                                                              |
 | `source`  | Source of the error.                                                                                                                                                                                                                         |
 | `message` | Human readable error message.                                                                                                                                                                                                                |
@@ -220,7 +220,7 @@ file if you are using our tech through the following `script` tag (for the
 latest version of the IVS Player):
 
 ```
-<script src="https://player.live-video.net/1.46.0/amazon-ivs-quality-plugin.min.js"></script>
+<script src="https://player.live-video.net/1.47.0/amazon-ivs-quality-plugin.min.js"></script>
 ```
 
 If you are using npm, import the `registerIVSQualityPlugin` from the
@@ -373,7 +373,7 @@ Amazon IVS-specific errors and events. For more information, see:
 - [Events](#videojs-events "#videojs-events") and [Errors](#videojs-errors "#videojs-errors") in this
   document.
 - [Amazon
-  IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.46.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.46.0/web/") for more information about events,
+  IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.47.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.47.0/web/") for more information about events,
   error types, and error sources.
 
 ### Signature
