@@ -3,14 +3,14 @@
 key encryption
 
 In AWS Elemental MediaConnect, you can use static key encryption to secure content in
-sources, outputs, and entitlements. To use this method, you store an encryption
+sources, outputs, entitlements and router I/O. To use this method, you store an encryption
 key as a _secret_ in AWS Secrets Manager, and you give
 AWS Elemental MediaConnect permission to access the secret. Secrets Manager keeps your encryption
 key secure, allowing it be accessed only by entities that you specify in an
 AWS Identity and Access Management (IAM) policy.
 
-With static key encryption, all participants (the owner of the source, the
-flow, and any outputs or entitlements) need the encryption key. If the content
+With static key encryption, all participants (the owner of the flow source, the
+flow, and any flow outputs, entitlements and router I/O) need the encryption key. If the content
 is shared using an entitlement, both AWS account owners must store the
 encryption key in AWS Secrets Manager.
 

@@ -22,8 +22,6 @@ IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md 
 **Service-linked roles** column. Choose a **Yes** with a link to view the service-linked role documentation for that
 service.
 
-## Supported regions for
+## Supported Regions for MediaConnect service-linked roles
 
-MediaConnect service-linked roles
-
-MediaConnect supports using service-linked roles in all of the regions where the service is available. For more information, see [MediaConnect regions and endpoints](../../../general/latest/gr/mediaconnect.md#mediaconnect_region "../../../general/latest/gr/mediaconnect.md#mediaconnect_region").
+MediaConnect supports using service-linked roles in all of the regions where the service is available. For more information, see [MediaConnect Regions and endpoints](../../../general/latest/gr/mediaconnect.md#mediaconnect_region "../../../general/latest/gr/mediaconnect.md#mediaconnect_region").

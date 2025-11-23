@@ -1,13 +1,13 @@
 # Data protection for AWS Elemental MediaConnect
 
 You can protect your data using tools that are provided by AWS. AWS Elemental MediaConnect
-can decrypt your incoming video (source) and encrypt your outgoing video (outputs and
-entitlements).
+can decrypt your incoming video (flow source or router input) and encrypt your outgoing video
+(flow outputs, router outputs and entitlements).
 
 You have three options for encrypting content in transit:
 
 - **Static key encryption:** You can use this
-  option to encrypt sources, outputs, and entitlements. You store your encryption
+  option to encrypt flow sources, flow outputs, router I/O and entitlements. You store your encryption
   key in AWS Secrets Manager, and then you give MediaConnect permission to obtain the
   encryption key from Secrets Manager.
 
@@ -15,8 +15,8 @@ Advantages: You have full control over storage of the encryption key for your
 account. The key is stored in AWS Secrets Manager, where you can access it any
 time.
 
-Challenges: All parties (the owners of the source, the flow, any outputs, and
-any entitlements) need the encryption key. If the content is shared using an
+Challenges: All parties (the owners of the flow or router input source, the flow, any flow
+or router outputs, and any entitlements) need the encryption key. If the content is shared using an
 entitlement, both the originator and the subscriber must store the encryption
 key in AWS Secrets Manager. If the encryption key changes, you must notify all parties of
 the new key.
@@ -38,43 +38,22 @@ entitlement.
 
 Challenges: You must work with a third party (the key provider).
 
-- **Secure Reliable Transport (SRT) password encryption:** You
-  can use this option to encrypt sources and outputs when using
-  SRT
-  protocols.
-  SRT protocols
-  are
-  highly available, low-latency
-  protocols
-  that
-  are
-  suitable for long-distance applications. You store your encryption password in
-  AWS Secrets Manager, and then you give MediaConnect permission to obtain the encryption
-  password from Secrets Manager.
+- **Secure Reliable Transport (SRT) password encryption:** You can
+  use this option to encrypt flow sources, flow outputs and router I/O when using SRT protocols.
+  SRT protocols are highly available, low-latency protocols that are suitable for
+  long-distance applications. You store your encryption password in AWS Secrets Manager,
+  and then you give MediaConnect permission to obtain the encryption password from Secrets Manager.
 
-Advantages: Uses 128/256 bit AES for encryption and decryption.
-SRT
-protocols
-use
-error correction to minimize packet loss. You have full control over storage of
-the encryption password. The password is stored in AWS Secrets Manager, where you can
-access it any time.
+Advantages: Uses AES with key lengths of 128, 192 or 256 bits.
+You have full control over the storage of the encryption password.
+The password is stored in AWS Secrets Manager, where you can access it any time.
 
-Challenges: Only usable with
-SRT
-protocols.
-MediaConnect does not support source failover if you use
-an
-SRT
-protocol.
+Challenges: Only usable with SRT protocols.
 
 ###### Note
 
-Encryption is supported only for entitlements, for sources that use the Zixi or
-SRT
-protocols, and for outputs that use the Zixi or
-SRT
-protocols.
+Encryption is supported for entitlements, flow sources and outputs that use the Zixi or
+SRT protocols, and for router I/O that use the SRT protocol.
 
 ###### Topics
 

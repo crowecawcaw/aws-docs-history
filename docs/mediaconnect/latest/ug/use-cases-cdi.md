@@ -1,12 +1,12 @@
 # MediaConnect use case: Contribution for CDI flows
 
 With
-AWS Elemental MediaConnect and AWS Direct Connect, you can bridge your on-premises live video network (SDI,
+AWS Elemental MediaConnect and Direct Connect, you can bridge your on-premises live video network (SDI,
 2022-6, or 2110) to your
 
 VPC live video network (CDI).
 MediaConnect
-uses the JPEG XS codec to reduce your AWS Direct Connect network bandwidth significantly.
+uses the JPEG XS codec to reduce your Direct Connect network bandwidth significantly.
 MediaConnect supports SMPTE 2110 standard (parts 22, 30, and 40) for video, audio, and
 metadata transfer. MediaConnect converts the content to CDI streams that are ready to
 be consumed by other services in the cloud, such as AWS Elemental MediaLive. When
@@ -15,7 +15,7 @@ use MediaConnect to convert the CDI streams back to the SMPTE 2110 standard (par
 30, and 40) for transport.
 
 For redundancy, when you transport content between your on-premises configuration and
-the AWS Cloud, set up two connections in AWS Direct Connect. Be sure to configure the AWS Elemental Live
+the AWS Cloud, set up two connections in Direct Connect. Be sure to configure the AWS Elemental Live
 appliance with settings to match the MediaConnect flows. For more information about
 configuring the appliance, see SMPTE 2110 [inputs](../../../elemental-live/latest/ug/input-2110.md "../../../elemental-live/latest/ug/input-2110.md") and [outputs](../../../elemental-live/latest/ug/output-2110.md "../../../elemental-live/latest/ug/output-2110.md")
 in the _AWS Elemental Live User Guide_.

@@ -2,37 +2,35 @@
 
 encryption using AWS Elemental MediaConnect
 
-Before you can create a flow with an encrypted source or an output that uses
-SRT password encryption, you must perform the following steps:
+Before you can create a flow or a router I/O that uses SRT password encryption,
+you must perform the following steps:
 
 **[Step 1](encryption-static-key-set-up.md#encryption-static-key-set-up-store-key "encryption-static-key-set-up.md#encryption-static-key-set-up-store-key")** – Store your SRT password as a secret
 in AWS Secrets Manager.
 
-**[Step
-2](encryption-static-key-set-up.md#encryption-static-key-set-up-create-iam-policy "encryption-static-key-set-up.md#encryption-static-key-set-up-create-iam-policy")** – Create an IAM policy that allows
+**[Step 2](encryption-static-key-set-up.md#encryption-static-key-set-up-create-iam-policy "encryption-static-key-set-up.md#encryption-static-key-set-up-create-iam-policy")** – Create an IAM policy that allows
 AWS Elemental MediaConnect to read the secret that you stored in AWS Secrets Manager.
 
-**[Step
-3](encryption-static-key-set-up.md#encryption-static-key-set-up-create-iam-role "encryption-static-key-set-up.md#encryption-static-key-set-up-create-iam-role")** – Create an IAM role and attach the policy that
+**[Step 3](encryption-static-key-set-up.md#encryption-static-key-set-up-create-iam-role "encryption-static-key-set-up.md#encryption-static-key-set-up-create-iam-role")** – Create an IAM role and attach the policy that
 you created in step 2. Next, set up AWS Elemental MediaConnect as a trusted entity that
 is allowed to assume this role and make requests on behalf of your
 account.
 
-## Step 1: Store your
+##
 
-encryption password in AWS Secrets Manager
+Step 1: Store your encryption password in AWS Secrets Manager
 
 To use SRT password encryption to encrypt your AWS Elemental MediaConnect content,
 you must use AWS Secrets Manager to create a secret that stores the password. You must
-create the secret, and the resource (source or output) that uses the secret
+create the secret, and the resource (source, output or router I/O) that uses the secret
 in the same AWS account. You can’t share secrets across accounts.
 
 ###### Note
 
-If you use two flows to distribute video from one AWS Region to
+If you distribute video from one AWS Region to
 another, you must create two secrets (one secret in each Region).
 
-If you are creating a new SRT password to encrypt an output, we recommend
+If you are creating a new SRT password to encrypt a flow or a router output, we recommend
 the following password policy:
 
 - Minimum password length of 10 characters and a maximum length of

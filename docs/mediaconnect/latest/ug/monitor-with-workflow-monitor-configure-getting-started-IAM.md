@@ -1,7 +1,7 @@
 # Workflow monitor IAM policies
 
 Workflow monitor interacts with multiple AWS services to create signal maps,
-build CloudWatch and EventBridge resources, and AWS CloudFormation templates. Because workflow monitor
+build CloudWatch and EventBridge resources, and CloudFormation templates. Because workflow monitor
 interacts with a wide range of services, specific AWS Identity and Access Management (IAM) policies
 must be assigned for these services. The following examples indicate the
 necessary IAM policies for both administrator and operator IAM

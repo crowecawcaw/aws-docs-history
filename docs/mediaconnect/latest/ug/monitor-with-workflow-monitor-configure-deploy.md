@@ -35,6 +35,6 @@ Workflow monitor uses AWS CloudFormation templates to deploy the CloudWatch and 
 standard class Amazon Simple Storage Service bucket that is created on your behalf, by workflow monitor, during the deployment process and will incur object storage and recall charges.
 For more information about pricing, see: [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/"). 3. The status of the deployment is displayed next to the name of the
 signal map. The deployment status is also visible in the
-**Stacks** section of the AWS CloudFormation console. After
+**Stacks** section of the CloudFormation console. After
 a few moments of resource creation and deployment, your signal map
 monitoring will begin.
