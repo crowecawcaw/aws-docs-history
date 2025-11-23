@@ -114,7 +114,7 @@ following services is useful to fully leverage HealthImaging.
   observe and monitor HealthImaging resources.
 - [AWS CloudTrail](https://aws.amazon.com/cloudtrail/ "https://aws.amazon.com/cloudtrail/") – Use CloudTrail to track
   HealthImaging user activity and API usage.
-- [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") – Use AWS CloudFormation to
+- [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") – Use CloudFormation to
   implement infrastructure as code (IaC) templates to create resources in HealthImaging.
 - [AWS PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.com/privatelink/") – Use Amazon VPC to
   establish connectivity between HealthImaging and [Amazon Virtual Private Cloud](https://aws.amazon.com/vpc/ "https://aws.amazon.com/vpc/") without exposing data to the internet.

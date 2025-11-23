@@ -414,3 +414,12 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
 
 Can't find what you need? Request a code example using the **Provide
 feedback** link on the right sidebar of this page.
+
+###### Transfer Syntax Metadata
+
+When importing DICOM data, HealthImaging keeps the original value for the transfer syntax
+attribute in the image set metadata. The transfer syntax of the original DICOM data imported
+is stored as `TransferSyntaxUID`. HealthImaging uses `StoredTransferSyntaxUID`
+to indicate the format used to encode image frame data in the data store:
+`1.2.840.10008.1.2.4.202` for HTJ2K enabled data stores (default) and
+`1.2.840.10008.1.2.4.90` for JPEG 2000 Lossless enabled data stores.

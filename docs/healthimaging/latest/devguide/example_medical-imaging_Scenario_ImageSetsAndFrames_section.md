@@ -16,7 +16,7 @@ C++
 
 **SDK for C++**
 
-Create an AWS CloudFormation stack with the necessary resources.
+Create an CloudFormation stack with the necessary resources.
 
 ```
     Aws::String inputBucketName;
@@ -1692,7 +1692,7 @@ Python
 
 **SDK for Python (Boto3)**
 
-Create an AWS CloudFormation stack with the necessary resources.
+Create an CloudFormation stack with the necessary resources.
 
 ```
     def deploy(self):

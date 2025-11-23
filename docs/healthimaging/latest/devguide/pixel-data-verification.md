@@ -1,7 +1,7 @@
 # AWS HealthImaging pixel data verification
 
 During import, HealthImaging provides built-in pixel data verification by checking the lossless
-encoding and decoding state of every image. This feature ensures that images decoded using [HTJ2K decoding libraries](reference-htj2k.md "reference-htj2k.md") always match the original DICOM P10
+encoding and decoding state of every image. This feature ensures that images decoded using [HTJ2K decoding libraries](reference-libraries.md "reference-libraries.md") always match the original DICOM P10
 images imported into HealthImaging.
 
 - The image onboarding process begins when an import job captures the original pixel
@@ -89,7 +89,7 @@ persisted in the HealthImaging metadata. As with images stored in their original
 syntax (described above), the `MinPixelValue` and `MaxPixelValue` will not be available. The
 FrameSizeInBytes indicates the size of the original frame. 5. HealthImaging verify pixel data, access the [Pixel data verification](https://github.com/aws-samples/aws-healthimaging-samples/tree/main/pixel-data-verification "https://github.com/aws-samples/aws-healthimaging-samples/tree/main/pixel-data-verification") procedure on GitHub and follow the instructions in
 the`README.md` file to independently verify lossless image processing
-by the various [HTJ2K decoding libraries](reference-htj2k.md "reference-htj2k.md") that
+by the various [Image frame decoding libraries](reference-libraries.md "reference-libraries.md") that
 are utilized by HealthImaging. After the full image is loaded, you can compute the IFRC for raw
 input data on your end and compare it with the IFRC value provided in the HealthImaging metadata to
 verify the pixel data.

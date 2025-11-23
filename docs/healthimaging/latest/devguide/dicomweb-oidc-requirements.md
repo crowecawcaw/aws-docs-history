@@ -18,46 +18,25 @@ the requests with appropriate permissions.
 
 Here is an example of a policy allowing associated roles to access to HealthImaging DICOMWeb read-only API:
 
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "MedicalImagingDicomWebOperations",
-            "Effect": "Allow",
-            "Action": [
-                "medical-imaging:SearchDICOMInstances",
-                "medical-imaging:GetImageSetMetadata",
-                "medical-imaging:GetDICOMSeriesMetadata",
-                "medical-imaging:SearchDICOMStudies",
-                "medical-imaging:GetDICOMBulkdata",
-                "medical-imaging:SearchDICOMSeries",
-                "medical-imaging:GetDICOMInstanceMetadata",
-                "medical-imaging:GetDICOMInstance",
-                "medical-imaging:GetDICOMInstanceFrames"
-            ],
-            "Resource": "arn:aws:medical-imaging:{`Region`}:{`Account`}:datastore/{`DatastoreId`}"
-        }
-    ]
-}
-```
-
 Here is an example of the trust relationship policy that should be associated to the role(s):
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "OIDCRoleFederation",
-            "Effect": "Allow",
-            "Principal": {
-                "Service": "medical-imaging.amazonaws.com"
-            },
-            "Action": "sts:AssumeRole"
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "OIDCRoleFederation",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "medical-imaging.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole"
+ }
+ ]
+}`
+
 ```
 
 The Lambda authorizer you'll create in the next step can evaluate the token claims and return the ARN of the
@@ -126,29 +105,6 @@ The lambda resource policy can be updated later on with an "ArnLike" condition m
 datastore.
 
 Here is an example of lambda resource policy:
-
-```
-{
-  "Version": "2012-10-17",
-  "Id": "default",
-  "Statement": [
-    {
-      "Sid": "LambaAuthorizer-HealthImagingInvokePermission",
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "medical-imaging.amazonaws.com"
-      },
-      "Action": "lambda:InvokeFunction",
-      "Resource": "arn:aws:lambda:{`Region`}:{`Account`}::function:{`LambdaAuthorizerFunctionName`}",
-      "Condition": {
-        "ArnLike": {
-          "AWS:SourceArn": "arn:aws:medical-imaging:{`Region`}:{`Account`}:datastore/{`DatastoreId`}"
-        }
-      }
-    }
-  ]
-}
-```
 
 ## 3. Create a New Datastore with OIDC Authentication
 

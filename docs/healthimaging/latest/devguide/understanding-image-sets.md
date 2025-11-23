@@ -48,10 +48,10 @@ DICOM P10 objects into image sets.
 
 During import, some image sets retain their original transfer syntax encoding, while
 others are transcoded to High-Throughput JPEG 2000 (HTJ2K) lossless by default. If an image set
-is encoded in HTJ2K, it must be decoded prior to viewing. For more information, see [Supported transfer syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md") and [HTJ2K decoding libraries](reference-htj2k.md "reference-htj2k.md").
+is encoded in HTJ2K, it must be decoded prior to viewing. For more information, see [Supported transfer syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md") and [Image frame decoding libraries](reference-libraries.md "reference-libraries.md").
 
 Image frames (pixel data) are encoded in High-Throughput JPEG 2000 (HTJ2K) and must be
-[decoded](reference-htj2k.md "reference-htj2k.md") prior to viewing.
+[decoded](reference-libraries.md "reference-libraries.md") prior to viewing.
 
 Image sets are AWS resources, so they are assigned [Amazon Resource Names (ARNs)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md"). They can
 be tagged with up to 50 key-value pairs and granted [role-based access control (RBAC)](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") and [attribute-based access

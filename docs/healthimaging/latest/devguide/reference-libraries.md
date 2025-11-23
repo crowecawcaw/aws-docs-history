@@ -1,11 +1,12 @@
-# HTJ2K decoding libraries for AWS HealthImaging
+# Image frame decoding libraries for AWS HealthImaging
 
 During [import](importing-imaging-data.md "importing-imaging-data.md"), some transfer syntaxes retain
 their original encoding, while others are transcoded to High-Throughput JPEG 2000 (HTJ2K) lossless
-by default. HTJ2K delivers consistently fast image display and universal access to HTJ2K’s
-advanced features. Because some image frames are encoded in HTJ2K during import, they must be
-decoded prior to viewing in an image viewer. For information about determining transfer syntaxes,
-see [Supported transfer syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md").
+by default or JPEG 2000 Lossless (when configured) depending on your datastore configuration. HTJ2K
+delivers consistently fast image display and universal access to HTJ2K’s advanced features. Because image
+frames are encoded in either HTJ2K or JPEG 2000 Lossless during import, they must be decoded prior to
+viewing in an image viewer. For information about determining transfer syntaxes, see Supported transfer
+syntaxes. For information about determining transfer syntaxes, see [Supported transfer syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md").
 
 ###### Note
 
@@ -16,10 +17,10 @@ and color space support.
 
 ###### Topics
 
-- [HTJ2K decoding libraries](#decoding-libraries "#decoding-libraries")
+- [Image frame decoding libraries](#decoding-libraries "#decoding-libraries")
 - [Image viewers](#web-viewers "#web-viewers")
 
-## HTJ2K decoding libraries
+## Image frame decoding libraries
 
 Depending on your programming language, we recommend the following decoding libraries to
 decode [image frames](getting-started-concepts.md#concept-image-frame "getting-started-concepts.md#concept-image-frame").

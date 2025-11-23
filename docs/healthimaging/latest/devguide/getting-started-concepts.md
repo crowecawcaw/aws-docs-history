@@ -47,6 +47,7 @@ For more information, see [Getting image set metadata](get-image-set-metadata.md
 ## Image frame
 
 An image frame is the pixel data that exists within an [image set](#concept-image-set "#concept-image-set") to make up a 2D medical image. Some files retain their original transfer
-syntax encoding during import, while others are transcoded to High-Throughput JPEG 2000 (HTJ2K)
-lossless by default. If an image frame is encoded in HTJ2K, it must be decoded prior to viewing
-in an image viewer. For more information, see [Supported transfer syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md"), [Getting image set pixel data](get-image-frame.md "get-image-frame.md"), and [HTJ2K decoding libraries](reference-htj2k.md "reference-htj2k.md").
+syntax encoding during import, while others are transcoded. Amazon Web Services data stores can
+be configured to transcode lossless image frames to either High-Throughput JPEG 2000 (HTJ2K)
+lossless or JPEG 2000 lossless. If an image frame is encoded in HTJ2K or JPEG 2000, it must
+be decoded prior to viewing in an image viewer. For more information, see [Supported transfer syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md"), [Getting image set pixel data](get-image-frame.md "get-image-frame.md"), and [Image frame decoding libraries](reference-libraries.md "reference-libraries.md").

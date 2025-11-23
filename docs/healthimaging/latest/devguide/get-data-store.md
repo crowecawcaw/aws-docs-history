@@ -2,8 +2,24 @@
 
 Use the `GetDatastore` action to retrieve AWS HealthImaging [data store](getting-started-concepts.md#concept-data-store "getting-started-concepts.md#concept-data-store") properties. The following menus provide a
 procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more
-information, see [`GetDatastore`](../APIReference/API_GetDatastore.md "../APIReference/API_GetDatastore.md") in the _AWS HealthImaging API
-Reference_.
+information, see [`GetDatastore`](../APIReference/API_GetDatastore.md "../APIReference/API_GetDatastore.md") in the [_AWS HealthImaging API
+Reference_](../APIReference/API_GetDatastore.md "../APIReference/API_GetDatastore.md").
+
+Below is the example response for a JPEG 2000 Lossless enabled datastore:
+
+```
+{
+    "datastoreProperties": {
+        "datastoreId": "12345678901234567890123456789012",
+        "datastoreName": "TestDatastore123",
+        "datastoreStatus": "ACTIVE",
+        "losslessStorageFormat": "JPEG_2000_LOSSLESS",
+        "datastoreArn": "arn:aws:medical-imaging:us-east-1:123456789012:datastore/12345678901234567890123456789012",
+        "createdAt": "2022-11-15T23:33:09.643000+00:00",
+        "updatedAt": "2022-11-15T23:33:09.643000+00:00"
+    }
+}
+```
 
 ###### To get data store properties
 

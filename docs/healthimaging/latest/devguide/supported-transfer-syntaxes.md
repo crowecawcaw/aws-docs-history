@@ -1,15 +1,16 @@
 # Supported transfer syntaxes
 
-AWS HealthImaging supports importing DICOM P10 files with different transfer syntaxes. Some files
-retain their original transfer syntax encoding during import, while others are transcoded to
-HTJ2K lossless by default. The following example shows how HealthImaging records a
-`StoredTransferSyntaxUID` for each instance within the
-[metadata](getting-started-concepts.md#concept-metadata "getting-started-concepts.md#concept-metadata") returned by [GetImageSetMetadata](get-image-set-metadata.md "get-image-set-metadata.md").
+AWS HealthImaging supports importing DICOM P10 files with different transfer syntaxes. Some files retain
+their original transfer syntax encoding during import, while most lossless image frames are transcoded
+during import. The transcoding behavior depends on your datastore configuration. Data stores use HTJ2K
+as the storage format by default, but can be configured at creation time to use JPEG 2000 Lossless. The
+following example shows how HealthImaging records a `StoredTransferSyntaxUID`
+for each instance within the [metadata](getting-started-concepts.md#concept-metadata "getting-started-concepts.md#concept-metadata") returned by [GetImageSetMetadata](get-image-set-metadata.md "get-image-set-metadata.md").
 
 ```
 "Instances": {
    "999.999.2.19941105.134500.2.101": {
-       "StoredTransferSyntaxUID": "1.2.840.10008.1.2.4.50",
+       "StoredTransferSyntaxUID": "1.2.840.10008.1.2.4.90",
        "ImageFrames": [{ ...
 
 ```
@@ -23,13 +24,13 @@ Keep these points in mind when viewing the following table:
   `StoredTransferSyntaxUID` located in the instance metadata matches the original
   transfer syntax.
 - A transfer syntax UID entry marked _without_ an asterisk indicates a
-  file is transcoded to HTJ2K lossless during import and stored in HealthImaging. For these files, the
-  `StoredTransferSyntaxUID` located in the instance metadata is High-Throughput JPEG
+  file is transcoded to HTJ2K lossless during import and stored in HealthImaging. The
+  `StoredTransferSyntaxUID` element of the instance metadata will be set the storage format of High-Throughput JPEG
   2000 with RPCL Options Image Compression—Lossless Only
   (1.2.840.10008.1.2.4.202).
 - If the `StoredTransferSyntaxUID` key does not exist or is set to
-  `null`, you can assume it is encoded as HTJ2K Lossless RPCL
-  (1.2.840.10008.1.2.4.202).
+  `null`, you can assume it is encoded to the configured data store storage
+  format.
 
 | HealthImaging supported transfer syntaxes                                                                                                           | Transfer syntax UID                                                                                                                                            | Transfer syntax name |
 | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |

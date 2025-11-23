@@ -3,12 +3,45 @@
 Use the `CreateDatastore` action to create an AWS HealthImaging [data store](getting-started-concepts.md#concept-data-store "getting-started-concepts.md#concept-data-store") for importing DICOM P10 files. The following
 menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For
 more information, see [`CreateDatastore`](../APIReference/API_CreateDatastore.md "../APIReference/API_CreateDatastore.md") in the _AWS HealthImaging API
-Reference_.
+Reference_. When you create a data store, you can select the default transfer syntax
+that AWS HealthImaging used to transcode and store lossless image frames. This configuration cannot be
+changed after the data store is created.
+
+###### High Throughput JPEG 2000 (HTJ2K)
+
+HTJ2K (High Throughput JPEG 2000) is the default storage format for HealthImaging datastores.
+It is an extension of the JPEG 2000 standard that offers significantly improved encoding
+and decoding performance. When you create a datastore without specifying a
+`—lossless-storage-format`, HealthImaging automatically uses HTJ2K.
+
+```
+aws medical-imaging create-datastore \
+    --datastore-name "my-datastore"
+```
+
+###### Native JPEG 2000 Lossless
+
+Native JPEG 2000 Lossless encoding allows creation of datastores that persist and
+retrieve lossless image frames in JPEG 2000 format without transcoding, enabling lower
+latency retrieval for applications that require JPEG 2000 Lossless (DICOM Transfer Syntax
+UID 1.2.840.10008.1.2.4.90) see [Supported transfer syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md") for more details.
+
+###### Creating a JPEG 2000 Lossless Datastore
+
+To create a datastore that supports JPEG 2000 Lossless:
+
+```
+aws medical-imaging create-datastore \
+    --datastore-name "my-datastore" \
+    --lossless-storage-format JPEG_2000_LOSSLESS
+```
 
 ###### Important
 
-Do not name data stores with protected health information (PHI), personally identifiable information (PII), or other confidential or sensitive
-information.
+- Do not name data stores with protected health information (PHI), personally identifiable information (PII), or other confidential or sensitive
+  information.
+- The AWS Console supports creation of data stores with default settings. Use the AWS CLI
+  or AWS SDK to create a data store with an optional `—lossless-storage-format` specified.
 
 ###### To create a data store
 

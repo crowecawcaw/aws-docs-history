@@ -12,7 +12,8 @@ Keep the following points in mind before starting an import job:
 
 - HealthImaging supports importing DICOM P10 files with different transfer syntaxes.
   Some files retain their original transfer syntax encoding during import, while
-  others are transcoded to HTJ2K lossless by default. For more information, see
+  others are transcoded to HTJ2K lossless by default or JPEG 2000 Lossless
+  depending on your datastore configuration. For more information, see
   [Supported transfer syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md").
 - HealthImaging supports data imports from Amazon S3 buckets located in other [supported Regions](endpoints-quotas.md#endpoints "endpoints-quotas.md#endpoints"). To achieve this functionality,
   provide the `inputOwnerAccountId` parameter when starting an import

@@ -77,4 +77,4 @@ if not included. Supported transfer syntaxes include:
      AVC/H.264 and HEVC/H.265) may be retrieved with the corresponding transfer-syntax UID. For example,
      `1.2.840.10008.1.2.4.100` if the instance is stored as MPEG2 Main Profile Main Level.
 
-For more information, see [Supported transfer syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md") and [HTJ2K decoding libraries for AWS HealthImaging](reference-htj2k.md "reference-htj2k.md").
+For more information, see [Supported transfer syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md") and [Image frame decoding libraries for AWS HealthImaging](reference-libraries.md "reference-libraries.md").
