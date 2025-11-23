@@ -18,8 +18,8 @@ the script, enter: `{!MyVariable}`
 ###### Note
 
 - AWS TNB supports user-data scripts up to 7 KB in size.
-- Because AWS TNB uses AWS CloudFormation to process and render the `multimime`
-  user-data script, ensure that the script adheres to all AWS CloudFormation rules.
+- Because AWS TNB uses CloudFormation to process and render the `multimime`
+  user-data script, ensure that the script adheres to all CloudFormation rules.
 
 ## Syntax
 

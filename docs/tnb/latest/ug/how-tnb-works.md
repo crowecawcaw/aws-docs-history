@@ -41,7 +41,7 @@ as telecom-specific APIs to create a fully operational network service:
   artifacts.
 - Amazon Elastic Kubernetes Service (Amazon EKS) to set up clusters.
 - Amazon VPC for networking constructs.
-- Security groups using AWS CloudFormation.
+- Security groups using CloudFormation.
 - AWS CodePipeline for deployment targets across AWS Regions, AWS Local Zones, and
   AWS Outposts.
 - IAM to define roles.

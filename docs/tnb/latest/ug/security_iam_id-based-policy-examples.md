@@ -44,7 +44,7 @@ recommendations:
 - **Use conditions in IAM policies to further restrict access**
   – You can add a condition to your policies to limit access to actions and resources. For example, you can write a policy condition to specify that all requests must
   be sent using SSL. You can also use conditions to grant access to service actions
-  if they are used through a specific AWS service, such as AWS CloudFormation. For more information, see
+  if they are used through a specific AWS service, such as CloudFormation. For more information, see
   [IAM JSON policy elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
 - **Use IAM Access Analyzer to validate your IAM policies to ensure secure and functional permissions**
   – IAM Access Analyzer validates new and existing policies so that the policies adhere to the IAM policy language (JSON) and IAM best practices.
@@ -89,7 +89,7 @@ _IAM User Guide_.
 
 As a member of the platform team, you can as an administrator create an
 AWS TNB service role and provide it to AWS TNB. This role allows AWS TNB to
-make calls to other services such as Amazon Elastic Kubernetes Service and AWS CloudFormation to provision the required
+make calls to other services such as Amazon Elastic Kubernetes Service and CloudFormation to provision the required
 infrastructure for your network and provision network functions as defined in your
 NSD.
 
@@ -447,7 +447,7 @@ following sections in the _AWS CloudFormation User Guide_:
   `node_role` attribute to specify which role will be used to create
   your Amazon EKS node group.
 
-The following example shows a AWS CloudFormation template that creates a AWS TNB service
+The following example shows a CloudFormation template that creates a AWS TNB service
 role for the Amazon EKS node group policy.
 
 ```
@@ -503,7 +503,7 @@ following sections in the _AWS CloudFormation User Guide_:
   part of your deployment template, you must provide the `multus_role`
   attribute to specify which role will be used for managing Multus.
 
-The following example shows a AWS CloudFormation template that creates a AWS TNB service
+The following example shows a CloudFormation template that creates a AWS TNB service
 role for a Multus policy.
 
 ```
@@ -569,7 +569,7 @@ following sections in the _AWS CloudFormation User Guide_:
 Your life-cycle hook policy
 should be based on what your life-cycle hook is attempting to do.
 
-The following example shows a AWS CloudFormation template that creates a AWS TNB service
+The following example shows a CloudFormation template that creates a AWS TNB service
 role for a life-cycle hook policy.
 
 ```
