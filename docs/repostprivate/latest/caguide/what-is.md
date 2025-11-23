@@ -20,6 +20,6 @@ Only customers with Enterprise Support (ES) and Enterprise On-Ramp (EOP) Support
 
 You must meet the following prerequisites before you can create a new private re:Post or manage an existing private re:Post in AWS re:Post Private:
 
-- You must sign up for an [Enterprise](https://aws.amazon.com/premiumsupport/plans/enterprise/ "https://aws.amazon.com/premiumsupport/plans/enterprise/") or [Enterprise On-Ramp](https://aws.amazon.com/premiumsupport/plans/enterprise-onramp/ "https://aws.amazon.com/premiumsupport/plans/enterprise-onramp/") Support Plan.
+- You must sign up for an [Enterprise](https://aws.amazon.com/premiumsupport/plans/enterprise/ "https://aws.amazon.com/premiumsupport/plans/enterprise/") or [Enterprise On-Ramp](https://aws.amazon.com//premiumsupport/plans/enterprise-onramp/ "https://aws.amazon.com//premiumsupport/plans/enterprise-onramp/") Support Plan.
 - You must [enable AWS IAM Identity Center](../../../singlesignon/latest/userguide/get-started-enable-identity-center.md "../../../singlesignon/latest/userguide/get-started-enable-identity-center.md") in the same Region where you want to set up your private re:Post.
 - You must create an AWS Identity and Access Management role that has the required permissions to create, manage, and resolve Support cases for you. The re:Post Private service uses this role to make API calls to Support. For more information, see [Manage access to Support case creation and management in re:Post Private](repost-manage-permissions.md "repost-manage-permissions.md").
