@@ -13,6 +13,7 @@ This section provides release notes for the Amazon DCV Access Console by release
 
 ###### Topics
 
+- [2025.0-159 — November 12, 2025](#2025.0-159 "#2025.0-159")
 - [2025.0-155 — October 23, 2025](#2025.0-155 "#2025.0-155")
 - [2024.0-150 — June 17, 2025](#2024.0-150 "#2024.0-150")
 - [2024.0-135 — January 15, 2025](#2024.0-135 "#2024.0-135")
@@ -20,6 +21,12 @@ This section provides release notes for the Amazon DCV Access Console by release
 - [2023.1-57 — August 1, 2024](#2023.1-57 "#2023.1-57")
 - [2023.1-20 — June 26, 2024](#2023.1-20 "#2023.1-20")
 - [2023.1 — June 13, 2024](#2023.1 "#2023.1")
+
+### 2025.0-159 — November 12, 2025
+
+| Build numbers                                                                                                     | Release notes                                                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Version: 2025.0-159<br>• Web Client: 159<br>• Handler: 159<br>• Authentication Server: 159<br>• Setup Wizard: 159 | • Added support for macOS hosts.<br>• Fixed token expiration handling to support both seconds and milliseconds timestamp formats, preventing token expiration issues. |
 
 ### 2025.0-155 — October 23, 2025
 
@@ -67,12 +74,13 @@ This section provides release notes for the Amazon DCV Access Console by release
 
 The following table describes the documentation for this release of Amazon DCV Access Console.
 
-| Change                        | Description                                                                                                                                                   | Date             |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| Amazon DCV Version 2025.0-155 | Amazon DCV Access Console has been updated for Amazon DCV 2025.0-155. For more information, see<br>[2025.0-155--October 23, 2025](#2025.0-155 "#2025.0-155"). | October 23, 2025 |
-| Amazon DCV Version 2024.0-150 | Amazon DCV Access Console has been updated for Amazon DCV 2024.0-150. For more<br>information, see [2024.0-150--June 17,<br>2025](#2024.0-150 "#2024.0-150"). | June 17, 2025    |
-| Amazon DCV Version 2024.0-135 | Amazon DCV Access Console has been updated for Amazon DCV 2024.0-135. For more information, see [2024.0-135--January 15, 2025](#2024.0-135 "#2024.0-135").    | January 15, 2025 |
-| Amazon DCV Version 2024.0-73  | Amazon DCV Access Console has been updated for Amazon DCV 2024.0-73. For more information, see [2024.0-73--October 1, 2024](#2024.0-73 "#2024.0-73").         | October 1, 2024  |
-| Amazon DCV Version 2023.1-57  | Amazon DCV Access Console has been updated for Amazon DCV 2023.1-57. For more information, see [2023.1-57--July 29, 2024](#2023.1-57 "#2023.1-57").           | August 1, 2024   |
-| Amazon DCV Version 2023.1-20  | NICE DCV Access Console has been updated for NICE DCV 2023.1-20. For more information, see [2023.1-20--June 26, 2024](#2023.1-20 "#2023.1-20").               | June 26, 2024    |
-| Initial release               | First publication of this content.                                                                                                                            | June 13, 2024    |
+| Change                        | Description                                                                                                                                                    | Date              |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| Amazon DCV Version 2025.0-159 | Amazon DCV Access Console has been updated for Amazon DCV 2025.0-159. For more information, see<br>[2025.0-159--November 12, 2025](#2025.0-159 "#2025.0-159"). | November 12, 2025 |
+| Amazon DCV Version 2025.0-155 | Amazon DCV Access Console has been updated for Amazon DCV 2025.0-155. For more information, see<br>[2025.0-155--October 23, 2025](#2025.0-155 "#2025.0-155").  | October 23, 2025  |
+| Amazon DCV Version 2024.0-150 | Amazon DCV Access Console has been updated for Amazon DCV 2024.0-150. For more<br>information, see [2024.0-150--June 17,<br>2025](#2024.0-150 "#2024.0-150").  | June 17, 2025     |
+| Amazon DCV Version 2024.0-135 | Amazon DCV Access Console has been updated for Amazon DCV 2024.0-135. For more information, see [2024.0-135--January 15, 2025](#2024.0-135 "#2024.0-135").     | January 15, 2025  |
+| Amazon DCV Version 2024.0-73  | Amazon DCV Access Console has been updated for Amazon DCV 2024.0-73. For more information, see [2024.0-73--October 1, 2024](#2024.0-73 "#2024.0-73").          | October 1, 2024   |
+| Amazon DCV Version 2023.1-57  | Amazon DCV Access Console has been updated for Amazon DCV 2023.1-57. For more information, see [2023.1-57--July 29, 2024](#2023.1-57 "#2023.1-57").            | August 1, 2024    |
+| Amazon DCV Version 2023.1-20  | NICE DCV Access Console has been updated for NICE DCV 2023.1-20. For more information, see [2023.1-20--June 26, 2024](#2023.1-20 "#2023.1-20").                | June 26, 2024     |
+| Initial release               | First publication of this content.                                                                                                                             | June 13, 2024     |
