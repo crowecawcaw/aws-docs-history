@@ -6,7 +6,7 @@ service. One way to improve the security of your application is to send these Ap
 endpoint.
 
 Using a _VPC endpoint_, you can privately connect your VPC to supported AWS services and VPC endpoint services that are powered by
-AWS PrivateLink. You don't need an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
+AWS PrivateLink. You don't need an internet gateway, NAT device, VPN connection, or Direct Connect connection.
 
 Resources in your VPC don't use public IP addresses to interact with App Runner resources. Traffic between your VPC and App Runner doesn't leave the Amazon network.
 For more information about VPC endpoints, see [VPC endpoints](../../../vpc/latest/privatelink/vpc-endpoints.md "../../../vpc/latest/privatelink/vpc-endpoints.md") in the
