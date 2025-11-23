@@ -21,7 +21,7 @@ model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://a
 
 - [Security in Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-security.md "../../../AWSEC2/latest/UserGuide/ec2-security.md")
 - [Security in Amazon EC2
-  Auto Scaling](../../../autoscaling/ec2/userguide/security.md "../../../autoscaling/ec2/userguide/security.md")
+  Amazon EC2 Auto Scaling](../../../autoscaling/ec2/userguide/security.md "../../../autoscaling/ec2/userguide/security.md")
 - [Security in Amazon ECS
   clusters](../../../AmazonECS/latest/developerguide/security.md "../../../AmazonECS/latest/developerguide/security.md")
 - [Security in Amazon EKS](../../../eks/latest/userguide/security.md "../../../eks/latest/userguide/security.md")

@@ -46,7 +46,7 @@ Wavelength Zones. You can also use the following:
 - Amazon EC2 Systems Manager
 - Amazon CloudWatch
 - AWS CloudTrail
-- AWS CloudFormation
+- CloudFormation
 - Application Load Balancer in select Wavelength Zones. For a list of these Zones, see [Load balancing](architecture.md#architecture-load-balancing "architecture.md#architecture-load-balancing").
 
 The services in Wavelength are part of a VPC that is connected over a reliable connection to an
