@@ -55,9 +55,9 @@ status.
 ###### Note
 
 You can also add authorizations to aggregator accounts and
-Regions programatically using AWS CloudFormation sample templates. For more
+Regions programatically using CloudFormation sample templates. For more
 information, see [AWS::Config::AggregationAuthorization](../../../AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.md") in the
-_AWS CloudFormation User Guide_.
+_CloudFormation User Guide_.
 
 Authorizing a Pending Request (Console)
 If you have a pending authorization request from an existing

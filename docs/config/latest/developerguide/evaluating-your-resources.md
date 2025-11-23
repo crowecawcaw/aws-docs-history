@@ -34,7 +34,7 @@ The [Resource type schema](../../../cloudformation-cli/latest/userguide/resource
 aws cloudformation describe-type --type-name "AWS::S3::Bucket" --type `RESOURCE`
 ```
 
-For more information, see [Managing extensions through the AWS CloudFormation registry](../../../AWSCloudFormation/latest/UserGuide/registry.md#registry-view "../../../AWSCloudFormation/latest/UserGuide/registry.md#registry-view")
+For more information, see [Managing extensions through the CloudFormation registry](../../../AWSCloudFormation/latest/UserGuide/registry.md#registry-view "../../../AWSCloudFormation/latest/UserGuide/registry.md#registry-view")
 and [AWS resource and property types reference](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") in the AWS CloudFormation User Guide.
 
 ###### Note

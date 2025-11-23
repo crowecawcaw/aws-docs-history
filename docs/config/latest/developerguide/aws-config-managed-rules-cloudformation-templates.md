@@ -7,8 +7,8 @@ Rules With AWS CloudFormation Templates
 You must first create and start the AWS Config configuration recorder in order to create AWS Config managed
 rules with AWS CloudFormation. For more information, see [Managing the Configuration Recorder](stop-start-recorder.md "stop-start-recorder.md").
 
-For supported AWS Config managed rules, you can use the AWS CloudFormation templates to create the rule for
-your account or update an existing AWS CloudFormation stack. A stack is a collection of related resources
+For supported AWS Config managed rules, you can use the CloudFormation templates to create the rule for
+your account or update an existing CloudFormation stack. A stack is a collection of related resources
 that you provision and update as a single unit. When you launch a stack with a template, the
 AWS Config managed rule is created for you. The templates create only the rule, and don't create
 additional AWS resources.
@@ -22,7 +22,7 @@ it to your S3 bucket.
 For more information about working with AWS CloudFormation templates, see [Getting Started with AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md") in the
 _AWS CloudFormation User Guide_.
 
-###### To launch an AWS CloudFormation stack for an AWS Config managed rule
+###### To launch an CloudFormation stack for an AWS Config managed rule
 
 1. Go to the [CloudFormation
    console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation") and create a new stack.

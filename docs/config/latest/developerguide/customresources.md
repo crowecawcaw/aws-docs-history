@@ -15,11 +15,11 @@ policies, and regulatory policies.
 ###### Note
 
 If you have configured AWS Config to record all resource types, then third-party resources
-that are managed (created, updated, or deleted) through AWS CloudFormation are automatically tracked
+that are managed (created, updated, or deleted) through CloudFormation are automatically tracked
 in AWS Config as configuration items.
 
 **Prerequisite:** The third-party resources or custom resource type must
-be registered using AWS CloudFormation.
+be registered using CloudFormation.
 
 ###### Topics
 

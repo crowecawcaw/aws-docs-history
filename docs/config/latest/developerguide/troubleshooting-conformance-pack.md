@@ -39,7 +39,7 @@ failure.
 **When the stackArn is present in the response**
 
 If the error message is not clear or if the failure is due to an internal error, go to the
-AWS CloudFormation console and do the following:
+CloudFormation console and do the following:
 
 1. Search for the **stackArn** from the output.
 2. Choose the **Events** tab of the CloudFormation stack and check for failed
@@ -86,7 +86,7 @@ If you try to delete the conformance pack, the dangling rule cannot be deleted a
 
 To fix this issue, do the following steps:
 
-1. Delete the stack. For more information, see [Deleting a stack on the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the _CloudFormation User Guide_.
+1. Delete the stack. For more information, see [Deleting a stack on the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the _CloudFormation User Guide_.
 2. Delete the conformance pack using the AWS Config console or using the [DeleteConformancePack](../APIReference/API_DeleteConformancePack.md "../APIReference/API_DeleteConformancePack.md") API.
    If it is an organizational conformance pack and you are using the management or delegated administrator account, use the [DeleteOrganizationConformancePack](../APIReference/API_DeleteOrganizationConformancePack.md "../APIReference/API_DeleteOrganizationConformancePack.md") API.
 3. Reach out to the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") with the Amazon Resource Name (ARN) of the dangling rules in the conformance pack to help clean up your account.

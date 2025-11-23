@@ -730,19 +730,19 @@ Options](../../../AmazonS3/latest/userguide/UsingBucket.md#bucket-config-options
 | ----------------- | ------------------------------- | ------------ | ---------------- |
 | AWS Audit Manager | `AWS::AuditManager::Assessment` | NA           | NA               |
 
-## AWS Auto Scaling
+## AWS Amazon EC2 Auto Scaling
 
-| AWS Service                             | Resource Type Value                  | Relationship              | Related Resource    |
-| --------------------------------------- | ------------------------------------ | ------------------------- | ------------------- |
-| AWS Auto Scaling                        | `AWS::AutoScaling::AutoScalingGroup` | contains                  | Amazon EC2 instance |
-| is associated with                      | Classic Load Balancer                |
-| Auto Scaling launch configuration       |
-| Subnet                                  |
-| `AWS::AutoScaling::LaunchConfiguration` | is associated with                   | Amazon EC2 security group |
-| `AWS::AutoScaling::ScalingPolicy`       | is associated with                   | Auto Scaling group        |
-| Alarm                                   |
-| `AWS::AutoScaling::ScheduledAction`     | is associated with                   | Auto Scaling group        |
-| `AWS::AutoScaling::WarmPool`            | NA                                   | NA                        |
+| AWS Service                                  | Resource Type Value                  | Relationship              | Related Resource    |
+| -------------------------------------------- | ------------------------------------ | ------------------------- | ------------------- |
+| AWS Amazon EC2 Auto Scaling                  | `AWS::AutoScaling::AutoScalingGroup` | contains                  | Amazon EC2 instance |
+| is associated with                           | Classic Load Balancer                |
+| Amazon EC2 Auto Scaling launch configuration |
+| Subnet                                       |
+| `AWS::AutoScaling::LaunchConfiguration`      | is associated with                   | Amazon EC2 security group |
+| `AWS::AutoScaling::ScalingPolicy`            | is associated with                   | Auto Scaling group        |
+| Alarm                                        |
+| `AWS::AutoScaling::ScheduledAction`          | is associated with                   | Auto Scaling group        |
+| `AWS::AutoScaling::WarmPool`                 | NA                                   | NA                        |
 
 ## AWS Backup
 
@@ -798,10 +798,10 @@ backup vaults](../../../aws-backup/latest/devguide/vaults.md "../../../aws-backu
 
 | AWS Service                    | Resource Type Value              | Relationship                 | Related Resource |
 | ------------------------------ | -------------------------------- | ---------------------------- | ---------------- |
-| AWS CloudFormation             | `AWS::CloudFormation::GuardHook` | NA                           | NA               |
+| CloudFormation                 | `AWS::CloudFormation::GuardHook` | NA                           | NA               |
 | `AWS::CloudFormation::Stack`\* | contains                         | Supported AWS resource types |
 
-\*AWS Config records configuration changes to AWS CloudFormation stacks and
+\*AWS Config records configuration changes to CloudFormation stacks and
 supported resource types in the stacks. AWS Config does not record configuration changes for
 resource types in the stack that are not yet supported. Unsupported resource types appear in
 the supplementary configuration section of the configuration item for the stack.

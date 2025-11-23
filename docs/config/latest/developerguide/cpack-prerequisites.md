@@ -36,7 +36,7 @@ When deploying a conformance pack with remediation to an organization,
 the management account ID of the organization needs to be specified. Otherwise, during deployment of the organizational conformance pack
 AWS Config replaces the management account ID with the member account ID automatically.
 
-AWS Config does not support AWS CloudFormation intrinsic functions for the automation execution role
+AWS Config does not support CloudFormation intrinsic functions for the automation execution role
 or the `ConfigRuleName`. You must provide the exact ARN of the role as a
 string, and you must use the complete rule name without intrinsic functions.
 

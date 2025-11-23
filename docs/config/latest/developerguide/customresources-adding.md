@@ -17,7 +17,7 @@ Follow these steps to add a third-party resource to AWS Config.
 
 Environment
 
-Install and configure the AWS CloudFormation AWS CLI. The AWS CLI allows you to model and register
+Install and configure the CloudFormation AWS CLI. The AWS CLI allows you to model and register
 your custom resources. For more information, see [Custom Resources](../../../AWSCloudFormation/latest/UserGuide/template-custom-resources.md "../../../AWSCloudFormation/latest/UserGuide/template-custom-resources.md") and
 [What Is the CloudFormation Command Line Interface?](../../../cloudformation-cli/latest/userguide/what-is-cloudformation-cli.md "../../../cloudformation-cli/latest/userguide/what-is-cloudformation-cli.md").
 
@@ -131,7 +131,7 @@ Be aware the CloudFormation CLI must be in a location Maven/the system
 can find. For more information, see [Setting up your environment for developing
 extensions](../../../cloudformation-cli/latest/userguide/what-is-cloudformation-cli.md#resource-type-setup "../../../cloudformation-cli/latest/userguide/what-is-cloudformation-cli.md#resource-type-setup").
 
-For more information on the whole process, see [Modeling Resource Providers for Use in AWS CloudFormation](../../../cloudformation-cli/latest/userguide/resource-type-model.md "../../../cloudformation-cli/latest/userguide/resource-type-model.md").
+For more information on the whole process, see [Modeling Resource Providers for Use in CloudFormation](../../../cloudformation-cli/latest/userguide/resource-type-model.md "../../../cloudformation-cli/latest/userguide/resource-type-model.md").
 
 ## Step 3: Generate Artifacts
 
@@ -153,7 +153,7 @@ for your resource. Run the following command to register your resource.
 $ cfn submit
 ```
 
-For more information, see [Registering Resource Providers for Use in AWS CloudFormation Templates](../../../cloudformation-cli/latest/userguide/resource-type-register.md "../../../cloudformation-cli/latest/userguide/resource-type-register.md").
+For more information, see [Registering Resource Providers for Use in CloudFormation Templates](../../../cloudformation-cli/latest/userguide/resource-type-register.md "../../../cloudformation-cli/latest/userguide/resource-type-register.md").
 
 ## Step 5: Publish
 
@@ -170,7 +170,7 @@ Determine the configuration for MyCustomNamespace::Testing::WordPress.
 }
 ```
 
-Determine the schema version id from AWS CloudFormation `DescribeType`.
+Determine the schema version id from CloudFormation `DescribeType`.
 
 In AWS Config, you can see see if this resource configuration is accepted. To evaluate
 compliance you can write AWS Config rules using this resource.
