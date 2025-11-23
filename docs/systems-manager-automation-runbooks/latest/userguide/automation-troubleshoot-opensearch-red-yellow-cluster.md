@@ -167,7 +167,7 @@ control](../../../opensearch-service/latest/developerguide/fgac.md "../../../ope
     * **CreateAWSLambdaFunctionStack:**
 
 
-    Creates a temporary Lambda function in your account using AWS CloudFormation. The Lambda
+    Creates a temporary Lambda function in your account using CloudFormation. The Lambda
      function is used to run the OpenSearch Service APIs.
     * **WaitForAWSLambdaFunctionStack:**
 

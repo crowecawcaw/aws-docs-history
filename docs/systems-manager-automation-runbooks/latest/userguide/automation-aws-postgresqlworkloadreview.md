@@ -14,7 +14,7 @@ functions.
 
 This runbook automatically creates the following AWS resources in your
 AWS account using an AWS CloudFormation stack. You can monitor the stack creation using the
-AWS CloudFormation console.
+CloudFormation console.
 
 - A virtual private cloud (VPC) and an Amazon EC2 instance launched in a private
   subnet of the VPC with optional connectivity to the internet using a NAT
@@ -31,7 +31,7 @@ AWS CloudFormation console.
   stop the temporary Amazon EC2 instance, run data collection scripts, and upload
   files to an Amazon S3 bucket. An IAM role is also created for the maintenance
   window that provides permissions to perform the registered tasks.
-  When the runbook completes, the AWS CloudFormation stack that is used to create the necessary
+  When the runbook completes, the CloudFormation stack that is used to create the necessary
   AWS resources is deleted and the report is uploaded to the Amazon S3 bucket of your
   choice, and optionally an Support case.
 
@@ -313,7 +313,7 @@ instance.
 Type: String
 
 Description: (Required) The ARN of your Secrets Manager secret containing the
-username and password key value pair. The AWS CloudFormation stack creates an IAM
+username and password key value pair. The CloudFormation stack creates an IAM
 policy with permissions for the `GetSecretValue` operation to
 this ARN. The credentials are used to allow the temporary instance to
 collect the database statistics. Contact your TAM or STAM to discuss the
@@ -384,8 +384,8 @@ Default: 172.31.0.0/16
 
 Type: String
 
-Description: (Optional) The AWS CloudFormation stack resources name prefix and tag. The
-runbook creates the AWS CloudFormation stack resources using this prefix as part of the
+Description: (Optional) The CloudFormation stack resources name prefix and tag. The
+runbook creates the CloudFormation stack resources using this prefix as part of the
 name and tag applied to the resources. The structure for the tag key-value
 pair is
 ``StackResourcesNamePrefix`:{{automation:EXECUTION_ID}}`.
@@ -462,7 +462,7 @@ Type: String
 
 Description: (Optional) If set to `true`, the temporary Amazon EC2
 instance's root volume is deleted after the runbook completes and deletes
-the AWS CloudFormation stack.
+the CloudFormation stack.
 
 Valid values: false | true
 
@@ -588,14 +588,14 @@ use the runbook successfully.
 3. `aws:executeScript` - Checks if the Amazon S3 bucket specified in
    the `S3BucketName` allows anonymous, or public read or write
    access permissions.
-4. `aws:executeScript` - Gets the AWS CloudFormation template content from the
+4. `aws:executeScript` - Gets the CloudFormation template content from the
    Automation runbook attachment that is used to create the temporary AWS
    resources in your AWS account.
-5. `aws:createStack` - Creates the AWS CloudFormation stack resources.
+5. `aws:createStack` - Creates the CloudFormation stack resources.
 6. `aws:waitForAwsResourceProperty` - Waits until the Amazon EC2
-   instance created by the AWS CloudFormation template is running.
+   instance created by the CloudFormation template is running.
 7. `aws:executeAwsApi` - Gets the IDs for the temporary Amazon EC2
-   instance and VPC peering connection created by AWS CloudFormation.
+   instance and VPC peering connection created by CloudFormation.
 8. `aws:executeAwsApi` - Gets the IP address for the temporary
    Amazon EC2 instance to configure connectivity with your DB instance.
 9. `aws:executeAwsApi` - Tags the Amazon EBS volume attached to the
@@ -618,9 +618,9 @@ use the runbook successfully.
     periodically run the metadata collector application using Run Command. The
     maintenance window starts and stops the instance between commands.
 15. `aws:waitForAwsResourceProperty` - Waits until the maintenance
-    window created by the AWS CloudFormation template is ready.
+    window created by the CloudFormation template is ready.
 16. `aws:executeAwsApi` - Gets the IDs for the maintenance window
-    and change calendar created by AWS CloudFormation.
+    and change calendar created by CloudFormation.
 17. `aws:sleep` - Waits until the end date of the maintenance
     window.
 18. `aws:executeAwsApi` - Turns off the maintenance window.
@@ -650,12 +650,12 @@ use the runbook successfully.
        case is 12.
 
 22. `aws:changeInstanceState` - Stops the temporary Amazon EC2 instance
-    in case the AWS CloudFormation stack fails to delete.
-23. `aws:executeAwsApi` - Describes the AWS CloudFormation stack events if the
-    runbooks fails to create or update the AWS CloudFormation stack.
-24. `aws:waitForAwsResourceProperty` - Waits until the AWS CloudFormation stack
+    in case the CloudFormation stack fails to delete.
+23. `aws:executeAwsApi` - Describes the CloudFormation stack events if the
+    runbooks fails to create or update the CloudFormation stack.
+24. `aws:waitForAwsResourceProperty` - Waits until the CloudFormation stack
     is in a terminal status before deleting.
-25. `aws:executeAwsApi` - Deletes the AWS CloudFormation stack excluding the
+25. `aws:executeAwsApi` - Deletes the CloudFormation stack excluding the
     maintenance window. The root Amazon EBS volume associated with the temporary
     Amazon EC2 instance is preserved if the `EbsVolumeDeleteOnTermination`
     parameter value was set to `false`.

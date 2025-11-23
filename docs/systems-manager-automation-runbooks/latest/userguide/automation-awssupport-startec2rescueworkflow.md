@@ -298,21 +298,21 @@ JSON
    encrypted
 5. `aws:assertAwsResourceProperty` - Check the provide subnet ID
    1. (Use current instance subnet) - If \*SubnetId = SelectedInstanceSubnet\*
-      then run `aws:createStack` to deploy the EC2Rescue AWS CloudFormation
+      then run `aws:createStack` to deploy the EC2Rescue CloudFormation
       stack
    2. (Create new VPC) - If \*SubnetId = CreateNewVPC\* then run
-      `aws:createStack` to deploy the EC2Rescue AWS CloudFormation stack
+      `aws:createStack` to deploy the EC2Rescue CloudFormation stack
    3. (Use custom subnet) - In all other cases:
 
    `aws:assertAwsResourceProperty` - Check the provided subnet is
    in the same Availability Zone as the provided instance
 
-   `aws:createStack` - Deploy the EC2Rescue AWS CloudFormation stack
+   `aws:createStack` - Deploy the EC2Rescue CloudFormation stack
 
 6. `aws:invokeLambdaFunction` - Perform additional input validation
-7. `aws:executeAwsApi` - Update the EC2Rescue AWS CloudFormation stack to create the
+7. `aws:executeAwsApi` - Update the EC2Rescue CloudFormation stack to create the
    EC2Rescue helper instance
-8. `aws:waitForAwsResourceProperty` - Wait for the EC2Rescue AWS CloudFormation stack
+8. `aws:waitForAwsResourceProperty` - Wait for the EC2Rescue CloudFormation stack
    update to complete
 9. `aws:executeAwsApi` - Describe the EC2Rescue CloudFormation stack
    output to obtain the EC2Rescue helper instance ID
@@ -372,7 +372,7 @@ JSON
     for the root volume of the provided instance
 24. `aws:changeInstanceState` - Restore the initial state of the provided
     instance (running/stopped)
-25. `aws:deleteStack` - Delete the EC2Rescue AWS CloudFormation stack
+25. `aws:deleteStack` - Delete the EC2Rescue CloudFormation stack
 
 **Outputs**
 

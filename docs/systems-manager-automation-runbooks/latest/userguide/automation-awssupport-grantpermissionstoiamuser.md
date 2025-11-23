@@ -227,10 +227,10 @@ LambdaAssumeRole
 
 **Document Steps**
 
-1. `aws:createStack` - Run AWS CloudFormation Template to create a Lambda
+1. `aws:createStack` - Run CloudFormation Template to create a Lambda
    function.
 2. `aws:invokeLambdaFunction` - Run Lambda to set IAM permissions.
-3. `aws:deleteStack` - Delete AWS CloudFormation Template.
+3. `aws:deleteStack` - Delete CloudFormation Template.
 
 **Outputs**
 

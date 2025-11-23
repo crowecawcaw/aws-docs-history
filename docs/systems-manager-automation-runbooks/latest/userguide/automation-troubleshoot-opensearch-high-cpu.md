@@ -16,7 +16,7 @@ The runbook performs the following steps:
 - Runs the [DescribeDomain](../../../opensearch-service/latest/APIReference/API_DescribeDomain.md "../../../opensearch-service/latest/APIReference/API_DescribeDomain.md") API against the provided Amazon OpenSearch Service domain to get the
   cluster metadata.
 - Checks whether the Amazon OpenSearch Service domain is public or Amazon VPC-based and with the help of
-  AWS CloudFormation, creates a public or [Amazon VPC-based](../../../opensearch-service/latest/developerguide/vpc.md "../../../opensearch-service/latest/developerguide/vpc.md")
+  CloudFormation, creates a public or [Amazon VPC-based](../../../opensearch-service/latest/developerguide/vpc.md "../../../opensearch-service/latest/developerguide/vpc.md")
   AWS Lambda function.
 - The Lambda function fetches diagnostic data from the Amazon OpenSearch Service domains.
 - Uses an AWS Step Functions state machine to orchestrate multiple Lambda function executions
@@ -202,15 +202,15 @@ Follow these steps to configure the automation:
     * **provisionResources:**
 
 
-    Provisions the resources for data collection using AWS CloudFormation.
+    Provisions the resources for data collection using CloudFormation.
     * **waitForStackCreation:**
 
 
-    Waits for the AWS CloudFormation stack to complete.
+    Waits for the CloudFormation stack to complete.
     * **describeStackResources:**
 
 
-    Describes the AWS CloudFormation stack and gets the ARN of the state machine.
+    Describes the CloudFormation stack and gets the ARN of the state machine.
     * **runStateMachine:**
 
 
@@ -219,16 +219,16 @@ Follow these steps to configure the automation:
     * **describeErrorsFromStackEvents:**
 
 
-    Describes errors from the AWS CloudFormation stack for errors.
+    Describes errors from the CloudFormation stack for errors.
     * **unstageOpenSearchHighCPUAutomation:**
 
 
-    Deletes the `AWSSupport-TroubleshootOpenSearchHighCPU` AWS CloudFormation
+    Deletes the `AWSSupport-TroubleshootOpenSearchHighCPU` CloudFormation
      stack.
     * **describeErrorsFromStackDeletion:**
 
 
-    Describes errors encountered while deleting the AWS CloudFormation stack.
+    Describes errors encountered while deleting the CloudFormation stack.
     * **finalStatus:**
 
 

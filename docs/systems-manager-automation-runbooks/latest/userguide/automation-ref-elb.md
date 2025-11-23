@@ -1,4 +1,4 @@
-# Elastic Load Balancing
+# ELB
 
 AWS Systems Manager Automation provides predefined runbooks for Elastic Load Balancing. For more information
 about runbooks, see [Working with

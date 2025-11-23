@@ -239,10 +239,10 @@ Follow these steps to configure the automation:
    Creates a AWS CloudFormation stack containing a Lambda function deployed within the same Amazon VPC as the replication instance. This function is used to resolve DNS names to private IP addresses from within the Amazon VPC context.
    - **DescribeCloudFormationErrorFromStackEvents:**
 
-   If the AWS CloudFormation stack creation fails, this step describes errors from the stack events to provide detailed failure information for troubleshooting.
+   If the CloudFormation stack creation fails, this step describes errors from the stack events to provide detailed failure information for troubleshooting.
    - **GetDNSResolverLambdaName:**
 
-   Retrieves the name of the DNS resolver Lambda function from the AWS CloudFormation stack outputs for use in subsequent steps.
+   Retrieves the name of the DNS resolver Lambda function from the CloudFormation stack outputs for use in subsequent steps.
    - **ResolveDmsEndpoint:**
 
    Invokes the Lambda function to resolve the AWS DMS endpoint hostname to its IP address from within the Amazon VPC. This ensures accurate private DNS resolution and validates IPv4 compatibility.
@@ -260,10 +260,10 @@ Follow these steps to configure the automation:
    Creates a comprehensive troubleshooting report containing connection status, network path analysis results using Reachability Analyzer, detailed explanations of connectivity barriers, and recommended actions for resolution.
    - **CheckStackExists:**
 
-   Checks if the AWS CloudFormation stack was successfully created and needs to be deleted during cleanup. This step ensures proper resource management regardless of automation success or failure.
+   Checks if the CloudFormation stack was successfully created and needs to be deleted during cleanup. This step ensures proper resource management regardless of automation success or failure.
    - **DeleteDNSResolverLambda:**
 
-   Deletes the AWS CloudFormation stack containing the DNS resolver Lambda function and associated resources (unless `PersistReachabilityAnalyzerResults` is set to `true`), ensuring no residual resources remain after automation completion.
+   Deletes the CloudFormation stack containing the DNS resolver Lambda function and associated resources (unless `PersistReachabilityAnalyzerResults` is set to `true`), ensuring no residual resources remain after automation completion.
 
 7. After completed, review the **Outputs** section for the detailed results of the execution:
    - **GetTestConnectionStatus.status**
@@ -271,7 +271,7 @@ Follow these steps to configure the automation:
    The current connection test status between the AWS DMS replication instance and endpoint (e.g., successful, failed, testing).
    - **DescribeCloudFormationErrorFromStackEvents.Events**
 
-   If AWS CloudFormation stack creation fails, this output contains detailed error events from the stack creation process to help diagnose infrastructure deployment issues.
+   If CloudFormation stack creation fails, this output contains detailed error events from the stack creation process to help diagnose infrastructure deployment issues.
    - **GenerateReport.report**
 
    A comprehensive troubleshooting report containing connection analysis results, Reachability Analyzer findings, network path analysis, specific connectivity barriers identified, and detailed remediation recommendations with links to relevant AWS documentation.

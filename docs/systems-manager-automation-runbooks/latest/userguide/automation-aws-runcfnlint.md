@@ -7,7 +7,7 @@ This runbook uses an
 (
 `cfn-python-lint`
 ) to validate YAML and
-JSON templates against the AWS CloudFormation resource specification. The
+JSON templates against the CloudFormation resource specification. The
 `AWS-RunCfnLint`
 runbook performs additional checks, such as ensuring
 that valid values have been entered for resource properties. If validation is not
@@ -125,7 +125,7 @@ Example: us-east-1,us-west-1
 
 RunCfnLintAgainstTemplate – Runs the
 `cfn-python-lint`
-tool against the specified AWS CloudFormation template.
+tool against the specified CloudFormation template.
 
 **Outputs**
 

@@ -2,7 +2,7 @@
 
 **Description**
 
-Patch Amazon Elastic Compute Cloud (Amazon EC2) instances in an Auto Scaling group.
+Patch Amazon Elastic Compute Cloud (Amazon EC2) instances in an Amazon EC2 Auto Scaling group.
 
 [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-PatchAsgInstance "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-PatchAsgInstance")
 

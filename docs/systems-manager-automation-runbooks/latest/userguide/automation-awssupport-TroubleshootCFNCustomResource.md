@@ -36,7 +36,7 @@ the user that starts this runbook.
 
 Type: String
 
-Description: (Required) The name of the AWS CloudFormation stack where the custom resource failed.
+Description: (Required) The name of the CloudFormation stack where the custom resource failed.
 **Required IAM permissions**
 
 The `AutomationAssumeRole` parameter requires the following actions to
@@ -57,8 +57,8 @@ use the runbook successfully.
 
 - `validateCloudFormationStack`
 
-* Verifies that the AWS CloudFormation stack exists in the same AWS account and AWS Region.
+* Verifies that the CloudFormation stack exists in the same AWS account and AWS Region.
 
 - `checkCustomResource`
 
-* Analyzes the AWS CloudFormation stack, checks the failed custom resource, and outputs information about how to troubleshoot the failed custom resource.
+* Analyzes the CloudFormation stack, checks the failed custom resource, and outputs information about how to troubleshoot the failed custom resource.

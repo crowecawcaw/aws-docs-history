@@ -6,7 +6,6 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 
 ###### Topics
 
-- [AWSSupport-CollectEKSInstanceLogs](automation-awssupport-collecteksinstancelogs.md "automation-awssupport-collecteksinstancelogs.md")
 - [AWS-CreateEKSClusterWithFargateProfile](aws-createeksclusterwithfargateprofile.md "aws-createeksclusterwithfargateprofile.md")
 - [AWS-CreateEKSClusterWithNodegroup](aws-createeksclusterwithnodegroup.md "aws-createeksclusterwithnodegroup.md")
 - [AWS-DeleteEKSCluster](automation-aws-deleteekscluster.md "automation-aws-deleteekscluster.md")
@@ -16,6 +15,7 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 - [AWS-UpdateEKSCluster](automation-updateekscluster.md "automation-updateekscluster.md")
 - [AWS-UpdateEKSManagedNodeGroup](aws-updateeksmanagednodegroup.md "aws-updateeksmanagednodegroup.md")
 - [AWS-UpdateEKSSelfManagedLinuxNodeGroups](aws-updateeksselfmanagedlinuxnodegroup.md "aws-updateeksselfmanagedlinuxnodegroup.md")
+- [AWSSupport-CollectEKSInstanceLogs](automation-awssupport-collecteksinstancelogs.md "automation-awssupport-collecteksinstancelogs.md")
 - [AWSSupport-SetupK8sApiProxyForEKS](automation-awssupport-setupk8sapiproxyforeks.md "automation-awssupport-setupk8sapiproxyforeks.md")
 - [AWSSupport-TroubleshootEbsCsiDriversForEks](automation-awssupport-troubleshoot-ebs-csi-drivers-for-eks.md "automation-awssupport-troubleshoot-ebs-csi-drivers-for-eks.md")
 - [AWSSupport-TroubleshootEKSALBControllerIssues](automation-awssupport-troubleshoot-eks-alb-controller-issues.md "automation-awssupport-troubleshoot-eks-alb-controller-issues.md")

@@ -77,7 +77,7 @@ Description: (Optional) Determines the type of resources to be
 evaluated for DDoS resiliency assessment. By default, the runbook
 will evaluate both global and regional resources. For regional
 resources, the runbook describes all Application (ALB) and Network
-(NLB) load balancers as well as all the Auto Scaling group in your
+(NLB) load balancers as well as all the Amazon EC2 Auto Scaling group in your
 AWS account/region.
 
 Valid values: `['Global Resources', 'Regional Resources', 'Global

@@ -99,7 +99,7 @@ use the runbook successfully.
   account and Regions you specify.
 - `aws:executeScript` - Lists all elastic network interfaces for
   the account and Regions you specify.
-- `aws:executeScript` - Lists all Auto Scaling groups for the account and
+- `aws:executeScript` - Lists all Amazon EC2 Auto Scaling groups for the account and
   Regions you specify.
 - `aws:executeScript` - Lists all load balancers for the account
   and Regions you specify.

@@ -2,7 +2,7 @@
 
 **Description**
 
-Delete an AWS CloudFormation stack.
+Delete an CloudFormation stack.
 
 [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DeleteCloudFormationStack "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DeleteCloudFormationStack")
 
@@ -33,4 +33,4 @@ the user that starts this runbook.
 
 Type: String
 
-Description: (Required) Name or Unique ID of the AWS CloudFormation stack to be deleted
+Description: (Required) Name or Unique ID of the CloudFormation stack to be deleted

@@ -88,13 +88,13 @@ the API key or password for the Jira user.
 
 **Document Steps**
 
-`aws:createStack` - Create AWS CloudFormation stack to create Lambda IAM role and
+`aws:createStack` - Create CloudFormation stack to create Lambda IAM role and
 function.
 
 `aws:invokeLambdaFunction` - Invoke Lambda function to create the Jira
 issue
 
-`aws:deleteStack` - Delete the AWS CloudFormation stack created.
+`aws:deleteStack` - Delete the CloudFormation stack created.
 
 **Outputs**
 

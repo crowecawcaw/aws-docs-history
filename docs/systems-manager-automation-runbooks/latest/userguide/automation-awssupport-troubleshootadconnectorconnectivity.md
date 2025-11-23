@@ -27,7 +27,7 @@ Pricing](https://aws.amazon.com/ebs/pricing/ "https://aws.amazon.com/ebs/pricing
 If the `aws:deletestack` step fails, go to the AWS CloudFormation console to
 manually delete the stack. The stack name created by this runbook begins with
 `AWSSupport-TroubleshootADConnectorConnectivity`. For information about
-deleting AWS CloudFormation stacks, see [Deleting a
+deleting CloudFormation stacks, see [Deleting a
 stack](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the _AWS CloudFormation User Guide_.
 
 **Document type**
@@ -117,7 +117,7 @@ use the runbook successfully.
 - `aws:branch` - Branches the automation depending on the output of
   previous steps. The automation stops here if the required outbound and inbound rules
   are missing for the security groups and network ACLs.
-- `aws:createStack` - Creates an AWS CloudFormation stack to launch Amazon EC2 instances to
+- `aws:createStack` - Creates an CloudFormation stack to launch Amazon EC2 instances to
   perform connectivity tests.
 - `aws:executeAwsApi` - Gathers the IDs of newly launched Amazon EC2 instances.
 - `aws:waitForAwsResourceProperty` - Waits for the first newly launched
@@ -130,6 +130,6 @@ use the runbook successfully.
   DNS server IP addresses from the second Amazon EC2 instance.
 - `aws:changeInstanceState` - Stops the Amazon EC2 instances used for the
   connectivity tests.
-- `aws:deleteStack` - Deletes the AWS CloudFormation stack.
+- `aws:deleteStack` - Deletes the CloudFormation stack.
 - `aws:executeScript` - Outputs instructions about how to manually delete
-  the AWS CloudFormation stack if the automation fails to delete the stack.
+  the CloudFormation stack if the automation fails to delete the stack.

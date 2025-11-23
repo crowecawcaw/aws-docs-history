@@ -4,7 +4,7 @@
 
 This runbook deletes the resources associated with an Amazon EKS cluster, including
 node groups and Fargate profiles. Optionally, you can choose to delete all
-self-managed nodes, the AWS CloudFormation stacks used to create the nodes, and the VPC AWS CloudFormation
+self-managed nodes, the CloudFormation stacks used to create the nodes, and the VPC CloudFormation
 stack for your cluster. For more information about deleting a cluster, see [Deleting a cluster](../../../eks/latest/userguide/delete-cluster.md "../../../eks/latest/userguide/delete-cluster.md") in the
 _Amazon EKS User Guide_.
 
@@ -77,32 +77,32 @@ deleted.
 
 Type: String
 
-Description: (Optional) AWS CloudFormation stack name for VPC for the EKS cluster being
-deleted. This deletes the AWS CloudFormation stack for VPC and any resources created by
+Description: (Optional) CloudFormation stack name for VPC for the EKS cluster being
+deleted. This deletes the CloudFormation stack for VPC and any resources created by
 the stack.
 
 - VPCCloudFormationStackRole
 
 Type: String
 
-Description: (Optional) The ARN of an IAM role that AWS CloudFormation assumes to
-delete the VPC AWS CloudFormation stack. AWS CloudFormation uses the role's credentials to make calls
+Description: (Optional) The ARN of an IAM role that CloudFormation assumes to
+delete the VPC CloudFormation stack. CloudFormation uses the role's credentials to make calls
 on your behalf.
 
 - SelfManagedNodeStacks
 
 Type: String
 
-Description: (Optional) Comma-separated list of AWS CloudFormation stack names for
-self-managed nodes, This will delete the AWS CloudFormation stacks for self-managed
+Description: (Optional) Comma-separated list of CloudFormation stack names for
+self-managed nodes, This will delete the CloudFormation stacks for self-managed
 nodes.
 
 - SelfManagedNodeStacksRole
 
 Type: String
 
-Description: (Optional) The ARN of an IAM role that AWS CloudFormation assumes to
-delete the Self-managed Node Stacks. AWS CloudFormation uses the role's credentials to
+Description: (Optional) The ARN of an IAM role that CloudFormation assumes to
+delete the Self-managed Node Stacks. CloudFormation uses the role's credentials to
 make calls on your behalf.
 **Required IAM permissions**
 
@@ -125,7 +125,7 @@ use the runbook successfully.
 - `aws:executeScript` - DeleteFargateProfiles: Find and delete all
   Fargate profiles in the EKS cluster.
 - `aws:executeScript` - DeleteSelfManagedNodes: Delete all
-  self-managed nodes and the AWS CloudFormation stacks used to create the nodes.
+  self-managed nodes and the CloudFormation stacks used to create the nodes.
 - `aws:executeScript` - DeleteEKSCluster: Delete EKS cluster.
 - `aws:executeScript` - DeleteVPCCloudFormationStack: Delete the
-  VPC AWS CloudFormation stack.
+  VPC CloudFormation stack.

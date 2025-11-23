@@ -2,7 +2,7 @@
 
 **Description**
 
-Update an AWS CloudFormation stack by using an AWS CloudFormation template stored in an Amazon S3 bucket.
+Update an AWS CloudFormation stack by using an CloudFormation template stored in an Amazon S3 bucket.
 
 [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-UpdateCloudFormationStack "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-UpdateCloudFormationStack")
 
@@ -39,12 +39,12 @@ Description: (Required) The ARN of the role assumed by Lambda
 
 Type: String
 
-Description: (Required) Name or Unique ID of the AWS CloudFormation stack to be updated
+Description: (Required) Name or Unique ID of the CloudFormation stack to be updated
 
 - TemplateUrl
 
 Type: String
 
-Description: (Required) S3 bucket location that contains the updated AWS CloudFormation
+Description: (Required) S3 bucket location that contains the updated CloudFormation
 template (e.g.
 `https://s3.amazonaws.com/amzn-s3-demo-bucket2/updated.template)`

@@ -32,7 +32,7 @@ migration. If any of the checks fail, the automation ends. This phase is only pa
 - Checks if instance store volumes are attached to the target instance.
 - Verifies the target instance operating system (OS) is Linux.
 - Checks if the target instance is a part of an Amazon EC2 Auto Scaling group. If it is part of an
-  Auto Scaling group, the automation verifies that the instance is in the `standby`
+  Amazon EC2 Auto Scaling group, the automation verifies that the instance is in the `standby`
   state.
 - Verifies that the instance is managed by AWS Systems Manager.
 
@@ -279,7 +279,7 @@ use the runbook successfully.
 - `checkIfRootVolumeIsEBS` - Checks if the target instance's root
   volume type is EBS.
 - `checkIfTargetInstanceIsInASG` - Checks if the target instance is
-  a part of an Auto Scaling group.
+  a part of an Amazon EC2 Auto Scaling group.
 - `endOfPreliminaryChecksBranch` - End of the Preliminary checks
   branch.
 - `startOfTestBranch` - Branches to the Testing workflow.

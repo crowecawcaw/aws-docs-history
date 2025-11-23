@@ -36,14 +36,14 @@ the user that starts this runbook.
 
 Type: String
 
-Description: (Required) The name or stack ID of your existing AWS CloudFormation
+Description: (Required) The name or stack ID of your existing CloudFormation
 stack.
 
 - NewStackName
 
 Type: String
 
-Description: (Optional) The name of the new AWS CloudFormation stack that is created
+Description: (Optional) The name of the new CloudFormation stack that is created
 for your new node group. If you don't specify a value for this parameter,
 the stack name is created using the format:
 `NewNodeGroup-`ClusterName`-`AutomationExecutionID``.
@@ -54,7 +54,7 @@ Type: String
 
 Description: (Optional) The ID of the security group you want nodes to use
 to communicate with the Amazon EKS control plane. If you don't specify a value
-for this parameter, the security group specified in your existing AWS CloudFormation
+for this parameter, the security group specified in your existing CloudFormation
 stack is used.
 
 - NodeInstanceType
@@ -63,7 +63,7 @@ Type: String
 
 Description: (Optional) The instance type that you want to use for the new
 node group. If you don't specify a value for this parameter, the instance
-type specified in your existing AWS CloudFormation stack is used.
+type specified in your existing CloudFormation stack is used.
 
 - NodeGroupName
 
@@ -71,7 +71,7 @@ Type: String
 
 Description: (Optional) The name of your new node group. If you don't
 specify a value for this parameter, the node group name specified in your
-existing AWS CloudFormation stack is used.
+existing CloudFormation stack is used.
 
 - NodeAutoScalingGroupDesiredCapacity
 
@@ -82,7 +82,7 @@ new stack is created. This number must be greater than or equal to the
 `NodeAutoScalingGroupMinSize` value and less than or equal to
 the `NodeAutoScalingGroupMaxSize`. If you don't specify a value
 for this parameter, the node group desired capacity specified in your
-existing AWS CloudFormation stack is used.
+existing CloudFormation stack is used.
 
 - NodeAutoScalingGroupMaxSize
 
@@ -90,7 +90,7 @@ Type: String
 
 Description: (Optional) The maximum number of nodes that your node group
 can scale out to. If you don't specify a value for this parameter, the node
-group maximum size specified in your existing AWS CloudFormation stack is used.
+group maximum size specified in your existing CloudFormation stack is used.
 
 - NodeAutoScalingGroupMinSize
 
@@ -98,7 +98,7 @@ Type: String
 
 Description: (Optional) The minimum number of nodes that your node group
 can scale in to. If you don't specify a value for this parameter, the node
-group minimum size specified in your existing AWS CloudFormation stack is used.
+group minimum size specified in your existing CloudFormation stack is used.
 
 - NodeImageId
 
@@ -120,7 +120,7 @@ Type: String
 
 Description: (Optional) The size of the root volume for your nodes in GiB.
 If you don't specify a value for this parameter, the node volume size
-specified in your existing AWS CloudFormation stack is used.
+specified in your existing CloudFormation stack is used.
 
 - NodeVolumeType
 
@@ -128,7 +128,7 @@ Type: String
 
 Description: (Optional) The type of Amazon EBS volume you want to use for the
 root volume of your nodes. If you don't specify a value for this parameter,
-the volume type specified in your existing AWS CloudFormation stack is used.
+the volume type specified in your existing CloudFormation stack is used.
 
 - KeyName
 
@@ -136,7 +136,7 @@ Type: String
 
 Description: (Optional) The key pair you want to assign to your nodes. If
 you don't specify a value for this parameter, the key pair specified in your
-existing AWS CloudFormation stack is used.
+existing CloudFormation stack is used.
 
 - Subnets
 
@@ -144,7 +144,7 @@ Type: StringList
 
 Description: (Optional) A comma-separated list of the subnet IDs that you
 want to use for your new node group. If you don't specify a value for this
-parameter, the subnets specified in your existing AWS CloudFormation stack is
+parameter, the subnets specified in your existing CloudFormation stack is
 used.
 
 - DisableIMDSv1
@@ -217,7 +217,7 @@ use the runbook successfully.
 
 - DetermineParameterValuesForNewNodeGroup (aws:executeScript) - Gathers the
   parameter values to use for the new node group.
-- CreateStack (aws:createStack) - Creates the AWS CloudFormation stack for the new node
+- CreateStack (aws:createStack) - Creates the CloudFormation stack for the new node
   group.
 - GetNewStackNodeInstanceRole (aws:executeAwsApi) - Gets the node instance
   role.
@@ -243,7 +243,7 @@ new node group.
 GetNewStackSecurityGroup.NewNodeSecurityGroup - The ID of the security group for
 the new node group.
 
-DetermineParameterValuesForNewNodeGroup.NewStackName - The AWS CloudFormation stack name for
+DetermineParameterValuesForNewNodeGroup.NewStackName - The CloudFormation stack name for
 the new node group.
 
-CreateStack.StackId - The AWS CloudFormation stack ID for the new node group.
+CreateStack.StackId - The CloudFormation stack ID for the new node group.

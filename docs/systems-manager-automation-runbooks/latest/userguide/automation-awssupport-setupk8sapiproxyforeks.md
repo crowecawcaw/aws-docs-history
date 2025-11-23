@@ -81,7 +81,7 @@ The runbook performs the following steps:
 - Validates that the automation is running as a child execution. The runbook will
   not work when invoked as a standalone runbook since it does not perform any
   meaningful work on its own.
-- Checks for existing AWS CloudFormation stack for the proxy Lambda function for the specified
+- Checks for existing CloudFormation stack for the proxy Lambda function for the specified
   cluster.
   - If the stack exists, the existing infrastructure is re-used instead of
     re-creating it.
@@ -381,7 +381,7 @@ Example of input parameters:
      execution.
 
 2. **CheckForExistingStack**
-   - Checks if a AWS CloudFormation stack was already provisioned for the specified cluster
+   - Checks if a CloudFormation stack was already provisioned for the specified cluster
      name.
    - Returns stack existence status and whether it's safe to delete.
 
@@ -409,7 +409,7 @@ Example of input parameters:
      data.
 
 7. **ProvisionResources**
-   - Creates a AWS CloudFormation stack with required resources.
+   - Creates a CloudFormation stack with required resources.
    - Provisions Lambda function with necessary networking configuration.
    - Tags all resources for tracking and management.
 
@@ -430,7 +430,7 @@ Example of input parameters:
     - Waits for the function to be in `Successful` state.
 
 12. **PerformStackCleanup**
-    - Deletes the AWS CloudFormation stack and associated resources.
+    - Deletes the CloudFormation stack and associated resources.
     - Executed during `Cleanup` operation or on failure of `Setup` operation.
 
 **Outputs**

@@ -15,7 +15,7 @@ This runbook has the following limitations:
 
 ###### Important
 
-Using this runbook might incur extra charges against your AWS account for the Amazon CloudWatch Logs captured by your REST API, and CloudWatch Logs Insights used in the analysis. See [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/") for more details on the charges that may be incurred. If the `aws:deletestack` step fails, go to the AWS CloudFormation console to manually delete the stack. The stack name created by this runbook begins with `AWSSupport-TroubleshootAPIGatewayHttpErrors`. For information about deleting AWS CloudFormation stacks, see [Deleting a stack](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the AWS CloudFormation User Guide.
+Using this runbook might incur extra charges against your AWS account for the Amazon CloudWatch Logs captured by your REST API, and CloudWatch Logs Insights used in the analysis. See [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/") for more details on the charges that may be incurred. If the `aws:deletestack` step fails, go to the CloudFormation console to manually delete the stack. The stack name created by this runbook begins with `AWSSupport-TroubleshootAPIGatewayHttpErrors`. For information about deleting CloudFormation stacks, see [Deleting a stack](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the AWS CloudFormation User Guide.
 
 **How does it work?**
 
@@ -149,19 +149,19 @@ Follow these steps to configure the automation:
 4. Select **Execute.**
 5. The automation initiates.
 6. The document performs the following steps:
-   - **`CheckApiExists`**:
+   - **CheckApiExists**:
 
    Validates that the provided REST API exists and you have the necessary permissions to access it.
-   - **`CheckStageExists`**:
+   - **CheckStageExists**:
 
    Validates that the provided stage name exists in the given API and retrieves access log group information.
-   - **`CheckResourceExists`**:
+   - **CheckResourceExists**:
 
    Validates that the provided resource path exists in the API and retrieves the resource ID.
-   - **`CheckMethodExists`**:
+   - **CheckMethodExists**:
 
    Validates that the provided HTTP method exists for the specified resource.
-   - **`AnalyseLogs`**:
+   - **AnalyseLogs**:
 
    Searches for logs using the provided parameters and returns recommendations based on any errors found. This step analyzes both execution and access logs (if enabled) to identify 4XX and 5XX errors and provides specific remediation guidance.
 

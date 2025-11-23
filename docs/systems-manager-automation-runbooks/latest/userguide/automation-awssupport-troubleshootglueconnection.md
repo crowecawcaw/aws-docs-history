@@ -333,12 +333,12 @@ Follow these steps to configure the automation:
 
 
 
-     Creates the AWS CloudFormation stack from the template created in the previous step.
+     Creates the CloudFormation stack from the template created in the previous step.
     * **GetStackDetails:**
 
 
 
-     Describes the AWS CloudFormation stack created in the previous stack and retrieve the
+     Describes the CloudFormation stack created in the previous stack and retrieve the
      `SourceNetworkInterface` an
      `TargetNetworkInterfaces` information.
     * **RunSourceToTargetCheck:**
@@ -351,17 +351,17 @@ Follow these steps to configure the automation:
 
 
 
-    Deletes the AWS CloudFormation stack that creates Network Interfaces
+    Deletes the CloudFormation stack that creates Network Interfaces
     * **CreateNetworkPointOfPresence:**
 
 
 
-     AWS CloudFormation creates the Lambda function used as network point of presence.
+     CloudFormation creates the Lambda function used as network point of presence.
     * **GetFunctionName:**
 
 
 
-     Performs a AWS CloudFormation describe stack API call to retrieve the name of the
+     Performs a CloudFormation describe stack API call to retrieve the name of the
      Lambda function created in the previous step.
     * **RunEndpointChecks:**
 
@@ -379,7 +379,7 @@ Follow these steps to configure the automation:
 
 
 
-     Deletes the AWS CloudFormation stack that creates the network point of presence Lambda.
+     Deletes the CloudFormation stack that creates the network point of presence Lambda.
     * **TestIAMRolePermissions:**
 
 

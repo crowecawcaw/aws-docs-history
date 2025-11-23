@@ -134,7 +134,7 @@ want the node group to use.
 
 Type: String
 
-Description: (Required) The name of the AWS CloudFormation stack used to update the
+Description: (Required) The name of the CloudFormation stack used to update the
 node group.
 
 - Subnets
@@ -173,5 +173,5 @@ use the runbook successfully.
 - `aws:executeScript` - Updates an Amazon EKS cluster node group
   according to the values that you specify for the runbook input
   parameters.
-- `aws:waitForAwsResourceProperty` - Waits for the AWS CloudFormation stack
+- `aws:waitForAwsResourceProperty` - Waits for the CloudFormation stack
   update status to be returned.

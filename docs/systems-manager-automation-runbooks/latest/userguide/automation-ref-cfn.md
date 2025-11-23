@@ -1,4 +1,4 @@
-# AWS CloudFormation
+# CloudFormation
 
 AWS Systems Manager Automation provides predefined runbooks for AWS CloudFormation. For more information
 about runbooks, see [Working with

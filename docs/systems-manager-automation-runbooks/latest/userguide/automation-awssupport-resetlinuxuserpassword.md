@@ -260,14 +260,14 @@ use the runbook successfully.
     target instance as the root volume.
 38. `aws:waitForAwsResourceProperty` – Waits for the Amazon EBS volume to
     be in an `attached` state.
-39. `aws:executeAwsApi` – Describes the AWS CloudFormation stack events if the
-    runbooks fails to create or update the AWS CloudFormation stack.
+39. `aws:executeAwsApi` – Describes the CloudFormation stack events if the
+    runbooks fails to create or update the CloudFormation stack.
 40. `aws:branch` – Branches the automation depending on the previous
     Amazon EC2 instance state. If the state was `running`, the instance is
     started. If it was in a `stopped` state, the automation continues.
 41. `aws:changeInstanceState` – Starts the Amazon EC2 instance if
     needed.
-42. `aws:waitForAwsResourceProperty` – Waits until the AWS CloudFormation stack
+42. `aws:waitForAwsResourceProperty` – Waits until the CloudFormation stack
     is in a terminal status before deleting.
-43. `aws:executeAwsApi` – Deletes the AWS CloudFormation stack including the
+43. `aws:executeAwsApi` – Deletes the CloudFormation stack including the
     temporary Amazon EC2 instance.

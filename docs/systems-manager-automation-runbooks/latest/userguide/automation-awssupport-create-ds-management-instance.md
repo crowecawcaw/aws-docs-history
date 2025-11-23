@@ -46,7 +46,7 @@ launch the management instance.
 
 Type: String
 
-Description: (Required) The ID of the AWS Directory Service directory you want to manage.
+Description: (Required) The ID of the Directory Service directory you want to manage.
 The instance is joined to the directory you specify.
 
 - IamInstanceProfileName

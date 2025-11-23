@@ -96,7 +96,7 @@ Type: String
 
 Default: CreateManagedInstanceStack{{automation:EXECUTION\_ID}}
 
-Description: (Optional) The AWS CloudFormation stack name that you want the automation to
+Description: (Optional) The CloudFormation stack name that you want the automation to
 use.
 
 - SubnetId

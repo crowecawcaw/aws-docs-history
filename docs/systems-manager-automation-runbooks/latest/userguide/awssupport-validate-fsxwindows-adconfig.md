@@ -15,7 +15,7 @@ The runbook can validate a failed or misconfigured Amazon FSx for Windows File S
 Amazon FSx for Windows File Server with self-managed AD.
 
 By default, the runbook creates the Amazon EC2 Windows instance, security group for AWS Systems Manager
-(SSM) access, AWS Identity and Access Management (IAM) role and policy using AWS CloudFormation on the Amazon FSx subnet. If you
+(SSM) access, AWS Identity and Access Management (IAM) role and policy using CloudFormation on the Amazon FSx subnet. If you
 want to run the script on an existing Amazon EC2 instance, provide the ID in the parameter
 `InstanceId`. On successful execution, it deletes the CloudFormation resources.
 However, to retain the resources, set the `RetainCloudFormationStack` parameter
@@ -478,7 +478,7 @@ following parameters:
      (aws:createStack):**
 
 
-    Creates the Amazon EC2 instance in the preferred subnet using AWS CloudFormation where the
+    Creates the Amazon EC2 instance in the preferred subnet using CloudFormation where the
      `AmazonFSxADValidation` tool will be executed
     * **DescribeStackResources
      (aws:executeAwsApi):**
@@ -522,7 +522,7 @@ following parameters:
      (aws:deleteStack):**
 
 
-    Deletes the AWS CloudFormation stack.
+    Deletes the CloudFormation stack.
 
 8. After completed, review the Outputs section for the results of the
    execution:

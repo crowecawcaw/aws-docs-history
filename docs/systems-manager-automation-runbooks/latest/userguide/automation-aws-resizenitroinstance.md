@@ -84,7 +84,7 @@ Valid values: no | yes
 
 Default: no
 
-Description: (Optional) If you specify `yes`, the runbook runs on instances that are part of an AWS CloudFormation stack.
+Description: (Optional) If you specify `yes`, the runbook runs on instances that are part of an CloudFormation stack.
 
 - DryRun
 
@@ -169,9 +169,9 @@ use the runbook successfully.
     1. If `stopped` or `stopping`, the automation runs `aws:waitForAwsResourceProperty` until the Amazon EC2 instance is fully stopped.
     2. If `running` or `pending`, the automation runs `aws:waitForAwsResourceProperty` until the Amazon EC2 instance passes status checks.
 
-13. `aws:assertAwsResourceProperty`: Confirms that the Amazon EC2 instance is not part of an Auto Scaling group by calling the `DescribeAutoScalingInstances` API operation. If the instance is part of an Auto Scaling group, ensures the Amazon EC2 instance is in `standby` mode.
-14. `aws:branch`: Branches the automation depending on whether you want the automation to check if the Amazon EC2 instance is part of an AWS CloudFormation stack:
-    1. `aws:executeScript` Ensures the Amazon EC2 instance is not part of an AWS CloudFormation stack by calling the `DescribeStackResources` API operation.
+13. `aws:assertAwsResourceProperty`: Confirms that the Amazon EC2 instance is not part of an Amazon EC2 Auto Scaling group by calling the `DescribeAutoScalingInstances` API operation. If the instance is part of an Amazon EC2 Auto Scaling group, ensures the Amazon EC2 instance is in `standby` mode.
+14. `aws:branch`: Branches the automation depending on whether you want the automation to check if the Amazon EC2 instance is part of an CloudFormation stack:
+    1. `aws:executeScript` Ensures the Amazon EC2 instance is not part of an CloudFormation stack by calling the `DescribeStackResources` API operation.
 
 15. `aws:executeAwsApi`: Returns a list of instance types with the same processor architecture type, virtulization type, and that supports the number of network interfaces currently attached to the target instance.
 16. `aws:executeAwsApi`: Gets the target instance type value from the tag key specified in the `TargetInstanceTypeFromTagValue` parameter.

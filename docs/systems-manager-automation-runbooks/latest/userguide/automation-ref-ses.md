@@ -7,3 +7,4 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 ###### Topics
 
 - [AWSSupport-AnalyzeSESMessageSendingStatus](awssupport-analyze-ses-message-sending-status.md "awssupport-analyze-ses-message-sending-status.md")
+- [AWSSupport-DeploySESSendingLogsToCloudWatchLogs](automation-awssupport-deploysessendinglogstocloudwatchlogs.md "automation-awssupport-deploysessendinglogstocloudwatchlogs.md")
