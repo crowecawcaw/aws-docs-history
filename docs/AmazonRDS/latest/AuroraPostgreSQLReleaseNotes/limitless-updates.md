@@ -24,8 +24,30 @@ This version of Aurora PostgreSQL Limitless Database is compatible with PostgreS
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL Limitless Database 16.9.102, November 21, 2025](#16.9.102 "#16.9.102")
 - [Aurora PostgreSQL Limitless Database 16.9.101, November 6, 2025](#16.9.101 "#16.9.101")
 - [Aurora PostgreSQL Limitless Database 16.9.100, September 5, 2025](#16.9.100 "#16.9.100")
+
+### Aurora PostgreSQL Limitless Database 16.9.102, November 21, 2025
+
+**Enhancements**
+
+- Improved performance for shard split.
+- Improved error messages when queries fail during (minor) upgrades due to inconsistent instance versions.
+
+**Bug fixes**
+
+- Fixed an issue where database remained unusable after `DROP DATABASE` through JDBC.
+- Fixed an issue with privilege grants which failed with `invalid role OID: 0` when all privileges are `GRANT`ed to public.
+- Fixed an issue with `SELECT` queries with type casts which failed with `cannot cast type cstring to text[]`.
+- Fixed an issue with `CREATE DATABASE` which failed with `connection_limit requires an integer value` when also setting `connection_limit`.
+- Fixed table transformation from standard table to distributed table or reference table to keep Row Level Security Policies.
+- Fixed correctness and data leak issues in Row Level Security (RLS) policies. We recommend to drop and re-create any existing RLS policies.
+- Fixed `DROP POLICY` statement when used with `IF EXISTS`.
+- Fixed incorrect result when selecting `tableoid` system column. The `tableoid` is the OID of the table, which is a distinct identification given to the database object by a given system. If the query is eligible for Single Shard Optimization, the `tableoid` will be obtained from the Shard. Otherwise, the `tableoid` will be obtained from the connected router. Different routers may result in different `tableoid` for the same query.
+- Fixed an issue where internal processes were no longer working properly after revoking `CONNECT` privilege for internal system roles.
+- Fixed stats update for tables with User Defined Types.
+- Fixed one edge case in resolving prepared transaction.
 
 ### Aurora PostgreSQL Limitless Database 16.9.101, November 6, 2025
 
