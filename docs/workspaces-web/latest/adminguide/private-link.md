@@ -4,7 +4,7 @@
 
 You can directly call Amazon WorkSpaces Secure Browser API endpoint from within a private cloud (VPC), instead
 of connecting over the internet. You can do this without the use of an internet gateway, NAT
-device, VPN connection, or AWS Direct Connect connection.
+device, VPN connection, or Direct Connect connection.
 
 You establish this private connection by creating an _interface VPC
 endpoint_ that's powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"). For each subnet that you specify from your VPC, we create an
