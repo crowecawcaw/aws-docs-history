@@ -38,7 +38,7 @@ following.
 }
 ```
 
-2. Take the user information that you obtained in the previous step, and add it to an AWS CloudFormation
+2. Take the user information that you obtained in the previous step, and add it to an CloudFormation
    template. This template creates an IAM role. This role grants your collaborator
    least-privilege permissions for the shared resources.
 
@@ -80,7 +80,7 @@ Outputs:
 
 ```
 
-3. Save the AWS CloudFormation template in a file that's named `template.yaml`.
+3. Save the CloudFormation template in a file that's named `template.yaml`.
 4. Use the template to deploy the stack and create the IAM role by calling the
    `deploy` command.
 
@@ -135,7 +135,7 @@ if __name__ == "__main__":
 
 2. Save the code in a file called `share.py`.
 3. Run the following from the command line to retrieve the Amazon Resource Name (ARN) of the
-   IAM role from AWS CloudFormation. Then, use it in the Python script to obtain
+   IAM role from CloudFormation. Then, use it in the Python script to obtain
    temporary security credentials.
 
 ```
