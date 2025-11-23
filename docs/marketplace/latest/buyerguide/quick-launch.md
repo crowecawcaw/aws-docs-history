@@ -68,7 +68,7 @@ permissions:
 ## Launching container products with Quick Launch
 
 If the seller has enabled Quick Launch on a fulfillment option, you can use it to create an Amazon EKS
-cluster and deploy a container application to it. With Quick Launch, you will use AWS CloudFormation to configure
+cluster and deploy a container application to it. With Quick Launch, you will use CloudFormation to configure
 and create an Amazon EKS cluster and launch a container application on it. With Quick Launch, you can
 launch a container application for testing purposes. To use Quick Launch, follow the steps in [Launching with a Helm fulfillment
 option](buyer-launch-container-helm.md "buyer-launch-container-helm.md").
@@ -77,7 +77,7 @@ To create an Amazon EKS cluster that the application can be deployed on, create 
 stack. A _stack_ is a collection of AWS resources that you
 can manage as a single unit. All the resources in a stack are defined by the stack's
 CloudFormation template. In Quick Launch, the stack's resources include the information required to create
-the Amazon EKS cluster and launch the application. For more information about stacks in AWS CloudFormation, see
+the Amazon EKS cluster and launch the application. For more information about stacks in CloudFormation, see
 [Working
 with stacks](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md") in the _AWS CloudFormation User Guide_.
 

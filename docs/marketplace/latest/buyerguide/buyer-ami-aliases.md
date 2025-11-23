@@ -35,7 +35,7 @@ version of the product might be a bug fix for 1.x.
 
 ## Examples of using AMI aliases
 
-AMI aliases are useful in automation. You can use them in the AWS CLI or in AWS CloudFormation
+AMI aliases are useful in automation. You can use them in the AWS CLI or in CloudFormation
 templates.
 
 The following example shows using an AMI alias to launch an instance by using the

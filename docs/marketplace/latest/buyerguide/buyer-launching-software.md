@@ -23,6 +23,6 @@ added instance or Region.
 
 For AWS Marketplace products with complex topologies, the **Custom Launch** view
 provides a **Launch with CloudFormation Console** option that loads the product in
-the AWS CloudFormation console with the appropriate AWS CloudFormation template. You can then follow the steps in the
-AWS CloudFormation console wizard to create the cluster of AMIs and associated AWS resources for that
+the CloudFormation console with the appropriate CloudFormation template. You can then follow the steps in the
+CloudFormation console wizard to create the cluster of AMIs and associated AWS resources for that
 product.

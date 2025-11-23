@@ -17,7 +17,17 @@ Product procurement request is enabled by default for an experience. You can vie
 ###### To take action on pending user requests
 
 1. Open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace/](https://console.aws.amazon.com/marketplace/ "https://console.aws.amazon.com/marketplace/").
-2. In the navigation pane, choose **Dashboard** under **Private Marketplace**.
-3. Choose **View requests**. This opens up the old Private Marketplace website with the list of pending requests.
-4. You can approve multiple requested products from this page by first selecting the check box next to the name of each requested product, and then choosing **Approve**. Similarly, you can also decline one or more selected requests by choosing **Decline**.
-5. To view more information about the request, choose **View details** for that request.
+2. In the navigation pane, choose **Approval requests** under **Private Marketplace**.
+3. You can approve or decline multiple requests from this page by first selecting the check box next to the name of each request, and then choosing **Approve** or **Decline**.
+4. To view more information about the request, choose **View details** for that request.
+   1. You can view the reason for request, optional purchase order number, and the Private Marketplace experience associated with the user.
+   2. You can choose to **Approve** or **Decline** and inform your buyer about your decision using an optional approver note.
+   3. All users associated with the Private Marketplace experience will be allowed to subscribe to the products in the request, if approved. If declined, all users associated with the Private Marketplace experience will not be able to subscribe to the products in the request.
+
+###### Note
+
+Private Marketplace supports two user experiences: AWS Console and the legacy website.
+
+To view and manage Private Marketplace in the AWS Marketplace Console, an administrator in the management account of your AWS Organizations must create an integration for Private Marketplace. See [Enabling Private Marketplace](private-marketplace-current.md#enable-private-marketplace "private-marketplace-current.md#enable-private-marketplace") for details. For end users, administrators must also grant the new permissions listed in [AWSPrivateMarketplaceRequests](buyer-security-iam-awsmanpol.md#security-iam-awsmanpol-awsprivatemarketplacerequests "buyer-security-iam-awsmanpol.md#security-iam-awsmanpol-awsprivatemarketplacerequests").
+
+Product requests created using the legacy website will be available at [Private Marketplace](https://aws.amazon.com/marketplace/privatemarketplace "https://aws.amazon.com/marketplace/privatemarketplace"). **Important:** The legacy website will be deprecated on March 17, 2026.

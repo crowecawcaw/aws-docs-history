@@ -43,7 +43,7 @@ AWS CloudFormation is a service that helps you model and set up your AWS resourc
 can spend less time managing those resources and more time focusing on your applications that
 run in AWS. A CloudFormation template describes the various AWS resources that you want, such
 as Amazon Elastic Compute Cloud (Amazon EC2) instances or Amazon Relational Database Service (Amazon RDS) database instances. CloudFormation takes care
-of provisioning and configuring those resources for you. For more information, see [Getting started with AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md").
+of provisioning and configuring those resources for you. For more information, see [Getting started with CloudFormation](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md").
 
 ### Using AWS CloudFormation templates
 

@@ -2,7 +2,7 @@
 
 ###### Important
 
-This documentation is for legacy version of Private Marketplace, which will be deprecated on November 15, 2025. For documentation of the current version, see [Private Marketplace](private-marketplace-current.md "private-marketplace-current.md"). To use the current version, an administrator in the management account of your AWS Organizations must create an integration for Private Marketplace. To check integration status, see [Viewing Private Marketplace settings](view-private-marketplace-settings.md "view-private-marketplace-settings.md").
+This documentation is for legacy version of Private Marketplace, which will be deprecated on March 17, 2026. For documentation of the current version, see [Private Marketplace](private-marketplace-current.md "private-marketplace-current.md"). To use the current version, an administrator in the management account of your AWS Organizations must create an integration for Private Marketplace. To check integration status, see [Viewing Private Marketplace settings](view-private-marketplace-settings.md "view-private-marketplace-settings.md").
 
 A private marketplace controls which products users in your AWS account, such as business
 users and engineering teams, can procure from AWS Marketplace. It is built on top of AWS Marketplace, and
@@ -51,7 +51,7 @@ in a private marketplace](manage-user-requests-private-marketplace.md "manage-us
 
 ## Configuring notifications
 
-Private marketplace administrators and buyers receive notification events from AWS Marketplace when a buyer requests a product, and when a request is approved or denied.
+Private Marketplace administrators and buyers receive notification events from AWS Marketplace when a buyer requests a product, and when a request is approved or denied.
 Administrators receive notifications for requests from any account in their AWS organization. Buyers only receive notifications for requests from their accounts.
 The notification events include product details and the seller's name.
 

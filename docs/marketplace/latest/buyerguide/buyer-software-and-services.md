@@ -20,7 +20,7 @@ AWS infrastructure charges.
 - The information and tutorials in [Tutorial:
   Get started with Amazon EC2 Linux instances](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md") can help you learn Amazon EC2 basics.
 - If you plan to launch complex topologies of AWS Marketplace products through
-  AWS CloudFormation, [Getting started with AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md") can help you learn useful AWS CloudFormation basics.
+  AWS CloudFormation, [Getting started with CloudFormation](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md") can help you learn useful CloudFormation basics.
   AWS Marketplace includes the following categories of software:
 
 - Infrastructure software

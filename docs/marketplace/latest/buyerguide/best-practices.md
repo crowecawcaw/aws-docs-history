@@ -63,7 +63,7 @@ accounts that are not in Organizations, you will not be able to use the new feat
 February 16, 2024. To use the latest features, an administrator in the management account
 of your AWS Organizations must create an integration for Private Marketplace. This is a prerequisite to use the
 AWS Marketplace console for managing Private Marketplace. The website for managing Private Marketplace will be deprecated on
-November 15, 2025. The integration is also required to use the features for organizational
+March 17, 2026. The integration is also required to use the features for organizational
 unit (OU) support and user request notifications discussed in the following What’s New posts:
 
 - [AWS Marketplace now supports managing Private Marketplace catalogs for organizational units](https://aws.amazon.com/about-aws/whats-new/2024/02/aws-marketplace-private-marketplace-catalogs-organizational-units/ "https://aws.amazon.com/about-aws/whats-new/2024/02/aws-marketplace-private-marketplace-catalogs-organizational-units/")

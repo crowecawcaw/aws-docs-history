@@ -8,7 +8,7 @@ After you set up governing experiences using Private Marketplace, users in your 
 
 ###### Note
 
-The legacy version of Private Marketplace will be deprecated on November 15, 2025. To use the current version, an administrator in the management account of your AWS Organizations must create an integration for Private Marketplace. To check integration status, see [Viewing Private Marketplace settings](view-private-marketplace-settings.md "view-private-marketplace-settings.md").
+The legacy version of Private Marketplace will be deprecated on March 17, 2026. To use the current version, an administrator in the management account of your AWS Organizations must create an integration for Private Marketplace. To check integration status, see [Viewing Private Marketplace settings](view-private-marketplace-settings.md "view-private-marketplace-settings.md").
 
 ## Products governed by Private Marketplace
 
@@ -18,3 +18,11 @@ All products that require AWS Marketplace subscriptions will be governed by Priv
 - As customers are already entitled to products whose EULAs are governed by the AWS Customer Agreement or other agreement with AWS governing use of AWS services, you cannot control subscriptions to such products using Private Marketplace. Hence, such products are not included in the list that you approve within your Private Marketplace experiences.
 - If your organization already has subscriptions to products in AWS Marketplace, Private Marketplace will not block usage from these existing subscriptions. Users will not be blocked from launching new instances from existing subscriptions. Private Marketplace will only block new subscriptions or changes to existing subscriptions to products that are not approved in the experience that is governing the user.
 - Private Marketplace does not control what can be deployed in AWS accounts. If you want to control what can be deployed including products that are automatically entitled, consider other services such as [AWS Service Catalog](../../../servicecatalog/latest/adminguide/introduction.md "../../../servicecatalog/latest/adminguide/introduction.md").
+
+###### Note
+
+Private Marketplace supports two user experiences: AWS Console and the legacy website.
+
+To view and manage Private Marketplace in the AWS Marketplace Console, an administrator in the management account of your AWS Organizations must create an integration for Private Marketplace. See [Enabling Private Marketplace](private-marketplace-current.md#enable-private-marketplace "private-marketplace-current.md#enable-private-marketplace") for details. For end users, administrators must also grant the new permissions listed in [AWSPrivateMarketplaceRequests](buyer-security-iam-awsmanpol.md#security-iam-awsmanpol-awsprivatemarketplacerequests "buyer-security-iam-awsmanpol.md#security-iam-awsmanpol-awsprivatemarketplacerequests").
+
+Product requests created using the legacy website will be available at [Private Marketplace](https://aws.amazon.com/marketplace/privatemarketplace "https://aws.amazon.com/marketplace/privatemarketplace"). **Important:** The legacy website will be deprecated on March 17, 2026.

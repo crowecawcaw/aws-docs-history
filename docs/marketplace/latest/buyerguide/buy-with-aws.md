@@ -12,7 +12,7 @@ management, and access to cost optimization tools.
 ###### Note
 
 For more information about Buy with AWS features, see [Buy with
-AWS](https://aws.amazon.com/marketplace/features/buy-with-aws "https://aws.amazon.com/marketplace/features/buy-with-aws").
+AWS](https://aws.amazon.com//marketplace/features/buy-with-aws "https://aws.amazon.com//marketplace/features/buy-with-aws").
 
 The CTA buttons that appear on a seller's website include:
 

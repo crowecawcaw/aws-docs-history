@@ -15,7 +15,7 @@ see [Helm releases on
 GitHub](https://github.com/helm/helm/releases "https://github.com/helm/helm/releases").
 
 If the seller has enabled Quick Launch, you can use it to launch the application. Quick Launch is a
-feature in AWS Marketplace that uses AWS CloudFormation to create an Amazon EKS cluster and launch the application on
+feature in AWS Marketplace that uses CloudFormation to create an Amazon EKS cluster and launch the application on
 it. For more information about Quick Launch, see [Launching container products with Quick Launch](quick-launch.md#buyer-launch-container-quicklaunch "quick-launch.md#buyer-launch-container-quicklaunch").
 
 The instructions are provided by the seller and are different for each seller and
@@ -55,7 +55,7 @@ follows:
       **Capabilities** and choose **Create
       stack**.###### Note
 
-For more information about Quick Launch, including information about AWS CloudFormation, stacks, and
+For more information about Quick Launch, including information about CloudFormation, stacks, and
 the created Amazon EKS cluster, see [Launching container products with Quick Launch](quick-launch.md#buyer-launch-container-quicklaunch "quick-launch.md#buyer-launch-container-quicklaunch"). 4. If launching in a **Self-managed Kubernetes** cluster:
 
     1. Verify that you're using Helm CLI version 3.7.1.

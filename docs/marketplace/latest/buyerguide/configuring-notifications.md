@@ -1,6 +1,6 @@
 # Private Marketplace notifications
 
-Private marketplace administrators and buyers receive notification events from AWS Marketplace when a buyer requests a product, and when a request is approved or declined. Administrators receive notifications for requests from any account in their AWS organization. Buyers only receive notifications for requests from their accounts. The notification events include product details and the seller's name.
+Private Marketplace administrators and buyers receive notification events from AWS Marketplace when a buyer requests a product, and when a request is approved or declined. Administrators receive notifications for requests from any account in their AWS organization. Buyers only receive notifications for requests from their accounts. The notification events include product details and the seller's name.
 
 For information about the Private Marketplace notification events, see [Amazon EventBridge notifications for AWS Marketplace events](buyer-notifications-eventbridge.md "buyer-notifications-eventbridge.md"), later in this guide.
 
@@ -21,6 +21,8 @@ You can use the AWS User Notifications service to get notifications for events t
       1. **Product Request Created**
       2. **Product Request Approved**
       3. **Product Request Declined**
+      4. **Product Request Cancelled**
+      5. **Product Request Expired**
 
    3. For **Regions**, select **us-east-1**. Private marketplace only operates in that Region.
 

@@ -43,7 +43,7 @@ see [AWS Marketplace Sellers](https://aws.amazon.com/tax-help/marketplace/ "http
 
 Products can take many forms. For instance, a product can be offered as an Amazon Machine
 Image (AMI) that is instantiated using your AWS account. The product could also be configured
-to use AWS CloudFormation templates for delivery to the consumer. The product could also be software as a
+to use CloudFormation templates for delivery to the consumer. The product could also be software as a
 service (SaaS) offerings from an ISV, or a web access control list (ACL), set of rules, or conditions for AWS WAF.
 
 You can purchase software products at the listed price using the ISV’s standard end user
