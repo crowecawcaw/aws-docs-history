@@ -77,7 +77,7 @@ infrastructure on AWS:
   hybrid scenarios, a secure link between the on-premises data
   center and AWS may be required, such as
   [AWS Direct Connect](https://aws.amazon.com/directconnect/ "https://aws.amazon.com/directconnect/") or
-  [AWS VPN](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md").
+  [Site-to-Site VPN](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md").
 - **Storage:** HPC calculations
   use, create, and move data in unique ways. Storage
   infrastructure must support these requirements during each step
