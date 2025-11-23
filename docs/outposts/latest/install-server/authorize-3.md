@@ -12,10 +12,10 @@ Before you begin, ensure the following prerequisites:
 
 ###### Tasks
 
-- [Configure static networking](#w8aac17c15c11 "#w8aac17c15c11")
-- [Test the links](#w8aac17c15c13 "#w8aac17c15c13")
-- [Test for DNS resolution](#w8aac17c15c15 "#w8aac17c15c15")
-- [Test for access to the AWS Region](#w8aac17c15c17 "#w8aac17c15c17")
+- [Configure static networking](#w2aac17c15c11 "#w2aac17c15c11")
+- [Test the links](#w2aac17c15c13 "#w2aac17c15c13")
+- [Test for DNS resolution](#w2aac17c15c15 "#w2aac17c15c15")
+- [Test for access to the AWS Region](#w2aac17c15c17 "#w2aac17c15c17")
 
 ## Configure static networking
 
