@@ -6,7 +6,7 @@ such as EC2 instances. To configure your load balancer, you create [target group
 with your target groups. You also create [listeners](load-balancer-listeners.md "load-balancer-listeners.md") to check for connection requests from clients, and listener rules to
 route requests from clients to the targets in one or more target groups.
 
-For more information, see [How Elastic Load Balancing works](../userguide/how-elastic-load-balancing-works.md "../userguide/how-elastic-load-balancing-works.md") in the _Elastic Load Balancing User Guide_.
+For more information, see [How ELB works](../userguide/how-elastic-load-balancing-works.md "../userguide/how-elastic-load-balancing-works.md") in the _Elastic Load Balancing User Guide_.
 
 ###### Contents
 
@@ -35,7 +35,7 @@ For more information, see [How Elastic Load Balancing works](../userguide/how-el
 ## Subnets for your load balancer
 
 When you create an Application Load Balancer, you must enable the zones that contain your targets.
-To enable a zone, specify a subnet in the zone. Elastic Load Balancing creates a load balancer node
+To enable a zone, specify a subnet in the zone. ELB creates a load balancer node
 in each zone that you specify.
 
 ###### Considerations
@@ -48,7 +48,7 @@ in each zone that you specify.
   the same type. For example, you can't enable both an Availability Zone and a
   Local Zone.
 - You can specify a subnet that was shared with you.
-- Elastic Load Balancing creates network interfaces in the subnets where you configured your load
+- ELB creates network interfaces in the subnets where you configured your load
   balancer. These network interfaces are reserved so that the load balancer can
   complete maintenance actions even when the subnet is running low on available IP
   addresses. They have the description "ENI reserved by ELB for subnet".
@@ -213,7 +213,7 @@ unintended access to your internal load balancer through an internet
 gateway. It is set to `false` for internet-facing load balancers
 and `true` for internal load balancers. This attribute does not
 prevent non-IGW internet access (such as, through peering, Transit Gateway,
-AWS Direct Connect, or AWS VPN).
+AWS Direct Connect, or Site-to-Site VPN).
 
 `routing.http.desync_mitigation_mode`
 
@@ -226,7 +226,7 @@ security risk to your application. The possible values are
 
 Indicates whether HTTP headers with header fields that are not valid are
 removed by the load balancer (`true`), or routed to targets
-(`false`). The default is `false`. Elastic Load Balancing requires
+(`false`). The default is `false`. ELB requires
 that valid HTTP header names conform to the regular expression
 `[-A-Za-z0-9]+`, as described in the HTTP Field Name
 Registry. Each name consists of alphanumeric characters or hyphens. Select
@@ -327,14 +327,14 @@ example, 2001:0db8:85a3:0:0:8a2e:0370:7334).
 
 - The load balancer communicates with targets based on the IP address type of
   the target group.
-- When you enable dualstack mode for the load balancer, Elastic Load Balancing provides an AAAA
+- When you enable dualstack mode for the load balancer, ELB provides an AAAA
   DNS record for the load balancer. Clients that communicate with the load
   balancer using IPv4 addresses resolve the A DNS record. Clients that communicate
   with the load balancer using IPv6 addresses resolve the AAAA DNS record.
 - Access to your internal dualstack load balancers through the internet gateway
   is blocked to prevent unintended internet access. However, this does not prevent
   non-IGW internet access (such as, through peering, Transit Gateway, AWS Direct Connect, or
-  AWS VPN).
+  Site-to-Site VPN).
 - Application Load Balancer authentication only supports IPv4 when connecting to an Identity Provider (IdP)
   or Amazon Cognito endpoint. Without a public IPv4 address, the load balancer can't complete
   the authentication process, resulting in HTTP 500 errors.
@@ -369,7 +369,7 @@ IP addresses to IPAM](../../../vpc/latest/ipam/tutorials-byoip-ipam.md "../../..
   your load balancers. However, there might be charges related to IPAM, depending on
   which tier you use.
 
-If there are no more assignable IP addresses in your IPAM IP address pool, Elastic Load Balancing
+If there are no more assignable IP addresses in your IPAM IP address pool, ELB
 uses AWS managed IPv4 addresses instead. There are additional charges to use AWS
 managed IPv4 addresses. To avoid these costs, you can add IP address ranges to your
 existing IPAM IP address pool.

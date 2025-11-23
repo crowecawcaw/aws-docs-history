@@ -48,7 +48,7 @@ If you create the target group and register the Lambda function using the
 AWS Management Console, the console adds the required permissions to your Lambda function
 policy on your behalf. Otherwise, after you create the target group and register
 the function using the AWS CLI, you must use the [add-permission](../../../cli/latest/reference/lambda/add-permission.md "../../../cli/latest/reference/lambda/add-permission.md") command
-to grant Elastic Load Balancing permission to invoke your Lambda function. We recommend that you
+to grant ELB permission to invoke your Lambda function. We recommend that you
 use the `aws:SourceAccount` and `aws:SourceArn` condition
 keys to restrict function invocation to the specified target group. For more
 information, see [The confused deputy

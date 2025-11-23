@@ -206,7 +206,7 @@ The `X-Forwarded-Proto` request header helps you identify the protocol
 access logs contain only the protocol used between the server and the load balancer;
 they contain no information about the protocol used between the client and the load
 balancer. To determine the protocol used between the client and the load balancer,
-use the `X-Forwarded-Proto` request header. Elastic Load Balancing stores the protocol
+use the `X-Forwarded-Proto` request header. ELB stores the protocol
 used between the client and the load balancer in the `X-Forwarded-Proto`
 request header and passes the header along to your server.
 

@@ -71,7 +71,7 @@ value is `true`.
   - Special characters: `_ :;.,\/'?!(){}[]@<>=-+*#&`|~^%`
 
 - The value for the attribute can not exceed 1K bytes in size.
-- Elastic Load Balancing performs basic input validations to verify
+- ELB performs basic input validations to verify
   the header value is valid. However the validation is unable
   to confirm if the value is supported for a specific header.
 - Setting an empty value for any attribute will cause the

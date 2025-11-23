@@ -180,15 +180,16 @@ handling a high volume of traffic. To decrease the possibility of disruptions wh
 your load balancer is handling a high volume of traffic, create an additional load
 balancer to help handle the traffic or request an LCU reservation.
 
-###### Using FIPS policies on your Application Load Balancer
+###### Compatibility
 
-All secure listeners attached to an Application Load Balancer must use either FIPS security
-policies or non-FIPS security policies; they cannot be mixed. If an existing
-Application Load Balancer has two or more listeners using non-FIPS policies and you want the listeners
-to use FIPS security policies instead, remove all listeners until there is only one.
-Change the security policy of the listener to FIPS and then create additional listeners
-using FIPS security policies. Alternatively, you can create a new Application Load Balancer with new
-listeners using only FIPS security policies.
+- All secure listeners attached to the same load balancer must use compatible security policies.
+  To migrate all secure listeners for a load balancer to security policies that are not compatible
+  with the ones that are currently in use, remove all but one of the secure listeners, change the
+  security policy of the secure listener, and then create additional secure listeners.
+  - FIPS post-quantum TLS policies and FIPS policies - **Compatible**
+  - Post-quantum TLS policies and FIPS or FIPS post-quantum TLS polices - **Compatible**
+  - TLS polices (non-FIPS, non-post-quantum) and FIPS or FIPS post-quantum TLS policies - **Not Compatible**
+  - TLS polices (non-FIPS, non-post-quantum) and post-quantum TLS policies - **Not Compatible**
 
 Console
 

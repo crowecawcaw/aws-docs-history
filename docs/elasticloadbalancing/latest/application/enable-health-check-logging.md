@@ -1,21 +1,21 @@
-# Enable connection logs for your Application Load Balancer
+# Enable health check logs for your Application Load Balancer
 
-When you enable connection logs for your load balancer, you must specify the name
+When you enable health check logs for your load balancer, you must specify the name
 of the S3 bucket where the load balancer will store the logs. The bucket must
 have a bucket policy that grants ELB permission to write to the bucket.
 
 ###### Tasks
 
-- [Step 1: Create an S3 bucket](#connection-log-create-bucket "#connection-log-create-bucket")
-- [Step 2: Attach a policy to your S3 bucket](#attach-bucket-policy-connection "#attach-bucket-policy-connection")
-- [Step 3: Configure connection logs](#enable-connection-logs "#enable-connection-logs")
-- [Step 4: Verify bucket permissions](#verify-bucket-permissions-connection "#verify-bucket-permissions-connection")
-- [Troubleshooting](#bucket-permissions-troubleshooting-connection "#bucket-permissions-troubleshooting-connection")
+- [Step 1: Create an S3 bucket](#health-check-log-create-bucket "#health-check-log-create-bucket")
+- [Step 2: Attach a policy to your S3 bucket](#attach-bucket-policy-health-check "#attach-bucket-policy-health-check")
+- [Step 3: Configure health check logs](#enable-health-check-logs "#enable-health-check-logs")
+- [Step 4: Verify bucket permissions](#verify-bucket-permissions-health-check "#verify-bucket-permissions-health-check")
+- [Troubleshooting](#bucket-permissions-troubleshooting-health-check "#bucket-permissions-troubleshooting-health-check")
 
 ## Step 1: Create an S3 bucket
 
-When you enable connection logs, you must specify an S3 bucket for the connection logs.
-You can use an existing bucket, or create a bucket specifically for connection logs.
+When you enable health-check logs, you must specify an S3 bucket for the health-check logs.
+You can use an existing bucket, or create a bucket specifically for health-check logs.
 The bucket must meet the following requirements.
 
 ###### Requirements
@@ -45,15 +45,15 @@ The bucket must meet the following requirements.
 ## Step 2: Attach a policy to your S3 bucket
 
 Your S3 bucket must have a bucket policy that grants ELB permission to write
-the connection logs to the bucket. Bucket policies are a collection of JSON
+the health check logs to the bucket. Bucket policies are a collection of JSON
 statements written in the access policy language to define access
 permissions for your bucket. Each statement includes information about a
 single permission and contains a series of elements.
 
 If you're using an existing bucket that already has an attached policy, you can add the
-statement for ELB connection logs to the policy. If you do so, we recommend
+statement for ELB health check logs to the policy. If you do so, we recommend
 that you evaluate the resulting set of permissions to ensure that they are
-appropriate for the users that need access to the bucket for connection logs.
+appropriate for the users that need access to the bucket for health check logs.
 
 This policy grants permissions to the specified log delivery service.
 
@@ -226,28 +226,28 @@ aws s3api put-bucket-policy \
     --policy file://`access-log-policy.json`
 ```
 
-## Step 3: Configure connection logs
+## Step 3: Configure health check logs
 
-Use the following procedure to configure connection logs to capture and deliver
+Use the following procedure to configure health check logs to capture and deliver
 log files to your S3 bucket.
 
 ###### Requirements
 
-The bucket must meet the requirements described in [step 1](#connection-log-create-bucket "#connection-log-create-bucket"), and you must attach a
-bucket policy as described in [step 2](#attach-bucket-policy-connection "#attach-bucket-policy-connection").
+The bucket must meet the requirements described in [step 1](#health-check-log-create-bucket "#health-check-log-create-bucket"), and you must attach a
+bucket policy as described in [step 2](#attach-bucket-policy-health-check "#attach-bucket-policy-health-check").
 If you specify a prefix, it must not include the string "AWSLogs".
 
-###### To manage the S3 bucket for your connection logs
+###### To manage the S3 bucket for your health check logs
 
-Be sure to disable connection logs before you delete the bucket that you
-configured for connection logs. Otherwise, if there is a new bucket with the
+Be sure to disable health check logs before you delete the bucket that you
+configured for health check logs. Otherwise, if there is a new bucket with the
 same name and the required bucket policy but created in an AWS account
-that you don't own, ELB could write the connection logs for your load balancer
+that you don't own, ELB could write the health check logs for your load balancer
 to this new bucket.
 
 Console
 
-###### To enable connection logs
+###### To enable health check logs
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -255,7 +255,7 @@ Console
 3. Select the name of your load balancer to open its details page.
 4. On the **Attributes** tab, choose
    **Edit**.
-5. For **Monitoring**, turn on **Connection
+5. For **Monitoring**, turn on **Health Check
    logs**.
 6. For **S3 URI**, enter the S3 URI for your log files. The URI
    that you specify depends on whether you're using a prefix.
@@ -266,7 +266,7 @@ Console
 
 AWS CLI
 
-###### To enable connection logs
+###### To enable health check logs
 
 Use the [modify-load-balancer-attributes](../../../cli/latest/reference/elbv2/modify-load-balancer-attributes.md "../../../cli/latest/reference/elbv2/modify-load-balancer-attributes.md") command
 with the related attributes.
@@ -275,14 +275,14 @@ with the related attributes.
 aws elbv2 modify-load-balancer-attributes \
     --load-balancer-arn `load-balancer-arn` \
     --attributes \
-        Key=connection_logs.s3.enabled,Value=true \
-        Key=connection_logs.s3.bucket,Value=`amzn-s3-demo-logging-bucket` \
-        Key=connection_logs.s3.prefix,Value=`logging-prefix`
+        Key=health_check_logs.s3.enabled,Value=true \
+        Key=health_check_logs.s3.bucket,Value=`amzn-s3-demo-logging-bucket` \
+        Key=health_check_logs.s3.prefix,Value=`logging-prefix`
 ```
 
 CloudFormation
 
-###### To enable connection logs
+###### To enable health check logs
 
 Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.md") resource
 to include the related attributes.
@@ -301,40 +301,40 @@ Resources:
       SecurityGroups:
         - !Ref mySecurityGroup
       LoadBalancerAttributes:
-        - Key: "connection_logs.s3.enabled"
+        - Key: "health_check_logs.s3.enabled"
           Value: "true"
-        - Key: "connection_logs.s3.bucket"
+        - Key: "health_check_logs.s3.bucket"
           Value: "`amzn-s3-demo-logging-bucket`"
-        - Key: "connection_logs.s3.prefix"
+        - Key: "health_check_logs.s3.prefix"
           Value: "`logging-prefix`"
 ```
 
 ## Step 4: Verify bucket permissions
 
-After connection logs are enabled for your load balancer, ELB validates the S3
+After health check logs are enabled for your load balancer, ELB validates the S3
 bucket and creates a test file to ensure that the bucket policy specifies the
 required permissions. You can use the Amazon S3 console to verify that the test file
-was created. The test file is not an actual connection log file; it doesn't contain
+was created. The test file is not an actual health check log file; it doesn't contain
 example records.
 
 ###### To verify that ELB created a test file in your S3 bucket
 
 1. Open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. Select the name of the bucket that you specified for connection logs.
-3. Navigate to the test file, `ELBConnectionLogTestFile`.
+2. Select the name of the bucket that you specified for health check logs.
+3. Navigate to the test file, `ELBHealthCheckLogTestFile`.
    The location depends on whether you're using a prefix.
-   - Location with a prefix: `amzn-s3-demo-logging-bucket`/`prefix`/AWSLogs/`123456789012`/ELBConnectionLogTestFile
-   - Location without a prefix: `amzn-s3-demo-logging-bucket`/AWSLogs/`123456789012`/ELBConnectionLogTestFile
+   - Location with a prefix: `amzn-s3-demo-logging-bucket`/`prefix`/AWSLogs/`123456789012`/ELBHealthCheckLogTestFile
+   - Location without a prefix: `amzn-s3-demo-logging-bucket`/AWSLogs/`123456789012`/ELBHealthCheckLogTestFile
 
 ## Troubleshooting
 
 If you receive an access denied error, the following are possible causes:
 
-- The bucket policy does not grant ELB permission to write connection logs
+- The bucket policy does not grant ELB permission to write health check logs
   to the bucket. Verify that you are using the correct bucket policy for
   the Region. Verify that the resource ARN uses the same bucket name that
-  you specified when you enabled connection logs. Verify that the resource ARN
+  you specified when you enabled health check logs. Verify that the resource ARN
   does not include a prefix if you did not specify a prefix when you
-  enabled connection logs.
+  enabled health check logs.
 - The bucket uses an unsupported server-side encryption option. The bucket must use Amazon S3-managed keys (SSE-S3).

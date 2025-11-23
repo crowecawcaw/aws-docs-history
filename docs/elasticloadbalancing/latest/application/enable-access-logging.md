@@ -2,7 +2,7 @@
 
 When you enable access logs for your load balancer, you must specify the name
 of the S3 bucket where the load balancer will store the logs. The bucket must
-have a bucket policy that grants Elastic Load Balancing permission to write to the bucket.
+have a bucket policy that grants ELB permission to write to the bucket.
 
 ###### Tasks
 
@@ -44,14 +44,14 @@ The bucket must meet the following requirements.
 
 ## Step 2: Attach a policy to your S3 bucket
 
-Your S3 bucket must have a bucket policy that grants Elastic Load Balancing permission to write
+Your S3 bucket must have a bucket policy that grants ELB permission to write
 the access logs to the bucket. Bucket policies are a collection of JSON
 statements written in the access policy language to define access
 permissions for your bucket. Each statement includes information about a
 single permission and contains a series of elements.
 
 If you're using an existing bucket that already has an attached policy, you can add the
-statement for Elastic Load Balancing access logs to the policy. If you do so, we recommend
+statement for ELB access logs to the policy. If you do so, we recommend
 that you evaluate the resulting set of permissions to ensure that they are
 appropriate for the users that need access to the bucket for access logs.
 
@@ -114,12 +114,12 @@ arn:aws-us-gov:s3:::amzn-s3-demo-logging-bucket/AWSLogs/123456789012/*
 ```
 
 Previously, for Regions available before August 2022, we required a policy
-that granted permissions to an Elastic Load Balancing account that was specific to the Region.
+that granted permissions to an ELB account that was specific to the Region.
 This legacy policy is still supported, but we recommend that you replace it
 with the newer policy above. If you prefer to keep using the legacy policy,
 which is not shown here, you can.
 
-For reference, here are the IDs of the Elastic Load Balancing accounts
+For reference, here are the IDs of the ELB accounts
 to specify in `Principal` in the legacy policy. Note that Regions
 that are not in this list do not support the legacy policy.
 
@@ -311,7 +311,7 @@ If you include a prefix, it must not include the string "AWSLogs".
 Be sure to disable access logs before you delete the bucket that you
 configured for access logs. Otherwise, if there is a new bucket with the
 same name and the required bucket policy but created in an AWS account
-that you don't own, Elastic Load Balancing could write the access logs for your load balancer
+that you don't own, ELB could write the access logs for your load balancer
 to this new bucket.
 
 Console
@@ -380,7 +380,7 @@ Resources:
 
 ## Step 4: Verify bucket permissions
 
-After access logs are enabled for your load balancer, Elastic Load Balancing validates the S3
+After access logs are enabled for your load balancer, ELB validates the S3
 bucket and creates a test file to ensure that the bucket policy specifies the
 required permissions. You can use the Amazon S3 console to verify that the test file
 was created. The test file is not an actual access log file; it doesn't contain
@@ -400,7 +400,7 @@ example records.
 
 If you receive an access denied error, the following are possible causes:
 
-- The bucket policy does not grant Elastic Load Balancing permission to write access logs
+- The bucket policy does not grant ELB permission to write access logs
   to the bucket. Verify that you are using the correct bucket policy for
   the Region. Verify that the resource ARN uses the same bucket name that
   you specified when you enabled access logs. Verify that the resource ARN

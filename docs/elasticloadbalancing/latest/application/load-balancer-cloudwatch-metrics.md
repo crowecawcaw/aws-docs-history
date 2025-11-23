@@ -1,6 +1,6 @@
 # CloudWatch metrics for your Application Load Balancer
 
-Elastic Load Balancing publishes data points to Amazon CloudWatch for your load balancers and your targets. CloudWatch
+ELB publishes data points to Amazon CloudWatch for your load balancers and your targets. CloudWatch
 enables you to retrieve statistics about those data points as an ordered set of
 time-series data, known as _metrics_. Think of a metric as a variable
 to monitor, and the data points as the values of that variable over time. For example,
@@ -13,8 +13,8 @@ you can create a CloudWatch alarm to monitor a specified metric and initiate an 
 as sending a notification to an email address) if the metric goes outside what you
 consider an acceptable range.
 
-Elastic Load Balancing reports metrics to CloudWatch only when requests are flowing through the load
-balancer. If there are requests flowing through the load balancer, Elastic Load Balancing measures and
+ELB reports metrics to CloudWatch only when requests are flowing through the load
+balancer. If there are requests flowing through the load balancer, ELB measures and
 sends its metrics in 60-second intervals. If there are no requests flowing through the
 load balancer or no data for a metric, the metric is not reported.
 
@@ -38,6 +38,7 @@ For more information, see the [Amazon CloudWatch User Guide](../../../AmazonClou
 - [Target group health](#target-group-health-metric-table "#target-group-health-metric-table")
 - [Lambda functions](#lambda-metric-table "#lambda-metric-table")
 - [User authentication](#user-authentication-metric-table "#user-authentication-metric-table")
+- [Target Optimizer](#target-optimizer-metric-table "#target-optimizer-metric-table")
 
 The `AWS/ApplicationELB` namespace includes the following metrics for
 load balancers.
@@ -129,6 +130,19 @@ user authentication.
 | `ELBAuthSuccess`                | The number of authenticate actions that were successful. This<br>metric is incremented at the end of the authentication workflow,<br>after the load balancer has retrieved the user claims from the<br>IdP.<br>**Reporting criteria**: There is a nonzero<br>value<br>**Statistics**: The most useful statistic is<br>`Sum`.<br>Dimensions<br>• `LoadBalancer`<br>• `AvailabilityZone`,<br>`LoadBalancer`                                                                                                                                                                 |
 | `ELBAuthUserClaimsSizeExceeded` | The number of times that a configured IdP returned user claims<br>that exceeded 11K bytes in size.<br>**Reporting criteria**: There is a nonzero<br>value<br>**Statistics**: The only meaningful statistic<br>is `Sum`.<br>Dimensions<br>• `LoadBalancer`<br>• `AvailabilityZone`,<br>`LoadBalancer`                                                                                                                                                                                                                                                                      |
 
+The `AWS/ApplicationELB` namespace includes the following metrics for
+target optimizer.
+
+| Metric                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `TargetControlRequestCount`       | Number of requests forwarded by ALB to agents.<br>**Reporting criteria**: Target optimizer is<br>enabled on a target group and there is a nonzero value.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.<br>Dimensions<br>• `LoadBalancer`<br>• `AvailabilityZone`,<br>`LoadBalancer`                                                                                                                                                                                          |
+| `TargetControlRequestRejectCount` | Number of requests rejected by ALB due to no targets being ready to receive requests.<br>This metric shows an uptick when TargetControlWorkQueueLength is zero.<br>**Reporting criteria**: Target optimizer is<br>enabled on a target group and there is a nonzero value.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.<br>Dimensions<br>• `LoadBalancer`<br>• `AvailabilityZone`,<br>`LoadBalancer`                                                                         |
+| `TargetControlActiveChannelCount` | Number of active control channels between ALB and agents. For a load balancer,<br>this should be equal to the number of agents. A lower than expected number indicates<br>that agents are not configured properly or are not available.<br>**Reporting criteria**: Target optimizer is enabled on a target<br>group and there is a nonzero value.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.<br>Dimensions<br>• `LoadBalancer`<br>• `AvailabilityZone`,<br>`LoadBalancer` |
+| `TargetControlNewChannelCount`    | Number of new control channels created between ALB and agents. You will see an uptick in<br>this metric when a new target with the agent installed is successfully added to the<br>target group.<br>**Reporting criteria**: Target optimizer is enabled on a target group<br>and there is a nonzero value.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.<br>Dimensions<br>• `LoadBalancer`<br>• `AvailabilityZone`,<br>`LoadBalancer`                                        |
+| `TargetControlChannelErrorCount`  | Number of control channels between ALB and agents that failed to establish or<br>experienced an unexpected error. A control channel error will result in that agent<br>(and target) not receiving any application traffic.<br>**Reporting criteria**: Target optimizer is enabled on a<br>target group and there is a nonzero value.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.<br>Dimensions<br>• `LoadBalancer`<br>• `AvailabilityZone`,<br>`LoadBalancer`              |
+| `TargetControlWorkQueueLength`    | Number of signals received by the ALB from agents asking for requests.<br>This data comes from snapshots taken at 1-minute intervals. Sub-minute<br>changes are not captured.<br>**Reporting criteria**: Target optimizer is enabled<br>on a target group and there is a nonzero value.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.<br>Dimensions<br>• `LoadBalancer`<br>• `AvailabilityZone`,<br>`LoadBalancer`                                                           |
+| `TargetControlProcessedBytes`     | Number of bytes processed by ALB for traffic to<br>target groups that enable target optimizer.<br>**Reporting criteria**: Target optimizer is enabled<br>on a target group and there is a nonzero value.<br>**Statistics**: The most meaningful statistic<br>is `Sum`.<br>Dimensions<br>• `LoadBalancer`<br>• `AvailabilityZone`,<br>`LoadBalancer`                                                                                                                                          |
+
 ## Metric dimensions for
 
 Application Load Balancers
@@ -143,7 +157,7 @@ To filter the metrics for your Application Load Balancer, use the following dime
 
 ## Statistics for Application Load Balancer metrics
 
-CloudWatch provides statistics based on the metric data points published by Elastic Load Balancing.
+CloudWatch provides statistics based on the metric data points published by ELB.
 Statistics are metric data aggregations over specified period of time. When you
 request statistics, the returned data stream is identified by the metric name and
 dimension. A dimension is a name-value pair that uniquely identifies a metric. For
@@ -187,7 +201,7 @@ example, suppose that an application serves the majority of requests from a cach
 1-2 ms, but in 100-200 ms if the cache is empty. The maximum reflects the slowest
 case, around 200 ms. The average doesn't indicate the distribution of the data.
 Percentiles provide a more meaningful view of the application's performance. By
-using the 99th percentile as an Auto Scaling trigger or a CloudWatch alarm, you can target that no
+using the 99th percentile as an Amazon EC2 Auto Scaling trigger or a CloudWatch alarm, you can target that no
 more than 1 percent of requests take longer than 2 ms to process.
 
 ## View CloudWatch metrics for your load balancer

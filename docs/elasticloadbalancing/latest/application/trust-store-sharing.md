@@ -1,7 +1,7 @@
-# Share your Elastic Load Balancing trust store for Application Load Balancers
+# Share your ELB trust store for Application Load Balancers
 
-Elastic Load Balancing integrates with AWS Resource Access Manager (AWS RAM) to enable trust store sharing. AWS RAM is a service that enables you
-to securely share your Elastic Load Balancing trust store resources across AWS accounts and within your organization or
+ELB integrates with AWS Resource Access Manager (AWS RAM) to enable trust store sharing. AWS RAM is a service that enables you
+to securely share your ELB trust store resources across AWS accounts and within your organization or
 organizational units (OUs). If you have multiple accounts, you can create a trust store once and use
 AWS RAM to make it usable by other accounts. If your account is managed by AWS Organizations, you can share trust
 stores with all the accounts in the organization or only accounts within specified organizational units
@@ -179,4 +179,4 @@ Use the [disassociate-resource-share](../../../cli/latest/reference/ram/disassoc
 
 Shared trust stores incur the same standard trust store rate, billed per hour, per trust store association with an Application Load Balancer.
 
-For more information, including the specific rate per region, see [Elastic Load Balancing pricing](https://aws.amazon.com/elasticloadbalancing/pricing/ "https://aws.amazon.com/elasticloadbalancing/pricing/")
+For more information, including the specific rate per region, see [ELB pricing](https://aws.amazon.com/elasticloadbalancing/pricing/ "https://aws.amazon.com/elasticloadbalancing/pricing/")

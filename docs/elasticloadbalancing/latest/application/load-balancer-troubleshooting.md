@@ -19,6 +19,7 @@ The following information can help you troubleshoot issues with your Application
 - [An AWS Certificate Manager certificate is not available for use](#acm-cert-unavailable "#acm-cert-unavailable")
 - [Multi-Line headers are not supported](#multi-line-headers-issue "#multi-line-headers-issue")
 - [Troubleshoot unhealthy targets using the resource map](#troubleshoot-with-resourcemap "#troubleshoot-with-resourcemap")
+- [Troubleshoot target optimizer](#troubleshoot-target-optimizer "#troubleshoot-target-optimizer")
 
 ## A registered target is not in service
 
@@ -302,13 +303,17 @@ Possible causes:
   than 5 seconds to respond.
 - The load balancer is unable to communicate with the JWKS endpoint, or the JWKS endpoint is not responding within 5 seconds.
 - The size of the response returned by the JWKS endpoint exceeds 150KB or the number of keys returned by the JWKS endpoint exceeds 10
+- The target group has target optimizer enabled and the agent encountered an unexpected error. See [Troubleshoot target optimizer](#troubleshoot-target-optimizer "#troubleshoot-target-optimizer").
 
 ### HTTP 501: Not implemented
 
-The load balancer received a **Transfer-Encoding** header with an
-unsupported value. The supported values for **Transfer-Encoding**
-are `chunked` and `identity`. As an alternative, you can use
-the **Content-Encoding** header.
+Possible causes:
+
+- The load balancer received a **Transfer-Encoding** header with an
+  unsupported value. The supported values for **Transfer-Encoding**
+  are `chunked` and `identity`. As an alternative, you can use
+  the **Content-Encoding** header.
+- A websocket request was routed to a target group with target optimizer enabled.
 
 ### HTTP 502: Bad gateway
 
@@ -341,8 +346,13 @@ For more information see [How do I troubleshoot Application Load Balancer HTTP 5
 
 ### HTTP 503: Service unavailable
 
-The target groups for the load balancer have no registered targets,
-or all of the registered targets are in an `unused` state.
+Possible causes:
+
+- The target groups for the load balancer have no registered targets,
+  or all of the registered targets are in an `unused` state.
+- The request was routed to a target group with target optimizer enabled, and
+  was rejected because no targets were ready to receive requests.
+  See [Troubleshoot target optimizer](#troubleshoot-target-optimizer "#troubleshoot-target-optimizer").
 
 ### HTTP 504: Gateway timeout
 
@@ -463,17 +473,49 @@ reason code check for the following issues:
 
   You choose which security policy is used for front-end connections.
   The security policy used for back-end connections is automatically selected
-  based on the front-end security policy in use.
+  based on the front-end security policy in use. If any of your listeners have:
 
-      - If your HTTPS listener is using a TLS 1.3 security policy for
-       front-end connections, the `ELBSecurityPolicy-TLS13-1-0-2021-06`
-       security policy is used for back-end connections.
-      - If your HTTPS listener is not using a TLS 1.3 security policy for
-       front-end connections, the `ELBSecurityPolicy-2016-08`
-       security policy is used for back-end connections.For more information, see
+      - **FIPS post-quantum TLS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-FIPS-PQ-2025-09`
+      - **FIPS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-FIPS-2023-04`
+      - **Post-quantum TLS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-PQ-2025-09`
+      - **TLS 1.3 policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-2021-06`
+      - All other TLS policies backend connections use `ELBSecurityPolicy-2016-08`For more information, see
 
   [Security policies](describe-ssl-policies.md "describe-ssl-policies.md").
   - Verify the target is providing a server certificate and key in the correct format
     specified by the security policy.
   - Verify the target supports one or more matching ciphers, and a protocol provided
     by the Application Load Balancer to establish TLS handshakes.
+
+## Troubleshoot target optimizer
+
+For detailed monitoring, see
+[Target optimizer metrics](load-balancer-cloudwatch-metrics.md "load-balancer-cloudwatch-metrics.md")
+
+###### Configuration Errors
+
+- `HTTPCode_ELB_502_Count`: The load balancer received a TCP RST from the agent when attempting to establish a connection.
+- `HTTPCode_ELB_504_Count`: The load balancer failed to establish a connection to the agent before the idle timeout period elapsed.
+- `HTTPCode_Target_5XX_Count`: The agent received a TCP RST from the target application when attempting to establish a connection.
+  _(Applicable only when the target application itself is not generating this error response.)_
+
+To fix these issues, please ensure that:
+
+- The security groups on the targets are configured correctly.
+- The agent is running with the expected configuration.
+- The target application is running and listening on the TARGET_CONTROL_DESTINATION_ADDRESS configured in the agent.
+
+###### Service Unavailable Errors (`HTTPCode_ELB_503_Count`)
+
+Consistent HTTP 503 errors means that there are insufficient targets ready to receive requests from the ALB. The
+TargetControlRequestRejectCount metric is representative of these rejected requests. The TargetControlWorkQueueLength metric
+will fall to near zero values. To fix this issue, consider:
+
+- Increasing the number of targets
+- Setting the TARGET_CONTROL_MAX_CONCURRENCY variable on the agent to a larger value.
+
+###### Health-check errors
+
+- If the health check port is the same as TARGET_CONTROL_DATA_ADDRESS, then health check requests from the ALB
+  are sent to the target application through the agent. If health checks are failing (due to HTTP 502 or Timeouts)
+  refer to the Configuration Errors section.

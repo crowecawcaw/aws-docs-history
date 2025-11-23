@@ -27,7 +27,7 @@ information about public certificates, see [Request a public certificate](../../
 
 We recommend that you create certificates for your load balancer using [AWS Certificate Manager (ACM)](https://aws.amazon.com/certificate-manager/ "https://aws.amazon.com/certificate-manager/"). ACM
 supports RSA certificates with 2048, 3072, and 4096-bit key lengths, and all ECDSA
-certificates. ACM integrates with Elastic Load Balancing so that you can deploy the certificate on
+certificates. ACM integrates with ELB so that you can deploy the certificate on
 your load balancer. For more information, see the [AWS Certificate Manager User Guide](../../../acm/latest/userguide.md "../../../acm/latest/userguide.md").
 
 Alternatively, you can use SSL/TLS tools to create a certificate signing request

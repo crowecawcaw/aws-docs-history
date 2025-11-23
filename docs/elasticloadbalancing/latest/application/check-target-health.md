@@ -3,6 +3,11 @@
 You can check the health status of the targets registered with your target
 groups. For help with health check failures, see [Troubleshooting: A registered target is not in service](load-balancer-troubleshooting.md#target-not-inservice "load-balancer-troubleshooting.md#target-not-inservice").
 
+You can use health check logs to capture detailed information about the health checks
+made to your registered targets for your load balancer and store them as log files in Amazon S3.
+You can use these health check logs to troubleshoot issues with your targets.
+For more information, see [Health check logs](load-balancer-health-check-logs.md "load-balancer-health-check-logs.md").
+
 Console
 
 ###### To check the health of your targets

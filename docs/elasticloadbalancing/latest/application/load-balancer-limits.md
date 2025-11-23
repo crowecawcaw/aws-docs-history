@@ -6,7 +6,7 @@ quotas, and other quotas cannot be increased.
 
 To view the quotas for your Application Load Balancers, open the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home"). In the navigation pane, choose **AWS services** and
 select **Elastic Load Balancing**. You can also use the [describe-account-limits](../../../cli/latest/reference/elbv2/describe-account-limits.md "../../../cli/latest/reference/elbv2/describe-account-limits.md") (AWS CLI)
-command for Elastic Load Balancing.
+command for ELB.
 
 To request a quota increase, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.
 If the quota is not yet available in Service Quotas, submit a request for a [service quota increase](https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase").

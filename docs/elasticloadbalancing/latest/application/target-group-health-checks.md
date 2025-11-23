@@ -21,6 +21,11 @@ Health checks do not support WebSockets.
 
 For more information, see [Target group health](load-balancer-target-groups.md#target-group-health "load-balancer-target-groups.md#target-group-health").
 
+You can use health check logs to capture detailed information about the health checks
+made to your registered targets for your load balancer and store them as log files in Amazon S3.
+You can use these health check logs to troubleshoot issues with your targets.
+For more information, see [Health check logs](load-balancer-health-check-logs.md "load-balancer-health-check-logs.md").
+
 ###### Contents
 
 - [Health check settings](#health-check-settings "#health-check-settings")

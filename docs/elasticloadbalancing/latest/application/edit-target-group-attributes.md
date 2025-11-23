@@ -14,17 +14,17 @@ After you create a target group for you Application Load Balancer, you can edit 
 
 ## Deregistration delay
 
-Elastic Load Balancing stops sending requests to targets that are deregistering. By default, Elastic Load Balancing
+ELB stops sending requests to targets that are deregistering. By default, ELB
 waits 300 seconds before completing the deregistration process, which can help in-flight
-requests to the target to complete. To change the amount of time that Elastic Load Balancing waits,
+requests to the target to complete. To change the amount of time that ELB waits,
 update the deregistration delay value.
 
 The initial state of a deregistering target is `draining`. After the
 deregistration delay elapses, the deregistration process completes and the state of the
-target is `unused`. If the target is part of an Auto Scaling group, it can be
+target is `unused`. If the target is part of an Amazon EC2 Auto Scaling group, it can be
 terminated and replaced.
 
-If a deregistering target has no in-flight requests and no active connections, Elastic Load Balancing
+If a deregistering target has no in-flight requests and no active connections, ELB
 immediately completes the deregistration process, without waiting for the deregistration
 delay to elapse. However, even though target deregistration is complete, the status of
 the target is displayed as `draining` until the deregistration delay timeout
@@ -97,7 +97,8 @@ routing algorithm can be updated whenever needed.
 
 If you enable sticky sessions, the selected routing algorithm is used for the initial
 target selection. Future requests from the same client will be forwarded to the
-same target, bypassing the selected routing algorithm.
+same target, bypassing the selected routing algorithm. If you have enabled target optimizer, the routing
+algorithm can only be round robin.
 
 ###### Round robin
 
@@ -731,6 +732,7 @@ should remove the cookie from its cookie store.
 - Application Load Balancers do not support cookie values that are URL encoded.
 - If the Application Load Balancer receives a new request while the target is draining
   due to deregistration, the request is routed to a healthy target.
+- Sticky sessions are not supported if target optimizer is enabled.
 
 ###### Stickiness types
 

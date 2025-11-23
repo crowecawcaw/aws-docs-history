@@ -225,7 +225,7 @@ more information, see [Add an HTTPS listener](create-https-listener.md#add-https
 
 ## Connection logs for Application Load Balancers
 
-Elastic Load Balancing provides connection logs that capture attributes about the requests
+ELB provides connection logs that capture attributes about the requests
 sent to your Application Load Balancers. Connection logs contain information such as the
 client IP address and port, client certificate information, connection results,
 and TLS ciphers being used. These connection logs can then be used to review

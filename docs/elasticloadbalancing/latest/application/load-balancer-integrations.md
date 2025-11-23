@@ -33,7 +33,7 @@ users worldwide. The automatic content caching at these edge locations
 significantly reduces the load on your Application Load Balancer, improving its performance
 and scalability.
 
-The one-click integration available in the Elastic Load Balancing console creates a CloudFront distribution
+The one-click integration available in the ELB console creates a CloudFront distribution
 with the recommended AWS WAF security protections, and associates it to your Application Load Balancer.
 The AWS WAF protections block against common web exploits before reaching your load
 balancer. You can access the CloudFront distribution and its corresponding security dashboard

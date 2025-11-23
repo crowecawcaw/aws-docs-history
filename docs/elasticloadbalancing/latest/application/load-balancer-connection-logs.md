@@ -1,18 +1,18 @@
 # Connection logs for your Application Load Balancer
 
-Elastic Load Balancing provides connection logs that capture detailed information about requests sent
+ELB provides connection logs that capture detailed information about requests sent
 to your load balancer. Each log contains information such as the client's IP address
 and port, listener port, the TLS cipher and protocol used, TLS handshake latency,
 connection status, and client certificate details. You can use these connection logs
 to analyze request patterns and troubleshoot issues.
 
-Connection logs is an optional feature of Elastic Load Balancing that is disabled by default. After you
-enable connection logs for your load balancer, Elastic Load Balancing captures the logs and stores them in
+Connection logs is an optional feature of ELB that is disabled by default. After you
+enable connection logs for your load balancer, ELB captures the logs and stores them in
 the Amazon S3 bucket that you specify, as compressed files. You can disable connection logs at any
 time.
 
 You are charged storage costs for Amazon S3, but not charged for the bandwidth used by
-Elastic Load Balancing to send log files to Amazon S3. For more information about storage costs, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+ELB to send log files to Amazon S3. For more information about storage costs, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
 ###### Contents
 
@@ -25,7 +25,7 @@ Elastic Load Balancing to send log files to Amazon S3. For more information abou
 
 ## Connection log files
 
-Elastic Load Balancing publishes a log file for each load balancer node every 5 minutes. Log
+ELB publishes a log file for each load balancer node every 5 minutes. Log
 delivery is eventually consistent. The load balancer can deliver multiple logs for
 the same period. This usually happens if the site has high traffic.
 
@@ -135,6 +135,7 @@ the last documented field, and update log parsing after we release a new field.
 | leaf_client_cert_serial_number (10) | [HTTPS listener] The serial number of the leaf client certificate. This field is<br>set to `-` when:<br>• The incoming request is not a SSL/TLS request.<br>• The load balancer listener is not configured with mTLS enabled.<br>• The server is not able to load/parse the leaf client certificate.                                                      |
 | tls_verify_status (11)              | [HTTPS listener] The status of the connection request. This<br>value is `Success` if the connection is<br>established successfully. On an unsuccessful connection the<br>value is `Failed:$error_code`.                                                                                                                                                   |
 | conn_trace_id (12)                  | The connection traceability ID is a \*_unique opaque ID_<br>• used<br>to identify each connection. After a connection is established with a client, subsequent requests<br>from this client contain this ID in their respective access log entries. This ID acts as a<br>foreign key to create a link between the connection and access logs.             |
+| tls_keyexchange (13)                | [HTTPS listener] The key exchange used during handshakes for TLS or PQ-TLS .<br>This field is set to `-` for non SSL/TLS requests.                                                                                                                                                                                                                        |
 
 ### Error reason codes
 

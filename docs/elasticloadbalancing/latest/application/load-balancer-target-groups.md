@@ -28,6 +28,7 @@ load balancer routes requests to the registered targets that are healthy.
 - [IP address type](#target-group-ip-address-type "#target-group-ip-address-type")
 - [Protocol version](#target-group-protocol-version "#target-group-protocol-version")
 - [Registered targets](#registered-targets "#registered-targets")
+- [Target Optimizer](#target-optimizer "#target-optimizer")
 - [Target group attributes](#target-group-attributes "#target-group-attributes")
 - [Target group health](#target-group-health "#target-group-health")
 - [Create a target group](create-target-group.md "create-target-group.md")
@@ -103,7 +104,7 @@ All of the supported CIDR blocks enable you to register the following targets wi
 - Instances in a VPC that is peered to the load balancer VPC (same Region or different Region).
 - AWS resources that are addressable by IP address and port (for example,
   databases).
-- On-premises resources linked to AWS through AWS Direct Connect or a Site-to-Site VPN
+- On-premises resources linked to AWS through Direct Connect or a Site-to-Site VPN
   connection.
 
 ###### Note
@@ -219,10 +220,10 @@ register the target with the target group again when you are ready for it to res
 receiving requests.
 
 If you are registering targets by instance ID, you can use your load balancer with an
-Auto Scaling group. After you attach a target group to an Auto Scaling group, Auto Scaling registers your
+Amazon EC2 Auto Scaling group. After you attach a target group to an Amazon EC2 Auto Scaling group, Amazon EC2 Auto Scaling registers your
 targets with the target group for you when it launches them. For more information, see
 [Attaching a load balancer to
-your Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md") in the _Amazon EC2 Auto Scaling User Guide_.
+your Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 ###### Limits
 
@@ -232,6 +233,16 @@ your Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer
 - You can't register instances by instance ID if they are in a VPC that is peered
   to the load balancer VPC (same Region or different Region). You can register these
   instances by IP address.
+
+## Target Optimizer
+
+You can enable target optimizer on a target group. Target optimizer lets you accurately
+enforce a maximum number of concurrent requests on a target. It works with the help of an
+agent that you install and configure on targets. To enable target optimizer, you specify a
+target control port for the target group. This port is used for management traffic between
+the agents and load balancer. Target optimizer can only be enabled during target group creation.
+Target control port once specified cannot be modified. For more information, see
+[Target Optimizer](target-group-register-targets.md#register-targets-target-optimizer "target-group-register-targets.md#register-targets-target-optimizer").
 
 ## Target group attributes
 
@@ -243,7 +254,7 @@ The following target group attributes are supported if the target group type is
 
 `deregistration_delay.timeout_seconds`
 
-The amount of time for Elastic Load Balancing to wait before deregistering a target. The
+The amount of time for ELB to wait before deregistering a target. The
 range is 0–3600 seconds. The default value is 300 seconds.
 
 `load_balancing.algorithm.type`
@@ -384,6 +395,10 @@ You can configure healthy thresholds for the following actions:
 
 ### Requirements and considerations
 
+- If you enable target optimizer on the target group, we recommend you set the
+  health check port of the target group to be the same as the port in TARGET_CONTROL_DATA_ADDRESS.
+  This ensures that the target will fail health checks if the agent is unhealthy.
+  For more information, see [Target Optimizer](target-group-register-targets.md#register-targets-target-optimizer "target-group-register-targets.md#register-targets-target-optimizer").
 - You can't use this feature with target groups where the target is a
   Lambda function. If the Application Load Balancer is the target of a Network Load Balancer or Global Accelerator, do not
   configure a threshold for DNS failover.

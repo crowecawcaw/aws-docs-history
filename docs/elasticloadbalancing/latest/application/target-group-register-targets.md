@@ -25,11 +25,11 @@ deregistration delay to complete before you can register the same IP address
 again.
 
 If you are registering targets by instance ID, you can use your load balancer with an
-Auto Scaling group. After you attach a target group to an Auto Scaling group and the group scales out,
-the instances launched by the Auto Scaling group are automatically registered with the target
-group. If you detach the target group from the Auto Scaling group, the instances are
+Amazon EC2 Auto Scaling group. After you attach a target group to an Amazon EC2 Auto Scaling group and the group scales out,
+the instances launched by the Amazon EC2 Auto Scaling group are automatically registered with the target
+group. If you detach the target group from the Amazon EC2 Auto Scaling group, the instances are
 automatically deregistered from the target group. For more information, see [Attaching a load balancer to your
-Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md") in the _Amazon EC2 Auto Scaling User Guide_.
+Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 When shutting down an application on a target you must first deregister the target
 from its target group and allow time for existing connections to drain. You can monitor
@@ -53,6 +53,83 @@ Recommended rules| **Inbound** |
 We also recommend that you allow inbound ICMP traffic to support Path MTU
 Discovery. For more information, see [Path MTU
 Discovery](../../../AWSEC2/latest/UserGuide/network_mtu.md#path_mtu_discovery "../../../AWSEC2/latest/UserGuide/network_mtu.md#path_mtu_discovery") in the _Amazon EC2 User Guide_.
+
+## Target Optimizer
+
+Target optimizer lets you enforce strict concurrency on targets in a target group.
+It works with the help of an agent that you install and configure on targets. The agent
+serves as an inline proxy between the load balancer and your application. You configure
+the agent to enforce a maximum number of concurrent requests that the load balancer
+can send to the target. The agent tracks the number of requests the target is processing.
+When the number falls below the configured maximum value, the agent sends a signal to
+the load balancer letting it know that the target is ready to process another request.
+
+To enable target optimizer, you specify a target control port when creating the target group.
+The load balancer establishes control channels with agents on this port for management traffic.
+This port is different from the port on which the load balancer sends application traffic.
+Targets registered with the target group must have the agent running on them.
+
+**Note: Target optimizer can only be enabled during target group creation. Target control
+port cannot be modified after creation.**
+
+The agent is available as a Docker image at:
+`public.ecr.aws/aws-elb/target-optimizer/target-control-agent:latest`.
+You configure the following environment variables when running the agent container:
+
+`TARGET_CONTROL_DATA_ADDRESS`
+
+The agent receives application traffic from the load balancer on this socket (IP:port).
+The port in this socket is the application traffic port you configure for the target group.
+By default, the agent can accept both plaintext and TLS connections.
+
+`TARGET_CONTROL_CONTROL_ADDRESS`
+
+The agent receives management traffic from the load balancer on this socket (IP:port). The port
+in the socket is the target control port you configure for the target group.
+
+`TARGET_CONTROL_DESTINATION_ADDRESS`
+
+The agent proxies application traffic to this socket (IP:port). Your application should
+be listening on this socket.
+
+(Optional) `TARGET_CONTROL_MAX_CONCURRENCY`
+
+The maximum number of concurrent requests that the target will receive from the load balancer. It can
+be between 0-1000. The default is 1.
+
+(Optional) `TARGET_CONTROL_TLS_CERT_PATH`
+
+The location of the TLS certificate that the agent provides to the load balancer during TLS handshake.
+By default, the agent generates a self-signed certificate in-memory.
+
+(Optional) `TARGET_CONTROL_TLS_KEY_PATH`
+
+The location of the private key corresponding to the TLS certificate that the agent provides to the
+load balancer during TLS handshake. By default, the agent generates a private key in-memory.
+
+(Optional) `TARGET_CONTROL_TLS_SECURITY_POLICY`
+
+The ELB security policy that you configure for the target group. The default is `ELBSecurityPolicy-2016-08`.
+
+(Optional) `TARGET_CONTROL_PROTOCOL_VERSION`
+
+The protocol through which the load balancer communicates with the agent. Possible values are `HTTP1`,
+`HTTP2`, `GRPC`. The default is `HTTP1`.
+
+(Optional) `RUST_LOG`
+
+The log level of the agent process. The agent software is written in Rust. Possible values are `debug`,
+`info`,and `error` . The default is `info`.
+
+To modify the value for any environment variable, you have to restart the agent with the new value. You can monitor
+target optimizer with the following metrics:
+`TargetControlRequestCount`, `TargetControlRequestRejectCount`,
+`TargetControlActiveChannelCount`, `TargetControlNewChannelCount`,
+`TargetControlChannelErrorCount`, `TargetControlWorkQueueLength`,
+`TargetControlProcessedBytes`. For more information, see
+[Target optimizer metrics](load-balancer-cloudwatch-metrics.md#target-optimizer-metric-table "load-balancer-cloudwatch-metrics.md#target-optimizer-metric-table")
+For troubleshooting information, see
+[Troubleshooting target optimizer](load-balancer-troubleshooting.md#troubleshoot-target-optimizer "load-balancer-troubleshooting.md#troubleshoot-target-optimizer")
 
 ## Shared subnets
 

@@ -58,14 +58,18 @@ default value as needed. For more information, see
 modify the default settings as needed. For more information, see
 [Health check settings](target-group-health-checks.md#health-check-settings "target-group-health-checks.md#health-check-settings"). 11. If the target type is **Lambda function**, you
 can enable health checks by selecting **Enable** in
-the **Health checks** section. 12. (Optional) Add one or more tags as follows:
+the **Health checks** section. 12. (Optional) To enable **Target optimizer** on the
+target group, specify a target control port. The port cannot be modified
+after target group creation. Target optimizer works with the help of an agent
+that you install on targets. For more information, see
+[Target Optimizer](target-group-register-targets.md#register-targets-target-optimizer "target-group-register-targets.md#register-targets-target-optimizer"). 13. (Optional) Add one or more tags as follows:
 
     1. Expand the **Tags** section.
     2. Choose **Add tag**.
     3. Enter the tag key and the tag value.
 
-13. Choose **Next**.
-14. (Optional) Add one or more targets as follows:
+14. Choose **Next**.
+15. (Optional) Add one or more targets as follows:
     - If the target type is **Instances**,
       select one or more instances, enter one or more ports, and
       then choose **Include as pending
@@ -90,7 +94,7 @@ the **Health checks** section. 12. (Optional) Add one or more tags as follows:
       function**, specify a single Lambda function or
       omit this step and specify a Lambda function later.
 
-15. Choose **Create target group**.
+16. Choose **Create target group**.
 
 AWS CLI
 

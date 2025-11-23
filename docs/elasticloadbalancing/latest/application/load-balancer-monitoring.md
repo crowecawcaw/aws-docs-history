@@ -26,6 +26,13 @@ information, connection results, and TLS ciphers being used. These connection
 logs can then be used to review request patterns, and other trends. For more
 information, see [Connection logs for your Application Load Balancer](load-balancer-connection-logs.md "load-balancer-connection-logs.md").
 
+**Health check logs**
+
+You can use health check logs to capture detailed information about the health checks
+made to your registered targets for your load balancer and store them as log files in Amazon S3.
+You can use these health check logs to troubleshoot issues with your targets.
+For more information, see [Health check logs](load-balancer-health-check-logs.md "load-balancer-health-check-logs.md").
+
 **Request tracing**
 
 You can use request tracing to track HTTP requests. The load balancer adds a
@@ -35,7 +42,7 @@ information, see [Request tracing for your Application Load Balancer](load-balan
 **CloudTrail logs**
 
 You can use AWS CloudTrail to capture detailed information about the calls made to
-the Elastic Load Balancing API and store them as log files in Amazon S3. You can use these CloudTrail logs
+the ELB API and store them as log files in Amazon S3. You can use these CloudTrail logs
 to determine which calls were made, the source IP address where the call came
 from, who made the call, when the call was made, and so on. For more information,
-see [Log API calls for Elastic Load Balancing using CloudTrail](../userguide/cloudtrail-logs.md "../userguide/cloudtrail-logs.md").
+see [Log API calls for ELB using CloudTrail](../userguide/cloudtrail-logs.md "../userguide/cloudtrail-logs.md").
