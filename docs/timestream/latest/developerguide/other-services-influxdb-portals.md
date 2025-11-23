@@ -17,7 +17,7 @@ authentication and authorization controls, between any InfluxDB client and Amazo
 API endpoints by creating an InfluxDB portal powered by [Ockam](https://www.ockam.io/ "https://www.ockam.io/"). Portals enable you to:
 
 - Privately access Amazon Timestream for InfluxDB API operations over mutually authenticated and
-  encrypted connections without the need for a VPN or AWS Direct Connect connection.
+  encrypted connections without the need for a VPN or Direct Connect connection.
 - Automatically distribute and rotate short-lived least privilege API tokens to
   InfluxDB clients. The built-in lease manager significantly reduces the risk
   associated with using the default InfluxDB approach of long-lived access tokens

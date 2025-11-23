@@ -53,7 +53,7 @@ recommendations:
 - **Use conditions in IAM policies to further restrict access**
   – You can add a condition to your policies to limit access to actions and resources. For example, you can write a policy condition to specify that all requests must
   be sent using SSL. You can also use conditions to grant access to service actions
-  if they are used through a specific AWS service, such as AWS CloudFormation. For more information, see
+  if they are used through a specific AWS service, such as CloudFormation. For more information, see
   [IAM JSON policy elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
 - **Use IAM Access Analyzer to validate your IAM policies to ensure secure and functional permissions**
   – IAM Access Analyzer validates new and existing policies so that the policies adhere to the IAM policy language (JSON) and IAM best practices.
@@ -516,6 +516,28 @@ The following example shows how you can create a policy that grants permissions 
 user to view a table if the table's `Owner` contains the value of that user's
 user name.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ReadOnlyAccessTaggedTables",
+ "Effect": "Allow",
+ "Action": "timestream:Select",
+ "Resource": "arn:aws:timestream:us-east-2:`111122223333`:database/mydatabase/table/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceTag/Owner": "${aws:username}"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
 You can attach this policy to the IAM users in your account. If a user named
 `richard-roe` attempts to view an Timestream for LiveAnalytics table, the table must
 be tagged `Owner=richard-roe` or `owner=richard-roe`. Otherwise,
@@ -528,9 +550,70 @@ The following policy grants permissions to a user to create tables with tags if 
 tag passed in request has a key `Owner` and a value
 `username`:
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "CreateTagTableUser",
+ "Effect": "Allow",
+ "Action": [
+ "timestream:CreateTable",
+ "timestream:TagResource"
+ ],
+ "Resource": "arn:aws:timestream:us-east-2:`111122223333`:database/mydatabase/table/*",
+ "Condition": {
+ "ForAnyValue:StringEquals": {
+ "aws:RequestTag/Owner": "${aws:username}"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
 The policy below allows use of the `DescribeDatabase` API on any Database
 that has the `env` tag set to either `dev` or
 `test`:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowDescribe",
+ "Effect": "Allow",
+ "Action": [
+ "timestream:DescribeEndpoints",
+ "timestream:DescribeDatabase"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "AllowTagAccessForDevResources",
+ "Effect": "Allow",
+ "Action": [
+ "timestream:TagResource"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "aws:RequestTag/env": [
+ "test",
+ "dev"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
 
 This policy uses a `Condition` key to allow a tag that has the key
 `env` and a value of `test`, `qa`, or

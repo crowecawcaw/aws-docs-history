@@ -175,10 +175,6 @@ instance
 
 ### Step 3: Access the InfluxDB Explorer
 
-###### Note
-
-InfluxDB 3 Explorer is intended for **basic data exploration and administration with limited query support**. For performance testing or complex query constructions, please use the CLI or API instead
-
 To access your InfluxDB instance through the InfluxDB Explorer:
 
 1. Download the InfluxDB Explorer from [https://docs.influxdata.com/influxdb3/explorer/](https://docs.influxdata.com/influxdb3/explorer/ "https://docs.influxdata.com/influxdb3/explorer/")

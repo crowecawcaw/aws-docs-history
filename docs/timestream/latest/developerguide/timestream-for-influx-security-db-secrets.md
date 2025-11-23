@@ -104,6 +104,41 @@ Replace all items listed below in the IAM policy with values from your AWS accou
 - **{rotating_secret_arn}** — The ARN for the secret being rotated can be found in the Secrets Manager secret details.
 - **{db_instance_arn}** — The Timestream for InfluxDB instance ARN can be found on the Timestream for InfluxDB instance summary page.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:DescribeSecret",
+ "secretsmanager:GetSecretValue",
+ "secretsmanager:PutSecretValue",
+ "secretsmanager:UpdateSecretVersionStage"
+ ],
+ "Resource": "arn:aws:secretsmanager:us-east-2:111122223333:secret:`MySecret`"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:GetRandomPassword"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Action": [
+ "timestream-influxdb:GetDbInstance"
+ ],
+ "Resource": "arn:aws:timestream-influxdb:us-east-2:111122223333:db-instance/`MyDbInstance`",
+ "Effect": "Allow"
+ }
+ ]
+}`
+
+```
+
 ### Rotating tokens
 
 You can rotate a Timestream for InfluxDB token with the multi-user rotation function by using the [What's in the secret](#timestream-for-influx-security-db-secrets-definition "#timestream-for-influx-security-db-secrets-definition") with a new secret and adding the required fields for your Timestream for InfluxDB token. For more information on secret rotation Lambda functions, see [Rotation by Lambda function](../../../secretsmanager/latest/userguide/rotate-secrets_lambda.md "../../../secretsmanager/latest/userguide/rotate-secrets_lambda.md").
@@ -123,3 +158,45 @@ Replace all items listed below in the IAM policy with values from your AWS accou
 - **{rotating_secret_arn}** — The ARN for the secret being rotated can be found in the Secrets Manager secret details.
 - **{authentication_properties_admin_secret_arn}** — The Timestream for InfluxDB admin secret ARN can be found on the Timestream for InfluxDB instance summary page.
 - **{db_instance_arn}** — The Timestream for InfluxDB instance ARN can be found on the Timestream for InfluxDB instance summary page.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:DescribeSecret",
+ "secretsmanager:GetSecretValue",
+ "secretsmanager:PutSecretValue",
+ "secretsmanager:UpdateSecretVersionStage"
+ ],
+ "Resource": "arn:aws:secretsmanager:`us-east-2`:`111122223333`:secret:`MySecret`"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:GetSecretValue"
+ ],
+ "Resource": "arn:aws:secretsmanager:`us-east-2`:`111122223333`:secret:`MyAdminSecret`"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:GetRandomPassword"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Action": [
+ "timestream-influxdb:GetDbInstance"
+ ],
+ "Resource": "arn:aws:timestream-influxdb:`us-east-2`:`111122223333`:db-instance/`MyDbInstance`",
+ "Effect": "Allow"
+ }
+ ]
+}`
+
+```

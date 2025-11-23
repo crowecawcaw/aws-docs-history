@@ -7,9 +7,9 @@ Follow the steps below to configure the JDBC driver.
 
 ###### Topics
 
-- [Timestream for LiveAnalytics JDBC driver JARs](#w24aab7c44c37b7b7 "#w24aab7c44c37b7b7")
-- [Timestream for LiveAnalytics JDBC driver class and URL format](#w24aab7c44c37b7b9 "#w24aab7c44c37b7b9")
-- [Sample application](#w24aab7c44c37b7c11 "#w24aab7c44c37b7c11")
+- [Timestream for LiveAnalytics JDBC driver JARs](#w2aab7c44c37b7b7 "#w2aab7c44c37b7b7")
+- [Timestream for LiveAnalytics JDBC driver class and URL format](#w2aab7c44c37b7b9 "#w2aab7c44c37b7b9")
+- [Sample application](#w2aab7c44c37b7c11 "#w2aab7c44c37b7c11")
 
 ## Timestream for LiveAnalytics JDBC driver JARs
 

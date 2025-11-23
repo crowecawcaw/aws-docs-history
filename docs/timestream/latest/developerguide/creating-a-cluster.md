@@ -59,10 +59,6 @@ deployment model, and configuration settings to meet your workload requirements.
        security group rules).
      - **No**: Cluster only accessible within VPC.
 
-   ###### Note
-
-   **Important:** When creating a private Timestream for InfluxDB 3 cluster, ensure your S3 VPC endpoint policy allows full access. The cluster creation will fail if the S3 endpoint has restrictive policies.
-
 9. (Optional) Configure additional settings 
    - **Log exports**: Enable export to CloudWatch Logs.
    - **Maintenance window**: Set preferred maintenance schedule.
@@ -172,14 +168,9 @@ aws timestream-influxdb get-db-cluster
      same name as your newly created cluster identifier.
 
 3. (Optional) **Access InfluxDB explorer:**
-
-###### Note
-
-InfluxDB 3 Explorer is intended for **basic data exploration and administration with limited query support**. For performance testing or complex query constructions, please use the CLI or API instead
-
-    * Download the InfluxDB Explorer from [https://docs.influxdata.com/influxdb3/explorer/](https://docs.influxdata.com/influxdb3/explorer/ "https://docs.influxdata.com/influxdb3/explorer/").
-    * For public clusters: Run the Explorer from any location with internet access.
-    * For private clusters: Run the Explorer from within the same VPC (using an EC2
+   - Download the InfluxDB Explorer from [https://docs.influxdata.com/influxdb3/explorer/](https://docs.influxdata.com/influxdb3/explorer/ "https://docs.influxdata.com/influxdb3/explorer/").
+   - For public clusters: Run the Explorer from any location with internet access.
+   - For private clusters: Run the Explorer from within the same VPC (using an EC2
      instance, bastion host, or through VPN connection).
 
 4. **Verify connectivity:**

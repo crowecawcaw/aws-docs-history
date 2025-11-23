@@ -1,33 +1,14 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# SHOW statements
+# SQL support
 
-You can view all the databases in an account by using the `SHOW DATABASES`
-statement. The syntax is as follows:
+Timestream for LiveAnalytics supports some common SQL constructs. You can read more below.
 
-```
-SHOW DATABASES [LIKE pattern]
-```
+###### Topics
 
-where the `LIKE` clause can be used to filter database names.
-
-You can view all the tables in an account by using the `SHOW TABLES` statement.
-The syntax is as follows:
-
-```
-SHOW TABLES [FROM database] [LIKE pattern]
-```
-
-where the `FROM` clause can be used to filter database names and the
-`LIKE` clause can be used to filter table names.
-
-You can view all the measures for a table by using the `SHOW MEASURES` statement.
-The syntax is as follows:
-
-```
-SHOW MEASURES FROM database.table [LIKE pattern]
-```
-
-where the `FROM` clause will be used to specify the database and table name and
-the `LIKE` clause can be used to filter measure names.
+- [SELECT](supported-sql-constructs.md "supported-sql-constructs.md")
+- [Subquery support](supported-sql-constructs.md "supported-sql-constructs.md")
+- [SHOW statements](supported-sql-constructs.md "supported-sql-constructs.md")
+- [DESCRIBE statements](supported-sql-constructs.md "supported-sql-constructs.md")
+- [UNLOAD](supported-sql-constructs.md "supported-sql-constructs.md")
