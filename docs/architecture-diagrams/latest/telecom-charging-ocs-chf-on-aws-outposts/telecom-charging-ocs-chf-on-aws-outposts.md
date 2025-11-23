@@ -18,7 +18,7 @@ Diagram
    link](../../../outposts/latest/userguide/how-outposts-works.md#how-service-link "../../../outposts/latest/userguide/how-outposts-works.md#how-service-link") connects the outpost to the home AWS Region. The service link is used for
    both management of **AWS Outposts** and intra-Virtual Private
    Cloud (VPC) traffic between the AWS Region and **AWS Outposts**.
-   The service link can use the customer’s existing internet connection or **AWS Direct Connect**.
+   The service link can use the customer’s existing internet connection or **Direct Connect**.
 5. Online charging can be deployed on **Amazon Elastic Kubernetes Service** (Amazon EKS)
    and **Amazon Elastic Compute Cloud** (Amazon EC2) instances running on **AWS Outposts**. Charging can run in active-active mode on the two
    **AWS Outposts**.
