@@ -49,7 +49,7 @@ governance, and operations) as code. This means you can apply the same engineeri
 discipline that you use for application code to every element of your stack and share
 these across teams or organizations to magnify the benefits of development efforts. Use
 operations as code in the cloud and the ability to safely experiment to develop your
-workload, your operations procedures, and practice failure. Using AWS CloudFormation allows you to
+workload, your operations procedures, and practice failure. Using CloudFormation allows you to
 have consistent, templated, sandbox development, test, and production environments with
 increasing levels of operations control.
 
