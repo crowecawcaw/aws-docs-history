@@ -12,8 +12,8 @@ workflow. Following are some of the ways that you can revise the workflow.
   AWS CLI to create a MediaStore container and then create a new
   MediaLive output in your channel that uses that container as a
   destination.
-- You can use AWS CloudFormation to revise the AWS CloudFormation stack, to include more resources for
-  AWS CloudFormation to create. For example, you could create and attach more MediaLive inputs. Or
+- You can use CloudFormation to revise the CloudFormation stack, to include more resources for
+  CloudFormation to create. For example, you could create and attach more MediaLive inputs. Or
   you could add an AWS Lambda function to the workflow. For more information,
   display the details page for the workflow in the MediaLive console, then choose the
   appropriate link.

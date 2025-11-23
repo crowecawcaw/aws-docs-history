@@ -22,7 +22,7 @@ Follow the steps in the workflow wizard. 7. After you choose **Create** on the
 page, details about the workflow appear. A card appears
 for each resource that the workflow wizard involves.
 
-The workflow wizard creates a AWS CloudFormation stack. AWS CloudFormation runs
+The workflow wizard creates a CloudFormation stack. CloudFormation runs
 that stack to create all the other resources:
 
     * One MediaLive input.
@@ -49,7 +49,7 @@ You can delete the workflow. MediaLive handles the resources that belong to the
 workflow as follows:
 
 - It always deletes the channel.
-- It always deletes the AWS CloudFormation stack.
+- It always deletes the CloudFormation stack.
 - It deletes the input, if the workflow wizard created
   it. It doesn't delete the input if the input already
   existed.

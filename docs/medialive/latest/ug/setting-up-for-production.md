@@ -21,7 +21,7 @@ This section assumes that you have already performed these tasks:
 - [Reference: summary of user access](setup-users-step-1-summary.md "setup-users-step-1-summary.md")
 - [MediaLive](requirements-for-medialive.md "requirements-for-medialive.md")
 - [MediaLive Anywhere](requirements-for-emla.md "requirements-for-emla.md")
-- [AWS CloudFormation](requirements-for-CFN.md "requirements-for-CFN.md")
+- [CloudFormation](requirements-for-CFN.md "requirements-for-CFN.md")
 - [CloudFront](requirements-for-CFront.md "requirements-for-CFront.md")
 - [CloudTrail](requirements-for-cloudtrail.md "requirements-for-cloudtrail.md")
 - [CloudWatch—channel health](requirements-for-monitor-channel-health.md "requirements-for-monitor-channel-health.md")
