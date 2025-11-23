@@ -62,3 +62,11 @@ The following options are available as re-scan durations:
 4. Under **ECR re-scan duration**, choose the image re-scan mode, and then choose the corresponding duration.
 5. Under **Image push date**, choose the image push date.
 6. Choose **Save**.
+
+## Understanding ECR container image states
+
+Inspector only scans `ACTIVE` images in ECR container images.
+ECR container images in an `ARCHIVED` status are not scanned.
+To learn more about scanning behaviors, see [Scan behaviors for Amazon ECR scanning](scanning-ecr.md#ecr-scan-behavior "scanning-ecr.md#ecr-scan-behavior").
+
+When an ECR container image's image status in ECR transitions to `ACTIVE`, Inspector uses the `lastActivatedAt` field to monitor rescan duration.

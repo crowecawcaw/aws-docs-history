@@ -10,19 +10,58 @@ The ecosystem collection extends SBOM generation beyond packages installed throu
 This is done through the collection of applications deployed in alternative methods, such as manual installation.
 The Amazon Inspector SBOM Generator supports scanning for the following ecosystems:
 
-| Ecosystems           | Applications                                                                                                                                                                                                                                                                                 |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Apache               | Apache httpd<br>Apache tomcat                                                                                                                                                                                                                                                                |
-| Google               | Chrome                                                                                                                                                                                                                                                                                       |
-| Java                 | JDK<br>JRE<br>Amazon Corretto                                                                                                                                                                                                                                                                |
-| Nginx                | Nginx                                                                                                                                                                                                                                                                                        |
-| Node                 | Node                                                                                                                                                                                                                                                                                         |
-| OpenSSH              | OpenSSH (versions 9 and 10)                                                                                                                                                                                                                                                                  |
-| OpenSSL              | OpenSSL                                                                                                                                                                                                                                                                                      |
-| Oracle               | Oracle Database Server                                                                                                                                                                                                                                                                       |
-| WordPress            | core<br>plugin<br>theme                                                                                                                                                                                                                                                                      |
-| Node.JS              | node                                                                                                                                                                                                                                                                                         |
-| Windows applications | PowerShell<br>NuGet CLI<br>Visual Studio Code<br>Microsoft Edge<br>SharePoint Server<br>Microsoft Defender<br>Exchange Server<br>Visual Studio<br>.NET Runtime<br>ASP.NET Core Runtime<br>Outlook for Windows<br>Microsoft Teams<br>Outlook for Windows<br>Microsoft Office<br>Microsoft 365 |
+| Ecosystems           | Applications                                                                                                                                                                                                                                                          |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 7-Zip                | 7-Zip archiver (version 21.07 and higher)                                                                                                                                                                                                                             |
+| Apache               | Apache httpd<br>Apache tomcat                                                                                                                                                                                                                                         |
+| Curl                 | Curl<br>Libcurl                                                                                                                                                                                                                                                       |
+| Elasticsearch        | Elasticsearch                                                                                                                                                                                                                                                         |
+| Google               | Chrome                                                                                                                                                                                                                                                                |
+| Java                 | JDK<br>JRE<br>Amazon Corretto                                                                                                                                                                                                                                         |
+| Jenkins              | Jenkins (version 2.400.\<br>• and higher)                                                                                                                                                                                                                             |
+| MariaDB and MySQL    | MariaDB Server (10.6+, 11.x, 12.x)<br>Oracle MySQL Server Server (8.0, 8.4, 9.4+)                                                                                                                                                                                     |
+| Nginx                | Nginx                                                                                                                                                                                                                                                                 |
+| Node                 | Node                                                                                                                                                                                                                                                                  |
+| OpenSSH              | OpenSSH (versions 9 and 10)                                                                                                                                                                                                                                           |
+| OpenSSL              | OpenSSL                                                                                                                                                                                                                                                               |
+| Oracle               | Oracle Database Server                                                                                                                                                                                                                                                |
+| PHP                  | PHP (version 8.1 and higher)                                                                                                                                                                                                                                          |
+| WordPress            | core<br>plugin<br>theme                                                                                                                                                                                                                                               |
+| Node.JS              | node                                                                                                                                                                                                                                                                  |
+| Windows applications | PowerShell<br>NuGet CLI<br>Visual Studio Code<br>Microsoft Edge<br>SharePoint Server<br>Microsoft Defender<br>Exchange Server<br>Visual Studio<br>.NET Runtime<br>ASP.NET Core Runtime<br>Microsoft Teams<br>Outlook for Windows<br>Microsoft Office<br>Microsoft 365 |
+
+## 7-Zip ecosystem collection
+
+###### Supported applications
+
+- 7 Zip archiver (version 21.07 or higher)
+
+###### Key features
+
+- Examines 7-Zip binaries to extract the embedded version information.
+
+###### Note
+
+Specifically, it searches for the product version value from the binary.
+
+###### Supported platforms – Windows
+
+- `C:/Program Files/7-Zip/7z.exe`
+- `C:/Program Files/7-Zip/7za.exe`
+- `C:/Program Files/7-Zip/7zz.exe`
+- `C:/Program Files/7-Zip/7zr.exe`
+- `C:/Program Files (x86)/7-Zip/7z.exe`
+- `C:/Program Files (x86)/7-Zip/7za.exe`
+- `C:/Program Files (x86)/7-Zip/7zz.exe`
+- `C:/Program Files (x86)/7-Zip/7zr.exe`
+
+###### Example PURL
+
+The following is an example package URL for 7-Zip.
+
+```
+pkg:generic/7zip/7zip@25.01
+```
 
 ## Apache ecosystem collection
 
@@ -145,6 +184,130 @@ The following is an example package URL for an `Apache tomcat` application.
 
 Sample PURL: pkg:generic/apache/tomcat@10.1.31
 
+```
+
+## Curl ecosystem collection
+
+This section provides details about Curl and Libcurl applicatons.
+
+### Curl
+
+###### Supported applications
+
+- Curl
+
+###### Supported platforms
+
+- Unix – Linux and macOS
+  - /usr/local/bin/curl
+
+###### Key features – Curl
+
+- Examines curl binaries to extract the embedded version information.
+
+###### Note
+
+Specifically, it searches for version strings in the binary executable `.rodata` section (for ELF binaries on Linux), `.rdata` section (for PE binaries on Windows), or \_\_cstring section (for MachO binaries on macOS).
+
+###### Curl version string
+
+The following is an example of a version string embedded in a Curl binary:
+
+```
+curl/8.14.1
+```
+
+Version `8.14.1` is extracted from the string to identify the `Curl` version.
+
+###### Example PURL (Curl)
+
+The following is an example package URL for a `Curl` version file.
+
+```
+Sample PURL: pkg:generic/curl/curl@8.14.1
+```
+
+### Libcurl
+
+###### Supported applications
+
+- Libcurl
+
+###### Supported platforms
+
+- Unix – Linux and macOS
+  - /usr/local/bin/curl/curlver.h
+
+###### Key features – Libcurl
+
+- Examines curlver.h to extract embedded version information for Libcurl.
+
+###### Note
+
+Specifically, it extracts the version from the defined `LIBCURL_VERSION_MAJOR`, `LIBCURL_VERSION_MINOR`, and `LIBCURL_VERSION_PATCH` variables.
+
+###### Libcurl version string
+
+The following is an example of the version variables in a `curlver.h` file:
+
+```
+#define LIBCURL_VERSION_MAJOR 8
+    #define LIBCURL_VERSION_MINOR 14
+    #define LIBCURL_VERSION_PATCH 1
+```
+
+Version `8.14.1` is extracted from these lines to identify the `Libcurl` version.
+
+###### Example PURL (Libcurl)
+
+The following is an example package URL for a `Libcurl` version file.
+
+```
+Sample PURL: pkg:generic/curl/libcurl@8.14.1
+```
+
+## Elasticsearch ecosystem collection
+
+###### Supported applications
+
+- Elasticsearch
+
+###### Note
+
+Vulnerability evaluation only applies to Elasticsearch version 7.17.0.
+
+###### Key features
+
+- **Version** – Unpacks the `elasticsearch-<specific.version>.jar` file to extract installation macros inside of `META-INF/MANIFEST.MF` files, which contain the Elasticsearch version string.
+
+###### Supported platforms
+
+- **Linux** – `/etc/elasticsearch/lib`, `/opt/elasticsearch/lib/`, and `/usr/share/elasticsearch/lib/`
+- **macOS** – `/usr/local/var/lib/elasticsearch/lib/`
+- **Windows** – `/elasticsearch/`, `/Program Files (x86)/Elastic/elasticsearch/lib/`, and `/Program Files/Elastic/elasticsearch/lib/`
+
+###### Example `elasticsearch-<specific.version>.jar/META-INF/MANIFEST.MF` file
+
+The following is an example of an `elasticsearch-<specific.version>.jar/META-INF/MANIFEST.MF` file.
+
+```
+//truncated
+
+Manifest-Version: 1.0
+Module-Origin: git@github.com:elastic/elasticsearch.git
+X-Compile-Elasticsearch-Version: 8.19.0-SNAPSHOT
+X-Compile-Lucene-Version: 9.12.1
+X-Compile-Elasticsearch-Snapshot: true
+
+//truncated
+```
+
+###### Example PURL
+
+The following is an example package URL for an `elasticsearch-<specific.version>.jar/META-INF/MANIFEST.MF` file.
+
+```
+pkg:generic/elastic/elasticsearch@8.19.0-SNAPSHOT
 ```
 
 ## Google ecosystem collection
@@ -293,6 +456,149 @@ pkg:generic/oracle/jdk@11.0.16
 # Oracle JRE
 pkg:generic/oracle/jre@20
 
+```
+
+## Jenkins ecosystem collection
+
+###### Supported applications
+
+- Jenkins Core
+
+###### Note
+
+Vulnerability evaluation applies to Jenkins version 2.400.\* and higher.
+
+###### Key features
+
+- Extracts version information from `jenkins.war` file by reading the `META-INF/MANIFEST.M` file, which contains the Jenkins version string.
+
+The Amazon Inspector SBOM Generator looks for Jenkins installations in common installation paths across platforms:
+
+###### Linux
+
+- `/usr/share/jenkins/jenkins.war`
+- /usr/share/java/jenkins.war
+
+###### macOS
+
+- `/opt/homebrew/opt/jenkins-lts/libexec/jenkins.war`
+
+###### Windows
+
+- `/Program Files/Jenkins/Jenkins.war`
+- `/Program Files (x86)/Jenkins/Jenkins.war`
+
+###### Example files
+
+The following are examples of `jenkins.war/META-INF/MANIFEST.MF` files for different releases.
+
+```
+Manifest-Version: 1.0
+Created-By: Maven WAR Plugin 3.4.0
+Build-Jdk-Spec: 21
+Implementation-Title: Jenkins war
+Main-Class: executable.Main
+Implementation-Version: 2.516.2
+Jenkins-Version: 2.516.2
+```
+
+```
+Manifest-Version: 1.0
+Jenkins-Version: 2.414.1
+Implementation-Title: Jenkins
+Implementation-Version: 2.414.1
+Built-By: kohsuke
+Created-By: Apache Maven 3.8.6
+```
+
+###### Sample PURLs
+
+The following are package URLs for version 2.516.2 of the Jenkins LTS release and version 2.414 of the Jenkins automation server release.
+
+```
+LTS: pkg:generic/jenkins/jenkins-core-lts@2.516.2.1
+Regular: pkg:generic/jenkins/jenkins-core@2.414
+```
+
+## MariaDB and MySQL ecosystem collection
+
+### MariaDB
+
+###### Supported applications
+
+- MariaDB Server (10.6+, 11.x, 12.x)
+
+###### Key features
+
+- Extracts version information from database server binaries and header files using database-specific patterns.
+- Identifies the directory path containing the database server installation.
+- Automatically distinguishes between MariaDB and MySQL installations using data-driven file type detection.
+
+The SBOM Generator looks for the MariaDB installation in common installation paths across platforms:
+
+###### Linux
+
+- `/usr/bin/mariadbd`
+- `/usr/sbin/mariadbd`
+- `/usr/local/bin/mariadbd`
+
+###### macOS
+
+- `C:/Program Files (x86)/MariaDB/include/mysql/mariadb_version.h (MariaDB)`
+- `C:/Program Files/MariaDB/include/mysql/mariadb_version.h (MariaDB)`
+
+###### Windows
+
+- `C:/Program Files (x86)/MariaDB/include/mysql/mariadb_version.h (MariaDB)`
+- `C:/Program Files/MariaDB/include/mysql/mariadb_version.h (MariaDB)`
+
+###### Example PURL
+
+The following is an example package URL for a MariaDB server.
+
+```
+# MariaDB Server
+
+pkg:generic/mysql/mariadb-server@10.11.8
+```
+
+### MySQL ecosystem collection
+
+###### Supported applications
+
+- Oracle MySQL Server Server (8.0, 8.4, 9.4+)
+
+###### Key features
+
+- Extracts version information from database server binaries and header files using database-specific patterns.
+- Identifies the directory path containing the database server installation.
+- Automatically distinguishes between MySQL and MariaDB installations using data-driven file type detection.
+
+The SBOM Generator looks for the MySQL installation in common installation paths across platforms:
+
+###### Linux
+
+- `/usr/local/bin/mysqld`
+- `/usr/bin/mysqld`
+- `/usr/sbin/mysqld`
+
+###### macOS
+
+- `/usr/local/mysql/include/mysql_version.h (MySQL)`
+
+###### Windows
+
+- `C:/Program Files/MySQL/MySQL Server/include/mysql_version.h (MySQL)`
+- `C:/Program Files (x86)/MySQL/MySQL Server/include/mysql_version.h (MySQL)`
+
+###### Example PURL
+
+The following is an example package URL for a MySQL server.
+
+```
+# Oracle MySQL Server
+
+pkg:generic/mysql/mysql-server@8.0.43
 ```
 
 ## Nginx ecosystem collection
@@ -526,6 +832,56 @@ The following is an example package URL for Oracle Database.
 Sample PURL: pkg:generic/oracle/database@23.7.0.25.01
 ```
 
+## PHP ecosystem collection
+
+###### Supported applications
+
+- PHP (version 8.1 and higher)
+
+###### Key features
+
+- Extracts version information from PHP binary executables using embedded version strings.
+- Identifies the directory path containing the PHP binary.
+- Automatically detects both standard PHP binaries and versioned installations, such as `php8.1`, `php8.2`, and `php8.3`.
+
+The Amazon Inspector SBOM Generator looks for PHP installations in common installation paths across platforms:
+
+###### Linux
+
+- `usr/bin/php8.1 through /usr/bin/php8.9`
+- `/usr/sbin/php8.1 through /usr/sbin/php8.9`
+- `/usr/local/bin/php, /usr/bin/php, /usr/sbin/php`
+- `/usr/local/bin/php8.1 through /usr/local/bin/php8.9` (versioned binaries)
+
+###### macOS
+
+- `/opt/homebrew/bin/php`
+- `/usr/bin/php`
+- `/usr/local/bin/php`
+
+###### Windows
+
+- `C:/php/php.exe`
+- `C:/php8.1/php.exe through C:/php8.9/php.exe` (versioned directories)
+
+###### Example PHP version extraction
+
+The Amazon Inspector SBOM Generator extracts version information from PHP binaries by searching for embedded version strings using the following pattern.
+
+```
+X-Powered-By: PHP/8.4.12
+```
+
+`8.4.12` is extracted from this pattern to identify the PHP version.
+
+###### Example PURL
+
+The following is an example package URL for a PHP pattern.
+
+```
+pkg:generic/php/php@8.4.12
+```
+
 ## WordPress ecosystem collection
 
 ###### Supported components
@@ -649,7 +1005,6 @@ Sample PURL: pkg:generic/wordpress/theme/avada@1.0.0
 - Visual Studio
 - .NET Runtime
 - ASP.NET Core Runtime
-- Outlook for Windows
 - Microsoft Teams
 - Outlook for Windows
 - Microsoft Office

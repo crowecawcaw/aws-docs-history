@@ -47,3 +47,9 @@ For more information, see [Working with the SSM agent](../../../systems-manager/
 ###### Monthly costs are based on workloads scanned
 
 For more information, see [Amazon Inspector pricing](https://aws.amazon.com/inspector/pricing/ "https://aws.amazon.com/inspector/pricing/").
+
+###### Multi-account enablement with AWS Organizations
+
+For organizations using [AWS Organizations](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md"), Amazon Inspector supports both delegated administrator management and organization policy-based enablement.
+Organization policies provide centralized governance with automatic enablement for new accounts.
+For detailed instructions on both approaches, see [Getting started tutorial: Activating Amazon Inspector](getting_started_tutorial.md "getting_started_tutorial.md").

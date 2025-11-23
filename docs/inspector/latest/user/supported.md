@@ -43,8 +43,8 @@ Amazon Inspector can provide only limited support for an operating system after 
 
 - [Supported operating systems](#supported-os "#supported-os")
 - [Discontinued operating systems](#formerly-supported-os "#formerly-supported-os")
-- [Supported programming languages](#w126aac64c19 "#w126aac64c19")
-- [Supported runtimes](#w126aac64c21 "#w126aac64c21")
+- [Supported programming languages](#w2aac64c19 "#w2aac64c19")
+- [Supported runtimes](#w2aac64c21 "#w2aac64c21")
 
 ## Supported operating systems
 
@@ -412,6 +412,7 @@ Amazon Inspector currently supports the following programming languages when sca
 
 Amazon Inspector doesn't scan for toolchain vulnerabilities in Rust.
 The version of the programming language compiler used to build the application introduces these vulnerabilities.
+For Python applications using [Chainguard Libraries](https://www.chainguard.dev/libraries "https://www.chainguard.dev/libraries"), Amazon Inspector recognizes back-ported security fixes and excludes them from findings.
 
 - C#
 - Go
@@ -420,7 +421,7 @@ The version of the programming language compiler used to build the application i
 - Java JDK
 - JavaScript
 - PHP
-- Python
+- Python (including Chainguard Libraries)
 - Ruby
 - Rust
 

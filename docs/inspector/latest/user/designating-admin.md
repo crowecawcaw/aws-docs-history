@@ -11,6 +11,12 @@ Before designating a delegated administrator, note the following:
 
 If you exceed 10,000 member accounts, you receive a notification through the Amazon CloudWatch Personal Health Dashboard and email to the delegated administrator account.
 
+###### Note
+
+When Amazon Inspector is enabled through AWS Organizations policies for organizations with more than 10,000 accounts (up to 50,000), the policy applies to all accounts.
+However, only 10,000 accounts will be associated with the Amazon Inspector organization.
+i.e. the delegated administrator can view findings and account status for only these 10,000 accounts in the Amazon Inspector console.
+
 **The delegated administrator is Regional.**
 
 Amazon Inspector is a Regional service.
@@ -27,6 +33,12 @@ If you remove a delegated administrator, member accounts become standalone accou
 **Your AWS Organization must have all features activated.**
 
 This is the default setting for AWS Organizations. If it's not activated, see [Activating all features in your organization](../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md "../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md").
+
+**Organization policies take precedence over delegated administrator settings.**
+
+If your organization uses AWS Organizations policies to enable Amazon Inspector, the policy settings determine which scan types are enabled.
+We recommend designating the delegated administrator before creating organization policies to ensure consistent governance.
+For more information, see [Organization policy governance model](admin-member-relationship.md#org-policy-overview "admin-member-relationship.md#org-policy-overview").
 
 ## Permissions required to designate a delegated administrator
 

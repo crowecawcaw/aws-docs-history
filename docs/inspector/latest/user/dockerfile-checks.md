@@ -4,8 +4,8 @@ This section describes how to use the Amazon Inspector SBOM Generator to scan Do
 
 ###### Topics
 
-- [Using Sbomgen Dockerfile checks](#w126aac39c13b7 "#w126aac39c13b7")
-- [Supported Dockerfile checks](#w126aac39c13b9 "#w126aac39c13b9")
+- [Using Sbomgen Dockerfile checks](#w2aac39c13b7 "#w2aac39c13b7")
+- [Supported Dockerfile checks](#w2aac39c13b9 "#w2aac39c13b9")
 
 ## Using Sbomgen Dockerfile checks
 

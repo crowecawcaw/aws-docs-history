@@ -33,7 +33,8 @@ For more information, see [Agentless scanning](scanning-ec2.md#agentless "scanni
 
 When you activate Amazon ECR scanning, Amazon Inspector converts all of the repositories in your private registry from basic scanning container repositories to enhanced scanning repositories.
 You can configure this setting with inclusion rules to scan on-push only or to scan select repositories.
-Amazon Inspector scans all images pushed within the last 30 days or pulled within the last 90 days.
+Amazon Inspector only scans ECR container images which are active (`imageStatus` field is `ACTIVE`) in ECR.
+Amazon Inspector scans all images pushed or transitioned to active (`lastActivatedAt`) in ECR within the last 30 days or pulled within the last 90 days.
 Amazon Inspector continues to monitor images for 90 days by default.
 You can change this setting at any time.
 For more information, see [Scanning Amazon Elastic Container Registry container images with Amazon Inspector](scanning-ecr.md "scanning-ecr.md").

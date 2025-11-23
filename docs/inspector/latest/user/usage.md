@@ -76,7 +76,7 @@ The costs provided by Amazon Inspector are estimates, not actual costs, so they 
 Note the following about how Amazon Inspector calculates cost on the **Usage**
 page:
 
-- The usage cost reflects the current region only. Prices per scan type vary by AWS Region, to review exact prices per region, see the [Pricing](https://aws.amazon.com/inspector/pricing/ "https://aws.amazon.com/inspector/pricing/") for Amazon Inspector
+- The usage cost reflects the current region only. Prices per scan type vary by AWS Region, to review exact prices per region, see the [Pricing](https://aws.amazon.com//inspector/pricing/ "https://aws.amazon.com//inspector/pricing/") for Amazon Inspector
 - All usage projections are rounded to the nearest US dollar.
 - Discounts aren't included in the projected costs.
 - The projected cost represent the total cost for the 30 day usage period per scan type. If there has been less than 30 days of usage for an account, Amazon Inspector projects the cost after 30 days as if any currently covered resources will remain covered for the rest of the 30 day period.

@@ -143,7 +143,7 @@ bucket. You'll need to enter this URI when you export your report.
 
 ###### To update the bucket policy
 
-1. Sign in using your credentials, and then open the Amazon S3 console at [https://console.aws.amazon.com/s3](https://console.aws.amazon.com/s3 "https://console.aws.amazon.com/s3").
+1. Sign in using your credentials, and then open the Amazon S3 console at [https://console.aws.amazon.com/s3](https://console.aws.amazon.com//s3 "https://console.aws.amazon.com//s3").
 2. In the navigation pane, choose **Buckets**.
 3. Choose the S3 bucket where you want to store the findings report.
 4. Choose the **Permissions** tab.

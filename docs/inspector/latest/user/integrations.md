@@ -4,6 +4,22 @@ Amazon Inspector integrates with other AWS services.
 These services can ingest data from Amazon Inspector, so you can view your findings in different ways.
 Review the following integration options to learn more.
 
+## Using Amazon Inspector with AWS Organizations
+
+[AWS Organizations](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md") helps you centrally manage and govern your AWS environment.
+You can use AWS Organizations policies to enable and manage Amazon Inspector across multiple accounts in your organization automatically.
+
+Amazon Inspector organization policies allow you to:
+
+- Centrally enable Amazon Inspector scan types (EC2, ECR, Lambda, Code Repository) across your organization
+- Automatically apply Amazon Inspector enablement to new accounts joining the organization
+- Enforce consistent scanning coverage across organizational units
+- Prevent member accounts from disabling required scanning
+
+Organization policies control resource type enablement, while delegated administrators retain control over scan configuration settings.
+For information about how organization policies interact with delegated administrator and member account permissions, see [Managing multiple accounts in Amazon Inspector with AWS Organizations](managing-multiple-accounts.md "managing-multiple-accounts.md").
+For detailed instructions on creating Amazon Inspector policies, see the AWS Organizations documentation for Amazon Inspector policies.
+
 ## Integrating Amazon Inspector with Amazon ECR
 
 [Amazon Elastic Container Registry (Amazon ECR)](../../../AmazonECR/latest/userguide/what-is-ecr.md "../../../AmazonECR/latest/userguide/what-is-ecr.md") is an AWS-managed container image registry that supports private registries.

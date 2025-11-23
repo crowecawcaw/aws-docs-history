@@ -35,5 +35,5 @@ This topic includes the supported languages for Amazon Inspector Code Security.
 ###### Languages for Infrastructure as Code
 
 - AWS CDK (Python and TypeScript)
-- AWS CloudFormation (2010–09–09)
+- CloudFormation (2010–09–09)
 - Terraform (1.6.2 or earlier)

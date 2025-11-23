@@ -5,6 +5,26 @@ The metadata includes standard scanning for Amazon EC2, Amazon ECR, and Lambda, 
 It also includes security finding results for member accounts.
 This section provides information about which actions the delegated adminstrator account can make and member accounts can make.
 
+## Organization policy governance model
+
+When AWS Organizations policies are used to enable Amazon Inspector, a governance model is enforced that determines which actions are permitted:
+
+**Policy-managed resources**
+
+Resources explicitly enabled or disabled by organization policies cannot be modified by delegated administrators or member accounts.
+API requests to enable or disable policy-managed scan types will fail with a clear error indicating the resource is managed by organization policy.
+
+**Non-policy-managed resources**
+
+Resources not specified in organization policies can be managed normally by delegated administrators and member accounts using the Amazon Inspector console or API.
+
+**Scan configuration management**
+
+Delegated administrators can always configure scan settings such as EC2 scan modes, [deep inspection paths](deep-inspection.md#deep-inspection-paths "deep-inspection.md#deep-inspection-paths"), and ECR re-scan durations, regardless of whether the resource types are policy-managed.
+Organization policies control only whether scanning is enabled, not how it operates.
+
+For more information about creating and managing Amazon Inspector organization policies, see the AWS Organizations documentation for Amazon Inspector policies.
+
 ## Delegated administrator actions
 
 Generally, when the delegated administrator applies settings to their account,
@@ -52,6 +72,7 @@ If a member account leaves the organization, the delegated administrator will no
 able to see scan configurations scheduled by that account.
 
 - View CIS scan results for all accounts in the organization.
+- When organization policies are in use, configure scan settings for policy-managed resources but cannot enable or disable the policy-managed scan types themselves.
 
 ## Member account actions
 
@@ -78,6 +99,8 @@ the following actions in Amazon Inspector:
 - Create and manage CIS scan configurations for their account.
 - View the results of any CIS scans for resources in their account,
   including those scheduled by the delegated administrator.
+- Enable scan types that are not managed by organization policies.
+  Policy-managed scan types cannot be enabled or disabled by member accounts.
 
 ###### Note
 

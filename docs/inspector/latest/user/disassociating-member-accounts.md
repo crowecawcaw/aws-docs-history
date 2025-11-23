@@ -6,6 +6,10 @@ You also don't have permission to manage Amazon Inspector for the account anymor
 However, you can associate previously disassociated member accounts with your account at any time.
 This section describes how to disassociate member accounts as the delegated administrator.
 
+###### Note
+
+To disassociate policy-managed accounts, there should be no Amazon Inspector organization policy attached to that account for the scan type.
+
 Console
 
 ###### To disassociate member accounts using the console

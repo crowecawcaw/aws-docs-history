@@ -29,10 +29,34 @@ Depending on the account type, consider the following:
 - If your account is a member account in a multi-account environment, you cannot deactivate Amazon Inspector.
   You must contact the delegated administrator for your organization to deactivate Amazon Inspector.
 - If you're the delegated administrator for an organization, you must [disassociate all of your member accounts](disassociating-member-accounts.md "disassociating-member-accounts.md") before you deactivate Amazon Inspector.
+- If your account's Amazon Inspector enablement is managed by AWS Organizations policies, you cannot deactivate policy-managed scan types through the Amazon Inspector console or API.
+  To deactivate Amazon Inspector scan types, you must modify the organization policy to explicitly disable them through the AWS Organizations console or API.
+  You can deactivate scan types that are not managed by organization policies through the Amazon Inspector console or API.
 
 ###### Note
 
 When you deactivate Amazon Inspector as the delegated administrator, you deactivate the auto-activate feature for your organization.
+
+## Deactivating Amazon Inspector managed by organization policies
+
+If Amazon Inspector is enabled in your accounts through AWS Organizations policies, you must use the AWS Organizations console or API to disable Inspector.
+Member accounts and delegated administrators cannot disable policy-managed scan types through the Amazon Inspector console or API.
+
+To deactivate Amazon Inspector for policy-managed accounts:
+
+###### To deactivate policy-managed Amazon Inspector enablement
+
+1. Sign in to the AWS Organizations management account or policy administrator account.
+2. Modify the organization policy to explicitly set the scan types to disabled in the regions where you want to disable Inspector.
+   You must update the policy content to specify disabled regions for the scan types you want to deactivate.
+3. AWS Organizations will automatically apply the policy changes, and Amazon Inspector will disable the specified scan types in the affected accounts.
+
+For detailed instructions on modifying or detaching organization policies, see the AWS Organizations documentation for Amazon Inspector policies.
+
+###### Note
+
+When you detach an organization policy from accounts, those accounts retain their current Amazon Inspector settings (enabled or disabled based on the last applied policy).
+The accounts are no longer managed by the policy and can then manage their Amazon Inspector settings independently or through the delegated administrator.
 
 ## Deactivate Amazon Inspector
 

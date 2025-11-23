@@ -1,6 +1,6 @@
 # Scanning Amazon Elastic Container Registry container images with Amazon Inspector
 
-Amazon Inspector scans container images stored in Amazon Elastic Container Registry for software vulnerabilities to generate package vulnerability findings.
+Amazon Inspector scans container images stored in Amazon Elastic Container Registry for software vulnerabilities to generate [package vulnerability findings](../../../index.md "../../../index.md").
 When you activate Amazon ECR scanning, you set Amazon Inspector as the preferred scanning service for your private registry.
 
 ###### Note
@@ -36,7 +36,10 @@ This section provides information about Amazon ECR scanning and describes how to
 ## Scan behaviors for Amazon ECR scanning
 
 When you first activate Amazon ECR scanning, Amazon Inspector detects images pushed within the last 14 days.
-Amazon Inspector then scans the images and sets the scan statuses to `active`.
+Amazon Inspector then scans the images and sets the scan statuses to `ACTIVE`.
+Amazon Inspector will only scan images active in ECR (`imageStatus` field is `ACTIVE`).
+Images with Archived status in ECR (`imageStatus` field is `ARCHIVED`) are not scanned by Amazon Inspector.
+
 If continuous scanning is enabled, Amazon Inspector monitors images as long as they were pushed within 14 days (by default), the last-in-use date is within 14 days (by default), or the images are scanned within the configured re-scan duration.
 For Amazon Inspector accounts that were created prior to May 16th, 2025, the default configuration is for re-scan to monitor images if they were pushed or pulled within the last 90 days.
 For more information, see [Configuring the Amazon ECR re-scan duration](scanning_resources_configure_duration_setting_ecr.md "scanning_resources_configure_duration_setting_ecr.md").
@@ -48,6 +51,7 @@ images in the following situations:
 - Whenever Amazon Inspector adds a new common vulnerabilities and exposures (CVE) item
   to its database, and that CVE is relevant to that container image
   (continuous scanning only).
+- Whenever a container image is transitioned from archived to active in ECR.
 
 If you configure your repository for on push scanning, images are only scanned
 when you push them.
@@ -62,6 +66,12 @@ events:
 - When Amazon Inspector re-scans a container image because a new common vulnerabilities
   and exposures (CVE) item that impacts that container image was added to the
   Amazon Inspector database.
+
+### Archived ECR container images
+
+Amazon Inspector does not scan container images archived in ECR (`imageStatus` is `ARCHIVED`).
+When an active image in ECR is transitioned to archived, Amazon Inspector automatically closes findings and then deletes the findings after 3 days.
+If an archived container image is transitioned to active in ECR, Amazon Inspector triggers a new scan.
 
 ## Mapping container images to running containers
 
