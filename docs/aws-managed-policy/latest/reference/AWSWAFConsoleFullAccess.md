@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 06, 2020, 18:38 UTC
-- **Edited time:** May 05, 2025, 21:37 UTC
+- **Edited time:** November 19, 2025, 02:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSWAFConsoleFullAccess`
 
 ## Policy version
 
-**Policy version:** v9 (default)
+**Policy version:** v12 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -128,6 +128,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "cloudfront:GetDistributionConfig",
+        "cloudfront:GetDistribution",
         "cloudfront:UpdateDistribution",
         "cloudfront:AssociateDistributionWebACL",
         "cloudfront:DisassociateDistributionWebACL"
@@ -192,7 +193,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "apigateway:GET"
       ],
-      "Resource" : "*"
+      "Resource" : "arn:aws:apigateway:*::/*"
     },
     {
       "Sid" : "AllowActionsForAppSync",
@@ -206,7 +207,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "AllowListActionsForAppSync",
       "Effect" : "Allow",
       "Action" : [
-        "appsync:ListGraphqlApis"
+        "appsync:ListGraphqlApis",
+        "appsync:ListApis"
       ],
       "Resource" : "*"
     },
@@ -287,6 +289,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
+      "Sid" : "AllowLogQueryActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:StartQuery",
+        "logs:DescribeQueryDefinitions",
+        "logs:GetQueryResults"
+      ],
+      "Resource" : "arn:aws:logs:*:*:log-group:aws-waf-logs-*"
+    },
+    {
       "Sid" : "AllowLogGroupDescribeActions",
       "Effect" : "Allow",
       "Action" : [
@@ -329,6 +341,57 @@ request to access an AWS resource, AWS checks the default version of the policy 
           ]
         }
       }
+    },
+    {
+      "Sid" : "AllowListActionForFirehoseStream",
+      "Effect" : "Allow",
+      "Action" : [
+        "firehose:ListDeliveryStreams"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowActionsForPricing",
+      "Effect" : "Allow",
+      "Action" : [
+        "pricing:ListPriceLists",
+        "pricing:GetPriceListFileUrl"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowMarketplaceViewSubscriptions",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:ViewSubscriptions"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowActionsForPricingPlanManager",
+      "Effect" : "Allow",
+      "Action" : [
+        "pricingplanmanager:GetSubscription",
+        "pricingplanmanager:UpdateSubscription",
+        "pricingplanmanager:CancelSubscription",
+        "pricingplanmanager:CancelSubscriptionChange"
+      ],
+      "Resource" : "arn:aws:pricingplanmanager::*:subscription:*"
+    },
+    {
+      "Sid" : "AllowListActionsForRoute53",
+      "Effect" : "Allow",
+      "Action" : [
+        "route53:ListHostedZones",
+        "route53:GetHostedZone"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowListActionsForPricingPlanManager",
+      "Effect" : "Allow",
+      "Action" : "pricingplanmanager:ListSubscriptions",
+      "Resource" : "*"
     }
   ]
 }

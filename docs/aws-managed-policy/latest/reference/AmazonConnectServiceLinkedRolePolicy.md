@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: September 07, 2018, 00:21 UTC
-- **Edited time:** October 27, 2025, 21:19 UTC
+- **Edited time:** November 18, 2025, 20:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonConnectServiceLinkedRolePolicy`
 
 ## Policy version
 
-**Policy version:** v29 (default)
+**Policy version:** v31 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -128,7 +128,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "profile:GetUploadJob",
         "profile:GetUploadJobPath",
         "profile:StartUploadJob",
-        "profile:StopUploadJob"
+        "profile:StopUploadJob",
+        "profile:GetProfileRecommendations",
+        "profile:GetProfileInsights",
+        "profile:ListRecommenders"
       ],
       "Resource" : "arn:aws:profile:*:*:domains/amazon-connect-*"
     },
@@ -177,10 +180,36 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "profile:ListProfileObjects",
         "profile:GetProfileObjectType",
-        "profile:ListObjectTypeAttributes"
+        "profile:ListObjectTypeAttributes",
+        "profile:ListObjectTypeAttributeValues"
       ],
       "Resource" : [
         "arn:aws:profile:*:*:domains/amazon-connect-*/object-types/*"
+      ]
+    },
+    {
+      "Sid" : "AllowReadPermissionForCustomerProfilePredictiveInsights",
+      "Effect" : "Allow",
+      "Action" : [
+        "profile:GetRecommender",
+        "profile:CreateRecommender",
+        "profile:UpdateRecommender",
+        "profile:DeleteRecommender",
+        "profile:StopRecommender",
+        "profile:StartRecommender"
+      ],
+      "Resource" : [
+        "arn:aws:profile:*:*:domains/amazon-connect-*/recommenders/*"
+      ]
+    },
+    {
+      "Sid" : "AllowReadPermissionForCustomerProfilesPersonalizeForRecommenderRecipes",
+      "Effect" : "Allow",
+      "Action" : [
+        "profile:ListRecommenderRecipes"
+      ],
+      "Resource" : [
+        "arn:aws:profile:*:*:*"
       ]
     },
     {
@@ -199,6 +228,27 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "profile:GetProfileObjectTypeTemplate"
       ],
       "Resource" : "arn:aws:profile:*:*:/templates*"
+    },
+    {
+      "Sid" : "AllowAppIntegrationsForConnectEnabledTaggedResources",
+      "Effect" : "Allow",
+      "Action" : [
+        "app-integrations:GetDataIntegration",
+        "app-integrations:ListDataIntegrationAssociations",
+        "app-integrations:CreateDataIntegrationSchedule",
+        "app-integrations:StartDataIntegrationExecution",
+        "app-integrations:ListDataIntegrationExecutions",
+        "app-integrations:GetDataIntegrationExecution",
+        "app-integrations:ListDataIntegrationSchedules",
+        "app-integrations:UpdateDataIntegrationSchedule",
+        "app-integrations:GetDataIntegrationSchedule"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/AmazonConnectEnabled" : "True"
+        }
+      }
     },
     {
       "Sid" : "AllowWisdomForConnectEnabledTaggedResources",
@@ -274,7 +324,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "wisdom:ListTagsForResource",
         "wisdom:SendMessage",
         "wisdom:GetNextMessage",
-        "wisdom:ListMessages"
+        "wisdom:ListMessages",
+        "wisdom:Retrieve",
+        "wisdom:ListAssistantAssociations"
       ],
       "Resource" : "*",
       "Condition" : {

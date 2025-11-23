@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: October 23, 2025, 18:34 UTC
-- **Edited time:** October 23, 2025, 18:34 UTC
+- **Edited time:** October 30, 2025, 20:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/SageMakerStudioEMRContainersSystemNamespaceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -35,20 +35,35 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "AssumeProjectRoles",
       "Effect" : "Allow",
       "Action" : [
-        "sts:AssumeRole",
-        "sts:TagSession"
+        "sts:AssumeRole"
       ],
       "Resource" : [
-        "arn:aws:iam::*:role/datazone_emr_containers_query_engine_role_*",
         "arn:aws:iam::*:role/datazone_usr_role_*"
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaLast" : "emr-containers.amazonaws.com",
           "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
+        }
+      }
+    },
+    {
+      "Sid" : "TagSessionProjectRoles",
+      "Effect" : "Allow",
+      "Action" : [
+        "sts:TagSession"
+      ],
+      "Resource" : [
+        "arn:aws:iam::*:role/datazone_usr_role_*"
+      ],
+      "Condition" : {
+        "ForAllValues:StringEquals" : {
+          "aws:TagKeys" : [
+            "LakeFormationAuthorizedCaller"
+          ]
         },
-        "StringEqualsIfExists" : {
-          "aws:RequestTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
+        "StringEquals" : {
+          "aws:RequestTag/LakeFormationAuthorizedCaller" : "EMR on EKS Engine",
+          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
         }
       }
     },
@@ -59,12 +74,18 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sts:SetContext"
       ],
       "Resource" : [
-        "arn:aws:iam::*:role/datazone_emr_containers_query_engine_role_*",
         "arn:aws:iam::*:role/datazone_usr_role_*"
       ],
       "Condition" : {
+        "ForAllValues:ArnEquals" : {
+          "sts:RequestContextProviders" : [
+            "arn:aws:iam::aws:contextProvider/IdentityCenter"
+          ]
+        },
+        "Null" : {
+          "sts:RequestContextProviders" : "false"
+        },
         "StringEquals" : {
-          "aws:CalledViaLast" : "emr-containers.amazonaws.com",
           "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
         }
       }

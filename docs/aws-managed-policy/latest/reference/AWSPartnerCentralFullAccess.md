@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 18, 2024, 23:33 UTC
-- **Edited time:** December 10, 2024, 18:21 UTC
+- **Edited time:** November 19, 2025, 16:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSPartnerCentralFullAccess`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -84,6 +84,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "iam:PassedToService" : "resource-snapshot-job.partnercentral-selling.amazonaws.com"
         }
       }
+    },
+    {
+      "Sid" : "ChannelBillingTransferRoleAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "sts:AssumeRole"
+      ],
+      "Resource" : [
+        "arn:aws:iam::*:role/PartnerCentralChannelBillingTransferManagement",
+        "arn:aws:iam::*:role/PartnerCentralChannelBillingTransferReadOnly"
+      ]
     }
   ]
 }

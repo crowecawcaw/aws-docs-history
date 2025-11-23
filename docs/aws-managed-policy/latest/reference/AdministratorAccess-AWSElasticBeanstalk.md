@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 22, 2021, 19:36 UTC
-- **Edited time:** December 11, 2024, 14:36 UTC
+- **Edited time:** November 12, 2025, 19:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AdministratorAccess-AWSElasticBeanstalk`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -329,7 +329,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3:CreateBucket",
         "s3:GetBucket*",
         "s3:ListBucket",
-        "s3:PutBucketPolicy"
+        "s3:PutBucketPolicy",
+        "s3:PutBucketPublicAccessBlock",
+        "s3:PutBucketOwnershipControls"
       ],
       "Resource" : "arn:aws:s3:::elasticbeanstalk-*"
     },

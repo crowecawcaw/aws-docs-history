@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: June 13, 2025, 20:07 UTC
-- **Edited time:** June 13, 2025, 20:07 UTC
+- **Edited time:** November 10, 2025, 19:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/NetworkSecurityDirectorServiceLinkedRolePolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -179,6 +179,75 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:apigateway:*::/vpclinks",
         "arn:aws:apigateway:*::/vpclinks/*"
       ]
+    },
+    {
+      "Sid" : "AllowOrganizationsReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "organizations:DescribeAccount",
+        "organizations:DescribeOrganization",
+        "organizations:DescribeOrganizationalUnit",
+        "organizations:ListAccounts",
+        "organizations:ListAccountsForParent",
+        "organizations:ListChildren",
+        "organizations:ListOrganizationalUnitsForParent",
+        "organizations:ListParents",
+        "organizations:ListRoots",
+        "organizations:ListDelegatedAdministrators",
+        "organizations:ListAWSServiceAccessForOrganization",
+        "organizations:ListTargetsForPolicy"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowOrganizationsAdmins",
+      "Effect" : "Allow",
+      "Action" : [
+        "organizations:ListDelegatedAdministrators"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringLikeIfExists" : {
+          "organizations:ServicePrincipal" : [
+            "network-security-director.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "AllowAccountInformationRead",
+      "Effect" : "Allow",
+      "Action" : [
+        "account:GetAccountInformation",
+        "account:GetRegionOptStatus"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowConfigRecorderList",
+      "Effect" : "Allow",
+      "Action" : [
+        "config:ListConfigurationRecorders"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowConfigRecorderScopedAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "config:DescribeConfigurationRecorders",
+        "config:DescribeConfigurationRecorderStatus",
+        "config:PutServiceLinkedConfigurationRecorder",
+        "config:DeleteServiceLinkedConfigurationRecorder"
+      ],
+      "Condition" : {
+        "StringLikeIfExists" : {
+          "config:ConfigurationRecorderServicePrincipal" : [
+            "network-security-director.amazonaws.com"
+          ]
+        }
+      },
+      "Resource" : "*"
     }
   ]
 }

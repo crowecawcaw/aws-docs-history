@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: January 12, 2019, 00:23 UTC
-- **Edited time:** July 14, 2025, 22:22 UTC
+- **Edited time:** November 10, 2025, 19:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForRestores`
 
 ## Policy version
 
-**Policy version:** v24 (default)
+**Policy version:** v25 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -522,6 +522,110 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : [
         "*"
       ]
+    },
+    {
+      "Sid" : "EKSClusterRestore",
+      "Effect" : "Allow",
+      "Action" : [
+        "eks:CreateCluster",
+        "eks:DescribeCluster",
+        "eks:CreateAccessEntry",
+        "eks:DescribeAccessEntry",
+        "eks:AssociateAccessPolicy",
+        "eks:ListAssociatedAccessPolicies",
+        "eks:CreateAddon",
+        "eks:DescribeAddon",
+        "eks:CreateNodegroup",
+        "eks:DescribeNodegroup",
+        "eks:CreateFargateProfile",
+        "eks:DescribeFargateProfile",
+        "eks:CreatePodIdentityAssociation",
+        "eks:DescribePodIdentityAssociation",
+        "eks:TagResource"
+      ],
+      "Resource" : [
+        "arn:aws:eks:*:*:access-entry/*",
+        "arn:aws:eks:*:*:addon/*",
+        "arn:aws:eks:*:*:cluster/*",
+        "arn:aws:eks:*:*:fargateprofile/*",
+        "arn:aws:eks:*:*:nodegroup/*",
+        "arn:aws:eks:*:*:podidentityassociation/*"
+      ]
+    },
+    {
+      "Sid" : "AssociateRestoreAccessPolicy",
+      "Effect" : "Allow",
+      "Action" : [
+        "eks:AssociateAccessPolicy",
+        "eks:DisassociateAccessPolicy"
+      ],
+      "Resource" : "arn:aws:eks:*:*:access-entry/*",
+      "Condition" : {
+        "StringEquals" : {
+          "eks:policyArn" : "arn:aws:eks::aws:cluster-access-policy/AWSBackupFullAccessPolicyForRestore",
+          "eks:accessScope" : "cluster"
+        }
+      }
+    },
+    {
+      "Sid" : "CreateClusterIAMPerms",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:PassRole"
+      ],
+      "Resource" : "arn:aws:iam::*:role/*",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:PassedToService" : [
+            "eks.amazonaws.com",
+            "ec2.amazonaws.com",
+            "pods.eks.amazonaws.com",
+            "backup.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "CreateEKSNodeGroupPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:DescribeLaunchTemplateVersions",
+        "ec2:DescribeSubnets",
+        "ec2:RunInstances",
+        "iam:GetRole",
+        "iam:ListAttachedRolePolicies"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "EKSNodeGroupTagOnCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateTags"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:instance/*",
+        "arn:aws:ec2:*:*:volume/*",
+        "arn:aws:ec2:*:*:network-interface/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "ec2:CreateAction" : [
+            "RunInstances"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "BackupRestoreJobManagementPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "backup:StartRestoreJob",
+        "backup:ListRestoreJobs",
+        "backup:ListRecoveryPointsByBackupVault",
+        "backup:DescribeRestoreJob"
+      ],
+      "Resource" : "*"
     }
   ]
 }

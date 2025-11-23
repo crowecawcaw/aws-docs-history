@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: June 05, 2023, 22:04 UTC
-- **Edited time:** June 03, 2025, 17:07 UTC
+- **Edited time:** November 05, 2025, 23:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSControlTowerAccountServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -132,6 +132,115 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "config:DescribeConfigRules"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowControlTowerToCreateConfigAggregator",
+      "Effect" : "Allow",
+      "Action" : [
+        "config:PutConfigurationAggregator"
+      ],
+      "Resource" : [
+        "arn:aws:config:*:*:config-aggregator/aws-service-config-aggregator/controltower.amazonaws.com/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowControlTowerToManageConfigAggregator",
+      "Effect" : "Allow",
+      "Action" : [
+        "config:DeleteConfigurationAggregator",
+        "config:DescribeAggregateComplianceByConfigRules",
+        "config:SelectAggregateResourceConfig"
+      ],
+      "Resource" : [
+        "arn:aws:config:*:*:config-aggregator/aws-service-config-aggregator/controltower.amazonaws.com/config-aggregator-*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowControlTowerToTagConfigAggregator",
+      "Effect" : "Allow",
+      "Action" : [
+        "config:TagResource"
+      ],
+      "Resource" : [
+        "arn:aws:config:*:*:config-aggregator/aws-service-config-aggregator/controltower.amazonaws.com/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestTag/aws-control-tower" : "managed-by-control-tower",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowControlTowerToPassAggregatorRoleToConfig",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:PassRole"
+      ],
+      "Resource" : [
+        "arn:aws:iam::*:role/aws-service-role/config.amazonaws.com/AWSServiceRoleForConfig"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "iam:PassedToService" : "config.amazonaws.com",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowDescribeConfigurationAggregators",
+      "Effect" : "Allow",
+      "Action" : [
+        "config:DescribeConfigurationAggregators"
+      ],
+      "Resource" : [
+        "*"
+      ]
+    },
+    {
+      "Sid" : "AllowListDelegatedAdministratorsForConfig",
+      "Effect" : "Allow",
+      "Action" : [
+        "organizations:ListDelegatedAdministrators"
+      ],
+      "Resource" : [
+        "*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "organizations:ServicePrincipal" : "config.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowListDescribeOrganization",
+      "Effect" : "Allow",
+      "Action" : [
+        "organizations:DescribeOrganization"
+      ],
+      "Resource" : [
+        "*"
+      ]
+    },
+    {
+      "Sid" : "AllowActionsForCloudFormationHooksIntegration",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:SetTypeConfiguration",
+        "cloudformation:DeactivateType",
+        "cloudformation:ActivateType"
+      ],
+      "Resource" : "arn:aws:cloudformation:*:*:type/hook/AWS-ControlTower*"
     }
   ]
 }

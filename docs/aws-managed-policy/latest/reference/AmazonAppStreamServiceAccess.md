@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: November 19, 2016, 04:17 UTC
-- **Edited time:** June 26, 2020, 16:33 UTC
+- **Edited time:** November 17, 2025, 18:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AmazonAppStreamServiceAccess`
 
 ## Policy version
 
-**Policy version:** v8 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -35,7 +35,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "ec2:DescribeVpcs",
-        "ec2:DescribeSubnets",
+        "ec2:DescribeImages",
         "ec2:DescribeAvailabilityZones",
         "ec2:CreateNetworkInterface",
         "ec2:DescribeNetworkInterfaces",

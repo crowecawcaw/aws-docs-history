@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 18, 2019, 22:23 UTC
-- **Edited time:** May 22, 2025, 00:37 UTC
+- **Edited time:** November 20, 2025, 03:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSBackupOperatorAccess`
 
 ## Policy version
 
-**Policy version:** v18 (default)
+**Policy version:** v20 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -42,7 +42,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "backup:DeleteBackupSelection",
         "backup:StartBackupJob",
         "backup:StartRestoreJob",
-        "backup:StartCopyJob"
+        "backup:StartCopyJob",
+        "backup:StartScanJob"
       ],
       "Resource" : "*"
     },
@@ -392,6 +393,30 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "dsql:ListTagsForResource"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "EKSClusterPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "eks:ListClusters",
+        "eks:ListTagsForResource",
+        "eks:DescribeCluster"
+      ],
+      "Resource" : "arn:aws:eks:*:*:cluster/*"
+    },
+    {
+      "Sid" : "IamPassRolePermissionsForGuardDuty",
+      "Effect" : "Allow",
+      "Action" : "iam:PassRole",
+      "Resource" : [
+        "arn:aws:iam::*:role/*AwsBackupGuardDuty*",
+        "arn:aws:iam::*:role/*AWSBackupGuardDuty*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "iam:PassedToService" : "malware-protection.guardduty.amazonaws.com"
+        }
+      }
     }
   ]
 }

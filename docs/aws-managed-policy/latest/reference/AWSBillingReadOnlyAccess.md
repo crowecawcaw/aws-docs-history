@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 27, 2020, 20:08 UTC
-- **Edited time:** October 02, 2025, 22:19 UTC
+- **Edited time:** November 18, 2025, 21:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSBillingReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v13 (default)
+**Policy version:** v14 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -79,6 +79,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "invoicing:GetInvoiceCorrection",
         "invoicing:ListInvoiceSummaries",
         "invoicing:ListInvoiceUnits",
+        "invoicing:GetProcurementPortalPreference",
+        "invoicing:ListProcurementPortalPreferences",
         "invoicing:ListTagsForResource",
         "invoicing:ListInvoiceCorrections",
         "mapcredits:ListQuarterSpend",

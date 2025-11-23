@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: October 26, 2022, 20:37 UTC
-- **Edited time:** March 07, 2025, 14:52 UTC
+- **Edited time:** November 11, 2025, 09:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorECSAccess`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -95,6 +95,24 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "tag:GetResources"
       ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "DescribeContainerInstances",
+      "Effect" : "Allow",
+      "Action" : "ecs:DescribeContainerInstances",
+      "Resource" : "arn:aws:ecs:*:*:container-instance/*/*"
+    },
+    {
+      "Sid" : "DescribeInstances",
+      "Effect" : "Allow",
+      "Action" : "ec2:DescribeInstances",
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "DescribeSubnets",
+      "Effect" : "Allow",
+      "Action" : "ec2:DescribeSubnets",
       "Resource" : "*"
     }
   ]

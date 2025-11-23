@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: January 08, 2018, 23:10 UTC
-- **Edited time:** November 15, 2024, 17:10 UTC
+- **Edited time:** November 12, 2025, 18:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AutoScalingServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -38,6 +38,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "ec2:AttachClassicLinkVpc",
         "ec2:CancelSpotInstanceRequests",
+        "ec2:CreateReplaceRootVolumeTask",
         "ec2:CreateFleet",
         "ec2:CreateTags",
         "ec2:DeleteTags",
@@ -116,8 +117,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "events:PutRule",
         "events:PutTargets",
         "events:RemoveTargets",
-        "events:DeleteRule",
-        "events:DescribeRule"
+        "events:DeleteRule"
       ],
       "Resource" : "*",
       "Condition" : {

@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 28, 2017, 22:31 UTC
-- **Edited time:** June 10, 2024, 22:50 UTC
+- **Edited time:** November 20, 2025, 02:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonGuardDutyFullAccess`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -73,7 +73,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:iam::*:role/*AWSServiceRoleForAmazonGuardDutyMalwareProtection"
     },
     {
-      "Sid" : "AllowPassRoleToMalwareProtectionPlan",
+      "Sid" : "AllowPassRoleToMalwareProtection",
       "Effect" : "Allow",
       "Action" : [
         "iam:PassRole"
@@ -81,7 +81,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:iam::*:role/*",
       "Condition" : {
         "StringEquals" : {
-          "iam:PassedToService" : "malware-protection-plan.guardduty.amazonaws.com"
+          "iam:PassedToService" : [
+            "malware-protection-plan.guardduty.amazonaws.com",
+            "malware-protection.guardduty.amazonaws.com"
+          ]
         }
       }
     }

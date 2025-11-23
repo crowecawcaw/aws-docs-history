@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: July 16, 2025, 13:37 UTC
-- **Edited time:** October 09, 2025, 18:19 UTC
+- **Edited time:** November 03, 2025, 21:04 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/BedrockAgentCoreFullAccess`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -94,7 +94,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "kms:Decrypt",
-        "kms:GenerateDataKey"
+        "kms:GenerateDataKey",
+        "kms:ListGrants"
       ],
       "Resource" : [
         "arn:aws:kms:*:*:key/*"
@@ -106,6 +107,33 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "bedrock-agentcore.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "BedrockAgentCoreKMSGrantsAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:CreateGrant"
+      ],
+      "Resource" : [
+        "arn:aws:kms:*:*:key/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "kms:GrantConstraintType" : "EncryptionContextSubset"
+        },
+        "StringLike" : {
+          "kms:ViaService" : [
+            "bedrock-agentcore.*.amazonaws.com"
+          ],
+          "kms:EncryptionContext:aws:bedrock-agentcore-gateway:arn" : "arn:aws:bedrock-agentcore:*:*:gateway/*"
+        },
+        "ForAllValues:StringEquals" : {
+          "kms:GrantOperations" : [
+            "Decrypt",
+            "GenerateDataKey"
           ]
         }
       }
@@ -214,7 +242,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "TransactionSearchLogsPermissions",
       "Effect" : "Allow",
       "Action" : [
-        "logs:DescribeResourcePolicies"
+        "logs:DescribeResourcePolicies",
+        "logs:PutResourcePolicy"
       ],
       "Resource" : [
         "*"
@@ -271,6 +300,73 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "iam:AWSServiceName" : "runtime-identity.bedrock-agentcore.amazonaws.com"
         }
       }
+    },
+    {
+      "Sid" : "CloudWatchApplicationSignalsCloudTrailPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudtrail:CreateServiceLinkedChannel"
+      ],
+      "Resource" : "arn:aws:cloudtrail:*:*:channel/aws-service-channel/application-signals/*"
+    },
+    {
+      "Sid" : "BedrockAgentCoreRuntimeS3WriteAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:CreateBucket",
+        "s3:PutBucketPolicy",
+        "s3:PutBucketVersioning",
+        "s3:PutObject"
+      ],
+      "Resource" : [
+        "arn:aws:s3:::bedrock-agentcore-runtime-*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "s3:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "BedrockAgentCoreRuntimeS3ReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:GetObject",
+        "s3:GetObjectVersion",
+        "s3:ListBucket",
+        "s3:ListBucketVersions"
+      ],
+      "Resource" : "arn:aws:s3:::*",
+      "Condition" : {
+        "StringEquals" : {
+          "s3:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "BedrockAgentCoreRuntimeS3ListAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:ListAllMyBuckets"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "s3:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "BedrockAgentCoreRuntimeECRAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "ecr:DescribeRepositories",
+        "ecr:DescribeImages",
+        "ecr:ListImages"
+      ],
+      "Resource" : [
+        "arn:aws:ecr:*:*:repository/*"
+      ]
     }
   ]
 }

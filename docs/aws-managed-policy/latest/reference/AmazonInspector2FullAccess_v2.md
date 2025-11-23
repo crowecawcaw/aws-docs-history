@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: July 03, 2025, 16:07 UTC
-- **Edited time:** July 03, 2025, 16:07 UTC
+- **Edited time:** November 14, 2025, 23:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonInspector2FullAccess_v2`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -84,7 +84,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "organizations:DescribeOrganizationalUnit"
       ],
-      "Resource" : "arn:*:organizations::*:ou/o-*/ou-*"
+      "Resource" : "arn:aws:organizations::*:ou/o-*/ou-*"
     },
     {
       "Sid" : "AllowAccountsBasedAccessToOrganizationApis",
@@ -92,7 +92,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "organizations:DescribeAccount"
       ],
-      "Resource" : "arn:*:organizations::*:account/o-*/*"
+      "Resource" : "arn:aws:organizations::*:account/o-*/*"
     },
     {
       "Sid" : "AllowAccessToOrganizationApis",
@@ -102,6 +102,38 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "organizations:DescribeOrganization"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowListPoliciesForInspectorPolicyType",
+      "Effect" : "Allow",
+      "Action" : "organizations:ListPolicies",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "organizations:PolicyType" : [
+            "INSPECTOR_POLICY"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "AllowDescribeResourcePolicyForDelegation",
+      "Effect" : "Allow",
+      "Action" : "organizations:DescribeResourcePolicy",
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowDescribeEffectivePolicyForInspector",
+      "Effect" : "Allow",
+      "Action" : "organizations:DescribeEffectivePolicy",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "organizations:PolicyType" : [
+            "INSPECTOR_POLICY"
+          ]
+        }
+      }
     }
   ]
 }

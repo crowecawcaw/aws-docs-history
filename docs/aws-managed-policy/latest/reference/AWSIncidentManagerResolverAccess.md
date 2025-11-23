@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 10, 2021, 06:12 UTC
-- **Edited time:** May 10, 2021, 06:12 UTC
+- **Edited time:** November 20, 2025, 18:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSIncidentManagerResolverAccess`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -35,7 +35,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "StartIncidentPermissions",
       "Effect" : "Allow",
       "Action" : [
-        "ssm-incidents:StartIncident"
+        "ssm-incidents:StartIncident",
+        "ssm-contacts:StartEngagement"
       ],
       "Resource" : "*"
     },

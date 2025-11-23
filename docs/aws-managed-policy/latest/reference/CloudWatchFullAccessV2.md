@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 01, 2023, 11:32 UTC
-- **Edited time:** October 16, 2025, 21:49 UTC
+- **Edited time:** November 20, 2025, 19:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/CloudWatchFullAccessV2`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -149,6 +149,41 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:servicequotas:*:*:elasticloadbalancing/*",
         "arn:aws:servicequotas:*:*:ec2/*"
       ]
+    },
+    {
+      "Sid" : "CloudWatchResourceExplorerPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "resource-explorer-2:ListIndexes",
+        "resource-explorer-2:Search"
+      ],
+      "Resource" : [
+        "arn:aws:resource-explorer-2:*::view/AWSServiceViewForApplicationSignals/service-view",
+        "arn:aws:resource-explorer-2:*::view/AWSServiceViewForApplicationSignalsOrgScopeProd/service-view"
+      ]
+    },
+    {
+      "Sid" : "CloudWatchResourceExplorerSLRPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:CreateServiceLinkedRole"
+      ],
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/resource-explorer-2.amazonaws.com/AWSServiceRoleForResourceExplorer",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : [
+            "resource-explorer-2.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "CloudWatchResourceExplorerCreateIndexPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "resource-explorer-2:CreateIndex"
+      ],
+      "Resource" : "arn:aws:resource-explorer-2:*:*:index/*"
     }
   ]
 }

@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: May 18, 2023, 20:28 UTC
-- **Edited time:** February 07, 2025, 17:52 UTC
+- **Edited time:** November 05, 2025, 14:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSDMSServerlessServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -98,7 +98,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3:PutObjectTagging"
       ],
       "Resource" : [
-        "arn:aws:s3:::dms-serverless-premigration-results-*"
+        "arn:aws:s3:::dms-serverless-premigration-results-*",
+        "arn:aws:s3:::dms-premigration-results-*"
       ],
       "Condition" : {
         "StringEquals" : {
@@ -116,7 +117,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3:CreateBucket"
       ],
       "Resource" : [
-        "arn:aws:s3:::dms-serverless-premigration-results-*"
+        "arn:aws:s3:::dms-serverless-premigration-results-*",
+        "arn:aws:s3:::dms-premigration-results-*"
       ],
       "Condition" : {
         "StringEquals" : {
@@ -131,11 +133,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "dms:StartReplicationTaskAssessmentRun"
       ],
       "Resource" : [
-        "*"
+        "arn:aws:dms:*:*:task:*"
       ],
       "Condition" : {
-        "StringEqualsIgnoreCase" : {
-          "aws:ResourceTag/ResourceCreatedBy" : "DMSServerless"
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     }

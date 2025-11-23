@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: January 10, 2019, 21:01 UTC
-- **Edited time:** May 22, 2025, 00:37 UTC
+- **Edited time:** November 10, 2025, 19:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup`
 
 ## Policy version
 
-**Policy version:** v22 (default)
+**Policy version:** v23 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -244,10 +244,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeVolumes",
         "ec2:DescribeSnapshots"
       ],
-      "Resource" : [
-        "arn:aws:ec2:*::snapshot/*",
-        "arn:aws:ec2:*:*:volume/*"
-      ]
+      "Resource" : "*"
     },
     {
       "Sid" : "KMSDynamoDBPermissions",
@@ -600,6 +597,51 @@ request to access an AWS resource, AWS checks the default version of the policy 
         },
         "ForAnyValue:StringEquals" : {
           "kms:EncryptionContextKeys" : "aws:dsql:ClusterId"
+        }
+      }
+    },
+    {
+      "Sid" : "EKSClusterConfigurationBackup",
+      "Effect" : "Allow",
+      "Action" : [
+        "eks:ListClusters",
+        "eks:ListTagsForResource",
+        "eks:DescribeCluster",
+        "eks:ListAddons",
+        "eks:DescribeAddon",
+        "eks:ListNodegroups",
+        "eks:DescribeNodegroup",
+        "eks:ListPodIdentityAssociations",
+        "eks:DescribePodIdentityAssociation",
+        "eks:ListAccessEntries",
+        "eks:DescribeAccessEntry",
+        "eks:ListAssociatedAccessPolicies",
+        "eks:ListFargateProfiles",
+        "eks:DescribeFargateProfile",
+        "ec2:DescribeLaunchTemplateVersions"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "CreateBackupAccessEntry",
+      "Effect" : "Allow",
+      "Action" : [
+        "eks:CreateAccessEntry"
+      ],
+      "Resource" : "arn:aws:eks:*:*:cluster/*"
+    },
+    {
+      "Sid" : "AssociateBackupAccessPolicy",
+      "Effect" : "Allow",
+      "Action" : [
+        "eks:AssociateAccessPolicy",
+        "eks:DisassociateAccessPolicy"
+      ],
+      "Resource" : "arn:aws:eks:*:*:access-entry/*",
+      "Condition" : {
+        "StringEquals" : {
+          "eks:policyArn" : "arn:aws:eks::aws:cluster-access-policy/AWSBackupFullAccessPolicyForBackup",
+          "eks:accessScope" : "cluster"
         }
       }
     }

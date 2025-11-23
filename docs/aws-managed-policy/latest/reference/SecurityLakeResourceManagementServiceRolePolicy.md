@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 14, 2024, 22:10 UTC
-- **Edited time:** September 25, 2025, 17:19 UTC
+- **Edited time:** November 19, 2025, 18:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/SecurityLakeResourceManagementServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -81,6 +81,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:lambda:*:*:function:SecurityLake_Glue_Partition_Updater_Lambda*",
         "arn:aws:lambda:*:*:function:AmazonSecurityLakeMetastoreManager-*-*"
       ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "DeletePartitionUpdaterLambda",
+      "Effect" : "Allow",
+      "Action" : "lambda:DeleteFunction",
+      "Resource" : "arn:aws:lambda:*:*:function:SecurityLake_Glue_Partition_Updater_Lambda*",
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"

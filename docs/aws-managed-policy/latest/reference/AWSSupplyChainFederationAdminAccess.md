@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: March 01, 2023, 18:54 UTC
-- **Edited time:** December 11, 2024, 21:36 UTC
+- **Edited time:** October 30, 2025, 21:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSSupplyChainFederationAdminAccess`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -254,6 +254,38 @@ request to access an AWS resource, AWS checks the default version of the policy 
         },
         "StringEquals" : {
           "aws:ResourceTag/aws-supply-chain-access" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowKmsAccessViaIdentityCenter",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ArnLike" : {
+          "kms:EncryptionContext:aws:sso:instance-arn" : "arn:*:sso:::instance/*"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "sso.*.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowKmsAccessViaIdentityStore",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ArnLike" : {
+          "kms:EncryptionContext:aws:identitystore:identitystore-arn" : "arn:*:identitystore::*:identitystore/*"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "identitystore.*.amazonaws.com"
         }
       }
     }

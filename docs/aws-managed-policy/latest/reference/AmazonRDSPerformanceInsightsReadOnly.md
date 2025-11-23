@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 05, 2022, 00:02 UTC
-- **Edited time:** October 23, 2023, 21:17 UTC
+- **Edited time:** November 20, 2025, 22:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonRDSPerformanceInsightsReadOnly`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -35,13 +35,29 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "AmazonRDSDescribeDBInstances",
       "Effect" : "Allow",
       "Action" : "rds:DescribeDBInstances",
-      "Resource" : "*"
+      "Resource" : "arn:aws:rds:*:*:db:*"
     },
     {
       "Sid" : "AmazonRDSDescribeDBClusters",
       "Effect" : "Allow",
       "Action" : "rds:DescribeDBClusters",
-      "Resource" : "*"
+      "Resource" : "arn:aws:rds:*:*:cluster:*"
+    },
+    {
+      "Sid" : "AmazonRDSDescribeDBShardGroups",
+      "Effect" : "Allow",
+      "Action" : "rds:DescribeDBShardGroups",
+      "Resource" : "arn:aws:rds:*:*:shard-group:*"
+    },
+    {
+      "Sid" : "AmazonRDSListTagsForResource",
+      "Effect" : "Allow",
+      "Action" : "rds:ListTagsForResource",
+      "Resource" : [
+        "arn:aws:rds:*:*:db:*",
+        "arn:aws:rds:*:*:shard-group:*",
+        "arn:aws:rds:*:*:cluster:*"
+      ]
     },
     {
       "Sid" : "AmazonRDSPerformanceInsightsDescribeDimensionKeys",

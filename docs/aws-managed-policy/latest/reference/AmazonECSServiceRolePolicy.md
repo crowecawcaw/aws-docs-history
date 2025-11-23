@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: October 14, 2017, 01:18 UTC
-- **Edited time:** June 24, 2025, 21:22 UTC
+- **Edited time:** November 20, 2025, 23:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonECSServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v12 (default)
+**Policy version:** v14 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -37,12 +37,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "ec2:AttachNetworkInterface",
+        "ec2:AssociateTrunkInterface",
         "ec2:CreateNetworkInterface",
         "ec2:CreateNetworkInterfacePermission",
         "ec2:DeleteNetworkInterface",
         "ec2:DeleteNetworkInterfacePermission",
         "ec2:Describe*",
         "ec2:DetachNetworkInterface",
+        "ec2:DisassociateTrunkInterface",
         "elasticloadbalancing:DeregisterInstancesFromLoadBalancer",
         "elasticloadbalancing:DeregisterTargets",
         "elasticloadbalancing:Describe*",
@@ -242,6 +244,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws:ResourceTag/AmazonECSManaged" : "false"
         }
       }
+    },
+    {
+      "Sid" : "ReadOnlyPermissionsForInstanceEventWindows",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:DescribeInstanceEventWindows"
+      ],
+      "Resource" : "*"
     }
   ]
 }

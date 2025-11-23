@@ -14,13 +14,13 @@ details
 
 - **Type**: Job function policy
 - **Creation time**: November 10, 2016, 17:33 UTC
-- **Edited time:** October 02, 2025, 21:04 UTC
+- **Edited time:** November 18, 2025, 21:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/job-function/Billing`
 
 ## Policy version
 
-**Policy version:** v16 (default)
+**Policy version:** v17 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -116,6 +116,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "invoicing:GetInvoiceCorrection",
         "invoicing:ListInvoiceSummaries",
         "invoicing:ListInvoiceUnits",
+        "invoicing:CreateProcurementPortalPreference",
+        "invoicing:GetProcurementPortalPreference",
+        "invoicing:PutProcurementPortalPreference",
+        "invoicing:UpdateProcurementPortalPreferenceStatus",
+        "invoicing:ListProcurementPortalPreferences",
+        "invoicing:DeleteProcurementPortalPreference",
         "invoicing:ListTagsForResource",
         "invoicing:ListInvoiceCorrections",
         "invoicing:StartInvoiceCorrection",

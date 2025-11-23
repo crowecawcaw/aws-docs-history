@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 28, 2019, 21:44 UTC
-- **Edited time:** October 28, 2019, 21:44 UTC
+- **Edited time:** November 19, 2025, 19:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSPrivateMarketplaceRequests`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -32,6 +32,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
+      "Sid" : "LegacyPrivateMarketplaceRequestsPermissions",
       "Effect" : "Allow",
       "Action" : [
         "aws-marketplace:CreatePrivateMarketplaceRequests",
@@ -39,6 +40,66 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aws-marketplace:DescribePrivateMarketplaceRequests"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "PrivateMarketplaceManageRequestsPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:StartChangeSet"
+      ],
+      "Resource" : [
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace/ProductProcurementRequest/*",
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace/ChangeSet/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "catalog:ChangeType" : [
+            "CreateProductProcurementRequest",
+            "CancelProductProcurementRequest"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "PrivateMarketplaceReadRequestsPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:DescribeEntity"
+      ],
+      "Resource" : [
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace/ProductProcurementRequest/*"
+      ]
+    },
+    {
+      "Sid" : "PrivateMarketplaceListRequestsPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:ListEntities",
+        "aws-marketplace:ListChangeSets"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "PrivateMarketplaceReadChangeSetPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:DescribeChangeSet"
+      ],
+      "Resource" : [
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace/ChangeSet/*"
+      ]
+    },
+    {
+      "Sid" : "PrivateMarketplaceTaggingRequestsPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:TagResource",
+        "aws-marketplace:UntagResource",
+        "aws-marketplace:ListTagsForResource"
+      ],
+      "Resource" : [
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace/ProductProcurementRequest/*"
+      ]
     }
   ]
 }

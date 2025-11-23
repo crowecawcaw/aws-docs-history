@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 15, 2024, 21:51 UTC
-- **Edited time:** September 12, 2025, 15:19 UTC
+- **Edited time:** November 05, 2025, 19:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSQuickSetupManagedInstanceProfileExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -106,7 +106,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
             "arn:aws:iam::aws:policy/AmazonSSMPatchAssociation",
             "arn:aws:iam::aws:policy/AWSQuickSetupPatchPolicyBaselineAccess",
-            "arn:aws:iam::aws:policy/AmazonElasticFileSystemsUtils"
+            "arn:aws:iam::aws:policy/AmazonElasticFileSystemsUtils",
+            "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
           ]
         }
       },
@@ -170,7 +171,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "AWSQuickSetupType-SSM",
             "AWSQuickSetupType-SSMHostMgmt",
             "AWSQuickSetupType-PatchPolicy",
-            "AWSQuickSetupType-Distributor"
+            "AWSQuickSetupType-Distributor",
+            "AWSQuickSetupType-CWASetup"
           ]
         }
       }
@@ -193,7 +195,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "AWSQuickSetupType-SSM",
             "AWSQuickSetupType-SSMHostMgmt",
             "AWSQuickSetupType-PatchPolicy",
-            "AWSQuickSetupType-Distributor"
+            "AWSQuickSetupType-Distributor",
+            "AWSQuickSetupType-CWASetup"
           ]
         }
       }

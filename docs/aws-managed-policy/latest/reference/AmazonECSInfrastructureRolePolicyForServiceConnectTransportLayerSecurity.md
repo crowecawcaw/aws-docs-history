@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: January 19, 2024, 20:08 UTC
-- **Edited time:** January 19, 2024, 20:08 UTC
+- **Edited time:** November 13, 2025, 22:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AmazonECSInfrastructureRolePolicyForServiceConnectTransportLayerSecurity`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -71,7 +71,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "RotateTLSCertificateSecret",
       "Effect" : "Allow",
       "Action" : [
-        "secretsmanager:DescribeSecret",
         "secretsmanager:UpdateSecret",
         "secretsmanager:GetSecretValue",
         "secretsmanager:PutSecretValue",
@@ -83,6 +82,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "secretsmanager:ResourceTag/aws:secretsmanager:owningService" : "ecs-sc",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "DescribeTLSCertificateSecret",
+      "Effect" : "Allow",
+      "Action" : [
+        "secretsmanager:DescribeSecret"
+      ],
+      "Resource" : "arn:aws:secretsmanager:*:*:secret:ecs-sc!*",
+      "Condition" : {
+        "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }

@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: December 03, 2019, 08:45 UTC
-- **Edited time:** January 03, 2025, 21:37 UTC
+- **Edited time:** November 19, 2025, 01:04 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/ComputeOptimizerServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -78,7 +78,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "ec2:DescribeInstances",
-        "ec2:DescribeVolumes"
+        "ec2:DescribeVolumes",
+        "ec2:DescribeNatGateways",
+        "ec2:DescribeRouteTables"
       ],
       "Resource" : "*"
     }

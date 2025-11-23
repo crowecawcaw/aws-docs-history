@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 16, 2021, 20:27 UTC
-- **Edited time:** April 29, 2025, 17:37 UTC
+- **Edited time:** November 10, 2025, 18:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonInspector2ServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v16 (default)
+**Policy version:** v17 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -340,6 +340,33 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowInspectorEnablementForAwsOrgPolicy",
+      "Effect" : "Allow",
+      "Action" : [
+        "inspector2:Enable",
+        "inspector2:Disable",
+        "inspector2:EnableDelegatedAdminAccount",
+        "inspector2:AssociateMember"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowInspectorServiceDelegatedAdminFromAwsOrg",
+      "Effect" : "Allow",
+      "Action" : [
+        "organizations:ListDelegatedAdministrators"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringLikeIfExists" : {
+          "organizations:ServicePrincipal" : [
+            "agentless.inspector2.amazonaws.com",
+            "inspector2.amazonaws.com"
+          ]
         }
       }
     }

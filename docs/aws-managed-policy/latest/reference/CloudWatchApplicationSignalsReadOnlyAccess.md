@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 06, 2024, 22:48 UTC
-- **Edited time:** September 29, 2025, 16:19 UTC
+- **Edited time:** November 20, 2025, 19:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/CloudWatchApplicationSignalsReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -46,7 +46,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "application-signals:ListTagsForResource",
         "application-signals:ListServiceStates",
         "application-signals:ListAuditFindings",
-        "application-signals:ListGroupingAttributeDefinitions"
+        "application-signals:ListGroupingAttributeDefinitions",
+        "application-signals:ListServiceLevelObjectiveExclusionWindows",
+        "application-signals:ListEntityEvents"
       ],
       "Resource" : "*"
     },
@@ -164,6 +166,34 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:servicequotas:*:*:elasticloadbalancing/*",
         "arn:aws:servicequotas:*:*:ec2/*"
       ]
+    },
+    {
+      "Sid" : "CloudWatchApplicationSignalsResourceExplorerPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "resource-explorer-2:ListIndexes",
+        "resource-explorer-2:Search"
+      ],
+      "Resource" : [
+        "arn:aws:resource-explorer-2:*::view/AWSServiceViewForApplicationSignals/service-view",
+        "arn:aws:resource-explorer-2:*::view/AWSServiceViewForApplicationSignalsOrgScopeProd/service-view"
+      ]
+    },
+    {
+      "Sid" : "CloudWatchApplicationSignalsOAMAttachedLinksPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "oam:ListAttachedLinks"
+      ],
+      "Resource" : "arn:aws:oam:*:*:sink/*"
+    },
+    {
+      "Sid" : "CloudWatchApplicationSignalsOAMListSinksPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "oam:ListSinks"
+      ],
+      "Resource" : "*"
     }
   ]
 }

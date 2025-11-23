@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:39 UTC
-- **Edited time:** April 28, 2025, 17:07 UTC
+- **Edited time:** November 18, 2025, 17:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/CloudFrontReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -48,7 +48,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "waf:ListWebACLs",
         "waf:GetWebACL",
         "wafv2:ListWebACLs",
-        "wafv2:GetWebACL"
+        "wafv2:GetWebACL",
+        "ec2:DescribeIpamPools",
+        "ec2:GetIpamPoolCidrs",
+        "pricingplanmanager:ListSubscriptions",
+        "pricingplanmanager:GetSubscription"
       ],
       "Resource" : "*"
     }

@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: June 10, 2025, 17:37 UTC
-- **Edited time:** June 10, 2025, 17:37 UTC
+- **Edited time:** November 17, 2025, 18:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSSecurityHubV2ServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -41,7 +41,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "config:DescribeConfigurationRecorderStatus",
         "config:PutServiceLinkedConfigurationRecorder"
       ],
-      "Resource" : "arn:aws:config:*:*:configuration-recorder/AWSConfigurationRecorderForSecurityHubAssets/*"
+      "Resource" : [
+        "arn:aws:config:*:*:configuration-recorder/AWSConfigurationRecorderForSecurityHubAssets/*",
+        "arn:aws:config:*:*:configuration-recorder/AWSConfigurationRecorderForSecurityHubAssetsGlobal/*"
+      ]
     },
     {
       "Sid" : "SecurityHubV2ServiceRoleAssetsIamPermissions",
@@ -113,6 +116,40 @@ request to access an AWS resource, AWS checks the default version of the policy 
           ]
         }
       }
+    },
+    {
+      "Sid" : "SecurityHubV2ServiceRoleEcrListingPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "ecr:DescribeImages",
+        "ecr:DescribeRepositories"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "SecurityHubV2ServiceRoleLambdaMetricPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudwatch:GetMetricData"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "SecurityHubV2ServiceRoleLambdaListingPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "lambda:ListFunctions"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "SecurityHubV2ServiceRoleIamListingPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:ListRoles",
+        "iam:GetAccountSummary"
+      ],
+      "Resource" : "*"
     }
   ]
 }

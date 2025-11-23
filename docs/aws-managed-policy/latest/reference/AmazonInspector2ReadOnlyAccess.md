@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 21, 2022, 14:45 UTC
-- **Edited time:** September 22, 2023, 20:56 UTC
+- **Edited time:** November 14, 2025, 23:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonInspector2ReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -48,6 +48,38 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "codeguru-security:GetAccountConfiguration"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowListPoliciesForInspectorPolicyType",
+      "Effect" : "Allow",
+      "Action" : "organizations:ListPolicies",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "organizations:PolicyType" : [
+            "INSPECTOR_POLICY"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "AllowDescribeResourcePolicyForDelegation",
+      "Effect" : "Allow",
+      "Action" : "organizations:DescribeResourcePolicy",
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowDescribeEffectivePolicyForInspector",
+      "Effect" : "Allow",
+      "Action" : "organizations:DescribeEffectivePolicy",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "organizations:PolicyType" : [
+            "INSPECTOR_POLICY"
+          ]
+        }
+      }
     }
   ]
 }

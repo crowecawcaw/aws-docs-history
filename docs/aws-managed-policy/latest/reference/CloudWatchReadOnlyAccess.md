@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:40 UTC
-- **Edited time:** October 08, 2025, 17:34 UTC
+- **Edited time:** November 20, 2025, 19:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/CloudWatchReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v12 (default)
+**Policy version:** v13 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -122,6 +122,18 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:servicequotas:*:*:fargate/*",
         "arn:aws:servicequotas:*:*:elasticloadbalancing/*",
         "arn:aws:servicequotas:*:*:ec2/*"
+      ]
+    },
+    {
+      "Sid" : "CloudWatchResourceExplorerPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "resource-explorer-2:ListIndexes",
+        "resource-explorer-2:Search"
+      ],
+      "Resource" : [
+        "arn:aws:resource-explorer-2:*::view/AWSServiceViewForApplicationSignals/service-view",
+        "arn:aws:resource-explorer-2:*::view/AWSServiceViewForApplicationSignalsOrgScopeProd/service-view"
       ]
     }
   ]

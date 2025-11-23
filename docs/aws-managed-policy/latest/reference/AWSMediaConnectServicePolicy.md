@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: April 03, 2023, 22:11 UTC
-- **Edited time:** April 03, 2023, 22:11 UTC
+- **Edited time:** October 29, 2025, 21:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSMediaConnectServicePolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -75,6 +75,31 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ecs:ListContainerInstances"
       ],
       "Resource" : "arn:aws:ecs:*:*:cluster/MediaConnectGateway"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:DeleteNetworkInterface",
+        "ec2:DeleteNetworkInterfacePermission",
+        "ec2:CreateNetworkInterfacePermission"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:network-interface/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/created-for-service" : "MediaConnect"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets"
+      ],
+      "Resource" : "*"
     }
   ]
 }

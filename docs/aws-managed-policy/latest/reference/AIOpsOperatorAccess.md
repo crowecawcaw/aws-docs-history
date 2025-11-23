@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 02, 2024, 23:51 UTC
-- **Edited time:** October 10, 2025, 21:49 UTC
+- **Edited time:** November 07, 2025, 22:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AIOpsOperatorAccess`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -47,7 +47,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aiops:PutFact",
         "aiops:UpdateReport",
         "aiops:GenerateReport",
-        "aiops:CreateReport"
+        "aiops:CreateReport",
+        "q:StartConversation",
+        "q:SendMessage",
+        "q:GetConversation",
+        "q:ListConversations",
+        "q:UpdateConversation",
+        "q:DeleteConversation",
+        "q:PassRequest"
       ],
       "Resource" : "*"
     },

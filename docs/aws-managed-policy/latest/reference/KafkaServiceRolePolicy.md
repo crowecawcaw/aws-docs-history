@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 15, 2018, 23:31 UTC
-- **Edited time:** April 28, 2023, 00:39 UTC
+- **Edited time:** November 10, 2025, 23:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/KafkaServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -82,6 +82,23 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "ArnLike" : {
           "secretsmanager:SecretId" : "arn:*:secretsmanager:*:*:secret:AmazonMSK_*"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:AssignIpv6Addresses",
+        "ec2:UnassignIpv6Addresses",
+        "ec2:ModifyNetworkInterfaceAttribute"
+      ],
+      "Resource" : "arn:*:ec2:*:*:network-interface/*",
+      "Condition" : {
+        "StringEquals" : {
+          "ec2:ResourceTag/AWSMSKManaged" : "true"
+        },
+        "StringLike" : {
+          "ec2:ResourceTag/ClusterArn" : "*"
         }
       }
     }

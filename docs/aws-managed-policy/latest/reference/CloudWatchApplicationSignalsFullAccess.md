@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 06, 2024, 22:50 UTC
-- **Edited time:** September 29, 2025, 16:19 UTC
+- **Edited time:** November 20, 2025, 19:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/CloudWatchApplicationSignalsFullAccess`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -190,6 +190,57 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:servicequotas:*:*:elasticloadbalancing/*",
         "arn:aws:servicequotas:*:*:ec2/*"
       ]
+    },
+    {
+      "Sid" : "CloudWatchApplicationSignalsResourceExplorerPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "resource-explorer-2:ListIndexes",
+        "resource-explorer-2:Search"
+      ],
+      "Resource" : [
+        "arn:aws:resource-explorer-2:*::view/AWSServiceViewForApplicationSignals/service-view",
+        "arn:aws:resource-explorer-2:*::view/AWSServiceViewForApplicationSignalsOrgScopeProd/service-view"
+      ]
+    },
+    {
+      "Sid" : "CloudWatchApplicationSignalsResourceExplorerSLRPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:CreateServiceLinkedRole"
+      ],
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/resource-explorer-2.amazonaws.com/AWSServiceRoleForResourceExplorer",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : [
+            "resource-explorer-2.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "CloudWatchApplicationSignalsResourceExplorerCreateIndexPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "resource-explorer-2:CreateIndex"
+      ],
+      "Resource" : "arn:aws:resource-explorer-2:*:*:index/*"
+    },
+    {
+      "Sid" : "CloudWatchApplicationSignalsOAMAttachedLinksPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "oam:ListAttachedLinks"
+      ],
+      "Resource" : "arn:aws:oam:*:*:sink/*"
+    },
+    {
+      "Sid" : "CloudWatchApplicationSignalsOAMListSinksPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "oam:ListSinks"
+      ],
+      "Resource" : "*"
     }
   ]
 }

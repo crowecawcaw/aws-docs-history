@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 28, 2018, 16:36 UTC
-- **Edited time:** June 25, 2025, 17:52 UTC
+- **Edited time:** November 05, 2025, 20:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonFSxConsoleFullAccess`
 
 ## Policy version
 
-**Policy version:** v13 (default)
+**Policy version:** v14 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -48,7 +48,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "firehose:ListDeliveryStreams",
         "kms:ListAliases",
         "logs:DescribeLogGroups",
-        "s3:ListBucket"
+        "s3:ListBucket",
+        "secretsmanager:ListSecrets"
       ],
       "Resource" : "*"
     },

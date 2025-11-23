@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 14, 2024, 22:53 UTC
-- **Edited time:** October 15, 2025, 21:19 UTC
+- **Edited time:** November 17, 2025, 21:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonTimestreamInfluxDBFullAccess`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -73,7 +73,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeSubnets",
         "ec2:DescribeVpcs",
         "ec2:DescribeSecurityGroups",
-        "ec2:DescribeRouteTables"
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeVpcEndpoints"
       ],
       "Resource" : "*"
     },

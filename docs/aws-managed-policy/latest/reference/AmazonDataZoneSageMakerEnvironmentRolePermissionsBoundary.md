@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 23, 2024, 23:01 UTC
-- **Edited time:** November 21, 2024, 23:06 UTC
+- **Edited time:** November 17, 2025, 18:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -302,7 +302,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*",
       "Condition" : {
         "StringLike" : {
-          "ram:ResourceShareName" : "dzd_*"
+          "ram:ResourceShareName" : "dzd*"
         }
       }
     },
@@ -826,8 +826,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:secretsmanager:*:*:secret:AmazonDataZone-*",
       "Condition" : {
         "StringLike" : {
-          "aws:ResourceTag/AmazonDataZoneDomain" : "dzd_*",
-          "aws:RequestTag/AmazonDataZoneDomain" : "dzd_*"
+          "aws:ResourceTag/AmazonDataZoneDomain" : "dzd*",
+          "aws:RequestTag/AmazonDataZoneDomain" : "dzd*"
         },
         "Null" : {
           "aws:TagKeys" : "false",
@@ -1058,7 +1058,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ecr:StartImageScan",
         "ecr:TagResource",
         "ecr:UntagResource",
-        "elastic-inference:Connect",
         "elasticfilesystem:DescribeFileSystems",
         "elasticfilesystem:DescribeMountTargets",
         "elasticmapreduce:DescribeCluster",

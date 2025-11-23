@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2024, 21:59 UTC
-- **Edited time:** September 17, 2025, 21:04 UTC
+- **Edited time:** November 20, 2025, 14:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePolicy`
 
 ## Policy version
 
-**Policy version:** v18 (default)
+**Policy version:** v21 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -479,7 +479,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
           ]
         },
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
           "kms:EncryptionContext:glue_catalog_id" : "${aws:PrincipalAccount}"
         }
       }
@@ -1376,20 +1375,42 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sqlworkbench:DriverExecute",
         "sqlworkbench:GetUserInfo",
         "sqlworkbench:ListTabs",
-        "sqlworkbench:GetAutocompletionMetadata",
-        "sqlworkbench:GetAutocompletionResource",
+        "sqlworkbench:GetAutocompletion*",
         "sqlworkbench:PassAccountSettings",
         "sqlworkbench:ListQueryExecutionHistory",
         "sqlworkbench:GetQueryExecutionHistory",
         "sqlworkbench:CreateConnection",
-        "sqlworkbench:PutQCustomContext",
-        "sqlworkbench:GetQCustomContext",
-        "sqlworkbench:DeleteQCustomContext",
-        "sqlworkbench:GetQSqlRecommendations",
-        "sqlworkbench:GetQSqlPromptQuotas",
+        "sqlworkbench:*QCustomContext",
+        "sqlworkbench:GetQSql*",
         "sqlworkbench:GetSchemaInference"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "SQLWorkBenchActions",
+      "Effect" : "Allow",
+      "Action" : "sqlworkbench:AssociateNotebookWithTab",
+      "Resource" : "arn:*:sqlworkbench:*:*:notebook/*"
+    },
+    {
+      "Sid" : "SQLWorkBenchNotebookActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "sqlworkbench:CreateNotebook*",
+        "sqlworkbench:GetNotebook",
+        "sqlworkbench:UpdateNotebook*",
+        "sqlworkbench:DeleteNotebook*",
+        "sqlworkbench:ExportNotebook",
+        "sqlworkbench:BatchGetNotebookCell",
+        "sqlworkbench:TagResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}",
+          "aws:ResourceTag/sqlworkbench-resource-owner" : "${aws:userid}"
+        }
+      }
     },
     {
       "Sid" : "RedshiftDataActionsIAMSessionRestriction",
@@ -1498,9 +1519,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
-      "Sid" : "RedshiftGetCredentials",
+      "Sid" : "ComputeCredentials",
       "Effect" : "Allow",
       "Action" : [
+        "emr-containers:DescribeManagedEndpoint",
+        "emr-containers:DescribeSecurityConfiguration",
+        "emr-containers:DescribeVirtualCluster",
+        "emr-containers:GetManagedEndpointSessionCredentials",
         "redshift-serverless:GetCredentials",
         "redshift:GetClusterCredentialsWithIAM"
       ],
@@ -1645,6 +1670,21 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
+      "Sid" : "EmrContainersSSO",
+      "Effect" : "Allow",
+      "Action" : [
+        "sso:DescribeApplication"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ForAnyValue:StringLike" : {
+          "aws:CalledVia" : [
+            "emr-containers.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
       "Sid" : "EMRPersistentAppUI",
       "Effect" : "Allow",
       "Resource" : "*",
@@ -1658,7 +1698,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "KmsWithEncryptPermissions",
+      "Sid" : "KmsWithEncrypt",
       "Effect" : "Allow",
       "Action" : [
         "kms:CreateGrant",
@@ -1691,6 +1731,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
+      "Sid" : "EBDecrypt",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt"
+      ],
+      "Resource" : "arn:aws:kms:*:*:key/${aws:PrincipalTag/KmsKeyId}",
+      "Condition" : {
+        "Null" : {
+          "kms:EncryptionContext:aws:scheduler:schedule:arn" : "false"
+        }
+      }
+    },
+    {
       "Sid" : "KmsPermissions",
       "Effect" : "Allow",
       "Action" : [
@@ -1718,7 +1771,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "KmsManagementPermissions",
+      "Sid" : "KmsManagement",
       "Effect" : "Allow",
       "Action" : [
         "kms:ListGrants",
@@ -1773,7 +1826,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AwsOwnedKmsManagementPermissions",
+      "Sid" : "AwsOwnedKmsManagement",
       "Action" : [
         "kms:DescribeKey"
       ],
@@ -1794,7 +1847,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ListKMSPermissions",
+      "Sid" : "ListKMS",
       "Effect" : "Allow",
       "Action" : [
         "kms:ListAliases"
@@ -1815,7 +1868,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
-      "Sid" : "InvokeBedrockModelPermissions",
+      "Sid" : "InvokeBedrockModel",
       "Effect" : "Allow",
       "Action" : [
         "bedrock:InvokeModel",
@@ -2750,6 +2803,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws:ResourceTag/AmazonDataZoneAssetsFolder" : "true"
         }
       }
+    },
+    {
+      "Sid" : "SageMakerUnifiedStudioMcp",
+      "Effect" : "Allow",
+      "Action" : [
+        "sagemaker-unified-studio-mcp:InvokeMcp",
+        "sagemaker-unified-studio-mcp:CallReadOnlyTool",
+        "sagemaker-unified-studio-mcp:CallPrivilegedTool"
+      ],
+      "Resource" : "*"
     }
   ]
 }

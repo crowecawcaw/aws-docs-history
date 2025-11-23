@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: November 20, 2024, 21:58 UTC
-- **Edited time:** September 29, 2025, 20:04 UTC
+- **Edited time:** November 21, 2025, 00:04 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/SageMakerStudioProjectProvisioningRolePolicy`
 
 ## Policy version
 
-**Policy version:** v21 (default)
+**Policy version:** v24 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -147,7 +147,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:codecommit:*:*:datazone*",
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
@@ -173,7 +172,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:codecommit:*:*:datazone*",
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
@@ -239,12 +237,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/datazone*",
         "arn:aws:iam::*:role/AmazonBedrock*",
         "arn:aws:iam::*:role/BedrockStudio*"
-      ],
-      "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        }
-      }
+      ]
     },
     {
       "Sid" : "IAMManage",
@@ -265,7 +258,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "iam:PermissionsBoundary" : "arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePermissionsBoundary"
         },
         "Null" : {
@@ -303,9 +295,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/AmazonBedrock*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
         }
@@ -322,9 +311,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/datazone*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
         },
@@ -332,6 +318,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "iam:PolicyARN" : [
             "arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePolicy",
             "arn:aws:iam::aws:policy/SageMakerStudioProjectRoleMachineLearningPolicy",
+            "arn:aws:iam::aws:policy/service-role/SageMakerStudioEMRContainersSystemNamespaceRolePolicy",
             "arn:aws:iam::aws:policy/service-role/SageMakerStudioEMRServiceRolePolicy",
             "arn:aws:iam::aws:policy/service-role/SageMakerStudioEMRInstanceRolePolicy",
             "arn:aws:iam::aws:policy/service-role/AmazonEMRServicePolicy_v2",
@@ -372,9 +359,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:iam::*:role/AmazonBedrock*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
         },
@@ -410,9 +394,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/SageMakerStudioQueryExecutionRole"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false",
           "aws:TagKeys" : "false"
@@ -420,6 +401,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "AmazonDataZone*",
+            "BootstrappedServices",
             "AmazonBedrockManaged",
             "RedshiftDb*",
             "EnableAmazonBedrockPermissions",
@@ -429,6 +411,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "DomainBucketName",
             "KmsKeyId",
             "DomainKmsKeyId",
+            "DefaultGlueCatalogKmsKeyId",
             "LogGroupName",
             "RoleName",
             "vpcArn",
@@ -471,9 +454,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:iam::*:role/AmazonBedrock*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
         },
@@ -523,12 +503,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : [
         "arn:aws:iam::*:role/datazone_emr_service_role_*",
-        "arn:aws:iam::*:role/datazone_emr_ec2_instance_role_*"
+        "arn:aws:iam::*:role/datazone_emr_ec2_instance_role_*",
+        "arn:aws:iam::*:role/datazone_emr_containers_system_namespace_role_*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false",
           "aws:TagKeys" : "false"
@@ -551,9 +529,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : "iam:UntagRole",
       "Resource" : "arn:aws:iam::*:role/datazone_usr_role_*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
         },
@@ -578,9 +553,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/BedrockStudio*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
         }
@@ -679,12 +651,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "iam:RemoveRoleFromInstanceProfile",
         "iam:DeleteInstanceProfile"
       ],
-      "Resource" : "arn:aws:iam::*:instance-profile/datazone_emr_ec2_instance_profile_*",
-      "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        }
-      }
+      "Resource" : "arn:aws:iam::*:instance-profile/datazone_emr_ec2_instance_profile_*"
     },
     {
       "Sid" : "PassRole",
@@ -756,7 +723,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "iam:PassedToService" : [
             "elasticmapreduce.amazonaws.com"
           ]
@@ -772,7 +738,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "iam:PassedToService" : [
             "ec2.amazonaws.com"
           ]
@@ -789,7 +754,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "iam:PassedToService" : "bedrock.amazonaws.com"
         }
       }
@@ -804,7 +768,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "iam:PassedToService" : "lambda.amazonaws.com"
         }
       }
@@ -816,7 +779,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:iam::*:role/aws-service-role/observability.aoss.amazonaws.com/AWSServiceRoleForAmazonOpenSearchServerless",
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "iam:AWSServiceName" : "observability.aoss.amazonaws.com"
         }
       }
@@ -852,7 +814,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
@@ -898,7 +859,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
-          "aws:RequestTag/AmazonDataZoneProject" : "false",
           "aws:TagKeys" : "false"
         },
         "ForAllValues:StringLike" : {
@@ -935,8 +895,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1060,7 +1019,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "GlueKms",
       "Effect" : "Allow",
       "Action" : [
-        "kms:Decrypt"
+        "kms:Decrypt",
+        "kms:Encrypt",
+        "kms:GenerateDataKey"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -1072,6 +1033,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "kms:ViaService" : [
             "glue.*.amazonaws.com"
           ]
+        }
+      }
+    },
+    {
+      "Sid" : "GetDataCatalogEncSett",
+      "Action" : "glue:GetDataCatalogEncryptionSettings",
+      "Effect" : "Allow",
+      "Resource" : "arn:aws:glue:*:*:catalog",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1115,12 +1087,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : [
         "arn:aws:cloudformation:*:*:transform/Serverless*"
-      ],
-      "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaLast" : "cloudformation.amazonaws.com"
-        }
-      }
+      ]
     },
     {
       "Sid" : "LambdaManage",
@@ -1134,8 +1101,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
-          "aws:CalledViaLast" : "cloudformation.amazonaws.com"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
@@ -1191,8 +1157,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
-          "aws:CalledViaLast" : "cloudformation.amazonaws.com"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false",
@@ -1236,15 +1201,29 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaLast" : [
-            "glue.amazonaws.com"
-          ],
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
           "s3:prefix" : "true"
         }
       }
+    },
+    {
+      "Sid" : "S3Create",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:CreateBucket",
+        "s3:PutBucketTagging",
+        "s3:PutEncryptionConfiguration",
+        "s3:PutBucketCORS",
+        "s3:PutBucketPublicAccessBlock",
+        "s3:PutBucketPolicy",
+        "s3:DeleteBucketPolicy",
+        "s3:GetBucketPolicy"
+      ],
+      "Resource" : [
+        "arn:aws:s3:::sagemaker-*"
+      ]
     },
     {
       "Sid" : "Cfn",
@@ -1381,12 +1360,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "redshift-serverless:DeleteNamespace",
         "redshift-serverless:DeleteWorkgroup",
         "redshift-serverless:ListTagsForResource",
+        "redshift-serverless:ListSnapshotCopyConfigurations",
         "redshift-serverless:GetNamespace",
         "redshift-serverless:GetWorkgroup"
       ],
       "Resource" : [
         "arn:aws:redshift-serverless:*:*:namespace/*",
-        "arn:aws:redshift-serverless:*:*:workgroup/*"
+        "arn:aws:redshift-serverless:*:*:workgroup/*",
+        "arn:aws:redshift-serverless:*:*:snapshotcopyconfiguration/*"
       ],
       "Condition" : {
         "StringEquals" : {
@@ -1450,7 +1431,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
-          "aws:RequestTag/AmazonDataZoneProject" : "false",
           "aws:TagKeys" : "false"
         },
         "ForAllValues:StringLike" : {
@@ -1471,9 +1451,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:vpc/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        },
         "Null" : {
           "aws:TagKeys" : "true"
         }
@@ -1491,7 +1468,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
@@ -1509,12 +1485,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : [
         "arn:aws:ec2:*:*:security-group/*"
-      ],
-      "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        }
-      }
+      ]
     },
     {
       "Sid" : "SGRevoke",
@@ -1540,7 +1511,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
@@ -1573,12 +1543,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "DescribeLG",
       "Effect" : "Allow",
       "Action" : "logs:DescribeLogGroups",
-      "Resource" : "*",
-      "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        }
-      }
+      "Resource" : "*"
     },
     {
       "Sid" : "CreateLG",
@@ -1593,11 +1558,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
-          "aws:RequestTag/AmazonDataZoneProject" : "false",
           "aws:TagKeys" : "false"
         },
         "ForAllValues:StringLike" : {
@@ -1618,7 +1581,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
@@ -1643,7 +1605,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
@@ -1661,7 +1622,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:athena:*:*:workgroup/*",
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
@@ -1687,7 +1647,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:athena:*:*:workgroup/*",
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
@@ -1709,7 +1668,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
@@ -1735,7 +1693,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
@@ -1757,10 +1714,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "DescribeSecret",
+      "Sid" : "SecretProject",
       "Effect" : "Allow",
       "Action" : [
-        "secretsmanager:DescribeSecret"
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:PutSecretValue"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -1770,10 +1728,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "DescribeSecrets",
+      "Sid" : "SecretAll",
       "Effect" : "Allow",
       "Action" : [
-        "secretsmanager:DescribeSecret"
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:PutSecretValue"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -1835,7 +1795,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/aws-service-role/sagemaker.amazonaws.com/AWSServiceRoleForAmazonSageMakerNotebooks",
         "arn:aws:iam::*:role/aws-service-role/ops.emr-serverless.amazonaws.com/AWSServiceRoleForAmazonEMRServerless",
         "arn:aws:iam::*:role/aws-service-role/airflow.amazonaws.com/AWSServiceRoleForAmazonMWAA",
-        "arn:aws:iam::*:role/aws-service-role/elasticmapreduce.amazonaws.com/AWSServiceRoleForEMRCleanup"
+        "arn:aws:iam::*:role/aws-service-role/elasticmapreduce.amazonaws.com/AWSServiceRoleForEMRCleanup",
+        "arn:aws:iam::*:role/aws-service-role/emr-containers.amazonaws.com/AWSServiceRoleForAmazonEMRContainers"
       ]
     },
     {
@@ -1846,12 +1807,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "redshift-serverless:ListWorkgroups",
         "redshift:GetResourcePolicy"
       ],
-      "Resource" : "*",
-      "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        }
-      }
+      "Resource" : "*"
     },
     {
       "Sid" : "RssDbRole",
@@ -1899,7 +1855,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
@@ -1934,12 +1889,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "GetRandom",
       "Effect" : "Allow",
       "Action" : "secretsmanager:GetRandomPassword",
-      "Resource" : "*",
-      "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        }
-      }
+      "Resource" : "*"
     },
     {
       "Sid" : "BRSecret",
@@ -1957,7 +1907,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:secretsmanager:*:*:secret:amazon-bedrock-ide/*",
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
@@ -1978,9 +1927,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:secretsmanager:*:*:secret:redshift!*",
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : [
-            "cloudformation.amazonaws.com"
-          ],
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
@@ -2014,13 +1960,34 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "TagSMD",
       "Effect" : "Allow",
       "Action" : [
+        "sagemaker:AddTags"
+      ],
+      "Resource" : [
+        "arn:aws:sagemaker:*:*:domain/*",
+        "arn:aws:sagemaker:*:*:mlflow-tracking-server/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        },
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "TagSMDForUpdate",
+      "Effect" : "Allow",
+      "Action" : [
         "sagemaker:CreateDomain",
         "sagemaker:AddTags"
       ],
-      "Resource" : "arn:aws:sagemaker:*:*:domain/*",
+      "Resource" : [
+        "arn:aws:sagemaker:*:*:domain/*",
+        "arn:aws:sagemaker:*:*:mlflow-tracking-server/*"
+      ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
@@ -2038,7 +2005,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:sagemaker:*:*:domain/*",
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
@@ -2053,12 +2019,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sagemaker:ListDomains",
         "sagemaker:DescribeDomain"
       ],
-      "Resource" : "*",
-      "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        }
-      }
+      "Resource" : "*"
     },
     {
       "Sid" : "SMAppDelete",
@@ -2119,7 +2080,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
@@ -2145,7 +2105,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
@@ -2250,9 +2209,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        },
         "StringLikeIfExists" : {
           "aoss:collection" : "bedrock-ide-*",
           "aoss:index" : "bedrock-ide-*"
@@ -2270,9 +2226,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        },
         "StringLikeIfExists" : {
           "aoss:collection" : "bedrock-ide-*"
         }
@@ -2285,7 +2238,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
@@ -2302,7 +2254,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
@@ -2376,7 +2327,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:s3:::*/dzd*/*/genAI/*",
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
@@ -2524,7 +2474,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:lambda:*:*:function:amazon-bedrock-ide-*",
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
@@ -2543,7 +2492,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:lambda:*:*:function:amazon-bedrock-ide-*",
       "Condition" : {
         "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
@@ -2574,9 +2522,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:elasticmapreduce:*:*:cluster/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
         }
@@ -2794,8 +2739,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:scheduler:*:*:schedule-group/*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2809,8 +2753,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:scheduler:*:*:schedule-group/*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
@@ -2824,8 +2767,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:scheduler:*:*:schedule-group/*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
           "aws:RequestTag/AmazonDataZoneProject" : "false",
@@ -2843,8 +2785,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:scheduler:*:*:schedule-group/*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
           "aws:TagKeys" : "false",
@@ -2866,8 +2807,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
-          "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
@@ -3044,6 +2984,31 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
+      "Sid" : "ResourceTagsUnTagPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "bedrock:UntagResource",
+        "neptune-graph:UntagResource",
+        "quicksight:UntagResource",
+        "glue:UntagResource",
+        "airflow:UntagResource",
+        "secretsmanager:UntagResource",
+        "lambda:UntagResource",
+        "emr-serverless:UntagResource",
+        "elasticmapreduce:RemoveTags",
+        "sagemaker:DeleteTags"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        },
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        }
+      }
+    },
+    {
       "Sid" : "SSOManage",
       "Effect" : "Allow",
       "Action" : [
@@ -3055,16 +3020,75 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sso:PutApplicationAccessScope",
         "sso:PutApplicationAssignmentConfiguration",
         "sso:PutApplicationAuthenticationMethod",
-        "sso:PutApplicationGrant"
+        "sso:PutApplicationGrant",
+        "sso:PutApplicationSessionConfiguration"
       ],
       "Resource" : "*",
       "Condition" : {
         "ForAnyValue:StringLike" : {
           "aws:CalledVia" : [
             "elasticmapreduce.amazonaws.com",
+            "emr-containers.amazonaws.com",
             "glue.amazonaws.com",
             "lakeformation.amazonaws.com",
             "ops.emr-serverless.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "EksClusterDiscovery",
+      "Effect" : "Allow",
+      "Action" : [
+        "eks:DescribeCluster"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "EmrContainersManage",
+      "Effect" : "Allow",
+      "Action" : [
+        "emr-containers:CreateManagedEndpoint",
+        "emr-containers:CreateSecurityConfiguration",
+        "emr-containers:CreateVirtualCluster",
+        "emr-containers:DeleteManagedEndpoint",
+        "emr-containers:DeleteSecurityConfiguration",
+        "emr-containers:DeleteVirtualCluster",
+        "emr-containers:DescribeSecurityConfiguration",
+        "emr-containers:DescribeVirtualCluster",
+        "emr-containers:DescribeManagedEndpoint",
+        "emr-containers:TagResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "ManageViaEmrContainers",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:CreateSecurityGroup",
+        "ec2:DeleteSecurityGroup",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:RevokeSecurityGroupEgress",
+        "ec2:RevokeSecurityGroupIngress",
+        "eks:AssociateAccessPolicy",
+        "eks:CreateAccessEntry",
+        "eks:DisassociateAccessPolicy",
+        "eks:DeleteAccessEntry",
+        "eks:DescribeAccessEntry",
+        "eks:ListAssociatedAccessPolicies"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ForAnyValue:StringLike" : {
+          "aws:CalledVia" : [
+            "emr-containers.amazonaws.com"
           ]
         }
       }

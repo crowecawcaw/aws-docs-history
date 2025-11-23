@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: December 01, 2024, 16:36 UTC
-- **Edited time:** August 08, 2025, 18:49 UTC
+- **Edited time:** November 21, 2025, 04:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSSecurityIncidentResponseServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -62,6 +62,23 @@ request to access an AWS resource, AWS checks the default version of the policy 
         }
       },
       "Resource" : "arn:aws:security-ir:*:*:case/*"
+    },
+    {
+      "Sid" : "SecurityIncidentResponseOperationsPolicy",
+      "Effect" : "Allow",
+      "Action" : [
+        "security-ir:GetCase",
+        "security-ir:UpdateCase",
+        "security-ir:ListCases",
+        "security-ir:CreateCaseComment",
+        "security-ir:ListComments"
+      ],
+      "Resource" : "arn:aws:security-ir:*:*:case/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     }
   ]
 }

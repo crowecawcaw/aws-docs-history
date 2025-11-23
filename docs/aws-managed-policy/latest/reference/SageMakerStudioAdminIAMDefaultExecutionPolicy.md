@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2025, 17:19 UTC
-- **Edited time:** August 26, 2025, 21:34 UTC
+- **Edited time:** November 18, 2025, 23:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioAdminIAMDefaultExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -42,11 +42,21 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ]
     },
     {
+      "Sid" : "SageMakerUnifiedStudioMcp",
+      "Effect" : "Allow",
+      "Action" : [
+        "sagemaker-unified-studio-mcp:*"
+      ],
+      "Resource" : "*"
+    },
+    {
       "Sid" : "IamSts",
       "Effect" : "Allow",
       "Action" : [
         "iam:GetRole",
         "iam:ListRoles",
+        "iam:GetUser",
+        "iam:ListUsers",
         "sts:AssumeRole"
       ],
       "Resource" : "*"
@@ -61,9 +71,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/aws-service-role/sagemaker.amazonaws.com/AWSServiceRoleForAmazonSageMakerNotebooks",
         "arn:aws:iam::*:role/aws-service-role/ops.emr-serverless.amazonaws.com/AWSServiceRoleForAmazonEMRServerless",
         "arn:aws:iam::*:role/aws-service-role/airflow.amazonaws.com/AWSServiceRoleForAmazonMWAA",
+        "arn:aws:iam::*:role/aws-service-role/airflow-serverless.amazonaws.com/AWSServiceRoleForAmazonMWAAServerless",
         "arn:aws:iam::*:role/aws-service-role/elasticmapreduce.amazonaws.com/AWSServiceRoleForEMRCleanup",
         "arn:aws:iam::*:role/aws-service-role/sagemaker.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_SageMakerEndpoint",
-        "arn:aws:iam::*:role/aws-service-role/observability.aoss.amazonaws.com/AWSServiceRoleForAmazonOpenSearchServerless"
+        "arn:aws:iam::*:role/aws-service-role/observability.aoss.amazonaws.com/AWSServiceRoleForAmazonOpenSearchServerless",
+        "arn:aws:iam::*:role/aws-service-role/ops.athena.amazonaws.com/AWSServiceRoleForAmazonAthena"
       ]
     },
     {
@@ -78,6 +90,31 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "AmazonDataZone*"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "CreateRole",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:CreateRole"
+      ],
+      "Resource" : [
+        "arn:aws:iam::*:role/service-role/AmazonSageMaker*"
+      ]
+    },
+    {
+      "Sid" : "AttachPolicy",
+      "Effect" : "Allow",
+      "Action" : "iam:AttachRolePolicy",
+      "Resource" : "arn:aws:iam::*:role/service-role/AmazonSageMaker*",
+      "Condition" : {
+        "ArnEquals" : {
+          "iam:PolicyARN" : [
+            "arn:aws:iam::aws:policy/SageMakerStudioUserIAMDefaultExecutionPolicy",
+            "arn:aws:iam::aws:policy/SageMakerStudioUserIAMPermissiveExecutionPolicy",
+            "arn:aws:iam::aws:policy/service-role/AmazonS3TablesLakeFormationServiceRole"
           ]
         }
       }
@@ -103,7 +140,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "iam:PassedToService" : [
             "sagemaker.amazonaws.com",
             "lakeformation.amazonaws.com",
-            "glue.amazonaws.com"
+            "athena.amazonaws.com",
+            "glue.amazonaws.com",
+            "datazone.amazonaws.com",
+            "airflow-serverless.amazonaws.com"
           ],
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
@@ -122,7 +162,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "iam:PassedToService" : [
             "datazone.amazonaws.com",
             "bedrock.amazonaws.com",
-            "scheduler.amazonaws.com"
+            "scheduler.amazonaws.com",
+            "emr-serverless.amazonaws.com",
+            "redshift.amazonaws.com",
+            "airflow-serverless.amazonaws.com"
           ]
         }
       }
@@ -186,8 +229,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sagemaker:Search",
         "sagemaker:*Endpoint*",
         "sagemaker:*Model*",
+        "sagemaker:*Context*",
+        "sagemaker:*Artifact*",
+        "sagemaker:*Action*",
+        "sagemaker:*Association*",
+        "sagemaker:QueryLineage",
         "sagemaker:*InferenceComponent*",
-        "sagemaker:*Job*"
+        "sagemaker:*Job*",
+        "sagemaker:StartMlflowTrackingServer",
+        "sagemaker:StopMlflowTrackingServer",
+        "sagemaker:CreatePresignedMlflowTrackingServerUrl",
+        "sagemaker-mlflow:*"
       ],
       "Resource" : "*"
     },
@@ -273,7 +325,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "lakeformation:ListResources",
         "lakeformation:PutDataLakeSettings",
         "lakeformation:RegisterResource",
-        "lakeformation:RevokePermissions"
+        "lakeformation:RevokePermissions",
+        "lakeformation:ListLakeFormationOptIns",
+        "lakeformation:CreateLakeFormationOptIn",
+        "lakeformation:DeleteLakeFormationOptIn"
       ],
       "Resource" : "*"
     },
@@ -319,10 +374,49 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "glue:StartCompletion",
         "glue:StopSession",
         "glue:TagResource",
+        "glue:UntagResource",
         "glue:UseGlueStudio",
-        "glue:*Job*"
+        "glue:*Job*",
+        "glue:TestConnection"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "GlueSessionIsolation",
+      "Effect" : "Deny",
+      "Action" : [
+        "glue:CancelStatement",
+        "glue:CreateSession",
+        "glue:DeleteSession",
+        "glue:GetSession",
+        "glue:GetStatement",
+        "glue:RunStatement",
+        "glue:StopSession",
+        "glue:GetDashboardUrl"
+      ],
+      "Resource" : [
+        "arn:aws:glue:*:*:session/*"
+      ],
+      "Condition" : {
+        "StringNotEquals" : {
+          "aws:RequestTag/AmazonDataZoneSessionOwner" : "${aws:SourceIdentity}",
+          "aws:ResourceTag/AmazonDataZoneSessionOwner" : "${aws:SourceIdentity}"
+        }
+      }
+    },
+    {
+      "Sid" : "DenyTaggingUntaggingForeignSessions",
+      "Effect" : "Deny",
+      "Action" : [
+        "glue:TagResource",
+        "glue:UntagResource"
+      ],
+      "Resource" : "arn:aws:glue:*:*:session/*",
+      "Condition" : {
+        "StringNotEquals" : {
+          "aws:ResourceTag/AmazonDataZoneSessionOwner" : "${aws:SourceIdentity}"
+        }
+      }
     },
     {
       "Sid" : "SQLWorkBench",
@@ -355,7 +449,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "redshift-serverless:GetNamespace",
         "redshift-serverless:GetWorkgroup",
         "redshift-serverless:List*",
-        "redshift:Describe*"
+        "redshift:Describe*",
+        "redshift:GetClusterCredentialsWithIAM",
+        "redshift-serverless:GetCredentials"
       ],
       "Resource" : "*"
     },
@@ -387,6 +483,57 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
+      "Sid" : "AthenaSessionIsolation",
+      "Effect" : "Deny",
+      "Action" : [
+        "athena:StartSession",
+        "athena:GetSession",
+        "athena:TerminateSession",
+        "athena:GetSessionStatus",
+        "athena:GetSessionEndpoint",
+        "athena:GetResourceDashboard"
+      ],
+      "Resource" : [
+        "arn:aws:athena:*:*:workgroup/*/session/*"
+      ],
+      "Condition" : {
+        "StringNotEquals" : {
+          "aws:RequestTag/AmazonDataZoneSessionOwner" : "${aws:SourceIdentity}",
+          "aws:ResourceTag/AmazonDataZoneSessionOwner" : "${aws:SourceIdentity}"
+        }
+      }
+    },
+    {
+      "Sid" : "DenyTaggingUntaggingForeignAthenaSessions",
+      "Effect" : "Deny",
+      "Action" : [
+        "athena:TagResource",
+        "athena:UntagResource"
+      ],
+      "Resource" : "arn:aws:athena:*:*:workgroup/*/session/*",
+      "Condition" : {
+        "StringNotEquals" : {
+          "aws:ResourceTag/AmazonDataZoneSessionOwner" : "${aws:SourceIdentity}"
+        }
+      }
+    },
+    {
+      "Sid" : "AirflowServerless",
+      "Effect" : "Allow",
+      "Action" : [
+        "airflow-serverless:List*",
+        "airflow-serverless:Get*",
+        "airflow-serverless:CreateWorkflow",
+        "airflow-serverless:UpdateWorkflow",
+        "airflow-serverless:DeleteWorkflow",
+        "airflow-serverless:StartWorkflowRun",
+        "airflow-serverless:StopWorkflowRun",
+        "airflow-serverless:TagResource",
+        "airflow-serverless:UntagResource"
+      ],
+      "Resource" : "*"
+    },
+    {
       "Sid" : "ManagePrivateSecret",
       "Effect" : "Allow",
       "Action" : [
@@ -395,7 +542,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "secretsmanager:DescribeSecret",
         "secretsmanager:GetSecretValue",
         "secretsmanager:TagResource",
-        "secretsmanager:UpdateSecret"
+        "secretsmanager:UpdateSecret",
+        "secretsmanager:PutResourcePolicy"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -461,6 +609,325 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ecr:DescribeImages",
         "ecr:GetAuthorizationToken",
         "ecr:GetDownloadUrlForLayer"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "CodeConnectionsAdmin",
+      "Effect" : "Allow",
+      "Action" : [
+        "codeconnections:*",
+        "codestar-connections:*"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "KmsListAndDescribe",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:DescribeKey",
+        "kms:ListAliases",
+        "kms:ListGrants"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "DataZoneKms",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt",
+        "kms:GenerateDataKey",
+        "kms:Encrypt",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:ReEncryptTo",
+        "kms:ReEncryptFrom"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "datazone.*.amazonaws.com"
+        },
+        "ForAnyValue:StringEquals" : {
+          "kms:EncryptionContextKeys" : "aws:datazone:domainId"
+        }
+      }
+    },
+    {
+      "Sid" : "S3Kms",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "s3.*.amazonaws.com"
+        },
+        "Null" : {
+          "kms:EncryptionContext:aws:s3:arn" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "SchedulerKms",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "Null" : {
+          "kms:EncryptionContext:aws:scheduler:schedule:arn" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "SecretsKms",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt",
+        "kms:Encrypt",
+        "kms:GenerateDataKey"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "secretsmanager.*.amazonaws.com"
+        },
+        "Null" : {
+          "kms:EncryptionContext:SecretARN" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "SageMakerKms",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt",
+        "kms:Encrypt",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:ReEncryptTo",
+        "kms:ReEncryptFrom"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "sagemaker.*.amazonaws.com"
+        },
+        "Null" : {
+          "kms:EncryptionContextKeys" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "SageMakerCreateGrant",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:CreateGrant"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "sagemaker.*.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "DataZoneCreateGrant",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:CreateGrant"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "datazone.*.amazonaws.com"
+        },
+        "ForAllValues:StringEquals" : {
+          "kms:GrantOperations" : [
+            "Encrypt",
+            "Decrypt",
+            "ReEncryptFrom",
+            "ReEncryptTo",
+            "GenerateDataKeyWithoutPlaintext",
+            "GenerateDataKey",
+            "DescribeKey",
+            "RetireGrant",
+            "CreateGrant"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "GlueKms",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt",
+        "kms:Encrypt",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "glue.*.amazonaws.com"
+        },
+        "Null" : {
+          "kms:EncryptionContextKeys" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "BedrockKms",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "bedrock.*.amazonaws.com"
+        },
+        "Null" : {
+          "kms:EncryptionContextKeys" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "WorkflowsCreateGrant",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:CreateGrant"
+      ],
+      "Resource" : "arn:*:kms:*:*:key/*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "airflow-serverless.*.amazonaws.com"
+        },
+        "ForAnyValue:StringEquals" : {
+          "kms:EncryptionContextKeys" : "aws:airflow-serverless:workflow-arn"
+        },
+        "ForAllValues:StringEquals" : {
+          "kms:GrantOperations" : [
+            "Decrypt",
+            "Encrypt",
+            "GenerateDataKey",
+            "GenerateDataKeyWithoutPlaintext",
+            "RetireGrant"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "WorkflowsKms",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt",
+        "kms:Encrypt",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext"
+      ],
+      "Resource" : "arn:*:kms:*:*:key/*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "kms:EncryptionContextKeys" : "aws:airflow-serverless:workflow-arn"
+        }
+      }
+    },
+    {
+      "Sid" : "CreateSG",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateSecurityGroup"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:security-group/*",
+        "arn:aws:ec2:*:*:vpc/*"
+      ]
+    },
+    {
+      "Sid" : "SGManage",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:DeleteSecurityGroup",
+        "ec2:RevokeSecurityGroupEgress",
+        "ec2:RevokeSecurityGroupIngress"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:security-group/*"
+      ]
+    },
+    {
+      "Sid" : "SGAuth",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupIngress"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:security-group/*"
+      ],
+      "Condition" : {
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "Ec2DescribeOnly",
+      "Effect" : "Allow",
+      "Action" : "ec2:Describe*",
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "SGCreateTags",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateTags"
+      ],
+      "Resource" : "arn:aws:ec2:*:*:security-group/*",
+      "Condition" : {
+        "ForAllValues:StringLike" : {
+          "aws:TagKeys" : [
+            "AmazonDataZone*",
+            "aws:cloudformation:*"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "VpcAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateNetworkInterface",
+        "ec2:DeleteNetworkInterface",
+        "ec2:CreateNetworkInterfacePermission",
+        "ec2:DeleteNetworkInterfacePermission"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "EC2TagAccessForVpc",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateTags",
+        "ec2:DeleteTags"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:network-interface/*"
+      ]
+    },
+    {
+      "Sid" : "EMRServerless",
+      "Effect" : "Allow",
+      "Action" : [
+        "emr-serverless:ListApplications",
+        "emr-serverless:GetApplication"
       ],
       "Resource" : "*"
     }

@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2025, 22:49 UTC
-- **Edited time:** August 18, 2025, 22:49 UTC
+- **Edited time:** November 14, 2025, 22:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioUserIAMConsolePolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -43,7 +43,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "datazone:CreateProject",
         "datazone:GetProject",
         "datazone:DeleteProject",
-        "datazone:GetIamPortalLoginUrl"
+        "datazone:GetIamPortalLoginUrl",
+        "datazone:ListEnvironmentBlueprints",
+        "datazone:ListEnvironments",
+        "datazone:GetEnvironment",
+        "datazone:GetEnvironmentCredentials",
+        "datazone:GetGroupProfile",
+        "datazone:SearchGroupProfiles",
+        "datazone:SearchUserProfiles",
+        "datazone:ListProjectMemberships"
       ],
       "Resource" : [
         "*"
@@ -62,15 +70,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ]
     },
     {
-      "Sid" : "IAMPassRoleStatement",
+      "Sid" : "DataZoneKMSPermissions",
       "Effect" : "Allow",
-      "Action" : "iam:PassRole",
-      "Resource" : [
-        "arn:aws:iam::*:role/service-role/AmazonSageMaker*"
+      "Action" : [
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
       ],
+      "Resource" : "*",
       "Condition" : {
-        "StringEquals" : {
-          "iam:passedToService" : "datazone.amazonaws.com"
+        "StringLike" : {
+          "kms:ViaService" : "datazone.*.amazonaws.com"
+        },
+        "ForAnyValue:StringEquals" : {
+          "kms:EncryptionContextKeys" : "aws:datazone:domainId"
         }
       }
     }

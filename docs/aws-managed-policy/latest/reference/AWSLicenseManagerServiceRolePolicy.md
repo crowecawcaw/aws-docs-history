@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 26, 2018, 19:02 UTC
-- **Edited time:** July 30, 2021, 01:43 UTC
+- **Edited time:** November 19, 2025, 18:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -131,10 +131,23 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "ssm:ListInventoryEntries",
         "ssm:GetInventory",
-        "ssm:CreateAssociation"
+        "ssm:CreateAssociation",
+        "ssm:GetCommandInvocation"
       ],
       "Resource" : [
         "*"
+      ]
+    },
+    {
+      "Sid" : "SSMSendCommandPermission",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:SendCommand"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:instance/*",
+        "arn:aws:ssm:*:*:managed-instance/*",
+        "arn:aws:ssm:*::document/AWSLicenseManager-*"
       ]
     },
     {
