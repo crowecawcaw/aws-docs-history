@@ -30,7 +30,7 @@ encryption.
 
 AWS HealthScribe automatically enables encryption at rest using AWS-owned keys to protect
 personally identifiable data at no charge. However, AWS KMS charges apply for using a customer managed key. For
-more information about pricing, see [AWS Key Management Service pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
+more information about pricing, see [AWS Key Management Service pricing](https://aws.amazon.com//kms/pricing/ "https://aws.amazon.com//kms/pricing/").
 
 For more information on AWS KMS, see [What is AWS Key Management Service](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
 

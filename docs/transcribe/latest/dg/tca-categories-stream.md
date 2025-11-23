@@ -43,7 +43,7 @@ To create a new category for real-time Call Analytics, you can use the
    **Call analytics categories** page. Select the
    **Create category** button.
 
-![Amazon Transcribe console screenshot: the Call Analytics 'categories' page.](images/analytics-categories.png) 3. You're now on the **Create category page**. Enter a name for your
+![Amazon Transcribe console screenshot: the Call Analytics 'categories' page.](/images/transcribe/latest/dg/images/analytics-categories.png) 3. You're now on the **Create category page**. Enter a name for your
 category, then choose 'Real time call analytics' in the **Category type**
 dropdown menu.
 

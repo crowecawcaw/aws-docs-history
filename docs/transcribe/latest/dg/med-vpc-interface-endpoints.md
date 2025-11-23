@@ -5,7 +5,7 @@
 You can establish a private connection between your VPC and Amazon Transcribe Medical by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you
 to privately access Amazon Transcribe Medical APIs without an internet gateway, NAT device, VPN connection, or
-AWS Direct Connect connection. Instances in your VPC don't need public IP addresses to
+Direct Connect connection. Instances in your VPC don't need public IP addresses to
 communicate with Amazon Transcribe Medical APIs. Traffic between your VPC and Amazon Transcribe Medical does not leave the Amazon
 network.
 
@@ -105,4 +105,4 @@ on all resources.
 
 ## Shared subnets
 
-You cannot create, describe, modify, or delete VPC endpoints in subnets that are shared with you. However, you can use the VPC endpoints in subnets that are shared with you. For information about VPC sharing, see [Share your VPC with other accounts](../../../https:/docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.md#vpc-sharing-service-behavior "../../../https:/docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.md#vpc-sharing-service-behavior") in the Amazon Virtual Private Cloud guide.
+You cannot create, describe, modify, or delete VPC endpoints in subnets that are shared with you. However, you can use the VPC endpoints in subnets that are shared with you. For information about VPC sharing, see [Share your VPC with other accounts](../../../vpc/latest/userguide/vpc-sharing.md#vpc-sharing-service-behavior "../../../vpc/latest/userguide/vpc-sharing.md#vpc-sharing-service-behavior") in the Amazon Virtual Private Cloud guide.
