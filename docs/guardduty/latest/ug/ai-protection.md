@@ -13,6 +13,7 @@ activities such as:
 - Change of model training data source that can potentially lead to data poisoning
   attack
 - Suspicious Amazon Bedrock model invocation
+- Disabled logging for Amazon Bedrock model invocations that may indicate attempts to evade detection
 - Unusual notebook instance or training job creation in SageMaker AI
 - Exfiltrated Amazon Elastic Compute Cloud credentials that may have been used to call APIs in
   Amazon Bedrock, Amazon SageMaker AI, or self-managed AI workloads on EC2 instances, EKS clusters, or

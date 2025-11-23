@@ -17,6 +17,7 @@ credentials](compromised-creds.md "compromised-creds.md").
 
 - [CredentialAccess:IAMUser/AnomalousBehavior](#credentialaccess-iam-anomalousbehavior "#credentialaccess-iam-anomalousbehavior")
 - [DefenseEvasion:IAMUser/AnomalousBehavior](#defenseevasion-iam-anomalousbehavior "#defenseevasion-iam-anomalousbehavior")
+- [DefenseEvasion:IAMUser/BedrockLoggingDisabled](#defenseevasion-iam-bedrockloggingdisabled "#defenseevasion-iam-bedrockloggingdisabled")
 - [Discovery:IAMUser/AnomalousBehavior](#discovery-iam-anomalousbehavior "#discovery-iam-anomalousbehavior")
 - [Exfiltration:IAMUser/AnomalousBehavior](#exfiltration-iam-anomalousbehavior "#exfiltration-iam-anomalousbehavior")
 - [Impact:IAMUser/AnomalousBehavior](#impact-iam-anomalousbehavior "#impact-iam-anomalousbehavior")
@@ -100,6 +101,22 @@ the user that made the request, the location the request was made from, and the
 specific API that was requested. Details on which factors of the API request are
 unusual for the user identity that invoked the request can be found in the
 [finding details](guardduty_findings-summary.md#finding-anomalous "guardduty_findings-summary.md#finding-anomalous").
+
+**Remediation recommendations:**
+
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
+credentials](compromised-creds.md "compromised-creds.md").
+
+## DefenseEvasion:IAMUser/BedrockLoggingDisabled
+
+### Logging for Amazon Bedrock was disabled.
+
+**Default severity: Medium**
+
+- **Data source:** CloudTrail management
+  events
+
+This finding informs you that logging was disabled for Bedrock model invocations in your account. This can be an attacker's attempt to hide malicious activity like data exfiltration or abuse of AI models. Disabling logging removes visibility into the data sent to models and how the models are used.
 
 **Remediation recommendations:**
 

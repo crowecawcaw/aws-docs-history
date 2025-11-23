@@ -55,10 +55,15 @@ skipped during the scanning process.
 [Reporting false positives in Malware Protection for EC2](malware-protection-false-positives.md "malware-protection-false-positives.md")
 
 Learn how you can report potential false positive threat detections in
-Malware Protection for S3.
+Malware Protection for EC2.
 
 [Reporting S3 object scan
 result as false positive in Malware Protection for S3](report-malware-protection-s3-false-positives.md "report-malware-protection-s3-false-positives.md")
 
 Learn how you can report potential false positive threat detections in
 Malware Protection for S3.
+
+[Reporting false positives in Malware Protection for Backup](malware-protection-backup-false-positives.md "malware-protection-backup-false-positives.md")
+
+Learn how you can report potential false positive threat detections in
+Malware Protection for Backup.

@@ -202,10 +202,10 @@ deploy the resources:
 
 - **AWS Cloud Development Kit (AWS CDK)** – CDK is an
   open-source software development framework for defining cloud infrastructure
-  in code and provisioning it through AWS CloudFormation. CDK supports a couple of
+  in code and provisioning it through CloudFormation. CDK supports a couple of
   programming languages to define reusable cloud components known as
   constructs. You can compose these together into stacks and apps. Then, you
-  can deploy your CDK applications to AWS CloudFormation to provision or update your
+  can deploy your CDK applications to CloudFormation to provision or update your
   resources. For more information, see [What is the AWS CDK?](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md") in the
   _AWS Cloud Development Kit (AWS CDK) Developer Guide_.
 - **Bootstrapping** – It is the process
@@ -238,7 +238,7 @@ cdk bootstrap
 cdk deploy
 ```
 
-The last command (`cdk deploy`) creates a AWS CloudFormation stack on your
+The last command (`cdk deploy`) creates a CloudFormation stack on your
 behalf. The name of this stack is
 **GuardDutyTesterStack**.
 
@@ -386,9 +386,9 @@ resources. You can choose to do this by using one of the following methods:
 cdk destroy
 ```
 
-- Delete the AWS CloudFormation stack with the name
+- Delete the CloudFormation stack with the name
   **GuardDutyTesterStack**. For information about steps, see
-  [Deleting a stack on the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md").
+  [Deleting a stack on the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md").
 
 ## Troubleshooting common
 

@@ -66,11 +66,11 @@ enabling or editing the configuration for any protection plan in your account.
 
 APIs
 
-- If you manage GuardDuty configurations through APIs, SDKs, or AWS CloudFormation template, and want to
+- If you manage GuardDuty configurations through APIs, SDKs, or CloudFormation template, and want to
   enable potential new GuardDuty features, you will need to modify your code and template,
   respectively. For more information, see the updated APIs in the _[Amazon GuardDuty API Reference](../APIReference/API_Operations.md "../APIReference/API_Operations.md")_.
 - For GuardDuty features configured prior to this upgrade, you can continue using the APIs,
-  SDKs, or AWS CloudFormation template. However, we recommend that you switch to using `feature`
+  SDKs, or CloudFormation template. However, we recommend that you switch to using `feature`
   object.
 
 All the data sources have an equivalent feature object. For more information, see [Mapping

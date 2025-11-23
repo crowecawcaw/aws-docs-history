@@ -50,18 +50,18 @@ GuardDuty actively uses this data for threat detection, it **doesn't**
 currently use these commands and arguments for service improvement purposes (it may do so in the future).
 Your trust, privacy, and
 the security of your content are our highest priority, and ensure that our use complies with
-our commitments to you. For more information, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/").
+our commitments to you. For more information, see [Data Privacy FAQ](https://aws.amazon.com//compliance/data-privacy-faq/ "https://aws.amazon.com//compliance/data-privacy-faq/").
 
 ## GuardDuty Malware Protection
 
 GuardDuty Malware Protection scans and detects malware contained in EBS volumes attached to
-your potentially compromised Amazon EC2 instance and container workloads, and newly uploaded
-files in your selected Amazon S3 buckets. Currently, GuardDuty doesn't collect or use detected
+your potentially compromised Amazon EC2 instance and container workloads, newly uploaded
+files in your selected Amazon S3 buckets, and backup resources. Currently, GuardDuty doesn't collect or use detected
 malware for service improvement. However, in the future, when GuardDuty Malware Protection
-identifies an EBS volume file or an S3 file as being malicious or harmful, GuardDuty Malware
+identifies an EBS volume file, backup file, or an S3 file as being malicious or harmful, GuardDuty Malware
 Protection will collect and store this file to develop and improve its malware detections,
 and the GuardDuty service. This file may also be used to develop and improve other AWS
 security services. Your trust, privacy, and the security of your content are our highest
 priority, and ensure that our use complies with our commitments to you. For more
 information, see [Data Privacy
-FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/").
+FAQ](https://aws.amazon.com//compliance/data-privacy-faq/ "https://aws.amazon.com//compliance/data-privacy-faq/").

@@ -14,6 +14,10 @@ about a finding type by selecting it from the [Active findings types](guardduty_
 - [Remediating a potentially compromised S3 bucket](compromised-s3.md "compromised-s3.md")
 - [Remediating a potentially
   malicious S3 object](compromised-s3object-malware-protection-gdu.md "compromised-s3object-malware-protection-gdu.md")
+- [Remediating a potentially compromised EBS Snapshot](compromised-snapshot.md "compromised-snapshot.md")
+- [Remediating a potentially compromised EC2 AMI](compromised-ami.md "compromised-ami.md")
+- [Remediating a potentially compromised EC2 Recovery Point](compromised-ec2-recoverypoint.md "compromised-ec2-recoverypoint.md")
+- [Remediating a potentially compromised S3 Recovery Point](compromised-s3-recoverypoint.md "compromised-s3-recoverypoint.md")
 - [Remediating a potentially compromised ECS
   cluster](compromised-ecs.md "compromised-ecs.md")
 - [Remediating potentially compromised AWS

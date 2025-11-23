@@ -31,6 +31,11 @@ Local Zones](https://aws.amazon.com/dedicatedlocalzones "https://aws.amazon.com/
 
 RDS Protection is not supported in Asia Pacific (Taipei) (`ap-east-2`) Region.
 
+**IAM finding type – [DefenseEvasion:IAMUser/BedrockLoggingDisabled](guardduty_finding-types-iam.md#defenseevasion-iam-bedrockloggingdisabled "guardduty_finding-types-iam.md#defenseevasion-iam-bedrockloggingdisabled")**
+
+The DefenseEvasion:IAMUser/BedrockLoggingDisabled finding type is not supported
+in Asia Pacific (Hong Kong) (`ap-east-1`) Region.
+
 **General API support**
 
 The following APIs in the Amazon GuardDuty API Reference may have regional differences
