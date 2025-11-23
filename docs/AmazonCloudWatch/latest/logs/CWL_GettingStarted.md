@@ -22,4 +22,4 @@ servers running Linux, is deprecated and is no longer supported. For information
 - [Prerequisites](GettingSetup_cwl.md "GettingSetup_cwl.md")
 - [Using the unified CloudWatch agent](UseCloudWatchUnifiedAgent.md "UseCloudWatchUnifiedAgent.md")
 - [Using the previous CloudWatch agent](UsePreviousCloudWatchLogsAgent.md "UsePreviousCloudWatchLogsAgent.md")
-- [Quick Start with AWS CloudFormation](QuickStartCloudFormation.md "QuickStartCloudFormation.md")
+- [Quick Start with CloudFormation](QuickStartCloudFormation.md "QuickStartCloudFormation.md")

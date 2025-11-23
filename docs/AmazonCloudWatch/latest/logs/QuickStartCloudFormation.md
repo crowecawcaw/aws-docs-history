@@ -1,10 +1,10 @@
-# Quick Start: Use AWS CloudFormation to get started with CloudWatch Logs
+# Quick Start: Use CloudFormation to get started with CloudWatch Logs
 
 AWS CloudFormation enables you to describe and provision your AWS resources in JSON format. The advantages of
 this method include being able to manage a collection of AWS resources as a single unit, and easily
 replicating your AWS resources across Regions.
 
-When you provision AWS using AWS CloudFormation, you create templates that describe the AWS
+When you provision AWS using CloudFormation, you create templates that describe the AWS
 resources to use. The following example is a template snippet that creates
 a log group and a metric filter that counts 404 occurrences and sends this count to
 the log group.
@@ -35,7 +35,7 @@ the log group.
 }
 ```
 
-This is a basic example. You can set up much richer CloudWatch Logs deployments using AWS CloudFormation. For
+This is a basic example. You can set up much richer CloudWatch Logs deployments using CloudFormation. For
 more information about template examples, see [Amazon CloudWatch Logs Template Snippets](../../../AWSCloudFormation/latest/UserGuide/quickref-cloudwatchlogs.md "../../../AWSCloudFormation/latest/UserGuide/quickref-cloudwatchlogs.md")
 in the _AWS CloudFormation User Guide_. For more information about getting
 started, see [Getting Started with

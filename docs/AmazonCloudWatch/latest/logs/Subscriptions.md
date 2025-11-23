@@ -50,6 +50,10 @@ Subscription filters might batch log events to optimize transmission and reduce 
 amount of calls made to the destination. Batching is not guaranteed but is used when
 possible.
 
+For batch processing and analysis of log data on a schedule, consider using [Automating log analysis with scheduled queries](ScheduledQueries.md "ScheduledQueries.md"). Scheduled queries run
+queries automatically and deliver results to destinations such as Amazon S3 buckets
+or event buses.
+
 ###### Contents
 
 - [Concepts](subscription-concepts.md "subscription-concepts.md")

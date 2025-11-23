@@ -38,6 +38,12 @@ After log events have been transformed, you must use CloudWatch Logs Insights qu
 the transformed versions of the logs. The [GetLogEvents](../../../AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.md") and [FilterLogEvents](../../../AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.md") actions return only the original versions of the log events,
 before they were transformed.
 
+###### Important
+
+Despite a single log event in PutLogEvents allowing upto 1MB, logs transformation can only
+handle log event of size less than 512kb. Any log events greather than 512kb will fail
+in transformation and emit an error. Total size of PutLogEvents can still go over 512kb.
+
 In addition to transforming into different formats, you can also enrich your logs with
 additional context, such as account ID, Region, and keyword. These are extracted from the
 log group name and from static keywords.
