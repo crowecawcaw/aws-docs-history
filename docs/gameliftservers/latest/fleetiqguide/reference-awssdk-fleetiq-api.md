@@ -1,17 +1,17 @@
 # Amazon GameLift Servers FleetIQ API actions
 
 The following operations allow you to manage your Amazon GameLift Servers FleetIQ resources, including game
-server groups and game servers, in conjunction with Amazon EC2 and Auto Scaling groups.
+server groups and game servers, in conjunction with Amazon EC2 and Amazon EC2 Auto Scaling groups.
 
 ## Manage game server groups
 
 Use these operations to manage your game server deployments with FleetIQ
 optimizations. A game server group controls how your game server processes are
-launched on Amazon EC2 instances, sets up and Auto Scaling group, and defines how to apply FleetIQ
+launched on Amazon EC2 instances, sets up and Amazon EC2 Auto Scaling group, and defines how to apply FleetIQ
 optimizations.
 
 - [CreateGameServerGroup](../../../gamelift/latest/apireference/API_CreateGameServerGroup.md "../../../gamelift/latest/apireference/API_CreateGameServerGroup.md") – Create a new game server group
-  and corresponding Auto Scaling group, and begin launching instances to host your
+  and corresponding Amazon EC2 Auto Scaling group, and begin launching instances to host your
   game server. CLI command: [create-game-server-group](../../../cli/latest/reference/gamelift/create-game-server-group.md "../../../cli/latest/reference/gamelift/create-game-server-group.md")
 - [ListGameServerGroups](../../../gamelift/latest/apireference/API_ListGameServerGroups.md "../../../gamelift/latest/apireference/API_ListGameServerGroups.md") – Get a list of all game server
   groups in a Amazon GameLift Servers region. CLI command: [list-game-server-groups](../../../cli/latest/reference/gamelift/list-game-server-groups.md "../../../cli/latest/reference/gamelift/list-game-server-groups.md")
@@ -31,7 +31,7 @@ optimizations.
 
 Use these operations to manage your game server deployments with FleetIQ
 optimizations. A game server group controls how your game server processes are
-launched on Amazon EC2 instances, sets up and Auto Scaling group, and defines how to apply FleetIQ
+launched on Amazon EC2 instances, sets up and Amazon EC2 Auto Scaling group, and defines how to apply FleetIQ
 optimizations.
 
 - [RegisterGameServer](../../../gamelift/latest/apireference/API_RegisterGameServer.md "../../../gamelift/latest/apireference/API_RegisterGameServer.md") – Call from a new game server to

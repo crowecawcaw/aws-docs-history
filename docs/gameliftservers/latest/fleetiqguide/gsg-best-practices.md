@@ -29,7 +29,7 @@ Here are some best practices that can help you get the most benefit from Amazon 
   c5.4xlarge). With larger instances, you can run more game servers on each instance,
   potentially lowering costs. With smaller instances, autoscaling can react faster to
   changes in player demand. Keep in mind that the list of desired instance types is
-  not prioritized—an Auto Scaling group will use a balance of viable instance types to
+  not prioritized—an Amazon EC2 Auto Scaling group will use a balance of viable instance types to
   maintain the group's resiliency.
 - **Test your game on all instance types.** Ensure that
   your game server runs properly on every instance type that you configure for your
@@ -89,4 +89,4 @@ AMI](../../../eks/latest/userguide/eks-optimized-ami.md "../../../eks/latest/use
 - [Best Practices for
   Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-best-practices.md "../../../AWSEC2/latest/UserGuide/ec2-best-practices.md")
 - [Best Practices for Amazon EC2
-  Auto Scaling](../../../autoscaling/ec2/userguide/gs-best-practices.md "../../../autoscaling/ec2/userguide/gs-best-practices.md")
+  Amazon EC2 Auto Scaling](../../../autoscaling/ec2/userguide/gs-best-practices.md "../../../autoscaling/ec2/userguide/gs-best-practices.md")

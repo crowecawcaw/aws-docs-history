@@ -14,7 +14,7 @@ deployment with these resources before using them through a game server group.
   AMIs](../../../AWSEC2/latest/UserGuide/CopyingAMIs.md "../../../AWSEC2/latest/UserGuide/CopyingAMIs.md") in the _Amazon EC2 User
   Guide_.
 - **Amazon EC2 launch template.** A launch template
-  provides instructions for launching and managing instances in an Auto Scaling group. It
+  provides instructions for launching and managing instances in an Amazon EC2 Auto Scaling group. It
   specifies an AMI, provides a list of suitable instance types, and sets network,
   security, and other properties. For more information about creating a launch
   template, see [Launching an
@@ -31,7 +31,7 @@ deployment with these resources before using them through a game server group.
 
 - **Amazon GameLift Servers game server group**. A game server
   group contains configuration settings that define how Amazon GameLift Servers FleetIQ works with a
-  corresponding Auto Scaling group to deliver low-cost game hosting. Game server groups
+  corresponding Amazon EC2 Auto Scaling group to deliver low-cost game hosting. Game server groups
   are Region-specfic. When you create a game server group in a Region, a new Auto
   Scaling group is automatically created in your AWS account in the same Region.
   The game server group is linked to the Auto Scaling group and has access (by
@@ -65,8 +65,8 @@ deployment with these resources before using them through a game server group.
 - **Amazon EC2 Instance.** An instance is a virtual
   server in the cloud. Instance types have specific hardware configurations that
   specify compute, memory, disk, and network resources. They are typically
-  launched by an Auto Scaling group with an AMI. Instances can be Spot or On-Demand,
+  launched by an Amazon EC2 Auto Scaling group with an AMI. Instances can be Spot or On-Demand,
   depending on availability. With Amazon GameLift Servers FleetIQ, instances run one or multiple game
   server processes, each of which can host multiple game sessions. Instances are
-  Region-specific in that they are associated with a Region-specific Auto Scaling
+  Region-specific in that they are associated with a Region-specific Amazon EC2 Auto Scaling
   group.

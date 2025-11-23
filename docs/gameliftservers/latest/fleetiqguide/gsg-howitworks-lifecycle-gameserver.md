@@ -8,7 +8,7 @@ available game servers are always running on the lowest-cost resources that are 
 for game hosting.
 
 - A game server resource is created when the game server process, running on an
-  instance in a Amazon GameLift Servers FleetIQ-linked Auto Scaling group, calls the Amazon GameLift Servers API
+  instance in a Amazon GameLift Servers FleetIQ-linked Amazon EC2 Auto Scaling group, calls the Amazon GameLift Servers API
   `RegisterGameServer()` to notify Amazon GameLift Servers FleetIQ that it is ready to
   host players and gameplay. A game server has two statuses to track its current
   availability:
