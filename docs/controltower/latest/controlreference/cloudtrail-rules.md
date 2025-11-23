@@ -12,10 +12,10 @@
 This control checks whether your AWS CloudTrail is configured to use the server-side encryption (SSE) AWS KMS key encryption.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CloudTrail::Trail`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDTRAIL.PR.1 rule specification](#ct-cloudtrail-pr-1-rule "#ct-cloudtrail-pr-1-rule")
 
 **Details and examples**
@@ -393,10 +393,10 @@ Resources:
 This control checks whether log file integrity validation is enabled on an AWS CloudTrail trail.
 
 - **Control objective:** Manage secrets
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CloudTrail::Trail`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDTRAIL.PR.2 rule specification](#ct-cloudtrail-pr-2-rule "#ct-cloudtrail-pr-2-rule")
 
 **Details and examples**
@@ -694,10 +694,10 @@ Resources:
 This control checks whether your AWS CloudTrail trail is configured to send logs to Amazon CloudWatch Logs Logs.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CloudTrail::Trail`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDTRAIL.PR.3 rule specification](#ct-cloudtrail-pr-3-rule "#ct-cloudtrail-pr-3-rule")
 
 **Details and examples**
@@ -1092,10 +1092,10 @@ Resources:
 This control checks whether a CloudTrail Lake event data store is encrypted at rest with a KMS key.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CloudTrail::EventDataStore`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDTRAIL.PR.4 rule specification](#ct-cloudtrail-pr-4-rule "#ct-cloudtrail-pr-4-rule")
 
 **Details and examples**
@@ -1181,29 +1181,29 @@ CloudTrailEventDataStore:
 #   AWS::CloudTrail::EventDataStore
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CloudTrail event data store resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudTrail event data store resource
 #       And: 'KmsKeyId' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudTrail event data store resource
 #       And: 'KmsKeyId' has been provided as an empty string or invalid local reference
 #            to a KMS keyID or alias
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation Hook Document
+#     Given: The input document is an CloudFormation or CloudFormation Hook Document
 #       And: The input document contains a CloudTrail event data store resource
 #       And: 'KmsKeyId' has been provided as a non-empty string or valid local reference
 #            to a KMS keyID or alias

@@ -11,10 +11,10 @@
 This control checks that direct internet access is not allowed for an Amazon SageMaker AI notebook instance.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::SageMaker::NotebookInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.SAGEMAKER.PR.1 rule specification](#ct-sagemaker-pr-1-rule "#ct-sagemaker-pr-1-rule")
 
 **Details and examples**
@@ -22,7 +22,7 @@ This control checks that direct internet access is not allowed for an Amazon Sag
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.SAGEMAKER.PR.1 rule specification](#ct-sagemaker-pr-1-rule "#ct-sagemaker-pr-1-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.SAGEMAKER.PR.1 example templates](#ct-sagemaker-pr-1-templates "#ct-sagemaker-pr-1-templates")
 
@@ -116,29 +116,29 @@ SageMakerNoteBookInstance:
 #   AWS::SageMaker::NotebookInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any SageMaker AI notebook instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an SageMaker AI notebook instance resource
 #       And: 'DirectInternetAccess' has not been provided on the SageMaker AI notebook instance resource
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an SageMaker AI notebook instance resource
 #       And: 'DirectInternetAccess' has been provided on the SageMaker AI notebook instance resource
 #       And: 'DirectInternetAccess' is set to 'Enabled'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an SageMaker AI notebook instance resource
 #       And: 'DirectInternetAccess' has been provided on the SageMaker AI notebook instance resource
 #       And: 'DirectInternetAccess' is set to 'Disabled'
@@ -146,7 +146,7 @@ SageMakerNoteBookInstance:
 #       And: 'SubnetId' has been provided as an empty string or non-valid local reference
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an SageMaker AI notebook instance resource
 #       And: 'DirectInternetAccess' has been provided on the SageMaker AI notebook instance resource
 #       And: 'DirectInternetAccess' is set to 'Disabled'
@@ -155,7 +155,7 @@ SageMakerNoteBookInstance:
 #            non-valid local references
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an SageMaker AI notebook instance resource
 #       And: 'DirectInternetAccess' has been provided on the SageMaker AI notebook instance resource
 #       And: 'DirectInternetAccess' is set to 'Disabled'
@@ -370,10 +370,10 @@ Resources:
 This control checks whether an Amazon SageMaker AI notebook instance is configured to launch within a custom Amazon VPC.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::SageMaker::NotebookInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.SAGEMAKER.PR.2 rule specification](#ct-sagemaker-pr-2-rule "#ct-sagemaker-pr-2-rule")
 
 **Details and examples**
@@ -381,7 +381,7 @@ This control checks whether an Amazon SageMaker AI notebook instance is configur
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.SAGEMAKER.PR.2 rule specification](#ct-sagemaker-pr-2-rule "#ct-sagemaker-pr-2-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.SAGEMAKER.PR.2 example templates](#ct-sagemaker-pr-2-templates "#ct-sagemaker-pr-2-templates")
 
@@ -472,32 +472,32 @@ NotebookInstance:
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any SageMaker AI notebook instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a SageMaker AI notebook instance resource
 #       And: 'SubnetId' has not been provided or provided as an empty string or non-valid local reference
 #       And: 'SecurityGroupIds' has not been provided or provided as an empty list or a list that contains empty string
 #            values or non-valid local references
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a SageMaker AI notebook instance resource
 #       And: 'SubnetId' has been provided as a non-empty string or valid local reference
 #       And: 'SecurityGroupIds' has not been provided or provided as an empty list or a list that contains empty string
 #            values or non-valid local references
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a SageMaker AI notebook instance resource
 #       And: 'SubnetId' has not been provided or provided as an empty string or non-valid local reference
 #       And: 'SecurityGroupIds' have been provided as a non-empty list containing non-empty string values or
 #            valid local references
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a SageMaker AI notebook instance resource
 #       And: 'SubnetId' has been provided as a non-empty string or valid local reference
 #       And: 'SecurityGroupIds' have been provided as a list containing one or more non-empty string values or
@@ -639,10 +639,10 @@ Resources:
 This control checks whether Amazon SageMaker AI notebook instances allow root access.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::SageMaker::NotebookInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.SAGEMAKER.PR.3 rule specification](#ct-sagemaker-pr-3-rule "#ct-sagemaker-pr-3-rule")
 
 **Details and examples**
@@ -650,7 +650,7 @@ This control checks whether Amazon SageMaker AI notebook instances allow root ac
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.SAGEMAKER.PR.3 rule specification](#ct-sagemaker-pr-3-rule "#ct-sagemaker-pr-3-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.SAGEMAKER.PR.3 example templates](#ct-sagemaker-pr-3-templates "#ct-sagemaker-pr-3-templates")
 
@@ -726,28 +726,28 @@ NotebookInstance:
 #   AWS::SageMaker::NotebookInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any SageMaker AI notebook instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a SageMaker AI notebook instance resource
 #       And: 'RootAccess' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a SageMaker AI notebook instance resource
 #       And: 'RootAccess' has been provided and is set to a value other than 'Disabled'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a SageMaker AI notebook instance resource
 #       And: 'RootAccess' has been provided and is set to 'Disabled'
 #      Then: PASS

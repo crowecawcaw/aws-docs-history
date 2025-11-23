@@ -1,10 +1,10 @@
-# Amazon Elastic Compute Cloud (Amazon EC2) Auto Scaling controls
+# Amazon Elastic Compute Cloud (Amazon EC2) Amazon EC2 Auto Scaling controls
 
 ###### Topics
 
 - [[CT.AUTOSCALING.PR.1] Require an Amazon EC2 Auto Scaling group to have multiple Availability Zones](#ct-autoscaling-pr-1-description "#ct-autoscaling-pr-1-description")
 - [[CT.AUTOSCALING.PR.2] Require an Amazon EC2 Auto Scaling group launch configuration to configure Amazon EC2 instances for IMDSv2](#ct-autoscaling-pr-2-description "#ct-autoscaling-pr-2-description")
-- [[CT.AUTOSCALING.PR.4] Require an Amazon EC2 Auto Scaling group associated with an AWS Elastic Load Balancing (ELB) to have ELB health checks activated](#ct-autoscaling-pr-4-description "#ct-autoscaling-pr-4-description")
+- [[CT.AUTOSCALING.PR.4] Require an Amazon EC2 Auto Scaling group associated with an AWS ELB (ELB) to have ELB health checks activated](#ct-autoscaling-pr-4-description "#ct-autoscaling-pr-4-description")
 - [[CT.AUTOSCALING.PR.5] Require that an Amazon EC2 Auto Scaling group launch configuration does not have Amazon EC2 instances with public IP addresses](#ct-autoscaling-pr-5-description "#ct-autoscaling-pr-5-description")
 - [[CT.AUTOSCALING.PR.6] Require any Amazon EC2 Auto Scaling groups to use multiple instance types](#ct-autoscaling-pr-6-description "#ct-autoscaling-pr-6-description")
 - [[CT.AUTOSCALING.PR.8] Require an Amazon EC2 Auto Scaling group to have EC2 launch templates configured](#ct-autoscaling-pr-8-description "#ct-autoscaling-pr-8-description")
@@ -18,10 +18,10 @@
 This control checks whether your Amazon EC2 Auto Scaling group spans multiple Availability Zones.
 
 - **Control objective:** Improve availability
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::AutoScaling::AutoScalingGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.AUTOSCALING.PR.1 rule specification](#ct-autoscaling-pr-1-rule "#ct-autoscaling-pr-1-rule")
 
 **Details and examples**
@@ -35,17 +35,17 @@ This control checks whether your Amazon EC2 Auto Scaling group spans multiple Av
 
 **Explanation**
 
-Amazon EC2 Auto Scaling groups can be configured to use multiple Availability Zones. An Auto Scaling group with a single Availability Zone is preferred in some use cases, such as batch-jobs or when inter-AZ transfer costs need to be kept to a minimum. However, an Auto Scaling group that does not span multiple Availability Zones will not launch instances in another Availability Zone to compensate if the configured single Availability Zone becomes unavailable.
+Amazon EC2 Auto Scaling groups can be configured to use multiple Availability Zones. An Amazon EC2 Auto Scaling group with a single Availability Zone is preferred in some use cases, such as batch-jobs or when inter-AZ transfer costs need to be kept to a minimum. However, an Amazon EC2 Auto Scaling group that does not span multiple Availability Zones will not launch instances in another Availability Zone to compensate if the configured single Availability Zone becomes unavailable.
 
 ### Remediation for rule failure
 
-Configure Auto Scaling groups with multiple Availability Zones.
+Configure Amazon EC2 Auto Scaling groups with multiple Availability Zones.
 
 The examples that follow show how to implement this remediation.
 
-#### Auto Scaling group - Example
+#### Amazon EC2 Auto Scaling group - Example
 
-Auto Scaling group configured with multiple Availability Zones. The example is shown in JSON and in YAML.
+Amazon EC2 Auto Scaling group configured with multiple Availability Zones. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -126,38 +126,38 @@ Rule Identifier:
   autoscaling_multiple_az_check
 
 Description:
-  Checks if Auto Scaling groups span multiple Availability Zones.
+  Checks if Amazon EC2 Auto Scaling groups span multiple Availability Zones.
 
 Reports on:
    AWS::AutoScaling::AutoScalingGroup
 
 Evaluates:
-  AWS CloudFormation, AWS CloudFormation hook
+  CloudFormation, CloudFormation hook
 
 Rule Parameters:
   None
 
 Scenarios:
   Scenario: 1
-    Given: The input document is an AWS CloudFormation or CloudFormation hook document
-      And: The input document does not contain any Auto Scaling groups
+    Given: The input document is an CloudFormation or CloudFormation hook document
+      And: The input document does not contain any Amazon EC2 Auto Scaling groups
      Then: SKIP
   Scenario: 2
-    Given: The input document is an AWS CloudFormation or CloudFormation hoo document
-      And: The input document contains an Auto Scaling group resource
-      And: 'AvailabilityZones' is not present on the Auto Scaling group resource
+    Given: The input document is an CloudFormation or CloudFormation hoo document
+      And: The input document contains an Amazon EC2 Auto Scaling group resource
+      And: 'AvailabilityZones' is not present on the Amazon EC2 Auto Scaling group resource
      Then: FAIL
   Scenario: 3
-    Given: The input document is an AWS CloudFormation or CloudFormation hook document
-      And: The input document contains an Auto Scaling group resource
-      And: 'AvailabilityZones' is present on the Auto Scaling group resource
+    Given: The input document is an CloudFormation or CloudFormation hook document
+      And: The input document contains an Amazon EC2 Auto Scaling group resource
+      And: 'AvailabilityZones' is present on the Amazon EC2 Auto Scaling group resource
       And: The number of 'AvailabilityZones' present is less than 2 (< 2) or the number of
            unique 'AvailabilityZones' provided is less than 2 (< 2)
      Then: FAIL
   Scenario: 4
-    Given: The input document is an AWS CloudFormation or CloudFormation Hook Document
-      And: The input document contains an Auto Scaling group resource
-      And: 'AvailabilityZones' is present on the Auto Scaling group resource
+    Given: The input document is an CloudFormation or CloudFormation Hook Document
+      And: The input document contains an Amazon EC2 Auto Scaling group resource
+      And: 'AvailabilityZones' is present on the Amazon EC2 Auto Scaling group resource
       And: The number of 'AvailabilityZones' present is greater than or equal to 2 (>= 2)
       And: At least two unique 'AvailabilityZones' have been provided
      Then: PASS
@@ -249,10 +249,10 @@ Resources:
 This control checks whether an Amazon EC2 Auto Scaling launch configuration is configured to require the use of Instance Metadata Service Version 2 (IMDSv2).
 
 - **Control objective:** Protect configurations
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::AutoScaling::LaunchConfiguration`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.AUTOSCALING.PR.2 rule specification](#ct-autoscaling-pr-2-rule "#ct-autoscaling-pr-2-rule")
 
 **Details and examples**
@@ -338,37 +338,37 @@ AutoScalingLaunchConfiguration:
 #   AWS::AutoScaling::LaunchConfiguration
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #  Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Autoscaling launch configuration resources
 #      Then: SKIP
 #  Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Autoscaling launch configuration resource
 #       And: 'MetadataOptions' has been provided.
 #       And: 'MetadataOptions.HttpEndpoint' has been provided is equal to 'disabled'
 #      Then: SKIP
 #  Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Autoscaling launch configuration resource
 #       And: 'MetadataOptions.HttpEndpoint' has not been provided or has been provided and is equal to 'enabled'
 #       And: 'MetadataOptions.HttpTokens' has not been provided
 #      Then: FAIL
 #  Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Autoscaling launch configuration resource
 #       And: 'MetadataOptions' has been provided.
 #       And: 'MetadataOptions.HttpEndpoint' has not been provided or has been provided and is equal to 'enabled'
 #       And: 'MetadataOptions.HttpTokens' has been provided and set to a value other than 'required'
 #      Then: FAIL
 #  Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Autoscaling launch configuration resource
 #       And: 'MetadataOptions' has been provided.
 #       And: 'MetadataOptions.HttpEndpoint' has not been provided or has been provided and is equal to 'enabled'
@@ -507,16 +507,16 @@ Resources:
 
 ```
 
-## [CT.AUTOSCALING.PR.4] Require an Amazon EC2 Auto Scaling group associated with an AWS Elastic Load Balancing (ELB) to have ELB health checks activated
+## [CT.AUTOSCALING.PR.4] Require an Amazon EC2 Auto Scaling group associated with an AWS ELB (ELB) to have ELB health checks activated
 
 This control checks whether your Amazon EC2 Auto Scaling groups that are associated with a load balancer are using
-Elastic Load Balancing health checks.
+ELB health checks.
 
 - **Control objective:** Improve availability
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::AutoScaling::AutoScalingGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.AUTOSCALING.PR.4 rule specification](#ct-autoscaling-pr-4-rule "#ct-autoscaling-pr-4-rule")
 
 **Details and examples**
@@ -526,25 +526,25 @@ Elastic Load Balancing health checks.
   [CT.AUTOSCALING.PR.4 rule specification](#ct-autoscaling-pr-4-rule "#ct-autoscaling-pr-4-rule")
 - For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
-  [GitHub](../../../https:/github.com/aws-samples/aws-control-tower-samples/tree/main/samples/CT.AUTOSCALING.PR.md "../../../https:/github.com/aws-samples/aws-control-tower-samples/tree/main/samples/CT.AUTOSCALING.PR.md")
+  [GitHub](https://github.com/aws-samples/aws-control-tower-samples/tree/main/samples/CT.AUTOSCALING.PR.4 "https://github.com/aws-samples/aws-control-tower-samples/tree/main/samples/CT.AUTOSCALING.PR.4")
 
 **Explanation**
 
-This configuration requirement ensures that the group can determine an instance's health based on additional tests provided by the load balancer. Using Elastic Load Balancing health checks can help support the availability of applications that use EC2 Auto Scaling groups.
+This configuration requirement ensures that the group can determine an instance's health based on additional tests provided by the load balancer. Using ELB health checks can help support the availability of applications that use EC2 Amazon EC2 Auto Scaling groups.
 
 ###### Usage considerations
 
-- This control only applies to Auto Scaling groups associated with a Classic Load Balancer or Target Group
+- This control only applies to Amazon EC2 Auto Scaling groups associated with a Classic Load Balancer or Target Group
 
 ### Remediation for rule failure
 
-Configure Amazon EC2 Auto Scaling groups associated with an Elastic Load Balancing to use Elastic Load Balancing health checks.
+Configure Amazon EC2 Auto Scaling groups associated with an ELB to use ELB health checks.
 
 The examples that follow show how to implement this remediation.
 
-#### Auto Scaling group - Example One
+#### Amazon EC2 Auto Scaling group - Example One
 
-Auto Scaling group with a Classic Load Balancer association and Elastic Load Balancing health checks. The example is shown in JSON and in YAML.
+Amazon EC2 Auto Scaling group with a Classic Load Balancer association and ELB health checks. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -606,9 +606,9 @@ AutoScalingGroup:
 
 The examples that follow show how to implement this remediation.
 
-#### Auto Scaling group - Example Two
+#### Amazon EC2 Auto Scaling group - Example Two
 
-Auto Scaling group with a Target Group association and Elastic Load Balancing health checks. The example is shown in JSON and in YAML.
+Amazon EC2 Auto Scaling group with a Target Group association and ELB health checks. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -680,8 +680,8 @@ Rule Identifier:
   autoscaling_group_elb_healthcheck_required_check
 
 Description:
-  This control checks whether your Auto Scaling groups that are associated with a load balancer are using
-  Elastic Load Balancing health checks.
+  This control checks whether your Amazon EC2 Auto Scaling groups that are associated with a load balancer are using
+  ELB health checks.
 
 Reports on:
   AWS::AutoScaling::AutoScalingGroup
@@ -695,31 +695,31 @@ Rule Parameters:
 Scenarios:
   Scenario: 1
     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-      And: The input document does not contain any Auto Scaling group
+      And: The input document does not contain any Amazon EC2 Auto Scaling group
      Then: SKIP
   Scenario: 2
     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-      And: The input document contains an Auto Scaling group resource
-      And: 'LoadBalancerNames' or 'TargetGroupARNs' are not present on the Auto Scaling group resource or empty lists
+      And: The input document contains an Amazon EC2 Auto Scaling group resource
+      And: 'LoadBalancerNames' or 'TargetGroupARNs' are not present on the Amazon EC2 Auto Scaling group resource or empty lists
      Then: SKIP
   Scenario: 3
     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-      And: The input document contains an Auto Scaling group resource
-      And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Auto Scaling group with at least
+      And: The input document contains an Amazon EC2 Auto Scaling group resource
+      And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Amazon EC2 Auto Scaling group with at least
            one configuration
       And: 'HealthCheckType' is not present
      Then: FAIL
   Scenario: 4
     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-      And: The input document contains an Auto Scaling group resource
-      And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Auto Scaling group with at least
+      And: The input document contains an Amazon EC2 Auto Scaling group resource
+      And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Amazon EC2 Auto Scaling group with at least
            one configuration
       And: 'HealthCheckType' is present and set to a value other than 'ELB' (e.g. 'EC2')
      Then: FAIL
   Scenario: 5
     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-      And: The input document contains an Auto Scaling group resource
-      And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Auto Scaling group with at least
+      And: The input document contains an Amazon EC2 Auto Scaling group resource
+      And: 'LoadBalancerNames' or 'TargetGroupARNs' are present on the Amazon EC2 Auto Scaling group with at least
            one configuration
       And: 'HealthCheckType' is present and set to 'ELB'
      Then: PASS
@@ -732,10 +732,10 @@ Scenarios:
 This control checks whether Amazon EC2 Auto Scaling groups have public IP addresses configured through Launch Configurations.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::AutoScaling::LaunchConfiguration`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.AUTOSCALING.PR.5 rule specification](#ct-autoscaling-pr-5-rule "#ct-autoscaling-pr-5-rule")
 
 **Details and examples**
@@ -749,17 +749,17 @@ This control checks whether Amazon EC2 Auto Scaling groups have public IP addres
 
 **Explanation**
 
-Amazon EC2 instances in an Auto Scaling group launch configuration should not have an associated public IP address, except for in limited edge cases. Amazon EC2 instances should only be accessible from behind a load balancer instead of being directly exposed to the internet.
+Amazon EC2 instances in an Amazon EC2 Auto Scaling group launch configuration should not have an associated public IP address, except for in limited edge cases. Amazon EC2 instances should only be accessible from behind a load balancer instead of being directly exposed to the internet.
 
 ### Remediation for rule failure
 
-Set `AssociatePublicIpAddress` to false on Auto Scaling Launch Configurations.
+Set `AssociatePublicIpAddress` to false on Amazon EC2 Auto Scaling Launch Configurations.
 
 The examples that follow show how to implement this remediation.
 
-#### Auto Scaling Launch Configuration - Example
+#### Amazon EC2 Auto Scaling Launch Configuration - Example
 
-Auto Scaling Launch Configuration configured to disable public IP address association. The example is shown in JSON and in YAML.
+Amazon EC2 Auto Scaling Launch Configuration configured to disable public IP address association. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -806,10 +806,10 @@ AutoScalingLaunchConfiguration:
 #   autoscaling_launch_config_public_ip_disabled_check
 #
 # Description:
-#   Checks if Auto Scaling Launch Configurations have been configured to disable public IP address association.
+#   Checks if Amazon EC2 Auto Scaling Launch Configurations have been configured to disable public IP address association.
 #
 # Reports on:
-#   AWS::Auto Scaling::LaunchConfiguration
+#   AWS::Amazon EC2 Auto Scaling::LaunchConfiguration
 #
 # Evaluates:
 #   AWS CloudFormation, AWS CloudFormation Hook
@@ -820,23 +820,23 @@ AutoScalingLaunchConfiguration:
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-#       And: The input document does not contain any Auto Scaling Launch Configuration Resources
+#       And: The input document does not contain any Amazon EC2 Auto Scaling Launch Configuration Resources
 #      Then: SKIP
 #   Scenario: 2
 #     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-#       And: The input document contains an Auto Scaling Launch Configuration Resource
-#       And: 'AssociatePublicIpAddress' is not present on the Auto Scaling Launch Configuration Resource
+#       And: The input document contains an Amazon EC2 Auto Scaling Launch Configuration Resource
+#       And: 'AssociatePublicIpAddress' is not present on the Amazon EC2 Auto Scaling Launch Configuration Resource
 #      Then: FAIL
 #   Scenario: 3
 #     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-#       And: The input document contains an Auto Scaling Launch Configuration Resource
-#       And: 'AssociatePublicIpAddress' is present on the Auto Scaling Launch Configuration Resource
+#       And: The input document contains an Amazon EC2 Auto Scaling Launch Configuration Resource
+#       And: 'AssociatePublicIpAddress' is present on the Amazon EC2 Auto Scaling Launch Configuration Resource
 #            and is set to bool(true)
 #      Then: FAIL
 #   Scenario: 4
 #     Given: The input document is an AWS CloudFormation or CloudFormation hook document
-#       And: The input document contains an Auto Scaling Launch Configuration Resource
-#       And: 'AssociatePublicIpAddress' is present on the Auto Scaling Launch Configuration Resource
+#       And: The input document contains an Amazon EC2 Auto Scaling Launch Configuration Resource
+#       And: 'AssociatePublicIpAddress' is present on the Amazon EC2 Auto Scaling Launch Configuration Resource
 #            and is set to bool(false)
 #      Then: PASS
 
@@ -860,7 +860,7 @@ rule autoscaling_launch_config_public_ip_disabled_check when is_cfn_template(%IN
     check(%autoscaling_launch_configurations.Properties)
         <<
         [CT.AUTOSCALING.PR.5]: Require than an Amazon EC2 Auto Scaling group launch configuration does not have EC2 instances with public IP addresses
-        [FIX]: Set 'AssociatePublicIpAddress' to false on Auto Scaling Launch Configurations.
+        [FIX]: Set 'AssociatePublicIpAddress' to false on Amazon EC2 Auto Scaling Launch Configurations.
         >>
 
 }
@@ -870,7 +870,7 @@ rule autoscaling_launch_config_public_ip_disabled_check when is_cfn_hook(%INPUT_
     check(%INPUT_DOCUMENT.%AUTOSCALING_LAUNCH_CONFIGURATION_TYPE.resourceProperties)
         <<
         [CT.AUTOSCALING.PR.5]: Require than an Amazon EC2 Auto Scaling group launch configuration does not have EC2 instances with public IP addresses
-        [FIX]: Set 'AssociatePublicIpAddress' to false on Auto Scaling Launch Configurations.
+        [FIX]: Set 'AssociatePublicIpAddress' to false on Amazon EC2 Auto Scaling Launch Configurations.
         >>
 }
 
@@ -954,10 +954,10 @@ Resources:
 This control checks whether an Amazon EC2 Auto Scaling group uses multiple instance types through a mixed instance policy and explicit instance type overrides.
 
 - **Control objective:** Improve availability
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::AutoScaling::AutoScalingGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.AUTOSCALING.PR.6 rule specification](#ct-autoscaling-pr-6-rule "#ct-autoscaling-pr-6-rule")
 
 **Details and examples**
@@ -965,7 +965,7 @@ This control checks whether an Amazon EC2 Auto Scaling group uses multiple insta
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.AUTOSCALING.PR.6 rule specification](#ct-autoscaling-pr-6-rule "#ct-autoscaling-pr-6-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
 
 [CT.AUTOSCALING.PR.6 example templates](#ct-autoscaling-pr-6-templates "#ct-autoscaling-pr-6-templates")
@@ -1073,38 +1073,38 @@ AutoScalingGroup:
 #   AWS::AutoScaling::AutoscalingGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #  Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Autoscaling Group resources
 #      Then: SKIP
 #  Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains Autoscaling Group resources
 #       And: 'MixedInstancesPolicy.LaunchTemplate.Overrides' has been provided as a list
 #       And: There exists any 'Overrides' entry where 'InstanceRequirements' is present
 #       And: There exists no 'Overrides' entry where 'InstanceType' is present
 #      Then: SKIP
 #  Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains Autoscaling Group resources
 #       And: 'MixedInstancesPolicy.LaunchTemplate.LaunchTemplateSpecification' has been provided
 #       And: 'MixedInstancesPolicy.LaunchTemplate.Overrides' has not been provided
 #      Then: FAIL
 #  Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains Autoscaling Group resources
 #       And: 'MixedInstancesPolicy.LaunchTemplate.LaunchTemplateSpecification' has been provided
 #       And: 'MixedInstancesPolicy.LaunchTemplate.Overrides' has been provided as a list
 #       And: 'InstanceType' is not present or is present as a empty string in 'MixedInstancesPolicy.LaunchTemplate.Overrides'
 #      Then: FAIL
 #  Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains Autoscaling Group resources
 #       And: 'MixedInstancesPolicy.LaunchTemplate.LaunchTemplateSpecification' has been provided
 #       And: 'MixedInstancesPolicy.LaunchTemplate.Overrides' has been provided as a list
@@ -1112,7 +1112,7 @@ AutoScalingGroup:
 #       And: There exists any 'Overrides' entry where 'InstanceType' is present
 #      Then: FAIL
 #  Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains Autoscaling Group resources
 #       And: 'MixedInstancesPolicy.LaunchTemplate.LaunchTemplateSpecification' has been provided
 #       And: 'MixedInstancesPolicy.LaunchTemplate.Overrides' has been provided as a list
@@ -1120,7 +1120,7 @@ AutoScalingGroup:
 #       And: Length of 'MixedInstancesPolicy.LaunchTemplate.Overrides' is less than or equal to 1
 #      Then: FAIL
 #  Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains Autoscaling Group resources
 #       And: 'MixedInstancesPolicy.LaunchTemplate.LaunchTemplateSpecification' has been provided
 #       And: 'MixedInstancesPolicy.LaunchTemplate.Overrides' has been provided as a list
@@ -1439,10 +1439,10 @@ Resources:
 This control checks whether an Amazon EC2 Auto Scaling group is configured to use an EC2 launch template.
 
 - **Control objective:** Manage vulnerabilities
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::AutoScaling::AutoScalingGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.AUTOSCALING.PR.8 rule specification](#ct-autoscaling-pr-8-rule "#ct-autoscaling-pr-8-rule")
 
 **Details and examples**
@@ -1456,7 +1456,7 @@ This control checks whether an Amazon EC2 Auto Scaling group is configured to us
 
 **Explanation**
 
-An Auto Scaling group can be created from an EC2 launch template or from a launch configuration. If you use a launch template to create an Auto Scaling group, you have access to the latest features and improvements.
+An Amazon EC2 Auto Scaling group can be created from an EC2 launch template or from a launch configuration. If you use a launch template to create an Auto Scaling group, you have access to the latest features and improvements.
 
 ### Remediation for rule failure
 
@@ -1596,24 +1596,24 @@ AutoScalingGroup:
 #   AWS::AutoScaling::AutoscalingGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #  Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contains any Amazon EC2 Auto Scaling group resources
 #      Then: SKIP
 #  Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 Auto Scaling group resource
 #       And: 'LaunchTemplate' has not been provided
 #       And: 'MixedInstancesPolicy.LaunchTemplate.LaunchTemplateSpecification' has not been provided
 #      Then: FAIL
 #  Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 Auto Scaling group resource
 #       And: 'MixedInstancesPolicy.LaunchTemplate.LaunchTemplateSpecification' has not been provided
 #       And: 'LaunchTemplate' has been provided
@@ -1623,7 +1623,7 @@ AutoScalingGroup:
 #            invalid local reference)
 #      Then: FAIL
 #  Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 Auto Scaling group resource
 #       And: 'LaunchTemplate' has not been provided
 #       And: 'MixedInstancesPolicy.LaunchTemplate.LaunchTemplateSpecification' has been provided
@@ -1633,14 +1633,14 @@ AutoScalingGroup:
 #            has been provided as an empty string or an invalid local reference)
 #      Then: FAIL
 #  Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 Auto Scaling group resource
 #       And: 'LaunchTemplate' has been provided
 #       And: 'MixedInstancesPolicy.LaunchTemplate.LaunchTemplateSpecification' has
 #            been provided.
 #       Then: FAIL
 #   Scenario: 6
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an Amazon EC2 Auto Scaling group resource
 #        And: 'MixedInstancesPolicy.LaunchTemplate.LaunchTemplateSpecification' has not been provided
 #        And: 'LaunchTemplate' has been provided
@@ -1648,7 +1648,7 @@ AutoScalingGroup:
 #             'LaunchTemplateName' has been provided as a non-empty string or valid local reference)
 #       Then: PASS
 #   Scenario: 7
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an Amazon EC2 Auto Scaling group resource
 #        And: 'LaunchTemplate' has not been provided
 #        And: 'MixedInstancesPolicy.LaunchTemplate.LaunchTemplateSpecification' has been provided
@@ -1903,10 +1903,10 @@ Resources:
 This control checks whether Auto Scaling launch configurations with Amazon EBS volume block device mappings enable Amazon EBS volume encryption.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::AutoScaling::LaunchConfiguration`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.AUTOSCALING.PR.9 rule specification](#ct-autoscaling-pr-9-rule "#ct-autoscaling-pr-9-rule")
 
 **Details and examples**
@@ -1914,7 +1914,7 @@ This control checks whether Auto Scaling launch configurations with Amazon EBS v
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.AUTOSCALING.PR.9 rule specification](#ct-autoscaling-pr-9-rule "#ct-autoscaling-pr-9-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.AUTOSCALING.PR.9 example templates](#ct-autoscaling-pr-9-templates "#ct-autoscaling-pr-9-templates")
 
@@ -1998,35 +1998,35 @@ LaunchConfiguration:
 #   autoscaling_launch_config_encrypted_volumes_check
 #
 # Description:
-#   This control checks whether Auto Scaling launch configurations with Amazon EBS volume block device mappings enable Amazon EBS volume encryption.
+#   This control checks whether Amazon EC2 Auto Scaling launch configurations with Amazon EBS volume block device mappings enable Amazon EBS volume encryption.
 #
 # Reports on:
 #   AWS::AutoScaling::LaunchConfiguration
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EC2 Auto Scaling launch configuration resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 Auto Scaling launch configuration resource
 #       And: 'BlockDeviceMappings' has not been provided or has been provided as an empty list
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 Auto Scaling launch configuration resource
 #       And: 'BlockDeviceMappings' has been provided as a non-empty list
 #       And: No entries in 'BlockDeviceMappings' contain 'Ebs' as a struct
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 Auto Scaling launch configuration resource
 #       And: 'BlockDeviceMappings' has been provided as a non-empty list
 #       And: An entry in 'BlockDeviceMappings' contains 'Ebs' as a struct
@@ -2034,7 +2034,7 @@ LaunchConfiguration:
 #            and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 Auto Scaling launch configuration resource
 #       And: 'BlockDeviceMappings' has been provided as a non-empty list
 #       And: An entry in 'BlockDeviceMappings' contains 'Ebs' as a struct
@@ -2185,10 +2185,10 @@ This control checks whether, when using a `MixedInstancesPolicy` resource parame
 group overrides launch templates by specifying AWS Nitro instance types only.
 
 - **Control objective:** Protect data integrity, Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::AutoScaling::AutoScalingGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.AUTOSCALING.PR.10 rule specification](#ct-autoscaling-pr-10-rule "#ct-autoscaling-pr-10-rule")
 
 **Details and examples**
@@ -2196,7 +2196,7 @@ group overrides launch templates by specifying AWS Nitro instance types only.
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.AUTOSCALING.PR.10 rule specification](#ct-autoscaling-pr-10-rule "#ct-autoscaling-pr-10-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.AUTOSCALING.PR.10 example templates](#ct-autoscaling-pr-10-templates "#ct-autoscaling-pr-10-templates")
 
@@ -2395,37 +2395,37 @@ AutoScalingGroup:
 #   AWS::AutoScaling::AutoScalingGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation Hook
+#   CloudFormation, CloudFormation Hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EC2 auto scaling group resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 auto scaling group resource
 #       And: 'Overrides' in 'MixedInstancesPolicy.LaunchTemplate' has not been provided or
 #            has been provided as an empty list
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 auto scaling group resource
 #       And: 'Overrides' in 'MixedInstancesPolicy.LaunchTemplate' has been provided as a non-empty list
 #       And: No entries in 'Overrides' include 'InstanceType' or 'InstanceRequirements'
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 auto scaling group resource
 #       And: 'Overrides' in 'MixedInstancesPolicy.LaunchTemplate' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceType' has been provided and set to an instance type
 #            other than a Nitro instance type
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 auto scaling group resource
 #       And: 'Overrides' in 'MixedInstancesPolicy.LaunchTemplate' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceRequirements' has been provided
@@ -2433,7 +2433,7 @@ AutoScalingGroup:
 #            provided as an empty list
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 auto scaling group resource
 #       And: 'Overrides' in 'MixedInstancesPolicy.LaunchTemplate' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceRequirements' has been provided
@@ -2441,13 +2441,13 @@ AutoScalingGroup:
 #       And: An entry in 'AllowedInstanceTypes' is set to an instance type other than a Nitro instance type
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 auto scaling group resource
 #       And: 'Overrides' in 'MixedInstancesPolicy.LaunchTemplate' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceType' has been provided and set to a Nitro instance type
 #      Then: PASS
 #   Scenario: 8
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 auto scaling group resource
 #       And: 'Overrides' in 'MixedInstancesPolicy.LaunchTemplate' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceRequirements' has been provided
@@ -2816,10 +2816,10 @@ support network traffic encryption between instances, when overriding a launch t
 group creates this override in the `AWS::Autoscaling::AutoscalingGroup.MixedInstancesPolicy.LaunchTemplate` parameter.
 
 - **Control objective:** Encrypt data in transit, Protect data integrity, Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::AutoScaling::AutoScalingGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.AUTOSCALING.PR.11 rule specification](#ct-autoscaling-pr-11-rule "#ct-autoscaling-pr-11-rule")
 
 **Details and examples**
@@ -3031,37 +3031,37 @@ instance types that support encryption in transit between instances.
 #   AWS::AutoScaling::AutoScalingGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EC2 auto scaling group resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 auto scaling group resource
 #       And: 'Overrides' in 'MixedInstancesPolicy.LaunchTemplate' has not been provided or
 #            has been provided as an empty list
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 auto scaling group resource
 #       And: 'Overrides' in 'MixedInstancesPolicy.LaunchTemplate' has been provided as a non-empty list
 #       And: No entries in 'Overrides' include 'InstanceType' or 'InstanceRequirements'
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 auto scaling group resource
 #       And: 'Overrides' in 'MixedInstancesPolicy.LaunchTemplate' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceType' has been provided and set to an instance type
 #            other than a Nitro instance type that supports encryption in-transit between instances
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 auto scaling group resource
 #       And: 'Overrides' in 'MixedInstancesPolicy.LaunchTemplate' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceRequirements' has been provided
@@ -3069,7 +3069,7 @@ instance types that support encryption in transit between instances.
 #            provided as an empty list
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 auto scaling group resource
 #       And: 'Overrides' in 'MixedInstancesPolicy.LaunchTemplate' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceRequirements' has been provided
@@ -3078,14 +3078,14 @@ instance types that support encryption in transit between instances.
 #            that supports encryption in-transit between instances
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 auto scaling group resource
 #       And: 'Overrides' in 'MixedInstancesPolicy.LaunchTemplate' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceType' has been provided and set to a Nitro instance type
 #            that supports encryption in-transit between instances
 #      Then: PASS
 #   Scenario: 8
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 auto scaling group resource
 #       And: 'Overrides' in 'MixedInstancesPolicy.LaunchTemplate' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceRequirements' has been provided

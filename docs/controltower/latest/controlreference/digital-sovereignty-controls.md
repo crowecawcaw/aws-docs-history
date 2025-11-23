@@ -29,7 +29,7 @@ For example, see the control [CT.APPSYNC.PR.5: Require an AWS AppSync GraphQL AP
 
 For example see the control [CT.NETWORK-FIREWALL.PR.5: Require an AWS Network Firewall firewall to be deployed across multiple Availability Zones](network-firewall-rules.md#network-firewall-pr-5-description "network-firewall-rules.md#network-firewall-pr-5-description").
 You can read more about digital sovereignty and AWS in the blog: [AWS
-Digital Sovereignty Pledge: Control without compromise.](https://aws.amazon.com/blogs/security/aws-digital-sovereignty-pledge-control-without-compromise/ "https://aws.amazon.com/blogs/security/aws-digital-sovereignty-pledge-control-without-compromise/")
+Digital Sovereignty Pledge: Control without compromise.](https://aws.amazon.com//blogs/security/aws-digital-sovereignty-pledge-control-without-compromise/ "https://aws.amazon.com//blogs/security/aws-digital-sovereignty-pledge-control-without-compromise/")
 
 ###### The Data residency subgroup
 

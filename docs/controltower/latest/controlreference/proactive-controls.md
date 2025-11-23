@@ -6,7 +6,7 @@ whether the new resources will comply with the controls that are activated in yo
 environment.
 
 Proactive controls are _optional controls_ implemented
-with [AWS CloudFormation
+with [CloudFormation
 hooks](../../../cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.md "../../../cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.md") and [hooks managed by AWS Control Tower](update-hooks.md "update-hooks.md").
 
 Proactive controls fall into four main
@@ -25,21 +25,21 @@ categories, which are:
 **Behavior of proactive controls**
 
 Proactive controls check resources whenever those resources are created or updated by
-means of AWS CloudFormation stack operations. Specifically, these proactive controls are implemented as
+means of CloudFormation stack operations. Specifically, these proactive controls are implemented as
 `preCreate` and `preUpdate` hook handlers. As a consequence,
 these controls may not affect requests that are made directly to services through the AWS
 console, through AWS APIs, or through other means such as AWS SDKs, or other
 Infrastructure-as-Code (IaC) tools. For more information about when `preCreate`
-and `preUpdate` hooks operate, see [AWS CloudFormation
+and `preUpdate` hooks operate, see [CloudFormation
 hooks](../../../cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.md "../../../cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.md").
 
-###### Limitation of hooks managed by AWS CloudFormation
+###### Limitation of hooks managed by CloudFormation
 
-Proactive controls evaluate strings passed into the AWS CloudFormation hook within the
+Proactive controls evaluate strings passed into the CloudFormation hook within the
 `targetNames` property. Secure strings and secrets are not resolved
 before they are sent to the hook, which prevents the proactive control from evaluating
 the string. For more information about how the `targetNames` are passed to
-hooks, see [AWS CloudFormation Hooks
+hooks, see [CloudFormation Hooks
 structure overview](../../../cloudformation-cli/latest/hooks-userguide/hooks-structure.md "../../../cloudformation-cli/latest/hooks-userguide/hooks-structure.md").
 
 When you follow an example template to set up a test for a proactive control in your
@@ -64,7 +64,7 @@ environment.
 - [DynamoDB Accelerator controls](dax-rules.md "dax-rules.md")
 - [AWS Elastic Beanstalk controls](ebs-rules.md "ebs-rules.md")
 - [Amazon Elastic Compute Cloud (Amazon EC2) controls](ec2-rules.md "ec2-rules.md")
-- [Amazon Elastic Compute Cloud (Amazon EC2) Auto Scaling controls](ec2-auto-scaling-rules.md "ec2-auto-scaling-rules.md")
+- [Amazon Elastic Compute Cloud (Amazon EC2) Amazon EC2 Auto Scaling controls](ec2-auto-scaling-rules.md "ec2-auto-scaling-rules.md")
 - [Amazon ElastiCache controls](elasticache-rules.md "elasticache-rules.md")
 - [Amazon Elastic Container Registry controls](ecr-rules.md "ecr-rules.md")
 - [Amazon Elastic Container Service controls](ecs-rules.md "ecs-rules.md")

@@ -17,7 +17,7 @@ The elective controls with preventive behavior are configurable. For more inform
 - [[AWS-GR_RESTRICT_ROOT_USER] Disallow actions as a root user](#aws-gr_restrict_root_user "#aws-gr_restrict_root_user")
 - [[AWS-GR_RESTRICT_S3_CROSS_REGION_REPLICATION] Disallow cross region replication for Amazon S3 buckets](#aws-gr_restrict_s3_cross_region_replication "#aws-gr_restrict_s3_cross_region_replication")
 - [[AWS-GR_RESTRICT_S3_DELETE_WITHOUT_MFA] Disallow delete actions on S3 buckets without MFA](#aws-gr_restrict_s3_delete_without_mfa "#aws-gr_restrict_s3_delete_without_mfa")
-- [[CT.CLOUDFORMATION.PR.1] Disallow management of resource types, modules, and hooks within the AWS CloudFormation registry](#disallow-cfn-extensions "#disallow-cfn-extensions")
+- [[CT.CLOUDFORMATION.PR.1] Disallow management of resource types, modules, and hooks within the CloudFormation registry](#disallow-cfn-extensions "#disallow-cfn-extensions")
 
 ## [AWS-GR\_AUDIT\_BUCKET\_ENCRYPTION\_ENABLED] Disallow modification of Amazon S3 bucket encryption
 
@@ -565,11 +565,11 @@ The artifact for this control is the following service control policy (SCP).
 
 ```
 
-## [CT.CLOUDFORMATION.PR.1] Disallow management of resource types, modules, and hooks within the AWS CloudFormation registry
+## [CT.CLOUDFORMATION.PR.1] Disallow management of resource types, modules, and hooks within the CloudFormation registry
 
-This elective control disallows management of the following extension types in the AWS CloudFormation registry: resource types, modules, and hooks. For more information about AWS CloudFormation extensions, see [Using the AWS CloudFormationregistry](../../../AWSCloudFormation/latest/UserGuide/registry.md "../../../AWSCloudFormation/latest/UserGuide/registry.md").
+This elective control disallows management of the following extension types in the CloudFormation registry: resource types, modules, and hooks. For more information about CloudFormation extensions, see [Using the CloudFormationregistry](../../../AWSCloudFormation/latest/UserGuide/registry.md "../../../AWSCloudFormation/latest/UserGuide/registry.md").
 
-A typical use case for this control is a situation in which you do not wish to allow your organization to register AWS CloudFormation types. It prevents registration of types, and it prevents disabling existing AWS CloudFormation hooks.
+A typical use case for this control is a situation in which you do not wish to allow your organization to register CloudFormation types. It prevents registration of types, and it prevents disabling existing CloudFormation hooks.
 
 - **Control objective:** Protect configurations
 - **Implementation** Service control policy (SCP)
@@ -578,7 +578,7 @@ A typical use case for this control is a situation in which you do not wish to a
 - **Control owner:** AWS Control Tower
 - **Control ID:** CT.CLOUDFORMATION.PR.1
 - **Severity:** Critical
-- **AWS Service:** AWS CloudFormation
+- **AWS Service:** CloudFormation
 - **Resource types:** `AWS::CloudFormation::HookDefaultVersion,
 AWS::CloudFormation::HookTypeConfig,
 AWS::CloudFormation::HookVersion,

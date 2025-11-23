@@ -16,10 +16,10 @@
 This control checks whether an AWS Lambda function resource-based policy prohibits public access.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Lambda::Permission`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.LAMBDA.PR.2 rule specification](#ct-lambda-pr-2-rule "#ct-lambda-pr-2-rule")
 
 **Details and examples**
@@ -187,23 +187,23 @@ LambdaPermission:
 #   AWS::Lambda::Permission
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Lambda permission resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda permission resource
 #       And: 'FunctionUrlAuthType' has been provided with a value of 'NONE'
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda permission resource
 #       And: 'Principal' has been provided with a wildcard value ('*')
 #       And: 'SourceAccount' has not been provided or provided with an empty string value
@@ -211,7 +211,7 @@ LambdaPermission:
 #       And: 'PrincipalOrgID' has not been provided or provided with an empty string value
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda permission resource
 #       And: 'Principal' has been provided with value that does not match an AWS Account ID, AWS IAM ARN or
 #            wildcard value ('*')
@@ -219,19 +219,19 @@ LambdaPermission:
 #       And: 'SourceArn' has not been provided or provided with an empty string value or non-valid local reference
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda permission resource
 #       And: 'Principal' has been provided with an AWS Account ID or AWS IAM ARN value
 #      Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda permission resource
 #       And: 'Principal' has been provided with a wildcard value ('*')
 #       And: At least one of 'SourceAccount', 'SourceArn' or 'PrincipalOrgID' have been provided with non-empty string
 #            values (or a valid local reference for 'SourceArn')
 #      Then: PASS
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda permission resource
 #       And: 'Principal' has been provided with value that does not match an AWS Account ID or AWS IAM ARN
 #       And: At least one of 'SourceAccount', 'SourceArn' have been provided with non-empty string values (or a valid
@@ -469,10 +469,10 @@ Resources:
 This control checks whether an AWS Lambda function has been configured with access to resources in a customer-managed Amazon Virtual Private Cloud (VPC).
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Lambda::Function`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.LAMBDA.PR.3 rule specification](#ct-lambda-pr-3-rule "#ct-lambda-pr-3-rule")
 
 **Details and examples**
@@ -590,23 +590,23 @@ LambdaFunction:
 #   AWS::Lambda::Function
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Lambda function resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda function resource
 #       And: 'VpcConfig' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda function resource
 #       And: 'VpcConfig' has been provided
 #       And: 'SubnetIds' in 'VpcConfig' has been provided as a non-empty list that contains non-empty strings or valid
@@ -614,7 +614,7 @@ LambdaFunction:
 #       And: 'SecurityGroupIds' in 'VpcConfig' has not been been provided or has been provided as an empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda function resource
 #       And: 'VpcConfig' has been provided
 #       And: 'SecurityGroupIds' in 'VpcConfig' has been provided as a non-empty list that contains non-empty strings
@@ -622,7 +622,7 @@ LambdaFunction:
 #       And: 'SubnetIds' in 'VpcConfig' has not been been provided or has been provided as an empty list
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda function resource
 #       And: 'VpcConfig' has been provided
 #       And: 'SecurityGroupIds' in 'VpcConfig' has been provided as a non-empty list that contains non-empty strings or
@@ -888,10 +888,10 @@ access to an AWS organization or to a specific AWS account only, by ensuring tha
 from all AWS accounts has not been granted to a layer.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Lambda::LayerVersionPermission`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.LAMBDA.PR.4 rule specification](#ct-lambda-pr-4-rule "#ct-lambda-pr-4-rule")
 
 **Details and examples**
@@ -1015,30 +1015,30 @@ LayerVersionPermission:
 #   AWS::Lambda::LayerVersionPermission
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Lambda layer version permission resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda layer version permission resource
 #       And: 'OrganizationId' has not been provided
 #       And: 'Principal' has been provided and set to '*'
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda layer version permission resource
 #       And: 'OrganizationId' has not been provided
 #       And: 'Principal' has been provided and set to a non-empty string value other than '*'
 #      Then: PASS
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda layer version permission resource
 #       And: 'OrganizationId' has been provided as a non-empty string
 #      Then: PASS
@@ -1185,10 +1185,10 @@ This control checks whether an AWS Lambda function URL is configured to use auth
 based on IAM.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Lambda::Url`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.LAMBDA.PR.5 rule specification](#ct-lambda-pr-5-rule "#ct-lambda-pr-5-rule")
 
 **Details and examples**
@@ -1277,28 +1277,28 @@ based on AWS IAM.
 #   AWS::Lambda::Url
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Lambda function URL resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda function URL resource
 #       And: 'AuthType' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda function URL resource
 #       And: 'AuthType' been provided and set to a value other than 'AWS_IAM'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda function URL resource
 #       And: 'AuthType' been provided and set to 'AWS_IAM'
 #      Then: PASS
@@ -1476,10 +1476,10 @@ This control checks whether an AWS Lambda function URL is configured with a cros
 (CORS) policy that does not grant access to all origins.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Lambda::Url`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.LAMBDA.PR.6 rule specification](#ct-lambda-pr-6-rule "#ct-lambda-pr-6-rule")
 
 **Details and examples**
@@ -1572,30 +1572,30 @@ FunctionUrl:
 #   AWS::Lambda::Url
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation Hook
+#   CloudFormation, CloudFormation Hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Lambda function URL resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda function URL resource
 #       And: 'AllowOrigins' in 'Cors' has not been provided or has been provided as an empty list
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda function URL resource
 #       And: 'Cors' has been provided
 #       And: 'AllowOrigins' in 'Cors' has been provided as a non-empty list
 #       And: 'AllowOrigins' has an entry that contains a wildcard value '*'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Lambda function URL resource
 #       And: 'Cors' has been provided
 #       And: 'AllowOrigins' in 'Cors' has been provided as a non-empty list

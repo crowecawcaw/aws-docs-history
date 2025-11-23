@@ -15,10 +15,10 @@
 This control checks whether an Amazon Neptune cluster has AWS Identity and Access Management (IAM) database authentication enabled.
 
 - **Control objective:** Enforce least privilege, Use strong authentication
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Neptune::DBCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.NEPTUNE.PR.1 rule specification](#ct-neptune-pr-1-rule "#ct-neptune-pr-1-rule")
 
 **Details and examples**
@@ -89,28 +89,28 @@ NeptuneDBCluster:
 #   AWS::Neptune::DBCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Neptune DB cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Neptune DB cluster resource
 #       And: 'IamAuthEnabled' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Neptune DB cluster resource
 #       And: 'IamAuthEnabled' has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Neptune DB cluster resource
 #       And: 'IamAuthEnabled' has been provided and set to bool(true)
 #      Then: PASS
@@ -210,10 +210,10 @@ Resources:
 This control checks whether an Amazon Neptune cluster has deletion protection enabled.
 
 - **Control objective:** Improve availability, Protect configurations
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Neptune::DBCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.NEPTUNE.PR.2 rule specification](#ct-neptune-pr-2-rule "#ct-neptune-pr-2-rule")
 
 **Details and examples**
@@ -284,28 +284,28 @@ NeptuneDBCluster:
 #   AWS::Neptune::DBCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Neptune DB cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Neptune DB cluster resource
 #       And: 'DeletionProtection' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Neptune DB cluster resource
 #       And: 'DeletionProtection' has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Neptune DB cluster resource
 #       And: 'DeletionProtection' has been provided and set to bool(true)
 #      Then: PASS
@@ -405,10 +405,10 @@ Resources:
 This control checks whether an Amazon Neptune cluster has storage encryption enabled.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Neptune::DBCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.NEPTUNE.PR.3 rule specification](#ct-neptune-pr-3-rule "#ct-neptune-pr-3-rule")
 
 **Details and examples**
@@ -483,28 +483,28 @@ NeptuneDBCluster:
 #   AWS::Neptune::DBCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Neptune DB cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Neptune DB cluster resource
 #       And: 'StorageEncrypted' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Neptune DB cluster resource
 #       And: 'StorageEncrypted' has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Neptune DB cluster resource
 #       And: 'StorageEncrypted' has been provided and set to bool(true)
 #      Then: PASS
@@ -607,10 +607,10 @@ This control checks whether an Amazon Neptune cluster is configured to send audi
 Amazon CloudWatch Logs.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Neptune::DBCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.NEPTUNE.PR.4 rule specification](#ct-neptune-pr-4-rule "#ct-neptune-pr-4-rule")
 
 **Details and examples**
@@ -687,30 +687,30 @@ NeptuneDBCluster:
 #   AWS::Neptune::DBCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Neptune DB cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Neptune DB cluster resource
 #       And: 'EnableCloudwatchLogsExports' has not been provided or has been provided as an
 #            empty list
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Neptune DB cluster resource
 #       And: 'EnableCloudwatchLogsExports' has been provided as a non-empty list
 #       And: 'EnableCloudwatchLogsExports' does not contain an entry with the value 'audit'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Neptune DB cluster resource
 #       And: 'EnableCloudwatchLogsExports' has been provided as a non-empty list
 #       And: 'EnableCloudwatchLogsExports' contains an entry with the value 'audit'
@@ -820,10 +820,10 @@ This control checks whether Amazon Neptune DB clusters have configured automatic
 7 or more days (>=7). The default retention period is one day.
 
 - **Control objective:** Improve resiliency
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Neptune::DBCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.NEPTUNE.PR.5 rule specification](#ct-neptune-pr-5-rule "#ct-neptune-pr-5-rule")
 
 **Details and examples**
@@ -897,29 +897,29 @@ NeptuneDBCluster:
 #   AWS::Neptune::DBCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Neptune DB cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Neptune DB cluster resource
 #       And: 'BackupRetentionPeriod' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Neptune DB cluster resource
 #       And: 'BackupRetentionPeriod' has been provided and set to an integer value
 #            less than seven (< 7)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Neptune DB cluster resource
 #       And: 'BackupRetentionPeriod' has been provided and set to an integer value
 #            greater than or equal to seven (>=7)

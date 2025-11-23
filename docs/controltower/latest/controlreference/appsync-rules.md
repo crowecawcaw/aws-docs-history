@@ -13,10 +13,10 @@
 This control checks whether an AWS AppSync GraphQL API has been configured to send request-level and field-level logs to Amazon CloudWatch Logs.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::AppSync::GraphQLApi`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.APPSYNC.PR.1 rule specification](#ct-appsync-pr-1-rule "#ct-appsync-pr-1-rule")
 
 **Details and examples**
@@ -101,23 +101,23 @@ GraphQLApi:
 #   AWS::AppSync::GraphQLApi
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any AppSync GraphQL API resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AppSync GraphQL API resource
 #       And: 'LogConfig' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AppSync GraphQL API resource
 #       And: 'LogConfig' has been provided
 #       And: 'FieldLogLevel' in 'LogConfig' has not been provided or provided and set to a value other
@@ -126,7 +126,7 @@ GraphQLApi:
 #            string or invalid local reference
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AppSync GraphQL API resource
 #       And: 'LogConfig' has been provided
 #       And: 'FieldLogLevel' in 'LogConfig' has been provided and set to 'ERROR', 'INFO', 'DEBUG' or 'ALL'
@@ -134,7 +134,7 @@ GraphQLApi:
 #            string or invalid local reference
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AppSync GraphQL API resource
 #       And: 'LogConfig' has been provided
 #       And: 'FieldLogLevel' in 'LogConfig' has not been provided or provided and set to a value other
@@ -143,7 +143,7 @@ GraphQLApi:
 #            local reference
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AppSync GraphQL API resource
 #       And: 'LogConfig' has been provided
 #       And: 'FieldLogLevel' in 'LogConfig' has been provided and set to 'ERROR', 'INFO', 'DEBUG', or 'ALL'
@@ -347,10 +347,10 @@ Resources:
 This control checks whether an AWS AppSync GraphQL API has been configured with private visibility.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::AppSync::GraphQLApi`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.APPSYNC.PR.2 rule specification](#ct-appsync-pr-2-rule "#ct-appsync-pr-2-rule")
 
 **Details and examples**
@@ -358,7 +358,7 @@ This control checks whether an AWS AppSync GraphQL API has been configured with 
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.APPSYNC.PR.2 rule specification](#ct-appsync-pr-2-rule "#ct-appsync-pr-2-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.APPSYNC.PR.2 example templates](#ct-appsync-pr-2-templates "#ct-appsync-pr-2-templates")
 
@@ -433,28 +433,28 @@ GraphQLApi:
 #   AWS::AppSync::GraphQLApi
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any AWS AppSync GraphQL API resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS AppSync GraphQL API resource
 #       And: 'Visibility' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS AppSync GraphQL API resource
 #       And: 'Visibility' has been provided and set to a value other than 'PRIVATE'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS AppSync GraphQL API resource
 #       And: 'Visibility' has been provided and set to 'PRIVATE'
 #      Then: PASS
@@ -561,10 +561,10 @@ Resources:
 This control checks that an AWS AppSync GraphQL API has been configured with an authentication type other than API_KEY authentication.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::AppSync::GraphQLApi`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.APPSYNC.PR.3 rule specification](#ct-appsync-pr-3-rule "#ct-appsync-pr-3-rule")
 
 **Details and examples**
@@ -572,7 +572,7 @@ This control checks that an AWS AppSync GraphQL API has been configured with an 
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.APPSYNC.PR.3 rule specification](#ct-appsync-pr-3-rule "#ct-appsync-pr-3-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.APPSYNC.PR.3 example templates](#ct-appsync-pr-3-templates "#ct-appsync-pr-3-templates")
 
@@ -640,42 +640,42 @@ GraphQLApi:
 #   AWS::AppSync::GraphQLApi
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any AWS AppSync GraphQL API resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS AppSync GraphQL API resource
 #       And: 'AuthenticationType' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS AppSync GraphQL API resource
 #       And: 'AuthenticationType' has been provided and is equal to 'API_KEY'
 #       And: 'AdditionalAuthenticationProviders' has not been provided or provided as an empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS AppSync GraphQL API resource
 #       And: 'AuthenticationType' has been provided and is equal to a value other than 'API_KEY'
 #       And: 'AdditionalAuthenticationProviders' has been provided as a non-empty list
 #       And: An entry in 'AdditionalAuthenticationProviders' has 'AuthenticationType' equal to 'API_KEY'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS AppSync GraphQL API resource
 #       And: 'AuthenticationType' has been provided and is equal to a value other than 'API_KEY'
 #       And: 'AdditionalAuthenticationProviders' has not been provided or provided as an empty list
 #      Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS AppSync GraphQL API resource
 #       And: 'AuthenticationType' has been provided and is equal to a value other than 'API_KEY'
 #       And: 'AdditionalAuthenticationProviders' has been provided as a non-empty list
@@ -817,10 +817,10 @@ Resources:
 This control checks whether an AWS AppSync API cache has encryption in transit enabled.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::AppSync::ApiCache`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.APPSYNC.PR.4 rule specification](#ct-appsync-pr-4-rule "#ct-appsync-pr-4-rule")
 
 **Details and examples**
@@ -828,7 +828,7 @@ This control checks whether an AWS AppSync API cache has encryption in transit e
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.APPSYNC.PR.4 rule specification](#ct-appsync-pr-4-rule "#ct-appsync-pr-4-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.APPSYNC.PR.4 example templates](#ct-appsync-pr-4-templates "#ct-appsync-pr-4-templates")
 
@@ -903,28 +903,28 @@ GraphQLApiCache:
 #   AWS::AppSync::ApiCache
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any AWS AppSync GraphQL API cache resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS AppSync GraphQL API cache resource
 #       And: 'TransitEncryptionEnabled' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS AppSync GraphQL API cache resource
 #       And: 'TransitEncryptionEnabled' been provided and is equal to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS AppSync GraphQL API cache resource
 #       And: 'TransitEncryptionEnabled' been provided and is equal to bool(true)
 #      Then: PASS
@@ -1046,10 +1046,10 @@ Resources:
 This control checks whether an AWS AppSync API cache has encryption at rest enabled.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::AppSync::ApiCache`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.APPSYNC.PR.5 rule specification](#ct-appsync-pr-5-rule "#ct-appsync-pr-5-rule")
 
 **Details and examples**
@@ -1057,7 +1057,7 @@ This control checks whether an AWS AppSync API cache has encryption at rest enab
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.APPSYNC.PR.5 rule specification](#ct-appsync-pr-5-rule "#ct-appsync-pr-5-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.APPSYNC.PR.5 example templates](#ct-appsync-pr-5-templates "#ct-appsync-pr-5-templates")
 
@@ -1131,28 +1131,28 @@ GraphQLApiCache:
 #   AWS::AppSync::ApiCache
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any AWS AppSync GraphQL API cache resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS AppSync GraphQL API cache resource
 #       And: 'AtRestEncryptionEnabled' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS AppSync GraphQL API cache resource
 #       And: 'AtRestEncryptionEnabled' been provided and is equal to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS AppSync GraphQL API cache resource
 #       And: 'AtRestEncryptionEnabled' been provided and is equal to bool(true)
 #      Then: PASS

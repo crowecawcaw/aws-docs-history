@@ -13,10 +13,10 @@
 This control checks that AWS Identity and Access Management (IAM) inline policies do not include `Effect`: `Allow` with `Action`: `*` over `Resource`: `*`.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::IAM::Policy`, `AWS::IAM::Role`, `AWS::IAM::User`, `AWS::IAM::Group`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.IAM.PR.1 rule specification](#ct-iam-pr-1-rule "#ct-iam-pr-1-rule")
 
 **Details and examples**
@@ -208,40 +208,40 @@ IAMRole:
 #   AWS::IAM::Policy, AWS::IAM::Role, AWS::IAM::User, AWS::IAM::Group
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any IAM policy, IAM role, IAM user or IAM group resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM policy resource
 #       And: The policy has no statements with 'Effect' set to 'Allow'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM policy resource
 #       And: The policy has a statement with 'Effect' set to 'Allow'
 #       And: The policy does not have both Action and resource statements
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM role, IAM user or IAM group resources
 #       And: 'Policies' is not provided or is an empty list
 #      Then: SKIP
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM role, IAM user or IAM group resources
 #       And: 'Policies' is provided as a non-empty list
 #       And: All IAM policy documents in 'Policies' have no statements with 'Effect' set to 'Allow'
 #      Then: SKIP
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM policy resource
 #       And: The policy has a statement with 'Effect' set to 'Allow'
 #       And: The policy statement has one or more Action statements and one or more Resource statements
@@ -249,7 +249,7 @@ IAMRole:
 #       And: At least one Resource statement is a wildcard representing all resources (Resource value of '*')
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM role, IAM user or IAM group resources
 #       And: 'Policies' is provided as a non-empty list
 #       And: IAM policy document in 'Policies' has a statement with 'Effect' set to 'Allow'
@@ -258,7 +258,7 @@ IAMRole:
 #       And: At least one Resource statement is a wildcard representing all resources (Resource value of '*')
 #      Then: FAIL
 #   Scenario: 8
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM policy resource
 #       And: The policy has a statement with 'Effect' set to 'Allow'
 #       And: The policy has one or more Action statements and one or more Resource statements
@@ -266,7 +266,7 @@ IAMRole:
 #       And: No Resources are wildcards representing all resources (Resource value of '*')
 #      Then: PASS
 #   Scenario: 9
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM role, IAM user or IAM group resources
 #       And: 'Policies' is provided as a non-empty list
 #       And: IAM policy document in 'Policies' has a statement with 'Effect' set to 'Allow'
@@ -517,10 +517,10 @@ Resources:
 This control checks whether AWS Identity and Access Management (IAM) customer managed policies do not include `Effect`: `Allow` with `Action`: `*` over `Resource`: `*`.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::IAM::ManagedPolicy`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.IAM.PR.2 rule specification](#ct-iam-pr-2-rule "#ct-iam-pr-2-rule")
 
 **Details and examples**
@@ -627,29 +627,29 @@ IAMManagedPolicy:
 #   AWS::IAM::ManagedPolicy
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any IAM managed policy resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM managed policy resource
 #       And: The policy has no statements with 'Effect' set to 'Allow'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM managed policy resource
 #       And: The policy has a statement with 'Effect' set to 'Allow'
 #       And: The policy does not have both Action and Resource statements
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM managed policy resource
 #       And: The policy has a statement with 'Effect' set to 'Allow'
 #       And: The policy statement has one or more Action statements and one or more Resource statements
@@ -658,7 +658,7 @@ IAMManagedPolicy:
 #            resources (Resource value of '*')
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM managed policy resource
 #       And: The policy has a statement with 'Effect' set to 'Allow'
 #       And: The policy has one or more Action statements and one or more Resource statements
@@ -846,10 +846,10 @@ Resources:
 This control checks that AWS Identity and Access Management (IAM) customer-managed policies do not contain statements of `Effect`: `Allow` with `Action`: `Service:*` (for example, s3:\*) for individual AWS services, and that the policies do not use the combination of `NotAction` with an `Effect` of `Allow`.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::IAM::ManagedPolicy`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.IAM.PR.3 rule specification](#ct-iam-pr-3-rule "#ct-iam-pr-3-rule")
 
 **Details and examples**
@@ -956,29 +956,29 @@ IAMManagedPolicy:
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any IAM Managed Policy resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM Managed Policy resource
 #       And: The policy has no statements with 'Effect' set to 'Allow'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM Managed Policy resource
 #       And: The policy has a statement with 'Effect' set to 'Allow'
 #       And: The policy has one or more 'Action' statements
 #       And: At least one 'Action' statement allows full access to a service ('Action' has a value 'service:*')
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM Managed Policy resource
 #       And: The policy has a statement with 'Effect' set to 'Allow'
 #       And: The policy has one or more 'NotAction' statements
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM Managed Policy resource
 #       And: The policy has a statement with 'Effect' set to 'Allow'
 #       And: The policy has one or more 'Action' statements
@@ -1178,10 +1178,10 @@ Resources:
 This control checks whether your AWS Identity and Access Management (IAM) user has inline or managed (AWS and customer) policies directly attached. Instead, IAM users should inherit permissions from IAM groups or roles.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::IAM::User`, `AWS::IAM::Policy`, `AWS::IAM::ManagedPolicy`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.IAM.PR.4 rule specification](#ct-iam-pr-4-rule "#ct-iam-pr-4-rule")
 
 **Details and examples**
@@ -1356,34 +1356,34 @@ IAMManagedPolicy:
 #   AWS::IAM::User, AWS::IAM::Policy, AWS::IAM::ManagedPolicy
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any IAM user, policy or managed policy resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM user resource
 #       And: 'Policies' or 'ManagedPolicyArns' have been specified as a non-empty list
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM policy or managed policy resource
 #       And: 'Users' has been specified and is a non-empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM user resource
 #       And: 'Policies' has not been been specified or is an empty list
 #       And: 'ManagedPolicyArns' has not been been specified or is an empty list
 #      Then: PASS
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM policy or managed policy resource
 #       And: 'Users' has not been specified or is an empty list
 #      Then: PASS
@@ -1538,10 +1538,10 @@ Resources:
 This control checks whether AWS Identity and Access Management (IAM) inline policies do not include `Effect`: `Allow` with `Action`: `Service:*` (e.g. s3:\*) for individual AWS services or use the combination of `NotAction` with an `Effect` of `Allow`.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::IAM::Policy`, `AWS::IAM::Role`, `AWS::IAM::User`, `AWS::IAM::Group`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.IAM.PR.5 rule specification](#ct-iam-pr-5-rule "#ct-iam-pr-5-rule")
 
 **Details and examples**
@@ -1854,40 +1854,40 @@ IAMPolicy:
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any IAM policy, IAM role, IAM user or IAM group resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM policy resource
 #       And: The policy has no statements with 'Effect' set to 'Allow'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM role, IAM user or IAM group resource
 #       And: 'Policies' is not provided or is an empty list
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM role, IAM user or IAM group resource
 #       And: 'Policies' is provided as a non-empty list
 #       And: All IAM policy documents in 'Policies' have no statements with 'Effect' set to 'Allow'
 #      Then: SKIP
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM policy resource
 #       And: The policy has a statement with 'Effect' set to 'Allow'
 #       And: The policy has one or more 'Action' statements
 #       And: 'Action' statement allows full access to a service ('Action' has a value 'service:*')
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM policy resource
 #       And: The policy has a statement with 'Effect' set to 'Allow'
 #       And: The policy has one or more 'NotAction' statements
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM role, IAM user or IAM group resource
 #       And: 'Policies' is provided as a non-empty list
 #       And: IAM policy document in 'Policies' has a statement with 'Effect' set to 'Allow'
@@ -1895,21 +1895,21 @@ IAMPolicy:
 #       And: 'Action' statement allows full access to a service ('Action' has a value 'service:*')
 #      Then: FAIL
 #   Scenario: 8
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM role, IAM user or IAM user resource
 #       And: 'Policies' is provided as a non-empty list
 #       And: At least one IAM policy document in 'Policies' has a statement with 'Effect' set to 'Allow'
 #       And: The policy has one or more 'NotAction' statements
 #      Then: FAIL
 #   Scenario: 9
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM policy resource
 #       And: The policy has a statement with 'Effect' set to 'Allow'
 #       And: The policy has one or more 'Action' statements
 #       And: No 'Action' statements allow full access to a service ('Action' does not have a value 'service:*')
 #      Then: PASS
 #   Scenario: 10
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an IAM role, IAM user or IAM user resource
 #       And: 'Policies' is provided as a non-empty list
 #       And: At least one IAM policy document in 'Policies' has a statement with 'Effect' set to 'Allow'

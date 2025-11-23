@@ -21,10 +21,10 @@
 This control checks whether an Amazon CloudFront distribution is configured to return a specific object that is the default root object.
 
 - **Control objective:** Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CloudFront::Distribution`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDFRONT.PR.1 rule specification](#ct-cloudfront-pr-1-rule "#ct-cloudfront-pr-1-rule")
 
 **Details and examples**
@@ -125,24 +125,24 @@ CloudFrontDistribution:
 #    AWS::CloudFront::Distribution
 #
 # Evaluates:
-#    AWS CloudFormation, AWS CloudFormation hook
+#    CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CloudFront distribution resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'DefaultRootObject' is not present on the CloudFront distribution resource or is present and
 #            is an empty string
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'DefaultRootObject' is present on the CloudFront distribution resource and is a non-empty string
 #      Then: PASS
@@ -315,10 +315,10 @@ This control checks whether Amazon CloudFront distributions backed by Amazon S3 
 configured with an origin access identity.
 
 - **Control objective:** Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CloudFront::Distribution`
-- **AWS CloudFormation guard rule:** [CT.CLOUDFRONT.PR.2 rule specification](#ct-cloudfront-pr-2-rule "#ct-cloudfront-pr-2-rule")
+- **CloudFormation guard rule:** [CT.CLOUDFRONT.PR.2 rule specification](#ct-cloudfront-pr-2-rule "#ct-cloudfront-pr-2-rule")
 
 **Details and examples**
 
@@ -438,36 +438,36 @@ CloudFrontDistribution:
 #   AWS::CloudFront::Distribution
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CloudFront distribution resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: No S3 backed 'Origins' are provided on the CloudFront distribution resource or 'Origins' is not present on
 #            the CloudFront distribution resource or is present and an empty list
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'S3Origin' is present on the CloudFront distribution resource
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: One or more S3 backed 'Origins' are configured on the CloudFront distribution resource
 #       And: 'OriginAccessIdentity' is not present or is an empty string in the 'S3OriginConfig' property or invalid
 #            local reference
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: One or more S3 backed 'Origins' are provided on the CloudFront distribution resource
 #       And: 'S3OriginConfig' is present with an 'OriginAccessIdentity for each S3 backed 'Origin' on the
@@ -774,10 +774,10 @@ ParametersInCacheKeyAndForwardedToOrigin:
 This control checks whether your Amazon CloudFront distributions use HTTPS, either directly or through a redirection.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CloudFront::Distribution`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDFRONT.PR.3 rule specification](#ct-cloudfront-pr-3-rule "#ct-cloudfront-pr-3-rule")
 
 **Details and examples**
@@ -948,43 +948,43 @@ CloudFrontDistribution:
 #   AWS::CloudFront::Distribution
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CloudFront distribution resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'DistributionConfig.DefaultCacheBehavior' is missing on the CloudFront distribution resource
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'DistributionConfig.DefaultCacheBehavior' is present on the CloudFront distribution resource
 #       And: 'ViewerProtocolPolicy' in 'DefaultCacheBehavior' is missing or set to a value other than 'https-only' or
 #            'redirect-to-https' (e.g. 'allow-all')
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'DistributionConfig.CacheBehavior' is provided on the CloudFront distribution resource
 #       And: 'ViewerProtocolPolicy' in the 'CacheBehavior' is  is missing or set to a value other than 'https-only' or
 #            'redirect-to-https' (e.g. 'allow-all')
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'DistributionConfig.DefaultCacheBehavior' is present on the CloudFront distribution resource
 #       And: 'ViewerProtocolPolicy' in 'DefaultCacheBehavior' is set to 'https-only' or 'redirect-to-https'
 #      Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'DistributionConfig.CacheBehavior' are provided on the CloudFront distribution resource as a non-empty list
 #       And: 'ViewerProtocolPolicy' in the 'CacheBehavior' is set to 'https-only' or 'redirect-to-https'
@@ -1167,10 +1167,10 @@ ParametersInCacheKeyAndForwardedToOrigin:
 This control checks whether your Amazon CloudFront distribution is configured with an origin group that contains two origin group members.
 
 - **Control objective:** Improve availability
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CloudFront::Distribution`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDFRONT.PR.4 rule specification](#ct-cloudfront-pr-4-rule "#ct-cloudfront-pr-4-rule")
 
 **Details and examples**
@@ -1321,36 +1321,36 @@ CloudFrontDistribution:
 #   AWS::CloudFront::Distribution
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CloudFront distribution resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'OriginGroups' is not present on the CloudFront distribution resource
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'OriginGroups' is present on the CloudFront distribution resource
 #       And: 'Quantity' within 'OriginGroups' is 0
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'OriginGroups' is present on the CloudFront distribution resource
 #       And: 'Quantity' within 'OriginGroups' is >= 1
 #       And: 'Quantity' within 'Members' is < 2
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'OriginGroups' is present on the CloudFront distribution resource
 #       And: 'Quantity' within 'OriginGroups' is >= 1
@@ -1549,10 +1549,10 @@ ParametersInCacheKeyAndForwardedToOrigin:
 This control checks whether Amazon CloudFront distributions are configured with access logging.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CloudFront::Distribution`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDFRONT.PR.5 rule specification](#ct-cloudfront-pr-5-rule "#ct-cloudfront-pr-5-rule")
 
 **Details and examples**
@@ -1663,30 +1663,30 @@ CloudFrontDistribution:
 #   AWS::CloudFront::Distribution
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CloudFront distribution resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'DistributionConfig.Logging.Bucket' configuration is not present on the CloudFront distribution resource
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'DistributionConfig.Logging' configuration is present on the CloudFront distribution resource
 #       And: 'Bucket' has been provided in the 'DistributionConfig.Logging' configuration with with an empty string or
 #            invalid local reference
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'DistributionConfig.Logging' configuration is present on the CloudFront distribution resource
 #       And: A 'Bucket' property has been provided within the 'DistributionConfig.Logging' configuration with a
@@ -1911,10 +1911,10 @@ ParametersInCacheKeyAndForwardedToOrigin:
 This control checks whether the certificate associated with an Amazon CloudFront distribution is a custom SSL/TLS certificate.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CloudFront::Distribution`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDFRONT.PR.6 rule specification](#ct-cloudfront-pr-6-rule "#ct-cloudfront-pr-6-rule")
 
 **Details and examples**
@@ -2028,29 +2028,29 @@ CloudFrontDistribution:
 #   AWS::CloudFront::Distribution
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CloudFront distribution resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'ViewerCertificate' is not present on the CloudFront distribution resource
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'ViewerCertificate' is present on the CloudFront distribution resource
 #       And: 'CloudFrontDefaultCertificate' is set to bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'ViewerCertificate' is present on the CloudFront distribution resource
 #       And: One of 'AcmCertificateArn' or 'IamCertificateId' are not provided or provided as empty strings or invalid
@@ -2058,7 +2058,7 @@ CloudFrontDistribution:
 #       And: One of 'MinimumProtocolVersion' and 'SslSupportMethod' is not provided or provided as an empty string
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'ViewerCertificate' is present on the CloudFront distribution resource
 #       And: 'AcmCertificateArn' or 'IamCertificateId' are provided in the 'ViewerCertificate' configuration as
@@ -2291,10 +2291,10 @@ ParametersInCacheKeyAndForwardedToOrigin:
 This control checks whether your Amazon CloudFront distributions are configured to use SNI to serve HTTPS requests.
 
 - **Control objective:** Encrypt data in transit, Improve availability
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CloudFront::Distribution`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDFRONT.PR.7 rule specification](#ct-cloudfront-pr-7-rule "#ct-cloudfront-pr-7-rule")
 
 **Details and examples**
@@ -2408,29 +2408,29 @@ CloudFrontDistribution:
 #   AWS::CloudFront::Distribution
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CloudFront distribution resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'ViewerCertificate' is not present on the CloudFront distribution resource
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'ViewerCertificate' is present on the CloudFront distribution resource
 #       And: 'CloudFrontDefaultCertificate' is set to bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'ViewerCertificate' is present on the CloudFront distribution resource
 #       And: 'AcmCertificateArn' or 'IamCertificateId' are provided in the 'ViewerCertificate' configuration
@@ -2438,7 +2438,7 @@ CloudFrontDistribution:
 #            support SNI (SSLv3)
 #       Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'ViewerCertificate' is present on the CloudFront distribution resource
 #       And: 'AcmCertificateArn' or 'IamCertificateId' are provided in the 'ViewerCertificate' configuration
@@ -2447,7 +2447,7 @@ CloudFrontDistribution:
 #       And: 'SslSupportMethod' is set to 'vip'
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'ViewerCertificate' is present on the CloudFront distribution resource
 #       And: 'AcmCertificateArn' or 'IamCertificateId' are provided in the 'ViewerCertificate' configuration
@@ -2693,10 +2693,10 @@ ParametersInCacheKeyAndForwardedToOrigin:
 This control checks whether your Amazon CloudFront distributions are encrypting traffic to custom origins.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CloudFront::Distribution`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDFRONT.PR.8 rule specification](#ct-cloudfront-pr-8-rule "#ct-cloudfront-pr-8-rule")
 
 **Details and examples**
@@ -2890,41 +2890,41 @@ CloudFrontDistribution:
 #   AWS::CloudFront::Distribution
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CloudFront distribution resources
 #      Then: SKIPs
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'Origins' is not present or is an empty list
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: One or more 'Origins' has been configured
 #       And: There are no 'Origins' with a 'CustomOriginConfig'
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'CustomOrigin' is present on the CloudFront distribution resource
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: One or more 'Origins' has been configured
 #       And: There one or more 'Origins' with a 'CustomOriginConfig'
 #       And: At least one 'Origins' with a 'CustomOriginConfig' has an 'OriginProtocolPolicy' of 'http-only'
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: One or more 'Origins' has been configured
 #       And: There one or more 'Origins' with a 'CustomOriginConfig'
@@ -2933,14 +2933,14 @@ CloudFrontDistribution:
 #            'CacheBehaviors'
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: One or more 'Origins' has been configured
 #       And: There one or more 'Origins' with a 'CustomOriginConfig'
 #       And: All 'Origins' with a 'CustomOriginConfig' have an 'OriginProtocolPolicy' of 'https-only'
 #      Then: PASS
 #   Scenario: 8
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront Distribution resource
 #       And: One or more 'Origins' has been configured
 #       And: There one or more 'Origins' with a 'CustomOriginConfig'
@@ -3189,10 +3189,10 @@ ParametersInCacheKeyAndForwardedToOrigin:
 This control checks whether your Amazon CloudFront distributions are using a minimum security policy and cipher suite of TLSv1.2 or greater for viewer connections.
 
 - **Control objective:** Manage vulnerabilities
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CloudFront::Distribution`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDFRONT.PR.9 rule specification](#ct-cloudfront-pr-9-rule "#ct-cloudfront-pr-9-rule")
 
 **Details and examples**
@@ -3308,36 +3308,36 @@ CloudFrontDistribution:
 #   AWS::CloudFront::Distribution
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CloudFront distribution resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'DistributionConfig.ViewerCertificate' is not present on the CloudFront distribution resource
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'DistributionConfig.ViewerCertificate' is present on the CloudFront distribution resource
 #       And: 'CloudFrontDefaultCertificate' in 'ViewerCertificate' is set to bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'DistributionConfig.ViewerCertificate' is present on the CloudFront distribution resource
 #       And: 'CloudFrontDefaultCertificate' is not provided in 'ViewerCertificate' or provided and set to bool(false)
 #       And: 'MinimumProtocolVersion' is not provided in 'ViewerCertificate' or provided as an empty string
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'DistributionConfig.ViewerCertificate' is present on the CloudFront distribution resource
 #       And: 'CloudFrontDefaultCertificate' is not provided in 'ViewerCertificate' or provided and set to bool(false)
@@ -3345,7 +3345,7 @@ CloudFrontDistribution:
 #             TLSv1_2016, or TLSv1.1_2016
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'DistributionConfig.ViewerCertificate' is present on the CloudFront distribution resource
 #       And: 'CloudFrontDefaultCertificate' is not provided in 'ViewerCertificate' or provided and set to bool(false)
@@ -3554,10 +3554,10 @@ ParametersInCacheKeyAndForwardedToOrigin:
 This control checks whether your Amazon CloudFront distributions backed by Amazon S3 are configured to use an origin access control.
 
 - **Control objective:** Enforce least privilege, Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CloudFront::Distribution`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDFRONT.PR.10 rule specification](#ct-cloudfront-pr-10-rule "#ct-cloudfront-pr-10-rule")
 
 **Details and examples**
@@ -3666,35 +3666,35 @@ CloudFrontDistribution:
 #   AWS::CloudFront::Distribution
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CloudFront distribution resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: No S3 backed 'Origins' are provided on the CloudFront distribution resource or 'Origins' is not present on
 #            the CloudFront distribution resource or is present and an empty list
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'S3Origin' is present on the CloudFront distribution resource
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: One or more S3 backed 'Origins' are configured on the CloudFront distribution resource
 #       And: 'OriginAccessControlId' is not present for the 'Origin' or is an empty string or invalid local reference
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: One or more S3 backed 'Origins' are provided on the CloudFront distribution resource
 #       And: 'OriginAccessControlId' is present for each S3 backed 'Origin' and is a non-empty string or valid local
@@ -4015,10 +4015,10 @@ ParametersInCacheKeyAndForwardedToOrigin:
 This control checks whether your Amazon CloudFront distributions are using deprecated SSL protocols for HTTPS communication between CloudFront edge locations and custom origins.
 
 - **Control objective:** Manage vulnerabilities
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CloudFront::Distribution`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDFRONT.PR.11 rule specification](#ct-cloudfront-pr-11-rule "#ct-cloudfront-pr-11-rule")
 
 **Details and examples**
@@ -4126,41 +4126,41 @@ CloudFrontDistribution:
 #   AWS::CloudFront::Distribution
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CloudFront distribution resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'Origins' is not present or is an empty list
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: One or more 'Origins' has been configured
 #       And: There are no 'Origins' with a 'CustomOriginConfig'
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: One or more 'Origins' has been configured
 #       And: There one or more 'Origins' with a 'CustomOriginConfig'
 #       And: All 'Origins' with a 'CustomOriginConfig' have an 'OriginProtocolPolicy' of 'http-only'
 #      Then: SKIP
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: 'CustomOrigin' is present on the CloudFront distribution resource
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: One or more 'Origins' has been configured
 #       And: There one or more 'Origins' with a 'CustomOriginConfig'
@@ -4168,7 +4168,7 @@ CloudFrontDistribution:
 #       And: 'OriginSSLProtocols' has not been specified or specified as an empty list
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: One or more 'Origins' has been configured
 #       And: There one or more 'Origins' with a 'CustomOriginConfig'
@@ -4176,7 +4176,7 @@ CloudFrontDistribution:
 #       And: 'OriginSSLProtocols' has been specified as a non-empty list and contains 'SSLv3'
 #      Then: FAIL
 #   Scenario: 8
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudFront distribution resource
 #       And: One or more 'Origins' has been configured
 #       And: There one or more 'Origins' with a 'CustomOriginConfig'

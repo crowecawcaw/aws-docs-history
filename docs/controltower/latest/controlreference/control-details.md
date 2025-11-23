@@ -28,9 +28,9 @@ following details for each control:
 - **Behavior** – A control's behavior is set to
   preventive, detective, or proactive.
 - **Implementation** – The underlying implementation
-  method for this control, such as SCP, AWS Config managed rule, or AWS CloudFormation hook.
+  method for this control, such as SCP, AWS Config managed rule, or CloudFormation hook.
 - **GovernedResources** – The AWS resources that are monitored or
-  affected by this control. This field can show an AWS service name, or an AWS CloudFormation ARN. It can be blank if there's no AWS CloudFormation ARN to represent the resource, or if the control governs resources across several AWS services (for example, the Region Deny control).
+  affected by this control. This field can show an AWS service name, or an CloudFormation ARN. It can be blank if there's no CloudFormation ARN to represent the resource, or if the control governs resources across several AWS services (for example, the Region Deny control).
 - **Framework** – The industry-standard compliance
   framework that this control helps to enforce, for example, **NIST 800-53
   Rev 5**.
@@ -71,25 +71,25 @@ including these items:
 - **Description** – A brief description of the control
   and its function.
 - **Remediation message** – Suggestions for what to change
-  if your AWS CloudFormation hook control returns a FAIL status.
+  if your CloudFormation hook control returns a FAIL status.
 - **Remediation samples** – Examples showing
-  configurations that can return a PASS or FAIL result for your AWS CloudFormation hook
+  configurations that can return a PASS or FAIL result for your CloudFormation hook
   control.
 - **Usage considerations** – Additional information about
   how to apply this control or about the resources it can affect.
 - The **Gherkin** artifact – The Gherkin is a readable
-  specification for the AWS CloudFormation hook controls, showing requirements for tests that
+  specification for the CloudFormation hook controls, showing requirements for tests that
   cause PASS, FAIL, or SKIP results to be returned.
   **To view a control artifact**
 
 Each control is implemented by one or more artifacts. These artifacts can include a
-baseline AWS CloudFormation template, a service control policy (SCP) to prevent account-level
+baseline CloudFormation template, a service control policy (SCP) to prevent account-level
 configuration changes or activity that may create configuration drift, and AWS Config Rules to
 detect account-level policy violations.
 
 To view a control's artifact, select the **Artifact** tab to view the
 **Service control policy (SCP)**, **AWS Config rule**,
-or **AWS CloudFormation policy template** on the **Control
+or **CloudFormation policy template** on the **Control
 details** page.
 
 ###### Note

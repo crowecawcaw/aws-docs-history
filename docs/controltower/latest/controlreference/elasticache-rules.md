@@ -16,10 +16,10 @@
 This control checks whether an Amazon ElastiCache (Redis OSS) cluster has automatic backups enabled.
 
 - **Control objective:** Improve resiliency
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElastiCache::CacheCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICACHE.PR.1 rule specification](#ct-elasticache-pr-1-rule "#ct-elasticache-pr-1-rule")
 
 **Details and examples**
@@ -111,35 +111,35 @@ CacheCluster:
 #   AWS::ElastiCache::CacheCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ElastiCache cache cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache CacheCluster resource
 #       And: 'Engine' has not been provided or has been provided and is not set to 'redis'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache cache cluster resource
 #       And: 'Engine' has been provided and set to 'redis'
 #       And: 'SnapshotRetentionLimit' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache cache cluster resource
 #       And: 'Engine' has been provided and set to 'redis'
 #       And: 'SnapshotRetentionLimit' has been provided and set to a non-integer value or an integer value of 0
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache cache cluster resource
 #       And: 'Engine' has been provided and set to 'redis'
 #       And: 'SnapshotRetentionLimit' has been provided and set to an integer value greater than 0
@@ -320,10 +320,10 @@ Resources:
 This control checks whether an Amazon ElastiCache (Redis OSS) cluster has automatic minor version upgrades enabled.
 
 - **Control objective:** Manage vulnerabilities
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElastiCache::CacheCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICACHE.PR.2 rule specification](#ct-elasticache-pr-2-rule "#ct-elasticache-pr-2-rule")
 
 **Details and examples**
@@ -420,29 +420,29 @@ ElastCacheCacheCluster:
 #   AWS::ElastiCache::CacheCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ElastiCache cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache cluster resource
 #       And: 'Engine' has not been provided or has been provided and is not set to 'redis'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache cluster resource
 #       And: 'Engine' has been provided and is set to 'redis'
 #       And: 'EngineVersion' has been provided and set to a version less than 6
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache cluster resource
 #       And: 'Engine' has been provided and is set to 'redis'
 #       And: 'EngineVersion' has not been provided or 'EngineVersion' has been provided and set
@@ -450,7 +450,7 @@ ElastCacheCacheCluster:
 #       And: 'AutoMinorVersionUpgrade' has not been provided
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache cluster resource
 #       And: 'Engine' has been provided and is set to 'redis'
 #       And: 'EngineVersion' has not been provided or 'EngineVersion' has been provided and set
@@ -458,7 +458,7 @@ ElastCacheCacheCluster:
 #       And: 'AutoMinorVersionUpgrade' has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache cluster resource
 #       And: 'Engine' has been provided and is set to 'redis'
 #       And: 'EngineVersion' has not been provided or 'EngineVersion' has been provided and set
@@ -607,10 +607,10 @@ Resources:
 This control checks whether an Amazon ElastiCache (Redis OSS) replication group has automatic failover enabled.
 
 - **Control objective:** Improve resiliency
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElastiCache::ReplicationGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICACHE.PR.3 rule specification](#ct-elasticache-pr-3-rule "#ct-elasticache-pr-3-rule")
 
 **Details and examples**
@@ -700,35 +700,35 @@ ReplicationGroup:
 #   AWS::ElastiCache::ReplicationGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ElastiCache replication group resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache replication group resource
 #       And: 'Engine' has not been provided or has been provided and is not set to 'redis'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache replication group resource
 #       And: 'Engine' has been provided and set to 'redis'
 #       And: 'AutomaticFailoverEnabled' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache replication group resource
 #       And: 'Engine' has been provided and set to 'redis'
 #       And: 'AutomaticFailoverEnabled' has been provided and is set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache replication group resource
 #       And: 'Engine' has been provided and set to 'redis'
 #       And: 'AutomaticFailoverEnabled' has been provided and is set to a value of bool(true)
@@ -913,10 +913,10 @@ Resources:
 This control checks whether an Amazon ElastiCache (Redis OSS) replication group has the encryption-at-rest setting enabled.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElastiCache::ReplicationGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICACHE.PR.4 rule specification](#ct-elasticache-pr-4-rule "#ct-elasticache-pr-4-rule")
 
 **Details and examples**
@@ -1003,35 +1003,35 @@ ElastiCacheReplicationGroup:
 #   AWS::ElastiCache::ReplicationGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #  Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ElastiCache ReplicationGroup resources
 #      Then: SKIP
 #  Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache ReplicationGroup resource
 #       And: 'Engine' has not been provided or has been provided and is not set to 'redis'
 #      Then: SKIP
 #  Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache ReplicationGroup resource
 #       And: 'Engine' has been provided and set to 'redis'
 #       And: 'AtRestEncryptionEnabled' has not been provided
 #      Then: FAIL
 #  Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache ReplicationGroup resource
 #       And: 'Engine' has been provided and set to 'redis'
 #       And: 'AtRestEncryptionEnabled' has been provided and is set to a value other than bool(true)
 #      Then: FAIL
 #  Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache ReplicationGroup resource
 #       And: 'Engine' has been provided and set to 'redis'
 #       And: 'AtRestEncryptionEnabled' has been provided and is set to a value of bool(true)
@@ -1199,10 +1199,10 @@ Resources:
 This control checks whether an Amazon ElastiCache replication group has encryption-in-transit enabled.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElastiCache::ReplicationGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICACHE.PR.5 rule specification](#ct-elasticache-pr-5-rule "#ct-elasticache-pr-5-rule")
 
 **Details and examples**
@@ -1297,35 +1297,35 @@ ReplicationGroup:
 #   AWS::ElastiCache::ReplicationGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ElastiCache ReplicationGroup resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache ReplicationGroup resource
 #       And: 'Engine' has not been provided or has been provided and is not set to 'redis'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache ReplicationGroup resource
 #       And: 'Engine' has been provided and set to 'redis'
 #       And: 'TransitEncryptionEnabled' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache ReplicationGroup resource
 #       And: 'Engine' has been provided and set to 'redis'
 #       And: 'TransitEncryptionEnabled' has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache ReplicationGroup resource
 #       And: 'Engine' has been provided and set to 'redis'
 #       And: 'TransitEncryptionEnabled' has been provided and set to bool(true)
@@ -1510,10 +1510,10 @@ Resources:
 This control checks whether an Amazon ElastiCache cache cluster is configured with a custom subnet group.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElastiCache::CacheCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICACHE.PR.6 rule specification](#ct-elasticache-pr-6-rule "#ct-elasticache-pr-6-rule")
 
 **Details and examples**
@@ -1607,33 +1607,33 @@ ElasticacheCluster:
 #   AWS::ElastiCache::CacheCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ElastiCache cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache cluster resource
 #       And: 'CacheSubnetGroupName' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache cluster resource
 #       And: 'CacheSubnetGroupName' has been provided as an empty string or as a non-valid local reference
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache cluster resource
 #       And: 'CacheSubnetGroupName' has been provided and set to a value of 'default'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache cluster resource
 #       And: 'CacheSubnetGroupName' has been provided as a non-empty string or a valid local reference
 #      Then: PASS
@@ -1848,10 +1848,10 @@ Resources:
 This control checks whether an Amazon ElastiCache replication group with an engine version earlier than 6.0 has Redis OSS AUTH enabled.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElastiCache::ReplicationGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICACHE.PR.7 rule specification](#ct-elasticache-pr-7-rule "#ct-elasticache-pr-7-rule")
 
 **Details and examples**
@@ -1952,36 +1952,36 @@ ReplicationGroup:
 #   AWS::ElastiCache::ReplicationGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ElastiCache replication group resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache replication group resource
 #       And: 'Engine' has not been provided or has been provided and is not set to 'redis'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache replication group resource
 #       And: 'Engine' has been provided and is set to 'redis'
 #       And: 'EngineVersion' has not been provided or has been provided and set to a version greater than or equal to 6
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache replication group resource
 #       And: 'Engine' has been provided and is set to 'redis'
 #       And: 'EngineVersion' has been provided and set to a version less than 6
 #       And: 'AuthToken' has not been provided or has been provided and set to an empty string
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElastiCache replication group resource
 #       And: 'Engine' has been provided and is set to 'redis'
 #       And: 'EngineVersion' has been provided and set to a version less than 6
@@ -2197,10 +2197,10 @@ Resources:
 This control checks whether Amazon ElastiCache replication groups with an engine version greater than or equal to 6.0 have RBAC authentication enabled.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElastiCache::ReplicationGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICACHE.PR.8 rule specification](#ct-elasticache-pr-8-rule "#ct-elasticache-pr-8-rule")
 
 **Details and examples**
@@ -2208,7 +2208,7 @@ This control checks whether Amazon ElastiCache replication groups with an engine
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.ELASTICACHE.PR.8 rule specification](#ct-elasticache-pr-8-rule "#ct-elasticache-pr-8-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.ELASTICACHE.PR.8 example templates](#ct-elasticache-pr-8-templates "#ct-elasticache-pr-8-templates")
 
@@ -2307,29 +2307,29 @@ ReplicationGroup:
 #   AWS::ElastiCache::ReplicationGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon ElastiCache replication group resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon ElastiCache replication group resource
 #       And: 'Engine' has not been provided or has been provided and is not set to 'redis'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon ElastiCache replication group resource
 #       And: 'Engine' has been provided and is set to 'redis'
 #       And: 'EngineVersion' has been provided and set to a version less than 6
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon ElastiCache replication group resource
 #       And: 'Engine' has been provided and set to 'redis'
 #       And: 'EngineVersion' has not been provided or has been provided and set to a version greater than or equal to 6
@@ -2337,7 +2337,7 @@ ReplicationGroup:
 #            string or invalid local reference
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon ElastiCache replication group resource
 #       And: 'Engine' has been provided and set to 'redis'
 #       And: 'EngineVersion' has not been provided or has been provided and set to a version greater than or equal to 6

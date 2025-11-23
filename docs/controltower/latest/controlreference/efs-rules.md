@@ -12,10 +12,10 @@
 This control checks whether an Amazon Elastic File System (Amazon EFS) file system is configured to encrypt file data using AWS KMS.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EFS::FileSystem`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICFILESYSTEM.PR.1 rule specification](#ct-elasticfilesystem-pr-1-rule "#ct-elasticfilesystem-pr-1-rule")
 
 **Details and examples**
@@ -127,28 +127,28 @@ EFSFileSystem:
 #   AWS::EFS::FileSystem
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EFS file system resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EFS file system resource
 #       And: 'Encrypted' is not present
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EFS file system resource
 #       And: 'Encrypted' is present and set to bool(false)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EFS file system resource
 #       And: 'Encrypted' is present and set to bool(true)
 #      Then: PASS
@@ -248,10 +248,10 @@ Resources:
 This control checks whether your Amazon Elastic File System (Amazon EFS) file system has been configured with automatic backups through AWS Backup.
 
 - **Control objective:** Improve resiliency
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EFS::FileSystem`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICFILESYSTEM.PR.2 rule specification](#ct-elasticfilesystem-pr-2-rule "#ct-elasticfilesystem-pr-2-rule")
 
 **Details and examples**
@@ -325,28 +325,28 @@ EFSFileSystem:
 #   AWS::EFS::FileSystem
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EFS file system resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EFS file system resource
 #       And: 'BackupPolicy' is not present
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EFS file system resource
 #       And: 'BackupPolicy' is present and 'Status' is set to 'DISABLED'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EFS file system resource
 #       And: 'BackupPolicy' is present and 'Status' is set to 'ENABLED'
 #      Then: PASS
@@ -453,10 +453,10 @@ Resources:
 This control checks whether your Amazon Elastic File System (Amazon EFS) access points are configured to enforce a root directory.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EFS::AccessPoint`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICFILESYSTEM.PR.3 rule specification](#ct-elasticfilesystem-pr-3-rule "#ct-elasticfilesystem-pr-3-rule")
 
 **Details and examples**
@@ -534,35 +534,35 @@ EFSAccessPoint:
 #   AWS::EFS::AccessPoint
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EFS access point resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EFS access point resource
 #       And: 'RootDirectory' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EFS access point resource
 #       And: 'RootDirectory' has been provided
 #       And: 'Path' within 'RootDirectory' has not been provided or has been provided with an empty string value
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EFS access point resource
 #       And: 'RootDirectory' has been provided
 #       And: 'Path' within 'RootDirectory' been provided with a value of '/'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EFS access point resource
 #       And: 'RootDirectory' has been provided
 #       And: 'Path' within 'RootDirectory' been provided with a non-empty string value not equal to '/'
@@ -686,10 +686,10 @@ Resources:
 This control checks whether your Amazon Elastic File System (Amazon EFS) access points are configured to enforce a user identity.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EFS::AccessPoint`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICFILESYSTEM.PR.4 rule specification](#ct-elasticfilesystem-pr-4-rule "#ct-elasticfilesystem-pr-4-rule")
 
 **Details and examples**
@@ -768,30 +768,30 @@ EFSAccessPoint:
 #   AWS::EFS::AccessPoint
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EFS access point resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EFS access point resource
 #       And: 'PosixUser' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EFS access point resource
 #       And: 'PosixUser' has been provided
 #       And: 'Uid' within 'PosixUser' has not been provided or has been provided with an empty string value
 #       And: 'Gid' within 'PosixUser' has not been provided or has been provided with an empty string value
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EFS access point resource
 #       And: 'PosixUser' has been provided
 #       And: 'Uid' within 'PosixUser' has been provided with a non-empty string value

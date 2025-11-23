@@ -2,9 +2,15 @@
 
 Security OU
 
-AWS Control Tower deploys and manages resources in the Security OU, which are required so that
-AWS Control Tower can function properly. You can deploy certain preventive controls (SCP-based) and
-detective controls (based on AWS Config rules) to this OU. Most controls cannot be enabled for this OU.
+For customers on LZ v4.0:
+
+There is no longer a Security OU managed by AWS Control Tower so restrictions below do not apply.
+
+For existing customers on LZ v3.3 and below:
+
+AWS Control Tower deploys and manages resources in the Security OU, which are required so that AWS Control Tower
+can function properly. You can deploy certain preventive controls (SCP-based) and detective controls (based on AWS Config
+rules) to this OU. Most controls cannot be enabled for this OU.
 
 ###### Controls that cannot be deployed to the Security OU
 
@@ -55,3 +61,6 @@ detective controls (based on AWS Config rules) to this OU. Most controls cannot 
 - CT.CLOUDFORMATION.PR.1
 - CT.IAM.PV.1
 - CT.S3.PV.1
+- CT.S3.PV.7
+- CT.S3.PV.8
+- CT.SNS.PV.1

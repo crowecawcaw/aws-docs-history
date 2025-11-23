@@ -3,6 +3,11 @@
 You can enable certain controls and subscribe to certain SNS notifications that help
 you maintain compliance in AWS Control Tower.
 
+###### Note
+
+AWS Control Tower will no longer be sending drift notifications to SNS topic for all customers on
+LZ4.0+. For customers on LZ4.0+ follow the [EventBridge Notification setup](../userguide/governance-drift.md#eventbridge-creation "../userguide/governance-drift.md#eventbridge-creation").
+
 **Drift monitoring protection**
 
 AWS Control Tower provides passive and active methods of drift monitoring protection for

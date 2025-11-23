@@ -21,10 +21,10 @@ your landing zone. For example, if your home Region is US West (Oregon) Region, 
 the control to Canada (Central) Region, if Canada (Central) Region is governed by AWS Control Tower.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::DAX::Cluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.DAX.PR.1 rule specification](#ct-dax-pr-1-rule "#ct-dax-pr-1-rule")
 
 **Details and examples**
@@ -109,29 +109,29 @@ DAXCluster:
 #   AWS::DAX::Cluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any DAX Cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains at least one DAX Cluster resource
 #       And: 'SSESpecification' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains at least one DAX Cluster resource
 #       And: 'SSESpecification' has been provided and 'SSESpecification.SSEEnabled' is missing or has been set to a
 #            value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains at least one DAX Cluster resource
 #       And: 'SSESpecification' has been provided and 'SSESpecification.SSEEnabled' is present and has been set to
 #            bool(true)
@@ -307,10 +307,10 @@ Resources:
 This control checks whether an Amazon DAX cluster is configured to deploy cluster nodes to at least three Availability Zones.
 
 - **Control objective:** Improve resiliency, Improve availability
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::DAX::Cluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.DAX.PR.2 rule specification](#ct-dax-pr-2-rule "#ct-dax-pr-2-rule")
 
 **Details and examples**
@@ -426,18 +426,18 @@ DaxCluster:
 #   AWS::DAX::Cluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any DAX cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a DAX cluster resource
 #       And: 'ReplicationFactor' has not been provided or has been provided as an integer
 #            value less than three (< 3)
@@ -445,7 +445,7 @@ DaxCluster:
 #            list with less than three unique entires
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a DAX cluster resource
 #       And: 'ReplicationFactor' has been provided as an integer value greater than or
 #            equal to three (>= 3)
@@ -453,14 +453,14 @@ DaxCluster:
 #            list with less than three unique entires
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a DAX cluster resource
 #       And: 'ReplicationFactor' has not been provided or has been provided as an integer
 #            value less than three (< 3)
 #       And: 'AvailabilityZones' has been provided as a list with three or more unique entires
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a DAX cluster resource
 #       And: 'ReplicationFactor' has been provided as an integer value greater than or
 #            equal to three (>= 3)
@@ -664,10 +664,10 @@ Resources:
 This control checks whether an Amazon DynamoDB Accelerator (DAX) cluster endpoint is configured to encrypt data in transit with Transport Layer Security (TLS).
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::DAX::Cluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.DAX.PR.3 rule specification](#ct-dax-pr-3-rule "#ct-dax-pr-3-rule")
 
 **Details and examples**
@@ -675,7 +675,7 @@ This control checks whether an Amazon DynamoDB Accelerator (DAX) cluster endpoin
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.DAX.PR.3 rule specification](#ct-dax-pr-3-rule "#ct-dax-pr-3-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.DAX.PR.3 example templates](#ct-dax-pr-3-templates "#ct-dax-pr-3-templates")
 
@@ -761,28 +761,28 @@ DaxCluster:
 #   AWS::DAX::Cluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any DAX cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a DAX cluster resource
 #       And: 'ClusterEndpointEncryptionType' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a DAX cluster resource
 #       And: 'ClusterEndpointEncryptionType' has been provided and set to a value other than 'TLS'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a DAX cluster resource
 #       And: 'ClusterEndpointEncryptionType' has been provided and set to 'TLS'
 #      Then: PASS

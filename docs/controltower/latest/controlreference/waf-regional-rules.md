@@ -10,10 +10,10 @@
 This control checks whether an AWS WAF Classic Regional rule contains any conditions.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::WAFRegional::Rule`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.WAF-REGIONAL.PR.1 rule specification](#ct-waf-regional-pr-1-rule "#ct-waf-regional-pr-1-rule")
 
 **Details and examples**
@@ -99,28 +99,28 @@ WafRegionalRule:
 #   AWS::WAFRegional::Rule
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any AWS WAF Classic Regional rule resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS WAF Classic Regional resource
 #       And: 'Predicates' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS WAF Classic Regional rule resource
 #       And: 'Predicates' has been provided as an empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS WAF Classic Regional rule resource
 #       And: 'Predicates' has been provided as a non-empty list
 #      Then: PASS
@@ -234,10 +234,10 @@ Resources:
 This control checks whether an AWS WAF Classic Regional web ACL contains any WAF rules or rule groups.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::WAFRegional::WebACL`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.WAF-REGIONAL.PR.2 rule specification](#ct-waf-regional-pr-2-rule "#ct-waf-regional-pr-2-rule")
 
 **Details and examples**
@@ -331,28 +331,28 @@ WafRegionalWebAcl:
 #   AWS::WAFRegional::WebACL
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any WAF Classic Regional web ACL resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS WAF Classic Regional web ACL resource
 #       And: 'Rules' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS WAF Classic Regional web ACL resource
 #       And: 'Rules' has been provided as an empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS WAF Classic Regional web ACL resource
 #       And: 'Rules' has been provided as a non-empty list
 #      Then: PASS

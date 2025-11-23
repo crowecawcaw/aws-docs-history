@@ -10,10 +10,10 @@
 This control checks whether point-in-time recovery (PITR) is enabled for an Amazon DynamoDB table.
 
 - **Control objective:** Improve resiliency
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::DynamoDB::Table`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.DYNAMODB.PR.1 rule specification](#ct-dynamodb-pr-1-rule "#ct-dynamodb-pr-1-rule")
 
 **Details and examples**
@@ -106,30 +106,30 @@ DynamoDBTable:
 #   AWS::DynamoDB::Table
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Paramaeters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document does not contain any DynamoDB table resources
 #       Then: SKIP
 #   Scenario: 2
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document does not contains a DynamoDB table resource
 #        And: 'PointInTimeRecoverySpecification' is not present on the DynamoDB table resource
 #       Then: FAIL
 #   Scenario: 3
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document does not contains a DynamoDB table resource
 #        And: 'PointInTimeRecoverySpecification' is present on the DynamoDB table resource
 #        And: 'PointInTimeRecoveryEnabled' in 'PointInTimeRecoverySpecification' is missing or is a value
 #              other than bool(true)
 #       Then: FAIL
 #   Scenario: 4
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document does not contains a DynamoDB table resource
 #        And: 'PointInTimeRecoverySpecification' is present on the DynamoDB table resource
 #        And: 'PointInTimeRecoveryEnabled' in 'PointInTimeRecoverySpecification' is present and set to bool(true)
@@ -248,10 +248,10 @@ Resources:
 This control checks whether your Amazon DynamoDB table is encrypted with an AWS Key Management Service (KMS) key.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::DynamoDB::Table`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.DYNAMODB.PR.2 rule specification](#ct-dynamodb-pr-2-rule "#ct-dynamodb-pr-2-rule")
 
 **Details and examples**
@@ -351,28 +351,28 @@ DynamoDBTable:
 #   AWS::DynamoDB::Table
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any DynamoDB table resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a DynamoDB table resources
 #       And: 'SSEEnabled' in 'SSESpecification' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a DynamoDB table resources
 #       And: 'SSEEnabled' in 'SSESpecification' has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a DynamoDB table resources
 #       And: 'SSEEnabled' in 'SSESpecification' has been provided and set to bool(true)
 #      Then: PASS

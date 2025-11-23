@@ -12,10 +12,10 @@
 This control checks whether an Amazon EMR security configuration is configured to encrypt EMR File System (EMRFS) objects at rest in Amazon S3.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EMR::SecurityConfiguration`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EMR.PR.1 rule specification](#ct-emr-pr-1-rule "#ct-emr-pr-1-rule")
 
 **Details and examples**
@@ -102,30 +102,30 @@ SecurityConfiguration:
 #   AWS::EMR::SecurityConfiguration
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1`
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any EMR security configuration resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has been provided as a struct
 #       And: 'EnableAtRestEncryption' in 'EncryptionConfiguration' has not been provided
 #            or has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has been provided as a struct
 #       And: 'EnableAtRestEncryption' in 'EncryptionConfiguration' has been provided and
@@ -133,7 +133,7 @@ SecurityConfiguration:
 #       And: 'AtRestEncryptionConfiguration' has not been provided
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has been provided as a struct
 #       And: 'EnableAtRestEncryption' in 'EncryptionConfiguration' has been provided and
@@ -143,7 +143,7 @@ SecurityConfiguration:
 #            has not been provided or has been provided as an empty string
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has been provided as a struct
 #       And: 'EnableAtRestEncryption' in 'EncryptionConfiguration' has been provided and
@@ -289,10 +289,10 @@ Resources:
 This control checks whether an Amazon EMR security configuration is configured to encrypt EMR File System (EMRFS) objects at rest in Amazon S3 with an AWS KMS key.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EMR::SecurityConfiguration`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EMR.PR.2 rule specification](#ct-emr-pr-2-rule "#ct-emr-pr-2-rule")
 
 **Details and examples**
@@ -386,30 +386,30 @@ SecurityConfiguration:
 #   AWS::EMR::SecurityConfiguration
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any EMR security configuration resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has been provided as a struct
 #       And: 'EnableAtRestEncryption' in 'EncryptionConfiguration' has not been provided
 #            or has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has been provided as a struct
 #       And: 'EnableAtRestEncryption' in 'EncryptionConfiguration' has been provided and
@@ -417,7 +417,7 @@ SecurityConfiguration:
 #       And: 'AtRestEncryptionConfiguration' has not been provided
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has been provided as a struct
 #       And: 'EnableAtRestEncryption' in 'EncryptionConfiguration' has been provided and
@@ -428,7 +428,7 @@ SecurityConfiguration:
 #            a KMS-based encryption mode ('SSE-KMS', 'CSE-KMS')
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has been provided as a struct
 #       And: 'EnableAtRestEncryption' in 'EncryptionConfiguration' has been provided and
@@ -442,7 +442,7 @@ SecurityConfiguration:
 #            ('SSE-KMS', 'CSE-KMS')
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has been provided as a struct
 #       And: 'EnableAtRestEncryption' in 'EncryptionConfiguration' has been provided and
@@ -621,10 +621,10 @@ Resources:
 This control checks whether Amazon EMR security configurations are configured with local disk encryption enabled, using EBS volume encryption and AWS KMS.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EMR::SecurityConfiguration`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EMR.PR.3 rule specification](#ct-emr-pr-3-rule "#ct-emr-pr-3-rule")
 
 **Details and examples**
@@ -720,30 +720,30 @@ SecurityConfiguration:
 #   AWS::EMR::SecurityConfiguration
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any EMR security configuration resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has been provided as a struct
 #       And: 'EnableAtRestEncryption' in 'EncryptionConfiguration' has not been provided
 #            or has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has been provided as a struct
 #       And: 'EnableAtRestEncryption' in 'EncryptionConfiguration' has been provided and
@@ -751,7 +751,7 @@ SecurityConfiguration:
 #       And: 'AtRestEncryptionConfiguration' has not been provided
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has been provided as a struct
 #       And: 'EnableAtRestEncryption' in 'EncryptionConfiguration' has been provided and
@@ -761,7 +761,7 @@ SecurityConfiguration:
 #            has not been provided or has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has been provided as a struct
 #       And: 'EnableAtRestEncryption' in 'EncryptionConfiguration' has been provided and
@@ -919,10 +919,10 @@ Resources:
 This control checks whether an Amazon EMR security configuration is configured to require encryption in transit.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EMR::SecurityConfiguration`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EMR.PR.4 rule specification](#ct-emr-pr-4-rule "#ct-emr-pr-4-rule")
 
 **Details and examples**
@@ -1015,30 +1015,30 @@ SecurityConfiguration:
 #   AWS::EMR::SecurityConfiguration
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any EMR security configuration resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has been provided as a struct
 #       And: 'EnableInTransitEncryption' in 'EncryptionConfiguration' has not been provided
 #            or has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has been provided as a struct
 #       And: 'EnableInTransitEncryption' in 'EncryptionConfiguration' has been provided and
@@ -1046,7 +1046,7 @@ SecurityConfiguration:
 #       And: 'InTransitEncryptionConfiguration' has not been provided
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has been provided as a struct
 #       And: 'EnableInTransitEncryption' in 'EncryptionConfiguration' has been provided and
@@ -1056,7 +1056,7 @@ SecurityConfiguration:
 #            has not been provided or has been provided and set to an empty string
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EMR security configuration resource
 #       And: 'EncryptionConfiguration' in 'SecurityConfiguration' has been provided as a struct
 #       And: 'EnableInTransitEncryption' in 'EncryptionConfiguration' has been provided and

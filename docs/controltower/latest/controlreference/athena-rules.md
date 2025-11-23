@@ -9,10 +9,10 @@
 This control checks whether an Amazon Athena workgroup is configured to encrypt query results at rest with an AWS KMS key.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Athena::WorkGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ATHENA.PR.2 rule specification](#ct-athena-pr-2-rule "#ct-athena-pr-2-rule")
 
 **Details and examples**
@@ -110,31 +110,31 @@ AthenaWorkGroup:
 #   AWS::Athena::WorkGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Athena workgroup resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Athena workgroup resource
 #       And: 'EnforceWorkGroupConfiguration' in 'WorkGroupConfiguration' has been provided and
 #            set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Athena workgroup resource
 #       And: 'EnforceWorkGroupConfiguration' in 'WorkGroupConfiguration' has not been provided or provided
 #            and set to bool(true)
 #       And: 'EncryptionConfiguration' in 'WorkGroupConfiguration.ResultConfiguration' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Athena workgroup resource
 #       And: 'EnforceWorkGroupConfiguration' in 'WorkGroupConfiguration' has not been provided or provided
 #            and set to bool(true)
@@ -144,7 +144,7 @@ AthenaWorkGroup:
 #            invalid local reference
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Athena workgroup resource
 #       And: 'EnforceWorkGroupConfiguration' in 'WorkGroupConfiguration' has not been provided or provided
 #            and set to bool(true)
@@ -154,7 +154,7 @@ AthenaWorkGroup:
 #            invalid local reference
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Athena workgroup resource
 #       And: 'EnforceWorkGroupConfiguration' in 'WorkGroupConfiguration' has not been provided or provided
 #            and set to bool(true)
@@ -164,7 +164,7 @@ AthenaWorkGroup:
 #            a KMS key or key alias
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Athena workgroup resource
 #       And: 'EnforceWorkGroupConfiguration' in 'WorkGroupConfiguration' has not been provided or provided
 #            and set to bool(true)

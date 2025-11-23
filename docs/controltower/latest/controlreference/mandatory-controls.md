@@ -1,16 +1,228 @@
 # Mandatory controls
 
 Mandatory controls are owned by AWS Control Tower, and they apply to every OU on your landing zone,
-with some some exceptions for the **Security OU**. These controls are
-applied to your OUs by default when you set up your landing zone, and they can't be deactivated, because they protect AWS Control Tower resources.
+with some exceptions for the **Security OU**. These controls are
+applied to your OUs by default when you set up your , and they can't be deactivated, because they protect AWS Control Tower resources.
 
 Following, you'll find a reference for each of the mandatory controls available in
-AWS Control Tower.
+AWS Control Tower today. Please note that with AWS Control Tower Landing Zone 4.0, there have been several
+changes to the mandatory controls.
 
 ###### Topics
 
+- [Changes in Landing Zone 4.0 controls](#changes-in-landing-zone-40 "#changes-in-landing-zone-40")
 - [Mandatory controls for the Security OU](#mandatory-on-security-ou "#mandatory-on-security-ou")
 - [Mandatory controls for all OUs](#mandatory-on-all-ous "#mandatory-on-all-ous")
+
+## Changes in Landing Zone 4.0 controls
+
+- AWS Control Tower will no longer deploy the below controls from 4.0 because these protect the account trails which were deployed
+  in 2.9 and below. These controls would still be applied for versions below 4.0 and would be deleted once customers
+  upgrade to versions 4.0 and above.
+  - [Disallow Configuration Changes to
+    CloudTrail](#cloudtrail-configuration-changes "#cloudtrail-configuration-changes")Disallow Configuration Changes to CloudTrail
+  - [Integrate CloudTrail Events with Amazon
+    CloudWatch Logs](#cloudtrail-integrate-events-logs "#cloudtrail-integrate-events-logs")Integrate CloudTrail Events with Amazon CloudWatch Logs
+  - [Enable CloudTrail in All Available Regions](#cloudtrail-enable-region "#cloudtrail-enable-region")Enable CloudTrail in All Available Regions
+  - [Enable Integrity Validation for CloudTrail Log
+    File](#cloudtrail-enable-validation "#cloudtrail-enable-validation")Enable Integrity Validation for CloudTrail Log File
+
+- The following detective mandatory control will be removed:
+  - [Detect whether shared accounts
+    under the Security organizational unit have AWS CloudTrail or CloudTrail Lake
+    enabled](#ensure-cloudtrail-enabled-mandatory "#ensure-cloudtrail-enabled-mandatory")Detect whether shared accounts under the Security organizational unit have AWS CloudTrail or CloudTrail Lake enabled
+
+- The following controls will be removed if the customer has AWS Config integration enabled and are upgrading to 4.0 and above
+  (Note: Customers on versions below 4.0 have AWS Config integration enabled by default). These controls are related to legacy
+  AWS Config aggregators and are no longer required for Service-Linked Config Aggregator. Read more on the Service-linked Config aggregator
+  [here](../../../prescriptive-guidance/latest/designing-control-tower-landing-zone/config-mgmt.md "../../../prescriptive-guidance/latest/designing-control-tower-landing-zone/config-mgmt.md").
+  - [Disallow Changes to Tags Created by
+    AWS Control Tower for AWS Config Resources](#cloudwatch-disallow-config-changes "#cloudwatch-disallow-config-changes")
+  - [Disallow Deletion of AWS Config Aggregation Authorizations Created by AWS Control Tower](#config-aggregation-authorization-policy "#config-aggregation-authorization-policy")
+  - [Disallow Changes to AWS Config Rules Set Up by
+    AWS Control Tower](#config-rule-disallow-changes "#config-rule-disallow-changes")
+
+- The AWS CloudTrail integration tied to the manifest `centralizedLogging` configuration has two new controls
+  starting 4.0
+  - Disallow changes to Amazon SNS subscriptions and topics managed by AWS Control Tower
+
+  ```
+
+  {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Sid": "CTSNSPV1",
+              "Effect": "Deny",
+              "NotAction": [
+                  "sns:ConfirmSubscription",
+                  "sns:Get*",
+                  "sns:List*",
+                  "sns:Publish",
+                  "sns:PutDataProtectionPolicy",
+                  "sns:Subscribe",
+                  "sns:TagResource",
+                  "sns:Unsubscribe",
+                  "sns:UntagResource"
+              ],
+              "Resource": "arn:*:sns:*:*:aws-controltower-CentralizedLoggingNotifications*",
+              "Condition": {
+                   "ArnNotLike": {
+                          "aws:PrincipalARN": [
+                          "arn:*:iam::*:role/AWSControlTowerExecution"
+                      ]
+                   }
+              }
+          }
+      ]
+  }
+
+  ```
+
+  - Disallow modifications to Amazon S3 buckets managed by AWS Control Tower
+
+  ```
+
+  {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Sid": "CTS3PV8",
+              "Effect": "Deny",
+              "NotAction": [
+                  "s3:DeleteObject",
+                  "s3:DeleteObjectTagging",
+                  "s3:DeleteObjectVersion",
+                  "s3:DeleteObjectVersionTagging",
+                  "s3:Get*",
+                  "s3:List*",
+                  "s3:PutBucketTagging",
+                  "s3:PutObject",
+                  "s3:PutObjectAcl",
+                  "s3:PutObjectLegalHold",
+                  "s3:PutObjectRetention",
+                  "s3:PutObjectTagging",
+                  "s3:PutObjectVersionAcl",
+                  "s3:PutObjectVersionTagging",
+                  "s3:RestoreObject"
+              ],
+              "Resource": [
+                  "arn:*:s3:::aws-controltower-access-logs-*",
+                  "arn:*:s3:::aws-controltower-cloudtrail-*",
+                  "arn:*:s3:::aws-controltower-logs-*"
+              ],
+              "Condition": {
+                  "ArnNotLike": {
+                      "aws:PrincipalARN": [
+                          "arn:*:iam::*:role/AWSControlTowerExecution"
+                      ]
+                  }
+              }
+          }
+      ]
+  }
+
+  ```
+
+- The AWS Config integration has a new control starting 4.0
+  - Disallow modifications to AWS Config recorder Amazon S3 buckets managed by AWS Control Tower
+
+  ```
+
+  {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Sid": "CTS3PV7",
+               "Effect": "Deny",
+               "NotAction": [
+                   "s3:DeleteObject",
+                   "s3:DeleteObjectTagging",
+                          "s3:DeleteObjectVersion",
+                          "s3:DeleteObjectVersionTagging",
+                          "s3:Get*",
+                          "s3:List*",
+                          "s3:PutBucketTagging",
+                          "s3:PutObject",
+                          "s3:PutObjectAcl",
+                          "s3:PutObjectLegalHold",
+                          "s3:PutObjectRetention",
+                          "s3:PutObjectTagging",
+                          "s3:PutObjectVersionAcl",
+                          "s3:PutObjectVersionTagging",
+                          "s3:RestoreObject"
+               ],
+               "Resource": "arn:*:s3:::aws-controltower-config-*",
+               "Condition": {
+                   "ArnNotLike": {
+                       "aws:PrincipalARN": [
+                          "arn:*:iam::*:role/AWSControlTowerExecution"
+                      ]
+                  }
+              }
+          }
+      ]
+  }
+
+  ```
+
+- On 4.0, AWS Control Tower will disable the following controls as they are replaced with a single unified
+  preventive control for AWS Config integration. The security governance boundary remains the same,
+  but with reduced SCP space.
+  - [Disallow Changes to Encryption
+    Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-changes-s3-buckets-created "#disallow-changes-s3-buckets-created")
+  - [Disallow Changes to
+    Logging Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-logging-changes-s3-buckets-created "#disallow-logging-changes-s3-buckets-created")
+  - [Disallow Changes to Bucket
+    Policy for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-policy-changes-s3-buckets-created "#disallow-policy-changes-s3-buckets-created")
+  - [Disallow Changes to
+    Lifecycle Configuration for AWS Control Tower Created Amazon S3 Buckets in Log
+    Archive](#disallow-lifecycle-changes-s3-buckets-created "#disallow-lifecycle-changes-s3-buckets-created")
+  - [Disallow Deletion of Log
+    Archive](#disallow-audit-bucket-deletion "#disallow-audit-bucket-deletion")
+  - [Detect Public Write Access Setting for Log
+    Archive](#log-archive-public-write "#log-archive-public-write")
+  - [Detect Public Read Access Setting for Log
+    Archive](#log-archive-public-read "#log-archive-public-read")
+
+- AWS Control Tower is updating the following controls for all versions, this change will take place when customers
+  update/reset their existing setup.
+  - [Disallow Changes to Amazon SNS Set Up by
+    AWS Control Tower](#sns-disallow-changes "#sns-disallow-changes")
+
+  The change is to specify three explicit SNS topic ARNs in the Resource section instead
+  of using a wildcard pattern
+
+  ```
+
+  {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Sid": "GRSNSTOPICPOLICY",
+               "Effect": "Deny",
+               "Action": [
+                   "sns:AddPermission",
+                   "sns:CreateTopic",
+                   "sns:DeleteTopic",
+                   "sns:RemovePermission",
+                   "sns:SetTopicAttributes"
+               ],
+               "Resource": [
+                   "arn:*:sns:*:*:aws-controltower-AggregateSecurityNotifications*",
+                   "arn:*:sns:*:*:aws-controltower-AllConfigNotifications*",
+                   "arn:*:sns:*:*:aws-controltower-SecurityNotifications*"
+               ],
+               "Condition": {
+                   "ArnNotLike": {
+                       "aws:PrincipalARN": "arn:*:iam::*:role/AWSControlTowerExecution"
+                   }
+               }
+           }
+       ]
+  }
+
+  ```
 
 ## Mandatory controls for the Security OU
 

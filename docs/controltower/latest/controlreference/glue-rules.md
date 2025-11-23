@@ -12,10 +12,10 @@ security configuration
 This control checks whether an AWS Glue job has an associated security configuration.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Glue::Job`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.GLUE.PR.1 rule specification](#ct-glue-pr-1-rule "#ct-glue-pr-1-rule")
 
 **Details and examples**
@@ -105,29 +105,29 @@ GlueJob:
 #   AWS::Glue::Job
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any AWS Glue job resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS Glue job resource
 #       And: 'SecurityConfiguration' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS Glue job resource
 #       And: 'SecurityConfiguration 'has been provided as an empty string or invalid local
 #            reference
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation Hook Document
+#     Given: The input document is an CloudFormation or CloudFormation Hook Document
 #       And: The input document contains an AWS Glue job resource
 #       And: 'SecurityConfiguration' has been provided as a non-empty string or valid
 #            local reference to an AWS Glue security configuration resource

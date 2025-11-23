@@ -31,10 +31,10 @@
 This control checks whether your Amazon EC2 launch templates are configured with Instance Metadata Service Version 2 (IMDSv2).
 
 - **Control objective:** Enforce least privilege, Protect configurations
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::LaunchTemplate`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.1 rule specification](#ct-ec2-pr-1-rule "#ct-ec2-pr-1-rule")
 
 **Details and examples**
@@ -125,24 +125,24 @@ EC2LaunchTemplate:
 #   AWS::EC2::LaunchTemplate
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any EC2 launch template resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 launch template resource
 #       And: 'LaunchTemplateData' has not been provided or 'LaunchTemplateData.MetadataOptions.HttpEndpoint' has
 #             been provided and is equal to 'disabled'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 launch template resource
 #       And: 'LaunchTemplateData' has been provided
 #       And: 'MetadataOptions.HttpEndpoint' in 'LaunchTemplateData' has not been provided or has been provided and
@@ -150,7 +150,7 @@ EC2LaunchTemplate:
 #       And: 'MetadataOptions.HttpTokens' in 'LaunchTemplateData' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 launch template resource
 #       And: 'LaunchTemplateData' has been provided
 #       And: 'MetadataOptions.HttpEndpoint' in 'LaunchTemplateData' has not been provided or has been provided and
@@ -158,7 +158,7 @@ EC2LaunchTemplate:
 #       And: 'MetadataOptions.HttpTokens' in 'LaunchTemplateData' has been provided and set to a value other than 'required'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 launch template resource
 #       And: 'LaunchTemplateData' has been provided
 #       And: 'MetadataOptions.HttpEndpoint' in 'LaunchTemplateData' has not been provided or has been provided and
@@ -313,10 +313,10 @@ Resources:
 This control checks whether an Amazon EC2 launch template has a metadata token hop limit set to `1`.
 
 - **Control objective:** Enforce least privilege, Protect configurations
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::LaunchTemplate`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.2 rule specification](#ct-ec2-pr-2-rule "#ct-ec2-pr-2-rule")
 
 **Details and examples**
@@ -341,13 +341,13 @@ The Time To Live (TTL) field in the IP packet is reduced by one on every hop. Th
 
 ### Remediation for rule failure
 
-Within the `LaunchTemplateData` property, provide a `MetadataOptions` configuration with the value of `HttpPutResponseLimit` set to `1`, or omit the `HttpPutResponseLimit` property to adopt the AWS CloudFormation default value of `1`.
+Within the `LaunchTemplateData` property, provide a `MetadataOptions` configuration with the value of `HttpPutResponseLimit` set to `1`, or omit the `HttpPutResponseLimit` property to adopt the CloudFormation default value of `1`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Launch Template - Example One
 
-Amazon EC2 launch template configured with access to instance metadata enabled and a token hop limit of `1`, set by means of AWS CloudFormation defaults. The example is shown in JSON and in YAML.
+Amazon EC2 launch template configured with access to instance metadata enabled and a token hop limit of `1`, set by means of CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -441,24 +441,24 @@ EC2LaunchTemplate:
 #   AWS::EC2::LaunchTemplate
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document does not contain any EC2 launch template resources
 #       Then: SKIP
 #   Scenario: 2
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an EC2 launch template resource
 #        And: 'LaunchTemplateData.MetadataOptions' has been provided
 #        And: 'LaunchTemplateData.MetadataOptions.HttpEndpoint' has been provided and is equal to 'disabled'
 #       Then: SKIP
 #   Scenario: 3
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an EC2 launch template resource
 #        And: 'LaunchTemplateData.MetadataOptions' has been provided
 #        And: 'LaunchTemplateData.MetadataOptions.HttpEndpoint' has not been provided or has been provided and is
@@ -467,12 +467,12 @@ EC2LaunchTemplate:
 #             an integer of 1.
 #       Then: FAIL
 #   Scenario: 4
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an EC2 launch template resource
 #        And: 'LaunchTemplateData.MetadataOptions' has not been provided
 #       Then: PASS
 #   Scenario: 5
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an EC2 launch template resource
 #        And: 'LaunchTemplateData.MetadataOptions' has been provided
 #        And: 'LaunchTemplateData.MetadataOptions.HttpEndpoint' has not been provided or has been provided and is
@@ -480,7 +480,7 @@ EC2LaunchTemplate:
 #        And: 'LaunchTemplateData.MetadataOptions.HttpPutResponseHopLimit' has not been provided
 #       Then: PASS
 #   Scenario: 6
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an EC2 launch template resource
 #        And: 'LaunchTemplateData.MetadataOptions' has been provided
 #        And: 'LaunchTemplateData.MetadataOptions.HttpEndpoint' has not been provided or has been provided and is
@@ -508,7 +508,7 @@ rule ec2_launch_template_token_hop_limit_check when is_cfn_template(this)
     check(%ec2_launch_templates.Properties)
         <<
         [CT.EC2.PR.2]: Require that Amazon EC2 launch templates restrict the token hop limit to a maximum of one
-            [FIX]: Within the 'LaunchTemplateData' property, provide a 'MetadataOptions' configuration with the value of 'HttpPutResponseLimit' set to '1', or omit the 'HttpPutResponseLimit' property to adopt the AWS CloudFormation default value of '1'.
+            [FIX]: Within the 'LaunchTemplateData' property, provide a 'MetadataOptions' configuration with the value of 'HttpPutResponseLimit' set to '1', or omit the 'HttpPutResponseLimit' property to adopt the CloudFormation default value of '1'.
         >>
 }
 
@@ -516,7 +516,7 @@ rule ec2_launch_template_token_hop_limit_check when is_cfn_hook(%INPUT_DOCUMENT,
     check(%INPUT_DOCUMENT.%EC2_LAUNCH_TEMPLATE_TYPE.resourceProperties)
         <<
         [CT.EC2.PR.2]: Require that Amazon EC2 launch templates restrict the token hop limit to a maximum of one
-            [FIX]: Within the 'LaunchTemplateData' property, provide a 'MetadataOptions' configuration with the value of 'HttpPutResponseLimit' set to '1', or omit the 'HttpPutResponseLimit' property to adopt the AWS CloudFormation default value of '1'.
+            [FIX]: Within the 'LaunchTemplateData' property, provide a 'MetadataOptions' configuration with the value of 'HttpPutResponseLimit' set to '1', or omit the 'HttpPutResponseLimit' property to adopt the CloudFormation default value of '1'.
         >>
 }
 
@@ -623,10 +623,10 @@ This control checks whether an Amazon EC2 security group rule contains the strin
 source IP range. This control is not triggered if a rule allows connection to port 80 or 443 with TCP, UDP, ICMP, or ICMPv6. The use of managed prefix lists is not supported.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::SecurityGroup`, `AWS::EC2::SecurityGroupIngress`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.3 rule specification](#ct-ec2-pr-3-rule "#ct-ec2-pr-3-rule")
 
 **Details and examples**
@@ -634,7 +634,7 @@ source IP range. This control is not triggered if a rule allows connection to po
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.EC2.PR.3 rule specification](#ct-ec2-pr-3-rule "#ct-ec2-pr-3-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.EC2.PR.3 example templates](#ct-ec2-pr-3-templates "#ct-ec2-pr-3-templates")
 
@@ -770,24 +770,24 @@ SecurityGroup:
 #   AWS::EC2::SecurityGroup, AWS::EC2::SecurityGroupIngress
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EC2 security group or EC2 security group ingress resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 security group resource or EC2 security group ingress resource
 #       And: The EC2 security group or EC2 security group ingress resource does not allow inbound traffic from a source
 #            prefix list and has no rules allowing inbound traffic from source '0.0.0.0/0' or '::/0'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 security group resource or EC2 security group ingress resource
 #       And: The EC2 security group or EC2 security group ingress resource has rules allowing inbound traffic
 #            from a source prefix list, or source '0.0.0.0/0' or '::/0'
@@ -795,7 +795,7 @@ SecurityGroup:
 #            ('IpProtocol' is set to '-1' or another protocol number)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 security group resource or EC2 security group ingress resource
 #       And: The EC2 security group or EC2 security group ingress resource has rules allowing inbound traffic
 #            from a source prefix list, or source '0.0.0.0/0' or '::/0'
@@ -804,7 +804,7 @@ SecurityGroup:
 #       And: Ports allowed are not in the list of allowed ports
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 security group resource or EC2 security group ingress resource
 #       And: The EC2 security group or EC2 security group ingress resource has rules allowing inbound traffic
 #            from a source prefix list, or source '0.0.0.0/0' or '::/0'
@@ -1013,10 +1013,10 @@ Resources:
 This control checks whether an Amazon EC2 security group rule that contains the strings `0.0.0.0/0` or `::/0` as a source IP range does not allow incoming TCP, UDP, ICMP, or ICMPv6 traffic to the following ports: `3389`, `20`, `23`, `110`, `143`, `3306`, `8080`, `1433`, `9200`, `9300`, `25`, `445`, `135`, `21`, `1434`, `4333`, `5432`, `5500`, `5601`, `22`, `3000`, `5000`, `8088`, `8888`. The use of managed prefix lists is not supported.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::SecurityGroup`, `AWS::EC2::SecurityGroupIngress`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.4 rule specification](#ct-ec2-pr-4-rule "#ct-ec2-pr-4-rule")
 
 **Details and examples**
@@ -1160,24 +1160,24 @@ SecurityGroupIngress:
 #   AWS::EC2::SecurityGroup, AWS::EC2::SecurityGroupIngress
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation Hook
+#   CloudFormation, CloudFormation Hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any EC2 security group or EC2 security group ingress resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 security group resource or EC2 security group ingress resource
 #       And: EC2 security group or EC2 security group ingress resource does not allow inbound traffic from a source
 #            prefix list and has no rules allowing inbound traffic from source '0.0.0.0/0' or '::/0'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 security group resource or EC2 security group ingress resource
 #       And: EC2 security group or EC2 security group ingress resource has rules allowing inbound traffic
 #            from a source prefix list, or source '0.0.0.0/0' or '::/0'
@@ -1185,7 +1185,7 @@ SecurityGroupIngress:
 #            ('IpProtocol' is set to '-1' or another protocol number)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 security group resource or EC2 security group ingress resource
 #       And: EC2 security group or EC2 security group ingress resource has rules allowing inbound traffic
 #            from a source prefix list, or source '0.0.0.0/0' or '::/0'
@@ -1194,7 +1194,7 @@ SecurityGroupIngress:
 #       And: Ports allowed are in the list of blocked ports
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 security group resource or EC2 security group ingress resource
 #       And: EC2 security group or EC2 security group ingress resource has rules allowing inbound traffic
 #            from a source prefix list, or source '0.0.0.0/0' or '::/0'
@@ -1400,10 +1400,10 @@ Resources:
 This control checks whether the Amazon EC2 network ACL inbound entry allows unrestricted incoming traffic (`0.0.0.0/0` or `::/0`) for SSH or RDP.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::NetworkAclEntry`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.5 rule specification](#ct-ec2-pr-5-rule "#ct-ec2-pr-5-rule")
 
 **Details and examples**
@@ -1549,24 +1549,24 @@ NetworkAclEntry:
 #   AWS::EC2::NetworkAclEntry
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any EC2 network ACL entry resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a EC2 network ACL entry resource
 #       And: EC2 network ACL entry resource has no CIDR block allowing inbound traffic
 #            from source '0.0.0.0/0' or '::/0'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a EC2 network ACL entry resource
 #       And: EC2 network ACL entry resource allows inbound traffic
 #            from source '0.0.0.0/0' or '::/0'
@@ -1574,7 +1574,7 @@ NetworkAclEntry:
 #            ('IpProtocol' is set to '-1')
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a EC2 network ACL entry resource
 #       And: EC2 network ACL entry resource allows inbound traffic
 #            from source '0.0.0.0/0' or '::/0'
@@ -1582,7 +1582,7 @@ NetworkAclEntry:
 #       And: EC2 network ACL entry resource allows traffic from a PortRange that includes 22
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a EC2 network ACL entry resource
 #       And: EC2 network ACL entry resource allows inbound traffic
 #            from source '0.0.0.0/0' or '::/0'
@@ -1590,7 +1590,7 @@ NetworkAclEntry:
 #       And: EC2 network ACL entry resource allows traffic from a PortRange that includes 3389
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a EC2 network ACL entry resource
 #       And: EC2 network ACL entry resource allows inbound traffic
 #            from source '0.0.0.0/0' or '::/0'
@@ -1598,7 +1598,7 @@ NetworkAclEntry:
 #       And: EC2 network ACL entry resource allows traffic from a PortRange that excludes 22
 #      Then: PASS
 # Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a EC2 network ACL entry resource
 #       And: EC2 network ACL entry resource allows inbound traffic
 #            from source '0.0.0.0/0' or '::/0'
@@ -1795,10 +1795,10 @@ Resources:
 This control checks whether Amazon EC2 transit gateways are configured to accept Amazon VPC attachment requests automatically.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::TransitGateway`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.6 rule specification](#ct-ec2-pr-6-rule "#ct-ec2-pr-6-rule")
 
 **Details and examples**
@@ -1869,28 +1869,28 @@ TransitGateway:
 #   AWS::EC2::TransitGateway
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any EC2 transit gateway resources
 #      Then: SKIP
 #   Scenario: 2
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an EC2 transit gateway resource
 #        And: 'AutoAcceptSharedAttachments' configuration has been provided and is set to a value other than 'disable'
 #       Then: FAIL
 #   Scenario: 3
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an EC2 transit gateway resource
 #        And: 'AutoAcceptSharedAttachments' configuration has not been provided
 #       Then: PASS
 #   Scenario: 4
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an EC2 transit gateway resource
 #        And: 'AutoAcceptSharedAttachments' configuration has been provided and set to 'disable'
 #       Then: PASS
@@ -1998,11 +1998,11 @@ Specifically, it checks that the **Encrypted** property is set to
 instance resource definition’s **BlockDeviceMappings** property.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::Instance`,
   `AWS::EC2::Volume`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.7 rule specification](#ct-ec2-pr-7-rule "#ct-ec2-pr-7-rule")
 
 **Details and examples**
@@ -2173,54 +2173,54 @@ EBSVolume:
 #   AWS::EC2::Instance, AWS::EC2::Volume
 #
 # Evaluates:
-#   AWS CloudFormation, CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EC2 volume resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 instance resource
 #       And: 'BlockDeviceMappings' has not been provided or has been provided as an empty list
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 instance resource
 #       And: 'BlockDeviceMappings' has been provided as a non-empty list
 #       And: 'Ebs' has been provided in a 'BlockDeviceMappings' configuration
 #       And: 'Encrypted' has not been provided in the 'Ebs' configuration
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 instance resource
 #       And: 'BlockDeviceMappings' has been provided as a non-empty list
 #       And: 'Ebs' has been provided in a 'BlockDeviceMappings' configuration
 #       And: 'Encrypted' has been provided in the 'Ebs' configuration and set to bool(false)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 volume resource
 #       And: 'Encrypted' on the EC2 volume has not been provided
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 volume resource
 #       And: 'Encrypted' on the EC2 volume has been provided and is set to bool(false)
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 instance resource
 #       And: 'BlockDeviceMappings' has been provided as a non-empty list
 #       And: 'Ebs' has been provided in a 'BlockDeviceMappings' configuration
 #       And: 'Encrypted' has been provided in the 'Ebs' configuration and set to bool(true)
 #      Then: PASS
 #   Scenario: 8
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 volume resource
 #       And: 'Encrypted' on the EC2 volume has been provided and is set to bool(true)
 #      Then: PASS
@@ -2433,10 +2433,10 @@ Resources:
 This control checks whether your Amazon EC2 instance is configured **not** to associate a public IP address by default. In particular, this control requires configuring the **AssociatePublicIpAddress** parameter to **false** on a new network interface created by means of the **NetworkInterfaces** property.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::Instance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.8 rule specification](#ct-ec2-pr-8-rule "#ct-ec2-pr-8-rule")
 
 **Details and examples**
@@ -2540,37 +2540,37 @@ EC2Instance:
 #   AWS::EC2::Instance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any EC2 instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 instance resource
 #       And: 'NetworkInterfaces' is not present on the EC2 instance resource or is an empty list
 #       And: 'SubnetId' is not provided as a top-level resource property
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 instance resource
 #       And: 'NetworkInterfaces' is present on the EC2 instance resource as a non-empty list
 #       And: 'NetworkInterfaceId' is present for a configuration in 'NetworkInterfaces' and is a non-empty string or
 #             valid local reference
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 instance resource
 #       And: 'NetworkInterfaces' is not provided
 #       And: 'SubnetId' is provided as a top-level resource property
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 instance resource
 #       And: 'NetworkInterfaces' is present on the EC2 instance resource with one or more configurations
 #       And: 'NetworkInterfaceId' is not present or is present and and is an empty string or invalid local reference for
@@ -2578,7 +2578,7 @@ EC2Instance:
 #       And: 'AssociatePublicIpAddress' is not present for a configuration in 'NetworkInterfaces'
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 instance resource
 #       And: 'NetworkInterfaces' is present on the EC2 instance resource
 #       And: 'NetworkInterfaceId' is not present or is present and and is an empty string or invalid local reference for
@@ -2587,7 +2587,7 @@ EC2Instance:
 #       And: 'AssociatePublicIpAddress' is set to bool(true)
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 instance resource
 #       And: 'NetworkInterfaces' is present on the EC2 instance resource
 #       And: 'NetworkInterfaceId' is not present or is present and and is an empty string or invalid local reference for
@@ -2801,10 +2801,10 @@ Resources:
 This control checks whether your Amazon EC2 launch templates are configured to assign public IP addresses to network interfaces.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::LaunchTemplate`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.9 rule specification](#ct-ec2-pr-9-rule "#ct-ec2-pr-9-rule")
 
 **Details and examples**
@@ -2894,30 +2894,30 @@ EC2LaunchTemplate:
 #   AWS::EC2::LaunchTemplate
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EC2 launch template resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 launch template resource
 #       And: 'NetworkInterfaces' is not provided in 'LaunchTemplateData'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 launch template resource
 #       And: 'LaunchTemplateData.NetworkInterfaces' is present on the Amazon EC2 launch template resource as a non empty list
 #       And: 'NetworkInterfaceId' is present for a configuration in 'NetworkInterfaces' and is a non-empty string or
 #             valid local reference
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 launch template resource
 #       And: 'LaunchTemplateData.NetworkInterfaces' is present on the Amazon EC2 launch template resource
 #       And: 'NetworkInterfaceId' is not present or is present and is an empty string or invalid local reference for
@@ -2925,7 +2925,7 @@ EC2LaunchTemplate:
 #       And: 'AssociatePublicIpAddress' is not present for a configuration in 'NetworkInterfaces'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 launch template resource
 #       And: 'LaunchTemplateData.NetworkInterfaces' is present on the Amazon EC2 launch template resource
 #       And: 'NetworkInterfaceId' is not present or is present and is an empty string or invalid local reference for
@@ -2934,7 +2934,7 @@ EC2LaunchTemplate:
 #       And: 'AssociatePublicIpAddress' is set to bool(true)
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 launch template resource
 #       And: 'LaunchTemplateData.NetworkInterfaces' is present on the Amazon EC2 launch template resource
 #       And: 'NetworkInterfaceId' is not present or is present and is an empty string or invalid local reference for
@@ -3143,10 +3143,10 @@ Resources:
 This control checks whether the Amazon EC2 launch template has detailed monitoring enabled.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::LaunchTemplate`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.10 rule specification](#ct-ec2-pr-10-rule "#ct-ec2-pr-10-rule")
 
 **Details and examples**
@@ -3223,29 +3223,29 @@ EC2LaunchTemplate:
 #   AWS::EC2::LaunchTemplate
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document does not contain any EC2 launch template resources
 #       Then: SKIP
 #   Scenario: 2
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an EC2 launch template resource
 #        And: 'LaunchTemplateData.Monitoring.Enabled' has not been provided or has been provided and is empty.
 #       Then: FAIL
 #   Scenario: 3
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an EC2 launch template resource
 #        And: 'LaunchTemplateData.Monitoring.Enabled' has been provided
 #        And: 'LaunchTemplateData.Monitoring.Enabled' is equal to a value other than bool(true)
 #       Then: FAIL
 #   Scenario: 4
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an EC2 launch template resource
 #        And: 'LaunchTemplateData.Monitoring.Enabled' has been provided
 #        And: 'LaunchTemplateData.Monitoring.Enabled' is equal to bool(true)
@@ -3361,10 +3361,10 @@ Resources:
 This control checks whether your Amazon VPC subnets assign public IP addresses automatically.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::Subnet`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.11 rule specification](#ct-ec2-pr-11-rule "#ct-ec2-pr-11-rule")
 
 **Details and examples**
@@ -3393,7 +3393,7 @@ The examples that follow show how to implement this remediation.
 
 #### Amazon VPC Subnet - Example One
 
-Amazon VPC subnet configured to deactivate automatic assignment of public IP addresses by means of AWS CloudFormation defaults. The example is shown in JSON and in YAML.
+Amazon VPC subnet configured to deactivate automatic assignment of public IP addresses by means of CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -3506,28 +3506,28 @@ Subnet:
 #   AWS::EC2::Subnet
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any EC2 subnet resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 subnet resource
 #       And: 'MapPublicIpOnLaunch' is present and set to bool(true)
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 subnet resource
 #       And: 'MapPublicIpOnLaunch' is not present
 #      Then: PASS
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 subnet resource
 #       And: 'MapPublicIpOnLaunch' is present and set to bool(false)
 #      Then: PASS
@@ -3648,10 +3648,10 @@ Resources:
 This control checks whether your Amazon Elastic Compute Cloud (Amazon EC2) instance uses multiple ENIs (Elastic Network Interfaces). Specifically, it checks whether an **AWS::EC2::Instance** resource specifies multiple ENIs in the **NetworkInterfaces** property.
 
 - **Control objective:** Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::Instance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.12 rule specification](#ct-ec2-pr-12-rule "#ct-ec2-pr-12-rule")
 
 **Details and examples**
@@ -3743,28 +3743,28 @@ EC2Instance:
 #   AWS::EC2::Instance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EC2 instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 instance resource
 #       And: 'NetworkInterfaces' is not present or is present and contains 0 configurations
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 instance resource
 #       And: 'NetworkInterfaces' is present and contains >1 configurations
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 instance resource
 #       And: 'NetworkInterfaces' is present
 #       And: 'NetworkInterfaces' is present and contains 1 configuration
@@ -3919,10 +3919,10 @@ Resources:
 This control checks whether an Amazon EC2 instance has detailed monitoring enabled.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::Instance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.13 rule specification](#ct-ec2-pr-13-rule "#ct-ec2-pr-13-rule")
 
 **Details and examples**
@@ -4057,28 +4057,28 @@ Resources:
 #   AWS::EC2::Instance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any EC2 instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 instance resource
 #       And: 'Monitoring' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 instance resource
 #       And: 'Monitoring' has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation Hook Document
+#     Given: The input document is an CloudFormation or CloudFormation Hook Document
 #       And: The input document contains an EC2 instance resource
 #       And: 'Monitoring' has been provided and set to bool(true)
 #      Then: PASS
@@ -4227,10 +4227,10 @@ Resources:
 This control checks whether an Amazon EC2 launch template with EBS volume block device mappings is configured to enable EBS volume encryption.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::LaunchTemplate`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.14 rule specification](#ct-ec2-pr-14-rule "#ct-ec2-pr-14-rule")
 
 **Details and examples**
@@ -4319,30 +4319,30 @@ LaunchTemplate:
 #   AWS::EC2::LaunchTemplate
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any EC2 launch template resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 launch template resource
 #       And: 'BlockDeviceMappings' in 'LaunchTemplateData' has not been provided or has
 #            been provided as an empty list
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 launch template resource
 #       And: 'BlockDeviceMappings' in 'LaunchTemplateData' been provided as a non-empty list
 #       And: No entries in 'BlockDeviceMappings' contain 'Ebs' as a struct
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 launch template resource
 #       And: 'BlockDeviceMappings' in 'LaunchTemplateData' been provided as a non-empty list
 #       And: An entry in 'BlockDeviceMappings' contains 'Ebs' as a struct
@@ -4350,7 +4350,7 @@ LaunchTemplate:
 #            and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an EC2 launch template resource
 #       And: 'BlockDeviceMappings' in 'LaunchTemplateData' been provided as a non-empty list
 #       And: An entry in 'BlockDeviceMappings' contains 'Ebs' as a struct
@@ -4490,10 +4490,10 @@ Resources:
 This control checks whether Amazon EC2 launch templates that specify an Amazon EC2 instance type or use attribute based instance selection, specify only AWS Nitro instance types.
 
 - **Control objective:** Protect data integrity, Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::LaunchTemplate`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.15 rule specification](#ct-ec2-pr-15-rule "#ct-ec2-pr-15-rule")
 
 **Details and examples**
@@ -4501,7 +4501,7 @@ This control checks whether Amazon EC2 launch templates that specify an Amazon E
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.EC2.PR.15 rule specification](#ct-ec2-pr-15-rule "#ct-ec2-pr-15-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.EC2.PR.15 example templates](#ct-ec2-pr-15-templates "#ct-ec2-pr-15-templates")
 
@@ -4638,49 +4638,49 @@ LaunchTemplate:
 #   AWS::EC2::LaunchTemplate
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EC2 instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 instance resource
 #       And: 'InstanceType' or 'InstanceRequirements' in 'LaunchTemplateData' has not been provided
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 instance resource
 #       And: 'InstanceType' in 'LaunchTemplateData' has been provided
 #       And: 'InstanceType' has been set to a non-Nitro instance type
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 instance resource
 #       And: 'InstanceRequirements' in 'LaunchTemplateData' has been provided as a struct
 #       And: In 'InstanceRequirements', 'AllowedInstanceTypes' has not been provided or provided as
 #            an empty list
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 instance resource
 #       And: 'InstanceRequirements' in 'LaunchTemplateData' has been provided as a struct
 #       And: In 'InstanceRequirements', 'AllowedInstanceTypes' has been provided as a non-empty list
 #            that contains one or more non-Nitro instance types
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 instance resource
 #       And: 'InstanceType' in 'LaunchTemplateData' has been provided
 #       And: 'InstanceType' has been set to a Nitro instance type
 #      Then: PASS
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 instance resource
 #       And: 'InstanceRequirements' in 'LaunchTemplateData' has been provided as a struct
 #       And: In 'InstanceRequirements', 'AllowedInstanceTypes' has been provided as a non-empty list
@@ -4905,10 +4905,10 @@ Resources:
 This control checks whether an Amazon EC2 instance is configured to run using an AWS Nitro instance type.
 
 - **Control objective:** Protect data integrity, Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::Instance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.16 rule specification](#ct-ec2-pr-16-rule "#ct-ec2-pr-16-rule")
 
 **Details and examples**
@@ -4916,7 +4916,7 @@ This control checks whether an Amazon EC2 instance is configured to run using an
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.EC2.PR.16 rule specification](#ct-ec2-pr-16-rule "#ct-ec2-pr-16-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.EC2.PR.16 example templates](#ct-ec2-pr-16-templates "#ct-ec2-pr-16-templates")
 
@@ -4991,28 +4991,28 @@ EC2Instance:
 #   AWS::EC2::Instance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EC2 instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 instance resource
 #       And: 'InstanceType' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 instance resource
 #       And: 'InstanceType' been provided and set to a non-Nitro instance type
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 instance resource
 #       And: 'InstanceType' been provided and set to a Nitro instance type
 #      Then: PASS
@@ -5158,10 +5158,10 @@ Resources:
 This control checks whether an Amazon EC2 dedicated host is configured to run using an AWS Nitro instance type or family.
 
 - **Control objective:** Protect data integrity, Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::Host`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.17 rule specification](#ct-ec2-pr-17-rule "#ct-ec2-pr-17-rule")
 
 **Details and examples**
@@ -5169,7 +5169,7 @@ This control checks whether an Amazon EC2 dedicated host is configured to run us
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.EC2.PR.17 rule specification](#ct-ec2-pr-17-rule "#ct-ec2-pr-17-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.EC2.PR.17 example templates](#ct-ec2-pr-17-templates "#ct-ec2-pr-17-templates")
 
@@ -5303,23 +5303,23 @@ DedicatedHost:
 #   AWS::EC2::Host
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EC2 dedicated host resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Amazon EC2 dedicated host resource
 #       And: 'InstanceFamily' or 'InstanceType' have not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Amazon EC2 dedicated host resource
 #       And: 'InstanceType' has not been provided
 #       And: 'InstanceFamily' has been provided and set to an instance family other than
@@ -5327,21 +5327,21 @@ DedicatedHost:
 #            instance types
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Amazon EC2 dedicated host resource
 #       And: 'InstanceFamily' has not been provided
 #       And: 'InstanceType' has been provided and set to an instance type other than
 #            a Nitro instance type with dedicated host support
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Amazon EC2 dedicated host resource
 #       And: 'InstanceType' has not been provided
 #       And: 'InstanceFamily' has been provided and set to a Nitro instance family with
 #            support for both dedicated hosts and multiple instance types
 #      Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Amazon EC2 dedicated host resource
 #       And: 'InstanceFamily' has not been provided
 #       And: 'InstanceType' has been provided and set to a Nitro instance type with
@@ -5537,10 +5537,10 @@ Resources:
 This control checks that Amazon EC2 fleets only override launch templates with AWS Nitro instance types.
 
 - **Control objective:** Protect data integrity, Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::EC2Fleet`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.18 rule specification](#ct-ec2-pr-18-rule "#ct-ec2-pr-18-rule")
 
 **Details and examples**
@@ -5548,7 +5548,7 @@ This control checks that Amazon EC2 fleets only override launch templates with A
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.EC2.PR.18 rule specification](#ct-ec2-pr-18-rule "#ct-ec2-pr-18-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.EC2.PR.18 example templates](#ct-ec2-pr-18-templates "#ct-ec2-pr-18-templates")
 
@@ -5741,38 +5741,38 @@ EC2Fleet:
 #   AWS::EC2::EC2Fleet
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EC2 fleet resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 fleet resource
 #       And: For every entry in 'LaunchTemplateConfigs', 'Overrides' has not been provided
 #            or has been provided as an empty list
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 fleet resource
 #       And: For an entry in 'LaunchTemplateConfigs', 'Overrides' has been provided as a non-empty list
 #       And: For the same entry in 'LaunchTemplateConfigs', no entries in 'Overrides' include
 #            'InstanceType' or 'InstanceRequirements'
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 fleet resource
 #       And: 'Overrides' in 'LaunchTemplateConfigs' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceType' has been provided and set to an instance type
 #            other than a Nitro instance type
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 fleet resource
 #       And: 'Overrides' in 'LaunchTemplateConfigs' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceRequirements' has been provided
@@ -5780,7 +5780,7 @@ EC2Fleet:
 #            provided as an empty list
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 fleet resource
 #       And: 'Overrides' in 'LaunchTemplateConfigs' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceRequirements' has been provided
@@ -5788,13 +5788,13 @@ EC2Fleet:
 #       And: An entry in 'AllowedInstanceTypes' is set to an instance type other than a Nitro instance type
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 fleet resource
 #       And: 'Overrides' in 'LaunchTemplateConfigs' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceType' has been provided and set to a Nitro instance type
 #      Then: PASS
 #   Scenario: 8
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 fleet resource
 #       And: 'Overrides' in 'LaunchTemplateConfigs' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceRequirements' has been provided
@@ -6090,10 +6090,10 @@ Resources:
 This control checks whether an Amazon EC2 instance has been configured to run using a Nitro instance type that supports encryption in-transit between instances.
 
 - **Control objective:** Encrypt data in transit, Protect data integrity, Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::Instance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.19 rule specification](#ct-ec2-pr-19-rule "#ct-ec2-pr-19-rule")
 
 **Details and examples**
@@ -6101,7 +6101,7 @@ This control checks whether an Amazon EC2 instance has been configured to run us
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.EC2.PR.19 rule specification](#ct-ec2-pr-19-rule "#ct-ec2-pr-19-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.EC2.PR.19 example templates](#ct-ec2-pr-19-templates "#ct-ec2-pr-19-templates")
 
@@ -6182,29 +6182,29 @@ EC2Instance:
 #   AWS::EC2::Instance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EC2 instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 instance resource
 #       And: 'InstanceType' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 instance resource
 #       And: 'InstanceType' been provided and set to an instance type other than a Nitro
 #            instance type that supports encryption in-transit between instances
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 instance resource
 #       And: 'InstanceType' been provided and set to a Nitro instance type that supports
 #            encryption in-transit between instances
@@ -6345,10 +6345,10 @@ Resources:
 This control checks whether an Amazon EC2 fleet overrides only the launch templates based upon AWS Nitro instance types that support encryption in transit between instances.
 
 - **Control objective:** Encrypt data in transit, Protect data integrity, Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EC2::EC2Fleet`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EC2.PR.20 rule specification](#ct-ec2-pr-20-rule "#ct-ec2-pr-20-rule")
 
 **Details and examples**
@@ -6356,7 +6356,7 @@ This control checks whether an Amazon EC2 fleet overrides only the launch templa
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.EC2.PR.20 rule specification](#ct-ec2-pr-20-rule "#ct-ec2-pr-20-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.EC2.PR.20 example templates](#ct-ec2-pr-20-templates "#ct-ec2-pr-20-templates")
 
@@ -6555,38 +6555,38 @@ EC2Fleet:
 #   AWS::EC2::EC2Fleet
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any EC2 fleet resources
 #     Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 fleet resource
 #       And: For every entry in 'LaunchTemplateConfigs', 'Overrides' has not been provided
 #            or has been provided as an empty list
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 fleet resource
 #       And: For an entry in 'LaunchTemplateConfigs', 'Overrides' has been provided as a non-empty list
 #       And: For the same entry in 'LaunchTemplateConfigs', no entries in 'Overrides' include
 #            'InstanceType' or 'InstanceRequirements'
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 fleet resource
 #       And: 'Overrides' in 'LaunchTemplateConfigs' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceType' has been provided and set to an instance type
 #            other than a Nitro instance type that supports encryption in-transit between instances
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 fleet resource
 #       And: 'Overrides' in 'LaunchTemplateConfigs' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceRequirements' has been provided
@@ -6594,7 +6594,7 @@ EC2Fleet:
 #            provided as an empty list
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 fleet resource
 #       And: 'Overrides' in 'LaunchTemplateConfigs' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceRequirements' has been provided
@@ -6603,14 +6603,14 @@ EC2Fleet:
 #            type that supports encryption in-transit between instances
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 fleet resource
 #       And: 'Overrides' in 'LaunchTemplateConfigs' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceType' has been provided and set to a Nitro instance type that
 #            supports encryption in-transit between instances
 #      Then: PASS
 #   Scenario: 8
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EC2 fleet resource
 #       And: 'Overrides' in 'LaunchTemplateConfigs' has been provided as a non-empty list
 #       And: For an entry in 'Overrides', 'InstanceRequirements' has been provided

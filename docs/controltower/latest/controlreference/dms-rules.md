@@ -10,10 +10,10 @@
 This control checks whether your AWS DMS replication instance is public.
 
 - **Control objective:** Limit network access, Enforce least privilege
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::DMS::ReplicationInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.DMS.PR.1 rule specification](#ct-dms-pr-1-rule "#ct-dms-pr-1-rule")
 
 **Details and examples**
@@ -85,29 +85,29 @@ DMSReplicationInstance:
 #   AWS::DMS::ReplicationInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any AWS DMS replication instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a AWS DMS replication instance resource
 #       And: 'PubliclyAccessible' is not present on the AWS DMS replication instance
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a AWS DMS replication instance resource
 #       And: 'PubliclyAccessible' is present on the AWS DMS replication instance
 #            and is set to bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a AWS DMS replication instance resource
 #       And: 'PubliclyAccessible' is present on the AWS DMS replication instance
 #            and is set to bool(false)
@@ -211,10 +211,10 @@ This control checks whether an AWS Database Migration Service (AWS DMS) Endpoint
 using Secure Sockets Layer (SSL).
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::DMS::Endpoint`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.DMS.PR.2 rule specification](#ct-dms-pr-2-rule "#ct-dms-pr-2-rule")
 
 **Details and examples**
@@ -222,7 +222,7 @@ using Secure Sockets Layer (SSL).
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.DMS.PR.2 rule specification](#ct-dms-pr-2-rule "#ct-dms-pr-2-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.DMS.PR.2 example templates](#ct-dms-pr-2-templates "#ct-dms-pr-2-templates")
 
@@ -311,25 +311,25 @@ Secure Sockets Layer (SSL).
 #   AWS::DMS::Endpoint
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any AWS DMS endpoint resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a AWS DMS endpoint resource
 #       And: 'EngineName' has been set to an engine other than an engine that supports configuration
 #            of SSL connections via 'SslMode' (values other than 'mysql', 'oracle', 'postgres', 'mariadb',
 #            'aurora', 'aurora-postgresql', 'db2, 'sybase', 'mongodb', 'docdb', 'sqlserver')
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a AWS DMS endpoint resource
 #       And: 'EngineName' has been set to an engine that supports configuration of SSL connections via 'SslMode'
 #            ('mysql', 'oracle', 'postgres', 'mariadb', 'aurora', 'aurora-postgresql',
@@ -337,7 +337,7 @@ Secure Sockets Layer (SSL).
 #       And: 'SslMode' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a AWS DMS endpoint resource
 #       And: 'EngineName' has been set to an engine that supports configuration of SSL connections via 'SslMode'
 #            ('mysql', 'oracle', 'postgres', 'mariadb', 'aurora', 'aurora-postgresql',
@@ -345,7 +345,7 @@ Secure Sockets Layer (SSL).
 #       And: 'SslMode' has been provided and set to a value other than 'require', 'verify-ca' or 'verify-full'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a AWS DMS endpoint resource
 #       And: 'EngineName' has been set to an engine that supports configuration of SSL connections via 'SslMode'
 #            ('mysql', 'oracle', 'postgres', 'mariadb', 'aurora', 'aurora-postgresql',

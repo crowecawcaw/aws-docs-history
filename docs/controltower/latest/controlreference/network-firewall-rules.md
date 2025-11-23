@@ -13,10 +13,10 @@
 This control checks whether there is at least one stateful or stateless rule group associated with an AWS Network Firewall firewall policy.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::NetworkFirewall::FirewallPolicy`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.NETWORK-FIREWALL.PR.1 rule specification](#ct-network-firewall-pr-1-rule "#ct-network-firewall-pr-1-rule")
 
 **Details and examples**
@@ -120,42 +120,42 @@ FirewallPolicy:
 #   AWS::NetworkFirewall::FirewallPolicy
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any NetworkFirewall firewall policy resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a NetworkFirewall firewall policy resource
 #       And: 'StatefulRuleGroupReferences' has not been provided in 'FirewallPolicy'
 #       And: 'StatelessRuleGroupReferences' has not been provided in 'FirewallPolicy'
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a NetworkFirewall firewall policy resource
 #       And: 'StatefulRuleGroupReferences' has not been provided in 'FirewallPolicy'
 #       And: 'StatelessRuleGroupReferences' has been provided as an empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a NetworkFirewall firewall policy resource
 #       And: 'StatelessRuleGroupReferences' has not been provided in 'FirewallPolicy'
 #       And: 'StatefulRuleGroupReferences' has been provided as an empty list
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a NetworkFirewall firewall policy resource
 #       And: 'StatelessRuleGroupReferences' has been provided as an empty list
 #       And: 'StatefulRuleGroupReferences' has been provided as an empty list
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a NetworkFirewall firewall policy resource
 #       And: One or both of 'StatelessRuleGroupReferences' and 'StatefulRuleGroupReferences' have been provided as a
 #            non-empty list
@@ -311,10 +311,10 @@ Resources:
 This control checks whether an AWS Network Firewall firewall policy is configured with a user-defined stateless default action for full packets.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::NetworkFirewall::FirewallPolicy`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.NETWORK-FIREWALL.PR.2 rule specification](#ct-network-firewall-pr-2-rule "#ct-network-firewall-pr-2-rule")
 
 **Details and examples**
@@ -448,34 +448,34 @@ FirewallPolicy:
 #   AWS::NetworkFirewall::FirewallPolicy
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Network Firewall firewall policy resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Network Firewall firewall policy resource
 #       And: 'StatelessDefaultActions' has not been provided in 'FirewallPolicy'
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Network Firewall firewall policy resource
 #       And: 'StatelessDefaultActions' has been provided in 'FirewallPolicy' as an empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Network Firewall firewall policy resource
 #       And: 'StatelessDefaultActions' has been provided in 'FirewallPolicy' as a list that does not contain
 #             one of 'aws:drop' or 'aws:forward_to_sfe'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Network Firewall firewall policy resource
 #       And: 'StatelessDefaultActions' has been provided in 'FirewallPolicy' as a list that contains either
 #            'aws:drop' or 'aws:forward_to_sfe'
@@ -601,10 +601,10 @@ Resources:
 This control checks whether an AWS Network Firewall firewall policy is configured with a default action to drop or forward fragmented packets, when the packets do not match a stateless rule.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::NetworkFirewall::FirewallPolicy`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.NETWORK-FIREWALL.PR.3 rule specification](#ct-network-firewall-pr-3-rule "#ct-network-firewall-pr-3-rule")
 
 **Details and examples**
@@ -738,34 +738,34 @@ FirewallPolicy:
 #   AWS::NetworkFirewall::FirewallPolicy
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Network Firewall firewall policy resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Network Firewall firewall policy resource
 #       And: 'StatelessFragmentDefaultActions' has not been provided in 'FirewallPolicy'
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Network Firewall firewall policy resource
 #       And: 'StatelessFragmentDefaultActions' has been provided in 'FirewallPolicy' as an empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Network Firewall firewall policy resource
 #       And: 'StatelessFragmentDefaultActions' has been provided in 'FirewallPolicy' as a list that does not contain
 #             one of 'aws:drop' or 'aws:forward_to_sfe'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Network Firewall firewall policy resource
 #       And: 'StatelessFragmentDefaultActions' has been provided in 'FirewallPolicy' as a list that contains either
 #            'aws:drop' or 'aws:forward_to_sfe'
@@ -891,10 +891,10 @@ Resources:
 This control checks whether an AWS Network Firewall stateless rule group contains rules.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::NetworkFirewall::RuleGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.NETWORK-FIREWALL.PR.4 rule specification](#ct-network-firewall-pr-4-rule "#ct-network-firewall-pr-4-rule")
 
 **Details and examples**
@@ -1041,29 +1041,29 @@ NetworkFirewallRuleGroup:
 #   AWS::NetworkFirewall::RuleGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Network Firewall rule group resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Network Firewall rule group resource
 #       And: 'Type' is not equal to 'STATELESS'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Network Firewall rule group resource
 #       And: 'Type' is 'STATELESS'
 #       And: 'RuleGroup.RulesSource.StatelessRulesAndCustomActions' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Network Firewall rule group resource
 #       And: 'Type' is 'STATELESS'
 #       And: 'RuleGroup.RulesSource.StatelessRulesAndCustomActions' has been provided
@@ -1071,7 +1071,7 @@ NetworkFirewallRuleGroup:
 #            an empty list value
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Network Firewall rule group resource
 #       And: 'Type' is 'STATELESS'
 #       And: 'RuleGroup.RulesSource.StatelessRulesAndCustomActions' has been provided
@@ -1223,10 +1223,10 @@ Resources:
 This control checks whether an AWS Network Firewall firewall is deployed across multiple Availability Zones (AZs), to permit automatic failover between AZs.
 
 - **Control objective:** Improve resiliency
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::NetworkFirewall::Firewall`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.NETWORK-FIREWALL.PR.5 rule specification](#ct-network-firewall-pr-5-rule "#ct-network-firewall-pr-5-rule")
 
 **Details and examples**
@@ -1234,7 +1234,7 @@ This control checks whether an AWS Network Firewall firewall is deployed across 
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.NETWORK-FIREWALL.PR.5 rule specification](#ct-network-firewall-pr-5-rule "#ct-network-firewall-pr-5-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.NETWORK-FIREWALL.PR.5 example templates](#ct-network-firewall-pr-5-templates "#ct-network-firewall-pr-5-templates")
 
@@ -1325,29 +1325,29 @@ Firewall:
 #   AWS::NetworkFirewall::Firewall
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Network Firewall firewall resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Network Firewall firewall resource
 #       And: 'SubnetMappings' has not been specified or specified as an empty list
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Network Firewall firewall resource
 #       And: 'SubnetMappings' has been specified
 #       And: The number of entries in 'SubnetMappings' is less than two (< 2)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Network Firewall firewall resource
 #       And: 'SubnetMappings' has been specified
 #       And: The number of entries in 'SubnetMappings' is greater than or equal to two (>= 2)

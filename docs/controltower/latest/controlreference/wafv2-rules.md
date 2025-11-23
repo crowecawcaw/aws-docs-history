@@ -10,10 +10,10 @@
 This control checks whether an AWS WAFV2 web ACL contains any WAF rules or WAF rule groups.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::WAFv2::WebACL`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.WAFV2.PR.1 rule specification](#ct-wafv2-pr-1-rule "#ct-wafv2-pr-1-rule")
 
 **Details and examples**
@@ -143,28 +143,28 @@ WAFv2WebACL:
 #   AWS::WAFv2::WebACL
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any WAFv2 web ACL resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an WAFv2 web ACL resource
 #       And: 'Rules' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an WAFv2 web ACL resource
 #       And: 'Rules' has been provided as an empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an WAFv2 web ACL resource
 #       And: 'Rules' has been provided as a non-empty list
 #      Then: PASS
@@ -294,10 +294,10 @@ Resources:
 This control checks whether AWS WAFV2 rule groups contain rules.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::WAFv2::RuleGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.WAFV2.PR.2 rule specification](#ct-wafv2-pr-2-rule "#ct-wafv2-pr-2-rule")
 
 **Details and examples**
@@ -424,28 +424,28 @@ WAFv2RuleGroup:
 #   AWS::WAFv2::RuleGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any AWS WAFV2 rule group resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS WAFV2 rule group resource
 #       And: 'Rules' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS WAFV2 rule group resource
 #       And: 'Rules' has been provided as an empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an AWS WAFV2 rule group resource
 #       And: 'Rules' has been provided as a non-empty list
 #      Then: PASS

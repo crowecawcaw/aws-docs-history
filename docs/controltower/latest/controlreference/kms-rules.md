@@ -12,10 +12,10 @@
 This control checks whether key rotation is enabled for AWS KMS customer managed keys.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::KMS::Key`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.KMS.PR.1 rule specification](#ct-kms-pr-1-rule "#ct-kms-pr-1-rule")
 
 **Details and examples**
@@ -119,35 +119,35 @@ KMSKey:
 #   AWS::KMS::Key
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any KMS key resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a KMS key resource
 #       And: 'KeySpec' is provided and is a value other than 'SYMMETRIC_DEFAULT'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a KMS key resource
 #       And: 'KeySpec' is not provided or is provided and is set to 'SYMMETRIC_DEFAULT'
 #       And: 'EnableKeyRotation' is not provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a KMS key resource
 #       And: 'KeySpec' is not provided or is provided and is set to 'SYMMETRIC_DEFAULT'
 #       And: 'EnableKeyRotation' is provided and is set to bool(false)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a KMS key resource
 #       And: 'KeySpec' is not provided or is provided and is set to 'SYMMETRIC_DEFAULT'
 #       And: 'EnableKeyRotation' is provided and is set to bool(true)
@@ -281,10 +281,10 @@ Resources:
 This control checks whether an AWS KMS asymmetric key with RSA key material, which is used for encryption and decryption, to use a key spec with a key length greater than 2048 bits (that is, a key spec other than `RSA_2048`).
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::KMS::Key`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.KMS.PR.2 rule specification](#ct-kms-pr-2-rule "#ct-kms-pr-2-rule")
 
 **Details and examples**
@@ -391,37 +391,37 @@ Key:
 #   AWS::KMS::Key
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any KMS key resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a KMS key resource
 #       And: 'KeyUsage' has been provided and is a value other than 'ENCRYPT_DECRYPT'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a KMS key resource
 #       And: 'KeyUsage' has not been provided or has been provided and is set to 'ENCRYPT_DECRYPT'
 #       And: 'KeySpec' has not been provided or has been provided and is set to a
 #            key spec other than an RSA key spec (does not begin with 'RSA_')
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a KMS key resource
 #       And: 'KeyUsage' has not been provided or has been provided and is set to 'ENCRYPT_DECRYPT'
 #       And: 'KeySpec' has been provided and is set to an RSA key spec (begins with 'RSA_')
 #       And: 'KeySpec' has been set to a disallowed RSA key spec ('RSA_2048')
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a KMS key resource
 #       And: 'KeyUsage' has not been provided or has been provided and is set to 'ENCRYPT_DECRYPT'
 #       And: 'KeySpec' has been provided and is set to an RSA key spec (begins with 'RSA_')
@@ -565,10 +565,10 @@ This control checks whether an AWS KMS key has an associated key policy statemen
 AWS KMS grants to AWS services only.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::KMS::Key`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.KMS.PR.3 rule specification](#ct-kms-pr-3-rule "#ct-kms-pr-3-rule")
 
 **Details and examples**
@@ -696,23 +696,23 @@ Key:
 #   AWS::KMS::Key
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any KMS key resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a KMS key resource
 #       And: 'Statement' in 'KeyPolicy' has not been provided or has been provided as an empty list
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a KMS key resource
 #       And: 'Statement' in 'KeyPolicy' has been provided as a non-empty list
 #       And: 'Statement' in 'KeyPolicy' does not include a statement that denies all Principals ('*', AWS: '*')
@@ -721,7 +721,7 @@ Key:
 #            are both 'false' ('BoolIfExists' condition operator)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a KMS key resource
 #       And: 'Statement' in 'KeyPolicy' has been provided as a non-empty list
 #       And: 'Statement' in 'KeyPolicy' includes a statement that denies all Principals ('*', AWS: '*')

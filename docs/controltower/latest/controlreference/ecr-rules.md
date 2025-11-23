@@ -11,10 +11,10 @@
 This control checks whether a private Amazon Elastic Container Registry (Amazon ECR) repository has at least one lifecycle policy configured.
 
 - **Control objective:** Manage vulnerabilities, Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ECR::Repository`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ECR.PR.1 rule specification](#ct-ecr-pr-1-rule "#ct-ecr-pr-1-rule")
 
 **Details and examples**
@@ -105,30 +105,30 @@ ECRRepository:
 #    AWS::ECR::Repository
 #
 # Evaluates:
-#    AWS CloudFormation, AWS CloudFormation hook
+#    CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #    None
 #
 # Scenarios:
 #  Scenario: 1
-#    Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#    Given: The input document is an CloudFormation or CloudFormation hook document
 #      And: The input document does not contain any ECR repository resources
 #     Then: SKIP
 #  Scenario: 2
-#    Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#    Given: The input document is an CloudFormation or CloudFormation hook document
 #      And: The input document contains an ECR repository resource
 #      And: 'LifecyclePolicy' is not present
 #     Then: FAIL
 #  Scenario: 3
-#    Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#    Given: The input document is an CloudFormation or CloudFormation hook document
 #      And: The input document contains an ECR repository resource
 #      And: 'LifecyclePolicy' is present
 #      And: 'LifecyclePolicyText' has not been provided in the 'LifecyclePolicy' configuration or has been provided as
 #            an empty string
 #     Then: FAIL
 #  Scenario: 4
-#    Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#    Given: The input document is an CloudFormation or CloudFormation hook document
 #      And: The input document contains an ECR repository resource
 #      And: 'LifecyclePolicy' is present
 #      And: 'LifecyclePolicyText' has been provided in the 'LifecyclePolicy' configuration with a non-empty string
@@ -257,10 +257,10 @@ Resources:
 This control checks whether a private Amazon Elastic Container Registry (Amazon ECR) repository has image scanning enabled.
 
 - **Control objective:** Manage vulnerabilities
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ECR::Repository`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ECR.PR.2 rule specification](#ct-ecr-pr-2-rule "#ct-ecr-pr-2-rule")
 
 **Details and examples**
@@ -334,28 +334,28 @@ ECRRepository:
 #   AWS::ECR::Repository
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon ECR repository resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon ECR repository resource
 #       And: 'ImageScanningConfiguration.ScanOnPush' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon ECR repository resource
 #       And: 'ImageScanningConfiguration.ScanOnPush' has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon ECR repository resource
 #       And: 'ImageScanningConfiguration.ScanOnPush' has been provided and set to bool(true)
 #      Then: PASS
@@ -462,10 +462,10 @@ Resources:
 This control checks whether a private Amazon Elastic Container Registry (Amazon ECR) repository has tag immutability enabled.
 
 - **Control objective:** Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ECR::Repository`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ECR.PR.3 rule specification](#ct-ecr-pr-3-rule "#ct-ecr-pr-3-rule")
 
 **Details and examples**
@@ -536,28 +536,28 @@ ECRRepository:
 #   AWS::ECR::Repository
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ECR repository resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ECR repository resource
 #       And: 'ImageTagMutability' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ECR repository resource
 #       And: 'ImageTagMutability' has been provided with a value of 'MUTABLE'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ECR repository resource
 #       And: 'ImageTagMutability' has been provided with a value of 'IMMUTABLE'
 #      Then: PASS

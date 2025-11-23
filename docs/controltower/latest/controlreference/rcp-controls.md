@@ -31,7 +31,7 @@ services:
 **When to apply RCP controls**
 
 With RCP controls, you can establish a [_data
-perimeter_](https://aws.amazon.com/identity/data-perimeters-on-aws/ "https://aws.amazon.com/identity/data-perimeters-on-aws/") for your
+perimeter_](https://aws.amazon.com//identity/data-perimeters-on-aws/ "https://aws.amazon.com//identity/data-perimeters-on-aws/") for your
 landing zone.
 
 - For example, you can limit access to resources so that only the principals in your

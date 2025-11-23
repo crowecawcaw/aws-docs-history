@@ -12,10 +12,10 @@
 This control checks whether an Amazon CloudWatch alarm has at least one action configured for the alarm state.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CloudWatch::Alarm`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDWATCH.PR.1 rule specification](#ct-cloudwatch-pr-1-rule "#ct-cloudwatch-pr-1-rule")
 
 **Details and examples**
@@ -111,28 +111,28 @@ Alarm:
 #   AWS::CloudWatch::Alarm
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CloudWatch alarm resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudWatch alarm resource
 #       And: 'AlarmActions' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudWatch alarm resource
 #       And: 'AlarmActions' has been provided as an empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation Hook Document
+#     Given: The input document is an CloudFormation or CloudFormation Hook Document
 #       And: The input document contains a CloudWatch alarm resource
 #       And: 'AlarmActions' has been provided as a non-empty list
 #      Then: PASS
@@ -256,10 +256,10 @@ Resources:
 This control checks whether an Amazon CloudWatch Log Group retention period is set to a value greater than or equal to 365 days.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Logs::LogGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDWATCH.PR.2 rule specification](#ct-cloudwatch-pr-2-rule "#ct-cloudwatch-pr-2-rule")
 
 **Details and examples**
@@ -330,29 +330,29 @@ LogGroup:
 #   AWS::Logs::LogGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CloudWatch log group resources
 #     Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudWatch log group resource
 #       And: 'RetentionInDays' has been provided and set to a non integer value or
 #            integer value less than 365
 #     Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudWatch log group resource
 #       And: 'RetentionInDays' has not been provided
 #     Then: PASS
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation Hook Document
+#     Given: The input document is an CloudFormation or CloudFormation Hook Document
 #       And: The input document contains a CloudWatch log group resource
 #       And: 'RetentionInDays' has been provided and set to an integer value greater than or equal to 365
 #     Then: PASS
@@ -454,10 +454,10 @@ Resources:
 This control checks whether an Amazon CloudWatch Logs log group is encrypted at rest with an AWS KMS key
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Logs::LogGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDWATCH.PR.3 rule specification](#ct-cloudwatch-pr-3-rule "#ct-cloudwatch-pr-3-rule")
 
 **Details and examples**
@@ -533,28 +533,28 @@ LogGroup:
 #   AWS::Logs::LogGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CloudWatch log group resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudWatch log group resource
 #       And: 'KmsKeyId' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudWatch log group resource
 #       And: 'KmsKeyId' has been provided as an empty string or invalid local reference to a KMS Key
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudWatch log group resource
 #       And: 'KmsKeyId' has been provided as a non-empty string or valid local reference to a KMS Key
 #      Then: PASS
@@ -714,10 +714,10 @@ Resources:
 This control checks whether an Amazon CloudWatch alarm has actions enabled.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CloudWatch::Alarm`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CLOUDWATCH.PR.4 rule specification](#ct-cloudwatch-pr-4-rule "#ct-cloudwatch-pr-4-rule")
 
 **Details and examples**
@@ -813,28 +813,28 @@ Alarm:
 #   AWS::CloudWatch::Alarm
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CloudWatch alarm resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudWatch alarm resource
 #       And: 'ActionsEnabled' has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CloudWatch alarm resource
 #       And: 'ActionsEnabled' has not been provided
 #      Then: PASS
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation Hook Document
+#     Given: The input document is an CloudFormation or CloudFormation Hook Document
 #       And: The input document contains a CloudWatch alarm resource
 #       And: 'ActionsEnabled' has been provided with a value of bool(true)
 #      Then: PASS

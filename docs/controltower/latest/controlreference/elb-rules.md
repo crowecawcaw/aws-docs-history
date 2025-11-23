@@ -23,10 +23,10 @@
 This control checks whether HTTP to HTTPS redirection is configured as a default action on HTTP listeners of Application Load Balancers.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticLoadBalancingV2::Listener`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICLOADBALANCING.PR.1 rule specification](#ct-elasticloadbalancing-pr-1-rule "#ct-elasticloadbalancing-pr-1-rule")
 
 **Details and examples**
@@ -129,42 +129,42 @@ Listener:
 #   AWS::ElasticLoadBalancingV2::Listener
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ElasticLoadBalancingV2 listener resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 listener
 #       And: 'Protocol' is set to a value other than 'HTTP'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 listener
 #       And: 'Protocol' is set to 'HTTP'
 #       And: 'DefaultActions' is missing or is provided and an empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 listener
 #       And: 'Protocol' is set to 'HTTP'
 #       And: 'DefaultActions' contains an action with 'Type' set to a value other than 'redirect'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 listener
 #       And: 'Protocol' is set to 'HTTP'
 #       And: 'DefaultActions' contains an action with 'Type' set to a value of 'redirect'
 #       And: 'RedirectConfig.Protocol' is missing or set to a value other than 'HTTPS'
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 listener
 #       And: 'Protocol' is set to 'HTTP'
 #       And: All 'DefaultActions' have an action with 'Type' set to a value of 'redirect' and
@@ -373,10 +373,10 @@ Resources:
 This control checks whether your Elastic Load Balancing (ELB) application and network load balancers use certificates provided by AWS Certificate Manager (ACM).
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticLoadBalancingV2::Listener`, `AWS::ElasticLoadBalancingV2::ListenerCertificate`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICLOADBALANCING.PR.2 rule specification](#ct-elasticloadbalancing-pr-2-rule "#ct-elasticloadbalancing-pr-2-rule")
 
 **Details and examples**
@@ -523,51 +523,51 @@ ELBListenerCertificate:
 #   AWS::ElasticLoadBalancingV2::Listener, AWS::ElasticLoadBalancingV2::ListenerCertificate
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ElasticLoadBalancingV2 listener or listener certificate resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 listener resource
 #       And: 'Protocol' is set to a value other than 'HTTPS' or 'TLS'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 listener certificate resource
 #       And: 'Certificates' has not been provided or has been provided as an empty list
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 listener resource
 #       And: 'Protocol' is set to 'HTTPS' or 'TLS'
 #       And: 'Certificates' has not been provided or has been provided as an empty list
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 listener resource
 #       And: 'Protocol' is set to 'HTTPS' or 'TLS'
 #       And: One or more items in 'Certificates' do not match an ACM certificate ARN
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 listener certificate resource
 #       And: One or more items in 'Certificates' do not match an ACM certificate ARN
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 listener resource
 #       And: 'Protocol' is set to 'HTTPS' or 'TLS'
 #       And: All items in 'Certificates' match an ACM certificate ARN
 #      Then: PASS
 #   Scenario: 8
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 listener certificate resource
 #       And: All items in 'Certificates' match an ACM certificate ARN
 #      Then: PASS
@@ -844,10 +844,10 @@ Resources:
 This control checks to ensure that an Application Load Balancer is configured with `defensive` or `strictest` desync mitigation mode.
 
 - **Control objective:** Protect data integrity
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticLoadBalancingV2::LoadBalancer`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICLOADBALANCING.PR.3 rule specification](#ct-elasticloadbalancing-pr-3-rule "#ct-elasticloadbalancing-pr-3-rule")
 
 **Details and examples**
@@ -990,23 +990,23 @@ ApplicationLoadBalancer:
 #   AWS::ElasticLoadBalancingV2::LoadBalancer
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ELBv2 load balancer resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 load balancer resource
 #       And: 'Type' is set to a value other than 'application'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 load balancer resource
 #       And: 'Type' has not been provided or has been provided and set to 'application'
 #       And: 'LoadBalancerAttributes' have been specified on the ELBv2 load balancer resource
@@ -1014,21 +1014,21 @@ ApplicationLoadBalancer:
 #            and is not one of 'defensive' or 'strictest'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 load balancer resource
 #       And: 'Type' has not been provided or has been provided and set to 'application'
 #       And: 'LoadBalancerAttributes' have not been specified on the ELBv2 load balancer resource or specified
 #            as an empty list
 #      Then: PASS
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 load balancer resource
 #       And: 'Type' has not been provided or has been provided and set to 'application'
 #       And: 'LoadBalancerAttributes' have been specified on the ELBv2 load balancer resource
 #       And: 'routing.http.desync_mitigation_mode' has not been provided as a 'LoadBalancerAttribute'
 #      Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 load balancer resource
 #       And: 'Type' has not been provided or has been provided and set to 'application'
 #       And: 'LoadBalancerAttributes' have been specified on the ELBv2 load balancer resource
@@ -1222,10 +1222,10 @@ Resources:
 This control checks whether Application Load Balancers are configured to drop non-valid HTTP headers.
 
 - **Control objective:** Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticLoadBalancingV2::LoadBalancer`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICLOADBALANCING.PR.4 rule specification](#ct-elasticloadbalancing-pr-4-rule "#ct-elasticloadbalancing-pr-4-rule")
 
 **Details and examples**
@@ -1320,36 +1320,36 @@ ApplicationLoadBalancer:
 #   AWS::ElasticLoadBalancingV2::LoadBalancer
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ELBv2 load balancer resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 load balancer resource
 #       And: 'Type' is set to a value other than 'application', or is not set
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 load balancer resource
 #       And: 'Type' has not been provided or has been provided and set to 'application'
 #       And: 'LoadBalancerAttributes' have not been specified on the ELBv2 load balancer resource
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 load balancer resource
 #       And: 'Type' has not been provided or has been provided and set to 'application'
 #       And: 'LoadBalancerAttributes' have been specified on the ELBv2 load balancer resource
 #       And: 'routing.http.drop_invalid_header_fields.enabled' has not been provided as a 'LoadBalancerAttribute'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 load balancer resource
 #       And: 'Type' has not been provided or has been provided and set to 'application'
 #       And: 'LoadBalancerAttributes' have been specified on the ELBv2 load balancer resource
@@ -1357,7 +1357,7 @@ ApplicationLoadBalancer:
 #            and is set to bool(false) or string(false)
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 load balancer resource
 #       And: 'Type' has not been provided or has been provided and set to 'application'
 #       And: 'LoadBalancerAttributes' have been specified on the ELBv2 load balancer resource
@@ -1536,13 +1536,13 @@ Resources:
 
 ## [CT.ELASTICLOADBALANCING.PR.5] Require that application load balancer deletion protection is activated
 
-Checks whether Elastic Load Balancing (ELB) has deletion protection activated.
+Checks whether ELB (ELB) has deletion protection activated.
 
 - **Control objective:** Improve availability
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticLoadBalancingV2::LoadBalancer`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICLOADBALANCING.PR.5 rule specification](#ct-elasticloadbalancing-pr-5-rule "#ct-elasticloadbalancing-pr-5-rule")
 
 **Details and examples**
@@ -1631,42 +1631,42 @@ Elb:
 #   elbv2_deletion_protection_enabled_check
 #
 # Description:
-#   Checks whether Elastic Load Balancing (ELB) has deletion protection activated.
+#   Checks whether ELB (ELB) has deletion protection activated.
 #
 # Reports on:
 #   AWS::ElasticLoadBalancingV2::LoadBalancer
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ELBv2 LoadBalancer resource
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 LoadBalancer resource
 #       And: 'LoadBalancerAttributes' have not been specified or is an empty list on the ELBv2 resource
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 LoadBalancer resource
 #       And: 'LoadBalancerAttributes' have been specified on the ELBv2 LoadBalancer resource
 #       And: 'deletion_protection.enabled' has not been provided as a 'LoadBalancerAttribute'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 LoadBalancer resource
 #       And: 'LoadBalancerAttributes' have been specified on the ELBv2 LoadBalancer resource
 #       And: The 'LoadBalancerAttribute' 'deletion_protection.enabled' has been provided and is set to bool(false) or
 #            string(false)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 LoadBalancer Resource
 #       And: 'LoadBalancerAttributes' have been specified on the ELBv2 LoadBalancer resource
 #       And: The 'LoadBalancerAttribute' 'deletion_protection.enabled' has been provided and is set to bool(true) or
@@ -1842,13 +1842,13 @@ Resources:
 
 ## [CT.ELASTICLOADBALANCING.PR.6] Require that application and network load balancer access logging is activated
 
-This control checks whether your Elastic Load Balancing (ELB) application and network load balancers have logging activated.
+This control checks whether your ELB (ELB) application and network load balancers have logging activated.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticLoadBalancingV2::LoadBalancer`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICLOADBALANCING.PR.6 rule specification](#ct-elasticloadbalancing-pr-6-rule "#ct-elasticloadbalancing-pr-6-rule")
 
 **Details and examples**
@@ -1862,7 +1862,7 @@ This control checks whether your Elastic Load Balancing (ELB) application and ne
 
 **Explanation**
 
-Elastic Load Balancing provides access logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze traffic patterns and to troubleshoot issues.
+ELB provides access logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze traffic patterns and to troubleshoot issues.
 
 ###### Usage considerations
 
@@ -2014,49 +2014,49 @@ NetworkLoadBalancer:
 #   elbv2_logging_enabled_check
 #
 # Description:
-#   This control checks whether your Elastic Load Balancing (ELB) application and network load balancers have logging activated.
+#   This control checks whether your ELB (ELB) application and network load balancers have logging activated.
 #
 # Reports on:
 #   AWS::ElasticLoadBalancingV2::LoadBalancer
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ElasticLoadBalancingV2 LoadBalancer resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 LoadBalancer resource
 #       And: 'Type' is set to a value other than 'application' or 'network'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 LoadBalancer resource
 #       And: The LoadBalancer is of type 'application' or 'network', or the type has not been provided
 #       And: 'LoadBalancerAttributes' has not been provided or is an empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 LoadBalancer resource
 #       And: The LoadBalancer is of type 'application' or 'network', or the type has not been provided
 #       And: A 'LoadBalancerAttributes' with Key 'access_logs.s3.enabled' and 'access_logs.s3.bucket'
 #            has not been provided
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 LoadBalancer resource
 #       And: The LoadBalancer is of type 'application' or 'network', or the type has not been provided
 #       And: A 'LoadBalancerAttributes' with Key 'access_logs.s3.enabled' and 'access_logs.s3.bucket' has been provided
 #       And: 'access_logs.s3.enabled' is set to bool(false) or string(false)
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 LoadBalancer resource
 #       And: The LoadBalancer is of type 'application' or 'network', or the type has not been provided
 #       And: A 'LoadBalancerAttributes' with Key 'access_logs.s3.enabled' and 'access_logs.s3.bucket' has been provided
@@ -2064,7 +2064,7 @@ NetworkLoadBalancer:
 #       And: 'access_logs.s3.bucket' is missing or an empty string value
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancingV2 LoadBalancer resource
 #       And: The LoadBalancer is of type 'application', or the type has not been provided
 #       And: A 'LoadBalancerAttributes' with Key 'access_logs.s3.enabled' has been provided
@@ -2403,13 +2403,13 @@ Resources:
 
 ## [CT.ELASTICLOADBALANCING.PR.7] Require any classic load balancer to have multiple Availability Zones configured
 
-This control checks whether an Elastic Load Balancing (ELB) classic load balancer has been configured with multiple Availability Zones.
+This control checks whether an ELB (ELB) classic load balancer has been configured with multiple Availability Zones.
 
 - **Control objective:** Improve availability
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticLoadBalancing::LoadBalancer`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICLOADBALANCING.PR.7 rule specification](#ct-elasticloadbalancing-pr-7-rule "#ct-elasticloadbalancing-pr-7-rule")
 
 **Details and examples**
@@ -2637,50 +2637,50 @@ ClassicLoadBalancer:
 #   elb_multiple_az_check
 #
 # Description:
-#   This control checks whether an Elastic Load Balancing (ELB) Classic Load Balancer has been configured with multiple Availability Zones.
+#   This control checks whether an ELB (ELB) Classic Load Balancer has been configured with multiple Availability Zones.
 #
 # Reports on:
 #   AWS::ElasticLoadBalancing::LoadBalancer
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document does not contain any Elastic Load Balancing load balancer resources
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document does not contain any ELB load balancer resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing load balancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB load balancer resource
 #       And: Neither 'AvailabilityZones' or 'Subnets' have been specified
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing load balancer resource
-#       And: 'AvailabilityZones' been specified on the Elastic Load Balancing load balancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB load balancer resource
+#       And: 'AvailabilityZones' been specified on the ELB load balancer resource
 #       And: The number of entries in 'AvailabilityZones' is < 2 or the number of
 #            unique 'AvailabilityZones' provided is less than 2 (< 2)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing load balancer resource
-#       And: 'Subnets' been specified on the Elastic Load Balancing load balancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB load balancer resource
+#       And: 'Subnets' been specified on the ELB load balancer resource
 #       And: The number of entries in 'Subnets' is < 2
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing load balancer resource
-#       And: 'AvailabilityZones' been specified on the Elastic Load Balancing load balancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB load balancer resource
+#       And: 'AvailabilityZones' been specified on the ELB load balancer resource
 #       And: The number of entries in 'AvailabilityZones' is >= 2
 #      Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing load balancer resource
-#       And: 'Subnets' been specified on the Elastic Load Balancing load balancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB load balancer resource
+#       And: 'Subnets' been specified on the ELB load balancer resource
 #       And: The number of entries in 'Subnets' is >= 2
 #      Then: PASS
 
@@ -2852,10 +2852,10 @@ Resources:
 This control checks whether classic load balancers use HTTPS/SSL certificates provided by AWS Certificate Manager.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticLoadBalancing::LoadBalancer`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICLOADBALANCING.PR.8 rule specification](#ct-elasticloadbalancing-pr-8-rule "#ct-elasticloadbalancing-pr-8-rule")
 
 **Details and examples**
@@ -2983,30 +2983,30 @@ ClassicLoadBalancer:
 #   AWS::ElasticLoadBalancing::LoadBalancer
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document does not contain any Elastic Load Balancing load balancer resources
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document does not contain any ELB load balancer resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing load balancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB load balancer resource
 #       And: There are no HTTPS or SSL 'Listeners' configured on the load balancer resource
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing load balancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB load balancer resource
 #       And: There are one or more HTTPS or SSL 'Listeners' configured on the load balancer resource
 #       And: 'SSLCertificateId' on load balancer HTTPS or SSL 'Listeners' is missing or not a valid ACM certificate ARN
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing load balancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB load balancer resource
 #       And: There are one or more HTTPS or SSL 'Listeners' configured on the load balancer resource
 #       And: 'SSLCertificateId' matches an ACM certificate ARN for all 'HTTPS' and 'SSL' 'Listeners'
 #      Then: PASS
@@ -3246,10 +3246,10 @@ Resources:
 This control checks whether your Elastic Load Balancing (ELB) Classic Load Balancer front-end listeners are configured with HTTPS or SSL protocols.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticLoadBalancing::LoadBalancer`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICLOADBALANCING.PR.9 rule specification](#ct-elasticloadbalancing-pr-9-rule "#ct-elasticloadbalancing-pr-9-rule")
 
 **Details and examples**
@@ -3397,28 +3397,28 @@ LoadBalancer:
 #   AWS::ElasticLoadBalancing::LoadBalancer
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Elastic Load Balancing LoadBalancer resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancing LoadBalancer resource
 #       And: 'Listeners' has not been provided or is provided with a value of an empty list
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancing LoadBalancer resource
 #       And: 'Protocol' on LoadBalancer 'Listeners' is not set to 'HTTPS' or 'SSL'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticLoadBalancing LoadBalancer resource
 #       And: 'Protocol' is set to 'HTTPS' or 'SSL' for all 'Listeners'
 #      Then: PASS
@@ -3593,10 +3593,10 @@ Resources:
 This control checks whether Classic Load Balancers have logging enabled.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticLoadBalancing::LoadBalancer`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICLOADBALANCING.PR.10 rule specification](#ct-elasticloadbalancing-pr-10-rule "#ct-elasticloadbalancing-pr-10-rule")
 
 **Details and examples**
@@ -3610,7 +3610,7 @@ This control checks whether Classic Load Balancers have logging enabled.
 
 **Explanation**
 
-Elastic Load Balancing provides access logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze traffic patterns and to troubleshoot issues.
+ELB provides access logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze traffic patterns and to troubleshoot issues.
 
 ### Remediation for rule failure
 
@@ -3694,31 +3694,31 @@ ClassicLoadBalancer:
 #   AWS::ElasticLoadBalancing::LoadBalancer
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document does not contain any Elastic Load Balancing load balancer resources
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document does not contain any ELB load balancer resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing load balancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB load balancer resource
 #       And: 'AccessLoggingPolicy' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing load balancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB load balancer resource
 #       And: 'AccessLoggingPolicy' has been provided
 #       And: 'Enabled' in 'AccessLoggingPolicy' is missing or has been set to bool(false) or 'S3BucketName' is missing
 #             or empty string value
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing load balancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB load balancer resource
 #       And: 'AccessLoggingPolicy' has been provided
 #       And: 'Enabled' has been provided in 'AccessLoggingPolicy' and has been set to bool(true)
 #       And: 'S3BucketName' has been provided in 'AccessLoggingPolicy' as a non-empty string value or
@@ -4048,13 +4048,13 @@ Resources:
 
 ## [CT.ELASTICLOADBALANCING.PR.11] Require any ELB classic load balancer to have connection draining activated
 
-This control checks whether Elastic Load Balancing (ELB) Classic Load Balancers have connection draining configured.
+This control checks whether ELB (ELB) Classic Load Balancers have connection draining configured.
 
 - **Control objective:** Improve resiliency
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticLoadBalancing::LoadBalancer`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICLOADBALANCING.PR.11 rule specification](#ct-elasticloadbalancing-pr-11-rule "#ct-elasticloadbalancing-pr-11-rule")
 
 **Details and examples**
@@ -4068,11 +4068,11 @@ This control checks whether Elastic Load Balancing (ELB) Classic Load Balancers 
 
 **Explanation**
 
-Activating connection draining on Classic Load Balancers ensures that the load balancer stops sending requests to instances that are de-registering or unhealthy. It keeps the existing connections open. This configuration is particularly useful for instances in Auto Scaling groups, to ensure that connections aren't severed abruptly.
+Activating connection draining on Classic Load Balancers ensures that the load balancer stops sending requests to instances that are de-registering or unhealthy. It keeps the existing connections open. This configuration is particularly useful for instances in Amazon EC2 Auto Scaling groups, to ensure that connections aren't severed abruptly.
 
 ### Remediation for rule failure
 
-Configure a `ConnectionDrainingPolicy` on Elastic Load Balancing Classic Load Balancers.
+Configure a `ConnectionDrainingPolicy` on ELB Classic Load Balancers.
 
 The examples that follow show how to implement this remediation.
 
@@ -4175,36 +4175,36 @@ ClassicLoadBalancer:
 #   elb_connection_draining_enabled_check
 #
 # Description:
-#   This control checks whether Elastic Load Balancing (ELB) Classic Load Balancers have connection draining configured.
+#   This control checks whether ELB (ELB) Classic Load Balancers have connection draining configured.
 #
 # Reports on:
 #   AWS::ElasticLoadBalancing::LoadBalancer
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document does not contain any Elastic Load Balancing load balancer resources
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document does not contain any ELB load balancer resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing load balancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB load balancer resource
 #       And: 'ConnectionDrainingPolicy' has not been specified
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing load balancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB load balancer resource
 #       And: 'ConnectionDrainingPolicy' has been specified
 #       And: 'Enabled' in 'ConnectionDrainingPolicy' is missing or has been set to bool(false)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing load balancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB load balancer resource
 #       And: 'ConnectionDrainingPolicy' has been specified
 #       And: 'Enabled' in 'ConnectionDrainingPolicy' has been set to bool(true)
 #      Then: PASS
@@ -4229,7 +4229,7 @@ rule elb_connection_draining_enabled_check when is_cfn_template(%INPUT_DOCUMENT)
     check(%classic_load_balancers.Properties)
         <<
         [CT.ELASTICLOADBALANCING.PR.11]: Require any ELB classic load balancer to have connection draining activated
-        [FIX]: Configure a 'ConnectionDrainingPolicy' on Elastic Load Balancing Classic Load Balancers.
+        [FIX]: Configure a 'ConnectionDrainingPolicy' on ELB Classic Load Balancers.
         >>
 }
 
@@ -4237,7 +4237,7 @@ rule elb_connection_draining_enabled_check when is_cfn_hook(%INPUT_DOCUMENT, %EL
     check(%INPUT_DOCUMENT.%ELASTIC_LOAD_BALANCER_TYPE.resourceProperties)
         <<
         [CT.ELASTICLOADBALANCING.PR.11]: Require any ELB classic load balancer to have connection draining activated
-        [FIX]: Configure a 'ConnectionDrainingPolicy' on Elastic Load Balancing Classic Load Balancers.
+        [FIX]: Configure a 'ConnectionDrainingPolicy' on ELB Classic Load Balancers.
         >>
 }
 
@@ -4394,13 +4394,13 @@ Resources:
 
 ## [CT.ELASTICLOADBALANCING.PR.12] Require any ELB classic load balancer SSL/HTTPS listener to have a predefined security policy with a strong configuration
 
-This control checks whether Elastic Load Balancing (ELB) Classic Load Balancer HTTPS/SSL listeners use the predefined security policy `ELBSecurityPolicy-TLS-1-2-2017-01`.
+This control checks whether ELB (ELB) Classic Load Balancer HTTPS/SSL listeners use the predefined security policy `ELBSecurityPolicy-TLS-1-2-2017-01`.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticLoadBalancing::LoadBalancer`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICLOADBALANCING.PR.12 rule specification](#ct-elasticloadbalancing-pr-12-rule "#ct-elasticloadbalancing-pr-12-rule")
 
 **Details and examples**
@@ -4420,7 +4420,7 @@ Using `ELBSecurityPolicy-TLS-1-2-2017-01` can help you to meet compliance and se
 
 ###### Usage considerations
 
-- This control applies only to Elastic Load Balancing Classic Load Balancers configured with HTTPS or SSL listeners.
+- This control applies only to ELB Classic Load Balancers configured with HTTPS or SSL listeners.
 
 ### Remediation for rule failure
 
@@ -4522,50 +4522,50 @@ ClassicLoadBalancer:
 #   elb_predefined_security_policy_ssl_check
 #
 # Description:
-#   This control checks whether Elastic Load Balancing (ELB) Classic Load Balancer HTTPS/SSL listeners use the predefined security policy 'ELBSecurityPolicy-TLS-1-2-2017-01'.
+#   This control checks whether ELB (ELB) Classic Load Balancer HTTPS/SSL listeners use the predefined security policy 'ELBSecurityPolicy-TLS-1-2-2017-01'.
 #
 # Reports on:
 #   AWS::ElasticLoadBalancing::LoadBalancer
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document does not contain any Elastic Load Balancing LoadBalancer resources
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document does not contain any ELB LoadBalancer resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing LoadBalancer resource
-#       And: There are no HTTPS or SSL 'Listeners' configured on the Elastic Load Balancing LoadBalancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB LoadBalancer resource
+#       And: There are no HTTPS or SSL 'Listeners' configured on the ELB LoadBalancer resource
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing LoadBalancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB LoadBalancer resource
 #       And: 'Policies' does not contain a policy with 'PolicyType' equal to 'SSLNegotiationPolicyType'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing LoadBalancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB LoadBalancer resource
 #       And: 'Policies' contains a policy with 'PolicyType' equal to 'SSLNegotiationPolicyType'
 #       And: 'Policies' is missing a 'Reference-Security-Policy' with a value of
 #            'ELBSecurityPolicy-TLS-1-2-2017-01'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing LoadBalancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB LoadBalancer resource
 #       And: 'Policies' contains a policy with 'PolicyType' equal to 'SSLNegotiationPolicyType'
 #       And: 'Policies' contains a 'Reference-Security-Policy' with a value of
 #            'ELBSecurityPolicy-TLS-1-2-2017-01'
 #       And: A 'HTTPS' or 'SSL' Listener on the LoadBalancer resource does not reference the secure policy
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing LoadBalancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB LoadBalancer resource
 #       And: 'Policies' contains a policy with 'PolicyType' equal to 'SSLNegotiationPolicyType'
 #       And: 'Policies' contains a 'Reference-Security-Policy' with a value of
 #            'ELBSecurityPolicy-TLS-1-2-2017-01'
@@ -4787,10 +4787,10 @@ Resources:
 This control checks whether cross-zone load balancing is configured for your Classic Load Balancer.
 
 - **Control objective:** Improve availability
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticLoadBalancing::LoadBalancer`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICLOADBALANCING.PR.13 rule specification](#ct-elasticloadbalancing-pr-13-rule "#ct-elasticloadbalancing-pr-13-rule")
 
 **Details and examples**
@@ -4914,29 +4914,29 @@ ClassicLoadBalancer:
 #   AWS::ElasticLoadBalancing::LoadBalancer
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document does not contain any Elastic Load Balancing LoadBalancer resources
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document does not contain any ELB LoadBalancer resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing LoadBalancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB LoadBalancer resource
 #       And: 'CrossZone' has not been specified
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing LoadBalancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB LoadBalancer resource
 #       And: 'CrossZone' has been specified and set to bool(false)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
-#       And: The input document contains an Elastic Load Balancing LoadBalancer resource
+#     Given: The input document is an CloudFormation or CloudFormation hook document
+#       And: The input document contains an ELB LoadBalancer resource
 #       And: 'CrossZone' has been specified and set to bool(true)
 #      Then: PASS
 
@@ -5123,10 +5123,10 @@ Resources:
 This control checks whether a Network Load Balancer (NLB) is configured with cross-zone load balancing.
 
 - **Control objective:** Improve resiliency, Improve availability
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticLoadBalancingV2::LoadBalancer`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICLOADBALANCING.PR.14 rule specification](#ct-elasticloadbalancing-pr-14-rule "#ct-elasticloadbalancing-pr-14-rule")
 
 **Details and examples**
@@ -5226,36 +5226,36 @@ NetworkLoadBalancer:
 #   AWS::ElasticLoadBalancingV2::LoadBalancer
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ELBv2 Load Balancer resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 Load Balancer resource
 #       And: 'Type' has been provided and is set to a value other than 'network'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 Load Balancer resource
 #       And: 'Type' has been provided and set to 'network'
 #       And: 'LoadBalancerAttributes' has not been provided or has been provided as an empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 Load Balancer resource
 #       And: 'Type' has been provided and set to 'network'
 #       And: 'LoadBalancerAttributes' has been provided as a non-empty list
 #       And: 'LoadBalancerAttributes' does not contain an entry with a 'Key' equal to 'load_balancing.cross_zone.enabled'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 Load Balancer resource
 #       And: 'Type' has been provided and set to 'network'
 #       And: 'LoadBalancerAttributes' has been provided as a non-empty list
@@ -5263,7 +5263,7 @@ NetworkLoadBalancer:
 #            'Value' equal to a value other than bool(true) or string(true)
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ELBv2 Load Balancer resource
 #       And: 'Type' has been provided and set to 'network'
 #       And: 'LoadBalancerAttributes' has been provided as a non-empty list
@@ -5442,10 +5442,10 @@ Resources:
 This control checks whether an Elastic Load Balancing v2 target group is configured so that it does not explicitly turn off cross-zone load balancing.
 
 - **Control objective:** Improve availability
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticLoadBalancingV2::TargetGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICLOADBALANCING.PR.15 rule specification](#ct-elasticloadbalancing-pr-15-rule "#ct-elasticloadbalancing-pr-15-rule")
 
 **Details and examples**
@@ -5538,31 +5538,31 @@ TargetGroup:
 #   AWS::ElasticLoadBalancingV2::TargetGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Elastic Load Balancing v2 target group resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elastic Load Balancing v2 target group resource
 #       And: 'TargetGroupAttributes' has been provided as a non-empty list
 #       And: 'TargetGroupAttributes' contain an entry with a 'Key' equal to 'load_balancing.cross_zone.enabled'
 #            and 'Value' equal to a value other than bool(true), 'true' or 'use_load_balancer_configuration'
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elastic Load Balancing v2 target group resource
 #       And: 'TargetGroupAttributes' has not been provided or has been provided as a list that
 #            does not contain an entry with a 'Key' equal to 'load_balancing.cross_zone.enabled'
 #      Then: PASS
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elastic Load Balancing v2 target group resource
 #       And: 'TargetGroupAttributes' has been provided as a non-empty list
 #       And: 'TargetGroupAttributes' contains an entry with a 'Key' equal to 'load_balancing.cross_zone.enabled' and

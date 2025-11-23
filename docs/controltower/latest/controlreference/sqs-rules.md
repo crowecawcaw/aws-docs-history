@@ -10,10 +10,10 @@
 This control checks whether an Amazon SQS queue is configured with a dead-letter queue.
 
 - **Control objective:** Improve resiliency
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::SQS::Queue`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.SQS.PR.1 rule specification](#ct-sqs-pr-1-rule "#ct-sqs-pr-1-rule")
 
 **Details and examples**
@@ -98,31 +98,31 @@ SQSQueue:
 #    AWS::SQS::Queue
 #
 # Evaluates:
-#    AWS CloudFormation, AWS CloudFormation hook
+#    CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #     None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any SQS queue resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an SQS queue resource
 #       And: 'RedriveAllowPolicy' has been provided on the SQS queue
 #       And: 'RedriveAllowPolicy.redrivePermission' is set to 'allowAll' or 'byQueue'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an SQS queue resource
 #       And: 'RedriveAllowPolicy' has not been provided on the SQS queue or 'RedriveAllowPolicy.redrivePermission'
 #            has been provided and is set to a value other than 'allowAll' or 'byQueue'
 #       And: 'RedrivePolicy' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an SQS queue resource
 #       And: 'RedriveAllowPolicy' has not been provided on the SQS queue or 'RedriveAllowPolicy.redrivePermission'
 #            has been provided and is set to a value other than 'allowAll' or 'byQueue'
@@ -131,7 +131,7 @@ SQSQueue:
 #            invalid local reference to an SQS queue
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an SQS queue resource
 #       And: 'RedriveAllowPolicy' has not been provided on the SQS queue or 'RedriveAllowPolicy.redrivePermission' has
 #            been provided and is set to a value other than 'allowAll' or 'byQueue'
@@ -291,10 +291,10 @@ Resources:
 This control checks whether an Amazon SQS queue is encrypted at rest.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::SQS::Queue`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.SQS.PR.2 rule specification](#ct-sqs-pr-2-rule "#ct-sqs-pr-2-rule")
 
 **Details and examples**
@@ -302,7 +302,7 @@ This control checks whether an Amazon SQS queue is encrypted at rest.
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.SQS.PR.2 rule specification](#ct-sqs-pr-2-rule "#ct-sqs-pr-2-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.SQS.PR.2 example templates](#ct-sqs-pr-2-templates "#ct-sqs-pr-2-templates")
 
@@ -400,40 +400,40 @@ SQSQueue:
 #    AWS::SQS::Queue
 #
 # Evaluates:
-#    AWS CloudFormation, AWS CloudFormation hook
+#    CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #     None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any SQS queue resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an SQS queue resource
 #       And: 'KmsMasterKeyId' or 'SqsManagedSseEnabled' have not been provided on the SQS queue resource
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an SQS queue resource
 #       And: 'KmsMasterKeyId' has not been provided
 #       And: 'SqsManagedSseEnabled' has been provided and set to bool(false)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an SQS queue resource
 #       And: 'KmsMasterKeyId' has been provided as an empty string or invalid local reference to a KMS key or alias
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an SQS queue resource
 #       And: 'SqsManagedSseEnabled' is not provided or set to bool(false)
 #       And: 'KmsMasterKeyId' is provided as a non-empty string or local reference to a KMS key
 #      Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an SQS queue resource
 #       And: 'KmsMasterKeyId' is not provided
 #       And: 'SqsManagedSseEnabled' is provided and set to bool(true)

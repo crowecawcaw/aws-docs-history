@@ -19,10 +19,10 @@
 This control checks whether your Amazon Simple Storage Service (Amazon S3) bucket has a bucket-level Block Public Access (BPA) configuration.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::S3::Bucket`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.S3.PR.1 rule specification](#ct-s3-pr-1-rule "#ct-s3-pr-1-rule")
 
 **Details and examples**
@@ -109,37 +109,37 @@ S3Bucket:
 #   AWS::S3::Bucket
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon S3 bucket resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 bucket resource
 #       And: 'PublicAccessBlockConfiguration' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 bucket resource
 #       And: 'PublicAccessBlockConfiguration' has been provided
 #       And: 'BlockPublicAcls' or 'BlockPublicPolicy' or 'IgnorePublicAcls' or 'RestrictPublicBuckets'
 #            have not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 bucket Resource
 #       And: 'PublicAccessBlockConfiguration' has been provided
 #       And: Any of 'BlockPublicAcls' or 'BlockPublicPolicy' or 'IgnorePublicAcls' or 'RestrictPublicBuckets'
 #            have been set to a value other than bool(true) (e.g. bool(false), str(false), other)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 bucket Resource
 #       And: 'PublicAccessBlockConfiguration' has been provided
 #       And: 'BlockPublicAcls' or 'BlockPublicPolicy' or 'IgnorePublicAcls' or 'RestrictPublicBuckets'
@@ -262,10 +262,10 @@ Resources:
 This control checks whether server access logging is enabled for your Amazon S3 bucket.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::S3::Bucket`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.S3.PR.2 rule specification](#ct-s3-pr-2-rule "#ct-s3-pr-2-rule")
 
 **Details and examples**
@@ -341,35 +341,35 @@ S3Bucket:
 #   AWS::S3::Bucket
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon S3 bucket resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 bucket resource
 #       And: 'LoggingConfiguration' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 bucket resource
 #       And: 'LoggingConfiguration' has been provided
 #       And: 'LoggingConfiguration.DestinationbucketName' has been provided with an empty string or non-valid local
 #            reference
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 bucket resource
 #       And: 'LoggingConfiguration' has been provided
 #      Then: PASS
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 bucket resource
 #       And: 'LoggingConfiguration' has been provided
 #       And: 'LoggingConfiguration.DestinationBucketName' has been provided with a non-empty string or valid local
@@ -505,10 +505,10 @@ Resources:
 This control checks whether your Amazon Simple Storage Service (Amazon S3) version-enabled bucket has a lifecycle policy configured.
 
 - **Control objective:** Optimize costs
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::S3::Bucket`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.S3.PR.3 rule specification](#ct-s3-pr-3-rule "#ct-s3-pr-3-rule")
 
 **Details and examples**
@@ -600,31 +600,31 @@ S3Bucket:
 #   AWS::S3::Bucket
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon S3 bucket resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 bucket Resource
 #       And: The S3 bucket does not have versioning enabled (VersioningConfiguration is missing or
 #            VersioningConfiguration.Status is set to Suspended)
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 bucket Resource
 #       And: The S3 bucket has versioning enabled (VersioningConfiguration.Status is set to 'Enabled')
 #       And: 'LifecycleConfiguration' has been been provided and there are no 'Rules' with 'Status' set to 'Enabled'
 #            present in the 'LifecycleConfiguration'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 bucket Resource
 #       And: The S3 bucket has versioning enabled (VersioningConfiguration.Status is set to 'Enabled')
 #       And: 'LifecycleConfiguration' has been been provided and there is at least one 'Rule' with 'Status' set to
@@ -763,10 +763,10 @@ Resources:
 This control checks whether Amazon S3 events notifications are enabled on your Amazon S3 bucket.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::S3::Bucket`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.S3.PR.4 rule specification](#ct-s3-pr-4-rule "#ct-s3-pr-4-rule")
 
 **Details and examples**
@@ -888,30 +888,30 @@ S3Bucket:
 #   AWS::S3::Bucket
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon S3 bucket resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 bucket resource
 #       And: 'NotificationConfiguration' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 bucket resource
 #       And: 'NotificationConfiguration' has been provided
 #       And:  At least one of 'EventBridgeConfiguration.EventBridgeEnabled', 'LambdaConfigurations',
 #             'QueueConfigurations', or 'TopicConfigurations' have not been provided or provided as empty lists.
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 bucket resource
 #       And: 'NotificationConfiguration' has been provided
 #       And: 'EventBridgeConfiguration.EventBridgeEnabled' is set to bool(true) or 'LambdaConfigurations',
@@ -1041,10 +1041,10 @@ Resources:
 This control checks whether your Amazon Simple Storage Service (Amazon S3) bucket allows user permissions through access control lists.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::S3::Bucket`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.S3.PR.5 rule specification](#ct-s3-pr-5-rule "#ct-s3-pr-5-rule")
 
 **Details and examples**
@@ -1112,23 +1112,23 @@ S3Bucket:
 #   AWS::S3::Bucket
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon S3 bucket resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 bucket resource
 #       And: 'AccessControl' has been provided on the S3 bucket resource
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 bucket resource
 #       And: 'AccessControl' has not been provided on the S3 bucket resource
 #      Then: PASS
@@ -1225,10 +1225,10 @@ Resources:
 This control checks whether a lifecycle rule is configured for Amazon S3 buckets.
 
 - **Control objective:** Optimize costs, Improve availability
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::S3::Bucket`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.S3.PR.6 rule specification](#ct-s3-pr-6-rule "#ct-s3-pr-6-rule")
 
 **Details and examples**
@@ -1311,31 +1311,31 @@ S3Bucket:
 #   AWS::S3::Bucket
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any S3 bucket resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an S3 bucket resource
 #       And: 'LifecycleConfiguration.Rules' has not been been provided or has been provided where 'Rules' is an
 #             empty list
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an S3 bucket resource
 #       And: The S3 bucket has versioning enabled (VersioningConfiguration.Status is set to 'Enabled')
 #       And: 'LifecycleConfiguration.Rules' has been been provided as a non-empty list
 #       And: There are no 'Rules' with 'Status' set to 'Enabled' present in the 'LifecycleConfiguration'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an S3 bucket resource
 #       And: The S3 bucket has versioning enabled (VersioningConfiguration.Status is set to 'Enabled')
 #       And: 'LifecycleConfiguration.Rules' has been been provided as a non-empty list
@@ -1456,10 +1456,10 @@ Resources:
 This control checks whether Amazon S3 bucket policies require requests to use Secure Socket Layer (SSL).
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::S3::BucketPolicy`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.S3.PR.8 rule specification](#ct-s3-pr-8-rule "#ct-s3-pr-8-rule")
 
 **Details and examples**
@@ -1584,30 +1584,30 @@ S3BucketPolicy:
 #   AWS::S3::BucketPolicy
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any S3 bucket policies
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an S3 bucket policy
 #       And: 'Policydocument' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an S3 bucket policy
 #       And: 'Policydocument' does not include a statement that denies Principal  ('*', AWS: '*')
 #            all Actions ('s3:*', '*') over resource ('*' or bucketArn, bucketObjectArn) when the condition
 #            "aws:SecureTransport" is "false"
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an S3 bucket policy
 #       And: 'Policydocument' includes a statement that denies Principal  ('*', AWS: '*')
 #            all Actions ('s3:*', '*') over resource ('*' or bucketArn, bucketObjectArn) when the condition
@@ -1880,10 +1880,10 @@ Resources:
 This control checks whether an Amazon Simple Storage Service (Amazon S3) bucket has been configured to use S3 Object Lock.
 
 - **Control objective:** Protect data integrity
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::S3::Bucket`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.S3.PR.9 rule specification](#ct-s3-pr-9-rule "#ct-s3-pr-9-rule")
 
 **Details and examples**
@@ -1958,28 +1958,28 @@ Bucket:
 #   AWS::S3::Bucket
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any S3 bucket resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an S3 bucket resource
 #       And: 'ObjectLockEnabled' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an S3 bucket resource
 #       And: 'ObjectLockEnabled' has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an S3 bucket resource
 #       And: 'ObjectLockEnabled' has been provided and set to bool(true)
 #      Then: PASS
@@ -2079,10 +2079,10 @@ Resources:
 This control checks whether default server-side encryption is enabled on an Amazon S3 bucket using AWS KMS.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::S3::Bucket`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.S3.PR.10 rule specification](#ct-s3-pr-10-rule "#ct-s3-pr-10-rule")
 
 **Details and examples**
@@ -2164,24 +2164,24 @@ S3Bucket:
 #   AWS::S3::Bucket
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any S3 bucket resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an S3 bucket resource
 #       And: 'ServerSideEncryptionConfiguration' in 'BucketEncryption' has not been provided
 #            or provided as an empty list
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an S3 bucket resource
 #       And: 'ServerSideEncryptionConfiguration' in 'BucketEncryption' has been provided as
 #            a non empty list
@@ -2189,7 +2189,7 @@ S3Bucket:
 #            encryption rule with a 'ServerSideEncryptionByDefault' configuration
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an S3 bucket resource
 #       And: 'ServerSideEncryptionConfiguration' in 'BucketEncryption' has been provided as
 #            a non empty list
@@ -2200,7 +2200,7 @@ S3Bucket:
 #            or 'aws:kms:dsse'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an S3 bucket resource
 #       And: 'ServerSideEncryptionConfiguration' in 'BucketEncryption' has been provided as
 #            a non empty list
@@ -2324,10 +2324,10 @@ Resources:
 This control checks whether an Amazon Simple Storage Service (Amazon S3) bucket has versioning enabled.
 
 - **Control objective:** Improve availability
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::S3::Bucket`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.S3.PR.11 rule specification](#ct-s3-pr-11-rule "#ct-s3-pr-11-rule")
 
 **Details and examples**
@@ -2405,30 +2405,30 @@ Bucket:
 #   AWS::S3::Bucket
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any S3 bucket resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an S3 bucket resource
 #       And: 'VersioningConfiguration' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an S3 bucket resource
 #       And: 'VersioningConfiguration' has been provided
 #       And: 'Status' in 'VersioningConfiguration' has not been provided or has been provided
 #            and set to a value other than 'Enabled'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an S3 bucket resource
 #       And: 'VersioningConfiguration' has been provided
 #       And: 'Status' in 'VersioningConfiguration' has been provided and set to 'Enabled'
@@ -2534,10 +2534,10 @@ Resources:
 This control checks whether an Amazon S3 access point has been configured with a Block Public Access (BPA) configuration that has all options set to true.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::S3::AccessPoint`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.S3.PR.12 rule specification](#ct-s3-pr-12-rule "#ct-s3-pr-12-rule")
 
 **Details and examples**
@@ -2545,7 +2545,7 @@ This control checks whether an Amazon S3 access point has been configured with a
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.S3.PR.12 rule specification](#ct-s3-pr-12-rule "#ct-s3-pr-12-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.S3.PR.12 example templates](#ct-s3-pr-12-templates "#ct-s3-pr-12-templates")
 
@@ -2665,23 +2665,23 @@ S3AccessPoint:
 #   AWS::S3::AccessPoint
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon S3 access point resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 access point resource
 #       And: 'PublicAccessBlockConfiguration' has been provided as an empty struct
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 access point resource
 #       And: 'PublicAccessBlockConfiguration' has been provided
 #       And: In 'PublicAccessBlockConfiguration', one or more of 'BlockPublicAcls',
@@ -2689,12 +2689,12 @@ S3AccessPoint:
 #            provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 access point resource
 #       And: 'PublicAccessBlockConfiguration' has not been provided
 #      Then: PASS
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon S3 access point resource
 #       And: 'PublicAccessBlockConfiguration' has been provided
 #       And: In 'PublicAccessBlockConfiguration', 'BlockPublicAcls', 'BlockPublicPolicy',

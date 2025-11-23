@@ -9,10 +9,10 @@
 This control checks whether any AWS Certificate Manager (ACM) Private CA certificates have wildcard domain names instead of single domain names.
 
 - **Control objective:** Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CertificateManager::Certificate`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ACM.PR.1 rule specification](#ct-acm-pr-1-rule "#ct-acm-pr-1-rule")
 
 **Details and examples**
@@ -131,36 +131,36 @@ Resources:
 #   AWS::CertificateManager::Certificate
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ACM certificate resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ACM certificate resource
 #       And: 'CertificateAuthorityArn' has not been provided
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ACM certificate resource
 #       And: 'CertificateAuthorityArn' has been provided
 #       And: 'DomainName' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ACM certificate resource
 #       And: 'CertificateAuthorityArn' has been provided
 #       And: 'SubjectAlternativeNames' has not been provided or provided as an empty list
 #       And: 'DomainName' has been provided with a string that begins with a wildcard character ('*').
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ACM certificate resource
 #       And: 'CertificateAuthorityArn' has been provided
 #       And: 'DomainName' has been provided with a string that does not begin with a wildcard character ('*').
@@ -168,14 +168,14 @@ Resources:
 #            begins with a wildcard character ('*').
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ACM certificate resource
 #       And: 'CertificateAuthorityArn' has been provided
 #       And: 'DomainName' has been provided with a string that does not begin with a wildcard character ('*').
 #       And: 'SubjectAlternativeNames' has not been provided or provided as an empty list
 #      Then: PASS
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ACM certificate resource
 #       And: 'CertificateAuthorityArn' has been provided
 #       And: 'DomainName' has been provided with a string that does not begin with a wildcard character ('*').

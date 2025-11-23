@@ -7,7 +7,7 @@ deactivate these optional controls through the AWS Control Tower console, or by 
 ###### AWS Control Tower offers several types of optional controls:
 
 - [Proactive controls](proactive-controls.md "proactive-controls.md"),
-  which are based on AWS CloudFormation hooks.
+  which are based on CloudFormation hooks.
 - [Controls implemented with resource control policies
   (RCPs)](rcp-controls.md "rcp-controls.md"),
   which are based on RCPs from AWS Organizations. For more information, see [Resource control policies](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") in the AWS Organizations documentation.

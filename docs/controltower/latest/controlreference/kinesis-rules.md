@@ -9,10 +9,10 @@
 This control checks whether Amazon Kinesis data streams are encrypted at rest with server-side encryption.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Kinesis::Stream`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.KINESIS.PR.1 rule specification](#ct-kinesis-pr-1-rule "#ct-kinesis-pr-1-rule")
 
 **Details and examples**
@@ -94,44 +94,44 @@ KinesisStream:
 #   AWS::Kinesis::Stream
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Kinesis stream resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Kinesis stream resource
 #       And: 'StreamEncryption' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Kinesis stream resource
 #       And: 'StreamEncryption' has been provided
 #       And: 'StreamEncryption.EncryptionType' has not been provided or provided as an empty string
 #       And: 'StreamEncryption.KeyId' has not been provided or provided as an empty string or invalid local reference
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Kinesis stream resource
 #       And: 'StreamEncryption' has been provided
 #       And: 'StreamEncryption.EncryptionType' has been provided as a non-empty string
 #       And: 'StreamEncryption.KeyId' has not been provided or provided as an empty string or invalid local reference
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Kinesis stream resource
 #       And: 'StreamEncryption' has been provided
 #       And: 'StreamEncryption.EncryptionType' has not been provided or provided as an empty string
 #       And: 'StreamEncryption.KeyId' has been provided as a non-empty string or valid local reference
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Kinesis stream resource
 #       And: 'StreamEncryption' has been provided
 #       And: 'StreamEncryption.EncryptionType' has been provided as a non-empty string

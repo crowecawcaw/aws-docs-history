@@ -10,10 +10,10 @@
 This control checks whether an Amazon MQ ActiveMQ broker is configured in an active/standby deployment mode.
 
 - **Control objective:** Improve resiliency, Improve availability
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::AmazonMQ::Broker`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.MQ.PR.1 rule specification](#ct-mq-pr-1-rule "#ct-mq-pr-1-rule")
 
 **Details and examples**
@@ -21,7 +21,7 @@ This control checks whether an Amazon MQ ActiveMQ broker is configured in an act
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.MQ.PR.1 rule specification](#ct-mq-pr-1-rule "#ct-mq-pr-1-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.MQ.PR.1 example templates](#ct-mq-pr-1-templates "#ct-mq-pr-1-templates")
 
@@ -116,30 +116,30 @@ MQBroker:
 #   AWS::AmazonMQ::Broker
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon MQ broker resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon MQ broker resource
 #       And: 'EngineType' has been provided and is equal to a value other than 'ACTIVEMQ'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon MQ broker resource
 #       And: 'EngineType' has been provided and set to 'ACTIVEMQ'
 #       And: 'DeploymentMode' has not been provided or has been provided and set to a value other
 #            than 'ACTIVE_STANDBY_MULTI_AZ'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon MQ broker resource
 #       And: 'EngineType' has been provided and set to 'ACTIVEMQ'
 #       And: 'DeploymentMode' has been provided and set to 'ACTIVE_STANDBY_MULTI_AZ'
@@ -295,10 +295,10 @@ Resources:
 This control checks whether an Amazon MQ RabbitMQ broker is configured in a cluster deployment mode, to allow for high availability.
 
 - **Control objective:** Improve resiliency, Improve availability
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::AmazonMQ::Broker`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.MQ.PR.2 rule specification](#ct-mq-pr-2-rule "#ct-mq-pr-2-rule")
 
 **Details and examples**
@@ -306,7 +306,7 @@ This control checks whether an Amazon MQ RabbitMQ broker is configured in a clus
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.MQ.PR.2 rule specification](#ct-mq-pr-2-rule "#ct-mq-pr-2-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.MQ.PR.2 example templates](#ct-mq-pr-2-templates "#ct-mq-pr-2-templates")
 
@@ -401,30 +401,30 @@ MQBroker:
 #   AWS::AmazonMQ::Broker
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon MQ broker resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon MQ broker resource
 #       And: 'EngineType' been provided and is equal to a value other than 'RABBITMQ'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon MQ broker resource
 #       And: 'EngineType' been provided and is equal to 'RABBITMQ'
 #       And: 'DeploymentMode' has not been provided or has been provided and set to a value other
 #            than 'CLUSTER_MULTI_AZ'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon MQ broker resource
 #       And: 'EngineType' been provided and is equal to 'RABBITMQ'
 #       And: 'DeploymentMode' has been provided and set to 'CLUSTER_MULTI_AZ'

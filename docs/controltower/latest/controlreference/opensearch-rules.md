@@ -24,10 +24,10 @@
 This control checks whether Elasticsearch domains have encryption-at-rest enabled.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Elasticsearch::Domain`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.OPENSEARCH.PR.1 rule specification](#ct-opensearch-pr-1-rule "#ct-opensearch-pr-1-rule")
 
 **Details and examples**
@@ -35,7 +35,7 @@ This control checks whether Elasticsearch domains have encryption-at-rest enable
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.OPENSEARCH.PR.1 rule specification](#ct-opensearch-pr-1-rule "#ct-opensearch-pr-1-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
 
 [CT.OPENSEARCH.PR.1 example templates](#ct-opensearch-pr-1-templates "#ct-opensearch-pr-1-templates")
@@ -143,30 +143,30 @@ ElasticsearchDomain:
 #   AWS::Elasticsearch::Domain
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Elasticsearch domain resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'EncryptionAtRestOptions' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'EncryptionAtRestOptions' has been provided
 #       And: 'Enabled' in 'EncryptionAtRestOptions' has not been provided or provided
 #            and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'EncryptionAtRestOptions' has been provided
 #       And: 'Enabled' in 'EncryptionAtRestOptions' has been provided and set to bool(true)
@@ -308,10 +308,10 @@ Resources:
 This control checks whether Elasticsearch domains are configured with VPC option settings that specify a target Amazon VPC.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Elasticsearch::Domain`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.OPENSEARCH.PR.2 rule specification](#ct-opensearch-pr-2-rule "#ct-opensearch-pr-2-rule")
 
 **Details and examples**
@@ -319,7 +319,7 @@ This control checks whether Elasticsearch domains are configured with VPC option
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.OPENSEARCH.PR.2 rule specification](#ct-opensearch-pr-2-rule "#ct-opensearch-pr-2-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.OPENSEARCH.PR.2 example templates](#ct-opensearch-pr-2-templates "#ct-opensearch-pr-2-templates")
 
@@ -431,30 +431,30 @@ ElasticsearchDomain:
 #   AWS::Elasticsearch::Domain
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Elasticsearch domain resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'VPCOptions' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'VPCOptions' has been provided
 #       And: 'SubnetIds' in 'VPCOptions' has not been provided or has been provided
 #            as an empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'VPCOptions' has been provided
 #       And: 'SubnetIds' in 'VPCOptions' has been provided as a list with one or more values
@@ -610,10 +610,10 @@ Resources:
 This control checks whether Elasticsearch domains have node-to-node encryption enabled.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Elasticsearch::Domain`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.OPENSEARCH.PR.3 rule specification](#ct-opensearch-pr-3-rule "#ct-opensearch-pr-3-rule")
 
 **Details and examples**
@@ -621,7 +621,7 @@ This control checks whether Elasticsearch domains have node-to-node encryption e
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.OPENSEARCH.PR.3 rule specification](#ct-opensearch-pr-3-rule "#ct-opensearch-pr-3-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.OPENSEARCH.PR.3 example templates](#ct-opensearch-pr-3-templates "#ct-opensearch-pr-3-templates")
 
@@ -732,30 +732,30 @@ ElasticsearchDomain:
 #   AWS::Elasticsearch::Domain
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Elasticsearch domain resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'NodeToNodeEncryptionOptions' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'NodeToNodeEncryptionOptions' has been provided
 #       And: 'Enabled' in 'NodeToNodeEncryptionOptions' has not been provided or has been provided
 #            and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'NodeToNodeEncryptionOptions' has been provided
 #       And: 'Enabled' in 'NodeToNodeEncryptionOptions' has been provided and set to a
@@ -897,10 +897,10 @@ Resources:
 This control checks whether Elasticsearch domains are configured to send error logs to an Amazon CloudWatch Logs log group.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Elasticsearch::Domain`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.OPENSEARCH.PR.4 rule specification](#ct-opensearch-pr-4-rule "#ct-opensearch-pr-4-rule")
 
 **Details and examples**
@@ -908,7 +908,7 @@ This control checks whether Elasticsearch domains are configured to send error l
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.OPENSEARCH.PR.4 rule specification](#ct-opensearch-pr-4-rule "#ct-opensearch-pr-4-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.OPENSEARCH.PR.4 example templates](#ct-opensearch-pr-4-templates "#ct-opensearch-pr-4-templates")
 
@@ -1025,29 +1025,29 @@ ElasticsearchDomain:
 #   AWS::Elasticsearch::Domain
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Elasticsearch domain resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'LogPublishingOptions' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'LogPublishingOptions' has been provided
 #       And: 'ES_APPLICATION_LOGS' in 'LogPublishingOptions' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'LogPublishingOptions' has been specified
 #       And: 'ES_APPLICATION_LOGS' in 'LogPublishingOptions' has been provided
@@ -1057,7 +1057,7 @@ ElasticsearchDomain:
 #            as an empty string or invalid local reference
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'LogPublishingOptions' has been specified
 #       And: 'ES_APPLICATION_LOGS' in 'LogPublishingOptions' has been provided
@@ -1066,7 +1066,7 @@ ElasticsearchDomain:
 #            as an empty string or invalid local reference
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'LogPublishingOptions' has been specified
 #       And: 'ES_APPLICATION_LOGS' in 'LogPublishingOptions' has been provided
@@ -1076,7 +1076,7 @@ ElasticsearchDomain:
 #            or valid local reference
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'LogPublishingOptions' has been specified
 #       And: 'ES_APPLICATION_LOGS' in 'LogPublishingOptions' has been provided
@@ -1307,10 +1307,10 @@ Resources:
 This control checks whether Elasticsearch domains are configured to send audit logs to an Amazon CloudWatch Logs log group.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Elasticsearch::Domain`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.OPENSEARCH.PR.5 rule specification](#ct-opensearch-pr-5-rule "#ct-opensearch-pr-5-rule")
 
 **Details and examples**
@@ -1318,7 +1318,7 @@ This control checks whether Elasticsearch domains are configured to send audit l
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.OPENSEARCH.PR.5 rule specification](#ct-opensearch-pr-5-rule "#ct-opensearch-pr-5-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.OPENSEARCH.PR.5 example templates](#ct-opensearch-pr-5-templates "#ct-opensearch-pr-5-templates")
 
@@ -1472,29 +1472,29 @@ ElasticsearchDomain:
 #   AWS::Elasticsearch::Domain
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Elasticsearch domain resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'LogPublishingOptions' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'LogPublishingOptions' has been provided
 #       And: 'AUDIT_LOGS' in 'LogPublishingOptions' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'LogPublishingOptions' has been specified
 #       And: 'AUDIT_LOGS' in 'LogPublishingOptions' has been provided
@@ -1504,7 +1504,7 @@ ElasticsearchDomain:
 #            as an empty string or invalid local reference
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'LogPublishingOptions' has been specified
 #       And: 'AUDIT_LOGS' in 'LogPublishingOptions' has been provided
@@ -1513,7 +1513,7 @@ ElasticsearchDomain:
 #            as an empty string or invalid local reference
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'LogPublishingOptions' has been specified
 #       And: 'AUDIT_LOGS' in 'LogPublishingOptions' has been provided
@@ -1523,7 +1523,7 @@ ElasticsearchDomain:
 #            or valid local reference
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'LogPublishingOptions' has been specified
 #       And: 'AUDIT_LOGS' in 'LogPublishingOptions' has been provided
@@ -1827,10 +1827,10 @@ Resources:
 This control checks whether ElasticSearch domains are configured with at least three data nodes and zone awareness enabled.
 
 - **Control objective:** Improve availability
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Elasticsearch::Domain`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.OPENSEARCH.PR.6 rule specification](#ct-opensearch-pr-6-rule "#ct-opensearch-pr-6-rule")
 
 **Details and examples**
@@ -1838,7 +1838,7 @@ This control checks whether ElasticSearch domains are configured with at least t
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.OPENSEARCH.PR.6 rule specification](#ct-opensearch-pr-6-rule "#ct-opensearch-pr-6-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.OPENSEARCH.PR.6 example templates](#ct-opensearch-pr-6-templates "#ct-opensearch-pr-6-templates")
 
@@ -1947,23 +1947,23 @@ ElasticsearchDomain:
 #   AWS::Elasticsearch::Domain
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Elasticsearch domain resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'ElasticsearchClusterConfig' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'ElasticsearchClusterConfig' has been provided
 #       And: 'ZoneAwarenessEnabled' in 'ElasticsearchClusterConfig' has not been provided
@@ -1972,7 +1972,7 @@ ElasticsearchDomain:
 #             provided and set to an integer value less than three (< 3)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'ElasticsearchClusterConfig' has been provided
 #       And: 'ZoneAwarenessEnabled' in 'ElasticsearchClusterConfig' has been provided
@@ -1981,7 +1981,7 @@ ElasticsearchDomain:
 #             provided and set to an integer value less than three (< 3)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'ElasticsearchClusterConfig' has been provided
 #       And: 'ZoneAwarenessEnabled' in 'ElasticsearchClusterConfig' has not been provided
@@ -1990,7 +1990,7 @@ ElasticsearchDomain:
 #             an integer value greater than or equal to three (>= 3)
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'ElasticsearchClusterConfig' has been provided
 #       And: 'ZoneAwarenessEnabled' in 'ElasticsearchClusterConfig' has been provided
@@ -2138,10 +2138,10 @@ Resources:
 This control checks whether Elasticsearch domains are configured with at least three dedicated master nodes.
 
 - **Control objective:** Improve availability
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Elasticsearch::Domain`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.OPENSEARCH.PR.7 rule specification](#ct-opensearch-pr-7-rule "#ct-opensearch-pr-7-rule")
 
 **Details and examples**
@@ -2149,7 +2149,7 @@ This control checks whether Elasticsearch domains are configured with at least t
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.OPENSEARCH.PR.7 rule specification](#ct-opensearch-pr-7-rule "#ct-opensearch-pr-7-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.OPENSEARCH.PR.7 example templates](#ct-opensearch-pr-7-templates "#ct-opensearch-pr-7-templates")
 
@@ -2325,23 +2325,23 @@ ElasticsearchDomain:
 #   AWS::Elasticsearch::Domain
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Elasticsearch domain resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'ElasticsearchClusterConfig' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'ElasticsearchClusterConfig' has been provided
 #       And: 'DedicatedMasterEnabled' in 'ElasticsearchClusterConfig' has not been provided
@@ -2350,7 +2350,7 @@ ElasticsearchDomain:
 #             provided and set to an integer value less than three (< 3)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'ElasticsearchClusterConfig' has been provided
 #       And: 'DedicatedMasterEnabled' in 'ElasticsearchClusterConfig' has not been provided
@@ -2359,7 +2359,7 @@ ElasticsearchDomain:
 #             an integer value greater than or equal to three (>= 3)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'ElasticsearchClusterConfig' has been provided
 #       And: 'DedicatedMasterEnabled' in 'ElasticsearchClusterConfig' has been provided
@@ -2368,7 +2368,7 @@ ElasticsearchDomain:
 #            to an integer value less than three (< 3)
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'ElasticsearchClusterConfig' has been provided
 #       And: 'DedicatedMasterEnabled' in 'ElasticsearchClusterConfig' has been provided
@@ -2376,7 +2376,7 @@ ElasticsearchDomain:
 #       And: 'DedicatedMasterCount' in 'ElasticsearchClusterConfig' has not been provided
 #      Then: PASS
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'ElasticsearchClusterConfig' has been provided
 #       And: 'DedicatedMasterEnabled' in 'ElasticsearchClusterConfig' has been provided
@@ -2550,10 +2550,10 @@ Resources:
 This control checks whether Elasticsearch Service domains are configured to require HTTPS with a minimum TLS version of TLSv1.2.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Elasticsearch::Domain`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.OPENSEARCH.PR.8 rule specification](#ct-opensearch-pr-8-rule "#ct-opensearch-pr-8-rule")
 
 **Details and examples**
@@ -2561,7 +2561,7 @@ This control checks whether Elasticsearch Service domains are configured to requ
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.OPENSEARCH.PR.8 rule specification](#ct-opensearch-pr-8-rule "#ct-opensearch-pr-8-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.OPENSEARCH.PR.8 example templates](#ct-opensearch-pr-8-templates "#ct-opensearch-pr-8-templates")
 
@@ -2670,23 +2670,23 @@ ElasticsearchDomain:
 #   AWS::Elasticsearch::Domain
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Elasticsearch domain resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'DomainEndpointOptions' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'DomainEndpointOptions' has been provided
 #       And: 'EnforceHTTPS' in 'DomainEndpointOptions' has not been provided or
@@ -2695,7 +2695,7 @@ ElasticsearchDomain:
 #            has been provided and set to a value other than 'Policy-Min-TLS-1-2-2019-07'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'DomainEndpointOptions' has been provided
 #       And: 'EnforceHTTPS' in 'DomainEndpointOptions' has been provided and set to bool(true)
@@ -2703,7 +2703,7 @@ ElasticsearchDomain:
 #            has been provided and set to a value other than 'Policy-Min-TLS-1-2-2019-07'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'DomainEndpointOptions' has been provided
 #       And: 'EnforceHTTPS' in 'DomainEndpointOptions' has not been provided or
@@ -2712,7 +2712,7 @@ ElasticsearchDomain:
 #            to 'Policy-Min-TLS-1-2-2019-07'
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elasticsearch domain resource
 #       And: 'DomainEndpointOptions' has been provided
 #       And: 'EnforceHTTPS' in 'DomainEndpointOptions' has been provided and set to bool(true)
@@ -2862,10 +2862,10 @@ Resources:
 This control checks whether Amazon OpenSearch Service domains have encryption-at-rest enabled.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::OpenSearchService::Domain`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.OPENSEARCH.PR.9 rule specification](#ct-opensearch-pr-9-rule "#ct-opensearch-pr-9-rule")
 
 **Details and examples**
@@ -2873,7 +2873,7 @@ This control checks whether Amazon OpenSearch Service domains have encryption-at
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.OPENSEARCH.PR.9 rule specification](#ct-opensearch-pr-9-rule "#ct-opensearch-pr-9-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.OPENSEARCH.PR.9 example templates](#ct-opensearch-pr-9-templates "#ct-opensearch-pr-9-templates")
 
@@ -2980,30 +2980,30 @@ OpenSearchServiceDomain:
 #   AWS::OpenSearchService::Domain
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any OpenSearch Service domain resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'EncryptionAtRestOptions' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'EncryptionAtRestOptions' has been provided
 #       And: In 'EncryptionAtRestOptions', 'Enabled' has not been provided or provided
 #            and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'EncryptionAtRestOptions' has been provided
 #       And: In 'EncryptionAtRestOptions','Enabled' has been provided and set to bool(true)
@@ -3145,10 +3145,10 @@ Resources:
 This control checks whether Amazon OpenSearch Service domains are configured with VPC option settings that specify a target Amazon VPC.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::OpenSearchService::Domain`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.OPENSEARCH.PR.10 rule specification](#ct-opensearch-pr-10-rule "#ct-opensearch-pr-10-rule")
 
 **Details and examples**
@@ -3270,30 +3270,30 @@ OpenSearchServiceDomain:
 #   AWS::OpenSearchService::Domain
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any OpenSearch Service domain resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'VPCOptions' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'VPCOptions' has been provided
 #       And: 'SubnetIds' in 'VPCOptions' has not been provided or has been provided
 #            as an empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'VPCOptions' has been provided
 #       And: 'SubnetIds' in 'VPCOptions' has been provided as a list with one or more values
@@ -3449,10 +3449,10 @@ Resources:
 This control checks whether Amazon OpenSearch Service domains have node-to-node encryption enabled.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::OpenSearchService::Domain`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.OPENSEARCH.PR.11 rule specification](#ct-opensearch-pr-11-rule "#ct-opensearch-pr-11-rule")
 
 **Details and examples**
@@ -3460,7 +3460,7 @@ This control checks whether Amazon OpenSearch Service domains have node-to-node 
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.OPENSEARCH.PR.11 rule specification](#ct-opensearch-pr-11-rule "#ct-opensearch-pr-11-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.OPENSEARCH.PR.11 example templates](#ct-opensearch-pr-11-templates "#ct-opensearch-pr-11-templates")
 
@@ -3571,30 +3571,30 @@ OpenSearchServiceDomain:
 #   AWS::OpenSearchService::Domain
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any OpenSearch Service domain resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'NodeToNodeEncryptionOptions' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'NodeToNodeEncryptionOptions' has been provided
 #       And: In 'NodeToNodeEncryptionOptions', 'Enabled' has not been provided or has been provided and set to a
 #            value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'NodeToNodeEncryptionOptions' has been provided
 #       And: In 'NodeToNodeEncryptionOptions', 'Enabled' has been provided and set to a
@@ -3736,10 +3736,10 @@ Resources:
 This control checks whether Amazon OpenSearch Service domains are configured to send error logs to an Amazon CloudWatch Logs log group.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::OpenSearchService::Domain`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.OPENSEARCH.PR.12 rule specification](#ct-opensearch-pr-12-rule "#ct-opensearch-pr-12-rule")
 
 **Details and examples**
@@ -3747,7 +3747,7 @@ This control checks whether Amazon OpenSearch Service domains are configured to 
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.OPENSEARCH.PR.12 rule specification](#ct-opensearch-pr-12-rule "#ct-opensearch-pr-12-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.OPENSEARCH.PR.12 example templates](#ct-opensearch-pr-12-templates "#ct-opensearch-pr-12-templates")
 
@@ -3864,29 +3864,29 @@ OpenSearchServiceDomain:
 #   AWS::OpenSearchService::Domain
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any OpenSearch Service domain resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'LogPublishingOptions' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'LogPublishingOptions' has been provided
 #       And: 'ES_APPLICATION_LOGS' in 'LogPublishingOptions' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'LogPublishingOptions' has been specified
 #       And: 'ES_APPLICATION_LOGS' in 'LogPublishingOptions' has been provided
@@ -3896,7 +3896,7 @@ OpenSearchServiceDomain:
 #            as an empty string or invalid local reference
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service Domain resource
 #       And: 'LogPublishingOptions' has been specified
 #       And: 'ES_APPLICATION_LOGS' in 'LogPublishingOptions' has been provided
@@ -3905,7 +3905,7 @@ OpenSearchServiceDomain:
 #            as an empty string or invalid local reference
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service Domain resource
 #       And: 'LogPublishingOptions' has been specified
 #       And: 'ES_APPLICATION_LOGS' in 'LogPublishingOptions' has been provided
@@ -3915,7 +3915,7 @@ OpenSearchServiceDomain:
 #            or valid local reference
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service Domain resource
 #       And: 'LogPublishingOptions' has been specified
 #       And: 'ES_APPLICATION_LOGS' in 'LogPublishingOptions' has been provided
@@ -4145,10 +4145,10 @@ Resources:
 This control checks whether Amazon OpenSearch Service domains are configured to send audit logs to an Amazon CloudWatch Logs log group.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::OpenSearchService::Domain`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.OPENSEARCH.PR.13 rule specification](#ct-opensearch-pr-13-rule "#ct-opensearch-pr-13-rule")
 
 **Details and examples**
@@ -4156,7 +4156,7 @@ This control checks whether Amazon OpenSearch Service domains are configured to 
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.OPENSEARCH.PR.13 rule specification](#ct-opensearch-pr-13-rule "#ct-opensearch-pr-13-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.OPENSEARCH.PR.13 example templates](#ct-opensearch-pr-13-templates "#ct-opensearch-pr-13-templates")
 
@@ -4312,29 +4312,29 @@ OpenSearchServiceDomain:
 #   AWS::OpenSearchService::Domain
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any OpenSearch Service domain resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'LogPublishingOptions' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'LogPublishingOptions' has been provided
 #       And: 'AUDIT_LOGS' in 'LogPublishingOptions' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'LogPublishingOptions' has been specified
 #       And: 'AUDIT_LOGS' in 'LogPublishingOptions' has been provided
@@ -4344,7 +4344,7 @@ OpenSearchServiceDomain:
 #            as an empty string or invalid local reference
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'LogPublishingOptions' has been specified
 #       And: 'AUDIT_LOGS' in 'LogPublishingOptions' has been provided
@@ -4353,7 +4353,7 @@ OpenSearchServiceDomain:
 #            as an empty string or invalid local reference
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'LogPublishingOptions' has been specified
 #       And: 'AUDIT_LOGS' in 'LogPublishingOptions' has been provided
@@ -4363,7 +4363,7 @@ OpenSearchServiceDomain:
 #            or valid local reference
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'LogPublishingOptions' has been specified
 #       And: 'AUDIT_LOGS' in 'LogPublishingOptions' has been provided
@@ -4667,10 +4667,10 @@ Resources:
 This control checks whether Amazon OpenSearch Service domains are configured with at least three data nodes and zone awareness enabled.
 
 - **Control objective:** Improve availability
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::OpenSearchService::Domain`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.OPENSEARCH.PR.14 rule specification](#ct-opensearch-pr-14-rule "#ct-opensearch-pr-14-rule")
 
 **Details and examples**
@@ -4678,7 +4678,7 @@ This control checks whether Amazon OpenSearch Service domains are configured wit
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.OPENSEARCH.PR.14 rule specification](#ct-opensearch-pr-14-rule "#ct-opensearch-pr-14-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.OPENSEARCH.PR.14 example templates](#ct-opensearch-pr-14-templates "#ct-opensearch-pr-14-templates")
 
@@ -4787,23 +4787,23 @@ OpenSearchServiceDomain:
 #   AWS::OpenSearchService::Domain
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any OpenSearch Service domain resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'ClusterConfig' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'ClusterConfig' has been provided
 #       And: 'ZoneAwarenessEnabled' in 'ClusterConfig' has not been provided
@@ -4812,7 +4812,7 @@ OpenSearchServiceDomain:
 #             provided and set to an integer value less than three (< 3)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'ClusterConfig' has been provided
 #       And: 'ZoneAwarenessEnabled' in 'ClusterConfig' has been provided
@@ -4821,7 +4821,7 @@ OpenSearchServiceDomain:
 #             provided and set to an integer value less than three (< 3)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'ClusterConfig' has been provided
 #       And: 'ZoneAwarenessEnabled' in 'ClusterConfig' has not been provided
@@ -4830,7 +4830,7 @@ OpenSearchServiceDomain:
 #             an integer value greater than or equal to three (>= 3)
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'ClusterConfig' has been provided
 #       And: 'ZoneAwarenessEnabled' in 'ClusterConfig' has been provided
@@ -4978,10 +4978,10 @@ Resources:
 This control checks whether Amazon OpenSearch Service domains have fine-grained access control enabled.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::OpenSearchService::Domain`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.OPENSEARCH.PR.15 rule specification](#ct-opensearch-pr-15-rule "#ct-opensearch-pr-15-rule")
 
 **Details and examples**
@@ -4989,7 +4989,7 @@ This control checks whether Amazon OpenSearch Service domains have fine-grained 
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.OPENSEARCH.PR.15 rule specification](#ct-opensearch-pr-15-rule "#ct-opensearch-pr-15-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.OPENSEARCH.PR.15 example templates](#ct-opensearch-pr-15-templates "#ct-opensearch-pr-15-templates")
 
@@ -5128,23 +5128,23 @@ OpenSearchServiceDomain:
 #   AWS::OpenSearchService::Domain
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any OpenSearch Service domain resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'AdvancedSecurityOptions' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'AdvancedSecurityOptions' has been provided
 #       And: 'Enabled' in 'AdvancedSecurityOptions' has not been provided or
@@ -5155,7 +5155,7 @@ OpenSearchServiceDomain:
 #            other than a struct
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'AdvancedSecurityOptions' has been provided
 #       And: 'Enabled' in 'AdvancedSecurityOptions' has been provided and set to bool(true)
@@ -5165,7 +5165,7 @@ OpenSearchServiceDomain:
 #            other than a struct
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'AdvancedSecurityOptions' has been provided
 #       And: 'Enabled' in 'AdvancedSecurityOptions' has been provided and set to bool(true)
@@ -5175,7 +5175,7 @@ OpenSearchServiceDomain:
 #            other than a struct
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'AdvancedSecurityOptions' has been provided
 #       And: 'Enabled' in 'AdvancedSecurityOptions' has been provided and set to bool(true)
@@ -5184,7 +5184,7 @@ OpenSearchServiceDomain:
 #       And: 'MasterUserOptions' in 'AdvancedSecurityOptions' has been provided and set to a struct
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'AdvancedSecurityOptions' has been provided
 #       And: 'Enabled' in 'AdvancedSecurityOptions' has been provided and set to bool(true)
@@ -5363,10 +5363,10 @@ Resources:
 This control checks whether Amazon OpenSearch Service domains are configured to require HTTPS with a minimum TLS version of TLSv1.2.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::OpenSearchService::Domain`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.OPENSEARCH.PR.16 rule specification](#ct-opensearch-pr-16-rule "#ct-opensearch-pr-16-rule")
 
 **Details and examples**
@@ -5374,7 +5374,7 @@ This control checks whether Amazon OpenSearch Service domains are configured to 
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.OPENSEARCH.PR.16 rule specification](#ct-opensearch-pr-16-rule "#ct-opensearch-pr-16-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.OPENSEARCH.PR.16 example templates](#ct-opensearch-pr-16-templates "#ct-opensearch-pr-16-templates")
 
@@ -5483,23 +5483,23 @@ OpenSearchServiceDomain:
 #   AWS::OpenSearchService::Domain
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any OpenSearch Service domain resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'DomainEndpointOptions' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'DomainEndpointOptions' has been provided
 #       And: 'EnforceHTTPS' in 'DomainEndpointOptions' has not been provided or
@@ -5508,7 +5508,7 @@ OpenSearchServiceDomain:
 #            has been provided and set ot a value other than 'Policy-Min-TLS-1-2-2019-07'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'DomainEndpointOptions' has been provided
 #       And: 'EnforceHTTPS' in 'DomainEndpointOptions' has been provided and set to bool(true)
@@ -5516,7 +5516,7 @@ OpenSearchServiceDomain:
 #            has been provided and set ot a value other than 'Policy-Min-TLS-1-2-2019-07'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'DomainEndpointOptions' has been provided
 #       And: 'EnforceHTTPS' in 'DomainEndpointOptions' has not been provided or
@@ -5525,7 +5525,7 @@ OpenSearchServiceDomain:
 #            to 'Policy-Min-TLS-1-2-2019-07'
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an OpenSearch Service domain resource
 #       And: 'DomainEndpointOptions' has been provided
 #       And: 'EnforceHTTPS' in 'DomainEndpointOptions' has been provided and set to bool(true)

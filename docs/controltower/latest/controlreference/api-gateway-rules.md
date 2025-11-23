@@ -15,10 +15,10 @@
 This control checks whether all methods in Amazon API Gateway stage have execution logging configured.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ApiGateway::Stage`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.APIGATEWAY.PR.1 rule specification](#ct-apigateway-pr-1-rule "#ct-apigateway-pr-1-rule")
 
 **Details and examples**
@@ -114,30 +114,30 @@ ApiGatewayStage:
 #   AWS::ApiGateway::Stage
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any API Gateway stage resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an API Gateway stage resource
 #       And: In the stage resource, 'MethodSettings' is not present or is provided and is an empty list.
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an API Gateway stage resource
 #       And: In the stage resource, Execution Logging is not configured for all HTTP Methods and API resources (In
 #            'MethodSettings', 'LoggingLevel' is omitted, or not set to 'ERROR' or 'INFO', for 'HttpMethod' of '*' and
 #            'ResourcePath' of '/*' )
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an API Gateway stage resource
 #       And: In the stage resource, Execution Logging is configured for all HTTP Methods and API resources (In
 #            'MethodSettings', 'LoggingLevel' is set to 'ERROR' or 'INFO', for 'HttpMethod' of '*' and
@@ -145,7 +145,7 @@ ApiGatewayStage:
 #       And: 'LoggingLevel' has been set to 'OFF' for any other Method Setting
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an API Gateway stage resource
 #       And: In the stage resource, Execution Logging is configured for all HTTP Methods and API resources (In
 #            'MethodSettings', 'LoggingLevel' is set to 'ERROR' or 'INFO', for 'HttpMethod' of '*' and
@@ -366,10 +366,10 @@ Resources:
 This control ensures that AWS X-Ray tracing is enabled on Amazon API Gateway REST APIs.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ApiGateway::Stage`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.APIGATEWAY.PR.2 rule specification](#ct-apigateway-pr-2-rule "#ct-apigateway-pr-2-rule")
 
 **Details and examples**
@@ -452,28 +452,28 @@ ApiGatewayStage:
 #   AWS::ApiGateway::Stage
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any API Gateway stage resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an API Gateway stage resource
 #       And: 'TracingEnabled' is not present on the API Gateway stage
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an API Gateway stage resource
 #       And: 'TracingEnabled' is present on the API Gateway stage and is set to bool(false)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an API Gateway stage resource
 #       And: 'TracingEnabled' is present on the API Gateway stage and is set to bool(true)
 #      Then: PASS
@@ -670,11 +670,11 @@ Amazon API Gateway REST API stage that has caching enabled also encrypts the
 caches.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:**
   `AWS::ApiGateway::Stage`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.APIGATEWAY.PR.3 rule specification](#ct-apigateway-pr-3-rule "#ct-apigateway-pr-3-rule")
 
 **Details and examples**
@@ -682,7 +682,7 @@ caches.
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.APIGATEWAY.PR.3 rule specification](#ct-apigateway-pr-3-rule "#ct-apigateway-pr-3-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.APIGATEWAY.PR.3 example templates](#ct-apigateway-pr-3-templates "#ct-apigateway-pr-3-templates")
 
@@ -795,29 +795,29 @@ ApiGatewayStage:
 #   AWS::ApiGateway::Stage
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon API Gateway stage resources
 #     Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon API Gateway stage resource
 #       And: 'CacheClusterEnabled' is not set, or is set to bool(false) on the API Gateway stage resource
 #     Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon API Gateway stage resource
 #       And: 'CacheClusterEnabled' is set to bool(true) on the API Gateway stage resource
 #       And: In the Stage resource, 'MethodSettings' is not present or is provided and is an empty list.
 #     Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon API Gateway stage resource
 #       And: 'CacheClusterEnabled' is set to bool(true) on the API Gateway stage resource
 #       And: In the stage resource, cache data encryption is not enabled for all HTTP methods and API resources (In
@@ -825,7 +825,7 @@ ApiGatewayStage:
 #           'ResourcePath' of '/*' )
 #     Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an API Gateway stage resource
 #       And: 'CacheClusterEnabled' is set to bool(true) on the API Gateway stage resource
 #       And: In the stage resource, cache data encryption is configured for all 'MethodSettings' (CacheDataEncrypted is
@@ -833,7 +833,7 @@ ApiGatewayStage:
 #       And: 'CacheDataEncrypted' has been set to bool(false) for any other method settings
 #     Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an API Gateway stage resource
 #       And: 'CacheClusterEnabled' is set to bool(true) on the API Gateway stage resource
 #       And: In the stage resource cache data encryption is configured for all 'MethodSettings' (CacheDataEncrypted is
@@ -1067,10 +1067,10 @@ Resources:
 This control checks whether Amazon API Gateway V2 stages have access logging enabled. Access logging is supported for HTTP and WebSocket APIs.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ApiGatewayV2::Stage`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.APIGATEWAY.PR.4 rule specification](#ct-apigateway-pr-4-rule "#ct-apigateway-pr-4-rule")
 
 **Details and examples**
@@ -1160,23 +1160,23 @@ HttpApiStage:
 #   AWS::ApiGatewayV2::Stage
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any APIGatewayV2 stage resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an APIGatewayV2 stage resource
 #       And: 'AccessLogSettings' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an APIGatewayV2 stage resource
 #       And: 'AccessLogSettings' has been provided
 #       And: 'AccessLogSettings.DestinationArn' has not been provided, or has been provided as an empty string or
@@ -1184,14 +1184,14 @@ HttpApiStage:
 #       And: 'AccessLogSettings.Format' is provided as a non-empty string
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an APIGatewayV2 stage resource
 #       And: 'AccessLogSettings' has been provided
 #       And: 'AccessLogSettings.DestinationArn' is provided as a non-empty string or valid local reference
 #       And: 'AccessLogSettings.Format' has not been provided, or is an empty string
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an APIGatewayV2 stage resource
 #       And: 'AccessLogSettings' has been provided
 #       And: 'AccessLogSettings.DestinationArn' is provided as a non-empty string or valid local reference
@@ -1358,10 +1358,10 @@ Resources:
 This control checks whether Amazon API Gateway V2 API routes have an authorization type set.
 
 - **Control objective:** Use strong authentication
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ApiGatewayV2::Route`, `AWS::ApiGatewayV2::ApiGatewayManagedOverrides`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.APIGATEWAY.PR.5 rule specification](#ct-apigateway-pr-5-rule "#ct-apigateway-pr-5-rule")
 
 **Details and examples**
@@ -1369,7 +1369,7 @@ This control checks whether Amazon API Gateway V2 API routes have an authorizati
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.APIGATEWAY.PR.5 rule specification](#ct-apigateway-pr-5-rule "#ct-apigateway-pr-5-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.APIGATEWAY.PR.5 example templates](#ct-apigateway-pr-5-templates "#ct-apigateway-pr-5-templates")
 
@@ -1483,33 +1483,33 @@ ApiGatewayManagedOverride:
 #   AWS::ApiGatewayV2::Route, AWS::ApiGatewayV2::ApiGatewayManagedOverrides
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon API Gateway V2 route or managed route overrides resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon API Gateway V2 managed route overrides resource
 #       And: In 'Route', 'AuthorizationType' has not been provided
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon API Gateway V2 route resource
 #       And: 'AuthorizationType' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon API Gateway V2 route or managed route overrides resource
 #       And: 'AuthorizationType' has been provided and set to a value other than 'AWS_IAM', 'JWT' or 'CUSTOM'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon API Gateway V2 route or managed route overrides resource
 #       And: 'AuthorizationType' has been provided and set to a value of 'AWS_IAM', 'JWT' or 'CUSTOM'
 #      Then: PASS
@@ -1677,10 +1677,10 @@ Resources:
 This control checks whether an Amazon API Gateway REST API domain name requires a minimum Transport Layer Security protocol version of TLSv1.2 by means of its security policy.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ApiGateway::DomainName`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.APIGATEWAY.PR.6 rule specification](#ct-apigateway-pr-6-rule "#ct-apigateway-pr-6-rule")
 
 **Details and examples**
@@ -1688,7 +1688,7 @@ This control checks whether an Amazon API Gateway REST API domain name requires 
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.APIGATEWAY.PR.6 rule specification](#ct-apigateway-pr-6-rule "#ct-apigateway-pr-6-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.APIGATEWAY.PR.6 example templates](#ct-apigateway-pr-6-templates "#ct-apigateway-pr-6-templates")
 
@@ -1774,29 +1774,29 @@ DomainName:
 #   AWS::ApiGateway::DomainName
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any API Gateway domain name resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an API Gateway domain name resource
 #       And: 'SecurityPolicy' has been provided and set to a security policy that allows
 #            a minimum TLS protocol version earlier than TLSv1.2
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an API Gateway domain name resource
 #       And: 'SecurityPolicy' has not been provided
 #      Then: PASS
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an API Gateway domain name resource
 #       And: 'SecurityPolicy' has been provided and set to a security policy that requires
 #            a minimum TLS protocol version of TLSv1.2

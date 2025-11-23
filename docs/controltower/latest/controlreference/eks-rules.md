@@ -10,10 +10,10 @@
 This control checks whether an Amazon Elastic Kubernetes Service (EKS) cluster endpoint disallows public access to the cluster Kubernetes API server endpoint.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EKS::Cluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EKS.PR.1 rule specification](#ct-eks-pr-1-rule "#ct-eks-pr-1-rule")
 
 **Details and examples**
@@ -104,38 +104,38 @@ EKSCluster:
 #   AWS::EKS::Cluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EKS cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EKS cluster resource
 #       And: 'EndpointPublicAccess' in 'ResourcesVpcConfig' has not been provided
 #       And: 'EndpointPrivateAccess' in 'ResourcesVpcConfig' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EKS cluster resource
 #       And: 'EndpointPrivateAccess' in 'ResourcesVpcConfig' has not been provided
 #       And: 'EndpointPublicAccess' in 'ResourcesVpcConfig' has not been provided or has been provided and set to a
 #            value other than bool(false)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EKS cluster resource
 #       And: 'EndpointPublicAccess' in 'ResourcesVpcConfig' has not been provided or has been provided and set to a
 #            value other than bool(false)
 #       And: 'EndpointPrivateAccess' in 'ResourcesVpcConfig' has been provided and set a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EKS cluster resource
 #       And: 'EndpointPublicAccess' in 'ResourcesVpcConfig' has been provided and set to bool(false)
 #       And: 'EndpointPrivateAccess' in 'ResourcesVpcConfig' has been provided and set to bool(true)
@@ -334,10 +334,10 @@ Resources:
 This control checks whether Amazon Elastic Kubernetes Service (Amazon EKS) clusters are configured to use Kubernetes secrets encrypted with AWS Key Management Service (KMS) keys.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::EKS::Cluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.EKS.PR.2 rule specification](#ct-eks-pr-2-rule "#ct-eks-pr-2-rule")
 
 **Details and examples**
@@ -484,23 +484,23 @@ EKSCluster:
 #   AWS::EKS::Cluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon EKS cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EKS cluster resource
 #       And: 'EncryptionConfig' has not been provided or provided as an empty list
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EKS cluster resource
 #       And: 'EncryptionConfig' has been provided as a non-empty list
 #       And: There are no entries in 'EncryptionConfig' where 'Resources' has been provided
@@ -509,7 +509,7 @@ EKSCluster:
 #            provided as a non-empty string or valid local reference to a KMS key or key alias
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon EKS cluster resource
 #       And: 'EncryptionConfig' has been provided as a non-empty list
 #       And: For at least one entry in 'EncryptionConfig', 'Resources' has been provided as a

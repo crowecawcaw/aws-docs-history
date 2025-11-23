@@ -7,7 +7,7 @@
 
 | Change                                      | Description                                                                      | Date               |
 | ------------------------------------------- | -------------------------------------------------------------------------------- | ------------------ |
-| Renamed Controls Library to Control Catalog | Renamed for consistency.                                                         | June 12, 2026      |
+| Renamed Controls Library to Control Catalog | Renamed for consistency.                                                         | June 12, 2025      |
 | Added declarative policy controls           | A new control type.                                                              | December 1, 2024   |
 | Added integrated AWS Config controls        | Another control type manageable through AWS Control Tower.                       | November 21, 2024  |
 | Added RCP controls                          | A new control type.                                                              | November 15, 2024  |

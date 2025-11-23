@@ -13,10 +13,10 @@
 This control checks whether the GitHub or Bitbucket source repository URL contains either personal access tokens or a user name and password.
 
 - **Control objective:** Use strong authentication
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CodeBuild::Project`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CODEBUILD.PR.1 rule specification](#ct-codebuild-pr-1-rule "#ct-codebuild-pr-1-rule")
 
 **Details and examples**
@@ -213,32 +213,32 @@ CodeBuildProject:
 #   AWS::CodeBuild::Project
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CodeBuild project resources
 #       Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'Source' configuration is not of 'Type' 'GITHUB' or 'BITBUCKET'
 #       And: 'SecondarySources' configuration is not provided or is provided and does not have any item of 'Type'
 #            'GITHUB' or 'BITBUCKET'
 #       Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'Source' configuration is of 'Type' 'GITHUB' or 'BITBUCKET'
 #       And: 'Source' configuration has a 'Location' that contains credentials (username and password for BitBucket
 #            and Access Token for GitHub)
 #       Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'SecondarySources' configuration is provided
 #       And: 'SecondarySources' configuration has one or more items of 'Type' 'GITHUB' or 'BITBUCKET'
@@ -246,7 +246,7 @@ CodeBuildProject:
 #            (username and password for BitBucket and Access Token for GitHub)
 #       Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'Source' configuration is of 'Type' 'GITHUB' or 'BITBUCKET'
 #       And: 'Source' configuration has a 'Location' that does not contain credentials (username and password for
@@ -255,7 +255,7 @@ CodeBuildProject:
 #            'GITHUB' or 'BITBUCKET'
 #       Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'Source' configuration is of 'Type' 'GITHUB' or 'BITBUCKET'
 #       And: 'Source' configuration has a 'Location' that does not contain credentials (username and password for
@@ -487,10 +487,10 @@ Resources:
 This control checks whether AWS CodeBuild projects contain environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` stored as `PLAINTEXT`.
 
 - **Control objective:** Use strong authentication
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CodeBuild::Project`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CODEBUILD.PR.2 rule specification](#ct-codebuild-pr-2-rule "#ct-codebuild-pr-2-rule")
 
 **Details and examples**
@@ -621,23 +621,23 @@ CodeBuildProject:
 #   AWS::CodeBuild::Project
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation Hook
+#   CloudFormation, CloudFormation Hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CodeBuild project resources
 #     Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'Environment' configuration does not contains 'EnvironmentVariables'
 #     Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'Environment' configuration contains 'EnvironmentVariables'
 #       And: 'EnvironmentVariables' contain variables named 'AWS_ACCESS_KEY_ID' or 'AWS_SECRET_ACCESS_KEY'
@@ -645,20 +645,20 @@ CodeBuildProject:
 #            provided as an empty string.
 #     Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'Environment' configuration contains 'EnvironmentVariables'
 #       And: 'EnvironmentVariables' contain variables named 'AWS_ACCESS_KEY_ID' or 'AWS_SECRET_ACCESS_KEY'
 #       And: 'Type' is set to 'PLAINTEXT' for 'AWS_ACCESS_KEY_ID' or 'AWS_SECRET_ACCESS_KEY' environment variables
 #     Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'Environment' configuration contains 'EnvironmentVariables'
 #       And: 'EnvironmentVariables' does not contain variables named 'AWS_ACCESS_KEY_ID' or 'AWS_SECRET_ACCESS_KEY'
 #     Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'Environment' configuration contains 'EnvironmentVariables'
 #       And: 'EnvironmentVariables' contain variables named 'AWS_ACCESS_KEY_ID' or 'AWS_SECRET_ACCESS_KEY'
@@ -883,10 +883,10 @@ Resources:
 This control checks whether AWS CodeBuild projects environment has at least one logging option enabled.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CodeBuild::Project`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CODEBUILD.PR.3 rule specification](#ct-codebuild-pr-3-rule "#ct-codebuild-pr-3-rule")
 
 **Details and examples**
@@ -1075,49 +1075,49 @@ CodeBuildProject:
 #   AWS::CodeBuild::Project
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CodeBuild project resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'LogsConfig' is not provided on the CodeBuild project resource
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'LogsConfig' is provided on the CodeBuild project resource
 #       And: Neither 'CloudWatchLogs' or 'S3Logs' are present in 'LogsConfig'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'LogsConfig' is provided on the CodeBuild project resource
 #       And: 'CloudWatchLogs' is not present in 'LogsConfig'
 #       And: 'S3Logs' is present in 'LogsConfig' with 'Status' set to 'DISABLED'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'LogsConfig' is provided on the CodeBuild project resource
 #       And: 'S3Logs' is not present in 'LogsConfig'
 #       And: 'CloudWatchLogs' is present in 'LogsConfig' with 'Status' set to 'DISABLED'
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'LogsConfig' is provided on the CodeBuild project resource
 #       And: 'CloudWatchLogs' and 'S3Logs' are present in 'LogsConfig' with 'Status' set to 'DISABLED'
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'LogsConfig' is provided on the CodeBuild project resource
 #       And: 'CloudWatchLogs' is not present in 'LogsConfig'
@@ -1126,14 +1126,14 @@ CodeBuildProject:
 #             invalid local reference
 #      Then: FAIL
 #   Scenario: 8
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'LogsConfig' is provided on the CodeBuild project resource
 #       And: 'S3Logs' is not present in 'LogsConfig'
 #       And: 'CloudWatchLogs' is present in 'LogsConfig' with 'Status' set to 'ENABLED'
 #      Then: PASS
 #   Scenario: 9
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'LogsConfig' is provided on the CodeBuild project resource
 #       And: 'CloudWatchLogs' is not present in 'LogsConfig'
@@ -1141,7 +1141,7 @@ CodeBuildProject:
 #       And: 'Location' has been provided in 'S3Logs' as a non-empty string or valid local reference
 #      Then: PASS
 #   Scenario: 10
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'LogsConfig' is provided on the CodeBuild project resource
 #       And: 'CloudWatchLogs' is present in 'LogsConfig' with 'Status' set to 'ENABLED'
@@ -1402,10 +1402,10 @@ Resources:
 This control checks whether AWS CodeBuild projects are configured to encrypt artifacts.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CodeBuild::Project`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CODEBUILD.PR.5 rule specification](#ct-codebuild-pr-5-rule "#ct-codebuild-pr-5-rule")
 
 **Details and examples**
@@ -1433,7 +1433,7 @@ The examples that follow show how to implement this remediation.
 
 #### AWS CodeBuild Project - Example One
 
-AWS CodeBuild project configured to return primary artifacts as output with artifact encryption enabled, by means of AWS CloudFormation defaults. The example is shown in JSON and in YAML.
+AWS CodeBuild project configured to return primary artifacts as output with artifact encryption enabled, by means of CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -1616,43 +1616,43 @@ CodeBuildProject:
 #   AWS::CodeBuild::Project
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario 1:
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CodeBuild project resources
 #      Then: SKIP
 #   Scenario 2:
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'Artifacts' configuration is provided and is of 'Type' 'NO_ARTIFACTS'
 #       And: 'SecondaryArtifacts' configuration is not provided or provided with an empty list
 #      Then: SKIP
 #   Scenario 3:
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'Artifacts' configuration is provided and is of 'Type' 'NO_ARTIFACTS'
 #       And: 'SecondaryArtifacts' configuration is provided as a non-empty list
 #       And: All 'SecondaryArtifacts' entries have 'Type' set to 'NO_ARTIFACTS'
 #      Then: SKIP
 #   Scenario 4:
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'Artifacts' configuration is provided and is not of 'Type' 'NO_ARTIFACTS'
 #       And: 'EncryptionDisabled' within 'Artifacts' configuration is provided and set to bool(true)
 #      Then: FAIL
 #   Scenario 5:
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'SecondaryArtifacts' configuration is provided
 #       And: There exists one or more items in 'SecondaryArtifacts' which have 'EncryptionDisabled' set to bool(true)
 #      Then: FAIL
 #   Scenario 6:
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'Artifacts.EncryptionDisabled' is not provided, or is set to bool(false)
 #       And: There exists no item in 'SecondaryArtifacts' which has 'EncryptionDisabled' set to bool(true)
@@ -1939,10 +1939,10 @@ Resources:
 This control checks whether AWS CodeBuild projects configured with Amazon S3 logs have encryption enabled.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::CodeBuild::Project`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.CODEBUILD.PR.6 rule specification](#ct-codebuild-pr-6-rule "#ct-codebuild-pr-6-rule")
 
 **Details and examples**
@@ -1970,7 +1970,7 @@ The examples that follow show how to implement this remediation.
 
 #### AWS CodeBuild Project - Example One
 
-AWS CodeBuild project configured to encrypt logs delivered to an Amazon S3 logging destination, by means of AWS CloudFormation defaults. The example is shown in JSON and in YAML.
+AWS CodeBuild project configured to encrypt logs delivered to an Amazon S3 logging destination, by means of CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -2150,40 +2150,40 @@ CodeBuildProject:
 #   AWS::CodeBuild::Project
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario 1:
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any CodeBuild project resources
 #      Then: SKIP
 #   Scenario 2:
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'S3Logs' in 'LogsConfig' configuration is not provided
 #      Then: SKIP
 #   Scenario 3:
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'S3Logs' in 'LogsConfig' configuration is provided and its 'Status' is set to 'DISABLED'
 #      Then: SKIP
 #   Scenario 4:
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'S3Logs' in 'LogsConfig' configuration is provided and its 'Status' is set to 'ENABLED'
 #       And: 'EncryptionDisabled' within 'S3Logs' is provided and set to bool(true)
 #      Then: FAIL
 #   Scenario 5:
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'S3Logs' in 'LogsConfig' configuration is provided and its 'Status' is set to 'ENABLED'
 #       And: 'EncryptionDisabled' within 'S3Logs' is not provided
 #      Then: PASS
 #   Scenario 6:
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a CodeBuild project resource
 #       And: 'S3Logs' in 'LogsConfig' configuration is provided and its 'Status' is set to 'ENABLED'
 #       And: 'EncryptionDisabled' within 'S3Logs' is provided and set to bool(false)

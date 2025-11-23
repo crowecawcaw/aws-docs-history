@@ -10,10 +10,10 @@
 This control checks whether an AWS Step Functions state machine has logging enabled.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::StepFunctions::StateMachine`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.STEPFUNCTIONS.PR.1 rule specification](#ct-stepfunctions-pr-1-rule "#ct-stepfunctions-pr-1-rule")
 
 **Details and examples**
@@ -115,23 +115,23 @@ StateMachine:
 #   AWS::StepFunctions::StateMachine
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any StepFunctions state machine resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a StepFunctions state machine resource
 #       And: 'LoggingConfiguration' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a StepFunctions state machine resource
 #       And: 'LoggingConfiguration' has been provided
 #       And: In 'LoggingConfiguration', 'Level' has not been provided or provided and set to a value other than
@@ -140,7 +140,7 @@ StateMachine:
 #            containing empty strings or non-valid local references
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a StepFunctions state machine resource
 #       And: 'LoggingConfiguration' has been provided
 #       And: In 'LoggingConfiguration', 'Level' has not been provided or provided and set to a value other than
@@ -149,7 +149,7 @@ StateMachine:
 #            containing empty strings or non-valid local references
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a StepFunctions state machine resource
 #       And: 'LoggingConfiguration' has been provided
 #       And: In 'LoggingConfiguration', 'Level' has not been provided or provided and set to a value other than
@@ -158,7 +158,7 @@ StateMachine:
 #            valid local references
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a StepFunctions state machine resource
 #       And: 'LoggingConfiguration' has been provided
 #       And: In 'LoggingConfiguration', 'Level' has been provided and set to 'ERROR' or 'ALL'
@@ -462,10 +462,10 @@ Resources:
 This control checks whether an AWS Step Functions state machine has AWS X-Ray tracing enabled.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::StepFunctions::StateMachine`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.STEPFUNCTIONS.PR.2 rule specification](#ct-stepfunctions-pr-2-rule "#ct-stepfunctions-pr-2-rule")
 
 **Details and examples**
@@ -572,30 +572,30 @@ StateMachine:
 #   AWS::StepFunctions::StateMachine
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any StepFunctions state machine resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a StepFunctions state machine resource
 #       And: 'TracingConfiguration' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a StepFunctions state machine resource
 #       And: 'TracingConfiguration' has been provided
 #       And: In 'TracingConfiguration', 'Enabled' has not been provided or provided and set to a value other
 #            than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a StepFunctions state machine resource
 #       And: 'TracingConfiguration' has been provided
 #       And: In 'TracingConfiguration', 'Enabled' has been provided and set to bool(true)

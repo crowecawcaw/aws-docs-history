@@ -10,10 +10,10 @@
 This control checks whether storage encryption is enabled for an Amazon DocumentDB (with MongoDB compatibility) cluster.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::DocDB::DBCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.DOCUMENTDB.PR.1 rule specification](#ct-documentdb-pr-1-rule "#ct-documentdb-pr-1-rule")
 
 **Details and examples**
@@ -94,28 +94,28 @@ DocumentDBCluster:
 #   AWS::DocDB::DBCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Document DB cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Document DB cluster resource
 #       And: 'StorageEncrypted' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Document DB cluster resource
 #       And: 'StorageEncrypted' has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Document DB cluster resource
 #       And: 'StorageEncrypted' has been provided and set to bool(true)
 #      Then: PASS
@@ -239,10 +239,10 @@ Resources:
 This control checks whether an Amazon DocumentDB cluster retention period is set to seven or more days (>=7). The default retention period is one day.
 
 - **Control objective:** Improve resiliency
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::DocDB::DBCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.DOCUMENTDB.PR.2 rule specification](#ct-documentdb-pr-2-rule "#ct-documentdb-pr-2-rule")
 
 **Details and examples**
@@ -321,28 +321,28 @@ DocumentDBCluster:
 #   AWS::DocDB::DBCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Document DB cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Document DB cluster resource
 #       And: 'BackupRetentionPeriod' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Document DB cluster resource
 #       And: 'BackupRetentionPeriod' has been provided and set to an integer value less than seven (<7)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Document DB cluster resource
 #       And: 'BackupRetentionPeriod' has been provided and set to an integer value greater than or equal to seven (>=7)
 #      Then: PASS

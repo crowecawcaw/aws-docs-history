@@ -20,10 +20,10 @@
 This control checks whether Amazon Elastic Container Service (Amazon ECS) Fargate services are configured to deploy using the `LATEST` platform version rather than a specified version number.
 
 - **Control objective:** Manage vulnerabilities
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ECS::Service`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ECS.PR.1 rule specification](#ct-ecs-pr-1-rule "#ct-ecs-pr-1-rule")
 
 **Details and examples**
@@ -51,7 +51,7 @@ The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Service - Example One
 
-Amazon ECS service configured to deploy using the `LATEST` platform version by means of AWS CloudFormation defaults. The example is shown in JSON and in YAML.
+Amazon ECS service configured to deploy using the `LATEST` platform version by means of CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -191,40 +191,40 @@ ECSService:
 #   AWS::ECS::Service
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document does not contain an Amazon ECS service resource
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an Amazon ECS service resource
 #       And: 'LaunchType' is not present
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an Amazon ECS service resource
 #       And: 'LaunchType' is present and not set to 'FARGATE'
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an Amazon ECS service resource
 #       And: 'LaunchType' is present and set to 'FARGATE'
 #       And: 'PlatformVersion' is present and not set to 'LATEST'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an Amazon ECS service resource
 #       And: 'LaunchType' is present and set to 'FARGATE'
 #       And: 'PlatformVersion' is not present
 #      Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an Amazon ECS service resource
 #       And: 'LaunchType' is present and set to 'FARGATE'
 #       And: 'PlatformVersion' is set to 'LATEST'
@@ -453,10 +453,10 @@ Resources:
 This control checks whether your Amazon Elastic Container Service (Amazon ECS) clusters have container insights enabled.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ECS::Cluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ECS.PR.2 rule specification](#ct-ecs-pr-2-rule "#ct-ecs-pr-2-rule")
 
 **Details and examples**
@@ -534,36 +534,36 @@ ECSCluster:
 #   AWS::ECS::Cluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document does not contain an Amazon ECS cluster resource
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an Amazon ECS cluster resource
 #       And: 'ClusterSettings' property is not present or is an empty list
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an Amazon ECS cluster resource
 #       And: 'ClusterSettings' property is present
 #       And: An entry with 'Name' set to 'containerInsights' is not present in 'ClusterSettings'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an Amazon ECS cluster resource
 #       And: 'ClusterSettings' property is present
 #       And: An entry with 'Name' set to 'containerInsights' is present in 'ClusterSettings' with a 'Value' not set
 #            to 'enabled'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an Amazon ECS cluster resource
 #       And: 'ClusterSettings' property is present
 #       And: An entry with 'Name' set to 'containerInsights' is present in 'ClusterSettings' with a 'Value' set to
@@ -681,10 +681,10 @@ Resources:
 This control checks whether Amazon Elastic Container Service (ECS) task definitions run as a non-root user user within Amazon ECS containers.
 
 - **Control objective:** Enforce least privilege, Manage vulnerabilities
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ECS::TaskDefinition`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ECS.PR.3 rule specification](#ct-ecs-pr-3-rule "#ct-ecs-pr-3-rule")
 
 **Details and examples**
@@ -774,36 +774,36 @@ ECSTaskDefinition:
 #   AWS::ECS::TaskDefinition
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document does not contain an ECS task definition resource
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'ContainerDefinitions' is not present or is an empty list
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'ContainerDefinitions' property is present and is not an empty list
 #       And: One or more containers defined in 'ContainerDefinitions' do not provide a 'User' property
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'ContainerDefinitions' is present and is not an empty list
 #       And: One or more containers defined in 'ContainerDefinitions' has a 'User' property set to a root user
 #            value (0, 'root', '0:<group>', 'root:<group>')
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'ContainerDefinitions' is present and is not an empty list
 #       And: All containers defined in 'ContainerDefinitions' do not have a 'User' property set to a root user
@@ -938,10 +938,10 @@ Resources:
 This control checks whether the networking mode for Amazon Elastic Container Service (ECS) task definitions is set to `awsvpc`.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ECS::TaskDefinition`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ECS.PR.4 rule specification](#ct-ecs-pr-4-rule "#ct-ecs-pr-4-rule")
 
 **Details and examples**
@@ -1032,30 +1032,30 @@ Resources:
 #   AWS::ECS::TaskDefinition
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document does not contain an ECS task definition resource
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'RequiresCompatibilities' is present and only has one entry in the list set to 'EXTERNAL'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'RequiresCompatibilities' is either not present or set to a list with entries that include 'EC2',
 #            'FARGATE' or both.
 #       And: 'NetworkMode' is not present
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'RequiresCompatibilities' is either not present or set to a list with entries that include 'EC2',
 #            'FARGATE' or both.
@@ -1063,7 +1063,7 @@ Resources:
 #       And: 'NetworkMode' is not set to 'awsvpc'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'RequiresCompatibilities' is either not present or set to a list with entries that include 'EC2',
 #            'FARGATE' or both.
@@ -1195,10 +1195,10 @@ Resources:
 This control checks whether Amazon Elastic Container Service (ECS) task definitions have a logging configuration specified.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ECS::TaskDefinition`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ECS.PR.5 rule specification](#ct-ecs-pr-5-rule "#ct-ecs-pr-5-rule")
 
 **Details and examples**
@@ -1326,37 +1326,37 @@ ECSTaskDefinition:
 #   AWS::ECS::TaskDefinition
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document does not contain an ECS task definition resource
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'ContainerDefinitions' property is not present or is an empty list
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'ContainerDefinitions' property is present and is not an empty list
 #       And: One or more containers defined  in 'ContainerDefinitions' do not have 'LogConfiguration' set or it is set
 #            to an empty struct
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'ContainerDefinitions' property is present and is not an empty list
 #       And: One or more containers defined  in 'ContainerDefinitions' have 'LogConfiguration' property present
 #       And: 'LogConfiguration.LogDriver' is not present or is set to an empty string
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'ContainerDefinitions' property is present
 #       And: All containers defined  in 'ContainerDefinitions' have 'LogConfiguration' property present
@@ -1528,10 +1528,10 @@ Resources:
 This control checks whether Amazon Elastic Container Service (Amazon ECS) task definitions have been configured to require read-only access to container root filesystems.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ECS::TaskDefinition`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ECS.PR.6 rule specification](#ct-ecs-pr-6-rule "#ct-ecs-pr-6-rule")
 
 **Details and examples**
@@ -1626,36 +1626,36 @@ ECSTaskDefinition:
 #   AWS::ECS::TaskDefinition
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 # Scenario: 1
-#   Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#   Given: The input document is an CloudFormation document or CloudFormation hook document
 #     And: The input document does not contain an Amazon ECS task definition resource
 #    Then: SKIP
 # Scenario: 2
-#   Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#   Given: The input document is an CloudFormation document or CloudFormation hook document
 #     And: The input document contains an Amazon ECS task definition resource
 #     And: 'ContainerDefinitions' property is not present or is empty
 #    Then: SKIP
 # Scenario: 3
-#   Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#   Given: The input document is an CloudFormation document or CloudFormation hook document
 #     And: The input document contains an Amazon ECS task definition resource
 #     And: 'ContainerDefinitions' property is present
 #     And: One or more containers defined  in 'ContainerDefinitions' do not have 'ReadonlyRootFilesystem' present
 #    Then: FAIL
 # Scenario: 4
-#   Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#   Given: The input document is an CloudFormation document or CloudFormation hook document
 #     And: The input document contains an Amazon ECS task definition resource
 #     And: 'ContainerDefinitions' property is present
 #     And: One or more containers defined  in 'ContainerDefinitions' have the value of 'ReadonlyRootFilesystem' set to
 #          bool(false)
 #     Then: FAIL
 # Scenario: 5
-#   Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#   Given: The input document is an CloudFormation document or CloudFormation hook document
 #     And: The input document contains an Amazon ECS task definition resource
 #     And: 'ContainerDefinitions' property is present
 #     And: All containers defined  in 'ContainerDefinitions' have the value of 'ReadonlyRootFilesystem' set to
@@ -1785,10 +1785,10 @@ Resources:
 This control checks whether Amazon Elastic Container Service (ECS) task definitions have specified a memory limit for container definitions.
 
 - **Control objective:** Improve availability
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ECS::TaskDefinition`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ECS.PR.7 rule specification](#ct-ecs-pr-7-rule "#ct-ecs-pr-7-rule")
 
 **Details and examples**
@@ -1874,36 +1874,36 @@ ECSTaskDefinition:
 #   AWS::ECS::TaskDefinition
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document does not contain an ECS task definition resource
 #      Then: SKIP
 #   Scenario: 2
-#    Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#    Given: The input document is an CloudFormation document or CloudFormation hook document
 #      And: The input document contains an ECS task definition resource
 #      And: 'ContainerDefinitions' property is not present or is an empty list
 #     Then: SKIP
 #   Scenario: 3
-#    Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#    Given: The input document is an CloudFormation document or CloudFormation hook document
 #      And: The input document contains an ECS task definition resource
 #      And: 'ContainerDefinitions' property is present and is not an empty list
 #      And: One or more containers defined in 'ContainerDefinitions' do not have 'Memory' property set
 #     Then: FAIL
 #   Scenario: 4
-#    Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#    Given: The input document is an CloudFormation document or CloudFormation hook document
 #      And: The input document contains an ECS task definition resource
 #      And: 'ContainerDefinitions' property is present and is not an empty list
 #      And: One or more containers defined in 'ContainerDefinitions' have 'Memory' property set to an integer
 #           value less than four (< 4)
 #     Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'ContainerDefinitions' property is present
 #       And: All containers defined in 'ContainerDefinitions' have 'Memory' property set to an integer value
@@ -2032,10 +2032,10 @@ Resources:
 This control checks whether Amazon Elastic Container Service (ECS) task definitions that use `host` networking mode have a privileged container definition, and whether they specify a non-root user definition.
 
 - **Control objective:** Manage vulnerabilities
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ECS::TaskDefinition`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ECS.PR.8 rule specification](#ct-ecs-pr-8-rule "#ct-ecs-pr-8-rule")
 
 **Details and examples**
@@ -2124,7 +2124,7 @@ The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Task Definition - Example Two
 
-Amazon ECS task definition with host networking mode configured for non-root user container definitions and privileged mode deactivated, by means of AWS CloudFormation defaults. The example is shown in JSON and in YAML.
+Amazon ECS task definition with host networking mode configured for non-root user container definitions and privileged mode deactivated, by means of CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -2198,29 +2198,29 @@ ECSTaskDefinition:
 #   AWS::ECS::TaskDefinition
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain an ECS task definition resource
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'ContainerDefinitions' property is not present or is an empty list
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'ContainerDefinitions' property is present and is not an empty list
 #       And: 'NetworkMode' property is either not present or set to a value other than 'host'
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'ContainerDefinitions' property is present and is not an empty list
 #       And: 'NetworkMode' property is present and set to 'host'
@@ -2229,7 +2229,7 @@ ECSTaskDefinition:
 #            to root user
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'ContainerDefinitions' property is present
 #       And: 'NetworkMode' property is present and set to 'host'
@@ -2386,10 +2386,10 @@ Resources:
 This control checks whether your Amazon Elastic Container Service (Amazon ECS) service resources are configured to assign public IP addresses automatically.
 
 - **Control objective:** Limit network access, Enforce least privilege
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ECS::Service`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ECS.PR.9 rule specification](#ct-ecs-pr-9-rule "#ct-ecs-pr-9-rule")
 
 **Details and examples**
@@ -2549,40 +2549,40 @@ ECSService:
 #   AWS::ECS::Service
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain an Amazon ECS service resource
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon ECS service resource
 #       And: 'NetworkConfiguration' property is not present
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon ECS service resource
 #       And: 'NetworkConfiguration.AwsvpcConfiguration' property is not present
 #      Then: SKIP
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon ECS service resource
 #       And: 'NetworkConfiguration.AwsvpcConfiguration' property is present
 #       And: 'AssignPublicIp' property is present and set to 'ENABLED'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon ECS service resource
 #       And: 'NetworkConfiguration.AwsvpcConfiguration' property is present
 #       And: 'AssignPublicIp' property is not present
 #      Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon ECS service resource
 #       And: 'NetworkConfiguration.AwsvpcConfiguration' property is present
 #       And: 'AssignPublicIp' property is present and set to 'DISABLED'
@@ -2816,10 +2816,10 @@ Resources:
 This control checks whether Amazon Elastic Container Service (ECS) task definitions are configured to share a host's process namespace with its containers.
 
 - **Control objective:** Protect configurations, Enforce least privilege
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ECS::TaskDefinition`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ECS.PR.10 rule specification](#ct-ecs-pr-10-rule "#ct-ecs-pr-10-rule")
 
 **Details and examples**
@@ -2848,7 +2848,7 @@ The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Task Definition - Example One
 
-Amazon ECS task definition configured with a task-level process namespace, by means of AWS CloudFormation defaults. The example is shown in JSON and in YAML.
+Amazon ECS task definition configured with a task-level process namespace, by means of CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -2952,33 +2952,33 @@ TaskDefinition:
 #   AWS::ECS::TaskDefinition
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain an ECS task definition resource
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'PidMode' is provided as an empty string
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'PidMode' is set to 'host'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'PidMode' is not present
 #      Then: PASS
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'PidMode' is provided as a non-empty string that is not 'host'
 #      Then: PASS
@@ -3103,10 +3103,10 @@ Resources:
 This control checks whether container definitions in Amazon Elastic Container Service (ECS) task definitions are configured with elevated privileges.
 
 - **Control objective:** Enforce least privilege
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ECS::TaskDefinition`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ECS.PR.11 rule specification](#ct-ecs-pr-11-rule "#ct-ecs-pr-11-rule")
 
 **Details and examples**
@@ -3201,29 +3201,29 @@ ECSTaskDefinition:
 #   AWS::ECS::TaskDefinition
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain an ECS task definition resource
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'ContainerDefinitions' property is not present or is an empty list
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'ContainerDefinitions' property is present
 #       And: One or more containers defined  in 'ContainerDefinitions' have 'Privileged' set to bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ECS task definition resource
 #       And: 'ContainerDefinitions' property is present
 #       And: All containers defined in 'ContainerDefinitions' either do not have the 'Privileged' property present or
@@ -3357,10 +3357,10 @@ Resources:
 This control checks whether Amazon Elastic Container Service (ECS) task definition container definitions include environment variables named `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, or `ECS_ENGINE_AUTH_DATA`.
 
 - **Control objective:** Use strong authentication
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ECS::TaskDefinition`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ECS.PR.12 rule specification](#ct-ecs-pr-12-rule "#ct-ecs-pr-12-rule")
 
 **Details and examples**
@@ -3472,29 +3472,29 @@ ECSTaskDefinition:
 #   AWS::ECS::TaskDefinition
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 # Scenario: 1
-#   Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#   Given: The input document is an CloudFormation or CloudFormation hook document
 #     And: The input document does not contain an ECS task definition resource
 #    Then: SKIP
 # Scenario: 2
-#   Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#   Given: The input document is an CloudFormation or CloudFormation hook document
 #     And: The input document contains an ECS task definition resource
 #     And: 'ContainerDefinitions' property is not present or is empty
 #    Then: SKIP
 # Scenario: 3
-#   Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#   Given: The input document is an CloudFormation or CloudFormation hook document
 #     And: The input document contains an ECS task definition resource
 #     And: 'ContainerDefinitions' property is present
 #     And: Containers defined in 'ContainerDefinitions' do not have 'Environment' property present
 #    Then: SKIP
 # Scenario: 4
-#   Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#   Given: The input document is an CloudFormation or CloudFormation hook document
 #     And: The input document contains an ECS task definition resource
 #     And: 'ContainerDefinitions' property is present
 #     And: One or more containers defined  in 'ContainerDefinitions' have 'Environment' present
@@ -3502,7 +3502,7 @@ ECSTaskDefinition:
 #           'ECS_ENGINE_AUTH_DATA'
 #     Then: FAIL
 # Scenario: 5
-#   Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#   Given: The input document is an CloudFormation or CloudFormation hook document
 #     And: The input document contains an ECS task definition resource
 #     And: 'ContainerDefinitions' property is present
 #     And: One or more containers defined  in 'ContainerDefinitions' have 'Environment' present

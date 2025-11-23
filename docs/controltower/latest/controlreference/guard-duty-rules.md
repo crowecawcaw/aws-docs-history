@@ -9,10 +9,10 @@
 This control checks whether Amazon S3 protection is enabled on an Amazon GuardDuty detector.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::GuardDuty::Detector`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.GUARDDUTY.PR.1 rule specification](#ct-guardduty-pr-1-rule "#ct-guardduty-pr-1-rule")
 
 **Details and examples**
@@ -95,36 +95,36 @@ GuardDutyDetector:
 #   AWS::GuardDuty::Detector
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#      Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document does not contain any Amazon GuardDuty detector resources
 #       Then: SKIP
 #   Scenario: 2
-#      Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains a GuardDuty detector resource
 #        And: 'Enable' has not been specified or specified with value is bool(false)
 #       Then: FAIL
 #   Scenario: 3
-#      Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains a GuardDuty detector resource
 #        And: 'Enable' is specified with a value of bool(true)
 #        And: 'DataSources.S3Logs' has not been specified
 #       Then: FAIL
 #   Scenario: 4
-#      Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains a GuardDuty detector resource
 #        And: 'Enable' is specified and value is bool(true)
 #        And: 'DataSources.S3Logs' has been specified
 #        And: 'Enable' has not been specified within 'S3Logs' or has been specified with a value of bool(false)
 #       Then: FAIL
 #   Scenario: 5
-#      Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains a GuardDuty detector resource
 #        And: 'Enable' is specified and value is bool(true)
 #        And: 'DataSources.S3Logs' has been specified

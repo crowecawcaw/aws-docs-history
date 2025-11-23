@@ -1,6 +1,6 @@
-# Enable controls with AWS CloudFormation
+# Enable controls with CloudFormation
 
-You can enable controls with AWS CloudFormation, either through the AWS CloudFormation console, or through the
+You can enable controls with CloudFormation, either through the CloudFormation console, or through the
 AWS CLI. This section gives an example of each type.
 
 Each control in AWS Control Tower has a unique identifier for use with the control APIs. The
@@ -11,9 +11,9 @@ classification system for controls.
 
 For more information about control identifiers, see [Resource identifiers for APIs and controls](control-identifiers.md "control-identifiers.md").
 
-## Create the stack through AWS CloudFormation
+## Create the stack through CloudFormation
 
-You can use AWS CloudFormation to help you enable AWS Control Tower controls. Here's an example
+You can use CloudFormation to help you enable AWS Control Tower controls. Here's an example
 template.
 
 ```
@@ -25,9 +25,9 @@ Resources:
             TargetIdentifier: arn:aws:organizations::123456789012:ou/o-ybfpt9XXXl/ou-XXXc-nlqXXXXX
 ```
 
-To create your stack through the AWS CloudFormation console, edit the template to contain the
+To create your stack through the CloudFormation console, edit the template to contain the
 control and target of your choice, then save the template with the file name
-`template.yaml`. Follow the AWS CloudFormation wizard. When the wizard asks for a
+`template.yaml`. Follow the CloudFormation wizard. When the wizard asks for a
 template file, enter the file you saved as `template.yaml`. For more
 information, see [Creating
 a stack on the Amazon CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
@@ -37,7 +37,7 @@ a stack on the Amazon CloudFormation console](../../../AWSCloudFormation/latest/
 The limit for `EnableControl` and `DisableControl`
 updates in AWS Control Tower is 100 concurrent operations.
 
-## Create the stack through AWS CloudFormation and the AWS CLI
+## Create the stack through CloudFormation and the AWS CLI
 
 Here's an example of creating the stack with the CLI.
 
@@ -78,13 +78,13 @@ aws cloudformation describe-stacks --region us-west-2 --stack-name testControlTo
 aws cloudformation delete-stack --region us-west-2 --stack-name testControlTower
 ```
 
-## Configure controls with AWS CloudFormation
+## Configure controls with CloudFormation
 
-The following examples show how to configure controls through AWS CloudFormation templates. These examples happen to show **Value** as a list, but it can be any of several types.
+The following examples show how to configure controls through CloudFormation templates. These examples happen to show **Value** as a list, but it can be any of several types.
 
-### Enable configurable controls with AWS CloudFormation templates
+### Enable configurable controls with CloudFormation templates
 
-Enable a control with parameters through AWS CloudFormation:
+Enable a control with parameters through CloudFormation:
 
 ```
 aws cloudformation create-stack \

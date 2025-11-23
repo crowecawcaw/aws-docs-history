@@ -39,10 +39,10 @@
 This control checks whether high availability is configured for your Amazon Relational Database Service (RDS) database instances.
 
 - **Control objective:** Improve availability
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.1 rule specification](#ct-rds-pr-1-rule "#ct-rds-pr-1-rule")
 
 **Details and examples**
@@ -138,31 +138,31 @@ DBInstance:
 #   AWS::RDS::DBInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any RDS DB instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is not one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #            'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #            'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #       And: 'MultiAZ' has not been specified
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #            'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
@@ -170,7 +170,7 @@ DBInstance:
 #       And: 'MultiAZ' has been set to bool(false)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #            'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
@@ -325,10 +325,10 @@ Resources:
 This control checks whether enhanced monitoring is activated for an Amazon Relational Database Service (RDS) instances.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.2 rule specification](#ct-rds-pr-2-rule "#ct-rds-pr-2-rule")
 
 **Details and examples**
@@ -433,25 +433,25 @@ DBInstance:
 #   AWS::RDS::DBInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any RDS DB instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is not one of 'aurora', 'aurora-mysql', 'aurora-postgresql', 'mariadb', 'mysql',
 #            'oracle-ee', 'oracle-se2', 'oracle-se1', 'oracle-se', 'postgres', 'sqlserver-ee',
 #            'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'aurora', 'aurora-mysql', 'aurora-postgresql', 'mariadb', 'mysql',
 #            'oracle-ee', 'oracle-se2', 'oracle-se1', 'oracle-se', 'postgres', 'sqlserver-ee',
@@ -459,7 +459,7 @@ DBInstance:
 #       And: 'MonitoringInterval' has not been specified
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'aurora', 'aurora-mysql', 'aurora-postgresql', 'mariadb', 'mysql',
 #            'oracle-ee', 'oracle-se2', 'oracle-se1', 'oracle-se', 'postgres', 'sqlserver-ee',
@@ -468,7 +468,7 @@ DBInstance:
 #       And: 'MonitoringInterval' has been set to '0'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'aurora', 'aurora-mysql', 'aurora-postgresql', 'mariadb', 'mysql',
 #            'oracle-ee', 'oracle-se2', 'oracle-se1', 'oracle-se', 'postgres', 'sqlserver-ee',
@@ -477,7 +477,7 @@ DBInstance:
 #       And: 'MonitoringInterval' has not been set to a value from the list 1, 5, 10, 15, 30, 60
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'aurora', 'aurora-mysql', 'aurora-postgresql', 'mariadb', 'mysql',
 #            'oracle-ee', 'oracle-se2', 'oracle-se1', 'oracle-se', 'postgres', 'sqlserver-ee',
@@ -487,7 +487,7 @@ DBInstance:
 #       And: 'MonitoringRoleArn' has not been specified or specified as an empty string
 #      Then: FAIL
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'aurora', 'aurora-mysql', 'aurora-postgresql', 'mariadb', 'mysql',
 #            'oracle-ee', 'oracle-se2', 'oracle-se1', 'oracle-se', 'postgres', 'sqlserver-ee',
@@ -699,10 +699,10 @@ Resources:
 This control checks whether your Amazon Relational Database Service (Amazon RDS) cluster has deletion protection activated.
 
 - **Control objective:** Improve availability
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.3 rule specification](#ct-rds-pr-3-rule "#ct-rds-pr-3-rule")
 
 **Details and examples**
@@ -789,29 +789,29 @@ RDSDBCluster:
 #   AWS::RDS::DBCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #  None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any RDS DB cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'DeletionProtection' has not been specified
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'DeletionProtection' has been specified
 #       And: 'DeletionProtection' has been set to bool(false)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'DeletionProtection' has been specified
 #       And: 'DeletionProtection' has been set to bool(true)
@@ -1008,10 +1008,10 @@ Resources:
 This control checks whether an Amazon Relational Database Service (RDS) database (DB) cluster has AWS IAM database authentication activated.
 
 - **Control objective:** Use strong authentication
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.4 rule specification](#ct-rds-pr-4-rule "#ct-rds-pr-4-rule")
 
 **Details and examples**
@@ -1100,36 +1100,36 @@ DBCluster:
 #   AWS::RDS::DBCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document does not contain any RDS DB cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'Engine' provided is not one of 'aurora' or 'aurora-mysql' or 'aurora-postgresql'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'Engine' provided is one of 'aurora' or 'aurora-mysql' or 'aurora-postgresql'
 #       And: 'EnableIAMDatabaseAuthentication' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'Engine' provided is one of 'aurora' or 'aurora-mysql' or 'aurora-postgresql'
 #       And: 'EnableIAMDatabaseAuthentication' has been provided
 #       And: 'EnableIAMDatabaseAuthentication' has been set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'Engine' provided is one of 'aurora' or 'aurora-mysql' or 'aurora-postgresql'
 #       And: 'EnableIAMDatabaseAuthentication' has been provided
@@ -1336,10 +1336,10 @@ Resources:
 This control checks whether automatic minor version upgrades are enabled for an Amazon Relational Database Service (RDS) database instance.
 
 - **Control objective:** Manage vulnerabilities
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.5 rule specification](#ct-rds-pr-5-rule "#ct-rds-pr-5-rule")
 
 **Details and examples**
@@ -1486,18 +1486,18 @@ DBInstance:
 #   AWS::RDS::DBInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any RDS DB instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is not one of 'aurora', 'aurora-mysql', 'aurora-postgresql', 'mariadb', 'mysql',
 #            'oracle-ee', 'oracle-ee-cdb', 'oracle-se2', 'oracle-se2-cdb',
@@ -1505,7 +1505,7 @@ DBInstance:
 #            'postgres'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'aurora', 'aurora-mysql', 'aurora-postgresql', 'mariadb', 'mysql',
 #            'oracle-ee', 'oracle-ee-cdb', 'oracle-se2', 'oracle-se2-cdb',
@@ -1515,7 +1515,7 @@ DBInstance:
 #       And: 'AutoMinorVersionUpgrade' has been set to bool(false)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'aurora', 'aurora-mysql', 'aurora-postgresql', 'mariadb', 'mysql',
 #            'oracle-ee', 'oracle-ee-cdb', 'oracle-se2', 'oracle-se2-cdb',
@@ -1524,7 +1524,7 @@ DBInstance:
 #       And: 'AutoMinorVersionUpgrade' has not been specified
 #      Then: PASS
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'aurora', 'aurora-mysql', 'aurora-postgresql', 'mariadb', 'mysql',
 #            'oracle-ee', 'oracle-ee-cdb', 'oracle-se2', 'oracle-se2-cdb',
@@ -1681,10 +1681,10 @@ Resources:
 This control checks whether an Amazon Relational Database Service (RDS) database (DB) cluster has backtracking enabled.
 
 - **Control objective:** Improve resiliency
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.6 rule specification](#ct-rds-pr-6-rule "#ct-rds-pr-6-rule")
 
 **Details and examples**
@@ -1774,50 +1774,50 @@ DBCluster:
 #   AWS::RDS::DBCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #    Scenario: 1
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document does not contain any RDS DB cluster resources
 #       Then: SKIP
 #    Scenario: 2
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an RDS DB cluster resource
 #        And: 'Engine' provided is not one of 'aurora' or 'aurora-mysql'
 #       Then: SKIP
 #    Scenario: 3
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an RDS DB cluster resource
 #        And: 'Engine' provided is one of 'aurora' or 'aurora-mysql'
 #        And: 'EngineMode' provided is not one of 'provisioned' or 'parallelquery'
 #       Then: SKIP
 #    Scenario: 4
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an RDS DB cluster resource
 #        And: 'ServerlessV2ScalingConfiguration' is provided
 #        And: 'Engine' provided is 'aurora-mysql'
 #        And: 'EngineVersion' provided is '8.0.mysql_aurora.3.02.0' or higher
 #       Then: SKIP
 #    Scenario: 5
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an RDS DB cluster resource
 #        And: 'Engine' provided is one of 'aurora' or 'aurora-mysql'
 #        And: 'EngineMode' is not provided or 'EngineMode' provided is one of 'provisioned' or 'parallelquery'
 #        And: 'BacktrackWindow' has not been provided
 #       Then: FAIL
 #    Scenario: 6
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an RDS DB cluster resource
 #        And: 'Engine' provided is one of 'aurora' or 'aurora-mysql'
 #        And: 'EngineMode' is not provided or 'EngineMode' provided is one of 'provisioned' or 'parallelquery'
 #        And: 'BacktrackWindow' has been provided and is set to 0
 #       Then: FAIL
 #    Scenario: 7
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an RDS DB cluster resource
 #        And: 'Engine' provided is one of 'aurora' or 'aurora-mysql'
 #        And: 'EngineMode' is not provided or 'EngineMode' provided is one of 'provisioned' or 'parallelquery'
@@ -2039,10 +2039,10 @@ Resources:
 This control checks whether an Amazon RDS database (DB) instance has AWS Identity and Access Management (IAM) database authentication activated.
 
 - **Control objective:** Use strong authentication
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.7 rule specification](#ct-rds-pr-7-rule "#ct-rds-pr-7-rule")
 
 **Details and examples**
@@ -2138,36 +2138,36 @@ DBInstance:
 #   AWS::RDS::DBInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any RDS DB instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is not in-scope database engines - 'mariadb', 'mysql', 'postgres'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is in-scope database engines - 'mariadb', 'mysql', 'postgres'
 #       And: 'EnableIAMDatabaseAuthentication' has not been specified
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is in-scope database engines - 'mariadb', 'mysql', 'postgres'
 #       And: 'EnableIAMDatabaseAuthentication' has been specified
 #       And: 'EnableIAMDatabaseAuthentication' has been set to bool(false)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is in-scope database engines - 'mariadb', 'mysql', 'postgres'
 #       And: 'EnableIAMDatabaseAuthentication' has been specified
@@ -2317,10 +2317,10 @@ Resources:
 This control checks whether Amazon RDS database (DB) instances have automated backups enabled, and verifies that the backup retention period is greater than or equal to seven (7) days.
 
 - **Control objective:** Improve resiliency
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.8 rule specification](#ct-rds-pr-8-rule "#ct-rds-pr-8-rule")
 
 **Details and examples**
@@ -2416,24 +2416,24 @@ DBInstance:
 #   AWS::RDS::DBInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any RDS DB instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is not one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
@@ -2441,14 +2441,14 @@ DBInstance:
 #       And: 'BackupRetentionPeriod' has been set to 0 (backup disabled)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #       And: 'BackupRetentionPeriod' has not been specified
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
@@ -2456,7 +2456,7 @@ DBInstance:
 #       And: 'BackupRetentionPeriod' has been set to < 7
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
@@ -2611,10 +2611,10 @@ Resources:
 This control checks whether an Amazon RDS database (DB) cluster is configured to copy all tags to snapshots created.
 
 - **Control objective:** Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.9 rule specification](#ct-rds-pr-9-rule "#ct-rds-pr-9-rule")
 
 **Details and examples**
@@ -2703,36 +2703,36 @@ DBCluster:
 #   AWS::RDS::DBCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any RDS DB cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'Engine' provided is not one of 'aurora' or 'aurora-mysql' or 'aurora-postgresql'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'Engine' provided is one of 'aurora' or 'aurora-mysql' or 'aurora-postgresql'
 #       And: 'CopyTagsToSnapshot' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'Engine' provided is one of 'aurora' or 'aurora-mysql' or 'aurora-postgresql'
 #       And: 'CopyTagsToSnapshot' has been provided
 #       And: 'CopyTagsToSnapshot' has been set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'Engine' provided is one of 'aurora' or 'aurora-mysql' or 'aurora-postgresql'
 #       And: 'CopyTagsToSnapshot' has been provided
@@ -2939,10 +2939,10 @@ Resources:
 This control checks whether Amazon RDS database (DB) instances are configured to copy all tags to snapshots created.
 
 - **Control objective:** Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.10 rule specification](#ct-rds-pr-10-rule "#ct-rds-pr-10-rule")
 
 **Details and examples**
@@ -3038,31 +3038,31 @@ DBInstance:
 #   AWS::RDS::DBInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any RDS DB instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is not one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #       And: 'CopyTagsToSnapshot' has not been specified
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
@@ -3070,7 +3070,7 @@ DBInstance:
 #       And: 'CopyTagsToSnapshot' has been set to bool(false)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
@@ -3225,10 +3225,10 @@ Resources:
 This control checks whether an Amazon RDS database (DB) instance is deployed in a VPC (that is, with an EC2-VPC instance).
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.11 rule specification](#ct-rds-pr-11-rule "#ct-rds-pr-11-rule")
 
 **Details and examples**
@@ -3326,31 +3326,31 @@ DBInstance:
 #   AWS::RDS::DBInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any RDS DB instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is not one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #            'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #            'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #       And: 'DBSubnetGroupName' has not been specified
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #            'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
@@ -3358,7 +3358,7 @@ DBInstance:
 #            or invalid local reference to a DB Subnet Group
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #            'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
@@ -3581,10 +3581,10 @@ Resources:
 This control checks whether your Amazon RDS event subscriptions for RDS clusters are configured to notify on event categories of `maintenance` and `failure.`
 
 - **Control objective:** Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::EventSubscription`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.12 rule specification](#ct-rds-pr-12-rule "#ct-rds-pr-12-rule")
 
 **Details and examples**
@@ -3711,43 +3711,43 @@ RDSEventSubscription:
 #   AWS::RDS::EventSubscription
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon RDS event subscription resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS event subscription resource
 #       And: 'SourceType' is provided and is not 'db-cluster'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS event subscription resource
 #       And: 'SourceType' is 'db-cluster'
 #       And: 'Enabled' is not provided or set to bool(false)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS event subscription resource
 #       And: 'SourceType' is provided and is 'db-cluster'
 #       And: 'Enabled' is provided and set to bool(true)
 #       And: 'EventCategories' does not contain both 'maintenance' and 'failure'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS event subscription resource
 #       And: 'SourceType' is provided and is 'db-cluster'
 #       And: 'Enabled' is provided and set to bool(true)
 #       And: 'EventCategories' does not exist or is an empty list
 #      Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS event subscription resource
 #       And: 'SourceType' is provided and is 'db-cluster'
 #       And: 'Enabled' is provided and set to bool(true)
@@ -3878,10 +3878,10 @@ Resources:
 This control checks whether an Amazon Relational Database Service (Amazon RDS) instance has deletion protection activated.
 
 - **Control objective:** Improve availability
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.13 rule specification](#ct-rds-pr-13-rule "#ct-rds-pr-13-rule")
 
 **Details and examples**
@@ -3981,31 +3981,31 @@ DBInstance:
 #   AWS::RDS::DBInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any RDS DB instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is not one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #       And: 'DeletionProtection' has not been specified
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
@@ -4013,7 +4013,7 @@ DBInstance:
 #       And: 'DeletionProtection' has been set to bool(false)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
@@ -4169,10 +4169,10 @@ Resources:
 This rule checks whether Amazon Relational Database Service (RDS) instances have all available log types configured for export to Amazon CloudWatch Logs.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.14 rule specification](#ct-rds-pr-14-rule "#ct-rds-pr-14-rule")
 
 **Details and examples**
@@ -4340,25 +4340,25 @@ DBInstance:
 #   AWS::RDS::DBInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any RDS DB instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is not one of 'mariadb', 'mysql',
 #            'oracle-ee', 'oracle-se2', 'oracle-ee-cdb', 'oracle-se2-cdb',
 #            'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql',
 #            'oracle-ee', 'oracle-se2', 'oracle-ee-cdb', 'oracle-se2-cdb',
@@ -4367,7 +4367,7 @@ DBInstance:
 #             and is an empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql',
 #            'oracle-ee', 'oracle-se2', 'oracle-ee-cdb', 'oracle-se2-cdb',
@@ -4376,7 +4376,7 @@ DBInstance:
 #       And: One or more log types in 'EnableCloudwatchLogsExports' are not supported by the specified 'Engine'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql',
 #            'oracle-ee', 'oracle-se2', 'oracle-ee-cdb', 'oracle-se2-cdb',
@@ -4385,7 +4385,7 @@ DBInstance:
 #       And: 'EnableCloudwatchLogsExports' does not contain all log types supported by the specified 'Engine'
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine'  is one of 'mariadb', 'mysql'
 #       And: 'EnableCloudwatchLogsExports' has been specified
@@ -4393,7 +4393,7 @@ DBInstance:
 #             are enabled - 'audit', 'error', 'general', 'slowquery'
 #      Then: PASS
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is 'postgres'
 #       And: 'EnableCloudwatchLogsExports' has been specified
@@ -4401,7 +4401,7 @@ DBInstance:
 #             are enabled - 'postgresql', 'upgrade'
 #      Then: PASS
 #   Scenario: 8
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex',
 #            'sqlserver-web'
@@ -4410,7 +4410,7 @@ DBInstance:
 #             are enabled - 'agent', 'error'
 #      Then: PASS
 #   Scenario: 9
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'oracle-ee', 'oracle-se2', 'oracle-ee-cdb', 'oracle-se2-cdb',
 #       And: 'EnableCloudwatchLogsExports' has been specified
@@ -4613,10 +4613,10 @@ Resources:
 This control checks whether any Amazon Relational Database Service (RDS) database (DB) security groups are created by, or associated to, an RDS DB instance, because DB security groups are intended for the EC2-Classic platform only.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBInstance`, `AWS::RDS::DBSecurityGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.15 rule specification](#ct-rds-pr-15-rule "#ct-rds-pr-15-rule")
 
 **Details and examples**
@@ -4718,29 +4718,29 @@ DBInstance:
 #   AWS::RDS::DBSecurityGroup, AWS::RDS::DBInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document does not contain any DB security group resources
 #        And: The input document does not contain any RDS DB instance resources
 #       Then: SKIP
 #   Scenario: 2
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains a DB security group resource
 #       Then: FAIL
 #   Scenario: 3
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document does not contain any DBsecurity group resources
 #        And: The input document contains an RDS DB instance resource
 #        And: 'DBSecurityGroups' has been specified on the RDS DB instance as a non empty list
 #       Then: FAIL
 #   Scenario: 4
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document does not contain any DB security group resources
 #        And: The input document contains an RDS DB instance resource
 #        And: 'DBSecurityGroups' has not been specified on the RDS DB instance or specified as an empty list
@@ -4941,10 +4941,10 @@ Resources:
 This control checks whether the storage encryption is configured on Amazon Relational Database Service (RDS) database (DB) clusters that are not being restored from an existing cluster.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.16 rule specification](#ct-rds-pr-16-rule "#ct-rds-pr-16-rule")
 
 **Details and examples**
@@ -5031,35 +5031,35 @@ DBCluster:
 #   AWS::RDS::DBCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document does not contain any RDS DB cluster resources
 #       Then: SKIP
 #   Scenario: 2
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an RDS DB cluster resource
 #        And: 'SourceDBClusterIdentifier' or 'ReplicationSourceIdentifier' has been provided
 #       Then: SKIP
 #   Scenario: 3
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an RDS DB cluster resource
 #        And: 'SourceDBClusterIdentifier' or 'ReplicationSourceIdentifier' has not been provided
 #        And: 'StorageEncrypted' has not been provided
 #       Then: FAIL
 #   Scenario: 4
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an RDS DB cluster resource
 #        And: 'SourceDBClusterIdentifier' or 'ReplicationSourceIdentifier' has not been provided
 #        And: 'StorageEncrypted' has been provided and set to bool(false)
 #       Then: FAIL
 #   Scenario: 5
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an RDS DB cluster resource
 #        And: 'SourceDBClusterIdentifier' or 'ReplicationSourceIdentifier' has not been provided
 #        And: 'StorageEncrypted' has been provided and set to bool(true)
@@ -5281,10 +5281,10 @@ Resources:
 This control checks whether your Amazon RDS event subscriptions for RDS instances are configured to notify on event categories of `maintenance`, `failure`, and `configuration change`.
 
 - **Control objective:** Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::EventSubscription`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.17 rule specification](#ct-rds-pr-17-rule "#ct-rds-pr-17-rule")
 
 **Details and examples**
@@ -5413,43 +5413,43 @@ RDSEventSubscription:
 #   AWS::RDS::EventSubscription
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon RDS event subscription Resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS event subscription resource
 #       And: 'SourceType' is provided and is not 'db-instance'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS event subscription resource
 #       And: 'SourceType' is 'db-instance'
 #       And: 'Enabled' is not provided or set to bool(false)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS event subscription resource
 #       And: 'SourceType' is provided and is 'db-instance'
 #       And: 'Enabled' is provided and set to bool(true)
 #       And: 'EventCategories' does not contain 'maintenance', 'failure', and 'configuration change'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS event subscription resource
 #       And: 'SourceType' is provided and is 'db-instance'
 #       And: 'Enabled' is provided and set to bool(true)
 #       And: 'EventCategories' does not exist or is an empty list
 #      Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS event subscription resource
 #       And: 'SourceType' is provided and is 'db-instance'
 #       And: 'Enabled' is provided and set to bool(true)
@@ -5580,10 +5580,10 @@ Resources:
 This control checks whether your Amazon RDS event subscriptions for RDS parameter groups are configured to notify on event categories of `configuration change.`
 
 - **Control objective:** Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::EventSubscription`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.18 rule specification](#ct-rds-pr-18-rule "#ct-rds-pr-18-rule")
 
 **Details and examples**
@@ -5708,29 +5708,29 @@ RDSEventSubscription:
 #   AWS::RDS::EventSubscription
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any RDS event subscription resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS event subscription resource
 #       And: 'SourceType' is provided and is not 'db-parameter-group'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS event subscription resource
 #       And: 'SourceType' is 'db-parameter-group'
 #       And: 'Enabled' is not provided or set to bool(false)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS event subscription resource
 #       And: 'SourceType' is provided and is 'db-parameter-group'
 #       And: 'Enabled' is provided and set to bool(true)
@@ -5872,10 +5872,10 @@ Resources:
 This control checks whether your Amazon RDS event subscriptions for RDS security groups are configured to notify on event categories of `failure` and `configuration change`
 
 - **Control objective:** Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::EventSubscription`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.19 rule specification](#ct-rds-pr-19-rule "#ct-rds-pr-19-rule")
 
 **Details and examples**
@@ -6002,43 +6002,43 @@ RDSEventSubscription:
 #   AWS::RDS::EventSubscription
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon RDS event subscription resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS event subscription Resource
 #       And: 'SourceType' is provided and is not 'db-security-group'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS event subscription resource
 #       And: 'SourceType' is 'db-security-group'
 #       And: 'Enabled' is not provided or set to bool(false)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS event subscription resource
 #       And: 'SourceType' is provided and is 'db-security-group'
 #       And: 'Enabled' is provided and set to bool(true)
 #       And: 'EventCategories' does not contain both 'failure' and 'configuration change'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS event subscription resource
 #       And: 'SourceType' is provided and is 'db-security-group'
 #       And: 'Enabled' is provided and set to bool(true)
 #       And: 'EventCategories' does not exist or is an empty list
 #      Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS event subscription resource
 #       And: 'SourceType' is provided and is 'db-security-group'
 #       And: 'Enabled' is provided and set to bool(true)
@@ -6168,10 +6168,10 @@ Resources:
 This control checks whether Amazon Relational Database Service (RDS) database instances are configured for default database port for their specific engine types.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.20 rule specification](#ct-rds-pr-20-rule "#ct-rds-pr-20-rule")
 
 **Details and examples**
@@ -6324,25 +6324,25 @@ DBInstance:
 #   AWS::RDS::DBInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon RDS DB instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is not one of  'mariadb', 'mysql',
 #            'oracle-ee', 'oracle-se2', 'oracle-ee-cdb', 'oracle-se2-cdb',
 #            'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of  'mariadb', 'mysql',
 #            'oracle-ee', 'oracle-se2', 'oracle-ee-cdb', 'oracle-se2-cdb',
@@ -6350,7 +6350,7 @@ DBInstance:
 #       And: 'Port' has not been specified
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of  'mariadb', 'mysql',
 #            'oracle-ee', 'oracle-se2', 'oracle-ee-cdb', 'oracle-se2-cdb',
@@ -6360,28 +6360,28 @@ DBInstance:
 #            port '1433', postgres port '5432', and oracle port '1521')
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine'  is one of 'mariadb', 'mysql'
 #       And: 'Port' has been specified
 #       And: 'Port' value is not equal to '3306'
 #      Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is 'postgres'
 #       And: 'Port' has been specified
 #       And: 'Port' value is not equal to '5432'
 #      Then: PASS
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #       And: 'Port' has been specified
 #       And: 'Port' value is not equal to '1433'
 #      Then: PASS
 #   Scenario: 8
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'oracle-ee', 'oracle-se2', 'oracle-ee-cdb', 'oracle-se2-cdb',
 #       And: 'Port' has been specified
@@ -6554,10 +6554,10 @@ Resources:
 This control checks whether an Amazon Relational Database Service (RDS) database (DB) cluster has changed the administrator username from its default value.
 
 - **Control objective:** Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.21 rule specification](#ct-rds-pr-21-rule "#ct-rds-pr-21-rule")
 
 **Details and examples**
@@ -6642,28 +6642,28 @@ DBCluster:
 #   AWS::RDS::DBCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any RDS DB cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'MasterUsername' has not been provided
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'MasterUsername' has been provided and it is set to 'admin' or 'postgres'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'MasterUsername' has been provided and is not set to 'admin' or 'postgres'
 #      Then: PASS
@@ -6863,10 +6863,10 @@ Resources:
 This control checks whether an Amazon Relational Database Service (RDS) database has changed the adminstrator username from its default value.
 
 - **Control objective:** Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.22 rule specification](#ct-rds-pr-22-rule "#ct-rds-pr-22-rule")
 
 **Details and examples**
@@ -6957,31 +6957,31 @@ DBInstance:
 #   AWS::RDS::DBInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any RDS DB instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is not one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #       And: 'MasterUsername' has been specified and is one of 'postgres' or 'admin'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
@@ -7131,10 +7131,10 @@ Resources:
 This rule checks whether Amazon Relational Database Service (RDS) database (DB) instances are publicly accessible, as determined by checking the `PubliclyAccessible` configuration property.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.23 rule specification](#ct-rds-pr-23-rule "#ct-rds-pr-23-rule")
 
 **Details and examples**
@@ -7227,28 +7227,28 @@ DBInstance:
 #   AWS::RDS::DBInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document does not contain any RDS DB instance resources
 #       Then: SKIP
 #   Scenario: 2
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an RDS DB instance resource
 #        And: 'PubliclyAccessible' has not been specified
 #       Then: FAIL
 #   Scenario: 3
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an RDS DB instance resource
 #        And: 'PubliclyAccessible' is present and is a value other than bool(false)
 #       Then: FAIL
 #   Scenario: 4
-#      Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an RDS DB instance resource
 #        And: 'PubliclyAccessible' has been specified and set to bool(false)
 #       Then: PASS
@@ -7387,10 +7387,10 @@ Resources:
 This control checks whether storage encryption is enabled for your Amazon RDS database (DB) instance.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.24 rule specification](#ct-rds-pr-24-rule "#ct-rds-pr-24-rule")
 
 **Details and examples**
@@ -7488,38 +7488,38 @@ RDSDBInstance:
 #   AWS::RDS::DBInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any RDS DB instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB instance resource
 #       And: 'Engine' is not one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #            'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #      Then: SKIP
 #   Scenario: 3
-#      Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an RDS DB instance resource
 #        And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #        And: 'StorageEncrypted' has not been provided
 #       Then: FAIL
 #   Scenario: 4
-#      Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an RDS DB instance resource
 #        And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
 #        And: 'StorageEncrypted' has been provided and set to bool(false)
 #       Then: FAIL
 #   Scenario: 5
-#      Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#      Given: The input document is an CloudFormation or CloudFormation hook document
 #        And: The input document contains an RDS DB instance resource
 #        And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb', 'oracle-se2',
 #             'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex', 'sqlserver-web'
@@ -7673,10 +7673,10 @@ Resources:
 This control checks whether Amazon RDS database clusters have all available log types enabled for export to Amazon CloudWatch Logs.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.25 rule specification](#ct-rds-pr-25-rule "#ct-rds-pr-25-rule")
 
 **Details and examples**
@@ -7833,57 +7833,57 @@ DBCluster:
 #   AWS::RDS::DBCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any RDS DB cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster Resource
 #       And: 'Engine' is not one of 'aurora', 'aurora-mysql', 'aurora-postgresql', 'mysql' or 'postgres'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'Engine' is one of 'aurora', 'aurora-mysql', 'aurora-postgresql', 'mysql' or 'postgres'
 #       And: 'EnableCloudwatchLogsExports' has not been specified or has been specified as an empty list
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'Engine' is one of 'aurora', 'aurora-mysql', 'aurora-postgresql', 'mysql' or 'postgres'
 #       And: 'EnableCloudwatchLogsExports' has been specified and is a non-empty list
 #       And: One or more log types in 'EnableCloudwatchLogsExports' are not supported by the specified 'Engine'
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'Engine' is one of 'aurora', 'aurora-mysql', 'aurora-postgresql', 'mysql' or 'postgres'
 #       And: 'EnableCloudwatchLogsExports' has been specified and is a non-empty list
 #       And: 'EnableCloudwatchLogsExports' does not contain all log types supported by the specified 'Engine'
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'Engine' is one of 'aurora', 'aurora-mysql' or 'mysql'
 #       And: 'EnableCloudwatchLogsExports' has been specified as a list with all supported log types
 #             for the 'Engine' ('audit', 'error', 'general' and 'slowquery')
 #      Then: PASS
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'Engine' is 'aurora-postgresql'
 #       And: 'EnableCloudwatchLogsExports' has been specified as a list with all supported log types
 #             for the 'Engine' ('postgresql')
 #      Then: PASS
 #   Scenario: 8
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an RDS DB cluster resource
 #       And: 'Engine' is 'postgres'
 #       And: 'EnableCloudwatchLogsExports' has been specified as a list with all supported log types
@@ -8065,10 +8065,10 @@ Resources:
 This control checks whether an Amazon Relational Database Service DB Proxy is configured to require Transport Layer Security (TLS) for connections to the proxy.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBProxy`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.26 rule specification](#ct-rds-pr-26-rule "#ct-rds-pr-26-rule")
 
 **Details and examples**
@@ -8076,7 +8076,7 @@ This control checks whether an Amazon Relational Database Service DB Proxy is co
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.RDS.PR.26 rule specification](#ct-rds-pr-26-rule "#ct-rds-pr-26-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.RDS.PR.26 example templates](#ct-rds-pr-26-templates "#ct-rds-pr-26-templates")
 
@@ -8181,28 +8181,28 @@ DBProxy:
 #   AWS::RDS::DBProxy
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon RDS DB proxy resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB proxy resource
 #       And: 'RequireTLS' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB proxy resource
 #       And: 'RequireTLS' has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB proxy resource
 #       And: 'RequireTLS' has been provided and set to bool(true)
 #      Then: PASS
@@ -8462,10 +8462,10 @@ Resources:
 This control checks whether an Amazon Relational Database Service DB cluster parameter group requires Transport Layer Security (TLS) connections for supported engine types.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBClusterParameterGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.27 rule specification](#ct-rds-pr-27-rule "#ct-rds-pr-27-rule")
 
 **Details and examples**
@@ -8473,7 +8473,7 @@ This control checks whether an Amazon Relational Database Service DB cluster par
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.RDS.PR.27 rule specification](#ct-rds-pr-27-rule "#ct-rds-pr-27-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.RDS.PR.27 example templates](#ct-rds-pr-27-templates "#ct-rds-pr-27-templates")
 
@@ -8589,25 +8589,25 @@ RDSDBClusterParameterGroup:
 #   AWS::RDS::DBClusterParameterGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon RDS DB cluster parameter group resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB cluster parameter group resource
 #       And: 'Family' has not been provided or has been provided and set to an RDS DB cluster
 #            parameter group family other than 'aurora-mysql', 'aurora-postgresql', 'postgres',
 #            or 'mysql' families
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB cluster parameter group resource
 #       And: 'Family' has been provided and set to an 'aurora-mysql' Amazon RDS DB cluster parameter
 #            group family
@@ -8615,7 +8615,7 @@ RDSDBClusterParameterGroup:
 #            has been provided and set to a value other than 'ON'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB cluster parameter group resource
 #       And: 'Family' has been provided and set to a 'mysql' Amazon RDS DB cluster parameter
 #            group family
@@ -8623,7 +8623,7 @@ RDSDBClusterParameterGroup:
 #            has been provided and set to a value other than a boolean true value
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB cluster parameter group resource
 #       And: 'Family' has been provided and set to an 'aurora-postgresql' or 'postgres'
 #            Amazon RDS DB cluster parameter group family
@@ -8631,7 +8631,7 @@ RDSDBClusterParameterGroup:
 #            and set to a value other than a boolean true value
 #      Then: FAIL
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB cluster parameter group resource
 #       And: 'Family' has been provided and set to an 'aurora-mysql' RDS DB cluster parameter
 #            group family
@@ -8639,14 +8639,14 @@ RDSDBClusterParameterGroup:
 #            to 'ON'
 #      Then: PASS
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB cluster parameter group resource
 #       And: 'Family' has been provided and set to a 'mysql' Amazon RDS DB cluster parameter group family
 #       And: In 'Parameters', 'require_secure_transport' has been provided and set
 #            to a boolean true value
 #      Then: PASS
 #   Scenario: 8
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB cluster parameter group resource
 #       And: 'Family' has been provided and set to an 'aurora-postgresql' or 'postgres' RDS DB
 #            cluster parameter group family
@@ -8882,10 +8882,10 @@ Resources:
 This control checks whether an Amazon Relational Database Service DB parameter group requires Transport Layer Security (TLS) connections, for supported engine types.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBParameterGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.28 rule specification](#ct-rds-pr-28-rule "#ct-rds-pr-28-rule")
 
 **Details and examples**
@@ -8893,7 +8893,7 @@ This control checks whether an Amazon Relational Database Service DB parameter g
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.RDS.PR.28 rule specification](#ct-rds-pr-28-rule "#ct-rds-pr-28-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.RDS.PR.28 example templates](#ct-rds-pr-28-templates "#ct-rds-pr-28-templates")
 
@@ -9010,18 +9010,18 @@ RDSDBParameterGroup:
 #   AWS::RDS::DBParameterGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon RDS DB parameter group resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB parameter group resource
 #       And: 'Family' has not been provided or has been provided and set to an Amazon RDS DB
 #            parameter group family other than one with support for requiring TLS connections
@@ -9029,7 +9029,7 @@ RDSDBParameterGroup:
 #            families 5.5 to 5.6, 'postgres' or 'sqlserver')
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB parameter group resource
 #       And: 'Family' has been provided and set to Amazon RDS parameter group families 'mariadb'
 #            (excluding families 10.0 to 10.4) or 'mysql' (excluding families 5.5 to 5.6)
@@ -9037,14 +9037,14 @@ RDSDBParameterGroup:
 #            has been provided and set to a value other than a boolean true value
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB parameter group resource
 #       And: 'Family' has been provided and set to Amazon RDS parameter group families 'sqlserver' or 'postgres'
 #       And: In 'Parameters', 'rds.force_ssl' has not been provided, or has been provided
 #            and set to a value other than a boolean true value
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB parameter group resource
 #       And: 'Family' has been provided and set to Amazon RDS parameter group families 'mariadb'
 #            (excluding families 10.0 to 10.4) or 'mysql' (excluding families 5.5 to 5.6)
@@ -9052,7 +9052,7 @@ RDSDBParameterGroup:
 #            a boolean true value
 #      Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB parameter group resource
 #       And: 'Family' has been provided and set to Amazon RDS parameter group families 'sqlserver' or 'postgres'
 #       And: In 'Parameters', 'rds.force_ssl' has been provided and set to
@@ -9275,10 +9275,10 @@ Resources:
 This control checks whether an Amazon Relational Database Service database cluster is configured to be publicly accessible, or not, as determined by the setting of the PubliclyAccessible property.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBCluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.29 rule specification](#ct-rds-pr-29-rule "#ct-rds-pr-29-rule")
 
 **Details and examples**
@@ -9286,13 +9286,13 @@ This control checks whether an Amazon Relational Database Service database clust
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.RDS.PR.29 rule specification](#ct-rds-pr-29-rule "#ct-rds-pr-29-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.RDS.PR.29 example templates](#ct-rds-pr-29-templates "#ct-rds-pr-29-templates")
 
 **Explanation**
 
-The PubliclyAccessible property in the Amazon RDS DB cluster AWS CloudFormation resource indicates whether the DB cluster is publicly accessible. When the DB instance is configured with the
+The PubliclyAccessible property in the Amazon RDS DB cluster CloudFormation resource indicates whether the DB cluster is publicly accessible. When the DB instance is configured with the
 PubliclyAccessible property set to true, its Domain Name System (DNS) endpoint resolves to the public IP address from outside of the DB cluster's virtual private cloud (VPC), and it also resolves to the private
 IP address from within the DB cluster's VPC.
 
@@ -9376,38 +9376,38 @@ DBCluster:
 #   AWS::RDS::DBCluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon RDS DB cluster resources
 #       Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB cluster resource
 #       And: 'Engine' has been provided and set to a database engine type other than a
 #            Multi-AZ database engine (type other than 'mysql' or 'postgres')
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB cluster resource
 #       And: 'Engine' has been provided and set to a Multi-AZ database engine
 #            ('mysql', 'postgres')
 #       And: 'PubliclyAccessible' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB cluster resource
 #       And: 'Engine' has been provided and set to a Multi-AZ database engine
 #            ('mysql', 'postgres')
 #       And: 'PubliclyAccessible' has been provided and set to a value other than bool(false)
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon RDS DB cluster resource
 #       And: 'Engine' has been provided and set to a Multi-AZ database engine
 #            ('mysql', 'postgres')
@@ -9562,10 +9562,10 @@ This control checks whether storage encryption is enabled for your Amazon RDS da
 engine types.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::RDS::DBInstance`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.RDS.PR.30 rule specification](#ct-rds-pr-30-rule "#ct-rds-pr-30-rule")
 
 **Details and examples**
@@ -9573,7 +9573,7 @@ engine types.
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.RDS.PR.30 rule specification](#ct-rds-pr-30-rule "#ct-rds-pr-30-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.RDS.PR.30 example templates](#ct-rds-pr-30-templates "#ct-rds-pr-30-templates")
 
@@ -9673,25 +9673,25 @@ RDSDBInstance:
 #   AWS::RDS::DBInstance
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation Hook
+#   CloudFormation, CloudFormation Hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon RDS DB instance resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Amazon RDS DB instance resource
 #       And: 'Engine' is not one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb',
 #            'oracle-se2', 'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se',
 #            'sqlserver-web'
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Amazon RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb',
 #            'oracle-se2', 'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se',
@@ -9699,7 +9699,7 @@ RDSDBInstance:
 #       And: 'KmsKeyId' has not been provided
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Amazon RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb',
 #            'oracle-se2', 'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se',
@@ -9708,7 +9708,7 @@ RDSDBInstance:
 #            to a KMS key ID or alias or ARN
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Amazon RDS DB instance resource
 #       And: 'Engine' is one of 'mariadb', 'mysql', 'oracle-ee', 'oracle-ee-cdb',
 #            'oracle-se2', 'oracle-se2-cdb', 'postgres', 'sqlserver-ee', 'sqlserver-se',

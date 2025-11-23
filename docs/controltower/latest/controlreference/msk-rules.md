@@ -10,10 +10,10 @@
 This control checks whether an Amazon MSK cluster is configured to encrypt data in transit between broker nodes of the cluster.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::MSK::Cluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.MSK.PR.1 rule specification](#ct-msk-pr-1-rule "#ct-msk-pr-1-rule")
 
 **Details and examples**
@@ -21,7 +21,7 @@ This control checks whether an Amazon MSK cluster is configured to encrypt data 
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.MSK.PR.1 rule specification](#ct-msk-pr-1-rule "#ct-msk-pr-1-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.MSK.PR.1 example templates](#ct-msk-pr-1-templates "#ct-msk-pr-1-templates")
 
@@ -140,29 +140,29 @@ MSKCluster:
 #   AWS::MSK::Cluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon MSK cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon MSK cluster resource
 #       And: 'InCluster' in 'EncryptionInfo.EncryptionInTransit' has been provided and
 #            set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon MSK cluster resource
 #       And: 'InCluster' in 'EncryptionInfo.EncryptionInTransit' has not been provided
 #      Then: PASS
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon MSK cluster resource
 #       And: 'InCluster' in 'EncryptionInfo.EncryptionInTransit' has been provided and
 #            set to bool(true)
@@ -440,10 +440,10 @@ Resources:
 This control checks whether an Amazon MSK cluster is configured to disallow public access to cluster brokers by means of the PublicAccess property.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::MSK::Cluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.MSK.PR.2 rule specification](#ct-msk-pr-2-rule "#ct-msk-pr-2-rule")
 
 **Details and examples**
@@ -451,7 +451,7 @@ This control checks whether an Amazon MSK cluster is configured to disallow publ
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
   [CT.MSK.PR.2 rule specification](#ct-msk-pr-2-rule "#ct-msk-pr-2-rule")
-- For examples of PASS and FAIL AWS CloudFormation Templates related to
+- For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.MSK.PR.2 example templates](#ct-msk-pr-2-templates "#ct-msk-pr-2-templates")
 
@@ -589,36 +589,36 @@ MSKCluster:
 #   AWS::MSK::Cluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon MSK cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon MSK cluster resource
 #       And: 'BrokerNodeGroupInfo' has not been provided
 #      Then: SKIP
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an MSK cluster resource
 #       And: 'BrokerNodeGroupInfo' has been provided
 #       And: 'Type' in 'ConnectivityInfo.PublicAccess' has been provided and
 #            set to a value other than 'DISABLED'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon MSK cluster resource
 #       And: 'BrokerNodeGroupInfo' has been provided
 #       And: 'Type' in 'ConnectivityInfo.PublicAccess' has not been provided
 #      Then: PASS
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon MSK cluster resource
 #       And: 'BrokerNodeGroupInfo' has been provided
 #       And: 'Type' in 'ConnectivityInfo.PublicAccess' has been provided and

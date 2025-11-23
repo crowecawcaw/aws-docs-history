@@ -24,14 +24,14 @@ regulations, sometimes referred to as _frameworks_.
   governmental regulations and industry standards, see [Compliance
   Validation](../userguide/compliance-program-info.md "../userguide/compliance-program-info.md").
 - For more information about how you can verify AWS Control Tower resource compliance during
-  AWS CloudFormation stack creation, see this blog post, [How AWS Control Tower users can proactively verify compliance in
+  CloudFormation stack creation, see this blog post, [How AWS Control Tower users can proactively verify compliance in
   AWS CloudFormationstacks](https://aws.amazon.com/blogs/mt/how-aws-control-tower-users-can-proactively-verify-compliance-in-aws-cloudformation-stacks/ "https://aws.amazon.com/blogs/mt/how-aws-control-tower-users-can-proactively-verify-compliance-in-aws-cloudformation-stacks/").
   For ongoing governance, administrators can enable pre-configured controls—clearly
   defined rules for security, operations, and compliance. These controls can:
 
 - Prevent deployment of resources that don’t conform to policies (by means of
   preventive controls, implemented with SCPs, or by means of proactive controls,
-  implemented with AWS CloudFormation hooks).
+  implemented with CloudFormation hooks).
 - Continuously monitor deployed resources for nonconformance (by means of detective
   controls, implemented with AWS Config rules).
 

@@ -11,10 +11,10 @@
 This control checks whether AWS Elastic Beanstalk environments and configuration templates are configured for `enhanced` health reporting.
 
 - **Control objective:** Improve resiliency
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticBeanstalk::Environment`, `AWS::ElasticBeanstalk::ConfigurationTemplate`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICBEANSTALK.PR.1 rule specification](#ct-elasticbeanstalk-pr-1-rule "#ct-elasticbeanstalk-pr-1-rule")
 
 **Details and examples**
@@ -98,7 +98,7 @@ The examples that follow show how to implement this remediation.
 
 #### AWS Elastic Beanstalk Configuration Template - Example One
 
-AWS Elastic Beanstalk configuration template configured with enhanced health reporting, enabled by means of AWS CloudFormation defaults. The example is shown in JSON and in YAML.
+AWS Elastic Beanstalk configuration template configured with enhanced health reporting, enabled by means of CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -210,24 +210,24 @@ ElasticBeanstalkConfigurationTemplate:
 #   AWS::ElasticBeanstalk::Environment, AWS::ElasticBeanstalk::ConfigurationTemplate
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Elastic Beanstalk environment resources or
 #            Elastic Beanstalk configuration template resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elastic Beanstalk environment resource
 #       And: 'OptionSettings' is not present in the resource properties or is an empty list
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elastic Beanstalk environment resource
 #       And: 'OptionSettings' is present in the resource properties as a non-empty list
 #       And: No entry in the 'OptionSettings' list has both a 'Namespace' property with a value of
@@ -235,7 +235,7 @@ ElasticBeanstalkConfigurationTemplate:
 #            and an 'OptionName' property with value of 'SystemType'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elastic Beanstalk environment resource or an Elastic Beanstalk
 #            configuration template resource
 #       And: 'OptionSettings' is present in the resource properties as a non-empty list
@@ -246,12 +246,12 @@ ElasticBeanstalkConfigurationTemplate:
 #            property is not provided.
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elastic Beanstalk configuration template resource
 #       And: 'OptionSettings' is not present in the resource properties or is an empty list
 #      Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elastic Beanstalk configuration template resource
 #       And: 'OptionSettings' is present in the resource properties as a non-empty list
 #       And: No entry in the 'OptionSettings' list has both a 'Namespace' property with a value of
@@ -259,7 +259,7 @@ ElasticBeanstalkConfigurationTemplate:
 #            and an 'OptionName' property with value of 'SystemType'
 #      Then: PASS
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Elastic Beanstalk environment resource or an Elastic Beanstalk
 #            configuration template resource
 #       And: 'OptionSettings' is present in the resource properties as a non-empty list
@@ -539,10 +539,10 @@ Resources:
 This control checks whether managed platform updates in AWS Elastic Beanstalk environments and configuration templates are activated.
 
 - **Control objective:** Manage vulnerabilities
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticBeanstalk::Environment`, `AWS::ElasticBeanstalk::ConfigurationTemplate`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICBEANSTALK.PR.2 rule specification](#ct-elasticbeanstalk-pr-2-rule "#ct-elasticbeanstalk-pr-2-rule")
 
 **Details and examples**
@@ -782,31 +782,31 @@ ElasticBeanstalkConfigurationTemplate:
 #   AWS::ElasticBeanstalk::Environment, AWS::ElasticBeanstalk::ConfigurationTemplate
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ElasticBeanstalk environment resources or ElasticBeanstalk
 #            configuration template resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticBeanstalk environment resource
 #       And: 'OptionSettings' is not present in the resource properties or is an empty list
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticBeanstalk environment resource
 #       And: 'OptionSettings' is present in the resource properties as a non-empty list
 #       And: No entry in the 'OptionSettings' list has both a 'Namespace' property with a value of
 #            'aws:elasticbeanstalk:managedactions' and an 'OptionName' property with a value of 'ManagedActionsEnabled'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticBeanstalk environment resource or an ElasticBeanstalk
 #            configuration template resource
 #       And: 'OptionSettings' is present in the resource properties as a non-empty list
@@ -817,19 +817,19 @@ ElasticBeanstalkConfigurationTemplate:
 #            property is not provided.
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticBeanstalk configuration template resource
 #       And: 'OptionSettings' is not present in the resource properties or is an empty list
 #      Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticBeanstalk configuration template resource
 #       And: 'OptionSettings' is present in the resource properties as a non-empty list
 #       And: No entry in the 'OptionSettings' list has both a 'Namespace' property with a value of
 #            'aws:elasticbeanstalk:managedactions' and an 'OptionName' property with a value of 'ManagedActionsEnabled'
 #      Then: PASS
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticBeanstalk environment resource or an ElasticBeanstalk
 #            configuration template resource
 #       And: 'OptionSettings' is present in the resource properties as a non-empty list
@@ -1108,10 +1108,10 @@ Resources:
 This control checks whether an AWS Elastic Beanstalk environment is configured to send logs to Amazon CloudWatch Logs.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::ElasticBeanstalk::Environment`, `AWS::ElasticBeanstalk::ConfigurationTemplate`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.ELASTICBEANSTALK.PR.3 rule specification](#ct-elasticbeanstalk-pr-3-rule "#ct-elasticbeanstalk-pr-3-rule")
 
 **Details and examples**
@@ -1270,31 +1270,31 @@ ElasticBeanstalkConfigurationTemplate:
 #   AWS::ElasticBeanstalk::Environment, AWS::ElasticBeanstalk::ConfigurationTemplate
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any ElasticBeanstalk environment resources or ElasticBeanstalk
 #            configuration template resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticBeanstalk environment resource
 #       And: 'OptionSettings' is not present in the resource properties or is an empty list
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticBeanstalk environment resource
 #       And: 'OptionSettings' is present in the resource properties as a non-empty list
 #       And: No entry in the 'OptionSettings' list has both a 'Namespace' property with a value of
 #            'aws:elasticbeanstalk:cloudwatch:logs' and an 'OptionName' property with a value of 'StreamLogs'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticBeanstalk environment resource or an ElasticBeanstalk
 #            configuration template resource
 #       And: 'OptionSettings' is present in the resource properties as a non-empty list
@@ -1305,19 +1305,19 @@ ElasticBeanstalkConfigurationTemplate:
 #            property is not provided.
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticBeanstalk configuration template resource
 #       And: 'OptionSettings' is not present in the resource properties or is an empty list
 #      Then: PASS
 #   Scenario: 6
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticBeanstalk configuration template resource
 #       And: 'OptionSettings' is present in the resource properties as a non-empty list
 #       And: No entry in the 'OptionSettings' list has both a 'Namespace' property with a value of
 #            'aws:elasticbeanstalk:cloudwatch:logs' and an 'OptionName' property with a value of 'StreamLogs'
 #      Then: PASS
 #   Scenario: 7
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an ElasticBeanstalk environment resource or an ElasticBeanstalk
 #            configuration template resource
 #       And: 'OptionSettings' is present in the resource properties as a non-empty list

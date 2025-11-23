@@ -18,10 +18,10 @@
 This control checks whether Amazon Redshift clusters are configured to prohibit public access.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Redshift::Cluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.REDSHIFT.PR.1 rule specification](#ct-redshift-pr-1-rule "#ct-redshift-pr-1-rule")
 
 **Details and examples**
@@ -108,29 +108,29 @@ RedshiftCluster:
 #   AWS::Redshift::Cluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document does not contain any Redshift cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'PubliclyAccessible' has not been specified
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'PubliclyAccessible' has been specified
 #       And: 'PubliclyAccessible' has been set to bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation document or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation document or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'PubliclyAccessible' has been specified
 #       And: 'PubliclyAccessible' has been set to bool(false)
@@ -263,10 +263,10 @@ Resources:
 This control checks whether Amazon Redshift clusters have automated snapshots enabled, and that the clusters are set with an automated snapshot retention period greater than or equal to seven (7) days.
 
 - **Control objective:** Improve resiliency
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Redshift::Cluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.REDSHIFT.PR.2 rule specification](#ct-redshift-pr-2-rule "#ct-redshift-pr-2-rule")
 
 **Details and examples**
@@ -351,35 +351,35 @@ RedshiftCluster:
 #   AWS::Redshift::Cluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Redshift cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'AutomatedSnapshotRetentionPeriod' has not been specified
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'AutomatedSnapshotRetentionPeriod' has been specified
 #       And: 'AutomatedSnapshotRetentionPeriod' has been set to '0'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'AutomatedSnapshotRetentionPeriod' has been specified
 #       And: 'AutomatedSnapshotRetentionPeriod' has been set to a value <7
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'AutomatedSnapshotRetentionPeriod' has been specified
 #       And: 'AutomatedSnapshotRetentionPeriod' has been set to a value >= 7
@@ -514,10 +514,10 @@ Resources:
 This control checks whether an Amazon Redshift cluster has audit logging activated.
 
 - **Control objective:** Establish logging and monitoring
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Redshift::Cluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.REDSHIFT.PR.3 rule specification](#ct-redshift-pr-3-rule "#ct-redshift-pr-3-rule")
 
 **Details and examples**
@@ -611,29 +611,29 @@ RedshiftCluster:
 #   AWS::Redshift::Cluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Redshift cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'LoggingProperties' has not been specified
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'LoggingProperties' has been specified
 #       And: 'BucketName' on 'LoggingProperties' has been specified and is an empty string or invalid local reference
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'LoggingProperties' has been specified
 #       And: 'BucketName' on 'LoggingProperties' has been specified and is a non-empty string or valid local reference
@@ -834,10 +834,10 @@ Resources:
 This control checks whether automatic major version upgrades are enabled for your Amazon Redshift cluster.
 
 - **Control objective:** Manage vulnerabilities
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Redshift::Cluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.REDSHIFT.PR.4 rule specification](#ct-redshift-pr-4-rule "#ct-redshift-pr-4-rule")
 
 **Details and examples**
@@ -861,7 +861,7 @@ The examples that follow show how to implement this remediation.
 
 #### Amazon Redshift Cluster - Example One
 
-Amazon Redshift cluster with automatic major version upgrades enabled through AWS CloudFormation defaults. The example is shown in JSON and in YAML.
+Amazon Redshift cluster with automatic major version upgrades enabled through CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -967,29 +967,29 @@ RedshiftCluster:
 #   AWS::Redshift::Cluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Redshift cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'AllowVersionUpgrade' has been provided
 #       And: 'AllowVersionUpgrade' has been set to bool(false)
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'AllowVersionUpgrade' has not been provided
 #      Then: PASS
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'AllowVersionUpgrade' has been provided
 #       And: 'AllowVersionUpgrade' has been set to bool(true)
@@ -1123,10 +1123,10 @@ Resources:
 This control checks whether an Amazon Redshift cluster has enhanced VPC routing configured.
 
 - **Control objective:** Limit network access
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Redshift::Cluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.REDSHIFT.PR.5 rule specification](#ct-redshift-pr-5-rule "#ct-redshift-pr-5-rule")
 
 **Details and examples**
@@ -1211,29 +1211,29 @@ RedshiftCluster:
 #   AWS::Redshift::Cluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Redshift cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'EnhancedVpcRouting' has not been specified
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'EnhancedVpcRouting' has been specified
 #       And: 'EnhancedVpcRouting' has been set to bool(false)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'EnhancedVpcRouting' has been specified
 #       And: 'EnhancedVpcRouting' has been set to bool(true)
@@ -1368,10 +1368,10 @@ Resources:
 This control checks whether an Amazon Redshift cluster has changed the administrator username from its default value.
 
 - **Control objective:** Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Redshift::Cluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.REDSHIFT.PR.6 rule specification](#ct-redshift-pr-6-rule "#ct-redshift-pr-6-rule")
 
 **Details and examples**
@@ -1452,29 +1452,29 @@ RedshiftCluster:
 #   AWS::Redshift::Cluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Redshift cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'MasterUsername' has not been specified
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'MasterUsername' has been specified
 #       And: 'MasterUsername' has been set to 'awsuser'
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: 'MasterUsername' has been specified
 #       And: 'MasterUsername' has been set to a value not equal to 'awsuser'
@@ -1614,10 +1614,10 @@ Resources:
 This control checks whether an Amazon Redshift cluster has changed its database name from the default value.
 
 - **Control objective:** Protect configurations
-- **Implementation:** AWS CloudFormation Guard Rule
+- **Implementation:** CloudFormation Guard Rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Redshift::Cluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.REDSHIFT.PR.7 rule specification](#ct-redshift-pr-7-rule "#ct-redshift-pr-7-rule")
 
 **Details and examples**
@@ -1702,28 +1702,28 @@ RedshiftCluster:
 #   AWS::Redshift::Cluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Redshift cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains a Redshift cluster resource
 #       And: The 'DBName' property has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains Redshift cluster resource
 #       And: The 'DBName' property has been provided with a value of 'dev' or an empty string
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains Redshift cluster resource
 #       And: The 'DBName' property has been provided with a non-empty string that is not equal to 'dev'
 #      Then: PASS
@@ -1865,10 +1865,10 @@ Resources:
 This control checks whether an Amazon Redshift cluster is encrypted.
 
 - **Control objective:** Encrypt data at rest
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Redshift::Cluster`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.REDSHIFT.PR.8 rule specification](#ct-redshift-pr-8-rule "#ct-redshift-pr-8-rule")
 
 **Details and examples**
@@ -1955,28 +1955,28 @@ RedshiftCluster:
 #   AWS::Redshift::Cluster
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon Redshift cluster resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon Redshift cluster resource
 #       And: 'Encrypted' has not been provided
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon Redshift cluster resource
 #       And: 'Encrypted' has been provided and set to a value other than bool(true)
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon Redshift cluster resource
 #       And: 'Encrypted' has been provided and set to bool(true)
 #      Then: PASS
@@ -2114,10 +2114,10 @@ This control checks whether an Amazon Redshift cluster parameter group is config
 means of Secure Sockets Layer (SSL), for data in transit.
 
 - **Control objective:** Encrypt data in transit
-- **Implementation:** AWS CloudFormation guard rule
+- **Implementation:** CloudFormation guard rule
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Redshift::ClusterParameterGroup`
-- **AWS CloudFormation guard rule:**
+- **CloudFormation guard rule:**
   [CT.REDSHIFT.PR.9 rule specification](#ct-redshift-pr-9-rule "#ct-redshift-pr-9-rule")
 
 **Details and examples**
@@ -2204,37 +2204,37 @@ encryption by means of Secure Sockets Layer (SSL), for data in transit.
 #   AWS::Redshift::ClusterParameterGroup
 #
 # Evaluates:
-#   AWS CloudFormation, AWS CloudFormation hook
+#   CloudFormation, CloudFormation hook
 #
 # Rule Parameters:
 #   None
 #
 # Scenarios:
 #   Scenario: 1
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document does not contain any Amazon Redshift cluster parameter group resources
 #      Then: SKIP
 #   Scenario: 2
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon Redshift cluster parameter group resource
 #       And: 'Parameters' has not been provided or has been provided as an empty list
 #      Then: FAIL
 #   Scenario: 3
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon Redshift cluster parameter group resource
 #       And: 'Parameters' has been provided as a non-empty list that does not contain an entry with
 #            'ParameterName' set to 'require_ssl' and 'ParameterValue' set to bool(true) or a supported
 #            boolean string value ('true', 'True', 'TRUE', 'on', 'On' or 'ON')
 #      Then: FAIL
 #   Scenario: 4
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon Redshift cluster parameter group resource
 #       And: Any entry in 'Parameters' with a 'ParameterName' is set to 'require_ssl' has a corresponding
 #            'ParameterValue' set to a value other than bool(true) or a supported
 #            boolean string value ('true', 'True', 'TRUE', 'on', 'On' or 'ON')
 #      Then: FAIL
 #   Scenario: 5
-#     Given: The input document is an AWS CloudFormation or AWS CloudFormation hook document
+#     Given: The input document is an CloudFormation or CloudFormation hook document
 #       And: The input document contains an Amazon Redshift cluster parameter group resource
 #       And: 'Parameters' has been provided as a non-empty list
 #       And: 'Parameters' contains an entry with 'ParameterName' set to 'require_ssl' and 'ParameterValue'
