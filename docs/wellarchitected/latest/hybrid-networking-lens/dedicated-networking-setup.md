@@ -23,7 +23,7 @@ capacity to ensure that the failure of one network connection does not overwhelm
 redundant connections. To achieve the best availability, you can leverage the [resiliency
 architecture](https://aws.amazon.com/directconnect/resiliency-recommendation/ "https://aws.amazon.com/directconnect/resiliency-recommendation/") for AWS Direct Connect as shown in the following diagram.
 
-![The image shows how you can leverage the resiliency architecture to achieve highly resilient network connections between Amazon VPC and your on-premises infrastructure for AWS Direct Connect.](images/direct-connect-max-resilience-ra.png)
+![The image shows how you can leverage the resiliency architecture to achieve highly resilient network connections between Amazon VPC and your on-premises infrastructure for Direct Connect.](images/direct-connect-max-resilience-ra.png)
 
 _AWS Direct Connect maximum resiliency architecture_
 
@@ -48,7 +48,7 @@ AWS Direct Connect provides the following virtual interfaces:
 **Public virtual interfaces –** Provide global connectivity to
 public AWS resources, including AWS
 
-public service endpoints public Amazon EC2 IP addresses, and public Elastic Load Balancing addresses.
+public service endpoints public Amazon EC2 IP addresses, and public ELB addresses.
 
 **Private virtual interfaces –** Provide connectivity to the
 private IP range of your VPC.

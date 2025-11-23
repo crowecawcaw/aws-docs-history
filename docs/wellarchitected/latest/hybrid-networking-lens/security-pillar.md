@@ -403,7 +403,7 @@ diminish attackers from moving laterally within your AWS network,
 implement Network Access Control Lists. Additionally, you can also
 use an Intrusion Prevention System (IPS) and Intrusion Detection
 system (IDS) such as the AWS Network Firewall to block
-communication with known malware hosts and secure AWS Direct Connect and AWS VPN traffic running through the AWS Transit
+communication with known malware hosts and secure AWS Direct Connect and Site-to-Site VPN traffic running through the AWS Transit
 Gateway from client devices and your on-prem environment. For
 additional ways to prevent traffic across your hybrid network
 environment, refer to the
@@ -456,5 +456,5 @@ practices for security.
   do I create a certificate-based VPN using AWS Site-to-Site
   VPN?](https://aws.amazon.com/premiumsupport/knowledge-center/vpn-certificate-based-site-to-site/ "https://aws.amazon.com/premiumsupport/knowledge-center/vpn-certificate-based-site-to-site/")
 - [How
-  do I establish an AWS VPN over an AWS Direct Connect
+  do I establish an Site-to-Site VPN over an AWS Direct Connect
   connection?](https://aws.amazon.com/premiumsupport/knowledge-center/create-vpn-direct-connect/ "https://aws.amazon.com/premiumsupport/knowledge-center/create-vpn-direct-connect/")

@@ -71,7 +71,7 @@ Configure your workload to monitor CloudWatch logs and metrics to send notificat
 are crossed or significant events occur. For example, with AWS Direct Connect,
 `ConnectionBpsIngress`, `ConnectionBpsEgress`,
 `ConnectionPpsEgress`, and `ConnectionPpsIngress` metrics help track
-the connection capacity utilization. For a comprehensive list of metrics, refer to the [AWS Direct Connect User Guide](../../../directconnect/latest/UserGuide/monitoring-cloudwatch.md "../../../directconnect/latest/UserGuide/monitoring-cloudwatch.md"). For information about VPN metrics, refer to the [AWS VPN User
+the connection capacity utilization. For a comprehensive list of metrics, refer to the [AWS Direct Connect User Guide](../../../directconnect/latest/UserGuide/monitoring-cloudwatch.md "../../../directconnect/latest/UserGuide/monitoring-cloudwatch.md"). For information about VPN metrics, refer to the [Site-to-Site VPN User
 Guide](../../../vpn/latest/s2svpn/monitoring-cloudwatch-vpn.md "../../../vpn/latest/s2svpn/monitoring-cloudwatch-vpn.md").
 
 When an AWS Direct Connect connection is down for maintenance, that connection can be down
@@ -114,7 +114,7 @@ information, refer to [AWS Direct Connect resilency recommendations](https://aws
 consider using redundant hardware and telecommunications providers. Your telecommunication
 provider should have a diverse fiber and path connectivity for your last mile connection or
 offer any SLA. Ensure that the physical infrastructure configuration you set up is in
-accordance with the requirements to meet [AWS Direct Connect SLA](https://aws.amazon.com/directconnect/sla/ "https://aws.amazon.com/directconnect/sla/") and [AWS VPN
+accordance with the requirements to meet [AWS Direct Connect SLA](https://aws.amazon.com/directconnect/sla/ "https://aws.amazon.com/directconnect/sla/") and [Site-to-Site VPN
 SLA](https://aws.amazon.com/vpn/site-to-site-vpn-sla/ "https://aws.amazon.com/vpn/site-to-site-vpn-sla/"). Additionally, use dynamically routed, Active/Active connections for automatic
 load balancing and failover across redundant network connections. Provision sufficient network
 capacity to ensure that the failure of one network connection does not overwhelm and degrade

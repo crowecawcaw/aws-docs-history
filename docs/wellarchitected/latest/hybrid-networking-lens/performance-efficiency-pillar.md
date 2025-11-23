@@ -54,9 +54,9 @@ Based on your bandwidth requirements, a single VPN or Direct Connect connection 
 not be sufficient and you will have to architect the hybrid networking setup to enable
 traffic load balancing across multiple connections.
 
-| **HN_PERF1: How do you decide between AWS Direct Connect and<br>AWS VPN as your connectivity option?** |
-| ------------------------------------------------------------------------------------------------------ |
-|                                                                                                        |
+| **HN_PERF1: How do you decide between AWS Direct Connect and<br>Site-to-Site VPN as your connectivity option?** |
+| --------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                 |
 
 | **HN_PERF2: Determine and define your performance<br>requirements using bandwidth, latency and jitter values.** |
 | --------------------------------------------------------------------------------------------------------------- |
@@ -75,17 +75,17 @@ numbers to ensure good customer experience. Match these estimates with the optio
 from AWS to determine which technology you should choose, and the appropriate
 configuration.
 
-**Deciding between AWS Direct Connect and AWS VPN as your connectivity
+**Deciding between AWS Direct Connect and Site-to-Site VPN as your connectivity
 option**
 
 Based on your requirements (bandwidth, latency, jitter), you can either choose to
-establish VPN connectivity using AWS VPN or AWS Direct Connect (or both). The following information
+establish VPN connectivity using Site-to-Site VPN or AWS Direct Connect (or both). The following information
 will help you guide the path to take.
 
-_Table 1 - Guided path for deciding between AWS VPN and
+_Table 1 - Guided path for deciding between Site-to-Site VPN and
 AWS Direct Connect_
 
-| **Characteristic** | **AWS VPN**                                                                                                                                                                                                      | **AWS Direct Connect**                                                                                                                                                                                                                                          |
+| **Characteristic** | **Site-to-Site VPN**                                                                                                                                                                                             | **AWS Direct Connect**                                                                                                                                                                                                                                          |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bandwidth          | Low-Medium: Depends on customer internet connection and VPN device<br>constraints. At the AWS end, you can scale the VPN bandwidth by creating multiple<br>VPN connections                                       | High: Each Direct Connect connection can be up to 100 Gbps with option to<br>scale bandwidth by adding additional connections.                                                                                                                                  |
 | Latency            | Medium-high: Traffic traverses the internet and can flow through multiple<br>hops.<br>Note: Leveraging accelerated VPN could result in lower latency.                                                            | Low-Medium: Traffic traverses private circuit between AWS, third-party cloud<br>provider, customer and has the minimal number of hops. In certain circumstances<br>(outside customers control) like when there is a failure, higher latency can be<br>possible. |
@@ -93,9 +93,9 @@ AWS Direct Connect_
 
 As depicted in the previous table, the best performing and recommended option is
 AWS Direct Connect for production workloads. To get started quickly while getting good
-performance for your development/sandbox environments, choose AWS VPN. It is very important to
+performance for your development/sandbox environments, choose Site-to-Site VPN. It is very important to
 always work backwards for your use case and requirements to make the right technology
-choice. You can also choose a hybrid design where they leverage both AWS VPN and
+choice. You can also choose a hybrid design where they leverage both Site-to-Site VPN and
 AWS Direct Connect.
 
 | **HN_PERF3: How do you select the best performing hybrid VPN<br>architecture?** |
@@ -188,9 +188,9 @@ locations for High-availability it’s key to choose direct connect locations th
 geographically apart; striking a balance between and latency and high-availability is
 important.
 
-![This image shows an example of choosing the coorect AWS Direct Connect path.](images/choosing-correct-direct-connect-location.png)
+![This image shows an example of choosing the coorect Direct Connect path.](images/choosing-correct-direct-connect-location.png)
 
-_Choosing the correct AWS Direct Connect location_
+_Choosing the correct Direct Connect location_
 
 **Choosing the right termination endpoint on AWS end:**
 
@@ -364,18 +364,18 @@ termination endpoint to choose (EC2 instance vs TGW for VPN termination), consid
 tradeoff between performance, cost, and ease/time to setup. Understanding the tradeoffs will
 help you choose the right tool for the right job.
 
-**Tradeoffs between AWS VPN and AWS Direct Connect on cost and time to
+**Tradeoffs between Site-to-Site VPN and AWS Direct Connect on cost and time to
 setup:**
 
 The following tables show different factors to consider when making a choice between
-AWS VPN and Direct Connect.
+Site-to-Site VPN and Direct Connect.
 
-_Table 2 - Tradeoffs between AWS VPN and AWS Direct Connect on cost and
+_Table 2 - Tradeoffs between Site-to-Site VPN and AWS Direct Connect on cost and
 time to setup_
 
-| **Tradeoff**  | **AWS VPN**                                                                                                                                                                                                                                                          | **AWS Direct Connect**                                                                                                                                                                                                                                                                                                                                                          |
+| **Tradeoff**  | **Site-to-Site VPN**                                                                                                                                                                                                                                                 | **AWS Direct Connect**                                                                                                                                                                                                                                                                                                                                                          |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cost          | Low: If you have an active already paid for internet connection at the<br>customer end, you pay for [AWS VPN<br>costs](https://aws.amazon.com/vpn/pricing/ "https://aws.amazon.com/vpn/pricing/").                                                                   | Low-Medium: Data transfer out cost over Direct Connect is lower than that over<br>VPN. If you don’t have existing circuits to a Direct Connect location, you may have<br>to pay for circuit costs to your service provider in addition to AWS [Direct connect hourly<br>charge](https://aws.amazon.com/directconnect/pricing/ "https://aws.amazon.com/directconnect/pricing/"). |
+| Cost          | Low: If you have an active already paid for internet connection at the<br>customer end, you pay for [Site-to-Site VPN<br>costs](https://aws.amazon.com/vpn/pricing/ "https://aws.amazon.com/vpn/pricing/").                                                          | Low-Medium: Data transfer out cost over Direct Connect is lower than that over<br>VPN. If you don’t have existing circuits to a Direct Connect location, you may have<br>to pay for circuit costs to your service provider in addition to AWS [Direct connect hourly<br>charge](https://aws.amazon.com/directconnect/pricing/ "https://aws.amazon.com/directconnect/pricing/"). |
 | Time to Setup | Low: If you have an internet connection at the customer end, VPN can be<br>established in minutes.                                                                                                                                                                   | Low-Medium: If you already have a circuit to a Direct Connect location, AWS<br>Direct connect can be setup in few days. If you don’t have a circuit, circuit setup<br>times can vary in the range of weeks.                                                                                                                                                                     |
 | Performance   | Medium: medium bandwidth (based on internet speeds), medium-high latency<br>(unpredictable number of hops), medium-high jitter (unknown hops, internet<br>congestion).<br>Note: Leveraging accelerated VPN could lead to reduced (low-medium) latency<br>and jitter. | High: high bandwidth (upto 100 Gbps), low latency and minimal jitter (private<br>circuit with predictable number of hops).                                                                                                                                                                                                                                                      |
 
@@ -387,14 +387,14 @@ sandbox VPC’s quickly to start experimenting, then VPN is the recommended appr
 performance** - For production workloads, where performance is critical and you
 have a longer time to plan things, AWS Direct Connect is the recommended approach.
 
-_Table 3 - Tradeoffs between AWS VPN and VPN termination on EC2 instances_
+_Table 3 - Tradeoffs between Site-to-Site VPN and VPN termination on EC2 instances_
 
-| **Tradeoff**                             | **Virtual appliance on EC2 instance**                                                                                                                                                                                                                                                                                                 | **AWS VPN (on AWS Transit Gateway)**                                                                                                            |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cost                                     | Medium<br>• High: You pay for [EC2<br>instance pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/") (2 or more instances for HA) in addition to any<br>third-party licensing fees.                                                                                                                     | Low: You pay for [AWS VPN<br>costs](https://aws.amazon.com/vpn/pricing/ "https://aws.amazon.com/vpn/pricing/") (hourly charge + data transfer). |
-| Setup complexity and management overhead | High: Management and maintenance of EC2 instances is customer responsibility.                                                                                                                                                                                                                                                         | Low: AWS VPN is a fully managed solution.                                                                                                       |
-| Scalability and performance              | Low-medium: You can vertically scale an EC2 instance to get higher bandwidth.<br>Horizontal scalability is limited due to how egress traffic can be load balanced to<br>multiple ENI’s in a VPC route table.                                                                                                                          | High: You can scale VPN bandwidth by provisioning more VPN connections and<br>load balancing traffic using ECMP.                                |
-| 3rd party features                       | High: You can choose a third-party vendor software to get additional<br>functionality like DMVPN ([Dynamic Multipoint VPN,](https://www.cisco.com/c/en/us/products/security/dynamic-multipoint-vpn-dmvpn/index.html "https://www.cisco.com/c/en/us/products/security/dynamic-multipoint-vpn-dmvpn/index.html") a Cisco VPN protocol). | Low-medium: AWS VPN doesn’t support third-party proprietary features like DMVPN.                                                                |
+| **Tradeoff**                             | **Virtual appliance on EC2 instance**                                                                                                                                                                                                                                                                                                 | **Site-to-Site VPN (on AWS Transit Gateway)**                                                                                                            |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cost                                     | Medium<br>• High: You pay for [EC2<br>instance pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/") (2 or more instances for HA) in addition to any<br>third-party licensing fees.                                                                                                                     | Low: You pay for [Site-to-Site VPN<br>costs](https://aws.amazon.com/vpn/pricing/ "https://aws.amazon.com/vpn/pricing/") (hourly charge + data transfer). |
+| Setup complexity and management overhead | High: Management and maintenance of EC2 instances is customer responsibility.                                                                                                                                                                                                                                                         | Low: Site-to-Site VPN is a fully managed solution.                                                                                                       |
+| Scalability and performance              | Low-medium: You can vertically scale an EC2 instance to get higher bandwidth.<br>Horizontal scalability is limited due to how egress traffic can be load balanced to<br>multiple ENI’s in a VPC route table.                                                                                                                          | High: You can scale VPN bandwidth by provisioning more VPN connections and<br>load balancing traffic using ECMP.                                         |
+| 3rd party features                       | High: You can choose a third-party vendor software to get additional<br>functionality like DMVPN ([Dynamic Multipoint VPN,](https://www.cisco.com/c/en/us/products/security/dynamic-multipoint-vpn-dmvpn/index.html "https://www.cisco.com/c/en/us/products/security/dynamic-multipoint-vpn-dmvpn/index.html") a Cisco VPN protocol). | Low-medium: Site-to-Site VPN doesn’t support third-party proprietary features like DMVPN.                                                                |
 
 **Example: Where you can tradeoff performance for third-party
 features** - If you standardize on using DMVP for all your sites and want to
@@ -404,7 +404,7 @@ third-party virtual appliance like Cisco CSR to terminate VPN.
 **Example: Where you can tradeoff third-party features for
 performance** - If you standardize on using DMVP for all your sites and but want
 a fully managed, scalable solution for your production workloads, the recommended approach
-is to take time to move to IPSEC VPN connectivity leveraging AWS VPN.
+is to take time to move to IPSEC VPN connectivity leveraging Site-to-Site VPN.
 
 ## Resources
 

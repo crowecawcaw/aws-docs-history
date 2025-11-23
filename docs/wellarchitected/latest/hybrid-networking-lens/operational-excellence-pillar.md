@@ -139,7 +139,7 @@ information and gain a better perspective on how your hybrid
 setup performed. VPN metric data is automatically sent to
 CloudWatch as it becomes available.
 
-To ensure operational stability in case of failures, AWS VPN
+To ensure operational stability in case of failures, Site-to-Site VPN
 has built in high-availability. AWS Site-to-Site VPN
 connection has two tunnels, with each tunnel using a unique
 virtual private gateway public IP address. It is important to
@@ -159,7 +159,7 @@ Site-to-Site VPN connection.
 **AWS Transit Gateway:**
 Leveraging a transit gateway as a central hub enables access
 between your VPC resources and on-premises using AWS Direct
-connect or AWS VPN. AWS Transit Gateway provides statistics
+connect or Site-to-Site VPN. AWS Transit Gateway provides statistics
 and logs that can be used by services such as Amazon CloudWatch and
 [Amazon VPC Flow Logs](../../../vpc/latest/userguide/flow-logs.md "../../../vpc/latest/userguide/flow-logs.md"). You can start by tracking health data
 and manage operations by building dashboards/alarms off
@@ -244,7 +244,7 @@ practices for operational excellence.
   can I get notifications for AWS Direct Connect Scheduled
   maintenance or events?](https://aws.amazon.com/premiumsupport/knowledge-center/get-direct-connect-notifications/ "https://aws.amazon.com/premiumsupport/knowledge-center/get-direct-connect-notifications/")
 - [How
-  do I monitor AWS VPN tunnels using Amazon CloudWatch
+  do I monitor Site-to-Site VPN tunnels using Amazon CloudWatch
   alarms?](https://aws.amazon.com/premiumsupport/knowledge-center/monitor-vpn-with-cloudwatch-alarms/ "https://aws.amazon.com/premiumsupport/knowledge-center/monitor-vpn-with-cloudwatch-alarms/")
 - [How
   do I check the current status of my VPN tunnel?](https://aws.amazon.com/premiumsupport/knowledge-center/check-vpn-tunnel-status/ "https://aws.amazon.com/premiumsupport/knowledge-center/check-vpn-tunnel-status/")

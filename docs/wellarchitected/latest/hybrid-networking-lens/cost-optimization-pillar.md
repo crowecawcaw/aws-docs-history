@@ -81,7 +81,7 @@ Start off with Internet-based hybrid networking connections while in the testing
 any workload migration or deployment and then migrate to more permanent connections only after
 baseline bandwidth requirements have been identified. For example, leveraging an internet
 based solution like AWS Site-to-Site VPN and then migrating to a dedicated connection like
-AWS Direct Connect. This enables you to start-off with a cost effective solution that can
+Direct Connect. This enables you to start-off with a cost effective solution that can
 also be easily decommissioned prior to deploying a more permanent hybrid networking
 connection.
 
@@ -214,7 +214,7 @@ choose.
 - Customers with a Transit VPC and Software VPN deployment should consider replacing
   this model with an AWS Transit Gateway and Site-to-Site VPN deployment to reduce
   complexity and operational costs.
-- For pricing information on the charges per GB of traffic sent, refer to the [AWS VPN Pricing page](https://aws.amazon.com/vpn/pricing/ "https://aws.amazon.com/vpn/pricing/") and [EC2 Data Transfer pricing page](https://aws.amazon.com/ec2/pricing/on-demand/ "https://aws.amazon.com/ec2/pricing/on-demand/").
+- For pricing information on the charges per GB of traffic sent, refer to the [Site-to-Site VPN Pricing page](https://aws.amazon.com/vpn/pricing/ "https://aws.amazon.com/vpn/pricing/") and [EC2 Data Transfer pricing page](https://aws.amazon.com/ec2/pricing/on-demand/ "https://aws.amazon.com/ec2/pricing/on-demand/").
 
 ![This architecture shows how you can leverage Direct Connect to transfer data from AWS to on-premises using software VPN connectivity using Transit VPC.](images/data-transfer-aws-on-premises.png)
 
@@ -238,7 +238,7 @@ following diagram:
   example, a server on-prem transfers data to an EC2 instance in your VPC.
 - (2) Data Transfer OUT (DTO) from the AWS VPC to your on-prem environment is charged
   per GB. For example, an EC2 instance in your VPC putting out data to your on-prem server.
-- For pricing information on the charges per GB of traffic sent, refer to the [AWS VPN Pricing page](https://aws.amazon.com/vpn/pricing/ "https://aws.amazon.com/vpn/pricing/")
+- For pricing information on the charges per GB of traffic sent, refer to the [Site-to-Site VPN Pricing page](https://aws.amazon.com/vpn/pricing/ "https://aws.amazon.com/vpn/pricing/")
 
 ![This architecture shows how you can leverage Direct Connect to transfer data from AWS to on-premises using site-to-site VPN connectivity using AWS virtual gateway.](images/data-transfer-site-to-site-vpn.png)
 
@@ -394,7 +394,7 @@ optimization.
   do today to reduce AWS costs](https://aws.amazon.com/blogs/compute/10-things-you-can-do-today-to-reduce-aws-costs/ "https://aws.amazon.com/blogs/compute/10-things-you-can-do-today-to-reduce-aws-costs/")
 - [Data Transfer
   Pricing](https://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer "https://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer")
-- [AWS VPN FAQs](https://aws.amazon.com/vpn/faqs/ "https://aws.amazon.com/vpn/faqs/")
+- [Site-to-Site VPN FAQs](https://aws.amazon.com/vpn/faqs/ "https://aws.amazon.com/vpn/faqs/")
 - [Cost and Usage Analysis Well-Architected Lab](https://wellarchitectedlabs.com/cost/200_labs/200_4_cost_and_usage_analysis/ "https://wellarchitectedlabs.com/cost/200_labs/200_4_cost_and_usage_analysis/")
 - [Data Transfer Cost Analysis Well-Architected Lab](https://wellarchitectedlabs.com/cost/200_labs/200_enterprise_dashboards/3_create_data_transfer_cost_analysis/ "https://wellarchitectedlabs.com/cost/200_labs/200_enterprise_dashboards/3_create_data_transfer_cost_analysis/")
 - [Hybrid

@@ -6,14 +6,14 @@ applications hosted on AWS and an on-premises data center. As part
 of your hybrid deployment, it’s important to carefully consider
 the hybrid connectivity options between AWS and an on-premises
 data for the forwarding of your network traffic. The Hybrid
-Networking Lens recommends using AWS Virtual Private Network (AWS VPN), AWS Direct Connect, and Amazon VPC to support your
+Networking Lens recommends using AWS Virtual Private Network (Site-to-Site VPN), AWS Direct Connect, and Amazon VPC to support your
 application team’s agility and speed to market by using AWS as a
-data center extension. AWS VPN and Direct Connect are used as
+data center extension. Site-to-Site VPN and Direct Connect are used as
 network paths for providing connectivity for these hybrid
 networking workloads.
 
 **AWS Virtual Private Network**
-(AWS VPN) establishes a secure and private tunnel from your
+(Site-to-Site VPN) establishes a secure and private tunnel from your
 network or device to the AWS Cloud. AWS Site-to-Site VPN
 allows you to securely connect your on-premises network or
 branch office site to your Amazon VPC.
