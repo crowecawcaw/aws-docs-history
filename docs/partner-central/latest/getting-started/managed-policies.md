@@ -26,6 +26,10 @@ for AWS Marketplace sellers](../../../marketplace/latest/userguide/security-iam-
   managed policy: AWSPartnerCentralSandboxFullAccess](#security-iam-awsmanpol-AWSPartnerCentralSandboxFullAccess "#security-iam-awsmanpol-AWSPartnerCentralSandboxFullAccess")
 - [AWS
   managed policy: AWSPartnerCentralSellingResourceSnapshotJobExecutionRolePolicy](#security-iam-awsmanpol-AWSPartnerCentralSellingResourceSnapshotJobExecutionRolePolicy "#security-iam-awsmanpol-AWSPartnerCentralSellingResourceSnapshotJobExecutionRolePolicy")
+- [AWS
+  managed policy: AWSPartnerCentralChannelManagement](#security-iam-awsmanpol-AWSPartnerCentralChannelManagement "#security-iam-awsmanpol-AWSPartnerCentralChannelManagement")
+- [AWS
+  managed policy: AWSPartnerCentralChannelHandshakeApprovalManagement](#security-iam-awsmanpol-AWSPartnerCentralChannelHandshakeApprovalManagement "#security-iam-awsmanpol-AWSPartnerCentralChannelHandshakeApprovalManagement")
 - [AWS Partner Central updates to AWS
   managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
@@ -110,6 +114,34 @@ To view the permissions for this policy, see
 in the _AWS Managed Policy
 Reference_.
 
+## AWS
+
+managed policy: `AWSPartnerCentralChannelManagement`
+
+You can attach the `AWSPartnerCentralChannelManagement` policy to your
+IAM identities.
+
+This policy grants access to manage channel programs and relationships in AWS Partner Central.
+
+To view the permissions for this policy, see
+[AWSPartnerCentralChannelManagement](../../../aws-managed-policy/latest/reference/AWSPartnerCentralChannelManagement.md "../../../aws-managed-policy/latest/reference/AWSPartnerCentralChannelManagement.md")
+in the _AWS Managed Policy
+Reference_.
+
+## AWS
+
+managed policy: `AWSPartnerCentralChannelHandshakeApprovalManagement`
+
+You can attach the `AWSPartnerCentralChannelHandshakeApprovalManagement` policy to your
+IAM identities.
+
+This policy grants access to channel handshake approval management activities in AWS Partner Central.
+
+To view the permissions for this policy, see
+[AWSPartnerCentralChannelHandshakeApprovalManagement](../../../aws-managed-policy/latest/reference/AWSPartnerCentralChannelHandshakeApprovalManagement.md "../../../aws-managed-policy/latest/reference/AWSPartnerCentralChannelHandshakeApprovalManagement.md")
+in the _AWS Managed Policy
+Reference_.
+
 ## AWS Partner Central updates to AWS
 
 managed policies
@@ -121,6 +153,9 @@ Guide](doc-history.md "doc-history.md") page.
 
 | Change                                                                                                                                                                                                                                                            | Description                                                                                                    | Date              |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [AWSPartnerCentralFullAccess](#security-iam-awsmanpol-AWSPartnerCentralFullAccess "#security-iam-awsmanpol-AWSPartnerCentralFullAccess") —<br>Update to an existing policy                                                                                        | AWS Partner Central updated a policy to add Channel billing transfer role access.                              | November 19, 2025 |
+| [AWSPartnerCentralChannelManagement](#security-iam-awsmanpol-AWSPartnerCentralChannelManagement "#security-iam-awsmanpol-AWSPartnerCentralChannelManagement")<br>— New policy                                                                                     | AWS Partner Central added a new policy to grant access to manage<br>channel management activities.             | November 19, 2025 |
+| [AWSPartnerCentralChannelHandshakeApprovalManagement](#security-iam-awsmanpol-AWSPartnerCentralChannelHandshakeApprovalManagement "#security-iam-awsmanpol-AWSPartnerCentralChannelHandshakeApprovalManagement")<br>— New policy                                  | AWS Partner Central added a new policy to grant access to channel<br>handshake approval management activities. | November 19, 2025 |
 | [AWSPartnerCentralFullAccess](#security-iam-awsmanpol-AWSPartnerCentralFullAccess "#security-iam-awsmanpol-AWSPartnerCentralFullAccess") —<br>Update to an existing policy                                                                                        | AWS Partner Central updated a policy.                                                                          | December 4, 2024  |
 | [AWSPartnerCentralOpportunityManagement](#security-iam-awsmanpol-AWSPartnerCentralOpportunityManagement "#security-iam-awsmanpol-AWSPartnerCentralOpportunityManagement") —<br>Update to an existing policy                                                       | AWS Partner Central updated a policy.                                                                          | December 4, 2024  |
 | [AWSPartnerCentralSandboxFullAccess](#security-iam-awsmanpol-AWSPartnerCentralSandboxFullAccess "#security-iam-awsmanpol-AWSPartnerCentralSandboxFullAccess") —<br>Update to an existing policy                                                                   | AWS Partner Central updated a policy.                                                                          | December 4, 2024  |
