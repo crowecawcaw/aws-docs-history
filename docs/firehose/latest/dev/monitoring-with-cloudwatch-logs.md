@@ -27,7 +27,7 @@ delivery to the Amazon Redshift destination and also to the intermediate S3 dest
 `BackupDelivery`, in case S3 backup is enabled, will be used to log
 any errors related to the delivery to the S3 backup bucket.
 
-You can enable Amazon Data Firehose error logging through the AWS CLI, the API, or AWS CloudFormation using the
+You can enable Amazon Data Firehose error logging through the AWS CLI, the API, or CloudFormation using the
 `CloudWatchLoggingOptions` configuration. To do so, create a log
 group and a log stream in advance. We recommend reserving that log group and log
 stream for Amazon Data Firehose error logging exclusively. Also ensure that the associated IAM

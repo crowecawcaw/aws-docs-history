@@ -4,7 +4,7 @@ If you enable record format conversion, you can't set your Amazon Data Firehose 
 Amazon OpenSearch Service, Amazon Redshift, or Splunk. With format conversion enabled, Amazon S3 is the
 only destination that you can use for your Firehose stream. The following section shows how
 to enable record format conversion from console and Firehose API operations. For an example
-of how to set up record format conversion with AWS CloudFormation, see [AWS::DataFirehose::DeliveryStream](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.md#aws-resource-kinesisfirehose-deliverystream--examples "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.md#aws-resource-kinesisfirehose-deliverystream--examples").
+of how to set up record format conversion with CloudFormation, see [AWS::DataFirehose::DeliveryStream](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.md#aws-resource-kinesisfirehose-deliverystream--examples "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.md#aws-resource-kinesisfirehose-deliverystream--examples").
 
 ## Enable record format conversion
 

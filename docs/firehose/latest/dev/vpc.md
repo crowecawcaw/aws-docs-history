@@ -2,7 +2,7 @@
 
 You can use an interface VPC endpoint (AWS PrivateLink) to access Amazon Data Firehose from
 your VPC without requiring an Internet Gateway or NAT Gateway. Interface VPC endpoints don't
-require an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Interface
+require an internet gateway, NAT device, VPN connection, or Direct Connect connection. Interface
 VPC endpoints are powered by AWS PrivateLink, an AWS technology that enables private
 communication between AWS services using an elastic network interface with private IPs in
 your Amazon VPC. For more information, see [Amazon Virtual Private Cloud](../../../AmazonVPC/latest/UserGuide/VPC_Introduction.md "../../../AmazonVPC/latest/UserGuide/VPC_Introduction.md").

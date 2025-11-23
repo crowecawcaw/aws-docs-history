@@ -32,7 +32,7 @@ want. You need to specify an AWS Glue table that holds the schema that you
 want Firehose to use to convert your record format. For more information,
 see [Convert input data format in Amazon Data Firehose](record-format-conversion.md "record-format-conversion.md").
 
-For an example of how to set up record format conversion with AWS CloudFormation,
+For an example of how to set up record format conversion with CloudFormation,
 see [AWS::KinesisFirehose::DeliveryStream](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.md#aws-resource-kinesisfirehose-deliverystream--examples "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.md#aws-resource-kinesisfirehose-deliverystream--examples").
 
 ###### In the **Source settings** section, provide the following
@@ -70,5 +70,5 @@ want. You need to specify an AWS Glue table that holds the schema that you
 want Amazon Data Firehose to use to convert your record format. For more information,
 see [Convert input data format in Amazon Data Firehose](record-format-conversion.md "record-format-conversion.md").
 
-For an example of how to set up record format conversion with AWS CloudFormation,
+For an example of how to set up record format conversion with CloudFormation,
 see [AWS::KinesisFirehose::DeliveryStream](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.md#aws-resource-kinesisfirehose-deliverystream--examples "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.md#aws-resource-kinesisfirehose-deliverystream--examples").

@@ -102,7 +102,7 @@ expressions.
   specify a prefix using expressions, you must specify the error prefix including
   `!{firehose:error-output-type}`.
 - When you use `ExtendedS3DestinationConfiguration` with the AWS CLI,
-  the API, or AWS CloudFormation, if you specify a `S3BackupConfiguration`, Firehose
+  the API, or CloudFormation, if you specify a `S3BackupConfiguration`, Firehose
   doesn't provide a default `ErrorOutputPrefix`.
 - You cannot use `partitionKeyFromLambda` and
   `partitionKeyFromQuery` namespaces when creating
