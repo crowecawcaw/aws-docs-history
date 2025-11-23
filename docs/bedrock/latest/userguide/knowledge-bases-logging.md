@@ -126,7 +126,7 @@ delivery source with the end destination.
 
 ###### Note
 
-If you want to use AWS CloudFormation, you can use the following:
+If you want to use CloudFormation, you can use the following:
 
 - [Delivery](../../../AWSCloudFormation/latest/UserGuide/aws-resource-logs-delivery.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-logs-delivery.md")
 - [DeliveryDestination](../../../AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.md")

@@ -6,11 +6,11 @@ The TwelveLabs Marengo Embed 3.0 model generates enhanced embeddings from video,
 - Model ID — twelvelabs.marengo-embed-3-0-v1:0
   Marengo Embed 3.0 delivers several key enhancements:
 
-- **Extended video processing capacity** – Process up to 4 hours of video and audio content and files up to 6 GB—double the capacity of previous versions—making it ideal for analyzing full sporting events, extended training videos, and complete film productions.
-- **Enhanced sports analysis** – The model delivers significant improvements with better understanding of gameplay dynamics, player movements, and event detection.
-- **Global multilingual support** – Expanded language capabilities from 12 to 36 languages, enabling global organizations to build unified search and retrieval systems that work seamlessly across diverse regions and markets.
-- **Multimodal search precision** – Combine images and descriptive text in a single embedding request, merging visual similarity with semantic understanding to deliver more accurate and contextually relevant search results.
-- **Reduced embedding dimension** – Reduced from 1024 to 512, cutting storage costs.
+- **Extended video processing capacity** – Process up to 4 hours of video and audio content. Files can be up to 6 GB, which is double the capacity of previous versions. This makes it ideal for analyzing full sporting events, extended training videos, and complete film productions.
+- **Enhanced sports analysis** – The model delivers significant improvements. It provides better understanding of gameplay dynamics, player movements, and event detection.
+- **Global multilingual support** – Expanded language capabilities from 12 to 36 languages. This enables global organizations to build unified search and retrieval systems that work seamlessly across diverse regions and markets.
+- **Multimodal search precision** – Combine images and descriptive text in a single embedding request. This merges visual similarity with semantic understanding to deliver more accurate and contextually relevant search results.
+- **Reduced embedding dimension** – Reduced from 1024 to 512, which can help reduce storage costs.
   The TwelveLabs Marengo Embed 3.0 model supports the Amazon Bedrock Runtime operations in the following table.
 
 - For more information about use cases for different API methods, see [Learn about use cases for different model inference methods](inference-methods.md "inference-methods.md").
@@ -275,7 +275,7 @@ Specifies which types of embeddings to retrieve.
   **Default behavior:**
 
 - Video: Uses dynamic segmentation with shot boundary detection.
-- Audio: Uses fixed segmentation, dividing content as evenly as possible with segments close to 10 seconds.
+- Audio: Uses fixed segmentation. Content is divided as evenly as possible with segments close to 10 seconds.
   Unique identifier for the inference request.
 
 - **Type:** String
@@ -311,7 +311,7 @@ The embeddings are returned as an array of floats.
 Where you see this response depends on the API method you used:
 
 - InvokeModel – Appears in the response body.
-- StartAsyncInvoke – Appears at the S3 location that you specified in the request. The response returns an `invocationArn` that you can use to get metadata about the asynchronous invocation, including the status and the S3 location to which the results are written.
+- StartAsyncInvoke – Appears at the S3 location that you specified in the request. The response returns an `invocationArn`. You can use this to get metadata about the asynchronous invocation. This includes the status and the S3 location where the results are written.
 
 Expand the following sections for details about the response parameters:
 
@@ -345,11 +345,11 @@ Embeddings vector representation of input.
 
 ## TwelveLabs Marengo Embed 3.0 code examples
 
-This section shows how to use the TwelveLabs Marengo Embed 3.0 model with different input types using Python.
+This section shows how to use the TwelveLabs Marengo Embed 3.0 model with different input types using Python. The examples demonstrate how to define model-specific input and run model invocations.
 
 ###### Note
 
-Currently, InvokeModel supports text, image, and text and image interleaved input.
+InvokeModel supports text, image, and text with image interleaved input. For video and audio input, use StartAsyncInvoke.
 
 Put your code together in the following steps:
 

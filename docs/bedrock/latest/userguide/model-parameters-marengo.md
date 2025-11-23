@@ -192,7 +192,7 @@ Modality for the embedding.
 
     + `base64String` – The Base64-encoded string for the media.
 
-- **S3 location** – Specify the S3 URI and the
+- **S3 location** – Specify the S3 URI and the bucket owner.
 
 ```
 {
@@ -231,21 +231,24 @@ Specifies which types of embeddings to retrieve.
 - **Valid values:** 0 - Duration of media
 - **Default value:** Duration of media
 - **Compatible input types:** Video, Audio
-  For example:
+  Example:
 
 - startSec: 5
 - lengthSec: 20
-- Result: The clip will be processed from 0:05 to 0:20.
+- Result: The clip is processed from 0:05 to 0:25 (5 seconds + 20 seconds).
   The duration of each clip for which the model should generate an embedding.
 
 - **Type:** Double
 - **Required:** No
 - **Value parameters:** 2 - 10. Must be greater than or equal to `minClipSec`.
 - **Default value:** Depends on the type of media:
-  - **Video:** Divided dynamically by shot boundary detection
-  - **Audio:** Divided evenly and as close to 10 as possible. For example:
-    - A 50 second clip will be divided into 5 10-second segments.
-    - A 16 second clip will be divided into 2 8-second segments.
+  - **Video:** Divided dynamically by shot boundary detection.
+  - **Audio:** Divided evenly with segments as close to 10 seconds as possible.
+
+  Examples:
+
+      - A 50-second clip is divided into 5 10-second segments.
+      - A 16-second clip is divided into 2 8-second segments.
 
 - **Compatible input types:** – Video, Audio
 - **Notes:** Must be greater than or equal to `minClipSec`.
@@ -304,11 +307,11 @@ Embeddings vector representation of input.
 ## TwelveLabs Marengo Embed 2.7 code examples
 
 This section shows how to use the TwelveLabs Marengo Embed 2.7 model with different input
-types using Python.
+types using Python. The examples demonstrate how to define model-specific input and run model invocations.
 
 ###### Note
 
-Currently, InvokeModel only supports text and image input.
+InvokeModel supports text and image input only. For video and audio input, use StartAsyncInvoke.
 
 Put your code together in the following steps:
 

@@ -21,7 +21,7 @@ shared.
 
 Audio blueprints cannot be created via Blueprint Prompts.
 
-A blueprint's maximum size is 100,000 characters, JSON formatted. The maximum fields per blueprint is 100.
+A blueprint's maximum size is 100,000 characters, JSON formatted. For blueprints that are intended to be used with the [InvokeDataAutomationAsync](../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md "../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md") API the maximum fields per blueprint is 100. For Blueprints that are intended to be used with the [InvokeDataAutomation](../APIReference/API_data-automation-runtime_InvokeDataAutomation.md "../APIReference/API_data-automation-runtime_InvokeDataAutomation.md") API the maximum fields per blueprint is 15.
 
 ###### Note
 

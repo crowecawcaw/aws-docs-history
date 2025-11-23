@@ -55,7 +55,7 @@ generation](kb-test-config.md "kb-test-config.md"). 6. Enter a query in the text
 - Switch to generating responses based on the retrieved source chunks by turning on **Generate responses**. If you change the setting, the text in the chat window will be completely cleared.
 - To clear the chat window, select the broom icon (
 
-![Magnifying glass icon with a checkmark inside, symbolizing search or inspection.](images/icons/broom.png)
+![Magnifying glass icon with a checkmark inside, symbolizing search or inspection.](/images/bedrock/latest/userguide/images/icons/broom.png)
 
 ).
 

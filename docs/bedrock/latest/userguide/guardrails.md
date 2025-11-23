@@ -24,10 +24,16 @@ example:
   text or image content in input prompts or model responses. Filtering is done based
   on detection of certain predefined harmful content categories: Hate, Insults,
   Sexual, Violence, Misconduct and Prompt Attack. You also can adjust the filter
-  strength for each of these categories.
+  strength for each of these categories. These categories are supported for both Classic
+  and Standard [tiers](guardrails-tiers.md "guardrails-tiers.md"). With Standard tier,
+  detection of undesirable content is extended to protection against harmful content
+  introduced within code elements including comments, variable and function names, and
+  string literals.
 - **Denied topics** – Define a set of topics that
   are undesirable in the context of your application. The filter will help block them
-  if detected in user queries or model responses.
+  if detected in user queries or model responses. With [Standard tier](guardrails-tiers.md "guardrails-tiers.md"), detection of undesirable content
+  is extended to protection against harmful content introduced within code elements
+  including comments, variables and function names, and string literals.
 - **Word filters** – Configure filters to help
   block undesirable words, phrases, and profanity (exact match). Such words can
   include offensive terms, competitor names, etc.
@@ -41,7 +47,10 @@ example:
 - **Contextual grounding checks** – Help detect
   and filter hallucinations in model responses based on grounding in a source and
   relevance to the user query.
-- **Automated Reasoning checks** – Can help you validate the accuracy of foundation model responses against a set of logical rules. You can use Automated Reasoning checks to detect hallucinations, suggest corrections, and highlight unstated assumptions in model responses.
+- **Automated Reasoning checks** – Can help you
+  validate the accuracy of foundation model responses against a set of logical rules.
+  You can use Automated Reasoning checks to detect hallucinations, suggest
+  corrections, and highlight unstated assumptions in model responses.
   In addition to the above policies, you can also configure the messages to be returned to
   the user if a user input or model response is in violation of the policies defined in the
   guardrail.
@@ -55,8 +64,9 @@ create a version of the guardrail and use it with supported foundation models.
 
 Guardrails can be used directly with FMs during the inference API invocation by specifying
 the guardrail ID and the version. Guardrails can also be used directly through the
-`ApplyGuardrail` API without invoking the foundation models. If a guardrail is used, it will
-evaluate the input prompts and the FM completions against the defined policies.
+`ApplyGuardrail` API without invoking the foundation models. If a guardrail
+is used, it will evaluate the input prompts and the FM completions against the defined
+policies.
 
 For retrieval augmented generation (RAG) or conversational applications, you might need to
 evaluate only the user input in the input prompt while discarding system instructions,
@@ -73,6 +83,7 @@ section of the input prompt, see [Apply tags to user input to filter content](gu
 - [Set up permissions to use Amazon Bedrock Guardrails](guardrails-permissions.md "guardrails-permissions.md")
 - [Create your guardrail](guardrails-components.md "guardrails-components.md")
 - [Distribute guardrail inference across AWS Regions](guardrails-cross-region.md "guardrails-cross-region.md")
+- [Apply cross-account safeguards with Amazon Bedrock Guardrails enforcements](guardrails-enforcements.md "guardrails-enforcements.md")
 - [Test your guardrail](guardrails-test.md "guardrails-test.md")
 - [View information about your guardrails](guardrails-view.md "guardrails-view.md")
 - [Modify your guardrail](guardrails-edit.md "guardrails-edit.md")

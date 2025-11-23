@@ -6,6 +6,7 @@ Select a topic to see example IAM policies that you can attach to an IAM role to
 
 - [Required permissions for Amazon Bedrock Agents](#iam-agents-ex-all "#iam-agents-ex-all")
 - [Allow users to view information about and invoke an agent](#security_iam_id-based-policy-examples-perform-actions-agent "#security_iam_id-based-policy-examples-perform-actions-agent")
+- [Control access to service tiers](#security_iam_id-based-policy-examples-service-tiers "#security_iam_id-based-policy-examples-service-tiers")
 
 ## Required permissions for Amazon Bedrock Agents
 
@@ -103,3 +104,31 @@ JSON
 }`
 
 ```
+
+## Control access to service tiers
+
+Amazon Bedrock service tiers provide different levels of processing priority and pricing for inference requests. By default, all service tiers (priority, default, and flex) are available to users with proper Bedrock permissions, following an allowlist approach where access is granted unless explicitly restricted.
+
+However, organizations may want to control which service tiers their users can access to manage costs or enforce usage policies. You can implement access restrictions by using IAM policies with the `bedrock:ServiceTier` condition key to deny access to specific service tiers. This approach allows you to maintain granular control over which team members can use premium service tiers like "priority" or cost-optimized tiers like "flex".
+
+The following example shows an identity-based policy that denies access to all service tiers. This type of policy is useful when you want to prevent users from specifying any service tier, forcing them to use the system default behavior:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": "bedrock:InvokeModel",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "bedrock:ServiceTier": ["priority", "default", "flex"]
+                }
+            }
+        }
+    ]
+}
+```
+
+You can customize this policy to deny access to only specific service tiers by modifying the `bedrock:ServiceTier` condition values. For example, to deny only the premium "priority" tier while allowing "default" and "flex", you would specify only `["priority"]` in the condition. This flexible approach allows you to implement usage policies that align with your organization's cost management and operational requirements. For more information about service tiers, see [Service tiers for optimizing performance and cost](service-tiers-inference.md "service-tiers-inference.md").

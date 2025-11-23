@@ -97,25 +97,6 @@ paths:
 26. Choose **JSON** and paste the following policy. Make sure
     `Resource` is the Amazon Resource Name (ARN) for your Lambda
     function. You noted the ARN in step 6 of [Step 1: Create a Lambda function](agent-tutorial-step1.md "agent-tutorial-step1.md").
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "lambda:InvokeFunction"
- ],
- "Resource": "arn:aws:lambda:`us-east-1`:`123456789012`:function:`FunctionName`"
- }
- ]
-}`
-
-```
-
 27. Choose **Next**.
 28. Enter a name for the policy (for example,
     `BedrockAgentLambdaInvoke`).

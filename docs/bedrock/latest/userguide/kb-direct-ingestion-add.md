@@ -54,7 +54,7 @@ The request body contains one field, `documents`, that maps to an array of [Know
 
 - [Ingest a document into a knowledge base connected to a custom data source](#kb-direct-ingestion-add-custom "#kb-direct-ingestion-add-custom")
 - [Ingest a document into a knowledge base connected to an Amazon S3 data source](#kb-direct-ingestion-add-s3 "#kb-direct-ingestion-add-s3")
-- [Example request bodies](#w366aac38c23c19c17c11b3c19 "#w366aac38c23c19c17c11b3c19")
+- [Example request bodies](#w2aac38c23c19c17c11b3c19 "#w2aac38c23c19c17c11b3c19")
 
 ### Ingest a document into a knowledge base connected to a custom data source
 

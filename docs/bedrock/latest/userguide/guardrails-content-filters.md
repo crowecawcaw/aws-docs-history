@@ -1,32 +1,37 @@
-# Block harmful words and conversations with content filters
+# Block harmful words and conversations
 
-Amazon Bedrock Guardrails supports content filters to help detect and filter harmful user inputs and model-generated outputs in natural language.
-Content filters are supported across the following categories:
+with content filters
+
+Amazon Bedrock Guardrails supports content filters to help detect and filter harmful user inputs and
+model-generated outputs in natural language as well as code-related content in
+Standard tier. Content filters are supported across the following categories:
 
 **Hate**
 
-- Describes input prompts and model responses that
-  discriminate, criticize, insult, denounce, or dehumanize a person or group on the basis of an identity
-  (such as race, ethnicity, gender, religion, sexual orientation, ability, and national origin).
+- Describes input prompts and model responses that discriminate, criticize,
+  insult, denounce, or dehumanize a person or group on the basis of an
+  identity (such as race, ethnicity, gender, religion, sexual orientation,
+  ability, and national origin).
   **Insults**
 
-- Describes input prompts and model responses that
-  includes demeaning, humiliating, mocking, insulting, or belittling language. This type of language is
-  also labeled as bullying.
+- Describes input prompts and model responses that includes demeaning,
+  humiliating, mocking, insulting, or belittling language. This type of
+  language is also labeled as bullying.
   **Sexual**
 
-- Describes input prompts and model responses that
-  indicates sexual interest, activity, or arousal using direct or indirect references to body parts, physical
-  traits, or sex.
+- Describes input prompts and model responses that indicates sexual
+  interest, activity, or arousal using direct or indirect references to body
+  parts, physical traits, or sex.
   **Violence**
 
-- Describes input prompts and model responses that includes
-  glorification of, or threats to inflict physical pain, hurt, or injury toward a person, group, or thing.
+- Describes input prompts and model responses that includes glorification
+  of, or threats to inflict physical pain, hurt, or injury toward a person,
+  group, or thing.
   **Misconduct**
 
-- Describes input prompts and model responses that seeks
-  or provides information about engaging in criminal activity, or harming, defrauding, or taking advantage of a person,
-  group or institution.
+- Describes input prompts and model responses that seeks or provides
+  information about engaging in criminal activity, or harming, defrauding, or
+  taking advantage of a person, group or institution.
 
 ## Configure content filters
 
@@ -81,7 +86,8 @@ Console
 
 4. On the **Configure content filters**
    page, set up how strongly you want to filter out content
-   related to the categories defined in [Block harmful words and conversations with content filters](guardrails-content-filters.md "guardrails-content-filters.md") by doing
+   related to the categories defined in [Block harmful words and conversations
+   with content filters](guardrails-content-filters.md "guardrails-content-filters.md") by doing
    the following:
    1. Select **Configure harmful categories
       filter**. Select
@@ -102,17 +108,17 @@ Console
       detects harmful content in prompts and
       responses.
 
-   For more information, see [Options for handling harmful
-   content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md"). 3. For **Set threshold**, select
+   For more information, see [Options for handling
+   harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md"). 3. For **Set threshold**, select
    **None, Low, Medium, or High**
    for the level of filtration you want to apply to
    each category.
 
    You can choose to have different filter levels for
    prompts and responses. 4. For **Content filters tier**,
-   choose the safeguard tier that you want your guardrail to use
-   for filtering text-based prompts and responses. For
-   more information, see [Safeguard tiers for guardrails policies](guardrails-tiers.md "guardrails-tiers.md"). 5. Choose **Next** to configure
+   choose the safeguard tier that you want your
+   guardrail to use for filtering text-based prompts
+   and responses. For more information, see [Safeguard tiers for guardrails policies](guardrails-tiers.md "guardrails-tiers.md"). 5. Choose **Next** to configure
    other policies as needed or **Skip to Review
    and create** to finish creating your
    guardrail.
@@ -168,7 +174,8 @@ Content-type: application/json
   object.
 
 Each item in the `filtersConfig` list pertains
-to a harmful category. For more information, see [Block harmful words and conversations with content filters](guardrails-content-filters.md "guardrails-content-filters.md"). For more
+to a harmful category. For more information, see [Block harmful words and conversations
+with content filters](guardrails-content-filters.md "guardrails-content-filters.md"). For more
 information about the fields in a content filter, see [ContentFilter](../APIReference/API_ContentFilter.md "../APIReference/API_ContentFilter.md").
 
     + (Optional) For `inputAction` and
@@ -182,17 +189,17 @@ information about the fields in a content filter, see [ContentFilter](../APIRefe
      `BLOCK` to block content and replace
      with blocked messaging, or `NONE` to take
      no action but return detection information. For more
-     information, see [Options for handling harmful
-     content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md").
+     information, see [Options for handling
+     harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md").
     + Specify the strength of the filter for prompts in
-     the `inputStrength` field and
-     for model responses in the `outputStrength`
+     the `inputStrength` field and for model
+     responses in the `outputStrength`
      field.
     + Specify the category in the `type`
      field.
 
-- (Optional) Specify a safeguard tier for your guardrail in the
-  `tierConfig` object within the
+- (Optional) Specify a safeguard tier for your guardrail in
+  the `tierConfig` object within the
   `contentPolicyConfig` object. Options include
   `STANDARD` and `CLASSIC` tiers.
 

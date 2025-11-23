@@ -117,7 +117,7 @@ JSON
 
 ###### Important
 
-When you no longer need this IAM user, we recommend that you remove it and align with the [AWS security best practice](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials"), we recommend that you require your human users to use temporary credentials through [AWS IAM Identity Center](../../../https:/docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.md "../../../https:/docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.md") when accessing AWS.
+When you no longer need this IAM user, we recommend that you remove it and align with the [AWS security best practice](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials"), we recommend that you require your human users to use temporary credentials through [AWS IAM Identity Center](../../../singlesignon/latest/userguide/getting-started.md "../../../singlesignon/latest/userguide/getting-started.md") when accessing AWS.
 
 ## Attach Amazon Bedrock permissions to a user or role
 

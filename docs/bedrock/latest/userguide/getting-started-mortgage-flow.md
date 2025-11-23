@@ -1,6 +1,6 @@
 # Tutorial: Create a flow that processes mortgage applications
 
-To get familiar with Amazon Bedrock resources and their capabilities, we'll use an AWS CloudFormation template to set up a [flow](flows.md "flows.md") that automates a mortgage application process processes by combining various Amazon Bedrock and other AWS resources.
+To get familiar with Amazon Bedrock resources and their capabilities, we'll use an CloudFormation template to set up a [flow](flows.md "flows.md") that automates a mortgage application process processes by combining various Amazon Bedrock and other AWS resources.
 
 ###### Note
 
@@ -14,7 +14,7 @@ The flow combines an Amazon Bedrock [agent](agents.md "agents.md"), [prompts](pr
 ###### Topics
 
 - [Prerequisites](#getting-started-mortgage-flow-prereqs "#getting-started-mortgage-flow-prereqs")
-- [Create the mortgage processing flow using AWS CloudFormation](#getting-started-mortgage-flow-create "#getting-started-mortgage-flow-create")
+- [Create the mortgage processing flow using CloudFormation](#getting-started-mortgage-flow-create "#getting-started-mortgage-flow-create")
 - [Test the mortgage processing flow](#getting-started-mortgage-flow-test "#getting-started-mortgage-flow-test")
 - [Clean up: deleting resources](#getting-started-mortgage-flow-delete "#getting-started-mortgage-flow-delete")
 - [CloudFormation templates](getting-started-mortgage-flow-template.md "getting-started-mortgage-flow-template.md")
@@ -47,7 +47,7 @@ Then, complete the following prerequisites:
    6. For the purposes of the following tutorial, you should minimally request access to the **Titan Embeddings G1 - Text** and **Claude 3 Haiku** models. Then choose **Next**.
    7. Review the models that you're requesting access to and the **Terms**. When you're ready, choose **Submit** to request access.
 
-## Create the mortgage processing flow using AWS CloudFormation
+## Create the mortgage processing flow using CloudFormation
 
 To create the mortgage processing flow and its associated resources, we'll create a CloudFormation template and use it to create a stack containing Amazon Bedrock resources.
 
@@ -55,7 +55,7 @@ To create the mortgage processing flow and its associated resources, we'll creat
 
 You'll be billed for the Amazon resources that you create until you delete them.
 
-### Create the resources and AWS CloudFormation template file
+### Create the resources and CloudFormation template file
 
 First, use the script from the .zip file to upload the resources to an S3 bucket and to create the CloudFormation templates.
 
@@ -83,11 +83,11 @@ If the script fails, you can manually prepare the resources by doing the followi
    1. Change the `Default` value of the `Q01pS3BucketName` parameter from `MortgageFlowBucket` to your S3 bucket name.
    2. Remove `-tmp` from the file name, such that it becomes `templates/json/main-stack.yaml` or `templates/json/main-stack.json`.
 
-### Create the stack by using the AWS CloudFormation console
+### Create the stack by using the CloudFormation console
 
 Next, use the template you've saved to provision a CloudFormation stack.
 
-1. Open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"). Make sure that you're in the **US East (N. Virginia)** Region by checking your Region in the upper-right corner. If you're not, switch Regions.
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"). Make sure that you're in the **US East (N. Virginia)** Region by checking your Region in the upper-right corner. If you're not, switch Regions.
 2. On the **Stacks** page, from the **Create stack** menu, choose **With new resources (standard)**.
 3. Specify the template:
    1. Under **Prerequisite**, choose **Choose an existing template**.
@@ -109,9 +109,9 @@ Next, use the template you've saved to provision a CloudFormation stack.
 
    ###### Note
 
-   Choosing this option prevents you from possibly being billed for resources whose deletion policy specifies they be retained even if the stack creation fails. For more information, see [`DeletionPolicy` attribute](../../../AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.md "../../../AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.md") in the _AWS CloudFormation User Guide_. 2. Under **Capabilities**, check the box to acknowledge that CloudFormation might create IAM resources in your account. 3. Choose **Next**.
+   Choosing this option prevents you from possibly being billed for resources whose deletion policy specifies they be retained even if the stack creation fails. For more information, see [`DeletionPolicy` attribute](../../../AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.md "../../../AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.md") in the _CloudFormation User Guide_. 2. Under **Capabilities**, check the box to acknowledge that CloudFormation might create IAM resources in your account. 3. Choose **Next**.
 
-6. Review the stack details and choose **Submit**. AWS CloudFormation creates the stack. The creation will take several minutes. After the stack creation is complete, you can use the **Resources** tab on the stack detail page to view the resources that where provisioned in your account.
+6. Review the stack details and choose **Submit**. CloudFormation creates the stack. The creation will take several minutes. After the stack creation is complete, you can use the **Resources** tab on the stack detail page to view the resources that where provisioned in your account.
 7. After the stack creation completes, do the following to sync the data source for the knowledge base so that the knowledge base can be queried:
    1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
       [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").

@@ -83,10 +83,10 @@ The following table shows the source Regions from which you can call the inferen
 | eu-west-2      | Commercial AWS Regions<br>eu-west-2      |
 | eu-west-3      | Commercial AWS Regions<br>eu-west-3      |
 | sa-east-1      | Commercial AWS Regions<br>sa-east-1      |
-| us-east-1      | us-east-1<br>Commercial AWS Regions      |
-| us-east-2      | us-east-2<br>Commercial AWS Regions      |
-| us-west-1      | us-west-1<br>Commercial AWS Regions      |
-| us-west-2      | us-west-2<br>Commercial AWS Regions      |
+| us-east-1      | Commercial AWS Regions<br>us-east-1      |
+| us-east-2      | Commercial AWS Regions<br>us-east-2      |
+| us-west-1      | Commercial AWS Regions<br>us-west-1      |
+| us-west-2      | Commercial AWS Regions<br>us-west-2      |
 
 To call the Global Claude Sonnet 4 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -102,9 +102,9 @@ The following table shows the source Regions from which you can call the inferen
 | -------------- | ---------------------------------------- |
 | ap-northeast-1 | Commercial AWS Regions<br>ap-northeast-1 |
 | eu-west-1      | Commercial AWS Regions<br>eu-west-1      |
-| us-east-1      | us-east-1<br>Commercial AWS Regions      |
-| us-east-2      | us-east-2<br>Commercial AWS Regions      |
-| us-west-2      | us-west-2<br>Commercial AWS Regions      |
+| us-east-1      | Commercial AWS Regions<br>us-east-1      |
+| us-east-2      | Commercial AWS Regions<br>us-east-2      |
+| us-west-2      | Commercial AWS Regions<br>us-west-2      |
 
 To call the Global Claude Sonnet 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -118,6 +118,7 @@ The following table shows the source Regions from which you can call the inferen
 
 | Source Regions | Destination Regions                      |
 | -------------- | ---------------------------------------- |
+| af-south-1     | Commercial AWS Regions<br>af-south-1     |
 | ap-northeast-1 | Commercial AWS Regions<br>ap-northeast-1 |
 | ap-northeast-2 | Commercial AWS Regions<br>ap-northeast-2 |
 | ap-northeast-3 | Commercial AWS Regions<br>ap-northeast-3 |
@@ -128,6 +129,7 @@ The following table shows the source Regions from which you can call the inferen
 | ap-southeast-3 | Commercial AWS Regions<br>ap-southeast-3 |
 | ap-southeast-4 | Commercial AWS Regions<br>ap-southeast-4 |
 | ca-central-1   | Commercial AWS Regions<br>ca-central-1   |
+| ca-west-1      | Commercial AWS Regions<br>ca-west-1      |
 | eu-central-1   | Commercial AWS Regions<br>eu-central-1   |
 | eu-central-2   | Commercial AWS Regions<br>eu-central-2   |
 | eu-north-1     | Commercial AWS Regions<br>eu-north-1     |
@@ -136,11 +138,13 @@ The following table shows the source Regions from which you can call the inferen
 | eu-west-1      | Commercial AWS Regions<br>eu-west-1      |
 | eu-west-2      | Commercial AWS Regions<br>eu-west-2      |
 | eu-west-3      | Commercial AWS Regions<br>eu-west-3      |
+| me-south-1     | Commercial AWS Regions<br>me-south-1     |
+| mx-central-1   | Commercial AWS Regions<br>mx-central-1   |
 | sa-east-1      | Commercial AWS Regions<br>sa-east-1      |
-| us-east-1      | us-east-1<br>Commercial AWS Regions      |
-| us-east-2      | us-east-2<br>Commercial AWS Regions      |
-| us-west-1      | us-west-1<br>Commercial AWS Regions      |
-| us-west-2      | us-west-2<br>Commercial AWS Regions      |
+| us-east-1      | Commercial AWS Regions<br>us-east-1      |
+| us-east-2      | Commercial AWS Regions<br>us-east-2      |
+| us-west-1      | Commercial AWS Regions<br>us-west-1      |
+| us-west-2      | Commercial AWS Regions<br>us-west-2      |
 
 To call the Global Cohere Embed v4 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -173,10 +177,10 @@ The following table shows the source Regions from which you can call the inferen
 | eu-west-2      | Commercial AWS Regions<br>eu-west-2      |
 | eu-west-3      | Commercial AWS Regions<br>eu-west-3      |
 | sa-east-1      | Commercial AWS Regions<br>sa-east-1      |
-| us-east-1      | us-east-1<br>Commercial AWS Regions      |
-| us-east-2      | us-east-2<br>Commercial AWS Regions      |
-| us-west-1      | us-west-1<br>Commercial AWS Regions      |
-| us-west-2      | us-west-2<br>Commercial AWS Regions      |
+| us-east-1      | Commercial AWS Regions<br>us-east-1      |
+| us-east-2      | Commercial AWS Regions<br>us-east-2      |
+| us-west-1      | Commercial AWS Regions<br>us-west-1      |
+| us-west-2      | Commercial AWS Regions<br>us-west-2      |
 
 To call the US Anthropic Claude 3 Haiku inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -300,7 +304,7 @@ The following table shows the source Regions from which you can call the inferen
 
 | Source Regions | Destination Regions                                 |
 | -------------- | --------------------------------------------------- |
-| ca-central-1   | us-east-1<br>us-east-2<br>us-west-2<br>ca-central-1 |
+| ca-central-1   | ca-central-1<br>us-east-1<br>us-east-2<br>us-west-2 |
 | us-east-1      | us-east-1<br>us-east-2<br>us-west-2                 |
 | us-east-2      | us-east-1<br>us-east-2<br>us-west-2                 |
 | us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2    |
@@ -318,7 +322,7 @@ The following table shows the source Regions from which you can call the inferen
 
 | Source Regions | Destination Regions                                 |
 | -------------- | --------------------------------------------------- |
-| ca-central-1   | us-east-1<br>us-east-2<br>us-west-2<br>ca-central-1 |
+| ca-central-1   | ca-central-1<br>us-east-1<br>us-east-2<br>us-west-2 |
 | us-east-1      | us-east-1<br>us-east-2<br>us-west-2                 |
 | us-east-2      | us-east-1<br>us-east-2<br>us-west-2                 |
 | us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2    |
@@ -971,6 +975,21 @@ The following table shows the source Regions from which you can call the inferen
 | -------------- | ------------------------------ |
 | us-gov-east-1  | us-gov-east-1<br>us-gov-west-1 |
 
+To call the US-GOV Claude Sonnet 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us-gov.anthropic.claude-sonnet-4-5-20250929-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions |
+| -------------- | ------------------- |
+| us-gov-east-1  | us-gov-west-1       |
+| us-gov-west-1  | us-gov-west-1       |
+
 To call the APAC Anthropic Claude 3 Haiku inference profile, specify the following inference profile ID in one of the source Regions:
 
 ```
@@ -1233,6 +1252,7 @@ The following table shows the source Regions from which you can call the inferen
 | Source Regions | Destination Regions       |
 | -------------- | ------------------------- |
 | ca-central-1   | ca-central-1<br>ca-west-1 |
+| ca-west-1      | ca-central-1<br>ca-west-1 |
 
 To call the EU Anthropic Claude 3 Haiku inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1566,10 +1586,6 @@ The following table shows the source Regions from which you can call the inferen
 
 Application inference profiles can be created for all models in the following AWS Regions:
 
-- us-east-1
-- us-east-2
-- us-west-2
-- us-gov-east-1
 - ap-northeast-1
 - ap-northeast-2
 - ap-south-1
@@ -1581,5 +1597,9 @@ Application inference profiles can be created for all models in the following AW
 - eu-west-2
 - eu-west-3
 - sa-east-1
+- us-east-1
+- us-east-2
+- us-gov-east-1
+- us-west-2
 
 Application inference profiles can be created from all models and inference profiles supported in Amazon Bedrock. For more information about models supported in Amazon Bedrock, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").

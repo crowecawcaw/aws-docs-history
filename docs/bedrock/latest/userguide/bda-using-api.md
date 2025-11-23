@@ -50,7 +50,7 @@ combinations of settings may not be allowed or may require additional permission
 
 ## Invoke Data Automation Async
 
-You have a project set up, you can start processing images using the InvokeDataAutomationAsync operation. If using custom output, you can only submit a single blueprint ARN per request.
+You have a project set up, you can start processing images using the [InvokeDataAutomationAsync](../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md "../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md") operation. If using custom output, you can only submit a single blueprint ARN per request.
 
 This API call initiates the asynchronous processing of your files in a specified S3 bucket. The API accepts the project ARN and the file to be processed, then starts the asynchronous processing job. A job ID is returned for tracking the process. Errors will be raised if the project doesn't exist, or if the caller doesn't have the necessary permissions, or if the input files aren't in a supported format.
 
@@ -107,6 +107,236 @@ When you run `InvokeDataAutomationAsync` on a video file, you can set a 5 minute
 that will be treated as a full video for the data extraction. This time is set with a timestamp of the
 starting millisecond and ending millisecond. This information is added in the `assetProcessingConfiguration`
 element.
+
+## Invoke Data Automation (Sync)
+
+Alternatively, you can use the [InvokeDataAutomation](../APIReference/API_data-automation-runtime_InvokeDataAutomation.md "../APIReference/API_data-automation-runtime_InvokeDataAutomation.md") operation. The `InvokeDataAutomation` operation only supports processing images.
+
+This API call initiates the synchronous processing of the provided via an S3 reference, or in the payload. The API accepts the project ARN and the file to be processed, and returns the structured insights in the response. Errors will be raised if the project doesn't exist, or if the caller doesn't have the necessary permissions, or if the input files aren't in a supported format. If the analyzed image is semantically classified as a document, this will also be raised as an error, because the InvokeDataAutomation only supports Images. To prevent this error, you may use Modality Routing on your project to force routing of all image file types as Images (see [Disabling modalities and routing file types](bda-routing-enablement.md "bda-routing-enablement.md")).
+
+Here is the structure of the JSON request:
+
+```
+{
+   {
+    "blueprints": [
+       {
+          "blueprintArn": "string",
+          "stage": "string",
+          "version": "string"
+       }
+    ],
+    "clientToken": "string",
+    "dataAutomationConfiguration": {
+       "dataAutomationProjectArn": "string",
+       "stage": "string"
+    },
+    "dataAutomationProfileArn": "string",
+    "encryptionConfiguration": {
+       "kmsEncryptionContext": {
+          "string" : "string"
+       },
+       "kmsKeyId": "string"
+    },
+    "inputConfiguration": {
+       "assetProcessingConfiguration": {
+          "video": {
+             "segmentConfiguration": { ... }
+          }
+       "s3Uri": "string"
+    },
+    "notificationConfiguration": {
+       "eventBridgeConfiguration": {
+          "eventBridgeEnabled": boolean
+       }
+    },
+    "tags": [
+       {
+          "key": "string",
+          "value": "string"
+       }
+    ]
+ }
+}
+```
+
+The output includes unique structures depending on both the file, operations, and custom output configuration specified in the call to InvokeDataAutomation. Note that this response includes both the standard and custom output responses.
+
+Here is the structure of the JSON response with both standard and custom output configuration:
+
+```
+{
+  "semanticModality": "IMAGE",
+  "outputSegments": [
+    {
+      "customOutputStatus": "MATCH",
+      "standardOutput": {
+        "image": {
+          "summary": "This image shows a white Nike running shoe with a black Nike swoosh logo on the side. The shoe has a modern design with a thick, cushioned sole and a sleek upper part. The word \"ROUKEA\" is visible on the sole of the shoe, repeated twice. The shoe appears to be designed for comfort and performance, suitable for running or athletic activities. The background is plain and dark, highlighting the shoe.",
+          "iab_categories": [
+            {
+              "category": "Style and Fashion",
+              "confidence": 0.9890000000000001,
+              "taxonomy_level": 1,
+              "parent_name": "",
+              "id": "0ebe86c8-e9af-43f6-a7bb-182a61d2e1fd",
+              "type": "IAB"
+            },
+            {
+              "category": "Men's Fashion",
+              "confidence": 0.9890000000000001,
+              "taxonomy_level": 2,
+              "parent_name": "Style and Fashion",
+              "id": "13bd456a-3e1b-4681-b0dd-f42a8d5e5ad5",
+              "type": "IAB"
+            },
+            {
+              "category": "Style and Fashion",
+              "confidence": 0.853,
+              "taxonomy_level": 1,
+              "parent_name": "",
+              "id": "177b29a1-0e40-45c1-8540-5f49a3d7ded3",
+              "type": "IAB"
+            },
+            {
+              "category": "Women's Fashion",
+              "confidence": 0.853,
+              "taxonomy_level": 2,
+              "parent_name": "Style and Fashion",
+              "id": "f0197ede-3ba6-498b-8f7b-43fecc5735ef",
+              "type": "IAB"
+            }
+          ],
+          "content_moderation": [],
+          "logos": [
+            {
+              "id": "2e109eb6-39f5-4782-826f-911b62d277fb",
+              "type": "LOGOS",
+              "confidence": 0.9170872209665809,
+              "name": "nike",
+              "locations": [
+                {
+                  "bounding_box": {
+                    "left": 0.3977411523719743,
+                    "top": 0.4922481227565456,
+                    "width": 0.2574246356942061,
+                    "height": 0.15461772197001689
+                  }
+                }
+              ]
+            }
+          ],
+          "text_words": [
+            {
+              "id": "f70301df-5725-405e-b50c-612e352467bf",
+              "type": "TEXT_WORD",
+              "confidence": 0.10091366487951722,
+              "text": "ROUKEA",
+              "locations": [
+                {
+                  "bounding_box": {
+                    "left": 0.6486002310163024,
+                    "top": 0.6783271480251003,
+                    "width": 0.13219473954570082,
+                    "height": 0.05802226710963898
+                  },
+                  "polygon": [
+                    {
+                      "x": 0.6486002310163024,
+                      "y": 0.7025876947351404
+                    },
+                    {
+                      "x": 0.7760931467045249,
+                      "y": 0.6783271480251003
+                    },
+                    {
+                      "x": 0.7807949705620032,
+                      "y": 0.7120888684246991
+                    },
+                    {
+                      "x": 0.6533020989743271,
+                      "y": 0.7363494151347393
+                    }
+                  ]
+                }
+              ],
+              "line_id": "9147fec0-d869-4d58-933e-93eb7164c404"
+            }
+          ],
+          "text_lines": [
+            {
+              "id": "9147fec0-d869-4d58-933e-93eb7164c404",
+              "type": "TEXT_LINE",
+              "confidence": 0.10091366487951722,
+              "text": "ROUKEA",
+              "locations": [
+                {
+                  "bounding_box": {
+                    "left": 0.6486002310163024,
+                    "top": 0.6783271480251003,
+                    "width": 0.13219473954570082,
+                    "height": 0.05802226710963898
+                  },
+                  "polygon": [
+                    {
+                      "x": 0.6486002310163024,
+                      "y": 0.7025876947351404
+                    },
+                    {
+                      "x": 0.7760931467045249,
+                      "y": 0.6783271480251003
+                    },
+                    {
+                      "x": 0.7807949705620032,
+                      "y": 0.7120888684246991
+                    },
+                    {
+                      "x": 0.6533020989743271,
+                      "y": 0.7363494151347393
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "statistics": {
+          "iab_category_count": 4,
+          "content_moderation_count": 0,
+          "logo_count": 1,
+          "line_count": 1,
+          "word_count": 1
+        },
+        "metadata": {
+          "semantic_modality": "IMAGE",
+          "image_width_pixels": 173,
+          "image_height_pixels": 148,
+          "image_encoding": "jpeg",
+          "s3_bucket": "test-bucket",
+          "s3_key": "uploads/test-image.jpeg"
+        }
+      },
+      "customOutput": {
+        "matched_blueprint": {
+          "arn": "arn:aws:bedrock:us-east-1:123456789012:blueprint/test",
+          "version": "1",
+          "name": "test-blueprint",
+          "confidence": 1.0
+        },
+        "inference_result": {
+          "product_details": {
+            "product_category": "footwear"
+          },
+          "image_sentiment": "Positive",
+          "image_background": "Solid color",
+          "image_style": "Product image",
+          "image_humor": false
+        }
+      }
+    }
+  ]
+}
+```
 
 ## Get Data Automation Status
 

@@ -28,9 +28,8 @@ Below is an example of the `overrideConfiguration` element with only document an
 The `modalityProcessing` flag defaults to `ENABLED`.
 
 ```
-
-   "overrideConfiguration" : {
-    "document" : {
+"overrideConfiguration" : {
+    "document": {
         "splitter": {
             "state": ENABLED
         },
@@ -38,24 +37,23 @@ The `modalityProcessing` flag defaults to `ENABLED`.
             "state": ENABLED
         },
     },
-    "image" : {
+    "image": {
         "modalityProcessing": {
             "state": DISABLED
-        },
+        }
     },
-    "video" : {
+    "video": {
         "modalityProcessing": {
             "state": DISABLED
-        },
+        }
     },
-    "audio" : {
+    "audio": {
         "modalityProcessing": {
             "state": ENABLED
-        },
-    }
+        }
+    },
     ...
-   }
-
+}
 ```
 
 The ellipsies at the end of this section indicates the removal of the `modalityRouting` element, which we will
@@ -87,8 +85,7 @@ Below is an example of the `modalityRouting` portion of `overrideConfiguration`.
 all modalities are enabled, and routes JPEG and PNG files to the document modality, and MP4 and MOV files to the audio modality.
 
 ```
-
-   ...
+...
    "modalityRouting": {
         "jpeg": DOCUMENT,
         "png": DOCUMENT,
@@ -96,13 +93,12 @@ all modalities are enabled, and routes JPEG and PNG files to the document modali
         "mov": AUDIO
     }
 }
-
 ```
 
 The ellipsies at the beginning of the example indicate the removal of the rest of the `overrideConfiguration`,
 which is discussed more in the section on modality enablement and the document splitter functionality.
 
-## Standard routing for BDA
+## Standard routing for the InvokeDataAutomationAsync API
 
 Without setting up your own routing procedures, BDA uses a standard set of procedures based on file type to determine
 what modality BDA will route to. The default procedures are listed in the table below.
@@ -117,3 +113,12 @@ or not a submitted file is an image or a document using internal models and perf
 | PDF, TIFF                           | Document                                     |
 | MP4, MOV                            | Video                                        |
 | AMR, FLAC, M4A, MP3, OGG, WEBM, WAV | Audio                                        |
+
+## Standard routing for the InvokeDataAutomation API
+
+The [InvokeDataAutomation](../APIReference/API_data-automation-runtime_InvokeDataAutomation.md "../APIReference/API_data-automation-runtime_InvokeDataAutomation.md") API will also look at indicators of whether or not a submitted PNG or JPEG file is an image or a document using internal models and perform routing automatically. Files classified as documents will be rejected.
+
+| File Types | Default Routing Behavior                                                                                                                                                                                                                 |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| PNG        | Semantic Classifer; Only Images Supported. PNG files classified as Documents will be rejected. Please see [Routing files to certain processing types](#bda-modality-routing "#bda-modality-routing") to route all PNG files as Images.   |
+| JPEG       | Semantic Classifer; Only Images Supported. JPEG files classified as Documents will be rejected. Please see [Routing files to certain processing types](#bda-modality-routing "#bda-modality-routing") to route all JPEG files as Images. |

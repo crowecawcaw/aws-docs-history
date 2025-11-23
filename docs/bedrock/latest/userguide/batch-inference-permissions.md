@@ -90,4 +90,19 @@ Batch inference is carried out by a [service role](security-iam-sr.md "security-
 
 ###### Important
 
-If the S3 bucket in which you [uploaded your data for batch inference](batch-inference-data.md "batch-inference-data.md") is in a different AWS account, you must configure an S3 bucket policy to allow the service role access to the data. You must manually configure this policy even if you use the console to automatically create a service role. To learn how to configure an S3 bucket policy for Amazon Bedrock resources, see [Attach a bucket policy to an Amazon S3 bucket to allow another account to access it](s3-bucket-access.md#s3-bucket-access-cross-account "s3-bucket-access.md#s3-bucket-access-cross-account").
+- If the S3 bucket in which you [uploaded your data for batch inference](batch-inference-data.md "batch-inference-data.md") is in a different AWS account, you must configure an S3 bucket policy to allow the service role access to the data. You must manually configure this policy even if you use the console to automatically create a service role. To learn how to configure an S3 bucket policy for Amazon Bedrock resources, see [Attach a bucket policy to an Amazon S3 bucket to allow another account to access it](s3-bucket-access.md#s3-bucket-access-cross-account "s3-bucket-access.md#s3-bucket-access-cross-account").
+- Foundation models in Amazon Bedrock are AWS-managed resources that cannot be used with IAM policy conditions requiring customer ownership. These models are owned and operated by AWS, and cannot be owned by individual customers. Any IAM policy condition that checks for customer-owned resources (such as conditions using resource tags, organization ID, or other ownership attributes) will fail when applied to foundation models, potentially blocking legitimate access to these services.
+
+For example, if your policy includes an `aws:ResourceOrgID` condition like this:
+
+```
+{
+  "Condition": {
+    "StringEqualsIgnoreCase": {
+      "aws:ResourceOrgID": ["o-xxxxxxxx"]
+    }
+  }
+}
+```
+
+Your batch inference job will fail with `AccessDeniedException`. Remove the `aws:ResourceOrgID` condition or create separate policy statements for foundation models.

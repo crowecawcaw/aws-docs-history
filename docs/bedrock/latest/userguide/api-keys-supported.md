@@ -2,8 +2,6 @@
 
 The following list shows the AWS Regions that support API keys:
 
-- us-east-1
-- us-west-2
 - ap-northeast-1
 - ap-northeast-2
 - ap-northeast-3
@@ -21,6 +19,8 @@ The following list shows the AWS Regions that support API keys:
 - eu-west-2
 - eu-west-3
 - sa-east-1
+- us-east-1
+- us-west-2
 
 ###### Note
 

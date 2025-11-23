@@ -1,6 +1,21 @@
 # Code samples for custom model import
 
-The following code samples show how to set up permissions, create a custom model import job, view the details of your import jobs and imported models, and delete imported model.
+The following code samples show how to set up permissions, create a custom model import job, view the details of your import jobs and imported models, and delete imported model. These code samples apply to Mistral AI, Llama, Qwen, Flan, GPTBigCode, and Mixtral architectures.
+
+## Important: Model Architecture Support
+
+**GPT-OSS Model Limitations:**
+
+- **Converse API Not Supported:** GPT-OSS based custom model import models do NOT support the Converse API or ConverseStream API.
+- **Use InvokeModel API Instead:** Customers must use the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") API when working with GPT-OSS based custom models.
+- **API Schema Requirement:** GPT-OSS models require OpenAI-compatible API schemas:
+  - Completion format for completion requests
+  - ChatCompletion format for chat requests
+  - Response format follows OpenAI API specifications
+
+- **Supported Models for Converse API:** The Converse API is supported for Mistral AI, Llama, Qwen, Flan, GPTBigCode, and Mixtral architectures only.
+
+For GPT-OSS model usage examples with [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") API, refer to the OpenAI API documentation for request/response schemas.
 
 1. Prepare model files for import
    1. If you are importing from an Amazon S3 bucket, you need to supply the model files in the

@@ -27,7 +27,7 @@ The `cloudformation-mortgage-flow-setup.zip` file that you download contains the
   - `mortgage-flow-template` – The template for the mortgage processing flow that combines all the resources.
 
 - `README.md` – A README file that describes the steps for using the template.
-  The following topics show the AWS CloudFormation templates used for each stack. The main stack deploys the remaining stacks as [nested stacks](../../../AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.md").
+  The following topics show the CloudFormation templates used for each stack. The main stack deploys the remaining stacks as [nested stacks](../../../AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.md").
 
 ###### Topics
 

@@ -21,6 +21,7 @@ Amazon Bedrock offers a suite of foundation models that you can use to generate 
 - [Generate responses in the console using playgrounds](playgrounds.md "playgrounds.md")
 - [Enhance model responses with model reasoning](inference-reasoning.md "inference-reasoning.md")
 - [Optimize model inference for latency](latency-optimized-inference.md "latency-optimized-inference.md")
+- [Service tiers for optimizing performance and cost](service-tiers-inference.md "service-tiers-inference.md")
 - [Submit prompts and generate responses using the API](inference-api.md "inference-api.md")
 - [Use a tool to complete an Amazon Bedrock model response](tool-use.md "tool-use.md")
 - [Use a computer use tool to complete an Amazon Bedrock model response](computer-use.md "computer-use.md")

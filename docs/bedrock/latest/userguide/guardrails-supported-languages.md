@@ -33,11 +33,17 @@ filtering and prompt attacks in the Standard tier.
 | Albanian                  | Supported               |
 | Arabic                    | Optimized and supported |
 | Armenian                  | Supported               |
+| Assamese                  | Supported               |
 | Azerbaijani               | Supported               |
+| Basque                    | Supported               |
 | Belarusian                | Supported               |
+| Bengali                   | Supported               |
+| Bosnian                   | Supported               |
 | Bulgarian                 | Supported               |
 | Bulgarian (Latin script)  | Supported               |
+| Burmese                   | Supported               |
 | Catalan                   | Supported               |
+| Cebuano                   | Supported               |
 | Chinese (Simplified)      | Optimized and supported |
 | Chinese (Traditional)     | Supported               |
 | Croatian                  | Supported               |
@@ -49,45 +55,64 @@ filtering and prompt attacks in the Standard tier.
 | Filipino                  | Supported               |
 | Finnish                   | Optimized and supported |
 | French                    | Optimized and supported |
+| Galician                  | Supported               |
 | Georgian                  | Supported               |
 | German                    | Optimized and supported |
 | Greek                     | Supported               |
 | Gujarati                  | Supported               |
+| Haitian Creole            | Supported               |
 | Hebrew                    | Supported               |
 | Hindi                     | Optimized and supported |
 | Hungarian                 | Supported               |
+| Icelandic                 | Supported               |
 | Indonesian                | Supported               |
+| Irish                     | Supported               |
 | Italian                   | Optimized and supported |
 | Japanese                  | Optimized and supported |
+| Javanese                  | Supported               |
 | Kannada                   | Supported               |
+| Kazakh                    | Supported               |
+| Khmer                     | Supported               |
 | Korean                    | Optimized and supported |
+| Kurmanji                  | Supported               |
+| Kyrgyz                    | Supported               |
 | Latvian                   | Supported               |
 | Lithuanian                | Supported               |
 | Macedonian                | Supported               |
 | Malay                     | Supported               |
 | Malayalam                 | Supported               |
+| Maltese                   | Supported               |
 | Marathi                   | Supported               |
 | Nepali                    | Supported               |
 | Norwegian                 | Optimized and supported |
+| Pashto                    | Supported               |
 | Persian (Farsi)           | Supported               |
 | Polish                    | Optimized and supported |
 | Portuguese                | Optimized and supported |
+| Punjabi                   | Supported               |
 | Romanian                  | Supported               |
 | Russian                   | Supported               |
 | Russian (Latin script)    | Supported               |
 | Serbian (Cyrillic)        | Supported               |
 | Serbianian (Latin script) | Supported               |
+| Sinhala                   | Supported               |
 | Slovak                    | Supported               |
 | Slovenian                 | Supported               |
 | Spanish                   | Optimized and supported |
+| Sundanese                 | Supported               |
+| Swahili                   | Supported               |
 | Swedish                   | Optimized and supported |
 | Tagalog                   | Supported               |
+| Tajik                     | Supported               |
+| Tamil                     | Supported               |
 | Telugu                    | Supported               |
 | Thai                      | Supported               |
 | Turkish                   | Supported               |
 | Ukrainian                 | Supported               |
+| Urdu                      | Supported               |
 | Uzbek (Latin script)      | Supported               |
 | Vietnamese                | Optimized and supported |
+| Welsh                     | Supported               |
 
 Classic tier supports the following languages for text-based content filters and
 prompt attacks:
@@ -114,11 +139,17 @@ filtering in the Standard tier.
 | Albanian                  | Supported               |
 | Arabic                    | Optimized and supported |
 | Armenian                  | Supported               |
+| Assamese                  | Supported               |
 | Azerbaijani               | Supported               |
+| Basque                    | Supported               |
 | Belarusian                | Supported               |
+| Bengali                   | Supported               |
+| Bosnian                   | Supported               |
 | Bulgarian                 | Supported               |
 | Bulgarian (Latin script)  | Supported               |
+| Burmese                   | Supported               |
 | Catalan                   | Supported               |
+| Cebuano                   | Supported               |
 | Chinese (Pinyin)          | Supported               |
 | Chinese (Simplified)      | Optimized and supported |
 | Chinese (Traditional)     | Supported               |
@@ -131,50 +162,77 @@ filtering in the Standard tier.
 | Filipino                  | Supported               |
 | Finnish                   | Optimized and supported |
 | French                    | Optimized and supported |
+| Galician                  | Supported               |
 | Georgian                  | Supported               |
 | German                    | Optimized and supported |
 | Greek                     | Supported               |
 | Greek (Latin script)      | Supported               |
 | Gujarati                  | Supported               |
+| Haitian Creole            | Supported               |
 | Hausa                     | Supported               |
 | Hebrew                    | Supported               |
 | Hindi                     | Optimized and supported |
 | Hindi (Latin script)      | Supported               |
 | Hungarian                 | Supported               |
+| Icelandic                 | Supported               |
+| Igbo                      | Supported               |
 | Indonesian                | Supported               |
 | Italian                   | Optimized and supported |
+| Irish                     | Supported               |
 | Japanese                  | Optimized and supported |
 | Japanese (Romaji)         | Supported               |
+| Javanese                  | Supported               |
 | Kannada                   | Supported               |
+| Kazakh                    | Supported               |
+| Khmer                     | Supported               |
 | Korean                    | Optimized and supported |
+| Kurmanji                  | Supported               |
+| Kyrgyz                    | Supported               |
+| Lao                       | Supported               |
 | Latvian                   | Supported               |
 | Lithuanian                | Supported               |
 | Macedonian                | Supported               |
 | Malay                     | Supported               |
 | Malayalam                 | Supported               |
+| Maltese                   | Supported               |
 | Marathi                   | Supported               |
+| Mongolian                 | Supported               |
 | Nepali                    | Supported               |
 | Norwegian                 | Optimized and supported |
+| Pashto                    | Supported               |
 | Persian (Farsi)           | Supported               |
 | Polish                    | Optimized and supported |
 | Portuguese                | Optimized and supported |
+| Punjabi                   | Supported               |
 | Romanian                  | Supported               |
 | Russian                   | Supported               |
 | Russian (Latin script)    | Supported               |
+| Scottish Gaelic           | Supported               |
 | Serbian (Cyrillic)        | Supported               |
 | Serbianian (Latin script) | Supported               |
+| Shona                     | Supported               |
+| Sindhi                    | Supported               |
+| Sinhala                   | Supported               |
 | Slovak                    | Supported               |
 | Slovenian                 | Supported               |
 | Somali                    | Supported               |
 | Spanish                   | Optimized and supported |
+| Sundanese                 | Supported               |
+| Swahili                   | Supported               |
 | Swedish                   | Optimized and supported |
 | Tagalog                   | Supported               |
+| Tajik                     | Supported               |
+| Tamil                     | Supported               |
 | Telugu                    | Supported               |
 | Thai                      | Supported               |
+| Tigrinya                  | Supported               |
 | Turkish                   | Supported               |
 | Ukrainian                 | Supported               |
+| Urdu                      | Supported               |
 | Uzbek (Latin script)      | Supported               |
 | Vietnamese                | Optimized and supported |
+| Welsh                     | Supported               |
+| Xhosa                     | Supported               |
 | Zulu                      | Supported               |
 
 Classic tier supports the following languages for denied topics:
@@ -207,19 +265,23 @@ support the following languages.
 
 | Language   | Support level           |
 | ---------- | ----------------------- |
-| Dutch      | Supported               |
+| Arabic     | Optimized and supported |
+| Chinese    | Optimized and supported |
+| Dutch      | Optimized and supported |
 | English    | Optimized and supported |
+| Finnish    | Optimized and supported |
 | French     | Optimized and supported |
 | German     | Optimized and supported |
-| Hindi      | Supported               |
+| Hindi      | Optimized and supported |
 | Italian    | Optimized and supported |
 | Japanese   | Optimized and supported |
 | Korean     | Optimized and supported |
-| Norwegian  | Supported               |
-| Polish     | Supported               |
-| Portuguese | Supported               |
+| Norwegian  | Optimized and supported |
+| Polish     | Optimized and supported |
+| Portuguese | Optimized and supported |
 | Spanish    | Optimized and supported |
-| Swedish    | Supported               |
+| Swedish    | Optimized and supported |
+| Vietnamese | Optimized and supported |
 
 ## Contextual grounding checks language support
 

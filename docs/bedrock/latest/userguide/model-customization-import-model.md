@@ -12,10 +12,10 @@ see [Submit a single prompt with InvokeModel](inference-invoke.md "inference-inv
 
 Custom model import is supported in the following regions:
 
+- eu-central-1
 - us-east-1
 - us-east-2
 - us-west-2
-- eu-central-1
 
 ###### Note
 
@@ -25,7 +25,7 @@ You can't use Custom Model Import with the following Amazon Bedrock
 features.
 
 - Batch inference
-- AWS CloudFormation
+- CloudFormation
   With Custom Model Import you can create a custom model that supports the following
   patterns.
 
@@ -53,6 +53,7 @@ features.
 - [Prerequisites for importing custom model](custom-model-import-prereq.md "custom-model-import-prereq.md")
 - [Submit a model import job](model-customization-import-model-job.md "model-customization-import-model-job.md")
 - [Invoke your imported model](invoke-imported-model.md "invoke-imported-model.md")
+- [Handling Custom Chat Templates and Tokenizers](custom-chat-templates-tokenizers.md "custom-chat-templates-tokenizers.md")
 - [Calculate the cost of running a custom model](import-model-calculate-cost.md "import-model-calculate-cost.md")
 - [Code samples for custom model import](custom-model-import-code-samples.md "custom-model-import-code-samples.md")
 
@@ -77,6 +78,8 @@ The model you import must be in one of the following architectures.
 - **Qwen2, Qwen2.5, Qwen2-VL, Qwen2.5-VL, Qwen3** — An LLM family with comprehensive multimodal perception and high speed vision encoding.
   Any model using the Qwen2, Qwen2-VL, and Qwen2.5-VL architectures can be imported. For Qwen3 architecture, only Qwen3ForCausalLM and Qwen3MoeForCausalLM are supported. Converse is also not supported for Qwen3 models.
   For more information, see [Qwen2](https://huggingface.co/collections/Qwen/qwen2-6659360b33528ced941e557f "https://huggingface.co/collections/Qwen/qwen2-6659360b33528ced941e557f"), [Qwen2.5](https://huggingface.co/collections/Qwen/qwen25-66e81a666513e518adb90d9e "https://huggingface.co/collections/Qwen/qwen25-66e81a666513e518adb90d9e"), [Qwen2-VL](https://huggingface.co/collections/Qwen/qwen2-vl-66cee7455501d7126940800d "https://huggingface.co/collections/Qwen/qwen2-vl-66cee7455501d7126940800d"), [Qwen2.5-VL](https://huggingface.co/collections/Qwen/qwen25-vl-6795ffac22b334a837c0f9a5 "https://huggingface.co/collections/Qwen/qwen25-vl-6795ffac22b334a837c0f9a5"), and [Qwen3](https://huggingface.co/docs/transformers/en/model_doc/qwen3 "https://huggingface.co/docs/transformers/en/model_doc/qwen3") in the Hugging Face documentation.
+- **GPT-OSS** — OpenAI based GPT-OSS
+  architecture. Amazon Bedrock supports both 20B and 120B based custom models. GPT-OSS model architecture is only supported in the US East (N. Virginia) region.
 
 ###### Note
 
@@ -106,15 +109,6 @@ To import the model from Amazon S3, you minimally need the following files that 
   information, see [Safetensors](https://huggingface.co/docs/safetensors/en/index "https://huggingface.co/docs/safetensors/en/index"). For information about converting model weights to
   Safetensor format, see [Convert
   weights to safetensors](https://huggingface.co/docs/safetensors/en/convert-weights "https://huggingface.co/docs/safetensors/en/convert-weights").
-
-###### Note
-
-    + Currently, Amazon Bedrock only supports model weights with FP32, FP16, and
-     BF16 precision. Amazon Bedrock will reject model weights if you supply them
-     with any other precision. Internally Amazon Bedrock will convert
-     FP32 models to BF16 precision.
-    + Amazon Bedrock doesn't support the import of quantized models.
-
 - **config.json** — For examples,
   see [LlamaConfig](https://huggingface.co/docs/transformers/model_doc/llama2#transformers.LlamaConfig "https://huggingface.co/docs/transformers/model_doc/llama2#transformers.LlamaConfig")
   and [MistralConfig](https://huggingface.co/docs/transformers/model_doc/mistral#transformers.MistralConfig "https://huggingface.co/docs/transformers/model_doc/mistral#transformers.MistralConfig").

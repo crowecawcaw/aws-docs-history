@@ -2,11 +2,6 @@
 
 Prompt management is supported in the following AWS Regions:
 
-- us-east-1
-- us-east-2
-- us-west-2
-- us-gov-east-1
-- us-gov-west-1
 - ap-northeast-1
 - ap-northeast-2
 - ap-northeast-3
@@ -24,6 +19,11 @@ Prompt management is supported in the following AWS Regions:
 - eu-west-2
 - eu-west-3
 - sa-east-1
+- us-east-1
+- us-east-2
+- us-gov-east-1
+- us-gov-west-1
+- us-west-2
   You can use Prompt management with any text model supported for the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") API. For a list of supported models, see [Supported models and
   model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md").
 

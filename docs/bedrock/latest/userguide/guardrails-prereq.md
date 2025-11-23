@@ -13,7 +13,8 @@ Before you can use Amazon Bedrock Guardrails, you must fulfill the following pre
   to 10,000 items and be up to 50 KB. Save the list in
   a .txt or .csv file. If you prefer, you can import it from an Amazon S3 bucket using the
   Amazon Bedrock console.
-- Look at the list of personally identifiable information in [Remove PII from conversations by using sensitive information filters](guardrails-sensitive-filters.md "guardrails-sensitive-filters.md") and consider which ones your guardrail should block or mask.
+- Look at the list of personally identifiable information in [Remove PII from conversations by using
+  sensitive information filters](guardrails-sensitive-filters.md "guardrails-sensitive-filters.md") and consider which ones your guardrail should block or mask.
 - Consider regex expressions that might match sensitive information and consider which ones
   your guardrail should block or mask with the use of
   [Sensitive information filters](guardrails-sensitive-filters.md "guardrails-sensitive-filters.md").

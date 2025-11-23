@@ -1,16 +1,18 @@
-# Remove a specific list of words and phrases from conversations with word filters
+# Remove a specific list of words and phrases
 
-Amazon Bedrock Guardrails has word filters that you can use to block words and phrases (exact match)
-in input prompts and model responses. You can use following word filters to
-block profanity, offensive, or inappropriate content, or content with
-competitor or product names.
+from conversations with word filters
+
+Amazon Bedrock Guardrails has word filters that you can use to block words and phrases (exact match) in
+input prompts and model responses. You can use following word filters to block
+profanity, offensive, or inappropriate content, or content with competitor or product
+names.
 
 - **Profanity filter** – Turn on to block
   profane words. The list of profanities is based on conventional definitions of
   profanity and it's continually updated.
 - **Custom word filter** – Add custom words
-  and phrases using the AWS Management Console of up to three words to a list. You can add up to
-  10,000 items to the custom word filter.
+  and phrases using the AWS Management Console of up to three words to a list. You can add up
+  to 10,000 items to the custom word filter.
 
 You have the following options for adding words and phrases using the Amazon Bedrock
 AWS Management Console:
@@ -21,12 +23,16 @@ AWS Management Console:
 
 ###### Note
 
-You can only upload documents and objects using the AWS Management Console. API and SDK operations only support text, and do not include the upload of documents and objects.
+You can only upload documents and objects using the AWS Management Console. API and SDK
+operations only support text, and do not include the upload of documents and
+objects.
 
-## Configure word policy for your guardrail
+## Configure word policy for your
 
-You can configure word policies for your guardrail by using the AWS Management Console or
-Amazon Bedrock API.
+guardrail
+
+You can configure word policies for your guardrail by using the AWS Management Console or Amazon Bedrock
+API.
 
 Console
 
@@ -83,42 +89,42 @@ Console
       three words. Don't include a header. You have the
       following options:
 
-   | Option                                | Instructions                                                                                                                        |
-   | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-   | **Add words and phrases<br>manually** | Directly add words and phrases in the<br>\*_View and edit words and<br>phrases_<br>• section.                                       |
-   | **Upload from a local<br>file**       | Upload a .txt or .csv file containing<br>the words and phrases by selecting<br>\*_Choose file_<br>• after selecting<br>this option. |
-   | **Upload from Amazon S3<br>object**   | Upload an object from an S3<br>bucket.                                                                                              |
+   | Option                                | Instructions                                                                                                                     |
+   | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+   | **Add words and phrases<br>manually** | Directly add words and phrases in the<br>\*_View and edit words and<br>phrases_<br>• section.                                    |
+   | **Upload from a local<br>file**       | Upload a .txt or .csv file containing the<br>words and phrases by selecting \*_Choose<br>file_<br>• after selecting this option. |
+   | **Upload from Amazon S3<br>object**   | Upload an object from an S3 bucket.                                                                                              |
    3. Edit the words and phrases for the guardrail to block
       in the **View and edit words and
       phrases** section. You have the following
       options:
-      - If you uploaded a word list from a local file or Amazon S3
-        object, this section will populate with your word list.
-        To filter for items with errors, select **Show
-        errors**.
-      - To add an item to the word list, select **Add
-        word or phrase**. Enter a word or a phrase
-        of up to three words in the box and press
-        **Enter** or select the checkmark
-        icon to confirm the item.
-      - To edit an item, select the edit icon (
+      - If you uploaded a word list from a local file
+        or Amazon S3 object, this section will populate with
+        your word list. To filter for items with errors,
+        select **Show errors**.
+      - To add an item to the word list, select
+        **Add word or phrase**. Enter a
+        word or a phrase of up to three words in the box
+        and press **Enter** or select the
+        checkmark icon to confirm the item.
+      - To edit an item, select the edit icon
+        (
 
       ![Edit icon represented by a pencil symbol.](images/icons/edit.png)
 
-      )
-      next to the item.
-      - To delete an item from the word list, select the trash
-        can icon (
+      ) next to the item.
+      - To delete an item from the word list, select
+        the trash can icon (
 
       ![Trapezoid-shaped diagram showing data flow from source to destination through AWS Transfer Family.](images/icons/trash.png)
 
-      ) or, if you're editing an item,
-      select the delete icon (
+      ) or, if you're
+      editing an item, select the delete icon
+      (
 
       ![Close or cancel icon represented by an "X" symbol.](images/icons/close.png)
 
-      ) next to the
-      item.
+      ) next to the item.
       - To delete items that contain errors, select
         **Delete all** and then select
         **Delete all rows with
@@ -126,30 +132,33 @@ Console
       - To delete all items, select **Delete
         all** and then select **Delete
         all rows**.
-      - To search for an item, enter an expression in the
-        search bar.
-      - To show only items with errors, select the dropdown
-        menu labeled **Show all** and select
-        **Show errors only**.
-      - To configure the size of each page in the table or the
-        column display in the table, select the settings icon
-        (
+      - To search for an item, enter an expression in
+        the search bar.
+      - To show only items with errors, select the
+        dropdown menu labeled **Show
+        all** and select **Show errors
+        only**.
+      - To configure the size of each page in the
+        table or the column display in the table, select
+        the settings icon (
 
       ![Gear icon representing settings or configuration options.](images/icons/settings.png)
 
-      ). Set your preferences and then select
+      ). Set your
+      preferences and then select
       **Confirm**.
       - By default, this section displays the
         **Table** editor. To switch to a
-        text editor in which you can enter a word or phrase in
-        each line, select **Text editor**. The
-        **Text editor** provides the
-        following features:
+        text editor in which you can enter a word or
+        phrase in each line, select **Text
+        editor**. The **Text
+        editor** provides the following
+        features:
         - You can copy a word list from another text
           editor and paste it into this editor.
-        - A red X icon appears next to items containing
-          errors and a list of errors appears at the below
-          the editor.
+        - A red X icon appears next to items
+          containing errors and a list of errors appears at
+          the below the editor.
 
    4. Choose **Next** to configure other
       policies as needed or **Skip to Review and
@@ -204,21 +213,39 @@ Content-type: application/json
 }
 ```
 
-- Specify a `name` and `description` for the guardrail.
-- Specify messages for when the guardrail successfully blocks a prompt or a model response in the `blockedInputMessaging` and `blockedOutputsMessaging` fields.
-- Configure word policies in the `wordPolicyConfig` object:
+- Specify a `name` and `description` for
+  the guardrail.
+- Specify messages for when the guardrail successfully blocks a
+  prompt or a model response in the
+  `blockedInputMessaging` and
+  `blockedOutputsMessaging` fields.
+- Configure word policies in the `wordPolicyConfig`
+  object:
   - Use `managedWordListsConfig` to configure a
     predefined list of profane words.
   - Use `wordsConfig` array to specify custom
     words and phrases to filter:
     - Specify the words and phrases to filter in the
       `text` field.
-    - (Optional) Specify the action to take when the word is detected in prompts using `inputAction` or responses using `outputAction`. Choose `BLOCK` to block content and replace with blocked messaging, or `NONE` to take no action but return detection information.
-    - (Optional) Use `inputEnabled` and `outputEnabled` to control whether guardrail evaluation is enabled for inputs and outputs.
+    - (Optional) Specify the action to take when the
+      word is detected in prompts using
+      `inputAction` or responses using
+      `outputAction`. Choose
+      `BLOCK` to block content and replace
+      with blocked messaging, or `NONE` to
+      take no action but return detection
+      information.
+    - (Optional) Use `inputEnabled` and
+      `outputEnabled` to control whether
+      guardrail evaluation is enabled for inputs and
+      outputs.
 
-- (Optional) Attach any tags to the guardrail. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").
-- (Optional) For security, include the ARN of a KMS key in the `kmsKeyId` field.
-- (Optional) To enable [cross-Region inference](guardrails-cross-region.md "guardrails-cross-region.md"), specify a guardrail profile in the `crossRegionConfig` object.
+- (Optional) Attach any tags to the guardrail. For more
+  information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").
+- (Optional) For security, include the ARN of a KMS key in the
+  `kmsKeyId` field.
+- (Optional) To enable [cross-Region inference](guardrails-cross-region.md "guardrails-cross-region.md"), specify a guardrail profile
+  in the `crossRegionConfig` object.
 
 The response format is as follows:
 

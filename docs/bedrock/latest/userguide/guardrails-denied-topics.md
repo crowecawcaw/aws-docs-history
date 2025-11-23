@@ -1,12 +1,14 @@
-# Block denied topics to help remove harmful content
+# Block denied topics to help remove harmful
+
+content
 
 You can specify a set of denied topics in a guardrail that are undesirable in the
 context of your generative AI application. For example, a bank might want its AI
 assistant to avoid conversations related to investment advice or cryptocurrencies.
 
-Model prompts and responses in natural language are evaluated against each denied
-topic in your guardrail. If one of the denied topics is detected, your guardrail returns
-a blocked message.
+Model prompts and responses in natural language, as well as code-related content in
+Standard tier, are evaluated against each denied topic in your guardrail. If one of the
+denied topics is detected, your guardrail returns a blocked message.
 
 Create a denied topic with the following parameters, which your guardrail uses to
 detect if a prompt or response belongs to the topic:
@@ -22,40 +24,46 @@ detect if a prompt or response belongs to the topic:
 
 The following is an example topic definition that you can provide:
 
-`Investment advice is inquiries, guidance, or recommendations 
- about the management or allocation of funds or assets with the goal of 
- generating returns or achieving specific financial objectives.`
+`Investment advice is inquiries, guidance, or recommendations about
+ the management or allocation of funds or assets with the goal of generating
+ returns or achieving specific financial objectives.`
 
 - **Sample phrases** (optional) – A list of
   up to five sample phrases that refer to the topic. Each phrase can be up to 100
   characters long. A sample is a prompt or continuation that shows what kind of
   content should be filtered out. For example:
-  - `Is investing in the stocks better than bonds?`
+  - `Is investing in the stocks better than
+bonds?`
   - `Should I invest in gold?`
 
 ## Best practices for
 
 creating denied topics
 
-- Define the topic in a crisp and precise manner. A clear and unambiguous topic definition can
-  improve the accuracy of the topic's detection. For example, a topic to
-  detect queries or statements associated with cryptocurrencies can be defined
-  as `Question or information associated with investing, selling,
-transacting, or procuring cryptocurrencies`.
-- Don't include examples or instructions in the topic definition. For example, `Block
-all contents associated to cryptocurrency` is an instruction
-  and not a definition of the topic. Such instructions must not be used as
-  part of topic's definitions.
-- Don't define negative topics or exceptions. For example, `All contents except
-medical information` or `Contents not containing
-medical information` are negative definitions of a topic and
-  must not be used.
-- Don't use denied topics to capture entities or words. For example, `Statement or
-questions containing the name of a person "X"` or
-  `Statements with a competitor name Y`. The topic
-  definitions represent a theme or a subject and guardrails evaluates an input
-  contextually. Topic filtering should not be used to capture individual words
-  or entity types. For more information, see [Remove PII from conversations by using sensitive information filters](guardrails-sensitive-filters.md "guardrails-sensitive-filters.md"), or [Remove a specific list of words and phrases from conversations with word filters](guardrails-word-filters.md "guardrails-word-filters.md") for these use cases.
+- Define the topic in a crisp and precise manner. A clear and unambiguous
+  topic definition can improve the accuracy of the topic's detection. For
+  example, a topic to detect queries or statements associated with
+  cryptocurrencies can be defined as `Question or information
+associated with investing, selling, transacting, or procuring
+cryptocurrencies`.
+- Don't include examples or instructions in the topic definition. For
+  example, `Block all contents associated to
+cryptocurrency` is an instruction and not a definition of the
+  topic. Such instructions must not be used as part of topic's
+  definitions.
+- Don't define negative topics or exceptions. For example, `All
+contents except medical information` or `Contents
+not containing medical information` are negative definitions
+  of a topic and must not be used.
+- Don't use denied topics to capture entities or words. For example,
+  `Statement or questions containing the name of a person
+"X"` or `Statements with a competitor name
+Y`. The topic definitions represent a theme or a subject and
+  guardrails evaluates an input contextually. Topic filtering should not be
+  used to capture individual words or entity types. For more information, see
+  [Remove PII from conversations by using
+  sensitive information filters](guardrails-sensitive-filters.md "guardrails-sensitive-filters.md"), or [Remove a specific list of words and phrases
+  from conversations with word filters](guardrails-word-filters.md "guardrails-word-filters.md") for these use cases.
 
 ## Add denied topics to your
 
@@ -111,22 +119,23 @@ Console
    following:
    1. Enter a **Name** for the
       topic.
-   2. For **Definition**, define
-      the topic. For guidelines on how to define a
-      denied topic, see [Block denied topics to help remove harmful content](guardrails-denied-topics.md "guardrails-denied-topics.md").
+   2. For **Definition**, define the topic.
+      For guidelines on how to define a denied topic, see
+      [Block denied topics to help remove harmful
+      content](guardrails-denied-topics.md "guardrails-denied-topics.md").
    3. (Optional) For **Input**, specify
       whether guardrail evaluation is enabled for model
       prompts. If enabled, choose which action you want your
       guardrail. **Block** is enabled by
-      default. For more information, see [Options for handling harmful
-      content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md").
+      default. For more information, see [Options for handling
+      harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md").
    4. (Optional) For **Output**, specify
       whether guardrail evaluation is enabled for model
       responses. If enabled, choose which action you want your
       guardrail to take on responses.
       **Block** is enabled by default.
-      For more information, see [Options for handling harmful
-      content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md").
+      For more information, see [Options for handling
+      harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md").
    5. (Optional) Expand **Add sample
       phrases** and enter a phrase that's
       representative of prompts or responses related to this
@@ -137,8 +146,8 @@ Console
       the safeguard tier that you want your guardrail to use
       for blocking topics in prompts and responses. For more
       information, see [Safeguard tiers for guardrails policies](guardrails-tiers.md "guardrails-tiers.md").
-   7. When you're done configuring the denied topic,
-      select **Confirm**.
+   7. When you're done configuring the denied topic, select
+      **Confirm**.
    8. Repeat the previous steps to create additional denied
       topics.
    9. Choose **Next** to configure other
@@ -199,11 +208,16 @@ Content-type: application/json
   - Specify a `name` and
     `definition` for the topic that should be
     denied.
-  - Specify `DENY` in the
-    `type` field.
-  - Specify the action to take when the topic is detected in prompts using `inputAction` or responses using `outputAction`. Choose `BLOCK` to block content and replace with blocked messaging, or `NONE` to take no action but return detection information. For more
-    information, see [Options for handling harmful
-    content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md").
+  - Specify `DENY` in the `type`
+    field.
+  - Specify the action to take when the topic is detected
+    in prompts using `inputAction` or responses
+    using `outputAction`. Choose
+    `BLOCK` to block content and replace with
+    blocked messaging, or `NONE` to take no
+    action but return detection information. For more
+    information, see [Options for handling
+    harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md").
   - Set `inputEnabled` and
     `outputEnabled` to control whether
     guardrail evaluation is enabled for model prompts and

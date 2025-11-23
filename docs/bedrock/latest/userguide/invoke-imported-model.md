@@ -13,76 +13,213 @@ API](conversation-inference-call.md "conversation-inference-call.md").
 
 ###### Note
 
-Converse API is not supported for Qwen2.5, Qwen2-VL, and Qwen2.5-VL models.
+Converse API is not supported for Qwen2.5, Qwen2-VL, Qwen2.5-VL, and GPT-OSS models.
+
+## Enhanced API Support: Multiple API Formats
+
+Starting November 17, 2025, Amazon Bedrock Custom Model Import supports comprehensive OpenAI-compatible API formats, providing flexibility in how you integrate and deploy your custom models. All models imported after November 11, 2025, will automatically benefit from these enhanced capabilities with no additional configuration required.
+
+Custom Model Import now supports three API formats:
+
+- **BedrockCompletion (Text)** - Compatible with current Bedrock workflows
+- **OpenAICompletion (Text)** - OpenAI Completions Schema compatibility
+- **OpenAIChatCompletion (Text and Images)** - Full conversational Schema compatibility
+
+These enhanced capabilities include structured outputs for enforcing JSON schemas and patterns, enhanced vision support with multi-image processing, log probabilities for model confidence insights, and tool calling capabilities for GPT-OSS models.
+
+For detailed API reference documentation, see the official OpenAI documentation:
+
+- Completion: [OpenAI Completions API](https://platform.openai.com/docs/api-reference/completions "https://platform.openai.com/docs/api-reference/completions")
+- ChatCompletion: [OpenAI Chat API](https://platform.openai.com/docs/api-reference/chat "https://platform.openai.com/docs/api-reference/chat")
+
+### API Format Examples
+
+The following examples demonstrate how to use each of the four supported API formats with your imported models.
+
+BedrockCompletion
+**BedrockCompletion** format is compatible with current Bedrock workflows and supports text-based inference requests.
+
+Example request:
+
+```
+import json
+import boto3
+
+client = boto3.client('bedrock-runtime', region_name='us-east-1')
+
+payload = {
+    "prompt": "How is the rainbow formed?",
+    "max_gen_len": 100,
+    "temperature": 0.5
+}
+
+response = client.invoke_model(
+    modelId='your-model-arn',
+    body=json.dumps(payload),
+    accept='application/json',
+    contentType='application/json'
+)
+
+response_body = json.loads(response['body'].read())
+```
+
+Example response:
+
+```
+{
+    "generation": " – A scientific explanation\nA rainbow is a beautiful natural phenomenon that occurs when sunlight passes through water droplets in the air. It is formed through a process called refraction, which is the bending of light as it passes from one medium to another.\nHere's a step-by-step explanation of how a rainbow is formed:\n1. Sunlight enters the Earth's atmosphere: The first step in forming a rainbow is for sunlight to enter the Earth's atmosphere. This sunlight is made up of a spectrum of",
+    "prompt_token_count": 7,
+    "generation_token_count": 100,
+    "stop_reason": "length",
+    "logprobs": null
+}
+```
+
+BedrockCompletion supports structured outputs using `response_format` parameter with `json_object` and `json_schema` types.
+
+OpenAICompletion
+**OpenAICompletion** format provides OpenAI Completions Schema compatibility. To use this format, include the `max_tokens` parameter instead of `max_gen_len`.
+
+Example request:
+
+```
+import json
+import boto3
+
+client = boto3.client('bedrock-runtime', region_name='us-east-1')
+
+payload = {
+    "prompt": "How is the rainbow formed?",
+    "max_tokens": 100,
+    "temperature": 0.5
+}
+
+response = client.invoke_model(
+    modelId='your-model-arn',
+    body=json.dumps(payload),
+    accept='application/json',
+    contentType='application/json'
+)
+
+response_body = json.loads(response['body'].read())
+```
+
+Example response:
+
+```
+{
+    "id": "cmpl-b09d5810bd64428f8a853be71c31f912",
+    "object": "text_completion",
+    "created": 1763166682,
+    "choices": [
+        {
+            "index": 0,
+            "text": " The formation of a rainbow is a complex process that involves the interaction of sunlight with water droplets in the air. Here's a simplified explanation: 1. Sunlight enters the Earth's atmosphere and is refracted, or bent, as it passes through the air. 2. When sunlight encounters a water droplet, such as a cloud, mist, or fog, it is refracted again and split into its individual colors, a process known as dispersion. 3. The refracted and",
+            "finish_reason": "length"
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 7,
+        "total_tokens": 107,
+        "completion_tokens": 100
+    }
+}
+```
+
+OpenAICompletion supports full structured outputs capabilities including `json`, `regex`, `choice`, and `grammar` constraints using the `structured_outputs` parameter.
+
+OpenAIChatCompletion
+**OpenAIChatCompletion** format provides full conversational Schema compatibility and supports both text and image inputs.
+
+Example request:
+
+```
+import json
+import boto3
+
+client = boto3.client('bedrock-runtime', region_name='us-east-1')
+
+payload = {
+    "messages": [
+        {
+            "role": "user",
+            "content": "How is the rainbow formed?"
+        }
+    ],
+    "max_tokens": 100,
+    "temperature": 0.5
+}
+
+response = client.invoke_model(
+    modelId='your-model-arn',
+    body=json.dumps(payload),
+    accept='application/json',
+    contentType='application/json'
+)
+
+response_body = json.loads(response['body'].read())
+```
+
+Example response:
+
+```
+{
+    "id": "chatcmpl-1d84ce1d3d61418e8c6d1973f87173db",
+    "object": "chat.completion",
+    "created": 1763166683,
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "A rainbow is a beautiful natural phenomenon that occurs when sunlight passes through water droplets in the air. The process of forming a rainbow involves several steps:\n\n1. **Sunlight**: The first requirement for a rainbow is sunlight. The sun should be shining brightly, but not directly overhead.\n2. **Water droplets**: The second requirement is water droplets in the air..."
+            },
+            "finish_reason": "length"
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 41,
+        "completion_tokens": 100,
+        "total_tokens": 141
+    }
+}
+```
+
+OpenAIChatCompletion supports structured outputs using both `response_format` and `structured_outputs` parameters. For vision capabilities, include images in the content array with base64-encoded image data.
+
+###### Note
+
+To use ChatCompletion format, the chat template needs to be part of the `tokenizer_config.json`. Custom Model Import will not apply any default chat templates to the request.
 
 You'll need the model ARN to make inference calls to your newly imported model. After the
 successful completion of the import job and after your imported model is active, you can get
 the model ARN of your imported model in the console or by sending a [ListImportedModels](../APIReference/API_ListImportedModels.md "../APIReference/API_ListImportedModels.md") request.
 
-To invoke your imported model, make sure to use the same inference parameters that is
-mentioned for the customized foundation model you are importing. For information on the
-inference parameters to use for the model you are importing, see [Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md"). If you are using
-inference parameters that do not match with the inference parameters mentioned for that
-model, those parameters will be ignored.
-
-###### Note
-
-When providing multi modal inputs, you will need to include the appropriate placeholders for multi modal tokens in your text prompt.
-For example, when sending an image input to a Qwen-VL model, the prompt should include `<|vision_start|><|image_pad|><|vision_end|>`. These notations are specific to the model’s tokenizer and can be applied using the following chat template.
-
-```
-from transformers import AutoProcessor, AutoTokenizer
-
-if vision_model:
-    processor = AutoProcessor.from_pretrained(model)
-else:
-    processor = AutoTokenizer.from_pretrained(model)
-
-
-# Create messages
-messages = [
-    {
-        "role": "user",
-        "content": [
-            {
-                "type": "image",
-                "image": "base64 encoded image",
-            },
-            {
-                "type": "text",
-                "text": "Describe this image.",
-            },
-        ],
-    }
-]
-
-# Apply chat template
-prompt = processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-"""
-prompt = '''
-<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n
-<|im_start|>user\n<|vision_start|><|image_pad|><|vision_end|>
-Describe this image.<|im_end|>\n<|im_start|>assistant\n'''
-"""
-
-response = client.invoke_model(
-                modelId=model_id,
-                body=json.dumps({
-                    'prompt': prompt,
-                    'temperature': temperature,
-                    'max_gen_len': max_tokens,
-                    'top_p': top_p,
-                    'images': ["base64 encoded image"]
-                }),
-                accept='application/json',
-                contentType='application/json'
-            )
-
-```
-
 When you invoke your imported model using `InvokeModel` or `InvokeModelWithStream`,
 your request is served within 5 minutes or you might get `ModelNotReadyException`.
 To understand the ModelNotReadyException, follow the steps in this next section for handling ModelNotreadyException.
+
+## Frequently Asked Questions
+
+**Q: What API format should I use?**
+
+A: For maximum compatibility with various SDKs, we recommend using OpenAICompletion or OpenAIChatCompletion formats as they provide OpenAI-compatible schemas that are widely supported across different tools and libraries.
+
+**Q: Does GPT-OSS on Amazon Bedrock Custom Model Import support the Converse API?**
+
+A: No. GPT-OSS based custom model import models do not support the Converse API or ConverseStream API. You must use the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") API with OpenAI-compatible schemas when working with GPT-OSS based custom models.
+
+**Q: What models support tool calling?**
+
+A: GPT-OSS based custom models support tool calling capabilities. Tool calling enables function calling for complex workflows.
+
+**Q: What about models imported before November 11, 2025?**
+
+A: Models imported before November 11, 2025, continue to work as is with their existing API formats and capabilities.
+
+**Q: What about `generation_config.json` for OpenAI-based models?**
+
+A: It is critical that you include the correct `generation_config.json` file when importing OpenAI-based models such as GPT-OSS. You must use the updated configuration file (updated August 13, 2024) available at [https://huggingface.co/openai/gpt-oss-20b/blob/main/generation_config.json](https://huggingface.co/openai/gpt-oss-20b/blob/main/generation_config.json "https://huggingface.co/openai/gpt-oss-20b/blob/main/generation_config.json"). The updated configuration includes three end-of-sequence token IDs (`[200002, 199999, 200012]`), whereas older versions only included two tokens (`[200002, 199999]`). Using an outdated `generation_config.json` file will cause runtime errors during model invocation. This file is essential for proper model behavior and must be included with your OpenAI-based model imports.
 
 ## Handling ModelNotReadyException
 

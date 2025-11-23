@@ -1,6 +1,6 @@
-# Options for handling harmful
+# Options for handling
 
-content detected by Amazon Bedrock Guardrails
+harmful content detected by Amazon Bedrock Guardrails
 
 You can configure what actions your Amazon Bedrock guardrail takes at runtime when it detects
 harmful content in prompts (`inputAction`) and responses
@@ -15,7 +15,8 @@ detected in model inputs and responses:
   identifier tags (such as `{NAME}` or `{EMAIL}`).
 
 This option is available only with sensitive information filters. For more
-information, see [Remove PII from conversations by using sensitive information filters](guardrails-sensitive-filters.md "guardrails-sensitive-filters.md").
+information, see [Remove PII from conversations by using
+sensitive information filters](guardrails-sensitive-filters.md "guardrails-sensitive-filters.md").
 
 - **Detect** – Take no action but return what the
   guardrail detects in the trace response. Use this option, known as

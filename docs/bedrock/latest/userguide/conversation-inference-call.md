@@ -47,6 +47,9 @@ fields:
   - **additionalModelResponseFieldPaths**
     – Use this field to specify fields to return as a JSON pointer
     object.
+  - **serviceTier**
+    – Use this field to specify the service tier for a particular
+    request
 
 - **requestMetadata** – Use this field to
   include metadata that can be filtered on when using invocation logs.
@@ -577,6 +580,18 @@ This field maps to a JSON object. You can specify metadata keys and values
 that they map to within this object. You can use request metadata to help
 you filter model invocation logs.
 
+This field maps to a JSON object. You can specify the service tier for a particular request.
+
+The following example shows the `serviceTier` structure:
+
+```
+"serviceTier": {
+  "type": "priority" | "default" | "flex"
+}
+```
+
+For detailed information about service tiers, including pricing and performance characteristics, see [Service tiers for optimizing performance and cost](service-tiers-inference.md "service-tiers-inference.md").
+
 You can also optionally add cache checkpoints to the `system` or
 `tools` fields to use prompt caching, depending on which model you're
 using. For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
@@ -606,6 +621,9 @@ If you used [prompt caching](prompt-caching.md "prompt-caching.md"), then in the
 usage field, `cacheReadInputTokensCount` and
 `cacheWriteInputTokensCount` tell you how many total tokens were
 read from the cache and written to the cache, respectively.
+
+If you used [service tiers](#inference-service-tiers "#inference-service-tiers"), then in the
+response field, `service tier` would tell you which service tier was used for the request.
 
 The `metrics` field ([ConverseMetrics](../APIReference/API_runtime_ConverseMetrics.md "../APIReference/API_runtime_ConverseMetrics.md"))
 includes metrics for the call. To determine why the model stopped generating

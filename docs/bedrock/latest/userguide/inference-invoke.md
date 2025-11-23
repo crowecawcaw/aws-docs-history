@@ -30,6 +30,7 @@ The following fields are optional:
 | guardrailIdentifier      | To specify a guardrail to apply to the prompt and response. For more information, see [Test your guardrail](guardrails-test.md "guardrails-test.md").                                            |
 | guardrailVersion         | To specify a guardrail to apply to the prompt and response. For more information, see [Test your guardrail](guardrails-test.md "guardrails-test.md").                                            |
 | trace                    | To specify whether to return the trace for the guardrail you specify. For more information, see [Test your guardrail](guardrails-test.md "guardrails-test.md").                                  |
+| serviceTier              | To specify the service tier for a request. For more information, see [Service tiers for optimizing performance and cost](service-tiers-inference.md "service-tiers-inference.md").               |
 
 ## Invoke model code examples
 
@@ -118,6 +119,70 @@ response_text = model_response["results"][0]["outputText"]
 print(response_text)
 
 
+```
+
+The following examples generate a text response to a text prompt using the OpenAI GPT model with a service tier to prioritize the request. Choose the tab for your preferred method, and then follow the steps:
+
+CLI
+Run the following command in a terminal and validate the service tier in the response.
+
+```
+aws bedrock-runtime invoke-model \
+    --model-id openai.gpt-oss-120b-1:0 \
+    --body '{
+        "messages": [
+            {
+                "role": "user",
+                "content": "Describe the purpose of a '\''hello world'\'' program in one line."
+            }
+        ],
+        "max_tokens": 512,
+        "temperature": 0.7
+    }' \
+    --content-type application/json \
+    --accept application/json \
+    --service-tier priority \
+    --cli-binary-format raw-in-base64-out
+```
+
+Python
+Run the following Python code example to generate a text response with service tier:
+
+```
+import boto3
+import json
+
+# Create a Bedrock Runtime client
+bedrock_runtime = boto3.client(
+    service_name="bedrock-runtime",
+    region_name="us-east-1"
+)
+
+# Define the model ID and request body
+model_id = "openai.gpt-oss-120b-1:0"
+body = json.dumps({
+    "messages": [
+        {
+            "role": "user",
+            "content": "Describe the purpose of a 'hello world' program in one line."
+        }
+    ],
+    "max_tokens": 512,
+    "temperature": 0.7
+})
+
+# Make the request with service tier
+response = bedrock_runtime.invoke_model(
+    modelId=model_id,
+    body=body,
+    contentType="application/json",
+    accept="application/json",
+    serviceTier="priority"
+)
+
+# Parse and print the response
+response_body = json.loads(response["body"])
+print(response_body)
 ```
 
 The following code examples generate an image using a text prompt with the Stable Diffusion XL 1.0 model. Choose the tab for your preferred method, and then follow the steps:
@@ -613,7 +678,7 @@ if __name__ == "__main__":
 
 The following examples show how to generate a response with the Amazon Nova Lite model, given a video you upload to an S3 bucket and an accompanying text prompt.
 
-**Prerequisite:** Upload a video titled `video.mp4` to an Amazon S3 bucket in your account by following the steps at [Uploading objects](../../../https:/docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.md#upload-objects-procedure "../../../https:/docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.md#upload-objects-procedure") in the Amazon Simple Storage Service User Guide. Take note of the S3 URI of the video.
+**Prerequisite:** Upload a video titled `video.mp4` to an Amazon S3 bucket in your account by following the steps at [Uploading objects](../../../AmazonS3/latest/userguide/upload-objects.md#upload-objects-procedure "../../../AmazonS3/latest/userguide/upload-objects.md#upload-objects-procedure") in the Amazon Simple Storage Service User Guide. Take note of the S3 URI of the video.
 
 Choose the tab for your preferred method, and then follow the steps:
 
