@@ -17,7 +17,7 @@ AWS Management Console
 Do the following:
 
 1. Open the **Kinesis Video Streams Signaling
-   Channels** console at [https://console.aws.amazon.com/kinesisvideo/home/#/signalingChannels](https://console.aws.amazon.com/kinesisvideo/home/#/signalingChannels "https://console.aws.amazon.com/kinesisvideo/home/#/signalingChannels").
+   Channels** console at [https://console.aws.amazon.com/kinesisvideo/home/#/signalingChannels](https://console.aws.amazon.com//kinesisvideo/home/#/signalingChannels "https://console.aws.amazon.com//kinesisvideo/home/#/signalingChannels").
 2. Choose **Create signaling channel**.
 3. On the **Create a new signaling channel** page,
    type the name for the signaling channel.

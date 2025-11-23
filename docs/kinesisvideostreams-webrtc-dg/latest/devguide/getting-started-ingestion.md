@@ -26,12 +26,6 @@ Master participants first connect to Kinesis Video Streams with WebRTC Signaling
 
 ### Master and viewer participants together
 
-###### Note
-
-WebRTC ingest with multi-viewer support (Preview) is being provided in Preview as defined in the AWS Service Terms and is subject to change. It is currently only available in `us-east-1` (IAD).
-
-To participate in the preview, email `<kvs-webrtc-multi-view-preview@amazon.com>`.
-
 Viewer participants first connect to Kinesis Video Streams with WebRTC Signaling via [ConnectAsViewer](ConnectAsViewer.md "ConnectAsViewer.md"). Next, they call the [JoinStorageSessionAsViewer](../../../kinesisvideostreams/latest/dg/API_webrtc_JoinStorageSessionAsViewer.md "../../../kinesisvideostreams/latest/dg/API_webrtc_JoinStorageSessionAsViewer.md") API to have the storage session initiate a WebRTC connection. Once a WebRTC connection is established, combined media from the master and all viewer participants will be ingested to the configured Kinesis video stream, as long as the master participant is present.
 
 The storage session combines and forwards all viewer participant’s audio to the

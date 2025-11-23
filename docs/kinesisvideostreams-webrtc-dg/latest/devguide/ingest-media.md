@@ -101,12 +101,6 @@ Your supplied signaling channel must be configured for storage. Use the
 
 ## Add viewers to the ingestion session
 
-###### Note
-
-WebRTC ingest with multi-viewer support (Preview) is being provided in Preview as defined in the AWS Service Terms and is subject to change. It is currently only available in `us-east-1` (IAD).
-
-To participate in the preview, email `<kvs-webrtc-multi-view-preview@amazon.com>`.
-
 Once the signaling channel is in WebRTC Ingestion mode, viewer participants no
 longer connect directly to the master participant. Viewer participants connect
 directly to the storage session. Viewer participants receive the media sent by the

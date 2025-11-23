@@ -118,9 +118,9 @@ AWS Management Console
 
 2. Choose **Start Master** to connect to the signaling channel.
 
-Allow access to your camera and/or microphone, if needed. 3. Open the [Kinesis Video Streams console](https://console.aws.amazon.com/kinesisvideo/home/ "https://console.aws.amazon.com/kinesisvideo/home/") in the AWS Management Console.
+Allow access to your camera and/or microphone, if needed. 3. Open the [Kinesis Video Streams console](https://console.aws.amazon.com//kinesisvideo/home/ "https://console.aws.amazon.com//kinesisvideo/home/") in the AWS Management Console.
 
-Make sure the correct region is selected. 4. In the left navigation, select **[signaling channels](https://console.aws.amazon.com/kinesisvideo/home#/signalingChannels/ "https://console.aws.amazon.com/kinesisvideo/home#/signalingChannels/")**.
+Make sure the correct region is selected. 4. In the left navigation, select **[signaling channels](https://console.aws.amazon.com//kinesisvideo/home#/signalingChannels/ "https://console.aws.amazon.com//kinesisvideo/home#/signalingChannels/")**.
 
 Select the name of the signaling channel above. Use the search bar, if needed. 5. Expand the **Media playback viewer** section. 6. Choose the **play** button on the video player. This joins the WebRTC session
 as a `viewer`.

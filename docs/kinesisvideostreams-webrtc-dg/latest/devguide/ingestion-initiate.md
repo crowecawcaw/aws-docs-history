@@ -10,7 +10,7 @@ specified viewer participant connected through [ConnectAsViewer](ConnectAsViewer
 
 1. Obtain the ARN of the signaling channel, as it is a required input for the next step. If you already know the ARN, continue with the next step.
 
-AWS Management Console 1. Open the [Kinesis Video Streams Signaling Channels console](https://console.aws.amazon.com/kinesisvideo/home/#/signalingChannels "https://console.aws.amazon.com/kinesisvideo/home/#/signalingChannels"). 2. Choose the name of your signaling channel. 3. Under the **Signaling channel info** tab, locate the ARN for your signaling channel.
+AWS Management Console 1. Open the [Kinesis Video Streams Signaling Channels console](https://console.aws.amazon.com//kinesisvideo/home/#/signalingChannels "https://console.aws.amazon.com//kinesisvideo/home/#/signalingChannels"). 2. Choose the name of your signaling channel. 3. Under the **Signaling channel info** tab, locate the ARN for your signaling channel.
 
 AWS CLIVerify that you have the AWS CLI installed and configured. For more
 information, see the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md").
