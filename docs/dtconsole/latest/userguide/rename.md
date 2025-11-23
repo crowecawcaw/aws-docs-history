@@ -62,7 +62,7 @@ permissions, but policies created with the old prefix will continue to be suppor
 
 ## New CloudFormation resource
 
-To use the AWS CloudFormation resources for connections, a new resource will be available. The existing
+To use the CloudFormation resources for connections, a new resource will be available. The existing
 resource will still be supported.
 
 - The new [AWS CloudFormation](http://aws.amazon.com/cloudformation/ "http://aws.amazon.com/cloudformation/") resource is

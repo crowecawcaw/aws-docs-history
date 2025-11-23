@@ -61,7 +61,7 @@ instances), and CloudFormation takes care of provisioning and configuring those 
 
 You use connections with Git sync in CloudFormation to create a sync configuration that
 monitors your Git repository. For a tutorial that walks you through using Git sync for stack
-deployments, see [Working with CloudFormation Git sync](../../../AWSCloudFormation/latest/UserGuide/git-sync.md "../../../AWSCloudFormation/latest/UserGuide/git-sync.md") in the _AWS CloudFormation User
+deployments, see [Working with CloudFormation Git sync](../../../AWSCloudFormation/latest/UserGuide/git-sync.md "../../../AWSCloudFormation/latest/UserGuide/git-sync.md") in the _CloudFormation User
 Guide_.
 
 For more information about CloudFormation, see [Registering

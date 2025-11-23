@@ -1,7 +1,7 @@
 # Update a pending connection
 
 A connection created through the AWS Command Line Interface (AWS CLI) or AWS CloudFormation is in `PENDING`
-status by default. After you create a connection with the AWS CLI or AWS CloudFormation, use the console to
+status by default. After you create a connection with the AWS CLI or CloudFormation, use the console to
 update the connection to make its status `AVAILABLE`.
 
 ###### Note

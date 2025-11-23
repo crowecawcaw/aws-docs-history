@@ -7,7 +7,7 @@ supports.
 
 ###### Topics
 
-- [Supported provider type for Azure DevOps](#w13aab5c25c22b9 "#w13aab5c25c22b9")
+- [Supported provider type for Azure DevOps](#w2aab5c25c22b9 "#w2aab5c25c22b9")
 - [Supported provider type for
   Bitbucket](#supported-versions-connections-bitbucket "#supported-versions-connections-bitbucket")
 - [Supported provider type for GitHub and

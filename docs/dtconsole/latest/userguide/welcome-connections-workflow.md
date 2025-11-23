@@ -17,7 +17,7 @@ Connections can have the following states:
   AWS CloudFormation**
 
 You use the [CreateConnection](../../../codeconnections/latest/APIReference/API_CreateConnection.md "../../../codeconnections/latest/APIReference/API_CreateConnection.md") API to create a connection using the AWS Command Line Interface (AWS CLI), SDK, or
-AWS CloudFormation. After it is created, the connection is in a `pending` state. You complete
+CloudFormation. After it is created, the connection is in a `pending` state. You complete
 the process by using the console **Set up pending connection** option. The
 console prompts you to create an installation or use an existing installation for the
 connection. You then use the console to complete the handshake and move the connection to an

@@ -20,7 +20,7 @@ Hosts can have the following states:
   AWS CloudFormation**
 
 You use the [CreateHost](../../../codeconnections/latest/APIReference/API_CreateHost.md "../../../codeconnections/latest/APIReference/API_CreateHost.md") API to
-create a host using the AWS Command Line Interface (AWS CLI), SDK, or AWS CloudFormation. After it is created, the host is
+create a host using the AWS Command Line Interface (AWS CLI), SDK, or CloudFormation. After it is created, the host is
 in a `pending` state. You complete the process by using the console **Set
 up** option in the console.
 

@@ -11,7 +11,7 @@ link between your connection and your third-party repository.
 1. Open a terminal (Linux, macOS, or Unix) or command prompt (Windows). Use the AWS CLI to run the
    **create-repository-link** command. Specify the ARN of the
    associated connection, the owner ID, and the repository name. The following command
-   creates a sync configuration with a sync type for a resource in AWS CloudFormation. It also
+   creates a sync configuration with a sync type for a resource in CloudFormation. It also
    specifies the repository branch and configuration file in the repository. In this
    example, the resource is a stack named **`mystack`**.
 

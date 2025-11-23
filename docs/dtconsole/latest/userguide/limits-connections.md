@@ -19,11 +19,11 @@ more information, see [Enabling a Region](../../../general/latest/gr/rande-manag
 
 Quotas in this table are fixed and cannot be changed.
 
-| Resource                                                       | Default limit |
-| -------------------------------------------------------------- | ------------- |
-| Maximum characters in connection names                         | 32 characters |
-| Maximum number of hosts per AWS account                        | 50            |
-| Maximum number of repository links                             | 100           |
-| Maximum number of AWS CloudFormation stack sync configurations | 100           |
-| Maximum number of sync configurations per repository link      | 100           |
-| Maximum number of sync configurations per branch               | 50            |
+| Resource                                                   | Default limit |
+| ---------------------------------------------------------- | ------------- |
+| Maximum characters in connection names                     | 32 characters |
+| Maximum number of hosts per AWS account                    | 50            |
+| Maximum number of repository links                         | 100           |
+| Maximum number of CloudFormation stack sync configurations | 100           |
+| Maximum number of sync configurations per repository link  | 100           |
+| Maximum number of sync configurations per branch           | 50            |
