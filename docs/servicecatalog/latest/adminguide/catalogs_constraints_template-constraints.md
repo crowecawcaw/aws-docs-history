@@ -11,8 +11,8 @@ constraints to a product in a AWS Service Catalog portfolio. A portfolio must co
 before you can define template constraints.
 
 A template constraint consists of one or more rules that narrow the allowable values for
-parameters that are defined in the product's underlying AWS CloudFormation template. The parameters in an
-AWS CloudFormation template define the set of values that users can specify when creating a stack. For
+parameters that are defined in the product's underlying CloudFormation template. The parameters in an
+CloudFormation template define the set of values that users can specify when creating a stack. For
 example, a parameter might define the various instance types that users can choose from when
 launching a stack that includes EC2 instances.
 
@@ -21,7 +21,7 @@ portfolio, you can define template constraints to limit the values that users ca
 launching a product. For example, if the template parameters include EC2 instance types that are
 too large for users who should use only small instance types (such as `t2.micro` or `t2.small`),
 then you can add a template constraint to limit the instance types that end users can choose.
-For more information about AWS CloudFormation template parameters, see [Parameters](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") in the _AWS CloudFormation User Guide_.
+For more information about CloudFormation template parameters, see [Parameters](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") in the _CloudFormation User Guide_.
 
 Template constraints are bound within a portfolio. If you apply template constraints to a
 product in one portfolio, and if you then include the product in another portfolio, the

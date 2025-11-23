@@ -2,10 +2,10 @@
 
 The rules that define template constraints in a AWS Service Catalog portfolio describe when
 end users can use the template and which values they can specify for parameters that are
-declared in the AWS CloudFormation template used to create the product they are attempting to use. Rules are
+declared in the CloudFormation template used to create the product they are attempting to use. Rules are
 useful for preventing end users from inadvertently specifying an incorrect value. For example,
 you can add a rule to verify whether end users specified a valid subnet in a given VPC or used
-`m1.small` instance types for test environments. AWS CloudFormation uses rules to validate
+`m1.small` instance types for test environments. CloudFormation uses rules to validate
 parameter values before it creates the resources for the product.
 
 Each rule consists of two properties: a rule condition (optional) and assertions (required).
@@ -18,10 +18,10 @@ result of a rule condition or assertion must be either true or false.
 
 As an example, assume that you declared a VPC and a subnet parameter in the
 `Parameters` section. You can create a rule that validates that a given subnet is in
-a particular VPC. So when a user specifies a VPC, AWS CloudFormation evaluates the assertion to check whether
+a particular VPC. So when a user specifies a VPC, CloudFormation evaluates the assertion to check whether
 the subnet parameter value is in that VPC before creating or updating the stack. If the
-parameter value is invalid, AWS CloudFormation immediately fail to create or update the stack. If users don't
-specify a VPC, AWS CloudFormation doesn't check the subnet parameter value.
+parameter value is invalid, CloudFormation immediately fail to create or update the stack. If users don't
+specify a VPC, CloudFormation doesn't check the subnet parameter value.
 
 ## Syntax
 

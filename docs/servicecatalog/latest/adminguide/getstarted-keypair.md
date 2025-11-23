@@ -6,7 +6,7 @@ used to encrypt data and a private key that is used to decrypt data. For more in
 key pairs, ensure you are signed into the AWS console and then review [Amazon EC2 Key Pairs](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md") in the
 _Amazon EC2 User Guide_.
 
-The AWS CloudFormation template for this tutorial, `development-environment.template`,
+The CloudFormation template for this tutorial, `development-environment.template`,
 includes the `KeyName` parameter:
 
 ```

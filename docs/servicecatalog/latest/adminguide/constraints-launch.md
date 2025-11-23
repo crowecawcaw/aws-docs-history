@@ -4,7 +4,7 @@ A launch constraint specifies the AWS Identity and Access Management (IAM) role 
 launches, updates, or terminates a product. An IAM role is a collection of permissions that a user or AWS
 service can assume temporarily to use AWS services. For an introductory example, see:
 
-- AWS CloudFormation product type: [Step 6: Add a launch constraint to assign an IAM role](getstarted-launchconstraint.md "getstarted-launchconstraint.md")
+- CloudFormation product type: [Step 6: Add a launch constraint to assign an IAM role](getstarted-launchconstraint.md "getstarted-launchconstraint.md")
 - Terraform Open Source or Terraform Cloud product type: [Step 5: Create launch roles](getstarted-launchrole-Terraform.md "getstarted-launchrole-Terraform.md")
   Launch constraints apply to products in the portfolio (product-portfolio association).
   Launch constraints do not apply at the portfolio level or to a product across all portfolios. To
@@ -12,7 +12,7 @@ service can assume temporarily to use AWS services. For an introductory example,
   constraint to each product individually.
 
 Without a launch constraint, end users must launch and manage products using their own IAM
-credentials. To do so, they must have permissions for AWS CloudFormation, AWS services that the products
+credentials. To do so, they must have permissions for CloudFormation, AWS services that the products
 use, and AWS Service Catalog. By using a launch role, you can instead limit the end users' permissions to the
 minimum they require for that product. For more information about end user permissions, see
 [Identity and Access Management in
@@ -34,7 +34,7 @@ to use the following:
 
 **For Cloudformation products**
 
-- The `arn:aws:iam::aws:policy/AWSCloudFormationFullAccess` AWS CloudFormation managed policy
+- The `arn:aws:iam::aws:policy/AWSCloudFormationFullAccess` CloudFormation managed policy
 - Services in the AWS CloudFormation template for the product
 - Read access to the AWS CloudFormation template in a service-owned Amazon S3 bucket.
 
@@ -61,7 +61,7 @@ AWS Service Catalog End Users.](getstarted-iamenduser.md "getstarted-iamenduser.
 
 ###### Note
 
-To view provisioned Cloudformation products and resources in the AWS Service Catalog console, end users need AWS CloudFormation read access.
+To view provisioned Cloudformation products and resources in the AWS Service Catalog console, end users need CloudFormation read access.
 Viewing provisioned products and resources in the console does **not** use the launch role.
 
 ###### To create a launch role

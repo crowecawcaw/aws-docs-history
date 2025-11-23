@@ -11,8 +11,8 @@ to the portfolio.
 ###### Note
 
 When you create a AWS Service Catalog product,
-you can upload an AWS CloudFormation template or Terraform configuration file.
-The AWS CloudFormation template is stored
+you can upload an CloudFormation template or Terraform configuration file.
+The CloudFormation template is stored
 in an Amazon Simple Storage Service (Amazon S3) bucket,
 and the bucket name begins
 with "**_cf-templates-_**."
@@ -49,9 +49,9 @@ currently selected portfolio.
      products.
 
 4. On the **Version details** page, enter the following:
-   - **Choose template** – For AWS CloudFormation products, choose your own template file,
-     an AWS CloudFormation template from a local drive or a URL that points to a template stored in Amazon S3, an existing
-     AWS CloudFormation Stack ARN template, or a template file stored in an external repository.
+   - **Choose template** – For CloudFormation products, choose your own template file,
+     an CloudFormation template from a local drive or a URL that points to a template stored in Amazon S3, an existing
+     CloudFormation Stack ARN template, or a template file stored in an external repository.
 
    For Teraform products, choose your own template file, a tar.gz configuration file from a local drive or
    a URL that points to a template stored in Amazon S3, or a tar.gz configuration file stored in an

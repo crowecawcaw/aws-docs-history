@@ -1,6 +1,6 @@
-# Step 1: Download the AWS CloudFormation template
+# Step 1: Download the CloudFormation template
 
-You can use AWS CloudFormation templates
+You can use CloudFormation templates
 to configure and provision portfolios and products.
 These templates are text files
 that can be formatted
@@ -10,7 +10,7 @@ that you want
 to provision.
 For more information,
 see [Template Formats](../../../AWSCloudFormation/latest/UserGuide/template-formats.md "../../../AWSCloudFormation/latest/UserGuide/template-formats.md")
-in the _AWS CloudFormation User Guide_.
+in the _CloudFormation User Guide_.
 You can use the AWS CloudFormation editor or a text editor
 of your choice
 to create and save templates.
@@ -23,7 +23,7 @@ for SSH access.
 
 ###### Note
 
-Using AWS CloudFormation templates requires special permissions.
+Using CloudFormation templates requires special permissions.
 Before you begin,
 make sure
 that you have the correct permissions.
@@ -190,7 +190,7 @@ the key pair in the next step.
   of the EC2 instance resource uses the information that the user types to configure the
   instance type and a key name for SSH access.
 
-AWS CloudFormation uses the current AWS Region to select the AMI ID from the
+CloudFormation uses the current AWS Region to select the AMI ID from the
 mappings defined earlier and assigns a security group to it. The security group is
 configured to allow inbound access on port 22 from the CIDR IP address range that the user
 specifies.
@@ -200,5 +200,5 @@ specifies.
   launched instance and displays it to the user. The user needs the DNS name to connect to
   the instance using SSH.
 
-For more information about the Template anatomy page, see [Template reference](../../../AWSCloudFormation/latest/UserGuide/template-reference.md "../../../AWSCloudFormation/latest/UserGuide/template-reference.md") in the _AWS CloudFormation User
+For more information about the Template anatomy page, see [Template reference](../../../AWSCloudFormation/latest/UserGuide/template-reference.md "../../../AWSCloudFormation/latest/UserGuide/template-reference.md") in the _CloudFormation User
 Guide_.

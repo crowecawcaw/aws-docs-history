@@ -35,4 +35,4 @@ To add a product from your catalog to a portfolio
    shared account. For
    details and instructions, review [Step 6: Add a Launch constraint to your Terraform product](getstarted-launchconstraint-Terraform.md "getstarted-launchconstraint-Terraform.md")
 
-A portfolio can contain numerous products that are mix of AWS CloudFormation and Terraform product types.
+A portfolio can contain numerous products that are mix of CloudFormation and Terraform product types.

@@ -185,14 +185,14 @@ in the _AWS CloudFormation User Guide_:
 ###### Note
 
 If you manage service action associations
-with AWS CloudFormation resources,
+with CloudFormation resources,
 don't add or remove service actions
 through the AWS Command Line Interface or AWS Management Console.
 When you perform a stack update,
 any changes
 to sevice actions
 that are made outside
-of AWS CloudFormation
+of CloudFormation
 are replaced.
 
 ## Step 6: Troubleshooting

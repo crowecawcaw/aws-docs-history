@@ -16,5 +16,5 @@ AWS Service Catalog](controlling_access.md "controlling_access.md").
 - [Using AWS Service Catalog Constraints](constraints.md "constraints.md")
 - [AWS Service Catalog Service Actions](using-service-actions.md "using-service-actions.md")
 - [Adding AWS Marketplace Products to Your Portfolio](catalogs_marketplace-products.md "catalogs_marketplace-products.md")
-- [Using AWS CloudFormation StackSets](using-stacksets.md "using-stacksets.md")
+- [Using CloudFormation StackSets](using-stacksets.md "using-stacksets.md")
 - [Managing Budgets](catalogs_budgets.md "catalogs_budgets.md")

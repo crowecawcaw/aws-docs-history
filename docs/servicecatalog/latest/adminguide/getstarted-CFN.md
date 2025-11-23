@@ -1,4 +1,4 @@
-# Getting started with an AWS CloudFormation product
+# Getting started with an CloudFormation product
 
 You can get started
 with AWS Service Catalog
@@ -21,7 +21,7 @@ The product is a cloud development environment
 that runs
 on Amazon Linux
 and is based
-on an AWS CloudFormation template
+on an CloudFormation template
 that defines the AWS resources
 the product can use.
 
@@ -34,7 +34,7 @@ in [Setting Up AWS Service Catalog](setup.md "setup.md").
 
 ###### Topics
 
-- [Step 1: Download the AWS CloudFormation template](getstarted-template.md "getstarted-template.md")
+- [Step 1: Download the CloudFormation template](getstarted-template.md "getstarted-template.md")
 - [Step 2: Create a key pair](getstarted-keypair.md "getstarted-keypair.md")
 - [Step 3: Create a portfolio](getstarted-portfolio.md "getstarted-portfolio.md")
 - [Step 4: Create a new product in the portfolio](getstarted-product.md "getstarted-product.md")

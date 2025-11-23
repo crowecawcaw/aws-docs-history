@@ -7,7 +7,7 @@ appropriate or sufficient for your environment, treat them as helpful considerat
 than prescriptions.
 
 You can define rules that limit the parameter values that a user enters when launching a
-product. These rules are called template constraints because they constrain how the AWS CloudFormation
+product. These rules are called template constraints because they constrain how the CloudFormation
 template for the product is deployed. You use a simple editor to create template
 constraints, and you apply them to individual products.
 

@@ -9,7 +9,7 @@ Service Catalog supports the following types of users:
 
 - **Catalog administrators (administrators)** – Manage a
   catalog of products (applications and services), organizing them into portfolios and
-  granting access to end users. Catalog administrators prepare AWS CloudFormation templates, configure
+  granting access to end users. Catalog administrators prepare CloudFormation templates, configure
   constraints, and manage IAM roles for products to provide for advanced resource
   management.
 - **End users** – Receive AWS credentials from
@@ -89,7 +89,7 @@ view and modify your catalog. IAM permissions can be assigned to IAM users, grou
 roles.
 
 When a user launches a product that has an IAM role assigned to it, Service Catalog uses the role
-to launch the product's cloud resources using AWS CloudFormation. By assigning an IAM role to each
+to launch the product's cloud resources using CloudFormation. By assigning an IAM role to each
 product, you can avoid giving users permissions to perform unapproved operations and enable
 them to provision resources using the catalog.
 

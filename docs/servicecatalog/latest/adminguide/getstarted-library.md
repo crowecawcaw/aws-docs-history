@@ -13,7 +13,7 @@ portfolios to your own account, then customize them to suit your needs.
 
 Before you use the templates in our Getting Started Library, make sure you have the following:
 
-- The required permissions to use AWS CloudFormation templates. For more information, see [Controlling Access with AWS Identity and Access Management](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md "../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md").
+- The required permissions to use CloudFormation templates. For more information, see [Controlling Access with AWS Identity and Access Management](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md "../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md").
 - The required administrator permissions to manage AWS Service Catalog. For more information, see [Identity and Access Management in
   AWS Service Catalog](controlling_access.md "controlling_access.md").
 

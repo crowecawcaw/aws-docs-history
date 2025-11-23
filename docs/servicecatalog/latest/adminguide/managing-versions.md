@@ -2,7 +2,7 @@
 
 You assign product versions when you create a product, and you can update product versions any time.
 
-Versions have an AWS CloudFormation template, a title, a description, a status, and guidance.
+Versions have an CloudFormation template, a title, a description, a status, and guidance.
 
 ## Version Status
 

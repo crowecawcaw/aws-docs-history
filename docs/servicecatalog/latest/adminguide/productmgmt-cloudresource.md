@@ -13,7 +13,7 @@ provisioning engine and launch role. For more information, review
 1. Navigate to the **Products list** page.
 2. Choose **Create product**, and the choose **Create product**.
 3. **Product details** – Enables you to choose the type of product
-   you want to create. AWS Service Catalog supports AWS CloudFormation, Terraform Cloud, and External (supports Terraform Community Edition) product types.
+   you want to create. AWS Service Catalog supports CloudFormation, Terraform Cloud, and External (supports Terraform Community Edition) product types.
    Product details also contains the metadata that appears when
    you search for and view products in a list or detail page. Enter the following:
    - **Product name** – The name of the product.
@@ -30,10 +30,10 @@ provisioning engine and launch role. For more information, review
    and build your product. Enter the following:
    - **Choose method** – There are four ways to add a template
      file.
-     - **Use a local template file** - Upload an AWS CloudFormation template
+     - **Use a local template file** - Upload an CloudFormation template
        or a Terraform tar.gz configuration file from a local drive.
      - **Use an Amazon S3 URL** - Specify a URL that points to an
-       AWS CloudFormation template or a Terraform tar.gz configuration file stored in Amazon S3.
+       CloudFormation template or a Terraform tar.gz configuration file stored in Amazon S3.
        If you specify an Amazon S3 URL, it
        must begin with `https://`.
      - **Use an external repository** - Specify your GitHub,
@@ -74,11 +74,11 @@ provisioning engine and launch role. For more information, review
    template to AWS Service Catalog and deliver changes you have made in your source repository. For
    more information, see [Tutorial: Create a Pipeline That Deploys to AWS Service Catalog](../../../codepipeline/latest/userguide/tutorials-S3-servicecatalog.md "../../../codepipeline/latest/userguide/tutorials-S3-servicecatalog.md").
 
-You can define parameter properties in your AWS CloudFormation or Terraform template and enforce those rules during
+You can define parameter properties in your CloudFormation or Terraform template and enforce those rules during
 provisioning. These properties can define the minimum and maximum length, minimum and maximum
 values, allowed values, and a regular expression for the value. AWS Service Catalog issues a warning during
 provisioning if the value provided does not adhere to the parameter property. To learn more
-about parameter properties, see [Parameters](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") in the _AWS CloudFormation User Guide_.
+about parameter properties, see [Parameters](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") in the _CloudFormation User Guide_.
 
 ##
 

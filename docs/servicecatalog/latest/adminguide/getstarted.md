@@ -19,7 +19,7 @@ you verify
 that you can access the end user console and launch the product.
 The product is one of the following:
 
-- A cloud development environment that runs on Amazon Linux and is based on an AWS CloudFormation template
+- A cloud development environment that runs on Amazon Linux and is based on an CloudFormation template
   that defines the AWS resources the product can use.
 - An open source environment that runs on a Terraform provisioning engine and is based on a
   tar.gz configuration file that defines the AWS resources the product can use.
@@ -34,5 +34,5 @@ in [Setting Up AWS Service Catalog](setup.md "setup.md").
 ###### Topics
 
 - [Getting Started Library](getstarted-library.md "getstarted-library.md")
-- [Getting started with an AWS CloudFormation product](getstarted-CFN.md "getstarted-CFN.md")
+- [Getting started with an CloudFormation product](getstarted-CFN.md "getstarted-CFN.md")
 - [Getting started with a Terraform product](getstarted-Terraform.md "getstarted-Terraform.md")

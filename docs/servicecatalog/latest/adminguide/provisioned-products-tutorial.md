@@ -102,8 +102,8 @@ address during federation). In this example, it is "steve".
 }
 ```
 
-7. Use the `CloudformationStackARN` value to identify AWS CloudFormation events to
-   find information about the created resources. You can also use the AWS CloudFormation API to
+7. Use the `CloudformationStackARN` value to identify CloudFormation events to
+   find information about the created resources. You can also use the CloudFormation API to
    obtain this information. For more information, see [AWS CloudFormation API Reference](../../../AWSCloudFormation/latest/APIReference.md "../../../AWSCloudFormation/latest/APIReference.md").
    You can perform steps 1 through 4 using the AWS Service Catalog API or the
    AWS CLI. For more information, see [AWS Service Catalog Developer Guide.](../dg/what-is-service-catalog.md "../dg/what-is-service-catalog.md") and [AWS Service Catalog Command Line Reference.](../../../cli/latest/reference/servicecatalog.md "../../../cli/latest/reference/servicecatalog.md")

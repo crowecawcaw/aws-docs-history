@@ -59,7 +59,7 @@ register a delegated admin account
 that you can use for sharing.
 For more information,
 see [Register a delegated administrator](../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.md")
-in the _AWS CloudFormation User Guide_.
+in the _CloudFormation User Guide_.
 
 Next,
 you must decide who

@@ -16,7 +16,7 @@ AWS Service Catalog does not support AutoTags for Terraform Open Source products
 
 AWS Service Catalog AutoTags can help provide consistent tagging for your resources, which is useful when setting budgets for a portfolio, product, or user.
 You can also use the AutoTags to identify resources for post-launch operations such as setting AWS Config rules. AutoTags for your provisioned resources can be
-viewed in the Tags section of the downstream services used for provisioning, such as AWS CloudFormation, Amazon EC2, and Amazon S3.
+viewed in the Tags section of the downstream services used for provisioning, such as CloudFormation, Amazon EC2, and Amazon S3.
 
 ###### Note
 

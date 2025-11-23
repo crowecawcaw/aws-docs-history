@@ -43,7 +43,7 @@ view.
 
 Before end users can use a product to which you give access, you
 must provide them additional IAM permissions to allow them to use each of the
-underlying AWS resources in a product's AWS CloudFormation template. For example, if a product
+underlying AWS resources in a product's CloudFormation template. For example, if a product
 template includes Amazon Relational Database Service (Amazon RDS), you must grant the users Amazon RDS permissions to
 launch the product.
 

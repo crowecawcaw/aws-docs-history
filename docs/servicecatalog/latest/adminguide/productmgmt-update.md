@@ -8,9 +8,9 @@ containing the product.
 
 ###### Note
 
-When updating an existing product, you cannot change the product type (AWS CloudFormation or Teraform). For example, if you update a
-AWS CloudFormation product, you cannot replace the existing AWS CloudFormation template with a Terraform tar.gz configuration file. You must update the
-existing AWS CloudFormation template file with a new AWS CloudFormation template file.
+When updating an existing product, you cannot change the product type (CloudFormation or Teraform). For example, if you update a
+CloudFormation product, you cannot replace the existing CloudFormation template with a Terraform tar.gz configuration file. You must update the
+existing CloudFormation template file with a new CloudFormation template file.
 
 End users who are currently running a provisioned product of the previous product version can update their
 provisioned product to the new version.
@@ -18,7 +18,7 @@ When a new version of a product is available,
 users can use the **Update provisioned product** command
 on the **Provisioned product list** or **Provisioned product details** pages.
 
-Before you create a new version of a product, AWS Service Catalog recommends that you test your product updates in AWS CloudFormation or
+Before you create a new version of a product, AWS Service Catalog recommends that you test your product updates in CloudFormation or
 in the Terraform engine to ensure that they function properly.
 
 ###### To create a new product version
@@ -38,11 +38,11 @@ in the Terraform engine to ensure that they function properly.
    - **Choose template** – There are four ways to add a template
      file.
 
-   _Use a local template file_ - Upload an AWS CloudFormation template
+   _Use a local template file_ - Upload an CloudFormation template
    or a Terraform tar.gz configuration file from a local drive.
 
    _Use an Amazon S3 URL_ - Specify a URL that points to an
-   AWS CloudFormation template or a Terraform tar.gz configuration file stored in Amazon S3.
+   CloudFormation template or a Terraform tar.gz configuration file stored in Amazon S3.
    If you specify an Amazon S3 URL, it
    must begin with https://.
 

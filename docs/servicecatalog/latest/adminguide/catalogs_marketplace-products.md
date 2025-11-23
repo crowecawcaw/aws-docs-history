@@ -9,7 +9,7 @@ AWS Marketplace include databases, application servers, testing tools, monitorin
 management tools, and business intelligence software. AWS Marketplace is available at [https://aws.amazon.com/marketplace](https://aws.amazon.com/marketplace "https://aws.amazon.com/marketplace"). Note that you can't add software as a service (SaaS)
 products from AWS Marketplace to AWS Service Catalog.
 
-You distribute an AWS Marketplace product to AWS Service Catalog end users by copying the product with the AWS CloudFormation
+You distribute an AWS Marketplace product to AWS Service Catalog end users by copying the product with the CloudFormation
 template to AWS Service Catalog, and then adding the product to a portfolio.
 
 ###### Note
@@ -33,7 +33,7 @@ FAQ_.
 Manually
 
 Complete the following steps to subscribe to an AWS Marketplace product, define that product in an
-AWS CloudFormation template, and add the template to a AWS Service Catalog portfolio.
+CloudFormation template, and add the template to a AWS Service Catalog portfolio.
 
 ###### To subscribe to an AWS Marketplace product
 
@@ -46,20 +46,20 @@ AWS CloudFormation template, and add the template to a AWS Service Catalog portf
 The information on the fulfillment page includes the supported
 Amazon Elastic Compute Cloud (Amazon EC2) instance types, the supported AWS Regions, and the Amazon Machine Image
 (AMI) ID that the product uses for each AWS region. Note that some choices will affect
-cost. You will use this information to customize the AWS CloudFormation template in later steps. 4. Choose **Accept Terms** to subscribe to the product.
+cost. You will use this information to customize the CloudFormation template in later steps. 4. Choose **Accept Terms** to subscribe to the product.
 
 After you subscribe to a product, you can access the information on the product
 fulfillment page in AWS Marketplace at any time by choosing **Your Software**, and
 then choosing the product.
 
-###### To define your AWS Marketplace product in an AWS CloudFormation template
+###### To define your AWS Marketplace product in an CloudFormation template
 
-To complete the following steps, you will use one of the AWS CloudFormation sample templates as a
+To complete the following steps, you will use one of the CloudFormation sample templates as a
 starting point, and you will customize the template so that it represents your AWS Marketplace
 product. To access the sample templates, see [Sample Templates](../../../AWSCloudFormation/latest/UserGuide/cfn-sample-templates.md "../../../AWSCloudFormation/latest/UserGuide/cfn-sample-templates.md") in the
 _AWS CloudFormation User Guide_.
 
-1. On the Sample Templates page in the _AWS CloudFormation User
+1. On the Sample Templates page in the _CloudFormation User
    Guide_, choose an AWS Region for your product. The AWS Region must be
    supported by your AWS Marketplace product. You can view the supported regions on the product
    fulfillment page in AWS Marketplace.
@@ -168,7 +168,7 @@ similar to the following example:
 
 You can now use the template to add the product to a AWS Service Catalog portfolio. If you want to
 make additional changes, see [Working with
-AWS CloudFormation Templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") to learn more about templates.
+CloudFormation Templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") to learn more about templates.
 
 ###### To add your AWS Marketplace product to a AWS Service Catalog portfolio
 

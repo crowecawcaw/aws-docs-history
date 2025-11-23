@@ -22,10 +22,10 @@ notifications to an Amazon SNS topic. For more information, see [AWS Service Cat
 
 **Template** – Allows you to limit the options
 that are available to end users when they launch the product. A Template consists of a
-JSON–formatted text file that contains one or more rules. Rules are added to the AWS CloudFormation template used by the product. For more information, see [Template Constraint Rules](reference-template_constraint_rules.md "reference-template_constraint_rules.md").
+JSON–formatted text file that contains one or more rules. Rules are added to the CloudFormation template used by the product. For more information, see [Template Constraint Rules](reference-template_constraint_rules.md "reference-template_constraint_rules.md").
 
 **Stack Set** – Allows you to configure product deployment across
-accounts and regions using AWS CloudFormation StackSets. For more information, see [AWS Service Catalog Stack Set Constraints](constraints-stackset.md "constraints-stackset.md").
+accounts and regions using CloudFormation StackSets. For more information, see [AWS Service Catalog Stack Set Constraints](constraints-stackset.md "constraints-stackset.md").
 
 **Tag Update** – Allows you to update tags after the product has been provisioned.
 For more information, see [AWS Service Catalog Tag Update Constraints.](constraints-resourceupdate.md "constraints-resourceupdate.md") 6. Choose **Continue** and enter the required information.

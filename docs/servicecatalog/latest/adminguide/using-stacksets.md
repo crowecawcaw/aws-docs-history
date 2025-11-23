@@ -1,18 +1,18 @@
-# Using AWS CloudFormation StackSets
+# Using CloudFormation StackSets
 
 ###### Note
 
-AutoTags are not currently supported with AWS CloudFormation StackSets.
+AutoTags are not currently supported with CloudFormation StackSets.
 
-You can use AWS CloudFormation StackSets to launch AWS Service Catalog products across multiple AWS Regions and accounts.
+You can use CloudFormation StackSets to launch AWS Service Catalog products across multiple AWS Regions and accounts.
 You can specify the order in which products deploy sequentially within AWS Regions.
 Across accounts, products are deployed in parallel. When launching, users can specify failure tolerance and the maximum number of accounts in which to deploy in parallel.
-For more information, see [Working with AWS CloudFormation StackSets](../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md "../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md").
+For more information, see [Working with CloudFormation StackSets](../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md "../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md").
 
 ## Stack sets vs. stack instances
 
 A _stack set_ lets you create stacks in AWS accounts across AWS
-Regions by using a single AWS CloudFormation template.
+Regions by using a single CloudFormation template.
 
 A _stack instance_ refers to a stack in a target account within an
 AWS Region and is associated with only one stack set.

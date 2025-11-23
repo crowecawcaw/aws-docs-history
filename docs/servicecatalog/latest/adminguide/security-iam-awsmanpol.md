@@ -148,7 +148,7 @@ allow AWS Service Catalog to perform the following actions on behalf of the cust
   to use the existing connection to update and sync a product.
 - `cloudformation:ValidateTemplate` — Allows the AWS Service Catalog artifact sync role limited
   access to AWS CloudFormation to validate the template format for the template that is being used in external
-  repository and verify if AWS CloudFormation can support the template.
+  repository and verify if CloudFormation can support the template.
 
 ## AWS managed policy: `AWSServiceCatalogOrgsDataSyncServiceRolePolicy`
 

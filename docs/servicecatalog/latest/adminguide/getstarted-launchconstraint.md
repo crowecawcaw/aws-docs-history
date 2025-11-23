@@ -40,7 +40,7 @@ To add a launch constraint
 2. Paste the following JSON policy document:
    - `cloudformation`–
      Allows AWS Service Catalog full permissions
-     to create, read, update, delete, list, and tag AWS CloudFormation stacks.
+     to create, read, update, delete, list, and tag CloudFormation stacks.
    - `ec2`—
      Allows AWS Service Catalog full permissions
      to list, read, write, provision, and tag Amazon Elastic Compute Cloud (Amazon EC2) resources

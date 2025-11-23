@@ -3,8 +3,8 @@
 ###### Note
 
 - AWS Service Catalog does not support stack set constraints for Terraform Open Source products.
-- AutoTags are not currently supported with AWS CloudFormation StackSets.
-  A stack set constraint allows you to configure product deployment options using AWS CloudFormation
+- AutoTags are not currently supported with CloudFormation StackSets.
+  A stack set constraint allows you to configure product deployment options using CloudFormation
   StackSets. You can specify multiple accounts and regions for the product launch. End users can
   manage those accounts and determine where products deploy and the order of deployment.
 
