@@ -9,9 +9,9 @@
 - [Error – Could
   not verify recovery instance connectivity to DRS](#Troubleshooting-Failback-Errors-connectivity-instance "#Troubleshooting-Failback-Errors-connectivity-instance")
 - [Error message: AWS Replication agent is not connected to DRS.
-  Verify the agent is installed and running, and that it has connectivity to the service](#w28aac39b3b9 "#w28aac39b3b9")
-- [Error message: botocore.exceptions.CredentialRetrievalError: Error when retrieving credentials from cert](#w28aac39b3c11 "#w28aac39b3c11")
-- [Error message: Some Recovery instances could not be processed: recovery-instance-id](#w28aac39b3c13 "#w28aac39b3c13")
+  Verify the agent is installed and running, and that it has connectivity to the service](#w2aac39b3b9 "#w2aac39b3b9")
+- [Error message: botocore.exceptions.CredentialRetrievalError: Error when retrieving credentials from cert](#w2aac39b3c11 "#w2aac39b3c11")
+- [Error message: Some Recovery instances could not be processed: recovery-instance-id](#w2aac39b3c13 "#w2aac39b3c13")
 
 ### Error – Could not
 

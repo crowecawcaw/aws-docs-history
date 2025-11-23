@@ -16,17 +16,17 @@ Modifying the **Replication Settings** of an existing Source Server can impact e
 depending on the settings configured. Additionally, most **Replication Settings** options
 can be modified in bulk for multiple Source Servers through the AWS Elastic Disaster Recovery Console:
 
-| Replication Setting                       | Impact                                                          | Bulk Editing |
-| ----------------------------------------- | --------------------------------------------------------------- | ------------ |
-| Staging area subnet                       | Small pause while reconnecting Source Server to new Replicator. | Supported    |
-| Replication server instance type          | Small pause while reconnecting Source Server to new Replicator. | Supported    |
-| Dedicated instance for replication server | Small pause while reconnecting Source Server to new Replicator. | Supported    |
-| EBS encryption                            | Full Sync may be required.                                      | Supported    |
-| Data Routing (Private IP)                 | No impact.                                                      | Supported    |
-| Network Bandwidth Throttling              | No impact.                                                      | Supported    |
-| Point in time (PIT) policy                | No impact.                                                      | Supported    |
-| MAP program tagging                       | No impact.                                                      | Supported    |
-| Tags                                      | No impact.                                                      | Supported    |
+| Replication Setting                       | Impact                                                                                                                                                | Bulk Editing |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Staging area subnet                       | Small pause while reconnecting Source Server to new Replicator.                                                                                       | Supported    |
+| Replication server instance type          | Small pause while reconnecting Source Server to new Replicator.                                                                                       | Supported    |
+| Dedicated instance for replication server | Small pause while reconnecting Source Server to new Replicator.                                                                                       | Supported    |
+| EBS encryption                            | Full Sync may be required.                                                                                                                            | Supported    |
+| Data Routing (Private IP)                 | No impact.                                                                                                                                            | Supported    |
+| Network Bandwidth Throttling              | No impact.                                                                                                                                            | Supported    |
+| Point in time (PIT) policy                | Replication server is disconnected as a safety measure. This ensures proper handling of retention policy changes that might affect replication state. | Supported    |
+| MAP program tagging                       | No impact.                                                                                                                                            | Supported    |
+| Tags                                      | No impact.                                                                                                                                            | Supported    |
 
 ## Replication server configuration
 
@@ -40,7 +40,7 @@ Server must be able to successfully initialize connections to the subnet
 configured within its **Staging area subnet**
 setting. The best practice is to create a single dedicated, separate subnet
 for recovery in your AWS Account. Learn more about creating subnets in
-[this AWS VPC article](../../../vpc/latest/userguide/working-with-vpcs.md "../../../vpc/latest/userguide/working-with-vpcs.md"). Unless Use private ip is enabled and valid
+[this AWS VPC article](../../../vpc/latest/userguide/working-with-vpcs.md "../../../vpc/latest/userguide/working-with-vpcs.md"). Unless [Use private ip](../../../index.md "../../../index.md") is enabled and valid
 routing within the VPC exists, Replication Servers must be in a [Public
 subnet](../../../vpc/latest/userguide/configure-subnets.md#subnet-types "../../../vpc/latest/userguide/configure-subnets.md#subnet-types"). By default, a Replication Servers assigns itself a
 [Public IPv4](../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#concepts-public-addresses "../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#concepts-public-addresses") without any additional configuration needed.
