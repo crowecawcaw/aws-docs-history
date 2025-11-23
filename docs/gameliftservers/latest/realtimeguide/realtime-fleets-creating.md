@@ -246,7 +246,7 @@ You can adjust a fleet's hosting capacity after the fleet reaches
 ACTIVE status. Amazon GameLift Servers initially deploys a fleet with a single
 instance in each fleet location. and you adjust capacity by adding
 instances to each location. For more information, see
-[Scaling game hosting capacity with Amazon GameLift Servers](../../../https:/docs.aws.amazon.com/gameliftservers/latest/developerguide/fleets-manage-capacity.md "../../../https:/docs.aws.amazon.com/gameliftservers/latest/developerguide/fleets-manage-capacity.md").
+[Scaling game hosting capacity with Amazon GameLift Servers](../developerguide/fleets-manage-capacity.md "../developerguide/fleets-manage-capacity.md").
 
 AWS CLI
 Use the [`create-fleet`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/create-fleet.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/create-fleet.html") command to create a fleet of compute
