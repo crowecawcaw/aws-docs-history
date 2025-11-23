@@ -36,12 +36,12 @@ To see a full list of the new capabilities, see the [Release notes](release-note
 ### Get started with Amazon DocumentDB 8.0
 
 To get started with Amazon DocumentDB 8.0, please see the [Get Started Guide](get-started-guide.md "get-started-guide.md").
-You can create a new Amazon DocumentDB 8.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or AWS CloudFormation.
+You can create a new Amazon DocumentDB 8.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or CloudFormation.
 When connecting to Amazon DocumentDB, it is required that you use a MongoDB driver or utility that is compatible with MongoDB 5.0 or higher.
 
 ###### Note
 
-When using the AWS SDK, AWS CLI, or AWS CloudFormation, the engine version will default to 5.0.0.
+When using the AWS SDK, AWS CLI, or CloudFormation, the engine version will default to 5.0.0.
 You must explicitly specify the parameter `engineVersion = 8.0.0` to create a new Amazon DocumentDB 8.0 cluster or `engineVersion = 4.0.0` to create a new Amazon DocumentDB 4.0 cluster or `engineVersion = 3.6.0` to create a new Amazon DocumentDB 3.6 cluster.
 For a given Amazon DocumentDB cluster, you can determine the cluster version using the AWS CLI to call `describe-db-clusters` or use the Amazon DocumentDB management console to view the engine version number for a particular cluster.
 
@@ -97,12 +97,12 @@ For the latest list of supported APIs, please see [Supported MongoDB APIs, opera
 ### Get started with Amazon DocumentDB 5.0
 
 To get started with Amazon DocumentDB 5.0, please see the [Get Started Guide](get-started-guide.md "get-started-guide.md").
-You can create a new Amazon DocumentDB 5.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or AWS CloudFormation.
+You can create a new Amazon DocumentDB 5.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or CloudFormation.
 When connecting to Amazon DocumentDB, it is required that you use a MongoDB driver or utility that is compatible with MongoDB 5.0 or higher.
 
 ###### Note
 
-When using the AWS SDK, AWS CLI, or AWS CloudFormation, the engine version will default to 5.0.0.
+When using the AWS SDK, AWS CLI, or CloudFormation, the engine version will default to 5.0.0.
 You must explicitly specify the parameter `engineVersion = 4.0.0` to create a new Amazon DocumentDB 4.0 cluster or `engineVersion = 3.6.0` to create a new Amazon DocumentDB 3.6 cluster.
 For a given Amazon DocumentDB cluster, you can determine the cluster version using the AWS CLI to call `describe-db-clusters` or use the Amazon DocumentDB management console to view the engine version number for a particular cluster.
 
@@ -193,11 +193,11 @@ Amazon DocumentDB does not support every MongoDB 4.0 feature. When we built Amaz
 
 ### Get started with Amazon DocumentDB 4.0
 
-To get started with Amazon DocumentDB 4.0, please see the [Get Started Guide](get-started-guide.md "get-started-guide.md"). You can create a new Amazon DocumentDB 4.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or AWS CloudFormation. When connecting to Amazon DocumentDB, it is required that you use a MongoDB driver or utility that is compatible with MongoDB 4.0 or higher.
+To get started with Amazon DocumentDB 4.0, please see the [Get Started Guide](get-started-guide.md "get-started-guide.md"). You can create a new Amazon DocumentDB 4.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or CloudFormation. When connecting to Amazon DocumentDB, it is required that you use a MongoDB driver or utility that is compatible with MongoDB 4.0 or higher.
 
 ###### Note
 
-When using the AWS SDK, AWS CLI, or AWS CloudFormation, the engine version will default to 5.0.0.
+When using the AWS SDK, AWS CLI, or CloudFormation, the engine version will default to 5.0.0.
 You must explicitly specify the parameter `engineVersion = 4.0.0` to create a new Amazon DocumentDB 4.0 cluster or `engineVersion = 3.6.0` to create a new Amazon DocumentDB 3.6 cluster.
 For a given Amazon DocumentDB cluster, you can determine the cluster version using the AWS CLI to call `describe-db-clusters` or use the Amazon DocumentDB management console to view the engine version number for a particular cluster.
 

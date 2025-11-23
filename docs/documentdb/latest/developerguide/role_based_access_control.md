@@ -28,7 +28,7 @@ users and modify the roles as necessary to enforce least privileges for your clu
 - [RBAC concepts](#role_based_access_control-concepts "#role_based_access_control-concepts")
 - [Getting started with RBAC
   built-in roles](#role_based_access_control-getting_started "#role_based_access_control-getting_started")
-- [Getting started with RBAC user-defined roles](#w5aac29c29c15 "#w5aac29c29c15")
+- [Getting started with RBAC user-defined roles](#w2aac29c29c15 "#w2aac29c29c15")
 - [Connecting to Amazon DocumentDB as
   a User](#role_based_access_control-connecting_as_user "#role_based_access_control-connecting_as_user")
 - [Common commands](#role_based_access_control-common_commands "#role_based_access_control-common_commands")

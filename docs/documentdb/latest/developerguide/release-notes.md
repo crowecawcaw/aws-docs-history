@@ -102,7 +102,7 @@ Amazon DocumentDB now offers full wire protocol compatibility with MongoDB 8.0. 
 
 - Added support for MongoDB 8.0 API drivers.
 - Added support for Planner Version3 that extends performance improvements to aggregation stage operators, along with supporting aggregation pipeline optimizations and distinct commands.
-- Added Support for dictionary-based compression through the Zstandard compression algorithm, improving compression ration by 5x.
+- Added Support for dictionary-based compression through the Zstandard compression algorithm, improving compression ratio by 5x.
 - Added new capabilities: Amazon DocumentDB 8.0 supports collation and views.
 - Added support for new aggregation stages and operators: $replaceWith, $vectorSearch, $merge, $set, $unset, $bucket, and 3 new aggregation operators $pow, $rand, $dateTrunc.
 - Added support for a new version of text index: Text index v2 in Amazon DocumentDB 8.0 introduces additional tokens, enhancing text search capabilities.
@@ -760,7 +760,7 @@ this [blog post](https://aws.amazon.com/about-aws/whats-new/2023/09/amazon-docum
 **Amazon DocumentDB 5.0**
 
 - r5 and t3.medium instances are now supported in Amazon DocumentDB 5.0.
-- `engineVersion` option default is `5.0.0` in AWS SDK, AWS CLI, and AWS CloudFormation.
+- `engineVersion` option default is `5.0.0` in AWS SDK, AWS CLI, and CloudFormation.
 
 ## May 10, 2023
 

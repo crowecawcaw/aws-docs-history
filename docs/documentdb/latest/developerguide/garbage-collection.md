@@ -9,7 +9,7 @@ This architecture provides read isolation by allowing read queries to use versio
 - [Garbage collection process](#garbage-collection-process "#garbage-collection-process")
 - [Monitoring garbage collection](#monitoring-garbage-collection "#monitoring-garbage-collection")
 - [Example collStats output](#collStats-output "#collStats-output")
-- [Frequently asked questions](#w5aac49c15c15 "#w5aac49c15c15")
+- [Frequently asked questions](#w2aac49c15c15 "#w2aac49c15c15")
 
 ## Understanding Garbage Collection in Amazon DocumentDB
 
@@ -153,11 +153,11 @@ During high write activity, the GC process executes more frequently to manage th
 
 ###### Topics
 
-- [How do I identify if garbage collection is not working efficiently?](#w5aac49c15c15b5 "#w5aac49c15c15b5")
-- [Does garbage collection affect my database performance?](#w5aac49c15c15b7 "#w5aac49c15c15b7")
-- [Can I manually trigger garbage collection?](#w5aac49c15c15b9 "#w5aac49c15c15b9")
-- [What alarms should I set as an operational best practice?](#w5aac49c15c15c11 "#w5aac49c15c15c11")
-- [What should I do if my AvailableMVCCId falls below 1.3 billion?](#w5aac49c15c15c13 "#w5aac49c15c15c13")
+- [How do I identify if garbage collection is not working efficiently?](#w2aac49c15c15b5 "#w2aac49c15c15b5")
+- [Does garbage collection affect my database performance?](#w2aac49c15c15b7 "#w2aac49c15c15b7")
+- [Can I manually trigger garbage collection?](#w2aac49c15c15b9 "#w2aac49c15c15b9")
+- [What alarms should I set as an operational best practice?](#w2aac49c15c15c11 "#w2aac49c15c15c11")
+- [What should I do if my AvailableMVCCId falls below 1.3 billion?](#w2aac49c15c15c13 "#w2aac49c15c15c13")
 
 ### How do I identify if garbage collection is not working efficiently?
 

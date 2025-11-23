@@ -4,9 +4,9 @@ To learn more about monitoring in Amazon DocumentDB, see [Monitoring Amazon Docu
 
 ###### Topics
 
-- [Out of Memory: incompatible-parameters status](#w5aac41c27b7 "#w5aac41c27b7")
-- [Amazon CloudWatch metrics for DocumentDB serverless](#w5aac41c27b9 "#w5aac41c27b9")
-- [Monitoring DocumentDB serverless performance with Performance Insights](#w5aac41c27c11 "#w5aac41c27c11")
+- [Out of Memory: incompatible-parameters status](#w2aac41c27b7 "#w2aac41c27b7")
+- [Amazon CloudWatch metrics for DocumentDB serverless](#w2aac41c27b9 "#w2aac41c27b9")
+- [Monitoring DocumentDB serverless performance with Performance Insights](#w2aac41c27c11 "#w2aac41c27c11")
 
 ## Out of Memory: incompatible-parameters status
 

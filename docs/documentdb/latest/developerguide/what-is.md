@@ -229,7 +229,7 @@ For more information, see the MongoDB shell tab in [Connecting with TLS enabled]
 The preceding sections introduced you to the basic infrastructure components that Amazon DocumentDB offers. What should you do next? Depending upon your
 circumstances, see one of the following topics to get started:
 
-- Get started with Amazon DocumentDB by creating a cluster and instance using AWS CloudFormation [Amazon DocumentDB quick start using AWS CloudFormation](quick_start_cfn.md "quick_start_cfn.md").
+- Get started with Amazon DocumentDB by creating a cluster and instance using CloudFormation [Amazon DocumentDB quick start using CloudFormation](quick_start_cfn.md "quick_start_cfn.md").
 - Get started with Amazon DocumentDB by creating a cluster and instance using the instructions in our [Get started guide](get-started-guide.md "get-started-guide.md").
 - Get started with Amazon DocumentDB by creating an elastic cluster using the instructions in [Get started with Amazon DocumentDB elastic clusters](elastic-get-started.md "elastic-get-started.md").
 - Migrate your MongoDB implementation to Amazon DocumentDB using the guidance at [Migrating to Amazon DocumentDB](docdb-migration.md "docdb-migration.md")

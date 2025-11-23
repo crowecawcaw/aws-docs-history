@@ -51,7 +51,7 @@ guidelines.
   implementing retry logic.
 - Enable cluster deletion protection for all production clusters, or any cluster
   that has valuable data. Before deleting an Amazon DocumentDB cluster, take a final snapshot. If
-  you are deploying resources with AWS CloudFormation, enable termination protection. For more
+  you are deploying resources with CloudFormation, enable termination protection. For more
   information, see [Termination
   protection and deletion protection](quick_start_cfn.md#quick_start_cfn-termination_deletion_protection "quick_start_cfn.md#quick_start_cfn-termination_deletion_protection").
 - When creating an Amazon DocumentDB cluster, the `--engine-version` is an optional parameter
@@ -59,7 +59,7 @@ guidelines.
   5.0.0. When new major engine versions are released, the default engine version for
   `--engine-version` will be updated to reflect the last major engine version. As a
   result, for production workloads, and especially those that are dependent on
-  scripting, automation, or AWS CloudFormation templates, we recommend that you explicitly specify
+  scripting, automation, or CloudFormation templates, we recommend that you explicitly specify
   the `--engine-version` to the intended major version.
 
 ## Instance sizing

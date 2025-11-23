@@ -36,7 +36,7 @@ For more information, see [Connect Amazon EC2 automatically](connect-ec2-auto.md
 
 **To create a rule in a VPC security group that allows connections from another security group, do the following:**
 
-1. Sign in to the AWS Management Console and open the Amazon VPC console at [https://console.aws.amazon.com/vpc](https://console.aws.amazon.com/vpc "https://console.aws.amazon.com/vpc").
+1. Sign in to the AWS Management Console and open the Amazon VPC console at [https://console.aws.amazon.com/vpc](https://console.aws.amazon.com//vpc "https://console.aws.amazon.com//vpc").
 2. In the navigation pane, locate and choose **Security groups**.
 3. Choose or create a security group for which you want to allow access to members of another security group.
    This is the security group that you use for your clusters.

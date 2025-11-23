@@ -24,7 +24,7 @@ A primary use of modifying the cluster is to scale shards by increasing or decre
 Using the AWS Management Console
 To modify an elastic cluster configuration using the AWS Management Console:
 
-1. Sign into the [AWS Management Console](../../../https:/console.aws.amazon.com/docdb/home.md "../../../https:/console.aws.amazon.com/docdb/home.md") and open the Amazon DocumentDB console.
+1. Sign into the [AWS Management Console](https://console.aws.amazon.com/docdb/home?region=us-east-1 "https://console.aws.amazon.com/docdb/home?region=us-east-1") and open the Amazon DocumentDB console.
 2. In the navigation pane, choose **Clusters**.
 
 ###### Tip
@@ -98,7 +98,7 @@ In this section, we explain how to monitor your elastic cluster, using either th
 Using the AWS Management Console
 To monitor an elastic cluster configuration using the AWS Management Console:
 
-1. Sign into the [AWS Management Console](../../../https:/console.aws.amazon.com/docdb/home.md "../../../https:/console.aws.amazon.com/docdb/home.md") and open the Amazon DocumentDB console.
+1. Sign into the [AWS Management Console](https://console.aws.amazon.com/docdb/home?region=us-east-1 "https://console.aws.amazon.com/docdb/home?region=us-east-1") and open the Amazon DocumentDB console.
 2. In the navigation pane, choose **Clusters**.
 
 ###### Tip
@@ -211,7 +211,7 @@ In this section we explain how to delete an elastic cluster, using either the AW
 Using the AWS Management Console
 To delete an elastic cluster configuration using the AWS Management Console:
 
-1. Sign into the [AWS Management Console](../../../https:/console.aws.amazon.com/docdb/home.md "../../../https:/console.aws.amazon.com/docdb/home.md") and open the Amazon DocumentDB console.
+1. Sign into the [AWS Management Console](https://console.aws.amazon.com/docdb/home?region=us-east-1 "https://console.aws.amazon.com/docdb/home?region=us-east-1") and open the Amazon DocumentDB console.
 2. In the navigation pane, choose **Clusters**.
 
 ###### Tip
@@ -277,4 +277,4 @@ aws docdb-elastic delete-cluster ^
 The output of the `delete-cluster` operation is a display of the cluster you are deleting.
 
 It takes several minutes for the cluster to be deleted.
-To monitor the status of the cluster, see [Monitoring an Amazon DocumentDB Cluster's Status](../../../https:/docs.aws.amazon.com/documentdb/latest/developerguide/monitoring_docdb-cluster_status.md "../../../https:/docs.aws.amazon.com/documentdb/latest/developerguide/monitoring_docdb-cluster_status.md").
+To monitor the status of the cluster, see [Monitoring an Amazon DocumentDB Cluster's Status](monitoring_docdb-cluster_status.md "monitoring_docdb-cluster_status.md").

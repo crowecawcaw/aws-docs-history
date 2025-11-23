@@ -107,7 +107,7 @@ If your database consistently reaches its maximum capacity, you can take actions
 You can also optimize your database application and spread the query load across more readers.
 
 The charges for DocumentDB serverless capacity are measured in terms of DCU-hours.
-For information about how DocumentDB serverless charges are calculated, see [Amazon DocumentDB pricing](https://aws.amazon.com/documentdb/pricing "https://aws.amazon.com/documentdb/pricing").
+For information about how DocumentDB serverless charges are calculated, see [Amazon DocumentDB pricing](https://aws.amazon.com//documentdb/pricing "https://aws.amazon.com//documentdb/pricing").
 Suppose that the total number of writers and readers in your cluster is n.
 In that case, the cluster consumes approximately n x minimum DCUs when you aren't running any database operations.
 Amazon DocumentDB itself might run monitoring or maintenance operations that cause some small amount of load.

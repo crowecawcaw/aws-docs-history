@@ -387,7 +387,7 @@ For additional parameters, see [CreateDBCluster](API_CreateDBCluster.md "API_Cre
 
 To create an Amazon DocumentDB cluster, call the `create-db-cluster` AWS CLI. The following AWS CLI command creates an Amazon DocumentDB cluster named `sample-cluster` with deletion protection enabled. For more information on deletion protection, see [Deleting an Amazon DocumentDB cluster](db-cluster-delete.md "db-cluster-delete.md").
 
-Also, `--engine-version` is an optional parameter that defaults to the latest major engine version. The current major engine version is 5.0.0. When new major engine versions are released, the default engine version for `--engine-version` will be updated to reflect the last major engine version. As a result, for production workloads, and especially those that are dependent on scripting, automation, or AWS CloudFormation templates, we recommend that you explicitly specify the `--engine-version` to the intended major version.
+Also, `--engine-version` is an optional parameter that defaults to the latest major engine version. The current major engine version is 5.0.0. When new major engine versions are released, the default engine version for `--engine-version` will be updated to reflect the last major engine version. As a result, for production workloads, and especially those that are dependent on scripting, automation, or CloudFormation templates, we recommend that you explicitly specify the `--engine-version` to the intended major version.
 
 ###### Note
 

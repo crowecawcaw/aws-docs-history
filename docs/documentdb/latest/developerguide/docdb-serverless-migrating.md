@@ -2,8 +2,8 @@
 
 ###### Topics
 
-- [Migrating existing DocumentDB clusters to serverless](#w5aac41c19b5 "#w5aac41c19b5")
-- [Migrating from MongoDB to DocumentDB serverless](#w5aac41c19b7 "#w5aac41c19b7")
+- [Migrating existing DocumentDB clusters to serverless](#w2aac41c19b5 "#w2aac41c19b5")
+- [Migrating from MongoDB to DocumentDB serverless](#w2aac41c19b7 "#w2aac41c19b7")
 
 ## Migrating existing DocumentDB clusters to serverless
 
@@ -38,7 +38,7 @@ The following AWS Management Console configuration example shows the migration p
 The cluster is named `sample`, and starts with three provisioned instances named `sample`, `sample2`, and `sample3`.
 In this example, these three instances will be replaced by three serverless instances.
 
-1. Sign into the [AWS Management Console](../../../https:/console.aws.amazon.com/docdb/home.md "../../../https:/console.aws.amazon.com/docdb/home.md") and open the Amazon DocumentDB console.
+1. Sign into the [AWS Management Console](https://console.aws.amazon.com/docdb/home?region=us-east-1 "https://console.aws.amazon.com/docdb/home?region=us-east-1") and open the Amazon DocumentDB console.
 2. In the navigation pane, choose **Clusters**.
 
 ###### Tip

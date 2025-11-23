@@ -22,7 +22,7 @@ For more information on scaling, see [Amazon DocumentDB serverless scaling confi
 Using the AWS Management Console
 The following AWS Management Console configuration example shows how to create a DocumentDB serverless cluster.
 
-1. Sign into the [AWS Management Console](../../../https:/console.aws.amazon.com/docdb/home.md "../../../https:/console.aws.amazon.com/docdb/home.md") and open the Amazon DocumentDB console.
+1. Sign into the [AWS Management Console](https://console.aws.amazon.com/docdb/home?region=us-east-1 "https://console.aws.amazon.com/docdb/home?region=us-east-1") and open the Amazon DocumentDB console.
 2. In the navigation pane, choose **Clusters**.
 
 ###### Tip

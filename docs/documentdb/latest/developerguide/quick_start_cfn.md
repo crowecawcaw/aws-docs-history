@@ -1,7 +1,7 @@
-# Amazon DocumentDB quick start using AWS CloudFormation
+# Amazon DocumentDB quick start using CloudFormation
 
 This section contains steps and other information to help you get
-started quickly with Amazon DocumentDB (with MongoDB compatibility) using [AWS CloudFormation](../../../en_us/AWSCloudFormation/latest/UserGuide/Welcome.md "../../../en_us/AWSCloudFormation/latest/UserGuide/Welcome.md").
+started quickly with Amazon DocumentDB (with MongoDB compatibility) using [CloudFormation](../../../en_us/AWSCloudFormation/latest/UserGuide/Welcome.md "../../../en_us/AWSCloudFormation/latest/UserGuide/Welcome.md").
 For general information about Amazon DocumentDB, see [What is Amazon DocumentDB (with MongoDB compatibility)](what-is.md "what-is.md").
 
 These instructions use an AWS CloudFormation template to create a cluster and
@@ -10,7 +10,7 @@ resources yourself, see [Get started with Amazon DocumentDB](get-started-guide.m
 
 ###### Important
 
-The AWS CloudFormation stack that is created by this template creates multiple
+The CloudFormation stack that is created by this template creates multiple
 resources, including resources in Amazon DocumentDB (for example, a cluster and
 instances) and Amazon Elastic Compute Cloud (for example, a subnet group).
 
@@ -20,7 +20,7 @@ Pricing](https://aws.amazon.com/documentdb/pricing/ "https://aws.amazon.com/docu
 You can delete the stack when you are finished with it to stop any
 charges.
 
-This AWS CloudFormation stack is intended for tutorial purposes only. If you use
+This CloudFormation stack is intended for tutorial purposes only. If you use
 this template for a production environment, we recommend that you use
 stricter IAM policies and security. For information about securing
 resources, see [Amazon VPC Security](../../../vpc/latest/userguide/VPC_Security.md "../../../vpc/latest/userguide/VPC_Security.md") and [Amazon EC2 Network and Security](../../../AWSEC2/latest/UserGuide/EC2_Network_and_Security.md "../../../AWSEC2/latest/UserGuide/EC2_Network_and_Security.md").
@@ -29,7 +29,7 @@ resources, see [Amazon VPC Security](../../../vpc/latest/userguide/VPC_Security.
 
 - [Prerequisites](#quick_start_cfn-prerequisites "#quick_start_cfn-prerequisites")
 - [Launching an Amazon DocumentDB
-  AWS CloudFormation stack](#quick_start_cfn-launch_stack "#quick_start_cfn-launch_stack")
+  CloudFormation stack](#quick_start_cfn-launch_stack "#quick_start_cfn-launch_stack")
 - [Accessing the Amazon DocumentDB cluster](#quick_start_cfn-accessing_stack "#quick_start_cfn-accessing_stack")
 - [Termination
   protection and deletion protection](#quick_start_cfn-termination_deletion_protection "#quick_start_cfn-termination_deletion_protection")
@@ -46,7 +46,7 @@ Before you create an Amazon DocumentDB cluster, you must have the following:
 Permissions
 
 The following permissions allow you to create resources for the
-AWS CloudFormation stack:
+CloudFormation stack:
 
 **AWS Managed Policies**
 
@@ -56,22 +56,22 @@ AWS CloudFormation stack:
 ###### Additional IAM Permissions
 
 The following policy outlines the additional permissions that
-are required to create and delete this AWS CloudFormation stack.
+are required to create and delete this CloudFormation stack.
 
 In the following examples, replace each `user input placeholder` with your resource's information.
 
 ### Amazon EC2 Key Pair
 
 You must have a key pair (and the PEM file) available in the
-Region where you will create the AWS CloudFormation stack. If you need to create
+Region where you will create the CloudFormation stack. If you need to create
 a key pair, see [Creating a Key Pair Using Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair")
 in the _Amazon EC2 User Guide_.
 
 ## Launching an Amazon DocumentDB
 
-AWS CloudFormation stack
+CloudFormation stack
 
-This section describes how to launch and configure an Amazon DocumentDB AWS CloudFormation
+This section describes how to launch and configure an Amazon DocumentDB CloudFormation
 stack.
 
 1. Sign in to the AWS Management Console at [https://console.aws.amazon.com/](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
@@ -102,7 +102,7 @@ stack.
    templates above, your template has already been configured to
    create an Amazon DocumentDB stack for the AWS Region you chose.
 
-When you launch an AWS CloudFormation stack, [deletion protection](#quick_start_cfn-termination_deletion_protection "#quick_start_cfn-termination_deletion_protection")
+When you launch an CloudFormation stack, [deletion protection](#quick_start_cfn-termination_deletion_protection "#quick_start_cfn-termination_deletion_protection")
 for your Amazon DocumentDB cluster is disabled by default. If you want
 to enable deletion protection for your cluster, complete the
 following steps. Otherwise, choose **Next** to
@@ -115,11 +115,11 @@ Amazon DocumentDB cluster:**
      bottom right corner of the **Create stack**
      page.
     2. Modify the template using the integrated JSON and YAML
-     editor in the resulting AWS CloudFormation Designer page of the console.
+     editor in the resulting CloudFormation Designer page of the console.
      Scroll to the `Resources` section and modify it
      to include `DeletionProtection`, as follows. For
-     more information about using AWS CloudFormation Designer,
-     see [What Is AWS CloudFormation Designer?](../../../en_us/AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md "../../../en_us/AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md").
+     more information about using CloudFormation Designer,
+     see [What Is CloudFormation Designer?](../../../en_us/AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md "../../../en_us/AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md").
 
 
 
@@ -237,9 +237,9 @@ Amazon DocumentDB cluster:**
       (key-value) pairs to apply to your resources in your stack.
       You can add up to 50 unique tags for each stack.
     - **Permissions** — Optional.
-      Choose an IAM role to explicitly define how AWS CloudFormation can
+      Choose an IAM role to explicitly define how CloudFormation can
       create, modify, or delete resources in the stack. If you
-      don't choose a role, AWS CloudFormation uses permissions based on your
+      don't choose a role, CloudFormation uses permissions based on your
       user credentials. Before you specify a service role, ensure
       that you have permission to pass it
       (`iam:PassRole`). The `iam:PassRole`
@@ -247,7 +247,7 @@ Amazon DocumentDB cluster:**
 
     ###### Note
 
-    When you specify a service role, AWS CloudFormation always uses
+    When you specify a service role, CloudFormation always uses
     that role for all operations that are performed on that
     stack. Other users that have permissions to perform
     operations on this stack will be able to use this role,
@@ -267,9 +267,9 @@ Amazon DocumentDB cluster:**
       or upload a JSON file containing the stack policy.
       For more information, see [Prevent Updates to Stack Resources](../../../AWSCloudFormation/latest/UserGuide/protect-stack-resources.md "../../../AWSCloudFormation/latest/UserGuide/protect-stack-resources.md").
       - **Rollback configuration** —
-        Optional. Specify CloudWatch Logs alarms for AWS CloudFormation to monitor
+        Optional. Specify CloudWatch Logs alarms for CloudFormation to monitor
         when creating and updating the stack. If the operation
-        breaches an alarm threshold, AWS CloudFormation rolls it back.
+        breaches an alarm threshold, CloudFormation rolls it back.
       - **Notification options** —
         Optional. Specify topics for Simple Notification
         System (SNS).
@@ -287,7 +287,7 @@ Amazon DocumentDB cluster:**
 
         ###### Note
 
-        AWS CloudFormation termination protection is different
+        CloudFormation termination protection is different
         from the Amazon DocumentDB concept of deletion
         protection. For more information, see [Termination
         protection and deletion protection](#quick_start_cfn-termination_deletion_protection "#quick_start_cfn-termination_deletion_protection").Choose **Next** to continue.
@@ -306,7 +306,7 @@ Amazon DocumentDB cluster:**
 
 ## Accessing the Amazon DocumentDB cluster
 
-Once the AWS CloudFormation stack has been completed, you can use an Amazon EC2 instance
+Once the CloudFormation stack has been completed, you can use an Amazon EC2 instance
 to connect to your Amazon DocumentDB cluster. For information about connecting to
 an Amazon EC2 instance using SSH, see [Connect to Your Linux Instance](../../../AWSEC2/latest/UserGuide/AccessingInstances.md "../../../AWSEC2/latest/UserGuide/AccessingInstances.md")
 in the _Amazon EC2 User Guide_.
@@ -334,7 +334,7 @@ feature.
   enabled on it, the deletion fails and the stack remains unchanged.
   Termination protection is disabled by default when you create a
   stack using CloudFormation. You can enable termination protection
-  on a stack when you create it. For more information, see [Setting AWS CloudFormation Stack Options](../../../AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.md").
+  on a stack when you create it. For more information, see [Setting CloudFormation Stack Options](../../../AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.md").
 - **Deletion protection** —
   Amazon DocumentDB also provides the ability to enable deletion protection
   for a cluster. If a user attempts to delete an Amazon DocumentDB cluster

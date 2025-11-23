@@ -21,7 +21,7 @@ For more information on scaling configuration and how to select appropriate scal
 Using the AWS Management Console
 The following AWS Management Console configuration example shows how to view and edit a DocumentDB serverless cluster's scaling configuration settings.
 
-1. Sign into the [AWS Management Console](../../../https:/console.aws.amazon.com/docdb/home.md "../../../https:/console.aws.amazon.com/docdb/home.md") and open the Amazon DocumentDB console.
+1. Sign into the [AWS Management Console](https://console.aws.amazon.com/docdb/home?region=us-east-1 "https://console.aws.amazon.com/docdb/home?region=us-east-1") and open the Amazon DocumentDB console.
 2. In the navigation pane, choose **Clusters**.
 
 ###### Tip
@@ -126,7 +126,7 @@ When they are idle, they can scale down to the minimum DocumentDB capacity unit 
 Using the AWS Management Console
 The following AWS Management Console configuration example shows how to view and modify a DocumentDB serverless instance reader's promotional tier settings.
 
-1. Sign into the [AWS Management Console](../../../https:/console.aws.amazon.com/docdb/home.md "../../../https:/console.aws.amazon.com/docdb/home.md") and open the Amazon DocumentDB console.
+1. Sign into the [AWS Management Console](https://console.aws.amazon.com/docdb/home?region=us-east-1 "https://console.aws.amazon.com/docdb/home?region=us-east-1") and open the Amazon DocumentDB console.
 
 The promotion tiers of each instance is displayed in the **Promotion tier** column in the AWS Management Console. 2. In the navigation pane, choose **Clusters**.
 

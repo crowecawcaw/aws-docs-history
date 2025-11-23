@@ -11,13 +11,13 @@ Vector search is available on Amazon DocumentDB 5.0 instance-based clusters.
 
 ###### Topics
 
-- [Inserting vectors](#w5aac21c11b9 "#w5aac21c11b9")
-- [Creating a vector index](#w5aac21c11c11 "#w5aac21c11c11")
-- [Getting an index definition](#w5aac21c11c13 "#w5aac21c11c13")
-- [Querying vectors](#w5aac21c11c15 "#w5aac21c11c15")
+- [Inserting vectors](#w2aac21c11b9 "#w2aac21c11b9")
+- [Creating a vector index](#w2aac21c11c11 "#w2aac21c11c11")
+- [Getting an index definition](#w2aac21c11c13 "#w2aac21c11c13")
+- [Querying vectors](#w2aac21c11c15 "#w2aac21c11c15")
 - [Features and limitations](#vector-limitations "#vector-limitations")
-- [Best practices](#w5aac21c11c19 "#w5aac21c11c19")
-- [New Operator - $vectorSearch](#w5aac21c11c21 "#w5aac21c11c21")
+- [Best practices](#w2aac21c11c19 "#w2aac21c11c19")
+- [New Operator - $vectorSearch](#w2aac21c11c21 "#w2aac21c11c21")
 
 ## Inserting vectors
 

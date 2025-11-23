@@ -21,8 +21,8 @@ The runbook is organized into the following topics:
 
 ###### Topics
 
-- [Core feature compatibility](#w5aac23b9c13c13 "#w5aac23b9c13c13")
-- [Amazon DocumentDB compatibility assessment tool](#w5aac23b9c13c15 "#w5aac23b9c13c15")
+- [Core feature compatibility](#w2aac23b9c13c13 "#w2aac23b9c13c13")
+- [Amazon DocumentDB compatibility assessment tool](#w2aac23b9c13c15 "#w2aac23b9c13c15")
 
 When migrating from MongoDB to Amazon DocumentDB, a thorough initial assessment and feature compatibility check is essential for a successful migration.
 This process begins with a comprehensive inventory of your MongoDB features, including aggregation pipeline operators, query patterns, indexes, and data models.
@@ -113,11 +113,11 @@ This section outlines the key steps involved in workload discovery to facilitate
 
 ###### Topics
 
-- [Assessing the existing MongoDB deployment](#w5aac23b9c15b7 "#w5aac23b9c15b7")
-- [Identifying data model differences](#w5aac23b9c15b9 "#w5aac23b9c15b9")
-- [Query and performance analysis](#w5aac23b9c15c11 "#w5aac23b9c15c11")
-- [Security and access control review](#w5aac23b9c15c13 "#w5aac23b9c15c13")
-- [Operational and monitoring considerations](#w5aac23b9c15c15 "#w5aac23b9c15c15")
+- [Assessing the existing MongoDB deployment](#w2aac23b9c15b7 "#w2aac23b9c15b7")
+- [Identifying data model differences](#w2aac23b9c15b9 "#w2aac23b9c15b9")
+- [Query and performance analysis](#w2aac23b9c15c11 "#w2aac23b9c15c11")
+- [Security and access control review](#w2aac23b9c15c13 "#w2aac23b9c15c13")
+- [Operational and monitoring considerations](#w2aac23b9c15c15 "#w2aac23b9c15c15")
 
 ### Assessing the existing MongoDB deployment
 
@@ -325,13 +325,13 @@ This method provides a secure and flexible approach to migrating users and roles
 
 ###### Topics
 
-- [Online migration](#w5aac23b9c21b5 "#w5aac23b9c21b5")
-- [Offline migration](#w5aac23b9c21b7 "#w5aac23b9c21b7")
-- [Prerequisites](#w5aac23b9c21c11 "#w5aac23b9c21c11")
-- [Prepare an Amazon DocumentDB cluster](#w5aac23b9c21c13 "#w5aac23b9c21c13")
-- [Perform the data dump (mongodump)](#w5aac23b9c21c15 "#w5aac23b9c21c15")
-- [Transfer dump files to restoration environment](#w5aac23b9c21c17 "#w5aac23b9c21c17")
-- [Restore data to Amazon DocumentDB (mongorestore)](#w5aac23b9c21c19 "#w5aac23b9c21c19")
+- [Online migration](#w2aac23b9c21b5 "#w2aac23b9c21b5")
+- [Offline migration](#w2aac23b9c21b7 "#w2aac23b9c21b7")
+- [Prerequisites](#w2aac23b9c21c11 "#w2aac23b9c21c11")
+- [Prepare an Amazon DocumentDB cluster](#w2aac23b9c21c13 "#w2aac23b9c21c13")
+- [Perform the data dump (mongodump)](#w2aac23b9c21c15 "#w2aac23b9c21c15")
+- [Transfer dump files to restoration environment](#w2aac23b9c21c17 "#w2aac23b9c21c17")
+- [Restore data to Amazon DocumentDB (mongorestore)](#w2aac23b9c21c19 "#w2aac23b9c21c19")
 
 ### Online migration
 
@@ -426,7 +426,7 @@ When configuring network connectivity for MongoDB to DMS migration:
 **On-premises MongoDB source**
 
 - Configure your firewall to allow inbound connections from the DMS replication instance's public IP addresses.
-- If using AWS Direct Connect or a VPN, ensure proper routing between your network and the VPC containing the DMS instance.
+- If using Direct Connect or a VPN, ensure proper routing between your network and the VPC containing the DMS instance.
 - Test connectivity using telnet or nc commands from the DMS subnet to your MongoDB server.
 
 **MongoDB Atlas source**
@@ -804,10 +804,10 @@ For setup instructions and advanced configuration options, refer to the [Amazon 
 
 ###### Topics
 
-- [Validation checklist](#w5aac23b9c25c15 "#w5aac23b9c25c15")
-- [Schema and index validation](#w5aac23b9c25c17 "#w5aac23b9c25c17")
-- [Data sampling and field-level validation](#w5aac23b9c25c19 "#w5aac23b9c25c19")
-- [Validation using DataDiffer tool](#w5aac23b9c25c21 "#w5aac23b9c25c21")
+- [Validation checklist](#w2aac23b9c25c15 "#w2aac23b9c25c15")
+- [Schema and index validation](#w2aac23b9c25c17 "#w2aac23b9c25c17")
+- [Data sampling and field-level validation](#w2aac23b9c25c19 "#w2aac23b9c25c19")
+- [Validation using DataDiffer tool](#w2aac23b9c25c21 "#w2aac23b9c25c21")
 
 This section provides a detailed validation process to ensure data consistency, integrity, and application compatibility after migrating from:
 

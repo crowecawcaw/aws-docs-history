@@ -26,7 +26,7 @@ In this section we explain how to create a manual elastic cluster snapshot, usin
 Using the AWS Management Console
 To create a manual elastic cluster snapshot using the AWS Management Console:
 
-1. Sign into the [AWS Management Console](../../../https:/console.aws.amazon.com/docdb/home.md "../../../https:/console.aws.amazon.com/docdb/home.md") and open the Amazon DocumentDB console.
+1. Sign into the [AWS Management Console](https://console.aws.amazon.com/docdb/home?region=us-east-1 "https://console.aws.amazon.com/docdb/home?region=us-east-1") and open the Amazon DocumentDB console.
 2. In the navigation pane, choose **Snapshots**.
 
 ###### Tip
@@ -77,7 +77,7 @@ In this section we explain how to view elastic cluster snapshot information, usi
 Using the AWS Management Console
 To view information about a specific elastic cluster snapshot using the AWS Management Console:
 
-1. Sign into the [AWS Management Console](../../../https:/console.aws.amazon.com/docdb/home.md "../../../https:/console.aws.amazon.com/docdb/home.md") and open the Amazon DocumentDB console.
+1. Sign into the [AWS Management Console](https://console.aws.amazon.com/docdb/home?region=us-east-1 "https://console.aws.amazon.com/docdb/home?region=us-east-1") and open the Amazon DocumentDB console.
 2. In the navigation pane, choose **Snapshots**.
 
 ###### Tip
@@ -172,7 +172,7 @@ In this section we explain how to restore an elastic cluster from a snapshot, us
 Using the AWS Management Console
 To restore an elastic cluster from a snapshot using the AWS Management Console:
 
-1. Sign into the [AWS Management Console](../../../https:/console.aws.amazon.com/docdb/home.md "../../../https:/console.aws.amazon.com/docdb/home.md") and open the Amazon DocumentDB console.
+1. Sign into the [AWS Management Console](https://console.aws.amazon.com/docdb/home?region=us-east-1 "https://console.aws.amazon.com/docdb/home?region=us-east-1") and open the Amazon DocumentDB console.
 2. In the navigation pane, choose **Snapshots**.
 
 ###### Tip
@@ -232,7 +232,7 @@ In this section we explain how to copy an elastic cluster snapshot, using either
 Using the AWS Management Console
 To copy an elastic cluster snapshot using the AWS Management Console:
 
-1. Sign into the [AWS Management Console](../../../https:/console.aws.amazon.com/docdb/home.md "../../../https:/console.aws.amazon.com/docdb/home.md") and open the Amazon DocumentDB console.
+1. Sign into the [AWS Management Console](https://console.aws.amazon.com/docdb/home?region=us-east-1 "https://console.aws.amazon.com/docdb/home?region=us-east-1") and open the Amazon DocumentDB console.
 2. In the navigation pane, choose **Snapshots**.
 
 ###### Tip
@@ -285,7 +285,7 @@ In this section we explain how to delete an elastic cluster snapshot, using eith
 Using the AWS Management Console
 To restore an elastic cluster from a snapshot using the AWS Management Console:
 
-1. Sign into the [AWS Management Console](../../../https:/console.aws.amazon.com/docdb/home.md "../../../https:/console.aws.amazon.com/docdb/home.md") and open the Amazon DocumentDB console.
+1. Sign into the [AWS Management Console](https://console.aws.amazon.com/docdb/home?region=us-east-1 "https://console.aws.amazon.com/docdb/home?region=us-east-1") and open the Amazon DocumentDB console.
 2. In the navigation pane, choose **Snapshots**.
 
 ###### Tip
@@ -324,7 +324,7 @@ In this section we explain how to set automatic backup parameters in an elastic 
 Using the AWS Management Console
 To set an automatic backup for a new elastic cluster snapshot using the AWS Management Console:
 
-1. Sign into the [AWS Management Console](../../../https:/console.aws.amazon.com/docdb/home.md "../../../https:/console.aws.amazon.com/docdb/home.md") and open the Amazon DocumentDB console.
+1. Sign into the [AWS Management Console](https://console.aws.amazon.com/docdb/home?region=us-east-1 "https://console.aws.amazon.com/docdb/home?region=us-east-1") and open the Amazon DocumentDB console.
 2. In the navigation pane, choose **Clusters**.
 
 ###### Tip

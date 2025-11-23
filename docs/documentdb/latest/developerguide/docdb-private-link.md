@@ -7,7 +7,7 @@ Amazon DocumentDB elastic clusters do not support AWS PrivateLink VPC endpoints.
 You can establish a private connection between your VPC and Amazon DocumentDB API endpoints by creating an interface VPC endpoint.
 Interface endpoints are powered by AWS PrivateLink.
 
-While Amazon DocumentDB instance-based clusters do not require an interface VPC endpoint connection, AWS PrivateLink enables you to privately access Amazon DocumentDB API operations without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
+While Amazon DocumentDB instance-based clusters do not require an interface VPC endpoint connection, AWS PrivateLink enables you to privately access Amazon DocumentDB API operations without an internet gateway, NAT device, VPN connection, or Direct Connect connection.
 Amazon DocumentDB instances in your VPC don't need public IP addresses to communicate with Amazon DocumentDB API endpoints to launch, modify, or terminate database instances and database clusters.
 Your Amazon DocumentDB instances also don't need public IP addresses to use any of the available Amazon DocumentDB API operations.
 Traffic between your VPC and Amazon DocumentDB doesn't leave the Amazon network.
