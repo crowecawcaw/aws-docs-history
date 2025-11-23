@@ -20,7 +20,7 @@ IAM policy. For details, see [Grant ability to only write and
 list files](configure-storage.md#headobject-access-denied "configure-storage.md#headobject-access-denied").
 
 The AWS Storage Blog contains a post detailing how to set up least privilege access. For
-details, see [Implementing least privilege access in an AWS Transfer Family workflow](https://aws.amazon.com/blogs/storage/implementing-least-privilege-access-in-an-aws-transfer-family-workflow/ "https://aws.amazon.com/blogs/storage/implementing-least-privilege-access-in-an-aws-transfer-family-workflow/").
+details, see [Implementing least privilege access in an AWS Transfer Family workflow](https://aws.amazon.com/blogs//storage/implementing-least-privilege-access-in-an-aws-transfer-family-workflow/ "https://aws.amazon.com/blogs//storage/implementing-least-privilege-access-in-an-aws-transfer-family-workflow/").
 
 ###### Note
 

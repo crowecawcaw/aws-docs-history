@@ -28,8 +28,8 @@ Solution
 
 - In IAM Identity Center, make sure to assign the user to the correct application. Or, if
   you have a group assigned, make sure that the user attempting to log in
-  belongs to the correct group. This is described in [Assign or add users or groups to Transfer Family
-  web app](webapp-configure.md#webapp-add-users "webapp-configure.md#webapp-add-users").
+  belongs to the correct group. This is described in [Assign or add users or groups to a Transfer Family
+  web app](webapp-add-users.md "webapp-add-users.md").
 - Check whether your roles contain the necessary actions in the
   **Custom trust policy** for both
   `sts:AssumeRole` and `sts:SetContext` actions.
@@ -66,7 +66,7 @@ When your end user signs into the web app, they receive the error message
 
 Cause
 
-If you used CloudFront directly, rather than the supplied AWS CloudFormation template, you have
+If you used CloudFront directly, rather than the supplied CloudFormation template, you have
 likely misconfigured the origin request policy to not forward query strings.
 
 Solution
@@ -81,7 +81,7 @@ response.
 
 Cause
 
-If you used CloudFront directly, rather than the supplied AWS CloudFormation template, you have
+If you used CloudFront directly, rather than the supplied CloudFormation template, you have
 likely misconfigured the cache policy to include the `Host` header in the
 cache key or misconfigured the origin request policy to forward the
 `Host` header.

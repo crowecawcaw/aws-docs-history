@@ -19,7 +19,7 @@ the credentials stored in Secrets Manager. And you can log to Amazon CloudWatch.
 ![An architecture diagram for how the SFTP connector interacts with Secrets Manager, Amazon S3, CloudWatch logs, IAM roles, and the remote SFTP server.](images/sftp-connector-arch-diag.png)
 The following blog post provides a reference architecture to build an MFT workflow using SFTP connectors, including encryption of files using PGP before sending them to a remote SFTP server using SFTP connectors:
 [Architecting secure and compliant managed
-file transfers with AWS Transfer Family SFTP connectors and PGP encryption.](https://aws.amazon.com/blogs/storage/architecting-secure-and-compliant-managed-file-transfers-with-aws-transfer-family-sftp-connectors-and-pgp-encryption/ "https://aws.amazon.com/blogs/storage/architecting-secure-and-compliant-managed-file-transfers-with-aws-transfer-family-sftp-connectors-and-pgp-encryption/")
+file transfers with AWS Transfer Family SFTP connectors and PGP encryption.](https://aws.amazon.com/blogs//storage/architecting-secure-and-compliant-managed-file-transfers-with-aws-transfer-family-sftp-connectors-and-pgp-encryption/ "https://aws.amazon.com/blogs//storage/architecting-secure-and-compliant-managed-file-transfers-with-aws-transfer-family-sftp-connectors-and-pgp-encryption/")
 
 ## Connector egress types
 

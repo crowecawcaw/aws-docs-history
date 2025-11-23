@@ -1,7 +1,7 @@
 # Create an AS2 server
 
 This topic provides instructions for creating an AS2-enabled Transfer Family server, using either the
-console or a AWS CloudFormation template. For an end-to-end example AS2 configuration, see [Setting up an AS2 configuration](as2-example-tutorial.md "as2-example-tutorial.md"). After you create
+console or a CloudFormation template. For an end-to-end example AS2 configuration, see [Setting up an AS2 configuration](as2-example-tutorial.md "as2-example-tutorial.md"). After you create
 an AS2 server, you can add an agreement to the server.
 
 1. [Import AS2 certificates](managing-as2-partners.md#configure-as2-certificate "managing-as2-partners.md#configure-as2-certificate")
@@ -70,12 +70,12 @@ access through virtual private cloud (VPC) security groups. 5. On the **Choose a
 
     	* **Internal** – Choose this option to
     	 provide access from within your VPC and VPC-connected
-    	 environments, such as an on-premises data center over AWS Direct Connect
+    	 environments, such as an on-premises data center over Direct Connect
     	 or VPN.
     	* **Internet Facing** – Choose this
     	 option to provide access over the internet and from within your
     	 VPC and VPC-connected environments, such as an on-premises data
-    	 center over AWS Direct Connect or VPN.
+    	 center over Direct Connect or VPN.
 
 
     	If you choose **Internet Facing**, supply
@@ -133,7 +133,7 @@ make sure they are correct.
 
 stack
 
-We supply a self-contained, AWS CloudFormation template to quickly create an AS2-enabled Transfer Family
+We supply a self-contained, CloudFormation template to quickly create an AS2-enabled Transfer Family
 server. The template configures the server with a public Amazon VPC endpoint, certificates,
 local and partner profiles, an agreement, and a connector.
 
@@ -165,7 +165,7 @@ Before using this template, note the following:
 
 ###### To create an AS2-enabled Transfer Family server from a CloudFormation template
 
-1. Open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. In the left navigation pane, choose **Stacks**.
 3. Choose **Create stack**, and then choose **With new
    resources (standard)**.
@@ -203,7 +203,7 @@ Before using this template, note the following:
 ###### Note
 
 At the bottom of the page, under **Capabilities**, you
-must acknowledge that AWS CloudFormation might create AWS Identity and Access Management (IAM) resources.
+must acknowledge that CloudFormation might create AWS Identity and Access Management (IAM) resources.
 
 After the stack is created, you can send a test AS2 message from the partner server to
 your local Transfer Family server by using the AWS Command Line Interface (AWS CLI). A sample AWS CLI command for

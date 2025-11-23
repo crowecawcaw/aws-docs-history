@@ -6,7 +6,7 @@ You can use AWS Transfer Family to authenticate your file transfer end users usi
 It enables seamless migration of file transfer workflows that rely on Active Directory
 authentication without changing end users’ credentials or needing a custom authorizer.
 
-With AWS Managed Microsoft AD, you can securely provide AWS Directory Service users and groups access over SFTP, FTPS,
+With AWS Managed Microsoft AD, you can securely provide Directory Service users and groups access over SFTP, FTPS,
 and FTP for data stored in Amazon Simple Storage Service (Amazon S3) or Amazon Elastic File System (Amazon EFS). If you use Active Directory
 to store your users’ credentials, you now have an easier way to enable file transfers for
 these users.
@@ -32,11 +32,11 @@ AWS Transfer Family](https://aws.amazon.com/blogs/storage/simplify-active-direct
   Directory.
   To use AWS Managed Microsoft AD, you must perform the following steps:
 
-1. Create one or more AWS Managed Microsoft AD directories using the AWS Directory Service console.
+1. Create one or more AWS Managed Microsoft AD directories using the Directory Service console.
 2. Use the Transfer Family console to create a server that uses AWS Managed Microsoft AD as its identity
    provider.
 3. Set up AWS Directory using an Active Directory Connector.
-4. Add access from one or more of your AWS Directory Service groups.
+4. Add access from one or more of your Directory Service groups.
 5. Although not required, we recommend that you test and verify user access.
 
 ###### Topics
@@ -87,11 +87,11 @@ different values, AWS Transfer Family accepts the value in `SamAccountName`.
 Transfer Family does not accept the value specified in
 `userPrincipalName`.
 
-### Add AWS Directory Service permissions to your
+### Add Directory Service permissions to your
 
 role
 
-You also need AWS Directory Service API permissions to use AWS Directory Service as your identity provider.
+You also need Directory Service API permissions to use AWS Directory Service as your identity provider.
 The following permissions are required or suggested:
 
 - `ds:DescribeDirectories` is required for Transfer Family to look up the
@@ -103,7 +103,7 @@ The following permissions are required or suggested:
   during the server creation process
 
 Add these permissions to the role you are using for creating your Transfer Family servers.
-For more details on these permissions, see [AWS Directory Service API permissions: Actions, resources, and conditions
+For more details on these permissions, see [Directory Service API permissions: Actions, resources, and conditions
 reference](../../../directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.md "../../../directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.md").
 
 ## Working with Active Directory realms
@@ -125,10 +125,10 @@ This section describes how to use AWS Directory Service for Microsoft Active Dir
 
 ###### To use AWS Managed Microsoft AD with Transfer Family
 
-1. Sign in to the AWS Management Console and open the AWS Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
+1. Sign in to the AWS Management Console and open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 
-Use the AWS Directory Service console to configure one or more managed directories. For more
-information, see [AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md") in the _AWS Directory Service Admin Guide_.
+Use the Directory Service console to configure one or more managed directories. For more
+information, see [AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md") in the _Directory Service Admin Guide_.
 
 ![The Directory Service console showing a list of directories and their details.](images/directory-services-AD-list.png) 2. Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/"), and choose **Create
 server**. 3. On the **Choose protocols** page, choose one or more
@@ -147,7 +147,7 @@ that you have configured. Choose a directory from the list, and choose
 ###### Note
 
     * Cross-Account and Shared directories are not supported for AWS Managed Microsoft AD.
-    * To set up a server with Directory Service as your identity provider, you need to add some AWS Directory Service permissions.
+    * To set up a server with Directory Service as your identity provider, you need to add some Directory Service permissions.
      For details, see [Before you start using AWS Directory Service for Microsoft Active Directory](#managed-ad-prereq "#managed-ad-prereq").
 
 6.  To finish creating the server, use one of the following procedures:
@@ -161,7 +161,7 @@ that you have configured. Choose a directory from the list, and choose
 
 ###### Important
 
-You can't delete a Microsoft AD directory in AWS Directory Service if you used it in a Transfer Family
+You can't delete a Microsoft AD directory in Directory Service if you used it in a Transfer Family
 server. You must delete the server first, and then you can delete the directory.
 
 ## Connecting to on-prem Microsoft Active Directory
@@ -334,7 +334,7 @@ when you configured the user.
 
 Active Directory using forests and trusts
 
-AWS Directory Service has the following options available to connect to a self-managed Active
+Directory Service has the following options available to connect to a self-managed Active
 Directory:
 
 - One-way forest trust (outgoing from AWS Managed Microsoft AD and incoming for on-premises

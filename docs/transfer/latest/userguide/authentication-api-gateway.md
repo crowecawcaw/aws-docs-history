@@ -55,16 +55,16 @@ Caching is inappropriate and invalid for authentication requests because:
 
 ###### To use your API Gateway method for custom authentication with Transfer Family
 
-1. Create an AWS CloudFormation stack. To do this:
+1. Create an CloudFormation stack. To do this:
 
 ###### Note
 
 The stack templates have been updated to use BASE64-encoded passwords:
-for details, see [Improvements to the AWS CloudFormation templates](#base64-templates "#base64-templates").
+for details, see [Improvements to the CloudFormation templates](#base64-templates "#base64-templates").
 
-    1. Open the AWS CloudFormation console at
+    1. Open the CloudFormation console at
      [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-    2. Follow the instructions for deploying an AWS CloudFormation stack from an
+    2. Follow the instructions for deploying an CloudFormation stack from an
      existing template in [Selecting a stack template](../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-template.md "../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-template.md") in the
      *AWS CloudFormation User Guide*.
     3. Use one of the following basic templates to create an
@@ -133,7 +133,7 @@ _API Gateway Developer Guide_. 2. Check the API Gateway method configuration for
     1. Open the API Gateway console at
      [https://console.aws.amazon.com/apigateway/](https://console.aws.amazon.com/apigateway/ "https://console.aws.amazon.com/apigateway/").
     2. Choose the **Transfer Custom Identity Provider basic
-     template API** that the AWS CloudFormation template generated. You
+     template API** that the CloudFormation template generated. You
      might need to select your region to see your gateways.
     3. In the **Resources** pane, choose
      **GET**. The following screenshot shows the
@@ -173,11 +173,11 @@ not, configure your server using these steps.
      paste the **Invoke URL** address of the API Gateway
      endpoint that you created in step 3 of this procedure.
     3. For **Role**, choose the IAM role that was
-     created by the AWS CloudFormation template. This role allows Transfer Family to invoke your
+     created by the CloudFormation template. This role allows Transfer Family to invoke your
      API gateway method.
 
 
-    The invocation role contains the AWS CloudFormation stack name that you
+    The invocation role contains the CloudFormation stack name that you
      selected for the stack that you created in step 1. It has the
      following format:
      ``CloudFormation-stack-name`-TransferIdentityProviderRole-`ABC123DEF456GHI``.
@@ -386,14 +386,14 @@ The example functions are listed in [Example Lambda functions](custom-lambda-idp
 with AWS Secrets Manager
 
 To use AWS Secrets Manager as your identity provider, you can work with the Lambda function
-in the sample AWS CloudFormation template. The Lambda function queries the Secrets Manager service with your
+in the sample CloudFormation template. The Lambda function queries the Secrets Manager service with your
 credentials and, if successful, returns a designated secret. For more information
 about Secrets Manager, see the [AWS Secrets Manager User Guide](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md").
 
-To download a sample AWS CloudFormation template that uses this Lambda function, go to the
+To download a sample CloudFormation template that uses this Lambda function, go to the
 [Amazon S3 bucket provided by AWS Transfer Family](https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-secrets-manager-apig.template.yml "https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-secrets-manager-apig.template.yml").
 
-## Improvements to the AWS CloudFormation templates
+## Improvements to the CloudFormation templates
 
 Improvements to the API Gateway interface have been made to the published CloudFormation
 templates. The templates now use BASE64-encoded passwords with the API Gateway. Your
@@ -431,7 +431,7 @@ RequestParameters:
 
 ###### To check if the template for your stack is the latest
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. From the list of stacks, choose your stack.
 3. From the details panel, choose the **Template**
@@ -452,5 +452,5 @@ RequestParameters:
    ```
 
 If you don't see the updated lines, edit your stack. For details on how to update
-your AWS CloudFormation stack, see [Modifying a stack template](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-get-template.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-get-template.md") in the _AWS CloudFormation; User
+your CloudFormation stack, see [Modifying a stack template](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-get-template.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-get-template.md") in the _AWS CloudFormation; User
 Guide_.

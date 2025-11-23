@@ -18,7 +18,7 @@ identity provider to upload files to an AWS Transfer Family server. This tutoria
 
 ## Prerequisites
 
-Before you create the Transfer Family resources in AWS CloudFormation, create your storage and your user
+Before you create the Transfer Family resources in CloudFormation, create your storage and your user
 role.
 
 ###### To specify storage and create a user role
@@ -31,14 +31,14 @@ role.
 
 2. To create a user role, see [Create an IAM role and policy](requirements-roles.md "requirements-roles.md")
 
-You enter the details for your storage and your user role when you create your AWS CloudFormation
+You enter the details for your storage and your user role when you create your CloudFormation
 stack in the next section.
 
 ## Step 1: Create a CloudFormation stack
 
 ###### To create an AWS CloudFormation stack from the provided template
 
-1. Open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Select **Create stack**, and choose **With new
    resources (standard)**.
 3. In the **Prerequisite - Prepare template** pane, choose
@@ -72,7 +72,7 @@ stack in the next section.
 ###### Note
 
 At the bottom of the page, under
-**Capabilities**, you must acknowledge that AWS CloudFormation
+**Capabilities**, you must acknowledge that CloudFormation
 might create IAM resources.
 
 ## Step 2: Check the API Gateway method configuration for your server
@@ -99,7 +99,7 @@ To check the API Gateway method configuration for your server and deploy it
 1. Open the API Gateway console at
    [https://console.aws.amazon.com/apigateway/](https://console.aws.amazon.com/apigateway/ "https://console.aws.amazon.com/apigateway/").
 2. Choose the **Transfer Custom Identity Provider basic template
-   API** that the AWS CloudFormation template generated.
+   API** that the CloudFormation template generated.
 3. In the **Resources** pane, choose
    **GET**, and then choose **Method
    Request**.
@@ -117,16 +117,16 @@ the top of the page. You will need it for the next step.
 
 ## Step 3: View the Transfer Family server details
 
-When you use the template to create an AWS CloudFormation stack, a Transfer Family server is automatically
+When you use the template to create an CloudFormation stack, a Transfer Family server is automatically
 created.
 
 ###### To view your Transfer Family server details
 
-1. Open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Choose the stack that you created.
 3. Choose the **Resources** tab.
 
-![Screen that shows the list of resources created during creation of the AWS CloudFormation stack, with the details for the Transfer Family server highlighted.](images/apig-find-server-id.png)
+![Screen that shows the list of resources created during creation of the CloudFormation stack, with the details for the Transfer Family server highlighted.](images/apig-find-server-id.png)
 
 The server ARN is shown in the **Physical ID** column for the
 **TransferServer** row. The server ID is contained in the
@@ -134,7 +134,7 @@ ARN, for example **s-11112222333344445**. 4. Open the AWS Transfer Family consol
 **Servers** page, choose the new server.
 
 The server ID matches the ID displayed for the
-**TransferServer** resource in AWS CloudFormation.
+**TransferServer** resource in CloudFormation.
 
 ## Step 4: Test that your user can connect to the server
 
@@ -149,7 +149,7 @@ To test that your user can connect to the server, using the Transfer Family cons
 3. Enter the text for your sign-in credentials into the
    **Username** field, and into the
    **Password** field. These are the values that you set when
-   you deployed the AWS CloudFormation stack.
+   you deployed the CloudFormation stack.
 4. For **Server Protocol**, select
    **SFTP**, and for **Source IP**,
    enter `127.0.0.1`.
@@ -203,7 +203,7 @@ You can limit who can access a specific Amazon S3 bucket. The following example 
 the settings to use in your CloudFormation stack and in the policy that you select for your
 user.
 
-In this example, we set the following parameters for the AWS CloudFormation stack:
+In this example, we set the following parameters for the CloudFormation stack:
 
 - **CreateServer**: `true`
 - **UserHomeDirectory**: `/amzn-s3-demo-bucket1`

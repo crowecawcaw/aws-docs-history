@@ -83,7 +83,7 @@ VPC dashboard. The endpoint is the first DNS name of those listed.
 
 servers
 
-When you create a server using AWS Cloud Development Kit (AWS CDK), AWS CloudFormation, or through the CLI, you must add a
+When you create a server using AWS Cloud Development Kit (AWS CDK), CloudFormation, or through the CLI, you must add a
 tag if you want that server to have a custom hostname. When you create a Transfer Family server by
 using the console, the tagging is done automatically.
 

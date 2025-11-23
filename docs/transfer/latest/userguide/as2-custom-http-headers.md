@@ -2,7 +2,7 @@
 
 When sending AS2 messages to trading partners, you may need to customize the HTTP headers
 to meet specific requirements or enhance compatibility with your partner's AS2 server
-configuration. This AWS CloudFormation template creates an infrastructure to enable customized HTTP
+configuration. This CloudFormation template creates an infrastructure to enable customized HTTP
 headers for AS2 messages sent through AWS Transfer Family. It sets up an Amazon API Gateway and Lambda function
 to act as a proxy, allowing dynamic modification of headers required by trading partners'
 AS2 servers.
@@ -102,7 +102,7 @@ For HTTPS support, the template conditionally creates:
 
 ###### To customize AS2 HTTP headers using a CloudFormation template
 
-1. Open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. In the left navigation pane, choose **Stacks**.
 3. Choose **Create stack**, and then choose **With new
    resources (standard)**.
@@ -121,9 +121,9 @@ For HTTPS support, the template conditionally creates:
 ###### Note
 
 At the bottom of the page, under **Capabilities**, you
-must acknowledge that AWS CloudFormation might create AWS Identity and Access Management (IAM) resources.
+must acknowledge that CloudFormation might create AWS Identity and Access Management (IAM) resources.
 
-After deploying this AWS CloudFormation stack:
+After deploying this CloudFormation stack:
 
 1. Note the Amazon API Gateway endpoint URL provided in the stack outputs.
 2. Update your existing AWS Transfer Family Connector to use this new Amazon API Gateway

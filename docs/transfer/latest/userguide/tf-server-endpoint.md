@@ -17,7 +17,7 @@ We provide an AWS CDK example for creating an SFTP Transfer Family server. The e
 - File Transfer Protocol (FTP) – Unencrypted file transfer. For details,
   see [Create an FTP-enabled server](create-server-ftp.md "create-server-ftp.md").
 - Applicability Statement 2 (AS2) – File transfer for transporting
-  structured business-to-business data. For details, see [Configuring AS2](create-b2b-server.md "create-b2b-server.md"). For AS2, you can quickly create an AWS CloudFormation stack for demonstration purposes. This procedure is
+  structured business-to-business data. For details, see [Configuring AS2](create-b2b-server.md "create-b2b-server.md"). For AS2, you can quickly create an CloudFormation stack for demonstration purposes. This procedure is
   described in [Use a template to create a demo Transfer Family AS2
   stack](create-as2-transfer-server.md#as2-cfn-demo-template "create-as2-transfer-server.md#as2-cfn-demo-template").
   You can create a server with multiple protocols.

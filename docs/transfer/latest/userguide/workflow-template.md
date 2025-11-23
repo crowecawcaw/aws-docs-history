@@ -1,11 +1,11 @@
 # Create a workflow from a template
 
-You can deploy an AWS CloudFormation stack that creates a workflow and a server from a template.
+You can deploy an CloudFormation stack that creates a workflow and a server from a template.
 This procedure contains an example that you can use to quickly deploy a workflow.
 
-###### To create an AWS CloudFormation stack that creates an AWS Transfer Family workflow and server
+###### To create an CloudFormation stack that creates an AWS Transfer Family workflow and server
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Save the following code to a file.
 
@@ -146,7 +146,7 @@ JSON
    - Replace
      `arn:aws:lambda:`region`:`account-id`:function:`function-name``with the ARN for your Lambda function. For example,`arn:aws:lambda:us-east-2:123456789012:function:example-lambda-idp`.
 
-4. Follow the instructions for deploying an AWS CloudFormation stack from an existing template
+4. Follow the instructions for deploying an CloudFormation stack from an existing template
    in [Selecting a stack template](../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-template.md "../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-template.md") in the
    _AWS CloudFormation User Guide_.
    After the stack has been deployed, you can view details about it in the

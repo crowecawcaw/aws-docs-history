@@ -70,7 +70,7 @@ the following AWS resources.
 - An Amazon Virtual Private Cloud (VPC) with private subnets, with internet connectivity
   through either a NAT gateway or a DynamoDB gateway endpoint.
 - Appropriate IAM permissions to perform the following tasks:
-  - Deploy the `custom-idp.yaml` AWS CloudFormation template,
+  - Deploy the `custom-idp.yaml` CloudFormation template,
   - Create AWS CodePipeline projects
   - Create AWS CodeBuild projects
   - Create IAM roles and policies

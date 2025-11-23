@@ -48,5 +48,5 @@ setup, you can skip this topic and go to [Create a Transfer Family web app](weba
 
 ![Console screenshot from AWS IAM Identity Center showing the Settings page with the Instance ARN circled.](images/webapp-identity-center.png) 4. Create one or more users and, optionally, groups, to use with your Transfer Family
 web app. If you're using an IAM Identity Center directory as your identity provider, you can
-also add users directly from the web app itself. For more information, see [Assign or add users or groups to Transfer Family
-web app](webapp-configure.md#webapp-add-users "webapp-configure.md#webapp-add-users").
+also add users directly from the web app itself. For more information, see [Assign or add users or groups to a Transfer Family
+web app](webapp-add-users.md "webapp-add-users.md").

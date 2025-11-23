@@ -593,7 +593,7 @@ FTP. We don't plan to add these features and FTPS/FTP support to
 an option from the AWS Transfer Family console.
 
 You can change the endpoint type for your server
-using the Transfer Family console, AWS CLI, API, SDKs, or AWS CloudFormation. To change your server’s endpoint
+using the Transfer Family console, AWS CLI, API, SDKs, or CloudFormation. To change your server’s endpoint
 type, see [Updating the AWS Transfer Family server endpoint type
 from VPC_ENDPOINT to VPC](update-endpoint-type-vpc.md "update-endpoint-type-vpc.md").
 

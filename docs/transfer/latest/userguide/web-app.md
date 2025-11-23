@@ -38,6 +38,12 @@ the following documentation:
 
 AWS Transfer Family web apps are available in all the Transfer Family supported regions, as listed in [AWS Transfer Family service endpoints](../../../general/latest/gr/transfer-service.md#transfer-region "../../../general/latest/gr/transfer-service.md#transfer-region"), except for Mexico (Central).
 
+VPC endpoints for web apps are supported in the following AWS Regions:
+
+- US East (N. Virginia)
+- US East (Ohio)
+- Asia Pacific (Seoul)
+
 ## Browser compatibility for AWS Transfer Family web apps
 
 Transfer Family web apps support the following browsers.
@@ -118,7 +124,7 @@ following tasks:
    that are used by your web app. For information about setting up
    CORS, see [Set up Cross-origin resource sharing (CORS) for your
    bucket](access-grant-cors.md "access-grant-cors.md"). 2. Assign users or groups to the web app. For more information about how
-   to assign users and groups, see [Assign or add users or groups to Transfer Family
-   web app](webapp-configure.md#webapp-add-users "webapp-configure.md#webapp-add-users"). 3. (Optional) Update the access endpoint for your web app with a custom
+   to assign users and groups, see [Assign or add users or groups to a Transfer Family
+   web app](webapp-add-users.md "webapp-add-users.md"). 3. (Optional) Update the access endpoint for your web app with a custom
    URL. For information about creating a custom URL, see [Update your access endpoint with a custom URL](webapp-customize.md "webapp-customize.md"). 4. Provide your end users with the access endpoint URL so that they can
    log in and interact with your web app.

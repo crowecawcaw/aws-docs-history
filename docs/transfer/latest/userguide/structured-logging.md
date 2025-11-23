@@ -128,7 +128,7 @@ new cloudwatch.Metric({
 });
 ```
 
-AWS CloudFormation
+CloudFormation
 
 ```
 Type: AWS::CloudWatch::Alarm

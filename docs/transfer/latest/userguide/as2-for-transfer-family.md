@@ -96,7 +96,7 @@ requirements:
    - Monitoring and notification preferences
 
 3. Upload your modified template to your own S3 bucket.
-4. Deploy the customized template using the AWS CloudFormation console or AWS CLI.
+4. Deploy the customized template using the CloudFormation console or AWS CLI.
 
 ###### Important
 

@@ -2,7 +2,7 @@
 
 from VPC_ENDPOINT to VPC
 
-You can use the AWS Management Console, AWS CloudFormation, or the Transfer Family API to update a server's
+You can use the AWS Management Console, CloudFormation, or the Transfer Family API to update a server's
 `EndpointType` from `VPC_ENDPOINT` to `VPC`.
 Detailed procedures and examples for using each of these methods to update a server
 endpoint type are provided in the following sections. If you have servers in multiple
@@ -17,7 +17,7 @@ the following section, with modifications, to identify servers using the
 - [Updating the server endpoint type using
   the AWS Management Console](#update-endpoint-console "#update-endpoint-console")
 - [Updating the server endpoint type
-  using AWS CloudFormation](#update-endpoint-cloudformation "#update-endpoint-cloudformation")
+  using CloudFormation](#update-endpoint-cloudformation "#update-endpoint-cloudformation")
 - [Updating the server EndpointType using the
   API](#update-endpoint-cli "#update-endpoint-cli")
 
@@ -107,11 +107,11 @@ this can take a couple of minutes.
 
 ## Updating the server endpoint type
 
-using AWS CloudFormation
+using CloudFormation
 
-This section describes how to use AWS CloudFormation to update a server's
+This section describes how to use CloudFormation to update a server's
 `EndpointType` to `VPC`. Use this procedure for Transfer Family
-servers that you have deployed using AWS CloudFormation. In this example, the original AWS CloudFormation
+servers that you have deployed using CloudFormation. In this example, the original CloudFormation
 template used to deploy the Transfer Family server is shown as follows:
 
 ```
@@ -190,7 +190,7 @@ Resources:
         - SFTP
 ```
 
-###### To update the endpoint type of Transfer Family servers deployed using AWS CloudFormation
+###### To update the endpoint type of Transfer Family servers deployed using CloudFormation
 
 1. Stop the server that you want to update using the following steps.
    1. Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/").
@@ -217,7 +217,7 @@ Resources:
    change.
 
 2. Update the CloudFormation stack
-   1. Open the AWS CloudFormation console at
+   1. Open the CloudFormation console at
       [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
    2. Choose the stack used to create the Transfer Family server.
    3. Choose **Update**.
@@ -232,11 +232,11 @@ Resources:
    After uploading the new template, the change set will look similar
    to the following:
 
-   ![Shows Change set preview page for replacing current AWS CloudFormation template.](images/vpc-endpoint-update-cfn.png) 6. Update the stack.
+   ![Shows Change set preview page for replacing current CloudFormation template.](images/vpc-endpoint-update-cfn.png) 6. Update the stack.
 
 3. Once the stack update is complete, navigate to the Transfer Family management console
    at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/").
-4. Restart the server. Choose the server you updated in AWS CloudFormation, and then
+4. Restart the server. Choose the server you updated in CloudFormation, and then
    choose **Start** from the **Actions**
    menu.
 

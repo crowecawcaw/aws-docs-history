@@ -185,6 +185,6 @@ _AWS CLI Command Reference_.
 ```
 
 If your workflow was created as part of an AWS CloudFormation stack, you can manage the
-workflow using the AWS CloudFormation console ([https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/")).
+workflow using the CloudFormation console ([https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/")).
 
 ![The Workflows details screen for a workflow that is part of an AWS CloudFormation stack, showing the message that you manage this workflow in CloudFormation.](images/workflows-cloudformation-link.png)

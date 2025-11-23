@@ -24,15 +24,20 @@ resource sharing (CORS) for your Amazon S3 bucket
 3.  In **Cross-origin resource sharing (CORS)**, choose
     **Edit** and paste in the following code. Replace
     `WebAppEndpoint` with the actual access endpoint
-    for your web app. This can be either the access endpoint that's created when the
+    for your web app. This can be either the VPC hosted or public access endpoint that's created when the
     web app is created, or a custom access endpoint, if you create one. Make sure
     not to enter trailing slashes, because doing so causes errors when users attempt
     to log on to your web app.
 
         * Incorrect example:
          `https://webapp-c7bf3423.transfer-webapp.us-east-2.on.aws/`
-        * Correct example:
-         `https://webapp-c7bf3423.transfer-webapp.us-east-2.on.aws`
+        * Correct examples:
+
+
+
+
+        	+ `https://webapp-c7bf3423.transfer-webapp.us-east-2.on.aws`
+        	+ `https://vpce-05668789767a-fh45z079.vpce-mq.transfer-webapp.us-east-1.on.aws`
 
     If you are reusing a bucket for multiple web apps, append their endpoints to
     the `AllowedOrigins` list.

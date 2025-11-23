@@ -7,11 +7,15 @@ update your access endpoint with a custom URL.
 
 ###### Note
 
+The access endpoint cannot be customized for VPC endpoints. To add a custom URL, use the public endpoint.
+
+###### Note
+
 The following procedure relies on you using the recommended [CloudFormation stack template](https://s3.amazonaws.com/aws-transfer-resources/custom-domain-templates/aws-transfer-web-app-custom-domain-distribution.template.yml "https://s3.amazonaws.com/aws-transfer-resources/custom-domain-templates/aws-transfer-web-app-custom-domain-distribution.template.yml"). You don't need to use the template: you can
 create the distribution by using the [CloudFront console](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home") directly.
 
 However, the provided template simplifies the process, and makes it easier to
-avoid misconfiguration. If you don't use the AWS CloudFormation template, make sure to follow
+avoid misconfiguration. If you don't use the CloudFormation template, make sure to follow
 these guidelines:
 
 - The [Origin request policy](../../../AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.md#managed-origin-request-policy-cors-custom "../../../AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.md#managed-origin-request-policy-cors-custom") should forward query strings and cookies
@@ -24,7 +28,7 @@ these guidelines:
 
 1. Create a CloudFront distribution by using the Transfer Family supplied AWS CloudFormation template,
    [CloudFormation stack template](https://s3.amazonaws.com/aws-transfer-resources/custom-domain-templates/aws-transfer-web-app-custom-domain-distribution.template.yml "https://s3.amazonaws.com/aws-transfer-resources/custom-domain-templates/aws-transfer-web-app-custom-domain-distribution.template.yml").
-   1. Open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+   1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
    2. Choose **Create stack** and specify the
       following.
       - In the **Prerequisite - Prepare template**
@@ -45,7 +49,7 @@ these guidelines:
         public or private SSL/TLS certificate that is stored in
         AWS Certificate Manager
 
-   4. Complete the AWS CloudFormation wizard until your new stack is created.
+   4. Complete the CloudFormation wizard until your new stack is created.
 
 2. In your web app, edit the **Access endpoint**, updating the
    **Custom URL** to the URL that you want to use.

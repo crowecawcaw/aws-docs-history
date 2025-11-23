@@ -152,7 +152,7 @@ the server.
 
 ###### To update the role
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. In the left navigation pane, choose **Stacks**.
 3. In the **Stacks** list, choose your stack, and then

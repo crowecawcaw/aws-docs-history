@@ -364,12 +364,12 @@ console
    **Test**.
 3. Enter the text for **Username** and
    **Password** that you set when you
-   deployed the AWS CloudFormation stack. If you kept the default options,
+   deployed the CloudFormation stack. If you kept the default options,
    the username is `myuser` and the password is
    `MySuperSecretPassword`.
 4. Choose the **Server protocol** and enter
    the IP address for **Source IP**, if you
-   set them when you deployed the AWS CloudFormation stack.
+   set them when you deployed the CloudFormation stack.
 
 CLI
 
@@ -386,11 +386,11 @@ placeholder` with your own
 
 2. Enter the server ID.
 3. Enter the username and password that you set when you
-   deployed the AWS CloudFormation stack. If you kept the default options,
+   deployed the CloudFormation stack. If you kept the default options,
    the username is `myuser` and the password is
    `MySuperSecretPassword`.
 4. Enter the server protocol and source IP address, if you
-   set them when you deployed the AWS CloudFormation stack.
+   set them when you deployed the CloudFormation stack.
 
 If user authentication succeeds, the test returns a `StatusCode:
  200` HTTP response, an empty string `Message: ""` (which
@@ -414,22 +414,22 @@ and permissions.
 
 ### Lambda function templates
 
-You can deploy an AWS CloudFormation stack that uses a Lambda function for authentication.
+You can deploy an CloudFormation stack that uses a Lambda function for authentication.
 We provide several templates that authenticate and authorize your users using
 sign-in credentials. You can modify these templates or AWS Lambda code to further
 customize user access.
 
 ###### Note
 
-You can create a FIPS-enabled AWS Transfer Family server through AWS CloudFormation by specifying
+You can create a FIPS-enabled AWS Transfer Family server through CloudFormation by specifying
 a FIPS-enabled security policy in your template. Available security policies
 are described in [Security policies for AWS Transfer Family servers](security-policies.md "security-policies.md")
 
-###### To create an AWS CloudFormation stack to use for authentication
+###### To create an CloudFormation stack to use for authentication
 
-1.  Open the AWS CloudFormation console at
+1.  Open the CloudFormation console at
     [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2.  Follow the instructions for deploying an AWS CloudFormation stack from an existing
+2.  Follow the instructions for deploying an CloudFormation stack from an existing
     template in [Selecting a stack template](../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-template.md "../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-template.md") in the
     _AWS CloudFormation User Guide_.
 3.  Use one of the following templates to create a Lambda function to use

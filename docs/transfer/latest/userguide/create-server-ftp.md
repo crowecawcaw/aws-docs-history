@@ -28,7 +28,7 @@ servers](infrastructure-security.md#nlb-considerations "infrastructure-security.
     provider that you want to use to manage user access. You have the following
     options:
     - **AWS Directory Service for Microsoft Active Directory** – You
-      provide an AWS Directory Service directory to access the endpoint. By doing so, you can
+      provide an Directory Service directory to access the endpoint. By doing so, you can
       use credentials stored in your Active Directory to authenticate your
       users. To learn more about working with AWS Managed Microsoft AD identity providers,
       see [Using AWS Directory Service for Microsoft
@@ -37,7 +37,7 @@ servers](infrastructure-security.md#nlb-considerations "infrastructure-security.
     ###### Note
 
         + Cross-Account and Shared directories are not supported for AWS Managed Microsoft AD.
-        + To set up a server with Directory Service as your identity provider, you need to add some AWS Directory Service permissions.
+        + To set up a server with Directory Service as your identity provider, you need to add some Directory Service permissions.
          For details, see [Before you start using AWS Directory Service for Microsoft Active Directory](directory-services-users.md#managed-ad-prereq "directory-services-users.md#managed-ad-prereq").
 
     - **Custom identity provider** – Choose either of the following options:
