@@ -10,7 +10,7 @@
 - [Amazon Elastic Kubernetes Service](https://aws.amazon.com/eks/ "https://aws.amazon.com/eks/")
 - [Amazon DynamoDB](https://aws.amazon.com/dynamodb/ "https://aws.amazon.com/dynamodb/")
 - [Amazon
-  Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/")
+  ELB](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/")
 - [AWS IoT FleetWise](https://aws.amazon.com/iot-fleetwise/ "https://aws.amazon.com/iot-fleetwise/")
 - [Amazon Managed Streaming for Apache Kafka (Amazon MSK)](https://aws.amazon.com/msk/ "https://aws.amazon.com/msk/")
   In summary, AWS provides a comprehensive suite of services that can be tailored to
