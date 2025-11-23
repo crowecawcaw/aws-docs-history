@@ -42,7 +42,7 @@ When you create a new state machine, it's
 automatically
 traced if the request is sampled and tracing is enabled in an upstream service such as
 Amazon API Gateway or AWS Lambda. For any existing state machine not configured through the console,
-for example through an AWS CloudFormation template,
+for example through an CloudFormation template,
 check
 that you have an IAM policy that grants sufficient permissions to enable X-Ray
 traces.

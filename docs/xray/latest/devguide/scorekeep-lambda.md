@@ -23,7 +23,7 @@ independently of the Scorekeep API. When a game ends, the API writes the session
 to an SQS queue. The worker function reads items from the queue, and calls the Scorekeep API to
 construct complete records of each game session for storage in Amazon S3.
 
-Scorekeep includes AWS CloudFormation templates and scripts to create both functions. Because you need to
+Scorekeep includes CloudFormation templates and scripts to create both functions. Because you need to
 bundle the X-Ray SDK with the function code, the templates create the functions without any
 code. When you deploy Scorekeep, a configuration file included in the
 `.ebextensions` folder creates a source bundle that includes the SDK, and

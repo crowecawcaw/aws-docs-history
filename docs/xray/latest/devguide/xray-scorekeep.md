@@ -7,7 +7,7 @@ End-of-support notice – On February 25th, 2027, AWS X-Ray will discontinue sup
 
 The AWS X-Ray [eb-java-scorekeep](https://github.com/awslabs/eb-java-scorekeep/tree/xray "https://github.com/awslabs/eb-java-scorekeep/tree/xray") sample app, available on
 GitHub, shows the use of the AWS X-Ray SDK to instrument incoming HTTP calls, DynamoDB SDK clients, and HTTP
-clients. The sample app uses AWS CloudFormation to create DynamoDB tables, compile Java code on instance, and run the X-Ray daemon
+clients. The sample app uses CloudFormation to create DynamoDB tables, compile Java code on instance, and run the X-Ray daemon
 without any additional configuration.
 
 See the [Scorekeep tutorial](scorekeep-tutorial.md "scorekeep-tutorial.md") to start installing and

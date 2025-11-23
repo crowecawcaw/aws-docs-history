@@ -7,7 +7,7 @@ application
 End-of-support notice – On February 25th, 2027, AWS X-Ray will discontinue support for AWS X-Ray SDKs and daemon. After February 25th, 2027, you will no longer receive updates or releases. For more information on the support timeline, see
 [X-Ray SDK and daemon end of support timeline](xray-daemon-eos.md "xray-daemon-eos.md"). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
 
-This tutorial uses the `xray-gettingstarted` branch of the [Scorekeep sample application](xray-scorekeep.md "xray-scorekeep.md"), which uses AWS CloudFormation to create and
+This tutorial uses the `xray-gettingstarted` branch of the [Scorekeep sample application](xray-scorekeep.md "xray-scorekeep.md"), which uses CloudFormation to create and
 configure the resources that run the sample application and X-Ray daemon on Amazon ECS. The
 application uses the Spring framework to implement a JSON web API and the AWS SDK for Java to persist
 data to Amazon DynamoDB. A servlet filter in the application instruments all incoming requests served
@@ -31,7 +31,7 @@ You can follow this tutorial using either the AWS Management Console or the AWS 
 
 ## Prerequisites
 
-This tutorial uses AWS CloudFormation to create and configure the resources that run the sample
+This tutorial uses CloudFormation to create and configure the resources that run the sample
 application and X-Ray daemon. The following prerequisites are required to install and run
 through the tutorial:
 

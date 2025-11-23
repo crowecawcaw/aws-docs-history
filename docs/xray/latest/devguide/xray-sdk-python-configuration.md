@@ -28,7 +28,7 @@ your application.
 - Elastic Beanstalk – `ElasticBeanstalkPlugin` adds the environment name, version label, and deployment ID.
 - Amazon ECS – `ECSPlugin` adds the container ID.
 
-![Segment - Scorekeep overview showing Elastic Beanstalk and EC2 deployment details.](/images/xray/latest/devguide/images/scorekeep-PUTrules-segment-resources-python09.png)
+![Segment - Scorekeep overview showing Elastic Beanstalk and EC2 deployment details.](images/scorekeep-PUTrules-segment-resources-python09.png)
 
 To use a plugin, call `configure` on the `xray_recorder`.
 
