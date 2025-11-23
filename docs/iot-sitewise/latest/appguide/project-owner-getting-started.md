@@ -70,7 +70,7 @@ dashboard is quick and easy.
 ![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project in which you want to
 create a dashboard.
 
-![The "Projects" page as a project owner.](/images/iot-sitewise/latest/appguide/images/projects-portal-user-choose-project-console.png) 3. In the **Dashboards** section, choose **Create
+![The "Projects" page as a project owner.](images/projects-portal-user-choose-project-console.png) 3. In the **Dashboards** section, choose **Create
 dashboard**.
 
 ![The dashboards list on the project details page with "Create dashboard" highlighted.](images/project-create-dashboard-console.png)
@@ -103,14 +103,14 @@ You can drag multiple properties and alarms onto a single visualization.
 
 ![The dashboard editor with "Total average power" highlighted.](images/dashboard-add-visualization-console.png) 3. To change how your data displays, choose the visualization type.
 
-![A sample visualization with the visualization type icon highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-type-console.png)
+![A sample visualization with the visualization type icon highlighted.](images/dashboard-edit-visualization-type-console.png)
 
 For more information about the available visualization types, see [Choose visualization types](choose-visualization-types.md "choose-visualization-types.md"). To
 customize details of the visualization, see [Customize visualizations](customize-visualizations.md "customize-visualizations.md"). 4. To add thresholds to your property, choose the visualization configuration icon. If you
 add a property that has an alarm, the visualization displays that alarm's threshold. For
 more information, see [Configure thresholds](configure-thresholds.md "configure-thresholds.md").
 
-![A sample visualization with the visualization configuration icon highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-configuration-console.png) 5. To move a visualization, choose the control icon in the upper left and then drag the
+![A sample visualization with the visualization configuration icon highlighted.](images/dashboard-edit-visualization-configuration-console.png) 5. To move a visualization, choose the control icon in the upper left and then drag the
 visualization to a new location.
 
 ![An example visualization with the gripper and resize controls highlighted.](images/dashboard-edit-visualization-bounds-console.png) 6. To change the size of a visualization, use the resize control in the lower right.
@@ -144,7 +144,7 @@ viewers**.
 ![The "Project viewers" section of a project page.](images/project-add-viewers-console.png) 4. In the **Project viewers** dialog box, select the check boxes for the
 users to be viewers for this project.
 
-![Shows the "Project viewers" dialog.](/images/iot-sitewise/latest/appguide/images/project-choose-viewers-console.png)
+![Shows the "Project viewers" dialog.](images/project-choose-viewers-console.png)
 
 ###### Note
 
