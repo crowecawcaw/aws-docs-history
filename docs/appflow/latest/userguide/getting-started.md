@@ -23,12 +23,12 @@ Complete the following prerequisites before getting started with Amazon AppFlow.
 - Identity and access management — Your
   administrator must grant you the permissions required to create and run flows. For more
   information, see [Identity and access management for Amazon AppFlow](security-iam.md "security-iam.md") .
-- AWS CloudFormation OAuth (Optional) — If you want to use AWS CloudFormation
+- CloudFormation OAuth (Optional) — If you want to use CloudFormation
   to create a connector profile for connectors that implement OAuth (such as Salesforce,
   Slack, Zendesk, and Google Analytics), you must fetch the access and refresh tokens. You
   can do this by implementing your own UI for OAuth, or by retrieving them from elsewhere.
   Alternatively, you can use the Amazon AppFlow console to create the connector profile, and
-  then use that connector profile in the flow creation AWS CloudFormation template.
+  then use that connector profile in the flow creation CloudFormation template.
 - Data encryption (Optional) — Amazon AppFlow encrypts
   your data and connection details during transit and at rest. For more information, see
   [Data protection in Amazon AppFlow](data-protection.md "data-protection.md"). When you configure a
