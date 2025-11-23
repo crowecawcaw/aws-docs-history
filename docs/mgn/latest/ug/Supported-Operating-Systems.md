@@ -52,6 +52,30 @@ Cloud for multiple versions of Windows.
 
 **Support deprecation notes**
 
+- **CentOS 7-7.9**:
+  - As of February 20, 2026, the installation of new AWS Replication Agents on
+    source servers running these operating systems, including all minor version
+    releases, is no longer permitted.
+  - Effective November 20, 2026, AWS Replication Agents that had been installed
+    on source servers running these operating systems, including all minor version
+    releases, will cease to function.
+
+- **Ubuntu 14.04**:
+  - As of February 20, 2026, the installation of new AWS Replication Agents on
+    source servers running these operating systems, including all minor version
+    releases, is no longer permitted.
+  - Effective November 20, 2026, AWS Replication Agents that had been installed
+    on source servers running these operating systems, including all minor version
+    releases, will cease to function.
+
+- **Amazon Linux 1 (AL1)**:
+  - As of February 20, 2026, the installation of new AWS Replication Agents on
+    source servers running these operating systems, including all minor version
+    releases, is no longer permitted.
+  - Effective November 20, 2026, AWS Replication Agents that had been installed
+    on source servers running these operating systems, including all minor version
+    releases, will cease to function.
+
 - **CentOS versions 6.x**:
   - As of November 28, 2025, the installation of new AWS Replication Agents on
     source servers running these operating systems, including all minor version

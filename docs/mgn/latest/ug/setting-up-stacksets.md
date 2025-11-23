@@ -1,6 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Setting up AWS CloudFormation StackSets
+# Setting up CloudFormation StackSets
 
 After you set up your organization, you need to configure CloudFormation StackSets to
 create the required role per management account:
