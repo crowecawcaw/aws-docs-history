@@ -10,14 +10,14 @@ represented by one or more [Elastic network
 interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") (ENIs) with private IP addresses in your VPC subnets.
 
 The interface VPC endpoint connects your VPC directly to Amazon EMR without an internet
-gateway, NAT device, VPN connection, or AWS Direct Connect connection. The instances in your VPC don't
+gateway, NAT device, VPN connection, or Direct Connect connection. The instances in your VPC don't
 need public IP addresses to communicate with the Amazon EMR API.
 
 To use Amazon EMR through your VPC, you must connect from an instance that is inside the VPC
 or connect your private network to your VPC by using an Amazon Virtual Private Network (VPN)
-or AWS Direct Connect. For information about Amazon VPN, see [VPN connections](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md") in
+or Direct Connect. For information about Amazon VPN, see [VPN connections](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md") in
 the _Amazon Virtual Private Cloud User Guide_. For information about AWS Direct Connect, see
-[Creating a connection](../../../directconnect/latest/UserGuide/create-connection.md "../../../directconnect/latest/UserGuide/create-connection.md") in the _AWS Direct Connect User Guide_.
+[Creating a connection](../../../directconnect/latest/UserGuide/create-connection.md "../../../directconnect/latest/UserGuide/create-connection.md") in the _Direct Connect User Guide_.
 
 You can create an interface VPC endpoint to connect to Amazon EMR using the AWS console or
 AWS Command Line Interface (AWS CLI) commands. For more information, see [Creating an interface endpoint](../../../AmazonVPC/latest/UserGuide/vpce-interface.md#create-interface-endpoint "../../../AmazonVPC/latest/UserGuide/vpce-interface.md#create-interface-endpoint").

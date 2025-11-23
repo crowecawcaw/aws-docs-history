@@ -81,7 +81,7 @@ demonstrates.
 ```
 aws emr create-cluster \
  --service-role EMR_DefaultRole \
- --release-label emr-7.11.0 \
+ --release-label emr-7.12.0 \
  --name EMR_Managed_Scaling_Enabled_Cluster \
  --applications Name=Spark Name=Hbase \
  --ec2-attributes KeyName=keyName,InstanceProfile=EMR_EC2_DefaultRole \
@@ -263,7 +263,7 @@ public class CreateClusterWithManagedScalingWithIG {
 		// create the cluster with a managed scaling policy
 		RunJobFlowRequest request = new RunJobFlowRequest()
 	       		.withName("EMR_Managed_Scaling_TestCluster")
-	       		.withReleaseLabel("emr-7.11.0")          // Specifies the version label for the Amazon EMR release; we recommend the latest release
+	       		.withReleaseLabel("emr-7.12.0")          // Specifies the version label for the Amazon EMR release; we recommend the latest release
 	       		.withApplications(hive,spark,ganglia,zeppelin)
 	       		.withLogUri("s3://path/to/my/emr/logs")  // A URI in S3 for log files is required when debugging is enabled.
 	       		.withServiceRole("EMR_DefaultRole")      // If you use a custom IAM service role, replace the default role with the custom role.

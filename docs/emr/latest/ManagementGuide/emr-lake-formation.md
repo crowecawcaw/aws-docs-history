@@ -1,8 +1,8 @@
 # Integrate Amazon EMR with AWS Lake Formation
 
 AWS Lake Formation is a managed service that helps you discover, catalog, cleanse, and secure data
-in an Amazon Simple Storage Service (S3) data lake. Lake Formation provides fine-grained access at the column, row, or cell level to databases
-and tables in the AWS Glue Data Catalog. For more information, see [What is
+in an Amazon Simple Storage Service (S3) data lake. Lake Formation provides fine-grained access at the column, row, or cell
+level to databases and tables in the AWS Glue Data Catalog. For more information, see [What is
 AWS Lake Formation?](../../../lake-formation/latest/dg/what-is-lake-formation.md "../../../lake-formation/latest/dg/what-is-lake-formation.md")
 
 With Amazon EMR release 6.7.0 and later, you can apply Lake Formation based access control to Spark,
@@ -14,10 +14,9 @@ role to access AWS resources. For more information, see [Runtime roles for Amazo
 ## How Amazon EMR works with Lake Formation
 
 After you integrate Amazon EMR with Lake Formation, you can execute queries to Amazon EMR clusters with
-the [`Step`
-API](../APIReference/API_Step.md "../APIReference/API_Step.md") or with SageMaker AI Studio. Then, Lake Formation provides access to data through
-temporary credentials for Amazon EMR. This process is called credential vending. For more
-information, see [What is
+the [`Step` API](../APIReference/API_Step.md "../APIReference/API_Step.md") or with SageMaker AI Studio. Then, Lake Formation provides access
+to data through temporary credentials for Amazon EMR. This process is called credential
+vending. For more information, see [What is
 AWS Lake Formation?](../../../lake-formation/latest/dg/what-is-lake-formation.md "../../../lake-formation/latest/dg/what-is-lake-formation.md")
 
 The following is a high-level overview of how Amazon EMR gets access to data protected by
@@ -45,8 +44,3 @@ You must meet the following requirements before you integrate Amazon EMR and Lak
 - Define and manage permissions in Lake Formation to access databases, tables, and columns
   in AWS Glue Data Catalog. For more information, see [What is
   AWS Lake Formation?](../../../lake-formation/latest/dg/what-is-lake-formation.md "../../../lake-formation/latest/dg/what-is-lake-formation.md")
-
-###### Topics
-
-- [Fine-grained access with Lake Formation](lake-formation-fine-grained-access.md "lake-formation-fine-grained-access.md")
-- [Full table access with Lake Formation](lake-formation-unfiltered-access-ec2-container.md "lake-formation-unfiltered-access-ec2-container.md")

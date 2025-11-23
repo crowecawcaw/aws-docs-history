@@ -16,7 +16,7 @@ suggestions on how to resolve them.
 - [Streaming Amazon EMR cluster errors](emr-troubleshoot-error-streaming.md "emr-troubleshoot-error-streaming.md")
 - [Amazon EMR: Custom JAR cluster errors](emr-troubleshoot-error-custom-jar.md "emr-troubleshoot-error-custom-jar.md")
 - [Amazon EMR AWS GovCloud (US-West) errors](emr-troubleshoot-error-govcloud.md "emr-troubleshoot-error-govcloud.md")
-- [Find a missing cluster](#w227aac36c21c47 "#w227aac36c21c47")
+- [Find a missing cluster](#w2aac36c21c47 "#w2aac36c21c47")
 
 ## Find a missing cluster
 

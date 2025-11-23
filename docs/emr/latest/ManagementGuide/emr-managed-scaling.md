@@ -3,7 +3,7 @@
 ###### Important
 
 We strongly recommend that you use the latest Amazon EMR release (Amazon EMR
-7.11.0) for managed scaling. In some early releases, you might
+7.12.0) for managed scaling. In some early releases, you might
 experience intermittent application failures or delays in scaling. Amazon EMR resolved
 this issue with 5.x releases 5.30.2, 5.31.1, 5.32.1, 5.33.1 and higher, and with 6.x
 releases 6.1.1, 6.2.1, 6.3.1 and higher. For more information Region and
@@ -24,7 +24,13 @@ either instance groups or instance fleets.
 availability
 
 - In the following AWS Regions, Amazon EMR managed scaling is available with Amazon EMR 6.14.0 and higher:
+  - Asia Pacific (Taipei) (ap-east-2)
+  - Asia Pacific (Melbourne) (ap-southeast-4)
+  - Asia Pacific (Malaysia) (ap-southeast-5)
+  - Asia Pacific (Thailand) (ap-southeast-7)
+  - Canada West (Calgary) (ca-west-1)
   - Europe (Spain) (eu-south-2)
+  - Mexico (Central) (mx-central-1)
 
 - In the following AWS Regions, Amazon EMR managed scaling is available with
   Amazon EMR 5.30.0 and 6.1.0 and higher:

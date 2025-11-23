@@ -31,7 +31,13 @@ policy:
 
 - In the following AWS Regions, Amazon EMR auto-termination is available with
   Amazon EMR 6.14.0 and higher:
+  - Asia Pacific (Taipei) (ap-east-2)
+  - Asia Pacific (Melbourne) (ap-southeast-4)
+  - Asia Pacific (Malaysia) (ap-southeast-5)
+  - Asia Pacific (Thailand) (ap-southeast-7)
+  - Canada West (Calgary) (ca-west-1)
   - Europe (Spain) (eu-south-2)
+  - Mexico (Central) (mx-central-1)
 
 - In the following AWS Regions, Amazon EMR auto-termination is available with
   Amazon EMR 5.30.0 and 6.1.0 and higher:

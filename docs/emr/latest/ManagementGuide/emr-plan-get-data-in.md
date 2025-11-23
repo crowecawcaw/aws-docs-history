@@ -7,7 +7,7 @@ transfer files from a distributed file system to the local file system. The
 implementation of Hive provided by Amazon EMR (Hive version 0.7.1.1 and later) includes
 functionality that you can use to import and export data between DynamoDB and an Amazon EMR
 cluster. If you have large amounts of on-premises data to process, you may find the
-AWS Direct Connect service useful.
+Direct Connect service useful.
 
 ###### Topics
 

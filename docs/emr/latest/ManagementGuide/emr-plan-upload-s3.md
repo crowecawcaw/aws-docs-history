@@ -141,7 +141,7 @@ Linux line continuation characters (\) are included for readability. They can be
 
 ```
 aws emr create-cluster --name "`Test cluster`" \
---release-label `emr-7.11.0` --applications Name=`Hive` Name=`Pig` \
+--release-label `emr-7.12.0` --applications Name=`Hive` Name=`Pig` \
 --use-default-roles --ec2-attributes KeyName=`myKey` --instance-type `m5.xlarge` \
 --instance-count `3` --configurations file://myConfig.json
 ```

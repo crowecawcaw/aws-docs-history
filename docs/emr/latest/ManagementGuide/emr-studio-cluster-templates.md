@@ -34,7 +34,7 @@ parameters
 
 You can include additional options in the [`Parameters`](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") section of your template. _Parameters_ let Studio users input or select custom values for a
 cluster. For example, you could add a parameter that lets users select a particular Amazon EMR
-release. For more information, see [Parameters](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") in the _AWS CloudFormation User Guide_.
+release. For more information, see [Parameters](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") in the _CloudFormation User Guide_.
 
 The following example `Parameters` section defines additional input
 parameters such as `ClusterName`, `EmrRelease` version, and
@@ -101,7 +101,7 @@ Each cluster template that you create must include the following options:
     * `ClusterId` – The ID of the newly-provisioned
      EMR cluster.
 
-Following is an example AWS CloudFormation template in YAML format for a cluster with two nodes.
+Following is an example CloudFormation template in YAML format for a cluster with two nodes.
 The example template includes the required template options and defines additional input
 parameters for `EmrRelease` and `ClusterInstanceType`.
 
