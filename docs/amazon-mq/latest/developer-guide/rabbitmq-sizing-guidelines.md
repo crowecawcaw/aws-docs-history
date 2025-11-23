@@ -1,7 +1,7 @@
 # Amazon MQ for RabbitMQ sizing guidelines
 
 You can choose the broker instance type that best supports your application.
-When choosing an instance type, it is important to consider factors
+When choosing an instance type, consider factors
 that will affect broker performance:
 
 - the number of clients and queues
@@ -9,126 +9,33 @@ that will affect broker performance:
 - messages kept in memory
 - redundant messages
 
-Smaller broker instance types (`m7g.medium`) are recommended only for testing application performance.
-We recommend larger broker instance types (`m7g.large` and above) for production levels
-of clients and queues, high throughput, messages in memory, and redundant messages.
-
-It is important to test your brokers to determine the appropriate instance type
-and size for your workload messaging requirements.
-Use the following sizing guidelines to determine
-the best appropriate instance type for your application.
+Smaller broker instance types `m7g.medium` are recommended only for testing application performance.
+We recommend larger broker instance types `m7g.large` and above or production levels of clients and queues,
+high throughput, messages in memory, and redundant messages.
 
 ###### Important
 
-You cannot downgrade a broker from an `mq.m5` instance type to an `mq.t3.micro` instance type.
+You cannot downgrade a broker from an `mq.m5` or `mq.m7g` instance type to an `mq.t3.micro` instance type.
 
-###### Important
+It is important to test your brokers to determine the appropriate instance type and size for
+your workload messaging requirements.
 
-You cannot downgrade a broker from an `mq.m7g` instance type to an `mq.t3.micro` instance type.
+Always use the default resource limits on RabbitMQ 4
+broker to determine the appropriate instance size for your application according to
+Amazon MQ best practices. These default resource limits are based on types `m7g` instance type and quorum queues.
 
-###### Topics
+- [Default resource limits for m7g single-instance deployment](rabbitmq-resource-limits-configuration.md#default-values-single-instance "rabbitmq-resource-limits-configuration.md#default-values-single-instance")
+- [Default resource limits for m7g cluster deployment](rabbitmq-resource-limits-configuration.md#default-values-cluster-brokers "rabbitmq-resource-limits-configuration.md#default-values-cluster-brokers")
 
-- [m7g single instance deployment sizing guidelines](#sizing-guidelines-m7g-single-instance "#sizing-guidelines-m7g-single-instance")
-- [m7g cluster deployment sizing guidelines](#sizing-guidelines-m7g-cluster "#sizing-guidelines-m7g-cluster")
-- [Error messages](#sizing-guidelines-limits-error-messages "#sizing-guidelines-limits-error-messages")
+You can increase the value of any limit up to the maximum values as defined by instance type and deployment mode.
+However, we strongly recommend you test the broker performance with the increased values before using in production.
 
-## Sizing guidelines for m7g with quorum queues for single instance deployment
-
-The following table shows the **maximum** limit values for each instance type for single instance brokers.
-
-| Instance Type   | Connections | Channels | Consumers per channel | Queues  | Vhosts | Shovels |
-| --------------- | ----------- | -------- | --------------------- | ------- | ------ | ------- |
-| mq.m7g.medium   | 100         | 500      | 1,000                 | 2,500   | 10     | 150     |
-| mq.m7g.large    | 5,000       | 15,000   | 1,000                 | 20,000  | 1500   | 250     |
-| mq.m7g.xlarge   | 10,000      | 30,000   | 1,000                 | 30,000  | 1,500  | 500     |
-| mq.m7g.2xlarge  | 20,000      | 60,000   | 1,000                 | 40,000  | 1,500  | 1,000   |
-| mq.m7g.4xlarge  | 40,000      | 120,000  | 1,000                 | 60,000  | 1,500  | 2,000   |
-| mq.m7g.8xlarge  | 80,000      | 240,000  | 1,000                 | 80,000  | 1,500  | 4,000   |
-| mq.m7g.12xlarge | 120,000     | 360,000  | 1,000                 | 100,000 | 1,500  | 6,000   |
-| mq.m7g.16xlarge | 160,000     | 480,000  | 1,000                 | 120,000 | 1,500  | 8,000   |
-
-## Sizing guidelines for m7g with quorum queues for cluster deployment
-
-The following table shows the **maximum** limit values for each instance type for cluster brokers.
-
-| Instance Type   | Connections | Channels | Consumers per channel | Queues | Vhosts | Shovels |
-| --------------- | ----------- | -------- | --------------------- | ------ | ------ | ------- |
-| mq.m7g.medium   | 100         | 500      | 1,000                 | 100    | 10     | 50      |
-| mq.m7g.large    | 5,000       | 15,000   | 1,000                 | 10,000 | 1,500  | 150     |
-| mq.m7g.xlarge   | 10,000      | 30,000   | 1,000                 | 15,000 | 1,500  | 300     |
-| mq.m7g.2xlarge  | 20,000      | 60,000   | 1,000                 | 20,000 | 1,500  | 600     |
-| mq.m7g.4xlarge  | 40,000      | 120,000  | 1,000                 | 30,000 | 1,500  | 1,200   |
-| mq.m7g.8xlarge  | 80,000      | 240,000  | 1,000                 | 40,000 | 1,500  | 2,400   |
-| mq.m7g.12xlarge | 120,000     | 360,000  | 1,000                 | 50,000 | 1,500  | 3,600   |
-| mq.m7g.16xlarge | 160,000     | 480,000  | 1,000                 | 60,000 | 1,500  | 4,800   |
-
-The following table shows the **maximum** limit values for each instance type for single instance brokers.
-
-| Instance Type | Connections | Channels | Consumers per channel | Queues  | Vhosts | Shovels |
-| ------------- | ----------- | -------- | --------------------- | ------- | ------ | ------- |
-| m5.large      | 5,000       | 15,000   | 1,000                 | 30,000  | 1500   | 250     |
-| m5.xlarge     | 10,000      | 30,000   | 1,000                 | 60,000  | 1500   | 500     |
-| m5.2xlarge    | 20,000      | 60,000   | 1,000                 | 120,000 | 1500   | 1,000   |
-| m5.4xlarge    | 40,000      | 120,000  | 1000                  | 240,000 | 1,000  | 2,000   |
-
-The following table shows the **maximum** limit values for each instance type for cluster brokers.
-
-| Instance Type | Queues | Consumers per channel | Shovels |
-| ------------- | ------ | --------------------- | ------- |
-| m5.large      | 10,000 | 1,000                 | 150     |
-| m5.xlarge     | 15,000 | 1,000                 | 300     |
-| m5.2xlarge    | 20,000 | 1,000                 | 600     |
-| m5.4xlarge    | 30,000 | 1,000                 | 1200    |
-
-The following connection and channel limits are applied per node:
-
-| Instance Type | Connections | Channels |
-| ------------- | ----------- | -------- |
-| m5.large      | 5000        | 15,000   |
-| m5.xlarge     | 10,000      | 30,000   |
-| m5.2xlarge    | 20,000      | 60,000   |
-| m5.4xlarge    | 40,000      | 120,000  |
-
-The exact limit values for a cluster broker
-may be lower than the indicated value depending on the number of available nodes
-and how RabbitMQ distributes resources among the available nodes.
-If you exceed the limit values, you can create a new connection to a different node and try again,
-or you can upgrade the instance size to increase the maximum limits
-
-## Error messages
-
-The following error messages are returned when limits are exceeded.
-All values are based on the `m7.large` single instance limits.
+- [Maximum resource limits for m7g single-instance deployment](rabbitmq-resource-hard-limit.md#sizing-guidelines-m7g-single-instance "rabbitmq-resource-hard-limit.md#sizing-guidelines-m7g-single-instance")
+- [Maximum resource limits for m7g cluster deployment](rabbitmq-resource-hard-limit.md#sizing-guidelines-m7g-cluster "rabbitmq-resource-hard-limit.md#sizing-guidelines-m7g-cluster")
+- [Maximum resource limits for m5 single-instance deployment](rabbitmq-resource-hard-limit.md#sizing-guidelines-single-instance "rabbitmq-resource-hard-limit.md#sizing-guidelines-single-instance")
+- [Maximum resource limits for m5 cluster deployment](sizing-guidelines-cluster.md "sizing-guidelines-cluster.md")
+- [Error messages](rabbitmq-resource-hard-limit.md#sizing-guidelines-limits-error-messages "rabbitmq-resource-hard-limit.md#sizing-guidelines-limits-error-messages")
 
 ###### Note
 
-The error codes for the following messages may change based on the client library you are using.
-
-**Connection**
-
-`ConnectionClosedByBroker 500 "NOT_ALLOWED - connection refused: node connection limit (5000) is reached"`
-
-**Channel**
-
-`ConnectionClosedByBroker 1500 "NOT_ALLOWED - number of channels opened on node
- 'rabbit@ip-10-0-23-173.us-west-2.compute.internal' has reached the maximum allowed limit of (15,000)"`
-
-**Consumer**
-
-`ConnectionClosedByBroker: (530, 'NOT_ALLOWED - reached maximum (1,000) of consumers per channel')`
-
-###### Note
-
-The following error messages use the HTTP Management API format.
-
-**Queue**
-
-`{"error":"bad_request","reason":"cannot declare queue 'my_queue': queue limit in cluster (10,000) is reached"}]`
-
-**Shovel**
-
-`{"error":"bad_request","reason":"Validation failed\n\ncomponent shovel is limited to 150 per node\n"}`
-
-**Vhost**
-
-`{"error":"bad_request","reason":"cannot create vhost 'my_vhost': vhost limit of 1500 is reached"}`
+RabbitMQ 3.13 brokers do not come with default resource limits, but we recommend you use the suggested defaults.

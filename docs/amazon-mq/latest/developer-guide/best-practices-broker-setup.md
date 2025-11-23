@@ -20,7 +20,7 @@ Cluster deployments consist of three RabbitMQ broker nodes distributed across th
 providing automatic failover and ensuring operations continue even if an entire Availability Zone becomes unavailable.
 Amazon MQ automatically replicates messages across all nodes to ensure availability during node failures or maintenance.
 
-Cluster deployments are essential for production environments and are supported by the [Amazon MQ Service Level Agreement](https://aws.amazon.com/https://aws.amazon.com/amazon-mq/sla/ "https://aws.amazon.com/https://aws.amazon.com/amazon-mq/sla/").
+Cluster deployments are essential for production environments and are supported by the [Amazon MQ Service Level Agreement](https://aws.amazon.com/amazon-mq/sla/ "https://aws.amazon.com/amazon-mq/sla/").
 
 For more information, see [Cluster deployment in Amazon MQ for RabbitMQ](rabbitmq-broker-architecture.md#rabbitmq-broker-architecture-cluster "rabbitmq-broker-architecture.md#rabbitmq-broker-architecture-cluster").
 

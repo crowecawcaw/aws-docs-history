@@ -1,14 +1,8 @@
 # OAuth 2.0 authentication and authorization for Amazon MQ for RabbitMQ
 
-Amazon MQ for RabbitMQ supports the following authentication and authorization methods:
+Amazon MQ for RabbitMQ supports multiple authentication and authorization methods. For information about all supported methods, see [Authentication and authorization for Amazon MQ for RabbitMQ brokers](rabbitmq-authentication.md "rabbitmq-authentication.md").
 
-###### Simple authentication and authorization
-
-In this method, broker users are stored internally in the RabbitMQ broker and managed through the web console or management API. Permissions for vhosts, exchanges, queues, and topics are configured directly in RabbitMQ. This is the default method. For more information about this method, see [Broker users](rabbitmq-basic-elements-user.md "rabbitmq-basic-elements-user.md").
-
-###### OAuth 2.0 authentication and authorization
-
-In this method, broker users and their permissions are managed by an external OAuth 2.0 identity provider (IdP). User authentication and resource permissions for vhosts, exchanges, queues, and topics are centralized through the OAuth 2.0 provider's scope system. This simplifies user management and enables integration with existing identity systems.
+In OAuth 2.0 authentication and authorization, broker users and their permissions are managed by an external OAuth 2.0 identity provider (IdP). User authentication and resource permissions for vhosts, exchanges, queues, and topics are centralized through the OAuth 2.0 provider's scope system. This simplifies user management and enables integration with existing identity systems.
 
 ###### Important considerations
 
@@ -17,7 +11,7 @@ In this method, broker users and their permissions are managed by an external OA
 - The RabbitMQ OAuth 2.0 plugin doesn't support token introspection endpoints and opaque access tokens. It also doesn't perform token revocation checks.
 - You must include the IAM permission, `mq:UpdateBrokerAccessConfiguration`, to enable OAuth 2.0 on existing brokers.
 - Amazon MQ automatically creates a system user named `monitoring-AWS-OWNED-DO-NOT-DELETE` with monitoring-only permissions. This user uses RabbitMQ's internal authentication system even on OAuth 2.0-enabled brokers and is restricted to loopback interface access only.
-  For information about how to configure OAuth 2.0 authentication for your Amazon MQ for RabbitMQ brokers, see [Using OAuth 2.0 authentication and authorization](oauth-tutorial.md "oauth-tutorial.md").
+  For information about how to configure OAuth 2.0 for your Amazon MQ for RabbitMQ brokers, see [Using OAuth 2.0 authentication and authorization](oauth-tutorial.md "oauth-tutorial.md").
 
 ###### On this page
 

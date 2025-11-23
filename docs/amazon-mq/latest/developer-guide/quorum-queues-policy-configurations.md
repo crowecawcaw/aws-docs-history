@@ -24,4 +24,4 @@ as well as a quorum queues policy.
 You do not need to modify `AWS-DEFAULT` policies
 because they automatically adopt the new queue type in the “applies to” parameter.
 For more information on default policies for Amazon MQ for RabbitMQ, see
-[RabbitMQ configuration policies](rabbitmq-configuration-policies.md "rabbitmq-configuration-policies.md").
+[Configuring operator policies](configurable-values.md#configuring-operator-policies "configurable-values.md#configuring-operator-policies").

@@ -6,20 +6,20 @@ the default policies and limits to your new vhosts, you can use the following st
 
 ###### Important
 
-On Amazon MQ for RabbitMQ engine versions 3.12 and below,
+On Amazon MQ for RabbitMQ engine versions 3.13 and below,
 the current default operator policy is:
-
-```
-vhost name pattern apply-to definition priority/ default_operator_policy_AWS_managed .* all {"queue-version":2} 0
-```
-
-On versions 3.13 and above, the default operator policy has changed to:
 
 ```
 vhost name pattern apply-to definition priority/ default_operator_policy_AWS_managed .* classic_queues {"ha-mode":"all","ha-sync-mode":"automatic","queue-version":2} 0
 ```
 
-This update has no functional change on RabbitMQ application behaviors.
+On versions 4.0 and above, the default operator policy has changed to:
+
+```
+vhost name pattern apply-to definition priority/ default_operator_policy_AWS_managed .* classic_queues {"queue-version":2} 0
+```
+
+This change is required because classic queue mirroring and HA policy settings are not supported in RabbitMQ 4.
 
 You cannot create a policy that applies to both classic mirrored queues and quorum queues.
 If you want your policy to only apply to quorum queues, you must set `--apply-to` to `quorum_queues`.
@@ -39,7 +39,7 @@ patterns.
 | `administrator` | `.*`        | `.*`             | `.*`         |
 
 For more information about creating RabbitMQ users and managing user tags and permissions,
-see [Amazon MQ for RabbitMQ broker users](rabbitmq-basic-elements-user.md "rabbitmq-basic-elements-user.md").
+see [Amazon MQ for RabbitMQ broker users](rabbitmq-simple-auth-broker-users.md#rabbitmq-basic-elements-user "rabbitmq-simple-auth-broker-users.md#rabbitmq-basic-elements-user").
 
 ###### To apply default policies and virtual host limits using the RabbitMQ web
 
@@ -88,7 +88,7 @@ console
 
         Does not apply to single-instance brokers.
         * `max-length`=``number-of-messages``.
-         Replace `number-of-messages` with the [Amazon MQ recommended value](rabbitmq-defaults.md#rabbitmq-defaults-values "rabbitmq-defaults.md#rabbitmq-defaults-values")
+         Replace `number-of-messages` with the [Amazon MQ recommended value](rabbitmq-resource-limits-configuration.md "rabbitmq-resource-limits-configuration.md")
          according to the broker's instance size and deployment mode, for example,
          `8000000` for an `mq.m7g.large` cluster.
          Choose **Number** from the dropdown list.
@@ -115,7 +115,7 @@ the following:
      from the dropdown list. To choose the default vhost, choose **/**.
     2. For **Limit**, choose **max-connections** from the
      dropdown options.
-    3. For **Value**, enter the [Amazon MQ recommended value](rabbitmq-defaults.md#rabbitmq-defaults-values "rabbitmq-defaults.md#rabbitmq-defaults-values")
+    3. For **Value**, enter the [Amazon MQ recommended value](rabbitmq-resource-limits-configuration.md "rabbitmq-resource-limits-configuration.md")
      according to the broker's instance size and deployment mode, for example,
      `15000` for an `mq.m5.large` cluster.
     4. Choose **Set / update limit**.
@@ -142,7 +142,7 @@ the following:
 
 Replace `username` and `password`
 with your administrator sign-in credentials. Replace `number-of-messages`
-with the [Amazon MQ recommended value](rabbitmq-defaults.md#rabbitmq-defaults-values "rabbitmq-defaults.md#rabbitmq-defaults-values")
+with the [Amazon MQ recommended value](rabbitmq-resource-limits-configuration.md "rabbitmq-resource-limits-configuration.md")
 according to the broker's instance size and deployment mode. Replace `policy-name`
 with a name for your policy. Replace `broker-endpoint` with the URL that you noted previously.
 
@@ -168,7 +168,7 @@ curl -i -u `username`:`password` `broker-endpoint`/api/policies
 
 Replace `username` and `password`
 with your administrator sign-in credentials. Replace `max-connections`
-with the [Amazon MQ recommended value](rabbitmq-defaults.md#rabbitmq-defaults-values "rabbitmq-defaults.md#rabbitmq-defaults-values")
+with the [Amazon MQ recommended value](rabbitmq-resource-limits-configuration.md "rabbitmq-resource-limits-configuration.md")
 according to the broker's instance size and deployment mode. Replace the
 broker endpoint with the URL that you noted previously.
 

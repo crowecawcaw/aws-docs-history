@@ -2,7 +2,7 @@
 
 The following tutorial shows how you can set up a [Python Pika](https://github.com/pika/pika "https://github.com/pika/pika") client with TLS configured to connect to an Amazon MQ for RabbitMQ broker.
 Pika is a Python implementation of the AMQP 0-9-1 protocol for RabbitMQ. This tutorial guides you through installing Pika, declaring a queue, setting up a publisher to send messages to the broker's default exchange,
-and setting up a consumer to recieve messages from the queue.
+and setting up a consumer to receive messages from the queue.
 
 ###### Topics
 
@@ -10,7 +10,7 @@ and setting up a consumer to recieve messages from the queue.
 - [Permissions](#amazon-mq-rabbitmq-pika-permissions "#amazon-mq-rabbitmq-pika-permissions")
 - [Step one: Create a basic Python Pika client](#amazon-mq-rabbitmq-pika-basic-client "#amazon-mq-rabbitmq-pika-basic-client")
 - [Step two: Create a publisher and send a message](#amazon-mq-rabbitmq-pika-publisher-basic-publish "#amazon-mq-rabbitmq-pika-publisher-basic-publish")
-- [Step three: Create a consumer and recieve a message](#amazon-mq-rabbitmq-pika-consumer-basic-get "#amazon-mq-rabbitmq-pika-consumer-basic-get")
+- [Step three: Create a consumer and receive a message](#amazon-mq-rabbitmq-pika-consumer-basic-get "#amazon-mq-rabbitmq-pika-consumer-basic-get")
 - [Step four: (Optional) Set up an event loop and consume messages](#amazon-mq-rabbitmq-pika-consumer-basic-consume "#amazon-mq-rabbitmq-pika-consumer-basic-consume")
 - [What's next?](#amazon-mq-rabbitmq-pika-whats-next "#amazon-mq-rabbitmq-pika-whats-next")
 
@@ -29,7 +29,7 @@ To complete the steps in this tutorial, you need the following prerequisites:
 ## Permissions
 
 For this tutorial, you need at least one Amazon MQ for RabbitMQ broker user with permission to write to, and read from, a vhost.
-The following table describes the neccessary minimum permissions as regular expression (regexp) patterns.
+The following table describes the necessary minimum permissions as regular expression (regexp) patterns.
 
 | Tags   | Configure regexp | Write regexp | Read regexp |
 | ------ | ---------------- | ------------ | ----------- |
@@ -40,7 +40,7 @@ operations on the broker. You can further restrict permissions by providing rege
 change the read regexp pattern to `^[hello world].*`, the user will only have permission to read from queues that start with `hello world`.
 
 For more information about creating RabbitMQ users and managing user tags and permissions,
-see [Amazon MQ for RabbitMQ broker users](rabbitmq-basic-elements-user.md "rabbitmq-basic-elements-user.md").
+see [Amazon MQ for RabbitMQ broker users](rabbitmq-simple-auth-broker-users.md#rabbitmq-basic-elements-user "rabbitmq-simple-auth-broker-users.md#rabbitmq-basic-elements-user").
 
 ## Step one: Create a basic Python Pika client
 
@@ -154,9 +154,9 @@ Trying to declare queue(hello world queue)...
 Sent message. Exchange: , Routing Key: hello world queue, Body: b'Hello World!'
 ```
 
-## Step three: Create a consumer and recieve a message
+## Step three: Create a consumer and receive a message
 
-To create a consumer that recieves a single message from the queue, do the following.
+To create a consumer that receives a single message from the queue, do the following.
 
 1. Copy the contents of the following code sample, and save locally as `consumer.py` in the same directory.
 
@@ -197,8 +197,8 @@ if __name__ == "__main__":
     basic_message_receiver.close()
 ```
 
-Similar to the the publisher you created in the previous step, `BasicMessageReciever` inherits from `BasicPikaClient`
-and implements additional methods for recieving a single message, and closing connections. 2. Under the `if __name__ == "__main__":` statement, replace the parameters passed to the `BasicMessageReciever`
+Similar to the publisher you created in the previous step, `BasicMessageReceiver` inherits from `BasicPikaClient`
+and implements additional methods for recieving a single message, and closing connections. 2. Under the `if __name__ == "__main__":` statement, replace the parameters passed to the `BasicMessageReceiver`
 constructor with your information. 3. Run the following command in your project directory.
 
 ```

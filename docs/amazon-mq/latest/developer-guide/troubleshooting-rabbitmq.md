@@ -25,7 +25,7 @@ in the _Amazon CloudWatch API Reference_.
 
 RabbitMQ on Amazon MQ currently only supports the RabbitMQ management, shovel, federation,
 consistent-hash exchange plugin, which are enabled by default. For more information on using
-supported plugins, see [Plugins for Amazon MQ for RabbitMQ](rabbitmq-basic-elements-plugins.md "rabbitmq-basic-elements-plugins.md").
+supported plugins, see [Plugins](rabbitmq-basic-elements-plugins.md "rabbitmq-basic-elements-plugins.md").
 
 ## I'm unable to change Amazon VPC configuration for the broker.
 

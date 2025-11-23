@@ -24,8 +24,8 @@ The following diagram demonstrates how to use Amazon MQ for RabbitMQ and Amazon 
 ![Diagram showing data flow between Producer, Consumer, Amazon MQ broker, and AWS S3.](images/claim-check-pattern.png)
 
 The following example demonstrates this pattern using Amazon MQ,
-the [AWS SDK for Java 2.x](../../../https:/docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.md "../../../https:/docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.md"),
-and [Amazon S3](../../../https:/docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.md "../../../https:/docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.md"):
+the [AWS SDK for Java 2.x](../../../sdk-for-java/latest/developer-guide/home.md "../../../sdk-for-java/latest/developer-guide/home.md"),
+and [Amazon S3](../../../AmazonS3/latest/userguide/Welcome.md "../../../AmazonS3/latest/userguide/Welcome.md"):
 
 1. First, define a Message class that will hold the Amazon S3 reference identifier.
 

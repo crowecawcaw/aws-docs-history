@@ -3,7 +3,7 @@
 A _broker_ is a message broker environment running on Amazon MQ. It is the basic building block of Amazon MQ. The combined description of the
 broker instance _class_ (`m5`) and
 _size_ (`large`, `medium`) is called the
-_broker instance type_ (for example, `mq.m5.large`). For more information, see [What is an Amazon MQ for RabbitMQ broker?](rabbitmq-basic-elements.md#rabbitmq-basic-elements-broker "rabbitmq-basic-elements.md#rabbitmq-basic-elements-broker")
+_broker instance type_ (for example, `mq.m5.large`). For more information, see [What is an Amazon MQ for RabbitMQ broker?](working-with-rabbitmq.md#rabbitmq-basic-elements-broker "working-with-rabbitmq.md#rabbitmq-basic-elements-broker")
 
 ## Create a RabbitMQ broker
 

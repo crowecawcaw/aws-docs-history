@@ -9,7 +9,7 @@ with Amazon MQ brokers, such as issues connecting to your broker, and broker reb
 - [My broker is running, and I can verify connectivity using telnet,
   but my clients are unable to connect and are returning SSL exceptions.](general.md#issues-ssl-certificate-exception "general.md#issues-ssl-certificate-exception")
 - [I created a broker but broker creation failed.](general.md#issues-creating-a-broker "general.md#issues-creating-a-broker")
-- [My broker restarted and I'm not sure why.](general.md#w194aac39b9c13 "general.md#w194aac39b9c13")
+- [My broker restarted and I'm not sure why.](general.md#w2aac39b9c13 "general.md#w2aac39b9c13")
 
 ## I can't connect to my broker web console or endpoints.
 
@@ -207,7 +207,7 @@ RabbitMQ on Amazon MQ
 
 
     	* If the `telnet` command succeeds, check the [ConnectionCount](rabbitmq-logging-monitoring.md#security-logging-monitoring-cloudwatch-metrics-rabbitmq "rabbitmq-logging-monitoring.md#security-logging-monitoring-cloudwatch-metrics-rabbitmq") metric and confirm that the
-    	 broker has not reached the value set in the [max-connections](rabbitmq-defaults.md#rabbitmq-defaults-values "rabbitmq-defaults.md#rabbitmq-defaults-values") default policy. You can also confirm if the limit has been reached by reviewing
+    	 broker has not reached the value set in the [max-connections](rabbitmq-resource-limits-configuration.md "rabbitmq-resource-limits-configuration.md") default policy. You can also confirm if the limit has been reached by reviewing
     	 the broker `Connection.log` log group. If this metric is greater than zero, there is at least one client currently connected to the broker.
     	 If the metric shows zero connections, then perform the `telnet` path test again. You may need to repeat this process if the connection closes before
     	 your broker has published new connection metrics to CloudWatch. Metrics are published every minute.

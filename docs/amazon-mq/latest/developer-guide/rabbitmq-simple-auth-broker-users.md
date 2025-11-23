@@ -1,17 +1,19 @@
-# Amazon MQ for RabbitMQ broker users
+# Simple authentication and authorization
+
+## Amazon MQ for RabbitMQ broker users
 
 ###### Note
 
-This topic describes managing broker users with RabbitMQ’s default internal authentication and authorization mechanism. To manage users with OAuth 2.0, see [OAuth 2.0 authentication and authorization for Amazon MQ for RabbitMQ](oauth-for-amq-for-rabbitmq.md "oauth-for-amq-for-rabbitmq.md").
+This topic describes managing broker users with RabbitMQ's default internal authentication and authorization mechanism. For information about all supported authentication and authorization methods, see [Amazon MQ for RabbitMQ Authentication and Authorization](rabbitmq-authentication.md "rabbitmq-authentication.md").
 
-Every AMQP 0-9-1 client connection has an associated user which must be authenticated.
-Each client connection also targets a virtual host (vhost) for which the user must have a set of permissions.
+Every AMQP 0-9-1 client connection has an associated user. This user must be authenticated.
+Each client connection also targets a virtual host (vhost). The user must have a set of permissions for this vhost.
 A user may have permission to **configure**,
 **write** to, and **read** from queues and exchanges
-in a vhost. User credentials, and the target vhost are specified at the time the connection is established.
+in a vhost. You specify user credentials and the target vhost when the connection is established.
 
 When you first create an Amazon MQ for RabbitMQ broker, Amazon MQ uses the sign-in credentials you provide to create a RabbitMQ user with the
-`administrator` tag. You can then add and manage users via the RabbitMQ [management API](https://pulse.mozilla.org/api/ "https://pulse.mozilla.org/api/") or the
+`administrator` tag. You can then add and manage users via the RabbitMQ [management API](https://www.rabbitmq.com/management.html "https://www.rabbitmq.com/management.html") or the
 RabbitMQ web console. You can also use the RabbitMQ web console or the management API to set or modify user permissions and tags.
 
 ###### Note
@@ -30,7 +32,7 @@ Replace `username` and `password` with your new sign-in credentials.
 ```
 PUT /api/users/`username` HTTP/1.1
 
-            {"password":"`password`","tags":"administrator"}
+    {"password":"`password`","tags":"administrator"}
 ```
 
 ###### Important
@@ -42,8 +44,9 @@ PUT /api/users/`username` HTTP/1.1
   If you've created multiple administrators, you can log in using another admin user and reset or recreate your credentials.
   If you have only one admin user, you must delete the broker and create a new one with new credentials. We recommend consuming or backing up messages
   before deleting the broker.
-  The `tags` key is mandatory, and is a comma-separated list of tags for the user. Amazon MQ supports
-  `administrator`, `management`, `monitoring`, and `policymaker` user tags.
+
+The `tags` key is mandatory, and is a comma-separated list of tags for the user. Amazon MQ supports
+`administrator`, `management`, `monitoring`, and `policymaker` user tags.
 
 You can set permissions for an individual user by using the following API endpoint and request body. Replace
 `vhost` and `username` with your information. For the default vhost `/`, use `%2F`.
@@ -51,7 +54,7 @@ You can set permissions for an individual user by using the following API endpoi
 ```
 PUT /api/permissions/`vhost`/`username` HTTP/1.1
 
-            {"configure":".*","write":".*","read":".*"}
+    {"configure":".*","write":".*","read":".*"}
 ```
 
 ###### Note

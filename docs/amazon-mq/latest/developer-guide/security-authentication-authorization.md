@@ -2,8 +2,6 @@
 
 ###### Important
 
-LDAP integration is not supported for RabbitMQ brokers.
-
 Amazon MQ does not support server certificate issued by a private CA.
 
 You can access your ActiveMQ brokers using the following protocols with TLS enabled:
@@ -227,6 +225,7 @@ LDAP Authorization Module](https://activemq.apache.org/cached-ldap-authorization
 
 To be able to use the `cachedLDAPAuthorizationMap` element in your broker's `activemq.xml` configuration file,
 you must choose the **LDAP Authentication and Authorization** option when
+[creating a configuration via the AWS Management Console](amazon-mq-creating-applying-configurations.md "amazon-mq-creating-applying-configurations.md"), or set the
 [creating a configuration via the AWS Management Console](amazon-mq-creating-applying-configurations.md "amazon-mq-creating-applying-configurations.md"), or set the
 [`authenticationStrategy`](../api-reference/configurations.md#configurations-model-authenticationstrategy "../api-reference/configurations.md#configurations-model-authenticationstrategy")
 property to `LDAP` when creating a new configuration using the Amazon MQ API.

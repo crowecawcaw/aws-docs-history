@@ -64,7 +64,7 @@ patterns.
 | `administrator` | `.*`        | `.*`             | `.*`         |
 
 For more information about creating RabbitMQ users and managing user tags and permissions,
-see [Amazon MQ for RabbitMQ broker users](rabbitmq-basic-elements-user.md "rabbitmq-basic-elements-user.md").
+see [Amazon MQ for RabbitMQ broker users](rabbitmq-simple-auth-broker-users.md#rabbitmq-basic-elements-user "rabbitmq-simple-auth-broker-users.md#rabbitmq-basic-elements-user").
 
 ## Step 1: Apply an `ha-sync-batch-size`
 
@@ -226,7 +226,7 @@ If synchronization pauses and doesn't finish successfully, try reducing the
 - When you create a new Amazon MQ for RabbitMQ broker, Amazon MQ applies a set of default policies and virtual host limits
   to optimize broker performance. If your broker does not have the recommended default policies and limits, we recommend
   creating them yourself. For more information about creating default policies and vhost limits, see
-  [Amazon MQ for RabbitMQ broker defaults](rabbitmq-defaults.md "rabbitmq-defaults.md").
+  [https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/rabbitmq-defaults.html](rabbitmq-defaults.md "rabbitmq-defaults.md").
 
 ## Related resources
 
