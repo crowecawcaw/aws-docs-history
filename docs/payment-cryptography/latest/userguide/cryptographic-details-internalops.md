@@ -4,11 +4,11 @@ This topic describes internal requirements implemented by the service to secure 
 
 ###### Topics
 
-- [HSM protection](#w4aac36c22b7 "#w4aac36c22b7")
-- [General key management](#w4aac36c22b9 "#w4aac36c22b9")
-- [Management of customer keys](#w4aac36c22c11 "#w4aac36c22c11")
-- [Communication security](#w4aac36c22c13 "#w4aac36c22c13")
-- [Logging and monitoring](#w4aac36c22c15 "#w4aac36c22c15")
+- [HSM protection](#w2aac36c22b7 "#w2aac36c22b7")
+- [General key management](#w2aac36c22b9 "#w2aac36c22b9")
+- [Management of customer keys](#w2aac36c22c11 "#w2aac36c22c11")
+- [Communication security](#w2aac36c22c13 "#w2aac36c22c13")
+- [Logging and monitoring](#w2aac36c22c15 "#w2aac36c22c15")
 
 ## HSM protection
 

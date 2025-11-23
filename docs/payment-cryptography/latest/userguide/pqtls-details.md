@@ -44,7 +44,9 @@ support for PQ TLS will depend on those underlying system libraries.
 
 ### AWS SDK for Rust
 
-The AWS SDK for Rust distributes distinct packages (known as “crates” in the Rust ecosystem) for each service client. These are all managed in a consolidated GitHub repository, but each service client follows its own version and release cadence. The consolidated SDK released PQ TLS preference on 8/29/25, so any individual service client version released after that date will support and prefer PQ TLS by default.
+The AWS SDK for Rust distributes distinct packages (known as “crates” in the Rust ecosystem) for each service client. These are all managed in a consolidated GitHub repository, but each service
+client follows its own version and release cadence. The consolidated SDK released PQ TLS preference on 8/29/25, so any individual service
+client version released after that date will support and prefer PQ TLS by default.
 
 You can determine the minimum version supporting PQ TLS for a particular service client by
 navigating to the relevant crates.io version URL (for example,
@@ -95,8 +97,17 @@ system that supports Docker. See Post-quantum TLS in Python for an example of se
 
 ### AWS CLI
 
-The AWS CLI relies on system libssl/libcrypto. To use PQ TLS, use this tool on an
-operating system distribution that has at least OpenSSL 3.5 installed.
+PQ TLS support with the [AWS CLI installer](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") is coming soon.
+To enable immediately, you can use alternative installers for the AWS CLI, which varies by operating system, and can enable PQ TLS.
+
+For MacOS, install the AWS CLI via [Homebrew](https://brew.sh/ "https://brew.sh/") and ensure that your Homebrew-vended OpenSSL is upgraded to version 3.5+.
+You can do this with “brew install openssl@3.6” and validate with “brew list | grep openssl”.
+
+For Ubuntu or Debian Linux: ensure the Linux distribution you are using has OpenSSL 3.5+ installed as system OpenSSL.
+Then, install the AWS CLI using apt or [PyPI](https://pypi.org/project/awscliv2/ "https://pypi.org/project/awscliv2/"). With these prerequisites,
+the AWS CLI vended by apt or PyPI will be configured to negotiate PQ-TLS.
+For step-by-step instructions to validate the installation, see [github repository](https://github.com/aws-samples/sample-post-quantum-tls-python/ "https://github.com/aws-samples/sample-post-quantum-tls-python/")
+and accompanying [blog post](https://aws.amazon.com/blogs/security/post-quantum-tls-in-python/ "https://aws.amazon.com/blogs/security/post-quantum-tls-in-python/").
 
 ### AWS SDK for PHP
 

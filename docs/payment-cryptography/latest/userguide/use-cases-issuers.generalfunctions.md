@@ -1,21 +1,29 @@
-# Verify an EMV ARQC and generate an ARPC
+# Generate a random pin and the associated PVV and then verify the value
 
-[ARQC](terminology.md#terms.arqc "terminology.md#terms.arqc") (Authorization Request Cryptogram) is a cryptogram generated
-by an EMV (chip) card and used to validate the transaction details as well as the use of an authorized card. It incorporates data from the card, terminal and the transaction itself.
+###### Topics
 
-At validation time on the backend, the same inputs are provided to AWS Payment Cryptography, the cryptogram is internally re-created and this is compared against the value provided with the transaction.
-In this sense, it is similar to a MAC. [EMV 4.4 Book 2](https://www.emvco.com/specifications/?post_id=80377 "https://www.emvco.com/specifications/?post_id=80377") defines three aspects of this function -
-key derivation methods (known as common session key - CSK) to generate one-time transaction keys, a minimum payload and methods for generating a response (ARPC).
+- [Create the key(s)](#use-cases-issuers.generalfunctions.pvv.setup "#use-cases-issuers.generalfunctions.pvv.setup")
+- [Generate a random pin, generate PVV and return the encrypted PIN and PVV](#use-cases-issuers.generalfunctions.pvv.generate "#use-cases-issuers.generalfunctions.pvv.generate")
+- [Validate encrypted PIN using PVV method](#use-cases-issuers.generalfunctions.pvv.verify "#use-cases-issuers.generalfunctions.pvv.verify")
 
-Individual card schemes may specify additional transactional fields to incorporate or the order those fields appear. Other (generally deprecated) scheme specific derivation schemes exist as well
-and are covered elsewhere in this documentation.
+## Create the key(s)
 
-For more information, see [VerifyCardValidationData](../DataAPIReference/API_VerifyCardValidationData.md "../DataAPIReference/API_VerifyCardValidationData.md") in the API guide.
+In order to generate a random pin and the [PVV](terminology.md#terms.pvv "terminology.md#terms.pvv"), you'll need two keys, a [Pin Verification Key(PVK)](terminology.md#terms.pvk "terminology.md#terms.pvk")
+for generating the PVV and a [Pin Encryption Key](terminology.md#terms.pek "terminology.md#terms.pek") for encrypting the pin. The pin itself is randomly generated securely inside the service
+and is not related to either key cryptographically.
 
-## Create the key
+The PGK must be a key of algorithm TDES_2KEY based on the PVV algorithm itself. A PEK can be TDES_2KEY, TDES_3KEY or AES_128. In this case, since the PEK is
+intended for internal use within your system, AES_128 would be a good choice. If a PEK is used for interchange with other systems (e.g. card networks, acquirers, ATMs) or
+are being moved as part of a migration, TDES_2KEY may be the more appropriate choice for compatibility reasons.
+
+### Create the PEK
 
 ```
-`$` `aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=TDES_2KEY,KeyUsage=TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{DeriveKey=true}' --tags='[{"Key":"KEY_PURPOSE","Value":"CVN18"},{"Key":"CARD_BIN","Value":"12345678"}]'`
+`$` `aws payment-cryptography create-key \
+ --exportable
+ --key-attributes KeyAlgorithm=AES_128,KeyUsage=TR31_P0_PIN_ENCRYPTION_KEY,\
+ KeyClass=SYMMETRIC_KEY,\
+ KeyModesOfUse='{Encrypt=true,Decrypt=true,Wrap=true,Unwrap=true}' --tags='[{"Key":"CARD_BIN","Value":"12345678"}]'`
 ```
 
 The response echoes back the request parameters, including an ARN for subsequent calls as well as a Key Check Value (KCV).
@@ -23,9 +31,51 @@ The response echoes back the request parameters, including an ARN for subsequent
 ```
 `{
  "Key": {
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/pw3s6nl62t5ushfk",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/ivi5ksfsuplneuyt",
  "KeyAttributes": {
- "KeyUsage": "TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS",
+ "KeyUsage": "TR31_P0_PIN_ENCRYPTION_KEY",
+ "KeyClass": "SYMMETRIC_KEY",
+ "KeyAlgorithm": "AES_128",
+ "KeyModesOfUse": {
+ "Encrypt": false,
+ "Decrypt": false,
+ "Wrap": false,
+ "Unwrap": false,
+ "Generate": true,
+ "Sign": false,
+ "Verify": true,
+ "DeriveKey": false,
+ "NoRestrictions": false
+ }
+ },
+ "KeyCheckValue": "7CC9E2",
+ "KeyCheckValueAlgorithm": "CMAC",
+ "Enabled": true,
+ "Exportable": true,
+ "KeyState": "CREATE_COMPLETE",
+ "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
+ "CreateTimestamp": "2023-06-05T06:41:46.648000-07:00",
+ "UsageStartTimestamp": "2023-06-05T06:41:46.626000-07:00"
+ }
+ }`
+```
+
+Take note of the `KeyArn` that represents the key, for example _arn:aws:payment-cryptography:us-east-2::key/ivi5ksfsuplneuyt_. You need that in the next step.
+
+### Create the PVK
+
+```
+`$` `aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=TDES_2KEY,KeyUsage=TR31_V2_VISA_PIN_VERIFICATION_KEY,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Generate=true,Verify=true}' --tags='[{"Key":"CARD_BIN","Value":"12345678"}]'`
+```
+
+The response echoes back the request parameters, including an ARN for subsequent calls as well as a Key Check Value (KCV).
+
+```
+`{
+ "Key": {
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/ov6icy4ryas4zcza",
+ "KeyAttributes": {
+ "KeyUsage": "TR31_V2_VISA_PIN_VERIFICATION_KEY",
  "KeyClass": "SYMMETRIC_KEY",
  "KeyAlgorithm": "TDES_2KEY",
  "KeyModesOfUse": {
@@ -33,44 +83,76 @@ The response echoes back the request parameters, including an ARN for subsequent
  "Decrypt": false,
  "Wrap": false,
  "Unwrap": false,
- "Generate": false,
+ "Generate": true,
  "Sign": false,
- "Verify": false,
- "DeriveKey": true,
+ "Verify": true,
+ "DeriveKey": false,
  "NoRestrictions": false
  }
  },
- "KeyCheckValue": "08D7B4",
+ "KeyCheckValue": "51A200",
  "KeyCheckValueAlgorithm": "ANSI_X9_24",
  "Enabled": true,
  "Exportable": true,
  "KeyState": "CREATE_COMPLETE",
  "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
- "CreateTimestamp": "2024-03-07T06:41:46.648000-07:00",
- "UsageStartTimestamp": "2024-03-07T06:41:46.626000-07:00"
+ "CreateTimestamp": "2023-06-05T06:41:46.648000-07:00",
+ "UsageStartTimestamp": "2023-06-05T06:41:46.626000-07:00"
  }
  }`
 ```
 
-Take note of the `KeyArn` that represents the key, for example _arn:aws:payment-cryptography:us-east-2::key/pw3s6nl62t5ushfk_. You need that in the next step.
+Take note of the `KeyArn` that represents the key, for example _arn:aws:payment-cryptography:us-east-2::key/ov6icy4ryas4zcza_. You need that in the next step.
 
-## Generate an ARQC
+## Generate a random pin, generate PVV and return the encrypted PIN and PVV
 
-The ARQC is generated exclusively by an EMV card. As such, AWS Payment Cryptography has no facility for generating such a payload. For test purposes, a
-number of libraries are available online that can generate an appropriate payload as well as known values that are generally provided by the various schemes.
+In this example, we will generate a new (random) 4 digit pin where the outputs will be an encrypted `PIN block` (PinData.PinBlock) and a `PVV` (pinData.VerificationValue). The key inputs are
+`PAN`, the `Pin Verification Key`(also known as the pin generation key),
+the `Pin Encryption Key` and the [PIN Block](terminology.md#terms.pinblock "terminology.md#terms.pinblock") format.
 
-## Validate an ARQC
-
-If AWS Payment Cryptography is able to validate the ARQC, an http/200 is returned. An ARPC (response) can optionally be provided and in included in the response after the ARQC is validated.
+This command requires that the key is of type `TR31_V2_VISA_PIN_VERIFICATION_KEY`.
 
 ```
-`$` `aws payment-cryptography-data verify-auth-request-cryptogram --auth-request-cryptogram 61EDCC708B4C97B4 --key-identifier arn:aws:payment-cryptography:us-east-2::key/pw3s6nl62t5ushfk --major-key-derivation-mode EMV_OPTION_A --transaction-data 00000000170000000000000008400080008000084016051700000000093800000B1F2201030000000000000000000000000000000000000000000000000000008000000000000000 --session-key-derivation-attributes='{"EmvCommon":{"ApplicationTransactionCounter":"000B", "PanSequenceNumber":"01","PrimaryAccountNumber":"9137631040001422"}}' --auth-response-attributes='{"ArpcMethod2":{"CardStatusUpdate":"12345678"}}'`
+`$` `aws payment-cryptography-data generate-pin-data --generation-key-identifier arn:aws:payment-cryptography:us-east-2::key/37y2tsl45p5zjbh2 --encryption-key-identifier arn:aws:payment-cryptography:us-east-2::key/ivi5ksfsuplneuyt --primary-account-number 171234567890123 --pin-block-format ISO_FORMAT_0 --generation-attributes VisaPin={PinVerificationKeyIndex=1}`
 ```
 
 ```
 `{
- "KeyArn": "arn:aws:payment-cryptography:us-east-2::key/pw3s6nl62t5ushfk",
- "KeyCheckValue": "08D7B4",
- "AuthResponseValue":"2263AC85"
+ "GenerationKeyArn": "arn:aws:payment-cryptography:us-east-2::key/37y2tsl45p5zjbh2",
+ "GenerationKeyCheckValue": "7F2363",
+ "EncryptionKeyArn": "arn:aws:payment-cryptography:us-east-2::key/ivi5ksfsuplneuyt",
+ "EncryptionKeyCheckValue": "7CC9E2",
+ "EncryptedPinBlock": "AC17DC148BDA645E",
+ "PinData": {
+ "VerificationValue": "5507"
+ }
+ }`
+```
+
+## Validate encrypted PIN using PVV method
+
+In this example, we will validate a PIN for a given PAN. The PIN is
+typically provided by the
+cardholder or user during transaction time for validation and is
+compared against the value on file (the input from the cardholder is provided as an encrypted value from the terminal or other upstream provider).
+In order to validate this input, the
+following values will also be provided at runtime -
+The encrypted pin, the key used to encrypt the input pin (often referred to as an [IWK](terminology.md#terms.iwk "terminology.md#terms.iwk")),
+`PAN` and the value
+to verify against (either a `PVV` or `PIN offset`).
+
+If AWS Payment Cryptography is able to validate the pin, an http/200 is returned. If the pin is not validated, it will return an http/400.
+
+```
+`$` `aws payment-cryptography-data verify-pin-data --verification-key-identifier arn:aws:payment-cryptography:us-east-2::key/37y2tsl45p5zjbh2 --encryption-key-identifier arn:aws:payment-cryptography:us-east-2::key/ivi5ksfsuplneuyt --primary-account-number 171234567890123 --pin-block-format ISO_FORMAT_0 --verification-attributes VisaPin="{PinVerificationKeyIndex=1,VerificationValue=5507}" --encrypted-pin-block AC17DC148BDA645E`
+
+```
+
+```
+`{
+ "VerificationKeyArn": "arn:aws:payment-cryptography:us-east-2::key/37y2tsl45p5zjbh2",
+ "VerificationKeyCheckValue": "7F2363",
+ "EncryptionKeyArn": "arn:aws:payment-cryptography:us-east-2::key/ivi5ksfsuplneuyt",
+ "EncryptionKeyCheckValue": "7CC9E2",
 }`
 ```

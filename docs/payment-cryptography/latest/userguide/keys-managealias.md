@@ -31,7 +31,7 @@ an alias (**delete-alias**).
 
 - [About aliases](alias-about.md "alias-about.md")
 - [Using aliases in your applications](alias-using.md "alias-using.md")
-- [Related APIs](#w4aac12c30c23 "#w4aac12c30c23")
+- [Related APIs](#w2aac12c30c23 "#w2aac12c30c23")
 
 ## Related APIs
 

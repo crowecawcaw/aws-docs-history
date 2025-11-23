@@ -5,16 +5,16 @@ They also introduce the basic elements of the service.
 
 ###### Topics
 
-- [Cryptographic primitives](#w4aac36c19b7 "#w4aac36c19b7")
-- [Entropy and random number generation](#w4aac36c19b9 "#w4aac36c19b9")
-- [Symmetric key operations](#w4aac36c19c11 "#w4aac36c19c11")
-- [Asymmetric key operations](#w4aac36c19c13 "#w4aac36c19c13")
-- [Key storage](#w4aac36c19c15 "#w4aac36c19c15")
-- [Key import using symmetric keys](#w4aac36c19c17 "#w4aac36c19c17")
-- [Key import using asymmetric keys](#w4aac36c19c19 "#w4aac36c19c19")
-- [Key export](#w4aac36c19c21 "#w4aac36c19c21")
-- [Derived Unique Key Per Transaction (DUKPT) protocol](#w4aac36c19c23 "#w4aac36c19c23")
-- [Key hierarchy](#w4aac36c19c25 "#w4aac36c19c25")
+- [Cryptographic primitives](#w2aac36c19b7 "#w2aac36c19b7")
+- [Entropy and random number generation](#w2aac36c19b9 "#w2aac36c19b9")
+- [Symmetric key operations](#w2aac36c19c11 "#w2aac36c19c11")
+- [Asymmetric key operations](#w2aac36c19c13 "#w2aac36c19c13")
+- [Key storage](#w2aac36c19c15 "#w2aac36c19c15")
+- [Key import using symmetric keys](#w2aac36c19c17 "#w2aac36c19c17")
+- [Key import using asymmetric keys](#w2aac36c19c19 "#w2aac36c19c19")
+- [Key export](#w2aac36c19c21 "#w2aac36c19c21")
+- [Derived Unique Key Per Transaction (DUKPT) protocol](#w2aac36c19c23 "#w2aac36c19c23")
+- [Key hierarchy](#w2aac36c19c25 "#w2aac36c19c25")
 
 ## Cryptographic primitives
 

@@ -15,7 +15,7 @@ AES key types only support ISO Format 4 [pin blocks](terminology.md#terms.pinblo
 ###### Topics
 
 - [PIN from PEK to DUKPT](#crypto-ops-pindata.pektodukpt "#crypto-ops-pindata.pektodukpt")
-- [PIN from DUKPT to AWK](#w4aac15c22c11c11 "#w4aac15c22c11c11")
+- [PIN from DUKPT to AWK](#w2aac15c22c11c11 "#w2aac15c22c11c11")
 
 ## PIN from PEK to DUKPT
 

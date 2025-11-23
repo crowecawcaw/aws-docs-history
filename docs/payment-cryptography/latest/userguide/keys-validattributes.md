@@ -16,7 +16,7 @@ valid combinations are provided here for your convenience.
   - **Allowed combination of key modes of use**: { DeriveKey = true },{ NoRestrictions = true }
 
 - TR31_C0_CARD_VERIFICATION_KEY
-  - **Allowed Key Algorithms**: TDES_2KEY ,TDES_3KEY ,AES_128 ,AES_192 ,AES_256
+  - **Allowed Key Algorithms**: TDES_2KEY ,TDES_3KEY ,AES_128\* ,AES_192\* ,AES_256\*
 
   - **Allowed combination of key modes of use**:
     { Generate = true } ,{ Verify = true } ,{ Generate = true, Verify= true } ,{ NoRestrictions = true }
@@ -28,37 +28,37 @@ valid combinations are provided here for your convenience.
     { Encrypt = true, Wrap = true } ,{ Decrypt = true, Unwrap = true } ,{ NoRestrictions = true }
 
 - TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS
-  - **Allowed Key Algorithms**: TDES_2KEY ,TDES_3KEY ,AES_128 ,AES_192 ,AES_256
+  - **Allowed Key Algorithms**: TDES_2KEY ,TDES_3KEY\*, AES_128\* ,AES_192\* ,AES_256\*
 
   - **Allowed combination of key modes of use**: { DeriveKey = true }, { NoRestrictions = true }
 
 - TR31_E1_EMV_MKEY_CONFIDENTIALITY
-  - **Allowed Key Algorithms**: TDES_2KEY ,TDES_3KEY ,AES_128 ,AES_192 ,AES_256
+  - **Allowed Key Algorithms**: TDES_2KEY ,TDES_3KEY, AES_128\*,AES_192\*,AES_256\*
 
   - **Allowed combination of key modes of use**: { DeriveKey = true }, { NoRestrictions = true }
 
 - TR31_E2_EMV_MKEY_INTEGRITY
-  - **Allowed Key Algorithms**: TDES_2KEY ,TDES_3KEY ,AES_128 ,AES_192 ,AES_256
+  - **Allowed Key Algorithms**: TDES_2KEY ,TDES_3KEY ,AES_128\* ,AES_192\* ,AES_256\*
 
   - **Allowed combination of key modes of use**: { DeriveKey = true }, { NoRestrictions = true }
 
 - TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS
-  - **Allowed Key Algorithms**: TDES_2KEY ,TDES_3KEY ,AES_128 ,AES_192 ,AES_256
+  - **Allowed Key Algorithms**: TDES_2KEY ,TDES_3KEY ,AES_128\* ,AES_192\* ,AES_256\*
 
   - **Allowed combination of key modes of use**: { DeriveKey = true }, { NoRestrictions = true }
 
 - TR31_E5_EMV_MKEY_CARD_PERSONALIZATION
-  - **Allowed Key Algorithms**: TDES_2KEY ,TDES_3KEY ,AES_128 ,AES_192 ,AES_256
+  - **Allowed Key Algorithms**: TDES_2KEY ,TDES_3KEY ,AES_128\* ,AES_192\* ,AES_256\*
 
   - **Allowed combination of key modes of use**: { DeriveKey = true }, { NoRestrictions = true }
 
 - TR31_E6_EMV_MKEY_OTHER
-  - **Allowed Key Algorithms**: TDES_2KEY ,TDES_3KEY ,AES_128 ,AES_192 ,AES_256
+  - **Allowed Key Algorithms**: TDES_2KEY ,TDES_3KEY ,AES_128\* ,AES_192\* ,AES_256\*
 
   - **Allowed combination of key modes of use**: { DeriveKey = true }, { NoRestrictions = true }
 
 - TR31_K0_KEY_ENCRYPTION_KEY
-  - **Allowed Key Algorithms**: TDES_2KEY ,TDES_3KEY ,AES_128 ,AES_192 ,AES_256
+  - Recommended to use TR31_K1_KEY_BLOCK_PROTECTION_KEY. **Allowed Key Algorithms**: TDES_2KEY ,TDES_3KEY ,AES_128 ,AES_192 ,AES_256
 
   - **Allowed combination of key modes of use**: { Encrypt = true, Decrypt = true, Wrap = true, Unwrap = true } ,
     { Encrypt = true, Wrap = true } ,{ Decrypt = true, Unwrap = true } ,{ NoRestrictions = true }
@@ -121,4 +121,21 @@ valid combinations are provided here for your convenience.
 - TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE
   - **Allowed Key Algorithms**: RSA_2048 ,RSA_3072 ,RSA_4096
   - **Allowed combination of key modes of use**: { Sign = true } ,{ Verify = true }
-  - **NOTE:**: { Verify = true } is the only valid option when importing a key meant for signing, such as root certificate, intermediate certificate or signing certificates for TR-34.
+  - **NOTE:**: { Verify = true } is the only valid option when importing a key meant for signing, such as root certificate,
+    intermediate certificate or signing certificates for TR-34.
+
+- TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT
+  - Used for key agreement algorithms such as ECDH
+  - **Allowed Key Algorithms**: ECC_NIST_P256,ECC_NIST_P384,ECC_NIST_P521
+  - **Allowed combination of key modes of use**: { DeriveKey = true }.
+  - **NOTE:**DeriveKeyUsage is used to specify what kind of key will be derived from this base key. This is fixed at key creation/import.
+
+- TR31_K2_TR34_ASYMMETRIC_KEY
+  - Asymmetric key used for X9.24 compatible key exchange mechanisms like TR-34
+  - **Allowed Key Algorithms**: RSA_2048,RSA_3072,RSA_4096
+  - **Allowed combination of key modes of use**: { DeriveKey = true }.
+  - **Allowed combination of key modes of use**: { Encrypt = true, Decrypt = true, Wrap = true, Unwrap = true } ,{ Encrypt = true, Wrap = true } ,{ Decrypt = true, Unwrap = true }
+  - **NOTE:**: { Encrypt = true, Wrap = true } is the only valid option when importing a public key
+    that is intended for encrypting data or wrapping a key
+
+\* This algorithm/key type combination is not currently supported by any cryptographic operations

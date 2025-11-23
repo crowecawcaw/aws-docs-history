@@ -8,9 +8,9 @@ The primary outputs include the decrypted data as plaintext in hexBinary format 
 
 ###### Examples
 
-- [Decrypt data using AES symmetric key](#w4aac15c16c13b9 "#w4aac15c16c13b9")
-- [Decrypt data using DUKPT key](#w4aac15c16c13c11 "#w4aac15c16c13c11")
-- [Decrypt data using EMV-derived symmetric key](#w4aac15c16c13c13 "#w4aac15c16c13c13")
+- [Decrypt data using AES symmetric key](#w2aac15c16c13b9 "#w2aac15c16c13b9")
+- [Decrypt data using DUKPT key](#w2aac15c16c13c11 "#w2aac15c16c13c11")
+- [Decrypt data using EMV-derived symmetric key](#w2aac15c16c13c13 "#w2aac15c16c13c13")
 - [Decrypt data using an RSA key](#crypto-ops.decrypt-rsa "#crypto-ops.decrypt-rsa")
 
 ## Decrypt data using AES symmetric key

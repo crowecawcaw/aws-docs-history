@@ -6,7 +6,8 @@ The data used to generate MAC includes message data, secret MAC encryption key a
 to generate a unique MAC value for transmission. The receiving party of the MAC will use the same MAC message data,
 MAC encryption key, and algorithm to reproduce another MAC value for comparison and data authentication.
 Even if one character of the message changes or the MAC key used for verification is not identical,
-the resulting MAC value is different. The API supports DUPKT MAC, HMAC and EMV MAC encryption keys for this operation.
+the resulting MAC value is different. The API supports ISO 9797-1 Algorithm 1 and ISO 9797-1 Algorithm 3 MAC
+(using a static MAC key and a derived DUKPT key), HMAC and EMV MAC encryption keys for this operation.
 
 The input value for `message-data` must be hexBinary data.
 
@@ -19,8 +20,7 @@ or imported by calling [ImportKey](../APIReference/API_ImportKey.md "../APIRefer
 ```
 `$` `aws payment-cryptography-data generate-mac \
  --key-identifier arn:aws:payment-cryptography:us-east-2::key/qnobl5lghrzunce6 \
- --message-data "3b313038383439303031303733393431353d32343038323236303030373030303f33" \
- --generation-attributes Algorithm=HMAC_SHA256`
+ --message-data "3b313038383439303031303733393431353d32343038323236303030373030303f33"`
 
 ```
 

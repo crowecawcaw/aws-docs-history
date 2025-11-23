@@ -1,8 +1,9 @@
 # Generate and verify MAC
 
 Message Authentication Codes (MAC) are typically used to authenticate the integrity of a message (whether it's been modified). Cryptographic hashes
-such as HMAC (Hash-Based Message Authentication Code), CBC-MAC and CMAC (Cipher-based Message Authentication Code) additionally provide additional assurance of
-the sender of the MAC by utilizing cryptography. HMAC is based on hash functions while CMAC is based on block ciphers.
+such as HMAC (Hash-Based Message Authentication Code), CBC-MAC and CMAC (Cipher-based Message Authentication Code) provide additional assurance of
+the sender of the MAC by utilizing cryptography. HMAC is based on hash functions while CMAC is based on block ciphers. The service also supports
+ISO9797 Algorithms 1 and 3 which are types of CBC-MACs.
 
 All MAC algorithms of this service combine a cryptographic hash function and a shared secret key.
 They take a message and a secret key, such as the key material in a key,
@@ -15,11 +16,13 @@ AWS Payment Cryptography supports several types of MACs:
 
 **ISO9797 ALGORITHM 1**
 
-Denoted by `KeyUsage` of ISO9797_ALGORITHM1
+Denoted by `KeyUsage` of ISO9797_ALGORITHM1. If the field isn't a multiple of block size (8 bytes/16 hex characters for TDES,
+16 bytes/32 characters for AES, AWS Payment Cryptography automatically applies ISO9797 Padding Method 1. If other padding methods are needed, you can apply them prior to calling
+the service.
 
 **ISO9797 ALGORITHM 3 (Retail MAC)**
 
-Denoted by `KeyUsage` of ISO9797_ALGORITHM3
+Denoted by `KeyUsage` of ISO9797_ALGORITHM3. The same padding rules apply as Algorithm 1
 
 **ISO9797 ALGORITHM 5 (CMAC)**
 

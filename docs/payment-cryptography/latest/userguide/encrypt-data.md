@@ -19,9 +19,9 @@ The primary outputs include the encrypted data as ciphertext in hexBinary format
 
 ###### Examples
 
-- [Encrypt data using AES symmetric key](#w4aac15c16c11c13 "#w4aac15c16c11c13")
-- [Encrypt data using DUKPT key](#w4aac15c16c11c15 "#w4aac15c16c11c15")
-- [Encrypt data using EMV-derived symmetric key](#w4aac15c16c11c17 "#w4aac15c16c11c17")
+- [Encrypt data using AES symmetric key](#w2aac15c16c11c13 "#w2aac15c16c11c13")
+- [Encrypt data using DUKPT key](#w2aac15c16c11c15 "#w2aac15c16c11c15")
+- [Encrypt data using EMV-derived symmetric key](#w2aac15c16c11c17 "#w2aac15c16c11c17")
 - [Encrypt data using an RSA key](#crypto-ops.encrypt-rsa "#crypto-ops.encrypt-rsa")
 
 ## Encrypt data using AES symmetric key
