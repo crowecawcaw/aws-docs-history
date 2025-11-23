@@ -22,9 +22,9 @@ Remember to test Deny-based policies with the services you use in your
 environment. The following example is a simple block of creating untagged secrets or
 running untagged Amazon EC2 instances, and doesn't include any exceptions.
 
-The following example policy is not compatible with AWS CloudFormation as written, because that
+The following example policy is not compatible with CloudFormation as written, because that
 service creates a secret and then tags it as two separate steps. This example policy
-effectively blocks AWS CloudFormation from creating a secret as part of a stack, because such an
+effectively blocks CloudFormation from creating a secret as part of a stack, because such an
 action would result, however briefly, in a secret that is not tagged as
 required.
 

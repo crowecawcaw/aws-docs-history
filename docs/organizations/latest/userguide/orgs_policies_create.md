@@ -18,6 +18,8 @@ defines the controls that you want to apply to a group of AWS accounts.
   policy](#create-chatbot-policy-procedure "#create-chatbot-policy-procedure")
 - [Create an AI services opt-out
   policy](#create-ai-opt-out-policy-procedure "#create-ai-opt-out-policy-procedure")
+- [Create a upgrade rollout
+  policy](#create-upgrade-rollout-policy-procedure "#create-upgrade-rollout-policy-procedure")
 - [Create a Security Hub policy](#create-security-hub-policy-procedure "#create-security-hub-policy-procedure")
 
 ## Create a service control policy (SCP)
@@ -964,8 +966,7 @@ following options:
 
 We recommend that you leave this option cleared (the default)
 unless you are experienced with using tag policies. Make sure that
-you have reviewed the recommendations in [Understanding
-enforcement](orgs_manage_policies_tag-policies-enforcement.md "orgs_manage_policies_tag-policies-enforcement.md"),
+you have reviewed the recommendations in [Enforce tagging consistency](orgs_manage_policies_tag-policies-enforcement.md "orgs_manage_policies_tag-policies-enforcement.md"),
 and test thoroughly. Otherwise, you could prevent users in your
 organization's accounts from tagging the resources they need.
 
@@ -1333,6 +1334,140 @@ You can use one of the following to create a tag policy:
    "Name": "MyTestPolicy",
    "Type": "AISERVICES_OPT_OUT_POLICY"
    }
+   }
+  }`
+  ```
+
+- AWS SDKs: [CreatePolicy](../APIReference/API_CreatePolicy.md "../APIReference/API_CreatePolicy.md")
+
+## Create a upgrade rollout
+
+policy
+
+###### Minimum permissions
+
+To create a upgrade rollout policy, you need permission to run the following
+action:
+
+- `organizations:CreatePolicy`
+
+AWS Management Console
+
+###### To create a upgrade rollout policy
+
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
+   sign in as the root user ([not
+   recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
+2. On the **[Upgrade rollout policies](https://console.aws.amazon.com/organizations/v2/home/policies/upgrade-rollout-policy "https://console.aws.amazon.com/organizations/v2/home/policies/upgrade-rollout-policy")** page, choose **Create
+   policy**.
+3. On the [**Create new upgrade rollout policy**
+   page](https://console.aws.amazon.com/organizations/v2/home/policies/declarative-policy-ec2/create "https://console.aws.amazon.com/organizations/v2/home/policies/declarative-policy-ec2/create"), enter a **Policy name** and an
+   optional **Policy description**.
+4. (Optional) You can add one or more tags to the policy by choosing
+   **Add tag** and then entering a key and an
+   optional value. Leaving the value blank sets it to an empty string;
+   it isn't `null`. You can attach up to 50 tags to a
+   policy. For more information, see [Tagging AWS Organizations resources](orgs_tagging.md "orgs_tagging.md").
+5. You can build the policy using the **Visual
+   editor** as described in this procedure. You can also
+   enter or paste policy text in the **JSON** tab. For
+   more information, see [Upgrade rollout policy syntax and
+   examples](orgs_manage_policies_upgrade_syntax.md "orgs_manage_policies_upgrade_syntax.md").
+
+If you choose to use the **Visual editor**,
+select the upgrade order you want to use for your upgrade rollout
+policy. For more information about upgrade orders, see [What are upgrade rollout
+policies?](orgs_manage_policies_upgrade_rollout.md#orgs_manage_policies_upgrade_rollout_what_are "orgs_manage_policies_upgrade_rollout.md#orgs_manage_policies_upgrade_rollout_what_are"). 6. Under **Policy order and resources**, select
+either **First**, **Second** or
+**Last** from the menu. 7. (Optional) To target individual resources with this policy, select
+**Override specific resources**, and then do
+the following:
+
+    1. In **Key**, enter the name of the
+     resource that you want to override.
+    2. In **Value**, enter the ARN for the
+     resource.
+    3. In **Upgrade order**, choose the
+     preferred order that should be applied to this
+     resource.
+    4. If additional resources need to be specified, choose
+     **Add tag**, and then repeat the
+     previous steps to define the tag key.
+
+8. When you're finished editing your policy, choose **Create
+   policy** at the lower-right corner of the page.
+
+Your new policy appears in the list of upgrade rollout policies. You can
+now [attach your policy to the root,
+OUs, or accounts](orgs_policies_attach.md "orgs_policies_attach.md").
+
+AWS CLI & AWS SDKs
+
+###### To create a upgrade rollout policy
+
+You can use one of the following to create a upgrade rollout
+policy:
+
+- AWS CLI: [create-policy](../../../cli/latest/reference/organizations/create-policy.md "../../../cli/latest/reference/organizations/create-policy.md")
+  1.  Create a upgrade rollout policy like the following, and
+      store it in a text file.
+
+  ```
+  {
+      "upgrade_rollout": {
+          "default": {
+              "patch_order": {
+                  "@@assign": "last"
+              }
+          },
+          "tags": {
+              "my_patch_order_tag": {
+                  "tag_values": {
+                      "tag1": {
+                          "patch_order": {
+                              "@@assign": "first"
+                          }
+                      },
+                      "tag2": {
+                          "patch_order": {
+                              "@@assign": "second"
+                          }
+                      },
+                      "tag3": {
+                          "patch_order": {
+                              "@@assign": "last"
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  }
+  ```
+
+  This upgrade rollout policy defines the order of how AWS
+  services apply automatic upgrades across your resources. For
+  information about upgrade rollout policy syntax, see [Upgrade rollout policy syntax and
+  examples](orgs_manage_policies_upgrade_syntax.md "orgs_manage_policies_upgrade_syntax.md"). 2. Import the JSON policy file to create a new policy in the
+  organization. In this example, the previous JSON file was
+  named `policy.json`.
+
+  ```
+  `$` **aws organizations create-policy \
+   --type UPGRADE\_ROLLOUT\_POLICY \
+   --name "`MyTestPolicy`" \
+   --description "`My test policy`" \
+   --content file://`policy.json`**`{
+  "Policy": {
+   "PolicySummary": {
+   "Id": "p-i9j8k7l6m5",
+   "Arn": "arn:aws:organizations::123456789012:policy/o-aa111bb222/upgrade_rollout_policy/p-i9j8k7l6m5",
+   "Name": "MyTestPolicy",
+   "Description": "My test policy",
+   "Type": "UPGRADE_ROLLOUT_POLICY",
+   "AwsManaged": false
+   },
+   "Content": "{\n \"upgrade_rollout\": {\n \"default\": {\n \"patch_order\": {\n \"@@assign\": \"last\"\n }\n },\n \"tags\": {\n \"my_patch_order_tag\": {\n \"tag_values\": {\n \"tag1\": {\n \"patch_order\": {\n \"@@assign\": \"first\"\n }\n },\n \"tag2\": {\n \"patch_order\": {\n \"@@assign\": \"second\"\n }\n },\n \"tag3\": {\n \"patch_order\": {\n \"@@assign\": \"last\"\n }\n }\n }\n }\n }\n }\n}\n"
    }
   }`
   ```

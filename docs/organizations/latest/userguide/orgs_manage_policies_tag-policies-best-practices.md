@@ -48,8 +48,7 @@ compliance results.
 ## Use caution in enforcing compliance
 
 Enforcing compliance could prevent users in your organization's accounts from tagging
-the resources they need. Review the information in [Understanding
-enforcement](orgs_manage_policies_tag-policies-enforcement.md "orgs_manage_policies_tag-policies-enforcement.md"). Also see the
+the resources they need. Review the information in [Enforce tagging consistency](orgs_manage_policies_tag-policies-enforcement.md "orgs_manage_policies_tag-policies-enforcement.md"). Also see the
 workflows described in [Getting started with tag
 policies](orgs_manage_policies_tag-policies-getting-started.md "orgs_manage_policies_tag-policies-getting-started.md").
 

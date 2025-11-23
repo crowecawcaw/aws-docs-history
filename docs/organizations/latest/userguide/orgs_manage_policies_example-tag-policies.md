@@ -4,6 +4,18 @@ examples
 
 This page describes tag policy syntax and provides examples.
 
+###### Topics
+
+- [Tag policy syntax](#tag-policy-syntax-reference "#tag-policy-syntax-reference")
+- [Tag policy examples](#tag-policy-examples "#tag-policy-examples")
+- [Example 1: Define organization-wide tag
+  key case](#tag-policy-example-key-case "#tag-policy-example-key-case")
+- [Example 2: Prevent use of a tag
+  key](#tag-policy-example-prevent-key "#tag-policy-example-prevent-key")
+- [Example 3: Specify a tag policy for all supported resource types
+  of a specific AWS service](#tag-policy-example-all-supported "#tag-policy-example-all-supported")
+- [Example 4: Enforce required tag keys for compliance](#tag-policy-example-required-tags "#tag-policy-example-required-tags")
+
 ## Tag policy syntax
 
 A tag policy is a plaintext file that is structured according to the rules of [JSON](http://json.org "http://json.org"). The syntax for tag policies follows the syntax
@@ -73,7 +85,7 @@ In this example, acceptable values for the `CostCenter` tag key are
   tag** option in the visual editor for creating tag policies. The
   default setting for this option is null.
 
-The example tag policy specifies that the `CostCenter` tag passed on all AWS Secrets Manager resources must be compliant with this policy.
+The example tag policy specifies that the `CostCenter` tag applied to all AWS Secrets Manager resources must be compliant with this policy.
 
 ###### Warning
 
@@ -92,10 +104,9 @@ organization's accounts from creating the resources they need.
     `*@example.com` is allowed, but `*@*.com` is
     not.
   - You can use the `ALL_SUPPORTED` wildcard in the `enforced_for` field with some services
-    to enable enforcement for all resources for that
+    to enable enforcement for all supported resources for that
     service. For a list of services and resource types that support
-    `enforced_for`, see [Services and resource
-    types that support enforcement](orgs_manage_policies_supported-resources-enforcement.md "orgs_manage_policies_supported-resources-enforcement.md").
+    `enforced_for`, see [Services and resource types that support enforcement](orgs_manage_policies_supported-resources-enforcement.md "orgs_manage_policies_supported-resources-enforcement.md").
   - You can't use a wildcard to specify all services or to specify a
     resource for all services.
 
@@ -284,8 +295,7 @@ you use the `ALL_SUPPORTED` wildcard.
 This policy uses the `ALL_SUPPORTED` wildcard to specify that all Amazon EC2 instances with the tag key `Environment`
 can only have a tag value of `Prod` or `Non-prod`. This wildcard provides an effective, single-line alternative to
 listing each Amazon EC2 instance individually. For a list of services and resource types that support the
-`ALL_SUPPORTED` wildcard, see [Services and resource
-types that support enforcement](orgs_manage_policies_supported-resources-enforcement.md "orgs_manage_policies_supported-resources-enforcement.md").
+`ALL_SUPPORTED` wildcard, see [Services and resource types that support enforcement](orgs_manage_policies_supported-resources-enforcement.md "orgs_manage_policies_supported-resources-enforcement.md").
 
 ```
 {
@@ -311,3 +321,91 @@ types that support enforcement](orgs_manage_policies_supported-resources-enforce
     }
 }
 ```
+
+## Example 4: Enforce required tag keys for compliance
+
+This example demonstrates how to define a tag policy that requires all resources to include mandatory compliance tags. Organizations commonly use this pattern to ensure proper cost allocation, ownership tracking, and environment identification.
+
+```
+{
+    "tags": {
+        "CostCenter": {
+            "report_required_tag_for": {
+                "@@assign": [
+                    "ec2:instance",
+                    "s3:bucket",
+                    "rds:db",
+                    "lambda:function"
+                ]
+            },
+            "tag_key": {
+                "@@assign": "CostCenter"
+            }
+        },
+        "Environment": {
+            "report_required_tag_for": {
+                "@@assign": [
+                    "ec2:ALL_SUPPORTED",
+                    "rds:ALL_SUPPORTED",
+                    "s3:ALL_SUPPORTED"
+                ]
+            },
+            "tag_key": {
+                "@@assign": "Environment"
+            },
+            "tag_value": {
+                "@@assign": [
+                    "Production",
+                    "Staging",
+                    "Development",
+                    "Test"
+                ]
+            }
+        },
+        "Owner": {
+            "report_required_tag_for": {
+                "@@assign": [
+                    "ec2:ALL_SUPPORTED"
+                ]
+            },
+            "tag_key": {
+                "@@assign": "Owner"
+            }
+        }
+    }
+}
+```
+
+When you apply this policy and configure your IaC tool with tag policy enforcement:
+
+- CostCenter: Required for EC2 instances, S3 buckets, RDS databases, and Lambda functions
+- Environment: Required for all EC2, RDS, and S3 resources, with allowed values restricted to Production, Staging, Development, or Test
+- Owner: Required for all EC2 resources in your organization
+
+Example infrastructure code that complies with this policy:
+
+```
+EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0c02fb55956c7d316
+      InstanceType: t2.micro
+      Tags:
+        - Key: CostCenter
+          Value: CC-12345
+        - Key: Environment
+          Value: Test
+        - Key: Owner
+          Value: john.doe@company.com
+```
+
+If you attempt to create a resource without the required tags, your IaC deployment will fail or generate a warning during the planning phase, depending on your configuration. When configured in fail mode, the deployment is blocked before any resources are created. When configured in warn mode, the deployment proceeds but alerts your team to the missing tags. The validation error message identifies exactly which required tags are missing and which resources need them.
+
+For specific configuration instructions for your IaC tool:
+
+- **CloudFormation**: See
+  [Enforce with CloudFormation](enforce-required-tag-keys-iac.md#enforce-with-cloudformation "enforce-required-tag-keys-iac.md#enforce-with-cloudformation") to activate the tagging compliance hook
+- **Terraform**: See
+  [Enforce with Terraform](enforce-required-tag-keys-iac.md#enforce-with-terraform "enforce-required-tag-keys-iac.md#enforce-with-terraform") to enable tag policy validation in the AWS Provider
+- **Pulumi**: See
+  [Enforce with Pulumi](enforce-required-tag-keys-iac.md#enforce-with-pulumi "enforce-required-tag-keys-iac.md#enforce-with-pulumi") to enable the Tag Policy Reporting policy pack

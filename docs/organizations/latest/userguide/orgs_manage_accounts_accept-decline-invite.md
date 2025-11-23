@@ -19,9 +19,9 @@ If an account rejoins an organization that it previously belonged to, the accoun
 **Only member accounts and standalone accounts can accept or decline an invitation**
 
 Only member accounts and standalone accounts can accept or decline an invitation
-to join an organization. If an invitation is sent to a member account, that account
-should leave the current organization before accepting the invitation. If an
-invitation is sent to a management account that is already part of an organization, that account won't be able to view the invitation until they [remove all member accounts from their
+to join an organization. If an invitation is sent to a management account that is
+already part of an organization, that account won't be able to view the invitation
+until they [remove all member accounts from their
 organization](orgs_manage_accounts_remove.md "orgs_manage_accounts_remove.md") and [delete the
 organization](orgs_manage_org_delete.md "orgs_manage_org_delete.md").
 
@@ -39,6 +39,8 @@ the following permissions:
   see the list of invitations in the AWS Organizations console.
 - `organizations:AcceptHandshake`.
 - `organizations:DeclineHandshake`.
+- `organizations:LeaveOrganization` – Required only when
+  accepting an invitation when your account is already a member of an organization.
 - `iam:CreateServiceLinkedRole` – Required only when
   accepting the invitation requires the creation of a service-linked role in
   the member account to support integration with other AWS services. For

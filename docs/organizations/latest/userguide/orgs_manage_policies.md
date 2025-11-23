@@ -73,6 +73,8 @@ their features across an organization.
 - **[Security Hub policies](orgs_manage_policies_security_hub.md "orgs_manage_policies_security_hub.md")** allow you to address security
   coverage gaps that align with your organization's security requirements and
   centrally applying them across an organization.
+- **[Amazon Inspector policies](orgs_manage_policies_inspector.md "orgs_manage_policies_inspector.md")** allow you to centrally enable and manage Amazon Inspector across accounts in your AWS organization.
+- **[Amazon Bedrock policies](orgs_manage_policies_bedrock.md "orgs_manage_policies_bedrock.md")** allow you to enforce safeguards configured in Amazon Bedrock Guardrails automatically across any element in your organization structure for all model inference calls to Amazon Bedrock.
 
 The following table summarizes some of the characteristics of each policy type. For
 additional characteristics about these policy types, see [Quotas and service limits for AWS Organizations](orgs_reference_limits.md "orgs_reference_limits.md").

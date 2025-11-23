@@ -17,3 +17,6 @@ understand relevant terms and concepts about management policies.
 - [Chat applications policies](orgs_manage_policies_chatbot.md "orgs_manage_policies_chatbot.md")
 - [AI services opt-out policies](orgs_manage_policies_ai-opt-out.md "orgs_manage_policies_ai-opt-out.md")
 - [Security Hub policies](orgs_manage_policies_security_hub.md "orgs_manage_policies_security_hub.md")
+- [Amazon Bedrock policies](orgs_manage_policies_bedrock.md "orgs_manage_policies_bedrock.md")
+- [Amazon Inspector policies](orgs_manage_policies_inspector.md "orgs_manage_policies_inspector.md")
+- [Upgrade rollout policies](orgs_manage_policies_upgrade_rollout.md "orgs_manage_policies_upgrade_rollout.md")

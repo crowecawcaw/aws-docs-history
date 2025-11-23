@@ -71,7 +71,7 @@ management account. Provide your teams with permissions in their own accounts to
 the needs of the organization, without requiring access to the management account. In
 addition, you can register multiple delegated administrators for services that support
 this functionality such as AWS Service Catalog for sharing software across the organization, or
-AWS CloudFormation StackSets for authoring and deploying stacks.
+CloudFormation StackSets for authoring and deploying stacks.
 
 For more information, see [Security Reference Architecture](../../../prescriptive-guidance/latest/security-reference-architecture/security-tooling.md "../../../prescriptive-guidance/latest/security-reference-architecture/security-tooling.md"), [Organizing Your AWS Environment Using Multiple Accounts](../../../whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.md "../../../whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.md"), and [AWS services that you can use with
 AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md") for suggestions on registering member accounts as delegated administrator for various

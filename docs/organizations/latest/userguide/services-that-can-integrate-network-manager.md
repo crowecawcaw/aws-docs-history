@@ -18,7 +18,7 @@ multi-account monitoring and eventing, and `IAMRoleForAWSNetworkManagerCrossAcco
 
 - We strongly recommend using the Network Manager console to manage multi-account settings (enable/disable trusted access and register/deregister delegated administrators).
   Managing these settings from the console automatically deploys and manages all required service-linked roles and custom IAM roles to the member accounts needed for multi-account access.
-- When you enable trusted access for Network Manager in the Network Manager console, the console also enables AWS CloudFormation StackSets service.
+- When you enable trusted access for Network Manager in the Network Manager console, the console also enables CloudFormation StackSets service.
   Network Manager uses StackSets to deploy custom IAM roles needed for multi-account management.
   For more information about integrating Network Manager with Organizations, see [Manage multiple accounts in Network Manager with AWS Organizations](../../../vpc/latest/tgwnm/tgw-nm-multi.md "../../../vpc/latest/tgwnm/tgw-nm-multi.md") in the
   _Amazon VPC User Guide_.
@@ -94,7 +94,7 @@ access with another AWS service.
 
 We strongly recommend using the Network Manager console to disable trusted access. If you
 disable trusted access in any other way, such as using AWS CLI, with an API, or with
-the AWS CloudFormation console, deployed AWS CloudFormation StackSets and custom IAM roles may not be
+the CloudFormation console, deployed CloudFormation StackSets and custom IAM roles may not be
 properly cleaned up. To disable trusted service access, sign in to the [Network Manager
 console](https://console.aws.amazon.com/vpc/home#networkmanager "https://console.aws.amazon.com/vpc/home#networkmanager").
 

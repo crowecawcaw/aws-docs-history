@@ -9,14 +9,14 @@ Active Directory. AWS Managed Microsoft AD also integrates tightly with AWS Orga
 directory sharing across multiple AWS accounts and any VPC in a Region. For more
 information, see the [AWS Directory Service Administration Guide](../../../directoryservice/latest/admin-guide.md "../../../directoryservice/latest/admin-guide.md").
 
-To share an AWS Directory Service across an organization, the organization must have **All features** enabled, and the directory must be in the organization management account.
+To share an Directory Service across an organization, the organization must have **All features** enabled, and the directory must be in the organization management account.
 
 Use the following information to help you integrate
 AWS Directory Service with AWS Organizations.
 
 ## Enabling trusted access with
 
-AWS Directory Service
+Directory Service
 
 For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted
 access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
@@ -35,7 +35,7 @@ provided by AWS Directory Service. For more information, see [this note](orgs_in
 If you enable trusted access by using the AWS Directory Service console or tools then you
 don’t need to complete these steps.
 
-###### To enable trusted access using the AWS Directory Service console
+###### To enable trusted access using the Directory Service console
 
 To share a directory, which automatically enables trusted access, see [Share
 Your Directory](../../../directoryservice/latest/admin-guide/ms_ad_directory_sharing.md "../../../directoryservice/latest/admin-guide/ms_ad_directory_sharing.md") in the _AWS Directory Service Administration Guide_. For step-by-step instructions, see [Tutorial: Sharing Your AWS Managed Microsoft AD Directory](../../../directoryservice/latest/admin-guide/ms_ad_tutorial_directory_sharing.md "../../../directoryservice/latest/admin-guide/ms_ad_tutorial_directory_sharing.md").
@@ -61,13 +61,13 @@ AWS Management Console
 
 ## Disabling trusted access with
 
-AWS Directory Service
+Directory Service
 
 For information about the permissions needed to disable trusted
 access, see [Permissions required to disable
 trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms "orgs_integrate_services.md#orgs_trusted_access_disable_perms").
 
-If you disable trusted access using AWS Organizations while you are using AWS Directory Service, all
+If you disable trusted access using AWS Organizations while you are using Directory Service, all
 previously shared directories continue to operate as normal. However, you can no longer
 share new directories within the organization until you enable trusted access
 again.

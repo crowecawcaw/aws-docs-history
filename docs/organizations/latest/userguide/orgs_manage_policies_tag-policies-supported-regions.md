@@ -12,6 +12,7 @@ Tag policy features are available in the following Regions:
 | US West (Oregon) Region           | `us-west-2`      |
 | Africa (Cape Town) Region²        | `af-south-1`     |
 | Asia Pacific (Hong Kong) Region²  | `ap-east-1`      |
+| Asia Pacific (Taipei)²            | `ap-east-2`      |
 | Asia Pacific (Mumbai) Region      | `ap-south-1`     |
 | Asia Pacific (Hyderabad)²         | `ap-south-2`     |
 | Asia Pacific (Tokyo) Region       | `ap-northeast-1` |
@@ -20,8 +21,9 @@ Tag policy features are available in the following Regions:
 | Asia Pacific (Singapore) Region   | `ap-southeast-1` |
 | Asia Pacific (Sydney) Region      | `ap-southeast-2` |
 | Asia Pacific (Jakarta) Region²    | `ap-southeast-3` |
-| Asia Pacific (Malaysia) Region    | `ap-southeast-5` |
 | Asia Pacific (Melbourne)²         | `ap-southeast-4` |
+| Asia Pacific (Malaysia) Region    | `ap-southeast-5` |
+| Asia Pacific (New Zealand)²       | `ap-southeast-6` |
 | Asia Pacific (Thailand)           | `ap-southeast-7` |
 | Canada (Central) Region           | `ca-central-1`   |
 | Canada West (Calgary)²            | `ca-west-1`      |
@@ -36,11 +38,12 @@ Tag policy features are available in the following Regions:
 | Europe (Paris) Region             | `eu-west-3`      |
 | Europe (Stockholm) Region         | `eu-north-1`     |
 | Mexico (Central) Region           | `mx-central-1`   |
+| Middle East (UAE) Region²         | `me-central-1`   |
 | Middle East (Bahrain) Region²     | `me-south-1`     |
 | South America (São Paulo) Region  | `sa-east-1`      |
 | Israel (Tel Aviv)²                | `il-central-1`   |
-| AWS GovCloud (US-East) Region     | `us-gov-east-1`  |
-| AWS GovCloud (US-West) Region     | `us-gov-west-1`  |
+| AWS GovCloud (US-East)            | `us-gov-east-1`  |
+| AWS GovCloud (US-West)            | `us-gov-west-1`  |
 
 **¹You must specify the `us-east-1` Region when
 calling the following Organizations operations:**

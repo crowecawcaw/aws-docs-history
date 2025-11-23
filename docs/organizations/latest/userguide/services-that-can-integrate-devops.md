@@ -95,7 +95,7 @@ DevOps Guru console
 ###### To enable trusted service access using the DevOps Guru console
 
 1. Sign in as administrator in the management account and open DevOps Guru
-   console: [Amazon DevOps Guru console](https://console.aws.amazon.com/devops-guru/management-account "https://console.aws.amazon.com/devops-guru/management-account")
+   console: [Amazon DevOps Guru console](https://console.aws.amazon.com//devops-guru/management-account "https://console.aws.amazon.com//devops-guru/management-account")
 2. Choose **Enable trusted access**.
 
 ## To disable trusted access with
@@ -157,7 +157,7 @@ DevOps Guru console
 ###### To configure a delegated administrator in the DevOps Guru console
 
 1. Sign in as administrator in the management account and open DevOps Guru
-   console: [Amazon DevOps Guru console](https://console.aws.amazon.com/devops-guru/management-account "https://console.aws.amazon.com/devops-guru/management-account")
+   console: [Amazon DevOps Guru console](https://console.aws.amazon.com//devops-guru/management-account "https://console.aws.amazon.com//devops-guru/management-account")
 2. Choose **Register delegated administrator**. You
    can choose either Management account or any member account as the
    delegated admin.

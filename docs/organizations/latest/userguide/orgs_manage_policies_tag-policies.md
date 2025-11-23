@@ -1,9 +1,8 @@
 # Tag policies
 
-Tag policies allow you to standardize the tags attached to the AWS resources in an organization's accounts.
+Tag policies allow you to standardize the tags attached to the AWS resources in your organization's accounts.
 
-You can use tag policies to maintain consistent tags, including the preferred case
-treatment of tag keys and tag values.
+You can use tag policies to maintain consistent tags, including the preferred case treatment of tag keys and tag values.
 
 ## What are tags?
 

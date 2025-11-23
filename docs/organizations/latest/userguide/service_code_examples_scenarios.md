@@ -12,3 +12,10 @@ Scenarios target an intermediate level of experience to help you understand serv
 ###### Examples
 
 - [Permission policy allows AWS Compute Optimizer Automation to apply recommended actions](example_iam-policies.AWSMettleDocs.latest.userguide.managed-policies.xml.md "example_iam-policies.AWSMettleDocs.latest.userguide.managed-policies.xml.md")
+- [Permission policy to enable Automation across your organization](example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.md "example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.md")
+- [Permission policy to enable Automation for your account](example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.md "example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.md")
+- [Permission policy to grant full access to Compute Optimizer Automation for a management account of an organization](example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.md "example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.md")
+- [Permission policy to grant full access to Compute Optimizer Automation for standalone AWS accounts](example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.md "example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.md")
+- [Permission policy to grant read-only access to Compute Optimizer Automation for a management account of an organization](example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.md "example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.md")
+- [Permission policy to grant read-only access to Compute Optimizer Automation for standalone AWS accounts](example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.md "example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.md")
+- [Permission policy to grant service-linked role permissions for Compute Optimization Automation](example_iam-policies.AWSMettleDocs.latest.userguide.slr-automation.xml.md "example_iam-policies.AWSMettleDocs.latest.userguide.slr-automation.xml.md")

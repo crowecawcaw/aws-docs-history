@@ -2,7 +2,7 @@
 
 AWS Organizations
 
-AWS CloudFormation StackSets enables you to create, update, or delete stacks across multiple
+CloudFormation StackSets enables you to create, update, or delete stacks across multiple
 AWS accounts and AWS Regions with a single operation. StackSets integration with
 AWS Organizations enables you to create stack sets with service-managed permissions, using a
 service-linked role that has the relevant permission in each member account. This lets you
@@ -39,11 +39,11 @@ you enable integration
 
 The following [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is
 automatically created in your organization's management account when you enable trusted
-access. This role allows AWS CloudFormation Stacksets to perform supported operations within your
+access. This role allows CloudFormation Stacksets to perform supported operations within your
 organization's accounts in your organization.
 
 You can delete or modify this role only if you disable trusted access between
-AWS CloudFormation Stacksets and Organizations, or if you remove the member account from the organization.
+CloudFormation Stacksets and Organizations, or if you remove the member account from the organization.
 
 - Management
   account: `AWSServiceRoleForCloudFormationStackSetsOrgAdmin`
@@ -67,7 +67,7 @@ service-linked roles
 
 The service-linked role in the previous section can be
 assumed only by the service principals authorized by the trust relationships defined for the
-role. The service-linked roles used by AWS CloudFormation Stacksets grant access to the following service
+role. The service-linked roles used by CloudFormation Stacksets grant access to the following service
 principals:
 
 - Management account: `stacksets.cloudformation.amazonaws.com`
@@ -84,25 +84,25 @@ from the target organization or organizational unit (OU).
 
 ## Enabling trusted access with
 
-AWS CloudFormation Stacksets
+CloudFormation Stacksets
 
 For information about the permissions needed to enable trusted
 access, see [Permissions required to enable trusted
 access](orgs_integrate_services.md#orgs_trusted_access_perms "orgs_integrate_services.md#orgs_trusted_access_perms").
 
 Only an administrator in the Organizations management account has permissions to enable trusted
-access with another AWS service. You can enable trusted access using either the AWS CloudFormation
+access with another AWS service. You can enable trusted access using either the CloudFormation
 console or the Organizations console.
 
 You can only enable trusted access using
 AWS CloudFormation StackSets.
 
-To enable trusted access using the AWS CloudFormation Stacksets console, see [Enable Trusted Access
+To enable trusted access using the CloudFormation Stacksets console, see [Enable Trusted Access
 with AWS Organizations](../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.md") in the AWS CloudFormation User Guide.
 
 ## Disabling trusted access with
 
-AWS CloudFormation Stacksets
+CloudFormation Stacksets
 
 For information about the permissions needed to disable trusted
 access, see [Permissions required to disable
@@ -115,14 +115,14 @@ previously created stack instances are retained. However, stack sets deployed us
 service-linked role's permissions can no longer perform deployments to accounts managed
 by Organizations.
 
-You can disable trusted access using either the AWS CloudFormation console or the Organizations
+You can disable trusted access using either the CloudFormation console or the Organizations
 console.
 
 ###### Important
 
 If you disable trusted access programmatically (e.g with AWS CLI or with an API),
 be aware that this will remove the permission. It is better to disable trusted
-access with the AWS CloudFormation console.
+access with the CloudFormation console.
 
 You can disable trusted access by using either the AWS Organizations console,
 by running an Organizations AWS CLI command, or by calling an Organizations API operation in one of the AWS SDKs.
@@ -167,13 +167,13 @@ This command produces no output when successful.
 
 ## Enabling a delegated administrator
 
-account for AWS CloudFormation Stacksets
+account for CloudFormation Stacksets
 
 When you designate a member account as a delegated administrator for the organization,
 users and roles from that account can perform administrative actions for
-AWS CloudFormation Stacksets that otherwise can be performed only by users or roles in the
+CloudFormation Stacksets that otherwise can be performed only by users or roles in the
 organization's management account. This helps you to separate management of the
-organization from management of AWS CloudFormation Stacksets.
+organization from management of CloudFormation Stacksets.
 
 For instructions on how to designate a member account as a delegated administrator of
-AWS CloudFormation Stacksets in the organization, see [Register a delegated administrator](../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.md") in the _AWS CloudFormation User Guide_.
+CloudFormation Stacksets in the organization, see [Register a delegated administrator](../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.md") in the _AWS CloudFormation User Guide_.

@@ -7,16 +7,13 @@ example, migrating an account can be helpful in the case of a merger and acquisi
 you need to consolidate one or more AWS accounts from multiple organizations into one
 organization.
 
-Whatever your use case, migrating an account between organizations requires for you to
-remove the account from the old organization, for you to make the account a standalone
-account, and for the account to accept the invitation from the new organization to join the
-new organization. Your workloads and services will continue to operate according to your
-specifications during the migration. However, it is important to be aware of any
-dependencies you might have in your organization.
+Whatever your use case, migrating an account between organizations requires you to send
+an invite from the management account of the new organization, and to use the invited
+account to accept the invite to join the new organization.
 
 ###### Note
 
-**Closed or suspended accounts cannot be migrated**
+**Closed or suspended accounts cannot be migrated.**
 
 You cannot migrate a closed or suspended account.
 To reactive an account,
@@ -95,21 +92,7 @@ organization's management account, then you must manually delete the IAM role.
 For information about how to delete a role, see [Deleting roles or instance
 profiles](../../../IAM/latest/UserGuide/id_roles_manage_delete.md "../../../IAM/latest/UserGuide/id_roles_manage_delete.md") in the _IAM User Guide_.
 
-### Step 3: Check your phone verification and payment method
-
-The migrating account
-must operate as a standalone account for a period of time before migrating to the new organization.
-
-**To allow an account operate as a standalone account, check the following:**
-
-- Make sure your phone verification is up-to-date.
-- Make sure have have added a valid payment method
-  for the account to address any charges that are incurred
-  while the account is migrating.
-- If you use invoicing
-  for your payment method, make sure your invoice is up-to-date.
-
-### Step 4: Back up all reports
+### Step 3: Back up all reports
 
 Make sure to export or back up reports from the management account, especially
 billing reports. Organizational level reports and history are not stored
@@ -125,7 +108,7 @@ an organization.
 
 For more information, see [Cost and Usage Reports](../../../cur/latest/userguide/what-is-cur.md "../../../cur/latest/userguide/what-is-cur.md"), [Cost Explorer Reports](../../../cost-management/latest/userguide/ce-reports.md "../../../cost-management/latest/userguide/ce-reports.md"), [Savings Plans Reports](../../../savingsplans/latest/userguide/ce-sp-usingPR.md#ce-dl-pr "../../../savingsplans/latest/userguide/ce-sp-usingPR.md#ce-dl-pr"), and [Reserved Instance (RI) utilization and coverage](https://repost.aws/knowledge-center/ec2-ri-utilization-coverage-cost-explorer "https://repost.aws/knowledge-center/ec2-ri-utilization-coverage-cost-explorer").
 
-### Step 5: Check for organization dependencies
+### Step 4: Check for organization dependencies
 
 Make sure the migrating account does not have any organization-related dependencies.
 
@@ -148,7 +131,7 @@ Make sure the migrating account does not have any organization-related dependenc
 - If you are using any account or
   organizational unit (OU) tags, you will need to recreate the tags in the new organization.
 
-### (Optional) Step 6: Review guidance if you use AWS Control Tower
+### (Optional) Step 5: Review guidance if you use AWS Control Tower
 
 If you are migrating
 an account to or from an organization managed by
@@ -157,25 +140,20 @@ AWS Control Tower, review the following AWS Prescriptive Guidance: [Migrate an A
 ## What you need to do to migrate an account
 
 The migration process requires for the new organization to send an invitation to the
-migrating account, for the old organization to remove the migration account, and for the migrating account to accept the invitation from the new
+migrating account, and for the migrating account to accept the invitation from the new
 organization to join the new organization.
 
 ###### To migrate an account
 
 1. Send an invitation from the management account of the new organization to the
-   migrating account. You should send the invitation to the account before it
-   leaves the old organization. This helps to minimize the costs incurred when the
-   migrating account temporarily operates as a standalone account. For information
-   about inviting accounts, see [Inviting an AWS account to join your organization](orgs_manage_accounts_invites.md "orgs_manage_accounts_invites.md").
-2. Remove the migrating account from the old organization. You can [remove a member account from your organization](orgs_manage_accounts_remove-member-account.md "orgs_manage_accounts_remove-member-account.md") using the management
-   account or [leave an organization from as a member account](orgs_manage_accounts_leave-as-member.md "orgs_manage_accounts_leave-as-member.md").
-3. Accept the invitation to join the new organization. For more information, see
+   migrating account. For information about inviting accounts, see [Inviting an AWS account to join your organization](orgs_manage_accounts_invites.md "orgs_manage_accounts_invites.md").
+2. Accept the invitation to join the new organization. For more information, see
    [Accepting an invitation from an organization](orgs_manage_accounts_invites.md#orgs_manage_accounts_accept-decline-invite "orgs_manage_accounts_invites.md#orgs_manage_accounts_accept-decline-invite"). Accounts that are
    migrated from one another organization to another will be automatically added to
    the root of the new organization. Before moving an account to an organizational
    unit (OU) in the new organization, it is recommended that you check that migrating account has the appropriate organization policies and OU
    permissions.
-4. If you want to migrate the management account, you must [remove
+3. If you want to migrate the management account, you must [remove
    all member accounts](orgs_manage_accounts_remove.md "orgs_manage_accounts_remove.md") from the organization and [delete the
    organization](orgs_manage_org_delete.md "orgs_manage_org_delete.md") before migrating the management account to the new
    organization. After you have deleted the old organization, your management
