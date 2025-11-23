@@ -1,10 +1,9 @@
-# Manage users and groups for farms, queues, and
+# Assign permissions to users and groups
 
-fleets
-
-As part of managing users and groups, you can grant access permissions at different levels.
-Each subsequent level includes the permissions for the previous levels. The following list
-describes the four access levels from the lowest level to the highest level:
+Regardless of your identity source, you assign permissions to users and groups at the farm,
+queue, and fleet level through the Deadline Cloud console. You can grant access permissions at different
+levels. Each subsequent level includes the permissions for the previous levels. The following
+list describes the four access levels from the lowest level to the highest level:
 
 - **Viewer** – Permission
   to see resources in the farms, queues, fleets, and jobs they have access to. A viewer can't

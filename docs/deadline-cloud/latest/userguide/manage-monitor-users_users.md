@@ -1,10 +1,15 @@
-# Manage users and groups for the
+# Create and manage users with IAM Identity Center directory
 
-monitor
+If your identity source is set to IAM Identity Center directory, you can create and manage
+users and groups directly through the Deadline Cloud console. Users created in the console will
+receive email invitations from IAM Identity Center. After accepting the invitation, users can access
+the Deadline Cloud monitor.
 
-An Organizations owner can use the Deadline Cloud console to manage the users and groups that have
-access to the Deadline Cloud monitor. You can choose from existing IAM Identity Center users and groups, or you
-can add new users and groups from the console.
+###### Note
+
+If your IAM Identity Center is connected to an external identity provider, you cannot create users
+through the Deadline Cloud console. See [Manage users with an external identity provider](manage-users-external-idp.md "manage-users-external-idp.md") for information
+about managing users with an external IdP.
 
 1. Sign in to the AWS Management Console and open the Deadline Cloud [console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home").
    From the main page, in the **Get started** section, choose
