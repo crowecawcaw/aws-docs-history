@@ -37,7 +37,7 @@ If no language support is specified, the IDE supports languages listed in the
 | [Workspace context in chat](workspace-context.md "workspace-context.md")            | Yes    | Yes       | Yes     | Yes           |
 | [Inline suggestions](inline-suggestions.md "inline-suggestions.md")                 | Yes    | Yes       | Yes     | Yes           |
 | [Transformations](transform-java.md "transform-java.md")                            | Yes    | Yes       | No      | Yes           |
-| [Customizations](customizations.md "customizations.md")                             | Yes    | Yes       | Yes     | No            |
+|                                                                                     | Yes    | Yes       | Yes     | No            |
 
 You can also generate inline suggestions in AWS coding environments. For more information, see [Generating inline suggestions in AWS coding environments](setting-up-AWS-coding-env.md "setting-up-AWS-coding-env.md")
 .

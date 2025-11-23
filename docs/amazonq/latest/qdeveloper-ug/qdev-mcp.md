@@ -13,27 +13,9 @@ The Model Context Protocol (MCP) is an open standard that enables AI assistants 
 - [MCP architecture](#command-line-mcp-architecture "#command-line-mcp-architecture")
 - [Core MCP concepts](#command-line-mcp-concepts "#command-line-mcp-concepts")
 - [MCP security](command-line-mcp-security.md "command-line-mcp-security.md")
+- [MCP governance for Q Developer](mcp-governance.md "mcp-governance.md")
 
 ## MCP configuration
-
-### Disabling MCP for your organization
-
-Depending on your setup, you may have the option to disable MCP servers for your AWS account or [organization](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md") in the Amazon Q Developer console. This applies if:
-
-- You are managing an organization from your management account, or you are using a standalone account.
-- You are using Amazon Q Developer in a supported IDE.
-
-###### Note
-
-This setting is enforced on the client side. Be aware that your end users could circumvent it.
-
-To disable MCP in your account or organization:
-
-1. Open the Amazon Q Developer console.
-2. Choose **Settings**.
-3. Under **Preferences**, choose **Edit**.
-4. In the **Edit Preferences** pop-up, toggle **Model Context Protocol (MCP)**.
-5. Choose **Save**.
 
 ### Setting up MCP servers with the Q CLI
 

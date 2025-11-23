@@ -27,7 +27,7 @@ currently signed into.
 1. Sign in to the AWS Management Console.
 2. Switch to the Amazon Q Developer console.
 3. From the navigation pane, choose **Dashboard**.
-4. (Optional) Filter the information by date range, programming language, [customization](customizations.md "customizations.md"), or integrated development environment (IDE) vendor.
+4. (Optional) Filter the information by date range, programming language, customization, or integrated development environment (IDE) vendor.
    **Notes**:
 
 - If the **Dashboard** link is not available in the navigation pane, see [Troubleshooting the dashboard](dashboard-troubleshooting.md "dashboard-troubleshooting.md").

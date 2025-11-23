@@ -318,10 +318,7 @@ JSON
 
 to access cost data and provide cost optimization recommendations
 
-The following example policy grants permission to chat with Amazon Q about your
-costs and allows Amazon Q to access your cost data and provide cost analysis and
-optimization recommendations. This policy includes the relevant permissions in AWS Cost Explorer,
-AWS Cost Optimization Hub, and AWS Compute Optimizer.
+The following example policy grants permission to chat with Amazon Q about your costs and allows Amazon Q to access your cost data and provide cost analysis and optimization recommendations. This policy includes permissions for AWS Cost Explorer, AWS Cost Optimization Hub, AWS Compute Optimizer, AWS Budgets, AWS Free Tier, AWS Pricing, and Savings Plans and reservation recommendations.
 
 JSON
 
@@ -344,24 +341,44 @@ JSON
  "Resource": "*"
  },
  {
- "Sid": "AllowCostAnalysis",
+ "Sid": "AllowCostExplorerAccess",
  "Effect": "Allow",
  "Action": [
  "ce:GetCostAndUsage",
+ "ce:GetCostAndUsageWithResources",
  "ce:GetCostForecast",
+ "ce:GetUsageForecast",
  "ce:GetTags",
  "ce:GetCostCategories",
- "ce:GetDimensionValues"
+ "ce:GetDimensionValues",
+ "ce:GetSavingsPlansUtilization",
+ "ce:GetSavingsPlansCoverage",
+ "ce:GetSavingsPlansUtilizationDetails",
+ "ce:GetReservationUtilization",
+ "ce:GetReservationCoverage",
+ "ce:GetSavingsPlansPurchaseRecommendation",
+ "ce:GetReservationPurchaseRecommendation",
+ "ce:GetRightsizingRecommendation",
+ "ce:GetAnomalies",
+ "ce:GetCostAndUsageComparisons",
+ "ce:GetCostComparisonDrivers"
  ],
  "Resource": "*"
  },
  {
- "Sid": "AllowCostOptimization",
+ "Sid": "AllowCostOptimizationHubAccess",
  "Effect": "Allow",
  "Action": [
  "cost-optimization-hub:GetRecommendation",
  "cost-optimization-hub:ListRecommendations",
- "cost-optimization-hub:ListRecommendationSummaries",
+ "cost-optimization-hub:ListRecommendationSummaries"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "AllowComputeOptimizerAccess",
+ "Effect": "Allow",
+ "Action": [
  "compute-optimizer:GetAutoScalingGroupRecommendations",
  "compute-optimizer:GetEBSVolumeRecommendations",
  "compute-optimizer:GetEC2InstanceRecommendations",
@@ -369,9 +386,37 @@ JSON
  "compute-optimizer:GetRDSDatabaseRecommendations",
  "compute-optimizer:GetLambdaFunctionRecommendations",
  "compute-optimizer:GetIdleRecommendations",
- "compute-optimizer:GetEffectiveRecommendationPreferences",
- "ce:GetReservationPurchaseRecommendation",
- "ce:GetSavingsPlansPurchaseRecommendation"
+ "compute-optimizer:GetLicenseRecommendations",
+ "compute-optimizer:GetEffectiveRecommendationPreferences"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "AllowBudgetsAccess",
+ "Effect": "Allow",
+ "Action": [
+ "budgets:ViewBudget"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "AllowFreeTierAccess",
+ "Effect": "Allow",
+ "Action": [
+ "freetier:GetFreeTierUsage",
+ "freetier:GetAccountPlanState",
+ "freetier:ListAccountActivities",
+ "freetier:GetAccountActivity"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "AllowPricingAccess",
+ "Effect": "Allow",
+ "Action": [
+ "pricing:GetProducts",
+ "pricing:GetAttributeValues",
+ "pricing:DescribeServices"
  ],
  "Resource": "*"
  }

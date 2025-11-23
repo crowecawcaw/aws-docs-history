@@ -2,7 +2,7 @@
 
 messages in Amazon CloudWatch Logs
 
-You can store information about the creation of your [customization](customizations.md "customizations.md") in [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md").
+You can store information about the creation of your customizations in [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md").
 
 You can authorize your Amazon Q Developer administrator to view those logs with the following
 permission set.

@@ -22,6 +22,7 @@ The following topics describe how to use Amazon Q chat and topics you can chat a
   resources](chat-actions-troubleshooting.md "chat-actions-troubleshooting.md")
 - [Chatting about your costs](chat-costs.md "chat-costs.md")
 - [Chatting about your network security](chat-network-security.md "chat-network-security.md")
+- [Chatting about email sending](chat-email.md "chat-email.md")
 - [Chatting about your telemetry and operations](chat-ops.md "chat-ops.md")
 
 ## Add permissions

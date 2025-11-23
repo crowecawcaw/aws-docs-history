@@ -15,3 +15,4 @@ started quickly with Amazon Q.
   (Builder ID)](getting-started-builderid.md "getting-started-builderid.md")
 - [Getting started with IAM Identity Center](getting-started-idc.md "getting-started-idc.md")
 - [Amazon Q Developer Pro subscriptions](q-admin-setup-subscribe-general.md "q-admin-setup-subscribe-general.md")
+- [Upgrade to Kiro](upgrade-to-kiro.md "upgrade-to-kiro.md")

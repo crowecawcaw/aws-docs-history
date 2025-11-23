@@ -148,7 +148,7 @@ Amazon Q Developer console). For more information, see [Allow administrators to 
 To create customizations or plugins, your Amazon Q Developer Pro administrator will require additional
 permissions.
 
-- For permissions needed for customizations, see [Prerequisites for customizations](customizations-prereq.md "customizations-prereq.md").
+- For permissions needed for customizations, see the Prerequisites for customizations section.
 - For permissions needed for plugins, see [Allow administrators to configure
   plugins](#id-based-policy-examples-admin-plugins "#id-based-policy-examples-admin-plugins").
 

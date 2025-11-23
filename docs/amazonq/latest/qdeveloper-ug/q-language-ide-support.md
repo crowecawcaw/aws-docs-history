@@ -87,13 +87,13 @@ projects written in the following languages:
 - Scala ‐ Scala 3.2.2 and earlier
 - JSX ‐ React 17 and earlier
 - Infrastructure as Code (IaC) languages
-  - AWS CloudFormation ‐ 2010-09-09
+  - CloudFormation ‐ 2010-09-09
   - Terraform ‐ 1.6.2 and earlier
   - AWS CDK ‐ TypeScript and Python
 
 ## Language support for customizations
 
-Amazon Q supports [customizations](customizations.md "customizations.md") for the following
+Amazon Q supports for the following
 languages, and uses the listed file types to create customizations:
 
 - Bash/Shell (.sh, .zsh, .bash)

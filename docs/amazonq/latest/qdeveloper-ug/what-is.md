@@ -63,16 +63,6 @@ From your IDE, choose the Amazon Q icon to start
 chatting or initiate a development workflow. For more information, see
 [Installing the Amazon Q Developer extension or plugin in your IDE](q-in-IDE-setup.md "q-in-IDE-setup.md").
 
-**Command line**
-
-Download Amazon Q for command line for [macOS](command-line-installing.md#command-line-installing-macos "command-line-installing.md#command-line-installing-macos")
-
-Download Amazon Q for command line for [Linux AppImage](command-line-installing.md#command-line-installing-appimage "command-line-installing.md#command-line-installing-appimage")
-
-Download Amazon Q for command line for [Ubuntu](command-line-installing.md#command-line-installing-ubuntu "command-line-installing.md#command-line-installing-ubuntu")
-
-For more information, see [Using Amazon Q Developer on the command line](command-line.md "command-line.md").
-
 **Amazon Q Developer in chat applications**
 
 Add the [AmazonQDeveloperAccess](managed-policy.md#amazonq-policy-fullaccess "managed-policy.md#amazonq-policy-fullaccess") managed

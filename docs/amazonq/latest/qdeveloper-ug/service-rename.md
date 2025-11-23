@@ -13,6 +13,6 @@ As you transition from using CodeWhisperer to using Amazon Q Developer, you may 
 - Coding suggestions [in a third-party IDE](q-in-IDE-setup.md "q-in-IDE-setup.md")
 - Coding suggestions [in the context of another AWS service](setting-up-AWS-coding-env.md "setting-up-AWS-coding-env.md")
 - Suggestions [at the command line](command-line.md "command-line.md")
-- [Customizations](customizations.md "customizations.md")
+-
 - [Code reviews](code-reviews.md "code-reviews.md")
 - [Dashboard](dashboard.md "dashboard.md")

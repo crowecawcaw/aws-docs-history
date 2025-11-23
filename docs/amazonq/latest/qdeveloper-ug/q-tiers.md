@@ -30,7 +30,7 @@ For more information about how content is used to improve the service at the Fre
 
 The _Pro tier_, also known as _Amazon Q Developer Pro_, is a paid
 version of the Amazon Q Developer service that offers higher usage limits than the Free tier. It also
-gives you access to advanced features, such as customizations.
+gives you access to advanced features.
 
 For information about pricing for the Pro
 tier, see the [Amazon Q Developer pricing page](https://aws.amazon.com/q/developer/pricing "https://aws.amazon.com/q/developer/pricing").

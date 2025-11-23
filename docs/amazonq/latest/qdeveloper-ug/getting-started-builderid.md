@@ -35,7 +35,7 @@ limitations.
   need higher usage limits, subscribe your Builder ID to the Pro tier using the instructions
   that follow, or use IAM Identity Center following the guidance in [Getting started with IAM Identity Center](getting-started-idc.md "getting-started-idc.md").
 - With a Builder ID at the Pro tier, you'll get _higher usage limits_,
-  but you won't get Pro tier-only _features_, such as [customizations](customizations.md "customizations.md"). For a list of Pro tier features
+  but you won't get all Pro tier-only _features_. For a list of Pro tier features
   that are not available to you, see the footnote at the bottom of the [Amazon Q Developer pricing page](https://aws.amazon.com/q/developer/pricing/ "https://aws.amazon.com/q/developer/pricing/").
   If you need Pro tier features, use IAM Identity Center. For more information, see [Getting started with IAM Identity Center](getting-started-idc.md "getting-started-idc.md").
 - With a Builder ID at both the Free and Pro tiers, Amazon Q is only supported in the IDE and at
@@ -56,7 +56,7 @@ then authenticate using your personal account (Builder ID). For installation and
 information, see:
 
 - [Installing the Amazon Q Developer extension or plugin in your IDE](q-in-IDE-setup.md "q-in-IDE-setup.md")
-- [Installing Amazon Q for command line](command-line-installing.md "command-line-installing.md")
+- [Install the Kiro CLI.](https://kiro.dev/docs/cli "https://kiro.dev/docs/cli")
 
 ## Step 3: (Optional) Upgrade to the Pro
 

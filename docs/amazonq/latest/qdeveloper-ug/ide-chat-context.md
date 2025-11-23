@@ -54,4 +54,4 @@ The following types of contexts will be used automatically by Amazon Q, if you'v
   rules that you define as context. For more information, see [Creating project rules for use with Amazon Q Developer
   chat](context-project-rules.md "context-project-rules.md").
 - **Customizations** – Amazon Q will automatically use a repository of
-  source code as context. For more information about setting up customizations, see [Customizing suggestions](customizations.md "customizations.md").
+  source code as context.

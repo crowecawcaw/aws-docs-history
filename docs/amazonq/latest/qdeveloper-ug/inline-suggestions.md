@@ -13,7 +13,6 @@ get started, start writing code, and Amazon Q will begin generating code suggest
 
 You can also customize the suggestions Amazon Q generates to your software development
 team's internal libraries, proprietary algorithmic techniques, and enterprise code style.
-For more information on customizing suggestions, see [Customizing suggestions](customizations.md "customizations.md").
 
 ###### Topics
 
