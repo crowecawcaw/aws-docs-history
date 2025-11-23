@@ -35,7 +35,7 @@ AWS Diagnostic Tools data is encrypted in transit and at rest. When you submit d
 
 ### Encryption at rest
 
-Diagnostic Tools encrypts all the data that it stores for you. This includes configuration data, user and endpoint data, analytics data, and any data that you add or import into Diagnostic Tools. To encrypt your data, Diagnostic Tools uses internal AWS Key Management Service (AWS KMS) keys that the service owns and maintains. We rotate these keys on a regular basis. For information about AWS KMS, see the [AWS Key Management Service Developer Guide](../../../https:/docs.aws.amazon.com/kms/latest/developerguide/overview.md "../../../https:/docs.aws.amazon.com/kms/latest/developerguide/overview.md").
+Diagnostic Tools encrypts all the data that it stores for you. This includes configuration data, user and endpoint data, analytics data, and any data that you add or import into Diagnostic Tools. To encrypt your data, Diagnostic Tools uses internal AWS Key Management Service (AWS KMS) keys that the service owns and maintains. We rotate these keys on a regular basis. For information about AWS KMS, see the [AWS Key Management Service Developer Guide](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
 
 ### Encryption in transit
 
@@ -49,7 +49,7 @@ Diagnostic Tools uses HTTPS and Transport Layer Security (TLS) 1.2 or later to c
 
 You can use Amazon Virtual Private Cloud (Amazon VPC) to create boundaries between resources in your
 managed nodes and control traffic between them, your on-premises network, and the
-internet. For details, see [Create VPC endpoints.](../../../https:/docs.aws.amazon.com/systems-manager/latest/userguide/setup-create-vpc.md "../../../https:/docs.aws.amazon.com/systems-manager/latest/userguide/setup-create-vpc.md").
+internet. For details, see [Create VPC endpoints.](../../../systems-manager/latest/userguide/setup-create-vpc.md "../../../systems-manager/latest/userguide/setup-create-vpc.md").
 
 For more information about Amazon Virtual Private Cloud security, see [Internetwork traffic privacy in
 Amazon VPC](../../../vpc/latest/userguide/VPC_Security.md "../../../vpc/latest/userguide/VPC_Security.md") in the _Amazon VPC User Guide_.
