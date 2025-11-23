@@ -4,7 +4,7 @@ Publication date: **April 12, 2022 ([Diagram history](#diagram-history "#diagram
 
 This architecture automates the process of ingesting, analyzing, and visualizing continuous
 integration/continuous delivery (CI/CD) metrics. This architecture can also
-be [deployed on AWS](../../../solutions/latest/aws-devops-monitoring-dashboard/welcome.md "../../../solutions/latest/aws-devops-monitoring-dashboard/welcome.md") using an AWS CloudFormation template that
+be [deployed on AWS](../../../solutions/latest/aws-devops-monitoring-dashboard/welcome.md "../../../solutions/latest/aws-devops-monitoring-dashboard/welcome.md") using an CloudFormation template that
 launches, configures, and runs the AWS services required to deploy this solution using AWS best
 practices for security and availability.
 
