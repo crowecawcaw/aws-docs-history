@@ -11,7 +11,7 @@ _Amazon CodeGuru Reviewer API Reference_.
 
 You establish a private connection between your VPC and CodeGuru Reviewer by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md"), a technology that enables you to privately access CodeGuru Reviewer APIs without
-an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances
+an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances
 in your VPC don't need public IP addresses to communicate with CodeGuru Reviewer APIs. Traffic between your
 VPC and CodeGuru Reviewer does not leave the Amazon network.
 
