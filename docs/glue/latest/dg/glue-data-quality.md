@@ -240,3 +240,8 @@ avg(last(10))`)](dqdl.md#dqdl-dynamic-rules "dqdl.md#dqdl-dynamic-rules")
 
 - AWS Glue Data Quality; now supports Amazon S3 Tables, RMS, Lakehouse and AWS Lake Formation managed Iceberg tables in
   AWS Glue Data Catalog.
+
+### Nov 21, 2025
+
+- AWS Glue Data Quality now supports rule labeling for enhanced reporting. You can organize and analyze data quality results more effectively by querying results by specific labels to identify failing rules within particular categories, count rule outcomes by team or domain, and create focused reports for different stakeholders. For more information, see [Labels](dqdl.md#dqdl-labels "dqdl.md#dqdl-labels").
+- AWS Glue Data Quality now supports Constants in DQDL, allowing you to define constant values and reference them throughout your script. This helps prevent issues related to query size limits when working with large SQL statements. For more information, see [Constants](dqdl.md#dqdl-constants "dqdl.md#dqdl-constants").

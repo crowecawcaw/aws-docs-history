@@ -7,7 +7,7 @@ services:
 
 - Amazon CloudWatch Logs permissions to display logs.
 - AWS Identity and Access Management (IAM) permissions to list and pass roles.
-- AWS CloudFormation permissions to work with stacks.
+- CloudFormation permissions to work with stacks.
 - Amazon Elastic Compute Cloud (Amazon EC2) permissions to list virtual private clouds (VPCs), subnets,
   security groups, instances, and other objects (to set up Amazon EC2 items such as
   VPCs when running jobs, crawlers, and creating development endpoints).

@@ -58,7 +58,7 @@ to create a database:
 - You can use crawlers to create a database and tables for you automatically. To
   set up a database using crawlers, see [Working with Crawlers in the
   AWS Glue Console](console-crawlers.md "console-crawlers.md").
-- You can use AWS CloudFormation templates. See [Creating
+- You can use CloudFormation templates. See [Creating
   AWS Glue Resources Using AWS Glue Data Catalog Templates](populate-with-cloudformation-templates.md "populate-with-cloudformation-templates.md").
 - You can also create a database using the AWS Glue Database API operations.
 

@@ -20,6 +20,7 @@ generating data quality rule recommendations and evaluating a ruleset against yo
 - [Creating a new ruleset](#data-quality-create-ruleset "#data-quality-create-ruleset")
 - [Running a ruleset to evaluate data quality](#data-quality-run-data-quality-task "#data-quality-run-data-quality-task")
 - [Viewing the data quality score and results](#data-quality-view-results "#data-quality-view-results")
+- [Using preprocessing queries](#data-quality-preprocessing-queries "#data-quality-preprocessing-queries")
 - [Supported source types](#data-quality-get-started-supported-source-types "#data-quality-get-started-supported-source-types")
 - [Related topics](#data-quality-get-started-related "#data-quality-get-started-related")
 
@@ -553,6 +554,117 @@ On this
 page,
 you can see specifics about the run and more details about the status of
 individual rule results.
+
+## Using preprocessing queries
+
+AWS Glue Data Quality supports preprocessing queries that allow you to transform your data before running data quality checks. This feature enables you to:
+
+- Create derived columns for data quality validation.
+- Filter data based on specific conditions.
+- Perform calculations or transformations for quality checks.
+- Validate relationships between columns.
+
+###### Note
+
+This feature is only supported in APIs and is not supported via the console.
+
+### Using preprocessing queries with the CLI and SDK
+
+#### Recommendation runs
+
+The following examples show how to use preprocessing queries with recommendation runs.
+
+**AWS CLI:**
+
+```
+aws glue start-data-quality-rule-recommendation-run \
+  --data-source '{"DataQualityGlueTable": { \
+    "DatabaseName": "mydatabase", \
+    "TableName": "mytable", \
+    "PreProcessingQuery": "SELECT sepal_length, sepal_width, petal_length, petal_width, class, (sepal_length + sepal_width) as sepal_total FROM `mydatabase.mytable`" \
+  }}' \
+  --role "arn:aws:iam::123456789012:role/GlueDataQualityRole" \
+  --created-ruleset-name "my-ruleset-with-preprocessing"
+```
+
+**Java SDK:**
+
+```
+StartDataQualityRuleRecommendationRunRequest request = new StartDataQualityRuleRecommendationRunRequest()
+    .withDataSource(new DataSource()
+        .withDataQualityGlueTable(new DataQualityGlueTable()
+            .withDatabaseName("mydatabase")
+            .withTableName("mytable")
+            .withPreProcessingQuery("SELECT sepal_length, sepal_width, " +
+                "(sepal_length + sepal_width) as sepal_total " +
+                "FROM `mydatabase.mytable`")))
+    .withRole("arn:aws:iam::123456789012:role/GlueDataQualityRole")
+    .withCreatedRulesetName("my-ruleset-with-preprocessing");
+
+glueClient.startDataQualityRuleRecommendationRun(request);
+```
+
+#### Ruleset evaluation runs
+
+The following examples show how to use preprocessing queries with ruleset evaluation runs.
+
+**AWS CLI:**
+
+```
+aws glue start-data-quality-ruleset-evaluation-run \
+  --data-source '{"DataQualityGlueTable": { \
+    "DatabaseName": "mydatabase", \
+    "TableName": "mytable", \
+    "PreProcessingQuery": "SELECT order_id, amount, (tax + shipping) as total_fees FROM `mydatabase.mytable`" \
+  }}' \
+  --role "arn:aws:iam::123456789012:role/GlueDataQualityRole" \
+  --ruleset-names '["my-ruleset"]'
+```
+
+**Java SDK:**
+
+```
+StartDataQualityRulesetEvaluationRunRequest request = new StartDataQualityRulesetEvaluationRunRequest()
+    .withDataSource(new DataSource()
+        .withDataQualityGlueTable(new DataQualityGlueTable()
+            .withDatabaseName("mydatabase")
+            .withTableName("mytable")
+            .withPreProcessingQuery("SELECT order_id, amount, " +
+                "(tax + shipping) as total_fees " +
+                "FROM `mydatabase.mytable`")))
+    .withRole("arn:aws:iam::123456789012:role/GlueDataQualityRole")
+    .withRulesetNames(Arrays.asList("my-ruleset"));
+
+glueClient.startDataQualityRulesetEvaluationRun(request);
+```
+
+### Considerations when authoring preprocessing queries
+
+When writing a preprocessing query:
+
+- The table reference must be formatted as `databaseName.tableName` using backticks.
+- The query must be a valid SELECT statement.
+- Column names in the query output will be used for data quality rules.
+
+The following example shows a preprocessing query:
+
+```
+SELECT
+    sepal_length,
+    sepal_width,
+    petal_length,
+    petal_width,
+    class,
+    (sepal_length + sepal_width) as sepal_total
+FROM `mydatabase.mytable`
+```
+
+### Limitations
+
+- The query must reference the table using backticks and the full `databaseName.tableName` format.
+- Maximum query length is 51,200 characters.
+- The query must return at least one row of data.
+- All columns referenced in your ruleset must be present in the query output.
 
 ## Supported source types
 

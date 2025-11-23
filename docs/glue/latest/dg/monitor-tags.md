@@ -74,7 +74,7 @@ aws glue create-job --name job-test-tags --role MyJobRole --command Name=glueetl
 --tags key1=value1,key2=value2
 ```
 
-**AWS CloudFormation JSON**
+**CloudFormation JSON**
 
 ```
 {
@@ -145,7 +145,7 @@ aws glue create-job --name job-test-tags --role MyJobRole --command Name=glueetl
 }
 ```
 
-**AWS CloudFormation YAML**
+**CloudFormation YAML**
 
 ```
 Description: AWS Glue Job Test Tags

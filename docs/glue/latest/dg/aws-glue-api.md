@@ -6,8 +6,8 @@ documentation:
 - Language SDK libraries allow you to access AWS
   resources from common programming languages. Find more information at [Tools to Build on AWS](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/").
 - The AWS CLI allows you to access AWS resources from the command line. Find more information at [AWS CLI Command Reference](../../../cli/latest/reference.md "../../../cli/latest/reference.md").
-- AWS CloudFormation allows you to define a set of AWS resources to be provisioned together consistently. Find more information
-  at [AWS CloudFormation: AWS Glue resource type reference](../../../en_us/AWSCloudFormation/latest/UserGuide/AWS_Glue.md "../../../en_us/AWSCloudFormation/latest/UserGuide/AWS_Glue.md").
+- CloudFormation allows you to define a set of AWS resources to be provisioned together consistently. Find more information
+  at [CloudFormation: AWS Glue resource type reference](../../../en_us/AWSCloudFormation/latest/UserGuide/AWS_Glue.md "../../../en_us/AWSCloudFormation/latest/UserGuide/AWS_Glue.md").
   This section documents shared primitives independently of these SDKs
   and Tools. Tools use the [AWS Glue Web API Reference](../webapi/WebAPI_Welcome.md "../webapi/WebAPI_Welcome.md") to communicate with AWS.
 

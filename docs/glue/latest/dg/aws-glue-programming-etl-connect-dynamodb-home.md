@@ -4,6 +4,8 @@ You can use AWS Glue for Spark to read from and write to tables in DynamoDB in A
 IAM permissions attached to your AWS Glue job. AWS Glue supports writing data into another AWS
 account's DynamoDB table. For more information, see [Cross-account cross-Region access to DynamoDB tables](aws-glue-programming-etl-dynamo-db-cross-account.md "aws-glue-programming-etl-dynamo-db-cross-account.md").
 
+The original DynamoDB connector uses Glue DynamicFrame objects to work with the data extracted from DynamoDB. AWS Glue 5.0+ introduces a new [DynamoDB connector with Spark DataFrame support](aws-glue-programming-etl-connect-dynamodb-dataframe-support.md "aws-glue-programming-etl-connect-dynamodb-dataframe-support.md") that provides native Spark DataFrame support.
+
 In addition to the AWS Glue DynamoDB ETL connector, you can read from DynamoDB using the DynamoDB export
 connector, that invokes a DynamoDB `ExportTableToPointInTime` request and stores it in an Amazon S3 location
 you supply, in the format of [DynamoDB
@@ -12,7 +14,7 @@ location.
 
 The DynamoDB writer is available in AWS Glue version 1.0 or later versions. The
 AWS Glue DynamoDB export connector is available in AWS Glue version
-2.0 or later versions.
+2.0 or later versions. The new DataFrame-based DynamoDB connector is available in AWS Glue version 5.0 or later versions.
 
 For more information about DynamoDB, consult [Amazon DynamoDB](../../../amazondynamodb/latest/developerguide.md "../../../amazondynamodb/latest/developerguide.md") documentation.
 

@@ -25,10 +25,10 @@ You can use an AWS CloudFormation template to start the Apache Spark history ser
 Spark
 web UI. These templates are samples that you should modify to meet your requirements.
 
-###### To start the Spark history server and view the Spark UI using AWS CloudFormation
+###### To start the Spark history server and view the Spark UI using CloudFormation
 
 1. Choose one of the **Launch Stack** buttons in the following table.
-   This launches the stack on the AWS CloudFormation console.
+   This launches the stack on the CloudFormation console.
 
 | Region                    | Launch                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -99,7 +99,7 @@ web UI. These templates are samples that you should modify to meet your requirem
     choose **Next**.
 5.  On the **Review** page, review the template.
 
-Select **I acknowledge that AWS CloudFormation might create IAM resources**, and
+Select **I acknowledge that CloudFormation might create IAM resources**, and
 then choose **Create stack**. 6. Wait for the stack to be created. 7. Open the **Outputs** tab.
 
     1. Copy the URL of **SparkUiPublicUrl** if you are using a public

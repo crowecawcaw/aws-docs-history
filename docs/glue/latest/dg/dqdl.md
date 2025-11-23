@@ -22,6 +22,16 @@ DynamicRules are only supported in AWS Glue ETL.
     - [Keywords for NULL, EMPTY and WHITESPACES_ONLY](dqdl.md#dqdl-keywords-null-empty-whitespaces_only "dqdl.md#dqdl-keywords-null-empty-whitespaces_only")
     - [Filtering with Where Clause](dqdl.md#dqdl-filtering-data-in-dqdl "dqdl.md#dqdl-filtering-data-in-dqdl")
 
+  - [Constants](dqdl.md#dqdl-constants "dqdl.md#dqdl-constants")
+  - [Labels](dqdl.md#dqdl-labels "dqdl.md#dqdl-labels")
+    - [Syntax for DQDL labels](dqdl.md#dqdl-labels-syntax "dqdl.md#dqdl-labels-syntax")
+      - [Label constraints](dqdl.md#dqdl-labels-constraints "dqdl.md#dqdl-labels-constraints")
+
+    - [Retrieving DQDL labels](dqdl.md#dqdl-labels-retrieving "dqdl.md#dqdl-labels-retrieving")
+      - [Rule outcomes](dqdl.md#dqdl-labels-rule-outcomes "dqdl.md#dqdl-labels-rule-outcomes")
+      - [Row-level results](dqdl.md#dqdl-labels-row-level-results "dqdl.md#dqdl-labels-row-level-results")
+      - [API response](dqdl.md#dqdl-labels-api-response "dqdl.md#dqdl-labels-api-response")
+
   - [Dynamic rules](dqdl.md#dqdl-dynamic-rules "dqdl.md#dqdl-dynamic-rules")
   - [Analyzers](dqdl.md#dqdl-analyzers "dqdl.md#dqdl-analyzers")
   - [Comments](dqdl.md#dqdl-syntax-comments "dqdl.md#dqdl-syntax-comments")
@@ -410,6 +420,149 @@ IsComplete att2 where "att1 = 'a'"
 | 4   | a    | f    | PASSED                      | PASSED                             |                                                |
 | 5   | b    | null | PASSED                      | SKIPPED                            | Row is filtered out, since `att1` is not `"a"` |
 | 6   | a    | f    | PASSED                      | PASSED                             |                                                |
+
+### Constants
+
+In DQDL, you can define constant values and reference them throughout your script. This helps prevent issues related to query size limits—for example, when working with large SQL statements that might exceed allowable boundaries. By assigning these values to Constants, you can simplify your DQDL and avoid hitting those limits.
+
+The following example shows how to define and use a constant:
+
+```
+mySql = "select count(*) from primary"
+
+Rules = [
+    CustomSql $mySql between 0 and 100
+]
+```
+
+In this example, the SQL query is assigned to the constant `mySql`, which is then referenced in the rule using the `$` prefix.
+
+### Labels
+
+Labels provide an effective way to organize and analyze data quality results. You can query results by specific labels to identify failing rules within particular categories, count rule outcomes by team or domain, and create focused reports for different stakeholders.
+
+For example, you can apply all rules that pertain to the finance team with a label `"team=finance"` and generate a customized report to showcase quality metrics specific to the finance team. You can label high priority rules with `"criticality=high"` to prioritize remediation efforts. Labels can be authored as part of the DQDL. You can query the labels as part of rule outcomes, row-level results, and API responses, making it easy to integrate with your existing monitoring and reporting workflows.
+
+###### Note
+
+Labels are only available in AWS Glue ETL and are not available in AWS Glue Data Catalog based Data Quality.
+
+#### Syntax for DQDL labels
+
+DQDL supports both default and rule-specific labels. Default labels are defined at the ruleset level and automatically apply to all rules within that ruleset. Individual rules can also have their own labels, and since labels are implemented as key-value pairs, rule-specific labels can override the default labels when using the same key.
+
+The following example shows how to use default and rule-specific labels:
+
+```
+DefaultLabels=["frequency"="monthly"]
+
+Rules = [
+    // Auto includes the default label ["frequency"="monthly"]
+    ColumnValues "col" > 21,
+    // Add ["foo"="bar"] to default label. Labels for this rule would be ["frequency"="monthly", "foo"="bar"]
+    Rule 1 with threshold > 0.8 labels=["foo"="bar"],
+    // Override default label. Labels for this rule would be ["frequency"="daily", "foo"="bar"]
+    Rule 2 with threshold > 0.8 labels=["foo"="bar", "frequency"="daily"]
+]
+```
+
+##### Label constraints
+
+Labels have the following constraints:
+
+- A maximum of 10 labels per DQDL rule.
+- Labels are specified as a list of key-value pairs.
+- The label key and label value are case sensitive.
+- The maximum label key length is 128 characters. The label key must not be empty or null.
+- The maximum label value length is 256 characters. The label value may be empty or null.
+
+#### Retrieving DQDL labels
+
+You can retrieve DQDL labels from rule outcomes, row-level results, and API responses.
+
+##### Rule outcomes
+
+DQDL labels are always visible in rule outcomes. No additional configuration is needed to enable them.
+
+##### Row-level results
+
+DQDL labels are disabled by default in row-level results but can be enabled using `AdditionalOptions` in `EvaluateDataQuality`.
+
+The following example shows how to enable labels in row-level results:
+
+```
+val evaluateResult = EvaluateDataQuality.processRows(
+    frame=AmazonS3_node1754591511068,
+    ruleset=example_ruleset,
+    publishingOptions=JsonOptions("""{
+        "dataQualityEvaluationContext": "evaluateResult",
+        "enableDataQualityCloudWatchMetrics": "true",
+        "enableDataQualityResultsPublishing": "true"
+    }"""),
+    additionalOptions=JsonOptions("""{
+        "performanceTuning.caching":"CACHE_NOTHING",
+        "observations.scope":"ALL",
+        "rowLevelConfiguration.ruleWithLabels":"ENABLED"
+    }""")
+)
+```
+
+When enabled, the row-level results dataframe includes labels for each rule in the `DataQualityRulesPass`, `DataQualityRulesFail`, and `DataQualityRulesSkip` columns.
+
+##### API response
+
+DQDL labels are always visible in API responses under a new field `Labels` in the `RuleResults` object.
+
+The following example shows labels in an API response:
+
+```
+{
+    "ResultId": "dqresult-example",
+    "ProfileId": "dqprofile-example",
+    "Score": 0.6666666666666666,
+    "RulesetName": "EvaluateDataQuality_node1754591514205",
+    "EvaluationContext": "EvaluateDataQuality_node1754591514205",
+    "StartedOn": "2025-08-22T19:36:10.448000+00:00",
+    "CompletedOn": "2025-08-22T19:36:16.368000+00:00",
+    "JobName": "anniezc-test-labels",
+    "JobRunId": "jr_068f6d7a45074d9105d14e4dee09db12c3b95664b45f6ee44fa29ed7e5619ba8",
+    "RuleResults": [
+        {
+            "Name": "Rule_0",
+            "Description": "IsComplete colA",
+            "EvaluationMessage": "Input data does not include column colA!",
+            "Result": "FAIL",
+            "EvaluatedMetrics": {},
+            "EvaluatedRule": "IsComplete colA",
+            "Labels": {
+                "frequency": "monthly"
+            }
+        },
+        {
+            "Name": "Rule_1",
+            "Description": "Rule 1 with threshold > 0.8",
+            "Result": "PASS",
+            "EvaluatedMetrics": {},
+            "EvaluatedRule": "Rule 1 with threshold > 0.8",
+            "Labels": {
+                "frequency": "monthly",
+                "foo": "bar"
+            }
+        },
+        {
+            "Name": "Rule_3",
+            "Description": "Rule 2 with threshold > 0.8",
+            "Result": "PASS",
+            "EvaluatedMetrics": {},
+            "EvaluatedRule": "Rule 2 with threshold > 0.8",
+            "Labels": {
+                "frequency": "daily",
+                "foo": "bar"
+            }
+        }
+    ]
+}
+```
 
 ### Dynamic rules
 

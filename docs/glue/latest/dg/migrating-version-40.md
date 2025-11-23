@@ -109,7 +109,7 @@ Scala 2, Python 3` in `Glue version`.
 
 To view Spark event logs of AWS Glue 4.0 coming from AWS Glue
 2.0 or earlier, [launch an
-upgraded Spark history server for AWS Glue 4.0 using AWS CloudFormation or
+upgraded Spark history server for AWS Glue 4.0 using CloudFormation or
 Docker](monitor-spark-ui-history.md "monitor-spark-ui-history.md").
 
 ## Migration checklist

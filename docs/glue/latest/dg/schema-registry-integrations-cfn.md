@@ -1,6 +1,6 @@
-# Sample AWS CloudFormation template for schema registry
+# Sample CloudFormation template for schema registry
 
-The following is a sample template for creating Schema Registry resources in AWS CloudFormation. To create this stack in your account, copy the above template into a file `SampleTemplate.yaml`, and run the following command:
+The following is a sample template for creating Schema Registry resources in CloudFormation. To create this stack in your account, copy the above template into a file `SampleTemplate.yaml`, and run the following command:
 
 ```
 aws cloudformation create-stack --stack-name ABCSchemaRegistryStack --template-body "'cat SampleTemplate.yaml'"

@@ -22,7 +22,7 @@ to perform the Scala AWS Glue ETL script writing process.
 
 This tutorial has the following prerequisites:
 
-- The same prerequisites as the AWS Glue Studio blog post, which instructs you to run a AWS CloudFormation template.
+- The same prerequisites as the AWS Glue Studio blog post, which instructs you to run a CloudFormation template.
 
 This template uses the AWS Glue Data Catalog to manage the parking ticket dataset available in `s3://aws-bigdata-blog/artifacts/gluestudio/`.
 It creates the following resources which will be referenced:
@@ -470,7 +470,7 @@ the click of a button, as in the AWS Glue Studio visual editor.
 
 1. Choose **Untitled job** on the title bar to edit and set your job name.
 2. Navigate to the **Job details** tab. Assign your job an **IAM
-   Role**. You can use the one created by the AWS CloudFormation template in the prerequisites for the
+   Role**. You can use the one created by the CloudFormation template in the prerequisites for the
    AWS Glue Studio tutorial. If you have completed that tutorial, it should be available as `AWS Glue
 StudioRole`.
 3. Choose **Save** to save your script.
