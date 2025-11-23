@@ -270,6 +270,6 @@ For more information on
 
 ###### Tip
 
-You can automate the creation of Amazon Managed Grafana workspaces by using AWS CloudFormation. For more
+You can automate the creation of Amazon Managed Grafana workspaces by using CloudFormation. For more
 detailed information see [Creating Amazon Managed Grafana resources
 with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").

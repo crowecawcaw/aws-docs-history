@@ -18,7 +18,7 @@ the Amazon Managed Grafana workspace.
 For more information about Organizations, see [What is
 AWS Organizations](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md").
 
-Amazon Managed Grafana uses AWS CloudFormation StackSets to automatically create the AWS Identity and Access Management (IAM) roles
+Amazon Managed Grafana uses CloudFormation StackSets to automatically create the AWS Identity and Access Management (IAM) roles
 necessary for Amazon Managed Grafana to connect to data sources across your AWS organization.
 Before Amazon Managed Grafana can manage your IAM policies to access data sources across your
 organization, you must enable AWS CloudFormation StackSets in the management account of your

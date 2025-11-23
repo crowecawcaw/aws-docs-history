@@ -58,7 +58,7 @@ If you want to use service-managed permissions when you create an Amazon Managed
 workspace, the role that creates the workspace must also have the
 `iam:CreateRole`, `iam:CreatePolicy`, and
 `iam:AttachRolePolicy` permissions. These are required to use
-AWS CloudFormation StackSets to deploy policies that allow you to read data sources in the
+CloudFormation StackSets to deploy policies that allow you to read data sources in the
 organization's accounts.
 
 ###### Important

@@ -10,7 +10,7 @@ the workspaces.
 You can upgrade your workspace to newer versions of Grafana, or update to add support for
 Enterprise plugins, giving your workspaces access more types of data sources. You can also
 manage the network access to your workspace. You can create and manage your Amazon Managed Grafana
-workspaces using AWS CloudFormation.
+workspaces using CloudFormation.
 
 The topics in this section explain how to manage your workspaces, users, and policies in
 Amazon Managed Grafana.

@@ -189,7 +189,7 @@ channel policies also get attached to this role. Use the **AWS Data
 Source** menu in your workspace to quickly provision data sources for each
 account that your workspace can access
 
-To use this mode, you must enable AWS CloudFormation Stacksets as a trusted service in your AWS
+To use this mode, you must enable CloudFormation Stacksets as a trusted service in your AWS
 organization. For more information, see [Enable trusted access with AWS Organizations](../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.md").
 
 Here is the content of the
