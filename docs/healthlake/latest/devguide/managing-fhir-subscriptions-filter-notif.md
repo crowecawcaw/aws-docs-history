@@ -16,9 +16,9 @@ The following table shows a list of supported filter criteria that HealthLake su
 | Reference              | Reference                                                                                  | missing, identifier, type |                                                      |
 | URI                    | uri<br>url<br>canonical<br>uid<br>oid                                                      | missing                   |                                                      |
 
-**Supported filters**
+**Sample supported filters**
 
-The following table shows a list of supported filter criteria that HealthLake supports for Subscriptions:
+The following table shows samples of supported filter criteria that HealthLake supports for Subscriptions:
 
 | Purpose                       | Filter criteria                                 | Description                                                               |
 | ----------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------- |

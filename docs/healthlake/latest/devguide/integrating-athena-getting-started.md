@@ -38,7 +38,7 @@ tables.
 
 resource link database
 
-1. Open the AWS Lake Formation console: [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation "https://console.aws.amazon.com/lakeformation")
+1. Open the AWS Lake Formation console: [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com//lakeformation "https://console.aws.amazon.com//lakeformation")
 2. In the primary navigation bar, choose **Databases**.
 3. On the **Databases** page, choose the radio button next to
    the name of the data store that is in italics.
@@ -71,7 +71,7 @@ database.
 
 ###### STEP 2: Grant access to all tables in a HealthLake data store resource link
 
-1. Open the AWS Lake Formation console: [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation "https://console.aws.amazon.com/lakeformation")
+1. Open the AWS Lake Formation console: [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com//lakeformation "https://console.aws.amazon.com//lakeformation")
 2. In the primary navigation bar, choose **Databases**.
 3. On the **Databases** page, choose the radio button next to
    the name of the data store that is in italics.

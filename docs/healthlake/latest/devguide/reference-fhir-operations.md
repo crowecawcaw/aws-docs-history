@@ -9,7 +9,10 @@ the "$" prefix and enable complex processing, data transformation, and bulk oper
 
 ###### Topics
 
+- [FHIR R4 $attribution-status operation for HealthLake](reference-fhir-operations-attribution-status.md "reference-fhir-operations-attribution-status.md")
 - [Deleting Resource Types with $bulk-delete](reference-fhir-operations-bulk-delete.md "reference-fhir-operations-bulk-delete.md")
+- [FHIR R4 $confirm-attribution-list operation for HealthLake](reference-fhir-operations-confirm-attribution-list.md "reference-fhir-operations-confirm-attribution-list.md")
+- [FHIR R4 $davinci-data-export operation for HealthLake](reference-fhir-operations-davinci-data-export.md "reference-fhir-operations-davinci-data-export.md")
 - [Generating Clinical Documents with $document](reference-fhir-operations-document.md "reference-fhir-operations-document.md")
 - [Permanently Removing Resources with $erase](reference-fhir-operations-erase.md "reference-fhir-operations-erase.md")
 - [Getting patient data with
@@ -18,5 +21,8 @@ the "$" prefix and enable complex processing, data transformation, and bulk oper
 - [Exporting HealthLake data with FHIR
   $export](reference-fhir-operations-export.md "reference-fhir-operations-export.md")
 - [Retrieving Concept Details with $lookup](reference-fhir-operations-lookup.md "reference-fhir-operations-lookup.md")
+- [$member-add operation for HealthLake](reference-fhir-operations-member-add.md "reference-fhir-operations-member-add.md")
+- [$member-match operation for HealthLake](reference-fhir-operations-member-match.md "reference-fhir-operations-member-match.md")
+- [$member-remove operation for HealthLake](reference-fhir-operations-member-remove.md "reference-fhir-operations-member-remove.md")
 - [Removing Patient Compartment Resources with $purge](reference-fhir-operations-purge.md "reference-fhir-operations-purge.md")
 - [Validating FHIR Resources with $validate](reference-fhir-operations-validate.md "reference-fhir-operations-validate.md")

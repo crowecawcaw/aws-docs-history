@@ -89,7 +89,7 @@ following services is useful to fully leverage HealthLake.
   HealthLake user activity and API usage.
 - [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/") – Use CloudWatch to
   observe and monitor HealthLake resources.
-- [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") – Use AWS CloudFormation to
+- [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") – Use CloudFormation to
   implement infrastructure as code (IaC) templates to create resources in HealthLake.
 - [AWS PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.com/privatelink/") – Use Amazon VPC to
   establish connectivity between HealthLake and [Amazon Virtual Private Cloud](https://aws.amazon.com/vpc/ "https://aws.amazon.com/vpc/") without exposing data to the internet.

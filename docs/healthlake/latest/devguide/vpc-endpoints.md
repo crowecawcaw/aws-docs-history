@@ -6,7 +6,7 @@ You can establish a private connection between your VPC and AWS HealthLake by cr
 _interface VPC endpoint_. Interface VPC endpoints are powered by
 [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that you
 can use to privately access HealthLake; APIs without an internet gateway, NAT device, VPN
-connection, or AWS Direct Connect connection. Instances in your VPC don't need public IP addresses to
+connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to
 communicate with HealthLake; APIs. Traffic between your VPC and HealthLake; does not
 leave the Amazon network.
 
