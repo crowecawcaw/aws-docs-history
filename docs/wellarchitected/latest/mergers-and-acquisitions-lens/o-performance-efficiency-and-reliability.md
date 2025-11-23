@@ -17,7 +17,7 @@ business operations.
    but the applications and systems also need to be architected
    for high availability to avoid any downtime. Combined
    organization workloads should be designed for planned and
-   unplanned outages. AWS provides tools like Elastic Load Balancing, AWS Auto Scaling, and Amazon CloudWatch to help
+   unplanned outages. AWS provides tools like ELB, AWS Auto Scaling, and Amazon CloudWatch to help
    monitor performance and scale resources as needed.
 2. **Scalability:** Mergers and
    acquisitions transactions often have uncertain workloads due

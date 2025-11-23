@@ -25,7 +25,7 @@ assign both a tag key of `Stack`. But the value of `Stack` might be
 provisioning)
 
 AWS CloudFormation provides a common language for provisioning all the infrastructure resources
-in your AWS environment. For AWS resources using AWS CloudFormation templates, you can use the AWS CloudFormation
+in your AWS environment. For AWS resources using CloudFormation templates, you can use the CloudFormation
 Resource Tags property to apply tags to supported resource types upon creation. Managing the
 tags as well as the resources with IaC helps create consistency.
 
