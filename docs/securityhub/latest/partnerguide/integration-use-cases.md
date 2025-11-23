@@ -95,7 +95,7 @@ role happens in four steps:
    starts the subscription to a product in Security Hub.
 2. Security Hub generates the correct managed resource policy with the customer's
    confirmation.
-3. The customer configures the cross-account role either manually or using AWS CloudFormation. For
+3. The customer configures the cross-account role either manually or using CloudFormation. For
    information on cross-account roles, see [Providing access to AWS accounts owned by third parties](../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md") in the
    _IAM User Guide_.
 4. The product securely stores the customer role and external ID.
@@ -154,7 +154,7 @@ their account for a product that they own.
 The customer enables the partner product to send findings from the customer's account to
 the customer in Security Hub:
 
-1. The customer deploys the partner product into their AWS account manually using AWS CloudFormation, or
+1. The customer deploys the partner product into their AWS account manually using CloudFormation, or
    another deployment tool.
 2. The customer defines the necessary IAM policy for the partner product to use when it
    sends findings to Security Hub.

@@ -120,12 +120,12 @@ available, use the canonical resource ID.
 These questions are related to the setup and day-to-day function of the integration.
 
 **Does the partner provide an infrastructure-as-code (IaC) template to deploy the
-integration with Security Hub, such as Terraform, AWS CloudFormation, or AWS Cloud Development Kit (AWS CDK)?**
+integration with Security Hub, such as Terraform, CloudFormation, or AWS Cloud Development Kit (AWS CDK)?**
 
 For integrations that will send findings from the customer account or use CloudWatch Events to
 consume findings, some form of IaC template is required.
 
-AWS CloudFormation is preferred, but AWS CDK or Terraform can also be used.
+CloudFormation is preferred, but AWS CDK or Terraform can also be used.
 
 **Does the partner product have a one-click setup on their console for their integration
 with Security Hub?**

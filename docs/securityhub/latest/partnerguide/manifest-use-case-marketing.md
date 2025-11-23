@@ -39,7 +39,7 @@ The Security Hub team does not advertise them anywhere. They should describe eit
 following actions.
 
 - How do you help customers bootstrap Security Hub? For example, have you helped customers use
-  professional services, a Terraform module, or an AWS CloudFormation template?
+  professional services, a Terraform module, or an CloudFormation template?
 - How do you help customers operationalize and extend Security Hub? For example, have you provided
   response or remediation templates, built custom integrations, or used business intelligence
   tools to set up an executive dashboard?
@@ -80,7 +80,7 @@ Required if you send findings to or receive findings from Security Hub.
 
 Describe how a customer will configure your integration with Security Hub.
 
-At a minimum, you must use AWS CloudFormation templates or a similar infrastructure such as code
+At a minimum, you must use CloudFormation templates or a similar infrastructure such as code
 templates. Some partners have provided a user interface to support one-click integration.
 
 Configuration should take no more than 15 minutes. Your product documentation must also

@@ -44,7 +44,7 @@ Security Hub?**
      Finding Format (ASFF)](guidelines-asff-mapping.md "guidelines-asff-mapping.md").
     4. Define your architecture for sending findings to and receiving findings from Security Hub.
      Follow the tenets outlined in [Tenets for creating and updating findings](tenets-update-create-findings.md "tenets-update-create-findings.md").
-    5. Create a deployment framework for customers. For example, AWS CloudFormation scripts can serve this
+    5. Create a deployment framework for customers. For example, CloudFormation scripts can serve this
      purpose.
     6. Document your setup and provide configuration instructions for customers.
     7. Define any custom insights (correlation rules) that customers can use with your
@@ -81,7 +81,7 @@ endpoint?**
 Partners have used different approaches for this, as it is highly dependent on the
 architecture of your solution.
 
-For example, some partners build a Python app that can be deployed as an AWS CloudFormation script. The
+For example, some partners build a Python app that can be deployed as an CloudFormation script. The
 script gathers the partner's findings from the customer environment, transforms them into
 ASFF, and sends them to the Security Hub Regional endpoint.
 
@@ -296,9 +296,9 @@ To receive findings, use one of the following methods.
 
 
     You can use the custom action API operations, such as `CreateActionTarget`, to
-     automatically create available actions for your product (such as using AWS CloudFormation templates).
+     automatically create available actions for your product (such as using CloudFormation templates).
      You would also use CloudWatch Events rule API operations to create corresponding CloudWatch Events rules that
-     are associated with the custom action. Using AWS CloudFormation templates, you can also create CloudWatch Events
+     are associated with the custom action. Using CloudFormation templates, you can also create CloudWatch Events
      rules to automatically ingest from Security Hub all findings or all findings with certain
      characteristics.
 
@@ -311,7 +311,7 @@ You should have user documentation that explains your use of Security Hub.
 
 If the MSSP is a finding provider, they must demonstrate sending findings to Security Hub.
 
-If the MSSP only receives findings from Security Hub, they must at a minimum have an AWS CloudFormation
+If the MSSP only receives findings from Security Hub, they must at a minimum have an CloudFormation
 template to set up the appropriate CloudWatch Events rules. 27. **What are the requirements for a non-MSSP APN Consulting Partner to
 become a Security Hub partner?**
 
@@ -336,11 +336,11 @@ in terms of how that partner's solution is operated. You should ensure that the 
 process for the integration takes no longer than 15 minutes.
 
 If you are deploying integration software into the customer's AWS environment, you should
-leverage AWS CloudFormation templates to simplify the integration. Some partners have created a one-click
+leverage CloudFormation templates to simplify the integration. Some partners have created a one-click
 integration, which is highly encouraged. 29. **What are my documentation requirements?**
 
 You must provide a link to documentation that describes the integration and setup process
-between your product and Security Hub, including your use of AWS CloudFormation templates.
+between your product and Security Hub, including your use of CloudFormation templates.
 
 That documentation should also include information on your usage of ASFF. Specifically,
 this should list the ASFF finding types that you are using for your different findings. If you
@@ -362,7 +362,7 @@ correlation rules that help a customer prioritize which findings and resources m
 attention and action.
 
 Security Hub has a `CreateInsight` API operation. You can create custom insights inside
-a customer account as part of your AWS CloudFormation template. These insights appear on the customer’s
+a customer account as part of your CloudFormation template. These insights appear on the customer’s
 console. 31. **Can I submit dashboard widgets?**
 
 No, not at this time. You can only create managed insights. 32. **What is your pricing model?**
