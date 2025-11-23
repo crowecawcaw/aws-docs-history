@@ -8,7 +8,7 @@ In this tutorial, you'll complete the following steps:
 
 - Create a Region switch plan
 - Build the plan's workflows and execution blocks
-- Build an EC2 Auto Scaling group execution block
+- Build an EC2 Amazon EC2 Auto Scaling group execution block
 - Build two manual approval execution blocks
 - Build two custom action Lambda execution blocks
 - Build an Amazon Aurora Global Database execution block
@@ -20,7 +20,7 @@ In this tutorial, you'll complete the following steps:
 Before you begin this tutorial, verify that you have the following prerequisites in both Regions:
 
 - IAM roles with appropriate permissions
-- EC2 Auto Scaling groups
+- EC2 Amazon EC2 Auto Scaling groups
 - Lambda functions for maintenance page and fencing
 - Aurora Global Database
 - ARC routing controls
@@ -49,7 +49,7 @@ Before you begin this tutorial, verify that you have the following prerequisites
      - **crossAccountRole**: The ARN of the role that you created in step 1
      - **externalId**: The external ID that you entered in step 1
 
-Example configuration for an EC2 Auto Scaling execution block accessing resources in account 987654321:
+Example configuration for an EC2 Amazon EC2 Auto Scaling execution block accessing resources in account 987654321:
 
 ```
 
@@ -84,12 +84,12 @@ Before executing the plan, Region switch will verify the following:
 3. Enter a Region activation workflow description (optional). This will be used to easily identify the workflow when executing the plan.
 4. Choose **Save and continue**.
 5. Choose **Add a step**, and then select **Run in sequence**.
-6. Select the **EC2 Auto Scaling execution block**, and then choose **Add and edit**. This block will allow you to start increasing capacity in the passive Region.
+6. Select the **EC2 Amazon EC2 Auto Scaling execution block**, and then choose **Add and edit**. This block will allow you to start increasing capacity in the passive Region.
 7. In the right panel, configure the block:
    - **Step name**: Enter "Scale"
    - **Step description** (optional)
-   - **Auto Scaling group ARN for us-east-1**: The ARN of your ASG in us-east-1
-   - **Auto Scaling group ARN for us-west-2**: The ARN of your ASG in us-west-2
+   - **Amazon EC2 Auto Scaling group ARN for us-east-1**: The ARN of your ASG in us-east-1
+   - **Amazon EC2 Auto Scaling group ARN for us-west-2**: The ARN of your ASG in us-west-2
    - **Percent to match the source Region's capacity**: Enter 100
    - **Capacity monitoring approach**: Leave as "Most recent"
    - **Timeout** (optional)

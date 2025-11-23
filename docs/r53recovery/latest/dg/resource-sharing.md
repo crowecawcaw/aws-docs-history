@@ -188,7 +188,7 @@ The owner of a plan in ARC is billed for costs associated with the plan. There a
 additional costs, for plan owners or for participants, for creating resources hosted in a plan.
 
 For detailed pricing information and examples, see
-[Amazon Application Recovery Controller (ARC) Pricing](https://aws.amazon.com/route53/pricing/#application-recovery-controller "https://aws.amazon.com/route53/pricing/#application-recovery-controller") and scroll
+[Amazon Application Recovery Controller (ARC) Pricing](https://aws.amazon.com//route53/pricing/#application-recovery-controller "https://aws.amazon.com//route53/pricing/#application-recovery-controller") and scroll
 down to Amazon Application Recovery Controller (ARC).
 
 ## Quotas

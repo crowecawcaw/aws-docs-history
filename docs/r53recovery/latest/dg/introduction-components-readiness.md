@@ -68,8 +68,8 @@ the resources for.
 
 A readiness check monitors a resource set in your application, such as a set of Amazon Aurora instances, that ARC is auditing recovery readiness
 for. Readiness checks can include auditing, for example, capacity configurations, AWS quotas, or routing policies. For example, if you want to
-audit readiness for your Amazon EC2 Auto Scaling groups across two Availability Zones, you can create a readiness check for a resource set with two resource
-ARNs, one for each Auto Scaling group. Then, to make sure that each group is scaled equally, ARC continually monitors the instance types and the
+audit readiness for your Amazon EC2 Amazon EC2 Auto Scaling groups across two Availability Zones, you can create a readiness check for a resource set with two resource
+ARNs, one for each Amazon EC2 Auto Scaling group. Then, to make sure that each group is scaled equally, ARC continually monitors the instance types and the
 counts in the two groups.
 
 **Readiness scope**

@@ -1,24 +1,29 @@
-# Zonal shift in ARC
+# Supported resources
 
-Amazon Application Recovery Controller (ARC) _zonal shift_ allows you to shift traffic for a
-supported resource away from an impaired Availability Zone (AZ) in an AWS Region to
-healthy AZs in the same Region. Shifting your resource's traffic away from an impaired AZ
-reduces the duration and severity of impact caused by power outages, or hardware or software
-issues in an AZ, and helps to mitigate issues and quickly recover your application. You
-might choose to shift traffic, for example, because a bad deployment is causing latency
-issues, or because the Availability Zone is impaired.
+Amazon Application Recovery Controller (ARC) currently supports enabling the following resources for zonal shift and zonal autoshift:
 
-You must opt-in resources in order to use zonal shift. For more information, refer to [Supported resources](arc-zonal-shift.md "arc-zonal-shift.md").
+- [Amazon EC2 Amazon EC2 Auto Scaling groups](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md")
+- [Amazon Elastic Kubernetes Service](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md")
+- [Application Load Balancers](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md") with
+  cross-zone load balancing enabled or disabled
+- [Network Load Balancers](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md") with cross-zone load balancing enabled or disabled
+  For specific requirements for Network Load Balancers and Application Load Balancers, see the additional topics in this section.
 
-Before you start a zonal shift, you must prescale your application and ensure that you
-have sufficient capacity to shift traffic away from an Availability Zone. After prescaling,
-you can choose the Availability Zone to shift away from and the resource to shift traffic
-away for, and then start the zonal shift. You can cancel the shift at any time to have
-traffic begin returning to the original Availability Zone. For more information, see [Best practices for zonal shifts in ARC](route53-arc-best-practices.md "route53-arc-best-practices.md")
+Review the following conditions for working with zonal shifts, zonal autoshift, and resources in ARC:
 
-All zonal shifts are temporary mitigations. You set an initial expiration when you start a
-zonal shift, from one minute up to three days (72 hours), which you can extend, if you need
-to continue the traffic shift.
-
-In specific scenarios, zonal shift does not shift traffic away from the AZ. For more
-information, see [Supported resources](arc-zonal-shift.md "arc-zonal-shift.md").
+- A resource must be active and fully provisioned to shift traffic for it. Before you
+  start a zonal shift for a resource, check to make sure that it's a managed resource in ARC. For example,
+  view the list of managed resources in the AWS Management Console, or use the `get-managed-resource`
+  operation with the resource's identifier.
+- To start a zonal shift with a resource, it must be deployed in the Availability Zone and AWS Region
+  where you start the shift. Make sure that you start a zonal shift in the same Region that the AZ you want to shift away
+  from is in, and that the resource that you're shifting traffic for is in the same AZ and Region as well.
+- Ensure that you have the correct IAM permissions to use zonal shift with a resource. For
+  more information, see [IAM and permissions for zonal shift](security_iam_service-with-iam-zonal-shift.md "security_iam_service-with-iam-zonal-shift.md").
+- When a Network Load Balancer or Application Load Balancer is in a fail open state, a zonal shift will have no effect. This is
+  expected behavior because zonal shift cannot force an AZ to be unhealthy and
+  then shift traffic to the other AZs in a Region when a load balancer is
+  failing open. For more information, see [Using Route 53 DNS failover for your load balancer](../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md#r53-dns-failover "../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md#r53-dns-failover") in the _Network Load Balancers User Guide_ and [Using Route 53 DNS failover for your load balancer](../../../elasticloadbalancing/latest/application/load-balancer-target-groups.md#r53-dns-failover "../../../elasticloadbalancing/latest/application/load-balancer-target-groups.md#r53-dns-failover") in the _Application Load Balancers User Guide_.
+- If multiple load balancers are forwarding traffic to the same targets, a zonal shift on
+  a cross-zone enabled load balancer drops target capacity for all load balancers, even if their traffic is not
+  shifted by a zonal shift.

@@ -5,7 +5,7 @@ limits, and configuration and version discrepancies for the resources included i
 differences so that you can make sure that each replica has the same configuration setup and the same runtime state. Although
 readiness checks ensure that your configured capacities across replicas are consistent, you should not expect them
 to decide on your behalf what the capacity of your replica should be. For example, you should understand your application requirements
-so that you size your Auto Scaling groups with enough buffer capacity in each replica to manage if another cell is unavailable.
+so that you size your Amazon EC2 Auto Scaling groups with enough buffer capacity in each replica to manage if another cell is unavailable.
 
 For quotas,
 when ARC detects a mismatch with a readiness check, it can take steps to align the quotas for the replicas by increasing the

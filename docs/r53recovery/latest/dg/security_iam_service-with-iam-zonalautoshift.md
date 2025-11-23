@@ -196,7 +196,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 Zonal autoshift in ARC includes the following partial support for ABAC:
 
 - Zonal autoshift supports ABAC for managed resources that are registered in ARC for zonal shift.
-  For more information about ABAC for Network Load Balancer and Application Load Balancer managed resources, see [ABAC with Elastic Load Balancing](../../../elasticloadbalancing/latest/userguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags "../../../elasticloadbalancing/latest/userguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags") in the Elastic Load Balancing User Guide.
+  For more information about ABAC for Network Load Balancer and Application Load Balancer managed resources, see [ABAC with ELB](../../../elasticloadbalancing/latest/userguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags "../../../elasticloadbalancing/latest/userguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags") in the ELB User Guide.
 
 ## Using temporary
 

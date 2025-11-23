@@ -1,41 +1,48 @@
-# Alarms for practice runs
+# Capacity checks for practice runs
 
-You can specify two types of CloudWatch alarms for
-practice runs in zonal autoshift: outcome alarms and blocking alarms.
+When a practice run starts, to temporarily move traffic away from an Availability Zone, ARC runs a check to verify
+that you have enough capacity in other Availability Zones to safely move traffic away from the AZ.
+If there isn't sufficient capacity available, the traffic shift for the practice run is not started and the
+practice run ends.
 
-**Outcome alarms (required)**
+In addition, ARC runs a capacity check for load balancer resources when a zonal autoshift
+completes, before ARC ends the traffic shift started by the autoshift. If the capacity check
+fails when the autoshift ends, traffic is not shifted back to the Availability Zone that it was
+moved away from.
 
-For the first type of alarm, the _outcome alarm_,
-at least one alarm is required to be specified. You should configure outcome alarms to monitor
-the health of your application when traffic is shifted away from an Availability Zone during each
-30-minute practice run.
+Checks for balanced capacity are only completed for load balancers and Amazon EC2 Auto Scaling groups.
 
-For a practice run to be effective, specify as outcome alarms at least one CloudWatch alarm that meets
-both of the following criteria:
+For a load balancer resource, capacity checks validate that healthy hosts associated with the load balancer
+are distributed across Availability Zones. Specifically, capacity checks make sure that the number of healthy
+hosts across all Availability Zones where the resource is registered are balanced. For capacity checks, balanced
+means that the healthy capacity for each Availability Zone is in parity with the other zones, within a small variance.
 
-The alarm monitors metrics for the resource, or for your application
+Note that capacity checks are not applied to load balancers with target groups of type Lambda nor to Application Load Balancers,
+because those targets are not configured zonally.
 
-AND
+Capacity checks are also completed for Amazon EC2 Auto Scaling groups. For an Amazon EC2 Auto Scaling group, capacity checks validate that the total
+healthy zonal capacity of an Amazon EC2 Auto Scaling group–that is, the number of total healthy hosts across all the
+Availability Zones–meet the desired capacity set for that Amazon EC2 Auto Scaling group.
 
-The alarm responds with an `ALARM` state
-when your application is adversely affected by the loss of one Availability Zone.
+**When a capacity check fails**
 
-For more information, see the **Alarms that you specify for practice runs** section in
-[Best practices when you configure zonal autoshift](arc-zonal-autoshift.md "arc-zonal-autoshift.md").
+When a capacity check finds that available capacity isn't balanced for a resource, the
+outcome for the practice run is `CAPACITY_CHECK_FAILED`. To learn more about why a capacity check
+has failed, see the comment field for the `ZonalShiftSummary`. To find the comment field for
+your practice run zonal shift, do the following:
 
-Outcome alarms also provide information for the _practice run outcome_ that ARC reports for
-each practice run. If an outcome alarm enters an `ALARM` state, ARC ends the practice run and returns
-a practice run outcome of `FAILED`. If the practice run completes the 30 minute
-test period and none of the outcome alarms that you've specified enters an `ALARM` state, the outcome
-returned is `SUCCEEDED`. A list of all outcome values, with descriptions, is provided in the
-[Outcomes for practice runs](arc-zonal-autoshift.md#ZAConsiderationsPracticeRunOutcomes "arc-zonal-autoshift.md#ZAConsiderationsPracticeRunOutcomes") section.
+1. Using the AWS CLI, list the zonal shifts for the resource that you specified in the practice run
+   using the [ListZonalShifts](../../../arc-zonal-shift/latest/api/API_ListZonalShifts.md "../../../arc-zonal-shift/latest/api/API_ListZonalShifts.md")
+   API operation.
 
-**Blocking alarms (optional)**
-Optionally, you can specify a second type of alarm, the _blocking alarm_. Blocking alarms
-block practice runs from starting, or continuing, when one or more of the alarms is in an `ALARM` state.
-Blocking alarms block practice run traffic shifts from being started—and stop any practice runs in progress—when
-at least one of the alarms is in an `ALARM` state.
+FOr example, to return the zonal shifts, you can run a command similar to the following:
 
-For example, in a large architecture with multiple microservices, when one microservice is experiencing
-a problem, you typically want to stop all other changes in the application environment, which would
-including blocking practice runs. You can add a blocking alarm in ARC to accomplish this.
+```
+aws arc-zonal-shift start-practice-run
+    --resource-identifier="arn:aws:elasticloadbalancing:`Region`:`111122223333`:`ExampleALB123456890`"
+
+```
+
+2. Review the array of `ZonalShiftSummary` objects returned to find the zonal shift for
+   the practice run that failed due to capacity checks.
+3. For the applicable zonal shift, review the information in the `Comment` field.

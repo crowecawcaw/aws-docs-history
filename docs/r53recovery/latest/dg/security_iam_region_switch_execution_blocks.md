@@ -5,7 +5,7 @@ blocks that you add to a Region switch plan.
 
 ###### Contents
 
-- [EC2 Auto Scaling execution block sample policy](security_iam_region_switch_ec2_autoscaling.md "security_iam_region_switch_ec2_autoscaling.md")
+- [EC2 Amazon EC2 Auto Scaling execution block sample policy](security_iam_region_switch_ec2_autoscaling.md "security_iam_region_switch_ec2_autoscaling.md")
 - [Amazon EKS resource scaling execution block sample policy](security_iam_region_switch_eks.md "security_iam_region_switch_eks.md")
 - [Amazon ECS service scaling execution block sample policy](security_iam_region_switch_ecs.md "security_iam_region_switch_ecs.md")
 - [ARC routing controls execution block sample policy](security_iam_region_switch_arc_routing.md "security_iam_region_switch_arc_routing.md")

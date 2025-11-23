@@ -31,6 +31,7 @@ JSON
  "arc-region-switch:ApprovePlanExecutionStep",
  "arc-region-switch:GetPlanEvaluationStatus",
  "arc-region-switch:GetPlanExecution",
+ "arc-region-switch:StartPlanExecution",
  "arc-region-switch:CancelPlanExecution",
  "arc-region-switch:ListRoute53HealthChecks",
  "arc-region-switch:ListPlanExecutions",

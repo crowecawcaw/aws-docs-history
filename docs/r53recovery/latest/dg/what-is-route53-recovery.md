@@ -26,7 +26,7 @@ _Zonal autoshift_
 
 ARC zonal autoshift authorizes AWS to shift traffic away from an impaired AZ for supported resources, on your behalf, to healthy AZs in the same AWS Region.
 AWS starts a zonal autoshift when internal telemetry indicates that there is an impairment in one AZ in an AWS Region that could potentially impact customers.
-The internal telemetry incorporates metrics from multiple sources, including the AWS network, and the Amazon EC2 and Elastic Load Balancing services.
+The internal telemetry incorporates metrics from multiple sources, including the AWS network, and the Amazon EC2 and ELB services.
 
 Zonal autoshifts are temporary. AWS ends a zonal autoshift when the internal telemetry
 indicators show that there is no longer an issue or potential issue.

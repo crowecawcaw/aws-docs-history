@@ -17,7 +17,7 @@ that you set up at least two applications that are replicas of each other. Each 
 represents an AWS Region. After you've set up your application resources to align with
 Regions, make sure that your application set up for successful recovery by taking the following steps.
 
-Tip: To help simplify setup, we provide AWS CloudFormation and HashiCorp Terraform templates that create an
+Tip: To help simplify setup, we provide CloudFormation and HashiCorp Terraform templates that create an
 application with redundant replicas that fail independently of one another. To learn more
 and download the templates, see [Setting up an example app](#getting-started-example "#getting-started-example").
 
@@ -63,15 +63,15 @@ example stack, see the next sections.
 ## Setting up an example app
 
 To help you understand how routing control works, we provide an example application called
-`TicTacToe`. The example uses AWS CloudFormation templates to simplify the
-process, as well as a downloadable AWS CloudFormation template so that you can quickly explore
+`TicTacToe`. The example uses CloudFormation templates to simplify the
+process, as well as a downloadable CloudFormation template so that you can quickly explore
 setting up and using ARC yourself.
 
 After you deploy the sample app, you can use the templates to create ARC components,
 and then explore using routing controls to manage traffic flow to the app. You can
 adapt the template and process for your own scenario and applications.
 
-To get started with a sample application and AWS CloudFormation templates, see the README instructions
+To get started with a sample application and CloudFormation templates, see the README instructions
 in the [ARC GitHub
-repo](https://github.com/aws-samples/r53-arc-iad "https://github.com/aws-samples/r53-arc-iad"). You can learn more about using AWS CloudFormation templates by reading [AWS CloudFormation
+repo](https://github.com/aws-samples/r53-arc-iad "https://github.com/aws-samples/r53-arc-iad"). You can learn more about using CloudFormation templates by reading [CloudFormation
 concepts](../../../AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.md "../../../AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.md") in the AWS CloudFormation User Guide.
