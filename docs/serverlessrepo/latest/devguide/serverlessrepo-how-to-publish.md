@@ -39,7 +39,7 @@ Before you publish an application to the AWS Serverless Application Repository, 
 - A package for your application that you created by using the AWS CloudFormation
   `package` command for the AWS CLI. This command packages the
   local artifacts (local paths) that your AWS SAM template references. For more
-  details, see [package](../../../cli/latest/reference/cloudformation/package.md "../../../cli/latest/reference/cloudformation/package.md") in the AWS CloudFormation documentation.
+  details, see [package](../../../cli/latest/reference/cloudformation/package.md "../../../cli/latest/reference/cloudformation/package.md") in the CloudFormation documentation.
 - A URL that points to your application's source code, in case you want
   to publish your application publicly.
 - A readme.txt file. This file should describe how customers can use your

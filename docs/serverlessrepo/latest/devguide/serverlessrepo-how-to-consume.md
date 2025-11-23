@@ -95,7 +95,7 @@ aws serverlessrepo get-application \
 The [requiredCapabilities](applications-applicationid.md#applications-applicationid-prop-version-requiredcapabilities "applications-applicationid.md#applications-applicationid-prop-version-requiredcapabilities") response property contains the list of
 application capabilities that you need to acknowledge before you can deploy
 the application. You can also use the [GetApplication API](../../../goto/WebAPI/serverlessrepo-2017-09-08/GetApplication.md "../../../goto/WebAPI/serverlessrepo-2017-09-08/GetApplication.md") in the AWS SDKs to get this data. 2. **Create the changeset.** You must provide
-the set of required [capabilities](applications-applicationid-changesets.md#applications-applicationid-changesets-createcloudformationchangesetinput-capabilities "applications-applicationid-changesets.md#applications-applicationid-changesets-createcloudformationchangesetinput-capabilities") when you create the AWS CloudFormation changeset. For example,
+the set of required [capabilities](applications-applicationid-changesets.md#applications-applicationid-changesets-createcloudformationchangesetinput-capabilities "applications-applicationid-changesets.md#applications-applicationid-changesets-createcloudformationchangesetinput-capabilities") when you create the CloudFormation changeset. For example,
 use the following AWS CLI command to deploy an application by acknowledging
 its capabilities:
 
@@ -139,11 +139,11 @@ changeset.
 ## Deleting Application Stacks
 
 To delete an application that you previously deployed using the AWS Serverless Application Repository, follow the same
-procedure as for deleting an AWS CloudFormation stack:
+procedure as for deleting an CloudFormation stack:
 
 - AWS Management Console: To delete an application using the
   AWS Management Console, see [Deleting
-  a Stack on the AWS CloudFormation Console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the _AWS CloudFormation User Guide._
+  a Stack on the CloudFormation Console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the _AWS CloudFormation User Guide._
 - AWS CLI: To delete an application using the
   AWS CLI, see [Deleting
   a Stack](../../../AWSCloudFormation/latest/UserGuide/using-cfn-cli-deleting-stack.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-cli-deleting-stack.md") in the _AWS CloudFormation User Guide._

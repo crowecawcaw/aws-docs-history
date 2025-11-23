@@ -17,7 +17,7 @@ serverless application:
    locally, it reads from and writes to AWS resources in the AWS Cloud.
 3. **Package**. When you're satisfied with your
    Lambda function, bundle the Lambda function, AWS SAM template, and any dependencies
-   into an AWS CloudFormation deployment package using `sam package`. In this step
+   into an CloudFormation deployment package using `sam package`. In this step
    you will also include information about the application that will be uploaded
    to AWS Serverless Application Repository.
 4. **Publish**. Publish the application to the

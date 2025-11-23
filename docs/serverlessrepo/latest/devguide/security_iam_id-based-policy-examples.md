@@ -363,7 +363,7 @@ JSON
 
 Deploying an application might require permissions to use additional AWS
 resources. Because the AWS Serverless Application Repository uses the same underlying deployment mechanism as
-AWS CloudFormation, see [Controlling Access
+CloudFormation, see [Controlling Access
 with AWS Identity and Access Management](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md "../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md") for more information. For
 help with deployment issues related to permissions, see [Troubleshooting: Insufficient IAM Permissions](../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md#troubleshooting-errors-insufficient-iam-permissions "../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md#troubleshooting-errors-insufficient-iam-permissions").
 

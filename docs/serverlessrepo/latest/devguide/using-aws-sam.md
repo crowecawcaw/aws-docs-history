@@ -15,7 +15,7 @@ below describe these topics in more detail.
 the AWS Serverless Application Repository
 
 The AWS Serverless Application Repository supports serverless applications that are composed of many AWS SAM and
-AWS CloudFormation resources. To see the complete list of AWS resources that are supported by
+CloudFormation resources. To see the complete list of AWS resources that are supported by
 AWS Serverless Application Repository, see [List of Supported AWS Resources](list-supported-resources.md "list-supported-resources.md").
 
 If you want to request support for an additional AWS resource, contact [AWS Support](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").

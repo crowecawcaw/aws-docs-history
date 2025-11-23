@@ -6,8 +6,8 @@ You can also search for answers and post questions in the [AWS Serverless Applic
 
 ###### Note
 
-Applications in the AWS Serverless Application Repository are deployed by using AWS CloudFormation. For information on
-troubleshooting AWS CloudFormation issues, see the*[AWS CloudFormation Troubleshooting
+Applications in the AWS Serverless Application Repository are deployed by using CloudFormation. For information on
+troubleshooting CloudFormation issues, see the*[CloudFormation Troubleshooting
 Guide](../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md "../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md").*
 
 ###### Topics
@@ -54,7 +54,7 @@ help. For details, see following.
 
 Deploy an Application Due to Insufficient IAM Permissions
 
-To deploy an AWS Serverless Application Repository application, you need permissions to AWS Serverless Application Repository resources and AWS CloudFormation
+To deploy an AWS Serverless Application Repository application, you need permissions to AWS Serverless Application Repository resources and CloudFormation
 stacks. You might also need permission to use the underlying services described in the
 application. For example, if you're creating an Amazon S3 bucket or an Amazon DynamoDB table, you
 need permissions to Amazon S3 or DynamoDB.
@@ -67,8 +67,8 @@ Management](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md ".
 
 Twice
 
-The application name that you provide is used as the name of the AWS CloudFormation stack. If you have
-problems deploying an application, make sure that you don't have an existing AWS CloudFormation stack
+The application name that you provide is used as the name of the CloudFormation stack. If you have
+problems deploying an application, make sure that you don't have an existing CloudFormation stack
 with the same name. If you do, provide a different application name or delete the existing
 stack to deploy the application with the same name.
 
