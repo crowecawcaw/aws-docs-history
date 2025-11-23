@@ -15,7 +15,7 @@ information, see [Interface VPC Endpoints (AWS PrivateLink)](../../../vpc/latest
 ## Creating the Endpoint
 
 You can create an AWS Account Management endpoint in your VPC using the AWS Management Console, the AWS Command Line Interface
-(AWS CLI), an AWS SDK, the AWS Account Management API, or AWS CloudFormation.
+(AWS CLI), an AWS SDK, the AWS Account Management API, or CloudFormation.
 
 For information about creating and configuring an endpoint using the Amazon VPC console or
 the AWS CLI, see [Creating an Interface
@@ -33,8 +33,8 @@ com.amazonaws.us-east-1.account
 You must use the string exactly as shown, specifying the `us-east-1` Region. As a global service, Account Management is
 hosted in only that one AWS Region.
 
-For information about creating and configuring an endpoint using AWS CloudFormation, see the [AWS::EC2::VPCEndpoint](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md")
-resource in the _AWS CloudFormation User Guide_.
+For information about creating and configuring an endpoint using CloudFormation, see the [AWS::EC2::VPCEndpoint](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md")
+resource in the _CloudFormation User Guide_.
 
 ## Amazon VPC Endpoint Policies
 

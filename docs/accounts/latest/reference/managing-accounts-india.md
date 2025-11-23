@@ -114,7 +114,7 @@ with the document you use for customer verification. The name that you choose be
 your contact or billing information must exactly match the name that appears on the
 document.
 
-To update your billing name and address, see the [Payment preferences](https://console.aws.amazon.com/billing/home?#/paymentpreferences "https://console.aws.amazon.com/billing/home?#/paymentpreferences") page. To update
+To update your billing name and address, see the [Payment preferences](https://console.aws.amazon.com//billing/home?#/paymentpreferences "https://console.aws.amazon.com//billing/home?#/paymentpreferences") page. To update
 your contact name and address, see [Update the primary contact for your
 AWS account](manage-acct-update-contact-primary.md "manage-acct-update-contact-primary.md").
 If you edit any information you previously used for customer verification, such as the
