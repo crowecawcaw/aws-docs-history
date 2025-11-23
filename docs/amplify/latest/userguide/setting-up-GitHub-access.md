@@ -26,7 +26,7 @@ app. For example, to install the Amplify GitHub App in the US West (Oregon) regi
 - [Migrating an existing OAuth app
   to the Amplify GitHub App](#migrating-to-github-app-auth "#migrating-to-github-app-auth")
 - [Setting up the Amplify GitHub App for
-  AWS CloudFormation, CLI, and SDK deployments](#setting-up-github-app-cloudformation "#setting-up-github-app-cloudformation")
+  CloudFormation, CLI, and SDK deployments](#setting-up-github-app-cloudformation "#setting-up-github-app-cloudformation")
 - [Setting up web previews with the Amplify
   GitHub App](#setting-up-github-app-pr-previews "#setting-up-github-app-pr-previews")
 
@@ -113,16 +113,16 @@ subsequent app migrations.
 
 ## Setting up the Amplify GitHub App for
 
-AWS CloudFormation, CLI, and SDK deployments
+CloudFormation, CLI, and SDK deployments
 
 Existing Amplify apps that you previously connected from GitHub repositories use OAuth
 for repo access. This can include apps that you deployed using the Amplify Command Line
-Interface (CLI), AWS CloudFormation, or the SDKs. We strongly recommend that you migrate these apps to use
+Interface (CLI), CloudFormation, or the SDKs. We strongly recommend that you migrate these apps to use
 the new Amplify GitHub App. Migration must be performed in the Amplify console in the
 AWS Management Console. For instructions, see [Migrating an existing OAuth app
 to the Amplify GitHub App](#migrating-to-github-app-auth "#migrating-to-github-app-auth").
 
-You can use AWS CloudFormation, the Amplify CLI, and the SDKs to deploy a new Amplify app that uses
+You can use CloudFormation, the Amplify CLI, and the SDKs to deploy a new Amplify app that uses
 the GitHub App for repo access. This process requires that you first install the Amplify
 GitHub App in your GitHub account. Next, you will need to generate a personal access token in
 your GitHub account. Lastly, deploy the app and specify the personal access token.
@@ -162,10 +162,10 @@ installing your app in the US West (Oregon) region, specify
    **admin:repo_hook**.
 8. Choose **Generate token**.
 9. Copy and save the personal access token. You will need to provide it when you deploy
-   an Amplify app with the CLI, AWS CloudFormation, or the SDKs.
+   an Amplify app with the CLI, CloudFormation, or the SDKs.
 
 After the Amplify GitHub app is installed in your GitHub account and you have generated
-a personal access token, you can deploy a new app with the Amplify CLI, AWS CloudFormation, or the SDKs.
+a personal access token, you can deploy a new app with the Amplify CLI, CloudFormation, or the SDKs.
 Use the `accessToken` field to specify the personal access token that you created
 in the previous procedure. For more information, see [CreateApp](../APIReference/API_CreateApp.md#API_CreateApp_RequestSyntax "../APIReference/API_CreateApp.md#API_CreateApp_RequestSyntax") in the _Amplify API reference_ and [AWS::Amplify::App](../../../AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.md") in the _AWS CloudFormation User Guide_.
 

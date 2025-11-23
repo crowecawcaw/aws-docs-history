@@ -20,7 +20,7 @@ ensure that updates are not made to your backend at build-time.
 3. Choose the **Hosting environments** tab.
 4. Locate the branch to edit and choose **Edit**.
 
-![The location of the Edit link for a branch in the Amplify console.](images/amplify_edit_backend_alternate.png) 5. On the **Edit target backend** page, uncheck **Enable
+![The location of the Edit link for a branch in the Amplify console.](/images/amplify/latest/userguide/images/amplify_edit_backend_alternate.png) 5. On the **Edit target backend** page, uncheck **Enable
 full-stack continuous deployments (CI/CD)** to turn off full-stack CI/CD
 for this backend.
 

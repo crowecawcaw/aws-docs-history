@@ -115,7 +115,7 @@ environment deployment will be in progress.
 
 During deployment, Amplify Studio creates all the required AWS resources in the
 backend, including an AWS AppSync GraphQL API to access data and an Amazon DynamoDB table to
-host the Todo items. Amplify uses AWS CloudFormation to deploy your backend, which enables you to
+host the Todo items. Amplify uses CloudFormation to deploy your backend, which enables you to
 store your backend definition as infrastructure-as-code.
 
 ## Step 3: Connect the backend to the
