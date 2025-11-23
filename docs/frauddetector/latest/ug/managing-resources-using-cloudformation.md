@@ -4,7 +4,7 @@ Amazon Fraud Detector is no longer open to new customers as of November 7, 2025.
 
 Amazon Fraud Detector is integrated with AWS CloudFormation, a service that helps you to model and set up your Amazon Fraud Detector resources so that you
 can spend less time creating and managing your resources and infrastructure. You create a template that describes all the Amazon Fraud Detector resources
-that you want (such as Detector, Variables, EntityType, EventType, Outcome, and Label), and AWS CloudFormation provisions and configures those resources for you. You can reuse the template to provision and
+that you want (such as Detector, Variables, EntityType, EventType, Outcome, and Label), and CloudFormation provisions and configures those resources for you. You can reuse the template to provision and
 configure the resources consistently and repeatedly in multiple AWS accounts and Regions.
 
 There is no additional charge for using AWS CloudFormation.
@@ -12,11 +12,11 @@ There is no additional charge for using AWS CloudFormation.
 ## Creating Amazon Fraud Detector templates
 
 To provision and configure resources for Amazon Fraud Detector and related services, you must
-understand [AWS CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md"). Templates
-are formatted text files in JSON or YAML. These templates describe the resources that you want to provision in your AWS CloudFormation stacks. If you're unfamiliar
-with JSON or YAML, you can use AWS CloudFormation Designer to help you get started with AWS CloudFormation templates. For more information, see [What is AWS CloudFormation Designer?](../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md "../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md") in the _AWS CloudFormation User Guide_.
+understand [CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md"). Templates
+are formatted text files in JSON or YAML. These templates describe the resources that you want to provision in your CloudFormation stacks. If you're unfamiliar
+with JSON or YAML, you can use CloudFormation Designer to help you get started with CloudFormation templates. For more information, see [What is CloudFormation Designer?](../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md "../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md") in the _AWS CloudFormation User Guide_.
 
-You can also create, update, and delete your Amazon Fraud Detector resources using AWS CloudFormation templates. For more information,
+You can also create, update, and delete your Amazon Fraud Detector resources using CloudFormation templates. For more information,
 including examples of JSON and YAML templates for your resources, see the [Amazon Fraud Detector resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_FraudDetector.md "../../../AWSCloudFormation/latest/UserGuide/AWS_FraudDetector.md") in the _AWS CloudFormation User Guide_.
 
 If you are already using CloudFormation, there is no need to manage additional IAM policies or CloudTrail logging.
@@ -53,9 +53,9 @@ you manage deployment behavior. If you do not include one or both of these param
 | DetectorVersionStatus | **ACTIVE:\*<br>• Set the new/updated detector version to Active status<br>**DRAFT:\*<br>• Set the new/updated detector version to Draft status                                                                                               | DRAFT         |
 | Inline                | **TRUE:\*<br>• Allow CloudFormation to create/update/delete<br>the resource when creating/updating/deleting the stack.<br>**FALSE:\*<br>• Allow CloudFormation to validate that the<br>object exists but not make any changes to the object. | TRUE          |
 
-## Sample AWS CloudFormation template for Amazon Fraud Detector resources
+## Sample CloudFormation template for Amazon Fraud Detector resources
 
-The following is a sample AWS CloudFormation YAML template for managing a detector and associated detector versions.
+The following is a sample CloudFormation YAML template for managing a detector and associated detector versions.
 
 ```
 # Simple Detector resource containing inline Rule, EventType, Variable, EntityType and Label resource definitions
@@ -106,12 +106,12 @@ Resources:
 
 ```
 
-## Learn more about AWS CloudFormation
+## Learn more about CloudFormation
 
-To learn more about AWS CloudFormation, see the following resources:
+To learn more about CloudFormation, see the following resources:
 
 - [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/")
 - [AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
-- [AWS CloudFormation API Reference](../../../AWSCloudFormation/latest/APIReference/Welcome.md "../../../AWSCloudFormation/latest/APIReference/Welcome.md")
+- [CloudFormation API Reference](../../../AWSCloudFormation/latest/APIReference/Welcome.md "../../../AWSCloudFormation/latest/APIReference/Welcome.md")
 - [AWS CloudFormation Command
   Line Interface User Guide](../../../cloudformation-cli/latest/userguide/what-is-cloudformation-cli.md "../../../cloudformation-cli/latest/userguide/what-is-cloudformation-cli.md")
