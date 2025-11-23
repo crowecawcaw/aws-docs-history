@@ -229,53 +229,7 @@ public class SitewiseScenario {
         logger.info(DASHES);
 
         logger.info(DASHES);
-        logger.info("6. Create an IoT SiteWise Portal");
-        logger.info("""
-             An IoT SiteWise Portal allows you to aggregate data from multiple industrial sources,
-             such as sensors, equipment, and control systems, into a centralized platform.
-            """);
-        waitForInputToContinue(scanner);
-        String portalId;
-        try {
-            portalId = sitewiseActions.createPortalAsync(portalName, iamRole, contactEmail).join();
-            logger.info("Portal created successfully. Portal ID {}", portalId);
-        } catch (CompletionException ce) {
-            Throwable cause = ce.getCause();
-            if (cause instanceof IoTSiteWiseException siteWiseEx) {
-                logger.error("IoT SiteWise error occurred: Error message: {}, Error code {}",
-                        siteWiseEx.getMessage(), siteWiseEx.awsErrorDetails().errorCode(), siteWiseEx);
-            } else {
-                logger.error("An unexpected error occurred: {}", cause.getMessage());
-            }
-            return;
-        }
-        waitForInputToContinue(scanner);
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("7. Describe the Portal");
-        logger.info("""
-             In this step, we get a description of the portal and display the portal URL.
-            """);
-        waitForInputToContinue(scanner);
-        try {
-            String portalUrl = sitewiseActions.describePortalAsync(portalId).join();
-            logger.info("Portal URL: {}", portalUrl);
-        } catch (CompletionException ce) {
-            Throwable cause = ce.getCause();
-            if (cause instanceof ResourceNotFoundException notFoundException) {
-                logger.error("A ResourceNotFoundException occurred: Error message: {}, Error code {}",
-                        notFoundException.getMessage(), notFoundException.awsErrorDetails().errorCode(), notFoundException);
-            } else {
-                logger.error("An unexpected error occurred: {}", cause.getMessage());
-            }
-            return;
-        }
-        waitForInputToContinue(scanner);
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("8. Create an IoT SiteWise Gateway");
+        logger.info("6. Create an IoT SiteWise Gateway");
         logger.info(
             """
                 IoT SiteWise Gateway serves as the bridge between industrial equipment, sensors, and the
@@ -302,7 +256,7 @@ public class SitewiseScenario {
         logger.info(DASHES);
         logger.info(DASHES);
 
-        logger.info("9. Describe the IoT SiteWise Gateway");
+        logger.info("7. Describe the IoT SiteWise Gateway");
          waitForInputToContinue(scanner);
         try {
             sitewiseActions.describeGatewayAsync(gatewayId)
@@ -325,7 +279,7 @@ public class SitewiseScenario {
         logger.info(DASHES);
 
         logger.info(DASHES);
-        logger.info("10. Delete the AWS IoT SiteWise Assets");
+        logger.info("8. Delete the AWS IoT SiteWise Assets");
         logger.info(
             """
             Before you can delete the Asset Model, you must delete the assets.
@@ -335,20 +289,6 @@ public class SitewiseScenario {
         String delAns = scanner.nextLine().trim();
         if (delAns.equalsIgnoreCase("y")) {
             logger.info("You selected to delete the SiteWise assets.");
-            waitForInputToContinue(scanner);
-            try {
-                sitewiseActions.deletePortalAsync(portalId).join();
-                logger.info("Portal {} was deleted successfully.", portalId);
-
-            } catch (CompletionException ce) {
-                Throwable cause = ce.getCause();
-                if (cause instanceof ResourceNotFoundException notFoundException) {
-                    logger.error("A ResourceNotFoundException occurred: Error message: {}, Error code {}",
-                            notFoundException.getMessage(), notFoundException.awsErrorDetails().errorCode(), notFoundException);
-                } else {
-                    logger.error("An unexpected error occurred: {}", cause.getMessage());
-                }
-            }
 
             try {
                 sitewiseActions.deleteGatewayAsync(gatewayId).join();
@@ -713,63 +653,6 @@ public class SitewiseActions {
     }
 
     /**
-     * Creates a new IoT SiteWise portal.
-     *
-     * @param portalName   the name of the portal to create.
-     * @param iamRole      the IAM role ARN to use for the portal.
-     * @param contactEmail the email address of the portal contact.
-     * @return a {@link CompletableFuture} that represents a {@link String} result of the portal ID. The calling code
-     *         can attach callbacks, then handle the result or exception by calling {@link CompletableFuture#join()} or
-     *         {@link CompletableFuture#get()}.
-     *         <p>
-     *         If any completion stage in this method throws an exception, the method logs the exception cause and keeps
-     *         it available to the calling code as a {@link CompletionException}. By calling
-     *         {@link CompletionException#getCause()}, the calling code can access the original exception.
-     */
-    public CompletableFuture<String> createPortalAsync(String portalName, String iamRole, String contactEmail) {
-        CreatePortalRequest createPortalRequest = CreatePortalRequest.builder()
-            .portalName(portalName)
-            .portalDescription("This is my custom IoT SiteWise portal.")
-            .portalContactEmail(contactEmail)
-            .roleArn(iamRole)
-            .build();
-
-        return getAsyncClient().createPortal(createPortalRequest)
-            .handle((response, exception) -> {
-                if (exception != null) {
-                    logger.error("Failed to create portal: {} ", exception.getCause().getMessage());
-                    throw (CompletionException) exception;
-                }
-                return response.portalId();
-            });
-    }
-
-    /**
-     * Deletes a portal.
-     *
-     * @param portalId the ID of the portal to be deleted.
-     * @return a {@link CompletableFuture} that represents a {@link DeletePortalResponse}. The calling code can attach
-     *         callbacks, then handle the result or exception by calling {@link CompletableFuture#join()} or
-     *         {@link CompletableFuture#get()}.
-     *         <p>
-     *         If any completion stage in this method throws an exception, the method logs the exception cause and keeps
-     *         it available to the calling code as a {@link CompletionException}. By calling
-     *         {@link CompletionException#getCause()}, the calling code can access the original exception.
-     */
-    public CompletableFuture<DeletePortalResponse> deletePortalAsync(String portalId) {
-        DeletePortalRequest deletePortalRequest = DeletePortalRequest.builder()
-            .portalId(portalId)
-            .build();
-
-        return getAsyncClient().deletePortal(deletePortalRequest)
-            .whenComplete((response, exception) -> {
-                if (exception != null) {
-                    logger.error("Failed to delete portal with ID: {}. Error: {}", portalId, exception.getCause().getMessage());
-                }
-            });
-    }
-
-    /**
      * Retrieves the asset model ID for the given asset model name.
      *
      * @param assetModelName the name of the asset model for the ID.
@@ -796,33 +679,6 @@ public class SitewiseActions {
                     }
                     return null;
                 });
-    }
-
-    /**
-     * Retrieves a portal's description.
-     *
-     * @param portalId the ID of the portal to describe.
-     * @return a {@link CompletableFuture} that represents a {@link String} result of the portal's start URL
-     *         (see: {@link DescribePortalResponse#portalStartUrl()}). The calling code can attach callbacks, then handle the
-     *         result or exception by calling {@link CompletableFuture#join()} or {@link CompletableFuture#get()}.
-     *         <p>
-     *         If any completion stage in this method throws an exception, the method logs the exception cause and keeps
-     *         it available to the calling code as a {@link CompletionException}. By calling
-     *         {@link CompletionException#getCause()}, the calling code can access the original exception.
-     */
-    public CompletableFuture<String> describePortalAsync(String portalId) {
-        DescribePortalRequest request = DescribePortalRequest.builder()
-            .portalId(portalId)
-            .build();
-
-        return getAsyncClient().describePortal(request)
-            .handle((response, exception) -> {
-                if (exception != null) {
-                   logger.error("An exception occurred retrieving the portal description: {}", exception.getCause().getMessage());
-                   throw (CompletionException) exception;
-                }
-                return response.portalStartUrl();
-            });
     }
 
 

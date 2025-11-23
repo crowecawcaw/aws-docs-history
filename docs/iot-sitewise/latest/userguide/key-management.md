@@ -32,7 +32,7 @@ settings.
 
 ###### To enable encryption using KMS keys
 
-1. Navigate to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/").
+1. Navigate to the [AWS IoT SiteWise console](https://console.aws.amazon.com//iotsitewise/ "https://console.aws.amazon.com//iotsitewise/").
 2. Choose
    **Account
    Settings** and choose **Edit** to open

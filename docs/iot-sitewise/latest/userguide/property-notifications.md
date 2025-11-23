@@ -2,7 +2,7 @@
 
 You can enable property notifications to publish asset data updates to AWS IoT Core,
 and then run queries on your data. With asset property notifications,
-AWS IoT SiteWise provides an AWS CloudFormation template that you can use to export AWS IoT SiteWise data to Amazon S3.
+AWS IoT SiteWise provides an CloudFormation template that you can use to export AWS IoT SiteWise data to Amazon S3.
 
 ###### Note
 
