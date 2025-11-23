@@ -17,6 +17,7 @@ Amazon DCV server for macOS is only supported on Amazon EC2 Apple silicon instan
 - [Using an unattended
   installation](setting-up-installing-macosinstall.md#setting-up-installing-windows-unattended "setting-up-installing-macosinstall.md#setting-up-installing-windows-unattended")
 - [Using the wizard](setting-up-installing-macosinstall.md#setting-up-installing-windows-wizard-mac "setting-up-installing-macosinstall.md#setting-up-installing-windows-wizard-mac")
+- [Configuring Privacy and Security settings](setting-up-installing-macosinstall.md#setting-up-macos-privacy-settings "setting-up-installing-macosinstall.md#setting-up-macos-privacy-settings")
 
 ## Using an unattended
 
@@ -40,7 +41,7 @@ repository](https://github.com/aws-samples/dcv-samples/tree/main/cdk/dcv-mac-ima
 The Amazon DCV server is available only in a 64-bit version and supported on 64-bit ARM Amazon EC2 instances. 4. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com "http://download.amazondcv.com").
 
 ```
-`$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Servers/nice-dcv-server-2025.0-20103-macos-arm64.dist.pkg
+`$` wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-server-macos-arm64.dist.pkg
 ```
 
 5. Run the unattended installer with the following command:
@@ -66,4 +67,35 @@ The Amazon DCV server is available only in a 64-bit version and supported on 64-
 
 The [latest packages](http://download.amazondcv.com/latest.html "http://download.amazondcv.com/latest.html") page of the download website contains links that always point to the newest available version.
 You can use these links to automatically retrieve the newest Amazon DCV packages. 3. Run `nice-dcv-server-2025.0-`version_number`-macos-arm64.dist.pkg`. 4. On the Introduction screen, choose **Continue**. 5. On the Installation Type screen, check the package check boxes, and then choose
-**Continue**. 6. Choose **Install**.
+**Continue**. 6. Choose **Install**. 7. Click **Allow** when prompted during installation.
+
+## Configuring Privacy and Security settings
+
+After installing the Amazon DCV server, you must configure macOS Privacy and Security settings to allow Amazon DCV to access system features.
+
+###### To configure Privacy and Security settings for Amazon DCV
+
+1. Open **System Settings** and navigate to **Privacy and Security**.
+2. Under **Accessibility**, select the checkbox next to `DCV Server` to allow access. If `DCV Server` is not listed, drag `/Applications/DCV Server.app` to the allowed list and then select the checkbox.
+3. Under **Screen & System Audio Recording**, select the checkbox next to `DCV Server` to allow access. If `DCV Server` is not listed, drag `/Applications/DCV Server.app` to the allowed list and then select the checkbox
+4. Reboot the machine to apply the changes:
+
+```
+`$` sudo reboot
+```
+
+5. After reboot, ensure you have a valid Amazon DCV license. For licensing information, see [Step 2: License the Amazon DCV Server](setting-up-license.md "setting-up-license.md").
+6. Reconnect using VNC and create a Amazon DCV console session:
+
+```
+`$` sudo dcv create-session --type console --owner ec2-user console
+```
+
+7. Click **Allow** when prompted for Microphone access.
+8. Click **Allow** when prompted for
+
+```
+dcvagentlauncher
+```
+
+access. 9. When prompted for **Remote Control access**, click **Open System Settings**, enable the setting, and choose **Quit & Reopen**. 10. You can now connect using the Amazon DCV Client.

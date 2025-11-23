@@ -68,7 +68,7 @@ list-sessions` Amazon DCV command to check for any running sessions. If
 
 ###### To upgrade the Amazon DCV server on macOS
 
-1. Use SSH to sign in to the server using user.
+1. Use SSH to sign in to the server using the root user.
 2. Ensure that there are no running Amazon DCV sessions. Use the `dcv
 list-sessions` Amazon DCV command to check for any running sessions. If
    there are running sessions, use the `dcv close-session` Amazon DCV

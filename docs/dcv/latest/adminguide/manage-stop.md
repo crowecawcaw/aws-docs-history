@@ -58,10 +58,10 @@ Use the following command:
 
 Disable automatic Amazon DCV server startup using the command line.
 
-###### To prevent the Amazon DCV server from starting automatically on Linux
+###### To prevent the Amazon DCV server from starting automatically on macOS
 
 Use the following command:
 
 ```
-`$` sudo launchctl disable com.amazon.dcv.server.dcvserver
+`$` sudo launchctl disable system/com.amazon.dcv.server.dcvserver
 ```

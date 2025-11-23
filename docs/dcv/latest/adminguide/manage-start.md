@@ -55,7 +55,7 @@ Use the following commands:
 macOS Amazon DCV server
 Manually start the Amazon DCV server using the command line.
 
-###### To start the Amazon DCV server on Linux
+###### To start the Amazon DCV server on macOS
 
 Use the following commands:
 
@@ -76,5 +76,5 @@ Use the following commands:
 
 
 * ```
-`$` sudo launchctl enable com.amazon.dcv.server.dcvserver
+`$` sudo launchctl enable system/com.amazon.dcv.server.dcvserver
 ````
