@@ -50,12 +50,13 @@ AWS service.
 2. In the navigation pane, choose **Endpoints**.
 3. Choose **Create endpoint**.
 4. For **Type**, choose **AWS services**.
-5. For **Service name**, select the service. For more information, see
+5. (Optional) If creating an endpoint to an AWS service in another Region, select the **Enable cross Region endpoint** checkbox and then select the **service region** from the drop down.
+6. For **Service name**, select the service. For more information, see
    [AWS services that integrate with
    AWS PrivateLink](aws-services-privatelink-support.md "aws-services-privatelink-support.md").
-6. For **VPC**, select the VPC from which you'll access the
+7. For **VPC**, select the VPC from which you'll access the
    AWS service.
-7. If, in Step 5, you selected the service name for Amazon S3, and if you want to configure
+8. If, in Step 5, you selected the service name for Amazon S3, and if you want to configure
    [private DNS support](vpc-endpoints-s3.md#private-dns-s3 "vpc-endpoints-s3.md#private-dns-s3"), select **Additional
    settings**, **Enable DNS name**. When you make this
    selection, it also automatically selects **Enable private DNS only for inbound
@@ -68,7 +69,7 @@ If, in Step 5, you selected the service name for any service other than Amazon S
 **Additional settings**, **Enable DNS name** is
 already selected. We recommend that you keep the default. This ensures that requests
 that use the public service endpoints, such as requests made through an AWS SDK,
-resolve to your VPC endpoint. 8. For **Subnets**, select the subnets in which to create endpoint
+resolve to your VPC endpoint. 9. For **Subnets**, select the subnets in which to create endpoint
 network interfaces. You can select one subnet per Availability Zone. You can't select
 multiple subnets from the same Availability Zone. For more information, see [Subnets and Availability Zones](privatelink-access-aws-services.md#aws-service-subnets-zones "privatelink-access-aws-services.md#aws-service-subnets-zones").
 
@@ -76,7 +77,7 @@ By default, we select IP addresses from the subnet IP address ranges and assign 
 to the endpoint network interfaces. To choose the IP addresses yourself, select
 **Designate IP addresses**. Note that the first four IP addresses and
 the last IP address in a subnet CIDR block are reserved for internal use, so you can't
-specify them for your endpoint network interfaces. 9. For **IP address type**, choose from the following options:
+specify them for your endpoint network interfaces. 10. For **IP address type**, choose from the following options:
 
     * **IPv4** – Assign IPv4 addresses to the endpoint network
      interfaces. This option is supported only if all selected subnets have IPv4 address
@@ -89,17 +90,17 @@ specify them for your endpoint network interfaces. 9. For **IP address type**, c
      subnets have both IPv4 and IPv6 address ranges and the service accepts both IPv4 and
      IPv6 requests.
 
-10. For **Security groups**, select the security groups to associate
+11. For **Security groups**, select the security groups to associate
     with the endpoint network interfaces. By default, we associate the default security
     group for the VPC.
-11. For **Policy**, to allow all operations by all principals on all
+12. For **Policy**, to allow all operations by all principals on all
     resources over the interface endpoint, select **Full access**. To
     restrict access, select **Custom** and enter a policy. This option is
     available only if the service supports VPC endpoint policies. For more information, see
     [Endpoint policies](vpc-endpoints-access.md "vpc-endpoints-access.md").
-12. (Optional) To add a tag, choose **Add new tag** and enter the tag
+13. (Optional) To add a tag, choose **Add new tag** and enter the tag
     key and the tag value.
-13. Choose **Create endpoint**.
+14. Choose **Create endpoint**.
 
 ###### To create an interface endpoint using the command line
 

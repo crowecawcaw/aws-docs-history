@@ -29,6 +29,7 @@ Availability Zone. You are also billed per GB of data processed. For more inform
 - [DNS record IP type](#aws-services-dns-record-ip-type "#aws-services-dns-record-ip-type")
 - [Services that
   integrate](aws-services-privatelink-support.md "aws-services-privatelink-support.md")
+- [Cross-region enabled AWS services](aws-services-cross-region-privatelink-support.md "aws-services-cross-region-privatelink-support.md")
 - [Create an interface
   endpoint](create-interface-endpoint.md "create-interface-endpoint.md")
 - [Configure an interface endpoint](interface-endpoints.md "interface-endpoints.md")

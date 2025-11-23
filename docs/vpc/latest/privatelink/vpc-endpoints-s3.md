@@ -55,7 +55,7 @@ cost. For more information, see [Types of VPC endpoints for Amazon S3](../../../
   that you test to ensure that your software can automatically reconnect to Amazon S3 after
   the connection break.
 - Endpoint connections cannot be extended out of a VPC. Resources on the other side of a
-  VPN connection, VPC peering connection, transit gateway, or AWS Direct Connect connection in your
+  VPN connection, VPC peering connection, transit gateway, or Direct Connect connection in your
   VPC cannot use a gateway endpoint to communicate with Amazon S3.
 - Your account has a default quota of 20 gateway endpoints per Region, which is adjustable.
   There is also a limit of 255 gateway endpoints per VPC.

@@ -309,6 +309,7 @@ endpoint.
 | com.amazonaws.`region`.airflow.env                                                                                                                                                                                                          |
 | com.amazonaws.`region`.airflow.env-fips                                                                                                                                                                                                     |
 | com.amazonaws.`region`.airflow.ops                                                                                                                                                                                                          |
+| Amazon Route 53                                                                                                                                                                                                                             | com.amazonaws.route53                                    |
 | [AWS Management Console](../../../awsconsolehelpdocs/latest/gsg/console-private-access.md "../../../awsconsolehelpdocs/latest/gsg/console-private-access.md")                                                                               | com.amazonaws.`region`.console                           |
 | com.amazonaws.`region`.signin                                                                                                                                                                                                               |
 | [Amazon MemoryDB](../../../memorydb/latest/devguide/memorydb-privatelink.md "../../../memorydb/latest/devguide/memorydb-privatelink.md")                                                                                                    | com.amazonaws.`region`.memory-db                         |
@@ -461,6 +462,8 @@ endpoint.
 | [WorkSpaces streaming](../../../workspaces/latest/adminguide/creating-streaming-vpc-endpoints.md "../../../workspaces/latest/adminguide/creating-streaming-vpc-endpoints.md")                                                               | com.amazonaws.`region`.highlander                        |
 | [Amazon WorkSpaces Thin Client](../../../workspaces-thin-client/latest/ag/vpc-interface-endpoints.md "../../../workspaces-thin-client/latest/ag/vpc-interface-endpoints.md")                                                                | com.amazonaws.`region`.thinclient.api                    |
 | [AWS X-Ray](../../../xray/latest/devguide/xray-security-vpc-endpoint.md "../../../xray/latest/devguide/xray-security-vpc-endpoint.md")                                                                                                      | com.amazonaws.`region`.xray                              |
+| [Amazon Managed Service for Apache Flink](../../../managed-flink/latest/java/vpc-internet.md "../../../managed-flink/latest/java/vpc-internet.md")                                                                                          | com.amazonaws.`region`.kinesisanalytics                  |
+| com.amazonaws.`region`.kinesisanalytics-fips                                                                                                                                                                                                |
 
 ## View available AWS service
 

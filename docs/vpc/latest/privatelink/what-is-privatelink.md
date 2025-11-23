@@ -2,7 +2,7 @@
 
 AWS PrivateLink is a highly available, scalable technology that you can use to privately
 connect your VPC to services and resources as if they were in your VPC. You do not need to
-use an internet gateway, NAT device, public IP address, AWS Direct Connect connection, or AWS Site-to-Site VPN
+use an internet gateway, NAT device, public IP address, Direct Connect connection, or AWS Site-to-Site VPN
 connection to allow communication with the service or resource from your private subnets.
 Therefore, you control the specific API endpoints, sites, services, and resources that are
 reachable from your VPC.
@@ -43,7 +43,7 @@ You can create, access, and manage VPC endpoints using any of the following:
 - **AWS Command Line Interface (AWS CLI)** — Provides commands
   for a broad set of AWS services, including AWS PrivateLink. For more information
   about commands for AWS PrivateLink, see [ec2](../../../cli/latest/reference/ec2/index.md "../../../cli/latest/reference/ec2/index.md") in the _AWS CLI Command Reference_.
-- **AWS CloudFormation** - Create templates that describe your
+- **CloudFormation** - Create templates that describe your
   AWS resources. You use the templates to provision and manage these resources
   as a single unit. For more information, see the following AWS PrivateLink
   resources:
