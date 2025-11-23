@@ -69,19 +69,19 @@ mind.
 
 We recommend that you replicate your infrastructure in other Regions in an automated
 way. By automating the replication process, you can minimize human error.
-AWS services, such as AWS CloudFormation, make it possible to recreate your architecture in other
+AWS services, such as CloudFormation, make it possible to recreate your architecture in other
 AWS Regions. Having a repeatable way to deploy and update AWS services helps your
 configurations remain consistent across Regions.
 
 Amazon Pinpoint
-supports AWS CloudFormation. However, there are some Amazon Pinpoint capabilities that AWS CloudFormation doesn't currently
+supports CloudFormation. However, there are some Amazon Pinpoint capabilities that CloudFormation doesn't currently
 include, including the following:
 
 - **Journeys** – Amazon Pinpoint Journeys can't
-  currently be created by using AWS CloudFormation templates. However, the Amazon Pinpoint API includes
+  currently be created by using CloudFormation templates. However, the Amazon Pinpoint API includes
   extensive support for [creating journeys](../apireference/apps-application-id-journeys.md#CreateJourney "../apireference/apps-application-id-journeys.md#CreateJourney"), [updating journeys](../apireference/apps-application-id-journeys-journey-id.md#UpdateJourney "../apireference/apps-application-id-journeys-journey-id.md#UpdateJourney"), [viewing the details of a journey](../apireference/apps-application-id-journeys-journey-id.md#GetJourney "../apireference/apps-application-id-journeys-journey-id.md#GetJourney"), and [changing the state of a journey](../apireference/apps-application-id-journeys-journey-id-state.md#UpdateJourneyState "../apireference/apps-application-id-journeys-journey-id-state.md#UpdateJourneyState"). You can use AWS Lambda functions to
   call the necessary Amazon Pinpoint API operations, and you can include those functions in
-  your AWS CloudFormation templates.
+  your CloudFormation templates.
 - **SMS origination identities** –
   Origination identities are the identities that are used for sending SMS
   messages. Examples of origination identities include short codes, long codes,
