@@ -2,9 +2,9 @@
 
 Disabling trusted access removes the trust relationship between the Network Manager service
 access and your organization. Network Manager is no longer able to perform actions within your
-organization or access information about your organization. Trusted access remains for AWS CloudFormation
+organization or access information about your organization. Trusted access remains for CloudFormation
 StackSets in the event that your organization is using that service outside of Network Manager. For
-more information on disabling AWS CloudFormation StackSets, see [Disabling trusted access with AWS CloudFormation Stacksets](../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md#integrate-disable-ta-cloudformation "../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md#integrate-disable-ta-cloudformation") in the _AWS Organizations User
+more information on disabling CloudFormation StackSets, see [Disabling trusted access with AWS CloudFormation Stacksets](../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md#integrate-disable-ta-cloudformation "../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md#integrate-disable-ta-cloudformation") in the _AWS Organizations User
 Guide_.
 
 Transit gateways from other accounts are deregistered from global networks owned by the

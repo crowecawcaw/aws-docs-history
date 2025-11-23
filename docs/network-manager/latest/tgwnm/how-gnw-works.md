@@ -29,7 +29,7 @@ are automatically included in your global network:
 
 - VPCs
 - Site-to-Site VPN connections
-- AWS Direct Connect gateways
+- Direct Connect gateways
 - Transit Gateway Connect
 - Transit gateway peering connections
 
@@ -100,11 +100,11 @@ network.
 | Transit gateway attachment        | • Direct Connect gateway<br>• Transit gateway<br>• Transit gateway attachment<br>• Transit Gateway Connect peer<br>• VPC<br>• VPN connection |
 | Transit gateway route table       | • Transit gateway                                                                                                                            |
 | Transit Gateway Connect peer      | • Device<br>• Transit gateway attachment                                                                                                     |
-| **AWS VPN resources**             |
+| **Site-to-Site VPN resources**    |
 | **Resource**                      | **Related resources**                                                                                                                        |
 | Customer gateway                  | • Device<br>• VPN connection                                                                                                                 |
 | VPN connection                    | • Customer gateway<br>• Transit gateway attachment                                                                                           |
-| **AWS Direct Connect resources**  |
+| **Direct Connect resources**      |
 | **Resource**                      | **Related resources**                                                                                                                        |
 | Direct Connect connection         | • Virtual interface                                                                                                                          |
 | Direct Connect gateway            | • Transit gateway attachment<br>• Virtual interface                                                                                          |

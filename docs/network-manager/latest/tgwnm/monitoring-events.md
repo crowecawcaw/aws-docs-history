@@ -116,9 +116,9 @@ global network. These include the following:
   (VPC-ATTACHMENT-CREATED)](#vpc-tgw-attach "#vpc-tgw-attach")
 - [A VPC attachment was deleted from a
   transit gateway (VPC-ATTACHMENT-DELETED)](#vpc-attach-tgw-delete "#vpc-attach-tgw-delete")
-- [An AWS Direct Connect gateway was attached to a
+- [An Direct Connect gateway was attached to a
   transit gateway (DXGW-ATTACHMENT-CREATED)](#dx-gateway-attach "#dx-gateway-attach")
-- [An AWS Direct Connect gateway was detached from a
+- [An Direct Connect gateway was detached from a
   transit gateway (DXGW-ATTACHMENT-DELETED)](#dx-gateway-detach "#dx-gateway-detach")
 - [A transit gateway peering connection
   attachment was created (TGW_PEERING_CREATED)](#tgw-peering-attach "#tgw-peering-attach")
@@ -336,7 +336,7 @@ transit gateway (VPC-ATTACHMENT-DELETED)
 }
 ```
 
-### An AWS Direct Connect gateway was attached to a
+### An Direct Connect gateway was attached to a
 
 transit gateway (DXGW-ATTACHMENT-CREATED)
 
@@ -363,7 +363,7 @@ transit gateway (DXGW-ATTACHMENT-CREATED)
 }
 ```
 
-### An AWS Direct Connect gateway was detached from a
+### An Direct Connect gateway was detached from a
 
 transit gateway (DXGW-ATTACHMENT-DELETED)
 

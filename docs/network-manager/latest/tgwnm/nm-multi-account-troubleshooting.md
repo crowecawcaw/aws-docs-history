@@ -37,7 +37,7 @@ network](nm-multi-manage-iam.md "nm-multi-manage-iam.md") to retry the role depl
 
 ###### To change a role from self-managed to StackSets-managed
 
-1. Access the AWS Identity and Access Management (IAM) console at [https://console.aws.amazon.com/iamv2/home?#/](https://console.aws.amazon.com/iamv2/home?#/ "https://console.aws.amazon.com/iamv2/home?#/") with the member account that has a self-managed role
+1. Access the AWS Identity and Access Management (IAM) console at [https://console.aws.amazon.com//iamv2/home?#/](https://console.aws.amazon.com//iamv2/home?#/ "https://console.aws.amazon.com//iamv2/home?#/") with the member account that has a self-managed role
    status.
 2. In the navigation pane, choose **Roles**.
 3. In the **Roles** field, search for the role name you want to

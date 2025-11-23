@@ -1,6 +1,6 @@
 # Multi-account access roles for AWS Global Networks for Transit Gateways
 
-AWS Global Networks for Transit Gateways uses AWS CloudFormation StackSets to deploy and manage the following two custom IAM roles
+AWS Global Networks for Transit Gateways uses CloudFormation StackSets to deploy and manage the following two custom IAM roles
 in AWS Organizations member accounts to support multi-account permissions. These two roles are
 deployed to every member account in the organization when `AWSServiceAccess` is
 enabled (trusted access). For more information about multi-account, see [Manage multiple accounts in global networks using AWS Organizations](nm-multi-account.md#tgw-nm-multi "nm-multi-account.md#tgw-nm-multi").
@@ -112,12 +112,12 @@ Resources:
 ## Permission templates
 
 When choosing the `IAMRoleForAWSNetworkManagerCrossAccountResourceAccess`
-permission, an associated administrative or read-only template is also passed to AWS CloudFormation
+permission, an associated administrative or read-only template is also passed to CloudFormation
 StackSets. These templates contain a list of accounts that are able to assume these
 roles. These accounts include the AWS Organizations management account and all registered
 delegated administrators for the Network Manager service. Deregistering a delegated
 administrator removes it from this list so that it can no longer assume these roles.
-Disabling trusted access deletes the AWS CloudFormation StackSets, and in turn all member account
+Disabling trusted access deletes the CloudFormation StackSets, and in turn all member account
 stacks and custom IAM roles in those accounts that were StackSets-managed for
 multi-account.
 

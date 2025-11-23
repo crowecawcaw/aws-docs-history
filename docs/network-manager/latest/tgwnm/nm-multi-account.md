@@ -55,7 +55,7 @@ information about multi-account, see [Multi-account in AWS Global Networks for T
 
 ### Trusted access
 
-Trusted access creates `AWSServiceAccess` for global networks and AWS CloudFormation StackSets
+Trusted access creates `AWSServiceAccess` for global networks and CloudFormation StackSets
 with AWS Organizations. Enabling trusted access provides required permissions for AWS Organizations to
 deploy service-linked roles (SLRs) to all member accounts within your organization.
 
@@ -79,16 +79,16 @@ accounts.
 The global networks console manages all of this when calling the Network Manager API.
 
 When you enable trusted access, the following roles are deployed in your
-organization using AWS CloudFormation StackSets and AWS Identity and Access Management (IAM) services:
+organization using CloudFormation StackSets and AWS Identity and Access Management (IAM) services:
 
 - The Network Manager SLR (`AWSServiceRoleForNetworkManager`) to
   all member accounts
-- The AWS CloudFormation StackSets member SLR
+- The CloudFormation StackSets member SLR
   (`AWSServiceRoleForCloudFormationStackSetsOrgMember`) to all
   member accounts
 - The Network Manager SLR (`AWSServiceRoleForNetworkManager`) to
   the management account
-- The AWS CloudFormation StackSets admin
+- The CloudFormation StackSets admin
   (`AWSServiceRoleForCloudFormationStackSetsOrgAdmin`) SLR to
   the management account
 - The Amazon CloudWatch sharing role
@@ -115,10 +115,10 @@ access for the Network Manager service if there are any delegated administrators
 that haven't been deregistered from that organization.
 
 - Disabling trusted access through the global networks console won't remove
-  `AWSServiceAccess` for AWS CloudFormation StackSets with AWS Organizations. You
-  can manually remove the service access for AWS CloudFormation StackSets by using the
-  AWS CloudFormation StackSet console or by using the Organizations API/CLI. For more
-  information on disabling trusted access for AWS CloudFormation StackSets, see [Disable trusted access with AWS CloudFormation StackSets](../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md#integrate-disable-ta-cloudformation "../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md#integrate-disable-ta-cloudformation") in the
+  `AWSServiceAccess` for CloudFormation StackSets with AWS Organizations. You
+  can manually remove the service access for CloudFormation StackSets by using the
+  CloudFormation StackSet console or by using the Organizations API/CLI. For more
+  information on disabling trusted access for CloudFormation StackSets, see [Disable trusted access with AWS CloudFormation StackSets](../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md#integrate-disable-ta-cloudformation "../../../organizations/latest/userguide/services-that-can-integrate-cloudformation.md#integrate-disable-ta-cloudformation") in the
   _AWS Organizations User Guide_.
 - Disabling trusted access won't remove any SLRs that were deployed when
   enabling trusted access.
@@ -161,7 +161,7 @@ management account. A delegated administrator for the Network Manager service ca
 the SLRs in the member accounts that were deployed when trusted access was enabled
 and can view transit gateways from other member accounts and can register them to your global
 network. This allows transit gateways and associated resources to appear in your global
-network topology. In addition AWS CloudFormation StackSets is updated to include the delegated
+network topology. In addition CloudFormation StackSets is updated to include the delegated
 administrator accounts in the trusted relationship of the deployed IAM roles in
 the member accounts.
 
@@ -186,7 +186,7 @@ permissions as the management account. The following occurs:
   global network for the specific delegated administrator. The network
   topology is updated to no longer show resources from other member
   accounts.
-- AWS CloudFormation StackSets are updated with the removal of the delegated
+- CloudFormation StackSets are updated with the removal of the delegated
   administrator account. That account is no longer able to assume any IAM
   roles deployed in other member accounts.
 

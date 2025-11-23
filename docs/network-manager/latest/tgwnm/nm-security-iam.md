@@ -120,9 +120,9 @@ The following are example IAM policies for working with global networks.
 
 ###### Administrator access
 
-The following IAM policy grants full access to the Amazon EC2, global networks, AWS Direct Connect, and
+The following IAM policy grants full access to the Amazon EC2, global networks, Direct Connect, and
 CloudWatch APIs. This enables administrators to create and manage transit gateways and
-their attachments (such as VPCs and AWS Direct Connect gateways), create and manage global networks
+their attachments (such as VPCs and Direct Connect gateways), create and manage global networks
 resources, and monitor global networks using CloudWatch metrics and events. The policy
 also grants user permissions to create any required service-linked roles.
 
@@ -169,7 +169,7 @@ JSON
 
 ###### Read-only access
 
-The following IAM policy grants read-only access to the Amazon EC2, global networks, AWS Direct Connect,
+The following IAM policy grants read-only access to the Amazon EC2, global networks, Direct Connect,
 CloudWatch, and EventBridge APIs. This enables users to use the global networks console to view and
 monitor global networks and their associated resources, and view metrics and events
 for the resources. Users cannot create or modify any resources.

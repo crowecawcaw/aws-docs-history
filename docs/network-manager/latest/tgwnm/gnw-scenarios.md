@@ -90,7 +90,7 @@ devices and two separate Site-to-Site VPN connections to AWS. For example, in a 
 campus, you might have multiple devices connected to AWS resources. Each device is
 associated with a customer gateway that's attached to your transit gateway.
 
-Your AWS network is also connected to your on-premises network though an AWS Direct Connect
+Your AWS network is also connected to your on-premises network though an Direct Connect
 gateway, which is an attachment on your transit gateway.
 
 ![Multi-device and multi-link network](images/nm-multi-device-site.png)
