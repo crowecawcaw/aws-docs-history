@@ -14,6 +14,10 @@ The following AWS account types are supported by Pricing Calculator:
 
 For more information about AWS Organizations, see [What is AWS Organizations?](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md")
 
+###### Note
+
+When you use billing transfer as a bill source account, AWS Pricing Calculator provides pricing estimates based on public pricing data, not the rates configured by your bill transfer account.
+
 ## Accessing Pricing Calculator
 
 You can access the Pricing Calculator within the AWS Billing and Cost Management Console and through a set

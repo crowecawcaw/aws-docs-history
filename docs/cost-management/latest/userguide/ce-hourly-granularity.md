@@ -15,3 +15,7 @@ $0.003 ($0.0001 daily cost x 30).
 
 For the provided estimated usage records count, you can calculate the cost
 yourself using the provided formula, or you can use AWS Pricing Calculator.
+
+###### Note
+
+Granular data visibility is only available for billing views that show chargeable data. When you use Billing Conductor as an account in a standard billing group or billing transfer billing group, you can't view granular data in Cost Explorer.

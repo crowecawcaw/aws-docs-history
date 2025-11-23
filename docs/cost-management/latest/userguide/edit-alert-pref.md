@@ -5,6 +5,18 @@ needs.
 
 You can also edit your notification configurations in AWS User Notifications.
 
+###### Note
+
+When using AWS managed monitors, consider that a single threshold applies to all
+tracked values. If you need different alert thresholds for different teams or
+accounts, you can:
+
+- Create supplementary customer managed monitors with dedicated alert
+  subscriptions with specific thresholds
+- Use AWS User Notifications to filter and route alerts based on
+  anomaly attributes
+- Configure Amazon Amazon SNS topics with custom logic for alert routing
+
 Cost monitors
 
 ###### To edit your cost monitors

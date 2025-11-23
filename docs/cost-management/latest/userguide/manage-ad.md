@@ -8,7 +8,7 @@ Using AWS Cost Anomaly Detection includes the following benefits:
 - You receive alerts individually in aggregated reports either in an email message
   or an Amazon SNS topic.
 
-For Amazon SNS topics, create an Amazon Q Developer in chat applications configuration that maps the SNS
+For Amazon SNS topics, create an Amazon Q Developer in chat applications configuration that maps the Amazon SNS
 topic to a Slack channel or an Amazon Chime chat room. For more information, see [Receiving anomaly alerts in chat applications](cad-alert-chime.md "cad-alert-chime.md").
 
 - You can evaluate your spend patterns using machine learning methods to minimize
@@ -33,11 +33,15 @@ topic to a Slack channel or an Amazon Chime chat room. For more information, see
 
 You can opt out of Cost Anomaly Detection at any time. For more information, see [Opting out of Cost Anomaly Detection](opting-out-cad.md "opting-out-cad.md").
 
+Cost Anomaly Detection isn't available for bill source accounts that use billing transfer. Cost Anomaly Detection doesn't support billing transfer views.
+
 ###### Topics
 
 - [Setting up your anomaly detection](settingup-ad.md "settingup-ad.md")
 - [Controlling access for Cost Anomaly Detection](accesscontrol-ad.md "accesscontrol-ad.md")
 - [Getting started with AWS Cost Anomaly Detection](getting-started-ad.md "getting-started-ad.md")
+- [Transitioning from customer to AWS managed
+  monitors](transition-monitors.md "transition-monitors.md")
 - [Editing your alert preferences](edit-alert-pref.md "edit-alert-pref.md")
 - [Creating an Amazon SNS topic for anomaly notifications](ad-SNS.md "ad-SNS.md")
 - [Receiving anomaly alerts in chat applications](cad-alert-chime.md "cad-alert-chime.md")

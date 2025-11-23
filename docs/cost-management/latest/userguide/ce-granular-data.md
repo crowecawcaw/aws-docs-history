@@ -15,9 +15,7 @@ To enable granular data in Cost Explorer, see [Configuring multi-year and granul
 
 ###### Note
 
-Visibility into granular data is only supported for chargeable costs. If you’re
-onboarded to AWS Billing Conductor, you will not be able to view granular data in
-Cost Explorer.
+Granular data visibility is only available for billing views that show chargeable data. When you use Billing Conductor as an account in a standard billing group or billing transfer billing group, you can't view granular data in Cost Explorer.
 
 ###### Topics
 

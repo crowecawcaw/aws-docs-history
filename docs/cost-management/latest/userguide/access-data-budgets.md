@@ -25,6 +25,7 @@ management aligned with your organizational structure or cost allocation strateg
      account.
    - **Custom views**: Shows filtered cost management data based on
      defined criteria.
+   - **AWS managed billing views (billing transfer view and billing group views)**: Shows cost management data for bill source accounts transferring their bills via Billing Transfer and for accounts included in billing groups via .
 
 4. In the navigation pane, choose **Budgets**.
 5. For existing budgets, the budgets list displays only the budgets created using the

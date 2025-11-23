@@ -13,6 +13,10 @@ mode supports the following two options:
 - **Before discounts**: Cost Optimization Hub estimates savings by using AWS public
   (On-Demand) pricing, without incorporating any discounts.
 
+###### Important
+
+When you use billing transfer as a bill source account, the `after discounts` functionality is disabled and you can't enable it. Bill source accounts must validate rightsizing recommendations against their Reserved Instance and Savings Plans inventory to consider any unused commitment before making optimization decisions.
+
 ###### To customize how estimated monthly savings are calculated
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").

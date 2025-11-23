@@ -11,7 +11,7 @@ to go to multiple AWS products to identify cost optimization opportunities.
 
 Cost Optimization Hub helps you quantify and aggregate estimated savings when you implement cost optimization
 recommendations. Cost Optimization Hub accounts for your specific commercial terms with AWS, such as Reserved
-Instances and Savings Plans, so you can easily compare and prioritize recommendations.
+Instances and Savings Plans, so you can easily compare and prioritize recommendations. It helps you measure cost efficiency to establish consistent cost savings benchmarks, set performance goals, and track progress to maximize your return on cloud investments.
 
 After you enable Cost Optimization Hub, you can see estimated monthly savings in AWS Compute Optimizer,
 consistent with the savings estimates in Cost Optimization Hub.
@@ -23,8 +23,8 @@ Cost Optimization Hub provides the following main benefits:
 - Aggregate and deduplicate savings across related cost optimization opportunities.
 - Prioritize your cost optimization recommendations with filtering, sorting, and
   grouping.
-- Measure and benchmark your cost efficiency.
-  Cost Optimization Hub provides you with a console experience and a set of API operations that you can use to
+- Establish consistent cost savings benchmarks, set performance goals, and track progress to maximize your return on cloud investments.
+  Cost Optimization Hub provides you with a console experience and a set of API operations that you can use to measure and track cost efficiency and
   view the findings of the analysis and recommendations for your resources across multiple AWS
   Regions. You can also view findings and recommendations across multiple accounts within your
   organization when you opt in the management account of an organization. The findings from the
@@ -36,6 +36,7 @@ Cost Optimization Hub provides the following main benefits:
 - [Getting started with Cost Optimization Hub](coh-getting-started.md "coh-getting-started.md")
 - [Customizing your Cost Optimization Hub preferences](coh-preferences.md "coh-preferences.md")
 - [Viewing your cost optimization opportunities](coh-view-opportunities.md "coh-view-opportunities.md")
+- [Understanding your cost efficiency metric](coh-cost-efficiency.md "coh-cost-efficiency.md")
 - [Prioritizing your cost optimization
   opportunities](coh-prioritize-opportunities.md "coh-prioritize-opportunities.md")
 - [Understanding cost optimization strategies](coh-optimization-strategies.md "coh-optimization-strategies.md")

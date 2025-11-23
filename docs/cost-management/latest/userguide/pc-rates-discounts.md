@@ -132,7 +132,7 @@ we calculate service-specific coverage percentages based on your usage patterns.
 ## Purchase commitments
 
 The purchase commitments supported by AWS Pricing Calculator
-are Amazon EC2 Reserved Instances (RIs) and Compute and EC2 Instance Savings Plans. For more information, see [Compute and EC2 Instance Savings Plans](https://aws.amazon.com/savingsplans/compute-pricing/ "https://aws.amazon.com/savingsplans/compute-pricing/") and [Amazon EC2 Reserved Instances](https://aws.amazon.com/ec2/pricing/reserved-instances/ "https://aws.amazon.com/ec2/pricing/reserved-instances/").
+are Amazon EC2 Reserved Instances (RIs) and Compute and EC2 Instance Savings Plans. For more information, see [Compute and EC2 Instance Savings Plans](https://aws.amazon.com//savingsplans/compute-pricing/ "https://aws.amazon.com//savingsplans/compute-pricing/") and [Amazon EC2 Reserved Instances](https://aws.amazon.com/ec2/pricing/reserved-instances/ "https://aws.amazon.com/ec2/pricing/reserved-instances/").
 
 You can use Pricing Calculator to model the impact of adding new Savings Plans or Reserved Instances, or removing
 existing commitments as part of a bill scenario. This allows you to see how these commitments would

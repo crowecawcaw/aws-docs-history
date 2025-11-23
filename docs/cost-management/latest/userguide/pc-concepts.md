@@ -32,7 +32,7 @@ This represents your general AWS usage across all services, showing how much of 
 **Commitments**
 
 This represents your AWS commitments like Savings Plans or Reserved Instances, which provide discounted
-pricing in exchange for a term-based commitment. For more information, see [Compute and EC2 Instance Savings Plans](https://aws.amazon.com/savingsplans/compute-pricing/ "https://aws.amazon.com/savingsplans/compute-pricing/") and [Amazon EC2 Reserved Instances](https://aws.amazon.com/ec2/pricing/reserved-instances/ "https://aws.amazon.com/ec2/pricing/reserved-instances/").
+pricing in exchange for a term-based commitment. For more information, see [Compute and EC2 Instance Savings Plans](https://aws.amazon.com//savingsplans/compute-pricing/ "https://aws.amazon.com//savingsplans/compute-pricing/") and [Amazon EC2 Reserved Instances](https://aws.amazon.com/ec2/pricing/reserved-instances/ "https://aws.amazon.com/ec2/pricing/reserved-instances/").
 
 ###### Note
 

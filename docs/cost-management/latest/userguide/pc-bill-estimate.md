@@ -7,7 +7,8 @@ in a given AWS Region, those hours will be added on top of your existing usage f
 type in that Region with no extra input needed. It also includes your existing commitments like
 Savings Plans and Reserved Instances. Your benefit sharing preferences are applied, and any applicable
 discounts, credits, or refunds are included just as they were on your most recent anniversary bill.
-You can model new usage changes as well as add new commitments and modify your existing commitments.
+You can model new usage changes as well as add new commitments, modify your existing commitments, and
+add how you want your reserved instance and savings plans benefits to be shared.
 
 To generate a bill estimate you must create a bill scenario. Bill scenario allows you to
 model commitments in addition to usage. After you complete modeling usage and commitments in a
@@ -17,6 +18,7 @@ scenario, you can run a bill estimate.
 
 - Depending on the size of your workloads, generating a bill estimate can take between 20 minutes to 12 hours.
 - Bill estimates are only available to management accounts and standalone AWS accounts.
+- When you use billing transfer as a bill source account, AWS Pricing Calculator provides pricing estimates based on public pricing data, not the rates configured by your bill transfer account.
 
 ###### Topics
 
@@ -25,6 +27,7 @@ scenario, you can run a bill estimate.
 - [Adding historical usage to your bill scenario](pc-create-bill-scenario-historical-usage.md "pc-create-bill-scenario-historical-usage.md")
 - [Adding new services to my bill scenario](pc-create-bill-scenario-new-service.md "pc-create-bill-scenario-new-service.md")
 - [Adding previously saved estimates to my bill scenario](pc-create-bill-scenario-previous-url.md "pc-create-bill-scenario-previous-url.md")
+- [Adding benefit sharing preference to my bill scenario](pc-create-bill-scenario-preferences.md "pc-create-bill-scenario-preferences.md")
 - [Adding Savings Plans to my bill scenario](pc-create-bill-scenario-sp.md "pc-create-bill-scenario-sp.md")
 - [Adding Reserved Instances to my bill scenario](pc-create-bill-scenario-ri.md "pc-create-bill-scenario-ri.md")
 - [Stale and expired bill scenarios](pc-scenario-stale.md "pc-scenario-stale.md")
@@ -42,4 +45,4 @@ The bill estimates generation engine of AWS Pricing Calculator uses the followin
 | Existing usage                 | Existing usage indicates the unchanged usage level from your last anniversary bill month upon which any<br>of your modeled usage from a bill scenario is layered.                                                                                                                                                                                                                                                                                                                          |
 | Savings Plans inventory        | This inventory indicates active Savings Plans as of the last anniversary bill month. This inventory is<br>automatically included in your bill estimates and any new Savings Plans you model is layered on this inventory<br>that applies to Savings Plans eligible usage.                                                                                                                                                                                                                  |
 | Reserved Instances inventory   | This inventory indicates active Reserved Instances as of the last anniversary bill month. This inventory is automatically<br>included in your bill estimates and any new Reserved Instances you model is layered on this inventory that applies to<br>Reserved Instances eligible usage.                                                                                                                                                                                                   |
-| Benefits sharing preference    | The accounts based on your **Reserved Instances and Savings Plans discount sharing preference**<br>billing preference gets automatic Reserved Instances and Savings Plans discount benefits. We consider this benefit<br>application setting as of the last anniversary bill to apply automatic benefit sharing when estimating your bill.                                                                                                                                                 |
+| Benefits sharing preference    | The accounts based on your **Reserved Instances and Savings Plans discount sharing preference**<br>billing preference gets automatic Reserved Instances and Savings Plans discount benefits. We consider this benefit<br>application setting as of the last anniversary bill to apply automatic benefit sharing when estimating your bill<br>and allow you to layer discount sharing preference changes.                                                                                   |

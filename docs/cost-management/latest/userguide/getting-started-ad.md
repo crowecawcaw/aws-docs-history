@@ -1,7 +1,12 @@
 # Getting started with AWS Cost Anomaly Detection
 
 With AWS Cost Anomaly Detection in AWS Billing and Cost Management, you can configure your cost monitors and alert
-subscriptions in several different ways.
+subscriptions to automatically adapt to your growing AWS environment.
+
+AWS Cost Anomaly Detection offers AWS managed monitors that automatically track costs across all your
+accounts, teams, or business units without manual configuration. As your organization
+grows and changes, these monitors automatically include new accounts, tag values, or
+categories, maintaining comprehensive coverage without additional setup.
 
 ###### Topics
 
@@ -16,28 +21,17 @@ subscriptions in several different ways.
 
 subscriptions
 
-Configure AWS Cost Anomaly Detection so that it detects anomalies at a lower granularity and spend
-patterns, in context to your monitor type.
-
-For example, your spend patterns for Amazon EC2 usage might be different from your
-AWS Lambda or Amazon S3 spend patterns. By segmenting spends by AWS services, AWS Cost Anomaly Detection
-can detect separate spend patterns that help decrease false positive alerts. You can
-also create cost monitors. They can evaluate specific cost allocation tags, member
-accounts within an organization (AWS Organizations), and cost categories based on your
-AWS account structure.
-
-As you create your cost monitors, configure your alert subscriptions specific to
-each monitor.
-
-You can also create individual alerts by setting up AWS User
-Notifications.
+To start monitoring your spend, AWS Cost Anomaly Detection requires setting up at least one cost
+monitor to define what spending patterns to track. After creating your monitor, you
+can attach alert subscriptions to specify who receives notifications and through
+which channels. You can also create individual alerts using AWS User Notifications
+for more granular control over how alerts are delivered.
 
 ###### Note
 
 You can only access cost monitors and alert subscriptions under the account
-that created them. For example, suppose that the cost monitor was created under
-a member account. Then, the management account can't view or edit the cost
-monitors, alert subscriptions, or detected anomalies.
+that created them. Cost monitors for linked accounts, cost allocation tags, and
+cost categories can only be created in the management account
 
 Cost monitors
 
@@ -51,22 +45,61 @@ Cost monitors
 5. In **Step 1**, choose a monitor type and name
    your monitor.
 
-For more information about each monitor type and best
-practices, see [Monitor types](#monitor-type-def "#monitor-type-def").
-
 For **Monitor name**, enter a name for your
 anomaly monitor. We recommend that the name is a short
 description. That way, you know what the monitor represents when
 you view your monitors on the **Cost monitors**
-tab. 6. (Optional) Add a tag to your monitor. For more information
-about tags, see [Tagging AWS
-resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md") in the _AWS General Reference
-guide_.
+tab.
 
-    1. Enter the key value for the tag.
-    2. Choose **Add new tag** to add
-     additional tags. The maximum number of tags that you can
-     add is 50.
+For more information about each monitor type and best
+practices, see [Monitor types](#monitor-type-def "#monitor-type-def").
+
+Choose your monitor method based on your needs:
+
+    * **For AWS managed monitors:**
+
+
+
+
+    	1. Under **Monitor method**, select
+    	 **Managed by AWS**.
+    	2. Select the dimension you want to monitor:
+
+
+
+
+    		+ AWS services - Tracks all
+    		 AWS services automatically
+    		+ Linked account - Tracks all member
+    		 accounts automatically
+    		+ Cost allocation tag - Tracks all values
+    		 for a specified tag key
+    		+ Cost category - Tracks all values in a
+    		 specified category
+    	3. If you selected Cost allocation tag, specify the tag
+    	 key from the dropdown (for example, "application-team"
+    	 or "environment").
+    	4. If you selected Cost category, specify the category
+    	 from the dropdown.
+    * **For customer managed monitors:**
+
+
+
+
+    	1. Select the dimension for your monitor.
+    	2. Under monitor method, select **Customer
+    	 managed**.
+    	3. Choose the specific values you want to monitor (up to
+    	 10).
+
+6. (Optional) Add a tag to your monitor. For more information
+   about tags, see [Tagging AWS
+   resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md") in the _AWS General Reference
+   guide_.
+   1. Enter the key value for the tag.
+   2. Choose **Add new tag** to add
+      additional tags. The maximum number of tags that you can
+      add is 50.
 
 7. Choose **Next**.
 8. In **Step 2**, configure your alert
@@ -85,7 +118,7 @@ detects an anomaly. Depending on the alert frequency, you
 can notify designated individuals by email or Amazon SNS.
 
 For Amazon SNS topics, configure to create an
-Amazon Q Developer in chat applications configuration. This configuration maps the SNS topic
+Amazon Q Developer in chat applications configuration. This configuration maps the Amazon SNS topic
 to a Slack channel or an Amazon Chime chat room. For example,
 create a subscription for the Finance team in your
 organization. For more information, see [Receiving anomaly alerts in chat applications](cad-alert-chime.md "cad-alert-chime.md").
@@ -105,7 +138,7 @@ preferred notification frequency.
 
 
     You can configure the Amazon SNS topic to
-     create an Amazon Q Developer in chat applications configuration that maps the SNS topic to
+     create an Amazon Q Developer in chat applications configuration that maps the Amazon SNS topic to
      a Slack channel or an Amazon Chime chat room. For more
      information, see [Receiving anomaly alerts in chat applications](cad-alert-chime.md "cad-alert-chime.md").
     * **Daily summaries** - An email
@@ -171,6 +204,25 @@ guide_.
     create a new subscription using the same monitor.
 11. Choose **Create monitor**.
 
+**Important considerations for AWS managed
+monitors:**
+
+- Alert subscriptions attached to AWS managed monitors
+  use the same threshold across all tracked values
+- As new member accounts, tags, or categories are added to
+  your AWS environment, they're automatically included
+- You cannot convert existing customer managed monitors to
+  AWS managed monitors
+- For granular alert routing based on specific values,
+  configure AWS User Notifications with JSON filtering patterns
+
+###### Note
+
+AWS managed monitors can track up to 5,000 values within a
+dimension. If your organization has more than 5,000 values (for
+example, more than 5,000 member accounts or tag values), the monitor
+will track the top 5,000 values based on their total spend.
+
 Alert subscriptions
 
 ###### To create an alert
@@ -197,7 +249,7 @@ create additional subscriptions, follow these steps.
      notifications require an Amazon SNS topic.
 
    You can configure the Amazon SNS topic to
-   create an Amazon Q Developer in chat applications configuration that maps the SNS topic to
+   create an Amazon Q Developer in chat applications configuration that maps the Amazon SNS topic to
    a Slack channel or an Amazon Chime chat room. For more
    information, see [Receiving anomaly alerts in chat applications](cad-alert-chime.md "cad-alert-chime.md").
    - **Daily summaries** - An email
@@ -450,6 +502,10 @@ topic
         "maxScore": 0.47
     },
     "anomalyStartDate": "2021-05-25T00:00:00Z",
+    "dimensionKey": {
+        "type": "DIMENSION",
+        "key": "SERVICE"
+    },
     "dimensionalValue": "ServiceName",
     "impact": {
         "maxImpact": 151,
@@ -483,39 +539,52 @@ topic
 
 ## Monitor types
 
-You can choose the monitor type that fits your account structure. Currently, we
-offer the following monitor types:
+You can choose the monitor type that fits your account structure. AWS Cost Anomaly Detection offers
+two approaches for creating monitors: AWS managed monitors that automatically
+track the top 5,000 values independently within a dimension, and customer managed
+monitors that let you select specific values that get monitored in aggregate.
 
-- **AWS services** - We recommend this monitor if you
-  don't need to segment your spend by internal organizations or environments.
-  This single monitor evaluates all the AWS services that are used by your
-  individual AWS account for anomalies. When you add new AWS services, the
-  monitor automatically begins to evaluate the new service for anomalies. That
-  way, you don't have to manually configure your settings.
+| Monitor Dimension    | AWS Managed                                                                                                                                                                                                                                                                                                                | Customer Managed                                                                                                                                                                                         |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AWS services         | Automatically evaluates all AWS services used by your account<br>for anomalies. When you start using new AWS services, the monitor<br>automatically begins evaluating them. Available in both management<br>and member accounts.                                                                                           | Customer managed AWS services monitors are not supported.                                                                                                                                                |
+| Linked Accounts      | Automatically tracks spending patterns across all member accounts<br>in your organization. As new accounts are added, they're<br>automatically included in monitoring coverage. Only available in<br>management accounts.                                                                                                  | Track specific member accounts (up to 10) that you manually<br>select. Spending is aggregated across selected accounts. Useful for<br>monitoring specific project accounts or environments together.     |
+| Cost Allocation Tags | Automatically monitors all unique values for a specified tag key.<br>For example, specifying "application-team" tracks every team value<br>(team-a, team-b, team-c) independently. New tag values are<br>automatically included as they're created.                                                                        | Track specific tag values (up to 10) that you manually select for<br>a given tag key. Useful when you need different thresholds for<br>different tag values or want to monitor only high-priority teams. |
+| Cost Categories      | Automatically tracks all values within a specified cost category.<br>If you have a "business-unit" category with values like "retail",<br>"wholesale", and "operations", the monitor analyzes spending<br>patterns for each unit independently. New cost category values are<br>automatically included as they're created. | Track one specific cost category value that you manually select.<br>Useful for monitoring specific business units or cost centers with<br>unique threshold requirements.                                 |
+
+The maximum number of member accounts or tag values you can select for each
+customer managed monitor is 10.
+
+**When to Use Each Monitor Type**
+
+Use **AWS managed monitors** when you need:
+
+- Comprehensive coverage across all values in a dimension
+- Automatic adaptation as your organization grows
+- Minimal maintenance overhead
+- Consistent monitoring across all teams/accounts
+
+Use **customer managed monitors** when you need:
+
+- Different alert thresholds for different groups
+- To monitor specific subsets of accounts or teams
+- To aggregate spending across specific values
+- Special monitoring for high-priority or sensitive workloads
+
+**Best Practices:**
+
+- Use AWS managed monitors for comprehensive coverage across your
+  primary cost organization dimension
+- Maintain your AWS services monitor alongside other AWS managed
+  monitors for aggregate service-level visibility
+- Use customer managed monitors to supplement AWS managed monitors
+  for specific use cases requiring different thresholds or groupings
+- Avoid creating monitors that span multiple dimensions to prevent
+  duplicate alerts
 
 ###### Note
 
-Management accounts can have one AWS services monitor and up to 500
-custom monitors (linked account, cost allocation tag, and cost category)
-for a total of 501 anomaly monitors. Member accounts only have access to
-the AWS services monitor.
-
-- **Linked account** - This monitor evaluates the total
-  spend of an individual, or group of, member accounts. If your Organizations need to
-  segment spend by team, product, services, or environment, this monitor is
-  useful. The maximum number of member accounts that you can select for each
-  monitor is 10.
-- **Cost category** - This monitor is recommended if you
-  use cost categories to organize and manage your spend. This monitor type is
-  restricted to one `key:value` pair.
-- **Cost allocation tag** - This monitor is similar to
-  **Linked account**. If you to need to segment your
-  spend by team, product, services, or environment, this monitor is useful.
-  This monitor type is restricted to one key, but accepts multiple values. The
-  maximum number of values that you can select for each monitor is 10.
-
-We recommend that you do not create monitors that span multiple monitor types.
-This might lead to evaluating overlapping spends that generate duplicate
-alerts.
+Customer managed monitors were previously called custom monitors. The
+functionality remains the same, with the name change reflecting the distinction
+from monitors that AWS manages on your behalf.
 
 For more information about creating your Amazon SNS topic, see [Creating an Amazon SNS topic for anomaly notifications](ad-SNS.md "ad-SNS.md").

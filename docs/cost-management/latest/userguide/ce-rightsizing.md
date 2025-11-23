@@ -14,6 +14,8 @@ your recommendations, you can take action on the Amazon EC2 console.
 We recommend that you use Cost Optimization Hub to identify cost optimization opportunities. For full
 details, see [Cost Optimization Hub](cost-optimization-hub.md "cost-optimization-hub.md").
 
+Rightsizing recommendations doesn't support billing transfer.
+
 ###### Topics
 
 - [Getting started with rightsizing

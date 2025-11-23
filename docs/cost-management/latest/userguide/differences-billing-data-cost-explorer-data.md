@@ -87,3 +87,5 @@ For example, let's say that a portion of your taxes was refunded. On the
 **Bills** page, the **Taxes by service** tab
 will continue to show the full tax amount. The Cost Explorer data will show the post-refund
 tax amount.
+
+If you use billing transfer and sign in to the Billing and Cost Management console with a bill source account, you can't view credits, refunds, or taxes in the **Bills** page, Cost Explorer, or AWS Cost and Usage Report."

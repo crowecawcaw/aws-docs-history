@@ -6,6 +6,10 @@ Cost Explorer. You do this in the Cost Management preferences in the console.
 However, in order to enable multi-year and granular data, you first need to manage
 access to view and edit your Cost Management preferences. See [Controlling access using IAM](ce-iam-access.md "ce-iam-access.md").
 
+###### Note
+
+Granular data visibility is only available for billing views that show chargeable data. When you use Billing Conductor as an account in a standard billing group or billing transfer billing group, you can't view granular data in Cost Explorer.
+
 ###### To set up multi-year and granular data
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").

@@ -74,3 +74,7 @@ bills.
    section.
 3. Fill out the **How can we help you?** section.
 4. Choose **Submit**.
+
+###### Note
+
+When you use billing transfer, contact the bill transfer account owner first because they control your cost data and receive your AWS invoices. To find the bill transfer account information, go to the **Bill transfer** page, **Outbound billing** tab.

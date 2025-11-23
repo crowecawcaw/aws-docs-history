@@ -21,6 +21,7 @@ cost management data based on the updated definition.
 - [Deleting custom billing views](delete-custom-billing-views.md "delete-custom-billing-views.md")
 - [Managing shared access to custom
   billing views in your organization](manage-shared-access-custom-billing-views.md "manage-shared-access-custom-billing-views.md")
+- [Understanding AWS managed billing views](manage-shared-access-managed-billing-views.md "manage-shared-access-managed-billing-views.md")
 - [Managing shared access to custom
   billing views outside of your organization](manage-external-shared-access-custom-billing-views.md "manage-external-shared-access-custom-billing-views.md")
   You can control which accounts can access a custom billing view by

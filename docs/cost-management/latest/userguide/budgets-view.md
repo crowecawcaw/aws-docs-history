@@ -28,6 +28,8 @@ billing view, you need the `billing:GetBillingViewData` permission. This
 permission is required because the operation provides historical cost and usage data
 from the source account's billing view.
 
+AWS doesn't support billing transfer views for bill transfer accounts.
+
 ###### To view your budgets
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/cost-management/](https://console.aws.amazon.com/cost-management/ "https://console.aws.amazon.com/cost-management/").

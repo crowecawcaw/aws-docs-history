@@ -24,6 +24,10 @@ creating a budget, you can select a billing view to define the scope of cost and
 data the budget will track. For more information on controlling access to cost
 management data using billing views, see [Controlling cost management data access with Billing View](billing-view.md "billing-view.md").
 
+###### Note
+
+AWS doesn't support billing transfer views for bill transfer accounts.
+
 Before you use billing views with budgets, consider the following permissions
 requirements:
 

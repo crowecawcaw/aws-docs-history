@@ -44,7 +44,9 @@ range for your report. Or, alternatively, choose a preconfigured time range
 (**Auto-select**) using the dropdowns shown below the
 calendar. You can choose from a number of historical or forecast time
 ranges. The name of the time range that you choose appears in the
-calendar. 4. Choose **Apply**.
+calendar.
+
+Hourly granularity is not available for billing transfer (showback/ chargeback views and billing group views). 4. Choose **Apply**.
 
 ### Historical time range options
 
@@ -140,11 +142,9 @@ Displays forecast data for the next 3 months. This option is available
 if you choose the **Daily** or
 **Monthly** time granularity.
 
-- +12M
+- +18M
 
-Displays forecast data for the next 12 months. This option is
-available if you choose the **Monthly** time
-granularity.
+Displays forecast data for the next 18 months. This option is available if you choose the Monthly time granularity.
 
 ## Grouping data by filter type
 

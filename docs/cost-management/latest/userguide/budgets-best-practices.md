@@ -70,7 +70,7 @@ section.
 
 ### Using Amazon EC2 Auto Scaling
 
-If a budget action is used to stop an Amazon EC2 instance in an Auto Scaling Group (ASG),
+If a budget action is used to stop an Amazon EC2 instance in an Amazon EC2 Auto Scaling Group (ASG),
 Amazon EC2 Auto Scaling restarts the instance, or launches new instances to replace the stopped
 instance. Therefore, "shutdown budget actions is not effective to Amazon EC2/Amazon RDS
 budget actions" aren't effective unless you combine a second budget action that

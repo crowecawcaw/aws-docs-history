@@ -67,20 +67,20 @@ follows:
      **Notification permissions**. This is
      the IAM policy provided by Amazon Q Developer. It provides
      the necessary Read and List permissions for CloudWatch
-     alarms, events, and logs, and for Amazon SNS topics.
+     alarms, events, and logs, and for Amazon Amazon SNS topics.
 
-16. Set up the SNS topics that will send notifications to the
+16. Set up the Amazon SNS topics that will send notifications to the
     Amazon Chime webhook.
-    1.  For **SNS Region**, choose the AWS
-        Region that hosts the SNS topics for this Amazon Q Developer
-        subscription.
-    2.  For **SNS topics**, choose the SNS topic
-        for the client subscription. This topic determines the
+    1.  For **Amazon SNS Region**, choose the AWS
+        Region that hosts the Amazon SNS topics for this Amazon Q
+        Developer subscription.
+    2.  For **Amazon SNS topics**, choose the Amazon SNS
+        topic for the client subscription. This topic determines the
         content that's sent to the Amazon Chime webhook. If the region
-        has additional SNS topics, you can choose them from the same
-        dropdown list.
-    3.  If you want to add an SNS topic from another Region to the
-        notification subscription, choose **Add another
+        has additional Amazon SNS topics, you can choose them from the
+        same dropdown list.
+    3.  If you want to add an Amazon SNS topic from another Region to
+        the notification subscription, choose **Add another
         Region**.
 
 17. Choose **Configure**.
