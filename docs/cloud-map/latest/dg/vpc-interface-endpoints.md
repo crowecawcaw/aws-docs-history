@@ -4,7 +4,7 @@
 
 You can use AWS PrivateLink to create a private connection between your VPC and AWS Cloud Map.
 You can access AWS Cloud Map as if it were in your VPC, without the use of an internet gateway, NAT
-device, VPN connection, or AWS Direct Connect connection. Instances in your VPC don't need public IP
+device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP
 addresses to access AWS Cloud Map.
 
 You establish this private connection by creating an _interface
