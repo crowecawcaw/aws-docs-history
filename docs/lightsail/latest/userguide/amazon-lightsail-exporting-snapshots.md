@@ -71,7 +71,7 @@ create an EBS volume in Amazon EC2.
 ###### Note
 
 Lightsail uses a CloudFormation stack to create instances and their related resources
-in EC2. For more information, see [AWS CloudFormation stacks for Lightsail](amazon-lightsail-cloudformation-stacks.md "amazon-lightsail-cloudformation-stacks.md").
+in EC2. For more information, see [CloudFormation stacks for Lightsail](amazon-lightsail-cloudformation-stacks.md "amazon-lightsail-cloudformation-stacks.md").
 
 The process to create Amazon EC2 resources from an exported snapshot can take a while. It
 depends on the size and configuration of the source instance. Use the

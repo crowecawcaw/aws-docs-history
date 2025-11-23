@@ -284,7 +284,7 @@ be configured. These are the options available:
 
 Your selections should look like the following example.
 
-![Website redirection options](/images/lightsail/latest/userguide/images/bncert-enable-disable-redirection.png) 4. The changes that are going to be made are listed. Type `Y` and press
+![Website redirection options](images/bncert-enable-disable-redirection.png) 4. The changes that are going to be made are listed. Type `Y` and press
 **Enter** to confirm and continue.
 
 ![Confirming the changes](images/bncert-confirm-changes.png) 5. Enter your email address to associate with your Let's Encrypt certificate and press

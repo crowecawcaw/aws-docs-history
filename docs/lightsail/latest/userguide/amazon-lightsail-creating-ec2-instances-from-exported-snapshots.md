@@ -30,7 +30,7 @@ steps in this guide. For more information, see [Export snapshots to Amazon EC2](
 
 **Contents**
 
-- [AWS CloudFormation stack for
+- [CloudFormation stack for
   Lightsail](#aws-cloud-formation-stack "#aws-cloud-formation-stack")
 - [Prerequisites](#creating-ec2-instances-from-exported-snapshots-prerequisites "#creating-ec2-instances-from-exported-snapshots-prerequisites")
 - [Access the Create an
@@ -40,10 +40,10 @@ steps in this guide. For more information, see [Export snapshots to Amazon EC2](
 - [Track the status of your new Amazon EC2
   instance](#track-the-status "#track-the-status")
 
-## AWS CloudFormation stack for Lightsail
+## CloudFormation stack for Lightsail
 
-Lightsail uses an AWS CloudFormation stack to create EC2 instances and their related resources. For
-more information about the CloudFormation stacks for Lightsail, see [AWS CloudFormation stacks for Lightsail](amazon-lightsail-cloudformation-stacks.md "amazon-lightsail-cloudformation-stacks.md").
+Lightsail uses an CloudFormation stack to create EC2 instances and their related resources. For
+more information about the CloudFormation stacks for Lightsail, see [CloudFormation stacks for Lightsail](amazon-lightsail-cloudformation-stacks.md "amazon-lightsail-cloudformation-stacks.md").
 
 The following additional permissions may need to be configured in IAM depending on the
 user that will create the EC2 instance using the **Create an Amazon EC2 instance**
@@ -63,8 +63,8 @@ page:
   These permissions allow the CloudFormation stack to be created. However, if the
   creation fails, the rollback process might require more permissions. Lack of
   permissions may lead to remaining resources not rolled back in Amazon EC2. If this
-  happens, you can go to the AWS CloudFormation console and manually delete the EC2 resources. For
-  more information, see [AWS CloudFormation
+  happens, you can go to the CloudFormation console and manually delete the EC2 resources. For
+  more information, see [CloudFormation
   stacks for Lightsail](amazon-lightsail-cloudformation-stacks.md "amazon-lightsail-cloudformation-stacks.md")
 
       - ec2:DescribeAvailabilityZones
@@ -235,8 +235,8 @@ following options:
 EC2**.
 
 Lightsail confirms that your instance is being created, and information about the
-AWS CloudFormation stack is displayed. Lightsail uses a CloudFormation stack to create the EC2
-instance and its related resources. For more information, see [AWS CloudFormation stacks for
+CloudFormation stack is displayed. Lightsail uses a CloudFormation stack to create the EC2
+instance and its related resources. For more information, see [CloudFormation stacks for
 Lightsail](amazon-lightsail-cloudformation-stacks.md "amazon-lightsail-cloudformation-stacks.md").
 
 Continue to the [Track the status of

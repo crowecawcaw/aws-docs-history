@@ -121,12 +121,12 @@ Aurora](https://aws.amazon.com/rds/aurora/ "https://aws.amazon.com/rds/aurora/")
 
 **Elastic Load Balancing**
 
-Elastic Load Balancing automatically distributes incoming application traffic across multiple Amazon EC2
+ELB automatically distributes incoming application traffic across multiple Amazon EC2
 instances. It enables you to achieve fault tolerance in your applications, seamlessly
 providing the required amount of load balancing capacity needed to route application
 traffic.
 
-Elastic Load Balancing offers two types of load balancers. Both feature high availability, automatic
+ELB offers two types of load balancers. Both feature high availability, automatic
 scaling, and robust security. These include the Classic Load Balancer that routes traffic based on
 either application or network-level information, and the Application Load Balancer that routes traffic based
 on advanced application-level information that includes the content of the request. The
@@ -136,11 +136,11 @@ and container-based architectures. Application Load Balancer offers the ability 
 services or to load balance across multiple ports on the same Amazon EC2 instance.
 
 [Learn more about
-Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/").
+ELB](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/").
 
 **Application Load Balancer**
 
-An Application Load Balancer is a load balancing option for the Elastic Load Balancing service that operates at the
+An Application Load Balancer is a load balancing option for the ELB service that operates at the
 application layer and allows you to define routing rules based on content across
 multiple services or containers running on one or more Amazon EC2 instances.
 
@@ -258,7 +258,7 @@ supports Docker containers and enables you to easily run applications on a manag
 cluster of Amazon EC2 instances. Amazon ECS eliminates the need for you to install, operate, and
 scale your own cluster management infrastructure. With simple API calls, you can launch
 and stop Docker-enabled applications, query the complete state of your cluster, and
-access many familiar features like security groups, Elastic Load Balancing, Amazon EBS volumes, and IAM
+access many familiar features like security groups, ELB, Amazon EBS volumes, and IAM
 roles. You can use Amazon ECS to schedule the placement of containers across your cluster
 based on your resource needs and availability requirements. You can also integrate your
 own scheduler or third-party schedulers to meet business or application-specific

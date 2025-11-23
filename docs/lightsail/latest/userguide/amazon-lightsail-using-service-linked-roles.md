@@ -40,7 +40,7 @@ specified resources:
 - Action: `ec2:DescribeSnapshots` on all AWS resources.
 - Action: `ec2:CopyImage` on all AWS resources.
 - Action: `ec2:DescribeImages` on all AWS resources.
-- Action: `cloudformation:DescribeStacks` on all AWS AWS CloudFormation stacks.
+- Action: `cloudformation:DescribeStacks` on all AWS CloudFormation stacks.
 - Action: `s3:GetAccountPublicAccessBlock` on all AWS resources.
 
 ### Service-Linked Role Permissions

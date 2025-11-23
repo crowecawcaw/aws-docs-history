@@ -22,7 +22,7 @@ Windows Server instance](prepare-windows-based-instance-and-create-snapshot.md "
 2. On the Lightsail home page, choose the RDP client icon for the instance you want to
    connect to.
 
-![Open the browser-based RDP client with quick connect.](images/connect-to-windows-instance-using-rdp-connection-shortcut.png)
+![Open the browser-based RDP client with quick connect.](/images/lightsail/latest/userguide/images/connect-to-windows-instance-using-rdp-connection-shortcut.png)
 
 The browser-based RDP client window opens, as shown in the following example:
 

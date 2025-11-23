@@ -430,8 +430,24 @@ stack is also known as LEMP (Linux, NGINX, MySQL, and PHP).
 [Deploy and manage an Nginx web server
 on Lightsail](amazon-lightsail-quick-start-guide-nginx.md "amazon-lightsail-quick-start-guide-nginx.md")
 
-Learn more about the [Nginx
+Learn more about the [NGINX
 stack](https://bitnami.com/stack/nginx "https://bitnami.com/stack/nginx") at the _Bitnami_ website.
+
+\***\*Nginx\*\***
+
+The Nginx blueprint provides a complete production environment with PHP, MariaDB, phpMyAdmin, and NGINX.
+Lightsail packages blueprints to be secure and up-to-date using industry best practices.
+
+Lightsail instances launched from Nginx will have Instance Metadata Service Version 2
+(IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md "amazon-lightsail-configuring-instance-metadata-service.md").
+
+This blueprint is compatible with a Lightsail IPv6-only instance plan.
+
+[Deploy and manage an Nginx web server
+on Lightsail](amazon-lightsail-quick-start-guide-nginx.md "amazon-lightsail-quick-start-guide-nginx.md")
+
+Learn more about the [NGINX
+stack](https://nginx.org/en/ "https://nginx.org/en/") at the _NGINX_ website.
 
 \***\*Plesk Hosting Stack on Ubuntu**, **Plesk Hosting Stack on
 Ubuntu (BYOL)\*\***

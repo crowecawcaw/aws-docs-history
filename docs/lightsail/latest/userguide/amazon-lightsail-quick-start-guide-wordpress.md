@@ -87,7 +87,7 @@ Review the following tips before you begin. For troubleshooting information, see
   (`example.com`) and its `www` subdomains
   (`www.example.com`), they will need to propagate throughout the
   Internet. You can verify that your DNS changes have taken effect by using tools such
-  as [nslookup](https://aws.amazon.com/blogs/messaging-and-targeting/how-to-check-your-domain-verification-settings/ "https://aws.amazon.com/blogs/messaging-and-targeting/how-to-check-your-domain-verification-settings/"), or [DNS
+  as [nslookup](https://aws.amazon.com/blogs//messaging-and-targeting/how-to-check-your-domain-verification-settings/ "https://aws.amazon.com/blogs//messaging-and-targeting/how-to-check-your-domain-verification-settings/"), or [DNS
   Lookup](https://mxtoolbox.com/DnsLookup.aspx "https://mxtoolbox.com/DnsLookup.aspx") from _MxToolbox_.
 - Wordpress instances that were created prior to January 1, 2023, might contain a deprecated Certbot Personal Package Archive (PPA) repository that will
   cause website setup to fail. If this repository is present during setup, it will be removed from the existing path and backed up to the following
@@ -178,7 +178,7 @@ you can perform administrative actions. For more information about administering
 WordPress website, see the [WordPress
 Codex](https://codex.wordpress.org/ "https://codex.wordpress.org/") in the WordPress documentation.
 
-![Launching and configuring WordPress in Lightsail.](/images/lightsail/latest/userguide/images/amazon-wordpress-tutorial-08.png)
+![Launching and configuring WordPress in Lightsail.](images/amazon-wordpress-tutorial-08.png)
 
 ## Step 5: Read the
 
