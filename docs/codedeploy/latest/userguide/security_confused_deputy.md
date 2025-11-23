@@ -27,7 +27,7 @@ include the CodeDeploy deployment group ARN with which CodeDeploy is allowed to 
 role.
 
 For [Amazon ECS blue/green
-deployments created through AWS CloudFormation](deployments-create-ecs-cfn.md "deployments-create-ecs-cfn.md"), the value of `aws:SourceArn`
+deployments created through CloudFormation](deployments-create-ecs-cfn.md "deployments-create-ecs-cfn.md"), the value of `aws:SourceArn`
 should include the CloudFormation stack ARN with which CodeDeploy is allowed to assume the IAM
 role.
 
@@ -68,7 +68,7 @@ JSON
 ```
 
 For an [Amazon ECS blue/green
-deployment created through AWS CloudFormation](deployments-create-ecs-cfn.md "deployments-create-ecs-cfn.md"), you might use:
+deployment created through CloudFormation](deployments-create-ecs-cfn.md "deployments-create-ecs-cfn.md"), you might use:
 
 JSON
 

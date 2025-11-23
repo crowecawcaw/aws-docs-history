@@ -1,31 +1,31 @@
 # Create an Amazon ECS blue/green deployment
 
-through AWS CloudFormation
+through CloudFormation
 
 You can use AWS CloudFormation to manage Amazon ECS blue/green deployments through CodeDeploy. You
 generate your deployment by defining your green and blue resources and specifying the
-traffic routing and stabilization settings to use in AWS CloudFormation. This topic covers the
+traffic routing and stabilization settings to use in CloudFormation. This topic covers the
 differences between Amazon ECS blue/green deployments that are managed by CodeDeploy and
-deployments that are managed by AWS CloudFormation.
+deployments that are managed by CloudFormation.
 
-For step-by-step instructions on using AWS CloudFormation to manage your Amazon ECS blue/green
+For step-by-step instructions on using CloudFormation to manage your Amazon ECS blue/green
 deployments, see [Automate ECS blue/green
 deployments through CodeDeploy using AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/blue-green.md "../../../AWSCloudFormation/latest/UserGuide/blue-green.md") in the _AWS CloudFormation
 User Guide_.
 
 ###### Note
 
-Managing Amazon ECS blue/green deployments with AWS CloudFormation is not available in the Asia
+Managing Amazon ECS blue/green deployments with CloudFormation is not available in the Asia
 Pacific (Osaka) region.
 
 ## Differences between Amazon ECS blue/green
 
-deployments through CodeDeploy and AWS CloudFormation
+deployments through CodeDeploy and CloudFormation
 
-The AWS CloudFormation stack template models Amazon ECS task-related resources and infrastructure,
+The CloudFormation stack template models Amazon ECS task-related resources and infrastructure,
 and also the conﬁguration options for deployments. So there are differences between
 the standard Amazon ECS blue/green deployments and blue/green deployments that are
-created through AWS CloudFormation.
+created through CloudFormation.
 
 Unlike standard Amazon ECS blue/green deployments, you don't model or manually create
 the following:
@@ -41,21 +41,21 @@ the following:
 This table summarizes the differences in the high-level workflow between
 deployment types.
 
-| Function                                                                                                                                                              | Standard blue/green deployments                                         | Blue/green deployments through AWS CloudFormation                                                                                |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| Specify the Amazon ECS cluster, Amazon ECS service, Application Load Balancer or Network Load Balancer,<br>Production listener, test listener, and two target groups. | Create a CodeDeploy deployment group that specifies these<br>resources. | Create an AWS CloudFormation template to model these resources.                                                                  |
-| Specify the change to be deployed.                                                                                                                                    | Create a CodeDeploy application.                                        | Create an AWS CloudFormation template that specifies the container<br>image.                                                     |
-| Specify the Amazon ECS task definition, container name, and container<br>port.                                                                                        | Create an AppSpec file that specifies these resources.                  | Create an AWS CloudFormation template to model these resources.                                                                  |
-| Specify the deployment traffic shifting options and lifecycle<br>event hooks.                                                                                         | Create an AppSpec file that specifies these options.                    | Create an AWS CloudFormation template that uses the<br>`AWS::CodeDeploy::BlueGreen` hook parameters to<br>specify these options. |
-| CloudWatch alarms.                                                                                                                                                    | Create a CloudWatch alarm that triggers a rollback.                     | Configure a CloudWatch alarm at the AWS CloudFormation stack level that triggers<br>a rollback.                                  |
-| Rollback/redeployment.                                                                                                                                                | Specify rollback and redeployment options.                              | Cancel the stack update in AWS CloudFormation.                                                                                   |
+| Function                                                                                                                                                              | Standard blue/green deployments                                         | Blue/green deployments through CloudFormation                                                                                |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Specify the Amazon ECS cluster, Amazon ECS service, Application Load Balancer or Network Load Balancer,<br>Production listener, test listener, and two target groups. | Create a CodeDeploy deployment group that specifies these<br>resources. | Create an CloudFormation template to model these resources.                                                                  |
+| Specify the change to be deployed.                                                                                                                                    | Create a CodeDeploy application.                                        | Create an CloudFormation template that specifies the container<br>image.                                                     |
+| Specify the Amazon ECS task definition, container name, and container<br>port.                                                                                        | Create an AppSpec file that specifies these resources.                  | Create an CloudFormation template to model these resources.                                                                  |
+| Specify the deployment traffic shifting options and lifecycle<br>event hooks.                                                                                         | Create an AppSpec file that specifies these options.                    | Create an CloudFormation template that uses the<br>`AWS::CodeDeploy::BlueGreen` hook parameters to<br>specify these options. |
+| CloudWatch alarms.                                                                                                                                                    | Create a CloudWatch alarm that triggers a rollback.                     | Configure a CloudWatch alarm at the CloudFormation stack level that triggers<br>a rollback.                                  |
+| Rollback/redeployment.                                                                                                                                                | Specify rollback and redeployment options.                              | Cancel the stack update in CloudFormation.                                                                                   |
 
 ## Monitoring Amazon ECS blue/green deployments
 
-through AWS CloudFormation
+through CloudFormation
 
-You can monitor blue/green deployments through AWS CloudFormation and CodeDeploy. For information
-about monitoring through AWS CloudFormation, see [Monitoring blue/green events in AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/blue-green.md#blue-green-events "../../../AWSCloudFormation/latest/UserGuide/blue-green.md#blue-green-events") in the _AWS CloudFormation User
+You can monitor blue/green deployments through CloudFormation and CodeDeploy. For information
+about monitoring through CloudFormation, see [Monitoring blue/green events in CloudFormation](../../../AWSCloudFormation/latest/UserGuide/blue-green.md#blue-green-events "../../../AWSCloudFormation/latest/UserGuide/blue-green.md#blue-green-events") in the _AWS CloudFormation User
 Guide_.
 
 ###### To view deployment status of blue/green deployments in CodeDeploy
@@ -65,7 +65,7 @@ Guide_.
 ###### Note
 
 Sign in with the same user that you set up in [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md"). 2. In **Deployments**, the deployment that was triggered by
-the AWS CloudFormation stack update appears. Choose the deployment to view the
+the CloudFormation stack update appears. Choose the deployment to view the
 **Deployment history**.
 
 ![Console screenshot showing the Deployments section and deployment history.](images/cfn-cd-bg-deplhist.png) 3. Choose the deployment to view the traffic shifting status. Note that the
@@ -74,6 +74,6 @@ application and deployment group are not created.
 ![Console screenshot showing the deployment details with deployment status completed.](images/cfn-cd-bg-deplstatus.png) 4. The following apply for rolling back or stopping the deployment:
 
     * The successful deployment appears in CodeDeploy and shows that the
-     deployment was initiated by AWS CloudFormation.
+     deployment was initiated by CloudFormation.
     * If you want to stop and roll back the deployment, you must cancel
-     the stack update in AWS CloudFormation.
+     the stack update in CloudFormation.

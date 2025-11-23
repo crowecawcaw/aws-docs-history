@@ -11,10 +11,10 @@ AWS is not responsible for the content or accuracy of external content.
 
 ## Blog posts
 
-- [Automating CodeDeploy provisioning in AWS CloudFormation](http://www.stelligent.com/cloud/automating-aws-codedeploy-provisioning-in-cloudformation/ "http://www.stelligent.com/cloud/automating-aws-codedeploy-provisioning-in-cloudformation/")
+- [Automating CodeDeploy provisioning in CloudFormation](http://www.stelligent.com/cloud/automating-aws-codedeploy-provisioning-in-cloudformation/ "http://www.stelligent.com/cloud/automating-aws-codedeploy-provisioning-in-cloudformation/")
 
 Learn how to provision the deployment of an application in CodeDeploy by using
-AWS CloudFormation.
+CloudFormation.
 
 _Published January 2016_
 

@@ -5,11 +5,11 @@ the Amazon EC2 instance and its associated resources. Optionally, you can delete
 deployment component records associated with this tutorial. If you were using a GitHub
 repository just for this tutorial, you can delete it now, too.
 
-## To delete a AWS CloudFormation stack
+## To delete a CloudFormation stack
 
-(if you used the AWS CloudFormation template to create an Amazon EC2 instance)
+(if you used the CloudFormation template to create an Amazon EC2 instance)
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. In the **Stacks** column, choose the stack starting with
    `CodeDeploySampleStack`.

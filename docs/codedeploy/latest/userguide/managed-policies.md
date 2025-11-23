@@ -41,7 +41,7 @@ Amazon S3, only to operations specific to CodeDeploy.
        scaling policies, and warm pool features
       + publish information to Amazon SNS topics
       + retrieve information about Amazon CloudWatch alarms
-      + read and update resources in the Elastic Load Balancing service
+      + read and update resources in the ELB service
 
   The policy contains the following code:
 
@@ -172,7 +172,7 @@ role types that act on behalf of CodeDeploy:
       + To read either the tags applied to the instances or the Amazon EC2 Auto Scaling group names
        associated with the instances. This enables CodeDeploy to identify instances to which it
        can deploy applications.
-      + To perform operations on instances, Amazon EC2 Auto Scaling groups, and Elastic Load Balancing load balancers.
+      + To perform operations on instances, Amazon EC2 Auto Scaling groups, and ELB load balancers.
       + To publish information to Amazon SNS topics so that notifications can be sent when
        specified deployment or instance events occur.
       + To retrieve information about CloudWatch alarms to set up alarm monitoring for

@@ -25,7 +25,7 @@ EC2/on-premises compute platform
   have an existing Amazon EC2 Auto Scaling group to use as a template for your replacement
   environment, or you have one or more instances or Amazon EC2 Auto Scaling groups that you
   specify as your original environment. For more information, see [Tutorial: Use CodeDeploy to deploy an application
-  to an Auto Scaling group](tutorials-auto-scaling-group.md "tutorials-auto-scaling-group.md") and [Integrating CodeDeploy with Amazon EC2 Auto Scaling](integrations-aws-auto-scaling.md "integrations-aws-auto-scaling.md").
+  to an Amazon EC2 Auto Scaling group](tutorials-auto-scaling-group.md "tutorials-auto-scaling-group.md") and [Integrating CodeDeploy with Amazon EC2 Auto Scaling](integrations-aws-auto-scaling.md "integrations-aws-auto-scaling.md").
 - Create an application that includes at least one deployment group. For
   information, see [Create an application with CodeDeploy](applications-create.md "applications-create.md") and [Create a deployment group with CodeDeploy](deployment-groups-create.md "deployment-groups-create.md").
 - Prepare the application revision that you want to deploy to the instances
@@ -98,13 +98,13 @@ examples](../../../AmazonS3/latest/userguide/example-bucket-policies.md "../../.
 - If you are creating a blue/green deployment, or you have specified an
   optional Classic Load Balancer, Application Load Balancer, or Network Load Balancer in the deployment group for an in-place
   deployment, you have created a VPC using Amazon VPC that contains at least two
-  subnets. (CodeDeploy uses Elastic Load Balancing, which requires all instances in a load balancer
+  subnets. (CodeDeploy uses ELB, which requires all instances in a load balancer
   group to be in a single VPC.)
 
 If you have not created a VPC yet, see the [Amazon VPC Getting Started Guide](../../../AmazonVPC/latest/GettingStartedGuide/ExerciseOverview.md "../../../AmazonVPC/latest/GettingStartedGuide/ExerciseOverview.md").
 
 - If you are creating a blue/green deployment, you have configured at least
-  one Classic Load Balancer, Application Load Balancer, or Network Load Balancer in Elastic Load Balancing and used it to register the instances
+  one Classic Load Balancer, Application Load Balancer, or Network Load Balancer in ELB and used it to register the instances
   that make up your original environment.
 
 ###### Note
@@ -112,17 +112,17 @@ If you have not created a VPC yet, see the [Amazon VPC Getting Started Guide](..
 The instances in your replacement environment will be registered with
 the load balancer later.
 
-For more information about configuring a load balancer, see [Set up a load balancer in Elastic Load Balancing
+For more information about configuring a load balancer, see [Set up a load balancer in ELB
 for CodeDeploy Amazon EC2 deployments](deployment-groups-create-load-balancer.md "deployment-groups-create-load-balancer.md"), and [Set up a load balancer,
 target groups, and listeners for CodeDeploy Amazon ECS deployments](deployment-groups-create-load-balancer-for-ecs.md "deployment-groups-create-load-balancer-for-ecs.md").
 
 ## Deployment prerequisites for a
 
-blue/green deployment through AWS CloudFormation
+blue/green deployment through CloudFormation
 
 - Your template does not need to model resources for a CodeDeploy application or
   deployment group.
 - Your template must include resources for a VPC using Amazon VPC that contains
   at least two subnets.
-- Your template must include resources for one or more Classic Load Balancers, Application Load Balancers, or Network Load Balancers in Elastic Load Balancing
+- Your template must include resources for one or more Classic Load Balancers, Application Load Balancers, or Network Load Balancers in ELB
   that are used to direct traffic to your target groups.

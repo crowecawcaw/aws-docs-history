@@ -2,7 +2,7 @@
 
 An _application_ is simply a name or container used by CodeDeploy to ensure
 that the correct revision, deployment configuration, and deployment group are referenced
-during a deployment. You can use the CodeDeploy console, the AWS CLI, the CodeDeploy APIs, or an AWS CloudFormation
+during a deployment. You can use the CodeDeploy console, the AWS CLI, the CodeDeploy APIs, or an CloudFormation
 template to create applications.
 
 Your code, or application revision, is installed to instances through a process called a
@@ -28,7 +28,7 @@ deployment. CodeDeploy supports two types of deployments:
       	- The latest application revision is installed on the replacement instances.
       	- An optional wait time occurs for activities such as application testing and system
       	 verification.
-      	- Instances in the replacement environment are registered with one or more Elastic Load Balancing load
+      	- Instances in the replacement environment are registered with one or more ELB load
       	 balancers, causing traffic to be rerouted to them. Instances in the original
       	 environment are deregistered and can be terminated or kept running for other
       	 uses.
@@ -36,7 +36,7 @@ deployment. CodeDeploy supports two types of deployments:
 
       If you use an EC2/On-Premises compute platform, be aware that blue/green deployments work with Amazon EC2 instances only.
       + **Blue/green on an AWS Lambda or Amazon ECS compute platform**: Traffic is shifted in increments according to a **canary**, **linear**, or **all-at-once** deployment configuration.
-      + **Blue/green deployments through AWS CloudFormation**: Traffic is shifted from your current resources to your updated resources as part of an AWS CloudFormation stack update. Currently, only ECS blue/green deployments are supported.
+      + **Blue/green deployments through CloudFormation**: Traffic is shifted from your current resources to your updated resources as part of an CloudFormation stack update. Currently, only ECS blue/green deployments are supported.
 
   For more information about blue/green deployments, see [Overview of a blue/green
   deployment](welcome.md#welcome-deployment-overview-blue-green "welcome.md#welcome-deployment-overview-blue-green").
@@ -45,7 +45,7 @@ deployment. CodeDeploy supports two types of deployments:
   create its first deployment group in a separate step.
 
 To view a list of applications already registered to your AWS account, see [View application details with CodeDeploy](applications-view-details.md "applications-view-details.md"). For
-information about using an AWS CloudFormation template to create an application, see [AWS CloudFormation templates for CodeDeploy
+information about using an CloudFormation template to create an application, see [CloudFormation templates for CodeDeploy
 reference](reference-cloudformation-templates.md "reference-cloudformation-templates.md").
 
 Both deployment types do not apply to all destinations. The following table lists which

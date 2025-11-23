@@ -6,12 +6,12 @@ You've now successfully made an update to the "Hello, World!" code and redeploye
 To avoid ongoing charges for resources you created to complete this tutorial, you should
 delete:
 
-- Any AWS CloudFormation stacks (or terminate any Amazon EC2 instances, if you created them outside of
-  AWS CloudFormation).
+- Any CloudFormation stacks (or terminate any Amazon EC2 instances, if you created them outside of
+  CloudFormation).
 - Any Amazon S3 buckets.
 - The `HelloWorld_App` application in CodeDeploy.
 - The AWS Systems Manager State Manager association for the CodeDeploy agent.
-  You can use the AWS CLI, the AWS CloudFormation, Amazon S3, Amazon EC2, and CodeDeploy consoles, or the AWS APIs to
+  You can use the AWS CLI, the CloudFormation, Amazon S3, Amazon EC2, and CodeDeploy consoles, or the AWS APIs to
   perform the cleanup.
 
 ###### Topics
@@ -22,7 +22,7 @@ delete:
 
 ## To use clean up resources (CLI)
 
-1. If you used the AWS CloudFormation stack for this tutorial, delete the stack by calling the
+1. If you used the CloudFormation stack for this tutorial, delete the stack by calling the
    **delete-stack** command against the stack named
    `CodeDeployDemoStack`. This terminates all accompanying Amazon EC2
    instances and delete all accompanying IAM roles originally created by the stack.
@@ -62,7 +62,7 @@ You can get the `association-id` by calling the
 aws ssm describe-association --name AWS-ConfigureAWSPackage --targets Key=tag:Name,Values=CodeDeployDemo
 ```
 
-5. If you did not use the AWS CloudFormation stack for this tutorial, call the
+5. If you did not use the CloudFormation stack for this tutorial, call the
    **terminate-instances** command to terminate Amazon EC2 instances you manually
    created. Supply the ID of the Amazon EC2 instance to terminate.
 
@@ -72,19 +72,19 @@ aws ec2 terminate-instances --instance-ids `instanceId`
 
 ## To clean up resources (console)
 
-If you used our AWS CloudFormation template for this tutorial, delete the associated AWS CloudFormation
+If you used our CloudFormation template for this tutorial, delete the associated CloudFormation
 stack.
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2. In the search box, type the AWS CloudFormation stack name (for example,
+2. In the search box, type the CloudFormation stack name (for example,
    `CodeDeployDemoStack`).
 3. Select the box beside the stack name.
 4. In the **Actions** menu, choose **Delete Stack**.
    This deletes the stack, terminate all accompanying Amazon EC2 instances, and delete all
    accompanying IAM roles.
 
-To terminate Amazon EC2 instances you created outside of an AWS CloudFormation stack:
+To terminate Amazon EC2 instances you created outside of an CloudFormation stack:
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").

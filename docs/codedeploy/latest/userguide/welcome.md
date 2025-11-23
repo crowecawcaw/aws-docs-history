@@ -116,7 +116,7 @@ linear, or all-at-once configuration.
 ###### Note
 
 Amazon ECS blue/green deployments are supported using both CodeDeploy and
-AWS CloudFormation. Details for these deployments are described in subsequent sections.
+CloudFormation. Details for these deployments are described in subsequent sections.
 
 The following table describes how CodeDeploy components are used with each compute platform.
 For more information, see:
@@ -165,7 +165,7 @@ AWS Lambda and Amazon ECS deployments cannot use an in-place deployment type.
       	- The latest application revision is installed on the replacement instances.
       	- An optional wait time occurs for activities such as application testing and system
       	 verification.
-      	- Instances in the replacement environment are registered with one or more Elastic Load Balancing load
+      	- Instances in the replacement environment are registered with one or more ELB load
       	 balancers, causing traffic to be rerouted to them. Instances in the original
       	 environment are deregistered and can be terminated or kept running for other
       	 uses.
@@ -173,7 +173,7 @@ AWS Lambda and Amazon ECS deployments cannot use an in-place deployment type.
 
       If you use an EC2/On-Premises compute platform, be aware that blue/green deployments work with Amazon EC2 instances only.
       + **Blue/green on an AWS Lambda or Amazon ECS compute platform**: Traffic is shifted in increments according to a **canary**, **linear**, or **all-at-once** deployment configuration.
-      + **Blue/green deployments through AWS CloudFormation**: Traffic is shifted from your current resources to your updated resources as part of an AWS CloudFormation stack update. Currently, only ECS blue/green deployments are supported.
+      + **Blue/green deployments through CloudFormation**: Traffic is shifted from your current resources to your updated resources as part of an CloudFormation stack update. Currently, only ECS blue/green deployments are supported.
 
   For more information about blue/green deployments, see [Overview of a blue/green
   deployment](#welcome-deployment-overview-blue-green "#welcome-deployment-overview-blue-green").
@@ -264,20 +264,20 @@ offers a number of advantages over an in-place deployment:
 - If you're using the Amazon ECS compute platform, you control how traffic is shifted
   from your original task set to your new task set.
 
-A blue/green deployment with AWS CloudFormation can use one of the following methods:
+A blue/green deployment with CloudFormation can use one of the following methods:
 
-- **AWS CloudFormation templates for deployments**: When you configure
-  deployments with AWS CloudFormation templates, your deployments are triggered by AWS CloudFormation updates. When
-  you change a resource and upload a template change, a stack update in AWS CloudFormation initiates
-  the new deployment. For a list of resources you can use in AWS CloudFormation templates, see [AWS CloudFormation templates for CodeDeploy
+- **CloudFormation templates for deployments**: When you configure
+  deployments with CloudFormation templates, your deployments are triggered by CloudFormation updates. When
+  you change a resource and upload a template change, a stack update in CloudFormation initiates
+  the new deployment. For a list of resources you can use in CloudFormation templates, see [CloudFormation templates for CodeDeploy
   reference](reference-cloudformation-templates.md "reference-cloudformation-templates.md").
-- **Blue/green deployments through AWS CloudFormation**: You can use
-  AWS CloudFormation to manage your blue/green deployments through stack updates. You define both your
+- **Blue/green deployments through CloudFormation**: You can use
+  CloudFormation to manage your blue/green deployments through stack updates. You define both your
   blue and green resources, in addition to specifying the traffic routing and
   stabilization settings, within the stack template. Then, if you update selected
-  resources during a stack update, AWS CloudFormation generates all the necessary green resources,
+  resources during a stack update, CloudFormation generates all the necessary green resources,
   shifts the traffic based on the specified traffic routing parameters, and deletes the
-  blue resources. For more information, see [Automate Amazon ECS blue/green deployments through CodeDeploy using AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/blue-green.md "../../../AWSCloudFormation/latest/UserGuide/blue-green.md") in the
+  blue resources. For more information, see [Automate Amazon ECS blue/green deployments through CodeDeploy using CloudFormation](../../../AWSCloudFormation/latest/UserGuide/blue-green.md "../../../AWSCloudFormation/latest/UserGuide/blue-green.md") in the
   _AWS CloudFormation User Guide_.
 
 ###### Note
@@ -371,32 +371,32 @@ Here's how it works:
       is paused. This is the time when you can run tests and verifications in your
       replacement environment. If you don't manually reroute the traffic before the end
       of the wait period, the deployment is stopped.
-   4. Instances in the replacement environment are registered with an Elastic Load Balancing load
+   4. Instances in the replacement environment are registered with an ELB load
       balancer and traffic starts being routed to them.
    5. Instances in the original environment are deregistered and handled according
       to your specification in the deployment group, either terminated or kept
       running.
 
-#### Blue/Green deployment through AWS CloudFormation
+#### Blue/Green deployment through CloudFormation
 
-You can manage CodeDeploy blue/green deployments by modeling your resources with an AWS CloudFormation
+You can manage CodeDeploy blue/green deployments by modeling your resources with an CloudFormation
 template.
 
-When you model your blue/green resources using an AWS CloudFormation template, you create a stack
-update in AWS CloudFormation that updates your task set. Production traffic shifts from your service's
+When you model your blue/green resources using an CloudFormation template, you create a stack
+update in CloudFormation that updates your task set. Production traffic shifts from your service's
 original task set to a replacement task set either all at once, with linear deployments
 and bake times, or with canary deployments. The stack update initiates a deployment in
 CodeDeploy. You can view the deployment status and history in CodeDeploy, but you do not otherwise
-create or manage CodeDeploy resources outside of the AWS CloudFormation template.
+create or manage CodeDeploy resources outside of the CloudFormation template.
 
 ###### Note
 
-For blue/green deployments through AWS CloudFormation, you don't create a CodeDeploy application or
+For blue/green deployments through CloudFormation, you don't create a CodeDeploy application or
 deployment group.
 
 This method supports Amazon ECS blue/green deployments only. For more information about
-blue/green deployments through AWS CloudFormation, see [Create an Amazon ECS blue/green deployment
-through AWS CloudFormation](deployments-create-ecs-cfn.md "deployments-create-ecs-cfn.md").
+blue/green deployments through CloudFormation, see [Create an Amazon ECS blue/green deployment
+through CloudFormation](deployments-create-ecs-cfn.md "deployments-create-ecs-cfn.md").
 
 ## We want to hear from you
 

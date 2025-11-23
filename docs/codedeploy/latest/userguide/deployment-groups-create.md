@@ -1,8 +1,8 @@
 # Create a deployment group with CodeDeploy
 
-You can use the CodeDeploy console, the AWS CLI, the CodeDeploy APIs, or an AWS CloudFormation template to create
-deployment groups. For information about using an AWS CloudFormation template to create a deployment
-group, see [AWS CloudFormation templates for CodeDeploy
+You can use the CodeDeploy console, the AWS CLI, the CodeDeploy APIs, or an CloudFormation template to create
+deployment groups. For information about using an CloudFormation template to create a deployment
+group, see [CloudFormation templates for CodeDeploy
 reference](reference-cloudformation-templates.md "reference-cloudformation-templates.md").
 
 When you use the CodeDeploy console to create an application, you configure its first
@@ -21,7 +21,7 @@ CodeDeploy](getting-started-create-service-role.md "getting-started-create-servi
   EC2/On-Premises blue/green deployment (console)](deployment-groups-create-blue-green.md "deployment-groups-create-blue-green.md")
 - [Create a deployment group for an
   Amazon ECS deployment (console)](deployment-groups-create-ecs.md "deployment-groups-create-ecs.md")
-- [Set up a load balancer in Elastic Load Balancing
+- [Set up a load balancer in ELB
   for CodeDeploy Amazon EC2 deployments](deployment-groups-create-load-balancer.md "deployment-groups-create-load-balancer.md")
 - [Set up a load balancer,
   target groups, and listeners for CodeDeploy Amazon ECS deployments](deployment-groups-create-load-balancer-for-ecs.md "deployment-groups-create-load-balancer-for-ecs.md")

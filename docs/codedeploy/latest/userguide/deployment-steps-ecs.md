@@ -59,7 +59,7 @@ Guide_.
 
 **Application Load Balancer or Network Load Balancer**
 
-You must use Elastic Load Balancing with the Amazon ECS service you want to update with an Amazon ECS
+You must use ELB with the Amazon ECS service you want to update with an Amazon ECS
 deployment. You can use an Application Load Balancer or a Network Load Balancer. We recommend an Application Load Balancer so you can take
 advantage of features such as dynamic port mapping and path-based routing and priority
 rules. You specify the load balancer when you create your CodeDeploy application's
@@ -75,7 +75,7 @@ specify an optional second test listener that directs traffic to your replacemen
 set while you run validation tests. You specify one or both listeners when you create
 your deployment group. If you use the Amazon ECS console to create your Amazon ECS service, your
 listeners are created for you. For more information, see [Listeners for your application load
-balancers](../../../elasticloadbalancing/latest/application/load-balancer-listener.md "../../../elasticloadbalancing/latest/application/load-balancer-listener.md") in the _Elastic Load Balancing User Guide_ and
+balancers](../../../elasticloadbalancing/latest/application/load-balancer-listener.md "../../../elasticloadbalancing/latest/application/load-balancer-listener.md") in the _ELB User Guide_ and
 [Creating a service](../../../AmazonECS/latest/developerguide/create-service.md "../../../AmazonECS/latest/developerguide/create-service.md") in the
 _Amazon Elastic Container Service User Guide_.
 
@@ -94,7 +94,7 @@ original task set) and associates one target group with it, and then associates 
 other target group with the replacement task set. If you do another deployment, the
 target group associated with the current deployment's original task set is associated
 with the next deployment's replacement task set. For more information, see [Target groups for your
-application load balancers](../../../elasticloadbalancing/latest/application/load-balancer-target-groups.md "../../../elasticloadbalancing/latest/application/load-balancer-target-groups.md") in the _Elastic Load Balancing User
+application load balancers](../../../elasticloadbalancing/latest/application/load-balancer-target-groups.md "../../../elasticloadbalancing/latest/application/load-balancer-target-groups.md") in the _ELB User
 Guide_.
 
 **An Amazon ECS task
@@ -342,9 +342,9 @@ AWS CloudFormation
 
 You can use AWS CloudFormation to manage Amazon ECS blue/green deployments through CodeDeploy. For more
 information, see [Create an Amazon ECS blue/green deployment
-through AWS CloudFormation](deployments-create-ecs-cfn.md "deployments-create-ecs-cfn.md").
+through CloudFormation](deployments-create-ecs-cfn.md "deployments-create-ecs-cfn.md").
 
 ###### Note
 
-Managing Amazon ECS blue/green deployments with AWS CloudFormation is not available in the
+Managing Amazon ECS blue/green deployments with CloudFormation is not available in the
 Asia Pacific (Osaka) region.

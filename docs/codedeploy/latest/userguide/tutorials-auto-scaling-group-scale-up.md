@@ -1,23 +1,23 @@
 # Step 4: Increase the number of
 
-Amazon EC2 instances in the Auto Scaling group
+Amazon EC2 instances in the Amazon EC2 Auto Scaling group
 
-In this step, you instruct the Auto Scaling group to create an additional Amazon EC2 instance.
+In this step, you instruct the Amazon EC2 Auto Scaling group to create an additional Amazon EC2 instance.
 After Amazon EC2 Auto Scaling creates the instance, CodeDeploy deploys your revision to it.
 
 ###### Topics
 
 - [To scale out the number
-  of Amazon EC2 instances in the Auto Scaling group (CLI)](#tutorials-auto-scaling-group-scale-up-cli "#tutorials-auto-scaling-group-scale-up-cli")
+  of Amazon EC2 instances in the Amazon EC2 Auto Scaling group (CLI)](#tutorials-auto-scaling-group-scale-up-cli "#tutorials-auto-scaling-group-scale-up-cli")
 - [To scale out the
   number of Amazon EC2 instances in the deployment group (console)](#tutorials-auto-scaling-group-scale-up-console "#tutorials-auto-scaling-group-scale-up-console")
 
 ## To scale out the number
 
-of Amazon EC2 instances in the Auto Scaling group (CLI)
+of Amazon EC2 instances in the Amazon EC2 Auto Scaling group (CLI)
 
 1. Call the **update-auto-scaling-group** command to increase
-   the Amazon EC2 instances in the Auto Scaling group named
+   the Amazon EC2 instances in the Amazon EC2 Auto Scaling group named
    `CodeDeployDemo-AS-Group` from one to
    two.
 
@@ -37,7 +37,7 @@ On local Windows machines:
 aws autoscaling update-auto-scaling-group --auto-scaling-group-name CodeDeployDemo-AS-Group --min-size 2 --max-size 2 --desired-capacity 2
 ```
 
-2. Make sure the Auto Scaling group now has two Amazon EC2 instances. Call the
+2. Make sure the Amazon EC2 Auto Scaling group now has two Amazon EC2 instances. Call the
    **describe-auto-scaling-groups** command against
    `CodeDeployDemo-AS-Group`:
 
@@ -52,8 +52,8 @@ and `InService`.
 
 number of Amazon EC2 instances in the deployment group (console)
 
-1. In the Amazon EC2 navigation bar, under **Auto Scaling**, choose
-   **Auto Scaling Groups**, and then choose
+1. In the Amazon EC2 navigation bar, under **Amazon EC2 Auto Scaling**, choose
+   **Amazon EC2 Auto Scaling Groups**, and then choose
    `CodeDeployDemo-AS-Group`.
 2. Choose **Actions**, and then choose
    **Edit**.

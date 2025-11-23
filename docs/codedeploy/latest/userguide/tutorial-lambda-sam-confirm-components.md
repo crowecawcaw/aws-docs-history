@@ -7,7 +7,7 @@ function.
 
 ###### To see the result of your stack after you run `sam deploy`
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. In the navigation pane, choose **Stacks**. The
    `my-date-time-app` stack appears at the top.
@@ -24,10 +24,10 @@ function.
 ###### Note
 
 The name of the `myDateTimeFunction` Lambda function is prepended with
-the name of the AWS CloudFormation stack and has an identifier added to it, so it looks like
+the name of the CloudFormation stack and has an identifier added to it, so it looks like
 `my-date-time-app-myDateTimeFunction-123456ABCDEF`. 5. Open the CodeDeploy console at
 [https://console.aws.amazon.com/codedeploy/](https://console.aws.amazon.com/codedeploy/ "https://console.aws.amazon.com/codedeploy/"). 6. In the navigation pane, expand **Deploy**, and then choose
-**Applications**. 7. You should see a new CodeDeploy application created by AWS CloudFormation with a name that starts
+**Applications**. 7. You should see a new CodeDeploy application created by CloudFormation with a name that starts
 with `my-date-time-app-ServerlessDeploymentApplication`. Choose this
 application. 8. You should see a deployment group with a name that starts with
 `my-date-time-app-myDateTimeFunctionDeploymentGroup`. Choose this

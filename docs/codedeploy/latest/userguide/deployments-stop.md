@@ -18,7 +18,7 @@ a deployment or stop and roll back a deployment.
 
 ###### Note
 
-If your deployment is a blue/green deployment through AWS CloudFormation, you cannot perform this task in the CodeDeploy console. Go to the AWS CloudFormation console to perform this task.
+If your deployment is a blue/green deployment through CloudFormation, you cannot perform this task in the CodeDeploy console. Go to the CloudFormation console to perform this task.
 
 ## Stop a deployment (console)
 

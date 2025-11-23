@@ -2,7 +2,7 @@
 
 Use the AWS SAM **sam deploy** command with the
 `package.yml` file to create your Lambda functions and CodeDeploy application
-and deployment group using AWS CloudFormation.
+and deployment group using CloudFormation.
 
 ###### Note
 
@@ -17,5 +17,5 @@ sam deploy \
   --capabilities CAPABILITY_IAM
 ```
 
-The `--capabilities CAPABILITY_IAM` parameter is required to authorize AWS CloudFormation
+The `--capabilities CAPABILITY_IAM` parameter is required to authorize CloudFormation
 to create IAM roles.

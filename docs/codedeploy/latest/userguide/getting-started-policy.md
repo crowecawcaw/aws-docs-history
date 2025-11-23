@@ -84,10 +84,10 @@ The preceding policy lets you deploy an application to an
 AWS Lambda compute platform, an EC2/On-Premises compute platform, and an
 Amazon ECS compute platform.
 
-You can use the AWS CloudFormation templates provided in this documentation to launch Amazon EC2
-instances that are compatible with CodeDeploy. To use AWS CloudFormation templates to create applications,
-deployment groups, or deployment configurations, you must provide access to AWS CloudFormation—and
-AWS services and actions that AWS CloudFormation depends on—by adding the
+You can use the CloudFormation templates provided in this documentation to launch Amazon EC2
+instances that are compatible with CodeDeploy. To use CloudFormation templates to create applications,
+deployment groups, or deployment configurations, you must provide access to CloudFormation—and
+AWS services and actions that CloudFormation depends on—by adding the
 `cloudformation:*` permission to the CodeDeploy administrative user's permission
 policy, like this:
 

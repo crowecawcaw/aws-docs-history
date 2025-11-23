@@ -17,7 +17,7 @@ locations and names as you perform the procedures.
 - [Tutorial: Deploy an application to an
   on-premises instance with CodeDeploy (Windows Server, Ubuntu Server, or Red Hat Enterprise Linux)](tutorials-on-premises-instance.md "tutorials-on-premises-instance.md")
 - [Tutorial: Use CodeDeploy to deploy an application
-  to an Auto Scaling group](tutorials-auto-scaling-group.md "tutorials-auto-scaling-group.md")
+  to an Amazon EC2 Auto Scaling group](tutorials-auto-scaling-group.md "tutorials-auto-scaling-group.md")
 - [Tutorial: Use CodeDeploy to deploy an application from
   GitHub](tutorials-github.md "tutorials-github.md")
 - [Tutorial: Deploy an application into Amazon ECS](tutorial-ecs-deployment.md "tutorial-ecs-deployment.md")

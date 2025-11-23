@@ -36,8 +36,8 @@ sam deploy \
   --capabilities CAPABILITY_IAM
 ```
 
-Because the stack name is still `my-date-time-app`, AWS CloudFormation recognizes that
-this is a stack update. To view your updated stack, return the AWS CloudFormation console, and from the
+Because the stack name is still `my-date-time-app`, CloudFormation recognizes that
+this is a stack update. To view your updated stack, return the CloudFormation console, and from the
 navigation pane, choose **Stacks**.
 
 ###### (Optional) to view traffic during a deployment (CodeDeploy console)

@@ -13,5 +13,5 @@ use in your CodeDeploy deployments.
 
 - [Create an Amazon EC2 instance for
   CodeDeploy](instances-ec2-create.md "instances-ec2-create.md")
-- [Create an Amazon EC2 instance (AWS CloudFormation template)](instances-ec2-create-cloudformation-template.md "instances-ec2-create-cloudformation-template.md")
+- [Create an Amazon EC2 instance (CloudFormation template)](instances-ec2-create-cloudformation-template.md "instances-ec2-create-cloudformation-template.md")
 - [Configure an Amazon EC2 instance](instances-ec2-configure.md "instances-ec2-configure.md")

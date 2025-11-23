@@ -307,7 +307,7 @@ AllowTraffic lifecycle event with no error reported in the deployment logs
 In some cases, a blue/green deployment fails during the AllowTraffic lifecycle event,
 but the deployment logs do not indicate the cause for the failure.
 
-This failure is typically due to incorrectly configured health checks in Elastic Load Balancing for the
+This failure is typically due to incorrectly configured health checks in ELB for the
 Classic Load Balancer, Application Load Balancer, or Network Load Balancer used to manage traffic for the deployment group.
 
 To resolve the issue, review and correct any errors in the health check configuration

@@ -20,7 +20,7 @@ Do not follow these steps if:
   required permissions, follow the instructions in [Step 2: Create a service role for
   CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"), and then return
   to the steps in this topic.
-- You want to select a Classic Load Balancer, Application Load Balancer, or Network Load Balancer in Elastic Load Balancing for the in-place
+- You want to select a Classic Load Balancer, Application Load Balancer, or Network Load Balancer in ELB for the in-place
   deployment, but have not yet created it.
   To create an application for an in-place deployment using the CodeDeploy console:
 

@@ -23,4 +23,4 @@ deployment.
 - [Create an EC2/On-Premises Compute Platform
   deployment (CLI)](deployments-create-cli.md "deployments-create-cli.md")
 - [Create an Amazon ECS blue/green deployment
-  through AWS CloudFormation](deployments-create-ecs-cfn.md "deployments-create-ecs-cfn.md")
+  through CloudFormation](deployments-create-ecs-cfn.md "deployments-create-ecs-cfn.md")

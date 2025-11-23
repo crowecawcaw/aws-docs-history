@@ -3,7 +3,7 @@
 the AWS Serverless Application Model
 
 AWS SAM is an open-source framework for building serverless applications. It
-transforms and expands YAML syntax in a AWS SAM template into AWS CloudFormation syntax to build serverless
+transforms and expands YAML syntax in a AWS SAM template into CloudFormation syntax to build serverless
 applications, such as a Lambda function. For more information, see [What is the
 AWS Serverless Application Model?](../../../serverless-application-model/latest/developerguide/what-is-sam.md "../../../serverless-application-model/latest/developerguide/what-is-sam.md")
 

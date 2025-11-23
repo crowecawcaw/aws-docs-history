@@ -1,31 +1,31 @@
 # Create an Amazon EC2 instance for
 
-CodeDeploy (AWS CloudFormation template)
+CodeDeploy (CloudFormation template)
 
-You can use our AWS CloudFormation template to quickly launch an Amazon EC2 instance running Amazon Linux or Windows Server.
+You can use our CloudFormation template to quickly launch an Amazon EC2 instance running Amazon Linux or Windows Server.
 You can use the AWS CLI, the CodeDeploy console, or the AWS APIs to launch the instance with the
 template. In addition to launching the instance, the template does the following:
 
-- Instructs AWS CloudFormation to give the instance permission to participate in CodeDeploy
+- Instructs CloudFormation to give the instance permission to participate in CodeDeploy
   deployments.
 - Tags the instance so CodeDeploy can find it during a deployment.
 - Installs and runs the CodeDeploy agent on the instance.
-  You don't have to use our AWS CloudFormation to set up an Amazon EC2 instance. For alternatives, see [Working with instances for CodeDeploy](instances.md "instances.md").
+  You don't have to use our CloudFormation to set up an Amazon EC2 instance. For alternatives, see [Working with instances for CodeDeploy](instances.md "instances.md").
 
-We do not provide an AWS CloudFormation template for Amazon EC2 instances running Ubuntu Server or Red Hat Enterprise Linux
+We do not provide an CloudFormation template for Amazon EC2 instances running Ubuntu Server or Red Hat Enterprise Linux
 (RHEL).
 
 ###### Topics
 
 - [Before you begin](#instances-ec2-create-cloudformation-template-before "#instances-ec2-create-cloudformation-template-before")
 - [Launch an Amazon EC2
-  instance with the AWS CloudFormation template (console)](#instances-ec2-create-cloudformation-template-console "#instances-ec2-create-cloudformation-template-console")
+  instance with the CloudFormation template (console)](#instances-ec2-create-cloudformation-template-console "#instances-ec2-create-cloudformation-template-console")
 - [Launch an Amazon EC2 instance
-  with the AWS CloudFormation template (AWS CLI)](#instances-ec2-create-cloudformation-template-cli "#instances-ec2-create-cloudformation-template-cli")
+  with the CloudFormation template (AWS CLI)](#instances-ec2-create-cloudformation-template-cli "#instances-ec2-create-cloudformation-template-cli")
 
 ## Before you begin
 
-Before you can use the AWS CloudFormation template to launch Amazon EC2 instances, make sure you complete
+Before you can use the CloudFormation template to launch Amazon EC2 instances, make sure you complete
 the following steps.
 
 1. Make sure you have created an administrative user, as described in [Step 1: Setting up](getting-started-setting-up.md "getting-started-setting-up.md"). Double-check that the user has the following minimum permissions and add any that are not present:
@@ -58,9 +58,9 @@ CodeDeploy.
 
 ## Launch an Amazon EC2
 
-instance with the AWS CloudFormation template (console)
+instance with the CloudFormation template (console)
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 
 ###### Important
@@ -68,10 +68,10 @@ instance with the AWS CloudFormation template (console)
 Sign in to the AWS Management Console with the same account you used in [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md"). On
 the navigation bar, in the region selector, choose one of the regions listed in [Region and endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region") in
 _AWS General Reference_. CodeDeploy supports these regions only. 2. Choose **Create Stack**. 3. In **Choose a template**, choose **Specify an Amazon S3 template
-URL**. In the box, type the location of the AWS CloudFormation template for your region, and
+URL**. In the box, type the location of the CloudFormation template for your region, and
 then choose **Next**.
 
-| Region                           | Location of AWS CloudFormation template                                                                                    |
+| Region                           | Location of CloudFormation template                                                                                        |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | US East (Ohio) Region            | `http://s3-us-east-2.amazonaws.com/aws-codedeploy-us-east-2/templates/latest/CodeDeploy_SampleCF_Template.json`            |
 | US East (N. Virginia) Region     | `http://s3.amazonaws.com/aws-codedeploy-us-east-1/templates/latest/CodeDeploy_SampleCF_Template.json`                      |
@@ -128,13 +128,13 @@ then choose **Next**.
 
 ###### Important
 
-AWS CloudFormation tags are different from CodeDeploy tags. AWS CloudFormation uses tags to simplify administration
+CloudFormation tags are different from CodeDeploy tags. CloudFormation uses tags to simplify administration
 of your infrastructure. CodeDeploy uses tags to identify Amazon EC2 instances. You specified CodeDeploy
 tags on the **Specify Parameters** page. 7. On the **Review** page, in **Capabilities**, select
-the **I acknowledge that AWS CloudFormation might create IAM resources** box, and
+the **I acknowledge that CloudFormation might create IAM resources** box, and
 then choose **Create**.
 
-After AWS CloudFormation has created the stack and launched the Amazon EC2 instances, in the AWS CloudFormation
+After CloudFormation has created the stack and launched the Amazon EC2 instances, in the CloudFormation
 console, **CREATE_COMPLETE** will be displayed in the
 **Status** column. This process can take several minutes.
 
@@ -143,9 +143,9 @@ then proceed to [Create an application with CodeDeploy](applications-create.md "
 
 ## Launch an Amazon EC2 instance
 
-with the AWS CloudFormation template (AWS CLI)
+with the CloudFormation template (AWS CLI)
 
-1. Use our AWS CloudFormation template in a call to the **create-stack** command. This
+1. Use our CloudFormation template in a call to the **create-stack** command. This
    stack will launch a new Amazon EC2 instance with the CodeDeploy agent installed.
 
 To launch an Amazon EC2 instance running Amazon Linux:
@@ -170,10 +170,10 @@ aws cloudformation create-stack --stack-name CodeDeployDemoStack --template-url 
 `keyName` is the instance key pair name. Type the key pair
 name only, not the key pair file extension.
 
-`template-url` is the location of the AWS CloudFormation template for your
+`template-url` is the location of the CloudFormation template for your
 region:
 
-| Region                           | Location of AWS CloudFormation template                                                                                    |
+| Region                           | Location of CloudFormation template                                                                                        |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | US East (Ohio) Region            | `http://s3-us-east-2.amazonaws.com/aws-codedeploy-us-east-2/templates/latest/CodeDeploy_SampleCF_Template.json`            |
 | US East (N. Virginia) Region     | `http://s3.amazonaws.com/aws-codedeploy-us-east-1/templates/latest/CodeDeploy_SampleCF_Template.json`                      |
@@ -194,12 +194,12 @@ region:
 | Asia Pacific (Mumbai) Region     | `http://s3-ap-south-1.amazonaws.com/aws-codedeploy-ap-south-1/templates/latest/CodeDeploy_SampleCF_Template.json`          |
 | South America (São Paulo) Region | `aws-codedeploy-ap-northeast-1.s3.sa-east-1.amazonaws.com/templates/latest/CodeDeploy_SampleCF_Template.json`              |
 
-This command creates an AWS CloudFormation stack named
-`CodeDeployDemoStack`, using the AWS CloudFormation template in the
+This command creates an CloudFormation stack named
+`CodeDeployDemoStack`, using the CloudFormation template in the
 specified Amazon S3 bucket. The Amazon EC2 instance is based on the t1.micro instance type, but you
 can use any type. It is tagged with the value
 `CodeDeployDemo`, but you can tag it with any value. It
-has the specified instance key pair applied. 2. Call the **describe-stacks** command to verify the AWS CloudFormation stack named
+has the specified instance key pair applied. 2. Call the **describe-stacks** command to verify the CloudFormation stack named
 `CodeDeployDemoStack` was successfully created:
 
 ```

@@ -112,7 +112,7 @@ the following operations:
 - As `minimum-healthy-hosts` when you use the
   [create-deployment-config](../../../cli/latest/reference/deploy/create-deployment-config.md "../../../cli/latest/reference/deploy/create-deployment-config.md") command in the AWS CLI.
 - As `Value` in the [MinimumHealthyHosts](../APIReference/API_MinimumHealthyHosts.md "../APIReference/API_MinimumHealthyHosts.md") data type in the CodeDeploy API.
-- As `MinimumHealthyHosts` when you use [AWS::CodeDeploy::DeploymentConfig](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.md") in an AWS CloudFormation template.
+- As `MinimumHealthyHosts` when you use [AWS::CodeDeploy::DeploymentConfig](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.md") in an CloudFormation template.
 
 CodeDeploy allows you to specify a minimum number of healthy instances for the deployment for
 two main purposes:

@@ -31,7 +31,7 @@ deployments.
       	- The latest application revision is installed on the replacement instances.
       	- An optional wait time occurs for activities such as application testing and system
       	 verification.
-      	- Instances in the replacement environment are registered with one or more Elastic Load Balancing load
+      	- Instances in the replacement environment are registered with one or more ELB load
       	 balancers, causing traffic to be rerouted to them. Instances in the original
       	 environment are deregistered and can be terminated or kept running for other
       	 uses.
@@ -39,7 +39,7 @@ deployments.
 
       If you use an EC2/On-Premises compute platform, be aware that blue/green deployments work with Amazon EC2 instances only.
       + **Blue/green on an AWS Lambda or Amazon ECS compute platform**: Traffic is shifted in increments according to a **canary**, **linear**, or **all-at-once** deployment configuration.
-      + **Blue/green deployments through AWS CloudFormation**: Traffic is shifted from your current resources to your updated resources as part of an AWS CloudFormation stack update. Currently, only ECS blue/green deployments are supported.
+      + **Blue/green deployments through CloudFormation**: Traffic is shifted from your current resources to your updated resources as part of an CloudFormation stack update. Currently, only ECS blue/green deployments are supported.
 
   For more information about blue/green deployments, see [Overview of a blue/green
   deployment](welcome.md#welcome-deployment-overview-blue-green "welcome.md#welcome-deployment-overview-blue-green").

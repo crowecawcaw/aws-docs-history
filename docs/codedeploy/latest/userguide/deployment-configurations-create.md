@@ -5,11 +5,11 @@ CodeDeploy
 If you don't want to use one of the default deployment configurations provided with CodeDeploy,
 you can create your own using the following instructions.
 
-You can use the CodeDeploy console, AWS CLI, the CodeDeploy APIs, or an AWS CloudFormation template to create
+You can use the CodeDeploy console, AWS CLI, the CodeDeploy APIs, or an CloudFormation template to create
 custom deployment configurations.
 
-For information about using an AWS CloudFormation template to create a deployment configuration, see
-[AWS CloudFormation templates for CodeDeploy
+For information about using an CloudFormation template to create a deployment configuration, see
+[CloudFormation templates for CodeDeploy
 reference](reference-cloudformation-templates.md "reference-cloudformation-templates.md").
 
 ###### Topics

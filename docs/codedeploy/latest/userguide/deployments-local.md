@@ -97,7 +97,7 @@ examples](../../../AmazonS3/latest/userguide/example-bucket-policies.md "../../.
   profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md"), [Create an Amazon EC2 instance for CodeDeploy (AWS CLI or Amazon EC2
   console)](instances-ec2-create.md "instances-ec2-create.md"), and
   [Create an Amazon EC2 instance for
-  CodeDeploy (AWS CloudFormation template)](instances-ec2-create-cloudformation-template.md "instances-ec2-create-cloudformation-template.md").
+  CodeDeploy (CloudFormation template)](instances-ec2-create-cloudformation-template.md "instances-ec2-create-cloudformation-template.md").
 - If you are deploying your content from GitHub, create a GitHub account and a
   public repository. To create a GitHub account, see [Join GitHub](https://github.com/join "https://github.com/join"). To create a GitHub
   repository, see [Create a repo](https://help.github.com/articles/create-a-repo/ "https://help.github.com/articles/create-a-repo/").

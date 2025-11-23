@@ -5,8 +5,8 @@ console)
 These instructions show you how to launch a new Amazon EC2 instance that is configured for use in
 CodeDeploy deployments.
 
-You can use our AWS CloudFormation template to launch an Amazon EC2 instance running Amazon Linux or Windows Server that is
-already configured for use in CodeDeploy deployments. We do not provide an AWS CloudFormation template for Amazon EC2
+You can use our CloudFormation template to launch an Amazon EC2 instance running Amazon Linux or Windows Server that is
+already configured for use in CodeDeploy deployments. We do not provide an CloudFormation template for Amazon EC2
 instances running Ubuntu Server or Red Hat Enterprise Linux (RHEL). For alternatives to the use of the
 template, see [Working with instances for CodeDeploy](instances.md "instances.md").
 

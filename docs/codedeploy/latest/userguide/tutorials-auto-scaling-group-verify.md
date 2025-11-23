@@ -2,7 +2,7 @@
 
 In this step, you'll check to see that CodeDeploy installed the
 `SimpleDemoApp` revision on the single Amazon EC2
-instance in the Auto Scaling group.
+instance in the Amazon EC2 Auto Scaling group.
 
 ###### Topics
 
@@ -17,7 +17,7 @@ instance in the Auto Scaling group.
 
 First, you'll need the public DNS of the Amazon EC2 instance.
 
-Use the AWS CLI to get the public DNS of the Amazon EC2 instance in the Auto Scaling group by
+Use the AWS CLI to get the public DNS of the Amazon EC2 instance in the Amazon EC2 Auto Scaling group by
 calling the **describe-instances** command.
 
 Before you call this command, you will need the ID of the Amazon EC2 instance. To get
@@ -44,9 +44,9 @@ http://`ec2-01-234-567-890.compute-1.amazonaws.com`
 ```
 
 If you see the congratulations page, you've successfully used CodeDeploy to deploy a
-revision to a single Amazon EC2 instance in an Auto Scaling group!
+revision to a single Amazon EC2 instance in an Amazon EC2 Auto Scaling group!
 
-Next, you'll add an Amazon EC2 instance to the Auto Scaling group. After Amazon EC2 Auto Scaling adds the
+Next, you'll add an Amazon EC2 instance to the Amazon EC2 Auto Scaling group. After Amazon EC2 Auto Scaling adds the
 Amazon EC2 instance, CodeDeploy will deploy your revision to the new instance.
 
 ## To check the results
@@ -58,7 +58,7 @@ First, you'll need the public DNS of the Amazon EC2 instance.
 Open the Amazon EC2 console at
 [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 
-In the Amazon EC2 navigation pane, under **Auto Scaling**, choose **Auto Scaling
+In the Amazon EC2 navigation pane, under **Amazon EC2 Auto Scaling**, choose **Amazon EC2 Auto Scaling
 Groups**, and then choose the
 `CodeDeployDemo-AS-Group` entry.
 
@@ -78,7 +78,7 @@ http://`ec2-01-234-567-890.compute-1.amazonaws.com`
 ```
 
 If you see the congratulations page, you've successfully used CodeDeploy to deploy a
-revision to a single Amazon EC2 instance in an Auto Scaling group!
+revision to a single Amazon EC2 instance in an Amazon EC2 Auto Scaling group!
 
-Next, you add an Amazon EC2 instance to the Auto Scaling group. After Amazon EC2 Auto Scaling adds the Amazon EC2
+Next, you add an Amazon EC2 instance to the Amazon EC2 Auto Scaling group. After Amazon EC2 Auto Scaling adds the Amazon EC2
 instance, CodeDeploy will deploy your revision to the new Amazon EC2 instance.

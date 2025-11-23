@@ -17,11 +17,11 @@ issues
 - [The ELB could not be updated due to the following
   error: Primary taskset target group must be behind listener](#troubleshooting-ecs-elb "#troubleshooting-ecs-elb")
 - [My deployment sometimes fails when using
-  Auto Scaling](#troubleshooting-ecs-auto-scaling "#troubleshooting-ecs-auto-scaling")
+  Amazon EC2 Auto Scaling](#troubleshooting-ecs-auto-scaling "#troubleshooting-ecs-auto-scaling")
 - [Only ALB supports gradual traffic routing, use
   AllAtOnce Traffic routing instead when you create/update Deployment group](#troubleshooting-ecs-lb "#troubleshooting-ecs-lb")
 - [Even though my deployment succeeded,
-  the replacement task set fails the Elastic Load Balancing health checks, and my application is down](#troubleshooting-ecs-task-set-stability "#troubleshooting-ecs-task-set-stability")
+  the replacement task set fails the ELB health checks, and my application is down](#troubleshooting-ecs-task-set-stability "#troubleshooting-ecs-task-set-stability")
 - [Can I attach multiple load balancers to a
   deployment group?](#troubleshooting-ecs-lb-multi "#troubleshooting-ecs-lb-multi")
 - [Can I perform CodeDeploy blue/green deployments without
@@ -177,7 +177,7 @@ more information about task sets, see [TaskSet](../../../AmazonECS/latest/APIRef
 _Amazon Elastic Container Service API Reference_ and [describe-task-set](../../../cli/latest/reference/ecs/describe-task-set.md "../../../cli/latest/reference/ecs/describe-task-set.md") in the Amazon ECS
 section of the _AWS CLI Command Reference_.
 
-**Possible fix**: Make sure that the Elastic Load Balancing's production
+**Possible fix**: Make sure that the ELB's production
 listener and test listener are both pointing to the target group that's currently serving your
 workloads. There are three places to check:
 
@@ -193,18 +193,18 @@ workloads. There are three places to check:
 
 ## My deployment sometimes fails when using
 
-Auto Scaling
+Amazon EC2 Auto Scaling
 
-**Problem**: You are using Auto Scaling with CodeDeploy and you notice
+**Problem**: You are using Amazon EC2 Auto Scaling with CodeDeploy and you notice
 that your deployments occasionally fail. For more information about the symptoms of this
 problem, see the topic that reads [For services configured to use service auto scaling and the blue/green deployment type,
 auto scaling is not blocked during a deployment but the deployment may fail under some
 circumstances](../../../AmazonECS/latest/developerguide/deployment-type-bluegreen.md#deployment-type-bluegreen-considerations "../../../AmazonECS/latest/developerguide/deployment-type-bluegreen.md#deployment-type-bluegreen-considerations") in the _Amazon Elastic Container Service Developer Guide_.
 
 **Possible cause**: This problem might occur if CodeDeploy and
-Auto Scaling processes conflict.
+Amazon EC2 Auto Scaling processes conflict.
 
-**Possible fix**: Suspend and resume Auto Scaling processes during
+**Possible fix**: Suspend and resume Amazon EC2 Auto Scaling processes during
 the CodeDeploy deployment using the `RegisterScalableTarget` API (or the corresponding
 `register-scalable-target` AWS CLI command). For more information, see [Suspend and resume scaling for Application Auto Scaling](../../../autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.md "../../../autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.md") in the
 _Application Auto Scaling User Guide_.
@@ -216,11 +216,11 @@ must configure CodeDeploy to send a notification or event to Amazon Simple Notif
 then configure Amazon SNS (or CloudWatch) to call a Lambda function, and configure the Lambda function to
 call the `RegisterScalableTarget` API. The `RegisterScalableTarget`
 API must be called with the `SuspendedState` parameter set to `true`
-to suspend Auto Scaling operations, and `false` to resume them.
+to suspend Amazon EC2 Auto Scaling operations, and `false` to resume them.
 
 The notification or event that CodeDeploy sends out must occur when a deployment starts (to
-trigger Auto Scaling suspend operations), or when a deployment succeeds, fails, or stops (to trigger
-Auto Scaling resume operations).
+trigger Amazon EC2 Auto Scaling suspend operations), or when a deployment succeeds, fails, or stops (to trigger
+Amazon EC2 Auto Scaling resume operations).
 
 For information about how to configure CodeDeploy to generate Amazon SNS notifications or CloudWatch
 events, see [Monitoring deployments with Amazon CloudWatch Events](monitoring-cloudwatch-events.md "monitoring-cloudwatch-events.md"). and [Monitoring Deployments with Amazon SNS Event Notifications](monitoring-sns-event-notifications.md "monitoring-sns-event-notifications.md").
@@ -254,15 +254,15 @@ configurations for an Amazon ECS compute platform](deployment-configurations.md#
 
 ## Even though my deployment succeeded,
 
-the replacement task set fails the Elastic Load Balancing health checks, and my application is down
+the replacement task set fails the ELB health checks, and my application is down
 
 **Problem**: Even though CodeDeploy indicates that my deployment
-succeeded, the replacement task set fails the health checks from Elastic Load Balancing, and my application is
+succeeded, the replacement task set fails the health checks from ELB, and my application is
 down.
 
 **Possible cause**: This issue might occur if you performed a
 CodeDeploy all-at-once deployment, and your replacement (green) task set contains bad code that is
-causing the Elastic Load Balancing health checks to fail. With the all-at-once deployment configuration, the
+causing the ELB health checks to fail. With the all-at-once deployment configuration, the
 load balancer’s health checks start running on the replacement task set
 _after_ traffic has been shifted to it (that is,
 _after_ CodeDeploy’s `AllowTraffic` lifecycle event occurs). That’s

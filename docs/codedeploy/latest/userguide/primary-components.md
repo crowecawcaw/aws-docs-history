@@ -61,7 +61,7 @@ linear, or all-at-once configuration.
 ###### Note
 
 Amazon ECS blue/green deployments are supported through both CodeDeploy and
-AWS CloudFormation. Details for these deployments are described in subsequent sections.
+CloudFormation. Details for these deployments are described in subsequent sections.
 
 ## Deployment configuration
 
@@ -115,7 +115,7 @@ application revision available on instances in a deployment group. There are two
       	- The latest application revision is installed on the replacement instances.
       	- An optional wait time occurs for activities such as application testing and system
       	 verification.
-      	- Instances in the replacement environment are registered with one or more Elastic Load Balancing load
+      	- Instances in the replacement environment are registered with one or more ELB load
       	 balancers, causing traffic to be rerouted to them. Instances in the original
       	 environment are deregistered and can be terminated or kept running for other
       	 uses.
@@ -123,14 +123,14 @@ application revision available on instances in a deployment group. There are two
 
       If you use an EC2/On-Premises compute platform, be aware that blue/green deployments work with Amazon EC2 instances only.
       + **Blue/green on an AWS Lambda or Amazon ECS compute platform**: Traffic is shifted in increments according to a **canary**, **linear**, or **all-at-once** deployment configuration.
-      + **Blue/green deployments through AWS CloudFormation**: Traffic is shifted from your current resources to your updated resources as part of an AWS CloudFormation stack update. Currently, only ECS blue/green deployments are supported.
+      + **Blue/green deployments through CloudFormation**: Traffic is shifted from your current resources to your updated resources as part of an CloudFormation stack update. Currently, only ECS blue/green deployments are supported.
 
   For more information about blue/green deployments, see [Overview of a blue/green
   deployment](welcome.md#welcome-deployment-overview-blue-green "welcome.md#welcome-deployment-overview-blue-green").
 
 ###### Note
 
-Amazon ECS blue/green deployments are supported using both CodeDeploy and AWS CloudFormation.
+Amazon ECS blue/green deployments are supported using both CodeDeploy and CloudFormation.
 Details for these deployments are described in subsequent sections.
 
 ## IAM instance profile
@@ -162,7 +162,7 @@ those resources. For CodeDeploy, a service role is used for the following:
 - To read either the tags applied to the instances or the Amazon EC2 Auto Scaling group names
   associated with the instances. This enables CodeDeploy to identify instances to which it
   can deploy applications.
-- To perform operations on instances, Amazon EC2 Auto Scaling groups, and Elastic Load Balancing load balancers.
+- To perform operations on instances, Amazon EC2 Auto Scaling groups, and ELB load balancers.
 - To publish information to Amazon SNS topics so that notifications can be sent when
   specified deployment or instance events occur.
 - To retrieve information about CloudWatch alarms to set up alarm monitoring for
