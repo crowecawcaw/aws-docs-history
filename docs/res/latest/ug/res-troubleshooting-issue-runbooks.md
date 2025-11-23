@@ -4,9 +4,9 @@ The following section contains issues that may occur, how to detect them, and su
 on how to resolve the issue.
 
 - [Installation issues](#installation-issues "#installation-issues")
-  - [AWS CloudFormation stack fails to create with message "WaitCondition
+  - [CloudFormation stack fails to create with message "WaitCondition
     received failed message. Error:States.TaskFailed"](#cf-stack-fails "#cf-stack-fails")
-  - [Email notification not received after AWS CloudFormation
+  - [Email notification not received after CloudFormation
     stacks created successfully](#email-invitation-not-received "#email-invitation-not-received")
   - [Instances cycling or vdc-controller in failed state](#instances-cycling "#instances-cycling")
   - [Environment CloudFormation stack fails to delete due to dependent object error](#object-error "#object-error")
@@ -120,9 +120,9 @@ on how to resolve the issue.
 
 ###### Topics
 
-- [AWS CloudFormation stack fails to create with message "WaitCondition
+- [CloudFormation stack fails to create with message "WaitCondition
   received failed message. Error:States.TaskFailed"](#cf-stack-fails "#cf-stack-fails")
-- [Email notification not received after AWS CloudFormation
+- [Email notification not received after CloudFormation
   stacks created successfully](#email-invitation-not-received "#email-invitation-not-received")
 - [Instances cycling or vdc-controller in failed state](#instances-cycling "#instances-cycling")
 - [Environment CloudFormation stack fails to delete due to dependent object error](#object-error "#object-error")
@@ -133,7 +133,7 @@ on how to resolve the issue.
 
 ........................
 
-### AWS CloudFormation stack fails to create with message "WaitCondition
+### CloudFormation stack fails to create with message "WaitCondition
 
 received failed message. Error:States.TaskFailed"
 
@@ -148,11 +148,11 @@ Confirm that the parameter values do not have spaces.
 
 ........................
 
-### Email notification not received after AWS CloudFormation
+### Email notification not received after CloudFormation
 
 stacks created successfully
 
-If an email invitation was not received after the AWS CloudFormation stacks were created successfully,
+If an email invitation was not received after the CloudFormation stacks were created successfully,
 verify the following:
 
 1. Confirm the email address parameter was entered correctly.
@@ -261,7 +261,7 @@ was unable to join the Active Directory.
 11. If you forgot the password or you are unsure if the entered password is correct,
     you can reset the password in Active Directory and Secrets Manager.
     1. To reset the password in AWS Managed Microsoft AD:
-       1. Open the AWS Console and go to AWS Directory Service.
+       1. Open the AWS Console and go to Directory Service.
        2. Select the **Directory ID**
           for your RES directory, and choose
           **Actions**.

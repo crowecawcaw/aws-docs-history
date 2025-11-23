@@ -19,9 +19,9 @@ AWS CloudFormation resources are created from AWS Cloud Development Kit (AWS CDK
 
 The AWS CloudFormation template deploys Research and Engineering Studio on AWS in the AWS Cloud. You must meet the [prerequisites](prerequisites.md "prerequisites.md") before launching the stack.
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2. Launch the [template](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/latest/ResearchAndEngineeringStudio.template.json "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/latest/ResearchAndEngineeringStudio.template.json") .
+2. Launch the [template](cloudformation/home.md#/stacks/quickcreate?templateURL=https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/latest/ResearchAndEngineeringStudio.template.json "cloudformation/home.md#/stacks/quickcreate?templateURL=https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/latest/ResearchAndEngineeringStudio.template.json") .
 
 To deploy in AWS GovCloud (US-West), launch this [template](https://console.amazonaws-us-gov.com/cloudformation/home?region=us-gov-west-1#/stacks/quickcreate?templateURL=https://research-engineering-studio-us-gov-west-1.s3.us-gov-west-1.amazonaws.com/releases/latest/ResearchAndEngineeringStudio.template.json "https://console.amazonaws-us-gov.com/cloudformation/home?region=us-gov-west-1#/stacks/quickcreate?templateURL=https://research-engineering-studio-us-gov-west-1.s3.us-gov-west-1.amazonaws.com/releases/latest/ResearchAndEngineeringStudio.template.json"). 3. The template launches in the US East (N. Virginia) Region by default. To launch the
 solution in a different AWS Region, use the Region selector in the console navigation

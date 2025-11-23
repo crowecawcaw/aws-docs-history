@@ -2,7 +2,7 @@
 
 As of 2024.04, you can optionally modify roles created by RES by attaching custom
 permission boundaries. A custom permission boundary may be defined as part of the
-RES AWS CloudFormation installation by supplying the permission boundary’s ARN as part of the
+RES CloudFormation installation by supplying the permission boundary’s ARN as part of the
 IAMPermissionBoundary parameter. No permission boundary is set on any RES roles
 if this parameter is left empty. Below is the list of actions that RES roles
 require to operate. Make sure that any permission boundary that you plan to use explicitly

@@ -10,7 +10,7 @@ below to set up users in the environment before you login.
 
 ## Create a one-click demo stack
 
-This AWS CloudFormation stack creates all the components required by Research and Engineering Studio.
+This CloudFormation stack creates all the components required by Research and Engineering Studio.
 
 **Time to deploy**: ~90 minutes
 
@@ -63,12 +63,12 @@ this product](plan-your-deployment.md#quotas-for-aws-services-in-this-product "p
 
 ### Create resources and input parameters
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 
 ###### Note
 
-Make sure you are in your administrator account. 2. Launch [the template](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/res/res_demo_env/assets/res-demo-stack.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/res/res_demo_env/assets/res-demo-stack.yaml") in the console. 3. Under **Parameters**, review the parameters for this
+Make sure you are in your administrator account. 2. Launch [the template](cloudformation/home.md#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/res/res_demo_env/assets/res-demo-stack.yaml "cloudformation/home.md#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/res/res_demo_env/assets/res-demo-stack.yaml") in the console. 3. Under **Parameters**, review the parameters for this
 product template and modify them as necessary.
 
 | Parameter          | Default        | Description                                                                                                                                                                                      |

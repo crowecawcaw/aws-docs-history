@@ -32,9 +32,9 @@ troubleshoot specific issues that may occur.
 
 - [Issue RunBooks](res-troubleshooting-issue-runbooks.md "res-troubleshooting-issue-runbooks.md")
   - [Installation issues](res-troubleshooting-issue-runbooks.md#installation-issues "res-troubleshooting-issue-runbooks.md#installation-issues")
-    - [AWS CloudFormation stack fails to create with message "WaitCondition
+    - [CloudFormation stack fails to create with message "WaitCondition
       received failed message. Error:States.TaskFailed"](res-troubleshooting-issue-runbooks.md#cf-stack-fails "res-troubleshooting-issue-runbooks.md#cf-stack-fails")
-    - [Email notification not received after AWS CloudFormation
+    - [Email notification not received after CloudFormation
       stacks created successfully](res-troubleshooting-issue-runbooks.md#email-invitation-not-received "res-troubleshooting-issue-runbooks.md#email-invitation-not-received")
     - [Instances cycling or vdc-controller in failed state](res-troubleshooting-issue-runbooks.md#instances-cycling "res-troubleshooting-issue-runbooks.md#instances-cycling")
     - [Environment CloudFormation stack fails to delete due to dependent object error](res-troubleshooting-issue-runbooks.md#object-error "res-troubleshooting-issue-runbooks.md#object-error")

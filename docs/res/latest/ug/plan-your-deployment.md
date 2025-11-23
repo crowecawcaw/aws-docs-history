@@ -153,7 +153,7 @@ in the in the _AWS CloudFormation User’s Guide_.
 The product deploys a default infrastructure with the minimum number and size of Amazon EC2
 instances to operate the system. To improve resilience in large-scale production
 environments, we recommend increasing the default minimum capacity settings within the
-infrastructure's Auto Scaling groups (ASG). Increasing the value from one instance to two instances
+infrastructure's Amazon EC2 Auto Scaling groups (ASG). Increasing the value from one instance to two instances
 provides the benefit of multiple Availability Zones (AZ) and reduces the time to restore
 system functionality in the event of unexpected data loss.
 
@@ -162,7 +162,7 @@ creates four ASGs by default with each name ending with `-asg`. You can
 change the minimum and desired values to an amount appropriate for your production
 environment. Select the group you want to modify, and then choose **Actions**
 and select **Edit**. For more information on ASGs, see [Scale the size
-of your Auto Scaling group](../../../autoscaling/ec2/userguide/scale-your-group.md "../../../autoscaling/ec2/userguide/scale-your-group.md") in the _Amazon EC2 Auto Scaling User Guide_.
+of your Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/scale-your-group.md "../../../autoscaling/ec2/userguide/scale-your-group.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 ## Supported AWS Regions
 

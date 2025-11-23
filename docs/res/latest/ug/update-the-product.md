@@ -32,16 +32,16 @@ updates to your environment before onboarding users.
 Upgrading from RES version 2025.06 to 2025.06.01 requires using the [Major version updates](#major-version-update "#major-version-update") process.
 
 For minor version updates to RES, a new install is not required. You can update
-the existing RES stack by updating its AWS CloudFormation template. Check the version of your
-current RES environment in AWS CloudFormation before deploying the update. You can find the
+the existing RES stack by updating its CloudFormation template. Check the version of your
+current RES environment in CloudFormation before deploying the update. You can find the
 version number at the beginning of the template.
 
 For example: `"Description": "RES_2024.1"`
 
 ###### To make a minor version update:
 
-1. Download the latest AWS CloudFormation template in [Step 1: Launch the product](launch-the-product.md "launch-the-product.md").
-2. Open the AWS CloudFormation console at
+1. Download the latest CloudFormation template in [Step 1: Launch the product](launch-the-product.md "launch-the-product.md").
+2. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 3. From **Stacks**, find and select the primary stack. It should
    appear as `<stack-name>`.

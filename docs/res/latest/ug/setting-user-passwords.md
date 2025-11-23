@@ -1,6 +1,6 @@
 # Setting passwords for users
 
-1. From the [AWS Directory Service console,](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/")
+1. From the [Directory Service console,](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/")
    select the directory for the created stack.
 2. Under the **Actions** menu, select **Reset user
    password**.

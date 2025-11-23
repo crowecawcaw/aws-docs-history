@@ -101,7 +101,7 @@ the domain using AWS Certificate Manager.
 If you are deploying in an AWS GovCloud Region and you are using a custom domain for
 Research and Engineering Studio, you will need to complete these prerequisite steps.
 
-1. Deploy the [Certificate AWS CloudFormation stack](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/security/public_certs/assets/main.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/security/public_certs/assets/main.yaml") in the commercial-partition AWS Account where the
+1. Deploy the [Certificate CloudFormation stack](cloudformation/home.md#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/security/public_certs/assets/main.yaml "cloudformation/home.md#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/security/public_certs/assets/main.yaml") in the commercial-partition AWS Account where the
    public hosted domain was created.
 2. From the **Certificate CloudFormation Outputs**, find
    and note the `CertificateARN` and `PrivateKeySecretARN`.
@@ -272,7 +272,7 @@ is not the latest. 2. Create an IAM role with Amazon S3 read-only access and tru
      and then choose **Create role**.
 
 3. Create the EC2 image builder component:
-   1. Open the EC2 Image Builder console at [https://console.aws.amazon.com/imagebuilder](https://console.aws.amazon.com/imagebuilder "https://console.aws.amazon.com/imagebuilder").
+   1. Open the EC2 Image Builder console at [https://console.aws.amazon.com//imagebuilder](https://console.aws.amazon.com//imagebuilder "https://console.aws.amazon.com//imagebuilder").
    2. Under **Saved resources**, choose
       **Components** and choose **Create
       component**.
@@ -525,7 +525,7 @@ your identity provider.
 ### Set private VPC deployment parameters
 
 In [Step 1: Launch the product](launch-the-product.md "launch-the-product.md"), you are expected to input certain parameters in
-the AWS CloudFormation template. Be sure to set the following parameters as noted to successfully deploy
+the CloudFormation template. Be sure to set the following parameters as noted to successfully deploy
 into the private VPC you just configured.
 
 | Parameter                    | Input                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
