@@ -18,7 +18,7 @@ equivalent network on premises or using another Cloud Provider.
 | [Subnets](#vpc-network-subnets "#vpc-network-subnets")                                     | The subnets that you define for your VPCs define network boundaries and<br>determine the IP addresses for your AWS resources. You can add subnets in<br>multiple Availability Zones to increase the availability of your resources.                                      |
 | [Network connectivity](#vpc-network-connectivity "#vpc-network-connectivity")              | The gateways that you attach to your VPCs or subnets to provide connectivity<br>between your VPC network and other networks, such as other VPCs or subnets,<br>the internet, or your on-premises networks.                                                               |
 | [Security controls](#vpc-network-security-controls "#vpc-network-security-controls")       | The security groups that you create for your VPCs control traffic<br>to and from the associated resources, such as compute resources,<br>database resources, and load balancers. Each subnet has a network ACL<br>that controls traffic entering and leaving the subnet. |
-| [Traffic management](#vpc-network-traffic-management "#vpc-network-traffic-management")    | Routing rules control the traffic flow between subnets, VPCs, and external<br>locations. The load balancers provided by Elastic Load Balancing distribute incoming traffic<br>across multiple targets, such as EC2 instances, containers, and Lambda functions.          |
+| [Traffic management](#vpc-network-traffic-management "#vpc-network-traffic-management")    | Routing rules control the traffic flow between subnets, VPCs, and external<br>locations. The load balancers provided by ELB distribute incoming traffic<br>across multiple targets, such as EC2 instances, containers, and Lambda functions.                             |
 
 ## Geographic location
 
@@ -565,7 +565,7 @@ aws elbv2 describe-load-balancers \
 The following are optional services or features that you might be using in your
 VPC network:
 
-- [AWS Direct Connect](../../../directconnect/latest/UserGuide.md "../../../directconnect/latest/UserGuide.md")
+- [Direct Connect](../../../directconnect/latest/UserGuide.md "../../../directconnect/latest/UserGuide.md")
 - [AWS Network Firewall](../../../network-firewall/latest/developerguide.md "../../../network-firewall/latest/developerguide.md")
 - [IPAM](../ipam.md "../ipam.md")
 - [Traffic mirroring](../mirroring.md "../mirroring.md")

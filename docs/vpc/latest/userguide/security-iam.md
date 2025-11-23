@@ -14,6 +14,8 @@ use with no additional charge.
 - [Amazon VPC policy examples](vpc-policy-examples.md "vpc-policy-examples.md")
 - [Troubleshoot Amazon VPC identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 - [AWS managed policies for Amazon Virtual Private Cloud](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
+- [Using service-linked roles for
+  VPC](using-service-linked-roles.md "using-service-linked-roles.md")
 
 ## Audience
 

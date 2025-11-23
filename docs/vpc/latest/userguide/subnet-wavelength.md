@@ -11,7 +11,7 @@ To use a Wavelength Zones, you must first opt in to the Zone. Next, create a sub
 Wavelength Zone. You can create Amazon EC2 instances, Amazon EBS volumes, and Amazon VPC subnets and
 carrier gateways in Wavelength Zones. You can also use services that orchestrate or work
 with EC2, EBS, and VPC, such as Amazon EC2 Auto Scaling, Amazon EKS clusters, Amazon ECS clusters, Amazon EC2 Systems Manager,
-Amazon CloudWatch, AWS CloudTrail, and AWS CloudFormation. The services in Wavelength are part of a
+Amazon CloudWatch, AWS CloudTrail, and CloudFormation. The services in Wavelength are part of a
 VPC that is connected over a reliable, high bandwidth connection to an AWS Region for
 easy access to services including Amazon DynamoDB and Amazon RDS.
 

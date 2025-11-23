@@ -38,7 +38,7 @@ by generating a CloudFormation template and using the template to create a stack
    for the CloudFormation template, and customize the template.
 7. In the success message, choose **Create CloudFormation
    stack** to open the **Create Stack** wizard in
-   the AWS CloudFormation console. The URL for the generated CloudFormation template is
+   the CloudFormation console. The URL for the generated CloudFormation template is
    specified in the **Template** section. Complete the wizard
    to create the resources that are specified in the template.
 

@@ -56,7 +56,7 @@ your VPC, such as EC2 instances:
   network interfaces also provide additional options for controlling network traffic,
   including the ability to create host-based routing policies or leverage different VPC
   subnet routing rules based on an network interfaces assigned to a subnet.
-- Use AWS Virtual Private Network or AWS Direct Connect to establish private connections from your remote
+- Use AWS Virtual Private Network or Direct Connect to establish private connections from your remote
   networks to your VPCs. For more information, see [Network-to-Amazon VPC connectivity options](../../../whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.md "../../../whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.md").
 - Use [VPC Flow Logs](flow-logs.md "flow-logs.md") to monitor the traffic
   that reaches your instances.

@@ -64,8 +64,8 @@ You cannot associate an Elastic IP address that is set for the Region.
 Consider the scenario where you want an on-premises data center to access resources that are
 in a Local Zone. You use a virtual private gateway for the VPC that's associated
 with the Local Zone to connect to a Direct Connect gateway. The Direct Connect
-gateway connects to an AWS Direct Connect location in a Region. The on-premises data center
-has an AWS Direct Connect connection to the AWS Direct Connect location.
+gateway connects to an Direct Connect location in a Region. The on-premises data center
+has an Direct Connect connection to the Direct Connect location.
 
 ###### Note
 
@@ -84,18 +84,18 @@ For information about creating a virtual private gateway, see [Create a target g
   use the Direct Connect location closest to the Local Zone to which
   you'll be extending your subnet.
 
-For information about ordering a connection, see [Cross connects](../../../directconnect/latest/UserGuide/Colocation.md#cross-connect-us-west-1 "../../../directconnect/latest/UserGuide/Colocation.md#cross-connect-us-west-1") in the _AWS Direct Connect User Guide_.
+For information about ordering a connection, see [Cross connects](../../../directconnect/latest/UserGuide/Colocation.md#cross-connect-us-west-1 "../../../directconnect/latest/UserGuide/Colocation.md#cross-connect-us-west-1") in the _Direct Connect User Guide_.
 
 - A Direct Connect gateway. For information about creating a Direct Connect gateway, see
-  [Create a Direct Connect gateway](../../../directconnect/latest/UserGuide/direct-connect-gateways-intro.md#create-direct-connect-gateway "../../../directconnect/latest/UserGuide/direct-connect-gateways-intro.md#create-direct-connect-gateway") in the _AWS Direct Connect User
+  [Create a Direct Connect gateway](../../../directconnect/latest/UserGuide/direct-connect-gateways-intro.md#create-direct-connect-gateway "../../../directconnect/latest/UserGuide/direct-connect-gateways-intro.md#create-direct-connect-gateway") in the _Direct Connect User
   Guide_.
 - A virtual private gateway association to connect the VPC to the Direct Connect gateway.
   For information about creating a virtual private gateway association, see
   [Associating and disassociating virtual private gateways](../../../directconnect/latest/UserGuide/virtualgateways.md#associate-vgw-with-direct-connect-gateway "../../../directconnect/latest/UserGuide/virtualgateways.md#associate-vgw-with-direct-connect-gateway") in the
-  _AWS Direct Connect User Guide_.
-- A private virtual interface on the connection from the AWS Direct Connect location to the
+  _Direct Connect User Guide_.
+- A private virtual interface on the connection from the Direct Connect location to the
   on-premises data center. For information about creating a Direct Connect
-  gateway, see [Creating a private virtual interface to the Direct Connect gateway](../../../directconnect/latest/UserGuide/virtualgateways.md#create-private-vif-for-gateway "../../../directconnect/latest/UserGuide/virtualgateways.md#create-private-vif-for-gateway") in the _AWS Direct Connect User Guide_.
+  gateway, see [Creating a private virtual interface to the Direct Connect gateway](../../../directconnect/latest/UserGuide/virtualgateways.md#create-private-vif-for-gateway "../../../directconnect/latest/UserGuide/virtualgateways.md#create-private-vif-for-gateway") in the _Direct Connect User Guide_.
 
 ## Connect Local Zone subnets to a transit gateway
 

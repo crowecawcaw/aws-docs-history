@@ -2,7 +2,7 @@
 
 AWS PrivateLink establishes private connectivity between virtual private clouds (VPC) and
 supported AWS services, services hosted by other AWS accounts, supported AWS Marketplace services,
-and supported resources. You do not need to use an internet gateway, NAT device, AWS Direct Connect
+and supported resources. You do not need to use an internet gateway, NAT device, Direct Connect
 connection, or AWS Site-to-Site VPN connection to communicate with the service or resource.
 
 To use AWS PrivateLink, create a VPC endpoint in any subnets from which you need to access

@@ -26,14 +26,14 @@ workloads in the VPC B subnet.
 
 - Amazon API Gateway (REST APIs only)
 - AWS Auto Scaling
-- AWS CloudFormation
+- CloudFormation
 - Amazon EC2
 - Amazon EFS
 - Amazon EKS
 - Amazon FSx
 - AWS PrivateLink
 - Amazon Route 53
-- Elastic Load Balancing
+- ELB
   - Application Load Balancer
   - Network Load Balancer
 

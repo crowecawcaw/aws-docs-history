@@ -2,7 +2,7 @@
 
 You can connect your virtual private clouds (VPC) and on-premises networks using a transit
 gateway, which acts as a central hub, routing traffic between VPCs, VPN connections, and
-AWS Direct Connect connections.
+Direct Connect connections.
 
 One of the key benefits of using a transit gateway is the ability to centralize and simplify the management of connectivity between your VPCs and on-premises networks. Rather than configuring multiple VPN connections or Direct Connect links, you can leverage the transit gateway as a single point of integration, which can help reduce the overall complexity and operational overhead of your network architecture.
 

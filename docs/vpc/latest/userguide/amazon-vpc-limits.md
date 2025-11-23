@@ -129,7 +129,7 @@ For more information, see the following:
 
 - [AWS Client VPN quotas](../../../vpn/latest/clientvpn-admin/limits.md "../../../vpn/latest/clientvpn-admin/limits.md") in the
   _AWS Client VPN Administrator Guide_
-- [AWS Direct Connect
+- [Direct Connect
   quotas](../../../directconnect/latest/UserGuide/limits.md "../../../directconnect/latest/UserGuide/limits.md") in the _AWS Direct Connect User Guide_
 - [Peering quotas](../peering/vpc-peering-connection-quotas.md "../peering/vpc-peering-connection-quotas.md") in the _Amazon VPC Peering Guide_
 - [PrivateLink quotas](../privatelink/vpc-limits-endpoints.md "../privatelink/vpc-limits-endpoints.md") in the _AWS PrivateLink Guide_

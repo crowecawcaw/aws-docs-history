@@ -40,6 +40,14 @@ to cross-account resources.
 To view the permissions for this policy, see [AmazonVPCCrossAccountNetworkInterfaceOperations](../../../aws-managed-policy/latest/reference/AmazonVPCCrossAccountNetworkInterfaceOperations.md "../../../aws-managed-policy/latest/reference/AmazonVPCCrossAccountNetworkInterfaceOperations.md")
 in the _AWS Managed Policy Reference_.
 
+## AWS managed policy: AWSServiceRoleForNATGateway
+
+You can attach the `AWSServiceRoleForNATGateway` policy to your IAM identities.
+This policy grants permissions that allow the identity to work on your behalf to automatically scale regional NAT Gateways.
+
+To view the permissions for this policy, see [AWSServiceRoleForNATGateway](../../../aws-managed-policy/latest/reference/AWSServiceRoleForNATGateway.md "../../../aws-managed-policy/latest/reference/AWSServiceRoleForNATGateway.md")  
+ in the _AWS Managed Policy Reference_.
+
 ## Amazon VPC updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon VPC since this service
@@ -48,6 +56,7 @@ began tracking these changes in March 2021.
 | Change                                                                                                                                                                                                                                                     | Description                                                                                                                                                                                                               | Date               |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | [AWS managed policy: AmazonVPCFullAccess](#security-iam-awsmanpol-AmazonVPCFullAccess "#security-iam-awsmanpol-AmazonVPCFullAccess") –<br>Update to an existing policy                                                                                     | Actions added to the AWSIPAMServiceRolePolicy managed policy (ec2:ModifyManagedPrefixList, ec2:DescribeManagedPrefixLists, and ec2:GetManagedPrefixListEntries) to enable IPAM modify and read managed prefix lists.      | October 31, 2025   |
+| [AWS managed policy: AWSServiceRoleForNATGateway](#security-iam-awsmanpol-AWSServiceRoleForNATGateway "#security-iam-awsmanpol-AWSServiceRoleForNATGateway") –<br>New policy                                                                               | New AWSServiceRoleForNATGateway policy allows the identity to automatically scale regional NAT Gateways.                                                                                                                  | November 19, 2025  |
 | [AWS managed policy: AmazonVPCFullAccess](#security-iam-awsmanpol-AmazonVPCFullAccess "#security-iam-awsmanpol-AmazonVPCFullAccess") –<br>Update to an existing policy                                                                                     | Added the AssociateSecurityGroupVpc,<br>DescribeSecurityGroupVpcAssociations, and<br>DisassociateSecurityGroupVpc actions, which allow you<br>to associate, disassociate, and view security group associations with VPCs. | December 9, 2024   |
 | [AWS managed policy: AmazonVPCReadOnlyAccess](#security-iam-awsmanpol-AmazonVPCReadOnlyAccess "#security-iam-awsmanpol-AmazonVPCReadOnlyAccess") –<br>Update to an existing policy                                                                         | Added the DescribeSecurityGroupVpcAssociations action, which allows you to view security group associations with VPCs.                                                                                                    | December 9, 2024   |
 | [AWS managed policy: AmazonVPCFullAccess](#security-iam-awsmanpol-AmazonVPCFullAccess "#security-iam-awsmanpol-AmazonVPCFullAccess") –<br>Update to an existing policy                                                                                     | Added the GetSecurityGroupsForVpc action, which allows you<br>to get security groups that are usable in your VPC.                                                                                                         | February 8, 2024   |

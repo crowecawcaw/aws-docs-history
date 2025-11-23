@@ -14,7 +14,8 @@ For information about flow log record format, see [Flow log records](flow-log-re
   rules](#flow-log-example-security-groups "#flow-log-example-security-groups")
 - [IPv6 traffic](#flow-log-example-ipv6 "#flow-log-example-ipv6")
 - [TCP flag sequence](#flow-log-example-tcp-flag "#flow-log-example-tcp-flag")
-- [Traffic through a NAT gateway](#flow-log-example-nat "#flow-log-example-nat")
+- [Traffic through a zonal NAT gateway](#flow-log-example-nat "#flow-log-example-nat")
+- [Traffic through a regional NAT gateway](#flow-log-example-regional-nat "#flow-log-example-regional-nat")
 - [Traffic through a transit gateway](#flow-log-example-tgw "#flow-log-example-tgw")
 - [Service name, traffic path, and flow
   direction](#flow-log-example-traffic-path "#flow-log-example-traffic-path")
@@ -167,14 +168,14 @@ message sent from the server to the client.
 3 vpc-abcdefab012345678 subnet-aaaaaaaa012345678 i-01234567890123456 eni-1235b8ca123456789 123456789010 IPv4 10.0.0.62 52.213.180.42 5001 43638  10.0.0.62 52.213.180.42 6 967 14 1566933133 1566933193 ACCEPT 19 OK
 ```
 
-## Traffic through a NAT gateway
+## Traffic through a zonal NAT gateway
 
 In this example, an instance in a private subnet accesses the internet through a
-NAT gateway that's in a public subnet.
+zonal NAT gateway that's in a public subnet.
 
-![Accessing the internet through a NAT gateway](images/flow-log-nat-gateway.png)
+![Accessing the internet through a zonal NAT gateway](images/flow-log-nat-gateway.png)
 
-The following custom flow log for the NAT gateway network interface captures the
+The following custom flow log for the zonal NAT gateway network interface captures the
 following fields in the following order.
 
 ```
@@ -182,13 +183,13 @@ instance-id interface-id srcaddr dstaddr pkt-srcaddr pkt-dstaddr
 ```
 
 The flow log shows the flow of traffic from the instance IP address (10.0.1.5)
-through the NAT gateway network interface to a host on the internet (203.0.113.5).
-The NAT gateway network interface is a requester-managed network interface,
+through the zonal NAT gateway network interface to a host on the internet (203.0.113.5).
+The zonal NAT gateway network interface is a requester-managed network interface,
 therefore the flow log record displays a '-' symbol for the instance-id
-field. The following line shows traffic from the source instance to the NAT gateway
+field. The following line shows traffic from the source instance to the zonal NAT gateway
 network interface. The values for the dstaddr and
 pkt-dstaddr fields are different. The dstaddr field
-displays the private IP address of the NAT gateway network interface, and the
+displays the private IP address of the zonal NAT gateway network interface, and the
 pkt-dstaddr field displays the final destination IP address of the
 host on the internet.
 
@@ -196,7 +197,7 @@ host on the internet.
 - eni-1235b8ca123456789 10.0.1.5 10.0.0.220 10.0.1.5 203.0.113.5
 ```
 
-The next two lines show the traffic from the NAT gateway network interface to the
+The next two lines show the traffic from the zonal NAT gateway network interface to the
 target host on the internet, and the response traffic from the host to the NAT
 gateway network interface.
 
@@ -205,10 +206,10 @@ gateway network interface.
 - eni-1235b8ca123456789 203.0.113.5 10.0.0.220 203.0.113.5 10.0.0.220
 ```
 
-The following line shows the response traffic from the NAT gateway network
+The following line shows the response traffic from the zonal NAT gateway network
 interface to the source instance. The values for the srcaddr and
 pkt-srcaddr fields are different. The srcaddr field
-displays the private IP address of the NAT gateway network interface, and the
+displays the private IP address of the zonal NAT gateway network interface, and the
 pkt-srcaddr field displays the IP address of the host on the
 internet.
 
@@ -222,12 +223,63 @@ subnet. In this case, the instance-id field returns the ID of the
 instance that's associated with the network interface, and there is no difference
 between the dstaddr and pkt-dstaddr fields and the
 srcaddr and pkt-srcaddr fields. Unlike the network
-interface for the NAT gateway, this network interface is not an intermediate network
+interface for the zonal NAT gateway, this network interface is not an intermediate network
 interface for traffic.
 
 ```
 i-01234567890123456 eni-1111aaaa2222bbbb3 10.0.1.5 203.0.113.5 10.0.1.5 203.0.113.5 #Traffic from the source instance to host on the internet
 i-01234567890123456 eni-1111aaaa2222bbbb3 203.0.113.5 10.0.1.5 203.0.113.5 10.0.1.5 #Response traffic from host on the internet to the source instance
+```
+
+## Traffic through a regional NAT gateway
+
+A regional NAT gateway can connect to multiple subnets across different Availability Zones. In this example,
+two instances in private subnets from two different Availability Zones access the internet through the same
+regional NAT gateway. The following flow logs show traffic from one of the instances to the internet through the regional NAT gateway.
+
+![Accessing the internet through a regional NAT gateway](images/flow-log-regional-nat-gateway.png)
+
+The following custom flow log for the regional NAT gateway captures the following fields in the following order.
+
+```
+resource-id instance-id interface-id subnet-id srcaddr dstaddr pkt-srcaddr pkt-dstaddr
+```
+
+The flow log shows the flow of traffic from the instance IP address (10.0.1.5) through the regional
+NAT gateway to a host on the internet (203.0.113.5). instance-id, interface-id,
+and subnet-id don’t apply to the regional NAT gateway. Therefore, the flow log record
+displays a '-' symbol for these fields. Instead, the resource-id field displays the ID
+of the regional NAT gateway. The dstaddr and pkt-dstaddr
+fields display the final destination IP address of the host on the internet.
+
+```
+nat-1234567890abcdef - - - 10.0.1.5 203.0.113.5 10.0.1.5 203.0.113.5
+```
+
+The next two lines show the traffic from the regional NAT gateway (public IP address 107.22.182.139)
+to the target host on the internet, and the response traffic from the host to the regional NAT gateway.
+
+```
+nat-1234567890abcdef - - - 107.22.182.139 203.0.113.5 107.22.182.139 203.0.113.5
+nat-1234567890abcdef - - - 203.0.113.5 107.22.182.139 203.0.113.5 107.22.182.139
+```
+
+The following line shows the response traffic from the regional NAT gateway to the source instance.
+The srcaddr and pkt-srcaddr fields display the IP address of the host on the internet.
+
+```
+nat-1234567890abcdef - - - 203.0.113.5 10.0.1.5 203.0.113.5 10.0.1.5
+```
+
+You create another custom flow log using the same set of fields as above. You create the flow log for
+the network interface for the instance in the private subnet. In this case, the instance-id
+field returns the ID of the instance that's associated with the network interface, and the resource-id
+is '-'. There is no difference between the dstaddr and pkt-dstaddr fields
+and the srcaddr and pkt-srcaddr fields.
+
+```
+- i-01234567890123456 eni-1111aaaa2222bbbb3 subnet-aaaaaaaa012345678 10.0.1.5 203.0.113.5 10.0.1.5 203.0.113.5 #Traffic from the source instance to host on the internet
+- i-01234567890123456 eni-1111aaaa2222bbbb3 subnet-aaaaaaaa012345678 203.0.113.5 10.0.1.5 203.0.113.5 10.0.1.5 #Response traffic from host on the internet to the source instance
 ```
 
 ## Traffic through a transit gateway

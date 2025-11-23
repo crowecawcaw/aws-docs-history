@@ -53,7 +53,7 @@ The following rules apply to customer-managed prefix lists:
   version. You can restore the entries from a previous version of the prefix list, which
   also creates a new version.
 - There are quotas related to prefix lists. For more information, see [Customer-managed prefix lists](amazon-vpc-limits.md#vpc-quotas-managed-prefix-lists "amazon-vpc-limits.md#vpc-quotas-managed-prefix-lists").
-- Customer-managed prefix lists are available in all commercial [AWS Regions](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/ "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/") (including GovCloud (US) and China Regions).
+- Customer-managed prefix lists are available in all commercial [AWS Regions](https://aws.amazon.com//about-aws/global-infrastructure/regions_az/ "https://aws.amazon.com//about-aws/global-infrastructure/regions_az/") (including GovCloud (US) and China Regions).
 
 ###### AWS-managed prefix lists
 

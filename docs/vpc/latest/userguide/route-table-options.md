@@ -77,8 +77,8 @@ AWS Site-to-Site VPN?](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/lates
 Guide_.
 
 A Site-to-Site VPN connection on a virtual private gateway does not support IPv6 traffic. However,
-we support IPv6 traffic routed through a virtual private gateway to an AWS Direct Connect
-connection. For more information, see the [AWS Direct Connect User Guide](../../../directconnect/latest/UserGuide.md "../../../directconnect/latest/UserGuide.md").
+we support IPv6 traffic routed through a virtual private gateway to an Direct Connect
+connection. For more information, see the [Direct Connect User Guide](../../../directconnect/latest/UserGuide.md "../../../directconnect/latest/UserGuide.md").
 
 ## Routing to an AWS Outposts local gateway
 
@@ -293,7 +293,7 @@ of route priority. We prioritize the most specific route, and if the routes matc
 we prioritize static routes over propagated routes. Review your routes to ensure
 that traffic is routed correctly and that there are no unintended consequences
 if you enable or disable route propagation (for example, route propagation is
-required for an AWS Direct Connect connection that supports jumbo frames).
+required for an Direct Connect connection that supports jumbo frames).
 
 To route inbound VPC traffic to an appliance, you associate a route table with the
 internet gateway or virtual private gateway, and specify the network interface of

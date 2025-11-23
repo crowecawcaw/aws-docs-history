@@ -133,7 +133,7 @@ application.
    _Amazon EC2 Auto Scaling User Guide_.
 3. Create a load balancer, which distributes traffic evenly across the instances
    in your Auto Scaling group, and attach the load balancer to your Auto Scaling group.
-   For more information, see the [Elastic Load Balancing User Guide](../../../elasticloadbalancing/latest/userguide.md "../../../elasticloadbalancing/latest/userguide.md") and [Use Elastic Load Balancing](../../../autoscaling/ec2/userguide/autoscaling-load-balancer.md "../../../autoscaling/ec2/userguide/autoscaling-load-balancer.md") in the _Amazon EC2 Auto Scaling User Guide_.
+   For more information, see the [Elastic Load Balancing User Guide](../../../elasticloadbalancing/latest/userguide.md "../../../elasticloadbalancing/latest/userguide.md") and [Use ELB](../../../autoscaling/ec2/userguide/autoscaling-load-balancer.md "../../../autoscaling/ec2/userguide/autoscaling-load-balancer.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 ## 3. Test your configuration
 

@@ -21,7 +21,7 @@ Use VPC Route Server peer logging when you need to:
 Vended logs are logs from specific AWS services that are available at
 volume tiered pricing and delivered to CloudWatch Logs, Amazon S3, or Amazon
 Data Firehose. For more information, open [Amazon CloudWatch
-Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/"), select **Logs** and find
+Pricing](https://aws.amazon.com//cloudwatch/pricing/ "https://aws.amazon.com//cloudwatch/pricing/"), select **Logs** and find
 **Vended Logs**.
 
 ## Example log format

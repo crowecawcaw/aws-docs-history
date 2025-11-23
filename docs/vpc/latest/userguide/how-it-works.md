@@ -149,7 +149,7 @@ communicate with each other as if they are within the same network.
 You can also create a _transit gateway_ and use it to interconnect
 your VPCs and on-premises networks. The transit gateway acts as a Regional virtual
 router for traffic flowing between its attachments, which can include VPCs, VPN
-connections, AWS Direct Connect gateways, and transit gateway peering connections.
+connections, Direct Connect gateways, and transit gateway peering connections.
 
 ###### Learn more
 

@@ -64,7 +64,7 @@ routable CIDR blocks for your VPC. Regardless of the IP address range of your VP
 we do not support direct access to the internet from your VPC's CIDR block,
 including a publicly-routable CIDR block. You must set up internet access through a
 gateway; for example, an internet gateway, virtual private gateway, a AWS Site-to-Site VPN connection,
-or AWS Direct Connect.
+or Direct Connect.
 
 We never advertise the IPv4 address range of a subnet to the internet.
 

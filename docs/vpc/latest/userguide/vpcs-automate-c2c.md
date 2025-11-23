@@ -14,7 +14,7 @@ production-ready for your specific use case.
 
 For example, with Console-to-Code you can record yourself using the VPC console to create subnets,
 security groups, NACLs, a custom routing table, and an internet gateway and generate code in
-AWS CloudFormation JSON format. Then, you can copy that code and customize it for use in your AWS CloudFormation
+CloudFormation JSON format. Then, you can copy that code and customize it for use in your CloudFormation
 template.
 
 Console-to-Code can currently generate infrastructure-as-code (IaC) in the following languages and formats:

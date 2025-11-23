@@ -39,7 +39,7 @@ steps when you're done with this example.
 
 To demonstrate how this feature works, you need a VPC, subnets, instances, and
 other resources. To make it easier to complete this demonstration, we’ve provided an
-AWS CloudFormation template below that you can use to quickly spin up the resources required for
+CloudFormation template below that you can use to quickly spin up the resources required for
 the scenarios in this demo. This step is optional and you may want to just view the
 diagrams in the Scenarios in this section.
 
@@ -420,7 +420,7 @@ Outputs:
 
 AWS Management Console
 
-1. Open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Choose **Create stack** and upload the .yaml template file.
 3. Go through the steps to launch the template. You'll need
    to enter an [image
@@ -1910,11 +1910,11 @@ In this section you'll delete all of the resources you've created for this advan
 
 ### Delete the CloudFormation resources
 
-Complete this section to delete the resources you created with the AWS CloudFormation template.
+Complete this section to delete the resources you created with the CloudFormation template.
 
 AWS Management Console
 
-1. Open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Choose the VPC BPA stack.
 3. Choose **Delete**.
 4. Once you start deleting the stack, view the

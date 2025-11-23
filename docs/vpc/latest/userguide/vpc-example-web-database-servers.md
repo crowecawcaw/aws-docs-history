@@ -173,7 +173,7 @@ To improve availability, you can use [Amazon EC2 Auto Scaling](../../../autoscal
 servers in multiple Availability Zones and maintain the minimum server capacity that is
 required by your application.
 
-You can use [Elastic Load Balancing](../../../elasticloadbalancing/latest/userguide.md "../../../elasticloadbalancing/latest/userguide.md") to distribute traffic evenly across
+You can use [ELB](../../../elasticloadbalancing/latest/userguide.md "../../../elasticloadbalancing/latest/userguide.md") to distribute traffic evenly across
 your servers. You can attach your load balancer to an Auto Scaling group.
 
 You can use EC2 instances for your database servers, or one of our purpose-built database

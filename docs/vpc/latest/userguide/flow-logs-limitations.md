@@ -51,6 +51,7 @@ To use flow logs, you need to be aware of the following limitations:
 - Traffic to the reserved IP address for the default VPC router.
 - Traffic between an endpoint network interface and a Network Load Balancer network interface.
 - Address Resolution Protocol (ARP) traffic.
+- Traffic on a short-lived regional NAT gateway, which is deleted a few minutes after creation.
   Limitations specific to ECS fields available in version 7:
 
 - ECS fields are not computed if the underlying ECS tasks are not owned by the owner of the flow
@@ -91,3 +92,12 @@ To use flow logs, you need to be aware of the following limitations:
   when we receive the ECS event that contains the metadata for your ECS task to
   indicate your task is no longer running.
 - Only ECS tasks launched in `awsvpc` [network mode](../../../AmazonECS/latest/developerguide/task-networking.md "../../../AmazonECS/latest/developerguide/task-networking.md") are supported.
+  Limitations specific to `encryption-status` field:
+
+- The encryption status may be '-'(not available) in some flows, due to limitation of some network appliance to report the encryption status. Users can ignore these flows in the analysis.
+- Showing as encrypted in monitor mode does not mean the flow will be allowed in enforce mode. Vice versa.
+  - If a flow is encrypted in monitor mode, it may not be compliant in enforce mode:
+    - If the flow involves an ENI created by an AWS service, then the service needs to support Encryption Controls.
+    - If the flow goes through VPC peering, the peered VPC may not force Encryption Controls.
+
+  - If a flow is not encrypted in monitor mode, it may still be compliant in enforce mode, given the service related to the flow is added as an exclusion.

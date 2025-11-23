@@ -109,13 +109,13 @@ To add a CIDR block to your VPC, the following rules apply:
     block overlaps with a CIDR block of the requester VPC, the VPC
     peering connection request fails and cannot be accepted.
 
-- If you're using AWS Direct Connect to connect to multiple VPCs through a Direct
+- If you're using Direct Connect to connect to multiple VPCs through a Direct
   Connect gateway, the VPCs that are associated with the Direct Connect
   gateway must not have overlapping CIDR blocks. If you add a CIDR block to
   one of the VPCs that's associated with the Direct Connect gateway, ensure
   that the new CIDR block does not overlap with an existing CIDR block of any
   other associated VPC. For more information, see [Direct Connect
-  gateways](../../../directconnect/latest/UserGuide/direct-connect-gateways.md "../../../directconnect/latest/UserGuide/direct-connect-gateways.md") in the _AWS Direct Connect User Guide_.
+  gateways](../../../directconnect/latest/UserGuide/direct-connect-gateways.md "../../../directconnect/latest/UserGuide/direct-connect-gateways.md") in the _Direct Connect User Guide_.
 - When you add or remove a CIDR block, it can go through various states:
   `associating` | `associated` |
   `disassociating` | `disassociated` |

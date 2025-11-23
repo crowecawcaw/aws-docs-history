@@ -55,7 +55,7 @@ deep packet inspection.
 **Transit gateways**
 Use a [transit gateway](extend-tgw.md "extend-tgw.md"), which
 acts as a central hub, to route traffic between your VPCs, VPN connections,
-and AWS Direct Connect connections.
+and Direct Connect connections.
 
 **VPC Flow Logs**
 A [flow log](flow-logs.md "flow-logs.md") captures information
@@ -63,7 +63,7 @@ about the IP traffic going to and from network interfaces in your VPC.
 
 **VPN connections**
 Connect your VPCs to your on-premises networks using
-[AWS Virtual Private Network (AWS VPN)](vpn-connections.md "vpn-connections.md").
+[AWS Virtual Private Network (Site-to-Site VPN)](vpn-connections.md "vpn-connections.md").
 
 ## Getting started with Amazon VPC
 
@@ -105,7 +105,7 @@ with an IP address for connectivity. The vast majority of resources in your VPC 
 private IPv4 addresses. Resources that require direct access to the internet over IPv4,
 however, use public IPv4 addresses.
 
-Amazon VPC enables you to launch managed services, such as Elastic Load Balancing, Amazon RDS, and Amazon EMR, without having a VPC set up beforehand. It does this by using the [default
+Amazon VPC enables you to launch managed services, such as ELB, Amazon RDS, and Amazon EMR, without having a VPC set up beforehand. It does this by using the [default
 VPC](default-vpc.md "default-vpc.md") in your account if you have
 one. Any public IPv4 addresses provisioned to your account by the managed
 service will be charged. These charges will be associated with Amazon VPC service in

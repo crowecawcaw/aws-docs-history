@@ -23,6 +23,7 @@ _of_ the cloud and security _in_ the cloud:
 ###### Contents
 
 - [Ensure data protection in Amazon Virtual Private Cloud](data-protection.md "data-protection.md")
+- [Enforce VPC encryption in transit](vpc-encryption-controls.md "vpc-encryption-controls.md")
 - [Identity and access management for Amazon VPC](security-iam.md "security-iam.md")
 - [Infrastructure security in Amazon VPC](infrastructure-security.md "infrastructure-security.md")
 - [Control traffic to your AWS resources using security groups](vpc-security-groups.md "vpc-security-groups.md")

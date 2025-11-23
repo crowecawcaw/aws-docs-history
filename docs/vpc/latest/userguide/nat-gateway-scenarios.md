@@ -227,13 +227,13 @@ from the allow-listed IP address range.
 ### Overview
 
 The following diagram shows how instances can access on-premises resources
-through AWS VPN. Traffic from the instances is routed to a virtual private gateway,
+through Site-to-Site VPN. Traffic from the instances is routed to a virtual private gateway,
 over the VPN connection, to the customer gateway, and then to the destination in
 the on-premises network. However, suppose that the destination allows traffic
 only from a specific IP address range, such as 100.64.1.0/28. This would prevent
 traffic from these instances from reaching the on-premises network.
 
-![Access to an on-premises network using an AWS VPN connection.](images/allowed-range.png)
+![Access to an on-premises network using an Site-to-Site VPN connection.](images/allowed-range.png)
 
 The following diagram shows the key components of the configuration for this
 scenario. The VPC has its original IP address range plus the allowed IP address range.

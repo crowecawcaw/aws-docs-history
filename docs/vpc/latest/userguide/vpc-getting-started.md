@@ -94,7 +94,7 @@ the internet over specific ports and protocols required by your application.
 
 Alternatively, register your instances with an internet-facing load balancer. The load
 balancer receives traffic from the clients and distributes it across the registered instances
-in one or more Availability Zones. For more information, see [Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/"). To allow instances in a private subnet to access
+in one or more Availability Zones. For more information, see [ELB](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/"). To allow instances in a private subnet to access
 the internet (for example, to download updates) without allowing unsolicited inbound connections
 from the internet, add a public NAT gateway in each active Availability Zone and update the
 route table to send internet traffic to the NAT gateway. For more information, see

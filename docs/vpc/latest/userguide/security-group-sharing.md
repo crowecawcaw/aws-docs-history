@@ -48,7 +48,7 @@ Accounts B and C have running in the shared VPC subnet.
 - AWS Glue
 - Amazon MQ
 - Amazon SageMaker AI
-- Elastic Load Balancing
+- ELB
 
       + Application Load Balancer
       + Network Load Balancer
