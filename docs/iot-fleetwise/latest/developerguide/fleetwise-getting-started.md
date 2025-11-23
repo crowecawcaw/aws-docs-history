@@ -53,7 +53,7 @@ To complete this getting started tutorial, you first need the following:
   step.)
   - You can use the Explore Edge Agent quick start demo to explore
     AWS IoT FleetWise and learn how to develop Edge Agent software for AWS IoT FleetWise. This demo
-    uses an AWS CloudFormation template. It walks you through reviewing the Edge Agent
+    uses an CloudFormation template. It walks you through reviewing the Edge Agent
     reference implementation, developing your Edge Agent, and then deploying
     your Edge Agent software on an Amazon EC2 Graviton and generating sample vehicle data.
     The demo also provides a script that you can use to create a signal
@@ -84,7 +84,7 @@ following:
 1. Open the [Launch CloudFormation Template](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateUrl=https%3A%2F%2Faws-iot-fleetwise.s3.us-west-2.amazonaws.com%2Flatest%2Fcfn-templates%2Ffwdemo.yml&stackName=fwdemo "https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateUrl=https%3A%2F%2Faws-iot-fleetwise.s3.us-west-2.amazonaws.com%2Flatest%2Fcfn-templates%2Ffwdemo.yml&stackName=fwdemo").
 2. On the **Quick create stack** page, for **Stack name**, enter the name of your stack of AWS IoT FleetWise resources.
    A stack is a friendly name that appears as a prefix on the names of the
-   resources this AWS CloudFormation template creates.
+   resources this CloudFormation template creates.
 3. Under **Parameters**, enter your custom values for the
    parameters related to your stack.
    1. **Fleetsize** ‐ You can increase the number of
@@ -95,7 +95,7 @@ following:
       AWS IoT FleetWise vehicles. For more information about AWS Regions, see [Regions and Zones - Amazon Elastic Compute Cloud](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#using-regions-availability-zones-setup "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#using-regions-availability-zones-setup").
 
 4. In the **Capabilities** section, select the box to
-   acknowledge that AWS CloudFormation creates IAM resources.
+   acknowledge that CloudFormation creates IAM resources.
 5. Choose **Create stack**, then wait approximately 15 minutes
    for the status of the stack to display CREATE_COMPLETE.
 6. To confirm the stack was created, choose the **Stack info** tab, refresh the view,
@@ -330,11 +330,11 @@ collection scheme or a time-based collection scheme.
 
 ## Step 7: Clean up
 
-To avoid further charges for the resources you used during this tutorial, delete the AWS CloudFormation stack and all stack resources.
+To avoid further charges for the resources you used during this tutorial, delete the CloudFormation stack and all stack resources.
 
-###### To delete the AWS CloudFormation stack
+###### To delete the CloudFormation stack
 
-1. Open the [AWS CloudFormation
+1. Open the [CloudFormation
    console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
 2. From the list of **Stacks**, choose the stack that you
    created in step 1.

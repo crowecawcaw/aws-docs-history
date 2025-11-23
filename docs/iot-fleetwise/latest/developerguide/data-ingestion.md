@@ -25,7 +25,7 @@ communication between your vehicles and the cloud.
 1. Develop and install your Edge Agent for AWS IoT FleetWise software in your vehicle. For more information
    about how to work with the Edge Agent software, do the following to download the [_Edge Agent for AWS IoT FleetWise software Developer Guide_](https://github.com/aws/aws-iot-fleetwise-edge/blob/main/docs/dev-guide/edge-agent-dev-guide.md "https://github.com/aws/aws-iot-fleetwise-edge/blob/main/docs/dev-guide/edge-agent-dev-guide.md").
    1. Navigate to the [AWS IoT FleetWise
-      console](https://console.aws.amazon.com/iotfleetwise/home#/ "https://console.aws.amazon.com/iotfleetwise/home#/").
+      console](https://console.aws.amazon.com//iotfleetwise/home#/ "https://console.aws.amazon.com//iotfleetwise/home#/").
    2. On the service home page, in the **Get started with
       AWS IoT FleetWise** section, choose **Explore Edge
       Agent**.
