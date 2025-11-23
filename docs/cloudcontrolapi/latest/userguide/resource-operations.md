@@ -60,8 +60,8 @@ AWS services for up to 36 hours.
 To use a service role, specify the `RoleArn` parameter of the resource operation
 request.
 
-Because the Cloud Control API actions are part of the AWS CloudFormation service, the service role you specify is assumed by
-the CloudFormation service (`cloudformation.amazonaws.com`). For more information, see [AWS CloudFormation service
+Because the Cloud Control API actions are part of the CloudFormation service, the service role you specify is assumed by
+the CloudFormation service (`cloudformation.amazonaws.com`). For more information, see [CloudFormation service
 role](../../../AWSCloudFormation/latest/UserGuide/using-iam-servicerole.md "../../../AWSCloudFormation/latest/UserGuide/using-iam-servicerole.md") in the _AWS CloudFormation User Guide_.
 
 The permissions required for each resource handler are defined in the `handlers` section of that

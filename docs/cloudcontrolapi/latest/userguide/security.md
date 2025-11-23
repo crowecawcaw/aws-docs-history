@@ -17,7 +17,7 @@ _in_ the cloud:
   determined by the AWS service that you use. You are also responsible for other factors
   including the sensitivity of your data, your company’s requirements, and applicable laws and
   regulations.
-  Cloud Control API inherits its security architecture from AWS CloudFormation and operates within the AWS shared
+  Cloud Control API inherits its security architecture from CloudFormation and operates within the AWS shared
   responsibility model. To meet your security and compliance objectives when using Cloud Control API, you
   must configure CloudFormation security controls. For guidance on applying the shared responsibility
   model with CloudFormation, see the [Security](../../../AWSCloudFormation/latest/UserGuide/security.md "../../../AWSCloudFormation/latest/UserGuide/security.md") section in the

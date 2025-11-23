@@ -7,7 +7,7 @@ resources that weren't originally provisioned using Cloud Control API.
 
 We strongly advise against using Cloud Control API to update resources that are under active management by other
 services. Doing so can lead to unexpected results. For example, don't use Cloud Control API to update resources that are
-currently part of an AWS CloudFormation stack.
+currently part of an CloudFormation stack.
 
 To update an existing resource, you must specify the resource's identifier. For more information about
 determining a resource's identifier, see [Using a resource's primary

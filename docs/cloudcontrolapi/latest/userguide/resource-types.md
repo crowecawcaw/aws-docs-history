@@ -17,7 +17,7 @@ Using the registry, you can manage the resource types in your account, including
   default version of a resource type in your account.
 - Set account-level configuration properties of a resource type, if it has
   any.
-  You can also use the AWS CloudFormation registry to view a resource type's schema, which contains important information
+  You can also use the CloudFormation registry to view a resource type's schema, which contains important information
   about how to use the resource with Cloud Control API, such as property definitions and permission requirements. For more
   information, see [Viewing resource type schemas](#resource-types-schemas "#resource-types-schemas").
 
@@ -33,12 +33,12 @@ supports Cloud Control API](#resource-types-determine-support "#resource-types-d
 For more information about resource type management options, see [Using the
 CloudFormation registry](../../../AWSCloudFormation/latest/UserGuide/registry.md "../../../AWSCloudFormation/latest/UserGuide/registry.md") in the _AWS CloudFormation User Guide_.
 
-## Managing resource types using the AWS CloudFormation
+## Managing resource types using the CloudFormation
 
 API
 
-In addition to accessing the extension registry through the AWS CloudFormation console, you can use
-operations included in the AWS CloudFormation API to identify and manage the resource types in your
+In addition to accessing the extension registry through the CloudFormation console, you can use
+operations included in the CloudFormation API to identify and manage the resource types in your
 account. The table below lists the API operations that you can use to discover,
 activate, and configure the resource types available in your account.
 
@@ -138,9 +138,9 @@ property values, see [Reading a resource with AWS Cloud Control API](resource-op
 
 ## Viewing a resource
 
-type schema using the AWS CloudFormation console
+type schema using the CloudFormation console
 
-1. Sign in to the AWS Management Console and open the AWS CloudFormation console at
+1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. In the **CloudFormation** navigation pane, under
    **Registry**, select **Activated

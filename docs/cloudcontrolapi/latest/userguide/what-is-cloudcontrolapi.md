@@ -36,7 +36,7 @@ APIs to provision those resources when you place such a request in your account.
 CloudFormation focuses on providing resource management, by treating infrastructure as code. Using
 CloudFormation, you can author declarative templates that include multiple resources and their
 dependencies, and then provision those resources as a _stack_. A stack is a
-single unit that you then manage through AWS CloudFormation. You can also centrally manage and provision
+single unit that you then manage through CloudFormation. You can also centrally manage and provision
 stacks across multiple AWS accounts and AWS Regions. To be managed through CloudFormation, a
 resource must be created as part of a stack or imported into a stack. For more information,
 see the _[AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")_.
