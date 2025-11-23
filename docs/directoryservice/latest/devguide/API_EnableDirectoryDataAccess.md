@@ -1,7 +1,7 @@
 # EnableDirectoryDataAccess
 
-Enables access to directory data via the AWS Directory Service Data API for the specified directory. For
-more information, see [AWS Directory Service Data API Reference](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.md").
+Enables access to directory data via the Directory Service Data API for the specified directory. For
+more information, see [Directory Service Data API Reference](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.md").
 
 ## Request Syntax
 

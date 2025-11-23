@@ -1,6 +1,6 @@
 # DescribeDirectoryDataAccess
 
-Obtains status of directory data access enablement through the AWS Directory Service Data API for the
+Obtains status of directory data access enablement through the Directory Service Data API for the
 specified directory.
 
 ## Request Syntax
@@ -41,7 +41,7 @@ The following data is returned in JSON format by the service.
 
 **[DataAccessStatus](#API_DescribeDirectoryDataAccess_ResponseSyntax "#API_DescribeDirectoryDataAccess_ResponseSyntax")**
 
-The current status of data access through the AWS Directory Service Data API.
+The current status of data access through the Directory Service Data API.
 
 Type: String
 
