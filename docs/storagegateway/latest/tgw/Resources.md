@@ -19,7 +19,7 @@ you set up or manage your gateway, and also Storage Gateway quotas.
 - [Connecting iSCSI Initiators](initiator-connection-common.md "initiator-connection-common.md") - Learn how to work with volumes
   or virtual tape library (VTL) devices that are exposed as Internet Small Computer
   System Interface (iSCSI) targets.
-- [Using AWS Direct Connect with Storage Gateway](using-dx.md "using-dx.md") - Learn how to create a
+- [Using Direct Connect with Storage Gateway](using-dx.md "using-dx.md") - Learn how to create a
   dedicated network connection between your on-premises gateway and the AWS
   cloud.
 - [Getting the IP address for your gateway

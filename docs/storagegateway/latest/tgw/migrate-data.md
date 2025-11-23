@@ -9,12 +9,12 @@ doing this:
   The steps that you follow to move your data to a new gateway depend on the gateway type
   that you have.
 
-###### Note
+###### Important
 
 Data can only be moved between the same gateway types.
 
-The following migration instructions can only be used for gateway appliances version 2.x or lower. You can't use them to migrate to
-version 3.x or higher.
+The following migration instructions can only be used for gateway appliances running version 2.x. You can't use them
+to migrate gateway appliances running lower versions.
 
 ## Moving virtual tapes to a new Tape Gateway
 
