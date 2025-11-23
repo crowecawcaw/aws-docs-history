@@ -1,12 +1,12 @@
 # Elastic Load Balancing events
 
-Elastic Load Balancing sends service events to EventBridge via AWS CloudTrail.
+ELB sends service events to EventBridge via AWS CloudTrail.
 
-## Elastic Load Balancing events delivered via
+## ELB events delivered via
 
 AWS CloudTrail
 
-AWS CloudTrail sends events originating from Elastic Load Balancing to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
+AWS CloudTrail sends events originating from ELB to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
 see [AWS service events delivered via AWS CloudTrail](../userguide/eb-service-event-cloudtrail.md "../userguide/eb-service-event-cloudtrail.md")
 in the _Amazon EventBridge User Guide_.
 

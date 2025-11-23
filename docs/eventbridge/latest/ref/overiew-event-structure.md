@@ -8,7 +8,7 @@ metadata](../userguide/eb-events-structure.md "../userguide/eb-events-structure.
 
 The combination of the **source** and
 **detail-type** fields identify the service that has generated the event, and the type of event, respectively.
-For example, in the following event snippet, `source` identifies the originating AWS service as AWS CloudFormation, while `detail-type` shows that the event represent a change in a stack's status.
+For example, in the following event snippet, `source` identifies the originating AWS service as CloudFormation, while `detail-type` shows that the event represent a change in a stack's status.
 
 ```
 {

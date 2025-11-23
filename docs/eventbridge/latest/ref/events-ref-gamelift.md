@@ -8,7 +8,6 @@ Amazon GameLift Servers sends the following events directly to EventBridge:
 
 - GameLift Matchmaking Event
 - GameLift Queue Placement Event
-- GameLift Fleet Event
 
 _Delivery type_:
 [Best effort](event-delivery-level.md "event-delivery-level.md")

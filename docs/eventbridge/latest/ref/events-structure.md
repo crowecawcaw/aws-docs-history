@@ -79,7 +79,7 @@ For more information, see [Archiving and replaying events](../userguide/eb-archi
 A JSON array that contains ARNs that identify resources that are involved in
 the event. The service generating the event determines whether to include these
 ARNs. For example, Amazon EC2 instance state-changes include Amazon EC2 instance ARNs,
-Auto Scaling events include ARNs for both instances and Auto Scaling groups, but API calls with
+Amazon EC2 Auto Scaling events include ARNs for both instances and Amazon EC2 Auto Scaling groups, but API calls with
 AWS CloudTrail do not include resource ARNs.
 
 **detail**
