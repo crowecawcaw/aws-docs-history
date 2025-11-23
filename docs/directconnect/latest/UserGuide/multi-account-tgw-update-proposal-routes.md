@@ -1,10 +1,10 @@
 # Update the allowed prefixes for a transit
 
-gateway and AWS Direct Connect association
+gateway and Direct Connect association
 
 You can update the prefixes that are allowed from the transit gateway over the Direct Connect gateway
-using either the AWS Direct Connect console or using the command line or API. To update the allowed
-prefixes for a transit gateway and Direct Connect association using the AWS Direct Connect console,
+using either the Direct Connect console or using the command line or API. To update the allowed
+prefixes for a transit gateway and Direct Connect association using the Direct Connect console,
 
 - If you're the owner of the transit gateway. you'll need to create a new association
   proposal for that Direct Connect gateway, specifying the prefixes to allow. For the steps to create a new association proposal, see [Create a transit gateway association
@@ -18,4 +18,4 @@ prefixes for a transit gateway and Direct Connect association using the AWS Dire
 line or API
 
 - [update-direct-connect-gateway-association](../../../cli/latest/reference/directconnect/update-direct-connect-gateway-association.md "../../../cli/latest/reference/directconnect/update-direct-connect-gateway-association.md") (AWS CLI)
-- [UpdateDirectConnectGatewayAssociation](../APIReference/API_UpdateDirectConnectGatewayAssociation.md "../APIReference/API_UpdateDirectConnectGatewayAssociation.md") (AWS Direct Connect API)
+- [UpdateDirectConnectGatewayAssociation](../APIReference/API_UpdateDirectConnectGatewayAssociation.md "../APIReference/API_UpdateDirectConnectGatewayAssociation.md") (Direct Connect API)

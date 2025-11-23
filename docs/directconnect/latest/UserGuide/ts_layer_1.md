@@ -1,7 +1,7 @@
 # Troubleshoot layer 1 (physical) issues
 
 If you or your network provider are having difficulty establishing physical
-connectivity to an AWS Direct Connect device, use the following steps to troubleshoot the
+connectivity to an Direct Connect device, use the following steps to troubleshoot the
 issue.
 
 1. Verify with the colocation provider that the cross connect is complete. Ask
@@ -21,7 +21,7 @@ issue.
 4. Verify that the router is receiving an acceptable optical signal over the
    cross connect.
 5. Try flipping (also known as rolling) the Tx/Rx fiber strands.
-6. Check the Amazon CloudWatch metrics for AWS Direct Connect. You can verify the AWS Direct Connect device's
+6. Check the Amazon CloudWatch metrics for Direct Connect. You can verify the Direct Connect device's
    Tx/Rx optical readings (both 1 Gbps and 10 Gbps), physical error count, and
    operational status. For more information, see [Monitoring with Amazon
    CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
@@ -33,4 +33,4 @@ issue.
    The following flow chart contains the steps to diagnose issues with the physical
    connection.
 
-![Troubleshoot AWS Direct Connect](images/layer1-ts.png)
+![Troubleshoot Direct Connect](images/layer1-ts.png)

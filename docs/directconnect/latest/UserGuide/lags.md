@@ -1,8 +1,8 @@
-# AWS Direct Connect link aggregation groups (LAGs)
+# Direct Connect link aggregation groups (LAGs)
 
 You can use multiple connections to increase available bandwidth. A link aggregation group
 (LAG) is a logical interface that uses the Link Aggregation Control Protocol (LACP) to
-aggregate multiple connections at a single AWS Direct Connect endpoint, allowing you to treat them as
+aggregate multiple connections at a single Direct Connect endpoint, allowing you to treat them as
 a single, managed connection. LAGs streamline configuration because the LAG configuration
 applies to all connections in the group.
 
@@ -28,11 +28,11 @@ The following rules apply:
 - You can have a maximum of two 100 Gbps or 400 Gbps connections, or four connections with a
   port speed less than 100 Gbps in a LAG. Each connection in the LAG counts towards
   your overall connection limit for the Region.
-- All connections in the LAG must terminate at the same AWS Direct Connect endpoint.
+- All connections in the LAG must terminate at the same Direct Connect endpoint.
 - LAGs are supported for all virtual interface types—public, private, and
   transit.
   When you create a LAG, you can download the Letter of Authorization and Connecting Facility
-  Assignment (LOA-CFA) for a new physical connection individually from the AWS Direct Connect console.
+  Assignment (LOA-CFA) for a new physical connection individually from the Direct Connect console.
   For more information, see [Letter of Authorization and Connecting Facility
   Assignment (LOA-CFA)](dedicated_connection.md#create-connection-loa-cfa "dedicated_connection.md#create-connection-loa-cfa").
 
@@ -48,7 +48,7 @@ All connections in a LAG operate in Active/Active mode.
 ###### Note
 
 When you create a LAG or associate more connections with the LAG, we may not be able to
-guarantee enough available ports on a given AWS Direct Connect endpoint.
+guarantee enough available ports on a given Direct Connect endpoint.
 
 ###### Topics
 
@@ -63,7 +63,7 @@ guarantee enough available ports on a given AWS Direct Connect endpoint.
   LAG](disassociate-key-lag.md "disassociate-key-lag.md")
 - [Delete a LAG](delete-lag.md "delete-lag.md")
 
-## MACsec considerations for AWS Direct Connect
+## MACsec considerations for Direct Connect
 
 Take the following into consideration when you want to configure MACsec on
 LAGs:

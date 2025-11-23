@@ -12,5 +12,5 @@ provides a more consistent network experience than internet-based VPN connection
 information, see [Amazon VPC-to-Amazon VPC Connectivity Options](https://aws.amazon.com/answers/networking/aws-single-data-center-ha-network-connectivity/ "https://aws.amazon.com/answers/networking/aws-single-data-center-ha-network-connectivity/").
 
 MAC Security (MACsec) is an IEEE standard that provides data confidentiality, data
-integrity, and data origin authenticity. You can use AWS Direct Connect connections that
-support MACsec to encrypt your data from your corporate data center to the AWS Direct Connect location. For more information, see [MAC Security in AWS Direct Connect](MACsec.md "MACsec.md").
+integrity, and data origin authenticity. You can use Direct Connect connections that
+support MACsec to encrypt your data from your corporate data center to the Direct Connect location. For more information, see [MAC Security in Direct Connect](MACsec.md "MACsec.md").

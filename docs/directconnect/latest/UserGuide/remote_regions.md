@@ -1,10 +1,10 @@
-# Access to remote AWS Direct Connect Regions
+# Access to remote Direct Connect Regions
 
-AWS Direct Connect locations in public Regions or AWS GovCloud (US) can access public services in any other
-public Region (excluding China (Beijing and Ningxia)). In addition, AWS Direct Connect connections in
+Direct Connect locations in public Regions or AWS GovCloud (US) can access public services in any other
+public Region (excluding China (Beijing and Ningxia)). In addition, Direct Connect connections in
 public Regions or AWS GovCloud (US) can be configured to access a VPC in your account in any
 other public Region (excluding China (Beijing and Ningxia). You can therefore use a single
-AWS Direct Connect connection to build multi-Region services. All networking traffic remains on the
+Direct Connect connection to build multi-Region services. All networking traffic remains on the
 AWS global network backbone, regardless of whether you access public AWS services or a
 VPC in another Region.
 
@@ -13,7 +13,7 @@ rate. For more information about data transfer pricing, see the [Pricing](http:/
 Direct Connect detail page.
 
 For more information about the routing policies and supported BGP communities for an
-AWS Direct Connect connection, see [Routing policies and BGP communities](routing-and-bgp.md "routing-and-bgp.md").
+Direct Connect connection, see [Routing policies and BGP communities](routing-and-bgp.md "routing-and-bgp.md").
 
 ## Access to public services in a remote Region
 
@@ -27,11 +27,11 @@ prefixes currently advertised by AWS, see [AWS IP Address Ranges](../../../gener
 ## Access to VPCs in a remote Region
 
 You can create a _Direct Connect gateway_ in any public Region. Use
-it to connect your AWS Direct Connect connection over a private virtual interface to VPCs in your
+it to connect your Direct Connect connection over a private virtual interface to VPCs in your
 account that are located in different Regions or to a transit gateway. For more
-information, see [AWS Direct Connect gateways](direct-connect-gateways.md "direct-connect-gateways.md").
+information, see [Direct Connect gateways](direct-connect-gateways.md "direct-connect-gateways.md").
 
-Alternatively, you can create a public virtual interface for your AWS Direct Connect connection
+Alternatively, you can create a public virtual interface for your Direct Connect connection
 and then establish a VPN connection to your VPC in the remote Region. For more
 information about configuring VPN connectivity to a VPC, see [Scenarios for Using Amazon Virtual Private Cloud](../../../vpc/latest/userguide/VPC_Scenarios.md "../../../vpc/latest/userguide/VPC_Scenarios.md") in the
 _Amazon VPC User Guide_.

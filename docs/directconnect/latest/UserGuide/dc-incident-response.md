@@ -1,7 +1,7 @@
 # Logging and monitoring in AWS Direct Connect
 
 You can use the following automated monitoring tools to watch
-AWS Direct Connect and report when something is wrong:
+Direct Connect and report when something is wrong:
 
 - **Amazon CloudWatch Alarms** – Watch a single metric over a
   time period that you specify. Perform one or more actions based on the value
@@ -13,7 +13,7 @@ AWS Direct Connect and report when something is wrong:
 - **AWS CloudTrail Log Monitoring** – Share log files between accounts and
   monitor CloudTrail log files in real time by sending them to CloudWatch Logs. You can also
   write log processing applications in Java and validate that your log files
-  have not changed after delivery by CloudTrail. For more information, see [Log AWS Direct Connect API calls using AWS CloudTrail](logging_dc_api_calls.md "logging_dc_api_calls.md")
+  have not changed after delivery by CloudTrail. For more information, see [Log Direct Connect API calls using AWS CloudTrail](logging_dc_api_calls.md "logging_dc_api_calls.md")
   and [Working
   with CloudTrail Log Files](../../../awscloudtrail/latest/userguide/cloudtrail-working-with-log-files.md "../../../awscloudtrail/latest/userguide/cloudtrail-working-with-log-files.md") in the
   _AWS CloudTrail User Guide_.

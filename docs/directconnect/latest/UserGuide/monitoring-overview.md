@@ -1,4 +1,4 @@
-# Monitor AWS Direct Connect resources
+# Monitor Direct Connect resources
 
 Monitoring is an important part of maintaining the reliability, availability, and
 performance of your Direct Connect resources. You should collect monitoring data from all of the
@@ -28,7 +28,7 @@ Direct Connect connections.
 
 ## Monitoring tools
 
-AWS provides various tools that you can use to monitor an AWS Direct Connect connection. You can
+AWS provides various tools that you can use to monitor an Direct Connect connection. You can
 configure some of these tools to do the monitoring for you, while some of the tools
 require manual intervention. We recommend that you automate monitoring tasks as much as
 possible.
@@ -55,12 +55,12 @@ when something is wrong:
 
 ### Manual monitoring tools
 
-Another important part of monitoring an AWS Direct Connect connection involves manually
+Another important part of monitoring an Direct Connect connection involves manually
 monitoring those items that the CloudWatch alarms don't cover. The Direct Connect and CloudWatch
 console dashboards provide an at-a-glance view of the state of your AWS
 environment.
 
-- The AWS Direct Connect console shows:
+- The Direct Connect console shows:
   - Connection status (see the **State**
     column)
   - Virtual interface status (see the **State**

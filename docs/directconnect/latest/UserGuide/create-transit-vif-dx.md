@@ -1,4 +1,4 @@
-# Create a transit virtual interface to the AWS Direct Connect
+# Create a transit virtual interface to the Direct Connect
 
 gateway
 
@@ -6,7 +6,7 @@ Before connecting a transit virtual interface to the Direct Connect gateway, fam
 
 ###### To provision a transit virtual interface to a Direct Connect gateway
 
-1.  Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1.  Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2.  In the navigation pane, choose **Virtual Interfaces**.
 3.  Choose **Create virtual interface**.
 4.  Under **Virtual interface type**, for **Type**, choose **Transit**.
@@ -19,7 +19,7 @@ Before connecting a transit virtual interface to the Direct Connect gateway, fam
        local area network (VLAN).
     6. For **BGP ASN**, enter the Border Gateway Protocol Autonomous System Number of your on-premises peer router for the new virtual interface.
 
-    The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in AWS Direct Connect](long-asn-support.md "long-asn-support.md").
+    The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in Direct Connect](long-asn-support.md "long-asn-support.md").
 
 6.  Under **Additional Settings**, do the following:
     1. To configure an IPv4 BGP or an IPv6 peer, do the following:
@@ -66,11 +66,11 @@ Before connecting a transit virtual interface to the Direct Connect gateway, fam
 ###### To create a transit virtual interface using the command line or API
 
 - [create-transit-virtual-interface](../../../cli/latest/reference/directconnect/create-transit-virtual-interface.md "../../../cli/latest/reference/directconnect/create-transit-virtual-interface.md") (AWS CLI)
-- [CreateTransitVirtualInterface](../APIReference/API_CreateTransitVirtualInterface.md "../APIReference/API_CreateTransitVirtualInterface.md") (AWS Direct Connect API)
+- [CreateTransitVirtualInterface](../APIReference/API_CreateTransitVirtualInterface.md "../APIReference/API_CreateTransitVirtualInterface.md") (Direct Connect API)
 
 ###### To view the virtual interfaces that are attached to a Direct Connect gateway using the
 
 command line or API
 
 - [describe-direct-connect-gateway-attachments](../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-attachments.md "../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-attachments.md") (AWS CLI)
-- [DescribeDirectConnectGatewayAttachments](../APIReference/API_DescribeDirectConnectGatewayAttachments.md "../APIReference/API_DescribeDirectConnectGatewayAttachments.md") (AWS Direct Connect API)
+- [DescribeDirectConnectGatewayAttachments](../APIReference/API_DescribeDirectConnectGatewayAttachments.md "../APIReference/API_DescribeDirectConnectGatewayAttachments.md") (Direct Connect API)

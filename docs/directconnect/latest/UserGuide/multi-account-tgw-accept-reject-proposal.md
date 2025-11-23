@@ -1,12 +1,12 @@
-# Accept or reject a transit gateway and AWS Direct Connect association proposal
+# Accept or reject a transit gateway and Direct Connect association proposal
 
 If you own the Direct Connect gateway, you must accept the association
 proposal in order to create the association. You also have the option of
-rejecting the association proposal. You can accept or reject the association proposal using either the AWS Direct Connect console or using the command line or API.
+rejecting the association proposal. You can accept or reject the association proposal using either the Direct Connect console or using the command line or API.
 
 ###### To accept an association proposal
 
-1. Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. In the navigation pane, choose **Direct Connect
    gateways**.
 3. Select the Direct Connect gateway with pending proposals and then
@@ -20,7 +20,7 @@ rejecting the association proposal. You can accept or reject the association pro
 
 ###### To reject an association proposal
 
-1. Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. In the navigation pane, choose **Direct Connect
    gateways**.
 3. Select the Direct Connect gateway with pending proposals and then
@@ -33,14 +33,14 @@ rejecting the association proposal. You can accept or reject the association pro
 ###### To view association proposals using the command line or API
 
 - [describe-direct-connect-gateway-association-proposals](../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-association-proposals.md "../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-association-proposals.md") (AWS CLI)
-- [DescribeDirectConnectGatewayAssociationProposals](../APIReference/API_DescribeDirectConnectGatewayAssociationProposals.md "../APIReference/API_DescribeDirectConnectGatewayAssociationProposals.md") (AWS Direct Connect API)
+- [DescribeDirectConnectGatewayAssociationProposals](../APIReference/API_DescribeDirectConnectGatewayAssociationProposals.md "../APIReference/API_DescribeDirectConnectGatewayAssociationProposals.md") (Direct Connect API)
 
 ###### To accept an association proposal using the command line or API
 
 - [accept-direct-connect-gateway-association-proposal](../../../cli/latest/reference/directconnect/accept-direct-connect-gateway-association-proposal.md "../../../cli/latest/reference/directconnect/accept-direct-connect-gateway-association-proposal.md") (AWS CLI)
-- [AcceptDirectConnectGatewayAssociationProposal](../APIReference/API_AcceptDirectConnectGatewayAssociationProposal.md "../APIReference/API_AcceptDirectConnectGatewayAssociationProposal.md") (AWS Direct Connect API)
+- [AcceptDirectConnectGatewayAssociationProposal](../APIReference/API_AcceptDirectConnectGatewayAssociationProposal.md "../APIReference/API_AcceptDirectConnectGatewayAssociationProposal.md") (Direct Connect API)
 
 ###### To reject an association proposal using the command line or API
 
 - [delete-direct-connect-gateway-association-proposal](../../../cli/latest/reference/directconnect/delete-direct-connect-gateway-association-proposal.md "../../../cli/latest/reference/directconnect/delete-direct-connect-gateway-association-proposal.md") (AWS CLI)
-- [DeleteDirectConnectGatewayAssociationProposal](../APIReference/API_DeleteDirectConnectGatewayAssociationProposal.md "../APIReference/API_DeleteDirectConnectGatewayAssociationProposal.md") (AWS Direct Connect API)
+- [DeleteDirectConnectGatewayAssociationProposal](../APIReference/API_DeleteDirectConnectGatewayAssociationProposal.md "../APIReference/API_DeleteDirectConnectGatewayAssociationProposal.md") (Direct Connect API)

@@ -1,8 +1,8 @@
-# Create an AWS Direct Connect private virtual interface
+# Create an Direct Connect private virtual interface
 
 You can provision a private virtual interface to a virtual private gateway in the
-same Region as your AWS Direct Connect connection. For more information about provisioning a
-private virtual interface to an AWS Direct Connect gateway, see [AWS Direct Connect gateways](direct-connect-gateways.md "direct-connect-gateways.md").
+same Region as your Direct Connect connection. For more information about provisioning a
+private virtual interface to an Direct Connect gateway, see [Direct Connect gateways](direct-connect-gateways.md "direct-connect-gateways.md").
 
 If you use the VPC wizard to create a VPC, route propagation is automatically
 enabled for you. With route propagation, routes are automatically populated to the
@@ -20,13 +20,13 @@ MTU of a virtual interface to 8500 (jumbo frames) or 9001 (jumbo frames) can cau
 an update to the underlying physical connection if it wasn't updated to support
 jumbo frames. Updating the connection disrupts network connectivity for all virtual
 interfaces associated with the connection for up to 30 seconds. To check whether a
-connection or virtual interface supports jumbo frames, select it in the AWS Direct Connect
+connection or virtual interface supports jumbo frames, select it in the Direct Connect
 console and find **Jumbo Frame Capable** on the
 **Summary** tab.
 
 ###### To provision a private virtual interface to a VPC
 
-1.  Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1.  Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2.  In the navigation pane, choose **Virtual Interfaces**.
 3.  Choose **Create virtual interface**.
 4.  Under **Virtual interface type**, choose **Private**.
@@ -39,7 +39,7 @@ console and find **Jumbo Frame Capable** on the
        local area network (VLAN).
     6. For **BGP ASN**, enter the Border Gateway Protocol Autonomous System Number of your on-premises peer router for the new virtual interface.
 
-    The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in AWS Direct Connect](long-asn-support.md "long-asn-support.md").
+    The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in Direct Connect](long-asn-support.md "long-asn-support.md").
 
 6.  Under **Additional Settings**, do the following:
     1. To configure an IPv4 BGP or an IPv6 peer, do the following:
@@ -86,4 +86,4 @@ console and find **Jumbo Frame Capable** on the
 ###### To create a private virtual interface using the command line or API
 
 - [create-private-virtual-interface](../../../cli/latest/reference/directconnect/create-private-virtual-interface.md "../../../cli/latest/reference/directconnect/create-private-virtual-interface.md") (AWS CLI)
-- [CreatePrivateVirtualInterface](../APIReference/API_CreatePrivateVirtualInterface.md "../APIReference/API_CreatePrivateVirtualInterface.md") (AWS Direct Connect API)
+- [CreatePrivateVirtualInterface](../APIReference/API_CreatePrivateVirtualInterface.md "../APIReference/API_CreatePrivateVirtualInterface.md") (Direct Connect API)

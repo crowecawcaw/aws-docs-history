@@ -28,4 +28,4 @@ following steps to troubleshoot the issue:
 4. If the above steps do not resolve your routing issues, [contact AWS Support](https://aws.amazon.com/support/createCase "https://aws.amazon.com/support/createCase").
    The following flow chart contains the steps to diagnose routing issues.
 
-![Troubleshoot AWS Direct Connect](images/troubleshooting-chart-routing.png)
+![Troubleshoot Direct Connect](images/troubleshooting-chart-routing.png)

@@ -1,4 +1,4 @@
-# AWS Direct Connect Classic connection
+# Direct Connect Classic connection
 
 A Classic connection offers a straightforward approach to establishing dedicated
 network connectivity between your on-premises infrastructure and AWS. This connection type

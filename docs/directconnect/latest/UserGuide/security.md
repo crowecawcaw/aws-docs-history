@@ -17,9 +17,9 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
   including the sensitivity of your data, your company’s requirements, and applicable laws and
   regulations.
   This documentation helps you understand how to apply the shared responsibility model when
-  using AWS Direct Connect. The following topics show you how to configure AWS Direct Connect to meet your
+  using Direct Connect. The following topics show you how to configure Direct Connect to meet your
   security and compliance objectives. You also learn how to use other AWS services that help you
-  to monitor and secure your AWS Direct Connect resources.
+  to monitor and secure your Direct Connect resources.
 
 ###### Topics
 

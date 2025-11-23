@@ -1,6 +1,6 @@
 # Monitor with Amazon CloudWatch
 
-You can monitor physical AWS Direct Connect connections, and virtual interfaces, using CloudWatch.
+You can monitor physical Direct Connect connections, and virtual interfaces, using CloudWatch.
 CloudWatch collects raw data from Direct Connect, and processes it into readable metrics. By
 default, CloudWatch provides Direct Connect metric data in 5-minute intervals.
 The metric data in every interval is an aggregation of at least two
@@ -12,16 +12,16 @@ services that publish CloudWatch metrics](../../../AmazonCloudWatch/latest/monit
 
 ###### Contents
 
-- [AWS Direct Connect metrics and dimensions](#metrics-dimensions "#metrics-dimensions")
+- [Direct Connect metrics and dimensions](#metrics-dimensions "#metrics-dimensions")
 - [View Direct Connect CloudWatch metrics](viewing-metrics.md "viewing-metrics.md")
 - [Create alarms to monitor connections](creating-alarms.md "creating-alarms.md")
 
-## AWS Direct Connect metrics and dimensions
+## Direct Connect metrics and dimensions
 
-Metrics are available for AWS Direct Connect physical connections, and virtual
+Metrics are available for Direct Connect physical connections, and virtual
 interfaces.
 
-### AWS Direct Connect Connection
+### Direct Connect Connection
 
 metrics
 
@@ -40,11 +40,11 @@ The following metrics are available from Direct Connect dedicated connections.
 | `ConnectionLightLevelRx`    | Indicates the health of the fiber connection for inbound<br>(ingress) traffic to the AWS side of the connection.<br>There are two dimensions for this metric. For more<br>information, see [Direct Connect available<br>dimensions](#metrics-available-dimensions "#metrics-available-dimensions").<br>Units: dBm                                                                                                                                                                                                                                                                                                                    |
 | `ConnectionEncryptionState` | Indicates the connection encryption status. 1 indicates the connection encryption is<br>`up`, and 0 indicates the connection encryption<br>is `down`. When this metric is applied to a LAG, 1<br>indicates that all connections in the LAG have encryption<br>`up`. 0 indicates at least one LAG connection<br>encryption is `down`.                                                                                                                                                                                                                                                                                                 |
 
-### AWS Direct Connect virtual
+### Direct Connect virtual
 
 interface metrics
 
-The following metrics are available from AWS Direct Connect virtual interfaces.
+The following metrics are available from Direct Connect virtual interfaces.
 
 | Metric                       | Description                                                                                                                                                                                                               |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -53,11 +53,11 @@ The following metrics are available from AWS Direct Connect virtual interfaces.
 | `VirtualInterfacePpsEgress`  | The packet rate for outbound data from the AWS side of the<br>virtual interface.<br>The number reported is the aggregate (average) over the<br>specified time period (5 minutes by default).<br>Units: Packets per second |
 | `VirtualInterfacePpsIngress` | The packet rate for inbound data to the AWS side of the<br>virtual interface.<br>The number reported is the aggregate (average) over the<br>specified time period (5 minutes by default).<br>Units: Packets per second    |
 
-### AWS Direct Connect available
+### Direct Connect available
 
 dimensions
 
-You can filter the AWS Direct Connect data using the following dimensions.
+You can filter the Direct Connect data using the following dimensions.
 
 | Dimension            | Description                                                                                                                                                                                |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

@@ -1,6 +1,6 @@
 # Troubleshoot layer 2 (data link) issues
 
-If your AWS Direct Connect physical connection is up but your virtual interface is down, use the
+If your Direct Connect physical connection is up but your virtual interface is down, use the
 following steps to troubleshoot the issue.
 
 1. If you cannot ping the Amazon peer IP address, verify that your peer IP
@@ -18,6 +18,6 @@ following steps to troubleshoot the issue.
    The following flow chart contains the steps to diagnose issues with the data
    link.
 
-![Troubleshoot AWS Direct Connect](images/troubleshooting-chart-layer-2.png)
+![Troubleshoot Direct Connect](images/troubleshooting-chart-layer-2.png)
 If the BGP session is still not established after verifying these steps, see [Troubleshoot layer 3/4 (Network/Transport) issues](ts-layer-3.md "ts-layer-3.md"). If the BGP session is established
 but you are experiencing routing issues, see [Troubleshoot routing issues](ts-routing.md "ts-routing.md").

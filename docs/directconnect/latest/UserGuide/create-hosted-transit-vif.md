@@ -1,4 +1,4 @@
-# Create an AWS Direct Connect hosted transit virtual interface
+# Create an Direct Connect hosted transit virtual interface
 
 ###### To create a hosted transit virtual interface
 
@@ -6,7 +6,7 @@
 
 If you associate your transit gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the transit gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both the transit gateway and the Direct Connect gateway, the association request fails.
 
-1.  Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1.  Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2.  In the navigation pane, choose **Virtual Interfaces**.
 3.  Choose **Create virtual interface**.
 4.  Under **Virtual interface type**, for
@@ -27,7 +27,7 @@ If you associate your transit gateway with one or more Direct Connect gateways, 
        Number of your on-premises peer router for the new virtual
        interface.
 
-    The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in AWS Direct Connect](long-asn-support.md "long-asn-support.md").
+    The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in Direct Connect](long-asn-support.md "long-asn-support.md").
 
 6.  Under **Additional Settings**, do the following:
     1. To configure an IPv4 BGP or an IPv6 peer, do the following:
@@ -80,4 +80,4 @@ If you associate your transit gateway with one or more Direct Connect gateways, 
 API
 
 - [allocate-transit-virtual-interface](../../../cli/latest/reference/directconnect/allocate-public-transit-interface.md "../../../cli/latest/reference/directconnect/allocate-public-transit-interface.md") (AWS CLI)
-- [AllocateTransitVirtualInterface](../APIReference/API_AllocateTransitVirtualInterface.md "../APIReference/API_AllocateTransitVirtualInterface.md") (AWS Direct Connect API)
+- [AllocateTransitVirtualInterface](../APIReference/API_AllocateTransitVirtualInterface.md "../APIReference/API_AllocateTransitVirtualInterface.md") (Direct Connect API)

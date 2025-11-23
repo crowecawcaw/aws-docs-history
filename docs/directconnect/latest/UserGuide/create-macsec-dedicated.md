@@ -1,4 +1,4 @@
-# Get started using MACsec on a dedicated AWS Direct Connect
+# Get started using MACsec on a dedicated Direct Connect
 
 connection
 
@@ -31,7 +31,7 @@ CKN/CAK with the connection. For more information, see one of the following:
 ## Step 4: Configure your on-premises router
 
 Update your on-premises router with the MACsec secret key. The MACsec secret key on
-the on-premises router and in the AWS Direct Connect location must match. For more information,
+the on-premises router and in the Direct Connect location must match. For more information,
 see [Download the router configuration file](vif-router-config.md "vif-router-config.md").
 
 ## Step 5: (Optional) Remove the association

@@ -1,6 +1,6 @@
-# AWS Direct Connect maintenance
+# Direct Connect maintenance
 
-AWS Direct Connect is committed to ensuring service security, availability, and scalability.
+Direct Connect is committed to ensuring service security, availability, and scalability.
 To maintain these standards, periodic maintenance is required on the hardware network
 devices. Direct Connect maintenance is divided into two types - **planned**
 and **emergency**.
@@ -131,7 +131,7 @@ potential issues before they impact production workloads during a real maintenan
 event or failure scenario. This will ensure greater confidence in the reliability of
 your network during a maintenance event. Use the Direct Connect Failover test to
 validate the resiliency of your redundant connections. For the steps to use the
-AWS Direct Connect Failover test, see [Direct Connect failover test](resiliency_failover.md "resiliency_failover.md").
+Direct Connect Failover test, see [Direct Connect failover test](resiliency_failover.md "resiliency_failover.md").
 
 You can also leverage Amazon CloudWatch Network Monitor to provide active monitoring of
 your Direct Connect connections. For more information, see [Monitor hybrid connectivity with Amazon CloudWatch Network Synthetic Monitor](https://aws.amazon.com/blogs/networking-and-content-delivery/monitor-hybrid-connectivity-with-amazon-cloudwatch-network-monitor/ "https://aws.amazon.com/blogs/networking-and-content-delivery/monitor-hybrid-connectivity-with-amazon-cloudwatch-network-monitor/").

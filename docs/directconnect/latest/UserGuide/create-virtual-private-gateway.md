@@ -1,7 +1,7 @@
-# Create an AWS Direct Connect virtual private gateway
+# Create an Direct Connect virtual private gateway
 
 The virtual private gateway must be attached to the VPC to which you want to connect. You
-can create a virtual private gateway and attach it to a VPC using either the AWS Direct Connect
+can create a virtual private gateway and attach it to a VPC using either the Direct Connect
 console or using the command line or API.
 
 ###### Note
@@ -16,7 +16,7 @@ After you create a virtual private gateway, you must attach it to your VPC.
 
 ###### To create a virtual private gateway and attach it to your VPC
 
-1. Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. In the navigation pane, choose **Virtual Private
    Gateways**, and then choose **Create Virtual Private
    Gateway**.

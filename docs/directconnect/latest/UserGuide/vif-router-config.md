@@ -1,4 +1,4 @@
-# Download the AWS Direct Connect router configuration file
+# Download the Direct Connect router configuration file
 
 After you create the virtual interface and the interface state is up, you can download the
 router configuration file for your router.
@@ -12,7 +12,7 @@ turned on, we automatically create the configuration file for your router:
 
 ###### To download the router configuration file
 
-1. Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. In the navigation pane, choose **Virtual
    Interfaces**.
 3. Select the virtual interface and then choose **View
@@ -29,7 +29,7 @@ turned on, we automatically create the configuration file for your router:
 
 6. Choose **Download**, and then use the appropriate
    configuration for your router to ensure that you can connect to
-   AWS Direct Connect.
+   Direct Connect.
 7. If you need to manually configure your router for MACsec, use the following table as a
    guideline.
 

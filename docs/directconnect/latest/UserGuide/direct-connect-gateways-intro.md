@@ -1,6 +1,6 @@
-# AWS Direct Connect gateways
+# Direct Connect gateways
 
-Use AWS Direct Connect gateway to connect your VPCs. You associate an AWS Direct Connect gateway with any of
+Use Direct Connect gateway to connect your VPCs. You associate an Direct Connect gateway with any of
 the following:
 
 - A transit gateway when you have multiple VPCs in the same Region
@@ -74,13 +74,13 @@ following:
 The following describe just a few scenarios for using Direct Connect gateways.
 
 In the following diagram, the Direct Connect gateway enables you to use your
-AWS Direct Connect connection in the US East (N. Virginia) Region to access VPCs in your account
+Direct Connect connection in the US East (N. Virginia) Region to access VPCs in your account
 in both the US East (N. Virginia) and US West (N. California) Regions.
 
 Each VPC has a virtual private gateway that connects to the Direct Connect gateway
 using a virtual private gateway association. The Direct Connect gateway uses a
-private virtual interface for the connection to the AWS Direct Connect location. There is an
-AWS Direct Connect connection from the location to the customer data center.
+private virtual interface for the connection to the Direct Connect location. There is an
+Direct Connect connection from the location to the customer data center.
 
 ![A Direct Connect gateway that connects VPCs in two AWS Regions and your data center.](images/dx-gateway.png)
 

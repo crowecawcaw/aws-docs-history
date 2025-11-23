@@ -21,9 +21,9 @@ For details about actions and resource types defined by Direct Connect, includin
 - [Allow users
   to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Read-only access to
-  AWS Direct Connect](#security_iam_id-based-policy-examples-read-access "#security_iam_id-based-policy-examples-read-access")
+  Direct Connect](#security_iam_id-based-policy-examples-read-access "#security_iam_id-based-policy-examples-read-access")
 - [Full access to
-  AWS Direct Connect](#security_iam_id-based-policy-examples-full-access "#security_iam_id-based-policy-examples-full-access")
+  Direct Connect](#security_iam_id-based-policy-examples-full-access "#security_iam_id-based-policy-examples-full-access")
 - [Tag-based condition keys](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md")
 
 ## Policy best
@@ -48,7 +48,7 @@ recommendations:
 - **Use conditions in IAM policies to further restrict access**
   – You can add a condition to your policies to limit access to actions and resources. For example, you can write a policy condition to specify that all requests must
   be sent using SSL. You can also use conditions to grant access to service actions
-  if they are used through a specific AWS service, such as AWS CloudFormation. For more information, see
+  if they are used through a specific AWS service, such as CloudFormation. For more information, see
   [IAM JSON policy elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
 - **Use IAM Access Analyzer to validate your IAM policies to ensure secure and functional permissions**
   – IAM Access Analyzer validates new and existing policies so that the policies adhere to the IAM policy language (JSON) and IAM best practices.
@@ -87,7 +87,7 @@ statements must include either an `Action` or `NotAction`
 element. Direct Connect defines its own set of actions that describe tasks that you can
 perform with this service.
 
-The following example policy grants read access to AWS Direct Connect.
+The following example policy grants read access to Direct Connect.
 
 JSON
 
@@ -108,7 +108,7 @@ JSON
 
 ```
 
-The following example policy grants full access to AWS Direct Connect.
+The following example policy grants full access to Direct Connect.
 
 JSON
 
@@ -175,7 +175,7 @@ on a specific resource. In those cases, you must use the wildcard (\*).
 "Resource": "*"
 ```
 
-To see a list of Direct Connect resource types and their ARNs, see [Resource Types Defined by AWS Direct Connect](../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-resources-for-iam-policies") in the
+To see a list of Direct Connect resource types and their ARNs, see [Resource Types Defined by Direct Connect](../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-resources-for-iam-policies") in the
 _IAM User Guide_. To learn with which actions you can specify
 the ARN of each resource, see [Actions Defined by Direct Connect](../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-actions-as-permissions "../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-actions-as-permissions").
 
@@ -321,9 +321,9 @@ identity. This policy includes permissions to complete this action on the consol
 
 ## Read-only access to
 
-AWS Direct Connect
+Direct Connect
 
-The following example policy grants read access to AWS Direct Connect.
+The following example policy grants read access to Direct Connect.
 
 JSON
 
@@ -346,9 +346,9 @@ JSON
 
 ## Full access to
 
-AWS Direct Connect
+Direct Connect
 
-The following example policy grants full access to AWS Direct Connect.
+The following example policy grants full access to Direct Connect.
 
 JSON
 

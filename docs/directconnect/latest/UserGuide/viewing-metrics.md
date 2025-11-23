@@ -1,6 +1,6 @@
-# View AWS Direct Connect CloudWatch metrics
+# View Direct Connect CloudWatch metrics
 
-AWS Direct Connect sends the following metrics about your Direct Connect connections. Amazon CloudWatch
+Direct Connect sends the following metrics about your Direct Connect connections. Amazon CloudWatch
 then aggregates these data points to 1-minute or 5-minute intervals. By default,
 Direct Connect metric data is written to CloudWatch at 5-minute intervals.
 
@@ -48,9 +48,9 @@ _Amazon CloudWatch User Guide_.
      with CloudWatch Metrics Insights](../../../AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.md "../../../AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.md") in the
      _Amazon CloudWatch User Guide_.
 
-###### To view metrics using the AWS Direct Connect console
+###### To view metrics using the Direct Connect console
 
-1. Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. In the navigation pane, choose **Connections**.
 3. Select your connection.
 4. Choose the **Monitoring** tab to display the metrics for

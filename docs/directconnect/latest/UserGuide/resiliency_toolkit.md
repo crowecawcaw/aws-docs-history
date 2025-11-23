@@ -11,7 +11,7 @@ have the appropriate number of dedicated connections in multiple locations.
 The AWS Direct Connect Resiliency Toolkit has the following benefits:
 
 - Provides guidance on how you determine and then order the appropriate redundant
-  AWS Direct Connect dedicated connections.
+  Direct Connect dedicated connections.
 - Ensures that the redundant dedicated connections have the same speed.
 - Automatically configures the dedicated connection names.
 - Automatically approves your dedicated connections when you have an existing AWS
@@ -28,13 +28,13 @@ The AWS Direct Connect Resiliency Toolkit has the following benefits:
 - Provides a LAG summary with the dedicated connection SLA that you can achieve, and
   the total port-hour cost for each ordered dedicated connection as part of the
   LAG.
-- Prevents you from terminating the dedicated connections on the same AWS Direct Connect
+- Prevents you from terminating the dedicated connections on the same Direct Connect
   device.
 - Provides a way for you to test your configuration for resiliency. You work with
   AWS to bring down the BGP peering session in order to verify that traffic routes
-  to one of your redundant virtual interfaces. For more information, see [AWS Direct Connect Failover Test](resiliency_failover.md "resiliency_failover.md").
+  to one of your redundant virtual interfaces. For more information, see [Direct Connect Failover Test](resiliency_failover.md "resiliency_failover.md").
 - Provides Amazon CloudWatch metrics for connections and virtual interfaces. For more
-  information, see [Monitor AWS Direct Connect resources](monitoring-overview.md "monitoring-overview.md").
+  information, see [Monitor Direct Connect resources](monitoring-overview.md "monitoring-overview.md").
   After you select the resiliency model, the AWS Direct Connect Resiliency Toolkit steps you through the following
   procedures:
 
@@ -52,11 +52,11 @@ The following resiliency models are available in the AWS Direct Connect Resilien
 
 - **Maximum resiliency**: This model provides you a way to order
   dedicated connections to achieve an SLA of 99.99%. It requires you to meet all
-  of the requirements for achieving the SLA that are specified in the [AWS Direct Connect Service Level
+  of the requirements for achieving the SLA that are specified in the [Direct Connect Service Level
   Agreement](https://aws.amazon.com/directconnect/sla/ "https://aws.amazon.com/directconnect/sla/").
 - **High resiliency**: This model provides you a way to order
   dedicated connections to achieve an SLA of 99.9%. It requires you to meet all of
-  the requirements for achieving the SLA that are specified in the [AWS Direct Connect Service Level
+  the requirements for achieving the SLA that are specified in the [Direct Connect Service Level
   Agreement](https://aws.amazon.com/directconnect/sla/ "https://aws.amazon.com/directconnect/sla/").
 - **Development and test**: This model provides you a way to
   achieve development and test resiliency for non-critical workloads, by using
@@ -83,7 +83,7 @@ You can achieve maximum resiliency for critical workloads by using separate
 connections that terminate on separate devices in more than one location (as shown in
 the following figure). This model provides resiliency against device, connectivity, and
 complete location failures. The following figure shows both connections from each
-customer data center going to the same AWS Direct Connect locations. You can optionally
+customer data center going to the same Direct Connect locations. You can optionally
 have each connection from a customer data center going to different locations.
 
 ![Maximum resiliency model](images/dc-max-resiliency.png)

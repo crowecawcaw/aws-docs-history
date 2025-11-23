@@ -1,7 +1,7 @@
 # Data protection in AWS Direct Connect
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
-applies to data protection in AWS Direct Connect. As described in this model, AWS is
+applies to data protection in Direct Connect. As described in this model, AWS is
 responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are
 responsible for maintaining control over your content that is hosted on this infrastructure.
 You are also responsible for the security configuration and management tasks for the AWS services
@@ -23,7 +23,7 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
   available FIPS endpoints, see [Federal
   Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
   We strongly recommend that you never put confidential or sensitive information, such as your
-  customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with AWS Direct Connect or other AWS services
+  customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with Direct Connect or other AWS services
   using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into
   tags or free-form text fields used for names may be used for billing or diagnostic logs. If you
   provide a URL to an external server, we strongly recommend that you do not include credentials

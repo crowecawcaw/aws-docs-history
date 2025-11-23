@@ -1,4 +1,4 @@
-# Delete a transit gateway and AWS Direct Connect association
+# Delete a transit gateway and Direct Connect association
 
 proposal
 
@@ -8,11 +8,11 @@ proposal is accepted, you can't delete it, but you can disassociate the transit
 gateway from the Direct Connect gateway. For more information, see [Create a transit gateway association
 proposal](multi-account-tgw-create-proposal.md "multi-account-tgw-create-proposal.md").
 
-You can delete a transit gateway and Direct Connect association proposal using either the AWS Direct Connect console or using the command line or API.
+You can delete a transit gateway and Direct Connect association proposal using either the Direct Connect console or using the command line or API.
 
 ###### To delete an association proposal
 
-1. Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. In the navigation pane, choose **Transit gateways**
    and then select the transit gateway.
 3. Choose **View details**.
@@ -26,4 +26,4 @@ You can delete a transit gateway and Direct Connect association proposal using e
 ###### To delete a pending association proposal using the command line or API
 
 - [delete-direct-connect-gateway-association-proposal](../../../cli/latest/reference/directconnect/delete-direct-connect-gateway-association-proposal.md "../../../cli/latest/reference/directconnect/delete-direct-connect-gateway-association-proposal.md") (AWS CLI)
-- [DeleteDirectConnectGatewayAssociationProposal](../APIReference/API_DeleteDirectConnectGatewayAssociationProposal.md "../APIReference/API_DeleteDirectConnectGatewayAssociationProposal.md") (AWS Direct Connect API)
+- [DeleteDirectConnectGatewayAssociationProposal](../APIReference/API_DeleteDirectConnectGatewayAssociationProposal.md "../APIReference/API_DeleteDirectConnectGatewayAssociationProposal.md") (Direct Connect API)

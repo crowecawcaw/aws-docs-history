@@ -1,7 +1,7 @@
-# Add a BGP peer to an AWS Direct Connect virtual interface
+# Add a BGP peer to an Direct Connect virtual interface
 
 Add or delete an IPv4 or IPv6 BGP peering session to your virtual
-interface using either the AWS Direct Connect console or using the command line or API.
+interface using either the Direct Connect console or using the command line or API.
 
 A virtual interface can support a single IPv4 BGP peering session and a single IPv6 BGP
 peering session. You cannot specify your own peer IPv6 addresses for an IPv6 BGP peering
@@ -16,7 +16,7 @@ Use the following procedure to add a BGP peer.
 
 ###### To add a BGP peer
 
-1.  Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1.  Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2.  In the navigation pane, choose **Virtual
     Interfaces**.
 3.  Select the virtual interface and then choose **View
@@ -58,7 +58,7 @@ Use the following procedure to add a BGP peer.
 For a public virtual interface, the ASN must be private or already on the allow list for the
 virtual interface.
 
-The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483646) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in AWS Direct Connect](long-asn-support.md "long-asn-support.md").
+The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483646) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in Direct Connect](long-asn-support.md "long-asn-support.md").
 
 Note that if you do not enter a value, we automatically assign
 one. 9. To provide your own BGP key, for **BGP Authentication
@@ -68,4 +68,4 @@ Key**, enter your BGP MD5 key. 10. Choose **Add peering**.
 
 - [create-bgp-peer](../../../cli/latest/reference/directconnect/create-bgp-peer.md "../../../cli/latest/reference/directconnect/create-bgp-peer.md") (AWS CLI)
 - [CreateBGPPeer](../APIReference/API_CreateBGPPeer.md "../APIReference/API_CreateBGPPeer.md")
-  (AWS Direct Connect API)
+  (Direct Connect API)

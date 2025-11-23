@@ -1,6 +1,6 @@
-# Update an AWS Direct Connect connection
+# Update an Direct Connect connection
 
-You can update the following connection attribute using either the AWS Direct Connect console or using the command line or API.
+You can update the following connection attribute using either the Direct Connect console or using the command line or API.
 
 - The name of the connection.
 - The connection's MACsec encryption mode.
@@ -23,7 +23,7 @@ The valid values are:
 
 ###### To update a connection
 
-1. Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. In the navigation pane, choose **Connections**.
 3. Select the connection, and then choose **Edit**.
 4. Modify the connection:
@@ -41,4 +41,4 @@ name.
 ###### To update a connection using the command line or API
 
 - [update-connection](../../../cli/latest/reference/directconnect/update-connection.md "../../../cli/latest/reference/directconnect/update-connection.md") (AWS CLI)
-- [UpdateConnection](../APIReference/API_UpdateConnection.md "../APIReference/API_UpdateConnection.md") (AWS Direct Connect API)
+- [UpdateConnection](../APIReference/API_UpdateConnection.md "../APIReference/API_UpdateConnection.md") (Direct Connect API)

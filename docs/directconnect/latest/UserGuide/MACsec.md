@@ -1,15 +1,15 @@
-# MAC Security in AWS Direct Connect
+# MAC Security in Direct Connect
 
 MAC Security (MACsec) is an IEEE standard that provides data confidentiality, data integrity,
 and data origin authenticity. MACsec provides Layer 2 point-to-point encryption over the
 cross-connect to AWS, operating between two Layer 3 routers. While MACsec secures the
 connection between your router and Direct Connect location at Layer 2, AWS provides
 additional security by encrypting all data at the physical layer as it flows across the network
-between AWS Direct Connect locations and AWS Regions. This creates a layered security
+between Direct Connect locations and AWS Regions. This creates a layered security
 approach where your traffic is protected both during initial entry into AWS and during
 transit across the AWS network.
 
-In the following diagram, the AWS Direct Connect cross-connect must be connected to a MACsec-capable
+In the following diagram, the Direct Connect cross-connect must be connected to a MACsec-capable
 interface on the customer's edge device. MACsec over Direct Connect provides layer 2
 encryption for point-to-point traffic between the Direct Connect edge device and the
 customer's edge device. This encryption occurs after security keys are exchanged and
@@ -40,8 +40,8 @@ The following are the key concepts for MACsec:
   for security purposes and whenever a MACsec session is established.
 - Connectivity Association Key Name (CKN) and Connectivity Association Key (CAK) — The values
   in this pair are used to generate the MACsec key. You generate the pair values,
-  associate them with an AWS Direct Connect connection, and then provision them on your edge
-  device at your end of the AWS Direct Connect connection. Direct Connect supports only
+  associate them with an Direct Connect connection, and then provision them on your edge
+  device at your end of the Direct Connect connection. Direct Connect supports only
   static CAK mode but not dynamic CAK mode. Since only static CAK mode is
   supported, it's recommended that you follow your own key management policies for
   key generation, distribution, and rotation.
@@ -118,7 +118,7 @@ For information about how to order connections that support MACsec, see [AWS Dir
 
 ### Dedicated connections
 
-The following helps you become familiar with MACsec on AWS Direct Connect dedicated connections.
+The following helps you become familiar with MACsec on Direct Connect dedicated connections.
 There are no additional charges for using MACsec. The steps to configure MACsec on a
 dedicated connection can be found in [Get started with MACsec on a dedicated connection](create-macsec-dedicated.md "create-macsec-dedicated.md").
 
@@ -191,12 +191,12 @@ performed using the partner-specific API/SDK calls.
 
 ## Service-Linked roles
 
-AWS Direct Connect uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role
-that is linked directly to AWS Direct Connect. Service-linked roles are predefined by AWS Direct Connect and
+Direct Connect uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role
+that is linked directly to Direct Connect. Service-linked roles are predefined by Direct Connect and
 include all of the permissions that the service requires to call other AWS services on
-your behalf. A service-linked role makes setting up AWS Direct Connect easier because you don’t
-have to manually add the necessary permissions. AWS Direct Connect defines the permissions of its
-service-linked roles, and unless defined otherwise, only AWS Direct Connect can assume its roles.
+your behalf. A service-linked role makes setting up Direct Connect easier because you don’t
+have to manually add the necessary permissions. Direct Connect defines the permissions of its
+service-linked roles, and unless defined otherwise, only Direct Connect can assume its roles.
 The defined permissions include the trust policy and the permissions policy, and that
 permissions policy cannot be attached to any other IAM entity. For more information,
 see [Service-linked

@@ -1,7 +1,7 @@
-# Troubleshoot AWS Direct Connect
+# Troubleshoot Direct Connect
 
 The following troubleshooting information can help you diagnose and fix issues with your
-AWS Direct Connect connection.
+Direct Connect connection.
 
 ###### Contents
 

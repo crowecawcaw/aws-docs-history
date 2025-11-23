@@ -1,10 +1,10 @@
 # Create a private virtual
 
-interface to the AWS Direct Connect gateway
+interface to the Direct Connect gateway
 
-To connect your AWS Direct Connect connection to the remote VPC, you must create a private
+To connect your Direct Connect connection to the remote VPC, you must create a private
 virtual interface for your connection. Specify the Direct Connect gateway to which
-to connect. You can create a private virtual interface using either the AWS Direct Connect console or using the command line or API.
+to connect. You can create a private virtual interface using either the Direct Connect console or using the command line or API.
 
 ###### Note
 
@@ -13,7 +13,7 @@ with a Direct Connect gateway in your account. For more information, see [Accept
 
 ###### To provision a private virtual interface to a Direct Connect gateway
 
-1.  Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1.  Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2.  In the navigation pane, choose **Virtual Interfaces**.
 3.  Choose **Create virtual interface**.
 4.  Under **Virtual interface type**, choose **Private**.
@@ -26,7 +26,7 @@ with a Direct Connect gateway in your account. For more information, see [Accept
        local area network (VLAN).
     6. For **BGP ASN**, enter the Border Gateway Protocol Autonomous System Number of your on-premises peer router for the new virtual interface.
 
-    The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in AWS Direct Connect](long-asn-support.md "long-asn-support.md").
+    The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in Direct Connect](long-asn-support.md "long-asn-support.md").
 
 6.  Under **Additional Settings**, do the following:
     1. To configure an IPv4 BGP or an IPv6 peer, do the following:
@@ -74,7 +74,7 @@ with a Direct Connect gateway in your account. For more information, see [Accept
 
 - [create-private-virtual-interface](../../../cli/latest/reference/directconnect/create-private-virtual-interface.md "../../../cli/latest/reference/directconnect/create-private-virtual-interface.md")
   (AWS CLI)
-- [CreatePrivateVirtualInterface](../APIReference/API_CreatePrivateVirtualInterface.md "../APIReference/API_CreatePrivateVirtualInterface.md") (AWS Direct Connect
+- [CreatePrivateVirtualInterface](../APIReference/API_CreatePrivateVirtualInterface.md "../APIReference/API_CreatePrivateVirtualInterface.md") (Direct Connect
   API)
 
 ###### To view the virtual interfaces that are attached to a Direct Connect gateway
@@ -84,4 +84,4 @@ using the command line or API
 - [describe-direct-connect-gateway-attachments](../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-attachments.md "../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-attachments.md")
   (AWS CLI)
 - [DescribeDirectConnectGatewayAttachments](../APIReference/API_DescribeDirectConnectGatewayAttachments.md "../APIReference/API_DescribeDirectConnectGatewayAttachments.md")
-  (AWS Direct Connect API)
+  (Direct Connect API)

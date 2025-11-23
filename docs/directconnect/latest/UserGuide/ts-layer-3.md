@@ -1,6 +1,6 @@
 # Troubleshoot layer 3/4 (Network/Transport) issues
 
-Consider a situation where your AWS Direct Connect physical connection is up and you can ping
+Consider a situation where your Direct Connect physical connection is up and you can ping
 the Amazon peer IP address. If your virtual interface is up and the BGP peering session
 cannot be established, use the following steps to troubleshoot the issue:
 
@@ -22,6 +22,6 @@ cannot be established, use the following steps to troubleshoot the issue:
    The following flow chart contains the steps to diagnose issues with the BGP peering
    session.
 
-![Troubleshoot AWS Direct Connect](images/troubleshooting-chart-layer-3-4.png)
+![Troubleshoot Direct Connect](images/troubleshooting-chart-layer-3-4.png)
 If the BGP peering session is established but you are experiencing routing issues, see
 [Troubleshoot routing issues](ts-routing.md "ts-routing.md").

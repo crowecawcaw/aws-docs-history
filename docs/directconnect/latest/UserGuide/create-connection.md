@@ -1,11 +1,11 @@
-# Create an AWS Direct Connect dedicated connection using the Connection wizard
+# Create an Direct Connect dedicated connection using the Connection wizard
 
 This section describes creating a connection using the Connection wizard. If you prefer to
-create a Classic connection, see the steps at [Step 2: Request an AWS Direct Connect dedicated connection](toolkit-classic.md#ConnectionRequest "toolkit-classic.md#ConnectionRequest").
+create a Classic connection, see the steps at [Step 2: Request an Direct Connect dedicated connection](toolkit-classic.md#ConnectionRequest "toolkit-classic.md#ConnectionRequest").
 
 ###### To create a Connection wizard connection
 
-1.  Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1.  Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2.  In the navigation pane, choose
     **Connections**, and then choose
     **Create connection**.
@@ -31,13 +31,13 @@ create a Classic connection, see the steps at [Step 2: Request an AWS Direct Con
        **1Gbps** to **400
        Gbps**.
     2. For **Location**, choose the
-       appropriate AWS Direct Connect location, and then choose the
+       appropriate Direct Connect location, and then choose the
        **First location service
        provider**, select the service provider
        providing connectivity for the connection at this
        location.
     3. For **Second location**, choose the
-       appropriate AWS Direct Connect at the second location, and then
+       appropriate Direct Connect at the second location, and then
        choose the **Second location service
        provider**, select the service provider
        providing connectivity for the connection at this second
@@ -71,4 +71,4 @@ create a Classic connection, see the steps at [Step 2: Request an AWS Direct Con
     Use one of the following commands.
 
 - [create-connection](../../../cli/latest/reference/directconnect/create-connection.md "../../../cli/latest/reference/directconnect/create-connection.md") (AWS CLI)
-- [CreateConnection](../APIReference/API_CreateConnection.md "../APIReference/API_CreateConnection.md") (AWS Direct Connect API)
+- [CreateConnection](../APIReference/API_CreateConnection.md "../APIReference/API_CreateConnection.md") (Direct Connect API)

@@ -1,7 +1,7 @@
-# Infrastructure security in AWS Direct Connect
+# Infrastructure security in Direct Connect
 
 As a managed service, AWS Direct Connect is protected by the AWS global network security
-procedures. You use AWS published API calls to access AWS Direct Connect through the network.
+procedures. You use AWS published API calls to access Direct Connect through the network.
 Clients must support Transport Layer Security (TLS) 1.2 or later. We recommend TLS 1.3.
 Clients must also support cipher suites with perfect forward secrecy (PFS) such as Ephemeral
 Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman (ECDHE). Most modern systems
@@ -12,11 +12,11 @@ an access key ID and a secret access key that is associated with an IAM principa
 can use the [AWS Security Token Service](../../../STS/latest/APIReference/Welcome.md "../../../STS/latest/APIReference/Welcome.md") (AWS STS) to generate
 temporary security credentials to sign requests.
 
-You can call these API operations from any network location, but AWS Direct Connect supports
+You can call these API operations from any network location, but Direct Connect supports
 resource-based access policies, which can include restrictions based on the source IP
-address. You can also use AWS Direct Connect policies to control access from specific Amazon Virtual Private Cloud
+address. You can also use Direct Connect policies to control access from specific Amazon Virtual Private Cloud
 (Amazon VPC) endpoints or specific VPCs. Effectively, this isolates network access to a given
-AWS Direct Connect resource from only the specific VPC within the AWS network. For example, see
+Direct Connect resource from only the specific VPC within the AWS network. For example, see
 [Identity-based policy examples for
 Direct Connect](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 

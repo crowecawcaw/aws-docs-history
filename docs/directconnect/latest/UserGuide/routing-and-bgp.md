@@ -1,13 +1,13 @@
-# AWS Direct Connect routing policies and BGP communities
+# Direct Connect routing policies and BGP communities
 
-AWS Direct Connect applies inbound (from your on-premises data center) and outbound (from your AWS
-Region) routing policies for a public AWS Direct Connect connection. You can also use Border Gateway
+Direct Connect applies inbound (from your on-premises data center) and outbound (from your AWS
+Region) routing policies for a public Direct Connect connection. You can also use Border Gateway
 Protocol (BGP) community tags on routes advertised by Amazon and apply BGP community tags on
 the routes you advertise to Amazon.
 
 ## Public virtual interface routing policies
 
-If you're using AWS Direct Connect to access public AWS services, you must specify the public
+If you're using Direct Connect to access public AWS services, you must specify the public
 IPv4 prefixes or IPv6 prefixes to advertise over BGP.
 
 The following inbound routing policies apply:
@@ -16,15 +16,15 @@ The following inbound routing policies apply:
   appropriate regional internet registry.
 - Traffic must be destined to Amazon public prefixes. Transitive routing between
   connections is not supported.
-- AWS Direct Connect performs inbound packet filtering to validate that the source of the
+- Direct Connect performs inbound packet filtering to validate that the source of the
   traffic originated from your advertised prefix.
 
 The following outbound routing policies apply:
 
 - AS_PATH and Longest Prefix Match are used to determine the routing path. AWS
-  recommends advertising more specific routes using AWS Direct Connect if the same prefix is
+  recommends advertising more specific routes using Direct Connect if the same prefix is
   being advertised to both the Internet and to a public virtual interface.
-- AWS Direct Connect advertises all local and remote AWS Region prefixes where available
+- Direct Connect advertises all local and remote AWS Region prefixes where available
   and includes on-net prefixes from other AWS non-Region points of presence
   (PoP) where available; for example, CloudFront and Route 53.
 
@@ -41,22 +41,22 @@ ip-ranges.json file, see [AWS IP address
 ranges](../../../general/latest/gr/aws-ip-ranges.md "../../../general/latest/gr/aws-ip-ranges.md") in the
 _AWS General Reference_.
 
-- AWS Direct Connect advertises prefixes with a minimum path length of 3.
-- AWS Direct Connect advertises all public prefixes with the well-known
+- Direct Connect advertises prefixes with a minimum path length of 3.
+- Direct Connect advertises all public prefixes with the well-known
   `NO_EXPORT` BGP community.
 - If you advertise the same prefixes from two different Regions
   using two different public virtual interfaces, and both have the same BGP
   attributes and longest prefix length, AWS will prioritize the home
   Region for outbound traffic.
-- If you have multiple AWS Direct Connect connections, you can adjust the load-sharing of
+- If you have multiple Direct Connect connections, you can adjust the load-sharing of
   inbound traffic by advertising prefixes with the same path attributes.
-- The prefixes advertised by AWS Direct Connect must not be advertised beyond the network
+- The prefixes advertised by Direct Connect must not be advertised beyond the network
   boundaries of your connection. For example, these prefixes must not be included
   in any public internet routing table.
-- AWS Direct Connect keeps prefixes advertised by customers within the Amazon network. We
+- Direct Connect keeps prefixes advertised by customers within the Amazon network. We
   do not re-advertise customer prefixes learned from a public VIF to any of the
   following:
-  - Other AWS Direct Connect customers
+  - Other Direct Connect customers
   - Networks that peer with the AWS Global Network
   - Amazon's transit providers
 
@@ -68,7 +68,7 @@ _AWS General Reference_.
   - Private ASNs: You can use private ASNs from the following ranges:
     - private ASNs: 64512-65534
     - private long ASNs: 4200000000-4294967294
-      However, AWS Direct Connect will replace the private ASN with the AWS ASN
+      However, Direct Connect will replace the private ASN with the AWS ASN
       (7224) when advertising your prefixes to other AWS customers or the
       internet.
 
@@ -88,7 +88,7 @@ _AWS General Reference_.
 
 ## Public virtual interface BGP communities
 
-AWS Direct Connect supports scope BGP community tags to help control the scope (Regional or
+Direct Connect supports scope BGP community tags to help control the scope (Regional or
 global) and route preference of traffic on public virtual interfaces. AWS treats all
 routes received from a public VIF as if they were tagged with the NO_EXPORT BGP
 community tag, meaning only the AWS network will use that routing information.
@@ -121,22 +121,22 @@ Prefixes that are marked with the same communities, and have identical AS_PATH
 attributes are candidates for multi-pathing.
 
 The communities `7224:1` – `7224:65535` are reserved by
-AWS Direct Connect.
+Direct Connect.
 
-For outbound routing policies, AWS Direct Connect applies the following BGP communities to
+For outbound routing policies, Direct Connect applies the following BGP communities to
 its advertised routes:
 
 - `7224:8100`—Routes that originate from the same AWS Region in
-  which the AWS Direct Connect point of presence is associated.
+  which the Direct Connect point of presence is associated.
 - `7224:8200`—Routes that originate from the same continent with
-  which the AWS Direct Connect point of presence is associated.
+  which the Direct Connect point of presence is associated.
 - No tag—Routes that originate from other continents.
 
 ###### Note
 
 To receive all AWS public prefixes do not apply any filter.
 
-Communities that are not supported for an AWS Direct Connect public connection are
+Communities that are not supported for an Direct Connect public connection are
 removed.
 
 ### `NO_EXPORT` BGP
@@ -146,11 +146,11 @@ community
 For outbound routing policies, the `NO_EXPORT` BGP community tag is
 supported for public virtual interfaces.
 
-AWS Direct Connect also provides BGP community tags on advertised Amazon routes. If you use
-AWS Direct Connect to access public AWS services, you can create filters based on these
+Direct Connect also provides BGP community tags on advertised Amazon routes. If you use
+Direct Connect to access public AWS services, you can create filters based on these
 community tags.
 
-For public virtual interfaces, all routes that AWS Direct Connect advertises to customers
+For public virtual interfaces, all routes that Direct Connect advertises to customers
 are tagged with the NO_EXPORT community tag.
 
 ## Private virtual interface and transit virtual interface routing policies
@@ -227,13 +227,13 @@ The following local preference BGP community tags are supported:
 - `7224:7300`—High preference
 
 Local preference BGP community tags are mutually exclusive. To load balance
-traffic across multiple AWS Direct Connect connections (active/active) homed to the same
+traffic across multiple Direct Connect connections (active/active) homed to the same
 or different AWS Regions, apply the same community tag; for example,
 `7224:7200` (medium preference) across the prefixes for the
 connections. If one of the connections fails, traffic will be then load balance
 using ECMP across the remaining active connections regardless of their home
 Region associations . To support failover across multiple
-AWS Direct Connect connections (active/passive), apply a community tag with a higher
+Direct Connect connections (active/passive), apply a community tag with a higher
 preference to the prefixes for the primary or active virtual interface and a
 lower preference to the prefixes for the backup or passive virtual interface.
 For example, set the BGP community tags for your primary or active virtual

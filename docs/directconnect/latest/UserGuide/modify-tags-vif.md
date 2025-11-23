@@ -1,11 +1,11 @@
-# Add or remove AWS Direct Connect virtual interface tags
+# Add or remove Direct Connect virtual interface tags
 
-Tags provide a way to identify the virtual interface. You can add or remove a tag using either the AWS Direct Connect console or using the command line or API if you are
+Tags provide a way to identify the virtual interface. You can add or remove a tag using either the Direct Connect console or using the command line or API if you are
 the account owner for the virtual interface.
 
 ###### To add or remove a virtual interface tag
 
-1. Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. In the navigation pane, choose **Virtual Interfaces**.
 3. Select the virtual interface and then choose
    **Edit**.

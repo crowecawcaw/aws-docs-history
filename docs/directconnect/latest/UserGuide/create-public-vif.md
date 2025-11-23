@@ -1,11 +1,11 @@
-# Create an AWS Direct Connect public virtual interface
+# Create an Direct Connect public virtual interface
 
 When you create a public virtual interface, it can take up to 72 business hours for us to
 review and approve your request.
 
 ###### To provision a public virtual interface
 
-1.  Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1.  Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2.  In the navigation pane, choose **Virtual Interfaces**.
 3.  Choose **Create virtual interface**.
 4.  Under **Virtual interface type**, for
@@ -22,7 +22,7 @@ review and approve your request.
        Autonomous System Number (ASN) of your on-premises peer router for the new
        virtual interface.
 
-    The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in AWS Direct Connect](long-asn-support.md "long-asn-support.md").
+    The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in Direct Connect](long-asn-support.md "long-asn-support.md").
 
     ###### Note
 
@@ -82,4 +82,4 @@ review and approve your request.
 ###### To create a public virtual interface using the command line or API
 
 - [create-public-virtual-interface](../../../cli/latest/reference/directconnect/create-public-virtual-interface.md "../../../cli/latest/reference/directconnect/create-public-virtual-interface.md") (AWS CLI)
-- [CreatePublicVirtualInterface](../APIReference/API_CreatePublicVirtualInterface.md "../APIReference/API_CreatePublicVirtualInterface.md") (AWS Direct Connect API)
+- [CreatePublicVirtualInterface](../APIReference/API_CreatePublicVirtualInterface.md "../APIReference/API_CreatePublicVirtualInterface.md") (Direct Connect API)

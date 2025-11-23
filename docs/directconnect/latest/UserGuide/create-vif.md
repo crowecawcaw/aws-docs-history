@@ -1,4 +1,4 @@
-# AWS Direct Connect virtual interfaces
+# Direct Connect virtual interfaces
 
 You can create a transit virtual interface to connect to a transit gateway, a public
 virtual interface to connect to public resources (non-VPC services), or a private
@@ -20,7 +20,7 @@ Before you begin, ensure that you have read the information in [Prerequisites fo
 
 ## Prerequisites for transit virtual interfaces to a Direct Connect gateway
 
-To connect your AWS Direct Connect connection to the transit gateway, you must create a
+To connect your Direct Connect connection to the transit gateway, you must create a
 transit interface for your connection. Specify the Direct Connect gateway to which
 to connect.
 
@@ -33,7 +33,7 @@ MTU of a virtual interface to 8500 (jumbo frames) or 9001 (jumbo frames) can cau
 an update to the underlying physical connection if it wasn't updated to support
 jumbo frames. Updating the connection disrupts network connectivity for all virtual
 interfaces associated with the connection for up to 30 seconds. To check whether a
-connection or virtual interface supports jumbo frames, select it in the AWS Direct Connect
+connection or virtual interface supports jumbo frames, select it in the Direct Connect
 console and find **Jumbo Frame Capable** on the
 **Summary** tab.
 

@@ -1,6 +1,6 @@
-# AWS Direct Connect gateways
+# Direct Connect gateways
 
-You can work with AWS Direct Connect gateways using the Amazon VPC console or the AWS CLI.
+You can work with Direct Connect gateways using the Amazon VPC console or the AWS CLI.
 
 - [Direct Connect gateways](direct-connect-gateways-intro.md "direct-connect-gateways-intro.md")
 

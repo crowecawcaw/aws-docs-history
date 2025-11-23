@@ -1,4 +1,4 @@
-# Migrate an AWS Direct Connect virtual interface
+# Migrate an Direct Connect virtual interface
 
 Use this procedure when you want to perform any of the following virtual interface migration
 operations:
@@ -30,7 +30,7 @@ during a maintenance window.
 
 ###### To migrate a virtual interface
 
-1. Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. In the navigation pane, choose **Virtual Interfaces**.
 3. Select the virtual interface, and then choose **Edit**.
 4. For **Connection**, select the LAG or connection.
@@ -39,4 +39,4 @@ during a maintenance window.
 ###### To migrate a virtual interface using the command line or API
 
 - [associate-virtual-interface](../../../cli/latest/reference/directconnect/associate-virtual-interface.md "../../../cli/latest/reference/directconnect/associate-virtual-interface.md") (AWS CLI)
-- [AssociateVirtualInterface](../APIReference/API_AssociateVirtualInterface.md "../APIReference/API_AssociateVirtualInterface.md") (AWS Direct Connect API)
+- [AssociateVirtualInterface](../APIReference/API_AssociateVirtualInterface.md "../APIReference/API_AssociateVirtualInterface.md") (Direct Connect API)

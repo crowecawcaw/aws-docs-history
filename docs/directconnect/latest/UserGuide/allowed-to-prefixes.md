@@ -1,4 +1,4 @@
-# Allowed prefixes interactions for AWS Direct Connect gateways
+# Allowed prefixes interactions for Direct Connect gateways
 
 Learn how allowed prefixes interact with transit gateways and virtual private gateways. For
 more information, see [Routing policies and BGP communities](routing-and-bgp.md "routing-and-bgp.md").
@@ -83,7 +83,7 @@ configuration:
 - A Direct connect gateway.
 - A transit gateway association between one of the transit gateways (the one in
   us-east-1) to the Direct Connect gateway.
-- A transit virtual interface from the on-premises location and the AWS Direct Connect
+- A transit virtual interface from the on-premises location and the Direct Connect
   location.
 
 ![Private VIF Routing no AS_PATH](images/dxg-asn.png)

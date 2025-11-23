@@ -8,7 +8,7 @@ available, fault tolerant, and scalable than traditional single or multiple data
 For more information about AWS Regions and Availability Zones, see [AWS Global
 Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
 
-In addition to the AWS global infrastructure, AWS Direct Connect offers several features to help support your data resiliency and backup needs.
+In addition to the AWS global infrastructure, Direct Connect offers several features to help support your data resiliency and backup needs.
 
 For information about how to use VPN with AWS Direct Connect, see [AWS Direct Connect Plus VPN](../../../whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect-plus-vpn-network-to-amazon.md "../../../whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect-plus-vpn-network-to-amazon.md").
 

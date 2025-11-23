@@ -1,4 +1,4 @@
-# Associate an AWS Direct Connect virtual private gateway across accounts
+# Associate an Direct Connect virtual private gateway across accounts
 
 You can associate a Direct Connect gateway with a virtual private gateway that is
 owned by any AWS account. The Direct Connect gateway can be an existing gateway, or

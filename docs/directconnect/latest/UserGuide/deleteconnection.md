@@ -1,8 +1,8 @@
-# Delete an AWS Direct Connect connection
+# Delete an Direct Connect connection
 
 You can delete a connection as long as there are no virtual interfaces attached to it.
 Deleting your connection stops all port hour charges for this connection, but you may
-still incur cross-connect or network circuit charges (see below). AWS Direct Connectdata transfer
+still incur cross-connect or network circuit charges (see below). Direct Connectdata transfer
 charges are associated with virtual interfaces. For more information about how to delete
 a virtual interface, see [Delete a virtual interface](deletevif.md "deletevif.md").
 
@@ -23,11 +23,11 @@ If the connection is part of a link aggregation group (LAG), you cannot delete t
 connection if doing so causes the LAG to fall below its setting for the minimum number
 of operational connections.
 
-You can delete a connection using either the AWS Direct Connect console or using the command line or API.
+You can delete a connection using either the Direct Connect console or using the command line or API.
 
 ###### To delete a connection
 
-1. Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. In the navigation pane, choose **Connections**.
 3. Select the connections and choose **Delete**.
 4. In the **Delete confirmation** dialog box, choose
@@ -36,4 +36,4 @@ You can delete a connection using either the AWS Direct Connect console or using
 ###### To delete a connection using the command line or API
 
 - [delete-connection](../../../cli/latest/reference/directconnect/delete-connection.md "../../../cli/latest/reference/directconnect/delete-connection.md") (AWS CLI)
-- [DeleteConnection](../APIReference/API_DeleteConnection.md "../APIReference/API_DeleteConnection.md") (AWS Direct Connect API)
+- [DeleteConnection](../APIReference/API_DeleteConnection.md "../APIReference/API_DeleteConnection.md") (Direct Connect API)

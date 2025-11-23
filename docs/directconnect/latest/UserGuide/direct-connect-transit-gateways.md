@@ -1,8 +1,8 @@
-# AWS Direct Connect gateways and transit gateway associations
+# Direct Connect gateways and transit gateway associations
 
-You can use AWS Direct Connect gateway to connect your Direct Connect connection over a transit virtual
+You can use Direct Connect gateway to connect your Direct Connect connection over a transit virtual
 interface to the VPCs or VPNs that are attached to your transit gateway. You associate a Direct Connect
-gateway with the transit gateway. Then, create a transit virtual interface for your AWS Direct Connect connection
+gateway with the transit gateway. Then, create a transit virtual interface for your Direct Connect connection
 to the Direct Connect gateway.
 
 The following rules apply to transit gateway associations:

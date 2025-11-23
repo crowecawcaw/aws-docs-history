@@ -1,7 +1,7 @@
-# AWS Direct Connect virtual private gateway associations
+# Direct Connect virtual private gateway associations
 
 You can associate a virtual private gateway with a Direct Connect gateway to enable
-connectivity between your AWS Direct Connect connection and VPCs across different accounts and
+connectivity between your Direct Connect connection and VPCs across different accounts and
 Regions. Each VPC requires a virtual private gateway that you associate with the Direct
 Connect gateway. Once these associations are established, you create private virtual
 interfaces on your Direct Connect connection to the Direct Connect gateway, allowing
@@ -59,11 +59,11 @@ The following rules apply to virtual private gateway associations:
   the value that you require for the VPN connection. Otherwise, the ASN on the virtual
   private gateway can be set to any permitted value. The Direct Connect gateway
   advertises all connected VPCs over the ASN assigned to it.
-  To connect your AWS Direct Connect connection to a VPC in the same Region only, you can create a
+  To connect your Direct Connect connection to a VPC in the same Region only, you can create a
   Direct Connect gateway. Or, you can create a private virtual interface and attach it to the
   virtual private gateway for the VPC. For more information, see [Create a private virtual interface](create-private-vif.md "create-private-vif.md") and [VPN CloudHub](../../../vpc/latest/userguide/VPN_CloudHub.md "../../../vpc/latest/userguide/VPN_CloudHub.md").
 
-To use your AWS Direct Connect connection with a VPC in another account, you can create a hosted
+To use your Direct Connect connection with a VPC in another account, you can create a hosted
 private virtual interface for that account. When the owner of the other account accepts
 the hosted virtual interface, they can choose to attach it either to a virtual private
 gateway or to a Direct Connect gateway in their account. For more information, see [Virtual interfaces and hosted virtual interfaces](WorkingWithVirtualInterfaces.md "WorkingWithVirtualInterfaces.md").

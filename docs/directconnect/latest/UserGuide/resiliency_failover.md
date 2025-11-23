@@ -1,4 +1,4 @@
-# AWS Direct Connect Failover Test
+# Direct Connect Failover Test
 
 The AWS Direct Connect Resiliency Toolkit resiliency models are designed to ensure that you have the
 appropriate number of virtual interface connections in multiple locations. After you

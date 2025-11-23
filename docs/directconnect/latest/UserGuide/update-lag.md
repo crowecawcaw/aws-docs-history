@@ -1,6 +1,6 @@
-# Update a LAG at an AWS Direct Connect endpoint
+# Update a LAG at an Direct Connect endpoint
 
-You can update the following link aggregation group (LAG) attributes using either the AWS Direct Connect console or using the command line or API:
+You can update the following link aggregation group (LAG) attributes using either the Direct Connect console or using the command line or API:
 
 - The name of the LAG.
 - The value for the minimum number of connections that must be operational for
@@ -31,7 +31,7 @@ threshold and become non-operational.
 
 ###### To update a LAG
 
-1. Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. In the navigation pane, choose **LAGs**.
 3. Select the LAG, and then choose **Edit**.
 4. Modify the LAG
@@ -54,5 +54,5 @@ enter minimum number of operational connections.
 
 - [update-lag](../../../cli/latest/reference/directconnect/update-lag.md "../../../cli/latest/reference/directconnect/update-lag.md")
   (AWS CLI)
-- [UpdateLag](../APIReference/API_UpdateLag.md "../APIReference/API_UpdateLag.md") (AWS Direct Connect
+- [UpdateLag](../APIReference/API_UpdateLag.md "../APIReference/API_UpdateLag.md") (Direct Connect
   API)

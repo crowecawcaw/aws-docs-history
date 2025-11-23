@@ -18,31 +18,31 @@ _IAM User Guide_.
 ## AWS managed policy: AWSDirectConnectFullAccess
 
 You can attach the `AWSDirectConnectFullAccess` policy to your IAM identities.
-This policy grants permissions that allow full access to AWS Direct Connect.
+This policy grants permissions that allow full access to Direct Connect.
 
 To view the permissions for this policy, see [AWSDirectConnectFullAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSDirectConnectFullAccess "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSDirectConnectFullAccess") in the AWS Management Console.
 
 ## AWS managed policy: AWSDirectConnectReadOnlyAccess
 
 You can attach the `AWSDirectConnectReadOnlyAccess` policy to your IAM identities.
-This policy grants permissions that allow read-only access to AWS Direct Connect.
+This policy grants permissions that allow read-only access to Direct Connect.
 
 To view the permissions for this policy, see [AWSDirectConnectReadOnlyAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSDirectConnectReadOnlyAccess "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSDirectConnectReadOnlyAccess") in the AWS Management Console.
 
 ## AWS managed policy: AWSDirectConnectServiceRolePolicy
 
-This policy is attached to the service-linked role named **AWSServiceRoleForDirectConnect** to allow AWS Direct Connect to retrieve MAC Security
-secrets on your behalf. For more information, see [Service-linked roles for AWS Direct Connect](using-service-linked-roles.md "using-service-linked-roles.md").
+This policy is attached to the service-linked role named **AWSServiceRoleForDirectConnect** to allow Direct Connect to retrieve MAC Security
+secrets on your behalf. For more information, see [Service-linked roles for Direct Connect](using-service-linked-roles.md "using-service-linked-roles.md").
 
 To view the permissions for this policy, see [AWSDirectConnectServiceRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSDirectConnectServiceRolePolicy "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSDirectConnectServiceRolePolicy") in the AWS Management Console.
 
-## AWS Direct Connect updates to AWS managed policies
+## Direct Connect updates to AWS managed policies
 
-View details about updates to AWS managed policies for AWS Direct Connect since this service
+View details about updates to AWS managed policies for Direct Connect since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe
-to the RSS feed on the AWS Direct Connect Document history page.
+to the RSS feed on the Direct Connect Document history page.
 
 | Change                                                                                                                                                                     | Description                                                                                       | Date           |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------- |
 | [AWSDirectConnectServiceRolePolicy](#security-iam-awsmanpol-AWSDirectConnectServiceRolePolicy "#security-iam-awsmanpol-AWSDirectConnectServiceRolePolicy") -<br>New policy | To support MAC Security, the **AWSServiceRoleForDirectConnect**<br>service-linked role was added. | March 31, 2021 |
-| AWS Direct Connect started tracking changes                                                                                                                                | AWS Direct Connect started tracking changes to its AWS managed policies.                          | March 31, 2021 |
+| Direct Connect started tracking changes                                                                                                                                    | Direct Connect started tracking changes to its AWS managed policies.                              | March 31, 2021 |

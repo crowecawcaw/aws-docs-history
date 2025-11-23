@@ -1,10 +1,10 @@
-# Create a hosted private virtual interface in AWS Direct Connect
+# Create a hosted private virtual interface in Direct Connect
 
 Before you begin, ensure that you have read the information in [Prerequisites for virtual interfaces](WorkingWithVirtualInterfaces.md#vif-prerequisites "WorkingWithVirtualInterfaces.md#vif-prerequisites").
 
 ###### To create a hosted private virtual interface
 
-1.  Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1.  Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2.  In the navigation pane, choose **Virtual Interfaces**.
 3.  Choose **Create virtual interface**.
 4.  Under **Virtual interface type**, for **Type**, choose **Private**.
@@ -21,7 +21,7 @@ Before you begin, ensure that you have read the information in [Prerequisites fo
        Number of your on-premises peer router for the new virtual
        interface.
 
-    The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in AWS Direct Connect](long-asn-support.md "long-asn-support.md").
+    The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in Direct Connect](long-asn-support.md "long-asn-support.md").
 
 6.  Under **Additional Settings**, do the following:
     1. To configure an IPv4 BGP or an IPv6 peer, do the following:
@@ -68,4 +68,4 @@ Before you begin, ensure that you have read the information in [Prerequisites fo
 API
 
 - [allocate-private-virtual-interface](../../../cli/latest/reference/directconnect/allocate-private-virtual-interface.md "../../../cli/latest/reference/directconnect/allocate-private-virtual-interface.md") (AWS CLI)
-- [AllocatePrivateVirtualInterface](../APIReference/API_AllocatePrivateVirtualInterface.md "../APIReference/API_AllocatePrivateVirtualInterface.md") (AWS Direct Connect API)
+- [AllocatePrivateVirtualInterface](../APIReference/API_AllocatePrivateVirtualInterface.md "../APIReference/API_AllocatePrivateVirtualInterface.md") (Direct Connect API)

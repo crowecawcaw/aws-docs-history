@@ -1,4 +1,4 @@
-# Long ASN support in AWS Direct Connect
+# Long ASN support in Direct Connect
 
 Support for long ASNs (4-byte) allows you to configure long Autonomous System Numbers
 (ASNs) as part of the parameters of the BGP session established between the AWS
@@ -12,7 +12,7 @@ APIs.
   and long ASNs. You can add any range from 1 to 4294967294.
 - When using the APIs to create a virtual interface, you can specify either an
   ASN (`asn`) or the Long ASN (`asnLong`) but not both. For
-  more information on using ASN or Long ASN, see the following APIs in the [_AWS Direct Connect API Reference_](../APIReference/Welcome.md "../APIReference/Welcome.md"):
+  more information on using ASN or Long ASN, see the following APIs in the [_Direct Connect API Reference_](../APIReference/Welcome.md "../APIReference/Welcome.md"):
   - `BGPPeer`
   - `DeleteBGPPeerRequest`
   - `NewBGPPeer`
@@ -50,12 +50,12 @@ When choosing to use either an ASN or a long ASN, note the following:
 
 ## Availability and Pricing
 
-Note the following for long ASN support with AWS Direct Connect:
+Note the following for long ASN support with Direct Connect:
 
-- **Availability**: Long ASN is available in all AWS Regions where AWS Direct Connect
+- **Availability**: Long ASN is available in all AWS Regions where Direct Connect
   is supported.
 - **Pricing**: There are no additional charges for long ASN support beyond
-  standard AWS Direct Connect pricing.
+  standard Direct Connect pricing.
 
 ###### Note
 

@@ -1,25 +1,25 @@
-# Log AWS Direct Connect API calls using AWS CloudTrail
+# Log Direct Connect API calls using AWS CloudTrail
 
-AWS Direct Connect is integrated with AWS CloudTrail, a service that provides a record of actions taken
-by a user, role, or an AWS service in AWS Direct Connect. CloudTrail captures all API calls for
-AWS Direct Connect as events. The calls captured include calls from the AWS Direct Connect console and
-code calls to the AWS Direct Connect API operations. If you create a trail, you can enable
-continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS Direct Connect. If you don't
+Direct Connect is integrated with AWS CloudTrail, a service that provides a record of actions taken
+by a user, role, or an AWS service in Direct Connect. CloudTrail captures all API calls for
+Direct Connect as events. The calls captured include calls from the Direct Connect console and
+code calls to the Direct Connect API operations. If you create a trail, you can enable
+continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Direct Connect. If you don't
 configure a trail, you can still view the most recent events in the CloudTrail console in **Event
 history**. Using the information collected by CloudTrail, you can determine the request that
-was made to AWS Direct Connect, the IP address from which the request was made, who made the request,
+was made to Direct Connect, the IP address from which the request was made, who made the request,
 when it was made, and additional details.
 
 For more information, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-## AWS Direct Connect information in CloudTrail
+## Direct Connect information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When activity occurs in
-AWS Direct Connect, that activity is recorded in a CloudTrail event along with other AWS service events
+Direct Connect, that activity is recorded in a CloudTrail event along with other AWS service events
 in **Event history**. You can view, search, and download recent events in your
 AWS account. For more information, see [Viewing Events with CloudTrail Event History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
 
-For an ongoing record of events in your AWS account, including events for AWS Direct Connect,
+For an ongoing record of events in your AWS account, including events for Direct Connect,
 create a trail. A _trail_ enables CloudTrail to deliver log files to an Amazon S3 bucket.
 By default, when you create a trail in the console, the trail applies to all AWS Regions. The
 trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3
@@ -33,7 +33,7 @@ and act upon the event data collected in CloudTrail logs. For more information, 
   Multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving
   CloudTrail Log Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
 
-All AWS Direct Connect actions are logged by CloudTrail and are documented in the [AWS Direct Connect API Reference](../APIReference.md "../APIReference.md"). For example,
+All Direct Connect actions are logged by CloudTrail and are documented in the [Direct Connect API Reference](../APIReference.md "../APIReference.md"). For example,
 calls to the `CreateConnection` and `CreatePrivateVirtualInterface` actions generate
 entries in the CloudTrail log files.
 
@@ -49,7 +49,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail
 `userIdentity` Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understand AWS Direct Connect log file
+## Understand Direct Connect log file
 
 entries
 
@@ -59,7 +59,7 @@ request from any source and includes information about the requested action, the
 of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of
 the public API calls, so they don't appear in any specific order.
 
-The following are example CloudTrail log records for AWS Direct Connect.
+The following are example CloudTrail log records for Direct Connect.
 
 ###### Example: CreateConnection
 

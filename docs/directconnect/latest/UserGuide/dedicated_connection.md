@@ -1,14 +1,14 @@
-# Dedicated AWS Direct Connect connections
+# Dedicated Direct Connect connections
 
-To create an AWS Direct Connect dedicated connection, you need the following information:
+To create an Direct Connect dedicated connection, you need the following information:
 
-**AWS Direct Connect location**
+**Direct Connect location**
 
 Work with a partner in the AWS Direct Connect Partner Program to help you establish
-network circuits between an AWS Direct Connect location and your data center, office, or
+network circuits between an Direct Connect location and your data center, office, or
 colocation environment. They can also help provide colocation space within the
 same facility as the location. For more information, see [APN Partners Supporting
-AWS Direct Connect](https://aws.amazon.com/directconnect/partners "https://aws.amazon.com/directconnect/partners").
+Direct Connect](https://aws.amazon.com/directconnect/partners "https://aws.amazon.com/directconnect/partners").
 
 **Port speed**
 
@@ -31,29 +31,29 @@ Assignment (LOA-CFA) available to you to download or email you with a request fo
 information. If you receive a request for more information, you must respond within 7
 days or the connection is deleted. The LOA-CFA is the authorization to connect to AWS,
 and is required by your network provider to order a cross connect for you. If you do not
-have equipment in the AWS Direct Connect location, you cannot order a cross connect for yourself
+have equipment in the Direct Connect location, you cannot order a cross connect for yourself
 there.
 
 The following operations are available for dedicated connections:
 
 - [Create a connection using the Connection wizard](create-connection.md "create-connection.md")
 - [Create a Classic connection](#connection-classic "#connection-classic")
-- [View AWS Direct Connect connection details](viewdetails.md "viewdetails.md")
-- [Update an AWS Direct Connect connection](updateconnection.md "updateconnection.md")
+- [View Direct Connect connection details](viewdetails.md "viewdetails.md")
+- [Update an Direct Connect connection](updateconnection.md "updateconnection.md")
 - [Associate a MACsec CKN/CAK with a
   connection](associate-key-connection.md "associate-key-connection.md")
 - [Remove the association between a MACsec secret key
-  and an AWS Direct Connect connection](disassociate-key-connection.md "disassociate-key-connection.md")
-- [Delete an AWS Direct Connect connection](deleteconnection.md "deleteconnection.md")
+  and an Direct Connect connection](disassociate-key-connection.md "disassociate-key-connection.md")
+- [Delete an Direct Connect connection](deleteconnection.md "deleteconnection.md")
   You can add a dedicated connection to a link aggregation group (LAG) allowing you to treat
   multiple connections as a single one. For information, see [Associate a connection with a LAG](associate-connection-with-lag.md "associate-connection-with-lag.md").
 
 After you create a connection, create a virtual interface to connect to public and private
 AWS resources. For more information, see [Virtual interfaces and hosted virtual interfaces](WorkingWithVirtualInterfaces.md "WorkingWithVirtualInterfaces.md").
 
-If you do not have equipment at an AWS Direct Connect location, first contact an AWS Direct Connect Partner at
+If you do not have equipment at an Direct Connect location, first contact an AWS Direct Connect Partner at
 the AWS Direct Connect Partner Program. For more information, see [APN Partners Supporting
-AWS Direct Connect](https://aws.amazon.com/directconnect/partners "https://aws.amazon.com/directconnect/partners").
+Direct Connect](https://aws.amazon.com/directconnect/partners "https://aws.amazon.com/directconnect/partners").
 
 If you want to create a connection that uses MAC Security (MACsec), review the
 prerequisites before you create the connection. For more information, see [MACsec prerequisites for dedicated connections](MACsec.md#mac-sec-prerequisites "MACsec.md#mac-sec-prerequisites").
@@ -90,9 +90,9 @@ For the steps to download the LoA-CFA, see [Download the LOA-CFA](download-loa-c
 
 ###### Note
 
-For more information about pricing, see [AWS Direct Connect Pricing](https://aws.amazon.com/directconnect/pricing/ "https://aws.amazon.com/directconnect/pricing/"). If you no longer want the connection after you
+For more information about pricing, see [Direct Connect Pricing](https://aws.amazon.com/directconnect/pricing/ "https://aws.amazon.com/directconnect/pricing/"). If you no longer want the connection after you
 have reissued the LOA-CFA, you must delete the connection yourself. For more
-information, see [Delete an AWS Direct Connect connection](deleteconnection.md "deleteconnection.md").
+information, see [Delete an Direct Connect connection](deleteconnection.md "deleteconnection.md").
 
 ###### Topics
 
@@ -104,30 +104,30 @@ information, see [Delete an AWS Direct Connect connection](deleteconnection.md "
 - [Remove the association between a MACsec secret key
   and a connection](disassociate-key-connection.md "disassociate-key-connection.md")
 
-## Create an AWS Direct Connect Classic connection
+## Create an Direct Connect Classic connection
 
-For dedicated connections, you can submit a connection request using the AWS Direct Connect console. For hosted connections, work with an AWS Direct Connect Partner
+For dedicated connections, you can submit a connection request using the Direct Connect console. For hosted connections, work with an AWS Direct Connect Partner
 to request a hosted connection. Ensure that you have the following information:
 
 - The port speed that you require. For dedicated connections, you can't change the port
   speed after you create the connection request. For hosted connections, your
   AWS Direct Connect Partner can change the speed.
-- The AWS Direct Connect location at which the connection is to be terminated.
+- The Direct Connect location at which the connection is to be terminated.
 
 ###### Note
 
-You cannot use the AWS Direct Connect console to request a hosted connection. Instead,
+You cannot use the Direct Connect console to request a hosted connection. Instead,
 contact an AWS Direct Connect Partner, who can create a hosted connection for you, which you then
 accept. Skip the following procedure and go to [Accept your hosted connection](toolkit-classic.md#get-started-accept-hosted-connection "toolkit-classic.md#get-started-accept-hosted-connection").
 
-###### To create a new AWS Direct Connect connection
+###### To create a new Direct Connect connection
 
-1.  Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
-2.  On the **AWS Direct Connect** screen, under **Get started**, choose
+1.  Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+2.  On the **Direct Connect** screen, under **Get started**, choose
     **Create a connection**.
 3.  Choose **Classic**.
 4.  For **Name**, enter a name for the connection.
-5.  For **Location**, select the appropriate AWS Direct Connect
+5.  For **Location**, select the appropriate Direct Connect
     location.
 6.  If applicable, for **Sub Location**, choose the floor
     closest to you or your network provider. This option is only available if
@@ -136,7 +136,7 @@ accept. Skip the following procedure and go to [Accept your hosted connection](t
 7.  For **Port Speed**, choose the connection
     bandwidth.
 8.  For **On-premises**, select **Connect through an
-    AWS Direct Connect partner** when you use this connection to connect to
+    Direct Connect partner** when you use this connection to connect to
     your data center.
 9.  For **Service provider**, select the AWS Direct Connect Partner. If you
     use a partner that is not in the list, select

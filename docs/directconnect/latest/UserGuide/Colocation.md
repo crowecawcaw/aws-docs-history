@@ -1,31 +1,31 @@
-# Requesting cross connects at AWS Direct Connect locations
+# Requesting cross connects at Direct Connect locations
 
 After you have downloaded your Letter of Authorization and Connecting Facility Assignment
 (LOA-CFA), you must complete your cross-network connection, also known as a _cross
-connect_. If you already have equipment located in an AWS Direct Connect location,
+connect_. If you already have equipment located in an Direct Connect location,
 contact the appropriate provider to complete the cross connect. For specific instructions
 for each provider, see the tables below. Partners and contact information are organized by
 Region. For specific cross connect pricing you'll need to contact the Direct Connect Partner
 directly. After the cross connect is established, you can create the virtual interfaces
-using the AWS Direct Connect console.
+using the Direct Connect console.
 
 Some locations are set up as a campus. For more information, including available speeds
-available at each location, see [AWS Direct Connect
+available at each location, see [Direct Connect
 Locations](https://aws.amazon.com/directconnect/details/#AWS_Direct_Connect_Locations "https://aws.amazon.com/directconnect/details/#AWS_Direct_Connect_Locations").
 
-If you do not already have equipment located in an AWS Direct Connect location, you can work with one
-of the partners in the AWS Partner Network (APN). They help you to connect to an AWS Direct Connect
-location. For more information, see [APN Partners supporting AWS Direct Connect](https://aws.amazon.com/directconnect/partners/ "https://aws.amazon.com/directconnect/partners/"). You must share the LOA-CFA with your selected
+If you do not already have equipment located in an Direct Connect location, you can work with one
+of the partners in the AWS Partner Network (APN). They help you to connect to an Direct Connect
+location. For more information, see [APN Partners supporting Direct Connect](https://aws.amazon.com/directconnect/partners/ "https://aws.amazon.com/directconnect/partners/"). You must share the LOA-CFA with your selected
 provider to facilitate your cross connect request.
 
-An AWS Direct Connect connection can provide access to resources in other Regions. For more
-information, see [Access to remote AWS Direct Connect Regions](remote_regions.md "remote_regions.md").
+An Direct Connect connection can provide access to resources in other Regions. For more
+information, see [Access to remote Direct Connect Regions](remote_regions.md "remote_regions.md").
 
 ###### Note
 
 If the cross connect is not completed within 90 days, the authority granted by the LOA-CFA
 expires. To renew a LOA-CFA that has expired, you can download it again from the
-AWS Direct Connect console. For more information, see [Letter of Authorization and Connecting Facility
+Direct Connect console. For more information, see [Letter of Authorization and Connecting Facility
 Assignment (LOA-CFA)](dedicated_connection.md#create-connection-loa-cfa "dedicated_connection.md#create-connection-loa-cfa").
 
 ## Connectivity options
@@ -36,7 +36,7 @@ provide one or more of the following connectivity options:
 
 - If you have resources deployed in the same data center/colocation facility as the
   Direct Connect location, the facility can provide a cross-connect between the
-  AWS Direct Connect equipment and your resources. You must first provide LOA-CFA to the
+  Direct Connect equipment and your resources. You must first provide LOA-CFA to the
   facility for this. See [Letter of Authorization and Connecting Facility
   Assignment (LOA-CFA)](dedicated_connection.md#create-connection-loa-cfa "dedicated_connection.md#create-connection-loa-cfa") for more information. The
   following shows an example of this Direct Connect connectivity option:

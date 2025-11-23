@@ -1,10 +1,10 @@
-# What is AWS Direct Connect?
+# What is Direct Connect?
 
-AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard Ethernet
+Direct Connect links your internal network to an Direct Connect location over a standard Ethernet
 fiber-optic cable. One end of the cable is connected to your router, the other to an
-AWS Direct Connect router. With this connection, you can create _virtual
+Direct Connect router. With this connection, you can create _virtual
 interfaces_ directly to public AWS services (for example, to Amazon S3) or to
-Amazon VPC, bypassing internet service providers in your network path. An AWS Direct Connect location
+Amazon VPC, bypassing internet service providers in your network path. An Direct Connect location
 provides access to AWS in the Region with which it is associated. You can use a single
 connection in a public Region or AWS GovCloud (US) to access public AWS services in all other
 public Regions.
@@ -12,10 +12,10 @@ public Regions.
 - For a list of Direct Connect locations you can connect to, see [AWS Direct Connect
   Locations](https://aws.amazon.com/directconnect/locations/ "https://aws.amazon.com/directconnect/locations/").
 - For answers to questions about Direct Connect, see the [Direct Connect FAQ](https://aws.amazon.com/directconnect/faqs/#AWS_Transit_Gateway_support/ "https://aws.amazon.com/directconnect/faqs/#AWS_Transit_Gateway_support/").
-  The following diagram shows a high-level overview of how AWS Direct Connect interfaces with your
+  The following diagram shows a high-level overview of how Direct Connect interfaces with your
   network.
 
-![AWS Direct Connect](images/dx-vifs.png)
+![Direct Connect](images/dx-vifs.png)
 
 ###### Contents
 
@@ -26,15 +26,15 @@ public Regions.
 - [Access to remote AWS Regions](remote_regions.md "remote_regions.md")
 - [Routing policies and BGP communities](routing-and-bgp.md "routing-and-bgp.md")
 
-## AWS Direct Connect components
+## Direct Connect components
 
 The following are the key components that you use for Direct Connect:
 
 **Connections**
 
-Create a _connection_ in an AWS Direct Connect location
+Create a _connection_ in an Direct Connect location
 to establish a network connection from your premises to an AWS Region.
-For more information, see [AWS Direct Connect dedicated and hosted connections](WorkingWithConnections.md "WorkingWithConnections.md").
+For more information, see [Direct Connect dedicated and hosted connections](WorkingWithConnections.md "WorkingWithConnections.md").
 
 **Virtual interfaces**
 
@@ -42,22 +42,22 @@ Create a _virtual interface_ to enable access to AWS services. A
 public virtual interface enables access to public services, such as Amazon S3. A
 private virtual interface enables access to your VPC. The types of supported
 interfaces are described below in [Supported Direct Connect virtual interface types](#dx-vif-types "#dx-vif-types"). For more details about the supported
-interfaces, see [AWS Direct Connect virtual interfaces and hosted virtual
+interfaces, see [Direct Connect virtual interfaces and hosted virtual
 interfaces](WorkingWithVirtualInterfaces.md "WorkingWithVirtualInterfaces.md") and [Prerequisites for virtual interfaces](WorkingWithVirtualInterfaces.md#vif-prerequisites "WorkingWithVirtualInterfaces.md#vif-prerequisites").
 
 ## Network requirements
 
-To use AWS Direct Connect in an AWS Direct Connect location, your network must meet one of the following
+To use Direct Connect in an Direct Connect location, your network must meet one of the following
 conditions:
 
-- Your network is colocated with an existing AWS Direct Connect location. For more
-  information about available AWS Direct Connect locations, see [AWS Direct Connect Product
+- Your network is colocated with an existing Direct Connect location. For more
+  information about available Direct Connect locations, see [AWS Direct Connect Product
   Details](https://aws.amazon.com/directconnect/details "https://aws.amazon.com/directconnect/details").
-- You are working with an AWS Direct Connect partner who is a member of the AWS Partner
+- You are working with an Direct Connect partner who is a member of the AWS Partner
   Network (APN). For information, see [APN Partners Supporting AWS
   Direct Connect](https://aws.amazon.com//directconnect/partners/ "https://aws.amazon.com//directconnect/partners/").
 - You are working with an independent service provider to connect to
-  AWS Direct Connect.
+  Direct Connect.
 
 In addition, your network must meet the following conditions:
 
@@ -67,14 +67,14 @@ In addition, your network must meet the following conditions:
   including intermediate devices.
 - Your device must support Border Gateway Protocol (BGP) and BGP MD5 authentication.
 - (Optional) You can configure Bidirectional Forwarding Detection (BFD) on your
-  network. Asynchronous BFD is automatically enabled for each AWS Direct Connect virtual interface. It's automatically enabled for Direct Connect virtual
+  network. Asynchronous BFD is automatically enabled for each Direct Connect virtual interface. It's automatically enabled for Direct Connect virtual
   interfaces, but does not take effect until you configure it on your router. For more information, see [Enable BFD for a Direct Connect connection](https://aws.amazon.com/premiumsupport/knowledge-center/enable-bfd-direct-connect/ "https://aws.amazon.com/premiumsupport/knowledge-center/enable-bfd-direct-connect/").
 
-AWS Direct Connect supports both the IPv4 and IPv6 communication protocols. IPv6 addresses
-provided by public AWS services are accessible through AWS Direct Connect public virtual
+Direct Connect supports both the IPv4 and IPv6 communication protocols. IPv6 addresses
+provided by public AWS services are accessible through Direct Connect public virtual
 interfaces.
 
-AWS Direct Connect supports an Ethernet frame size of 1522 or 9023 bytes (14 bytes Ethernet header +
+Direct Connect supports an Ethernet frame size of 1522 or 9023 bytes (14 bytes Ethernet header +
 4 bytes VLAN tag + bytes for the IP datagram + 4 bytes FCS) at the link layer. You can
 set the MTU of your private virtual interfaces. For more information, see [MTUs for private virtual interfaces or transit virtual
 interfaces](WorkingWithVirtualInterfaces.md#set-jumbo-frames-vif "WorkingWithVirtualInterfaces.md#set-jumbo-frames-vif").
@@ -113,7 +113,7 @@ There are limits to the number of different types of associations between a Dire
 gateway and a virtual interface. For more information about specific limits,
 see the [Direct Connect quotas](limits.md "limits.md") page.
 
-For more information about virtual interfaces, see [AWS Direct Connect virtual interfaces and hosted virtual
+For more information about virtual interfaces, see [Direct Connect virtual interfaces and hosted virtual
 interfaces](WorkingWithVirtualInterfaces.md "WorkingWithVirtualInterfaces.md").
 
 ## Pricing for Direct Connect
@@ -129,8 +129,8 @@ charges to use a multi-account AWS Direct Connect gateway.
 For publicly addressable AWS resources (for example, Amazon S3 buckets, Classic EC2
 instances, or EC2 traffic that goes through an internet gateway), if the outbound
 traffic is destined for public prefixes owned by the same AWS payer account and actively
-advertised to AWS through an AWS Direct Connect public virtual Interface, the Data Transfer Out
-(DTO) usage is metered toward the resource owner at AWS Direct Connect data transfer rate.
+advertised to AWS through an Direct Connect public virtual Interface, the Data Transfer Out
+(DTO) usage is metered toward the resource owner at Direct Connect data transfer rate.
 
 For more information, see [AWS
 Direct Connect Pricing](https://aws.amazon.com/directconnect/pricing/ "https://aws.amazon.com/directconnect/pricing/").

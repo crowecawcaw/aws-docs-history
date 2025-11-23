@@ -52,7 +52,7 @@ JSON
 
 You can use conditions in your IAM policies to control which tag key–value pairs can be
 passed in a request that tags an AWS resource. The following example shows how you might
-create a policy that allows using the AWS Direct Connect TagResource action to attach tags to a virtual
+create a policy that allows using the Direct Connect TagResource action to attach tags to a virtual
 interface only if the tag contains the environment key and the preprod or production values.
 As a best practice, use the `ForAllValues` modifier with the
 `aws:TagKeys` condition key to indicate that only the key environment is allowed

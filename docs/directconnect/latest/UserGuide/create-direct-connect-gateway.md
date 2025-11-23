@@ -1,11 +1,11 @@
-# Create an AWS Direct Connect gateway
+# Create an Direct Connect gateway
 
-You can create a Direct Connect gateway in any supported Region using either the AWS Direct Connect
+You can create a Direct Connect gateway in any supported Region using either the Direct Connect
 console or using the command line or API.
 
 ###### To create a Direct Connect gateway
 
-1. Open the **AWS Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. In the navigation pane, choose **Direct Connect
    Gateways**.
 3. Choose **Create Direct Connect gateway**.
@@ -26,4 +26,4 @@ console or using the command line or API.
 ###### To create a Direct Connect gateway using the command line or API
 
 - [create-direct-connect-gateway](../../../cli/latest/reference/directconnect/create-direct-connect-gateway.md "../../../cli/latest/reference/directconnect/create-direct-connect-gateway.md") (AWS CLI)
-- [CreateDirectConnectGateway](../APIReference/API_CreateDirectConnectGateway.md "../APIReference/API_CreateDirectConnectGateway.md") (AWS Direct Connect API)
+- [CreateDirectConnectGateway](../APIReference/API_CreateDirectConnectGateway.md "../APIReference/API_CreateDirectConnectGateway.md") (Direct Connect API)
