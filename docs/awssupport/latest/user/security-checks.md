@@ -101,11 +101,14 @@ For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use t
 
 **Alert Criteria**
 
+- Red: Target has a public IP and a security group that allows inbound connections on the target control port from everywhere (0.0.0.0/0).
 - Red: Target has a public IP and a security group that allows inbound connections on the traffic port from everywhere (0.0.0.0/0).
 - Red: Application Load Balancer has authentication enabled and target allows inbound connections on the traffic port from everywhere (0.0.0.0/0).
 - Yellow: Target's security group allow inbound connections on the traffic port from everywhere (0.0.0.0/0).
+- Yellow: Target's security group allow inbound connections on the target control port from everywhere (0.0.0.0/0).
 - Yellow: Application Load Balancer security group allow inbound connections on ports that don't have a corresponding listener.
-- Green: Application Load Balancer security group only allows inbound connections on ports that match with a listener..
+- Yellow: Target's security group allow inbound connections on the target control port from a security group that is not attached to Application Load Balancer.
+- Green: Application Load Balancer security group only allows inbound connections on ports that match with a listener.
 
 **Recommended Action**
 
@@ -114,6 +117,7 @@ For improved security, make sure that your security groups only allow the necess
 - The Application Load Balancer's security groups should allow inbound connections only for the same ports configured in its listeners.
 - Use exclusive security groups for load balancers and targets.
 - Target security groups should allow connections in the traffic port only from the load balancer(s) it’s associated with.
+- Target security groups should allow connections in the target control port only from the load balancer(s) it's associated with.
 
 **Additional Resources**
 
@@ -1402,7 +1406,7 @@ Certificates that were encrypted by using the SHA-1 hashing algorithm are
 being deprecated by web browsers such as Chrome and Firefox. Depending on
 the number of SSL certificates that you have associated with your CloudFront
 distributions, this check might add a few cents per month to your bill with
-your web hosting provider, for example, AWS if you're using Amazon EC2 or Elastic Load Balancing
+your web hosting provider, for example, AWS if you're using Amazon EC2 or ELB
 as the origin for your CloudFront distribution. This check does not validate your
 origin certificate chain or certificate authorities. You can check these in
 your CloudFront configuration.
@@ -1495,7 +1499,7 @@ security policy.
 
 Use only the recommended ciphers and protocols.
 
-For more information, see [Listener Configurations for Elastic Load Balancing](../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.md "../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.md").
+For more information, see [Listener Configurations for ELB](../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.md "../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.md").
 
 **Additional Resources**
 
@@ -1504,7 +1508,7 @@ For more information, see [Listener Configurations for Elastic Load Balancing](.
 - [Update SSL Negotiation Configuration of
   Your Load Balancer](../../../ElasticLoadBalancing/latest/DeveloperGuide/ssl-config-update.md "../../../ElasticLoadBalancing/latest/DeveloperGuide/ssl-config-update.md")
 - [SSL Negotiation Configurations for
-  Elastic Load Balancing](../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-ssl-security-policy.md "../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-ssl-security-policy.md")
+  ELB](../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-ssl-security-policy.md "../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-ssl-security-policy.md")
 - [SSL Security Policy Table](../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.md "../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.md")
 
 **Report columns**

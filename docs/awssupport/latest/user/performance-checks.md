@@ -320,7 +320,7 @@ checks](compute-optimizer-with-trusted-advisor.md "compute-optimizer-with-truste
 
 Checks if an Amazon EC2 Auto Scaling group is created from an Amazon EC2 launch template.
 
-Use a launch template to create your Amazon EC2 Auto Scaling groups to ensure access to the latest Auto Scaling group features and improvements. For example, versioning and multiple instance types.
+Use a launch template to create your Amazon EC2 Auto Scaling groups to ensure access to the latest Amazon EC2 Auto Scaling group features and improvements. For example, versioning and multiple instance types.
 
 For more information, see [Launch templates](../../../autoscaling/ec2/userguide/launch-templates.md "../../../autoscaling/ec2/userguide/launch-templates.md").
 
@@ -1428,7 +1428,7 @@ Checks for resource record sets that can be changed to alias resource
 record sets to improve performance and save money.
 
 An alias resource record set routes DNS queries to an AWS resource (for
-example, an Elastic Load Balancing load balancer or an Amazon S3 bucket) or to another Route 53
+example, an ELB load balancer or an Amazon S3 bucket) or to another Route 53
 resource record set. When you use alias resource record sets, Route 53 routes
 your DNS queries to AWS resources free of charge.
 
@@ -1449,7 +1449,7 @@ This check reports the resources that are flagged by the criteria and the total 
   website.
 - Yellow: A resource record set is a CNAME to an Amazon CloudFront
   distribution.
-- Yellow: A resource record set is a CNAME to an Elastic Load Balancing load
+- Yellow: A resource record set is a CNAME to an ELB load
   balancer.
 
 **Recommended Action**
@@ -1835,7 +1835,7 @@ least 4 of the previous 14 days.
 
 Consider adding more instances. For information about scaling the number
 of instances based on demand, see [What is
-Auto Scaling?](../../../AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.md "../../../AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.md")
+Amazon EC2 Auto Scaling?](../../../AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.md "../../../AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.md")
 
 **Additional Resources**
 

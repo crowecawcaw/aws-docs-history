@@ -10,7 +10,7 @@ you can choose a support plan for your AWS use case.
 
 - To create a support case in the AWS Management Console, see [Creating a support case](case-management.md#creating-a-support-case "case-management.md#creating-a-support-case").
 - For more information about the different AWS Support plans, see [Compare AWS Support
-  plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/") and [Change AWS Support Plans](changing-support-plans.md "changing-support-plans.md").
+  plans](https://aws.amazon.com//premiumsupport/plans/ "https://aws.amazon.com//premiumsupport/plans/") and [Change AWS Support Plans](changing-support-plans.md "changing-support-plans.md").
 - Support plans offer different response times for your support cases. See [Choosing an initial support case severity level](case-management.md#choosing-severity "case-management.md#choosing-severity") and [Understanding AWS Support response times](case-management.md#response-times-for-support-cases "case-management.md#response-times-for-support-cases").
 
 ###### Topics

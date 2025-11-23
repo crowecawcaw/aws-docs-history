@@ -2,7 +2,7 @@
 
 You can access AWS Trusted Advisor from the AWS Management Console. All AWS accounts have access to a
 select core [Trusted Advisor
-checks](https://aws.amazon.com/premiumsupport/faqs/#TaFree "https://aws.amazon.com/premiumsupport/faqs/#TaFree"). If you have a Business, Enterprise On-Ramp, or Enterprise Support plan, you can access all checks. for more
+checks](https://aws.amazon.com//premiumsupport/faqs/#TaFree "https://aws.amazon.com//premiumsupport/faqs/#TaFree"). If you have a Business, Enterprise On-Ramp, or Enterprise Support plan, you can access all checks. for more
 information, see [AWS Trusted Advisor check reference](trusted-advisor-check-reference.md "trusted-advisor-check-reference.md").
 
 You can use AWS Identity and Access Management (IAM) to control access to Trusted Advisor.

@@ -73,12 +73,12 @@ You can use the following checks for the fault tolerance category.
 - [Amazon S3 Bucket Replication Not Enabled](fault-tolerance-checks.md#amazon-s3-bucket-replication-not-enabled "fault-tolerance-checks.md#amazon-s3-bucket-replication-not-enabled")
 - [Amazon S3 Bucket Versioning](fault-tolerance-checks.md#amazon-s3-bucket-versioning "fault-tolerance-checks.md#amazon-s3-bucket-versioning")
 - [Application, Network, and Gateway Load Balancers Not Spanning Multiple Availability Zones](fault-tolerance-checks.md#application-network-load-balancers-not-span-multi-az "fault-tolerance-checks.md#application-network-load-balancers-not-span-multi-az")
-- [Auto Scaling available IPs in Subnets](fault-tolerance-checks.md#auto-scaling-available-ips-in-subnets "fault-tolerance-checks.md#auto-scaling-available-ips-in-subnets")
-- [Auto Scaling Group Health Check](fault-tolerance-checks.md#auto-scaling-group-health-check "fault-tolerance-checks.md#auto-scaling-group-health-check")
-- [Auto Scaling Group Resources](fault-tolerance-checks.md#auto-scaling-group-resources "fault-tolerance-checks.md#auto-scaling-group-resources")
+- [Amazon EC2 Auto Scaling available IPs in Subnets](fault-tolerance-checks.md#auto-scaling-available-ips-in-subnets "fault-tolerance-checks.md#auto-scaling-available-ips-in-subnets")
+- [Amazon EC2 Auto Scaling Group Health Check](fault-tolerance-checks.md#auto-scaling-group-health-check "fault-tolerance-checks.md#auto-scaling-group-health-check")
+- [Amazon EC2 Auto Scaling Group Resources](fault-tolerance-checks.md#auto-scaling-group-resources "fault-tolerance-checks.md#auto-scaling-group-resources")
 - [AWS CloudHSM
   clusters running HSM instances in a single AZ](fault-tolerance-checks.md#aws-cloudhsm-clusters-running-hsm-instances-in-a-single-az "fault-tolerance-checks.md#aws-cloudhsm-clusters-running-hsm-instances-in-a-single-az")
-- [AWS Direct Connect Location
+- [Direct Connect Location
   Resiliency](fault-tolerance-checks.md#amazon-direct-connect-location-resiliency "fault-tolerance-checks.md#amazon-direct-connect-location-resiliency")
 - [AWS Lambda functions without a dead-letter queue configured](fault-tolerance-checks.md#aws-lambda-functions-without-dlq "fault-tolerance-checks.md#aws-lambda-functions-without-dlq")
 - [AWS Lambda On Failure Event Destinations](fault-tolerance-checks.md#AWS-Lambda-On-Failure-Event-Destinations "fault-tolerance-checks.md#AWS-Lambda-On-Failure-Event-Destinations")
@@ -148,7 +148,7 @@ For more information, see [Availability Zones for your Application Load Balancer
 
 For more information, see the following documentation:
 
-- [How Elastic Load Balancing works](../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#AZ-Region "../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#AZ-Region")
+- [How ELB works](../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#AZ-Region "../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#AZ-Region")
 - [Regions, Availability Zones, and Local Zones](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md")
 
 **Report columns**
@@ -605,7 +605,7 @@ To automate the creation of EBS snapshots, you can consider using [AWS Backup](.
 
 **Description**
 
-Checks if your Amazon EC2 Auto Scaling groups that are associated with a Classic Load Balancer are using Elastic Load Balancing health checks. The default health checks for an Auto Scaling group are Amazon EC2 status checks only. If an instance fails these status checks, it is marked unhealthy and is terminated. Amazon EC2 Auto Scaling launches a new replacement instance. The Elastic Load Balancing health check periodically monitors Amazon EC2 instances to detect and terminate unhealthy instances and then launch new instances.
+Checks if your Amazon EC2 Auto Scaling groups that are associated with a Classic Load Balancer are using ELB health checks. The default health checks for an Amazon EC2 Auto Scaling group are Amazon EC2 status checks only. If an instance fails these status checks, it is marked unhealthy and is terminated. Amazon EC2 Auto Scaling launches a new replacement instance. The ELB health check periodically monitors Amazon EC2 instances to detect and terminate unhealthy instances and then launch new instances.
 
 For more information, see [Add Elastic Load Balancing health checks](../../../autoscaling/ec2/userguide/as-add-elb-healthcheck.md#as-add-elb-healthcheck-console "../../../autoscaling/ec2/userguide/as-add-elb-healthcheck.md#as-add-elb-healthcheck-console").
 
@@ -627,13 +627,13 @@ For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use t
 
 **Alert Criteria**
 
-Yellow: Amazon EC2 Auto Scaling group attached to Classic Load Balancer has not enabled Elastic Load Balancing health checks.
+Yellow: Amazon EC2 Auto Scaling group attached to Classic Load Balancer has not enabled ELB health checks.
 
 **Recommended Action**
 
-Ensure that your Auto Scaling groups that are associated with a Classic Load Balancer use Elastic Load Balancing health checks.
+Ensure that your Amazon EC2 Auto Scaling groups that are associated with a Classic Load Balancer use ELB health checks.
 
-Elastic Load Balancing health checks report if the load balancer is healthy and available to handle requests. This ensures high availability for your application.
+ELB health checks report if the load balancer is healthy and available to handle requests. This ensures high availability for your application.
 
 For more information, see [Add Elastic Load Balancing health checks to an Auto Scaling group](../../../autoscaling/ec2/userguide/as-add-elb-healthcheck.md "../../../autoscaling/ec2/userguide/as-add-elb-healthcheck.md")
 
@@ -763,8 +763,8 @@ protect your applications from a single point of failure.
 **Recommended Action**
 
 Balance your Amazon EC2 instances evenly across multiple Availability Zones.
-You can do this by launching instances manually or by using Auto Scaling to do it
-automatically. For more information, see [Launch Your Instance](../../../AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.md "../../../AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.md") and [Load Balance Your Auto Scaling Group](../../../AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.md "../../../AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.md").
+You can do this by launching instances manually or by using Amazon EC2 Auto Scaling to do it
+automatically. For more information, see [Launch Your Instance](../../../AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.md "../../../AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.md") and [Load Balance Your Amazon EC2 Auto Scaling Group](../../../AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.md "../../../AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.md").
 
 **Additional Resources**
 
@@ -2845,7 +2845,7 @@ Configure your Application, Network, and Gateway Load Balancers with subnets acr
 
 [Availability Zones for your Application Load Balancer](../../../elasticloadbalancing/latest/application/load-balancer-subnets.md "../../../elasticloadbalancing/latest/application/load-balancer-subnets.md")
 
-[Availability Zones (Elastic Load Balancing)](../../../elasticloadbalancing/latest/network/network-load-balancers.md#availability-zones "../../../elasticloadbalancing/latest/network/network-load-balancers.md#availability-zones")
+[Availability Zones (ELB)](../../../elasticloadbalancing/latest/network/network-load-balancers.md#availability-zones "../../../elasticloadbalancing/latest/network/network-load-balancers.md#availability-zones")
 
 [Create a Gateway Load Balancer](../../../elasticloadbalancing/latest/gateway/create-load-balancer.md "../../../elasticloadbalancing/latest/gateway/create-load-balancer.md")
 
@@ -2858,11 +2858,11 @@ Configure your Application, Network, and Gateway Load Balancers with subnets acr
 - Input Parameters
 - Last Updated Time
 
-## Auto Scaling available IPs in Subnets
+## Amazon EC2 Auto Scaling available IPs in Subnets
 
 **Description**
 
-Checks that sufficient available IPs remain among targeted Subnets.Having sufficient IPs available for use would help when Auto Scaling Group reaches its maximum size and needs to launch additional instances.
+Checks that sufficient available IPs remain among targeted Subnets.Having sufficient IPs available for use would help when Amazon EC2 Auto Scaling Group reaches its maximum size and needs to launch additional instances.
 
 **Check ID**
 
@@ -2885,15 +2885,15 @@ Increase the number of available IP addresses
 - Maximum instances that can be created
 - Number of available instances
 
-## Auto Scaling Group Health Check
+## Amazon EC2 Auto Scaling Group Health Check
 
 **Description**
 
-Examines the health check configuration for Auto Scaling groups.
+Examines the health check configuration for Amazon EC2 Auto Scaling groups.
 
-If Elastic Load Balancing is being used for an Auto Scaling group, the recommended configuration is
-to enable an Elastic Load Balancing health check. If an Elastic Load Balancing health check is not used, Auto Scaling
-can only act upon the health of the Amazon Elastic Compute Cloud (Amazon EC2) instance. Auto Scaling will
+If ELB is being used for an Amazon EC2 Auto Scaling group, the recommended configuration is
+to enable an ELB health check. If an ELB health check is not used, Amazon EC2 Auto Scaling
+can only act upon the health of the Amazon Elastic Compute Cloud (Amazon EC2) instance. Amazon EC2 Auto Scaling will
 not act on the application running on the instance.
 
 **Check ID**
@@ -2902,19 +2902,19 @@ not act on the application running on the instance.
 
 **Alert Criteria**
 
-- Yellow: An Auto Scaling group has an associated load balancer, but the
+- Yellow: An Amazon EC2 Auto Scaling group has an associated load balancer, but the
   Elastic Load Balancing health check is not enabled.
-- Yellow: An Auto Scaling group does not have an associated load balancer,
+- Yellow: An Amazon EC2 Auto Scaling group does not have an associated load balancer,
   but the Elastic Load Balancing health check is enabled.
 
 **Recommended Action**
 
-If the Auto Scaling group has an associated load balancer, but the Elastic Load Balancing
-health check is not enabled, see [Add an Elastic Load Balancing Health Check to your Auto Scaling
+If the Amazon EC2 Auto Scaling group has an associated load balancer, but the Elastic Load Balancing
+health check is not enabled, see [Add an Elastic Load Balancing Health Check to your Amazon EC2 Auto Scaling
 Group](../../../AutoScaling/latest/DeveloperGuide/as-add-elb-healthcheck.md "../../../AutoScaling/latest/DeveloperGuide/as-add-elb-healthcheck.md").
 
 If the Elastic Load Balancing health check is enabled, but no load balancer is
-associated with the Auto Scaling group, see [Set Up an Auto-Scaled and Load-Balanced
+associated with the Amazon EC2 Auto Scaling group, see [Set Up an Auto-Scaled and Load-Balanced
 Application](../../../AutoScaling/latest/DeveloperGuide/as-register-lbs-with-asg.md "../../../AutoScaling/latest/DeveloperGuide/as-register-lbs-with-asg.md").
 
 **Additional Resources**
@@ -2925,21 +2925,21 @@ Application](../../../AutoScaling/latest/DeveloperGuide/as-register-lbs-with-asg
 
 - Status
 - Region
-- Auto Scaling Group Name
+- Amazon EC2 Auto Scaling Group Name
 - Load Balancer Associated
 - Health Check
 
-## Auto Scaling Group Resources
+## Amazon EC2 Auto Scaling Group Resources
 
 **Description**
 
 Checks the availability of resources associated with your launch configurations, launch templates,
-and your Auto Scaling groups.
+and your Amazon EC2 Auto Scaling groups.
 
-Auto Scaling groups that point to unavailable resources cannot launch new
-Amazon Elastic Compute Cloud (Amazon EC2) instances. When properly configured, Auto Scaling causes the
+Amazon EC2 Auto Scaling groups that point to unavailable resources cannot launch new
+Amazon Elastic Compute Cloud (Amazon EC2) instances. When properly configured, Amazon EC2 Auto Scaling causes the
 number of Amazon EC2 instances to increase seamlessly during demand spikes, and
-decrease automatically during demand lulls. Auto Scaling groups and launch
+decrease automatically during demand lulls. Amazon EC2 Auto Scaling groups and launch
 configurations/launch templates that point to unavailable resources do not operate as
 intended.
 
@@ -2953,7 +2953,7 @@ This check reports the resources that are flagged by the criteria and the total 
 
 **Alert Criteria**
 
-- Red: An Auto Scaling group is associated with a deleted load
+- Red: An Amazon EC2 Auto Scaling group is associated with a deleted load
   balancer.
 - Red: A launch configuration is associated with a deleted Amazon
   Machine Image (AMI).
@@ -2963,16 +2963,16 @@ This check reports the resources that are flagged by the criteria and the total 
 **Recommended Action**
 
 If the load balancer has been deleted, either create a new load balancer or target group and
-then associate it to the Auto Scaling group. or create a new
-Auto Scaling group without the load balancer. For information about creating a new
-Auto Scaling group with a new load balancer, see [Set Up an Auto-Scaled and Load-Balanced
-Application](../../../AutoScaling/latest/DeveloperGuide/as-register-lbs-with-asg.md "../../../AutoScaling/latest/DeveloperGuide/as-register-lbs-with-asg.md"). For information about creating a new Auto Scaling group
-without a load balancer, see Create Auto Scaling Group in [Getting Started With Auto Scaling Using the
+then associate it to the Amazon EC2 Auto Scaling group. or create a new
+Amazon EC2 Auto Scaling group without the load balancer. For information about creating a new
+Amazon EC2 Auto Scaling group with a new load balancer, see [Set Up an Auto-Scaled and Load-Balanced
+Application](../../../AutoScaling/latest/DeveloperGuide/as-register-lbs-with-asg.md "../../../AutoScaling/latest/DeveloperGuide/as-register-lbs-with-asg.md"). For information about creating a new Amazon EC2 Auto Scaling group
+without a load balancer, see Create Amazon EC2 Auto Scaling Group in [Getting Started With Amazon EC2 Auto Scaling Using the
 Console](../../../AutoScaling/latest/DeveloperGuide/USBasicSetup-Console.md "../../../AutoScaling/latest/DeveloperGuide/USBasicSetup-Console.md").
 
 If the AMI has been deleted, then create a new launch configuration or launch template
-version using a valid AMI and associate it with an Auto Scaling group. For information on how to create a new launch configuration, see [Create a launch
-configuration](../../../autoscaling/ec2/userguide/create-launch-config.md "../../../autoscaling/ec2/userguide/create-launch-config.md") in the _Amazon EC2 Auto Scaling User Guide_. For information on how to create a launch template, see [Create a launch template for an Auto Scaling group](../../../autoscaling/ec2/userguide/create-launch-template.md "../../../autoscaling/ec2/userguide/create-launch-template.md") in the _Amazon EC2 Auto Scaling User Guide_.
+version using a valid AMI and associate it with an Amazon EC2 Auto Scaling group. For information on how to create a new launch configuration, see [Create a launch
+configuration](../../../autoscaling/ec2/userguide/create-launch-config.md "../../../autoscaling/ec2/userguide/create-launch-config.md") in the _Amazon EC2 Auto Scaling User Guide_. For information on how to create a launch template, see [Create a launch template for an Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/create-launch-template.md "../../../autoscaling/ec2/userguide/create-launch-template.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 ###### Note
 
@@ -2982,9 +2982,9 @@ If your launch templates include an AWS Systems Manager parameter that include a
 
 **Additional Resources**
 
-- [Troubleshooting Auto Scaling: Amazon EC2
+- [Troubleshooting Amazon EC2 Auto Scaling: Amazon EC2
   AMIs](../../../AutoScaling/latest/DeveloperGuide/ts-as-ami.md "../../../AutoScaling/latest/DeveloperGuide/ts-as-ami.md")
-- [Troubleshooting Auto Scaling: Load Balancer
+- [Troubleshooting Amazon EC2 Auto Scaling: Load Balancer
   Configuration](../../../AutoScaling/latest/DeveloperGuide/ts-as-loadbalancer.md "../../../AutoScaling/latest/DeveloperGuide/ts-as-loadbalancer.md")
 - [Amazon EC2 Auto Scaling User Guide](../../../autoscaling/latest/userguide.md "../../../autoscaling/latest/userguide.md")
 - [Use AWS Systems Manager parameters instead of AMI IDs](../../../autoscaling/ec2/userguide/using-systems-manager-parameters.md "../../../autoscaling/ec2/userguide/using-systems-manager-parameters.md")
@@ -2993,7 +2993,7 @@ If your launch templates include an AWS Systems Manager parameter that include a
 
 - Status
 - Region
-- Auto Scaling Group Name
+- Amazon EC2 Auto Scaling Group Name
 - Launch Type
 - Resource Type
 - Resource Name
@@ -3041,13 +3041,13 @@ Create at least one more instance for the cluster in a different Availability Zo
 - Number of HSM Instances
 - Last Updated Time
 
-## AWS Direct Connect Location
+## Direct Connect Location
 
 Resiliency
 
 **Description**
 
-Checks the resilience of the AWS Direct Connect used to connect your on-premises to
+Checks the resilience of the Direct Connect used to connect your on-premises to
 each Direct Connect gateway or virtual private gateway.
 
 This check alerts you if any Direct Connect gateway or virtual private
@@ -3088,13 +3088,13 @@ locations.
 **Recommended Action**
 To build Direct Connect location resiliency, you can configure the Direct Connect gateway or
 virtual private gateway to connect to at least two distinct Direct Connect
-locations. For more information, see [AWS Direct Connect Resiliency Recommendation](https://aws.amazon.com/directconnect/resiliency-recommendation/ "https://aws.amazon.com/directconnect/resiliency-recommendation/").
+locations. For more information, see [Direct Connect Resiliency Recommendation](https://aws.amazon.com/directconnect/resiliency-recommendation/ "https://aws.amazon.com/directconnect/resiliency-recommendation/").
 
 **Additional Resources**
 
-[AWS Direct Connect Resiliency Recommendations](https://aws.amazon.com/directconnect/resiliency-recommendation/ "https://aws.amazon.com/directconnect/resiliency-recommendation/")
+[Direct Connect Resiliency Recommendations](https://aws.amazon.com/directconnect/resiliency-recommendation/ "https://aws.amazon.com/directconnect/resiliency-recommendation/")
 
-[AWS Direct Connect
+[Direct Connect
 Failover Test](../../../directconnect/latest/UserGuide/resiliency_failover.md "../../../directconnect/latest/UserGuide/resiliency_failover.md")
 
 **Report columns**
@@ -3534,9 +3534,7 @@ In April 2025, AWS enhanced the global endpoint to automatically serve the STS g
 
 ###### Note
 
-Results for this check are automatically refreshed several times
-daily, and refresh requests are not allowed. It might take a few
-hours for changes to appear.
+Results for this check are automatically refreshed several times daily, each time covering the past 15 days. Refresh requests are not allowed. So, it might take up to 15 days for changes to appear in the Trusted Advisor check results.
 
 For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to include or exclude one or more resources from your Trusted Advisor results.
 
@@ -3812,7 +3810,7 @@ changes in your Amazon VPC.
 Checks your load balancer configuration.
 
 To help increase the level of fault tolerance in Amazon Elastic Compute Cloud (Amazon EC2) when
-using Elastic Load Balancing , we recommend running an equal number of instances across
+using ELB , we recommend running an equal number of instances across
 multiple Availability Zones in a Region. A load balancer that is configured
 accrues charges, so this is a cost-optimization check as well.
 

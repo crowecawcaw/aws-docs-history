@@ -3,7 +3,7 @@
 services to view Trusted Advisor reports
 
 Follow this tutorial to upload and view your data by using other AWS services. In this
-topic, you create an Amazon Simple Storage Service (Amazon S3) bucket to store your report and an AWS CloudFormation template to
+topic, you create an Amazon Simple Storage Service (Amazon S3) bucket to store your report and an CloudFormation template to
 create resources in your account. Then, you can use Amazon Athena to analyze or run queries for
 your report or Quick Suite to visualize that data in a dashboard.
 
@@ -56,12 +56,12 @@ file, such as `resources-timestamp.json`,
 
 AWS CloudFormation
 
-After you upload your report to Amazon S3, upload the following YAML template to AWS CloudFormation.
-This template tells AWS CloudFormation what resources to create for your account so that other
+After you upload your report to Amazon S3, upload the following YAML template to CloudFormation.
+This template tells CloudFormation what resources to create for your account so that other
 services can use the report data in the S3 bucket. The template creates resources for
 IAM, AWS Lambda, and AWS Glue.
 
-###### To create your resources with AWS CloudFormation
+###### To create your resources with CloudFormation
 
 1. Download the [trusted-advisor-reports-template.zip](samples/trusted-advisor-reports-template.md "samples/trusted-advisor-reports-template.md") file.
 2. Unzip the file.
@@ -72,7 +72,7 @@ IAM, AWS Lambda, and AWS Glue.
    `folder1` with the bucket name and
    folder name in your account.
 5. Save the file.
-6. Open the AWS CloudFormation console at
+6. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 7. If you haven't already, in the **Region selector**, choose
    the US East (N. Virginia) Region.
@@ -90,14 +90,14 @@ IAM, AWS Lambda, and AWS Glue.
     options, and then choose **Next**.
 14. On the **Review
     `Organizational-view-Trusted-Advisor-reports`** page, review your options. At the bottom of the page, select the
-    check box for **I acknowledge that AWS CloudFormation might create IAM
+    check box for **I acknowledge that CloudFormation might create IAM
     resources**.
 15. Choose **Create stack**.
 
 The stack takes about 5 minutes to create. 16. After the stack creates successfully, the **Resources** tab
 appears like the following example.
 
-![Screenshot of example resources created by AWS CloudFormation for Trusted Advisor reports.](images/organizational-view-cloud-formation-resources.png)
+![Screenshot of example resources created by CloudFormation for Trusted Advisor reports.](images/organizational-view-cloud-formation-resources.png)
 
 ## Query the data in Amazon Athena
 
@@ -280,4 +280,4 @@ this tutorial use the latest report data from your organization.
 
 If you still have issues with this tutorial, you can create a technical support
 case in the [AWS Support
-Center](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home").
+Center](https://console.aws.amazon.com//support/home "https://console.aws.amazon.com//support/home").

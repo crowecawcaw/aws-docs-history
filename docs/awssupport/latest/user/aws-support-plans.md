@@ -71,7 +71,7 @@ features:
   for your specific use cases and applications.
 - Management business reviews.
 
-For more information about features and pricing for each support plan, see [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/") and [Compare AWS Support plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/"). Some features, such as
+For more information about features and pricing for each support plan, see [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/") and [Compare AWS Support plans](https://aws.amazon.com//premiumsupport/plans/ "https://aws.amazon.com//premiumsupport/plans/"). Some features, such as
 24x7 phone and chat support, aren't available in all languages.
 
 ###### Note

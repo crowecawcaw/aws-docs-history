@@ -311,4 +311,4 @@ findings
 
 If you still have issues with this feature, you can create a technical support
 case in the [AWS Support
-Center](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home").
+Center](https://console.aws.amazon.com//support/home "https://console.aws.amazon.com//support/home").

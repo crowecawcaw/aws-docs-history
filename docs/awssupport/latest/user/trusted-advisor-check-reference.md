@@ -14,7 +14,7 @@ topics:
 
 ###### Note
 
-If you have a Basic Support and Developer Support plan, you can use the Trusted Advisor
+If you have a Basic Support or Developer Support plan, you can use the Trusted Advisor
 console to access all checks in the [Service limits](service-limits.md "service-limits.md") category and the following checks in the Security and Fault Tolerance categories:
 
 - [Amazon EBS Public Snapshots](security-checks.md#amazon-ebs-public-snapshots "security-checks.md#amazon-ebs-public-snapshots")

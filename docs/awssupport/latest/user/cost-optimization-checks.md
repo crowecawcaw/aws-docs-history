@@ -2206,7 +2206,7 @@ resolve your active issues.
 
 **Description**
 
-Checks your Elastic Load Balancing configuration for load balancers that are idle.
+Checks your ELB configuration for load balancers that are idle.
 
 Any load balancer that is configured accrues charges. If a load
 balancer has no associated back-end instances, or if network traffic is
@@ -2465,15 +2465,15 @@ Yellow: An instance had 10% or less daily average CPU utilization and
 **Recommended Action**
 
 Consider stopping or terminating instances that have low utilization,
-or scale the number of instances by using Auto Scaling. For more information, see
-[Stop and Start Your Instance](../../../AWSEC2/latest/UserGuide/Stop_Start.md "../../../AWSEC2/latest/UserGuide/Stop_Start.md"), [Terminate Your Instance](../../../AWSEC2/latest/UserGuide/terminating-instances.md "../../../AWSEC2/latest/UserGuide/terminating-instances.md"), and [What is Auto Scaling?](../../../AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.md "../../../AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.md")
+or scale the number of instances by using Amazon EC2 Auto Scaling. For more information, see
+[Stop and Start Your Instance](../../../AWSEC2/latest/UserGuide/Stop_Start.md "../../../AWSEC2/latest/UserGuide/Stop_Start.md"), [Terminate Your Instance](../../../AWSEC2/latest/UserGuide/terminating-instances.md "../../../AWSEC2/latest/UserGuide/terminating-instances.md"), and [What is Amazon EC2 Auto Scaling?](../../../AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.md "../../../AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.md")
 
 **Additional Resources**
 
 - [Monitoring Amazon EC2](../../../AWSEC2/latest/UserGuide/using-monitoring.md "../../../AWSEC2/latest/UserGuide/using-monitoring.md")
 - [Instance Metadata and User Data](../../../AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.md "../../../AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.md")
 - [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md")
-- [Auto Scaling Developer Guide](../../../AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.md "../../../AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.md")
+- [Amazon EC2 Auto Scaling Developer Guide](../../../AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.md "../../../AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.md")
 
 **Report columns**
 

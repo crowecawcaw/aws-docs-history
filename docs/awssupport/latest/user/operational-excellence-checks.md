@@ -23,7 +23,7 @@ You can use the following checks for the operational excellence category.
 - [Amazon SNS Topics Not Logging Message Delivery Status](operational-excellence-checks.md#sns-topics-not-logging-message-delivery-status "operational-excellence-checks.md#sns-topics-not-logging-message-delivery-status")
 - [Amazon VPC Without Flow Logs](operational-excellence-checks.md#vpc-flow-logs-enabled "operational-excellence-checks.md#vpc-flow-logs-enabled")
 - [Application Load Balancers and Classic Load Balancers Without Access Logs Enabled](operational-excellence-checks.md#elb-logging-enabled "operational-excellence-checks.md#elb-logging-enabled")
-- [AWS CloudFormation Stack Notification](operational-excellence-checks.md#cloudformation-stack-notification "operational-excellence-checks.md#cloudformation-stack-notification")
+- [CloudFormation Stack Notification](operational-excellence-checks.md#cloudformation-stack-notification "operational-excellence-checks.md#cloudformation-stack-notification")
 - [AWS CloudTrail data events logging for objects in an S3 bucket](operational-excellence-checks.md#cloudtrail-s3-dataevents-enabled "operational-excellence-checks.md#cloudtrail-s3-dataevents-enabled")
 - [AWS CodeBuild Project Logging](operational-excellence-checks.md#codebuild-project-logging-enabled "operational-excellence-checks.md#codebuild-project-logging-enabled")
 - [AWS CodeDeploy Auto Rollback and Monitor Enabled](operational-excellence-checks.md#codedeploy-auto-rollback-monitor-enabled "operational-excellence-checks.md#codedeploy-auto-rollback-monitor-enabled")
@@ -33,7 +33,7 @@ You can use the following checks for the operational excellence category.
 - [AWS Fargate platform version is not latest](operational-excellence-checks.md#ecs-fargate-latest-platform-version "operational-excellence-checks.md#ecs-fargate-latest-platform-version")
 - [AWS Systems Manager State Manager Association in Non-compliant Status](operational-excellence-checks.md#ec2-managedinstance-association-compliance-status-check "operational-excellence-checks.md#ec2-managedinstance-association-compliance-status-check")
 - [CloudTrail trails are not configured with Amazon CloudWatch Logs](operational-excellence-checks.md#cloudtrail-cloudwatch-logs-enabled "operational-excellence-checks.md#cloudtrail-cloudwatch-logs-enabled")
-- [Elastic Load Balancing Deletion Protection Not Enabled for Load Balancers](operational-excellence-checks.md#elb-deletion-protection-enabled "operational-excellence-checks.md#elb-deletion-protection-enabled")
+- [ELB Deletion Protection Not Enabled for Load Balancers](operational-excellence-checks.md#elb-deletion-protection-enabled "operational-excellence-checks.md#elb-deletion-protection-enabled")
 - [RDS DB Cluster Deletion Protection Check](operational-excellence-checks.md#rds-db-cluster-deletion-protection "operational-excellence-checks.md#rds-db-cluster-deletion-protection")
 - [RDS DB Instance Automatic Minor Version Upgrade Check](operational-excellence-checks.md#rds-automatic-minor-version-upgrade-enabled "operational-excellence-checks.md#rds-automatic-minor-version-upgrade-enabled")
 
@@ -957,9 +957,9 @@ For more information, see [Create a flow log](../../../vpc/latest/userguide/work
 
 Checks if Application Load Balancers and Classic Load Balancers have access logging enabled.
 
-Elastic Load Balancing provides access logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze traffic patterns and troubleshoot issues.
+ELB provides access logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze traffic patterns and troubleshoot issues.
 
-Access logs are an optional feature of Elastic Load Balancing that is disabled by default. After you enable access logs for your load balancer, Elastic Load Balancing captures the logs and stores them in the Amazon S3 bucket that you specify.
+Access logs are an optional feature of Elastic Load Balancing that is disabled by default. After you enable access logs for your load balancer, ELB captures the logs and stores them in the Amazon S3 bucket that you specify.
 
 You can specify the access log Amazon S3 bucket that you want to check using the **s3BucketNames** parameter in your AWS Config rules.
 
@@ -1000,15 +1000,15 @@ For more information, see [Enable access logs for your Application Load Balancer
 - Input Parameters
 - Last Updated Time
 
-## AWS CloudFormation Stack Notification
+## CloudFormation Stack Notification
 
 **Description**
 
-Checks if all of your AWS CloudFormation stacks use Amazon SNS to receive notifications when an event occurs.
+Checks if all of your CloudFormation stacks use Amazon SNS to receive notifications when an event occurs.
 
 You can configure this check to look for specific Amazon SNS topic ARNs using parameters in your AWS Config rules.
 
-For more information, see [Setting AWS CloudFormationstack options](../../../AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.md").
+For more information, see [Setting CloudFormationstack options](../../../AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.md").
 
 ###### Note
 
@@ -1028,11 +1028,11 @@ For Business, Enterprise On-Ramp, or Enterprise Support customers, you can use t
 
 **Alert Criteria**
 
-Yellow: Amazon SNS event notifications for your AWS CloudFormation stacks are not turned on.
+Yellow: Amazon SNS event notifications for your CloudFormation stacks are not turned on.
 
 **Recommended Action**
 
-Make sure that your AWS CloudFormation stacks use Amazon SNS to receive notifications when an event occurs.
+Make sure that your CloudFormation stacks use Amazon SNS to receive notifications when an event occurs.
 
 Monitoring stack events helps you to respond quickly to unauthorized actions that might alter your AWS environment.
 
@@ -1470,15 +1470,15 @@ For more information, see [Creating CloudWatch alarms for CloudTrail events: exa
 - Input Parameters
 - Last Updated Time
 
-## Elastic Load Balancing Deletion Protection Not Enabled for Load Balancers
+## ELB Deletion Protection Not Enabled for Load Balancers
 
 **Description**
 
 Checks if deletion protection is turned on for your load balancers.
 
-Elastic Load Balancing supports deletion protection for your Application Load Balancers, Network Load Balancers, and Gateway Load Balancers. Turn on deletion protection to prevent your load balancer from accidental deletion. Deletion protection is turned off by default when you create a load balancer. If your load balancers are part of a production environment, then consider turning on deletion protection.
+ELB supports deletion protection for your Application Load Balancers, Network Load Balancers, and Gateway Load Balancers. Turn on deletion protection to prevent your load balancer from accidental deletion. Deletion protection is turned off by default when you create a load balancer. If your load balancers are part of a production environment, then consider turning on deletion protection.
 
-Access logs are an optional feature of Elastic Load Balancing that is disabled by default. After you enable access logs for your load balancer, Elastic Load Balancing captures the logs and stores them in the Amazon S3 bucket that you specify.
+Access logs are an optional feature of Elastic Load Balancing that is disabled by default. After you enable access logs for your load balancer, ELB captures the logs and stores them in the Amazon S3 bucket that you specify.
 
 For more information, see [Application Load Balancer Deletion protection](../../../elasticloadbalancing/latest/application/application-load-balancers.md#deletion-protection "../../../elasticloadbalancing/latest/application/application-load-balancers.md#deletion-protection"), [Network Load Balancers Deletion protection](../../../elasticloadbalancing/latest/network/network-load-balancers.md#deletion-protection "../../../elasticloadbalancing/latest/network/network-load-balancers.md#deletion-protection"), or [Gateway Load Balancers Deletion protection](../../../elasticloadbalancing/latest/gateway/gateway-load-balancers.md#deletion-protection "../../../elasticloadbalancing/latest/gateway/gateway-load-balancers.md#deletion-protection").
 

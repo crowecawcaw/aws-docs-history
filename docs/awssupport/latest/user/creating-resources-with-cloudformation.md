@@ -5,25 +5,25 @@ with AWS CloudFormation
 AWS Support App in Slack is integrated with AWS CloudFormation, a service that helps you to model and set up
 your AWS resources so that you can spend less time creating and managing your resources
 and infrastructure. You create a template that describes all the AWS resources that you
-want (such as your AccountAlias and SlackChannelConfiguration), and AWS CloudFormation provisions and configures those resources for
+want (such as your AccountAlias and SlackChannelConfiguration), and CloudFormation provisions and configures those resources for
 you.
 
-When you use AWS CloudFormation, you can reuse your template to set up your AWS Support App resources
+When you use CloudFormation, you can reuse your template to set up your AWS Support App resources
 consistently and repeatedly. Describe your resources once, and then provision the same
 resources over and over in multiple AWS accounts and Regions.
 
-## AWS Support App and AWS CloudFormation templates
+## AWS Support App and CloudFormation templates
 
 To provision and configure resources for AWS Support App and related services, you must
-understand [AWS CloudFormation
+understand [CloudFormation
 templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md"). Templates are formatted text files in JSON or YAML. These templates
-describe the resources that you want to provision in your AWS CloudFormation stacks. If you're
-unfamiliar with JSON or YAML, you can use AWS CloudFormation Designer to help you get started with
-AWS CloudFormation templates. For more information, see [What is AWS CloudFormation Designer?](../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md "../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md") in the
+describe the resources that you want to provision in your CloudFormation stacks. If you're
+unfamiliar with JSON or YAML, you can use CloudFormation Designer to help you get started with
+CloudFormation templates. For more information, see [What is CloudFormation Designer?](../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md "../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md") in the
 _AWS CloudFormation User Guide_.
 
 AWS Support App supports creating your AccountAlias and SlackChannelConfiguration
-in AWS CloudFormation. For more information, including examples of JSON and YAML
+in CloudFormation. For more information, including examples of JSON and YAML
 templates for the AccountAlias and SlackChannelConfiguration resources, see the [AWS Support App resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_SupportApp.md "../../../AWSCloudFormation/latest/UserGuide/AWS_SupportApp.md") in the
 _AWS CloudFormation User Guide_.
 
@@ -132,7 +132,7 @@ configuring the management account to use the AWS Support App.
 
 1. Sign in to the AWS Management Console as the management account for your
    organization.
-2. Open the AWS CloudFormation console at
+2. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 3. If you haven't already, in the **Region selector**,
    choose one of the following AWS Regions:
@@ -146,7 +146,7 @@ configuring the management account to use the AWS Support App.
    - Asia Pacific (Tokyo)
    - Canada (Central)
 
-4. Follow the procedure to create a stack. For more information, see [Creating a stack on the AWS CloudFormation
+4. Follow the procedure to create a stack. For more information, see [Creating a stack on the CloudFormation
    console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
 
 After CloudFormation successfully creates the stack, you can use the same
@@ -169,7 +169,7 @@ accounts.
 
 1. Sign in to the AWS Management Console as the management account for your
    organization.
-2. Open the AWS CloudFormation console at
+2. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 3. If you haven't already, in the **Region selector**,
    choose the same AWS Region that you used in the previous procedure.
@@ -252,7 +252,7 @@ To learn more about CloudFormation, see the following resources:
 - [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/")
 - [AWS CloudFormation User
   Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
-- [AWS CloudFormation API
+- [CloudFormation API
   Reference](../../../AWSCloudFormation/latest/APIReference/Welcome.md "../../../AWSCloudFormation/latest/APIReference/Welcome.md")
 - [AWS CloudFormation Command Line Interface User Guide](../../../cloudformation-cli/latest/userguide/what-is-cloudformation-cli.md "../../../cloudformation-cli/latest/userguide/what-is-cloudformation-cli.md")
 
