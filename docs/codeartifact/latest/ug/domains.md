@@ -9,7 +9,7 @@ Although you can have multiple domains, we recommend a single production domain 
 published artifacts so that your development teams can find and share packages. You can use a second
 preproduction domain to test changes to the production domain configuration.
 
-These topics describe how to use the CodeArtifact console, the AWS CLI, and AWS CloudFormation to create or configure CodeArtifact domains.
+These topics describe how to use the CodeArtifact console, the AWS CLI, and CloudFormation to create or configure CodeArtifact domains.
 
 ###### Topics
 

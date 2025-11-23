@@ -1,6 +1,6 @@
 # Create a domain
 
-You can create a domain using the CodeArtifact console, the AWS Command Line Interface (AWS CLI), or AWS CloudFormation. When you
+You can create a domain using the CodeArtifact console, the AWS Command Line Interface (AWS CLI), or CloudFormation. When you
 create a domain, it does not contain any repositories. For more information, see
 [Create a repository](create-repo.md "create-repo.md"). For more information about
 managing CodeArtifact domains with CloudFormation, see [Creating CodeArtifact resources with AWS CloudFormation](cloudformation-codeartifact.md "cloudformation-codeartifact.md").

@@ -1,6 +1,6 @@
 # Create a package group
 
-You can create a package group using the CodeArtifact console, the AWS Command Line Interface (AWS CLI), or AWS CloudFormation. For more information about
+You can create a package group using the CodeArtifact console, the AWS Command Line Interface (AWS CLI), or CloudFormation. For more information about
 managing CodeArtifact package groups with CloudFormation, see [Creating CodeArtifact resources with AWS CloudFormation](cloudformation-codeartifact.md "cloudformation-codeartifact.md").
 
 ## Create a package group (console)

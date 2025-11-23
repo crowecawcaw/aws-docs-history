@@ -2,7 +2,7 @@
 
 Because all packages in CodeArtifact are stored in [repositories](codeartifact-concepts.md#welcome-concepts-repository "codeartifact-concepts.md#welcome-concepts-repository"), to use
 CodeArtifact, you must create one. You can create a repository using the CodeArtifact console, the AWS Command Line Interface (AWS CLI), or
-AWS CloudFormation.
+CloudFormation.
 Each repository is associated with the AWS account that you use when you create it. You can
 have multiple repositories, and they are created and grouped in [domains](codeartifact-concepts.md#welcome-concepts-domain "codeartifact-concepts.md#welcome-concepts-domain").
 When you create a repository, it does not contain any packages. Repositories are polyglot, which means that a single
