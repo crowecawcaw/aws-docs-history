@@ -10,7 +10,7 @@ the Amazon SQS access policy language.
 ![Figure one in the previous diagram.](images/number-1-red.png)
 You write an Amazon SQS policy for your queue.
 
-![Figure two in the previous diagram.](images/number-2-red.png)
+![Figure two in the previous diagram.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-2-red.png)
 You upload your policy to AWS. The AWS service provides
 an API that you use to upload your policies. For example, you use the Amazon SQS
 `SetQueueAttributes` action to upload a policy for a particular
@@ -23,7 +23,7 @@ Someone sends a request to use your Amazon SQS queue.
 Amazon SQS examines all available Amazon SQS policies and determines
 which ones are applicable.
 
-![Figure five in the previous diagram.](images/number-5-red.png)
+![Figure five in the previous diagram.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-5-red.png)
 Amazon SQS evaluates the policies and determines whether the
 requester is allowed to use your queue.
 

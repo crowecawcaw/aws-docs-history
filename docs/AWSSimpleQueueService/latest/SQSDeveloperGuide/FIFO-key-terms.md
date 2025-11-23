@@ -46,7 +46,7 @@ with FIFO queues:
 
 - [Amazon S3 Event
   Notifications](../../../AmazonS3/latest/userguide/NotificationHowTo.md "../../../AmazonS3/latest/userguide/NotificationHowTo.md")
-- [Auto Scaling Lifecycle
+- [Amazon EC2 Auto Scaling Lifecycle
   Hooks](../../../autoscaling/ec2/userguide/lifecycle-hooks.md "../../../autoscaling/ec2/userguide/lifecycle-hooks.md")
 - [AWS IoT Rule
   Actions](../../../iot/latest/developerguide/iot-rule-actions.md "../../../iot/latest/developerguide/iot-rule-actions.md")

@@ -1,10 +1,10 @@
-# Creating an Amazon SQS queue using AWS CloudFormation
+# Creating an Amazon SQS queue using CloudFormation
 
-Use the AWS CloudFormation console along with a JSON or YAML template to create an Amazon SQS queue. For more details, see [Working with AWS CloudFormation
+Use the CloudFormation console along with a JSON or YAML template to create an Amazon SQS queue. For more details, see [Working with CloudFormation
 Templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") and the [`AWS::SQS::Queue` Resource](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.md") in the
 _AWS CloudFormation User Guide_.
 
-###### To use AWS CloudFormation to create an Amazon SQS queue.
+###### To use CloudFormation to create an Amazon SQS queue.
 
 1. Copy the following JSON code to a file named `MyQueue.json`. To create
    a standard queue, omit the `FifoQueue` and
@@ -58,7 +58,7 @@ The name of a FIFO queue must end with the `.fifo` suffix.
 }
 ```
 
-2. Sign in to the [AWS CloudFormation
+2. Sign in to the [CloudFormation
    console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation"), and then choose **Create Stack**.
 3. On the **Specify Template** panel, choose **Upload a
    template file**, choose your `MyQueue.json` file, and then
@@ -70,10 +70,10 @@ The name of a FIFO queue must end with the `.fifo` suffix.
 6. On the **Review** page, choose
    **Create**.
 
-AWS CloudFormation begins to create the `MyQueue` stack and displays the
+CloudFormation begins to create the `MyQueue` stack and displays the
 **CREATE_IN_PROGRESS** status. When the process is complete,
-AWS CloudFormation displays the **CREATE_COMPLETE** status.
+CloudFormation displays the **CREATE_COMPLETE** status.
 
-![The AWS CloudFormation console displaying the CREATE_COMPLETE status.](images/sqs-tutorials-creating-queue-cfn-create-complete.png) 7. (Optional) To display the name, URL, and ARN of the queue, choose the name of the
+![The CloudFormation console displaying the CREATE_COMPLETE status.](images/sqs-tutorials-creating-queue-cfn-create-complete.png) 7. (Optional) To display the name, URL, and ARN of the queue, choose the name of the
 stack and then on the next page expand the **Outputs**
 section.

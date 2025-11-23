@@ -53,7 +53,7 @@ chmod 400 SQS-VPCE-Tutorial-Key-Pair.pem
 
 ## Step 2: Create AWS resources
 
-To set up the necessary infrastructure, you must use an AWS CloudFormation _template_, which is a blueprint for creating a _stack_
+To set up the necessary infrastructure, you must use an CloudFormation _template_, which is a blueprint for creating a _stack_
 comprised of AWS resources, such as Amazon EC2 instances and Amazon SQS queues.
 
 The stack for this tutorial includes the following resources:
@@ -63,9 +63,9 @@ The stack for this tutorial includes the following resources:
 - An Amazon EC2 instance launched into the VPC subnet
 - An Amazon SQS queue
 
-1. Download the AWS CloudFormation template named [`SQS-VPCE-Tutorial-CloudFormation.yaml`](https://github.com/aws-samples/amazon-sqs-samples/blob/master/templates/SQS-VPCE-Tutorial-CloudFormation.yaml "https://github.com/aws-samples/amazon-sqs-samples/blob/master/templates/SQS-VPCE-Tutorial-CloudFormation.yaml") from
+1. Download the CloudFormation template named [`SQS-VPCE-Tutorial-CloudFormation.yaml`](https://github.com/aws-samples/amazon-sqs-samples/blob/master/templates/SQS-VPCE-Tutorial-CloudFormation.yaml "https://github.com/aws-samples/amazon-sqs-samples/blob/master/templates/SQS-VPCE-Tutorial-CloudFormation.yaml") from
    GitHub.
-2. Sign in to the [AWS CloudFormation
+2. Sign in to the [CloudFormation
    console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 3. Choose **Create Stack**.
 4. On the **Select Template** page, choose **Upload a
@@ -86,15 +86,15 @@ The stack for this tutorial includes the following resources:
    acknowledge that AWS CloudFormation might create IAM resources with custom
    names.**, and then choose **Create**.
 
-AWS CloudFormation begins to create the stack and displays the
-**CREATE_IN_PROGRESS** status. When the process is complete, AWS CloudFormation
+CloudFormation begins to create the stack and displays the
+**CREATE_IN_PROGRESS** status. When the process is complete, CloudFormation
 displays the **CREATE_COMPLETE** status.
 
 ## Step 3: Confirm that
 
 your EC2 instance isn't publicly accessible
 
-Your AWS CloudFormation template launches an EC2 instance named
+Your CloudFormation template launches an EC2 instance named
 `SQS-VPCE-Tutorial-EC2-Instance` into your VPC. This EC2 instance doesn't
 allow outbound traffic and isn't able to send messages to Amazon SQS. To verify this, you
 must connect to the instance, try to connect to a public endpoint, and then try to
@@ -122,7 +122,7 @@ ping amazon.com
 ```
 
 The connection attempt fails, as expected. 7. Sign in to the [Amazon SQS
-console](https://console.aws.amazon.com/sqs/ "https://console.aws.amazon.com/sqs/"). 8. From the list of queues, select the queue created by your AWS CloudFormation template, for
+console](https://console.aws.amazon.com/sqs/ "https://console.aws.amazon.com/sqs/"). 8. From the list of queues, select the queue created by your CloudFormation template, for
 example,
 **VPCE-SQS-Tutorial-Stack-CFQueue-1ABCDEFGH2IJK**. 9. On the **Details** table, copy the URL, for example,
 **https://sqs.us-east-2.amazonaws.com/123456789012/**. 10. From your EC2 instance, try to publish a message to the queue using the
@@ -211,7 +211,7 @@ message ID are displayed, for example:
 ```
 
 For information about receiving and deleting the message from the queue created by
-your AWS CloudFormation template (for example,
+your CloudFormation template (for example,
 **VPCE-SQS-Tutorial-Stack-CFQueue-1ABCDEFGH2IJK**), see [Receiving and deleting a message in Amazon SQS](step-receive-delete-message.md "step-receive-delete-message.md") .
 
 For information about deleting your resources, see the following:
@@ -224,7 +224,7 @@ For information about deleting your resources, see the following:
 - [Deleting Your VPC](../../../vpc/latest/userguide/delete-vpc.md "../../../vpc/latest/userguide/delete-vpc.md") in the
   _Amazon VPC User Guide_
 - [Deleting a Stack on
-  the AWS CloudFormation Console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the
+  the CloudFormation Console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the
   _AWS CloudFormation User Guide_
 - [Deleting Your
   Key Pair](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#delete-key-pair "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#delete-key-pair") in the _Amazon EC2 User Guide_

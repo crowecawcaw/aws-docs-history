@@ -1,7 +1,7 @@
 # Creating IAM users and Amazon SQS queues
 
 The following examples explain how to create an ABAC policy to control access to Amazon SQS
-using the AWS Management Console and AWS CloudFormation.
+using the AWS Management Console and CloudFormation.
 
 ## Using the AWS Management Console
 
@@ -30,7 +30,7 @@ using the AWS Management Console and AWS CloudFormation.
 
 ## Using AWS CloudFormation
 
-Use the following sample AWS CloudFormation template to create an IAM user with an inline policy
+Use the following sample CloudFormation template to create an IAM user with an inline policy
 attached and an Amazon SQS queue:
 
 ```

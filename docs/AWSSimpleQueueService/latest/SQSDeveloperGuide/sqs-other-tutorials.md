@@ -4,5 +4,5 @@ This topic provides tutorials to help you explore Amazon SQS features and functi
 
 ###### Tutorials
 
-- [Creating an Amazon SQS queue using AWS CloudFormation](create-queue-cloudformation.md "create-queue-cloudformation.md")
+- [Creating an Amazon SQS queue using CloudFormation](create-queue-cloudformation.md "create-queue-cloudformation.md")
 - [Sending a message from a VPC](sqs-sending-messages-from-vpc.md "sqs-sending-messages-from-vpc.md")
