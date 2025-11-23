@@ -1,7 +1,3 @@
-AWS CodeCommit is no longer available to new customers. Existing customers of
-AWS CodeCommit can continue to use the service as normal.
-[Learn more"](https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider "https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider")
-
 # Delete triggers from an AWS CodeCommit repository
 
 You might want to delete triggers if they are no longer being used. You cannot undo the

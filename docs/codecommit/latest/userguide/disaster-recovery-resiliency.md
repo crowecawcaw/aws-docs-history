@@ -1,7 +1,3 @@
-AWS CodeCommit is no longer available to new customers. Existing customers of
-AWS CodeCommit can continue to use the service as normal.
-[Learn more"](https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider "https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider")
-
 # Resilience in AWS CodeCommit
 
 The AWS global infrastructure is built around AWS Regions and Availability Zones. AWS Regions provide multiple physically separated and isolated

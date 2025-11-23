@@ -1,7 +1,3 @@
-AWS CodeCommit is no longer available to new customers. Existing customers of
-AWS CodeCommit can continue to use the service as normal.
-[Learn more"](https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider "https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider")
-
 # Create a notification rule
 
 You can use notification rules to notify users of important changes, such as when a pull

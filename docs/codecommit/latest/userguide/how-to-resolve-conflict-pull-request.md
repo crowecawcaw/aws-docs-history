@@ -1,7 +1,3 @@
-AWS CodeCommit is no longer available to new customers. Existing customers of
-AWS CodeCommit can continue to use the service as normal.
-[Learn more"](https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider "https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider")
-
 # Resolve conflicts in a pull request in an AWS CodeCommit repository
 
 If your pull request has conflicts and cannot be merged, you can try to resolve the

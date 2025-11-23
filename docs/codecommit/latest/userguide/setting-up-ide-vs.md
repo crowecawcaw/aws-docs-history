@@ -1,7 +1,3 @@
-AWS CodeCommit is no longer available to new customers. Existing customers of
-AWS CodeCommit can continue to use the service as normal.
-[Learn more"](https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider "https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider")
-
 # Integrate Visual Studio with AWS CodeCommit
 
 You can use Visual Studio to make code changes in a CodeCommit repository. The AWS Toolkit for Visual Studio now includes

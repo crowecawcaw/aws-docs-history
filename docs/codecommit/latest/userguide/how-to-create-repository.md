@@ -1,7 +1,3 @@
-AWS CodeCommit is no longer available to new customers. Existing customers of
-AWS CodeCommit can continue to use the service as normal.
-[Learn more"](https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider "https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider")
-
 # Create an AWS CodeCommit repository
 
 Use the AWS CodeCommit console or the AWS Command Line Interface (AWS CLI) to create an empty
@@ -22,12 +18,6 @@ Depending on your usage, you might be charged for creating or accessing a reposi
 ## Create a repository (console)
 
 **To create a CodeCommit repository**
-
-###### Important
-
-Creating a repository in AWS CodeCommit is no longer available to new customers. Existing customers of
-AWS CodeCommit can continue to use the API as normal.
-[Learn more"](https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider "https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider")
 
 1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home "https://console.aws.amazon.com/codesuite/codecommit/home").
 2. In the region selector, choose the AWS Region where you want to create the
@@ -76,12 +66,6 @@ AWS CodeCommit](auth-and-access-control.md "auth-and-access-control.md").
 ## Create a repository (AWS CLI)
 
 You can use the AWS CLI to create a CodeCommit repository. Unlike the console, you can add tags to a repository if you create it using the AWS CLI.
-
-###### Important
-
-Creating a repository in AWS CodeCommit is no longer available to new customers. Existing customers of
-AWS CodeCommit can continue to use the API as normal.
-[Learn more"](https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider "https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider")
 
 1. Make sure that you have configured the AWS CLI with the AWS Region where the
    repository exists. To verify the Region, run the following command at the command line or

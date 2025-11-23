@@ -1,7 +1,3 @@
-AWS CodeCommit is no longer available to new customers. Existing customers of
-AWS CodeCommit can continue to use the service as normal.
-[Learn more"](https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider "https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider")
-
 # Review a pull request
 
 You can use the AWS CodeCommit console to review the changes included in a pull request. You
@@ -50,7 +46,7 @@ or reopen it. 5. In the pull request, choose **Changes**. 6. Do one of the follo
     * To add a comment to a file in the commit, in
      **Changes**, find the name of the file. Choose the
      comment icon
-    ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](/images/codecommit/latest/userguide/images/codecommit-commentbubble.png)
+    ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](images/codecommit-commentbubble.png)
      that appears next to the file name, enter a
      comment, and then choose **Save**.
 
@@ -60,7 +56,7 @@ or reopen it. 5. In the pull request, choose **Changes**. 6. Do one of the follo
     * To add a comment to a changed line in the pull request, in
      **Changes**, go to the line you want to comment on.
      Choose the comment icon
-    ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](/images/codecommit/latest/userguide/images/codecommit-commentbubble.png)
+    ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](images/codecommit-commentbubble.png)
      that appears for that line, enter a comment, and
      then choose **Save**.
 
