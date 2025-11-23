@@ -17,7 +17,7 @@ will allow more time to comprehend each of the steps.
 
 ###### To run the AWS IoT Core interactive tutorial
 
-1. Open the [AWS IoT home page](https://console.aws.amazon.com/iot/home#/home "https://console.aws.amazon.com/iot/home#/home")
+1. Open the [AWS IoT home page](https://console.aws.amazon.com//iot/home#/home "https://console.aws.amazon.com//iot/home#/home")
    in the AWS IoT console.
 
 On the **AWS IoT home page**, in the **Learning

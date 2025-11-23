@@ -41,7 +41,7 @@ interface if their application requires the specialized features that these
 endpoints provide. The AWS IoT device service endpoints support device-centric access
 to security and management services.
 
-To learn your account's device data endpoint, you can find it in the [**Settings**](https://console.aws.amazon.com/iot/home#/settings "https://console.aws.amazon.com/iot/home#/settings")
+To learn your account's device data endpoint, you can find it in the [**Settings**](https://console.aws.amazon.com//iot/home#/settings "https://console.aws.amazon.com//iot/home#/settings")
 page of your AWS IoT Core console.
 
 To learn your account's device endpoint for a specific purpose, including the

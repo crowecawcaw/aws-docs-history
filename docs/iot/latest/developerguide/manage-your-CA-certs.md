@@ -70,7 +70,7 @@ certificate (console)
 
 To register a CA certificate in the console, start in the
 console at [Register CA
-certificate](https://console.aws.amazon.com/iot/home#/create/cacertificate "https://console.aws.amazon.com/iot/home#/create/cacertificate"). You can register your CA in
+certificate](https://console.aws.amazon.com//iot/home#/create/cacertificate "https://console.aws.amazon.com//iot/home#/create/cacertificate"). You can register your CA in
 Multi-account mode and without the need to provide a
 verification certificate or access to the private key. A CA can
 be registered in Multi-account mode by multiple AWS accounts
@@ -295,7 +295,7 @@ certificate from the AWS IoT console.
 
 If you did not come to this procedure from the AWS IoT console,
 start the CA certificate registration process in the console at
-[Register CA certificate](https://console.aws.amazon.com/iot/home#/create/cacertificate "https://console.aws.amazon.com/iot/home#/create/cacertificate").
+[Register CA certificate](https://console.aws.amazon.com//iot/home#/create/cacertificate "https://console.aws.amazon.com//iot/home#/create/cacertificate").
 
 Make sure you have the following available on the same computer
 before you continue:

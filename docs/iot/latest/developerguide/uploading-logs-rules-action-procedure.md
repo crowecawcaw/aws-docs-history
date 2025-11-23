@@ -36,7 +36,7 @@ AWS Management Console
 
 ###### To create a CloudWatch log group by using the AWS Management Console
 
-1. Open the AWS Management Console and navigate to [CloudWatch](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch").
+1. Open the AWS Management Console and navigate to [CloudWatch](https://console.aws.amazon.com//cloudwatch "https://console.aws.amazon.com//cloudwatch").
 2. On the navigation bar, choose **Logs**, and then
    **Log groups**.
 3. Choose **Create log group**.

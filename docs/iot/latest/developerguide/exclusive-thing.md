@@ -73,7 +73,7 @@ either AWS Management Console or AWS CLI to associate a thing to a connection.
 AWS Management Console.
 
 1. Open the [AWS IoT home
-   page](https://console.aws.amazon.com/iot/home#/home "https://console.aws.amazon.com/iot/home#/home") in the AWS IoT console. On the left navigation, from
+   page](https://console.aws.amazon.com//iot/home#/home "https://console.aws.amazon.com//iot/home#/home") in the AWS IoT console. On the left navigation, from
    **Security**, choose
    **Certificates**.
 2. On the **Certificates** page, choose a certificate
@@ -96,7 +96,7 @@ thing to your certificate", and the thing will be added to the
 AWS Management Console
 
 1. Open the [AWS IoT home
-   page](https://console.aws.amazon.com/iot/home#/home "https://console.aws.amazon.com/iot/home#/home") in the AWS IoT console. On the left navigation, from
+   page](https://console.aws.amazon.com//iot/home#/home "https://console.aws.amazon.com//iot/home#/home") in the AWS IoT console. On the left navigation, from
    **Security**, choose
    **Certificates**.
 2. On the **Certificates** page, choose a

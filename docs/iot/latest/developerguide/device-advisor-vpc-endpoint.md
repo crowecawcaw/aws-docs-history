@@ -17,7 +17,7 @@ Jobs](iot-jobs.md "iot-jobs.md").
 [AWS PrivateLink](http://aws.amazon.com/privatelink "http://aws.amazon.com/privatelink") powers the
 interface endpoints used with your IoT devices. This service helps you access the
 AWS IoT Core Device Advisor test endpoint privately without an internet gateway, NAT device, VPN
-connection, or AWS Direct Connect connection. Instances in your VPC that send TCP and MQTT
+connection, or Direct Connect connection. Instances in your VPC that send TCP and MQTT
 packets don't need public IP addresses to communicate with AWS IoT Core Device Advisor test endpoints.
 Traffic between your VPC and AWS IoT Core Device Advisor
 doesn't

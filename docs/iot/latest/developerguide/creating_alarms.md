@@ -3,7 +3,7 @@
 You can create a CloudWatch alarm that sends an Amazon SNS message when the alarm changes state. An
 alarm watches a single metric over a time period you specify. When the value of the metric
 exceeds a given threshold over a number of time periods, one or more actions are performed.
-The action can be a notification sent to an Amazon SNS topic or Auto Scaling policy. Alarms trigger
+The action can be a notification sent to an Amazon SNS topic or Amazon EC2 Auto Scaling policy. Alarms trigger
 actions for sustained state changes only. CloudWatch alarms do not trigger actions simply because
 they are in a particular state; the state must have changed and been maintained for a
 specified number of periods.

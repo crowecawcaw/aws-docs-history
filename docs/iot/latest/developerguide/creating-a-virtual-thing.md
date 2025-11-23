@@ -186,7 +186,7 @@ AWS CLI](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/lates
 1. The following example shows sample values. Replace them with your
    own values. You can find these values in your [AWS console in your
    account info under **Security
-   credentials**](https://console.aws.amazon.com/iam/home#/security_credentials "https://console.aws.amazon.com/iam/home#/security_credentials").
+   credentials**](https://console.aws.amazon.com//iam/home#/security_credentials "https://console.aws.amazon.com//iam/home#/security_credentials").
 
 In your **Amazon EC2 Instance Connect** window, enter
 this command:

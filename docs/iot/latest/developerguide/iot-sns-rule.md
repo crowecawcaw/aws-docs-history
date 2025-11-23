@@ -59,7 +59,7 @@ message of the temperature limit that was exceeded.
 
 1. **Create an Amazon SNS topic.**
    1. Sign in to the [Amazon SNS
-      console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
+      console](https://console.aws.amazon.com//sns/home "https://console.aws.amazon.com//sns/home").
    2. In the left navigation pane, choose **Topics**.
    3. On the **Topics** page, choose **Create
       topic**.
@@ -91,7 +91,7 @@ charges from the messages you will send in this tutorial.
     4. Choose **Create subscription**.
 
 3. **Test the Amazon SNS notification.**
-   1. In the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home"), in the left
+   1. In the [Amazon SNS console](https://console.aws.amazon.com//sns/home "https://console.aws.amazon.com//sns/home"), in the left
       navigation pane, choose **Topics**.
    2. To open the topic's details page, in **Topics**, in the list of
       topics, choose **high_temp_notice**.
@@ -107,7 +107,7 @@ charges from the messages you will send in this tutorial.
       confirm that the message was received.If you did not receive the test message, double check the phone number and your
       phone's settings.
 
-Make sure you can publish test messages from the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home") before you continue the tutorial.
+Make sure you can publish test messages from the [Amazon SNS console](https://console.aws.amazon.com//sns/home "https://console.aws.amazon.com//sns/home") before you continue the tutorial.
 
 ## Step 2: Create an AWS IoT rule to send the text
 
@@ -160,7 +160,7 @@ looks like this to the Amazon SNS topic:
 to send to the Amazon SNS topic
 
 1.  Open [the **Rules**
-    hub of the AWS IoT console](https://console.aws.amazon.com/iot/home#/rulehub "https://console.aws.amazon.com/iot/home#/rulehub").
+    hub of the AWS IoT console](https://console.aws.amazon.com//iot/home#/rulehub "https://console.aws.amazon.com//iot/home#/rulehub").
 2.  If this is your first rule, choose **Create**, or
     **Create a rule**.
 3.  In **Create a rule**:
@@ -239,14 +239,14 @@ To test your new rule, you'll use the MQTT client to publish and subscribe to th
 messages used by this rule.
 
 Open the [MQTT client in the AWS IoT
-console](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test") in a new window. This will let you edit the rule without losing the
+console](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test") in a new window. This will let you edit the rule without losing the
 configuration of your MQTT client. If you leave the MQTT client to go to another page in the
 console, it won't retain any subscriptions or message logs.
 
 ###### To use the MQTT client to test your rule
 
 1. In the [MQTT client in the AWS IoT
-   console](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test"), subscribe to the input topics, in this case,
+   console](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test"), subscribe to the input topics, in this case,
    `device/+/data`.
    1. In the MQTT client, under **Subscriptions**, choose
       **Subscribe to a topic**.

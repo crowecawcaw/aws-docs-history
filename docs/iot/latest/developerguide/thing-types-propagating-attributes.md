@@ -39,7 +39,7 @@ If you attempt to test this feature using the MQTT test client within console, i
 AWS Management Console
 
 1. Open the [AWS IoT home
-   page](https://console.aws.amazon.com/iot/home#/home "https://console.aws.amazon.com/iot/home#/home") in the AWS IoT console. On the left navigation, from
+   page](https://console.aws.amazon.com//iot/home#/home "https://console.aws.amazon.com//iot/home#/home") in the AWS IoT console. On the left navigation, from
    **Manage**, choose **All
    devices**. Then choose **Thing types**.
 2. On the **Thing types** page, choose **Create

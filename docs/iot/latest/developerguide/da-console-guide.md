@@ -21,7 +21,7 @@ Device Advisor is supported in the following AWS Regions:
 
 ###### Getting started
 
-1. In the [AWS IoT console's](https://console.aws.amazon.com/iot "https://console.aws.amazon.com/iot") navigation
+1. In the [AWS IoT console's](https://console.aws.amazon.com//iot "https://console.aws.amazon.com//iot") navigation
    pane under **Test**, choose **Device Advisor**. Then,
    choose the **Start walkthrough** button on the console.
 

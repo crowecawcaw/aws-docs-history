@@ -155,7 +155,7 @@ console** to view MQTT messages as they pass through the message broker.
 1. ###### Open the MQTT test client
 
 Open the [MQTT test client in the AWS IoT
-console](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test") in a new window so that you can observe the messages received by the
+console](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test") in a new window so that you can observe the messages received by the
 MQTT topics without losing the configuration of your MQTT test client. The MQTT test
 client doesn't retain any subscriptions or message logs if you leave it to go to
 another page in the console. For this section of the tutorial, you can have the Shadow

@@ -24,12 +24,12 @@ endpoint.
 
 endpoint
 
-This procedure explains how to find your device data endpoint in the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home") for testing the
+This procedure explains how to find your device data endpoint in the [AWS IoT console](https://console.aws.amazon.com//iot/home "https://console.aws.amazon.com//iot/home") for testing the
 connection to your IoT device.
 
 ###### To find your device data endpoint
 
-1. In the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"),
+1. In the [AWS IoT console](https://console.aws.amazon.com//iot/home "https://console.aws.amazon.com//iot/home"),
    in the **Connect** section, go to
    **Domain Configurations**.
 2. In the **Domain Configurations** page, go to the

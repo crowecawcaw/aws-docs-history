@@ -17,7 +17,7 @@ For a list of AWS region-specific endpoints, see [AWS IoT Core - control plane e
 
 For a list of FIPS compliant **AWS IoT Jobs control
 plane** endpoints, see [FIPS Endpoints
-by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service")
+by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service")
 
 ###### Note
 
@@ -51,7 +51,7 @@ HTTPS or MQTT protocol.
 
 For a list of FIPS compliant **AWS IoT Jobs data
 plane** endpoints, see [FIPS Endpoints
-by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service")
+by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service")
 
 ## How do I monitor AWS IoT Jobs activity and
 

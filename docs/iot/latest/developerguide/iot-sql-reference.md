@@ -3,6 +3,12 @@
 In AWS IoT, rules are defined using an SQL-like syntax. SQL statements are composed of three
 types of clauses:
 
+**SET**
+
+(Optional) Defines variables that you can reuse throughout SQL statements and substitution templates. Assign values to variables using expressions. Reference these variables in SELECT and WHERE clauses, and in action substitution templates.
+
+The SET clause supports [Data types](iot-sql-data-types.md "iot-sql-data-types.md"), [Operators](iot-sql-operators.md "iot-sql-operators.md"), [Functions](iot-sql-functions.md "iot-sql-functions.md"), [Literals](iot-sql-literals.md "iot-sql-literals.md"), [Case statements](iot-sql-case.md "iot-sql-case.md"), [JSON extensions](iot-sql-json.md "iot-sql-json.md"), [Variables](iot-sql-set.md#iot-sql-set-usage "iot-sql-set.md#iot-sql-set-usage"), and [Nested object queries](iot-sql-nested-queries.md "iot-sql-nested-queries.md").
+
 **SELECT**
 
 (Required) Extracts information from the payload of an incoming message and
@@ -10,8 +16,7 @@ performs transformations on the information. The messages to use are identified
 by the [topic filter](topics.md#topicfilters "topics.md#topicfilters") specified in the FROM
 clause.
 
-The SELECT clause supports [Data types](iot-sql-data-types.md "iot-sql-data-types.md"), [Operators](iot-sql-operators.md "iot-sql-operators.md"), [Functions](iot-sql-functions.md "iot-sql-functions.md"), [Literals](iot-sql-literals.md "iot-sql-literals.md"), [Case statements](iot-sql-case.md "iot-sql-case.md"), [JSON extensions](iot-sql-json.md "iot-sql-json.md"), [Substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"), [Nested object queries](iot-sql-nested-queries.md "iot-sql-nested-queries.md"),
-and [Binary payloads](binary-payloads.md "binary-payloads.md").
+The SELECT clause supports [Data types](iot-sql-data-types.md "iot-sql-data-types.md"), [Operators](iot-sql-operators.md "iot-sql-operators.md"), [Functions](iot-sql-functions.md "iot-sql-functions.md"), [Literals](iot-sql-literals.md "iot-sql-literals.md"), [Case statements](iot-sql-case.md "iot-sql-case.md"), [JSON extensions](iot-sql-json.md "iot-sql-json.md"), [Substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"), [Variables](iot-sql-set.md#iot-sql-set-usage "iot-sql-set.md#iot-sql-set-usage"), [Nested object queries](iot-sql-nested-queries.md "iot-sql-nested-queries.md"), and [Binary payloads](binary-payloads.md "binary-payloads.md").
 
 **FROM**
 
@@ -26,7 +31,7 @@ broker. Optional for rules that are only activated using the [Basic Ingest](iot-
 (Optional) Adds conditional logic that determines whether the actions
 specified by a rule are carried out.
 
-The WHERE clause supports [Data types](iot-sql-data-types.md "iot-sql-data-types.md"), [Operators](iot-sql-operators.md "iot-sql-operators.md"), [Functions](iot-sql-functions.md "iot-sql-functions.md"), [Literals](iot-sql-literals.md "iot-sql-literals.md"), [Case statements](iot-sql-case.md "iot-sql-case.md"), [JSON extensions](iot-sql-json.md "iot-sql-json.md"), [Substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"), and [Nested object queries](iot-sql-nested-queries.md "iot-sql-nested-queries.md").
+The WHERE clause supports [Data types](iot-sql-data-types.md "iot-sql-data-types.md"), [Operators](iot-sql-operators.md "iot-sql-operators.md"), [Functions](iot-sql-functions.md "iot-sql-functions.md"), [Literals](iot-sql-literals.md "iot-sql-literals.md"), [Case statements](iot-sql-case.md "iot-sql-case.md"), [JSON extensions](iot-sql-json.md "iot-sql-json.md"), [Variables](iot-sql-set.md#iot-sql-set-usage "iot-sql-set.md#iot-sql-set-usage"), and [Nested object queries](iot-sql-nested-queries.md "iot-sql-nested-queries.md").
 
 An example SQL statement looks like this:
 

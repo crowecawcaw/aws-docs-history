@@ -52,9 +52,9 @@ You'll need your AWS account and AWS IoT console to complete this tutorial.
 The account you use for this tutorial works best when it includes at least these
 AWS managed policies:
 
-    + [`IAMFullAccess`](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/IAMFullAccess$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/IAMFullAccess$jsonEditor")
-    + [`AWSIoTFullAccess`](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSIoTFullAccess$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSIoTFullAccess$jsonEditor")
-    + [`AWSLambda_FullAccess`](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSLambda_FullAccess$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSLambda_FullAccess$jsonEditor")
+    + [`IAMFullAccess`](https://console.aws.amazon.com//iam/home#/policies/arn:aws:iam::aws:policy/IAMFullAccess$jsonEditor "https://console.aws.amazon.com//iam/home#/policies/arn:aws:iam::aws:policy/IAMFullAccess$jsonEditor")
+    + [`AWSIoTFullAccess`](https://console.aws.amazon.com//iam/home#/policies/arn:aws:iam::aws:policy/AWSIoTFullAccess$jsonEditor "https://console.aws.amazon.com//iam/home#/policies/arn:aws:iam::aws:policy/AWSIoTFullAccess$jsonEditor")
+    + [`AWSLambda_FullAccess`](https://console.aws.amazon.com//iam/home#/policies/arn:aws:iam::aws:policy/AWSLambda_FullAccess$jsonEditor "https://console.aws.amazon.com//iam/home#/policies/arn:aws:iam::aws:policy/AWSLambda_FullAccess$jsonEditor")
 
 ###### Important
 
@@ -115,8 +115,8 @@ The Lambda function does the following:
 
 ###### To create the Lambda function for your custom authorizer
 
-1. In the [Lambda](https://console.aws.amazon.com/lambda/home# "https://console.aws.amazon.com/lambda/home#") console, open
-   [Functions](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions").
+1. In the [Lambda](https://console.aws.amazon.com//lambda/home# "https://console.aws.amazon.com//lambda/home#") console, open
+   [Functions](https://console.aws.amazon.com//lambda/home#/functions "https://console.aws.amazon.com//lambda/home#/functions").
 2. Choose **Create function**.
 3. Confirm **Author from scratch** is selected.
 4. Under **Basic information**:
@@ -317,7 +317,7 @@ resource
 (console)
 
 1. Open the [Custom
-   authorizer page of the AWS IoT console](https://console.aws.amazon.com/iot/home#/authorizerhub "https://console.aws.amazon.com/iot/home#/authorizerhub"), and choose
+   authorizer page of the AWS IoT console](https://console.aws.amazon.com//iot/home#/authorizerhub "https://console.aws.amazon.com//iot/home#/authorizerhub"), and choose
    **Create Authorizer**.
 2. In **Create Authorizer**:
    1. In **Authorizer name**, enter
@@ -657,7 +657,7 @@ that message as other devices and services might.
 
 ###### To see the test messages authorized by your custom authorizer
 
-1. In the AWS IoT console, open the [MQTT test client](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test").
+1. In the AWS IoT console, open the [MQTT test client](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test").
 2. In the **Subscribe to topic** tab, in **Topic
    filter**, enter `test/cust-auth/topic`, which
    is the message topic used in the Postman example from the previous
@@ -737,7 +737,7 @@ try to add a new one without removing an existing custom authorizer.
 ###### To remove a custom authorizer (console)
 
 1. Open the [Custom
-   authorizer page of the AWS IoT console](https://console.aws.amazon.com/iot/home#/authorizerhub "https://console.aws.amazon.com/iot/home#/authorizerhub"), and in the list of custom
+   authorizer page of the AWS IoT console](https://console.aws.amazon.com//iot/home#/authorizerhub "https://console.aws.amazon.com//iot/home#/authorizerhub"), and in the list of custom
    authorizers, find the custom authorizer to remove.
 2. Open the Custom authorizer details page and, from the
    **Actions** menu, choose

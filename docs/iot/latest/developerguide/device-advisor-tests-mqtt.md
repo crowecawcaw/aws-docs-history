@@ -84,7 +84,7 @@ device under test. If the device under test has a strictly exponential
 backoff delay, this test case will pass with warnings.
 
 We recommend implementation of the [Exponential
-Backoff And Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/ "https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/") mechanism on the device under test to
+Backoff And Jitter](https://aws.amazon.com/blogs//architecture/exponential-backoff-and-jitter/ "https://aws.amazon.com/blogs//architecture/exponential-backoff-and-jitter/") mechanism on the device under test to
 pass this test case.
 
 _API test case definition:_
@@ -121,7 +121,7 @@ request. The collected timestamps are used to validate that an
 exponential backoff is used by the device under test.
 
 We recommend implementation of the [Exponential
-Backoff And Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/ "https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/") mechanism on the device under test to
+Backoff And Jitter](https://aws.amazon.com/blogs//architecture/exponential-backoff-and-jitter/ "https://aws.amazon.com/blogs//architecture/exponential-backoff-and-jitter/") mechanism on the device under test to
 pass this test case.
 
 _API test case definition:_
@@ -163,7 +163,7 @@ backoff mechanism, this test case will pass with warnings. If the device
 under test has implemented either a linear backoff or a constant backoff
 mechanism, the test will fail.
 
-To pass this test case, we recommend implementing the [Exponential Backoff And Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/ "https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/") mechanism on the device
+To pass this test case, we recommend implementing the [Exponential Backoff And Jitter](https://aws.amazon.com/blogs//architecture/exponential-backoff-and-jitter/ "https://aws.amazon.com/blogs//architecture/exponential-backoff-and-jitter/") mechanism on the device
 under test.
 
 _API test case definition:_
@@ -210,7 +210,7 @@ implement a proper jitter backoff mechanism, this test case will pass with warni
 If the device under test has implemented either a linear backoff
 or a constant backoff mechanism, the test will fail.
 
-To pass this test case, we recommend implementing the [Exponential Backoff And Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/ "https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/") mechanism on the device
+To pass this test case, we recommend implementing the [Exponential Backoff And Jitter](https://aws.amazon.com/blogs//architecture/exponential-backoff-and-jitter/ "https://aws.amazon.com/blogs//architecture/exponential-backoff-and-jitter/") mechanism on the device
 under test.
 
 _API test case definition:_

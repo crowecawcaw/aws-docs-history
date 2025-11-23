@@ -279,7 +279,7 @@ To choose self-managed certificate signing using AWS Management Console, follow 
 steps:
 
 1. Go to the [AWS IoT
-   console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home").
+   console](https://console.aws.amazon.com//iot/home "https://console.aws.amazon.com//iot/home").
 2. On the left navigation, under **Security**,
    choose **Certificate signing**.
 3. On the **Certificate signing** page, under

@@ -30,7 +30,7 @@ Create a test suite suite so that you can run it for your devices and
 perform verification.
 
 1. In the [AWS IoT
-   console](https://console.aws.amazon.com/iot "https://console.aws.amazon.com/iot"), in the navigation pane, expand
+   console](https://console.aws.amazon.com//iot "https://console.aws.amazon.com//iot"), in the navigation pane, expand
    **Test**, **Device Advisor** and then
    choose **Test suites**.
 
@@ -154,7 +154,7 @@ instructions.
 run
 
 1. In the [AWS IoT
-   console](https://console.aws.amazon.com/iot "https://console.aws.amazon.com/iot"), in the navigation pane, expand
+   console](https://console.aws.amazon.com//iot "https://console.aws.amazon.com//iot"), in the navigation pane, expand
    **Test**, **Device Advisor**, and then
    choose **Test suites**.
 2. Choose the test suite for which you'd like to view the test suite
@@ -186,7 +186,7 @@ the test run details.
 
 ## Stop a test suite run (optional)
 
-1. In the [AWS IoT console](https://console.aws.amazon.com/iot "https://console.aws.amazon.com/iot"), in the navigation pane, expand **Test**, **Device Advisor**, and then choose **Test runs and results**.
+1. In the [AWS IoT console](https://console.aws.amazon.com//iot "https://console.aws.amazon.com//iot"), in the navigation pane, expand **Test**, **Device Advisor**, and then choose **Test runs and results**.
 2. Choose the test suite in progress that you want to stop.
 
 ![The results of test runs on the Device Advisor console.](images/da-test-suite-to-stop.PNG) 3. Choose **Actions**, then **Stop test suite**.
@@ -203,7 +203,7 @@ to complete and for the test suite status to change to the
 logs
 
 1. In the [AWS IoT
-   console](https://console.aws.amazon.com/iot "https://console.aws.amazon.com/iot"), in the navigation pane, expand
+   console](https://console.aws.amazon.com//iot "https://console.aws.amazon.com//iot"), in the navigation pane, expand
    **Test**, **Device Advisor** and then
    choose **Test runs and results**.
 

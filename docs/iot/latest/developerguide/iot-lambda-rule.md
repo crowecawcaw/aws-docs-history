@@ -85,7 +85,7 @@ this tutorial, however, is the same one that you used in the tutorial about how 
 ###### To create an AWS Lambda function that sends a text message
 
 1.  Create a new AWS Lambda function.
-    1. In the [AWS Lambda console](https://console.aws.amazon.com/lambda/home "https://console.aws.amazon.com/lambda/home"),
+    1. In the [AWS Lambda console](https://console.aws.amazon.com//lambda/home "https://console.aws.amazon.com//lambda/home"),
        choose **Create function**.
     2. In **Create function**, select **Use a
        blueprint**.
@@ -107,7 +107,7 @@ this tutorial, however, is the same one that you used in the tutorial about how 
     1. After you created your function, you should see the
        **format-high-temp-notification** details page. If you don't,
        open it from the [Lambda
-       **Functions**](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") page.
+       **Functions**](https://console.aws.amazon.com//lambda/home#/functions "https://console.aws.amazon.com//lambda/home#/functions") page.
     2. In the **format-high-temp-notification** details page, choose
        the **Configuration** tab and scroll to the **Function
        code** panel.
@@ -162,7 +162,7 @@ this tutorial, however, is the same one that you used in the tutorial about how 
 
 3.  In a new window, look up the Amazon Resource Name (ARN) of your Amazon SNS topic from the
     tutorial about how to [Tutorial: Sending an Amazon SNS notification](iot-sns-rule.md "iot-sns-rule.md").
-    1. In a new window, open the [Topics page of the Amazon SNS console](https://console.aws.amazon.com/sns/v3/home#/topics "https://console.aws.amazon.com/sns/v3/home#/topics").
+    1. In a new window, open the [Topics page of the Amazon SNS console](https://console.aws.amazon.com//sns/v3/home#/topics "https://console.aws.amazon.com//sns/v3/home#/topics").
     2. In the **Topics** page, find the
        **high_temp_notice** notification topic in the list of Amazon SNS
        topics.
@@ -171,7 +171,7 @@ this tutorial, however, is the same one that you used in the tutorial about how 
 
 4.  Create a test case for your Lambda function.
     1. In the [Lambda
-       **Functions**](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") page of the console, on the
+       **Functions**](https://console.aws.amazon.com//lambda/home#/functions "https://console.aws.amazon.com//lambda/home#/functions") page of the console, on the
        **format-high-temp-notification** details page, choose
        **Select a test event** in the upper right corner of the page
        (even though it looks disabled), and then choose **Configure test
@@ -257,7 +257,7 @@ correct text message.
 
 ###### To create the AWS IoT rule to call a Lambda function
 
-1.  Open the [**Rules** hub of the AWS IoT console](https://console.aws.amazon.com/iot/home#/rulehub "https://console.aws.amazon.com/iot/home#/rulehub").
+1.  Open the [**Rules** hub of the AWS IoT console](https://console.aws.amazon.com//iot/home#/rulehub "https://console.aws.amazon.com//iot/home#/rulehub").
 2.  To start creating your new rule in **Rules**, choose
     **Create**.
 3.  In the top part of **Create a rule**:
@@ -332,14 +332,14 @@ To test your new rule, you'll use the MQTT client to publish and subscribe to th
 messages used by this rule.
 
 Open the [MQTT client in the AWS IoT
-console](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test") in a new window. Now you can edit the rule without losing the
+console](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test") in a new window. Now you can edit the rule without losing the
 configuration of your MQTT client. If you leave the MQTT client to go to another page in the
 console, you'll lose your subscriptions or message logs.
 
 ###### To use the MQTT client to test your rule
 
 1. In the [MQTT client in the AWS IoT
-   console](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test"), subscribe to the input topics, in this case,
+   console](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test"), subscribe to the input topics, in this case,
    `device/+/data`.
    1. In the MQTT client, under **Subscriptions**, choose
       **Subscribe to a topic**.

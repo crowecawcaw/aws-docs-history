@@ -248,7 +248,7 @@ receive.
 ###### To find and review the policy document for a thing resource
 
 1. In the [AWS IoT
-   console](https://console.aws.amazon.com/iot/home#/thinghub "https://console.aws.amazon.com/iot/home#/thinghub"), in the **Things** list, find
+   console](https://console.aws.amazon.com//iot/home#/thinghub "https://console.aws.amazon.com//iot/home#/thinghub"), in the **Things** list, find
    the thing resource that represents your device.
 2. Choose the **Name** link of the thing resource
    that represents your device to open the **Thing

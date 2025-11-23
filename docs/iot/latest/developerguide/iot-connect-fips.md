@@ -1,6 +1,6 @@
 # Connect to AWS IoT FIPS endpoints
 
-AWS IoT provides endpoints that support the [Federal Information Processing Standard (FIPS) 140-2](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/"). FIPS
+AWS IoT provides endpoints that support the [Federal Information Processing Standard (FIPS) 140-2](https://aws.amazon.com//compliance/fips/ "https://aws.amazon.com//compliance/fips/"). FIPS
 compliant endpoints are different from standard AWS endpoints. To interact with AWS IoT
 in a FIPS-compliant manner, you must use the endpoints described below with your FIPS
 compliant client. The AWS IoT console is not FIPS compliant.
@@ -23,8 +23,8 @@ using the REST API, an SDK, or the AWS CLI.
 The FIPS compliant **AWS IoT Core - control plane** endpoints
 that support the [AWS IoT](../apireference/API_Operations_AWS_IoT.md "../apireference/API_Operations_AWS_IoT.md")
 operations and their related [CLI commands](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/index.html") are listed in [FIPS
-Endpoints by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service"). In [FIPS
-Endpoints by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service"), find the **AWS IoT Core - control plane** service, and look up the endpoint for your
+Endpoints by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service"). In [FIPS
+Endpoints by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service"), find the **AWS IoT Core - control plane** service, and look up the endpoint for your
 AWS Region.
 
 To use the FIPS compliant endpoint when you access the [AWS IoT](../apireference/API_Operations_AWS_IoT.md "../apireference/API_Operations_AWS_IoT.md")
@@ -38,8 +38,8 @@ AWS Region to the command.
 ## AWS IoT Core - data plane endpoints
 
 The FIPS compliant **AWS IoT Core - data plane** endpoints
-are listed in [FIPS Endpoints by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service"). In [FIPS
-Endpoints by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service"), find the **AWS IoT Core - data plane** service, and look up the endpoint for your
+are listed in [FIPS Endpoints by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service"). In [FIPS
+Endpoints by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service"), find the **AWS IoT Core - data plane** service, and look up the endpoint for your
 AWS Region.
 
 You can use the FIPS compliant endpoint for your AWS Region with a FIPS
@@ -61,8 +61,8 @@ policies](transport-security.md#tls-policy-table "transport-security.md#tls-poli
 ## AWS IoT Core - credential provider endpoints
 
 The FIPS compliant **AWS IoT Core - credential provider** endpoints
-are listed in [FIPS Endpoints by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service"). In [FIPS
-Endpoints by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service"), find the **AWS IoT Core - credential provider** service, and look up the endpoint for your
+are listed in [FIPS Endpoints by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service"). In [FIPS
+Endpoints by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service"), find the **AWS IoT Core - credential provider** service, and look up the endpoint for your
 AWS Region.
 
 ###### Note
@@ -79,8 +79,8 @@ policies](transport-security.md#tls-policy-table "transport-security.md#tls-poli
 ## AWS IoT Device Management - jobs data endpoints
 
 The FIPS compliant **AWS IoT Device Management - jobs data** endpoints are
-listed in [FIPS Endpoints by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service"). In [FIPS
-Endpoints by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service"), find the **AWS IoT Device Management - jobs data** service, and look up the endpoint for your
+listed in [FIPS Endpoints by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service"). In [FIPS
+Endpoints by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service"), find the **AWS IoT Device Management - jobs data** service, and look up the endpoint for your
 AWS Region.
 
 To use the FIPS compliant **AWS IoT Device Management - jobs data**
@@ -104,8 +104,8 @@ The FIPS compliant **AWS IoT Device Management - Fleet Hub** endpoints to use
 with [Fleet Hub for AWS IoT Device Management](../fleethubuserguide/what-is-aws-iot-monitor.md "../fleethubuserguide/what-is-aws-iot-monitor.md")
 [CLI
 commands](../../../cli/latest/reference/iotfleethub/index.md "../../../cli/latest/reference/iotfleethub/index.md") are listed in [FIPS
-Endpoints by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service"). In [FIPS
-Endpoints by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service"), find the **AWS IoT Device Management - Fleet Hub** service, and look up the endpoint for your
+Endpoints by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service"). In [FIPS
+Endpoints by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service"), find the **AWS IoT Device Management - Fleet Hub** service, and look up the endpoint for your
 AWS Region.
 
 To use the FIPS compliant **AWS IoT Device Management - Fleet Hub** endpoint
@@ -118,8 +118,8 @@ endpoint.
 
 The FIPS compliant **AWS IoT Device Management - secure tunneling** endpoints
 for the [AWS IoT secure tunneling API](../apireference/API_Operations_AWS_IoT_Secure_Tunneling.md "../apireference/API_Operations_AWS_IoT_Secure_Tunneling.md") and the corresponding [CLI commands](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsecuretunneling/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsecuretunneling/index.html") are listed in [FIPS
-Endpoints by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service"). In [FIPS
-Endpoints by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service"), find the **AWS IoT Device Management - secure tunneling** service, and look up the endpoint for your
+Endpoints by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service"). In [FIPS
+Endpoints by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service"), find the **AWS IoT Device Management - secure tunneling** service, and look up the endpoint for your
 AWS Region.
 
 To use the FIPS compliant **AWS IoT Device Management - secure tunneling**
@@ -133,8 +133,8 @@ endpoint.
 The FIPS compliant **control plane** endpoints
 that support the managed integrations
 operations and their related AWS CLI commands are listed in [FIPS
-Endpoints by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service"). In [FIPS
-Endpoints by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service"), find the **AWS IoT Device Management - Managed integrations** service, and look up the endpoint for your
+Endpoints by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service"). In [FIPS
+Endpoints by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service"), find the **AWS IoT Device Management - Managed integrations** service, and look up the endpoint for your
 AWS Region.
 
 To use the FIPS compliant endpoint when you access the managed integrations

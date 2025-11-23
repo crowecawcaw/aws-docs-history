@@ -42,7 +42,7 @@ later.
 ###### To create an AWS IoT policy
 
 1. In the [AWS IoT
-   console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"), in the left menu, choose
+   console](https://console.aws.amazon.com//iot/home "https://console.aws.amazon.com//iot/home"), in the left menu, choose
    **Security** and then choose
    **Policies**.
 2. On the **You don't have a policy yet** page, choose

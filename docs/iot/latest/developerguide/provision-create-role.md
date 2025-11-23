@@ -6,7 +6,7 @@ installing a device
 
 These procedures are for use only when directed by the AWS IoT console.
 
-To go to this page from the console, open [create a new provisioning template](https://console.aws.amazon.com/iot/home#/provisioningtemplate/create/provisioningmethods/trustedUser "https://console.aws.amazon.com/iot/home#/provisioningtemplate/create/provisioningmethods/trustedUser").
+To go to this page from the console, open [create a new provisioning template](https://console.aws.amazon.com//iot/home#/provisioningtemplate/create/provisioningmethods/trustedUser "https://console.aws.amazon.com//iot/home#/provisioningtemplate/create/provisioningmethods/trustedUser").
 
 For the most secure experience, IAM actions are performed in the IAM
 console. The procedures in this section walk you through the steps to create the
@@ -27,7 +27,7 @@ complete this procedure.
 ###### To create an IAM policy for the user who will install a device
 
 1. Open the [Policies hub in
-   the IAM console](https://console.aws.amazon.com/iamv2/home#/policies "https://console.aws.amazon.com/iamv2/home#/policies").
+   the IAM console](https://console.aws.amazon.com//iamv2/home#/policies "https://console.aws.amazon.com//iamv2/home#/policies").
 2. Choose **Create Policy**.
 3. On the **Create policy** page, choose the
    **JSON** tab.
@@ -69,7 +69,7 @@ will install a device using a provisioning template.
 ###### To create an IAM policy for the user who will install a device
 
 1. Open the [Role hub in the
-   IAM console](https://console.aws.amazon.com/iamv2/home#/roles "https://console.aws.amazon.com/iamv2/home#/roles").
+   IAM console](https://console.aws.amazon.com//iamv2/home#/roles "https://console.aws.amazon.com//iamv2/home#/roles").
 2. Choose **Create role**.
 3. In **Select trusted entity**, choose the type of trusted
    entity that you want to give access to the template you're creating.
@@ -108,7 +108,7 @@ authorizes a user to install a device using a provisioning template.
 ###### To add a new template to an existing IAM policy
 
 1. Open the [Policies hub in
-   the IAM console](https://console.aws.amazon.com/iamv2/home#/policies "https://console.aws.amazon.com/iamv2/home#/policies").
+   the IAM console](https://console.aws.amazon.com//iamv2/home#/policies "https://console.aws.amazon.com//iamv2/home#/policies").
 2. In the search box, enter the name of the policy to update.
 3. For the list below the search box, find the policy you want to update and
    choose the policy name.

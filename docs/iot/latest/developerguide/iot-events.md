@@ -51,7 +51,7 @@ messages from the AWS Management Console or by using the API or CLI. For informa
 messages that the different options manage, see the [Table of AWS IoT event configuration
 settings](#iot-events-settings-table "#iot-events-settings-table").
 
-- To enable event messages, go to the [Settings](https://console.aws.amazon.com/iot/home#/settings "https://console.aws.amazon.com/iot/home#/settings") tab of the AWS IoT console and then, in the
+- To enable event messages, go to the [Settings](https://console.aws.amazon.com//iot/home#/settings "https://console.aws.amazon.com//iot/home#/settings") tab of the AWS IoT console and then, in the
   **Event-based messages** section, choose **Manage
   events**. You can specify the events that you want to
   manage.

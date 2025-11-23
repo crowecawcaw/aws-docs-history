@@ -465,5 +465,5 @@ Custom domains are only supported for AWS IoT Core data endpoints.
 ## Availability of VPC endpoints for AWS IoT Core
 
 AWS IoT Core Interface VPC endpoints are available in all [AWS IoT Core
-supported regions](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/"). AWS IoT Core Interface VPC endpoints for AWS IoT Core
+supported regions](https://aws.amazon.com//about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com//about-aws/global-infrastructure/regional-product-services/"). AWS IoT Core Interface VPC endpoints for AWS IoT Core
 credential provider are not supported in China Region and AWS GovCloud (US) Regions.

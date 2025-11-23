@@ -3,7 +3,7 @@
 The AWS IoT SELECT clause is essentially the same as the ANSI SQL SELECT clause, with
 some minor differences.
 
-The SELECT clause supports [Data types](iot-sql-data-types.md "iot-sql-data-types.md"), [Operators](iot-sql-operators.md "iot-sql-operators.md"), [Functions](iot-sql-functions.md "iot-sql-functions.md"), [Literals](iot-sql-literals.md "iot-sql-literals.md"), [Case statements](iot-sql-case.md "iot-sql-case.md"), [JSON extensions](iot-sql-json.md "iot-sql-json.md"), [Substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"), [Nested object queries](iot-sql-nested-queries.md "iot-sql-nested-queries.md"), and [Binary payloads](binary-payloads.md "binary-payloads.md").
+The SELECT clause supports [Data types](iot-sql-data-types.md "iot-sql-data-types.md"), [Operators](iot-sql-operators.md "iot-sql-operators.md"), [Functions](iot-sql-functions.md "iot-sql-functions.md"), [Literals](iot-sql-literals.md "iot-sql-literals.md"), [Case statements](iot-sql-case.md "iot-sql-case.md"), [JSON extensions](iot-sql-json.md "iot-sql-json.md"), [Variables](iot-sql-set.md#iot-sql-set-usage "iot-sql-set.md#iot-sql-set-usage"), [Nested object queries](iot-sql-nested-queries.md "iot-sql-nested-queries.md"), and [Binary payloads](binary-payloads.md "binary-payloads.md").
 
 You can use the SELECT clause to extract information from incoming MQTT messages. You
 can also use `SELECT *` to retrieve the entire incoming message payload. For

@@ -301,7 +301,7 @@ Quotas](../../../general/latest/gr/iot-core.md#message-broker-limits "../../../g
 
 AWS IoT Core supports the `RETAIN` flag described in the MQTT protocol. When a client sets
 the `RETAIN` flag on an MQTT message that it publishes, AWS IoT Core saves the message. It
-can then be sent to new subscribers, retrieved by calling the [`GetRetainedMessage`](../apireference/API_iotdata_GetRetainedMessage.md "../apireference/API_iotdata_GetRetainedMessage.md") operation, and viewed in the [AWS IoT console](https://console.aws.amazon.com/iot/home#/retainedMessages "https://console.aws.amazon.com/iot/home#/retainedMessages").
+can then be sent to new subscribers, retrieved by calling the [`GetRetainedMessage`](../apireference/API_iotdata_GetRetainedMessage.md "../apireference/API_iotdata_GetRetainedMessage.md") operation, and viewed in the [AWS IoT console](https://console.aws.amazon.com//iot/home#/retainedMessages "https://console.aws.amazon.com//iot/home#/retainedMessages").
 
 ###### Examples of using MQTT retained messages
 
@@ -417,12 +417,12 @@ will not receive the retained message upon successful subscription.
 - ###### Listing retained message topics
 
 You can list retained messages by calling [`ListRetainedMessages`](../apireference/API_iotdata_ListRetainedMessages.md "../apireference/API_iotdata_ListRetainedMessages.md") and
-the retained messages can be viewed in the [AWS IoT console](https://console.aws.amazon.com/iot/home#/retainedMessages "https://console.aws.amazon.com/iot/home#/retainedMessages").
+the retained messages can be viewed in the [AWS IoT console](https://console.aws.amazon.com//iot/home#/retainedMessages "https://console.aws.amazon.com//iot/home#/retainedMessages").
 
 - ###### Getting retained message details
 
 You can get retained message details by calling [`GetRetainedMessage`](../apireference/API_iotdata_GetRetainedMessage.md "../apireference/API_iotdata_GetRetainedMessage.md") and
-they can be viewed in the [AWS IoT console](https://console.aws.amazon.com/iot/home#/retainedMessages "https://console.aws.amazon.com/iot/home#/retainedMessages").
+they can be viewed in the [AWS IoT console](https://console.aws.amazon.com//iot/home#/retainedMessages "https://console.aws.amazon.com//iot/home#/retainedMessages").
 
 - ###### Retaining a Will message
 
@@ -441,8 +441,8 @@ clients with a subscription to the topic, but they are not retained by
 AWS IoT Core.
 
 Retained messages can also be deleted interactively by accessing the
-retained message in the [AWS IoT console](https://console.aws.amazon.com/iot/home#/retainedMessages "https://console.aws.amazon.com/iot/home#/retainedMessages"). Retained
-messages that are deleted by using the [AWS IoT console](https://console.aws.amazon.com/iot/home#/retainedMessages "https://console.aws.amazon.com/iot/home#/retainedMessages") also send a
+retained message in the [AWS IoT console](https://console.aws.amazon.com//iot/home#/retainedMessages "https://console.aws.amazon.com//iot/home#/retainedMessages"). Retained
+messages that are deleted by using the [AWS IoT console](https://console.aws.amazon.com//iot/home#/retainedMessages "https://console.aws.amazon.com//iot/home#/retainedMessages") also send a
 0-byte message to clients that have subscribed to the retained message's
 topic.
 
@@ -452,12 +452,12 @@ message.
 
 - ###### Debugging and troubleshooting retained messages
 
-The [AWS IoT console](https://console.aws.amazon.com/iot/home# "https://console.aws.amazon.com/iot/home#")
+The [AWS IoT console](https://console.aws.amazon.com//iot/home# "https://console.aws.amazon.com//iot/home#")
 provides several tools to help you troubleshoot retained
 messages:
 
     + ###### The **[Retained
-     messages](https://console.aws.amazon.com/iot/home#/retainedMessages "https://console.aws.amazon.com/iot/home#/retainedMessages")** page
+     messages](https://console.aws.amazon.com//iot/home#/retainedMessages "https://console.aws.amazon.com//iot/home#/retainedMessages")** page
 
 
     The **Retained messages** page in the AWS IoT
@@ -474,7 +474,7 @@ messages:
 
     	- Update the contents of a retained message.
     	- Delete a retained message.
-    + ###### The **[MQTT test client](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test")**
+    + ###### The **[MQTT test client](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test")**
 
 
     The **MQTT test client** page in the AWS IoT
@@ -504,19 +504,19 @@ retained messages are implemented in AWS IoT Core.
 Publishing messages with the `RETAIN` flag set from a client, by using AWS IoT
 console, or by calling [`Publish`](../apireference/API_iotdata_Publish.md "../apireference/API_iotdata_Publish.md") incurs additional messaging charges described
 in [AWS IoT Core pricing -
-Messaging](https://aws.amazon.com/iot-core/pricing/#Messaging "https://aws.amazon.com/iot-core/pricing/#Messaging").
+Messaging](https://aws.amazon.com//iot-core/pricing/#Messaging "https://aws.amazon.com//iot-core/pricing/#Messaging").
 
 Retrieving retained messages by a client, by using AWS IoT console, or by calling
 [`GetRetainedMessage`](../apireference/API_iotdata_GetRetainedMessage.md "../apireference/API_iotdata_GetRetainedMessage.md") incurs messaging
 charges in addition to the normal API usage charges. The additional charges are
 described in [AWS IoT Core
-pricing - Messaging](https://aws.amazon.com/iot-core/pricing/#Messaging "https://aws.amazon.com/iot-core/pricing/#Messaging").
+pricing - Messaging](https://aws.amazon.com//iot-core/pricing/#Messaging "https://aws.amazon.com//iot-core/pricing/#Messaging").
 
 MQTT [_Will_ messages](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/errata01/os/mqtt-v3.1.1-errata01-os-complete.html#_Will_Flag "http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/errata01/os/mqtt-v3.1.1-errata01-os-complete.html#_Will_Flag") that are published
 when a device disconnects unexpectedly incur messaging charges described in [AWS IoT Core pricing -
-Messaging](https://aws.amazon.com/iot-core/pricing/#Messaging "https://aws.amazon.com/iot-core/pricing/#Messaging").
+Messaging](https://aws.amazon.com//iot-core/pricing/#Messaging "https://aws.amazon.com//iot-core/pricing/#Messaging").
 
-For more information about messaging costs, see [AWS IoT Core pricing - Messaging](https://aws.amazon.com/iot-core/pricing/#Messaging "https://aws.amazon.com/iot-core/pricing/#Messaging").
+For more information about messaging costs, see [AWS IoT Core pricing - Messaging](https://aws.amazon.com//iot-core/pricing/#Messaging "https://aws.amazon.com//iot-core/pricing/#Messaging").
 
 ### Comparing MQTT retained messages and MQTT
 

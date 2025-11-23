@@ -58,7 +58,7 @@ from the imaginary weather sensor devices:
 
 ###### To create the DynamoDB table for this tutorial
 
-1. Open the [DynamoDB console](https://console.aws.amazon.com/dynamodb/home "https://console.aws.amazon.com/dynamodb/home"), and then
+1. Open the [DynamoDB console](https://console.aws.amazon.com//dynamodb/home "https://console.aws.amazon.com//dynamodb/home"), and then
    choose **Create table**.
 2. In **Create table**:
    1. In **Table name**, enter the table name:
@@ -114,7 +114,7 @@ let you insert dynamic values from functions and message data.
 ###### To create the AWS IoT rule to send data to the DynamoDB table
 
 1.  Open [the Rules hub of the AWS IoT
-    console](https://console.aws.amazon.com/iot/home#/rulehub "https://console.aws.amazon.com/iot/home#/rulehub"). Or, you can open the AWS IoT homepage within the AWS Management Console
+    console](https://console.aws.amazon.com//iot/home#/rulehub "https://console.aws.amazon.com//iot/home#/rulehub"). Or, you can open the AWS IoT homepage within the AWS Management Console
     and navigate to **Message routing>Rules**.
 2.  To start creating your new rule in **Rules**, choose
     **Create rule**.
@@ -197,17 +197,17 @@ To test the new rule, you'll use the MQTT client to publish and subscribe to the
 messages used in this test.
 
 Open the [MQTT client in the AWS IoT
-console](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test") in a new window. This will let you edit the rule without losing the
+console](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test") in a new window. This will let you edit the rule without losing the
 configuration of your MQTT client. The MQTT client does not retain any subscriptions or
 message logs if you leave it to go to another page in the console. You'll also want a
 separate console window open to the [DynamoDB
-Tables hub in the AWS IoT console](https://console.aws.amazon.com/dynamodb/home#tables: "https://console.aws.amazon.com/dynamodb/home#tables:") to view the new entries that your rule
+Tables hub in the AWS IoT console](https://console.aws.amazon.com//dynamodb/home#tables: "https://console.aws.amazon.com//dynamodb/home#tables:") to view the new entries that your rule
 sends.
 
 ###### To use the MQTT client to test your rule
 
 1. In the [MQTT client in the AWS IoT
-   console](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test"), subscribe to the input topic, `device/+/data`.
+   console](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test"), subscribe to the input topic, `device/+/data`.
    1. In the MQTT client, choose
       **Subscribe to a topic**.
    2. For **Topic filter**, enter the topic of the input topic
@@ -241,7 +241,7 @@ sends.
 
 3. Check to see the row in the DynamoDB table that your rule created.
    1. In the [DynamoDB Tables hub in
-      the AWS IoT console](https://console.aws.amazon.com/dynamodb/home#tables: "https://console.aws.amazon.com/dynamodb/home#tables:"), choose **wx_data**, and then choose
+      the AWS IoT console](https://console.aws.amazon.com//dynamodb/home#tables: "https://console.aws.amazon.com//dynamodb/home#tables:"), choose **wx_data**, and then choose
       the **Items** tab.
 
    If you're already on the **Items** tab, you might need to

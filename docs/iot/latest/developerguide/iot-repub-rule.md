@@ -122,7 +122,7 @@ information.
 ###### To create a rule that republishes an MQTT message
 
 1.  Open [the **Rules**
-    hub of the AWS IoT console](https://console.aws.amazon.com/iot/home#/rulehub "https://console.aws.amazon.com/iot/home#/rulehub").
+    hub of the AWS IoT console](https://console.aws.amazon.com//iot/home#/rulehub "https://console.aws.amazon.com//iot/home#/rulehub").
 2.  In **Rules**, choose **Create** and start
     creating your new rule.
 3.  In the top part of **Create a rule**:
@@ -201,14 +201,14 @@ To test your new rule, you'll use the MQTT client to publish and subscribe to th
 messages used by this rule.
 
 Open the [MQTT client in the AWS IoT
-console](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test") in a new window. This will let you edit the rule without losing the
+console](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test") in a new window. This will let you edit the rule without losing the
 configuration of your MQTT client. The MQTT client does not retain any subscriptions or
 message logs if you leave it to go to another page in the console.
 
 ###### To use the MQTT client to test your rule
 
 1. In the [MQTT client in the AWS IoT
-   console](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test"), subscribe to the input topics, in this case,
+   console](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test"), subscribe to the input topics, in this case,
    `device/+/data`.
    1. In the MQTT client, under **Subscriptions**, choose
       **Subscribe to a topic**.

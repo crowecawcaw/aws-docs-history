@@ -837,6 +837,112 @@ SELECT *, get_mqtt_property('content_type') as contentType,
 FROM 'some/topic'
 ```
 
+## get_or_default(expression,
+
+defaultValue)
+
+Returns the default value in the second parameter if specified or else returns undefined, when the expression in the first parameter returns null, undefined, or fails. Supported by SQL version
+2016-03-23 and later.
+
+###### Important
+
+`get_or_default` does not support non-JSON payloads directly as is. If you are using a non-JSON payload, use the `encode` or `decode` functions.
+
+`get_or_default()` takes the following parameters:
+
+expression
+
+Any valid expression containing
+[Data types](iot-sql-data-types.md "iot-sql-data-types.md"),
+[Functions](iot-sql-functions.md "iot-sql-functions.md"),
+[Literals](iot-sql-literals.md "iot-sql-literals.md"),
+[Variables](iot-sql-set.md#iot-sql-set-usage "iot-sql-set.md#iot-sql-set-usage")
+[Nested object queries](iot-sql-nested-queries.md "iot-sql-nested-queries.md"), or
+[JSON extensions](iot-sql-json.md "iot-sql-json.md").
+
+defaultValue
+
+(Optional) Any valid expression containing
+[Data types](iot-sql-data-types.md "iot-sql-data-types.md"),
+[Functions](iot-sql-functions.md "iot-sql-functions.md"),
+[Literals](iot-sql-literals.md "iot-sql-literals.md"),
+[Variables](iot-sql-set.md#iot-sql-set-usage "iot-sql-set.md#iot-sql-set-usage")
+[Nested object queries](iot-sql-nested-queries.md "iot-sql-nested-queries.md"), or
+[JSON extensions](iot-sql-json.md "iot-sql-json.md").
+This is the value to be returned whenever the first argument returns
+null, undefined, or fails.
+
+###### Note
+
+Functions that fetch data from customer owned resources, such as get_secret, get_dynamodb, aws_lambda, get_thing_shadow, decode-protobuf, and machinelearning_predict, are not allowed for the defaultValue parameter.
+
+The following table shows acceptable function arguments for each argument and
+their associated outputs:
+
+| First argument              | Second argument                       | Output                     |
+| --------------------------- | ------------------------------------- | -------------------------- |
+| Successful evaluation       | Any value or not specified            | The first argument value.  |
+| Undefined, Null, or failure | Any value including Undefined or Null | The second argument value. |
+| Undefined, Null, or failure | not specified                         | `Undefined`                |
+
+**Examples:**
+
+Example 1:
+
+The following example provides a defaultValue value if a DynamoDB table or query fails:
+
+```
+SELECT
+    device_id,
+    get_or_default(
+        get_dynamodb("DeviceConfig", "deviceId", nonExistentId, "arn:aws:iam::`123456789012`:role/`ROLE_NAME`"),
+        {"mode": "standard", "timeout": 30, "enabled": true }
+    ) as config
+FROM 'device/telemetry'
+
+```
+
+Example 2:
+
+The following example provides a safe default value "UNKNOWN" if status is undefined:
+
+```
+SELECT
+  get_or_default( CASE status
+    WHEN 'active' THEN 'GOOD'
+    WHEN 'inactive' THEN 'BAD'/
+    ELSE 'UNKNOWN'
+  END, 'UNKNOWN') as status_category
+FROM 'topic/subtopic'
+```
+
+Example 3:
+
+The following example shows how you can also use get_or_default with a single parameter. This is useful in scenarios where you may not have a clear default value, but you do not want your rule execution to fail.
+
+```
+SELECT
+  get_dynamodb("DeviceConfig", "deviceId", nonExistentId, "arn:aws:iam::`123456789012`:role/`ROLE_NAME`") as config
+FROM 'device/telemetry'
+```
+
+If the DynamoDB lookup fails, the rule execution will fail, and no actions will be executed. If the following SQL is used instead:
+
+```
+SELECT
+  get_or_default(get_dynamodb("DeviceConfig", "deviceId", nonExistentId, "arn:aws:iam::`123456789012`:role/`ROLE_NAME`")) as config
+FROM 'device/telemetry'
+```
+
+The get_or_default statement will evaluate to `Undefined`,so in this example the SELECT statement overall will evaluate to `{}` and any rule actions will be attempted.
+
+###### Important
+
+We recommend following these best practices to maintain security when using this function:
+
+- Avoid using hardcoded secrets in rule definitions including default values
+- Use AWS Secrets Manager for managing sensitive information
+
 ## get_secret(secretId, secretType, key, roleArn)
 
 Retrieves the value of the encrypted `SecretString` or

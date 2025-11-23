@@ -271,7 +271,7 @@ API operation, you must have the following permissions:
 
 For more information on the version attribute `artifact` in the
 `CreatePackageVersion` and `UpdatePackageVersion`
-API operations, see [CreatePackageVersion](https://amazonaws.com/iot/latest/apireference/API_CreatePackageVersion.html "https://amazonaws.com/iot/latest/apireference/API_CreatePackageVersion.html") and [UpdatePackageVersion](https://amazonaws.com/https://docs.aws.amazon.com/iot/latest/apireference/API_UpdatePackageVersion.html "https://amazonaws.com/https://docs.aws.amazon.com/iot/latest/apireference/API_UpdatePackageVersion.html").
+API operations, see [CreatePackageVersion](https://amazonaws.com/iot/latest/apireference/API_CreatePackageVersion.html "https://amazonaws.com/iot/latest/apireference/API_CreatePackageVersion.html") and [UpdatePackageVersion](../apireference/API_UpdatePackageVersion.md "../apireference/API_UpdatePackageVersion.md").
 
 Refer to the following example that shows the version attribute
 `artifact` supporting the artifact location in Amazon S3 when

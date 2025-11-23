@@ -16,7 +16,7 @@ computer that is running Linux, OS and OSX, or Windows. If you're looking to con
 Long Range WAN (LoRaWAN) device to AWS IoT, refer to the tutorial [>Connecting
 devices and gateways to AWS IoT Core for LoRaWAN](../../../iot-wireless/latest/developerguide/lorawan-getting-started.md "../../../iot-wireless/latest/developerguide/lorawan-getting-started.md").
 
-If your device supports a browser that can run the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"), we recommend you complete this tutorial on
+If your device supports a browser that can run the [AWS IoT console](https://console.aws.amazon.com//iot/home "https://console.aws.amazon.com//iot/home"), we recommend you complete this tutorial on
 that device.
 
 ###### Note
@@ -36,7 +36,7 @@ If possible, complete this procedure on your device; otherwise, be ready to
 transfer a file to your device later in this procedure.
 
 To start the tutorial, sign in to the [AWS IoT
-console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"). In the AWS IoT console home page, on the left, choose
+console](https://console.aws.amazon.com//iot/home "https://console.aws.amazon.com//iot/home"). In the AWS IoT console home page, on the left, choose
 **Connect** and then choose **Connect one
 device**.
 
@@ -145,8 +145,8 @@ terminal or command window on your device.
 For more information about topic subscription and publish, see the
 example code of your chosen SDK. 3. To run the sample program again, you can repeat the commands from
 **Step 2** in the console of this procedure. 4. (Optional) If you want to see the messages from your IoT client in the
-[AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"), open the
-[MQTT test client](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test") on
+[AWS IoT console](https://console.aws.amazon.com//iot/home "https://console.aws.amazon.com//iot/home"), open the
+[MQTT test client](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test") on
 the **Test** page of the AWS IoT console. If you chose Python
 SDK, then in the **MQTT test client**, in **Topic
 filter**, enter the topic, such as
@@ -184,9 +184,9 @@ start.
 - ###### [View MQTT
   messages in the MQTT test client](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test")
 
-From the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"),
+From the [AWS IoT console](https://console.aws.amazon.com//iot/home "https://console.aws.amazon.com//iot/home"),
 you can open the [MQTT
-client](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test") on the **Test** page of the AWS IoT
+client](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test") on the **Test** page of the AWS IoT
 console. In the **MQTT test client**, subscribe to
 `#`, and then, on your device, run the program
 **./start.sh** as described in the previous step. For

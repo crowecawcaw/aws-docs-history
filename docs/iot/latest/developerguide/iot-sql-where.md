@@ -4,7 +4,7 @@ The WHERE clause determines if the actions specified by a rule are carried out. 
 WHERE clause evaluates to true, the rule actions are performed. Otherwise, the rule
 actions are not performed.
 
-The WHERE clause supports [Data types](iot-sql-data-types.md "iot-sql-data-types.md"), [Operators](iot-sql-operators.md "iot-sql-operators.md"), [Functions](iot-sql-functions.md "iot-sql-functions.md"), [Literals](iot-sql-literals.md "iot-sql-literals.md"), [Case statements](iot-sql-case.md "iot-sql-case.md"), [JSON extensions](iot-sql-json.md "iot-sql-json.md"), [Substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"), and [Nested object queries](iot-sql-nested-queries.md "iot-sql-nested-queries.md").
+The WHERE clause supports [Data types](iot-sql-data-types.md "iot-sql-data-types.md"), [Operators](iot-sql-operators.md "iot-sql-operators.md"), [Functions](iot-sql-functions.md "iot-sql-functions.md"), [Literals](iot-sql-literals.md "iot-sql-literals.md"), [Case statements](iot-sql-case.md "iot-sql-case.md"), [JSON extensions](iot-sql-json.md "iot-sql-json.md"), [Variables](iot-sql-set.md#iot-sql-set-usage "iot-sql-set.md#iot-sql-set-usage"), and [Nested object queries](iot-sql-nested-queries.md "iot-sql-nested-queries.md").
 
 **Example:**
 
