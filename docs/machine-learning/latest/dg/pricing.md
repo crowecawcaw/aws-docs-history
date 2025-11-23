@@ -19,8 +19,8 @@ Pricing_](https://aws.amazon.com/machine-learning/pricing/ "https://aws.amazon.c
 
 ###### Topics
 
-- [Estimating Batch Prediction Cost](#w4aab7c20c14 "#w4aab7c20c14")
-- [Estimating Real-Time Prediction Cost](#w4aab7c20c16 "#w4aab7c20c16")
+- [Estimating Batch Prediction Cost](#w2aab7c20c14 "#w2aab7c20c14")
+- [Estimating Real-Time Prediction Cost](#w2aab7c20c16 "#w2aab7c20c16")
 
 ## Estimating Batch Prediction Cost
 
