@@ -12,8 +12,140 @@ commitment. You pay only for what you use. To learn more about pricing, visit ou
 
 ###### In this section:
 
+- [Setting spending limits for Amazon Braket QPUs](#quantum-hardware-spending-limits "#quantum-hardware-spending-limits")
 - [Near real-time cost tracking](#real-time-cost-tracking "#real-time-cost-tracking")
 - [Best practices for cost savings](#best-practices "#best-practices")
+
+## Setting spending limits for Amazon Braket QPUs
+
+Amazon Braket spending limits provide optional per-device cost controls for quantum processing units (QPUs).
+
+**How spending limits work**: Amazon Braket tracks your cumulative spending and validates
+every task creation request against your configured limit. If a task's estimated cost exceeds your remaining spending limit,
+Amazon Braket rejects the task immediately with a validation error. You can optionally configure a time period for your
+spending limit. By configuring a time period, you can ensure tasks can only be submitted in that specified period. Tasks
+submitted outside the time period will be rejected.
+
+**Opt-in design**: Existing workflows will remain unaffected unless you explicitly enable controls.
+You can remove all restrictions by deleting the spending limit.
+
+###### Note
+
+Spending limits apply only to on-demand and hybrid job [QPU tasks](braket-submit-tasks.md "braket-submit-tasks.md"). They exclude
+[simulators](braket-submit-tasks-simulators.md "braket-submit-tasks-simulators.md"), [managed notebooks](braket-get-started-create-notebook.md "braket-get-started-create-notebook.md"),
+[Hybrid Job](braket-jobs.md "braket-jobs.md") EC2 instance costs, and [Braket Direct reservations](braket-reservations.md "braket-reservations.md").
+For comprehensive cost management across all AWS services, continue using [AWS Budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/ "https://aws.amazon.com/aws-cost-management/aws-budgets/").
+
+### List of spending limit actions
+
+**Search**
+
+With the following AWS CLI command, you can search and list spending limits in
+a specific AWS region and for a specific Braket device.
+
+```
+aws --region {device_region} braket search-spending-limits --filters name=deviceArn,operator=EQUAL,values={device_arn}
+```
+
+**Create**
+
+With the following AWS CLI command, you can create a new spending limit for a specified quantum device in a specific region.
+The reuqest is rejected if a spending limit already exists for the device.
+
+```
+aws --region {device_region} braket create-spending-limit --device-arn {device_arn} --spending-limit {max_spend}
+```
+
+**Update**
+
+With the following AWS CLI command, you can update an existing spending limit to a new maximum spend value.
+The reuqest is rejected if the sum of the current spend and queued spend is already higher than the
+requested new maximum spend.
+
+```
+aws --region {device_region} braket update-spending-limit --spending-limit-arn {spending_limit_arn} --spending-limit {new_max_spend}
+```
+
+You can provide a time-period instead of, or in addition to, the new maximum spend, as in the example above.
+
+**Delete**
+
+With the following AWS CLI command, you can delete an existing spending limit.
+
+```
+aws --region {device_region} braket delete-spending-limit --spending-limit-arn {spending_limit_arn}
+```
+
+You can provide a time-period instead of, or in addition to, the new maximum spend, as in the example above.
+
+While optional, always specify the region parameter as a best practice. Commands executed on a different region
+than the device's will fail or, in the case of `SearchSpendingLimits`, return incorrect results.
+
+For more examples on how to use spending limits, see the [example notebook](https://github.com/amazon-braket/amazon-braket-examples/tree/main/examples/braket_features/Spending_Limits_Introduction.ipynb "https://github.com/amazon-braket/amazon-braket-examples/tree/main/examples/braket_features/Spending_Limits_Introduction.ipynb").
+
+### How task validation works
+
+When the AWS account sends an otherwise valid `CreateQuantumTask` request, it is subject to the following gating behavior.
+Note: Remaining budget is the difference between the spending limit and the sum of the queued and current spend. (See next section)
+
+- Case 1: There is **no spending limit** for the task device:
+  Task is created.
+- Case 2: There is a spending limit for the target device, and the **current
+  time is within the time period** of the spending limit:
+  - If the estimated cost of the task is lower or equal than the remaining
+    budget: CreateQuantumTask succeeds, the task is created.
+  - If the estimated cost is greater than the remaining budget: `CreateQuantumTask` fails,
+    and no task is created.
+
+- Case 3: There is a spending limit for the target device, and the **current
+  time is outside of the time period** of the spending limit: `CreateQuantumTask`
+  fails, and no task is created.
+
+### How remaining budget is computed
+
+Remaining budget is the difference between the **spending limit** and the sum
+of the **current spend** and **queued spend**.
+
+When a task is created for a device with a spending limit, the **queued spend** is
+raised by the estimated cost of the task. This event is listed in the first row of the following table. The
+following table shows what happens to the queued spend and current spend, depending on the progression of the task.
+
+|                            |                            |                             |                                                                                     |
+| -------------------------- | -------------------------- | --------------------------- | ----------------------------------------------------------------------------------- |
+| **Old quantum task state** | **New quantum task state** | **Change to queued spend**  | **Change to current spend**                                                         |
+| -                          | CREATED                    | Increased by estimated cost | No change                                                                           |
+| CREATED                    | QUEUED                     | No change                   | No change                                                                           |
+| Any                        | RUNNING                    | No change                   | No change                                                                           |
+| Any                        | CANCELLING                 | No change                   | No change                                                                           |
+| CANCELLING                 | CANCELLED                  | Reduced by estimated cost   | No chnage                                                                           |
+| Any                        | FAILED                     | Reduced by estimated cost   | No change                                                                           |
+| RUNNING                    | COMPLETED                  | Reduced by estimated cost   | Increased by estimated cost (adjusted accordingly<br>for partially completed tasks) |
+
+### Edge cases
+
+**Q: When creating a spending limit, do tasks already in the queue count towards the queued spend?**
+
+A: No. Tasks that are already created, queued, or otherwise in-progress do not count towards the queued spend of a newly created spending limit.
+
+**Q: Does lowering the spending limit, by updating it, causes early termination of created, queued, or otherwise in-progress quantum task?**
+
+A: No.
+
+**Q: Does reaching the end time of the spending limit causes early termination of a created, queued, or otherwise in-progress quantum task?**
+
+A: No. Created, queued and otherwise in-progress tasks are allowed to complete independent of the spending limit status.
+
+**Q: How is the lack of spending limit different from a spending limit of zero dollars?**
+
+A: No spending limit allows creating quantum tasks without restrictions. A spending limit with zero dollars blocks all quantum tasks.
+
+**Q: Does a spending limit of zero in the past or the future block all quantum task creation?**
+
+A: Yes.
+
+**Q: When creating a spending limit, will the estimated cost of tasks already in the queue count towards the current spend once said tasks complete?**
+
+A: No. Only tasks submitted while a spending limit is active count towards the accumulated spend.
 
 ## Near real-time cost tracking
 

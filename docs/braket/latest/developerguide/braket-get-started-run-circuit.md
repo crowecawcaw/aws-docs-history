@@ -134,11 +134,10 @@ other metadata associated with your quantum tasks. For more information, see [Da
 
 With Amazon Braket, you can run the previous quantum circuit example on a physical
 quantum computer by just changing a single line of code. Amazon Braket provides access to
-QPU devices from IonQ, IQM,
-QuEra, and Rigetti. You can find
-information about the different devices and availability windows in the [Supported Devices](braket-devices.md "braket-devices.md") section, and in the AWS console
-under the **Devices** tab. The following example shows how
-to instantiate an IQM device.
+a variety of Quantum processing unit (QPU) devices. You can find information about the
+different devices and availability windows in the [Supported Devices](braket-devices.md "braket-devices.md")
+section, and in the AWS console under the **Devices** tab.
+The following example shows how to instantiate an IQM device.
 
 ```
 # Choose the IQM hardware to run your circuit

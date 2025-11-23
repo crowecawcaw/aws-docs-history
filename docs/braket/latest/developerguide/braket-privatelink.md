@@ -4,7 +4,7 @@ You can establish a private connection between your VPC and Amazon Braket
 by creating an interface VPC endpoint. Interface endpoints are powered by
 [AWS PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.com/privatelink/"), a
 technology that enables access to Braket APIs without an internet gateway,
-NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC
+NAT device, VPN connection, or Direct Connect connection. Instances in your VPC
 don't need public IP addresses to communicate with Braket APIs.
 
 Each interface endpoint is represented by one or more
@@ -107,9 +107,9 @@ Braket** for **Amazon SageMaker AI**. For **Service Name** enter `com.amazonaws.
 - For information about creating and configuring an endpoint using the Amazon VPC
   console or the AWS CLI, see [Create
   a VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws") in the _Amazon VPC User Guide_.
-- For information about creating and configuring an endpoint using AWS CloudFormation,
+- For information about creating and configuring an endpoint using CloudFormation,
   see the [AWS::EC2::VPCEndpoint](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md")
-  resource in the _AWS CloudFormation User Guide_.
+  resource in the _CloudFormation User Guide_.
 
 ## Control access with Amazon VPC endpoint policies
 

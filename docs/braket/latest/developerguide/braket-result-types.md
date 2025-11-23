@@ -44,19 +44,19 @@ results.
   parallel. Otherwise, the number of targets specified must equal the number of
   qubits to which the observable can be applied.
 
-**The supported result types for different devices:**
+**The supported result types for different providers:**
 
-|                        |           |     |     |     |         |      |     |
-| ---------------------- | --------- | --- | --- | --- | ------- | ---- | --- |
-|                        | Local sim | SV1 | DM1 | TN1 | Rigetti | IonQ | IQM |
-| Adjoint Gradient       | N         | Y   | N   | N   | N       | N    | N   |
-| Amplitude              | Y         | Y   | N   | N   | N       | N    | N   |
-| Expectation            | Y         | Y   | Y   | Y   | Y       | Y    | Y   |
-| Probability            | Y         | Y   | Y   | N   | Y       | Y    | Y   |
-| Reduced density matrix | Y         | N   | Y   | N   | N       | N    | N   |
-| State vector           | Y         | N   | N   | N   | N       | N    | N   |
-| Sample                 | Y         | Y   | Y   | Y   | Y       | Y    | Y   |
-| Variance               | Y         | Y   | Y   | Y   | Y       | Y    | Y   |
+|                        |           |     |     |     |     |      |     |         |
+| ---------------------- | --------- | --- | --- | --- | --- | ---- | --- | ------- |
+|                        | Local sim | SV1 | DM1 | TN1 | AQT | IonQ | IQM | Rigetti |
+| Adjoint gradient       | N         | Y   | N   | N   | N   | N    | N   | N       |
+| Amplitude              | Y         | Y   | N   | N   | N   | N    | N   | N       |
+| Expectation            | Y         | Y   | Y   | Y   | Y   | Y    | Y   | Y       |
+| Probability            | Y         | Y   | Y   | N   | Y   | Y    | Y   | Y       |
+| Reduced density matrix | Y         | N   | Y   | N   | N   | N    | N   | N       |
+| State vector           | Y         | N   | N   | N   | N   | N    | N   | N       |
+| Sample                 | Y         | Y   | Y   | Y   | Y   | Y    | Y   | Y       |
+| Variance               | Y         | Y   | Y   | Y   | Y   | Y    | Y   | Y       |
 
 You can check the supported result types by examining the device properties, as shown
 in the following example.

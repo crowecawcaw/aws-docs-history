@@ -7,8 +7,8 @@ Enroll in the [Amazon Braket Digital Learning Plan](https://skillbuilder.aws/lea
 and earn your own Digital badge after completing a series of learning courses and a digital assessment.
 
 Amazon Braket provides on-demand access to quantum computing devices, including on-demand
-circuit simulators and different types of QPUs. In Amazon Braket, the atomic request to a
-device is a quantum task. For gate-based QC devices, this request includes the quantum circuit
+circuit simulators and different types of quantum processing units (QPUs). In Amazon Braket, the atomic request to a
+device is a quantum task. For gate-based devices, this request includes the quantum circuit
 (including the measurement instructions and number of shots) and other request metadata. For
 Analog Hamiltonian Simulators, the quantum task contains the physical layout of the quantum register
 and the time- and space-dependence of the manipulating fields.
@@ -29,16 +29,14 @@ In this section, we are going to learn about the high-level flow of running quan
 
 ![Diagram showing user interaction with AWS Cloud services like Amazon Braket notebook, S3 results bucket, Amazon Braket, managed simulator, and their results to QPUs for quantum computing tasks.](images/data-flow-3.png)
 
-With Jupyter notebooks, you can conveniently define, submit, and monitor
-your quantum tasks from the [Amazon Braket Console](https://us-west-1.console.aws.amazon.com/console/home?region=us-west-1# "https://us-west-1.console.aws.amazon.com/console/home?region=us-west-1#") or using the [Amazon Braket SDK](https://github.com/aws/amazon-braket-sdk-python "https://github.com/aws/amazon-braket-sdk-python"). You can
+With Jupyter notebooks, you can define, submit, and monitor your quantum tasks from the [Amazon Braket Console](https://us-west-1.console.aws.amazon.com/console/home?region=us-west-1# "https://us-west-1.console.aws.amazon.com/console/home?region=us-west-1#") or using the [Amazon Braket SDK](https://github.com/aws/amazon-braket-sdk-python "https://github.com/aws/amazon-braket-sdk-python"). You can
 build your quantum circuits directly in the SDK. However, for Analog Hamiltonian
-Simulators, you define the register layout and the controlling fields. After your quantum task is
+Simulators, you define the register layout and the controlling fields (1). After your quantum task is
 defined, you can choose a device to run it on and submit it to the Amazon Braket API (2).
 Depending on the device you chose, the quantum task is queued until the device becomes available
 and the task is sent to the QPU or simulator for implementation (3). Amazon Braket gives you
-access to different types of QPUs (IonQ, IQM, QuEra, Rigetti),
-three on-demand simulators (SV1, DM1, TN1),
-two local simulators, and one embedded simulator. To learn more, see [Amazon Braket supported devices](braket-devices.md "braket-devices.md").
+access to a variety of [supported quantum devices](braket-devices.md "braket-devices.md")
+including QPUs, on-demand simulators, local simulators, and an embedded simulator.
 
 After processing your quantum task, Amazon Braket returns the results to an
 Amazon S3 bucket, where the data is stored in your AWS account (4). At the same time, the SDK

@@ -2,21 +2,14 @@
 
 Reservations give you exclusive access to the quantum device of your choice. You can
 schedule a reservation at your convenience, so you know exactly when your workload starts and
-ends execution. Reservations are available in 1-hour increments and can be cancelled up to 48
-hours in advance, at no additional charge. You can choose to queue quantum tasks and hybrid
-jobs for an upcoming reservation in advance, or submit workloads during your
+ends execution. Reservations are available in 1-hour increments for all Braket devices and
+can be cancelled up to 48 hours in advance, at no additional charge. You can choose to queue quantum tasks and
+hybrid jobs for an upcoming reservation in advance, or submit workloads during your
 reservation.
 
 The cost of dedicated device access is based on the duration of your reservation,
-regardless of how many quantum tasks and hybrid jobs you run on the Quantum Processing Unit
+regardless of how many quantum tasks and hybrid jobs you run on the quantum processing unit
 (QPU).
-
-**The following quantum computers are available for reservations:**
-
-- IonQ's Aria and Forte
-- Rigetti's Ankaa-3
-- IQM's Garnet and Emerald
-- QuEra's Aquila
 
 ###### Note
 

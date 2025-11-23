@@ -13,4 +13,4 @@ After you have followed the instructions in [Enable Amazon Braket](braket-enable
 - [Enable Amazon Braket](braket-enable-overview.md "braket-enable-overview.md")
 - [Create an Amazon Braket notebook
   instance](braket-get-started-create-notebook.md "braket-get-started-create-notebook.md")
-- [Create a Braket notebook instance using AWS CloudFormation](braket-cloudformation.md "braket-cloudformation.md")
+- [Create a Braket notebook instance using CloudFormation](braket-cloudformation.md "braket-cloudformation.md")

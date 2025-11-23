@@ -11,6 +11,7 @@ windows that are displayed on the **Devices** page of the
 Amazon Braket console. You can retrieve the results of the quantum task with
 the quantum task ID, which is introduced in the next section.
 
+- **AQT IBEX-Q1** : `arn:aws:braket:eu-north-1::device/qpu/aqt/Ibex-Q1`
 - **IonQ Aria-1** : `arn:aws:braket:us-east-1::device/qpu/ionq/Aria-1`
 - **IonQ Forte-1** : `arn:aws:braket:us-east-1::device/qpu/ionq/Forte-1`
 - **IonQ Forte-Enterprise-1** : `arn:aws:braket:us-east-1::device/qpu/ionq/Forte-Enterprise-1`
@@ -29,12 +30,47 @@ to be cancelled successfully during QPU availability windows.
 
 ###### In this section:
 
+- [AQT](#braket-qpu-partner-aqt "#braket-qpu-partner-aqt")
 - [IonQ](#braket-qpu-partner-ionq "#braket-qpu-partner-ionq")
 - [IQM](#braket-qpu-partner-iqm "#braket-qpu-partner-iqm")
 - [Rigetti](#braket-qpu-partner-rigetti "#braket-qpu-partner-rigetti")
 - [QuEra](#braket-qpu-partner-quera "#braket-qpu-partner-quera")
 - [Example: Submitting a quantum task to a QPU](braket-submit-to-qpu.md "braket-submit-to-qpu.md")
 - [Inspecting compiled circuits](braket-compiled-circuits-inspecting.md "braket-compiled-circuits-inspecting.md")
+
+## AQT
+
+AQT's IBEX-Q1 QPU is based on a crystal of 40Ca+
+ions in a macroscopic radio frequency trap sitting in ultra-high vacuum chamber.
+The device runs at room temperature and fits into two 19-inch datacenter compatible racks.
+
+High-fidelity gates are enabled by the low heating rates of the trap and the use of a direct
+optical transition for qubit rotation. The qubit transition is driven by a narrow linewidth laser
+with a very high relative frequency stability. The qubits also feature efficient state preparation
+and readout through optical shelfing. All-to-all connectivity is achieved by the long-range Coulomb
+interaction in the ion crystal. Single-ion addressing and readout are achieved by use of a high
+numerical aperture lens.
+
+The AQT device support the following quantum gates.
+
+```
+'ccnot', 'cnot', 'cphaseshift', 'cphaseshift00', 'cphaseshift01', 'cphaseshift10', 'cswap', 'swap', 'iswap', 'pswap', 'ecr', 'cy', 'cz', 'xy', 'xx', 'yy', 'zz', 'h', 'i', 'phaseshift', 'rx', 'ry', 'rz', 's', 'si', 't', 'ti', 'v', 'vi', 'x', 'y', 'z', 'prx'
+```
+
+With verbatim compilation, the AQT device supports the following native
+gates.
+
+```
+'prx', 'xx', 'rz'
+```
+
+###### Note
+
+The following describes equivalent gates between AQT native gates and Amazon Braket:
+
+- The AQT Mølmer-Sørensen (MS or RXX) gate corresponds to Braket's `'xx'` gate
+- The AQT R gate corresponds to Braket's `'prx'` gate
+- The `'rz'` gate naming is the same
 
 ## IonQ
 

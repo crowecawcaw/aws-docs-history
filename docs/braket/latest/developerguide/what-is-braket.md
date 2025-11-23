@@ -46,7 +46,7 @@ Braket development has three stages :
 - [Run](braket-using.md "braket-using.md") -
   Braket provides secure, on-demand access to
   different types of quantum computers. You have access to gate-based quantum computers from
-  IonQ, IQM, and Rigetti, as well as an Analog
+  AQT, IonQ, IQM, and Rigetti, as well as an Analog
   Hamiltonian Simulator from QuEra. You also have no upfront commitment, and no need to procure
   access through individual providers.
 

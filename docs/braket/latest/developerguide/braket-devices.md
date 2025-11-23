@@ -6,10 +6,10 @@
 Enroll in the [Amazon Braket Digital Learning Plan](https://skillbuilder.aws/learning-plan/EH35DWGU3R/amazon-braket--knowledge-badge-readiness-path-includes-labs "https://skillbuilder.aws/learning-plan/EH35DWGU3R/amazon-braket--knowledge-badge-readiness-path-includes-labs")
 and earn your own Digital badge after completing a series of learning courses and a digital assessment.
 
-In Amazon Braket, a device represents a QPU or simulator that you can call to run quantum
-tasks. Amazon Braket provides access to QPU devices from IonQ, IQM,
-QuEra, and Rigetti, three on-demand
-simulators, three local simulators, and one embedded simulator.
+In Amazon Braket, a device represents a quantum processing unit (QPU) or simulator that you can call to run quantum
+tasks. Amazon Braket provides access to QPU devices from AQT, IonQ, IQM,
+QuEra, and Rigetti. Additionally, AWS offers access to on-demand, local, and embedded simulators.
+For more information on embedded simulators, see [About embedded simulators](embedded-simulator.md "embedded-simulator.md").
 
 For information on supported quantum hardware providers, see [Submitting quantum tasks to QPUs](braket-submit-tasks.md "braket-submit-tasks.md").
 For information on available simulators, see [Submitting quantum tasks to simulators](braket-submit-tasks-simulators.md "braket-submit-tasks-simulators.md").
@@ -17,6 +17,7 @@ The following table displays the list of available devices and simulators.
 
 | Provider                                                                                                         | Device Name                                                                                                                               | Paradigm                      | Type                | Device ARN                                                   | Region                                     |
 | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ------------------- | ------------------------------------------------------------ | ------------------------------------------ |
+| [AQT](braket-submit-tasks.md#braket-qpu-partner-aqt "braket-submit-tasks.md#braket-qpu-partner-aqt")             | IBEX-Q1                                                                                                                                   | gate-based                    | QPU                 | arn:aws:braket:eu-north-1::device/qpu/aqt/Ibex-Q1            | eu-north-1                                 |
 | [IonQ](braket-submit-tasks.md#braket-qpu-partner-ionq "braket-submit-tasks.md#braket-qpu-partner-ionq")          | Aria-1                                                                                                                                    | gate-based                    | QPU                 | arn:aws:braket:us-east-1::device/qpu/ionq/Aria-1             | us-east-1                                  |
 | [IonQ](braket-submit-tasks.md#braket-qpu-partner-ionq "braket-submit-tasks.md#braket-qpu-partner-ionq")          | Forte-1                                                                                                                                   | gate-based                    | QPU                 | arn:aws:braket:us-east-1::device/qpu/ionq/Forte-1            | us-east-1                                  |
 | [IonQ](braket-submit-tasks.md#braket-qpu-partner-ionq "braket-submit-tasks.md#braket-qpu-partner-ionq")          | Forte-Enterprise-1                                                                                                                        | gate-based                    | QPU                 | arn:aws:braket:us-east-1::device/qpu/ionq/Forte-Enterprise-1 | us-east-1                                  |
@@ -30,6 +31,11 @@ The following table displays the list of available devices and simulators.
 | AWS                                                                                                              | [SV1](braket-submit-tasks-simulators.md#braket-simulator-sv1 "braket-submit-tasks-simulators.md#braket-simulator-sv1")                    | gate-based                    | On-demand simulator | arn:aws:braket:::device/quantum-simulator/amazon/sv1         | us-east-1, us-west-1, us-west-2, eu-west-2 |
 | AWS                                                                                                              | [DM1](braket-submit-tasks-simulators.md#braket-simulator-dm1 "braket-submit-tasks-simulators.md#braket-simulator-dm1")                    | gate-based                    | On-demand simulator | arn:aws:braket:::device/quantum-simulator/amazon/dm1         | us-east-1, us-west-1, us-west-2, eu-west-2 |
 | AWS                                                                                                              | [TN1](braket-submit-tasks-simulators.md#braket-simulator-tn1 "braket-submit-tasks-simulators.md#braket-simulator-tn1")                    | gate-based                    | On-demand simulator | arn:aws:braket:::device/quantum-simulator/amazon/tn1         | us-east-1, us-west-2, and eu-west-2        |
+
+###### Note
+
+Device ARNs are case sensitive. For example, when using the AQT IBEX-Q1 device, verify
+that the device ARN contains 'Ibex-Q1'.
 
 To view additional details about the QPUs you can use with Amazon Braket,
 see [Amazon Braket Quantum Computers](https://aws.amazon.com/braket/quantum-computers/ "https://aws.amazon.com/braket/quantum-computers/").
@@ -57,6 +63,7 @@ device = AwsDevice('arn:aws:braket:::device/quantum-simulator/amazon/sv1')      
 # device = LocalSimulator(backend="braket_ahs")                                         # Local Analog Hamiltonian Simulation
 # device = AwsDevice('arn:aws:braket:::device/quantum-simulator/amazon/tn1')            # TN1
 # device = AwsDevice('arn:aws:braket:::device/quantum-simulator/amazon/dm1')            # DM1
+# device = AwsDevice('arn:aws:braket:eu-north-1::device/qpu/aqt/Ibex-Q1')               # AQT IBEX-Q1
 # device = AwsDevice('arn:aws:braket:us-east-1::device/qpu/ionq/Aria-1')                # IonQ Aria-1
 # device = AwsDevice('arn:aws:braket:us-east-1::device/qpu/ionq/Forte-1')               # IonQ Forte-1
 # device = AwsDevice('arn:aws:braket:us-east-1::device/qpu/ionq/Forte-Enterprise-1')    # IonQ Forte-Enterprise-1

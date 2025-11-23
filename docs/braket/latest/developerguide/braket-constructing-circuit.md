@@ -319,7 +319,7 @@ In that one task, you can submit up to 100 quantum circuits or a single parametr
 circuit with up to 100 different parameter sets. This operation minimizes the time between subsequent
 circuit executions and reduces quantum task processing overhead. Currently, program
 sets are supported on the Amazon Braket Local Simulator and on
-IQM and Rigetti devices.
+AQT, IQM and Rigetti devices.
 
 **Defining a ProgramSet**
 
@@ -548,9 +548,9 @@ the gates and circuit layouts that are running on the hardware. Verbatim compila
 gives you direct control over the compilation process by turning off certain
 optimization steps, thereby ensuring that your circuits run exactly as designed.
 
-Verbatim compilation is supported on the Rigetti,
-IonQ, and IQM
-devices and requires the use of native gates. When using verbatim compilation, it is
+Verbatim compilation is supported on the AQT, IonQ,
+IQM, and Rigetti devices and requires the use of native gates.
+When using verbatim compilation, it is
 advisable to check the topology of the device to ensure that gates are called on
 connected qubits and that the circuit uses the native gates supported on
 the hardware. The following example shows how to programmatically access the list of
@@ -587,9 +587,9 @@ more information, see the [Verbatim compilation](https://github.com/aws/amazon-b
 ###### Note
 
 If you are using OpenQASM to write your circuits for the
-IonQ device, and you wish to map your circuit directly to the
+AQT and IonQ devices, and you wish to map your circuit directly to the
 physical qubits, you need to use the `#pragma braket verbatim` as the
-`disableQubitRewiring` flag is completely ignored by OpenQASM.
+`disableQubitRewiring` flag is ignored by OpenQASM.
 
 ## Noise simulation
 
