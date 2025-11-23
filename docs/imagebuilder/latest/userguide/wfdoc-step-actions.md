@@ -14,13 +14,16 @@ Amazon Resource Name
 
 ###### Supported actions
 
+- [ApplyImageConfigurations](#wfdoc-step-action-apply-image-configurations "#wfdoc-step-action-apply-image-configurations")
 - [BootstrapInstanceForContainer](#wfdoc-step-action-bootstrap-container "#wfdoc-step-action-bootstrap-container")
 - [CollectImageMetadata](#wfdoc-step-action-collect-image-metadata "#wfdoc-step-action-collect-image-metadata")
 - [CollectImageScanFindings](#wfdoc-step-action-collect-findings "#wfdoc-step-action-collect-findings")
 - [CreateImage](#wfdoc-step-action-create-img-from-inst "#wfdoc-step-action-create-img-from-inst")
+- [DistributeImage](#wfdoc-step-action-distribute-image "#wfdoc-step-action-distribute-image")
 - [ExecuteComponents](#wfdoc-step-action-exec-components "#wfdoc-step-action-exec-components")
 - [ExecuteStateMachine](#wfdoc-step-action-exec-state-machine "#wfdoc-step-action-exec-state-machine")
 - [LaunchInstance](#wfdoc-step-action-launch-instance "#wfdoc-step-action-launch-instance")
+- [ModifyImageAttributes](#wfdoc-step-action-modify-image-attributes "#wfdoc-step-action-modify-image-attributes")
 - [RegisterImage](#wfdoc-step-action-register-image "#wfdoc-step-action-register-image")
 - [RunCommand](#wfdoc-step-action-run-command "#wfdoc-step-action-run-command")
 - [RunSysPrep](#wfdoc-step-action-run-sysprep "#wfdoc-step-action-run-sysprep")
@@ -28,6 +31,83 @@ Amazon Resource Name
 - [TerminateInstance](#wfdoc-step-action-terminate-instance "#wfdoc-step-action-terminate-instance")
 - [WaitForAction](#wfdoc-step-action-waitfor "#wfdoc-step-action-waitfor")
 - [WaitForSSMAgent](#wfdoc-step-action-wait-for-ssm-agent "#wfdoc-step-action-wait-for-ssm-agent")
+
+## ApplyImageConfigurations
+
+This step action applies various configurations and integrations to distributed AMIs, such as license configurations,
+launch template configurations, S3 export configurations, EC2 Fast Launch configurations, and Systems Manager parameter configurations.
+Configurations apply to distributed images only in the source account, except for SSM parameter configs which can be applied cross-account.
+
+**Default Timeout:** 360 minutes
+
+**Max Timeout:** 720 minutes
+
+**Rollback:** There is no rollback for this
+step action.
+
+**Inputs:** The following table includes
+supported inputs for this step action.
+
+| Input name                                                         | Description                                                  | Type    | Required                                           | Default | Constraints              |
+| ------------------------------------------------------------------ | ------------------------------------------------------------ | ------- | -------------------------------------------------- | ------- | ------------------------ | -------------- | --- |
+| region                                                             | The image region.                                            | String  | Yes                                                |         |                          |
+| licenseConfigurationArns                                           | The license configuration ARN for the image.                 | Array   | No                                                 |         |                          |
+| launchTemplateConfigurations                                       |                                                              | Array   | No                                                 |         |                          |
+| launchTemplateConfigurations:launchTemplateId                      | The launch template ID to apply to the image.                | String  | Yes if `launchTemplateConfigurations` is specified |         |                          |
+| launchTemplateConfigurations:accountId                             | The launch template account IDs to apply to the image.       | String  | No                                                 |         |                          |
+| launchTemplateConfigurations:setDefaultVersion                     | The launch template default version setting for the image.   | Boolean | No                                                 |         |                          |
+| s3ExportConfiguration                                              |                                                              | Array   | No                                                 |         |                          |
+| s3ExportConfiguration:roleName                                     | The S3 export configuration role name for the image.         | String  | Yes if `s3ExportConfiguration` is specified        |         |                          |
+| s3ExportConfiguration:diskImageFormat                              | The S3 export configuration disk image format for the image. | String  | Yes if `s3ExportConfiguration` is specified        |         | Allowed values<br>• VMDK | RAW            | VHD |
+| s3ExportConfiguration:s3Bucket                                     | The S3 export configuration bucket name for the image.       | String  | Yes if `s3ExportConfiguration` is specified        |         |                          |
+| s3ExportConfiguration:s3Prefix                                     | The S3 export configuration bucket prefix for the image.     | String  | No                                                 |         |                          |
+| fastLaunchConfigurations                                           | The EC2 Fast Launch configuration for the image.             | Array   | No                                                 |         |                          |
+| fastLaunchConfigurations:enabled                                   | EC2 Fast Launch enabled/disabled for the image.              | Boolean | Yes if `fastLaunchConfigurations` is specified     |         |                          |
+| fastLaunchConfigurations:snapshotConfiguration                     | EC2 Fast Launch enabled/disabled for the image.              | Map     | No                                                 |         |                          |
+| fastLaunchConfigurations:snapshotConfiguration:targetResourceCount | EC2 Fast Launch target resource count for the image.         | Integer | No                                                 |         |                          |
+| fastLaunchConfigurations:maxParallelLaunches                       | EC2 Fast Launch maximum parallel launches for the image.     | Integer | No                                                 |         |                          |
+| fastLaunchConfigurations:launchTemplate                            |                                                              |         | No                                                 |         |                          |
+| fastLaunchConfigurations:launchTemplate:launchTemplateId           | EC2 Fast Launch launch template ID for the image.            | String  | No                                                 |         |                          |
+| fastLaunchConfigurations:launchTemplate:launchTemplateName         | EC2 Fast Launch launch template name for the image.          | String  | No                                                 |         |                          |
+| fastLaunchConfigurations:launchTemplate:launchTemplateVersion      | EC2 Fast Launch launch template version for the image.       | String  | No                                                 |         |                          |
+| ssmParameterConfigurations                                         | The SSM Parameter configuration for the image.               | Map     | No                                                 |         |                          |
+| ssmParameterConfigurations:amiAccountId                            | The SSM Parameter AMI account ID for the image.              | String  | No                                                 |         |                          |
+| ssmParameterConfigurations:parameterName                           | The SSM Parameter name for the image.                        | String  | Yes if `ssmParameterConfigurations` is specified   |         |                          |
+| ssmParameterConfigurations:dataType                                | The SSM Parameter data type for the image.                   | String  | No                                                 |         | Allowed values<br>• text | aws:ec2:image) |
+
+**Outputs:** The following table includes
+outputs for this step action.
+
+| Output name                   | Description                                          | Type      |
+| ----------------------------- | ---------------------------------------------------- | --------- | ------------------------ | --------------------------- | ----------------------- | ----------------------------- | --------------- | ---------------- |
+| configuredImages              | A list of configured images.                         | Array     |
+| configuredImages:accountId    | The destination account ID of the distributed image. | String    |
+| configuredImages:name         | The name of the AMI.                                 | String    |
+| configuredImages:amiId        | The AMI ID of the distributed image.                 | String    |
+| configuredImages:dateStarted  | UTC time when distribution started.                  | String    |
+| configuredImages:dateStopped  | UTC time when distribution completed.                | String    |
+| configuredImages:step         | The step at which distribution stopped.              | Completed | AssociateLicensesRunning | UpdateLaunchTemplateRunning | PutSsmParametersRunning | UpdateFastLaunchConfiguration | ExportAmiQueued | ExportAmiRunning |
+| configuredImages:region       | Tne AWS of the distributed image                     | String    |
+| configuredImages:status       | Distribution status.                                 | Completed | Failed                   | Cancelled                   | TimedOut                |
+| configuredImages:errorMessage | Error message, if any.                               | String    |
+
+**Example**
+
+Specify the step action in the workflow document.
+
+```
+`- name: `ApplyImageConfigurations`
+ action: ApplyImageConfigurations
+ onFailure: Abort
+ inputs:
+ distributedImages.$: $.stepOutputs.`DistributeImageStep`.distributedImages`
+```
+
+Use the output of the step action value in the workflow document.
+
+```
+`$.stepOutputs.`ApplyImageConfigurationsStep`.configuredImages`
+```
 
 ## BootstrapInstanceForContainer
 
@@ -223,6 +303,72 @@ Use the output of the step action value in the workflow document.
 `$.stepOutputs.`CreateImageFromInstance`.imageId`
 ```
 
+## DistributeImage
+
+This step action distributes an AMI to specified regions and accounts. It creates copies
+of the AMI in target regions and accounts based on the provided distribution configurationgiven in the requests for the CreateImage or CreateImagePipeline APIs
+or custom distribution settings provided in the workflow to override the settings in the distribution configuration.
+
+**Default Timeout:** 360 minutes
+
+**Max Timeout:** 720 minutes
+
+**Rollback:** There is no rollback for this
+step action.
+
+**Inputs:** The following table includes
+supported inputs for this step action.
+
+| Input name       | Description                                          | Type   | Required | Default | Constraints                                  |
+| ---------------- | ---------------------------------------------------- | ------ | -------- | ------- | -------------------------------------------- |
+| region           | The list of regions to distribute the image.         | String | Yes      |         | Minimum length of 1. Maximum length of 1024. |
+| name             | The name of the distribution configuration.          | String | No       |         |                                              |
+| description      | The distributions of the distribution configuration. | String | No       |         |                                              |
+| targetAccountIds | Account IDs to which to distribute the image.        | Array  | No       |         |                                              |
+| amiTags          | The tags of the distribution configuration.          | Map    | No       |         |                                              |
+| kmsKeyId         | KMS keys to apply to the distributed image.          | String | No       |         |                                              |
+
+**Outputs:** The following table includes
+outputs for this step action.
+
+| Output name                    | Description                                          | Type      |
+| ------------------------------ | ---------------------------------------------------- | --------- | -------------- | --------- | -------- |
+| distributedImages              | A list of distributed images                         | Array     |
+| distributedImages:region       | Tne AWS region of the distributed image.             | String    |
+| distributedImages:name         | The name of the AMI.                                 | String    |
+| distributedImages:amiId        | The AMI ID of the distributed image.                 | String    |
+| distributedImages:accountId    | The destination account ID of the distributed image. | String    |
+| distributedImages:dateStarted  | UTC time when distribution started.                  | String    |
+| distributedImages:dateStopped  | UTC time when distribution completed.                | String    |
+| distributedImages:status       | Distribution status.                                 | Completed | Failed         | Cancelled | TimedOut |
+| distributedImages:step         | The step at which distribution stopped.              | Completed | CopyAmiRunning |
+| distributedImages:errorMessage | Error message, if any.                               | String    |
+
+**Example**
+
+Specify the step action in the workflow document.
+
+```
+`- name: `DistributeImage`
+ action: DistributeImage
+ onFailure: Abort
+ inputs:
+ distributions:
+ - region.$: "$.parameters.`SourceRegion`"
+ description: "`AMI distribution to source region`"
+ amiTags:
+ DistributionTest: "`SourceRegion`"
+ WorkflowStep: "`DistributeToSourceRegion`"
+ BuildDate: "{{imagebuilder:buildDate:yyyyMMHHss}}"
+ BuildVersion: "{{imagebuilder:buildVersion}}"`
+```
+
+Use the output of the step action value in the workflow document.
+
+```
+`$.stepOutputs.`DistributeImageStep`.distributedImages`
+```
+
 ## ExecuteComponents
 
 This step action runs components that are specified in the recipe for
@@ -398,6 +544,64 @@ Use output from the step action in the workflow document.
 
 ```
 `$.stepOutputs.`LaunchStep`.instanceId`
+```
+
+## ModifyImageAttributes
+
+This step action modifies attributes of distributed AMIs, such as launch permissions and other AMI
+attributes. It operates on AMIs that have been distributed to target regions and accounts.
+
+**Default Timeout:** 120 minutes
+
+**Max Timeout:** 180 minutes
+
+**Rollback:** There is no rollback for this
+step action.
+
+**Inputs:** The following table includes
+supported inputs for this step action.
+
+| Input name                              | Description                                                                       | Type   | Required | Default | Constraints |
+| --------------------------------------- | --------------------------------------------------------------------------------- | ------ | -------- | ------- | ----------- |
+| region                                  | The region of the image.                                                          | String | Yes      |         |             |
+| launchPermission                        |                                                                                   |        | No       |         |             |
+| launchPermission:userIds                | The user IDs to modify in the launch permissions for the image.                   | String | No       |         |             |
+| launchPermission:userGroups             | The user groups to modify in the launch permissions for the image.                | String | No       |         |             |
+| launchPermission:organizationArns       | The AWS Organization ARNs to modify in the launch permissions for the image.      | String | No       |         |             |
+| launchPermission:organizationalUnitArns | The AWS Organization Unit ARNs to modify in the launch permissions for the image. | String | No       |         |             |
+
+**Outputs:** The following table includes
+outputs for this step action.
+
+| Output name                 | Description                                          | Type      |
+| --------------------------- | ---------------------------------------------------- | --------- | ---------------- | --------- | -------- |
+| modifiedImages              | A list of modified images                            | Array     |
+| modifiedImages:accountId    | The destination account ID of the distributed image. | String    |
+| modifiedImages:name         | The name of the AMI.                                 | String    |
+| modifiedImages:amiId        | The AMI ID of the distributed image.                 | String    |
+| modifiedImages:dateStarted  | UTC time when distribution started.                  | String    |
+| modifiedImages:dateStopped  | UTC time when distribution completed.                | String    |
+| modifiedImages:step         | The step at which distribution stopped.              | Completed | ModifyAmiRunning |
+| modifiedImages:region       | Tne AWS region of the image.                         | String    |
+| modifiedImages:status       | Distribution status.                                 | Completed | Failed           | Cancelled | TimedOut |
+| modifiedImages:errorMessage | Error message, if any.                               | String    |
+
+**Example**
+
+Specify the step action in the workflow document.
+
+```
+`- name: `ModifyImageAttributes`
+ action: ModifyImageAttributes
+ onFailure: Abort
+ inputs:
+ distributedImages.$: $.stepOutputs.`DistributeImageStep`.distributedImages`
+```
+
+Use the output of the step action value in the workflow document.
+
+```
+`$.stepOutputs.`ModifyImageAttributesStep`.modifiedImages`
 ```
 
 ## RegisterImage
@@ -747,7 +951,7 @@ Image Builder monitors the instance until it regains SSM connectivity or times o
 
 **Default Timeout:** 60 minutes
 
-**Max Timeout:** 3 hours
+**Max Timeout:** 180 minutes
 
 **Rollback:** There is no rollback for this
 step action.

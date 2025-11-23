@@ -209,8 +209,7 @@ AWS Organizations. For more information, see [Manage Image Builder distribution 
 tab
 
 Workflows define the sequence of steps that Image Builder performs
-when it creates a new image. All images have build and test workflows. Containers
-have an additional workflow for distribution. The **Workflow** tab displays
+when it creates a new image. All images have build, test, and distribution workflows. The **Workflow** tab displays
 the applicable workflows that Image Builder ran for your image.
 
 ###### Filter workflow types

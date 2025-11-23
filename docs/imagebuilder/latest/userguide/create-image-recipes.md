@@ -18,11 +18,12 @@ new version of an existing recipe.
 ###### Base recipe details in the new version
 
 - **Name** – _Not editable_.
-- **Version** – Required. This base detail isn't
-  pre-filled with the current version or any kind of a sequence. Enter the version
-  number that you want to create in the format
-  _<major>.<minor>.<patch>_. If the version already exists, you
-  encounter an error.
+- **Version** – Required. Enter the version number that you want to create
+  in the format _<major>.<minor>.<patch>_. Image Builder supports automatic version incrementing for
+  recipes, allowing you to use wildcard patterns in your recipe versions. When you create a recipe with
+  a wildcard version such as `1.0.x`, Image Builder automatically increments the version
+  (for example, `1.0.1`, `1.0.2`, `1.0.3`, and so on). This eliminates the need to manually track
+  and increment recipe versions.
 - The **Select image** option – Pre-selected, but you
   can edit it. If you change your choice for the source of your base image, you
   might lose other details that depend on the original option that you
@@ -255,11 +256,12 @@ Here is a summary of the parameters that these examples specify:
     ###### Note
 
     The Linux and macOS examples use an Image Builder AMI, and the Windows example uses an ARN.
-    * semanticVersion (string, required) – The semantic
-     version of the image recipe, expressed in the following format, with
-     numeric values in each position to indicate a specific version:
-     *<major>.<minor>.<patch>*. For
-     example a value might be `1.0.0`.
+    * semanticVersion (string, required) – Enter the version number that you want to create
+     in the format *<major>.<minor>.<patch>*. Image Builder supports automatic version incrementing for
+     recipes, allowing you to use wildcard patterns in your recipe versions. When you create a recipe with
+     a wildcard version such as `1.0.x`, Image Builder automatically increments the version
+     (for example, `1.0.1`, `1.0.2`, `1.0.3`, and so on). This eliminates the need to manually track
+     and increment recipe versions.
      To learn more about semantic versioning for Image Builder resources, see
      [Semantic versioning in Image Builder](ibhow-semantic-versioning.md "ibhow-semantic-versioning.md").
     * components (array, optional) –

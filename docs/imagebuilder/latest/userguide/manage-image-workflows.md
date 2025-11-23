@@ -1,7 +1,7 @@
 # Manage build and test workflows for Image Builder images
 
 An image workflow defines the sequence of steps that EC2 Image Builder performs during the
-build and test stages of the image creation process. This is part of the overall Image Builder
+build, test, and distribution stages of the image creation process. This is part of the overall Image Builder
 workflow framework.
 
 ###### Image workflow benefits
@@ -12,7 +12,7 @@ workflow framework.
   can choose to use the Image Builder default workflow.
 - You can exclude workflow steps that are included in default image workflows.
 - You can create test-only workflows that skip the build process entirely. You can
-  do the same to create build-only workflows.
+  do the same to create build-only or distribution-only workflows.
 
 ###### Note
 
@@ -46,10 +46,11 @@ test stage, there are some differences between images that create AMIs and conta
 AMI workflows, Image Builder launches an EC2 instance from the snapshot that it created
 as the final step of the build stage. Tests run on the new instance to validate
 settings and ensure that the instance is functioning as expected. For container workflows, the
-tests run on the same instance that was used for building.
-
-The workflow framework also includes a distribution stage. However, Image Builder handles
-the workflows for that stage.
+tests run on the same instance that was used for building. 3. Distribution stage (post-build) –
+During the distribution stage, once the image build is complete and has successfully
+passed all tests, the output image undergoes various phases of distribution. These phases
+encompass AMI copy operations, image attribute modifications, image sharing, and other related
+distribution steps.
 
 ## Service access
 

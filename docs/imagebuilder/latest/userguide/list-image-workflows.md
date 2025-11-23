@@ -31,8 +31,8 @@ console include the following:
   **Workflow** column links to the workflow detail page.
 - **Version** – The most recent version of the
   image workflow resource.
-- **Type** – The workflow type: `BUILD`
-  or `TEST`.
+- **Type** – The workflow type: `BUILD`,
+  `TEST`, or `DISTRIBUTION`.
 - **Owner** – The owner of the workflow resource.
 - **Creation time** – The date and time when
   Image Builder created the most recent version of the image workflow resource.
@@ -71,6 +71,7 @@ show all workflow types in the list.
 
 - _BUILD_
 - _TEST_
+- _DISTRIBUTION_
 
 `Owner`
 
@@ -118,6 +119,14 @@ own or have access to.
  "owner": "`111122223333`",
  "type": "BUILD",
  "arn": "arn:aws:imagebuilder:`us-west-2`:`111122223333`:workflow/build/`example-build-workflow`/`1.0.0`"
+ },
+ {
+ "name": "`example-distribution-workflow`",
+ "dateCreated": "2025-11-19T10:25:10.425Z",
+ "version": "1.0.0",
+ "owner": "`111122223333`",
+ "type": "DISTRIBUTION",
+ "arn": "arn:aws:imagebuilder:`us-west-2`:`111122223333`:workflow/distribution/`example-distribution-workflow`/`1.0.0`"
  }
  ]
 }`

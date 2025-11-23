@@ -35,3 +35,51 @@ selection using wildcards produces the following results:
 - `1.6.x` = 1.6.8
 - `x.2.x` is not valid, and produces an error
 - `1.x.8` is not valid, and produces an error
+
+## Using version references
+
+Version references are ready-to-use ARN strings that incorporate wildcard patterns based
+on the semantic version of the resource you created or retrieved. Instead of writing custom code
+to parse ARNs and insert wildcards, Image Builder does this work for you.
+
+When you create or retrieve Image Builder resources, Image Builder automatically provides
+pre-constructed ARNs with wildcard version patterns in the `latestVersionReferences` object. This
+eliminates the need to manually parse and reconstruct ARNs when you want to reference resources
+using wildcard versioning patterns.
+
+For example, when you create a component with version `1.2.3`, Image Builder returns:
+
+```
+
+{
+    "componentBuildVersionArn": "arn:aws:imagebuilder:us-west-2:123456789012:component/my-component/1.2.3/1",
+    "latestVersionReferences": {
+        "latestVersionArn": "arn:aws:imagebuilder:us-west-2:123456789012:component/my-component/x.x.x",
+        "latestMajorVersionArn": "arn:aws:imagebuilder:us-west-2:123456789012:component/my-component/1.x.x",
+        "latestMinorVersionArn": "arn:aws:imagebuilder:us-west-2:123456789012:component/my-component/1.2.x",
+        "latestPatchVersionArn": "arn:aws:imagebuilder:us-west-2:123456789012:component/my-component/1.2.3"
+    }
+}
+
+```
+
+## Available version reference patterns
+
+The `latestVersionReferences` object contains four ARN patterns:
+
+- latestVersionArn (x.x.x) - Always resolves to the absolute latest version.
+- atestMajorVersionArn (1.x.x) - Resolves to the latest minor and patch versions within a major version.
+- latestMinorVersionArn (1.2.x) - Resolves to the latest patch version within a specific minor version.
+- latestPatchVersionArn (1.2.3) - References a specific semantic version and resolves to the latest build version for resources that support multiple build versions.
+
+## Resources that return version references
+
+Version references are returned by `Create` and `Get` APIs for all versioned Image Builder resources:
+
+- Components - `CreateComponent`, `GetComponent`
+- Image recipes - `CreateImageRecipe`, `GetImageRecipe`
+- Container recipes - `CreateContainerRecipe`, `GetContainerRecipe`
+- Images - `CreateImage`, `GetImage`
+- Workflows - `CreateWorkflow`, `GetWorkflow`
+
+_Note:_ For Image Builder-managed workflows, only `latestVersionArn (x.x.x)` is returned, since Image Builder requires you to always use the latest version of Image Builder-managed workflows.

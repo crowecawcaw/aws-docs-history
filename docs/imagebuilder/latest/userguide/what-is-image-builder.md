@@ -250,8 +250,7 @@ custom runtime configurations.
 ###### Workflow
 
 Workflows define the sequence of steps that Image Builder performs
-when it creates a new image. All images have build and test workflows. Containers
-have an additional workflow for distribution.
+when it creates a new image. All images have build, test, and distribution workflows.
 
 ###### _Workflow types_
 
@@ -265,7 +264,7 @@ Covers test stage configuration for every image created.
 
 `DISTRIBUTION`
 
-Covers distribution workflow for container images.
+Covers distribution stage configuration for every image created.
 
 ## Pricing
 

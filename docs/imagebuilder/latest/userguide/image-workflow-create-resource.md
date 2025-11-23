@@ -105,8 +105,8 @@ that contains the build configuration for the workflow you create.
 
 ```
 `{
-"workflowBuildVersionArn": "arn:aws:imagebuilder:`us-west-2`:`111122223333`:workflow/build/example-build-workflow/`1.0.0`/1",
-"clientToken": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+ "workflowBuildVersionArn": "arn:aws:imagebuilder:`us-west-2`:`111122223333`:workflow/build/example-build-workflow/`1.0.0`/1",
+ "clientToken": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
 }`
 ```
 
@@ -125,7 +125,7 @@ that contains the build configuration for the workflow you create.
 
 ```
 `{
-"workflowBuildVersionArn": "arn:aws:imagebuilder:`us-west-2`:`111122223333`:workflow/test/example-test-workflow/`1.0.0`/1",
-"clientToken": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+ "workflowBuildVersionArn": "arn:aws:imagebuilder:`us-west-2`:`111122223333`:workflow/test/example-test-workflow/`1.0.0`/1",
+ "clientToken": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
 }`
 ```

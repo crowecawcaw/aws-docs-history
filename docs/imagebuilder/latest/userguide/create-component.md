@@ -13,6 +13,8 @@ The following sections show you how to create components from the console or fro
 - [Create a custom component from the console](#create-component-ib-console "#create-component-ib-console")
 - [Create a custom component from the AWS CLI](#create-component-ib-cli "#create-component-ib-cli")
 - [Import a script to create a component from the AWS CLI](#import-component-cli "#import-component-cli")
+- [Automatic build version management](#auto-build-version-management "#auto-build-version-management")
+- [Using version references](#using-version-references "#using-version-references")
 
 ## Create a custom component from the console
 
@@ -404,3 +406,24 @@ To create the component from an imported script, run the following command.
 ```
 aws imagebuilder import-component --cli-input-json file://`import-component.json`
 ```
+
+## Automatic build version management
+
+When you create a component with the same name and semantic version as an existing component, Image Builder automatically
+increments the build version (for example, from `/1` to `/2`, to `/3`, and so on). This allows you to make iterative updates to your
+components without manually managing version numbers, which is especially useful in CI/CD pipelines and infrastructure-as-code
+deployments. If the component content is identical to the previous build version, Image Builder returns `ResourceAlreadyExistsException`
+to prevent duplicate components from consuming your service quota.
+
+## Using version references
+
+When you create or retrieve a component, Image Builder automatically provides pre-constructed ARNs with wildcard
+version patterns in the latestVersionReferences object. These references make it easy to use the latest versions of your
+components in recipes and pipelines without manually parsing ARNs.
+
+**Choosing the right version reference**
+
+- latestVersionArn (x.x.x) - Always use the absolute latest component version.
+- atestMajorVersionArn (1.x.x) - Use the latest minor and patch versions within a major version.
+- latestMinorVersionArn (1.2.x) - Use the latest patch version only.
+- latestPatchVersionArn (1.2.3) - Reference a specific semantic version, but get the latest build version.

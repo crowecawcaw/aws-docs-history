@@ -57,7 +57,7 @@ that you've met the following prerequisites.
   Otherwise, you would create a new custom role that includes the required permissions.
 
 Then, when Image Builder copies your image, EC2 Fast Launch automatically
-creates an AWS CloudFormation stack with the following resources in your AWS account.
+creates an CloudFormation stack with the following resources in your AWS account.
 
     + A virtual private cloud (VPC)
     + Private subnets across multiple Availability Zones

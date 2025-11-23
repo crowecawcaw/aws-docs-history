@@ -76,3 +76,4 @@ section of this guide.
 - [Set up cross-account AMI distribution with Image Builder](cross-account-dist.md "cross-account-dist.md")
 - [Configure AMI distribution with
   an EC2 launch template](dist-using-launch-template.md "dist-using-launch-template.md")
+- [Use enhanced AMI distribution capabilities](distribution-enhanced_functionality.md "distribution-enhanced_functionality.md")

@@ -3,7 +3,7 @@
 You can establish a private connection between your VPC and EC2 Image Builder by creating
 an _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.com/privatelink/"), a technology that enables you
 to privately access Image Builder APIs without an internet gateway, NAT device, VPN
-connection, or AWS Direct Connect connection. Instances in your VPC don't need public IP
+connection, or Direct Connect connection. Instances in your VPC don't need public IP
 addresses to communicate with Image Builder APIs. Traffic between your VPC and Image Builder
 does not leave the Amazon network.
 
