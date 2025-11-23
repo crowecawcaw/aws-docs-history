@@ -57,9 +57,9 @@ firmware artifacts._
 - Version all IoT rules engine configurations in
   CloudFormation.
 - Version all downstream AWS Cloud resources using
-  AWS CloudFormation.
+  CloudFormation.
 - Implement a rollback strategy for reverting cloud side
-  changes using AWS CloudFormation and other infrastructure as
+  changes using CloudFormation and other infrastructure as
   code tools.
 
 Treating your infrastructure as code on AWS allows you to

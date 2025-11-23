@@ -75,7 +75,7 @@ security:
   industrial edge. Establish a secure VPN connection to AWS over
   the public internet or set up a dedicated private connection
   via AWS Direct Connect. Use
-  [AWS VPN with Direct Connect](https://aws.amazon.com/premiumsupport/knowledge-center/create-vpn-direct-connect/ "https://aws.amazon.com/premiumsupport/knowledge-center/create-vpn-direct-connect/") to encrypt traffic over Direct
+  [Site-to-Site VPN with Direct Connect](https://aws.amazon.com/premiumsupport/knowledge-center/create-vpn-direct-connect/ "https://aws.amazon.com/premiumsupport/knowledge-center/create-vpn-direct-connect/") to encrypt traffic over Direct
   Connect.
 - **Use VPC Endpoints whenever
   possible:** For IIoT workloads, once a secure
