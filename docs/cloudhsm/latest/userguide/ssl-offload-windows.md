@@ -26,7 +26,7 @@ This tutorial shows you how to do the following:
 - Install the web server software on an Amazon EC2 instance.
 - Configure the web server software to support HTTPS with a private key stored in your
   AWS CloudHSM cluster.
-- (Optional) Use Amazon EC2 to create a second web server instance and Elastic Load Balancing to create a load
+- (Optional) Use Amazon EC2 to create a second web server instance and ELB to create a load
   balancer. Using a load balancer can increase performance by distributing the load across
   multiple servers. It can also provide redundancy and higher availability if one or more
   servers fail.
@@ -620,4 +620,4 @@ use.
 You now have a website that is secured with HTTPS. The private key for the web server is
 stored in an HSM in your AWS CloudHSM cluster.
 
-To add a load balancer, see [Add a load balancer with Elastic Load Balancing for AWS CloudHSM(optional)](third-offload-add-lb.md "third-offload-add-lb.md").
+To add a load balancer, see [Add a load balancer with ELB for AWS CloudHSM(optional)](third-offload-add-lb.md "third-offload-add-lb.md").

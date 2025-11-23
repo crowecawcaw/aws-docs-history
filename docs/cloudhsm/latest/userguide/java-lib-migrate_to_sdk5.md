@@ -18,7 +18,7 @@ Client SDK 5](client-sdk-migration.md "client-sdk-migration.md").
 ###### Topics
 
 - [Prepare by addressing breaking changes](#jce-migration-preparation-sdk5 "#jce-migration-preparation-sdk5")
-- [Migrate to Client SDK 5](#w20aac25c19c21c15 "#w20aac25c19c21c15")
+- [Migrate to Client SDK 5](#w2aac25c19c21c15 "#w2aac25c19c21c15")
 - [Related topics](#java-lib-migrate_to_sdk5-seealso "#java-lib-migrate_to_sdk5-seealso")
 
 ## Prepare by addressing breaking changes

@@ -8,5 +8,5 @@ as creating users, listing users, and connecting CloudHSM CLI to the cluster.
 
 ###### Topics
 
-- [Install the CloudHSM CLI](w20aac23c15c13b7.md "w20aac23c15c13b7.md")
+- [Install the CloudHSM CLI](w2aac23c15c13b7.md "w2aac23c15c13b7.md")
 - [Use the CloudHSM CLI](cloudhsm_cli-getting-started-use.md "cloudhsm_cli-getting-started-use.md")

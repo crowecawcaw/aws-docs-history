@@ -8,7 +8,7 @@ to use an EC2 instance in the same VPC as your cluster. You can also use the fol
 resources to connect to your cluster:
 
 - [Amazon VPC Peering](../../../vpc/latest/peering/Welcome.md "../../../vpc/latest/peering/Welcome.md")
-- [AWS Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")
+- [Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")
 - [VPN Connections](../../../AmazonVPC/latest/UserGuide/vpn-connections.md "../../../AmazonVPC/latest/UserGuide/vpn-connections.md")
 
 ###### Note

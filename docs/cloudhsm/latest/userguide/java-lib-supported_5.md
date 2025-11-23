@@ -16,7 +16,7 @@ supported by AWS CloudHSM, see the following topics.
 - [Cipher-based message authentication code (CMAC) functions](#java-cmac_5 "#java-cmac_5")
 - [Key Agreement Functions](#java-key-derivation_5 "#java-key-derivation_5")
 - [Convert keys to key specifications using key factories](#java-key-factories "#java-key-factories")
-- [Mechanism annotations](#w20aac25c21c23c15c23 "#w20aac25c21c23c15c23")
+- [Mechanism annotations](#w2aac25c21c23c15c23 "#w2aac25c21c23c15c23")
 
 ## Generate key and key pair functions
 

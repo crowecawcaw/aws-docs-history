@@ -21,4 +21,4 @@ web server software
   Apache with OpenSSL](third-offload-linux-openssl.md "third-offload-linux-openssl.md")
 - [AWS CloudHSM SSL/TLS offload on Linux using Tomcat with JSSE](third-offload-linux-jsse.md "third-offload-linux-jsse.md")
 - [AWS CloudHSM SSL/TLS offload on Windows using IIS with KSP](ssl-offload-windows.md "ssl-offload-windows.md")
-- [Add a load balancer with Elastic Load Balancing for AWS CloudHSM(optional)](third-offload-add-lb.md "third-offload-add-lb.md")
+- [Add a load balancer with ELB for AWS CloudHSM(optional)](third-offload-add-lb.md "third-offload-add-lb.md")

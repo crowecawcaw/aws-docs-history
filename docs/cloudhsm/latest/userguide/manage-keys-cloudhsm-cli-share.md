@@ -8,7 +8,7 @@ Before you can share a key, you must log in to the HSM as the crypto user (CU) w
 
 ###### Topics
 
-- [Example: Sharing and unsharing a key](#w20aac15c21c11b9 "#w20aac15c21c11b9")
+- [Example: Sharing and unsharing a key](#w2aac15c21c11b9 "#w2aac15c21c11b9")
 - [Related topics](#cloudhsm-cli-share-keys-seealso "#cloudhsm-cli-share-keys-seealso")
 
 ## Example: Sharing and unsharing a key

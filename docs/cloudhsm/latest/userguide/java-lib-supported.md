@@ -14,7 +14,7 @@ supported by AWS CloudHSM, see the following topics.
 - [Supported hash-based message authentication code (HMAC)
   algorithms](#java-mac "#java-mac")
 - [Supported sign/verify mechanisms](#java-sign-verify "#java-sign-verify")
-- [Mechanism annotations](#w20aac25c23c25c11c17 "#w20aac25c23c25c11c17")
+- [Mechanism annotations](#w2aac25c23c25c11c17 "#w2aac25c23c25c11c17")
 
 ## Supported keys
 
