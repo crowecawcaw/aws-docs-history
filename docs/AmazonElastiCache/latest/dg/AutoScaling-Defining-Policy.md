@@ -16,7 +16,7 @@ configuration:
   metric](#AutoScaling-Predefined-Metric "#AutoScaling-Predefined-Metric")
 - [Editing a scaling policy](AutoScaling-Editing-Policy.md "AutoScaling-Editing-Policy.md")
 - [Deleting a scaling policy](AutoScaling-Deleting-Policy.md "AutoScaling-Deleting-Policy.md")
-- [Use AWS CloudFormation for Auto Scaling
+- [Use CloudFormation for Auto Scaling
   policies](AutoScaling-with-Cloudformation.md "AutoScaling-with-Cloudformation.md")
 - [Scheduled scaling](AutoScaling-with-Scheduled-Scaling-Replicas.md "AutoScaling-with-Scheduled-Scaling-Replicas.md")
 

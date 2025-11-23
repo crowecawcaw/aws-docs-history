@@ -1,83 +1,106 @@
-# How Auto Discovery Works
+# Adding Auto Discovery to your Memcached client library
 
-###### Topics
+The configuration information for Auto Discovery is stored redundantly in each Memcached cluster
+node. Client applications can query any cache node and obtain the configuration
+information for all of the nodes in the cluster.
 
-- [Connecting to Cache
-  Nodes](#AutoDiscovery.HowAutoDiscoveryWorks.Connecting "#AutoDiscovery.HowAutoDiscoveryWorks.Connecting")
-- [Normal Cluster Operations](#AutoDiscovery.HowAutoDiscoveryWorks.NormalOps "#AutoDiscovery.HowAutoDiscoveryWorks.NormalOps")
-- [Other Operations](#AutoDiscovery.HowAutoDiscoveryWorks.OtherOps "#AutoDiscovery.HowAutoDiscoveryWorks.OtherOps")
-  This section describes how client applications use the ElastiCache Cluster Client to manage
-  cache node connections, and interact with data items in the cache.
+The way in which an application does this depends upon the cache engine version:
 
-## Connecting to Cache
+- If the cache engine version is **1.4.14 or higher**, use the
+  `config` command.
+- If the cache engine version is **lower than 1.4.14**, use the
+  `get AmazonElastiCache:cluster` command.
+  The outputs from these two commands are identical, and are described in the [Output Format](#AutoDiscovery.AddingToYourClientLibrary.OutputFormat "#AutoDiscovery.AddingToYourClientLibrary.OutputFormat") section below.
 
-Nodes
+## Cache engine version 1.4.14 or higher
 
-From the application's point of view, connecting to the cluster configuration endpoint is
-no different from connecting directly to an individual cache node. The following
-sequence diagram shows the process of connecting to cache nodes.
-
-![Connecting to Cache Nodes](images/autodiscovery_cluster_membership_refresh-diagram.png)
-
-Process of Connecting to Cache Nodes| 1 | The application resolves the configuration endpoint's DNS name. Because<br>the configuration endpoint maintains CNAME entries for all of the cache<br>nodes, the DNS name resolves to one of the nodes; the client can<br>then connect to that node. |
-| 2 | The client requests the configuration information for all of the<br>other nodes. Since each node maintains configuration information for<br>all of the nodes in the cluster, any node can pass configuration<br>information to the client upon request. |
-| 3 | The client receives the current list of cache node<br>hostnames and IP addresses. It can then connect to all of the<br>other nodes in the cluster. |
+For cache engine version 1.4.14 or higher, use the `config` command. This
+command has been added to the Memcached ASCII and binary protocols by ElastiCache, and is
+implemented in the ElastiCache Cluster Client. If you want to use Auto Discovery with
+another client library, then that library will need to be extended to support the
+`config` command.
 
 ###### Note
 
-The client program refreshes its list of cache node hostnames and IP addresses
-once per minute. This polling interval can be adjusted if necessary.
+The following documentation pertains to the ASCII protocol; however, the
+`config` command supports both ASCII and binary. If you want to
+add Auto Discovery support using the binary protocol, refer to the [source code for the ElastiCache Cluster Client](https://github.com/amazonwebservices/aws-elasticache-cluster-client-memcached-for-java/tree/master/src/main/java/net/spy/memcached/protocol/binary "https://github.com/amazonwebservices/aws-elasticache-cluster-client-memcached-for-java/tree/master/src/main/java/net/spy/memcached/protocol/binary").
 
-## Normal Cluster Operations
+**Syntax**
 
-When the application has connected to all of the cache nodes, ElastiCache Cluster Client
-determines which nodes should store individual data items, and which nodes should be
-queried for those data items later. The following sequence diagram shows the process
-of normal cluster operations.
+`config [sub-command] [key]`
 
-![Normal Cluster Operations](images/autodiscovery_normal_cache_usage-diagram.png)
+### Options
 
-Process of Normal Cluster Operations | 1 | The application issues a \*get<br>• request for a<br>particular data item, identified by its key. |
-| 2 | The client uses a hashing algorithm against the key to<br>determine which cache node contains the data item. |
-| 3 | The data item is requested from the appropriate node. |
-| 4 | The data item is returned to the application. |
+| Name          | Description                                                                                                     | Required |
+| ------------- | --------------------------------------------------------------------------------------------------------------- | -------- |
+| `sub-command` | The sub-command used to interact with a cache node. For<br>Auto Discovery, this sub-command is `get`.           | Yes      |
+| `key`         | The key under which the cluster configuration is stored.<br>For Auto Discovery, this key is named<br>`cluster`. | Yes      |
 
-## Other Operations
+To get the cluster configuration information, use the following command:
 
-In some situations, you might make a change to a cluster's nodes. For example, you might
-add an additional node to accommodate additional demand, or delete a node to save
-money during periods of reduced demand. Or you might replace a node due to a node
-failure of one sort or another.
+```
+`config get cluster`
+```
 
-When there is a change in the cluster that requires a metadata update to the cluster's endpoints,
-that change is made to all nodes at the same time. Thus the metadata in any given node is consistent
-with the metadata in all of the other nodes in the cluster.
+## Cache engine version 1.4.14 or lower
 
-In each of these cases, the metadata is consistent among all the nodes at all times
-since the metadata is updated at the same time for all nodes in the cluster.
-You should always use the configuration endpoint to obtain the endpoints of the various nodes in the cluster.
-By using the configuration endpoint,
-you ensure that you will not be obtaining endpoint data from a node that “disappears” on you.
+To get the cluster configuration information, use the following command:
 
-### Adding a Node
+```
+`get AmazonElastiCache:cluster`
+```
 
-During the time that the node is being spun up, its endpoint is not included in the metadata.
-As soon as the node is available, it is added to the metadata of each of the cluster’s nodes.
-In this scenario, the metadata is consistent among all the nodes and
-you will be able to interact with the new node only after it is available. Before the node being available, you will not know about it and will interact with the nodes in your cluster the same as though the new node does not exist.
+###### Note
 
-### Deleting a Node
+Do not tamper with the "AmazonElastiCache:cluster" key, since this is
+where the cluster configuration information resides. If you do overwrite this
+key, then the client may be incorrectly configured for a brief period of time
+(no more than 15 seconds) before ElastiCache automatically and correctly updates the
+configuration information.
 
-When a node is removed, its endpoint is first removed from the metadata and then the node is removed from the cluster.
-In this scenario the metadata in all the nodes is consistent and there is no time in which it will contain
-the endpoint for the node to be removed while the node is not available.
-During the node removal time it is not reported in the metadata and so your application will only be interacting with the n-1 remaining nodes,
-as though the node does not exist.
+## Output Format
 
-### Replacing a Node
+Whether you use `config get cluster` or `get
+ AmazonElastiCache:cluster`, the reply consists of two lines:
 
-If a node fails, ElastiCache takes down that node and spins up a replacement.
-The replacement process takes a few minutes.
-During this time the metadata in all the nodes still shows the endpoint for the failed node,
-but any attempt to interact with the node will fail.
-Therefore, your logic should always include retry logic.
+- The version number of the configuration information. Each time a node is added or removed
+  from the cluster, the version number increases by one.
+- A list of cache nodes. Each node in the list is represented by a
+  _hostname|ip-address|port_ group, and each node is
+  delimited by a space.
+
+A carriage return and a linefeed character (CR + LF) appears at the end of each line.
+The data line contains a linefeed character (LF) at the end, to which the CR + LF is added.
+The config version line is terminated by LF without the CR.
+
+A cluster containing three nodes would be represented as follows:
+
+```
+`configversion\n
+hostname|ip-address|port hostname|ip-address|port hostname|ip-address|port\n\r\n`
+```
+
+Each node is shown with both the CNAME and the private IP address. The
+CNAME will always be present; if the private IP address is not available, it will
+not be shown; however, the pipe characters "`|`" will still be
+printed.
+
+###### Example
+
+Here is an example of the payload returned when you query the configuration information:
+
+```
+`CONFIG cluster 0 136\r\n
+12\n
+myCluster.pc4ldq.0001.use1.cache.amazonaws.com|10.82.235.120|11211 myCluster.pc4ldq.0002.use1.cache.amazonaws.com|10.80.249.27|11211\n\r\n
+END\r\n`
+```
+
+###### Note
+
+- The second line indicates that the configuration information has been modified
+  twelve times so far.
+- In the third line, the list of nodes is in
+  alphabetical order by hostname. This ordering might be in a different sequence
+  from what you are currently using in your client application.

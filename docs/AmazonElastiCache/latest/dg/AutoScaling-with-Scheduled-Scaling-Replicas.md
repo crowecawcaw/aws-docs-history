@@ -30,7 +30,7 @@ Use the following application-autoscaling APIs:
 - [describe-scheduled-actions](../../../cli/latest/reference/application-autoscaling/describe-scheduled-actions.md "../../../cli/latest/reference/application-autoscaling/describe-scheduled-actions.md")
 - [delete-scheduled-action](../../../cli/latest/reference/application-autoscaling/delete-scheduled-action.md "../../../cli/latest/reference/application-autoscaling/delete-scheduled-action.md")
 
-## Use AWS CloudFormation to
+## Use CloudFormation to
 
 create Auto Scaling policies
 

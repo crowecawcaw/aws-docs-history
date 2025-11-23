@@ -242,7 +242,7 @@ Output from this operation looks something like the following.
 
 For more information, see [create-snapshot](../../../cli/latest/reference/elasticache/create-snapshot.md "../../../cli/latest/reference/elasticache/create-snapshot.md") in the _AWS CLI Command Reference_.
 
-You can use AWS CloudFormation to create a backup of your ElastiCache Redis OSS or Valkey cache, using the `AWS::ElastiCache::ServerlessCache` or `AWS::ElastiCache::ReplicationGroup` properties.
+You can use CloudFormation to create a backup of your ElastiCache Redis OSS or Valkey cache, using the `AWS::ElastiCache::ServerlessCache` or `AWS::ElastiCache::ReplicationGroup` properties.
 
 **Using the `AWS::ElastiCache::ServerlessCache` resource**
 

@@ -23,6 +23,6 @@ apply them using the AWS Management Console AWS CLI and APIs.
   policy](AutoScaling-Scaling-Editing-a-Scaling-Policy.md "AutoScaling-Scaling-Editing-a-Scaling-Policy.md")
 - [Deleting a scaling
   policy](AutoScaling-Scaling-Deleting-a-Scaling-Policy.md "AutoScaling-Scaling-Deleting-a-Scaling-Policy.md")
-- [Use AWS CloudFormation for Auto Scaling
+- [Use CloudFormation for Auto Scaling
   policies](AutoScaling-with-Cloudformation-Shards.md "AutoScaling-with-Cloudformation-Shards.md")
 - [Scheduled scaling](AutoScaling-with-Scheduled-Scaling-Shards.md "AutoScaling-with-Scheduled-Scaling-Shards.md")

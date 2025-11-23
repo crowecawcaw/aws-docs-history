@@ -10,7 +10,7 @@ By using Local Zones, you can place resources such as an ElastiCache cluster in 
 locations close to your users.
 
 When you create an ElastiCache cluster, you can choose a subnet in a Local Zone. Local Zones have
-their own connections to the internet and support AWS Direct Connect. Thus, resources
+their own connections to the internet and support Direct Connect. Thus, resources
 created in a Local Zone can serve local users with very low-latency communications. For more
 information, see [AWS Local
 Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/ "https://aws.amazon.com/about-aws/global-infrastructure/localzones/").

@@ -1,54 +1,41 @@
-# Create a Valkey serverless cache
+# (Optional) Clean up
 
-In this step, you create a new cache in Amazon ElastiCache.
+If you no longer need the Amazon ElastiCache cache that you created, you can delete it.
+This step helps ensure that you are not charged for resources that you are not using.
+You can use the ElastiCache console, the AWS CLI, or the ElastiCache API to delete your cache.
 
 **AWS Management Console**
 
-To create a new cache using the ElastiCache console:
+To delete your cache using the console:
 
-1. Sign in to the AWS Management Console and open the [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. In the navigation pane on the left side of the console, choose **Valkey caches**.
-3. On the right side of the console, choose **Create Valkey cache**
-4. In the **Cache settings** enter a **Name**.
-   You can optionally enter a **description** for the cache.
-5. Leave the default settings selected.
-6. Click **Create** to create the cache.
-7. Once the cache is in "ACTIVE" status, you can begin writing and reading data to the cache. .
-   **AWS CLI**
+1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at
+   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
+2. In the navigation pane on the left side of the console, choose **Valkey Caches**.
+3. Choose the radio button next to the cache you want to delete.
+4. Select **Actions** on the top right, and select **Delete**.
+5. You can optionally choose to take a final snapshot before you delete your cache.
+6. In the **Delete** confirmation screen, re-enter the cache name and choose
+   **Delete** to delete the cluster, or choose **Cancel** to keep the cluster.
+   As soon as your cache moves in to the **DELETING** status, you stop incurring charges for it.
 
-The following AWS CLI example creates a new cache using create-serverless-cache.
+**AWS CLI**
+
+The following AWS CLI example deletes a cache using the delete-serverless-cache command.
 
 **Linux**
 
 ```
-aws elasticache create-serverless-cache \
-    --serverless-cache-name CacheName \
-    --engine valkey
+aws elasticache delete-serverless-cache \
+		--serverless-cache-name CacheName
 ```
 
 **Windows**
 
 ```
-aws elasticache create-serverless-cache ^
-    --serverless-cache-name CacheName ^
-    --engine valkey
+aws elasticache delete-serverless-cache ^
+		--serverless-cache-name CacheName
 ```
 
-Note that the value of the Status field is set to `CREATING`.
+Note that the value of the **Status** field is set to **DELETING**.
 
-To verify that ElastiCache has finished creating the cache, use the `describe-serverless-caches` command.
-
-**Linux**
-
-```
-aws elasticache describe-serverless-caches --serverless-cache-name CacheName
-```
-
-**Windows**
-
-```
-aws elasticache describe-serverless-caches --serverless-cache-name CacheName
-```
-
-After creating the new cache, proceed to
-[Read and write data to the cache](GettingStarted.serverless-valkey.md "GettingStarted.serverless-valkey.md").
+You may now proceed to [Next Steps](GettingStarted.serverless-valkey.md "GettingStarted.serverless-valkey.md").

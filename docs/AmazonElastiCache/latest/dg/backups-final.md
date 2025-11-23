@@ -15,9 +15,9 @@ choose **Yes** under **Create backup** and give the backup a name.
 
 ###### Topics
 
-- [When deleting a Valkey cache, Memcached serverless cache, or Redis OSS cache](#w30aac24b7c29b7b1b7 "#w30aac24b7c29b7b1b7")
-- [When deleting a Valkey or Redis OSS cluster with no read replicas](#w30aac24b7c29b7b1b9 "#w30aac24b7c29b7b1b9")
-- [When deleting a Valkey or Redis OSS cluster with read replicas](#w30aac24b7c29b7b1c11 "#w30aac24b7c29b7b1c11")
+- [When deleting a Valkey cache, Memcached serverless cache, or Redis OSS cache](#w2aac24b7c29b7b1b7 "#w2aac24b7c29b7b1b7")
+- [When deleting a Valkey or Redis OSS cluster with no read replicas](#w2aac24b7c29b7b1b9 "#w2aac24b7c29b7b1b9")
+- [When deleting a Valkey or Redis OSS cluster with read replicas](#w2aac24b7c29b7b1c11 "#w2aac24b7c29b7b1c11")
 
 ### When deleting a Valkey cache, Memcached serverless cache, or Redis OSS cache
 

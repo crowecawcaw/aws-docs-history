@@ -1,60 +1,70 @@
-# Using the ElastiCache Cluster Client for .NET
+# Using the ElastiCache Cluster Client for PHP
 
-###### Note
+The program below demonstrates how to use the ElastiCache Cluster Client to connect
+to a cluster configuration endpoint and add a data item to the cache. Using Auto
+Discovery, the program will connect to all of the nodes in the cluster without any
+further intervention.
 
-The ElastiCache .NET cluster client has been deprecated as of May, 2022.
-
-.NET client for ElastiCache is open source at
-[https://github.com/awslabs/elasticache-cluster-config-net](https://github.com/awslabs/elasticache-cluster-config-net "https://github.com/awslabs/elasticache-cluster-config-net").
-
-.NET applications typically get their configurations from their config file.
-The following is a sample application config file.
+To use the ElastiCache Cluster Client for PHP, you will first need to install it on your Amazon EC2 instance.
+For more information, see [Installing the ElastiCache cluster client for PHP](Appendix.md "Appendix.md")
 
 ```
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-    <configSections>
-        <section
-            name="clusterclient"
-            type="Amazon.ElastiCacheCluster.ClusterConfigSettings, Amazon.ElastiCacheCluster" />
-    </configSections>
+<?php
 
-    <clusterclient>
-        <!-- the hostname and port values are from step 1 above -->
-        <endpoint hostname="mycluster.fnjyzo.cfg.use1.cache.amazonaws.com" port="11211" />
-    </clusterclient>
-</configuration>
+ /**
+  * Sample PHP code to show how to integrate with the Amazon ElastiCache
+  * Auto Discovery feature.
+  */
+
+  /* Configuration endpoint to use to initialize memcached client.
+   * This is only an example. 	*/
+  $server_endpoint = "mycluster.fnjyzo**.cfg**.use1.cache.amazonaws.com";
+
+  /* Port for connecting to the ElastiCache cluster.
+   * This is only an example 	*/
+  $server_port = 11211;
+
+ /**
+  * The following will initialize a Memcached client to utilize the Auto Discovery feature.
+  *
+  * By configuring the client with the Dynamic client mode with single endpoint, the
+  * client will periodically use the configuration endpoint to retrieve the current cache
+  * cluster configuration. This allows scaling the cluster up or down in number of nodes
+  * without requiring any changes to the PHP application.
+  *
+  * By default the Memcached instances are destroyed at the end of the request.
+  * To create an instance that persists between requests,
+  *    use persistent_id to specify a unique ID for the instance.
+  * All instances created with the same persistent_id will share the same connection.
+  * See http://php.net/manual/en/memcached.construct.php for more information.
+  */
+  $dynamic_client = new Memcached('`persistent-id`');
+  $dynamic_client->setOption(Memcached::OPT_CLIENT_MODE, Memcached::DYNAMIC_CLIENT_MODE);
+  $dynamic_client->addServer($server_endpoint, $server_port);
+
+  /**
+  * Store the data for 60 seconds in the cluster.
+  * The client will decide which cache host will store this item.
+  */
+  $dynamic_client->set('key', 'value', 60);
+
+
+ /**
+  * Configuring the client with Static client mode disables the usage of Auto Discovery
+  * and the client operates as it did before the introduction of Auto Discovery.
+  * The user can then add a list of server endpoints.
+  */
+  $static_client = new Memcached('`persistent-id`');
+  $static_client->setOption(Memcached::OPT_CLIENT_MODE, Memcached::STATIC_CLIENT_MODE);
+  $static_client->addServer($server_endpoint, $server_port);
+
+ /**
+  * Store the data without expiration.
+  * The client will decide which cache host will store this item.
+  */
+  $static_client->set('key', 'value');
+  ?>
 ```
 
-The C# program below demonstrates how to use the ElastiCache Cluster Client to connect to a cluster
-configuration endpoint and add a data item to the cache. Using Auto Discovery, the
-program will connect to all of the nodes in the cluster without any further
-intervention.
-
-```
-// *****************
-// Sample C# code to show how to integrate with the Amazon ElastiCcache Auto Discovery feature.
-
-using System;
-
-using Amazon.ElastiCacheCluster;
-
-using Enyim.Caching;
-using Enyim.Caching.Memcached;
-
-public class DotNetAutoDiscoveryDemo  {
-
-    public static void Main(String[] args)  {
-
-        // instantiate a new client.
-        ElastiCacheClusterConfig config = new ElastiCacheClusterConfig();
-        MemcachedClient memClient = new MemcachedClient(config);
-
-        // Store the data for 3600 seconds (1hour) in the cluster.
-        // The client will decide which cache host will store this item.
-        memClient.Store(StoreMode.Set, 3600, "This is the data value.");
-
-    }  // end Main
-
-}  // end class DotNetAutoDiscoverDemo
-```
+For an example on how to use the ElastiCache Cluster Client with TLS enabled, see
+[Using in transit encryption with PHP and Memcached](in-transit-encryption.md#in-transit-encryption-connect-php-mc "in-transit-encryption.md#in-transit-encryption-connect-php-mc").

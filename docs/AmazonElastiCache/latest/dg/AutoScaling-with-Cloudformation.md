@@ -1,4 +1,4 @@
-# Use AWS CloudFormation for Auto Scaling
+# Use CloudFormation for Auto Scaling
 
 policies
 

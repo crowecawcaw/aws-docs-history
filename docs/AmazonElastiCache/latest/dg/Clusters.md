@@ -1,86 +1,196 @@
-# Deleting a cluster in ElastiCache
+# Modifying an ElastiCache cluster
 
-As long as an ElastiCache cluster is in the _available_ state, you are being charged for it, whether or not
-you are actively using it. To stop incurring charges, delete the cluster.
+In addition to adding or removing nodes from an ElastiCache cluster,
+there can be times where you need to make other changes such as
+adding a security group, changing the maintenance window or a parameter group.
 
-###### Warning
+We recommend that you have your maintenance window fall at the time of lowest usage.
+Thus it might need modification from time to time.
 
-When you delete an ElastiCache cluster, your manual snapshots are retained. You can also create a final snapshot before the cluster is deleted. Automatic cache snapshots are not retained.
+When you change a cluster's parameters, the change is applied to the cluster either
+immediately or after the cluster is restarted. This is true whether you change the
+cluster's parameter group itself or a parameter value within the cluster's
+parameter group. To determine when a particular parameter change is applied, see the
+**Changes Take Effect** section of the **Details** column in the tables for
 
-The following procedure deletes a single cluster from your deployment. To delete multiple
-clusters, repeat the procedure for each cluster that you want to delete. You do not
-need to wait for one cluster to finish deleting before starting the procedure to
-delete another cluster.
+[Memcached specific parameters](ParameterGroups.md#ParameterGroups.Memcached "ParameterGroups.md#ParameterGroups.Memcached") and
+[Valkey and Redis OSS parameters](ParameterGroups.md#ParameterGroups.Redis "ParameterGroups.md#ParameterGroups.Redis").
+For information on rebooting a cluster's nodes, see [Rebooting nodes](nodes.md "nodes.md").
 
-###### To delete a cluster
+###### To modify a cluster
 
-1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at
+1. Sign in to the AWS Management Console and open the ElastiCache console at
    [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. In the ElastiCache engine dashboard, choose the engine that is running in the cluster that you want to delete.
+2. From the list in the upper-right corner, choose the AWS Region where the cluster that you
+   want to modify is located.
+3. In the navigation pane, choose the engine running on the cluster that you want to
+   modify.
 
-A list of all clusters running that engine appears. 3. To choose the cluster to delete, choose the cluster's name from the list of
-clusters.
+A list of the chosen engine's clusters appears. 4. In the list of clusters, for the cluster that you want to modify, choose its name. 5. Choose **Actions** and then choose **Modify**.
+
+The **Modify Cluster** window appears. 6. In the **Modify Cluster** window, make the modifications that you
+want. Options include:
+
+    * Description
+    * Cluster mode - To modify cluster mode from **Disabled** to **Enabled**, you must first set the cluster mode to **Compatible**.
+
+
+    Compatible mode allows your Valkey or Redis OSS clients to connect using both cluster mode enabled and cluster mode disabled. After you migrate all Valkey or Redis OSS clients to use cluster mode enabled, you can then complete cluster mode
+     configuration and set the cluster mode to **Enabled**.
+    * Engine Version Compatibility
+
+
+    ###### Important
+
+    You can upgrade to newer engine versions. If you upgrade major engine versions, for example from 5.0.6 to 6.0, you need to select a parameter group family that is compatible with the new engine version. For more information on doing so, see [Version Management for ElastiCache](VersionManagement.md "VersionManagement.md"). However, you can't
+     downgrade to older engine versions except by deleting the
+     existing cluster and creating it again.
+    * VPC Security Group(s)
+    * Parameter Group
+    * Node Type
+
+
+    ###### Note
+
+    If the cluster is using a node type from the r6gd family, you can only choose a different node size from within that family. If you choose a node type from the r6gd family, data tiering will automatically be enabled.
+     For more information, see [Data tiering](data-tiering.md "data-tiering.md").
+    * Multi-AZ
+    * Auto failover (cluster mode disabled only)
+    * Enable Automatic Backups
+    * Backup Node Id
+    * Backup Retention Period
+    * Backup Window
+    * Topic for SNS Notification
+
+
+    * Memcached Engine Version Compatibility
+    * Network type
+
+
+    ###### Note
+
+    If you are switching from IPv4 to IPv6, you must select or create subnet groups compatible with IPv6.
+     For more information, see [Choosing a network type in ElastiCache](network-type.md "network-type.md").
+    * VPC Security Group(s)
+    * Parameter Group
+    * Maintenance Window
+    * Topic for SNS Notification
+
+The **Apply Immediately** box applies only to
+engine version and node type modifications. To apply changes immediately, choose the
+**Apply Immediately** check box. If this box is not chosen, engine version
+modifications are applied during the next maintenance window.
+Other modifications, such as changing the maintenance window, are applied immediately.
+
+###### To enable/disable log delivery for Redis
+
+1. From the list of clusters, choose the cluster you want to modify. Choose the **Cluster name** and not the checkbox beside it.
+2. On the **Cluster details** page, choose the **Logs** tab.
+3. To enable or disable slow logs, choose either **Enable** or **Disable**.
+
+If you choose enable:
+
+    1. Under **Log format**, choose either **JSON** or **Text**.
+    2. Under **Log destination type**, choose either **CloudWatch Logs** or **Kinesis Firehose**.
+    3. Under **Log destination**, you can choose **Create new** and enter either your CloudWatchLogs log group name or your Kinesis Data Firehose stream name.
+     You can also choose **Select existing** and then choose either your CloudWatchLogs log group name or your Kinesis Data Firehose stream name.
+    4. Choose **Enable**.
+
+###### To change your configuration for Redis:
+
+1. Choose **Modify**.
+2. Under **Log format**, choose either **JSON** or **Text**.
+3. Under **Destination Type**, choose either **CloudWatch Logs** or **Kinesis Firehose**.
+4. Under **Log destination**, choose either **Create new** and enter your CloudWatchLogs log group name or your Kinesis Data Firehose stream name. Or
+   choose **Select existing** and then choose your CloudWatchLogs log group name or your Kinesis Data Firehose stream name.
+   You can modify an existing cluster using the AWS CLI `modify-cache-cluster` operation.
+   To modify a cluster's configuration value, specify the cluster's ID, the parameter to
+   change and the parameter's new value.
+   The following example changes the maintenance window for a cluster named `my-cluster` and
+   applies the change immediately.
 
 ###### Important
 
-You can only delete one cluster at a time from the ElastiCache console. Choosing multiple clusters
-disables the delete operation. 4. For **Actions**, choose **Delete**. 5. In the **Delete Cluster** confirmation screen, choose
-**Delete** to delete the cluster, or choose
-**Cancel** to keep the cluster.
+You can upgrade to newer Memcached engine versions. For more information on doing so, see [Version Management for ElastiCache](VersionManagement.md "VersionManagement.md"). However, you can't
+downgrade to older engine versions except by deleting the
+existing cluster and creating it again.
 
-If you chose **Delete**, the status of the cluster changes to _deleting_.
-As soon as your cluster is no longer listed in the list of clusters, you stop incurring charges for it.
+###### Important
 
-The following code deletes the ElastiCache cluster `my-cluster`.
-
-```
-aws elasticache delete-cache-cluster --cache-cluster-id `my-cluster`
-```
-
-The `delete-cache-cluster` CLI action only deletes one cluster. To delete
-multiple clusters, call `delete-cache-cluster` for each cache
-cluster that you want to delete. You do not need to wait for one cluster to
-finish deleting before deleting another.
+You can upgrade to newer Valkey or Redis OSS engine versions. If you upgrade major engine versions, for example from Redis OSS 5.0.6 to Redis OSS 6.0, you need to select a parameter group family that is compatible with the new engine version. For more information on doing so, see [Version Management for ElastiCache](VersionManagement.md "VersionManagement.md"). However, you can't
+downgrade to older engine versions except by deleting the
+existing cluster and creating it again.
 
 For Linux, macOS, or Unix:
 
 ```
-aws elasticache delete-cache-cluster \
+aws elasticache modify-cache-cluster \
     --cache-cluster-id `my-cluster` \
-    --region `us-east-2`
+    --preferred-maintenance-window `sun:23:00-mon:02:00`
 ```
 
 For Windows:
 
 ```
-aws elasticache delete-cache-cluster ^
+aws elasticache modify-cache-cluster ^
     --cache-cluster-id `my-cluster` ^
-    --region `us-east-2`
+    --preferred-maintenance-window `sun:23:00-mon:02:00`
 ```
 
-For more information, see the AWS CLI for ElastiCache topic [`delete-cache-cluster`](../../../cli/latest/reference/elasticache/delete-cache-cluster.md "../../../cli/latest/reference/elasticache/delete-cache-cluster.md").
+The `--apply-immediately` parameter applies only to
+modifications in node type, engine version, and changing the number of nodes
+in a cluster.
+If you want to apply any of these changes immediately,
+use the `--apply-immediately` parameter.
+If you prefer postponing these changes to your next maintenance window, use the
+`--no-apply-immediately` parameter.
+Other modifications, such as changing the maintenance window, are applied immediately.
 
-The following code deletes the cluster `my-cluster`.
+For more information, see the AWS CLI for ElastiCache topic [`modify-cache-cluster`](../../../cli/latest/reference/elasticache/modify-cache-cluster.md "../../../cli/latest/reference/elasticache/modify-cache-cluster.md").
+
+You can modify an existing cluster using the ElastiCache API `ModifyCacheCluster` operation.
+To modify a cluster's configuration value, specify the cluster's ID, the parameter to
+change and the parameter's new value.
+The following example changes the maintenance window for a cluster named `my-cluster` and
+applies the change immediately.
+
+###### Important
+
+You can upgrade to newer Memcached engine versions. For more information on doing so, see [Version Management for ElastiCache](VersionManagement.md "VersionManagement.md"). However, you can't
+downgrade to older engine versions except by deleting the
+existing cluster and creating it again.
+
+###### Important
+
+You can upgrade to newer Valkey or Redis OSS engine versions. If you upgrade major engine versions, for example from Redis OSS 5.0.6 to Redis OSS 6.0, you need to select a parameter group family that is compatible with the new engine version. For more information on doing so, see [Version Management for ElastiCache](VersionManagement.md "VersionManagement.md"). However, you can't
+downgrade to older engine versions except by deleting the
+existing cluster and creating it again.
+
+Line breaks are added for ease of reading.
 
 ```
 https://elasticache.us-west-2.amazonaws.com/
-    ?Action=DeleteCacheCluster
+    ?Action=ModifyCacheCluster
     &CacheClusterId=my-cluster
-    &Region us-east-2
+    &PreferredMaintenanceWindow=sun:23:00-mon:02:00
     &SignatureVersion=4
     &SignatureMethod=HmacSHA256
-    &Timestamp=20150202T220302Z
+    &Timestamp=20150901T220302Z
     &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
     &X-Amz-Date=20150202T220302Z
     &X-Amz-SignedHeaders=Host
-    &X-Amz-Expires=20150202T220302Z
+    &X-Amz-Expires=20150901T220302Z
     &X-Amz-Credential=<credential>
     &X-Amz-Signature=<signature>
 ```
 
-The `DeleteCacheCluster` API operation only deletes one cluster. To delete
-multiple clusters, call `DeleteCacheCluster` for each cluster
-that you want to delete. You do not need to wait for one cluster to finish
-deleting before deleting another.
+The `ApplyImmediately` parameter applies only to
+modifications in node type, engine version, and changing the number of nodes
+in a cluster.
+If you want to apply any of these changes immediately,
+set the `ApplyImmediately` parameter to `true`.
+If you prefer postponing these changes to your next maintenance window, set the
+`ApplyImmediately` parameter to `false`.
+Other modifications, such as changing the maintenance window, are applied immediately.
 
-For more information, see the ElastiCache API reference topic [`DeleteCacheCluster`](../APIReference/API_DeleteCacheCluster.md "../APIReference/API_DeleteCacheCluster.md").
+For more information, see the ElastiCache API reference topic [`ModifyCacheCluster`](../APIReference/API_ModifyCacheCluster.md "../APIReference/API_ModifyCacheCluster.md").
