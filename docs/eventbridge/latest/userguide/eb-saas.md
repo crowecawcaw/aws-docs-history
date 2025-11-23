@@ -20,48 +20,48 @@ The following video covers SaaS integrations with EventBridge:
 
 EventBridge supports the following SaaS partner integrations:
 
-- [Adobe](https://console.aws.amazon.com/events/#/partners/adobe.com?page=overview "https://console.aws.amazon.com/events/#/partners/adobe.com?page=overview")
-- [Auth0](https://console.aws.amazon.com/events/#/partners/auth0.com?page=overview "https://console.aws.amazon.com/events/#/partners/auth0.com?page=overview")
-- [Blitline](https://console.aws.amazon.com/events/#/partners/blitline.com?page=overview "https://console.aws.amazon.com/events/#/partners/blitline.com?page=overview")
-- [Buildkite](https://console.aws.amazon.com/events/#/partners/buildkite.com?page=overview "https://console.aws.amazon.com/events/#/partners/buildkite.com?page=overview")
-- [Chargebee](https://console.aws.amazon.com/events/#/partners/chargebee.com?page=overview "https://console.aws.amazon.com/events/#/partners/chargebee.com?page=overview")
-- [Checkout.com](https://console.aws.amazon.com/events/#/partners/checkout.com?page=overview "https://console.aws.amazon.com/events/#/partners/checkout.com?page=overview")
-- [CleverTap](https://console.aws.amazon.com/events/#/partners/clevertap.com?page=overview "https://console.aws.amazon.com/events/#/partners/clevertap.com?page=overview")
-- [Datadog](https://console.aws.amazon.com/events/#/partners/datadoghq.com?page=overview "https://console.aws.amazon.com/events/#/partners/datadoghq.com?page=overview")
-- [Epsagon](https://console.aws.amazon.com/events/#/partners/epsagon.com?page=overview "https://console.aws.amazon.com/events/#/partners/epsagon.com?page=overview")
-- [Freshworks](https://console.aws.amazon.com/events/#/partners/freshworks.com?page=overview "https://console.aws.amazon.com/events/#/partners/freshworks.com?page=overview")
-- [Genesys](https://console.aws.amazon.com/events/#/partners/genesys.com?page=overview "https://console.aws.amazon.com/events/#/partners/genesys.com?page=overview")
-- [GS2](https://console.aws.amazon.com/events/#/partners/gs2.io?page=overview "https://console.aws.amazon.com/events/#/partners/gs2.io?page=overview")
-- [Guidewire](https://console.aws.amazon.com/events/#/partners/guidewire.com?page=overview "https://console.aws.amazon.com/events/#/partners/guidewire.com?page=overview")
-- [Karte](https://console.aws.amazon.com/events/#/partners/karte.io?page=overview "https://console.aws.amazon.com/events/#/partners/karte.io?page=overview")
-- [Kloudless](https://console.aws.amazon.com/events/#/partners/kloudless.com?page=overview "https://console.aws.amazon.com/events/#/partners/kloudless.com?page=overview")
-- [Mackerel](https://console.aws.amazon.com/events/#/partners/mackerel.io?page=overview "https://console.aws.amazon.com/events/#/partners/mackerel.io?page=overview")
-- [MongoDB](https://console.aws.amazon.com/events/#/partners/mongodb.com?page=overview "https://console.aws.amazon.com/events/#/partners/mongodb.com?page=overview")
+- [Adobe](https://console.aws.amazon.com//events/#/partners/adobe.com?page=overview "https://console.aws.amazon.com//events/#/partners/adobe.com?page=overview")
+- [Auth0](https://console.aws.amazon.com//events/#/partners/auth0.com?page=overview "https://console.aws.amazon.com//events/#/partners/auth0.com?page=overview")
+- [Blitline](https://console.aws.amazon.com//events/#/partners/blitline.com?page=overview "https://console.aws.amazon.com//events/#/partners/blitline.com?page=overview")
+- [Buildkite](https://console.aws.amazon.com//events/#/partners/buildkite.com?page=overview "https://console.aws.amazon.com//events/#/partners/buildkite.com?page=overview")
+- [Chargebee](https://console.aws.amazon.com//events/#/partners/chargebee.com?page=overview "https://console.aws.amazon.com//events/#/partners/chargebee.com?page=overview")
+- [Checkout.com](https://console.aws.amazon.com//events/#/partners/checkout.com?page=overview "https://console.aws.amazon.com//events/#/partners/checkout.com?page=overview")
+- [CleverTap](https://console.aws.amazon.com//events/#/partners/clevertap.com?page=overview "https://console.aws.amazon.com//events/#/partners/clevertap.com?page=overview")
+- [Datadog](https://console.aws.amazon.com//events/#/partners/datadoghq.com?page=overview "https://console.aws.amazon.com//events/#/partners/datadoghq.com?page=overview")
+- [Epsagon](https://console.aws.amazon.com//events/#/partners/epsagon.com?page=overview "https://console.aws.amazon.com//events/#/partners/epsagon.com?page=overview")
+- [Freshworks](https://console.aws.amazon.com//events/#/partners/freshworks.com?page=overview "https://console.aws.amazon.com//events/#/partners/freshworks.com?page=overview")
+- [Genesys](https://console.aws.amazon.com//events/#/partners/genesys.com?page=overview "https://console.aws.amazon.com//events/#/partners/genesys.com?page=overview")
+- [GS2](https://console.aws.amazon.com//events/#/partners/gs2.io?page=overview "https://console.aws.amazon.com//events/#/partners/gs2.io?page=overview")
+- [Guidewire](https://console.aws.amazon.com//events/#/partners/guidewire.com?page=overview "https://console.aws.amazon.com//events/#/partners/guidewire.com?page=overview")
+- [Karte](https://console.aws.amazon.com//events/#/partners/karte.io?page=overview "https://console.aws.amazon.com//events/#/partners/karte.io?page=overview")
+- [Kloudless](https://console.aws.amazon.com//events/#/partners/kloudless.com?page=overview "https://console.aws.amazon.com//events/#/partners/kloudless.com?page=overview")
+- [Mackerel](https://console.aws.amazon.com//events/#/partners/mackerel.io?page=overview "https://console.aws.amazon.com//events/#/partners/mackerel.io?page=overview")
+- [MongoDB](https://console.aws.amazon.com//events/#/partners/mongodb.com?page=overview "https://console.aws.amazon.com//events/#/partners/mongodb.com?page=overview")
 - [New
-  Relic](https://console.aws.amazon.com/events/#/partners/newrelic.com?page=overview "https://console.aws.amazon.com/events/#/partners/newrelic.com?page=overview")
-- [OneLogin](https://console.aws.amazon.com/events/#/partners/onelogin.com?page=overview "https://console.aws.amazon.com/events/#/partners/onelogin.com?page=overview")
-- [Opsgenie](https://console.aws.amazon.com/events/#/partners/opsgenie.com?page=overview "https://console.aws.amazon.com/events/#/partners/opsgenie.com?page=overview")
-- [PagerDuty](https://console.aws.amazon.com/events/#/partners/pagerduty.com?page=overview "https://console.aws.amazon.com/events/#/partners/pagerduty.com?page=overview")
-- [Payshield](https://console.aws.amazon.com/events/#/partners/payshield.com.au?page=overview "https://console.aws.amazon.com/events/#/partners/payshield.com.au?page=overview")
+  Relic](https://console.aws.amazon.com//events/#/partners/newrelic.com?page=overview "https://console.aws.amazon.com//events/#/partners/newrelic.com?page=overview")
+- [OneLogin](https://console.aws.amazon.com//events/#/partners/onelogin.com?page=overview "https://console.aws.amazon.com//events/#/partners/onelogin.com?page=overview")
+- [Opsgenie](https://console.aws.amazon.com//events/#/partners/opsgenie.com?page=overview "https://console.aws.amazon.com//events/#/partners/opsgenie.com?page=overview")
+- [PagerDuty](https://console.aws.amazon.com//events/#/partners/pagerduty.com?page=overview "https://console.aws.amazon.com//events/#/partners/pagerduty.com?page=overview")
+- [Payshield](https://console.aws.amazon.com//events/#/partners/payshield.com.au?page=overview "https://console.aws.amazon.com//events/#/partners/payshield.com.au?page=overview")
 - [SaaSus
-  Platform](https://console.aws.amazon.com/events/#/partners/saasus.io?page=overview "https://console.aws.amazon.com/events/#/partners/saasus.io?page=overview")
-- [SailPoint](https://console.aws.amazon.com/events/#/partners/sailpoint.com?page=overview "https://console.aws.amazon.com/events/#/partners/sailpoint.com?page=overview")
-- [Saviynt](https://console.aws.amazon.com/events/#/partners/saviynt.com?page=overview "https://console.aws.amazon.com/events/#/partners/saviynt.com?page=overview")
-- [Segment](https://console.aws.amazon.com/events/#/partners/segment.com?page=overview "https://console.aws.amazon.com/events/#/partners/segment.com?page=overview")
-- [Shopify](https://console.aws.amazon.com/events/#/partners/shopify.com?page=overview "https://console.aws.amazon.com/events/#/partners/shopify.com?page=overview")
-- [SignalFx](https://console.aws.amazon.com/events/#/partners/signalfx.com?page=overview "https://console.aws.amazon.com/events/#/partners/signalfx.com?page=overview")
-- [Site24x7](https://console.aws.amazon.com/events/#/partners/site24x7.com?page=overview "https://console.aws.amazon.com/events/#/partners/site24x7.com?page=overview")
-- [Stax](https://console.aws.amazon.com/events/#/partners/stax.io "https://console.aws.amazon.com/events/#/partners/stax.io")
-- [Stripe](https://console.aws.amazon.com/events/#/partners/stripe.com "https://console.aws.amazon.com/events/#/partners/stripe.com")
-- [SugarCRM](https://console.aws.amazon.com/events/#/partners/sugarcrm.com?page=overview "https://console.aws.amazon.com/events/#/partners/sugarcrm.com?page=overview")
-- [SugarCRM](https://console.aws.amazon.com/events/#/partners/sugarcrm.com?page=overview "https://console.aws.amazon.com/events/#/partners/sugarcrm.com?page=overview")
-- [Symantec](https://console.aws.amazon.com/events/#/partners/symantec.com?page=overview "https://console.aws.amazon.com/events/#/partners/symantec.com?page=overview")
-- [Thundra](https://console.aws.amazon.com/events/#/partners/thundra.io?page=overview "https://console.aws.amazon.com/events/#/partners/thundra.io?page=overview")
-- [TriggerMesh](https://console.aws.amazon.com/events/#/partners/triggermesh.com?page=overview "https://console.aws.amazon.com/events/#/partners/triggermesh.com?page=overview")
-- [Whispir](https://console.aws.amazon.com/events/#/partners/whispir.com?page=overview "https://console.aws.amazon.com/events/#/partners/whispir.com?page=overview")
-- [Zendesk](https://console.aws.amazon.com/events/#/partners/zendesk.com?page=overview "https://console.aws.amazon.com/events/#/partners/zendesk.com?page=overview")
+  Platform](https://console.aws.amazon.com//events/#/partners/saasus.io?page=overview "https://console.aws.amazon.com//events/#/partners/saasus.io?page=overview")
+- [SailPoint](https://console.aws.amazon.com//events/#/partners/sailpoint.com?page=overview "https://console.aws.amazon.com//events/#/partners/sailpoint.com?page=overview")
+- [Saviynt](https://console.aws.amazon.com//events/#/partners/saviynt.com?page=overview "https://console.aws.amazon.com//events/#/partners/saviynt.com?page=overview")
+- [Segment](https://console.aws.amazon.com//events/#/partners/segment.com?page=overview "https://console.aws.amazon.com//events/#/partners/segment.com?page=overview")
+- [Shopify](https://console.aws.amazon.com//events/#/partners/shopify.com?page=overview "https://console.aws.amazon.com//events/#/partners/shopify.com?page=overview")
+- [SignalFx](https://console.aws.amazon.com//events/#/partners/signalfx.com?page=overview "https://console.aws.amazon.com//events/#/partners/signalfx.com?page=overview")
+- [Site24x7](https://console.aws.amazon.com//events/#/partners/site24x7.com?page=overview "https://console.aws.amazon.com//events/#/partners/site24x7.com?page=overview")
+- [Stax](https://console.aws.amazon.com//events/#/partners/stax.io "https://console.aws.amazon.com//events/#/partners/stax.io")
+- [Stripe](https://console.aws.amazon.com//events/#/partners/stripe.com "https://console.aws.amazon.com//events/#/partners/stripe.com")
+- [SugarCRM](https://console.aws.amazon.com//events/#/partners/sugarcrm.com?page=overview "https://console.aws.amazon.com//events/#/partners/sugarcrm.com?page=overview")
+- [SugarCRM](https://console.aws.amazon.com//events/#/partners/sugarcrm.com?page=overview "https://console.aws.amazon.com//events/#/partners/sugarcrm.com?page=overview")
+- [Symantec](https://console.aws.amazon.com//events/#/partners/symantec.com?page=overview "https://console.aws.amazon.com//events/#/partners/symantec.com?page=overview")
+- [Thundra](https://console.aws.amazon.com//events/#/partners/thundra.io?page=overview "https://console.aws.amazon.com//events/#/partners/thundra.io?page=overview")
+- [TriggerMesh](https://console.aws.amazon.com//events/#/partners/triggermesh.com?page=overview "https://console.aws.amazon.com//events/#/partners/triggermesh.com?page=overview")
+- [Whispir](https://console.aws.amazon.com//events/#/partners/whispir.com?page=overview "https://console.aws.amazon.com//events/#/partners/whispir.com?page=overview")
+- [Zendesk](https://console.aws.amazon.com//events/#/partners/zendesk.com?page=overview "https://console.aws.amazon.com//events/#/partners/zendesk.com?page=overview")
 - [Amazon Seller
-  Partner API](https://console.aws.amazon.com/events/#/partners/sellingpartnerapi.amazon.com?page=overview "https://console.aws.amazon.com/events/#/partners/sellingpartnerapi.amazon.com?page=overview")
+  Partner API](https://console.aws.amazon.com//events/#/partners/sellingpartnerapi.amazon.com?page=overview "https://console.aws.amazon.com//events/#/partners/sellingpartnerapi.amazon.com?page=overview")
 
 ## Configuring Amazon EventBridge to receive events from a SaaS
 
@@ -131,9 +131,9 @@ Calling [`put-permission`](../../../cli/latest/reference/events/put-permission.m
 the partner account of the event source associated with the partner event bus is
 permitted to send events to it.
 
-###### Associate the partner source with a partner event bus (AWS CloudFormation)
+###### Associate the partner source with a partner event bus (CloudFormation)
 
-1. Create a AWS CloudFormation template that provisions an [`AWS::Events::EventBus`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.md") resource with the partner event source.
+1. Create a CloudFormation template that provisions an [`AWS::Events::EventBus`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.md") resource with the partner event source.
 
 Both `Name` and `EventSourceName` should be set to the partner event source name. For example:
 
@@ -151,7 +151,7 @@ Resources:
       Name: '`aws.partner/saas-integration/name`'
 ```
 
-2. Use [`cloudformation create-stack`](../../../cli/latest/reference/cloudformation/create-stack.md "../../../cli/latest/reference/cloudformation/create-stack.md") or the AWS CloudFormation console to create a stack from the template. For example:
+2. Use [`cloudformation create-stack`](../../../cli/latest/reference/cloudformation/create-stack.md "../../../cli/latest/reference/cloudformation/create-stack.md") or the CloudFormation console to create a stack from the template. For example:
 
 ```
 aws cloudformation create-stack --stack-name `eventbridge-saas` --template-body `file://template.yml` --region `us-east-1`

@@ -28,7 +28,7 @@ console
 The **Event bus in secondary Region** is auto-filled and not
 editable. 7. For **Route 53 health check for triggering failover and recovery**,
 choose the health check that the endpoint will monitor. If you don't already have a
-health check, choose **New Health check** to open the AWS CloudFormation console and
+health check, choose **New Health check** to open the CloudFormation console and
 create a health check using a CloudFormation template.
 
 ###### Note
@@ -61,6 +61,6 @@ the Amazon EventBridge API Reference.
 
 ## To create a global endpoint by using
 
-AWS CloudFormation
+CloudFormation
 
 To create a global endpoint using the AWS CloudFormation API, see [AWS::Events::Endpoints](../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.md") in the AWS CloudFormation User Guide.

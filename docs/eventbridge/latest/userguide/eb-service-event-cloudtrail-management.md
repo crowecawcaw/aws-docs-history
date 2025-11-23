@@ -48,7 +48,7 @@ events:
 
 ###### Note
 
-Enabling a rule for CloudWatch management events is supported through the AWS CLI and AWS CloudFormation templates only.
+Enabling a rule for CloudWatch management events is supported through the AWS CLI and CloudFormation templates only.
 
 The following example illustrates how to match against specific events. Best practice is to define a dedicated rule for matching
 specific events, for clarity and ease of editing.

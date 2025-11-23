@@ -16,7 +16,7 @@ The following tutorials help you explore the features of EventBridge and how to 
 Amazon EventBridge works with other AWS services to process events or invoke an AWS resource as the target of a
 rule. The following tutorials show you how to integrate EventBridge with other AWS services.
 
-- [Log Auto Scaling group states](eb-log-as-group-state.md "eb-log-as-group-state.md")
+- [Log Amazon EC2 Auto Scaling group states](eb-log-as-group-state.md "eb-log-as-group-state.md")
 - [Create rule for AWS API calls via CloudTrail](eb-log-api-call.md "eb-log-api-call.md")
 - [Log Amazon EC2 instance states](eb-log-ec2-instance-state.md "eb-log-ec2-instance-state.md")
 - [Log Amazon S3 object operations](eb-log-s3-data-events.md "eb-log-s3-data-events.md")

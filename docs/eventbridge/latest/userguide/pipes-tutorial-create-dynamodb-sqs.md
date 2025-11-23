@@ -26,7 +26,7 @@ stream of events from your pipe.
 
 ###### To create the CloudFormation template for provisioning pipe resources
 
-1. Copy the JSON template text in the [AWS CloudFormation template for generating prerequisites](#pipes-tutorial-create-cfn-template "#pipes-tutorial-create-cfn-template") section, below.
+1. Copy the JSON template text in the [CloudFormation template for generating prerequisites](#pipes-tutorial-create-cfn-template "#pipes-tutorial-create-cfn-template") section, below.
 2. Save the template as a JSON file (for example, `~/pipe-tutorial-resources.json`).
 
 Next, use the template file you just created to provision a CloudFormation stack.
@@ -45,7 +45,7 @@ aws cloudformation create-stack --stack-name `pipe-tuturial-resources` --templat
 
 ###### Provision tutorial prerequisites using the CloudFormation console
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Select **Stacks**, then select **Create stack**, and choose **with new resources (standard)**.
 
@@ -59,8 +59,8 @@ CloudFormation displays the **Create stack** wizard. 3. For **Prerequisite - Pre
 
 CloudFormation creates the stack and provisions the resources defined in the template.
 
-For more information about CloudFormation, see [What is AWS CloudFormation?](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") in the
-_AWS CloudFormation User Guide_.
+For more information about CloudFormation, see [What is CloudFormation?](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") in the
+_CloudFormation User Guide_.
 
 ## Step 1: Create the pipe
 
@@ -215,14 +215,14 @@ Then, delete the CloudFormation stack, to prevent being billed for the continued
 aws cloudformation delete-stack --stack-name `pipe-tuturial-resources`
 ```
 
-###### Delete the tutorial prerequisites using the AWS CloudFormation console
+###### Delete the tutorial prerequisites using the CloudFormation console
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the **Stacks** page, select the stack and then select **Delete**.
 3. Select **Delete** to confirm your action.
 
-## AWS CloudFormation template for generating prerequisites
+## CloudFormation template for generating prerequisites
 
 Use the JSON below to create a CloudFormation template for provisioning the source and target resources necessary for this tutorial.
 

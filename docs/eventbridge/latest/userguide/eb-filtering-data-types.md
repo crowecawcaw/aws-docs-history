@@ -5,7 +5,7 @@ examples show events and the event patterns that match them.
 
 ## Field matching
 
-You can match on the value of a field. Consider the following Amazon EC2 Auto Scaling
+You can match on the value of a field. Consider the following Amazon EC2 Amazon EC2 Auto Scaling
 event.
 
 ```

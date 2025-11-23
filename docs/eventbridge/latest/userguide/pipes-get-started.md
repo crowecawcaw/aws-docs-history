@@ -1,6 +1,6 @@
 # Getting started: Create an Amazon EventBridge pipe
 
-To get familiar with pipes and their capabilities, we'll use a AWS CloudFormation template to set up an
+To get familiar with pipes and their capabilities, we'll use a CloudFormation template to set up an
 EventBridge pipe and associated components. Then we can explore various pipe features.
 
 The template creates an EventBridge pipe that connects a stream from a DynamoDB table to an Amazon SQS

@@ -1,7 +1,7 @@
 # Managing event bus permissions in Amazon EventBridge
 
 Use the following procedure to modify the permissions for an existing event bus. For
-information about how to use AWS CloudFormation to create an event bus policy, see [AWS::Events::EventBusPolicy](../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.md").
+information about how to use CloudFormation to create an event bus policy, see [AWS::Events::EventBusPolicy](../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.md").
 
 ###### To manage permissions for an existing event bus
 

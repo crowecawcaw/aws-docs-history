@@ -1,4 +1,4 @@
-# Generating an AWS CloudFormation template from an existing EventBridge event bus
+# Generating an CloudFormation template from an existing EventBridge event bus
 
 AWS CloudFormation enables you to configure and manage your AWS resources across accounts and regions in a centralized and repeatable manner by treating infrastructure as code. CloudFormation does this by letting you create _templates_, which define the resources you want to provision and manage.
 
@@ -7,7 +7,7 @@ an aid to help you jumpstart developing CloudFormation templates. In
 addition, EventBridge provides the option of including the rules associated with that event bus in
 your template. You can then use these templates as the basis for [creating stacks](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") of resources under CloudFormation management.
 
-For more information on CloudFormation see [_The AWS CloudFormation User Guide_.](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
+For more information on CloudFormation see [_The CloudFormation User Guide_.](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
 
 ###### Note
 
@@ -33,7 +33,7 @@ EventBridge displays the template, generated in the selected format. By default,
    - To copy the template to the clipboard, choose **Copy**.
 
 6. To exit the template, choose **Cancel**.
-   Once you've customized your AWS CloudFormation template as necessary for your use case, you can use it
+   Once you've customized your CloudFormation template as necessary for your use case, you can use it
    to [create stacks](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in
    CloudFormation.
 

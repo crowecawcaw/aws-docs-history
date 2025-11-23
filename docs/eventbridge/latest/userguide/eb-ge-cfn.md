@@ -6,11 +6,11 @@ When using global endpoints you have to have a Route 53 health check to monitor
 
 ###### Topics
 
-- [AWS CloudFormation template for defining a Route 53 health check](#eb-ge-cfn-template "#eb-ge-cfn-template")
+- [CloudFormation template for defining a Route 53 health check](#eb-ge-cfn-template "#eb-ge-cfn-template")
 - [CloudWatch alarm template properties](#eb-ge-cfn-cw-alarm-definitions "#eb-ge-cfn-cw-alarm-definitions")
 - [Route 53 health check template properties](#eb-ge-cfn-health-check-definitions "#eb-ge-cfn-health-check-definitions")
 
-## AWS CloudFormation template for defining a Route 53 health check
+## CloudFormation template for defining a Route 53 health check
 
 Use the following template to define your Route 53 health check.
 

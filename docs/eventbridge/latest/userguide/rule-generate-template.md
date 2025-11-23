@@ -6,7 +6,7 @@ EventBridge enables you to generate templates from the existing rules in your ac
 an aid to help you jumpstart developing CloudFormation templates. You can select a single
 rule, or multiple rules to include in the template. You can then use these templates as the basis for [creating stacks](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") of resources under CloudFormation management.
 
-For more information on CloudFormation see [_The AWS CloudFormation User Guide_.](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
+For more information on CloudFormation see [_The CloudFormation User Guide_.](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
 
 ###### Note
 
@@ -15,12 +15,12 @@ generated template.
 
 You can also [generate a template from an existing event bus](eb-generate-event-bus-template.md "eb-generate-event-bus-template.md"), including the rules that event bus contains.
 
-###### To generate an AWS CloudFormation template from one or more rules
+###### To generate an CloudFormation template from one or more rules
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2. In the navigation pane, choose **Rules**.
 3. Under **Select event bus**, choose the event bus that contains the rules you want to include in the template.
-4. Under **Rules**, choose the rules you want to include in the generated AWS CloudFormation template.
+4. Under **Rules**, choose the rules you want to include in the generated CloudFormation template.
 
 For a single rule, you can also choose the rule name to display the rule's details page. 5. Choose **CloudFormation Template**, and then choose which format you want EventBridge to generate the template in: **JSON** or **YAML**.
 
@@ -30,9 +30,9 @@ EventBridge displays the template, generated in the selected format. 6. EventBri
     * To copy the template to the clipboard, choose **Copy**.
 
 7. To exit the template, choose **Cancel**.
-   Once you've customized your AWS CloudFormation template as necessary for your use case, you can use it
+   Once you've customized your CloudFormation template as necessary for your use case, you can use it
    to [create stacks](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in
-   AWS CloudFormation.
+   CloudFormation.
 
 ## Considerations when
 

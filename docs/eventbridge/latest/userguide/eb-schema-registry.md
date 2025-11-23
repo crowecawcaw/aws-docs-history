@@ -27,4 +27,4 @@ schemas so that your schemas are in logical groups. The default schema registrie
 To create a registry by using the API, use [`CreateRegistry`](../schema-reference/v1-registries-name-registryname.md#v1-registries-name-registryname-http-methods "../schema-reference/v1-registries-name-registryname.md#v1-registries-name-registryname-http-methods"). For more information, see [Amazon EventBridge
 Schema Registry API Reference](../schema-reference/index.md "../schema-reference/index.md").
 
-For information about using the EventBridge schema registry through AWS CloudFormation, see [EventSchemas Resource Type Reference](../../../AWSCloudFormation/latest/UserGuide/AWS_EventSchemas.md "../../../AWSCloudFormation/latest/UserGuide/AWS_EventSchemas.md") in AWS CloudFormation.
+For information about using the EventBridge schema registry through AWS CloudFormation, see [EventSchemas Resource Type Reference](../../../AWSCloudFormation/latest/UserGuide/AWS_EventSchemas.md "../../../AWSCloudFormation/latest/UserGuide/AWS_EventSchemas.md") in CloudFormation.

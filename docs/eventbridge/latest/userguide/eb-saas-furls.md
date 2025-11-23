@@ -8,7 +8,7 @@ verifying the authentication signature sent by the third-party partner. Please r
 this configuration with your security team. For more information, see [Security and auth model for Lambda
 function URLs](../../../lambda/latest/dg/urls-auth.md#urls-auth-none "../../../lambda/latest/dg/urls-auth.md#urls-auth-none").
 
-Your Amazon EventBridge [event bus](eb-event-bus.md "eb-event-bus.md") can use an [AWS Lambda function URL](../../../lambda/latest/dg/lambda-urls.md "../../../lambda/latest/dg/lambda-urls.md") created by an AWS CloudFormation
+Your Amazon EventBridge [event bus](eb-event-bus.md "eb-event-bus.md") can use an [AWS Lambda function URL](../../../lambda/latest/dg/lambda-urls.md "../../../lambda/latest/dg/lambda-urls.md") created by an CloudFormation
 template to receive [events](eb-events.md "eb-events.md") from supported SaaS providers.
 With function URLs, the event data is sent to a Lambda function. The function then converts
 this data into an event that can be ingested by EventBridge and sent to an event bus for
@@ -23,7 +23,7 @@ see [AWS Lambda pricing](https://aws.amazon.com/lambda/pricing "https://aws.amaz
 To set up a connection to EventBridge, you first select the SaaS provider that you want to set up
 a connection with. Then, you provide a _signing secret_ that you’ve
 created with that provider, and select the EventBridge event bus to send events to. Finally, you
-use an AWS CloudFormation template and create the needed resources to complete the connection.
+use an CloudFormation template and create the needed resources to complete the connection.
 
 The following SaaS providers are currently available for use with EventBridge using Lambda function URLs:
 
@@ -32,7 +32,7 @@ The following SaaS providers are currently available for use with EventBridge us
 
 ###### Topics
 
-- [Step 1: Create the AWS CloudFormation stack](#create-gh-cfn-stack "#create-gh-cfn-stack")
+- [Step 1: Create the CloudFormation stack](#create-gh-cfn-stack "#create-gh-cfn-stack")
 - [Step 2: Create a GitHub webhook](#create-gh-webhook "#create-gh-webhook")
 - [Set up a connection to a
   Twilio](#furls-connection-twilio "#furls-connection-twilio")
@@ -41,7 +41,7 @@ The following SaaS providers are currently available for use with EventBridge us
 - [Available event types](#furls-event-types "#furls-event-types")
 - [Quotas, error codes, and retrying delivery](#furls-quotas-errors "#furls-quotas-errors")
 
-## Step 1: Create the AWS CloudFormation stack
+## Step 1: Create the CloudFormation stack
 
 First, use the Amazon EventBridge console to create a CloudFormation stack:
 
@@ -65,11 +65,11 @@ First, use the Amazon EventBridge console to create a CloudFormation stack:
    a secure token for the **GitHubWebhookSecret**. For more information on creating a secure token, see [Setting your secret token](https://docs.github.com/en/developers/webhooks-and-events/webhooks/securing-your-webhooks#setting-your-secret-token "https://docs.github.com/en/developers/webhooks-and-events/webhooks/securing-your-webhooks#setting-your-secret-token") in the GitHub documentation.
 10. Under **Capabilities and transforms**, select each of the
     following:
-    - **I acknowledge that AWS CloudFormation might create IAM
+    - **I acknowledge that CloudFormation might create IAM
       resources.**
-    - **I acknowledge that AWS CloudFormation might create IAM resources
+    - **I acknowledge that CloudFormation might create IAM resources
       with custom names.**
-    - **I acknowledge that AWS CloudFormation might require the following
+    - **I acknowledge that CloudFormation might require the following
       capability:
       `CAPABILITY_AUTO_EXPAND`**
 
@@ -94,7 +94,7 @@ connection to Twilio with the auth token, or secret, for your
 Twilio account. For more information, see [Auth Tokens and How To Change Them](https://support.twilio.com/hc/en-us/articles/223136027-Auth-Tokens-and-How-to-Change-Them "https://support.twilio.com/hc/en-us/articles/223136027-Auth-Tokens-and-How-to-Change-Them") in the Twilio
 documentation.
 
-### Step 2: Create the AWS CloudFormation stack
+### Step 2: Create the CloudFormation stack
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2. In the navigation pane, choose **Quick starts**.
@@ -117,11 +117,11 @@ documentation.
    in Step 1.
 10. Under **Capabilities and transforms**, select each of the
     following:
-    - **I acknowledge that AWS CloudFormation might create IAM
+    - **I acknowledge that CloudFormation might create IAM
       resources.**
-    - **I acknowledge that AWS CloudFormation might create IAM resources
+    - **I acknowledge that CloudFormation might create IAM resources
       with custom names.**
-    - **I acknowledge that AWS CloudFormation might require the following
+    - **I acknowledge that CloudFormation might require the following
       capability: CAPABILITY_AUTO_EXPAND**
 
 11. Choose **Create stack**.
@@ -142,7 +142,7 @@ Twilio documentation.
 
 GitHub doesn’t support having two secrets at the same time. You
 may experience resource downtime while the GitHub secret and the
-secret in the AWS CloudFormation stack are out of sync. GitHub messages sent
+secret in the CloudFormation stack are out of sync. GitHub messages sent
 while the secrets are out of sync will fail becaue of incorrect signatures. Wait
 until the GitHub and CloudFormation secrets are in sync, then try
 again.
@@ -150,7 +150,7 @@ again.
 1. Create a new GitHub secret. For more information, see
    [Encrypted secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets "https://docs.github.com/en/actions/security-guides/encrypted-secrets") in the GitHub
    documentation.
-2. Open the AWS CloudFormation console at
+2. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 3. From the navigation pane, choose **Stacks**.
 4. Choose the stack for the webhook that includes the secret you want to update.
@@ -170,7 +170,7 @@ you can refresh the Lambda execution context.
 
 Twilio doesn’t support having two secrets at the same time. You
 may experience resource downtime while the Twilio secret and the
-secret in the AWS CloudFormation stack are out of sync. Twilio messages sent
+secret in the CloudFormation stack are out of sync. Twilio messages sent
 while the secrets are out of sync will fail because of incorrect signatures.
 Wait until the Twilio and CloudFormation secrets are in sync, then
 try again.
@@ -178,7 +178,7 @@ try again.
 1. Create a new Twilio secret. For more information, see
    [Auth Tokens and How To Change Them](https://support.twilio.com/hc/en-us/articles/223136027-Auth-Tokens-and-How-to-Change-Them "https://support.twilio.com/hc/en-us/articles/223136027-Auth-Tokens-and-How-to-Change-Them") in the Twilio
    documentation.
-2. Open the AWS CloudFormation console at
+2. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 3. From the navigation pane, choose **Stacks**.
 4. Choose the stack for the webhook that includes the secret you want to update.
@@ -199,7 +199,7 @@ customized logging, use the CloudFormation console to access the function and th
 
 ###### Access the Lambda function
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. From the navigation pane, choose **Stacks**.
 3. Choose the stack for the webhook that includes the Lambda function you want to update.

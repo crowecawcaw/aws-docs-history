@@ -1,12 +1,12 @@
-# Tutorial: Log the state of an Auto Scaling group using
+# Tutorial: Log the state of an Amazon EC2 Auto Scaling group using
 
 EventBridge
 
 You can run an [AWS Lambda](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md") function that logs an [events](eb-events.md "eb-events.md")
-whenever an Auto Scaling group launches or terminates an Amazon EC2 instance that indicates whether an
+whenever an Amazon EC2 Auto Scaling group launches or terminates an Amazon EC2 instance that indicates whether an
 event was successful.
 
-For information about more scenarios that use Amazon EC2 Auto Scaling events, see [Use EventBridge to handle Auto Scaling events](../../../autoscaling/latest/userguide/automating-ec2-auto-scaling-with-eventbridge.md "../../../autoscaling/latest/userguide/automating-ec2-auto-scaling-with-eventbridge.md") in the _Amazon EC2 Auto Scaling User Guide_.
+For information about more scenarios that use Amazon EC2 Auto Scaling events, see [Use EventBridge to handle Amazon EC2 Auto Scaling events](../../../autoscaling/latest/userguide/automating-ec2-auto-scaling-with-eventbridge.md "../../../autoscaling/latest/userguide/automating-ec2-auto-scaling-with-eventbridge.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 In this tutorial, you create a Lambda function, and you create a [rule](eb-rules.md "eb-rules.md") in the EventBridge console that calls that function when an Amazon EC2 Auto Scaling group launches or
 terminates an instance.
@@ -24,12 +24,12 @@ terminates an instance.
 
 To complete this tutorial, you'll need the following resources:
 
-- An Auto Scaling group. For more information about creating one, see [Creating an Auto Scaling
+- An Amazon EC2 Auto Scaling group. For more information about creating one, see [Creating an Amazon EC2 Auto Scaling
   group using a launch configuration](../../../autoscaling/latest/userguide/create-asg.md "../../../autoscaling/latest/userguide/create-asg.md") in the Amazon EC2 Auto Scaling User Guide.
 
 ## Step 1: Create a Lambda function
 
-Create a Lambda function to log the scale-out and scale-in events for your Auto Scaling group.
+Create a Lambda function to log the scale-out and scale-in events for your Amazon EC2 Auto Scaling group.
 
 ###### To create a Lambda function
 
@@ -58,7 +58,7 @@ exports.handler = (event, context, callback) => {
 ## Step 2: Create a rule
 
 Create a rule to run the Lambda function you created in Step 1. The rule runs when your
-Auto Scaling group starts or stops an instance.
+Amazon EC2 Auto Scaling group starts or stops an instance.
 
 ###### To create a rule
 
@@ -93,18 +93,18 @@ Auto Scaling group starts or stops an instance.
 
 ## Step 3: Test the rule
 
-You can test your rule by manually scaling an Auto Scaling group so that it launches an
+You can test your rule by manually scaling an Amazon EC2 Auto Scaling group so that it launches an
 instance. Wait a few minutes for the scale-out event to occur, and then verify that your
 Lambda function was invoked.
 
-###### To test your rule using an Auto Scaling group
+###### To test your rule using an Amazon EC2 Auto Scaling group
 
-1. To increase the size of your Auto Scaling group, do the following:
+1. To increase the size of your Amazon EC2 Auto Scaling group, do the following:
    1. Open the Amazon EC2 console at
       [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
    2. In the navigation pane, choose **Auto Scaling**,
       **Auto Scaling Groups**.
-   3. Select the check box for your Auto Scaling group.
+   3. Select the check box for your Amazon EC2 Auto Scaling group.
    4. On the **Details** tab, choose
       **Edit**. For **Desired**,
       increase the desired capacity by one. For example, if the current value
@@ -124,7 +124,7 @@ Lambda function was invoked.
       function for the instance that you launched.
 
 3. (Optional) When you're finished, you can decrease the desired capacity by
-   one so that the Auto Scaling group returns to its previous size.
+   one so that the Amazon EC2 Auto Scaling group returns to its previous size.
 
 ## Step 4: Confirm success
 

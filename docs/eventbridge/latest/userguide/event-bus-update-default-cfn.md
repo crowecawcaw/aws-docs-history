@@ -2,7 +2,7 @@
 
 AWS CloudFormation in EventBridge
 
-AWS CloudFormation enables you to configure and manage your AWS
+CloudFormation enables you to configure and manage your AWS
 resources across accounts and regions in a centralized and repeatable manner by
 treating infrastructure as code. CloudFormation does this by letting you
 create _templates_, which define the resources you want to

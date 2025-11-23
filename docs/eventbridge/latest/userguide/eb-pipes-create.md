@@ -10,7 +10,7 @@ To create an EventBridge pipe, you perform the following steps:
 3. [Defining event enrichment (optional)](#pipes-define-enrichment "#pipes-define-enrichment")
 4. [Configuring a target](#pipes-configure-target "#pipes-configure-target")
 5. [Configuring the pipe settings](#pipes-configure-pipe-settings "#pipes-configure-pipe-settings")
-   To quickly set up a sample pipe, see [Getting started: Create an Amazon EventBridge pipe](pipes-get-started.md "pipes-get-started.md"). This topic uses AWS CloudFormation to deploy a pipe and its associated resources, and walks you through an overview of a pipe's capabilities.
+   To quickly set up a sample pipe, see [Getting started: Create an Amazon EventBridge pipe](pipes-get-started.md "pipes-get-started.md"). This topic uses CloudFormation to deploy a pipe and its associated resources, and walks you through an overview of a pipe's capabilities.
 
 For information on how to create a pipe using the AWS CLI, see [create-pipe](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/pipes/create-pipe.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/pipes/create-pipe.html") in the _AWS CLI Command Reference_.
 

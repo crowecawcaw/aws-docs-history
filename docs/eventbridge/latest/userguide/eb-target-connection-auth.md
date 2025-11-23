@@ -51,6 +51,6 @@ permission to use Secrets Manager. The required permission is included in the [A
 permission is granted to the [service-linked
 role](eb-api-destinations.md#eb-api-destination-slr "eb-api-destinations.md#eb-api-destination-slr") that's created in your account for the connection.
 
-For examples of how to create a AWS CloudFormation template that provisions an EventBridge connection with authentication, see
+For examples of how to create a CloudFormation template that provisions an EventBridge connection with authentication, see
 [AWS::Events::Connection](../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.md") in the _CloudFormation User
 Guide_.

@@ -1,4 +1,4 @@
-# Generating an AWS CloudFormation template from EventBridge Pipes
+# Generating an CloudFormation template from EventBridge Pipes
 
 AWS CloudFormation enables you to configure and manage your AWS resources across accounts and
 regions in a centralized and repeatable manner by treating infrastructure as code.
@@ -11,7 +11,7 @@ multiple pipes to include in the template. You can then use these templates as t
 [creating
 stacks](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") of resources under CloudFormation management.
 
-For more information on CloudFormation, see [_The AWS CloudFormation User
+For more information on CloudFormation, see [_The CloudFormation User
 Guide_.](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
 
 For event buses, you can generate CloudFormation templates from [event buses](eb-generate-event-bus-template.md "eb-generate-event-bus-template.md") and [event bus rules](rule-generate-template.md "rule-generate-template.md").

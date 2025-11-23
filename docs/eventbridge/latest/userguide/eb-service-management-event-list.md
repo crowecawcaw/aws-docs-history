@@ -94,11 +94,11 @@ The following table list AWS services and the management events they generate th
 | AWS Clean Rooms                                | BatchGetSchema                                               | API call       |
 | Amazon Cloud Directory                         | BatchRead                                                    | API call       |
 | Amazon Cloud Directory                         | LookupPolicy                                                 | API call       |
-| AWS CloudFormation                             | DetectStackDrift                                             | API call       |
-| AWS CloudFormation                             | DetectStackResourceDrift                                     | API call       |
-| AWS CloudFormation                             | DetectStackSetDrift                                          | API call       |
-| AWS CloudFormation                             | EstimateTemplateCost                                         | API call       |
-| AWS CloudFormation                             | ValidateTemplate                                             | API call       |
+| CloudFormation                                 | DetectStackDrift                                             | API call       |
+| CloudFormation                                 | DetectStackResourceDrift                                     | API call       |
+| CloudFormation                                 | DetectStackSetDrift                                          | API call       |
+| CloudFormation                                 | EstimateTemplateCost                                         | API call       |
+| CloudFormation                                 | ValidateTemplate                                             | API call       |
 | AWS CloudShell                                 | RedeemCode                                                   | API call       |
 | AWS CloudTrail                                 | LookupEvents                                                 | API call       |
 | AWS CodeArtifact                               | ReadFromRepository                                           | API call       |

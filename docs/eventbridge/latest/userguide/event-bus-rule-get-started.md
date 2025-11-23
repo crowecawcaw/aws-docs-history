@@ -2,7 +2,7 @@
 
 rule
 
-To get familiar with EventBridge rules and their capabilities, we'll use a AWS CloudFormation template to set
+To get familiar with EventBridge rules and their capabilities, we'll use a CloudFormation template to set
 up an event bus rule and associated components, including an event source, event pattern, and
 target. Then we can explore how rules work to select the events you want.
 
