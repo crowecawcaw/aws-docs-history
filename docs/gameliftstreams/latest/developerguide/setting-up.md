@@ -4,7 +4,7 @@ To start using the Amazon GameLift Streams service with your projects, complete 
 tasks. If you already have an AWS account and a user under that account that you want to use
 with Amazon GameLift Streams, you can skip to [Download the Web SDK](#setting-up-materials "#setting-up-materials").
 
-For more information on what you can do with an AWS account, see [Getting started with AWS](https://aws.amazon.com/getting-started/ "https://aws.amazon.com/getting-started/").
+For more information on what you can do with an AWS account, see [Getting started with AWS](https://aws.amazon.com//getting-started/ "https://aws.amazon.com//getting-started/").
 
 After you've completed these setup tasks, we recommend that you go to [Starting your first stream in Amazon GameLift Streams](streaming-process.md "streaming-process.md") and
 step through the tutorial, which covers the entire workflow for getting your content streaming in a web client.

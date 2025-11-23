@@ -48,9 +48,9 @@ following tools:
 - AWS Management Console – Provides a web interface that you can use to create and manage your
   Amazon GameLift Streams applications and stream groups.
 - AWS Command Line Interface (AWS CLI) – Provides commands for a broad set of AWS services and
-  is supported on Windows, Mac, and Linux. For more information on this tool, see the [AWS Command Line Interface page](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/").
+  is supported on Windows, Mac, and Linux. For more information on this tool, see the [AWS Command Line Interface page](https://aws.amazon.com//cli/ "https://aws.amazon.com//cli/").
 - AWS SDK – Provides language-specific APIs and takes care of connection details, such as calculating signatures, handling
   request retries, and error handling. For documentation on the Amazon GameLift Streams service API, see the [Amazon GameLift Streams API Reference](../apireference.md "../apireference.md"). For more general
-  information on the AWS SDK, see [Tools to Build on AWS](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/").
+  information on the AWS SDK, see [Tools to Build on AWS](https://aws.amazon.com//tools/ "https://aws.amazon.com//tools/").
 
 For additional information on supported AWS Regions, see [Regions, quotas, and limitations](regions-quotas.md "regions-quotas.md").
