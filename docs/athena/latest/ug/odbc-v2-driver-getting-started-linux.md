@@ -192,16 +192,16 @@ Prepare the commands with appropriate public key, RPM signature, and the
 corresponding access link to the RPM scripts hosted in Amazon S3 buckets. You must
 download the following to your device.
 
-    * [Athena ODBC driver](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/AmazonAthenaODBC-2.0.4.0.rpm "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/AmazonAthenaODBC-2.0.4.0.rpm")
-    * [Public Key](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/public_key.pem "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/public_key.pem")
-    * [Athena ODBC RPM signature](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/signature.bin "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/signature.bin")
+    * [Athena ODBC driver](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Linux/AmazonAthenaODBC-2.0.6.0.rpm "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Linux/AmazonAthenaODBC-2.0.6.0.rpm")
+    * [Public Key](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Linux/public_key.pem "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Linux/public_key.pem")
+    * [Athena ODBC RPM signature](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Linux/signature.bin "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Linux/signature.bin")
 
 2. Download the Athena ODBC driver, public key, and Athena ODBC RPM signature to
    your device.
 3. Run the following command to verify ODBC driver signature:
 
 ```
-openssl dgst -sha256 -verify public_key.pem -signature signature.bin AmazonAthenaODBC-2.0.4.0.rpm
+openssl dgst -sha256 -verify public_key.pem -signature signature.bin AmazonAthenaODBC-2.0.6.0.rpm
 ```
 
 If verification passes, you will see a message similar to `Verified

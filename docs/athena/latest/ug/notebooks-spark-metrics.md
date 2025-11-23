@@ -1,4 +1,4 @@
-# Monitor Apache Spark calculations with CloudWatch
+# Monitor Apache Spark with CloudWatch
 
 metrics
 
@@ -59,3 +59,16 @@ This metric has the following dimensions.
 | --------- | ----------------------------------------------------------------- |
 | SessionId | The ID of the session in which the calculations are<br>submitted. |
 | WorkGroup | The name of the workgroup.                                        |
+
+In the release version Apache Spark version 3.5, if you've enabled CloudWatch metrics in your Athena Spark workgroup, Athena sends the following metric to CloudWatch. The metric uses the `AmazonAthenaForApacheSpark` namespace.
+
+| Name        | Description                                                                                          |
+| ----------- | ---------------------------------------------------------------------------------------------------- |
+| DPUConsumed | The number of DPUs actively consumed by queries in a RUNNING state at a given time in the workgroup. |
+
+This metric has the following dimensions.
+
+| Dimension | Description                |
+| --------- | -------------------------- |
+| Account   | The AWS account ID.        |
+| WorkGroup | The name of the workgroup. |

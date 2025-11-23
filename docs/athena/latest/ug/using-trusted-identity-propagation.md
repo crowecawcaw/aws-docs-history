@@ -49,7 +49,9 @@ definitions
 
 1. This feature only works for regions where Athena is generally available with
    trusted identity propagation. For more information on availability, see [Considerations and Limitations](workgroups-identity-center.md "workgroups-identity-center.md").
-2. You can use both JDBC and ODBC either as standalone drivers or with any BI or
+2. The JDBC and ODBC drivers support trusted identity propagation with
+   IAM-enabled workgroups.
+3. You can use both JDBC and ODBC either as standalone drivers or with any BI or
    SQL tool with trusted identity propagation using this authentication
    plugin.
 

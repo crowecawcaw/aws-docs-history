@@ -10,15 +10,15 @@ represented by one or more [Elastic network
 interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") (ENIs) with private IP addresses in your VPC subnets.
 
 The interface VPC endpoint connects your VPC directly to Athena without an internet
-gateway, NAT device, VPN connection, or AWS Direct Connect connection. The instances in your VPC
+gateway, NAT device, VPN connection, or Direct Connect connection. The instances in your VPC
 don't need public IP addresses to communicate with the Athena API.
 
 To use Athena through your VPC, you must connect from an instance that is inside the
 VPC or connect your private network to your VPC by using an Amazon Virtual Private
-Network (VPN) or AWS Direct Connect. For information about Amazon VPN, see [VPN connections](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md") in the
+Network (VPN) or Direct Connect. For information about Amazon VPN, see [VPN connections](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md") in the
 _Amazon Virtual Private Cloud User Guide_. For information about AWS Direct Connect, see
 [Creating a connection](../../../directconnect/latest/UserGuide/create-connection.md "../../../directconnect/latest/UserGuide/create-connection.md")
-in the _AWS Direct Connect User Guide_.
+in the _Direct Connect User Guide_.
 
 Athena supports VPC endpoints in all AWS Regions where both [Amazon VPC](../../../general/latest/gr/rande.md#vpc_region "../../../general/latest/gr/rande.md#vpc_region") and [Athena](../../../general/latest/gr/rande.md#athena "../../../general/latest/gr/rande.md#athena") are available.
 

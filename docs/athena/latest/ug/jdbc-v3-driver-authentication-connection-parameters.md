@@ -16,6 +16,7 @@ parameters that are required depend on the authentication method that you use.
 - [Custom](jdbc-v3-driver-custom-credentials.md "jdbc-v3-driver-custom-credentials.md")
 - [JWT](jdbc-v3-driver-jwt-credentials.md "jdbc-v3-driver-jwt-credentials.md")
 - [JWT trusted identity propagation](jdbc-v3-driver-jwt-tip-credentials.md "jdbc-v3-driver-jwt-tip-credentials.md")
+- [Browser trusted identity propagation](jdbc-v3-driver-browser-oidc-tip-credentials.md "jdbc-v3-driver-browser-oidc-tip-credentials.md")
 - [Azure AD](jdbc-v3-driver-azure-ad-credentials.md "jdbc-v3-driver-azure-ad-credentials.md")
 - [Okta](jdbc-v3-driver-okta-credentials.md "jdbc-v3-driver-okta-credentials.md")
 - [Ping](jdbc-v3-driver-ping-credentials.md "jdbc-v3-driver-ping-credentials.md")

@@ -62,7 +62,7 @@ duration, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md ".
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| duration                   | Optional           | `900`             | `duration=900;`               |
+| duration                   | Optional           | `3600`            | `duration=900;`               |
 
 ## JWT access role ARN
 

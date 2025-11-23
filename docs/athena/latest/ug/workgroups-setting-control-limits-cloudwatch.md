@@ -76,29 +76,19 @@ canceled. Canceled queries are charged according to [Amazon Athena pricing](http
 
 1. Open the Athena console at
    [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
-2. If the console navigation pane is not visible, choose the expansion menu
-   on the left.
-
-![Choose the expansion menu.](images/nav-pane-expansion.png) 3. In the navigation pane, choose **Workgroups**. 4. Choose the name of the workgroup from the list. 5. On the **Data usage controls** tab, in the
-**Per query data usage control** section, choose
-**Manage**. 6. On the **Manage per query data usage control** page,
-specify the following values:
-
-    * For **Data limit**, specify a value between
-     10 MB (minimum) and 7 EB (maximum).
-
-
-    ###### Note
-
-    These are limits imposed by the console for data usage
-     controls within workgroups. They do not represent any query
-     limits in Athena.
-    * For units, select the unit value from the drop-down list (for
-     example, **Kilobytes KB** or **Exabytes
+2. In the navigation pane, choose **Workgroups**.
+3. Choose the name of the workgroup from the list.
+4. On the **Execution controls** tab, choose
+   **Edit controls**.
+5. Edit the value for **Data scanned limit**.
+   - Specify a value between 10 MB (minimum) and 7 EB (maximum).
+   - Select a unit value from the drop-down list (for example, **Kilobytes KB** or **Exabytes
      EB**).
 
+###### Note
+
 The default action is to cancel the query if it exceeds the limit.
-This setting cannot be changed. 7. Choose **Save**.
+This setting cannot be changed. 6. Choose **Save** to immediatly apply your changes.
 
 ###### To create or edit a
 

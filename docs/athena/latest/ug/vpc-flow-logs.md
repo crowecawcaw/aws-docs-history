@@ -9,7 +9,7 @@ To query your Amazon VPC flow logs, you have two options:
 ######
 
 - Amazon VPC Console – Use the Athena integration
-  feature in the Amazon VPC Console to generate an AWS CloudFormation template that creates an Athena
+  feature in the Amazon VPC Console to generate an CloudFormation template that creates an Athena
   database, workgroup, and flow logs table with partitioning for you. The template
   also creates a set of [predefined
   flow log queries](../../../vpc/latest/userguide/flow-logs-athena.md#predefined-queries "../../../vpc/latest/userguide/flow-logs-athena.md#predefined-queries") that you can use to obtain insights about the traffic

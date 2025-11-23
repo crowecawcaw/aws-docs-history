@@ -1,4 +1,4 @@
-# JWT trusted identity propagation credentials
+# JWT with identity center integration
 
 This authentication type allows you to use a JSON web token (JWT) obtained from an
 external identity provider as a connection parameter to authenticate with Athena. You can

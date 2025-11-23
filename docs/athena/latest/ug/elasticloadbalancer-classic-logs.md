@@ -4,14 +4,14 @@ Use Classic Load Balancer logs to analyze and understand traffic patterns to and
 Elastic Load Balancing instances and backend applications. You can see the source of traffic, latency,
 and bytes that have been transferred.
 
-Before you analyze the Elastic Load Balancing logs, configure them for saving in the destination Amazon S3
+Before you analyze the ELB logs, configure them for saving in the destination Amazon S3
 bucket. For more information, see [Enable
 access logs for your Classic Load Balancer](../../../elasticloadbalancing/latest/classic/enable-access-logs.md "../../../elasticloadbalancing/latest/classic/enable-access-logs.md").
 
-###### To create the table for Elastic Load Balancing logs
+###### To create the table for ELB logs
 
 1. Copy and paste the following DDL statement into the Athena console. Check the
-   [syntax](../../../elasticloadbalancing/latest/classic/access-log-collection.md#access-log-entry-format "../../../elasticloadbalancing/latest/classic/access-log-collection.md#access-log-entry-format") of the Elastic Load Balancing log records. You may need to update the following
+   [syntax](../../../elasticloadbalancing/latest/classic/access-log-collection.md#access-log-entry-format "../../../elasticloadbalancing/latest/classic/access-log-collection.md#access-log-entry-format") of the ELB log records. You may need to update the following
    query to include the columns and the Regex syntax for latest version of the record.
 
 ```
@@ -46,7 +46,7 @@ LOCATION 's3://amzn-s3-demo-bucket/AWSLogs/`AWS_account_ID`/elasticloadbalancing
 ```
 
 2. Modify the `LOCATION` Amazon S3 bucket to specify the destination of your
-   Elastic Load Balancing logs.
+   ELB logs.
 3. Run the query in the Athena console. After the query completes, Athena registers the
    `elb_logs` table, making the data in it ready for queries. For more
    information, see [Example queries](#query-elb-classic-example "#query-elb-classic-example").
@@ -70,7 +70,7 @@ LIMIT 100;
 ```
 
 Use a subsequent query to sum up the response time of all the transactions grouped by
-the backend IP address and Elastic Load Balancing instance name.
+the backend IP address and ELB instance name.
 
 ```
 SELECT sum(backend_processing_time) AS

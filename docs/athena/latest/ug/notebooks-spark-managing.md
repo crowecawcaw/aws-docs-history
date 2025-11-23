@@ -1,5 +1,10 @@
 # Manage notebook files
 
+###### Note
+
+The Athena notebook editor is supported in the Pyspark engine version 3. For using notebooks with Apache
+Spark version 3.5, see [SageMaker Notebooks](../../../sagemaker-unified-studio/latest/userguide/what-is-sagemaker-unified-studio.md "../../../sagemaker-unified-studio/latest/userguide/what-is-sagemaker-unified-studio.md").
+
 Besides using the notebook explorer to [create](notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook "notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook")
 notebooks, you can also use it to open, rename, delete, export, or import notebooks, or view
 the session history for a notebook.

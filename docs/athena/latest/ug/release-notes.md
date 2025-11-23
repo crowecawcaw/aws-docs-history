@@ -16,6 +16,44 @@ Describes Amazon Athena features, improvements, and bug fixes by release date.
 
 ## Athena release notes for 2025
 
+### November 21, 2025
+
+Published on 2025-11-21
+
+Athena announces the following features and improvements.
+
+- **Amazon Athena for Apache Spark is now available in notebooks** –
+  Provides data engineers, analysts, and data scientists with a unified workspace to query data, develop jobs, train models, and work with AI. Athena for Apache Spark runs on Spark 3.5.6 and has new debugging features, real-time monitoring through Spark UI, Spark Connect for secure cluster interaction, and AWS Lake Formation table-level access controls. Learn more at the [SageMaker user guide](../../../sagemaker-unified-studio/latest/userguide/notebooks.md "../../../sagemaker-unified-studio/latest/userguide/notebooks.md").
+- **Capacity Reservations cost and performance controls** –
+  You can now set Data Processing Unit (DPU) usage limits at the workgroup or query level and get DPU usage details for queries that you run on Capacity Reservations. These controls help you fine-tune query performance and manage costs by controlling resource usage for your most important SQL workloads. To learn more, see [Control capacity usage](capacity-management-control-capacity-usage.md "capacity-management-control-capacity-usage.md").
+- **Capacity Reservations auto-scaling solution** –
+  You can now automatically adjust Capacity Reservations based on utilization. Athena's solution uses CloudFormation and Step Functions to remove the need for manual capacity adjustments, helping you balance performance requirements with cost optimization, and is customizable for different needs. To learn more, see [Automatically adjust capacity](capacity-management-automatically-adjust-capacity.md "capacity-management-automatically-adjust-capacity.md").
+
+- **Optimization with Iceberg statistics** –
+  Athena has enhanced how it uses Iceberg statistics to make intelligent decisions about join ordering, filters, and aggregation behavior that can improve query performance and reduce costs. To learn more, see [Use Iceberg table statistics](querying-iceberg-data-optimization.md#querying-iceberg-data-optimization-statistics "querying-iceberg-data-optimization.md#querying-iceberg-data-optimization-statistics").
+- **Iceberg Parquet column indexing** –
+  Athena now supports Parquet column indexing on Iceberg tables for precise data pruning during query execution. It leverages page-level min/max statistics to reduce the amount of data scanned, improving query performance and lowering costs, particularly for queries with selective filter predicates on sorted columns. To learn more, see [Use Parquet column indexing](querying-iceberg-data-optimization.md "querying-iceberg-data-optimization.md").
+- **Iceberg performance enhancements with Lake Formation** –
+  Athena has added new partition pruning behaviors for Iceberg tables that have Lake Formation row filters and column masks, and additional predicate pushdown behaviors for all other table types that have Lake Formation row filters and column masks. This update enhances query performance while maintaining security protections.
+- **Query result reuse** –
+  Athena has improved query result reuse to enable more queries to benefit from cached results. Athena now treats semantically equivalent queries as identical regardless of formatting differences. Customers who use query result reuse will automatically benefit from increased cache hit rates, resulting in faster query execution and reduced costs, with no action needed. To learn more, see [Reuse query results in Athena](reusing-query-results.md "reusing-query-results.md").
+- **Upgraded data lake file SerDes** –
+  Athena has upgraded its SerDes for Parquet, JSON, CSV, and text files. This improves query performance and reliability while correcting for scenarios where previous SerDes returned non-deterministic or incorrect results. Customers will automatically benefit from these improvements without any action needed as they are upgraded based on compatibility checks performed by Athena.
+
+- **Hudi 0.15.0 upgrade** –
+  You can now use Athena to query Hudi 0.15.0 tables. For more information, see [Query Apache Hudi datasets](querying-hudi.md "querying-hudi.md").
+- **Browser trusted identity propagation integration** – Athena added a new authentication plugin to support JWT trusted identity propagation
+  integration with JDBC and ODBC drivers. This authentication type allows you to fetch a
+  JSON web token (JWT) from an external identity provider and authenticates with Athena.
+  For more information, see [Use Trusted identity propagation with
+  Amazon Athena drivers](using-trusted-identity-propagation.md "using-trusted-identity-propagation.md").
+- **JDBC 3.7.0 driver** – Athena releases JDBC driver version 3.7.0. For more information about this version of
+  the driver, see [Amazon Athena JDBC 3.x release notes](jdbc-v3-driver-release-notes.md "jdbc-v3-driver-release-notes.md"). To download the latest JDBC driver, see
+  [JDBC 3.x driver download](jdbc-v3-driver.md#jdbc-v3-driver-download "jdbc-v3-driver.md#jdbc-v3-driver-download").
+- **ODBC 2.0.6.0 driver** – Athena releases ODBC driver version 2.0.6.0. For more information about this version of
+  the driver, see [Amazon Athena ODBC 2.x release notes](odbc-v2-driver-release-notes.md "odbc-v2-driver-release-notes.md"). To download the latest JDBC driver, see
+  [ODBC 2.x driver download](odbc-v2-driver.md#odbc-v2-driver-download "odbc-v2-driver.md#odbc-v2-driver-download").
+
 ### October 13, 2025
 
 Published on 2025-10-13
@@ -981,7 +1019,7 @@ For more information about Amazon Athena for Apache Spark, see [Use Apache Spark
 
 Published on 2023-06-02
 
-You can now delete capacity reservations in Athena and use AWS CloudFormation templates to specify
+You can now delete capacity reservations in Athena and use CloudFormation templates to specify
 Athena capacity reservations.
 
 - Delete capacity reservations – You can
@@ -993,7 +1031,7 @@ Athena capacity reservations.
   capacity reservation](capacity-management-deleting-a-capacity-reservation.md "capacity-management-deleting-a-capacity-reservation.md") in the
   _Amazon Athena User Guide_ and [DeleteCapacityReservation](../APIReference/API_DeleteCapacityReservation.md "../APIReference/API_DeleteCapacityReservation.md") in the
   _Amazon Athena API Reference_.
-- Use AWS CloudFormation templates for capacity reservations
+- Use CloudFormation templates for capacity reservations
   – You can now use AWS CloudFormation templates to specify Athena capacity
   reservations using the `AWS::Athena::CapacityReservation` resource.
   For more information, see [AWS::Athena::CapacityReservation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-capacityreservation.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-capacityreservation.md") in the
@@ -1452,7 +1490,7 @@ You can now interactively create and run Apache Spark applications and Jupyter
 compatible notebooks on Athena. Run data analytics on Athena using Spark without having to
 plan for, configure, or manage resources. Submit Spark code for processing and receive
 the results directly. Use the simplified notebook experience in Amazon Athena console to
-develop Apache Spark applications using Python or [Use Athena notebook APIs](notebooks-spark-api-list.md "notebooks-spark-api-list.md").
+develop Apache Spark applications using Python or [Use Athena Spark APIs](notebooks-spark-api-list.md "notebooks-spark-api-list.md").
 
 Apache Spark on Amazon Athena is serverless and provides automatic, on-demand scaling that
 delivers instant-on compute to meet changing data volumes and processing
@@ -2863,7 +2901,7 @@ To download and use the new version of the driver, see [Connect to Amazon Athena
 
 Published on 2020-07-09
 
-Amazon Athena adds support for querying compacted Hudi datasets and adds the AWS CloudFormation
+Amazon Athena adds support for querying compacted Hudi datasets and adds the CloudFormation
 `AWS::Athena::DataCatalog` resource for creating, updating, or deleting
 data catalogs that you register in Athena.
 
@@ -2877,17 +2915,17 @@ of an Apache Hudi dataset in your Amazon S3-based data lake.
 
 For more information, see [Query Apache Hudi datasets](querying-hudi.md "querying-hudi.md").
 
-#### AWS CloudFormation Data Catalog
+#### CloudFormation Data Catalog
 
 Resource
 
 To use Amazon Athena's [federated query
 feature](connect-to-a-data-source.md "connect-to-a-data-source.md") to query any data source, you must first register your data
-catalog in Athena. You can now use the AWS CloudFormation `AWS::Athena::DataCatalog`
+catalog in Athena. You can now use the CloudFormation `AWS::Athena::DataCatalog`
 resource to create, update, or delete data catalogs that you register in
 Athena.
 
-For more information, see [AWS::Athena::DataCatalog](../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.md") in the _AWS CloudFormation User
+For more information, see [AWS::Athena::DataCatalog](../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.md") in the _CloudFormation User
 Guide_.
 
 ### June 1, 2020
@@ -2936,8 +2974,8 @@ contains information about the query state transition. For more information, see
 
 Published on 2020-03-06
 
-You can now create and update Amazon Athena workgroups by using the AWS CloudFormation
-`AWS::Athena::WorkGroup` resource. For more information, see [AWS::Athena::WorkGroup](../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.md") in the _AWS CloudFormation User Guide_.
+You can now create and update Amazon Athena workgroups by using the CloudFormation
+`AWS::Athena::WorkGroup` resource. For more information, see [AWS::Athena::WorkGroup](../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.md") in the _CloudFormation User Guide_.
 
 ## Athena release notes for 2019
 
@@ -3764,7 +3802,7 @@ Added support for EU (Frankfurt). For a list of supported regions, see [AWS Regi
 
 Published on _2017-10-03_
 
-Create named Athena queries with AWS CloudFormation. For more information, see [AWS::Athena::NamedQuery](../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.md") in the
+Create named Athena queries with CloudFormation. For more information, see [AWS::Athena::NamedQuery](../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.md") in the
 _AWS CloudFormation User Guide_.
 
 ### September 25, 2017

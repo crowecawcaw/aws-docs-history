@@ -12,7 +12,7 @@ to CloudWatch is selected by default.
 2. If the console navigation pane is not visible, choose the expansion menu
    on the left.
 
-![Choose the expansion menu.](images/nav-pane-expansion.png) 3. In the navigation pane, choose **Workgroups**. 4. Choose the link of the workgroup that you want to modify. 5. On the details page for the workgroup, choose
+![Choose the expansion menu.](/images/athena/latest/ug/images/nav-pane-expansion.png) 3. In the navigation pane, choose **Workgroups**. 4. Choose the link of the workgroup that you want to modify. 5. On the details page for the workgroup, choose
 **Edit**. 6. In the **Settings** section, select or clear
 **Publish query metrics to AWS CloudWatch**.
 If you use API operations, the command line interface, or the client application with

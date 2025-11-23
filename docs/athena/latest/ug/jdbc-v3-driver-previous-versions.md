@@ -12,6 +12,7 @@ The following download packages the driver and all its dependencies in the same
 `.jar` file. This download is commonly used for third-party SQL
 clients.
 
+- [3.6.0 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.6.0/athena-jdbc-3.6.0-with-dependencies.jar "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.6.0/athena-jdbc-3.6.0-with-dependencies.jar")
 - [3.5.1 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.5.1/athena-jdbc-3.5.1-with-dependencies.jar "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.5.1/athena-jdbc-3.5.1-with-dependencies.jar")
 - [3.5.0 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.5.0/athena-jdbc-3.5.0-with-dependencies.jar "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.5.0/athena-jdbc-3.5.0-with-dependencies.jar")
 - [3.4.0 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.4.0/athena-jdbc-3.4.0-with-dependencies.jar "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.4.0/athena-jdbc-3.4.0-with-dependencies.jar")
@@ -32,6 +33,7 @@ driver uses. This download is useful if you want to choose which of the driver
 dependencies to include with the lean jar, and which to exclude if your custom
 application already contains one or more of them.
 
+- [3.6.0 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.6.0/athena-jdbc-3.6.0-lean-jar-and-separate-dependencies-jars.zip "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.6.0/athena-jdbc-3.6.0-lean-jar-and-separate-dependencies-jars.zip")
 - [3.5.1 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.5.1/athena-jdbc-3.5.1-lean-jar-and-separate-dependencies-jars.zip "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.5.1/athena-jdbc-3.5.1-lean-jar-and-separate-dependencies-jars.zip")
 - [3.5.0 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.5.0/athena-jdbc-3.5.0-lean-jar-and-separate-dependencies-jars.zip "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.5.0/athena-jdbc-3.5.0-lean-jar-and-separate-dependencies-jars.zip")
 - [3.4.0 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.4.0/athena-jdbc-3.4.0-lean-jar-and-separate-dependencies-jars.zip "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.4.0/athena-jdbc-3.4.0-lean-jar-and-separate-dependencies-jars.zip")

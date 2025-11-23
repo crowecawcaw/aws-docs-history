@@ -1,12 +1,12 @@
 # Configure and deploy resources using AWS CloudFormation
 
-You can configure and deploy resources using AWS CloudFormation templates to start using Trusted
+You can configure and deploy resources using CloudFormation templates to start using Trusted
 Identity Propagation with Athena drivers as following.
 
-1. Download an AWS CloudFormation template to set up the IAM Identity Center customer managed application
+1. Download an CloudFormation template to set up the IAM Identity Center customer managed application
    and access roles along with workgroup and IAM Identity Center application tags. You can
-   download it from this [AWS CloudFormation template link](https://downloads.athena.us-east-1.amazonaws.com/drivers/CFNTemplate/AthenaDriversTrustedIdentityPropagationCFNTemplate.yaml "https://downloads.athena.us-east-1.amazonaws.com/drivers/CFNTemplate/AthenaDriversTrustedIdentityPropagationCFNTemplate.yaml").
-2. Run the `create-stack` AWS CLI command to deploy the AWS CloudFormation stack that
+   download it from this [CloudFormation template link](https://downloads.athena.us-east-1.amazonaws.com/drivers/CFNTemplate/AthenaDriversTrustedIdentityPropagationCFNTemplate.yaml "https://downloads.athena.us-east-1.amazonaws.com/drivers/CFNTemplate/AthenaDriversTrustedIdentityPropagationCFNTemplate.yaml").
+2. Run the `create-stack` AWS CLI command to deploy the CloudFormation stack that
    will provision the configured resources as following.
 
 ```
@@ -16,7 +16,7 @@ aws cloudformation create-stack \
     --parameters file://params.json
 ```
 
-3. To view the status of the resources provisioning, navigate to the AWS CloudFormation
+3. To view the status of the resources provisioning, navigate to the CloudFormation
    console. After the cluster creation completes, view the new IAM Identity Center application in
    Identity Center console. You can view the IAM roles in the IAM console.
 

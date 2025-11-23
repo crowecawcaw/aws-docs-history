@@ -62,4 +62,79 @@ To use the AWS CLI or Athena API to provide your session configuration, use the 
 [start-session](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/athena/start-session.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/athena/start-session.html") CLI command. In your `StartSession` request, use
 the `SparkProperties` field of [EngineConfiguration](../APIReference/API_EngineConfiguration.md "../APIReference/API_EngineConfiguration.md") object
 to pass your configuration information in JSON format. This starts a session with your
-specified configuration. For request syntax, see [StartSession](../APIReference/API_StartSession.md "../APIReference/API_StartSession.md") in the _Amazon Athena API Reference_.
+specified configuration.
+
+To specify custom Spark properties from the AWS CLI, use `engine-configuration` configuration when you start an interactive session.
+
+```
+aws athena start-session \
+--region "REGION"
+--work-group "WORKGROUP" \
+--engine-configuration '{
+    "Classifications": [{
+      "Name": "spark-defaults",
+      "Properties": {
+        "spark.dynamicAllocation.minExecutors": "1",
+        "spark.dynamicAllocation.initialExecutors": "2",
+        "spark.dynamicAllocation.maxExecutors": "10",
+        "spark.dynamicAllocation.executorIdleTimeout": "300"
+      }
+    }]
+  }'
+```
+
+You can also specify configuration defaults at the Workgroup level using the `CreateWorkgroup` API action or the `UpdateWorkgroup` API action. Configuration defaults defined at the workgroup applies to all Sessions started for that workgroup.
+
+To specify default Spark properties from the AWS CLI for a workgroup, use the `engine-configuration` configuration when creating a new Workgroup:
+
+```
+aws athena create-work-group \
+  --region "REGION" \
+  --name "WORKGROUP_NAME" \
+  --configuration '{
+    "EngineVersion": {
+      "SelectedEngineVersion": "Apache Spark version 3.5"
+    },
+    "ExecutionRole": "EXECUTION_ROLE",
+    "EngineConfiguration": {
+      "Classifications": [
+        {
+          "Name": "spark-defaults",
+          "Properties": {
+            "spark.dynamicAllocation.minExecutors": "1",
+            "spark.dynamicAllocation.initialExecutors": "2",
+            "spark.dynamicAllocation.maxExecutors": "10",
+            "spark.dynamicAllocation.executorIdleTimeout": "300"
+          }
+        }
+      ]
+    }
+  }'
+```
+
+To modify defaults Spark properties from the AWS CLI for a workgroup, use the `engine-configuration` configuration when updating a Workgroup. The changes apply to new interactive sessions going forward.
+
+```
+aws athena update-work-group \
+  --region "REGION" \
+  --work-group "WORKGROUP_NAME" \
+  --configuration-updates '{
+    "EngineVersion": {
+      "SelectedEngineVersion": "Apache Spark version 3.5"
+    },
+    "ExecutionRole": "EXECUTION_ROLE",
+    "EngineConfiguration": {
+      "Classifications": [
+        {
+          "Name": "spark-defaults",
+          "Properties": {
+            "spark.dynamicAllocation.minExecutors": "1",
+            "spark.dynamicAllocation.initialExecutors": "2",
+            "spark.dynamicAllocation.maxExecutors": "12",
+            "spark.dynamicAllocation.executorIdleTimeout": "300"
+          }
+        }
+      ]
+    }
+  }'
+```

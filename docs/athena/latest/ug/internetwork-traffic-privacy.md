@@ -11,10 +11,10 @@ uses HTTPS by default.
 You can use one of the connectivity options between your private network and
 AWS:
 
-    + A Site-to-Site VPN AWS VPN connection. For more information, see [What is Site-to-Site VPN AWS VPN](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md") in the
+    + A Site-to-Site VPN Site-to-Site VPN connection. For more information, see [What is Site-to-Site VPN Site-to-Site VPN](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md") in the
      *AWS Site-to-Site VPN User Guide*.
-    + An AWS Direct Connect connection. For more information, see [What is AWS Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") in the
-     *AWS Direct Connect User Guide*.
+    + An Direct Connect connection. For more information, see [What is Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") in the
+     *Direct Connect User Guide*.
 
 - For traffic between Athena and Amazon S3 buckets,
   Transport Layer Security (TLS) encrypts objects in-transit between Athena and

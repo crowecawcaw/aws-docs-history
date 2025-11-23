@@ -4,6 +4,28 @@ and limitations
 
 When you use Athena to read Apache Hudi tables, consider the following points.
 
+- Read and write operations – Athena can
+  read compacted Hudi datasets but not write Hudi data.
+- Hudi versions – Athena supports Hudi
+  version 0.14.0 (default) and 0.15.0. Athena cannot guarantee read compatibility
+  with tables that are created with later versions of Hudi. For more information
+  about Hudi features and versioning, see the [Hudi documentation](https://hudi.apache.org/ "https://hudi.apache.org/") on the Apache website. To use 0.15.0 of the
+  Hudi connector, set the following table property:
+
+```
+ALTER TABLE `table_name` SET TBLPROPERTIES ('athena_enable_native_hudi_connector_implementation' = 'true')
+```
+
+- Cross account queries – Version 0.15.0
+  of the Hudi connector does not support cross account queries.
+- Query types – Currently, Athena supports
+  snapshot queries and read optimized queries, but not incremental queries. On MoR
+  tables, all data exposed to read optimized queries are compacted. This provides
+  good performance but does not include the latest delta commits. Snapshot queries
+  contain the freshest data but incur some computational overhead, which makes
+  these queries less performant. For more information about the tradeoffs between
+  table and query types, see [Table & Query
+  Types](https://hudi.apache.org/docs/table_types/ "https://hudi.apache.org/docs/table_types/") in the Apache Hudi documentation.
 - Incremental queries – Athena does not
   support incremental queries.
 - CTAS – Athena does not support [CTAS](ctas.md "ctas.md") or [INSERT INTO](insert-into.md "insert-into.md") on Hudi data. If you

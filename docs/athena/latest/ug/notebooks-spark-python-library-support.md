@@ -2,6 +2,12 @@
 
 Spark
 
+###### Note
+
+This page refers to using Python libraries in the release version Pyspark engine version 3.
+The release version Apache Spark version 3.5 is based on [Amazon EMR 7.12](../../../emr/latest/ReleaseGuide/emr-7120-release.md "../../../emr/latest/ReleaseGuide/emr-7120-release.md").
+Refer to EMR 7.12 for libraries included in this version.
+
 This page describes the terminology used and lifecycle management followed for the
 runtimes, libraries, and packages used in Amazon Athena for Apache Spark.
 

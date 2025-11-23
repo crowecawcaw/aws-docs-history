@@ -35,30 +35,30 @@ requirements:
 
 | Driver version                | Download link                                                                                                                                                                                                                                             |
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ODBC 2.0.5.1 for Linux 64-bit | [Linux 64 bit ODBC driver 2.0.5.1](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.5.1/Linux/AmazonAthenaODBC-2.0.5.1.rpm "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.5.1/Linux/AmazonAthenaODBC-2.0.5.1.rpm") |
+| ODBC 2.0.6.0 for Linux 64-bit | [Linux 64 bit ODBC driver 2.0.6.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Linux/AmazonAthenaODBC-2.0.6.0.rpm "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Linux/AmazonAthenaODBC-2.0.6.0.rpm") |
 
 ### macOS (ARM)
 
 | Driver version                      | Download link                                                                                                                                                                                                                                                               |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ODBC 2.0.5.1 for macOS 64-bit (ARM) | [macOS 64 bit ODBC driver 2.0.5.1 (ARM)](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.5.1/Mac/arm/AmazonAthenaODBC-2.0.5.1_arm.pkg "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.5.1/Mac/arm/AmazonAthenaODBC-2.0.5.1_arm.pkg") |
+| ODBC 2.0.6.0 for macOS 64-bit (ARM) | [macOS 64 bit ODBC driver 2.0.6.0 (ARM)](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Mac/arm/AmazonAthenaODBC-2.0.6.0_arm.pkg "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Mac/arm/AmazonAthenaODBC-2.0.6.0_arm.pkg") |
 
 ### macOS (Intel)
 
 | Driver version                        | Download link                                                                                                                                                                                                                                                                     |
 | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ODBC 2.0.5.1 for macOS 64-bit (Intel) | [macOS 64 bit ODBC driver 2.0.5.1 (Intel)](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.5.1/Mac/Intel/AmazonAthenaODBC-2.0.5.1_x86.pkg "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.5.1/Mac/Intel/AmazonAthenaODBC-2.0.5.1_x86.pkg") |
+| ODBC 2.0.6.0 for macOS 64-bit (Intel) | [macOS 64 bit ODBC driver 2.0.6.0 (Intel)](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Mac/Intel/AmazonAthenaODBC-2.0.6.0_x86.pkg "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Mac/Intel/AmazonAthenaODBC-2.0.6.0_x86.pkg") |
 
 ### Windows
 
 | Driver version                  | Download link                                                                                                                                                                                                                                                   |
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ODBC 2.0.5.1 for Windows 64-bit | [Windows 64 bit ODBC driver 2.0.5.1](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.5.1/Windows/AmazonAthenaODBC-2.0.5.1.msi "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.5.1/Windows/AmazonAthenaODBC-2.0.5.1.msi") |
+| ODBC 2.0.6.0 for Windows 64-bit | [Windows 64 bit ODBC driver 2.0.6.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Windows/AmazonAthenaODBC-2.0.6.0.msi "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/Windows/AmazonAthenaODBC-2.0.6.0.msi") |
 
 ### Licenses
 
-- [AWS license](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.5.1/LICENSE.txt "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.5.1/LICENSE.txt")
-- [Third party license](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.5.1/THIRD_PARTY_LICENSES.txt "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.5.1/THIRD_PARTY_LICENSES.txt")
+- [AWS license](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/LICENSE.txt "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/LICENSE.txt")
+- [Third party license](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/THIRD_PARTY_LICENSES.txt "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.6.0/THIRD_PARTY_LICENSES.txt")
 
 ## Trusted identity propagation with ODBC
 

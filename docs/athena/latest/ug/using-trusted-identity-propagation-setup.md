@@ -152,9 +152,9 @@ JSON
 
 ## Configure AWS IAM Identity Center
 
-customer application
+customer managed application
 
-To configure customer application, follow the steps in [Set up customer managed OAuth 2.0 applications for trusted identity
+To configure a customer managed application, follow the steps in [Set up customer managed OAuth 2.0 applications for trusted identity
 propagation](../../../singlesignon/latest/userguide/customermanagedapps-trusted-identity-propagation-set-up-your-own-app-OAuth2.md "../../../singlesignon/latest/userguide/customermanagedapps-trusted-identity-propagation-set-up-your-own-app-OAuth2.md") with the following considerations for Athena.
 
 - For **Tags**, add the following key-value pair:
@@ -166,7 +166,7 @@ propagation](../../../singlesignon/latest/userguide/customermanagedapps-trusted-
   application role that you copied during IAM application role setup.
 - For **Applications that can receive requests**, choose
   _AWS-Lake-Formation-AWS-Glue-Data-Catalog-<account-id>_.
-- For **Access scopes to apply**, choose _lakeformation:query_.
+- For **Access scopes to apply**, select _lakeformation:query_ for IAM-enabled workgroups, or _lakeformation:query_, _athena:workgroup:read_write_, and _s3:access_grants:read_write_ for Identity Center-enabled workgroups.
 
 ## Configure workgroup
 

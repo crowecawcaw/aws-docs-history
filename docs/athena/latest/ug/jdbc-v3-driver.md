@@ -53,7 +53,7 @@ The following download packages the driver and all its dependencies in the same
 `.jar` file. This download is commonly used for third-party
 SQL clients.
 
-[3.6.0 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.6.0/athena-jdbc-3.6.0-with-dependencies.jar "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.6.0/athena-jdbc-3.6.0-with-dependencies.jar")
+[3.7.0 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.7.0/athena-jdbc-3.7.0-with-dependencies.jar "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.7.0/athena-jdbc-3.7.0-with-dependencies.jar")
 
 ### JDBC driver lean jar
 
@@ -65,13 +65,13 @@ the driver uses. This download is useful if you want to choose which of the driv
 dependencies to include with the lean jar, and which to exclude if your custom
 application already contains one or more of them.
 
-[3.6.0 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.6.0/athena-jdbc-3.6.0-lean-jar-and-separate-dependencies-jars.zip "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.6.0/athena-jdbc-3.6.0-lean-jar-and-separate-dependencies-jars.zip")
+[3.7.0 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.7.0/athena-jdbc-3.7.0-lean-jar-and-separate-dependencies-jars.zip "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.7.0/athena-jdbc-3.7.0-lean-jar-and-separate-dependencies-jars.zip")
 
 ### License
 
 The following link contains the license agreement for the JDBC 3.x driver.
 
-[License](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.6.0/LICENSE.txt "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.6.0/LICENSE.txt")
+[License](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.7.0/LICENSE.txt "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.7.0/LICENSE.txt")
 
 ## Trusted identity propagation with JDBC
 

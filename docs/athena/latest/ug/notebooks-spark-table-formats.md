@@ -2,6 +2,11 @@
 
 Spark
 
+###### Note
+
+This page refers to using Python libraries in the release version Pyspark engine version 3.
+Refer to [Amazon EMR 7.12](../../../emr/latest/ReleaseGuide/emr-7120-release.md "../../../emr/latest/ReleaseGuide/emr-7120-release.md") for supported open table format versions.
+
 When you work with sessions and notebooks in Athena for Spark, you can use Linux Foundation
 Delta Lake, Apache Hudi, and Apache Iceberg tables, in addition to Apache Hive
 tables.

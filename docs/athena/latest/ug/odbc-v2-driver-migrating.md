@@ -7,18 +7,33 @@ driver. However, the following connection parameters require modifications.
 ## Log level
 
 While the current ODBC driver provides a range of available logging options, starting
-from `LOG_OFF (0)` to `LOG_TRACE (6)`, the Amazon Athena ODBC driver
-has only two values: 0 (disabled) and 1 (enabled).
+from `LOG_OFF (0)` to `LOG_TRACE (6)`, the Amazon Athena ODBC 2.x driver
+initially had only two values: 0 (disabled) and 1 (enabled). Starting with version 2.0.6.0,
+the driver now supports more granular logging levels with enhanced logging capabilities:
+
+- `OFF` - Logging is disabled
+- `ERROR` - Only error messages are logged
+- `WARN` - Warning messages and errors are logged
+- `INFO` - Informational messages, warnings, and errors are logged
+- `DEBUG` - Detailed debug information plus all lower level messages are logged
+- `TRACE` - Most detailed level of logging, includes all messages
 
 For more information about logging the ODBC 2.x driver, see [Logging options](odbc-v2-driver-logging-options.md "odbc-v2-driver-logging-options.md").
 
-|                               | ODBC 1.x driver | ODBC 2.x driver |
-| ----------------------------- | --------------- | --------------- |
-| **Connection string name**    | `LogLevel`      | `LogLevel`      |
-| **Parameter type**            | Optional        | Optional        |
-| **Default value**             | `0`             | `0`             |
-| **Possible values**           | `0-6`           | `0,1`           |
-| **Connection string example** | `LogLevel=6;`   | `LogLevel=1;`   |
+|                               | ODBC 1.x driver | ODBC 2.x driver                                                                                                          |
+| ----------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| **Connection string name**    | `LogLevel`      | `LogLevel`                                                                                                               |
+| **Parameter type**            | Optional        | Optional                                                                                                                 |
+| **Default value**             | `0`             | `OFF`                                                                                                                    |
+| **Possible values**           | `0-6`           | For versions before 2.0.6.0: `0,1`<br>For version 2.0.6.0 and later: `OFF`, `ERROR`, `WARN`,<br>`INFO`, `DEBUG`, `TRACE` |
+| **Connection string example** | `LogLevel=6;`   | `LogLevel=INFO;`                                                                                                         |
+
+###### Note
+
+In version 2.0.6.0 and later, the logging framework has been optimized to reduce
+operational delays and excessive log file generation, while providing more detailed
+diagnostic information through these granular log levels. Each level includes all messages
+from the levels below it.
 
 ## MetadataRetrievalMethod
 

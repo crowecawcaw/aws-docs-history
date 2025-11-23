@@ -8,7 +8,7 @@ endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande
 
 ###### AWS services integrated with Athena
 
-- [AWS CloudFormation](#integ-ate-cfn "#integ-ate-cfn")
+- [CloudFormation](#integ-ate-cfn "#integ-ate-cfn")
 - [Amazon CloudFront](#integ-ate-cf "#integ-ate-cf")
 - [AWS CloudTrail](#integ-ate-ct "#integ-ate-ct")
 - [Amazon
@@ -28,7 +28,7 @@ endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande
 - [Amazon Virtual Private Cloud](#integ-ate-vpc "#integ-ate-vpc")
   For information about each integration, see the following sections.
 
-**AWS CloudFormation**
+**CloudFormation**
 
 _Capacity reservation_
 
@@ -54,7 +54,7 @@ _Named query_
 Reference topic: [AWS::Athena::NamedQuery](../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.md") in the
 _AWS CloudFormation User Guide_
 
-Specify named queries with AWS CloudFormation and run them in Athena. Named
+Specify named queries with CloudFormation and run them in Athena. Named
 queries allow you to map a query name to a query and then run it as
 a saved query from the Athena console. For more information, see
 [Use saved queries](saved-queries.md "saved-queries.md") in
@@ -74,7 +74,7 @@ _Amazon Athena API Reference_.
 
 _Workgroup_
 
-Reference topic: [AWS::Athena::WorkGroup](../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.md") in the _AWS CloudFormation User
+Reference topic: [AWS::Athena::WorkGroup](../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.md") in the _CloudFormation User
 Guide_
 
 Specify Athena workgroups using AWS CloudFormation. Use Athena workgroups to

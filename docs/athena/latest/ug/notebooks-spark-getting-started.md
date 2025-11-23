@@ -2,6 +2,12 @@
 
 Amazon Athena
 
+###### Note
+
+For the release version Apache Spark version 3.5, following the Getting Started guide in
+[SageMaker Notebooks](../../../sagemaker-unified-studio/latest/userguide/what-is-sagemaker-unified-studio.md "../../../sagemaker-unified-studio/latest/userguide/what-is-sagemaker-unified-studio.md").
+Use this guide for the release version Pyspark engine version 3.
+
 To get started with Apache Spark on Amazon Athena, you must first create a Spark enabled
 workgroup. After you switch to the workgroup, you can create a notebook or open an existing
 notebook. When you open a notebook in Athena, a new session is started for it automatically
@@ -237,7 +243,7 @@ the previous section.
 2. (Optional) **Other settings** – Expand this option
    to enable or disable the **Publish CloudWatch metrics** option
    for the workgroup. This field is selected by default. For more information,
-   see [Monitor Apache Spark calculations with CloudWatch
+   see [Monitor Apache Spark with CloudWatch
    metrics](notebooks-spark-metrics.md "notebooks-spark-metrics.md").
 3. (Optional) **Tags** – Use this option to add tags
    to your workgroup. For more information, see [Tag Athena resources](tags.md "tags.md").

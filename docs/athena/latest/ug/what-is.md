@@ -11,7 +11,7 @@ Amazon Athena also makes it easy to interactively run data analytics using Apach
 without having to plan for, configure, or manage resources. When you run Apache Spark
 applications on Athena, you submit Spark code for processing and receive the results
 directly. Use the simplified notebook experience in Amazon Athena console to develop Apache
-Spark applications using Python or [Use Athena notebook APIs](notebooks-spark-api-list.md "notebooks-spark-api-list.md").
+Spark applications using Python or [Use Athena Spark APIs](notebooks-spark-api-list.md "notebooks-spark-api-list.md").
 
 For more information, see [Get started with Apache Spark on
 Amazon Athena](notebooks-spark-getting-started.md "notebooks-spark-getting-started.md").

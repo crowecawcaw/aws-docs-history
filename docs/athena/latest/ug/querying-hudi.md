@@ -20,14 +20,7 @@ Hudi datasets are suitable for the following use cases:
 - Working with streaming data from sensors and other Internet of Things (IoT)
   devices that require specific data insertion and update events.
 - Implementing a [change data capture (CDC) system](https://en.wikipedia.org/wiki/Change_data_capture "https://en.wikipedia.org/wiki/Change_data_capture").
-  Data sets managed by Hudi are stored in Amazon S3 using open storage formats. Currently, Athena
-  can read compacted Hudi datasets but not write Hudi data. Athena supports Hudi version 0.14.0 with Athena engine version 3. This is subject to change. Athena
-  cannot guarantee read compatibility with tables that are created with later versions of
-  Hudi. For information about Athena engine versioning, see [Athena engine versioning](engine-versions.md "engine-versions.md"). For more information about Hudi features and
-  versioning, see the [Hudi
-  documentation](https://hudi.apache.org/docs/overview "https://hudi.apache.org/docs/overview") on the Apache website.
-
-A Hudi dataset can be one of the following types:
+  A Hudi dataset can be one of the following types:
 
 - **Copy on Write (CoW)** – Data is stored in a columnar
   format (Parquet), and each update creates a new version of files during a
@@ -60,12 +53,6 @@ Hudi provides three query types for accessing the data:
 | ------------- | ------------------------------------- |
 | Copy On Write | snapshot, incremental                 |
 | Merge On Read | snapshot, incremental, read optimized |
-
-Currently, Athena supports snapshot queries and read optimized queries, but not incremental
-queries. On MoR tables, all data exposed to read optimized queries are compacted. This
-provides good performance but does not include the latest delta commits. Snapshot queries
-contain the freshest data but incur some computational overhead, which makes these queries
-less performant.
 
 For more information about the tradeoffs between table and query types, see [Table & Query Types](https://hudi.apache.org/docs/table_types/ "https://hudi.apache.org/docs/table_types/") in the
 Apache Hudi documentation.

@@ -6,17 +6,31 @@ dialog box or modify the Windows registry directly.
 
 ## Log level
 
-This option enables ODBC driver logs. In Windows, you can use the registry or a dialog
-box to enable or disable logging. The option is located in the following registry
-path:
+This option enables ODBC driver logs with different levels of detail. In Windows, you can
+use the registry or a dialog box to configure logging. The option is located in the following
+registry path:
 
 ```
 Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Amazon Athena\ODBC\Driver
 ```
 
+The following log levels are available:
+
+- `OFF` - Logging is disabled
+- `ERROR` - Only error messages are logged
+- `WARN` - Warning messages and errors are logged
+- `INFO` - Informational messages, warnings, and errors are logged
+- `DEBUG` - Detailed debug information plus all lower level messages are logged
+- `TRACE` - Most detailed level of logging, includes all messages
+
+###### Note
+
+Each log level includes all messages from the levels below it. Higher log levels may
+impact performance and generate larger log files.
+
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| LogLevel                   | Optional           | `0`               | `LogLevel=1;`                 |
+| LogLevel                   | Optional           | `OFF`             | `LogLevel=INFO;`              |
 
 ## Log path
 

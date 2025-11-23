@@ -107,7 +107,7 @@ TABLE` doesn't remove stale partitions from table metadata. To remove
   error
 
 If you use the AWS Glue [CreateTable](../../../glue/latest/webapi/API_CreateTable.md "../../../glue/latest/webapi/API_CreateTable.md") API operation
-or the AWS CloudFormation [`AWS::Glue::Table`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.md") template to create a table for use in Athena without
+or the CloudFormation [`AWS::Glue::Table`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.md") template to create a table for use in Athena without
 specifying the `TableType` property and then run a DDL query like
 `SHOW CREATE TABLE` or `MSCK REPAIR TABLE`, you can
 receive the error message **`FAILED: NullPointerException Name is
@@ -115,7 +115,7 @@ receive the error message **`FAILED: NullPointerException Name is
 
 To resolve the error, specify a value for the [TableInput](../../../glue/latest/webapi/API_TableInput.md "../../../glue/latest/webapi/API_TableInput.md")
 `TableType` attribute as part of the AWS Glue `CreateTable` API
-call or [AWS CloudFormation template](../../../AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.md"). Possible values for `TableType` include
+call or [CloudFormation template](../../../AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.md"). Possible values for `TableType` include
 `EXTERNAL_TABLE` or `VIRTUAL_VIEW`.
 
 This requirement applies only when you create a table using the AWS Glue

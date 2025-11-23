@@ -20,7 +20,7 @@ information, see [Set up, administrative, and programmatic access](setting-up.md
 ###### Topics
 
 - [Application Load Balancer](application-load-balancer-logs.md "application-load-balancer-logs.md")
-- [Elastic Load Balancing](elasticloadbalancer-classic-logs.md "elasticloadbalancer-classic-logs.md")
+- [ELB](elasticloadbalancer-classic-logs.md "elasticloadbalancer-classic-logs.md")
 - [CloudFront](cloudfront-logs.md "cloudfront-logs.md")
 - [CloudTrail](cloudtrail-logs.md "cloudtrail-logs.md")
 - [Amazon EMR](emr-logs.md "emr-logs.md")

@@ -1,5 +1,10 @@
 # Use the Athena notebook editor
 
+###### Note
+
+The Athena notebook editor is supported in the Pyspark engine version 3. For using notebooks with Apache
+Spark version 3.5, see [SageMaker Notebooks](../../../sagemaker-unified-studio/latest/userguide/what-is-sagemaker-unified-studio.md "../../../sagemaker-unified-studio/latest/userguide/what-is-sagemaker-unified-studio.md").
+
 You manage your notebooks in the Athena notebook explorer and edit and run them in
 sessions using the Athena notebook editor. You can configure DPU usage for your notebook
 sessions according to your requirements.

@@ -14,6 +14,7 @@ assessing usage and cost.
   capacity is required](#capacity-management-requirements-insufficient-capacity "#capacity-management-requirements-insufficient-capacity")
 - [Check for idle
   capacity](#capacity-management-requirements-idle-capacity "#capacity-management-requirements-idle-capacity")
+- [Monitoring DPU consumption](#capacity-management-requirements-monitoring-dpu-consumption "#capacity-management-requirements-monitoring-dpu-consumption")
 
 ## Estimate required
 
@@ -124,6 +125,10 @@ If you do not want to maintain capacity outside a preferred time period, you can
 the reservation and create another reservation later. However, even if you recently
 cancelled capacity from another reservation, requests for new capacity are not
 guaranteed, and new reservations take time to create.
+
+## Monitoring DPU consumption
+
+After your queries run, you can view the DPU consumed by your queries to help refine your capacity estimates. Athena provides DPU consumption metrics through the console, API operations, and CloudWatch. This information helps you identify queries that consume more or fewer resources than expected and optimize your capacity allocation based on real-world data. For detailed information about viewing and tracking DPU consumption, see [Monitor DPU usage](capacity-management-control-capacity-usage.md#capacity-management-monitor-dpu-usage "capacity-management-control-capacity-usage.md#capacity-management-monitor-dpu-usage").
 
 You can use the following services and features in AWS to measure your Athena
 usage and costs.

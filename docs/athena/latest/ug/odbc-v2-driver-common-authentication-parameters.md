@@ -13,7 +13,10 @@ option is available for the following authentication plugins:
 - Azure AD
 - Browser Azure AD
 - Browser SSO OIDC
+- JWT trusted identity propagation
 - JWT
+- JWT trusted identity propagation
+- Browser trusted identity propagation
 - Okta
 - Ping
 

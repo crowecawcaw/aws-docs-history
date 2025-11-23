@@ -3,6 +3,33 @@
 These release notes provide details of improvements and fixes in the Amazon Athena JDBC 3.x
 driver.
 
+## 3.7.0
+
+Released 2025-11-21
+
+### Improvements
+
+- Browser OIDC Trusted identity propagation authentication plugin –
+  Added a new authentication plugin that enables seamless browser-based authentication
+  with OpenID Connect (OIDC) identity providers. This plugin handles the complete OAuth 2.0
+  flow through your default browser, automatically fetches the JSON Web Token (JWT), and
+  integrates with trusted identity propagation. Designed specifically for single-user desktop environments,
+  it provides a more streamlined authentication experience compared to manual JWT handling.
+  For more information about trusted identity propagation, see [What is trusted identity propagation?](../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md "../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md").
+
+### Fixes
+
+- Enhanced timestamp precision support –
+  The driver now fully supports millisecond and nanosecond precision in timestamp
+  values returned from Athena queries through the `getTimestamp()` method.
+- Improved complex type handling –
+  Fixed issues with parsing nested data types (arrays, structs, and maps) in
+  both `DatabaseMetaData#getColumns` and general metadata operations,
+  ensuring accurate type information for complex data structures.
+- Enhanced error logging –
+  Improved logging for S3 metadata fetch failures, providing clearer error messages
+  and better diagnostic information.
+
 ## 3.6.0
 
 Released 2025-09-10

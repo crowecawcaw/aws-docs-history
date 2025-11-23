@@ -3,6 +3,36 @@
 These release notes provide details of enhancements, features, known issues, and workflow
 changes in the Amazon Athena ODBC 2.x driver.
 
+## 2.0.6.0
+
+Released 2025-11-21
+
+### Improvements
+
+- Browser Trusted Identity Propagation authentication plugin
+  – Added a new authentication plugin to support browser-based OpenID Connect (OIDC)
+  authentication with trusted identity propagation. This plugin provides a seamless authentication experience by
+  handling the complete OAuth 2.0 flow through your default browser, automatically fetching
+  the JSON Web Token (JWT), and integrating with trusted identity propagation. The plugin is specifically designed
+  for single-user desktop environments. For information on enabling and using trusted identity propagation, see
+  [What is trusted identity propagation?](../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md "../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md").
+- Enhanced logging framework – Significantly
+  improved the driver's logging mechanism by:
+  - Introducing more granular log levels beyond basic 0/1 options
+  - Removing redundant log statements
+  - Optimizing the logging framework to include diagnostically relevant information
+  - Addressing performance issues that were causing operational delays
+  - Reducing excessive log file generation when logging is enabled
+
+### Fixes
+
+- Result fetcher optimization – Fixed an issue
+  where fetch size parameter limitations were incorrectly applied to both streaming and
+  non-streaming result fetchers. The limitation is now correctly applied only to
+  non-streaming result fetchers.
+
+To download the new ODBC v2 driver, see [ODBC 2.x driver download](odbc-v2-driver.md#odbc-v2-driver-download "odbc-v2-driver.md#odbc-v2-driver-download"). For connection information, see [Amazon Athena ODBC 2.x](odbc-v2-driver.md "odbc-v2-driver.md").
+
 ## 2.0.5.1
 
 Released 2025-10-13

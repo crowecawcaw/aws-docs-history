@@ -20,8 +20,7 @@ or remove its custom tags.
      **Edit**.
 
 5. For **DPU**, choose or enter the number of data
-   processing units that you want in increments of 4. The minimum number of
-   DPUs that you can have is 24. For more information, see [Understand DPUs](capacity-management.md#capacity-management-understanding-dpus "capacity-management.md#capacity-management-understanding-dpus").
+   processing units that you want. For more information, see [Understand DPUs](capacity-management.md#capacity-management-understanding-dpus "capacity-management.md#capacity-management-understanding-dpus").
 
 ###### Note
 

@@ -15,7 +15,7 @@ column name requirements
   Because these leading spaces can be hard to detect and can cause usability
   issues after creation, avoid inadvertently creating object names that have
   leading spaces.
-- If you use an [AWS::Glue::Database](../../../AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.md") AWS CloudFormation template to create an AWS Glue database and
+- If you use an [AWS::Glue::Database](../../../AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.md") CloudFormation template to create an AWS Glue database and
   do not specify a database name, AWS Glue automatically generates a database name in
   the format `resource_name–random_string` that is
   not compatible with Athena.

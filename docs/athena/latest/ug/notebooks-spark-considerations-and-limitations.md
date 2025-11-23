@@ -2,8 +2,30 @@
 
 limitations
 
-- Currently, Amazon Athena for Apache Spark is available in the following
-  AWS Regions:
+## Apache Spark version 3.5
+
+The following are the considerations and limitations for the release version Apache Spark version 3.5:
+
+- This release version is available in the following AWS Regions:
+  - Asia Pacific (Mumbai)
+  - Asia Pacific (Singapore)
+  - Asia Pacific (Sydney)
+  - Asia Pacific (Tokyo)
+  - Europe (Frankfurt)
+  - Europe (Ireland)
+  - US East (N. Virginia)
+  - US East (Ohio)
+  - US West (Oregon)
+
+- This engine version does not support Athena in-console notebooks or notebook APIs. Instead, this version comes integrated with Amazon SageMaker AI Unified Studio notebooks. You can also use compatible Spark Connect clients.
+- The Calculation APIs - `StartCalculationExecution`, `ListCalculationExecutions` and `GetCalculationExecution`, are not supported in this release.
+- You cannot upgrade a workgroup from PySpark engine version 3 to Apache Spark version 3.5.
+
+## Pyspark engine version 3
+
+The following are the considerations and limitations for the release version Pyspark engine version 3:
+
+- This release version is available in the following AWS Regions:
   - Asia Pacific (Mumbai)
   - Asia Pacific (Singapore)
   - Asia Pacific (Sydney)
