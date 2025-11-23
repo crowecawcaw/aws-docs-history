@@ -19,7 +19,7 @@ computations and visualizations in the cloud with desktop access.
    environment.
 3. NICE DCV session to Windows VDI.
 4. NICE DCV session to Linux VDI.
-5. AWS Directory Service is used for the centralized user management. The cluster head node, Linux and
+5. Directory Service is used for the centralized user management. The cluster head node, Linux and
    Windows VDIs, HPC compute nodes join the Active Directory domain.
 6. AWS Transfer for SFTP is used to share data between on-premises and the cluster.
 7. Amazon EFSAmazon FSx for NetApp ONTAP is used for storing of cluster applications and for sharing data
