@@ -24,7 +24,7 @@ using the latest successful snapshot.
 We strongly recommend that you take a snapshot with your existing app before you
 attempt to upgrade. This will help to avoid data loss or having to reprocess data.
 
-In this failure scenario, AWS CloudFormation will not roll back the application for you. You
+In this failure scenario, CloudFormation will not roll back the application for you. You
 must update the CloudFormation template to point to the previous runtime and to the
 previous code to force CloudFormation to update the application. Otherwise, CloudFormation
 assumes that your application has been updated when it transitions to the

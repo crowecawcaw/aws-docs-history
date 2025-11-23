@@ -61,7 +61,7 @@ York taxi data.
 Each solution
 includes the following components:
 
-- An AWS CloudFormation package to deploy the complete example.
+- An CloudFormation package to deploy the complete example.
 - A CloudWatch dashboard for displaying application metrics.
 - CloudWatch alarms on the most relevant application metrics.
 - All necessary IAM roles and policies.
@@ -102,7 +102,7 @@ Dashboard](https://github.com/aws-samples/kda-metrics-dashboard "https://github.
 
 solution for Amazon MSK
 
-The AWS Streaming Data Solution for Amazon MSK provides AWS CloudFormation templates where data flows through producers,
+The AWS Streaming Data Solution for Amazon MSK provides CloudFormation templates where data flows through producers,
 streaming storage, consumers, and destinations.
 
 [AWS Streaming Data Solution for Amazon MSK](https://aws.amazon.com/solutions/implementations/aws-streaming-data-solution-for-amazon-msk/ "https://aws.amazon.com/solutions/implementations/aws-streaming-data-solution-for-amazon-msk/")

@@ -175,15 +175,15 @@ To send test data to your Kinesis data stream, do the following:
 
 1. Open the [Kinesis Data Generator](https://awslabs.github.io/amazon-kinesis-data-generator/web/help.html "https://awslabs.github.io/amazon-kinesis-data-generator/web/help.html").
 2. Choose **Create a Cognito User with CloudFormation**.
-3. The AWS CloudFormation console opens with the Kinesis Data Generator template. Choose **Next**.
+3. The CloudFormation console opens with the Kinesis Data Generator template. Choose **Next**.
 4. In the **Specify stack details** page, enter a username and password for your
    Cognito user. Choose **Next**.
 5. In the **Configure stack options** page, choose **Next**.
 6. In the **Review Kinesis-Data-Generator-Cognito-User** page, choose the
    **I acknowledge that AWS CloudFormation might create IAM resources.** checkbox.
    Choose **Create Stack**.
-7. Wait for the AWS CloudFormation stack to finish being created. After the stack is complete,
-   open the **Kinesis-Data-Generator-Cognito-User** stack in the AWS CloudFormation console,
+7. Wait for the CloudFormation stack to finish being created. After the stack is complete,
+   open the **Kinesis-Data-Generator-Cognito-User** stack in the CloudFormation console,
    and choose the **Outputs** tab. Open the URL listed for the
    **KinesisDataGeneratorUrl** output value.
 8. In the **Amazon Kinesis Data Generator** page, log in with the credentials

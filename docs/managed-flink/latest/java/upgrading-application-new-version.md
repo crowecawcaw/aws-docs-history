@@ -18,10 +18,10 @@ You can call the `UpdateApplication` API in multiple ways:
     to the new upgraded application JAR/zip on Amazon S3.
 
 - Use the AWS CLI [update-application](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesisanalyticsv2/update-application.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesisanalyticsv2/update-application.html") action.
-- Use AWS CloudFormation (CFN).
-  - Update the [RuntimeEnvironment](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.md#cfn-kinesisanalyticsv2-application-runtimeenvironment "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.md#cfn-kinesisanalyticsv2-application-runtimeenvironment") field. Previously, AWS CloudFormation deleted the
+- Use CloudFormation (CFN).
+  - Update the [RuntimeEnvironment](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.md#cfn-kinesisanalyticsv2-application-runtimeenvironment "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.md#cfn-kinesisanalyticsv2-application-runtimeenvironment") field. Previously, CloudFormation deleted the
     application and created a new one, causing your snapshots and other app
-    history to be lost. Now AWS CloudFormation updates your RuntimeEnvironment in place
+    history to be lost. Now CloudFormation updates your RuntimeEnvironment in place
     and does not delete your application.
 
 - Use the AWS SDK.

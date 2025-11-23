@@ -2,19 +2,19 @@ Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Ama
 
 # Use CloudFormation with Managed Service for Apache Flink
 
-The following exercise shows how to start a Flink application created with AWS CloudFormation using a
+The following exercise shows how to start a Flink application created with CloudFormation using a
 Lambda function in the same stack.
 
 ## Before you begin
 
-Before you begin this exercise, follow the steps on creating a Flink application using AWS CloudFormation at
+Before you begin this exercise, follow the steps on creating a Flink application using CloudFormation at
 [AWS::KinesisAnalytics::Application](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-analyticsapplication.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-analyticsapplication.md").
 
 ## Write a Lambda function
 
 To start a Flink application after creation or update, we use the kinesisanalyticsv2
 [start-application](../../../cli/latest/reference/kinesisanalyticsv2/start-application.md "../../../cli/latest/reference/kinesisanalyticsv2/start-application.md") API. The call will be
-triggered by an AWS CloudFormation event after Flink application creation. We’ll discuss how to set up the stack to trigger the Lambda function later in this exercise,
+triggered by an CloudFormation event after Flink application creation. We’ll discuss how to set up the stack to trigger the Lambda function later in this exercise,
 but first we focus on the Lambda function declaration and its code. We use `Python3.8` runtime in this example.
 
 ```
@@ -83,7 +83,7 @@ StartApplicationLambda:
               cfnresponse.send(event,context, cfnresponse.FAILED, {"Data": str(err)})
 ```
 
-In the preceding code, Lambda processes incoming AWS CloudFormation events, filters out everything
+In the preceding code, Lambda processes incoming CloudFormation events, filters out everything
 besides `Create` and `Update`, gets the application state and start it
 if the state is `READY`. To get the application state, you must create the Lambda
 role, as shown following.
