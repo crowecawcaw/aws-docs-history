@@ -16,7 +16,7 @@ This architecture, which is agnostic of game engine and software, walks through 
    (SNAT).
 3. **Amazon Route 53** provides private DNS for the resources in
    the VPC, as well as inbound and outbound DNS forwarding.
-4. **AWS Directory Service** provides managed directory service for
+4. **Directory Service** provides managed directory service for
    Microsoft Active Directory to enable local game project storage mapped to individual
    users.
 5. Workstations are created using an **Amazon Machine Image** (AMI) built with **Amazon EC2**
