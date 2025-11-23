@@ -36,7 +36,7 @@ Before you integrate AWS IoT Device Defender with Security Hub, you must first e
 about how to enable Security Hub, see [Setting up Security
 Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub User Guide_.
 
-After you enable both AWS IoT Device Defender and Security Hub, open the [Integrations page in the Security Hub console](https://console.aws.amazon.com/securityhub/home#/integrations "https://console.aws.amazon.com/securityhub/home#/integrations"), and
+After you enable both AWS IoT Device Defender and Security Hub, open the [Integrations page in the Security Hub console](https://console.aws.amazon.com//securityhub/home#/integrations "https://console.aws.amazon.com//securityhub/home#/integrations"), and
 then choose **Accept findings** for Audit, Detect, or both. AWS IoT Device Defender begins
 sending findings to Security Hub.
 
