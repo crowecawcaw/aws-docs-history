@@ -29,25 +29,9 @@ This policy includes the following permissions.
 
 - `groundstation` – Allows dataflow endpoint instances to call the Ground Station Agent APIs.
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "groundstation:RegisterAgent",
- "groundstation:UpdateAgentStatus",
- "groundstation:GetAgentConfiguration"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
+To view the latest version of the JSON policy document,
+see [AWSGroundStationAgentInstancePolicy](../../../aws-managed-policy/latest/reference/AWSGroundStationAgentInstancePolicy.md "../../../aws-managed-policy/latest/reference/AWSGroundStationAgentInstancePolicy.md")
+in the AWS Managed Policy Reference Guide.
 
 ## AWS
 
@@ -68,24 +52,9 @@ This policy includes the following permissions.
 - `ec2:DescribeNetworkInterfaces` – Allows AWS Ground Station to get information on the network
   interfaces associated with EC2 instances on your behalf.
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "ec2:DescribeAddresses",
- "ec2:DescribeNetworkInterfaces"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
+To view the latest version of the JSON policy document,
+see [AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy](../../../aws-managed-policy/latest/reference/AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy.md "../../../aws-managed-policy/latest/reference/AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy.md")
+in the AWS Managed Policy Reference Guide.
 
 ## AWS Ground Station updates to AWS managed
 
@@ -97,6 +66,7 @@ the RSS feed on the AWS Ground Station Document history page.
 
 | Change                                                                                                                                                                                                                                             | Description                                                                                                                                                                                               | Date              |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [AWSGroundStationAgentInstancePolicy](#security-iam-awsmanpol-AWSGroundStationAgentInstancePolicy "#security-iam-awsmanpol-AWSGroundStationAgentInstancePolicy") –<br>Update to an existing policy                                                 | AWS Ground Station added new permissions to allow agents to retrieve task response URLs for enhanced Ground Station operations.                                                                           | November 13, 2025 |
 | [AWSGroundStationAgentInstancePolicy](#security-iam-awsmanpol-AWSGroundStationAgentInstancePolicy "#security-iam-awsmanpol-AWSGroundStationAgentInstancePolicy") –<br>New policy                                                                   | AWS Ground Station added a new policy to provide the dataflow endpoint instance permissions to use the AWS Ground Station Agent.                                                                          | April 12, 2023    |
 | [AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy](#security-iam-awsmanpol-AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy "#security-iam-awsmanpol-AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy") –<br>New policy | AWS Ground Station added a new policy that grants EC2 permissions to allow AWS Ground Station to find public IPv4 addresses associated with EIPs and network interfaces<br>associated with EC2 instances. | November 02, 2022 |
 | AWS Ground Station started tracking changes                                                                                                                                                                                                        | AWS Ground Station started tracking changes for AWS managed policies.                                                                                                                                     | March 01, 2021    |

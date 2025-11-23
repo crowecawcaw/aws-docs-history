@@ -12,14 +12,14 @@ Direct Readout Labs software (RT-STPS and IPOPP).
 
 This section represents
 [Plan your dataflow communication paths](getting-started.md "getting-started.md")
-of getting started. For this example, you will be creating two sections in your AWS CloudFormation template: Parameters and Resources sections.
+of getting started. For this example, you will be creating two sections in your CloudFormation template: Parameters and Resources sections.
 
 ###### Note
 
-For more information about the contents of a AWS CloudFormation template, see
+For more information about the contents of a CloudFormation template, see
 [Template sections](../../../AWSCloudFormation/latest/UserGuide/template-anatomy.md "../../../AWSCloudFormation/latest/UserGuide/template-anatomy.md").
 
-For the Parameters section, you're going to add the following parameters. You'll specify values for these when creating the stack via the AWS CloudFormation console.
+For the Parameters section, you're going to add the following parameters. You'll specify values for these when creating the stack via the CloudFormation console.
 
 ```
 
@@ -40,10 +40,10 @@ Parameters:
 You **need** to create a key pair, and provide the name for the Amazon EC2 `EC2Key` parameter. See
 [Create a key pair for your Amazon EC2 instance](../../../AWSEC2/latest/UserGuide/create-key-pairs.md "../../../AWSEC2/latest/UserGuide/create-key-pairs.md").
 
-Additionally, you'll **need** to provide the correct **region specific** AMI ID, when creating the AWS CloudFormation stack. See
+Additionally, you'll **need** to provide the correct **region specific** AMI ID, when creating the CloudFormation stack. See
 [AWS Ground Station Amazon Machine Images (AMIs)](dataflows.md#dataflows.ec2-configuration.amis "dataflows.md#dataflows.ec2-configuration.amis").
 
-The remaining template snippets belong in the Resources section of the AWS CloudFormation
+The remaining template snippets belong in the Resources section of the CloudFormation
 template.
 
 ```
@@ -478,10 +478,10 @@ the defaults for the remaining parameters.
 With the above resources, you now have the ability to schedule JPSS-1 contacts for
 synchronous data delivery from any of your onboarded AWS Ground Station [AWS Ground Station Locations](aws-ground-station-antenna-locations.md "aws-ground-station-antenna-locations.md").
 
-The following is a complete AWS CloudFormation template that includes all resources described
-in this section combined into a single template that can be directly used in AWS CloudFormation.
+The following is a complete CloudFormation template that includes all resources described
+in this section combined into a single template that can be directly used in CloudFormation.
 
-The AWS CloudFormation template named `AquaSnppJpss.yml` is designed to give you quick access to
+The CloudFormation template named `AquaSnppJpss.yml` is designed to give you quick access to
 start receiving data for the Aqua, SNPP, and JPSS-1/NOAA-20 satellites.
 It contains an Amazon EC2 instance and the required AWS Ground Station resources to schedule contacts and
 receive demodulated and decoded direct broadcast data.
@@ -493,7 +493,7 @@ If Aqua, SNPP, JPSS-1/NOAA-20, and Terra are not onboarded to your account, see
 
 You can access the template by accessing the customer onboarding Amazon S3 bucket using valid
 AWS credentials. The links below use a regional Amazon S3 bucket.
-Change the `us-west-2` region code to represent the corresponding region of which you want to create the AWS CloudFormation
+Change the `us-west-2` region code to represent the corresponding region of which you want to create the CloudFormation
 stack in.
 
 Additionally, the following instructions use YAML. However, the templates are available in
@@ -513,7 +513,7 @@ your browser:
 https://s3.console.aws.amazon.com/s3/object/groundstation-cloudformation-templates-us-west-2/AquaSnppJpss.yml
 ```
 
-You can specify the template directly in AWS CloudFormation using the following link:
+You can specify the template directly in CloudFormation using the following link:
 
 ```
 https://groundstation-cloudformation-templates-us-west-2.s3.us-west-2.amazonaws.com/AquaSnppJpss.yml

@@ -1,181 +1,145 @@
-# Onboard satellite
+# Get started
 
-Onboarding a satellite into AWS Ground Station is a multistep process involving data
-collection, technical validation, spectrum licensing, with integration and testing. There are
-also non-disclosure agreements (NDAs) required.
+Before you begin, you should familiarize yourself with the basic concepts in AWS Ground Station. For more information, see [How AWS Ground Station works](how-it-works.md "how-it-works.md").
 
-## Customer onboarding process overview
+Below are the best practices for AWS Identity and Access Management (IAM) and what permissions you will need. After setting up the appropriate roles you can begin following the remainder of the steps.
 
-Satellite onboarding is a manual process that can be found on the
-[Satellites and Resources](https://console.aws.amazon.com/groundstation/home#resources "https://console.aws.amazon.com/groundstation/home#resources")
-section of the AWS Ground Station console page. The following describes the overall process.
+## Sign up for an AWS account
 
-1. Review the
-   [AWS Ground Station Locations](aws-ground-station-antenna-locations.md "aws-ground-station-antenna-locations.md")
-   section to determine if your satellite meets the geographical and radio frequency
-   characteristics.
-2. To start onboarding your satellite to AWS Ground Station, please email
-   `<aws-groundstation@amazon.com>`
-   with a brief summary of your mission and satellite needs,
-   including your organization name, the frequencies required, when the satellites will be or
-   were launched, the satellite's orbit type, and if you plan to use [Use the AWS Ground Station digital twin feature](digital-twin.md "digital-twin.md").
-3. Once your request is reviewed and approved, AWS Ground Station will apply for regulatory licensing at
-   the specific locations you plan to use. The duration of this step will vary depending on
-   the locations and any existing regulations.
-4. After this approval is obtained, your satellite will be visible for you to use. AWS Ground Station
-   will send you a notification of the successful update.
+If you do not have an AWS account, complete the following steps to create one.
 
-## (Optional) Naming satellites
+###### To sign up for an AWS account
 
-After onboarding, you may want to add a name to your satellite record to more easily recognize
-it. The AWS Ground Station console has the ability to display a user defined name for a satellite along
-with the Norad ID when using the Contacts page. Displaying the satellite name makes it much
-easier to select the correct satellite when scheduling. To do this,
-[tags](../../../whitepapers/latest/tagging-best-practices/what-are-tags.md "../../../whitepapers/latest/tagging-best-practices/what-are-tags.md")
-can be used.
+1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
+2. Follow the online instructions.
 
-Tagging AWS Ground Station Satellites can be done via the
-[tag-resource](../../../cli/latest/reference/groundstation/tag-resource.md "../../../cli/latest/reference/groundstation/tag-resource.md")
-API with the AWS CLI or one of the AWS SDKs. This guide will cover using the AWS Ground Station CLI to tag
-the public broadcast satellite Aqua (Norad ID 27424) in `us-west-2`.
+Part of the sign-up procedure involves receiving a phone call or text message and entering
+a verification code on the phone keypad.
 
-**AWS Ground Station CLI**
+When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
+and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
 
-The AWS CLI can be used to interact with AWS Ground Station. Before using AWS CLI to tag your satellites,
-the following AWS CLI prerequisites must be fulfilled:
+AWS sends you a confirmation email after the sign-up process is
+complete. At any time, you can view your current account activity and manage your account by
+going to [https://aws.amazon.com/](https://aws.amazon.com/ "https://aws.amazon.com/") and choosing **My
+Account**.
 
-- Ensure that AWS CLI is installed. For information about installing AWS CLI, see
-  [Installing the
-  AWS CLI version 2](../../../cli/latest/userguide/install-cliv2.md "../../../cli/latest/userguide/install-cliv2.md").
-- Ensure that AWS CLI is configured. For information about configuring AWS CLI, see
-  [Configuring
-  the AWS CLI version 2](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md").
-- Save your frequently used configuration settings and credentials in files that are
-  maintained by the AWS CLI. You need these settings and credentials to reserve and manage
-  your AWS Ground Station contacts with AWS CLI. For more information about saving your configuration and
-  credential settings, see
-  [Configuration and credential file settings](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md") .
+## Create a user with administrative access
 
-Once AWS CLI is configured and ready to use, review the
-[AWS Ground
-Station CLI Command Reference](../../../cli/latest/reference/groundstation/index.md "../../../cli/latest/reference/groundstation/index.md")
-page to familiarize yourself with available commands. Follow the AWS CLI command structure when
-using this service and prefix your commands with `groundstation` to specify AWS Ground Station
-as the service you want to use. For more information on the AWS CLI command structure, see
-[Command
-Structure in the AWS CLI](../../../cli/latest/userguide/cli-usage-commandstructure.md "../../../cli/latest/userguide/cli-usage-commandstructure.md")
-page. An example command structure is provided below.
+After you sign up for an AWS account, secure your AWS account root user, enable AWS IAM Identity Center, and create an administrative user so that you
+don't use the root user for everyday tasks.
 
-```
-aws groundstation <command> <subcommand> [options and parameters]
-```
+###### Secure your AWS account root user
 
-**Name a Satellite**
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/") as the account owner by choosing **Root user** and entering your AWS account email address. On the next page, enter your password.
 
-First you need to get the ARN for the satellite(s) you wish to tag. This can be done via the
-[list-satellites](../../../cli/latest/reference/groundstation/list-satellites.md "../../../cli/latest/reference/groundstation/list-satellites.md")
-API in the AWS CLI:
+For help signing in by using root user, see [Signing in as the root user](../../../signin/latest/userguide/console-sign-in-tutorials.md#introduction-to-root-user-sign-in-tutorial "../../../signin/latest/userguide/console-sign-in-tutorials.md#introduction-to-root-user-sign-in-tutorial") in the _AWS Sign-In User Guide_. 2. Turn on multi-factor authentication (MFA) for your root user.
 
-```
-aws groundstation list-satellites --region us-west-2
-```
+For instructions, see [Enable a virtual MFA device for your AWS account root user (console)](../../../IAM/latest/UserGuide/enable-virt-mfa-for-root.md "../../../IAM/latest/UserGuide/enable-virt-mfa-for-root.md") in the _IAM User Guide_.
 
-Running the above CLI command will return an output similar to this:
+###### Create a user with administrative access
 
-```
+1. Enable IAM Identity Center.
 
-{
-    "satellites": [
-        {
-            "groundStations": [
-                "Ohio 1",
-                "Oregon 1"
-            ],
-            "noradSatelliteID": 27424,
-            "satelliteArn": "arn:aws:groundstation::111111111111:satellite/11111111-2222-3333-4444-555555555555",
-            "satelliteId": "11111111-2222-3333-4444-555555555555"
-        }
-    ]
-}
+For instructions, see [Enabling
+AWS IAM Identity Center](../../../singlesignon/latest/userguide/get-set-up-for-idc.md "../../../singlesignon/latest/userguide/get-set-up-for-idc.md") in the
+_AWS IAM Identity Center User Guide_. 2. In IAM Identity Center, grant administrative access to a user.
 
-```
+For a tutorial about using the IAM Identity Center directory as your identity source, see [Configure user access with the default IAM Identity Center directory](../../../singlesignon/latest/userguide/quick-start-default-idc.md "../../../singlesignon/latest/userguide/quick-start-default-idc.md") in the
+_AWS IAM Identity Center User Guide_.
 
-Find the satellite you wish to tag and note down the `satelliteArn`. One important
-caveat for tagging is that the
-[tag-resource](../../../cli/latest/reference/groundstation/tag-resource.md "../../../cli/latest/reference/groundstation/tag-resource.md")
-API requires a regional ARN, and the ARN returned by [list-satellites](../../../cli/latest/reference/groundstation/list-satellites.md "../../../cli/latest/reference/groundstation/list-satellites.md") is global. For the next step, you should augment the ARN with the region
-you would like to see the tag in (likely the region you schedule in). For this example, we are
-using `us-west-2`. With this change, the ARN will go from:
+###### Sign in as the user with administrative access
 
-```
-arn:aws:groundstation::111111111111:satellite/11111111-2222-3333-4444-555555555555
-```
+- To sign in with your IAM Identity Center user, use the sign-in URL that was sent to your email address when you created the IAM Identity Center user.
 
-to:
+For help signing in using an IAM Identity Center user, see [Signing in to the AWS access portal](../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md "../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md") in the _AWS Sign-In User Guide_.
 
-```
-arn:aws:groundstation:us-west-2:111111111111:satellite/11111111-2222-3333-4444-555555555555
-```
+###### Assign access to additional users
 
-In order to show the satellite name in the console, the satellite must have a tag with `“Name"` as the key. Additionally, because we are using the AWS CLI,
-the quotation marks must be escaped with a backslash. The tag will look something like:
+1. In IAM Identity Center, create a permission set that follows the best practice of applying least-privilege permissions.
 
-```
-{\"Name\":\"AQUA\"}
-```
+For instructions, see [Create a permission set](../../../singlesignon/latest/userguide/get-started-create-a-permission-set.md "../../../singlesignon/latest/userguide/get-started-create-a-permission-set.md") in the _AWS IAM Identity Center User Guide_. 2. Assign users to a group, and then assign single sign-on access to the group.
 
-Next, you will call the [tag-resource](../../../cli/latest/reference/groundstation/tag-resource.md "../../../cli/latest/reference/groundstation/tag-resource.md") API to tag the satellite. This can be done with the AWS CLI like so:
+For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-```
-aws groundstation tag-resource --region us-west-2 --resource-arn arn:aws:groundstation:us-west-2:111111111111:satellite/11111111-2222-3333-4444-555555555555 --tags '{"Name":"AQUA"}'
-```
+## Add AWS Ground Station permissions to your AWS account
 
-After doing this, you'll be able to see the name you set for the satellite in the AWS Ground Station
-console.
+To use AWS Ground Station without requiring an administrative user, you need to create a new policy and attach it to your AWS account.
 
-**Change the Name For a Satellite**
+1. Sign in to the AWS Management Console and open the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam").
+2. Create a new policy. Use the following steps:
+   1. In the navigation pane, choose **Policies** and then choose **Create Policy**.
+   2. In the **JSON** tab, edit the JSON with one of the following values. Use the JSON that works best for your application.
+      - For Ground Station administrative privileges, set **Action** to **groundstation:\*** as follows:
 
-If you want to change the name for a satellite, you can simply call [tag-resource](../../../cli/latest/reference/groundstation/tag-resource.md "../../../cli/latest/reference/groundstation/tag-resource.md") with the satellite ARN again with the same `“Name”` key, but with a
-different value in the tag. This will update the existing tag and show the new name in the
-console. An example call for this looks like:
+      JSON
 
-```
-aws groundstation tag-resource --region us-west-2 --resource-arn arn:aws:groundstation:us-west-2:111111111111:satellite/11111111-2222-3333-4444-555555555555 --tags '{"Name":"NewName"}'
-```
+      ```
+      `{
+       "Version":"2012-10-17",
+       "Statement": [
+       {
+       "Effect": "Allow",
+       "Action": [
+       "groundstation:*"
+       ],
+       "Resource": [
+       "*"
+       ]
+       }
+       ]
+      }`
 
-**Remove the Name For a Satellite**
+      ```
 
-The name set for a satellite can be removed with the [untag-resource](../../../cli/latest/reference/groundstation/untag-resource.md "../../../cli/latest/reference/groundstation/untag-resource.md") API. This API
-needs the satellite ARN with the region the tag is in, and a list of tag keys. For the name,
-the tag key is `“Name”`. An example call to this API using the AWS CLI looks like:
+      - For Read-only privileges, set **Action** to **groundstation:Get\***, **groundstation:List\***, and **groundstation:Describe\*** as follows:
 
-```
-aws groundstation untag-resource --region us-west-2 --resource-arn arn:aws:groundstation:us-west-2:111111111111:satellite/11111111-2222-3333-4444-555555555555 --tag-keys Name
-```
+      JSON
 
-## Public broadcast satellites
+      ```
+      `{
+       "Version":"2012-10-17",
+       "Statement": [
+       {
+       "Effect": "Allow",
+       "Action": [
+       "groundstation:Get*",
+       "groundstation:List*",
+       "groundstation:Describe*"
+       ],
+       "Resource": [
+       "*"
+       ]
+       }
+       ]
+      }`
 
-In addition to onboarding your own satellites, you may request to onboard with supported
-public broadcast satellites that provide a publicly accessible downlink communication path.
-This enables you to use AWS Ground Station to downlink data from these satellites.
+      ```
 
-###### Note
+      - For additional security through multifactor authentication, set **Action** to **groundstation:\***, and **Condition/Bool** to **aws:MultiFactorAuthPresent:true** as follows:
 
-You will not be able to uplink to these satellites. You will only be able to use the
-publicly accessible downlink communication paths.
+      JSON
 
-AWS Ground Station supports onboarding of the following satellites to downlink direct broadcast data:
+      ```
+      `{
+       "Version":"2012-10-17",
+       "Statement": [
+       {
+       "Effect": "Allow",
+       "Action": "groundstation:*",
+       "Resource": "*",
+       "Condition": {
+       "Bool": {
+       "aws:MultiFactorAuthPresent": true
+       }
+       }
+       }
+       ]
+      }`
 
-- Aqua
-- SNPP
-- JPSS-1/NOAA-20
-- Terra
+      ```
 
-Once onboarded, these satellites can be accessed for immediate use. AWS Ground Station maintains a
-number of preconfigured AWS CloudFormation templates to make getting started with the service easier. See
-[Example mission profile configurations](examples.md "examples.md")
-for examples of how AWS Ground Station can be used.
+3. In the IAM console, attach the policy you created to the desired user.
 
-For more information about these satellites and the kind of data they transmit, see [Aqua](https://aqua.nasa.gov/ "https://aqua.nasa.gov/"),
-[JPSS-1/NOAA-20 and
-SNPP](https://www.nesdis.noaa.gov/our-satellites/currently-flying/joint-polar-satellite-system "https://www.nesdis.noaa.gov/our-satellites/currently-flying/joint-polar-satellite-system"), and [Terra](https://terra.nasa.gov/ "https://terra.nasa.gov/").
+For more information about IAM users and attaching policies, see the [IAM User
+Guide](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md").

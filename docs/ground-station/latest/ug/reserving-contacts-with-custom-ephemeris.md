@@ -403,7 +403,7 @@ scalable than polling the contact status.
 
 For a complete example of a Lambda function that processes contact state change events, see the
 `GroundStationCloudWatchEventHandlerLambda` resource in the
-`AquaSnppJpssTerraDigIF.yml` AWS CloudFormation template. This template is available in the
+`AquaSnppJpssTerraDigIF.yml` CloudFormation template. This template is available in the
 AWS Ground Station customer onboarding Amazon S3 bucket. For instructions on accessing this template, see the
 [Putting it together](examples.md#examples.pbs-dataflow-endpoint.putting-it-together "examples.md#examples.pbs-dataflow-endpoint.putting-it-together") section of the dataflow endpoint example.
 
