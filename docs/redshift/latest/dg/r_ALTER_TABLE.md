@@ -677,7 +677,9 @@ rows that the row-level security policy permits you to access. When there
 isn't any policy granting you access to the relation, you can't see
 any rows from the relation. Only superusers and users or roles that have the
 `sys:secadmin` role can set the ROW LEVEL SECURITY clause. For
-more information, see [Row-level security](t_rls.md "t_rls.md").
+more information, see [Row-level security](t_rls.md "t_rls.md"). This statement is supported on
+the connected database or on a database with amazon redshift federated permissions. FOR DATASHARES
+clause is not supported on a database with Amazon Redshift federated permissions.
 
 - [ CONJUNCTION TYPE { AND | OR } ]
 

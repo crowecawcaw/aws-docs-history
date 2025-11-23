@@ -13,7 +13,9 @@ Superusers and users or roles that have the sys:secadmin role can drop a policy.
 ## Syntax
 
 ```
-DROP RLS POLICY [ IF EXISTS ] *policy\_name* [ CASCADE | RESTRICT ]
+DROP RLS POLICY [ IF EXISTS ]
+{ policy_name | database_name.policy_name }
+[ CASCADE | RESTRICT ]
 ```
 
 ## Parameters
@@ -26,6 +28,10 @@ _policy_name_
 
 The name of the policy.
 
+database_name
+
+The name of the database from where the policy to be dropped. The database can be the connected database or a database that supports Amazon Redshift federated permissions.
+
 _CASCADE_
 
 A clause that indicates to automatically detach the policy from all attached
@@ -35,6 +41,8 @@ _RESTRICT_
 
 A clause that indicates not to drop the policy when it is attached to some
 tables. This is the default.
+
+For the usage of DROP RLS POLICY on Amazon Redshift Federated Permissions Catalog, see [Managing access control with Amazon Redshift federated permissions](federated-permissions-managing-access.md "federated-permissions-managing-access.md").
 
 ## Examples
 

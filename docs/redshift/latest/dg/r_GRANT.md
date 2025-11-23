@@ -29,6 +29,23 @@ Permissions also include the following datashare producer access options:
   information, see [CREATE DATABASE](r_CREATE_DATABASE.md "r_CREATE_DATABASE.md").
   For more information about datashare permissions, see [Permissions you can grant to datashares](permissions-datashares.md "permissions-datashares.md").
 
+Permissions also include the following Amazon Redshift Federated Permissions Catalog:
+
+- Granting table-level permissions to users and roles.
+- Granting fine-grained column-level permissions on tables, views and materialized views.
+- Granting scoped permissions to users and roles.
+- Granting database-level permissions on Amazon Redshift Federated Permissions Catalog.
+  For more information about managing permissions on Amazon Redshift Federated Permissions Catalog,
+  see [Managing access control on Amazon Redshift federated permissions catalog](federated-permissions-managing-access.md "federated-permissions-managing-access.md").
+  For more information about Amazon Redshift Federated Permissions Catalog supported grant/revoke syntaxes, see
+  [Grant/Revoke](federated-permissions-managing-access.md#federated-permissions-managing-access-grant-revoke "federated-permissions-managing-access.md#federated-permissions-managing-access-grant-revoke").
+
+Permissions also include the CONNECT privilege for AWS IAM Identity Center federated users.
+This privilege enables administrators to control user access through granular permissions at each Amazon Redshift workgroup(s) or cluster(s) where Amazon Redshift Federated Permissions are enabled.
+Amazon Redshift administrator can specify which AWS IAM Identity Center federated user(s) or group(s)
+have access to directly connect to the Amazon Redshift workgroup, providing
+fine-grained control over the AWS IAM Identity Center user access at each workgroup or cluster.
+
 You can also grant roles to manage database permissions and control what users can do
 relative to your data. By defining roles and assigning roles to users, you can limit the
 the actions those users can take, such as limiting users to only the CREATE TABLE and
@@ -315,6 +332,13 @@ GRANT SELECT ON [ TABLE ] *table\_name* [, ...]
 TO { RLS | MASKING } POLICY *policy\_name* [, ...]
 ```
 
+The following is the syntax for granting permissions for AWS IAM Identity Center federated users (or groups) to connect to a workgroup/cluster:
+
+```
+GRANT CONNECT [ON WORKGROUP]
+TO [USER] *<prefix>:<username>* | ROLE *<prefix>:<rolename>* | PUBLIC;
+```
+
 ## Parameters
 
 SELECT
@@ -475,6 +499,14 @@ granted to the user individually.
 
 Granting PUBLIC to a Lake Formation EXTERNAL TABLE results in granting the permission
 to the Lake Formation _everyone_ group.
+
+CONNECT [ON WORKGROUP] TO { [USER] <prefix>:<username> | ROLE <prefix>:<rolename> | PUBLIC }
+
+Grants the permission to connect to a workgroup or cluster to AWS IAM Identity Center federated
+users or groups. The prefix identifies the identity provider. When granted to PUBLIC, the
+permission applies to all AWS IAM Identity Center federated users, including users created later.
+This permission is applicable only when Amazon Redshift Federated Permissions are enabled on
+the workgroup or cluster.
 
 CREATE
 

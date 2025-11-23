@@ -8,7 +8,7 @@ Existing Python UDFs will continue to function as normal. For more information, 
 Shows a list of columns in a table, along with some column attributes.
 
 Each output row consists of a comma-separated list of database name, schema name, table name, column name, ordinal position, column default, is nullable, data type, character maximum length,
-numeric precision, and remarks.
+numeric precision, remarks, sort key type, sort key order, distribution key, encoding, and collation.
 For more information about these attributes, see [SVV_ALL_COLUMNS](r_SVV_ALL_COLUMNS.md "r_SVV_ALL_COLUMNS.md").
 
 If more than 10,000 columns would result from the SHOW COLUMNS command, then an error is returned.
@@ -75,15 +75,13 @@ Following example shows the columns in the Amazon Redshift database named `sampl
 are in schema `tickit` and table `event`.
 
 ```
-`SHOW COLUMNS FROM TABLE sample_data_dev.tickit.event;`
-`database_name | schema_name | table_name | column_name | ordinal_position | column_default | is_nullable | data_type | character_maximum_length | numeric_precision | numeric_scale | remarks
--------------------+-------------+------------+-------------+------------------+----------------+-------------+------------------------------+--------------------------+-------------------+------------------------
- sample_data_dev | tickit | event | eventid | 1 | NULL | NO | integer | NULL | 32 | 0 | NULL
- sample_data_dev | tickit | event | eventid | 2 | NULL | NO | smallint | NULL | 16 | 0 | NULL
- sample_data_dev | tickit | event | eventid | 3 | NULL | NO | smallint | NULL | 16 | 0 | NULL
- sample_data_dev | tickit | event | eventid | 4 | NULL | NO | smallint | NULL | 16 | 0 | NULL
- sample_data_dev | tickit | event | eventid | 5 | NULL | YES | character varying | 200 | NULL | NULL | NULL
- sample_data_dev | tickit | event | eventid | 6 | NULL | YES | timestamp without time zo... | NULL | NULL | NULL | NULL`
+`SHOW COLUMNS FROM TABLE demo_schema.compound_sort_table;`
+`database_name | schema_name | table_name | column_name | ordinal_position | column_default | is_nullable | data_type | character_maximum_length | numeric_precision | numeric_scale | remarks | sort_key_type | sort_key | dist_key | encoding | collation
+---------------+-------------+---------------------+-------------+------------------+----------------+-------------+-------------------+--------------------------+-------------------+---------------+---------+---------------+----------+----------+----------+-----------
+ demo_db | demo_schema | compound_sort_table | id | 1 | | YES | integer | | 32 | 0 | | COMPOUND | 1 | 1 | delta32k |
+ demo_db | demo_schema | compound_sort_table | name | 2 | | YES | character varying | 50 | | | | COMPOUND | 2 | | lzo | default
+ demo_db | demo_schema | compound_sort_table | date_col | 3 | | YES | date | | | | | | 0 | | delta |
+ demo_db | demo_schema | compound_sort_table | amount | 4 | | YES | numeric | | 10 | 2 | | | 0 | | mostly16 |`
 ```
 
 Following example shows the tables in the AWS Glue Data Catalog database named
@@ -91,9 +89,11 @@ Following example shows the tables in the AWS Glue Data Catalog database named
 `nation`. Output is limited to `2` rows.
 
 ```
-`SHOW COLUMNS FROM TABLE awsdatacatalog.batman.nation LIMIT 2;`
-`database_name | schema_name | table_name | column_name | ordinal_position | column_default | is_nullable | data_type | character_maximum_length | numeric_precision | remarks
-----------------+-------------+------------+-------------+------------------+----------------+-------------+-----------+--------------------------+-------------------+---------
- awsdatacatalog | batman | nation | n_nationkey | 1 | | | integer | | |
- awsdatacatalog | batman | nation | n_name | 2 | | | character | | |`
+`SHOW COLUMNS FROM TABLE second_db.public.t22;`
+`database_name | schema_name | table_name | column_name | ordinal_position | column_default | is_nullable | data_type | character_maximum_length | numeric_precision | numeric_scale | remarks | sort_key_type | sort_key | dist_key | encoding | collation
+---------------+-------------+------------+-------------+------------------+----------------+-------------+-----------------------------+--------------------------+-------------------+---------------+---------+---------------+----------+----------+----------+-----------
+ second_db | public | t22 | col1 | 1 | | YES | integer | | 32 | 0 | | INTERLEAVED | -1 | | mostly8 |
+ second_db | public | t22 | col2 | 2 | | YES | character varying | 100 | | | | INTERLEAVED | 2 | | text255 | default
+ second_db | public | t22 | col3 | 3 | | YES | timestamp without time zone | | | | | | 0 | | raw |
+ second_db | public | t22 | col4 | 4 | | YES | numeric | | 10 | 2 | | | 0 | | az64 |`
 ```

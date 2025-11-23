@@ -63,7 +63,7 @@ Start by doing the following:
 ![Shows that the Amazon Redshift launch step is the current step in the proof of concept flow.](images/poc-step2.png)
 
 Amazon Redshift accelerates your time to insights with fast, easy, and secure cloud data warehousing at scale.
-You can start quickly by launching your warehouse on the [Redshift Serverless console](https://console.aws.amazon.com/redshiftv2/home?#serverless-dashboard "https://console.aws.amazon.com/redshiftv2/home?#serverless-dashboard")
+You can start quickly by launching your warehouse on the [Redshift Serverless console](https://console.aws.amazon.com//redshiftv2/home?#serverless-dashboard "https://console.aws.amazon.com//redshiftv2/home?#serverless-dashboard")
 and get from data to insights in seconds.
 With Redshift Serverless, you can focus on delivering on your business outcomes without worrying about managing your data warehouse.
 
@@ -105,7 +105,7 @@ It has the capability to process files in various formats such as CSV, JSON, AVR
 To enable your users, as an administrator, to load data from a local desktop using query editor v2 you have to specify a common Amazon S3 bucket,
 and the user account must be
 [configured with the proper permissions](../mgmt/query-editor-v2-loading.md#query-editor-v2-loading-data-local "../mgmt/query-editor-v2-loading.md#query-editor-v2-loading-data-local").
-You can follow [Data load made easy and secure in Amazon Redshift using Query Editor V2](https://aws.amazon.com/blogs/big-data/data-load-made-easy-and-secure-in-amazon-redshift-using-query-editor-v2/ "https://aws.amazon.com/blogs/big-data/data-load-made-easy-and-secure-in-amazon-redshift-using-query-editor-v2/")
+You can follow [Data load made easy and secure in Amazon Redshift using Query Editor V2](https://aws.amazon.com/blogs//big-data/data-load-made-easy-and-secure-in-amazon-redshift-using-query-editor-v2/ "https://aws.amazon.com/blogs//big-data/data-load-made-easy-and-secure-in-amazon-redshift-using-query-editor-v2/")
 for step-by-step guidance.
 
 ### Load an Amazon S3 file
@@ -148,13 +148,13 @@ or an [Getting started with Amazon Managed Streaming for Apache Kafka](materiali
 ![Shows that the analyze step is the current step in the proof of concept flow.](images/poc-step4.png)
 
 After creating your Redshift Serverless workgroup and namespace, and loading your data, you can immediately run queries by opening the **Query editor v2** from the
-navigation panel of the [Redshift Serverless console](https://console.aws.amazon.com/redshiftv2/home?#serverless-dashboard "https://console.aws.amazon.com/redshiftv2/home?#serverless-dashboard").
+navigation panel of the [Redshift Serverless console](https://console.aws.amazon.com//redshiftv2/home?#serverless-dashboard "https://console.aws.amazon.com//redshiftv2/home?#serverless-dashboard").
 You can use query editor v2 to test query functionality or query performance against your own datasets.
 
 ### Query using Amazon Redshift query editor v2
 
 You can access query editor v2 from the Amazon Redshift console.
-See [Simplify your data analysis with Amazon Redshift query editor v2](https://aws.amazon.com/blogs/big-data/simplify-your-data-analysis-with-amazon-redshift-query-editor-v2/ "https://aws.amazon.com/blogs/big-data/simplify-your-data-analysis-with-amazon-redshift-query-editor-v2/")
+See [Simplify your data analysis with Amazon Redshift query editor v2](https://aws.amazon.com/blogs//big-data/simplify-your-data-analysis-with-amazon-redshift-query-editor-v2/ "https://aws.amazon.com/blogs//big-data/simplify-your-data-analysis-with-amazon-redshift-query-editor-v2/")
 for a complete guide on how to configure, connect, and run queries with query editor v2.
 
 Alternatively, if you want to run a load test as part of your POC, you can do this by the following steps to install and run Apache JMeter.
@@ -166,7 +166,7 @@ To perform a load test to simulate “N” users submitting queries concurrently
 an open-source Java based tool.
 
 To install and configure Apache JMeter to run against your Redshift Serverless workgroup, follow the instructions in
-[Automate Amazon Redshift load testing with the AWS Analytics Automation Toolkit](https://aws.amazon.com/blogs/big-data/automate-amazon-redshift-load-testing-with-the-aws-analytics-automation-toolkit/ "https://aws.amazon.com/blogs/big-data/automate-amazon-redshift-load-testing-with-the-aws-analytics-automation-toolkit/").
+[Automate Amazon Redshift load testing with the AWS Analytics Automation Toolkit](https://aws.amazon.com/blogs//big-data/automate-amazon-redshift-load-testing-with-the-aws-analytics-automation-toolkit/ "https://aws.amazon.com/blogs//big-data/automate-amazon-redshift-load-testing-with-the-aws-analytics-automation-toolkit/").
 It uses the
 [AWS Analytics Automation toolkit (AAA)](https://github.com/aws-samples/amazon-redshift-infrastructure-automation/tree/main "https://github.com/aws-samples/amazon-redshift-infrastructure-automation/tree/main"),
 an open source utility for dynamically deploying Redshift solutions, to automatically launch these resources.

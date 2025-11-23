@@ -43,7 +43,7 @@ Before doing so, make sure you have your Amazon Redshift cluster and your server
 
 ###### To launch your CloudFormation stack for federated queries
 
-1. Click [**Launch CFN stack**](https://console.aws.amazon.com/cloudformation/home?#/stacks/new?stackName=FederatedQuery&templateURL=https://s3.amazonaws.com/redshift-downloads/docs-downloads/FederatedQuery.yml "https://console.aws.amazon.com/cloudformation/home?#/stacks/new?stackName=FederatedQuery&templateURL=https://s3.amazonaws.com/redshift-downloads/docs-downloads/FederatedQuery.yml") here to launch the CloudFormation
+1. Click [**Launch CFN stack**](cloudformation/home.md#/stacks/new?stackName=FederatedQuery&templateURL=https://s3.amazonaws.com/redshift-downloads/docs-downloads/FederatedQuery.yml "cloudformation/home.md#/stacks/new?stackName=FederatedQuery&templateURL=https://s3.amazonaws.com/redshift-downloads/docs-downloads/FederatedQuery.yml") here to launch the CloudFormation
    service in the AWS Management Console.
 
 If you are prompted, sign in.

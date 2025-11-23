@@ -14,9 +14,10 @@ policy.
 ## Syntax
 
 ```
-CREATE RLS POLICY *policy\_name*
+CREATE RLS POLICY { policy_name | database_name.policy_name }
 [ WITH (column_name data_type [, ...]) [ [AS] relation_alias ] ]
 USING ( using_predicate_exp )
+
 ```
 
 ## Parameters
@@ -24,6 +25,10 @@ USING ( using_predicate_exp )
 _policy_name_
 
 The name of the policy.
+
+database_name
+
+The database name of where the policy will be created. Policy can be created on the connected database or on a database that supports Amazon Redshift federated permissions.
 
 WITH (_column_name data_type [, ...]_)
 
@@ -45,6 +50,8 @@ Specifies a filter that is applied to the WHERE clause of the query.
 Amazon Redshift applies a policy predicate before the query-level user predicates. For
 example, `current_user = ‘joe’ and price > 10` limits Joe
 to see only records with the price greater than $10.
+
+For the usage of CREATE RLS POLICY on Amazon Redshift Federated Permissions Catalog, see [Managing access control with Amazon Redshift federated permissions](federated-permissions-managing-access.md "federated-permissions-managing-access.md").
 
 ## Usage notes
 

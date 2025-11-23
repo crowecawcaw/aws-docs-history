@@ -35,11 +35,20 @@ FROM svv_identity_providers
 ORDER BY 1;
 ```
 
-The sample output includes param descriptions.
+The sample output includes param descriptions for Microsoft Entra ID (formerly Azure AD):
 
 ```
        name       | type  |              instanceid              | namespc |                                                                                                                                                params                                                                                                                                                 | enabled
 ------------------+-------+--------------------------------------+---------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------
  rs5517_azure_idp | azure | e40d4bb2-7670-44ae-bfb8-5db013221d73 | abc     | {"issuer":"https://login.microsoftonline.com/e40d4bb2-7670-44ae-bfb8-5db013221d73/v2.0", "client_id":"871c010f-5e61-4fb1-83ac-98610a7e9110", "client_secret":, "audience":["https://analysis.windows.net/powerbi/connector/AmazonRedshift", "https://analysis.windows.net/powerbi/connector/AWSRDS"]} | t
+(1 row)
+```
+
+The sample output includes param descriptions for AWS IAM Identity Center:
+
+```
+   name   |  type  |                                     instanceid                                     |     namespc      |                                                                           params                                                                           | enabled
+----------+--------+------------------------------------------------------------------------------------+------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+---------
+ idc_name | awsidc | arn:aws:sso::123456789012:application/ssoins-12345f67fe123d4/apl-a0b0a12dc123b1a4 |   idc_namespc   | {"iam_role":"arn:aws:iam::123456789012:role/MyRedshiftRole","instance_arn":"arn:aws:sso:::instance/ssoins-12345f67fe123d4","is_lakehouse_app":"true"}        | t
 (1 row)
 ```

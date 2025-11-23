@@ -75,7 +75,7 @@ FROM
 When you use the JSON_PARSE function to parse JSON strings into SUPER values, certain restrictions apply:
 
 - The same attribute name cannot appear in the same object, but can appear in a nested object. The `json_parse_dedup_attributes` configuration option allows JSON_PARSE to keep only the last occurrence of duplicate attributes instead of returning an error.
-- String values cannot exceed the system max varchar size of 65535 bytes. The `json_parse_truncate_strings` configuration option allows JSON_PARSE() to automatically truncate strings that are longer than this limit without returning an error. This behavior affects string values only and not attribute names.
+- Individual string literals in SUPER object have a size limit of 16,000,000 bytes. The `json_parse_truncate_strings` configuration option allows JSON_PARSE() to automatically truncate strings that are longer than this limit without returning an error. This behavior affects string values only and not attribute names.
 
 For more information about the JSON_PARSE function, see [JSON_PARSE function](JSON_PARSE.md "JSON_PARSE.md").
 

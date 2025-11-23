@@ -77,8 +77,19 @@ varchar(120)
 ```
 
 If you use the VARCHAR data type without a length specifier in a CREATE
-TABLE statement, the default length is 256. If used in an expression, the size
-of the output is determined using the input expression (up to 65535).
+TABLE statement, the default length is 256.
+
+[String functions](String_functions_header.md "String_functions_header.md") now support up to 16,000,000 bytes. For example, CONCAT
+function output was previously limited to 65535 bytes, but now supports
+up to 16,000,000 bytes.
+
+```
+SELECT LEN(CONCAT(REPEAT('A', 5000000), REPEAT('B', 5000000))) AS total_length;
+
+ `total_length
+--------------
+ 10000000`
+```
 
 ## NCHAR and NVARCHAR
 

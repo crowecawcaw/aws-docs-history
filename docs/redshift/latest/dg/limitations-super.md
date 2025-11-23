@@ -14,7 +14,8 @@ semi-structured data.
 - You can't define SUPER columns as either a distribution or sort key.
 - An individual SUPER object can hold up to 16 MB of data.
 - The maximum nesting depth for arrays and structures of the SUPER data type is 1,000.
-- An individual value within a SUPER object is limited to the maximum length of the corresponding Amazon Redshift type. For example, a single string value loaded to SUPER is limited to the maximum VARCHAR length of 65535 bytes.
+- Any string literal stored in a single SUPER object is limited to 16,000,000 bytes.
+- Otherwise, an individual value within a SUPER object is limited to the maximum length of the corresponding Amazon Redshift type.
 - You can't perform partial update or transform operations on SUPER columns.
 - You can't use the SUPER data type and its alias in right joins or full outer joins.
 - The SUPER data type doesn't support XML as inbound or outbound serialization format.

@@ -30,7 +30,7 @@ For more information, see the following:
 
 ```
 ALTER EXTERNAL SCHEMA schema_name
-[ IAM_ROLE [ default | 'SESSION' | 'arn:aws:iam::<AWS account-id>:role/<role-name>' ] ]
+[ IAM_ROLE [ default | 'SESSION' | 'arn:aws:iam::<account-id>:role/<role-name>' ] ]
 [ AUTHENTICATION [ none | iam | mtls] ]
 [ AUTHENTICATION_ARN 'acm-certificate-arn' | SECRET_ARN 'asm-secret-arn' ]
 [ URI 'Kafka bootstrap URL' ]

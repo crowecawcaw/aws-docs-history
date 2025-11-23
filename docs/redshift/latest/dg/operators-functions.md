@@ -185,3 +185,88 @@ following boolean functions for SUPER data columns:
 
 For more information on SUPER type information functions, see
 [SUPER type information functions](c_Type_Info_Functions.md "c_Type_Info_Functions.md").
+
+## String functions
+
+To use string functions with string literals in the SUPER data type, you must
+convert the string literal to string type before applying the functions. Functions return
+null if the input is not a string literal.
+
+[String functions](String_functions_header.md "String_functions_header.md") now support up to
+16,000,000 bytes.
+
+The following example uses SUBSTRING to extract the preview of a string with size 5,000,000 bytes
+stored in a SUPER JSON object
+
+```
+CREATE TABLE customer_data (
+   customer_id INT,
+   profile SUPER
+);
+
+INSERT INTO customer_data VALUES (
+   1,
+   JSON_PARSE('{"name": "John Doe", "description": "' || REPEAT('A', 5000000) || '"}')
+);
+
+SELECT
+   customer_id,
+   profile.name::VARCHAR AS name,
+   SUBSTRING(profile.description::VARCHAR, 1, 50) AS description_preview
+FROM customer_data;
+
+ `customer_id | name | description_preview
+-------------+----------+----------------------------------------------------
+ 1 | John Doe | AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`
+
+```
+
+The following example demonstrates LEFT, RIGHT, and CONCAT functions on string literals from a SUPER array:
+
+```
+CREATE TABLE documents (
+   doc_id INT,
+   chapters SUPER
+);
+
+INSERT INTO documents VALUES (
+   1,
+   JSON_PARSE('["' || REPEAT('hello', 400000) || '", "' || REPEAT('world', 600000) || '"]')
+);
+
+SELECT
+   doc_id,
+   LEFT(chapters[0]::VARCHAR, 20) AS chapter1_start,
+   RIGHT(chapters[1]::VARCHAR, 20) AS chapter2_end,
+   LEN(CONCAT(chapters[0]::VARCHAR, chapters[1]::VARCHAR)) AS concat_size
+FROM documents;
+
+ `doc_id | chapter1_start | chapter2_end | concat_size
+--------+----------------------+----------------------+-------------
+ 1 | hellohellohellohello | worldworldworldworld | 5000000`
+
+```
+
+The following example stores standalone string in SUPER:
+
+```
+CREATE TABLE text_storage (
+   text_id INT,
+   content SUPER
+);
+
+INSERT INTO text_storage VALUES
+   (1, REPEAT('A', 8000000)),
+   (2, REPEAT('B', 16000000));
+
+SELECT
+   text_id,
+   LEN(content::VARCHAR) AS content_length
+FROM text_storage;
+
+ `text_id | content_length
+---------+----------------
+ 1 | 8000000
+ 2 | 16000000`
+
+```

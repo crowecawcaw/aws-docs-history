@@ -46,7 +46,7 @@ Iceberg tables in Amazon Redshift.
 ## CREATE TABLE
 
 ```
-CREATE TABLE `<external_schema>`.`<table_name>` (
+CREATE TABLE [IF NOT EXISTS] `<external_schema>`.`<table_name>` (
   column_name data_type [, ...]
 )
 USING ICEBERG

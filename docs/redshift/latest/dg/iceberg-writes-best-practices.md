@@ -16,5 +16,5 @@ table:
   or the Amazon S3 tables catalog, but your files still remain. You can
   use features in AWS Glue and Amazon S3 tables to remove orphaned files. For
   AWS Glue, see [Deleting orphan
-  files](glue/latest/dg/orphan-file-deletion.md "glue/latest/dg/orphan-file-deletion.md"). For Amazon S3 tables, see [Table
-  maintenance](AmazonS3/latest/userguide/s3-tables-maintenance.md "AmazonS3/latest/userguide/s3-tables-maintenance.md").
+  files](../../../glue/latest/dg/orphan-file-deletion.md "../../../glue/latest/dg/orphan-file-deletion.md"). For Amazon S3 tables, see [Table
+  maintenance](../../../AmazonS3/latest/userguide/s3-tables-maintenance.md "../../../AmazonS3/latest/userguide/s3-tables-maintenance.md").

@@ -15,7 +15,7 @@ policy.
 ## Syntax
 
 ```
-DROP MASKING POLICY *policy\_name*;
+DROP MASKING POLICY { policy_name | database_name.policy_name };
 ```
 
 ## Parameters
@@ -23,3 +23,9 @@ DROP MASKING POLICY *policy\_name*;
 _policy_name_
 
 The name of the masking policy to drop.
+
+database_name
+
+The name of the database from where the policy to be dropped. The database can be the connected database or a database that supports Amazon Redshift federated permissions.
+
+For the usage of DROP MASKING POLICY on Amazon Redshift Federated Permissions Catalog, see [Managing access control with Amazon Redshift federated permissions](federated-permissions-managing-access.md "federated-permissions-managing-access.md").

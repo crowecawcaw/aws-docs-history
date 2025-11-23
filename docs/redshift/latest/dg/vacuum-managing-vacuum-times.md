@@ -208,6 +208,8 @@ following are true:
 - All the new rows are higher in sort order than the existing rows, including
   rows marked for deletion. In this instance, Amazon Redshift uses the first eight bytes of
   the sort key to determine sort order.
+- The COPY command does not trigger certain load optimizations. When loading large volumes of data, Amazon Redshift might optimize performance by
+  creating new sorted partitions rather than adding rows to the table's sorted region.
 
 For example, suppose you have a table that records customer events using a
 customer ID and time. If you sort on customer ID, it’s likely that the sort key range

@@ -14,11 +14,16 @@ policy.
 ## Syntax
 
 ```
-ATTACH MASKING POLICY *policy\_name*
-   ON { *relation\_name* }
-   ( {*output\_columns\_names* | *output\_path*} ) [ USING ( {*input\_column\_names* | *input\_path* )} ]
-   TO { *user\_name* | ROLE *role\_name* | PUBLIC }
-   [ PRIORITY *priority* ];
+ATTACH MASKING POLICY
+{
+  *policy\_name* ON *relation\_name*
+  | *database\_name*.*policy\_name* ON *database\_name*.*schema\_name*.*relation\_name*
+}
+( { output_column_names | output_path } )
+[ USING ( { input_column_names | input_path } ) ]
+TO { user_name | ROLE role_name | PUBLIC }
+[ PRIORITY priority ];
+
 ```
 
 ## Parameters
@@ -26,6 +31,16 @@ ATTACH MASKING POLICY *policy\_name*
 _policy_name_
 
 The name of the masking policy to attach.
+
+database_name
+
+The name of the database where the policy and the relation are created. The policy and the
+relation needs to be on the same database. The database can be the connected database or a
+database that supports Amazon Redshift federated permissions.
+
+schema_name
+
+The name of the schema the relation belongs to.
 
 _relation_name_
 
@@ -98,3 +113,5 @@ You can't apply a policy to a column with the same priority as another
 policy attached to that column, even if they're for different roles. This field
 is optional. If you don't specify a priority, the masking policy defaults to
 attaching with a priority of 0.
+
+For the usage of ATTACH MASKING POLICY on Amazon Redshift Federated Permissions Catalog, see [Managing access control with Amazon Redshift federated permissions](federated-permissions-managing-access.md "federated-permissions-managing-access.md").

@@ -7,8 +7,10 @@ Existing Python UDFs will continue to function as normal. For more information, 
 
 Shows a list of tables in a schema, along with some table attributes.
 
-Each output row consists of database name, schema name, table name, table type, table ACL, and remarks.
+Each output row consists of database name, schema name, table name, table type, table ACL, remarks, table owner, last altered time, last modified time, dist_style, and table sub-type.
 For more information about these attributes, see [SVV_ALL_TABLES](r_SVV_ALL_TABLES.md "r_SVV_ALL_TABLES.md").
+
+The modification and alteration timestamps can lag behind the table updates by approximately 5 minutes.
 
 If more than 10,000 tables would result from the SHOW TABLES command, then an error is returned.
 
@@ -66,29 +68,19 @@ be 0–10,000.
 
 ## Examples
 
-Following example shows the tables in the Amazon Redshift database named `dev` that
-are in schema `public`.
-
 ```
-`SHOW TABLES FROM SCHEMA dev.public;`
-`database_name | schema_name | table_name | table_type | table_acl | remarks
----------------+-------------+------------+------------+-----------+---------
- dev | public | tb | TABLE | |
- dev | public | tb2 | TABLE | |
- dev | public | tb3 | TABLE | |`
+`SHOW TABLES FROM SCHEMA s1;`
+`database_name | schema_name | table_name | table_type | table_acl | remarks | owner | last_altered_time | last_modified_time | dist_style | table_subtype
+---------------+-------------+-------------------+------------+-------------------------------------+---------+-------+----------------------------+----------------------------+------------+-------------------
+ dev | s1 | late_binding_view | VIEW | alice=arwdRxtDPA/alice~bob=d/alice | | alice | | | | LATE BINDING VIEW
+ dev | s1 | manual_mv | VIEW | alice=arwdRxtDPA/alice~bob=P/alice | | alice | | | | MATERIALIZED VIEW
+ dev | s1 | regular_view | VIEW | alice=arwdRxtDPA/alice~bob=r/alice | | alice | | | | REGULAR VIEW
+ dev | s1 | test_table | TABLE | alice=arwdRxtDPA/alice~bob=rw/alice | | alice | 2025-11-18 15:52:00.010452 | 2025-11-18 15:44:34.856073 | AUTO (ALL) | REGULAR TABLE`
 ```
 
-Following example shows the tables in the AWS Glue Data Catalog database named
-`awsdatacatalog` that are in schema `batman`.
-
 ```
-`SHOW TABLES FROM SCHEMA awsdatacatalog.batman;`
-`database_name | schema_name | table_name | table_type | table_acl | remarks
-----------------+-------------+------------------+------------+-----------+---------
- awsdatacatalog | batman | nation | EXTERNAL | |
- awsdatacatalog | batman | part | EXTERNAL | |
- awsdatacatalog | batman | partsupp | EXTERNAL | |
- awsdatacatalog | batman | region | EXTERNAL | |
- awsdatacatalog | batman | supplier | EXTERNAL | |
- awsdatacatalog | batman | automount_nation | EXTERNAL | |`
+`SHOW TABLES FROM SCHEMA dev.s1 LIKE '%view' LIMIT 1;`
+`database_name | schema_name | table_name | table_type | table_acl | remarks | owner | last_altered_time | last_modified_time | dist_style | table_subtype
+---------------+-------------+-------------------+------------+--------------------------------------+---------+-------+-------------------+--------------------+------------+-------------------
+ dev | s1 | late_binding_view | VIEW | {alice=arwdRxtDPA/alice,bob=d/alice} | | alice | | | | LATE BINDING VIEW`
 ```

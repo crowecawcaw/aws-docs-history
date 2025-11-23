@@ -59,3 +59,15 @@ ORDER BY 1,2;`
 | 11 | 111111 |
 +-------+--------+`
 ```
+
+The following example demonstrates generating strings up to 16,000,000 bytes:
+
+```
+SELECT
+    LEN(REPEAT('X', 5000000)) AS five_million_bytes,
+    LEN(REPEAT('Y', 16000000)) AS sixteen_million_bytes;
+
+ `five_million_bytes | sixteen_million_bytes
+----------+-----------
+ 5000000 | 16000000`
+```

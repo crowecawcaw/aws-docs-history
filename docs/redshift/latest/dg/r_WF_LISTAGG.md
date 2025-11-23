@@ -53,8 +53,8 @@ clause.
 
 ## Returns
 
-VARCHAR(MAX). If the result set is larger than the maximum VARCHAR size (64K – 1,
-or 65535), then LISTAGG returns the following error:
+If the result set is larger than 16,000,000 bytes, then LISTAGG returns the following
+error:
 
 ```
 Invalid operation: Result size exceeds LISTAGG limit
@@ -161,4 +161,25 @@ order by buyerid;`
 | c | 10001,10006,20002,30007 |
 | c | 10001,10006,20002,30007 |
 +---------+-------------------------+`
+```
+
+The following example demonstrates LISTAGG support with concatenated results up to 16,000,000 bytes:
+
+```
+CREATE TABLE large_data (
+    id INT,
+    content VARCHAR(65535)
+);
+
+INSERT INTO large_data VALUES
+    (1, REPEAT('A', 65535)),
+    (2, REPEAT('B', 65535)),
+    (3, REPEAT('C', 65535));
+
+SELECT LEN(LISTAGG(content, ',') WITHIN GROUP (ORDER BY id)) AS total_length
+FROM large_data;
+
+ `total_length
+--------------
+ 196607`
 ```

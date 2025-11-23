@@ -30,7 +30,7 @@ refreshing a materialized view:
        given that these have the same input arguments and always produce the
        same output.
 
-  Incremental refresh is also supported for a materialized view that's based on a datashare table.
+  Incremental refresh is also supported for a materialized view that's based on a datashare table or materialized view.
 
 - If an incremental refresh isn't possible, then Amazon Redshift performs a full
   refresh. A _full refresh_ reruns the underlying

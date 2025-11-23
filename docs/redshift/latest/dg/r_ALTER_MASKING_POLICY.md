@@ -14,8 +14,11 @@ policy.
 ## Syntax
 
 ```
-ALTER MASKING POLICY *policy\_name*
-   USING (*masking\_expression*);
+ALTER MASKING POLICY
+{ *policy\_name* | *database\_name*.*policy\_name* }
+USING (masking_expression);
+
+
 ```
 
 ## Parameters
@@ -24,6 +27,10 @@ _policy_name_
 
 The name of the masking policy. This must be the name of a masking policy
 that already exists in the database.
+
+database_name
+
+The name of the database from where the policy is created. The database can be the connected database or a database that supports Amazon Redshift federated permissions.
 
 _masking_expression_
 
@@ -42,3 +49,5 @@ type.
 
 You must have the USAGE permission on any user-defined functions that you
 use in the masking expression.
+
+For the usage of ALTER MASKING POLICY on Amazon Redshift Federated Permissions Catalog, see [Managing access control with Amazon Redshift federated permissions](federated-permissions-managing-access.md "federated-permissions-managing-access.md").

@@ -15,9 +15,10 @@ policy.
 
 ```
 CREATE MASKING POLICY
-   *policy\_name* [IF NOT EXISTS]
+   { *policy\_name* | *database\_name*.*policy\_name* } [IF NOT EXISTS]
    WITH (input_columns)
    USING (masking_expression);
+
 
 ```
 
@@ -27,6 +28,10 @@ _policy_name_
 
 The name of the masking policy. The masking policy can't have the same name
 as another masking policy that already exists in the database.
+
+database_name
+
+The name of the database where the policy will be created. Policy can be created on the connected database or on Amazon Redshift Federated Permissions Catalog.
 
 _input_columns_
 
@@ -48,3 +53,5 @@ input type.
 
 You must have the USAGE permission on any user-defined functions that you
 use in the masking expression.
+
+For the usage of CREATE MASKING POLICY on Amazon Redshift Federated Permissions Catalog, see [Managing access control with Amazon Redshift federated permissions](federated-permissions-managing-access.md "federated-permissions-managing-access.md").

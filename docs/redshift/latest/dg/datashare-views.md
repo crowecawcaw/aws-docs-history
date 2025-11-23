@@ -6,7 +6,7 @@ Existing Python UDFs will continue to function as normal. For more information, 
 # Working with views in Amazon Redshift data sharing
 
 A producer cluster can share regular, late-binding, and materialized views. When
-sharing regular or late-binding views, you don't have to share the base tables.
+sharing regular, late-binding views, or materialized views, you don't have to share the base tables.
 The following table shows how views are supported with data sharing.
 
 | View name         | Can this view be added to a datashare? | Can a consumer create this view on datashare objects<br>across clusters? |
@@ -97,7 +97,7 @@ dwuser       | 86b5169f-01dc-4a6f-9fbb-e2e24359e9a8
 views in a datashare
 
 Amazon Redshift supports incremental refresh for materialized views in a consumer
-datashare when the base tables are shared. Incremental refresh is an operation
+datashare when the base tables or materializd views are shared. Incremental refresh is an operation
 where Amazon Redshift identifies changes in the base table or tables that happened after the
 previous refresh and updates only the corresponding records in the materialized
 view. For more information about this behavior, see [CREATE MATERIALIZED VIEW](materialized-view-create-sql-command.md#mv_CREATE_MARTERIALIZED_VIEW_datashare "materialized-view-create-sql-command.md#mv_CREATE_MARTERIALIZED_VIEW_datashare").

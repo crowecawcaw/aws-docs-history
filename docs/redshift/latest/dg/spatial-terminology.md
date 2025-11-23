@@ -233,4 +233,8 @@ Amazon Redshift provides the following H3 spatial functions:
 - [H3_Center](H3_Center-function.md "H3_Center-function.md")
 - [H3_FromLongLat](H3_FromLongLat-function.md "H3_FromLongLat-function.md")
 - [H3_FromPoint](H3_FromPoint-function.md "H3_FromPoint-function.md")
+- [H3_IsValid](H3_IsValid-function.md "H3_IsValid-function.md")
 - [H3_Polyfill](H3_Polyfill-function.md "H3_Polyfill-function.md")
+- [H3_Resolution](H3_Resolution-function.md "H3_Resolution-function.md")
+- [H3_ToChildren](H3_ToChildren-function.md "H3_ToChildren-function.md")
+- [H3_ToParent](H3_ToParent-function.md "H3_ToParent-function.md")

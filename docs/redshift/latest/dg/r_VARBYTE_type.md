@@ -146,8 +146,8 @@ Amazon Redshift:
   VARBYTE data type. Therefore, use a different SQL client when working
   with VARBYTE expressions.
 
-As a workaround to use the query editor, if the length of your data is
-below 64 KB and the content is valid UTF-8, you can cast the VARBYTE
+As a workaround to use the query editor, if the length of your data is at or
+below 16,000,000 bytes and the content is valid UTF-8, you can cast the VARBYTE
 values to VARCHAR, for example:
 
 ```
