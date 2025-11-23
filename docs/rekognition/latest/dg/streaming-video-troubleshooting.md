@@ -11,7 +11,7 @@ This topic provides troubleshooting information for using Amazon Rekognition Vid
 - [My stream processor isn't
   returning results](#ts-streaming-video-no-results-from-sp "#ts-streaming-video-no-results-from-sp")
 - [The state of my stream processor is FAILED](#ts-failed-state "#ts-failed-state")
-- [My stream processor isn't returning the expected results](#w323aac27c79c27c15 "#w323aac27c79c27c15")
+- [My stream processor isn't returning the expected results](#w2aac27c79c27c15 "#w2aac27c79c27c15")
 
 ## I
 
