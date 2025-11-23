@@ -58,7 +58,7 @@ approaches:
   shards can be processed independently)
 - Increasing the number of shards (which increases the level of parallelism)
 
-Note that you can use Auto Scaling to automatically scale your instances based on appropriate
+Note that you can use Amazon EC2 Auto Scaling to automatically scale your instances based on appropriate
 metrics. For more information, see the [Amazon EC2 Auto Scaling User Guide](../../../autoscaling/ec2/userguide.md "../../../autoscaling/ec2/userguide.md").
 
 When resharding increases the number of shards in the stream, the corresponding increase

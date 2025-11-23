@@ -48,7 +48,7 @@ easily be handled by one shard.
 
 When the stream scales up to have many shards (because many producers
 are sending data), the way to scale the processing is to add more
-workers. You can run the workers in Amazon EC2 instances and use Auto Scaling
+workers. You can run the workers in Amazon EC2 instances and use Amazon EC2 Auto Scaling
 groups.
 
 **Use connectors to Amazon S3/DynamoDB/Amazon Redshift/Storm**

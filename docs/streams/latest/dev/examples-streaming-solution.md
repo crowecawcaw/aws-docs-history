@@ -8,7 +8,7 @@ Kinesis Data Streams, AWS Lambda, Amazon API Gateway, and Amazon Managed Service
 Each solution
 includes the following components:
 
-- A AWS CloudFormation package to deploy the complete example.
+- A CloudFormation package to deploy the complete example.
 - A CloudWatch dashboard for displaying application metrics.
 - CloudWatch alarms on the most relevant application metrics.
 - All necessary IAM roles and policies.

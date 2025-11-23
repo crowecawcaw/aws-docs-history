@@ -46,10 +46,10 @@ that are no longer being processed by the failed worker. The load on these other
 instances increases accordingly.
 
 The scenario described here assumes that although the worker or application has failed,
-the hosting EC2 instance is still running and is therefore not restarted by an Auto Scaling group.
+the hosting EC2 instance is still running and is therefore not restarted by an Amazon EC2 Auto Scaling group.
 
 ### Amazon EC2 instance failure
 
-We recommend that you run the EC2 instances for your application in an Auto Scaling group. This
-way, if one of the EC2 instances fails, the Auto Scaling group automatically launches a new instance
+We recommend that you run the EC2 instances for your application in an Amazon EC2 Auto Scaling group. This
+way, if one of the EC2 instances fails, the Amazon EC2 Auto Scaling group automatically launches a new instance
 to replace it. You should configure the instances to launch your Amazon Kinesis Data Streams application at startup.

@@ -12,7 +12,7 @@ data.
 
 ###### Important
 
-You can register up to twenty consumers per stream to use enhanced
+With On-demand Advantage mode, you can register up to 50 consumers per stream to use enhanced fan-out. With On-demand Standard and Provisioned streams, you can register up to 20 consumers per stream to use enhanced
 fan-out.
 
 The following diagram shows the enhanced fan-out architecture. If you use version 2.0 or
@@ -39,6 +39,8 @@ The diagram shows the following:
 
 - [Differences between shared throughput
   consumer and enhanced fan-out consumer](#enhanced-consumers-differences "#enhanced-consumers-differences")
+- [Regions supported for up to 50 enhanced fan-out consumers (On-demand Advantage only)](#supported-regions "#supported-regions")
+-
 - [Manage enhanced fan-out consumers with the AWS CLI or APIs](building-enhanced-consumers-console.md "building-enhanced-consumers-console.md")
 
 ## Differences between shared throughput
@@ -59,3 +61,41 @@ consumers| Characteristics | Shared throughput consumers without enhanced fan-ou
 | Message propagation delay | An average of around 200 ms if you have one consumer reading from<br>the stream. This average goes up to around 1000 ms if you have five<br>consumers. | Typically an average of 70 ms whether you have one consumer or<br>five consumers. |
 | Cost | Not applicable | There is a data retrieval cost and a consumer-shard hour cost. For<br>more information, see [Amazon Kinesis Data Streams Pricing](https://aws.amazon.com/kinesis/data-streams/pricing/?nc=sn&loc=3 "https://aws.amazon.com/kinesis/data-streams/pricing/?nc=sn&loc=3"). |
 | Record delivery model | Pull model over HTTP using GetRecords. | Kinesis Data Streams pushes the records to you over HTTP/2 using<br>SubscribeToShard. |
+
+## Regions supported for up to 50 enhanced fan-out consumers (On-demand Advantage only)
+
+Support for up to 50 enhanced fan-out consumers in On-demand Advantage mode is available only in the following AWS Regions:
+
+| AWS Region     | Region Name               |
+| -------------- | ------------------------- |
+| eu-north-1     | Europe (Stockholm)        |
+| me-south-1     | Middle East (Bahrain)     |
+| ap-south-1     | Asia Pacific (Mumbai)     |
+| eu-west-3      | Europe (Paris)            |
+| ap-southeast-3 | Asia Pacific (Jakarta)    |
+| us-east-2      | US East (Ohio)            |
+| af-south-1     | Africa (Cape Town)        |
+| eu-west-1      | Europe (Ireland)          |
+| me-central-1   | Middle East (UAE)         |
+| eu-central-1   | Europe (Frankfurt)        |
+| sa-east-1      | South America (São Paulo) |
+| ap-east-1      | Asia Pacific (Hong Kong)  |
+| ap-south-2     | Asia Pacific (Hyderabad)  |
+| us-east-1      | US East (N. Virginia)     |
+| ap-northeast-2 | Asia Pacific (Seoul)      |
+| ap-northeast-3 | Asia Pacific (Osaka)      |
+| eu-west-2      | Europe (London)           |
+| ap-southeast-4 | Asia Pacific (Melbourne)  |
+| ap-northeast-1 | Asia Pacific (Tokyo)      |
+| us-west-2      | US West (Oregon)          |
+| us-west-1      | US West (N. California)   |
+| ap-southeast-1 | Asia Pacific (Singapore)  |
+| ap-southeast-2 | Asia Pacific (Sydney)     |
+| il-central-1   | Israel (Tel Aviv)         |
+| ca-central-1   | Canada (Central)          |
+| ca-west-1      | Canada West (Calgary)     |
+| eu-south-2     | Europe (Spain)            |
+| cn-northwest-1 | China (Ningxia)           |
+| eu-central-2   | Europe (Zurich)           |
+| us-gov-east-1  | AWS GovCloud (US-East)    |
+| us-gov-west-1  | AWS GovCloud (US-West)    |
