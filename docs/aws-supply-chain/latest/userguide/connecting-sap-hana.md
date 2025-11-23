@@ -25,7 +25,7 @@ before ingesting data.
 5. Set up network connectivity to SAP S/4 HANA. If your SAP instance is in a
 
 secure VPN and you can't open a port for AWS Supply Chain to connect, we recommend
-that you use AWS PrivateLink. To manually setup AWS PrivateLink, see [AWS for SAP](https://aws.amazon.com/blogs/awsforsap/share-sap-odata-services-securely-through-aws-privatelink-and-the-amazon-appflow-sap-connector/ "https://aws.amazon.com/blogs/awsforsap/share-sap-odata-services-securely-through-aws-privatelink-and-the-amazon-appflow-sap-connector/") and to automatically setup using AWS CloudFormation, see [AWS CloudFormation](https://github.com/aws-cloudformation/aws-cloudformation-templates/tree/main/AWSSupplyChain/SapPrivateLink "https://github.com/aws-cloudformation/aws-cloudformation-templates/tree/main/AWSSupplyChain/SapPrivateLink").
+that you use AWS PrivateLink. To manually setup AWS PrivateLink, see [AWS for SAP](https://aws.amazon.com/blogs/awsforsap/share-sap-odata-services-securely-through-aws-privatelink-and-the-amazon-appflow-sap-connector/ "https://aws.amazon.com/blogs/awsforsap/share-sap-odata-services-securely-through-aws-privatelink-and-the-amazon-appflow-sap-connector/") and to automatically setup using CloudFormation, see [CloudFormation](https://github.com/aws-cloudformation/aws-cloudformation-templates/tree/main/AWSSupplyChain/SapPrivateLink "https://github.com/aws-cloudformation/aws-cloudformation-templates/tree/main/AWSSupplyChain/SapPrivateLink").
 
 ## Configuring S/4 HANA connection
 
