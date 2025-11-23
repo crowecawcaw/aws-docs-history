@@ -12,7 +12,7 @@ and features support the four areas of security:
   authentication.
 - [AWS IAM Identity Center](https://aws.amazon.com/single-sign-on/ "https://aws.amazon.com/single-sign-on/"): Centrally manage workforce access
   to multiple AWS accounts and applications
-- [AWS Directory Service](https://aws.amazon.com/directoryservice "https://aws.amazon.com/directoryservice"): Set up and run directories in AWS or
+- [Directory Service](https://aws.amazon.com/directoryservice "https://aws.amazon.com/directoryservice"): Set up and run directories in AWS or
   connect your AWS resources with an existing Active Directory.
 - [Amazon Cognito](https://aws.amazon.com/cognito/ "https://aws.amazon.com/cognito/"): Implement secure, frictionless customer
   identity and access management that scales.
