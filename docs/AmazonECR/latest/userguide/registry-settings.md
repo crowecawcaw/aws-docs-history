@@ -22,3 +22,8 @@ registry settings to configure the following features.
   is enabled for basic scanning. You may enable enhanced scanning which provides
   an automated, continuous scanning mode that scans for both operating system and
   programming language package vulnerabilities. For more information, see [Scan images for software vulnerabilities in Amazon ECR](image-scanning.md "image-scanning.md").
+- **Pull-time update exclusion** – You can configure
+  pull-time update exclusions to prevent the last pull time from being updated for
+  specific images when they are pulled. This is useful for images that are used
+  for testing or CI/CD purposes where you don't want the pull time to affect
+  lifecycle policy decisions. For more information, see [Pull-time update exclusions](pull-time-update-exclusions.md "pull-time-update-exclusions.md").

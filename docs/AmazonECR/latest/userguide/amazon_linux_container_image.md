@@ -9,8 +9,8 @@ You can use the Amazon Linux container image in your local development environme
 push your application to AWS using Amazon ECS. For more information, see [Using Amazon ECR images with Amazon ECS](ECR_on_ECS.md "ECR_on_ECS.md").
 
 The Amazon Linux container image is available on Amazon ECR Public and
-on [Docker Hub](https://hub.docker.com/_/amazonlinux/ "https://hub.docker.com/_/amazonlinux/"). For
-support for the Amazon Linux container image, go to the [AWS developer forums](https://forums.aws.amazon.com/forum.jspa?forumID=228 "https://forums.aws.amazon.com/forum.jspa?forumID=228").
+on [Docker Hub](https://hub.docker.com/_/amazonlinux/ "https://hub.docker.com/_/amazonlinux/"). For support for the
+Amazon Linux container image, go to the [AWS developer forums](https://forums.aws.amazon.com/forum.jspa?forumID=228 "https://forums.aws.amazon.com/forum.jspa?forumID=228").
 
 ###### To pull the Amazon Linux container image from Amazon ECR Public
 
@@ -21,8 +21,8 @@ support for the Amazon Linux container image, go to the [AWS developer forums](h
 
 The **ecr-public** commands are available in the AWS CLI
 starting with version `1.18.1.187`, however we recommend using
-the latest version of the AWS CLI. For more information, see [Installing the AWS Command Line Interface](../../../cli/latest/userguide/install-cliv2.md "../../../cli/latest/userguide/install-cliv2.md") in the
-_AWS Command Line Interface User Guide_.
+the latest version of the AWS CLI. For more information, see [Installing
+the AWS Command Line Interface](../../../cli/latest/userguide/install-cliv2.md "../../../cli/latest/userguide/install-cliv2.md") in the _AWS Command Line Interface User Guide_.
 
 ```
 `aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws`
@@ -35,8 +35,8 @@ Login succeeded
 ```
 
 2. Pull the Amazon Linux container image using the **docker pull**
-   command. To view the Amazon Linux container image on the Amazon ECR Public Gallery, see
-   [Amazon ECR Public Gallery - amazonlinux](https://gallery.ecr.aws/amazonlinux/amazonlinux "https://gallery.ecr.aws/amazonlinux/amazonlinux").
+   command. To view the Amazon Linux container image on the Amazon ECR Public Gallery, see [Amazon ECR Public Gallery -
+   amazonlinux](https://gallery.ecr.aws/amazonlinux/amazonlinux "https://gallery.ecr.aws/amazonlinux/amazonlinux").
 
 ```
 `docker pull public.ecr.aws/amazonlinux/amazonlinux:latest`

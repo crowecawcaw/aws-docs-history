@@ -7,9 +7,8 @@ choose which repositories are scanned.
 
 When **basic** scanning is used, you may specify scan on push filters
 to specify which repositories are set to do an image scan when new images are pushed.
-Any repositories not matching a basic scanning scan on push filter will be set to the
-**manual** scan frequency which means to perform a scan, you must
-manually trigger the scan.
+Any repositories not matching a basic scanning scan on push filter will be set to the **manual** scan frequency which means to perform a scan, you must manually
+trigger the scan.
 
 When **enhanced** scanning is used, you may specify separate filters
 for scan on push and continuous scanning. Any repositories not matching an enhanced

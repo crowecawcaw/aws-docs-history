@@ -54,7 +54,8 @@ When you push an image to a repository, `InitiateLayerUpload`,
 `UploadLayerPart`, `CompleteLayerUpload`, and
 `PutImage` sections are generated. When you pull an image,
 `GetDownloadUrlForLayer` and `BatchGetImage` sections are
-generated. When OCI clients that support the OCI 1.1
+generated. When you archive or restore an image `UpdateImageStorageClass`
+section is generated. When OCI clients that support the OCI 1.1
 specification fetch the list of referrers, or reference artifacts, for an image
 using the Referrers API, a `ListImageReferrers` CloudTrail event is emitted.
 For examples of these common tasks, see [CloudTrail log entry examples](#cloudtrail-examples "#cloudtrail-examples").
@@ -111,6 +112,10 @@ service DNS name.
   action](#cloudtrail-examples-image-pull "#cloudtrail-examples-image-pull")
 - [Example: Image lifecycle policy
   action](#cloudtrail-examples-lcp "#cloudtrail-examples-lcp")
+- [Example: Image archival
+  action](#cloudtrail-examples-image-archive "#cloudtrail-examples-image-archive")
+- [Example: Image restore
+  action](#cloudtrail-examples-image-restore "#cloudtrail-examples-image-restore")
 - [Example: Image
   referrers action](#cloudtrail-examples-image-referrers-action "#cloudtrail-examples-image-referrers-action")
 
@@ -480,6 +485,189 @@ image.
             }
         ]
     }
+}
+```
+
+#### Example: Image archival
+
+action
+
+The following example shows a CloudTrail log entry that demonstrates an image
+being archived using the `UpdateImageStorageClass` action with
+`targetStorageClass` set to `ARCHIVE`.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDACKCEVSQ6C2EXAMPLE:account_name",
+        "arn": "arn:aws:sts::123456789012:user/Mary_Major",
+        "accountId": "123456789012",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+		"userName": "Mary_Major",
+		"sessionContext": {
+			"attributes": {
+				"mfaAuthenticated": "false",
+				"creationDate": "2019-04-15T16:42:14Z"
+			}
+		}
+	},
+	"eventTime": "2019-04-15T16:45:00Z",
+	"eventSource": "ecr.amazonaws.com",
+	"eventName": "UpdateImageStorageClass",
+	"awsRegion": "us-east-2",
+	"sourceIPAddress": "AWS Internal",
+	"userAgent": "AWS Internal",
+	"requestParameters": {
+		"repositoryName": "testrepo",
+		"imageId": {
+			"imageDigest": "sha256:98c8b060c21d9adbb6b8c41b916e95e6307102786973ab93a41e8b86d1fc6d3e"
+		},
+		"targetStorageClass": "ARCHIVE",
+		"registryId": "123456789012"
+	},
+	"responseElements": {
+		"image": {
+			"registryId": "123456789012",
+			"repositoryName": "testrepo",
+			"imageId": {
+				"imageDigest": "sha256:98c8b060c21d9adbb6b8c41b916e95e6307102786973ab93a41e8b86d1fc6d3e"
+			},
+			"imageStatus": "ARCHIVED"
+		}
+	},
+	"requestID": "cf044b7d-EXAMPLE",
+	"eventID": "2bfd4ee2-EXAMPLE",
+	"readOnly": false,
+	"resources": [{
+		"ARN": "arn:aws:ecr:us-east-2:123456789012:repository/testrepo",
+		"accountId": "123456789012"
+	}],
+	"eventType": "AwsApiCall",
+	"managementEvent": true,
+	"recipientAccountId": "123456789012",
+	"eventCategory": "Management"
+}
+```
+
+#### Example: Image restore
+
+action
+
+The following examples show CloudTrail log entries that demonstrate an image
+being restored. When you restore an archived image, two events are
+generated:
+
+1. An API call event when the restore is initiated
+2. A service event when the asynchronous restore operation
+   completes
+
+**API call event (restore initiation)**
+
+The following example shows the initial API call to restore an image using
+the `UpdateImageStorageClass` action with
+`targetStorageClass` set to `STANDARD`. The
+response shows the image status as `ACTIVATING`.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDACKCEVSQ6C2EXAMPLE:account_name",
+        "arn": "arn:aws:sts::123456789012:user/Mary_Major",
+        "accountId": "123456789012",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+		"userName": "Mary_Major",
+		"sessionContext": {
+			"attributes": {
+				"mfaAuthenticated": "false",
+				"creationDate": "2019-04-15T16:42:14Z"
+			}
+		}
+	},
+	"eventTime": "2019-04-15T16:45:00Z",
+	"eventSource": "ecr.amazonaws.com",
+	"eventName": "UpdateImageStorageClass",
+	"awsRegion": "us-east-2",
+	"sourceIPAddress": "AWS Internal",
+	"userAgent": "AWS Internal",
+	"requestParameters": {
+		"repositoryName": "testrepo",
+		"imageId": {
+			"imageDigest": "sha256:98c8b060c21d9adbb6b8c41b916e95e6307102786973ab93a41e8b86d1fc6d3e"
+		},
+		"targetStorageClass": "STANDARD",
+		"registryId": "123456789012"
+	},
+	"responseElements": {
+		"image": {
+			"registryId": "123456789012",
+			"repositoryName": "testrepo",
+			"imageId": {
+				"imageDigest": "sha256:98c8b060c21d9adbb6b8c41b916e95e6307102786973ab93a41e8b86d1fc6d3e"
+			},
+			"imageStatus": "ACTIVATING"
+		}
+	},
+	"requestID": "cf044b7d-EXAMPLE",
+	"eventID": "2bfd4ee2-EXAMPLE",
+	"readOnly": false,
+	"resources": [{
+		"ARN": "arn:aws:ecr:us-east-2:123456789012:repository/testrepo",
+		"accountId": "123456789012"
+	}],
+	"eventType": "AwsApiCall",
+	"managementEvent": true,
+	"recipientAccountId": "123456789012",
+	"eventCategory": "Management"
+}
+```
+
+**Service event (restore completion)**
+
+The following example shows the service event generated when the
+asynchronous restore operation completes. This event type can be located by
+filtering for `ImageActivationEvent` for the event name field.
+The `serviceEventDetails` section contains the restore result and
+final image status.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "accountId": "123456789012",
+        "invokedBy": "AWS Internal"
+    },
+    "eventTime": "2020-03-12T20:22:12Z",
+    "eventSource": "ecr.amazonaws.com",
+    "eventName": "ImageActivationEvent",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "AWS Internal",
+    "userAgent": "AWS Internal",
+    "requestParameters": null,
+    "responseElements": null,
+    "eventID": "9354dd7f-EXAMPLE",
+    "readOnly": true,
+    "resources": [
+        {
+            "ARN": "arn:aws:ecr:us-west-2:123456789012:repository/testrepo",
+            "accountId": "123456789012",
+            "type": "AWS::ECR::Repository"
+        }
+    ],
+    "eventType": "AwsServiceEvent",
+    "managementEvent": true,
+    "recipientAccountId": "123456789012",
+    "serviceEventDetails": {
+        "repositoryName": "testrepo",
+        "imageDigest": "sha256:98c8b060c21d9adbb6b8c41b916e95e6307102786973ab93a41e8b86d1fc6d3e",
+        "targetStorageClass": "STANDARD",
+        "result": "SUCCESS",
+        "imageStatus": "ACTIVE"
+    },
+    "eventCategory": "Management"
 }
 ```
 

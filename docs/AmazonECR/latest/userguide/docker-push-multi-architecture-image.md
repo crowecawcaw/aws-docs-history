@@ -16,7 +16,8 @@ pod spec like other Amazon ECR images.
 **Prerequisites**
 
 - In your Docker CLI, turn on experimental features. For information about
-  experimental features, see [Experimental features](https://docs.docker.com/engine/reference/commandline/cli/#experimental-features "https://docs.docker.com/engine/reference/commandline/cli/#experimental-features") in the Docker documentation.
+  experimental features, see [Experimental
+  features](https://docs.docker.com/engine/reference/commandline/cli/#experimental-features "https://docs.docker.com/engine/reference/commandline/cli/#experimental-features") in the Docker documentation.
 - The Amazon ECR repository must exist before you push the image. For more
   information, see [Creating an Amazon ECR private repository to store
   images](repository-create.md "repository-create.md").
@@ -54,8 +55,8 @@ AWS Command Line Interface](../../../cli/latest/userguide/install-cliv2.md "../.
 ```
 
 3. Create the Docker manifest list. The `manifest create` command
-   verifies that the referenced images are already in your repository and
-   creates the manifest locally.
+   verifies that the referenced images are already in your repository and creates the
+   manifest locally.
 
 ```
 `docker manifest create ``aws_account_id`.dkr.ecr.`region`.amazonaws.com`/`my-repository` ``aws_account_id`.dkr.ecr.`region`.amazonaws.com`/`my-repository`:`image_one_tag` ``aws_account_id`.dkr.ecr.`region`.amazonaws.com`/`my-repository`:`image_two``

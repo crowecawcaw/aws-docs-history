@@ -20,24 +20,21 @@ AWS Management Console.
    [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
 2. From the navigation bar, choose the Region where your
    repository exists.
-3. In the navigation pane, choose
-   **Repositories**.
+3. In the navigation pane, choose **Repositories**
+   .
 4. On the **Repositories** page, choose the
    repository that contains the image to retrieve the scan findings
    for.
-5. On the **Images** page, under the
-   **Image tag** column, select the image tag
-   to retrieve the scan findings.
+5. On the **Images** page, under the **Image
+   tag** column, select the image tag to retrieve the scan
+   findings.
 6. To view more details in the Amazon Inspector console, choose the
-   vulnerability name in the **Name**
-   column.
+   vulnerability name in the **Name** column.
 
 AWS CLI
 Use the following AWS CLI command to retrieve image scan findings using
-the AWS CLI. You can specify an image using the `imageTag` or
-`imageDigest`, both of which can be obtained using the
-[list-images](../../../cli/latest/reference/ecr/list-images.md "../../../cli/latest/reference/ecr/list-images.md")
-CLI command.
+the AWS CLI. You can specify an image using the `imageTag` or `imageDigest`, both of which can be obtained using the [list-images](../../../cli/latest/reference/ecr/list-images.md "../../../cli/latest/reference/ecr/list-images.md") CLI
+command.
 
 - [describe-image-scan-findings](../../../cli/latest/reference/ecr/describe-image-scan-findings.md "../../../cli/latest/reference/ecr/describe-image-scan-findings.md") (AWS CLI)
 

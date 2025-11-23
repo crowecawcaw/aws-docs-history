@@ -24,12 +24,14 @@ policy.
                     "tagStatus": "`tagged`"|"`untagged`"|"`any`",
                     "tagPatternList": `list<string>`,
                     "tagPrefixList": `list<string>`,
-                    "countType": "`imageCountMoreThan`"|"`sinceImagePushed`",
+                    "storageClass": "`standard`"|"`archive`",
+                    "countType": "`imageCountMoreThan`"|"`sinceImagePushed`"|"`sinceImagePulled`"|"`sinceImageTransitioned`",
                     "countUnit": "`string`",
                     "countNumber": `integer`
                 },
                 "action": {
-                    "type": "expire"
+                    "type": "`expire`"|"`transition`",
+                    "targetStorageClass": "`archive`"
                 }
             }
         ]
@@ -414,3 +416,101 @@ The logic of this lifecycle policy would be:
   However, it can't mark images A, B, C, or E because they were identified
   by higher priority rules. It marks image D for expiration.
 - Result: Images A, B, and D are expired.
+
+## Archive examples
+
+The following examples show lifecycle policies that archive images instead of deleting them.
+
+### Archiving images older than a specified number of days
+
+The following example shows a lifecycle policy that archives images with tags starting with `prod` that are older than 30 days:
+
+```
+{
+    "rules": [
+        {
+            "rulePriority": 1,
+            "description": "Archive production images older than 30 days",
+            "selection": {
+                "tagStatus": "tagged",
+                "tagPatternList": ["prod*"],
+                "countType": "sinceImagePushed",
+                "countUnit": "days",
+                "countNumber": 30
+            },
+            "action": {
+                "type": "transition",
+                "targetStorageClass": "archive"
+            }
+        }
+    ]
+}
+```
+
+### Archiving images not pulled in a specified number of days
+
+The following example shows a lifecycle policy that archives images that haven't been pulled in 90 days:
+
+```
+{
+    "rules": [
+        {
+            "rulePriority": 1,
+            "description": "Archive images not pulled in 90 days",
+            "selection": {
+                "tagStatus": "any",
+                "countType": "sinceImagePulled",
+                "countUnit": "days",
+                "countNumber": 90
+            },
+            "action": {
+                "type": "transition",
+                "targetStorageClass": "archive"
+            }
+        }
+    ]
+}
+```
+
+### Combining archive and delete rules
+
+The following example shows a lifecycle policy that archives images older than 30 days and then permanently deletes images that have been archived for more than 365 days:
+
+###### Note
+
+Archived images have a minimum storage duration of 90 days. You cannot configure lifecycle policies that delete images that have been in archive for less than 90 days. If you must delete images that have been archived for less than 90 days, you need to use the **batch-delete-image** API, but you will be charged for the 90-day minimum storage duration.
+
+```
+{
+    "rules": [
+        {
+            "rulePriority": 1,
+            "description": "Archive images older than 30 days",
+            "selection": {
+                "tagStatus": "any",
+                "countType": "sinceImagePushed",
+                "countUnit": "days",
+                "countNumber": 30
+            },
+            "action": {
+                "type": "transition",
+                "targetStorageClass": "archive"
+            }
+        },
+        {
+            "rulePriority": 2,
+            "description": "Delete images archived for more than 365 days",
+            "selection": {
+                "tagStatus": "any",
+                "storageClass": "archive",
+                "countType": "sinceImageTransitioned",
+                "countUnit": "days",
+                "countNumber": 365
+            },
+            "action": {
+                "type": "expire"
+            }
+        }
+    ]
+}
+```

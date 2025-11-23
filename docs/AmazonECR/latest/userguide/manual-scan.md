@@ -16,8 +16,8 @@ AWS Management Console.
 1. Open the Amazon ECR console at [https://console.aws.amazon.com/ecr/private-registry/repositories](https://console.aws.amazon.com/ecr/private-registry/repositories "https://console.aws.amazon.com/ecr/private-registry/repositories")
 2. From the navigation bar, choose the Region to create your
    repository in.
-3. In the navigation pane, choose
-   **Repositories**.
+3. In the navigation pane, choose **Repositories**
+   .
 4. On the **Repositories** page, choose the
    repository that contains the image to scan.
 5. On the **Images** page, select the image to

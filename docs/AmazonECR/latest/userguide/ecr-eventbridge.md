@@ -188,6 +188,97 @@ The following event is sent when an image is deleted. For more information, see
 }
 ```
 
+**Event for an image archival action**
+
+The following event is sent when an image is archived. The
+`target-storage-class` field will be set to `ARCHIVE`.
+The event includes the manifest and artifact media types to identify the type of
+content being archived.
+
+```
+{
+    "version": "0",
+    "id": "4f5ec4d5-4de4-7aad-a046-EXAMPLE",
+    "detail-type": "ECR Image Action",
+    "source": "aws.ecr",
+    "account": "`123456789012`",
+    "time": "2019-08-06T00:58:09Z",
+    "region": "`us-east-1`",
+    "resources": [],
+    "detail": {
+        "action-type": "UPDATE_STORAGE_CLASS",
+        "target-storage-class": "ARCHIVE",
+        "image-digest": "`sha256:f98d67af8e53a536502bfc600de3266556b06ed635a32d60aa7a5fe6d7e609d7`",
+        "repository-name": "`ubuntu`",
+        "result": "SUCCESS",
+        "manifest-media-type": "application/vnd.oci.image.manifest.v1+json",
+        "artifact-media-type": "application/vnd.oci.image.config.v1+json"
+    }
+}
+```
+
+**Event for an image restore action**
+
+The following event is sent when an archived image is restored. The
+`target-storage-class` field will be set to `STANDARD`.
+The event includes a `last-activated-at` field showing when the image
+was last restored.
+
+```
+{
+    "version": "0",
+    "id": "7b8fc5e6-5ef5-8bbe-b157-EXAMPLE",
+    "detail-type": "ECR Image Action",
+    "source": "aws.ecr",
+    "account": "`123456789012`",
+    "time": "2019-08-06T01:15:22Z",
+    "region": "`us-east-1`",
+    "resources": [],
+    "detail": {
+        "action-type": "UPDATE_STORAGE_CLASS",
+        "target-storage-class": "STANDARD",
+        "image-digest": "`sha256:f98d67af8e53a536502bfc600de3266556b06ed635a32d60aa7a5fe6d7e609d7`",
+        "repository-name": "`ubuntu`",
+        "result": "SUCCESS",
+        "manifest-media-type": "application/vnd.oci.image.manifest.v1+json",
+        "artifact-media-type": "application/vnd.oci.image.config.v1+json",
+        "last-activated-at": "2025-10-10T19:13:02.74Z"
+    }
+}
+```
+
+**Event for a referrer restore action**
+
+The following event is sent when an archived referrer (reference artifact such as
+an SBOM, signature, or attestation) is restored. Note that the
+`detail-type` is `ECR Referrer Action` to distinguish it
+from regular image actions. The `manifest-media-type` and
+`artifact-media-type` fields identify the specific type of referrer
+being restored. In this example, an SBOM artifact is being restored.
+
+```
+{
+    "version": "0",
+    "id": "8c9gd6f7-6fg6-9ccf-c268-EXAMPLE",
+    "detail-type": "ECR Referrer Action",
+    "source": "aws.ecr",
+    "account": "`123456789012`",
+    "time": "2019-08-06T01:20:45Z",
+    "region": "`us-east-1`",
+    "resources": [],
+    "detail": {
+        "action-type": "UPDATE_STORAGE_CLASS",
+        "target-storage-class": "STANDARD",
+        "image-digest": "`sha256:f98d67af8e53a536502bfc600de3266556b06ed635a32d60aa7a5fe6d7e609d7`",
+        "repository-name": "`sbom`",
+        "result": "SUCCESS",
+        "manifest-media-type": "application/vnd.cncf.oras.artifact.manifest.v1+json",
+        "artifact-media-type": "text/sbom+json",
+        "last-activated-at": "2025-10-10T19:13:02.74Z"
+    }
+}
+```
+
 **Event for a completed image replication**
 
 The following event is sent when each image replication is completed. For more

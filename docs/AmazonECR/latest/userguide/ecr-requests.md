@@ -10,11 +10,6 @@ registries](../public/public-ecr-requests.md "../public/public-ecr-requests.md")
 more information about pricing, see [Amazon Elastic Container Registry
 pricing](https://aws.amazon.com/ecr/pricing/ "https://aws.amazon.com/ecr/pricing/").
 
-###### Note
-
-Amazon ECR does not support AWS PrivateLink traffic over dual-stack endpoints. You must use
-IPv4-only Amazon ECR endpoints if you need AWS PrivateLink support.
-
 Amazon ECR endpoints are designated by attributes beyond IPv4-only endpoint or dual-stack
 endpoints support. These attributes can include:
 

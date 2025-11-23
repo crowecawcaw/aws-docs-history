@@ -12,9 +12,7 @@ the AWS CLI.
    replication settings from.
 3. In the navigation pane, choose **Private
    registry**.
-4. On the **Private registry** page, choose
-   **Settings** and then choose
-   **Edit** under **Replication
+4. On the **Private registry** page, choose **Settings** and then choose **Edit** under **Replication
    configuration**.
 5. Remove all existing replication rules by choosing the delete option
    for each rule.

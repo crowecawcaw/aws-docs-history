@@ -4,8 +4,9 @@ policies in Amazon ECR
 
 Amazon ECR lifecycle policies provide more control over the lifecycle management of images in a
 private repository. A lifecycle policy contains one or more rules, and each rule defines an
-action for Amazon ECR. Based on the expiration criteria in the lifecycle policy, images expire
-based on age or count within 24 hours. When Amazon ECR performs an action based on a lifecycle
+action for Amazon ECR. Based on the expiration criteria in the lifecycle policy, images can be
+archived or expired based on the criteria specified in the lifecycle policy within 24 hours.
+When Amazon ECR performs an action based on a lifecycle
 policy, this action is captured as an event in AWS CloudTrail. For more information, see [Logging Amazon ECR actions with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 ## How lifecycle policies work
@@ -27,14 +28,14 @@ The following diagram shows the lifecycle policy workflow.
 3. The lifecycle policy evaluator goes through all of the rules and marks the
    images that each rule affects.
 4. The lifecycle policy evaluator then applies the rules, based on rule priority,
-   and displays which images in the repository are set to be expired. A lower rule
+   and displays which images in the repository are set to be expired or archived. A lower rule
    priority number means higher priority. For example, a rule with priority 1 takes
    precedence over a rule with priority 2.
 5. Review the results of the test, ensuring that the images that are marked to be
-   expired are what you intended.
+   expired or archived are what you intended.
 6. Apply the test rules as the lifecycle policy for the repository.
-7. Once the lifecycle policy is created, you should expect that images become
-   expired within 24 hours after they meet the expiration criteria.
+7. Once the lifecycle policy is created, you should expect that images are expired
+   or archived within 24 hours after they meet the expiration criteria.
 
 ### Lifecycle policy evaluation rules
 
@@ -45,22 +46,21 @@ the lifecycle policy evaluator in more detail. For examples, see [Examples of li
 Amazon ECR](lifecycle_policy_examples.md "lifecycle_policy_examples.md").
 
 - When reference artifacts are present in a repository, Amazon ECR lifecycle
-  policies automatically clean up those artifacts within 24 hours of the
-  deletion of the subject image.
+  policies automatically expire or archive those artifacts within 24 hours of the
+  deletion or archival of the subject image.
 - All rules are evaluated at the same time, regardless of rule priority.
   After all rules are evaluated, they are then applied based on rule
   priority.
-- An image is expired by exactly one or zero rules.
+- An image is expired or archived by exactly one or zero rules.
 - An image that matches the tagging requirements of a rule cannot be expired
-  by a rule with a lower priority.
+  or archived by a rule with a lower priority.
 - Rules can never mark images that are marked by higher priority rules, but
-  can still identify them as if they haven't been expired.
-- The set of rules must contain a unique set of tag prefixes.
-- Only one rule is allowed to select untagged images.
-- If an image is referenced by a manifest list, it cannot be expired without
-  the manifest list being deleted first.
-- Expiration is always ordered by `pushed_at_time`, and always
-  expires older images before newer ones.
+  can still identify them as if they haven't been expired or archived.
+- The set of all rules selecting a specific storage class must contain a unique set of prefixes.
+- Only one rule selecting a specific storage class is allowed to select untagged images.
+- If an image is referenced by a manifest list, it cannot be expired or archived without
+  the manifest list being deleted or archived first.
+- Expiration is always ordered by `pushed_at_time` or `transitioned_at_time` and always expires older images before newer ones. If an image was archived and then restored at any point in the past, the image's `last_activated_at` is used instead of `pushed_at_time`.
 - A lifecycle policy rule may specify either `tagPatternList` or
   `tagPrefixList`, but not both. However, a lifecycle policy
   may contain multiple rules where different rules use both pattern and prefix
@@ -89,10 +89,13 @@ valid but `["test*1*2*3*4*5*6"]` is invalid.
   filters in the `tagPrefixList` value are matched against any of
   the image's tags.
 - The `countUnit` parameter is only used if
-  `countType` is `sinceImagePushed`.
+  `countType` is `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`.
 - With `countType = imageCountMoreThan`, images are sorted from
   youngest to oldest based on `pushed_at_time` and then all images
-  greater than the specified count are expired.
+  greater than the specified count are expired or archived.
 - With `countType = sinceImagePushed`, all images whose
   `pushed_at_time` is older than the specified number of days
-  based on `countNumber` are expired.
+  based on `countNumber` are expired or archived.
+- With `countType = sinceImagePulled`, all images whose `last_recorded_pulltime` is older than the specified number of days based on `countNumber` are archived. If an image was never pulled, the image's `pushed_at_time` is used instead of the `last_recorded_pulltime`. If an image was archived and then restored at any point in the past, but never pulled since the image was restored, the image's `last_activated_at` is used instead of the `last_recorded_pulltime`.
+- With `countType = sinceImageTransitioned`, all archived images whose `last_archived_at` is older than the specified number of days based on `countNumber` are expired.
+- Expiration is always ordered by `pushed_at_time` and always expires older images before newer ones.

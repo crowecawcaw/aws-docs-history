@@ -2,8 +2,8 @@
 
 Amazon ECR
 
-Use a lifecycle policy to create a set of rules that expire unused repository images.
-After creating a lifecycle policy, the affected images are expired within 24
+Use a lifecycle policy to create a set of rules that expire or archive unused repository images.
+After creating a lifecycle policy, the affected images are expired or archived within 24
 hours.
 
 ###### Note
@@ -17,7 +17,7 @@ are replicating your repositories to.
 ## Prerequisite
 
 **Best practice:** Create a lifecycle policy preview to
-verify that the images expired by your lifecycle policy rules are what you intend. For
+verify that the images expired or archived by your lifecycle policy rules are what you intend. For
 instructions, see [Creating a lifecycle policy preview in Amazon ECR](lpp_creation.md "lpp_creation.md").
 
 1. Open the Amazon ECR console at
@@ -67,9 +67,7 @@ instructions, see [Creating a lifecycle policy preview in Amazon ECR](lpp_creati
    **Image status**, then for
    **Specify tags for prefix matching**, you
    can specify a list of image tags on which to take action with
-   your lifecycle policy. 6. For **Match criteria**, choose either
-   **Since image pushed** or **Image
-   count more than** and then specify a value. 7. Choose **Save**.
+   your lifecycle policy. 6. For **Match criteria**, choose **Days since image created**, **Days since last recorded pull time**, **Days since image archived**, or **Image count** and then specify a value. 7. For **Rule action**, choose either **Expire** or **Archive**. 8. Choose **Save**.
 
 7. Create additional lifecycle policy rules by repeating steps
    5–7.

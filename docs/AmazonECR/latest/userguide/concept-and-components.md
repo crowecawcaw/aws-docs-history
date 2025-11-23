@@ -92,3 +92,7 @@ information, see [Logging Amazon ECR actions with AWS CloudTrail](logging-using-
 Amazon ECR provides metrics and logs that can be monitored using
 Amazon CloudWatch, enabling you to track the performance and usage
 of your Amazon ECR repositories. For more information, see [Amazon ECR repository metrics](ecr-repository-metrics.md "ecr-repository-metrics.md").
+
+**Managed signing**
+
+Managed signing automatically generates cryptographic signatures when images are pushed to Amazon ECR, simplifying container image signing. For more information, see [Managed signing](managed-signing.md "managed-signing.md").

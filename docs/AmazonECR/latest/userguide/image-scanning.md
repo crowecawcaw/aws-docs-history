@@ -11,6 +11,11 @@ will cause previously established scans to no longer be available. You will have
 up your scans again. However, if you switch back to your previous scanning version the
 established scans will be available.
 
+###### Note
+
+Archived images cannot be scanned. Archived images must be restored before they can be
+scanned. For more information about archiving and restoring images, see [Archiving an image in Amazon ECR](archive_restore_image.md "archive_restore_image.md").
+
 - **Enhanced scanning** – Amazon ECR integrates with Amazon Inspector to
   provide automated, continuous scanning of your repositories. Your container images
   are scanned for both operating systems and programming language package
@@ -24,10 +29,14 @@ established scans will be available.
   scanning which use the Common Vulnerabilities and Exposures (CVEs) database:.
 
       + **AWS native basic scanning** – Uses AWS
-       native technology, which is now GA and recommended. All new customer registries are opted into this improved version by default.
-      + **Clair basic scanning** – Uses the open source Clair project. Clair is now deprecated. See [Clair Deprecation](image-scanning-basic.md#clair-deprecation "image-scanning-basic.md#clair-deprecation") for details.
+       native technology, which is now GA and recommended. All new customer
+       registries are opted into this improved version by default.
+      + **Clair basic scanning** – Uses the open source
+       Clair project. Clair is now deprecated. See [Clair Deprecation](image-scanning-basic.md#clair-deprecation "image-scanning-basic.md#clair-deprecation") for
+       details.
 
-  With basic scanning, you configure your repositories to scan on push or you can perform manual scans and
+  With basic scanning, you configure your repositories to scan on push or you can
+  perform manual scans and
   Amazon ECR provides a list of scan findings. Basic scanning provides the
   following:
 
@@ -36,8 +45,5 @@ established scans will be available.
 
 ###### Important
 
-The new version of Amazon ECR Basic Scanning doesn't use the
-`imageScanFindingsSummary` and `imageScanStatus`
-attributes from the `DescribeImages` API response to return scan
-results. Use the `DescribeImageScanFindings` API instead. For more
-information, see [`DescribeImageScanFindings`](../APIReference/API_DescribeImageScanFindings.md "../APIReference/API_DescribeImageScanFindings.md").
+The new version of Amazon ECR Basic Scanning doesn't use the `imageScanFindingsSummary` and `imageScanStatus` attributes from
+the `DescribeImages` API response to return scan results. Use the `DescribeImageScanFindings` API instead. For more information, see [`DescribeImageScanFindings`](../APIReference/API_DescribeImageScanFindings.md "../APIReference/API_DescribeImageScanFindings.md").

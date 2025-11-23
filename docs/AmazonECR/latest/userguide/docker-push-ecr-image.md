@@ -11,8 +11,8 @@ image to an Amazon ECR private repository](docker-push-multi-architecture-image.
 
 ###### To push a Docker image to an Amazon ECR repository
 
-The Amazon ECR repository must exist before you push the image. For more
-information, see [Creating an Amazon ECR private repository to store
+The Amazon ECR
+repository must exist before you push the image. For more information, see [Creating an Amazon ECR private repository to store
 images](repository-create.md "repository-create.md").
 
 1. Authenticate your Docker client to the Amazon ECR registry to which you intend
@@ -46,16 +46,14 @@ AWS Command Line Interface](../../../cli/latest/userguide/install-cliv2.md "../.
 `docker images`
 ```
 
-You can identify an image with the
-`repository:tag` value or the image ID in the
-resulting command output. 4. Tag your image with the Amazon ECR registry, repository, and optional image tag
-name combination to use. The registry format is ``aws_account_id`.dkr.ecr.`region`.amazonaws.com`. The repository name should match the
- repository that you created for your image. If you omit the image tag, we
- assume that the tag is `latest`.
+You can identify an image with the `repository:tag`
+value or the image ID in the resulting command output. 4. Tag your image with the Amazon ECR registry, repository, and optional image tag
+name combination to use. The registry format is
+``aws_account_id`.dkr.ecr.`region`.amazonaws.com`. The
+ repository name should match the repository that you created for your image. If you
+ omit the image tag, we assume that the tag is `latest`.
 
-The following example tags a local image with the ID
-`e9ae3c220b23` as
-```aws_account_id`.dkr.ecr.`region`.amazonaws.com`/my-repository:tag`.
+The following example tags a local image with the ID `e9ae3c220b23` as ```aws_account_id`.dkr.ecr.`region`.amazonaws.com`/my-repository:tag`.
 
 ```
 docker tag `e9ae3c220b23` ``aws_account_id`.dkr.ecr.`region`.amazonaws.com`/`my-repository:tag`

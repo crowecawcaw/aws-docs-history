@@ -5,16 +5,15 @@ Amazon ECR
 The following examples show common use cases for private image replication. If you
 configure replication by using the AWS CLI, you can use the JSON examples as a starting
 point when you create your JSON file. If you configure replication by using the
-AWS Management Console, you will see similar JSON when you review your replication rule on the
-**Review and submit** page.
+AWS Management Console, you will see similar JSON when you review your replication rule on the **Review
+and submit** page.
 
 ## Example: Configuring
 
 cross-Region replication to a single destination Region
 
 The following shows an example for configuring cross-Region replication within a
-single registry. This example assumes that your account ID is
-`111122223333` and that you're specifying this replication
+single registry. This example assumes that your account ID is `111122223333` and that you're specifying this replication
 configuration in a Region other than `us-west-2`.
 
 ```
@@ -37,8 +36,7 @@ configuration in a Region other than `us-west-2`.
 cross-Region replication using a repository filter
 
 The following shows an example for configuring cross-Region replication for
-repositories that match a prefix name value. This example assumes your account ID is
-`111122223333` and that you're specifying this replication
+repositories that match a prefix name value. This example assumes your account ID is `111122223333` and that you're specifying this replication
 configuration in a Region other than `us-west-1` and have repositories
 with a prefix of `prod`.
 
@@ -62,10 +60,9 @@ with a prefix of `prod`.
 Configuring cross-Region replication to multiple destination Regions
 
 The following shows an example for configuring cross-Region replication within a
-single registry. This example assumes your account ID is
-`111122223333` and that you're specifying this replication
-configuration in a Region other than `us-west-1` or
-`us-west-2`.
+single registry. This example assumes your account ID is `111122223333` and that you're specifying this replication
+configuration in a Region other than `us-west-1` or `us-west-2`
+.
 
 ```
 {
@@ -91,9 +88,8 @@ configuration in a Region other than `us-west-1` or
 cross-account replication
 
 The following shows an example for configuring cross-account replication for your
-registry. This example configures replication to the
-`444455556666` account and to the `us-west-2`
-Region.
+registry. This example configures replication to the `444455556666`
+account and to the `us-west-2` Region.
 
 ###### Important
 
@@ -121,13 +117,11 @@ information, see [Private registry permissions in Amazon ECR](registry-permissio
 multiple rules in a configuration
 
 The following shows an example for configuring multiple replication rules for your
-registry. This example configures replication for the
-`111122223333` account with one rule that
-replicates repositories with a prefix of `prod` to the
-`us-west-2` Region and repositories with a prefix of
-`test` to the `us-east-2` Region. A replication
-configuration may contain up to 10 rules, with each rule specifying up to 25
-destinations.
+registry. This example configures replication for the `111122223333` account with one rule that replicates
+repositories with a prefix of `prod` to the `us-west-2` Region
+and repositories with a prefix of `test` to the `us-east-2`
+Region. A replication configuration may contain up to 10 rules, with each rule
+specifying up to 25 destinations.
 
 ```
 {

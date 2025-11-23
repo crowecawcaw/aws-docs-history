@@ -14,10 +14,9 @@ granting, the IAM policy takes precedence.
 2. From the navigation bar, choose the Region to configure your private
    registry permissions statement in.
 3. In the navigation pane, choose **Private registry**,
-   choose **Features & Settings**, and then choose
-   **Permissions**.
-4. On the **Registry permissions** page, choose
-   **Generate statement**.
+   choose **Features & Settings**, and then choose **Permissions**.
+4. On the **Registry permissions** page, choose **Generate
+   statement**.
 5. For each pull through cache permissions policy statement you want to
    create, do the following.
    1. For **Policy type**, choose **Pull
@@ -30,5 +29,4 @@ granting, the IAM policy takes precedence.
       cache rule to associate the policy with.
    5. For **Repository names**, specify the repository
       base name to apply the rule for. For example, if you want to specify
-      the Amazon Linux repository on Amazon ECR Public, the repository name would be
-      `amazonlinux`.
+      the Amazon Linux repository on Amazon ECR Public, the repository name would be `amazonlinux`.

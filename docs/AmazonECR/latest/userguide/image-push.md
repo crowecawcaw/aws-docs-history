@@ -8,6 +8,12 @@ specifying a replication configuration in your private registry settings, you ca
 replicate across Regions in your own registry and across different accounts. For more
 information, see [Private registry settings in Amazon ECR](registry-settings.md "registry-settings.md").
 
+###### Note
+
+If you push an image that is currently archived, that image will be automatically
+restored and removed from the archive. For more information about archiving and
+restoring images, see [Archiving an image in Amazon ECR](archive_restore_image.md "archive_restore_image.md").
+
 ###### Topics
 
 - [IAM permissions for pushing an image to an Amazon ECR

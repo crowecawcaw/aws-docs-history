@@ -19,8 +19,6 @@ details included are as follows:
 2. From the navigation bar, choose the Region that contains the repository
    containing your image.
 3. In the navigation pane, choose **Repositories**.
-4. On the **Repositories** page, choose the repository to
-   view.
-5. On the **Repositories :
-   `repository_name`** page, choose the image
-   to view the details of.
+4. On the **Repositories** page, choose the repository to view.
+5. On the **Repositories : `repository_name`**
+   page, choose the image to view the details of.

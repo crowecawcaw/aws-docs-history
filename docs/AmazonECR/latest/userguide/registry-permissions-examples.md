@@ -104,12 +104,10 @@ JSON
 
 ## Example: Allow all IAM
 
-principals in a source account to replicate all repositories with prefix
-`prod-`.
+principals in a source account to replicate all repositories with prefix `prod-`.
 
 The following registry permissions policy allows all IAM principals (users and
-roles) in a source account to replicate all repositories that start with
-`prod-`.
+roles) in a source account to replicate all repositories that start with `prod-`.
 
 JSON
 

@@ -4,10 +4,9 @@ registry policy scope
 
 ###### Important
 
-For new users, your registries are automatically configured to use the
-`V2` registry policy upon creation. There is no action for you to
-take. Amazon ECR doesn't recommend reverting to the previous registry policy
-`V1`.
+For new users, your registries are automatically configured to use the `V2` registry policy upon creation. There is no action for you to take.
+Amazon ECR doesn't recommend reverting to the previous registry policy `V1`
+.
 
 You can use the console or the CLI to view or change your registry policy
 scope.
@@ -25,12 +24,12 @@ registry
 2. From the navigation bar, choose the Region.
 3. In the navigation pane, choose **Private
    registry**, **Feature &
-   Settings**, and then choose
-   **Permissions**.
-4. On the **Permissions** page, for
-   **Registry policy** view your policy JSON.
-   If you have the V1 policy, a banner displays with instructions
-   to update to V2. Choose **Enable**.
+   Settings**, and then choose **Permissions**
+   .
+4. On the **Permissions** page, for **Registry
+   policy** view your policy JSON. If you have the V1
+   policy, a banner displays with instructions to update to V2.
+   Choose **Enable**.
 
 A banner displays indicating that the registry policy scope
 has been updated to V2. 5. You can also optionally configure permissions with the CLI.
@@ -71,9 +70,9 @@ V1.
 }
 ```
 
-You can change your registry policy version from
-`V1` to `V2`. V1 is not the
-recommended registry policy scope.
+You can change your registry policy version from `V1`
+to `V2`. V1 is not the recommended registry policy
+scope.
 
 ```
 `aws ecr put-account-setting --name REGISTRY_POLICY_SCOPE --value `value``

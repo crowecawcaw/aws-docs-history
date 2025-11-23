@@ -17,7 +17,8 @@ Amazon EKS cluster](using-helm-charts-eks.md "using-helm-charts-eks.md").
    information, see [Installing
    Helm](https://helm.sh/docs/intro/install/ "https://helm.sh/docs/intro/install/").
 2. Use the following steps to create a test Helm chart. For more information,
-   see [Helm Docs - Getting Started](https://helm.sh/docs/chart_template_guide/getting_started/ "https://helm.sh/docs/chart_template_guide/getting_started/").
+   see [Helm
+   Docs - Getting Started](https://helm.sh/docs/chart_template_guide/getting_started/ "https://helm.sh/docs/chart_template_guide/getting_started/").
    1. Create a Helm chart named `helm-test-chart` and clear
       the contents of the `templates` directory.
 

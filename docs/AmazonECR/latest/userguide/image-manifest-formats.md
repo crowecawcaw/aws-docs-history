@@ -47,8 +47,7 @@ tag_:
 If you pull an image _by digest_, there is no translation
 available. Your client must understand the image manifest format that is stored
 in Amazon ECR. If you request a Docker Image Manifest V2 Schema 2 image by digest on
-a Docker 1.9 or older client, the image pull fails. For more information, see
-[Registry
+a Docker 1.9 or older client, the image pull fails. For more information, see [Registry
 compatibility](https://docs.docker.com/registry/compatibility/ "https://docs.docker.com/registry/compatibility/") in the Docker documentation.
 
 In this example, if you request the same image _by tag_,

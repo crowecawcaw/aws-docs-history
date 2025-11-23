@@ -17,25 +17,24 @@ AWS Management Console
 2. From the navigation bar, choose the Region to set the scanning
    configuration for.
 3. In the navigation pane, choose **Private
-   registry**, and then choose
-   **Settings**.
-4. On the **Scanning configuration** page, for
-   **Scan type** choose **Enhanced
+   registry**, and then choose **Settings**
+   .
+4. On the **Scanning configuration** page, for **Scan
+   type** choose **Enhanced
    scanning**.
 
 By default, when **Enhanced scanning** is
-selected, all of your repositories are continuously
-scanned. 5. To choose specific repositories to continuously scan, clear
+selected, all of your repositories are continuously scanned. 5. To choose specific repositories to continuously scan, clear
 the **Continuously scan all repositories** box,
 and then define your filters:
 
 ###### Important
 
 Filters with no wildcard will match all repository names
-that contain the filter. Filters with wildcards
-(`*`) match on a repository name where the
-wildcard replaces zero or more characters in the repository
-name. To see examples of how filters behave, see [Filter wildcards](image-scanning-filters.md#image-scanning-filters-wildcards "image-scanning-filters.md#image-scanning-filters-wildcards").
+that contain the filter. Filters with wildcards (`*`)
+match on a repository name where the wildcard replaces zero
+or more characters in the repository name. To see examples
+of how filters behave, see [Filter wildcards](image-scanning-filters.md#image-scanning-filters-wildcards "image-scanning-filters.md#image-scanning-filters-wildcards").
 
     1. Enter a filter based on repository names, and then
      choose **Add filter**.
@@ -45,8 +44,8 @@ name. To see examples of how filters behave, see [Filter wildcards](image-scanni
 
 
 
-    	* To scan all repositories on push, select
-    	 **Scan on push all
+    	* To scan all repositories on push, select **Scan
+    	 on push all
     	 repositories**.
     	* To choose specific repositories to scan on
     	 push, enter a filter based on repository names,
@@ -59,8 +58,7 @@ name. To see examples of how filters behave, see [Filter wildcards](image-scanni
 
 AWS CLI
 Use the following AWS CLI command to turn on enhanced scanning for your
-private registry using the AWS CLI. You can specify scan filters using the
-`rules` object.
+private registry using the AWS CLI. You can specify scan filters using the `rules` object.
 
 - [put-registry-scanning-configuration](../../../cli/latest/reference/ecr/put-registry-scanning-configuration.md "../../../cli/latest/reference/ecr/put-registry-scanning-configuration.md") (AWS CLI)
 

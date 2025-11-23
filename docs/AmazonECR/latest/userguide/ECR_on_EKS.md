@@ -37,7 +37,7 @@ JSON
 
 ###### Note
 
-If you used `eksctl` or the AWS CloudFormation templates in [Getting
+If you used `eksctl` or the CloudFormation templates in [Getting
 Started with Amazon EKS](../../../eks/latest/userguide/getting-started.md "../../../eks/latest/userguide/getting-started.md") to create your cluster and worker node groups,
 these IAM permissions are applied to your worker node IAM role by
 default.

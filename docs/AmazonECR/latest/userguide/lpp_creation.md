@@ -58,9 +58,7 @@ are replicating your repositories to.
    valid but `["test*1*2*3*4*5*6"]` is invalid. 5. If you chose **Tagged (prefix matching)** for
    **Image status**, then for **Specify tags
    for prefix matching**, you can specify a list of image tags
-   on which to take action with your lifecycle policy. 6. For **Match criteria**, choose either **Since
-   image pushed** or **Image count more
-   than** and then specify a value. 7. Choose **Save**.
+   on which to take action with your lifecycle policy. 6. For **Match criteria**, choose **Days since image created**, **Days since last recorded pull time**, **Days since image archived**, or **Image count** and then specify a value. 7. For **Rule action**, choose either **Expire** or **Archive**. 8. Choose **Save**.
 
 7. Create additional test lifecycle policy rules by repeating steps 5–7.
 8. To run the lifecycle policy preview, choose **Save and run
@@ -70,7 +68,7 @@ are replicating your repositories to.
 10. If you are satisfied with the preview results, choose **Apply as
     lifecycle policy** to create a lifecycle policy with the specified
     rules. You should expect that after applying a lifecycle policy, the affected
-    images are expired within 24 hours.
+    images are expired or archived within 24 hours.
 11. If you aren't satisfied with the preview results, you may delete one or more
     test lifecycle rules and create one or more rules to replace them and then
     repeat the test.

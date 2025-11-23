@@ -2,7 +2,7 @@
 
 You can improve the security posture of your VPC by configuring Amazon ECR to use an interface
 VPC endpoint. VPC endpoints are powered by AWS PrivateLink, a technology that enables you
-to privately access Amazon ECR APIs through private IP addresses. AWS PrivateLink restricts all
+to privately access Amazon ECR APIs through private IP addresses (both IPv4 and IPv6). AWS PrivateLink restricts all
 network traffic between your VPC and Amazon ECR to the Amazon network. You don't need an internet
 gateway, a NAT device, or a virtual private gateway.
 
@@ -27,6 +27,9 @@ considerations.
   the _Amazon Elastic Container Service Developer Guide_.
 - The security group attached to the VPC endpoint must allow incoming
   connections on port 443 from the private subnet of the VPC.
+- Amazon ECR VPC endpoints support dual-stack (IPv4 and IPv6) connectivity. When you
+  create a dual-stack VPC endpoint, it can handle traffic over both IPv4 and IPv6
+  private IP addresses.
 - VPC endpoints currently don't support Amazon ECR Public repositories. Consider
   using a pull through cache rule to host the public image in a private repository
   in the same Region as the VPC endpoint. For more information, see [Sync an upstream registry with an Amazon ECR private registry](pull-through-cache.md "pull-through-cache.md").
@@ -45,6 +48,8 @@ considerations.
   NAT gateway in order for the pull to work. Subsequent image pulls don't require
   this. For more information, see [Scenario: Access the internet from a private subnet](../../../vpc/latest/userguide/vpc-nat-gateway.md#public-nat-internet-access "../../../vpc/latest/userguide/vpc-nat-gateway.md#public-nat-internet-access") in the
   _Amazon Virtual Private Cloud User Guide_.
+- For workloads requiring FIPS 140-3 validated cryptographic modules, Amazon ECR
+  supports FIPS endpoints for VPC endpoints.
 
 ### Considerations for Windows
 
@@ -107,6 +112,17 @@ To create the VPC endpoints for the Amazon ECR service, use the [Creating an
 Interface Endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint "../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint") procedure in the
 _Amazon VPC User Guide_.
 
+Amazon ECR VPC endpoints support dual-stack (IPv4 and IPv6) connectivity. When you create a
+dual-stack VPC endpoint, it automatically handles traffic over both IPv4 and IPv6 private
+IP addresses. The endpoint will route traffic using the appropriate IP version based on
+your client's network configuration and the endpoint's capabilities.
+
+If you have existing IPv4-only VPC endpoints and want to migrate to dual-stack
+endpoints, you can modify your existing endpoints to support dual-stack connectivity, or
+create new dual-stack endpoints. When creating or modifying endpoints, ensure that your
+VPC and subnets support the IP version you want to use. After creating dual-stack
+endpoints, the endpoints will support both IPv4 and IPv6.
+
 Amazon ECS tasks hosted on Amazon EC2 instances require both Amazon ECR endpoints and the Amazon S3
 gateway endpoint.
 
@@ -131,6 +147,8 @@ When you create this endpoint, you must enable a private DNS hostname. To
 do this, ensure that the **Enable Private DNS Name** option
 is selected in the Amazon VPC console when you create the VPC endpoint.
 
+For FIPS 140-3 compliant connections, use the FIPS endpoint name **com.amazonaws.`region`.ecr-fips.dkr**
+
 **com.amazonaws.`region`.ecr.api**
 
 ###### Note
@@ -138,6 +156,8 @@ is selected in the Amazon VPC console when you create the VPC endpoint.
 The specified `region` represents the Region
 identifier for an AWS Region supported by Amazon ECR, such as
 `us-east-2` for the US East (Ohio) Region.
+
+For FIPS 140-3 compliant connections, use the FIPS endpoint names: **com.amazonaws.`region`.ecr-fips.dkr** and **com.amazonaws.`region`.ecr-fips.api**.
 
 This endpoint is used for calls to the Amazon ECR API. API actions such as
 `DescribeImages` and `CreateRepository` go to this
@@ -149,6 +169,8 @@ Name** in the VPC console when you create the VPC endpoint. If
 you enable a private DNS hostname for the VPC endpoint, update your SDK or
 AWS CLI to the latest version so that specifying an endpoint URL when using
 the SDK or AWS CLI isn't necessary.
+
+For FIPS 140-3 compliant connections, use the FIPS endpoint name **com.amazonaws.`region`.ecr-fips.api**.
 
 If you enable a private DNS hostname and are using an SDK or AWS CLI version
 released before January 24, 2019, you must use the
@@ -169,6 +191,12 @@ endpoint URL.
 `aws ecr create-repository --repository-name `name` --endpoint-url https://`VPC_endpoint_ID`.api.ecr.`region`.vpce.amazonaws.com`
 ```
 
+For FIPS 140-3 compliant connections, use the FIPS endpoint URL:
+
+```
+`aws ecr create-repository --repository-name `name` --endpoint-url https://api.ecr-fips.`region`.amazonaws.com`
+```
+
 ## Create the Amazon S3 gateway endpoint
 
 For your Amazon ECS tasks to pull private images from Amazon ECR, you must create a gateway
@@ -181,6 +209,12 @@ each Docker image.
 ```
 arn:aws:s3:::prod-`region`-starport-layer-bucket/*
 ```
+
+###### Note
+
+If creating a dual-stack VPC endpoint for Amazon ECR, then you also need to create a
+dual-stack Amazon S3 Gateway or Interface endpoint. Refer to [S3
+documentation](../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md#privatelink-ip-address-types "../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md#privatelink-ip-address-types") for details.
 
 Use the [Creating a
 gateway endpoint](../../../vpc/latest/userguide/vpce-gateway.md#create-gateway-endpoint "../../../vpc/latest/userguide/vpce-gateway.md#create-gateway-endpoint") procedure in the _Amazon VPC User Guide_ to

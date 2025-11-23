@@ -36,6 +36,13 @@ Amazon ECR provides the following features:
   registry in your private Amazon ECR registry. Using a pull through cache rule, Amazon ECR
   will periodically reach out to the upstream registry to ensure the cached image
   in your Amazon ECR private registry is up to date. For more information, see [Sync an upstream registry with an Amazon ECR private registry](pull-through-cache.md "pull-through-cache.md").
+- Repository creation templates allow you to define the settings for repositories
+  created by Amazon ECR on your behalf during pull through cache or replication actions.
+  You can specify tag immutability, encryption configuration, repository policies,
+  lifecycle policies, and resource tags for automatically created repositories. For
+  more information, see [Templates to control repositories created
+  during a pull through cache or replication action](repository-creation-templates.md "repository-creation-templates.md").
+- Managed signing automatically generates cryptographic signatures when images are pushed to Amazon ECR, simplifying container image signing. For more information, see [Managed signing](managed-signing.md "managed-signing.md").
 
 ## How to get started with Amazon ECR
 
@@ -55,5 +62,4 @@ Amazon ECR](getting-started-cli.md "getting-started-cli.md").
 
 ## Pricing for Amazon ECR
 
-With Amazon ECR, you only pay for the amount of data you store in your repositories and for
-the data transfer from your image pushes and pulls. For more information, see [Amazon ECR pricing](https://aws.amazon.com/ecr/pricing/ "https://aws.amazon.com/ecr/pricing/").
+With Amazon ECR, you pay for the amount of data you store in your repositories, data transfer from your image pushes and pulls, and image actions that you opt in to such as image signing and replication. For more information, see [Amazon ECR pricing](https://aws.amazon.com/ecr/pricing/ "https://aws.amazon.com/ecr/pricing/").

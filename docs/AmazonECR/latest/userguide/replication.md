@@ -141,23 +141,21 @@ replication
 
 The following should be considered when using private image replication.
 
-- Only repository content pushed to a repository after replication is configured
-  is replicated. Any preexisting content in a repository isn't replicated. Once
-  replication is configured for a repository, Amazon ECR keeps the destination and
-  source synchronized.
+- Only repository content pushed or restored to a repository after replication is configured
+  is replicated. Any preexisting content in a repository isn't replicated. If an image is restored after replication is turned on, it
+  will be replicated. If it is restored before replication is turned on, it won't
+  be replicated.
 - The repository name will remain the same across Regions and accounts when
   replication has occurred. Amazon ECR doesn't support changing the repository name
   during replication.
 - The first time you configure your private registry for replication, Amazon ECR
   creates a service-linked IAM role on your behalf. The service-linked IAM
   role grants the Amazon ECR replication service the permission it needs to create
-  repositories and replicate images in your registry. For more information, see
-  [Using service-linked roles for
+  repositories and replicate images in your registry. For more information, see [Using service-linked roles for
   Amazon ECR](using-service-linked-roles.md "using-service-linked-roles.md").
 - For cross-account replication to occur, the private registry destination must
   grant permission to allow the source registry to replicate its images. This is
-  done by setting a private registry permissions policy. For more information, see
-  [Private registry permissions in Amazon ECR](registry-permissions.md "registry-permissions.md").
+  done by setting a private registry permissions policy. For more information, see [Private registry permissions in Amazon ECR](registry-permissions.md "registry-permissions.md").
 - If the permission policy for a private registry are changed to remove a
   permission, any in-progress replications previously granted may complete.
 - For cross-Region replication to occur, both the source and destination
@@ -165,9 +163,7 @@ The following should be considered when using private image replication.
   occurring within or to that Region. For more information, see [Managing
   AWS Regions](../../../general/latest/gr/rande-manage.md "../../../general/latest/gr/rande-manage.md") in the _Amazon Web Services General Reference_.
 - Cross-Region replication is not supported between AWS partitions. For
-  example, a repository in `us-west-2` can't be replicated to
-  `cn-north-1`. For more information about AWS partitions, see
-  [ARN
+  example, a repository in `us-west-2` can't be replicated to `cn-north-1`. For more information about AWS partitions, see [ARN
   format](../../../general/latest/gr/aws-arns-and-namespaces.md#arns-syntax "../../../general/latest/gr/aws-arns-and-namespaces.md#arns-syntax") in the _AWS General Reference_.
 - The replication configuration for a private registry may contain up to 25
   unique destinations across all rules, with a maximum of 10 rules total. Each
@@ -178,17 +174,18 @@ The following should be considered when using private image replication.
   private registry are replicated by specifying a repository prefix. For an
   example, see [Example: Configuring
   cross-Region replication using a repository filter](registry-settings-examples.md#registry-settings-examples-crr-filter "registry-settings-examples.md#registry-settings-examples-crr-filter").
-- A replication action only occurs once per image push. For example, if you
-  configured cross-Region replication from `us-west-2` to
-  `us-east-1` and from `us-east-1` to
-  `us-east-2`, an image pushed to `us-west-2` replicates
-  to only `us-east-1`, it doesn't replicate again to
-  `us-east-2`. This behavior applies to both cross-Region and
-  cross-account replication.
+- A replication action only occurs once per image push or image restore. For example, if you
+  configured cross-Region replication from `us-west-2` to `us-east-1` and from `us-east-1` to `us-east-2`, an
+  image pushed to `us-west-2` replicates to only `us-east-1`,
+  it doesn't replicate again to `us-east-2`. This behavior applies to
+  both cross-Region and cross-account replication.
 - The majority of images replicate in less than 30 minutes, but in rare cases
   the replication might take longer.
-- Registry replication doesn't perform any delete actions. Replicated images and
-  repositories can be manually deleted when they are no longer being used.
+- Registry replication doesn't perform any delete actions or archive actions.
+  Replicated images and repositories can be deleted or archived when they are no
+  longer being used.
+- If the image to be replicated is archived in the destination, then it will be restored in the destination.
+- When an image is archived in a source region, it will not be archived in a destination region specified by the replication configuration.
 - Repository policies, including IAM policies, and lifecycle policies aren't
   replicated and don't have any effect other than on the repository they are
   defined for.

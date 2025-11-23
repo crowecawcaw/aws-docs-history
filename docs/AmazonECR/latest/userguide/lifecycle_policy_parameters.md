@@ -49,9 +49,9 @@ specifies a tag for an image. Acceptable options are
 `tagged`, `untagged`, or `any`. If you
 specify `any`, then all images have the rule evaluated
 against them. If you specify `tagged`, then you must also
-specify a `tagPrefixList` value. If you specify
-`untagged`, then you must omit
-`tagPrefixList`.
+specify a `tagPrefixList` value or a `tagPatternList` value. If you specify
+`untagged`, then you must omit both
+`tagPrefixList` and `tagPatternList`.
 
 ## Tag pattern list
 
@@ -96,6 +96,16 @@ on, you would use the tag prefix `prod` to specify all of
 them. If you specify multiple tags, only the images with all specified
 tags are selected.
 
+## Storage class
+
+`storageClass`
+
+Type: string
+
+Required: yes, if `countType` is `sinceImageTransitioned`
+
+The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a count type of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
+
 ## Count type
 
 `countType`
@@ -109,7 +119,7 @@ Specify a count type to apply to the images.
 If `countType` is set to `imageCountMoreThan`,
 you also specify `countNumber` to create a rule that sets a
 limit on the number of images that exist in your repository. If
-`countType` is set to `sinceImagePushed`, you
+`countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you
 also specify `countUnit` and `countNumber` to
 specify a time limit on the images that exist in your repository.
 
@@ -120,14 +130,14 @@ specify a time limit on the images that exist in your repository.
 Type: string
 
 Required: yes, only if `countType` is set to
-`sinceImagePushed`
+`sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`
 
 Specify a count unit of `days` to indicate that as the unit
 of time, in addition to `countNumber`, which is the number of
 days.
 
 This should only be specified when `countType` is
-`sinceImagePushed`; an error will occur if you specify a
+`sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`; an error will occur if you specify a
 count unit when `countType` is any other value.
 
 ## Count number
@@ -145,7 +155,7 @@ If the `countType` used is `imageCountMoreThan`,
 then the value is the maximum number of images that you want to retain
 in your repository. If the `countType` used is
 `sinceImagePushed`, then the value is the maximum age
-limit for your images.
+limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
 
 ## Action
 
@@ -155,5 +165,13 @@ Type: string
 
 Required: yes
 
-Specify an action type. The supported value is
-`expire`.
+Specify an action type. The supported values are
+`expire` (to delete images) and `transition` (to move images to archive storage).
+
+`targetStorageClass`
+
+Type: string
+
+Required: yes, if `type` is `transition`
+
+The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.

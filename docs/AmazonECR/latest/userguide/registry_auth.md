@@ -34,9 +34,8 @@ to retrieve the authentication token. An authentication token is used to access 
 Amazon ECR registry that your IAM principal has access to and is valid for 12 hours. To
 obtain an authorization token, you must use the [GetAuthorizationToken](../APIReference/API_GetAuthorizationToken.md "../APIReference/API_GetAuthorizationToken.md")
 API operation to retrieve a base64-encoded authorization token containing the
-username `AWS` and an encoded password. The AWS CLI
-`get-login-password` command simplifies this by retrieving and
-decoding the authorization token which you can then pipe into a **docker
+username `AWS` and an encoded password. The AWS CLI `get-login-password` command simplifies this by retrieving and decoding the
+authorization token which you can then pipe into a **docker
 login** command to authenticate.
 
 ###### To authenticate Docker to an Amazon ECR private registry with get-login
@@ -70,11 +69,11 @@ _AWS Command Line Interface User Guide_.
 ## Using HTTP API authentication
 
 Amazon ECR supports the [Docker
-Registry HTTP API](https://docs.docker.com/registry/spec/api/ "https://docs.docker.com/registry/spec/api/"). However, because Amazon ECR is a private registry, you
-must provide an authorization token with every HTTP request. You can add an HTTP
+Registry HTTP API](https://docs.docker.com/registry/spec/api/ "https://docs.docker.com/registry/spec/api/"). However, because Amazon ECR is a private registry, you must
+provide an authorization token with every HTTP request. You can add an HTTP
 authorization header using the `-H` option for **curl**
-and pass the authorization token provided by the
-**get-authorization-token** AWS CLI command.
+and pass the authorization token provided by the **get-authorization-token**
+AWS CLI command.
 
 ###### To authenticate with the Amazon ECR HTTP API
 
@@ -85,10 +84,10 @@ and pass the authorization token provided by the
 `TOKEN=$(aws ecr get-authorization-token --output text --query 'authorizationData[].authorizationToken')`
 ```
 
-2. To authenticate to the API, pass the `$TOKEN` variable to the
-   `-H` option of **curl**. For example, the
-   following command lists the image tags in an Amazon ECR repository. For more
-   information, see the [Docker Registry HTTP API](https://docs.docker.com/registry/spec/api/ "https://docs.docker.com/registry/spec/api/") reference documentation.
+2. To authenticate to the API, pass the `$TOKEN` variable to the `-H` option of **curl**. For example, the following
+   command lists the image tags in an Amazon ECR repository. For more information,
+   see the [Docker
+   Registry HTTP API](https://docs.docker.com/registry/spec/api/ "https://docs.docker.com/registry/spec/api/") reference documentation.
 
 ```
 `curl -i -H "Authorization: Basic $TOKEN" https://`aws_account_id`.dkr.ecr.`region`.amazonaws.com/v2/`amazonlinux`/tags/list`

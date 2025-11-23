@@ -14,14 +14,18 @@ You can use the following steps to define one or more scan on push filters.
 1. Open the Amazon ECR console at [https://console.aws.amazon.com/ecr/private-registry/repositories](https://console.aws.amazon.com/ecr/private-registry/repositories "https://console.aws.amazon.com/ecr/private-registry/repositories")
 2. From the navigation bar, choose the Region to set the scanning
    configuration for.
-3. In the navigation pane, choose **Private registry**,
-   **Scanning**.
-4. On the **Scanning configuration** page, For
-   **Scan type** choose **Basic
+3. In the navigation pane, choose **Private registry**, **Scanning**.
+4. On the **Scanning configuration** page, For **Scan
+   type** choose **Basic
    scanning**.
-5. By default all of your repositories are set for
-   **Manual** scanning. You can optionally configure scan
-   on push by specifying **Scan on push filters**. You can set
-   scan on push for all repositories or individual repositories. For more
-   information, see [Filters to choose which repositories are
+5. By default all of your repositories are set for **Manual**
+   scanning. You can optionally configure scan on push by specifying **Scan
+   on push filters**. You can set scan on push for all repositories or
+   individual repositories. For more information, see [Filters to choose which repositories are
    scanned in Amazon ECR](image-scanning-filters.md "image-scanning-filters.md").
+
+###### Note
+
+If scan on push is enabled for a repository, scans are also done on
+images that are restored after being archived. No old scans will be
+available from the restored image.

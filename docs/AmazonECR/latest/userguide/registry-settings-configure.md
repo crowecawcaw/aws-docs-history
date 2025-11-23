@@ -14,9 +14,7 @@ Amazon ECR](registry-settings-examples.md "registry-settings-examples.md").
    replication settings for.
 3. In the navigation pane, choose **Private
    registry**.
-4. On the **Private registry** page, choose
-   **Settings** and then choose
-   **Edit** under **Replication
+4. On the **Private registry** page, choose **Settings** and then choose **Edit** under **Replication
    configuration**.
 5. On the **Replication** page, choose **Add
    replication rule**.
@@ -24,14 +22,12 @@ Amazon ECR](registry-settings-examples.md "registry-settings-examples.md").
    enable cross-Region replication, cross-account replication, or both and
    then choose **Next**.
 7. If cross-Region replication is enabled, then for **Configure
-   destination regions**, choose one or more
-   **Destination regions** and then choose
-   **Next**.
-8. If cross-account replication is enabled, then for
-   **Cross-account replication**, choose the
-   cross-account replication setting for the registry. For
-   **Destination account**, enter the account ID for
-   the destination account and one or more **Destination
+   destination regions**, choose one or more **Destination
+   regions** and then choose **Next**.
+8. If cross-account replication is enabled, then for **Cross-account
+   replication**, choose the cross-account replication setting for
+   the registry. For **Destination account**, enter the
+   account ID for the destination account and one or more **Destination
    regions** to replicate to. Choose **Destination
    account +** to configure additional accounts as replication
    destinations.
@@ -41,12 +37,12 @@ Amazon ECR](registry-settings-examples.md "registry-settings-examples.md").
 For cross-account replication to occur, the destination account
 must configure a registry permissions policy to allow replication to
 occur. For more information, see [Private registry permissions in Amazon ECR](registry-permissions.md "registry-permissions.md"). 9. (Optional) On the **Add filters** page, specify one
-or more filters for the replication rule and then choose
-**Add**. Repeat this step for each filter you want
-to associate with the replication action. A filter must be specified as
-a repository name prefix. If no filters are added, the contents of all
-repositories are replicated. Choose **Next** once all
-filters have been added. 10. On the **Review and submit** page, review the
+or more filters for the replication rule and then choose **Add**.
+Repeat this step for each filter you want to associate with the
+replication action. A filter must be specified as a repository name
+prefix. If no filters are added, the contents of all repositories are
+replicated. Choose **Next** once all filters have been
+added. 10. On the **Review and submit** page, review the
 replication rule configuration and then choose **Submit
 rule**.
 

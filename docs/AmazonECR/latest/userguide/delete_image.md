@@ -27,10 +27,8 @@ the artifact.
 3. In the navigation pane, choose **Repositories**.
 4. On the **Repositories** page, choose the repository that
    contains the image to delete.
-5. On the **Repositories:
-   `repository_name`** page, select the box
-   to the left of the image to delete and choose
-   **Delete**.
+5. On the **Repositories: `repository_name`**
+   page, select the box to the left of the image to delete and choose **Delete**.
 6. In the **Delete image(s)** dialog box, verify that the
    selected images should be deleted and choose **Delete**.
 
