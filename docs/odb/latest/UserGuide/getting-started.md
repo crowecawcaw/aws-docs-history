@@ -206,7 +206,7 @@ following integrations:
 **Amazon S3**
 
 Enable direct ODB network access to Amazon S3. Your databases can access S3 for data import/export
-or custom backups. You can enter a JSON policy. For more information, see .
+or custom backups. You can enter a JSON policy. For more information, see [User-managed backups to Amazon S3 in Oracle Database@AWS](managing-backups.md#manual-backups-section "managing-backups.md#manual-backups-section").
 
 **Zero-ETL**
 
