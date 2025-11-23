@@ -8,10 +8,10 @@ with AWS Elemental MediaConvert.
 Find code examples and tutorials for automating video on demand (VOD) workflows:
 
 - **[VOD
-  automation toolkit](https://github.com/aws-samples/aws-media-services-vod-automation "https://github.com/aws-samples/aws-media-services-vod-automation")** – example code and AWS CloudFormation
+  automation toolkit](https://github.com/aws-samples/aws-media-services-vod-automation "https://github.com/aws-samples/aws-media-services-vod-automation")** – example code and CloudFormation
   scripts on GitHub for automating video on demand (VOD) workflows on AWS.
 - **[Video on demand at
-  AWS](https://aws.amazon.com/solutions/video-on-demand-on-aws/ "https://aws.amazon.com/solutions/video-on-demand-on-aws/")** – example code, deployment guide, and AWS CloudFormation
+  AWS](https://aws.amazon.com/solutions/video-on-demand-on-aws/ "https://aws.amazon.com/solutions/video-on-demand-on-aws/")** – example code, deployment guide, and CloudFormation
   template in _AWS Solutions_. The workflow in this
   solution ingests source videos, processes the videos for playback on a wide range of
   devices, and stores the transcoded media files for on-demand delivery to end users
