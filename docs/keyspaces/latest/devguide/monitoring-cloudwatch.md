@@ -11,7 +11,7 @@ actions when those thresholds are met. For more information, see the [Amazon Clo
 ###### Note
 
 To get started quickly with a preconfigured CloudWatch dashboard showing common metrics for
-Amazon Keyspaces, you can use an AWS CloudFormation template available from [https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates](https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates "https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates").
+Amazon Keyspaces, you can use an CloudFormation template available from [https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates](https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates "https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates").
 
 ###### Topics
 

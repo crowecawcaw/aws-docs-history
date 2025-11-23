@@ -7,7 +7,7 @@ services.
 
 AWS PrivateLink enables this by using an elastic network interface with private IP addresses
 in your VPC so that network traffic does not leave the Amazon network. Interface VPC
-endpoints don't require an internet gateway, NAT device, VPN connection, or AWS Direct Connect
+endpoints don't require an internet gateway, NAT device, VPN connection, or Direct Connect
 connection. For more information, see [Amazon Virtual Private Cloud](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md") and
 [Interface VPC endpoints (AWS PrivateLink)](../../../vpc/latest/privatelink/vpce-interface.md "../../../vpc/latest/privatelink/vpce-interface.md").
 

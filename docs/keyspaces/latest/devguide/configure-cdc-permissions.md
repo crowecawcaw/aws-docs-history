@@ -127,7 +127,7 @@ To process Amazon Keyspaces CDC streams with KCL, the IAM principal needs the fo
 - `CloudWatch` – Permissions to publish metric data from Amazon Keyspaces CDC streams
   processing with KCL into the namespace of your KCL client application in
   your CloudWatch account. For more information about monitoring, see [Monitor
-  the Kinesis Client Library with Amazon CloudWatch](../../../https:/docs.aws.amazon.com/streams/latest/dev/monitoring-with-kcl.md "../../../https:/docs.aws.amazon.com/streams/latest/dev/monitoring-with-kcl.md").
+  the Kinesis Client Library with Amazon CloudWatch](../../../streams/latest/dev/monitoring-with-kcl.md "../../../streams/latest/dev/monitoring-with-kcl.md").
 
 ```
 {

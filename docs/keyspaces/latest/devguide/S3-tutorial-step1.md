@@ -8,9 +8,9 @@ run a shell script with the name `setup-connector.sh` available on
 
 The script `setup-connector.sh` automates the following steps.
 
-1. Creates an **Amazon S3 bucket** using AWS CloudFormation. This bucket stores the downloaded jar and configuration files,
+1. Creates an **Amazon S3 bucket** using CloudFormation. This bucket stores the downloaded jar and configuration files,
    as well as the exported table data.
-2. Creates an **IAM role** using AWS CloudFormation. AWS Glue jobs use this role to access Amazon Keyspaces and Amazon S3.
+2. Creates an **IAM role** using CloudFormation. AWS Glue jobs use this role to access Amazon Keyspaces and Amazon S3.
 3. Downloads the [Apache Spark Cassandra Connector](https://repo1.maven.org/maven2/com/datastax/spark/ "https://repo1.maven.org/maven2/com/datastax/spark/") and uploads it to the Amazon S3 bucket.
 4. Downloads the [SigV4 Authentication plugin](https://repo1.maven.org/maven2/software/aws/mcs/aws-sigv4-auth-cassandra-java-driver-plugin/ "https://repo1.maven.org/maven2/software/aws/mcs/aws-sigv4-auth-cassandra-java-driver-plugin/") and uploads it to the Amazon S3 bucket.
 5. Downloads the [Apache Spark Extensions](https://repo1.maven.org/maven2/uk/co/gresearch/spark/ "https://repo1.maven.org/maven2/uk/co/gresearch/spark/") and uploads them to the Amazon S3 bucket.
@@ -24,7 +24,7 @@ The script `setup-connector.sh` automates the following steps.
     required files.
 2.  Run the shell script `setup-connector.sh`. You can specify the following three optional parameters.
 
-        1. `SETUP_STACKNAME` – This is the name of the AWS CloudFormation stack used to create the AWS resources.
+        1. `SETUP_STACKNAME` – This is the name of the CloudFormation stack used to create the AWS resources.
         2. `S3_BUCKET_NAME` – This is the name of the Amazon S3 bucket.
         3. `GLUE_SERVICE_ROLE_NAME` – This is the name of the IAM service role that AWS Glue uses to run jobs that
          connect to Amazon Keyspaces and Amazon S3.
@@ -84,7 +84,7 @@ aws iam get-role --role-name "iam-export-role"
 }`
 ```
 
-If the AWS CloudFormation stack process fails, you can review the detailed error information about the failed stack in the AWS CloudFormation console.
+If the CloudFormation stack process fails, you can review the detailed error information about the failed stack in the CloudFormation console.
 
 After the Amazon S3 bucket containing all scripts and tools has been created and the IAM
 role is configured, proceed to [Step 2: Configure the AWS Glue job that exports the

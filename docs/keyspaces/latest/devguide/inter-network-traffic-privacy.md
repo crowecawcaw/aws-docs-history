@@ -11,8 +11,8 @@ You have two connectivity options between your private network and AWS:
 
 - An AWS Site-to-Site VPN connection. For more information, see [What is
   AWS Site-to-Site VPN?](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md") in the _AWS Site-to-Site VPN User Guide_.
-- An AWS Direct Connect connection. For more information, see [What is
-  AWS Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") in the _AWS Direct Connect User Guide_.
+- An Direct Connect connection. For more information, see [What is
+  Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") in the _Direct Connect User Guide_.
 
 As a managed service, Amazon Keyspaces (for Apache Cassandra) is protected by AWS global network security. For
 information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS
@@ -50,6 +50,6 @@ AWS PrivateLink, which is an AWS service that enables private communication betw
 and AWS services. AWS PrivateLink enables this by using an elastic network interface
 with private IPs in your VPC so that network traffic does not leave the Amazon network.
 Interface VPC endpoints don't require an internet gateway, NAT device, VPN connection,
-or AWS Direct Connect connection. For more information, see [Amazon Virtual Private Cloud](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md") and [Interface VPC endpoints
+or Direct Connect connection. For more information, see [Amazon Virtual Private Cloud](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md") and [Interface VPC endpoints
 (AWS PrivateLink)](../../../vpc/latest/privatelink/vpce-interface.md "../../../vpc/latest/privatelink/vpce-interface.md"). For example policies, see [Using interface VPC endpoints for
 Amazon Keyspaces](vpc-endpoints.md#using-interface-vpc-endpoints "vpc-endpoints.md#using-interface-vpc-endpoints").

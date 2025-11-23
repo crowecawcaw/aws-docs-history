@@ -182,7 +182,7 @@ active connections consisting of one control connection and five connections (1 
 
 ![A screenshot that shows metrics on a Cloudwatch dashboard for connections going through a VPC endpoint. The metrics used are ActiveConnections and BytesProcessed.](images/keyspaces_bp_cw.png)
 
-To get started with monitoring the number of connections using a CloudWatch graph, you can deploy this AWS CloudFormation template available on GitHub
+To get started with monitoring the number of connections using a CloudWatch graph, you can deploy this CloudFormation template available on GitHub
 in the [Amazon Keyspaces template](https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates "https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates")
 repository.
 

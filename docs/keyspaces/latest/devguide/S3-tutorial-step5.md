@@ -4,7 +4,7 @@ Follow these steps to remove all the AWS resources created in this tutorial.
 
 ###### Remove the resources created in this tutorial
 
-1. Delete the second AWS CloudFormation stack created in this tutorial. This removes the AWS Glue job and trigger created in this tutorial.
+1. Delete the second CloudFormation stack created in this tutorial. This removes the AWS Glue job and trigger created in this tutorial.
    You can use the following command to do this.
 
 ```

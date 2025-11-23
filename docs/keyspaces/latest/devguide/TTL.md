@@ -75,5 +75,5 @@ monitoring.
 
 For more information about how to monitor CloudWatch metrics, see [Monitoring Amazon Keyspaces with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 
-When you use AWS CloudFormation, you can turn on TTL when creating an Amazon Keyspaces table. For more information,
+When you use CloudFormation, you can turn on TTL when creating an Amazon Keyspaces table. For more information,
 see the [AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.md").

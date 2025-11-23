@@ -56,9 +56,9 @@ Protobuf message. Then the row is read with strong consistency.
 
 [https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/protobuf-user-defined-types](https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/protobuf-user-defined-types "https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/protobuf-user-defined-types")
 
-### AWS CloudFormation template to create Amazon CloudWatch dashboard for Amazon Keyspaces (for Apache Cassandra) metrics
+### CloudFormation template to create Amazon CloudWatch dashboard for Amazon Keyspaces (for Apache Cassandra) metrics
 
-This repository provides AWS CloudFormation templates to quickly set up CloudWatch metrics for Amazon Keyspaces. Using this template will allow you to get started
+This repository provides CloudFormation templates to quickly set up CloudWatch metrics for Amazon Keyspaces. Using this template will allow you to get started
 more easily by providing deployable prebuilt CloudWatch dashboards with commonly used metrics.
 
 [https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates](https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates "https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates").
@@ -93,9 +93,9 @@ This is an example that shows how to use Amazon Keyspaces with AWS Glue.
 
 [https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/scala/datastax-v4/aws-glue](https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/scala/datastax-v4/aws-glue "https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/scala/datastax-v4/aws-glue")
 
-### Amazon Keyspaces (for Apache Cassandra) Cassandra query language (CQL) to AWS CloudFormation converter
+### Amazon Keyspaces (for Apache Cassandra) Cassandra query language (CQL) to CloudFormation converter
 
-This package implements a command-line tool for converting Apache Cassandra Query Language (CQL) scripts to AWS CloudFormation
+This package implements a command-line tool for converting Apache Cassandra Query Language (CQL) scripts to CloudFormation
 (CloudFormation) templates, which allows Amazon Keyspaces schemas to be easily managed in CloudFormation stacks.
 
 [https://github.com/aws/amazon-keyspaces-cql-to-cfn-converter](https://github.com/aws/amazon-keyspaces-cql-to-cfn-converter "https://github.com/aws/amazon-keyspaces-cql-to-cfn-converter").

@@ -1,73 +1,51 @@
-# How to commit data models to Amazon Keyspaces and Apache
+# Visualize data models with NoSQL Workbench
 
-Cassandra
+Using NoSQL Workbench, you can visualize your data models to help ensure that the data
+models can support your application’s queries and access patterns. You also can save and export
+your data models in a variety of formats for collaboration, documentation, and
+presentations.
 
-This section shows you how to commit completed data models to Amazon Keyspaces and Apache Cassandra
-clusters. This process automatically creates the server-side resources for keyspaces and
-tables based on the settings that you defined in the data model.
+After you have created a new data model or edited an existing data model, you can visualize
+the model.
 
-![Console screenshot that shows the commit options.](images/workbench/key_nosql_commit.png)
+## Visualizing data models with NoSQL
 
-###### Topics
+Workbench
 
-- [Before you begin](#workbench.commit.preqequ "#workbench.commit.preqequ")
-- [Connect to Amazon Keyspaces with service-specific
-  credentials](workbench.commit.md "workbench.commit.md")
-- [Connect to Amazon Keyspaces with AWS Identity and Access Management (IAM) credentials](workbench.commit.md "workbench.commit.md")
-- [Use a saved connection](workbench.commit.md "workbench.commit.md")
-- [Commit to Apache Cassandra](workbench.commit.md "workbench.commit.md")
+When you have completed the data model in the data modeler, choose **Visualize
+data model**.
 
-## Before you begin
+![Console screenshot showing a sample data model.](images/workbench/key_nosql_visualize.png)
 
-Amazon Keyspaces requires the use of Transport Layer Security (TLS) to help secure connections
-with clients. To connect to Amazon Keyspaces using TLS, you need to complete the following task
-before you can start.
+This takes you to the data visualizer in NoSQL Workbench. The data visualizer provides a
+visual representation of the table's schema and lets you add sample data. To add sample data
+to a table, choose a table from the model, and then choose **Edit**. To add a
+new row of data, choose **Add new row** at the bottom of the screen. Choose
+**Save** when you're done.
 
-- Download the following digital certificates and save
-  the files locally or in your home directory.
+![Console screenshot showing how to add data to a table.](images/workbench/key_nosql_adddata.png)
 
-      1. AmazonRootCA1
-      2. AmazonRootCA2
-      3. AmazonRootCA3
-      4. AmazonRootCA4
-      5. Starfield Class 2 Root (optional – for backward compatibility)
+## Aggregate view
 
-  To download the certificates, you can use the following commands.
+After you have confirmed the table's schema, you can aggregate data model
+visualizations.
 
-```
-curl -O https://www.amazontrust.com/repository/AmazonRootCA1.pem
-curl -O https://www.amazontrust.com/repository/AmazonRootCA2.pem
-curl -O https://www.amazontrust.com/repository/AmazonRootCA3.pem
-curl -O https://www.amazontrust.com/repository/AmazonRootCA4.pem
-curl -O https://certs.secureserver.net/repository/sf-class2-root.crt
-```
+![Console screenshot showing the aggregate view.](images/workbench/key_nosql_aggview.png)
+
+After you have aggregated the view of the data model, you can export the view to a PNG
+file. To export the data model to a JSON file, choose the upload sign under the data model
+name.
 
 ###### Note
 
-Amazon Keyspaces previously used TLS certificates anchored to the Starfield Class 2 CA.
-AWS is migrating all AWS Regions to certificates issued under Amazon Trust Services (Amazon Root CAs 1–4).
-During this transition, configure clients to trust both Amazon Root CAs 1–4 and the Starfield root to ensure compatibility across all Regions.
+You can export the data model in JSON format at any time in the design process.
 
-Combine all downloaded certificates into a single `pem` file with the name
-`keyspaces-bundle.pem` in our examples. You can do this by running the following command. Take note of the path to the
-file, you need this later.
+![Console screenshot showing the data model export and commit options.](images/workbench/key_nosql_aggview2.png)
 
-```
-cat AmazonRootCA1.pem \
- AmazonRootCA2.pem \
- AmazonRootCA3.pem \
- AmazonRootCA4.pem \
- sf-class2-root.crt \
- > `keyspaces-bundle.pem`
-```
+You have the following options to commit the changes:
 
-After you have saved the certificate file, you can connect to Amazon Keyspaces. One option is to connect by using service-specific credentials.
-Service-specific credentials are a user name and password that are associated with a specific IAM user and can only be used with the specified service.
-The second option is to connect with IAM
-credentials that are using the [AWS Signature Version 4 process
-(SigV4)](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md"). To learn more about these two options, see [Create credentials for programmatic access to Amazon Keyspaces](programmatic.md "programmatic.md") .
+- Commit to Amazon Keyspaces
+- Commit to an Apache Cassandra cluster
 
-To connect with service-specific credentials, see [Connect to Amazon Keyspaces with service-specific
-credentials](workbench.commit.md "workbench.commit.md").
-
-To connect with IAM credentials, see [Connect to Amazon Keyspaces with AWS Identity and Access Management (IAM) credentials](workbench.commit.md "workbench.commit.md").
+To learn more about how to commit changes, see [How to commit data models to Amazon Keyspaces and Apache
+Cassandra](workbench.md "workbench.md").

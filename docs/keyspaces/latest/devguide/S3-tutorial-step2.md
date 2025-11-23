@@ -13,15 +13,15 @@ an Apache Spark cluster.
 ###### Create an AWS Glue job to export an Amazon Keyspaces table to an Amazon S3 bucket.
 
 - In this step, you run the `setup-export.sh` shell script located in the `export-to-s3/` directory
-  to use AWS CloudFormation to create and configure the AWS Glue export job. The
+  to use CloudFormation to create and configure the AWS Glue export job. The
   script takes the following parameters.
 
 ```
 PARENT_STACK_NAME, EXPORT_STACK_NAME, KEYSPACE_NAME, TABLE_NAME, S3_URI, FORMAT
 ```
 
-    + `PARENT_STACK_NAME` – The name of the AWS CloudFormation stack created in the previous step.
-    + `EXPORT_STACK_NAME` – The name of the AWS CloudFormation stack that creates the AWS Glue export job.
+    + `PARENT_STACK_NAME` – The name of the CloudFormation stack created in the previous step.
+    + `EXPORT_STACK_NAME` – The name of the CloudFormation stack that creates the AWS Glue export job.
     + `KEYSPACE_NAME` and `TABLE_NAME` – The fully qualified name of the keyspace and table
      to be exported. For this tutorial, we use `catalog.book_awards`, but you can replace this with your own fully
      qualified table name.
@@ -108,7 +108,7 @@ default arguments that you can override when running the job.
 }`
 ```
 
-If the AWS CloudFormation stack process fails, you can review the errors for the failed stack in the AWS CloudFormation console. You can review the details of the
+If the CloudFormation stack process fails, you can review the errors for the failed stack in the CloudFormation console. You can review the details of the
 export job in the AWS Glue console by choosing **ETL jobs** on the left-side menu.
 
 After you have confirmed the details of the AWS Glue export job, proceed to [Step 3: Run the AWS Glue job to export the Amazon Keyspaces table to the Amazon S3 bucket from the

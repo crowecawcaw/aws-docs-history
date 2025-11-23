@@ -27,7 +27,7 @@ This chapter provides details about working with Amazon Keyspaces and various da
 - **Tagging resources** – You can label Amazon Keyspaces resources like keyspaces and tables using tags.
   Tags help categorize resources, enable cost tracking, and let you configure access control based on tags. This section covers tagging restrictions, operations, and
   best practices for Amazon Keyspaces.
-- **AWS CloudFormation templates** – AWS CloudFormation helps you model and set up your Amazon Keyspaces keyspaces and tables so that you can spend less time creating
+- **CloudFormation templates** – CloudFormation helps you model and set up your Amazon Keyspaces keyspaces and tables so that you can spend less time creating
   and managing your resources and infrastructure.
 
 ###### Topics

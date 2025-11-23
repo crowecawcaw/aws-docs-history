@@ -193,10 +193,10 @@ monitoring and auditing.
 
 For more information, see [Logging Amazon Keyspaces API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
-You can perform the following PITR actions using AWS CloudFormation.
+You can perform the following PITR actions using CloudFormation.
 
 - Create a new table with PITR enabled or disabled.
 - Enable or disable PITR on an existing table.
 
 For more information, see the [Cassandra Resource Type Reference](../../../AWSCloudFormation/latest/UserGuide/AWS_Cassandra.md "../../../AWSCloudFormation/latest/UserGuide/AWS_Cassandra.md")
-in the [AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md").
+in the [CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md").
