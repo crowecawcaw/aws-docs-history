@@ -1,7 +1,7 @@
 # What is AWS Infrastructure Composer?
 
 AWS Infrastructure Composer allows you to visually compose modern applications on AWS. More specifically, you can use Infrastructure Composer to visualize, build, and deploy modern applications
-from all AWS services that are supported by AWS CloudFormation without needing to be an expert in AWS CloudFormation.
+from all AWS services that are supported by AWS CloudFormation without needing to be an expert in CloudFormation.
 
 As you compose your AWS CloudFormation infrastructure, through a delightful drag-and-drop interface, Infrastructure Composer creates your infrastructure as code (IaC) templates, all while following AWS best practices.
 
@@ -41,7 +41,7 @@ further through a curated properties panel.
 
 **Work with any AWS CloudFormation resource**
 
-Drag any AWS CloudFormation resource onto the canvas to compose your application architecture. Infrastructure Composer provides a starting IaC template that you can use to specify the properties of
+Drag any CloudFormation resource onto the canvas to compose your application architecture. Infrastructure Composer provides a starting IaC template that you can use to specify the properties of
 your resource. To learn more, see [Configure and modify cards in Infrastructure Composer](using-composer-cards.md "using-composer-cards.md").
 
 ![An imported application template displayed on the Infrastructure Composer canvas, showing various card types.](images/aac_intro_05.png)
@@ -73,7 +73,7 @@ your template code.
 
 **Import existing templates and projects**
 
-Import existing AWS CloudFormation and AWS SAM templates to visualize them for better understanding and modify their design. Export
+Import existing CloudFormation and AWS SAM templates to visualize them for better understanding and modify their design. Export
 the templates that you create within Infrastructure Composer and integrate them into your existing workflows towards deployment.
 
 ![The Infrastructure Composer canvas synced with a local machine using local sync mode.](images/aac_other_ide_01.gif)
@@ -87,9 +87,9 @@ local machine.
 
 ![The Infrastructure Composer canvas synced with a local machine using local sync mode.](images/aac_other_ide_01.gif)
 
-**From the AWS CloudFormation console**
+**From the CloudFormation console**
 
-The Infrastructure Composer console also supports [CloudFormation console mode](using-composer-console-cfn-mode.md "using-composer-console-cfn-mode.md"), an improvement from CloudFormation Designer that is integrated with the AWS CloudFormation stack workflow.
+The Infrastructure Composer console also supports [CloudFormation console mode](using-composer-console-cfn-mode.md "using-composer-console-cfn-mode.md"), an improvement from CloudFormation Designer that is integrated with the CloudFormation stack workflow.
 This new tool is now the recommended tool to visualize your CloudFormation templates.
 
 **From the Lambda console**

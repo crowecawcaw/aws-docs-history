@@ -1,6 +1,6 @@
 # Enhanced component cards in Infrastructure Composer
 
-Enhanced component cards are created and managed by Infrastructure Composer. Each card contains AWS CloudFormation resources that are commonly used together when building applications on AWS. Their
+Enhanced component cards are created and managed by Infrastructure Composer. Each card contains CloudFormation resources that are commonly used together when building applications on AWS. Their
 infrastructure code is created by Infrastructure Composer following AWS best practices. Enhanced component cards are a great way to start designing your application.
 
 Enhanced component cards are available from the _Resources_ palette, under
@@ -33,11 +33,11 @@ The following is an example of an **S3 Bucket** enhanced component:
 
 ![An S3 Bucket enhanced component card.](images/aac_cards_07.png)
 
-When you drag an **S3 Bucket** component card onto the canvas and view your template, you will see the following two AWS CloudFormation resources added to your
+When you drag an **S3 Bucket** component card onto the canvas and view your template, you will see the following two CloudFormation resources added to your
 template:
 
 - `AWS::S3::Bucket`
 - `AWS::S3::BucketPolicy`
 
-The **S3 Bucket** enhanced component card represents two AWS CloudFormation resources that are both required for an Amazon Simple Storage Service (Amazon S3) bucket to interact with
+The **S3 Bucket** enhanced component card represents two CloudFormation resources that are both required for an Amazon Simple Storage Service (Amazon S3) bucket to interact with
 other services in your application.

@@ -129,7 +129,7 @@ Resources:
 
 ## Static value type
 
-When a security group or subnet is deployed to AWS CloudFormation, an ID value is created. You can provide this ID as a static value.
+When a security group or subnet is deployed to CloudFormation, an ID value is created. You can provide this ID as a static value.
 
 For the **static value** type, the following are valid values:
 

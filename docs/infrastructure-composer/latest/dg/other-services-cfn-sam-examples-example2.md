@@ -1,6 +1,6 @@
 # Use Infrastructure Composer with AWS SAM to delete a stack
 
-This example shows you how to delete an AWS CloudFormation stack using the **sam delete** command.
+This example shows you how to delete an CloudFormation stack using the **sam delete** command.
 
 Enter the command **sam delete** in the AWS SAM CLI and confirm whether you want to delete the stack and the template:
 

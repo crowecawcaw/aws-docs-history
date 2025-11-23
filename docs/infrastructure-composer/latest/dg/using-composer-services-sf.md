@@ -136,10 +136,10 @@ then connect tasks to resources on the Infrastructure Composer canvas.
    **API Parameters** field.
 
 ![The Configuration tab of a task in Workflow Studio.](images/aac_use_sf_05.png) 2. If the **API Parameters** field has a drop down option, choose
-**Enter a AWS CloudFormation substitution**. Then, provide a unique name.
+**Enter a CloudFormation substitution**. Then, provide a unique name.
 
 For tasks that connect to the same resource, specify the same definition substitution for each task. To use
-an existing definition substitution, choose **Select a AWS CloudFormation substitution** and select
+an existing definition substitution, choose **Select a CloudFormation substitution** and select
 the substitution to use. 3. If the **API Parameters** field contains a JSON object, modify the entry that specifies the
 resource name to use a definition substitution. In the following example, we change `"MyDynamoDBTable"`
 to `"${RecordTransaction}"`.

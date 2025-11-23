@@ -1,6 +1,6 @@
 # Import an existing project template in the Infrastructure Composer console
 
-When you import an existing AWS CloudFormation or AWS SAM template, Infrastructure Composer automatically generates a visualization of your
+When you import an existing CloudFormation or AWS SAM template, Infrastructure Composer automatically generates a visualization of your
 application architecture on the canvas.
 
 You can import a project template from your local machine.

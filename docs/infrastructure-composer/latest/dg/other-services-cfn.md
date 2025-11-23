@@ -4,7 +4,7 @@ Use AWS Infrastructure Composer to design deployment-ready serverless applicatio
 service. We recommend using the [AWS Serverless Application Model (AWS SAM)](../../../serverless-application-model/latest/developerguide/what-is-sam.md "../../../serverless-application-model/latest/developerguide/what-is-sam.md").
 
 AWS SAM is an open-source framework that provides developer tools for building and running serverless
-applications on AWS. With AWS SAM's shorthand syntax, developers declare AWS CloudFormation resources and specialized serverless resources that are transformed to infrastructure during deployment.
+applications on AWS. With AWS SAM's shorthand syntax, developers declare CloudFormation resources and specialized serverless resources that are transformed to infrastructure during deployment.
 
 ## Important AWS SAM concepts
 
@@ -17,7 +17,7 @@ Before you use AWS SAM, it's important you become familiar with some of its fund
   is in the _AWS Serverless Application Model Developer Guide_, provides a high-level overview of the steps you need to complete to use AWS SAM to deploy your application to the AWS Cloud.
 
 As you design your application in Infrastructure Composer, you can use the **sam sync** command to have the
-AWS SAM CLI automatically detect local changes and deploy those changes to AWS CloudFormation.
+AWS SAM CLI automatically detect local changes and deploy those changes to CloudFormation.
 To learn more, see [Using sam sync](../../../serverless-application-model/latest/developerguide/using-sam-cli-sync.md "../../../serverless-application-model/latest/developerguide/using-sam-cli-sync.md") in the _AWS Serverless Application Model Developer Guide_.
 
 ## Next steps

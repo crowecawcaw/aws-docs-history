@@ -1,6 +1,6 @@
 # Using Infrastructure Composer from the AWS Toolkit for Visual Studio Code
 
-This section describes how you can use AWS Infrastructure Composer from the [AWS Toolkit for Visual Studio Code](https://aws.amazon.com/visualstudiocode/ "https://aws.amazon.com/visualstudiocode/").
+This section describes how you can use AWS Infrastructure Composer from the [AWS Toolkit for Visual Studio Code](https://aws.amazon.com//visualstudiocode/ "https://aws.amazon.com//visualstudiocode/").
 This includes a visual overview of Infrastructure Composer from the AWS Toolkit for Visual Studio Code. It also includes instructions showing how you can access this experience and sync your project from VS Code to the AWS cloud.
 To sync, you use the **sam sync** command from the AWS SAM CLI. This section also provides guidance on using Amazon Q while in Infrastructure Composer from the AWS Toolkit for Visual Studio Code.
 

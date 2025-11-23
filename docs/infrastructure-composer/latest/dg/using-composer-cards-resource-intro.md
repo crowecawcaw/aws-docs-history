@@ -1,15 +1,15 @@
 # Standard component cards in Infrastructure Composer
 
 Before a standard component card is placed on Infrastructure Composer's visual canvas, it is listed as a **Standard (IaC) resource** card on the **Resources** palette in Infrastructure Composer.
-A standard (IaC) resource card represents a single AWS CloudFormation resource. Each standard IaC resource card, once placed on the visual canvas, becomes a card labeled **Standard component**,
-and may be combined to represent multiple AWS CloudFormation resources.
+A standard (IaC) resource card represents a single CloudFormation resource. Each standard IaC resource card, once placed on the visual canvas, becomes a card labeled **Standard component**,
+and may be combined to represent multiple CloudFormation resources.
 
 ![Standard IaC resource cards in the Resources palette.](images/aac_cards_12.png)
-Each standard IaC resource card can be identified by its AWS CloudFormation resource type. The following is an example of a standard IaC resource card that represents an
-`AWS::ECS::Cluster` AWS CloudFormation resource type:
+Each standard IaC resource card can be identified by its CloudFormation resource type. The following is an example of a standard IaC resource card that represents an
+`AWS::ECS::Cluster` CloudFormation resource type:
 
 ![A standard IaC resource cluster card.](images/aac_cards_08.png)
-Each standard component card visualizes the AWS CloudFormation resources that it contains. The following is an example of a standard
+Each standard component card visualizes the CloudFormation resources that it contains. The following is an example of a standard
 component card that includes two standard IaC resources:
 
 ![A DemoLambdaFunction standard component card that includes two standard IaC resource cards.](images/aac_cards_13.png)
@@ -22,4 +22,4 @@ we reference the AWS Identity and Access Management (IAM) role by its logical ID
 ![The Resource properties panel for the AWS::Lambda::Function standard component card.](images/aac_cards_15.png)
 After saving our template, the two standard component cards combine into a single standard component card.
 
-![A standard component card that includes two AWS CloudFormation resources.](images/aac_cards_16.png)
+![A standard component card that includes two CloudFormation resources.](images/aac_cards_16.png)

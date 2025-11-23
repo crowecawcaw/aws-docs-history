@@ -4,7 +4,7 @@ You can use Infrastructure Composer from its console, from AWS Toolkit for Visua
 This section provides details of each experience.
 
 The topic [Using the AWS Infrastructure Composer console](using-composer-console.md "using-composer-console.md") is a comprehensive overview of the default console experience.
-The topic [CloudFormation console mode](using-composer-console-cfn-mode.md "using-composer-console-cfn-mode.md") provides details on a version of Infrastructure Composer that is integrated with the AWS CloudFormation stack workflow.
+The topic [CloudFormation console mode](using-composer-console-cfn-mode.md "using-composer-console-cfn-mode.md") provides details on a version of Infrastructure Composer that is integrated with the CloudFormation stack workflow.
 [AWS Toolkit for Visual Studio Code](using-composer-ide.md "using-composer-ide.md") provides information on accessing and using Infrastructure Composer in VS Code.
 
 ###### Topics

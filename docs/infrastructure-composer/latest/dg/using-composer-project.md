@@ -16,7 +16,7 @@ saving a project, and importing a project or template. You can also load an exis
 
 Infrastructure Composer supports applications that consist of the following:
 
-- An AWS CloudFormation or AWS Serverless Application Model template that defines your infrastructure code.
+- An CloudFormation or AWS Serverless Application Model template that defines your infrastructure code.
 - A folder structure that organizes your project files, such as Lambda function code, configuration files, and build folders.
 
 ###### Topics

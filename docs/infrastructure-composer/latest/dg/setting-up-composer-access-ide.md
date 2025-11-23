@@ -11,8 +11,8 @@ Before you can access Infrastructure Composer from the AWS Toolkit for Visual St
 
 You can access Infrastructure Composer in any of the following ways:
 
-1. By selecting the Infrastructure Composer button from any AWS CloudFormation or AWS SAM template.
-2. Through the context menu by right-clicking on your AWS CloudFormation or AWS SAM template.
+1. By selecting the Infrastructure Composer button from any CloudFormation or AWS SAM template.
+2. Through the context menu by right-clicking on your CloudFormation or AWS SAM template.
 3. From the VS Code Command Palette.
    The following is an example of accessing Infrastructure Composer from the Infrastructure Composer button:
 

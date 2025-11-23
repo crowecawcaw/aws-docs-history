@@ -2,7 +2,7 @@
 
 Follow the instructions in this topic to create a new template.
 
-1. Go to the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation") and log in.
+1. Go to the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation") and log in.
 2. Select **Infrastructure Composer** from the left-side navigation menu. This will open Infrastructure Composer in CloudFormation console mode.
 3. Drag, drop, configure, and connect the resources ([cards](using-composer-cards-intro.md "using-composer-cards-intro.md")) you need from the **Resources** pallete.
 
@@ -28,5 +28,5 @@ The stack name must start with a letter and contain only letters, numbers, dashe
 ###### Note
 
 For guidance on managing stacks, see
-[AWS CloudFormation best practices](../../../AWSCloudFormation/latest/UserGuide/best-practices.md "../../../AWSCloudFormation/latest/UserGuide/best-practices.md") in the _AWS CloudFormation User Guide_. 12. Confirm your stack details are correct, check acknowledgements at the bottom of the page, and select the **Submit** button.
-AWS CloudFormation will begin creating the stack based on the data in your template.
+[CloudFormation best practices](../../../AWSCloudFormation/latest/UserGuide/best-practices.md "../../../AWSCloudFormation/latest/UserGuide/best-practices.md") in the _CloudFormation User Guide_. 12. Confirm your stack details are correct, check acknowledgements at the bottom of the page, and select the **Submit** button.
+CloudFormation will begin creating the stack based on the data in your template.

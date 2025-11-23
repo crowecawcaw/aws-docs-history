@@ -107,7 +107,7 @@ Deploying with following values
     Signing Profiles             : {}
 ```
 
-The AWS SAM CLI deploys the application, first by creating an AWS CloudFormation changeset:
+The AWS SAM CLI deploys the application, first by creating an CloudFormation changeset:
 
 ```
 Initiating deployment

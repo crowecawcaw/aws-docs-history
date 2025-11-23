@@ -10,7 +10,7 @@ To delete an enhanced component card, select a card you have place on the visual
 
 ## Standard component cards
 
-To delete standard component cards, you must manually remove the infrastructure code for each AWS CloudFormation resource from your template. The following is a simple way to
+To delete standard component cards, you must manually remove the infrastructure code for each CloudFormation resource from your template. The following is a simple way to
 accomplish this:
 
 1. Take note of the logical ID for the resource to delete.

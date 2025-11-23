@@ -1,6 +1,6 @@
 # Standard cards in Infrastructure Composer
 
-All AWS CloudFormation resources are available to use as **standard IaC resource cards** from the **Resources** palette.
+All CloudFormation resources are available to use as **standard IaC resource cards** from the **Resources** palette.
 After being dragged onto the visual canvas, a **standard IaC resource card** becomes a **standard component card**.
 This simply means the card is one or more standard IaC resources. For further examples and details, see the topics in this section.
 
@@ -24,7 +24,7 @@ Resources:
 
 A standard IaC resource card starting template consists of the following:
 
-- The AWS CloudFormation resource type.
+- The CloudFormation resource type.
 - Required or commonly used properties.
 - The required type of the value to provide for each property.
 

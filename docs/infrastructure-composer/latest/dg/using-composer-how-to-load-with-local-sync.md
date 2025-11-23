@@ -3,7 +3,7 @@
 To load an existing project with local sync activated, complete the following steps:
 
 1. From the Infrastructure Composer **[home](reference-visual.md#reference-visual-home "reference-visual.md#reference-visual-home")**
-   page, select **Load a AWS CloudFormation template**.
+   page, select **Load a CloudFormation template**.
 2. From the Infrastructure Composer **menu**, select **Open** >
    **Project folder**.
 3. For **Project location**, press **Select folder** and

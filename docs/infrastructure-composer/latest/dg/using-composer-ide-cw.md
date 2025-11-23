@@ -11,7 +11,7 @@ you can use Amazon Q to generate infrastructure code suggestions for your resour
 
 ![Amazon Q generating a code suggestion in Infrastructure Composer](images/aac_use_ide_cw_01.gif)
 **Standard resource** and **standard component** cards
-can represent an AWS CloudFormation resource or a collection of AWS CloudFormation resources. To learn more, see [Configure and modify cards in Infrastructure Composer](using-composer-cards.md "using-composer-cards.md").
+can represent an CloudFormation resource or a collection of CloudFormation resources. To learn more, see [Configure and modify cards in Infrastructure Composer](using-composer-cards.md "using-composer-cards.md").
 
 ## Setting up
 

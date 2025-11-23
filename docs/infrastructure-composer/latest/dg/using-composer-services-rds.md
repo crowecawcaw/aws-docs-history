@@ -2,7 +2,7 @@
 
 AWS Infrastructure Composer features an integration with Amazon Relational Database Service (Amazon RDS). Using the **RDS Database (External)**
 enhanced component card in Infrastructure Composer, you can connect your application to Amazon RDS DB clusters, instances, and proxies
-that are defined on another AWS CloudFormation or AWS Serverless Application Model (AWS SAM) template.
+that are defined on another CloudFormation or AWS Serverless Application Model (AWS SAM) template.
 
 The **RDS Database (External)** enhanced component card represents Amazon RDS resources that are defined on another template. This includes:
 
@@ -124,11 +124,11 @@ Parameters:
 ```
 
 [Metadata](../../../AWSCloudFormation/latest/UserGuide/metadata-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/metadata-section-structure.md")
-is an AWS CloudFormation template section that is used to store details about your template. Metadata that is specific to Infrastructure Composer is
+is an CloudFormation template section that is used to store details about your template. Metadata that is specific to Infrastructure Composer is
 stored under the `AWS::Composer::ExternalResources` metadata key. Here, Infrastructure Composer stores the values that you
 specify for your Amazon RDS DB cluster, instance, or proxy.
 
-The [Parameters](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") section of an AWS CloudFormation template is used to store custom values that can be inserted throughout your
+The [Parameters](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") section of an CloudFormation template is used to store custom values that can be inserted throughout your
 template at deployment. Depending on the type of values that you provide, Infrastructure Composer may store values here for your Amazon RDS
 DB cluster, instance, or proxy and specify them throughout your template.
 
