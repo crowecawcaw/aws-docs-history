@@ -168,7 +168,7 @@ clusters.
 
 Learn the capabilities and limitations of infrastructure deployment tools such as AWS CloudFormation. You might find
 activities that you do in a proof-of-concept context aren't suitable for production use. For example,
-the AWS CloudFormation behavior for modification is to create a new instance and delete the current one, including its
+the CloudFormation behavior for modification is to create a new instance and delete the current one, including its
 data. For more details on this behavior, see
 [Update
 behaviors of stack resources](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md") in the _AWS CloudFormation User Guide._

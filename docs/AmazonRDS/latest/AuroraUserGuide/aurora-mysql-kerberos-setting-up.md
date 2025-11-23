@@ -19,11 +19,11 @@ Kerberos authentication, take the following steps.
 
 ## Step 1: Create a directory using AWS Managed Microsoft AD
 
-AWS Directory Service creates a fully managed Active Directory in the AWS Cloud. When you create an AWS Managed Microsoft AD directory, AWS Directory Service creates two
+Directory Service creates a fully managed Active Directory in the AWS Cloud. When you create an AWS Managed Microsoft AD directory, Directory Service creates two
 domain controllers and Domain Name System (DNS) servers on your behalf. The directory servers are created in different
 subnets in a VPC. This redundancy helps make sure that your directory remains accessible even if a failure occurs.
 
-When you create an AWS Managed Microsoft AD directory, AWS Directory Service performs the following tasks on your behalf:
+When you create an AWS Managed Microsoft AD directory, Directory Service performs the following tasks on your behalf:
 
 - Sets up an Active Directory within the VPC.
 - Creates a directory administrator account with the username `Admin` and the specified password. You use this
@@ -31,7 +31,7 @@ When you create an AWS Managed Microsoft AD directory, AWS Directory Service per
 
 ###### Note
 
-Be sure to save this password. AWS Directory Service doesn't store it. You can reset it, but you can't retrieve it.
+Be sure to save this password. Directory Service doesn't store it. You can reset it, but you can't retrieve it.
 
 - Creates a security group for the directory controllers.
 
@@ -59,7 +59,7 @@ The `Admin` account also has rights to perform the following domain-wide activit
 
 ###### To create a directory with AWS Managed Microsoft AD
 
-1. Sign in to the AWS Management Console and open the AWS Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
+1. Sign in to the AWS Management Console and open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2. In the navigation pane, choose **Directories** and choose **Set up Directory**.
 3. Choose **AWS Managed Microsoft AD**. AWS Managed Microsoft AD is the only option that you can currently use with Amazon RDS.
 4. Enter the following information:
@@ -123,7 +123,7 @@ If you don't plan to use your own on-premises Microsoft Active Directory, skip t
 To use Kerberos authentication with your on-premises Active Directory, you need to create a trusting domain relationship
 using a forest trust between your on-premises Microsoft Active Directory and the AWS Managed Microsoft AD directory (created in [Step 1: Create a directory using AWS Managed Microsoft AD](#aurora-mysql-kerberos-setting-up.create-directory "#aurora-mysql-kerberos-setting-up.create-directory")). The trust can be one-way, where the AWS Managed Microsoft AD
 directory trusts the on-premises Microsoft Active Directory. The trust can also be two-way, where both Active Directories
-trust each other. For more information about setting up trusts using AWS Directory Service, see [When to create a trust relationship](../../../directoryservice/latest/admin-guide/ms_ad_setup_trust.md "../../../directoryservice/latest/admin-guide/ms_ad_setup_trust.md") in the
+trust each other. For more information about setting up trusts using Directory Service, see [When to create a trust relationship](../../../directoryservice/latest/admin-guide/ms_ad_setup_trust.md "../../../directoryservice/latest/admin-guide/ms_ad_setup_trust.md") in the
 _AWS Directory Service Administration Guide_.
 
 ###### Note
@@ -143,9 +143,9 @@ the newly created trust relationship. The following screenshot shows an example.
 
 ## Step 3: Create an IAM role for use by Amazon Aurora
 
-For Amazon Aurora to call AWS Directory Service for you, you need an AWS Identity and Access Management (IAM) role that uses the
+For Amazon Aurora to call Directory Service for you, you need an AWS Identity and Access Management (IAM) role that uses the
 managed IAM policy `AmazonRDSDirectoryServiceAccess`. This role allows
-Aurora to make calls to the AWS Directory Service.
+Aurora to make calls to the Directory Service.
 
 When you create a DB cluster using the AWS Management Console, and you have the `iam:CreateRole` permission, the console
 creates this role automatically. In this case, the role name is `rds-directoryservice-kerberos-access-role`.
@@ -211,8 +211,8 @@ You can create users with the Active Directory Users and Computers tool. This to
 Services and Active Directory Lightweight Directory Services tools. Users represent individual people or entities that have
 access to your directory.
 
-To create users in an AWS Directory Service directory, you use an on-premises or Amazon EC2 instance based on Microsoft Windows that is joined to
-your AWS Directory Service directory. You must be logged in to the instance as a user that has privileges to create users. For more
+To create users in an Directory Service directory, you use an on-premises or Amazon EC2 instance based on Microsoft Windows that is joined to
+your Directory Service directory. You must be logged in to the instance as a user that has privileges to create users. For more
 information, see [Manage users and groups in AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/creating_ad_users_and_groups.md "../../../directoryservice/latest/admin-guide/creating_ad_users_and_groups.md")
 in the _AWS Directory Service Administration Guide_.
 
@@ -337,11 +337,11 @@ ALTER USER `user_name` IDENTIFIED WITH 'authentication_kerberos' BY '`realm_name
 To configure a MySQL client, take the following steps:
 
 1. Create a `krb5.conf` file (or equivalent) to point to the domain.
-2. Verify that traffic can flow between the client host and AWS Directory Service. Use a network utility such as Netcat, for the
+2. Verify that traffic can flow between the client host and Directory Service. Use a network utility such as Netcat, for the
    following:
    - Verify traffic over DNS for port 53.
    - Verify traffic over TCP/UDP for port 53 and for Kerberos, which includes ports 88 and 464 for
-     AWS Directory Service.
+     Directory Service.
 
 3. Verify that traffic can flow between the client host and the DB instance over the database port. For example, use
    `mysql` to connect and access the database.

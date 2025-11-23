@@ -1,110 +1,26 @@
-# Supported
+# Supported Regions and Aurora DB engines for Blue/Green
 
-Regions and Aurora DB engines for Amazon RDS Proxy
+Deployments
 
-Amazon RDS Proxy is a fully managed, highly available database proxy that makes
-applications more scalable by pooling and sharing established database connections. For
-more information about RDS Proxy, see [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").
+A blue/green deployment copies a production database environment in a separate,
+synchronized staging environment. By using Amazon RDS Blue/Green Deployments, you can make
+changes to the database in the staging environment without affecting the production
+environment. For example, you can upgrade the major or minor DB engine version, change
+database parameters, or make schema changes in the staging environment. When you are
+ready, you can promote the staging environment to be the new production database
+environment. For more information, see [Using Amazon Aurora Blue/Green Deployments
+for database updates](blue-green-deployments.md "blue-green-deployments.md").
 
-###### Topics
+## Blue/Green Deployments with Aurora MySQL
 
-- [Amazon RDS
-  Proxy with Aurora MySQL](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.RDS_Proxy.amy "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.RDS_Proxy.amy")
-- [Amazon RDS
-  Proxy with Aurora PostgreSQL](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.RDS_Proxy.apg "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.RDS_Proxy.apg")
+The Blue/Green Deployments feature is available for all versions of Aurora MySQL in
+all AWS Regions, including Aurora MySQL clusters configured as Aurora Global Database.
 
-## Amazon RDS
+## Blue/Green Deployments with Aurora PostgreSQL
 
-Proxy with Aurora MySQL
+The following Regions and engine versions are available for
+Blue/Green Deployments with Aurora PostgreSQL, including Aurora PostgreSQL clusters configured as Aurora Global Database.
 
-The following Regions and engine versions are available for RDS Proxy with
-Aurora MySQL.
-
-| Region                     | Aurora MySQL version 3    | Aurora MySQL version 2                   |
-| -------------------------- | ------------------------- | ---------------------------------------- |
-| US East (N. Virginia)      | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| US East (Ohio)             | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| US West (N. California)    | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| US West (Oregon)           | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Africa (Cape Town)         | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Asia Pacific (Hong Kong)   | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Asia Pacific (Hyderabad)   | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Asia Pacific (Jakarta)     | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Asia Pacific (Malaysia)    | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Asia Pacific (Melbourne)   | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Asia Pacific (Mumbai)      | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Asia Pacific (New Zealand) | Not available             | Not available                            |
-| Asia Pacific (Osaka)       | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Asia Pacific (Seoul)       | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Asia Pacific (Singapore)   | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Asia Pacific (Sydney)      | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Asia Pacific (Taipei)      | Not available             | Not available                            |
-| Asia Pacific (Thailand)    | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Asia Pacific (Tokyo)       | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Canada (Central)           | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Canada West (Calgary)      | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| China (Beijing)            | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| China (Ningxia)            | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Europe (Frankfurt)         | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Europe (Ireland)           | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Europe (London)            | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Europe (Milan)             | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Europe (Paris)             | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Europe (Spain)             | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Europe (Stockholm)         | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Europe (Zurich)            | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Israel (Tel Aviv)          | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Mexico (Central)           | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Middle East (Bahrain)      | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| Middle East (UAE)          | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| South America (São Paulo)  | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| AWS GovCloud (US-East)     | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-| AWS GovCloud (US-West)     | Version 3.01.0 and higher | Version 2.07 and version 2.11 and higher |
-
-## Amazon RDS
-
-Proxy with Aurora PostgreSQL
-
-The following Regions and engine versions are available for RDS Proxy with
-Aurora PostgreSQL.
-
-| Region                     | Aurora PostgreSQL 17    | Aurora PostgreSQL 16    | Aurora PostgreSQL 15    | Aurora PostgreSQL 14    | Aurora PostgreSQL 13    | Aurora PostgreSQL 12    | Aurora PostgreSQL 11                      |
-| -------------------------- | ----------------------- | ----------------------- | ----------------------- | ----------------------- | ----------------------- | ----------------------- | ----------------------------------------- |
-| US East (N. Virginia)      | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| US East (Ohio)             | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| US West (N. California)    | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| US West (Oregon)           | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Africa (Cape Town)         | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Asia Pacific (Hong Kong)   | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Asia Pacific (Hyderabad)   | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Asia Pacific (Jakarta)     | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Asia Pacific (Malaysia)    | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Asia Pacific (Melbourne)   | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Asia Pacific (Mumbai)      | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Asia Pacific (New Zealand) | Not available           | Not available           | Not available           | Not available           | Not available           | Not available           | Not available                             |
-| Asia Pacific (Osaka)       | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Asia Pacific (Seoul)       | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Asia Pacific (Singapore)   | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Asia Pacific (Sydney)      | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Asia Pacific (Taipei)      | Not available           | Not available           | Not available           | Not available           | Not available           | Not available           | Not available                             |
-| Asia Pacific (Thailand)    | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Asia Pacific (Tokyo)       | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Canada (Central)           | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Canada West (Calgary)      | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| China (Beijing)            | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| China (Ningxia)            | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Europe (Frankfurt)         | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Europe (Ireland)           | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Europe (London)            | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Europe (Milan)             | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Europe (Paris)             | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Europe (Spain)             | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Europe (Stockholm)         | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Europe (Zurich)            | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Israel (Tel Aviv)          | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Mexico (Central)           | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Middle East (Bahrain)      | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| Middle East (UAE)          | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| South America (São Paulo)  | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| AWS GovCloud (US-East)     | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
-| AWS GovCloud (US-West)     | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.4 and higher | Version 12.8 and higher | Version 11.9 and version 11.13 and higher |
+| Region          | Aurora PostgreSQL 17    | Aurora PostgreSQL 16    | Aurora PostgreSQL 15    | Aurora PostgreSQL 14    | Aurora PostgreSQL 13     | Aurora PostgreSQL 12     | Aurora PostgreSQL 11     |
+| --------------- | ----------------------- | ----------------------- | ----------------------- | ----------------------- | ------------------------ | ------------------------ | ------------------------ |
+| All AWS Regions | Version 17.4 and higher | Version 16.1 and higher | Version 15.4 and higher | Version 14.9 and higher | Version 13.12 and higher | Version 12.16 and higher | Version 11.21 and higher |

@@ -1,4 +1,4 @@
-# Scaling Aurora Serverless v1 DB cluster capacity manually
+# Deleting an Aurora Serverless v1 DB cluster
 
 ###### Important
 
@@ -7,75 +7,94 @@ not migrated by March 31, 2025 will be migrated to Aurora Serverless v2 during t
 cluster to a provisioned cluster with the equivalent engine version during the maintenance window. If applicable, Amazon Aurora will enroll the
 converted provisioned cluster in Amazon RDS Extended Support. For more information, see [Amazon RDS Extended Support with Amazon Aurora](extended-support.md "extended-support.md").
 
-Typically, Aurora Serverless v1 DB clusters scale seamlessly based on the workload. However, capacity might not
-always scale fast enough to meet sudden extremes, such as an exponential increase in transactions. In such
-cases you can initiate the scaling operation manually by setting a new capacity value. After you set the
-capacity explicitly, Aurora Serverless v1 automatically scales the DB cluster. It does so based on the cooldown
-period for scaling down.
+Depending on how you create an Aurora Serverless v1 DB cluster, deletion protection might be turned on by default.
+You can't immediately delete an Aurora Serverless v1 DB cluster that has **Deletion protection** enabled.
+To delete Aurora Serverless v1 DB clusters that have deletion protection by using the AWS Management Console, you first
+modify the cluster to remove this protection. For information about using the AWS CLI for this task, see
+[AWS CLI](#aurora-serverless.delete.cli "#aurora-serverless.delete.cli").
 
-You can explicitly set the capacity of an Aurora Serverless v1 DB cluster to a specific value with the
-AWS Management Console, the AWS CLI, or the RDS API.
+###### To disable deletion protection using the AWS Management Console
 
-You can set the capacity of an Aurora DB cluster with the AWS Management Console.
-
-###### To modify an Aurora Serverless v1 DB cluster
-
-1. Open the Amazon RDS console at
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**.
-3. Choose the Aurora Serverless v1 DB cluster that you want to modify.
-4. For **Actions**, choose **Set capacity**.
-5. In the **Scale database capacity** window, choose the following:
-   1. For the **Scale DB cluster to** drop-down selector, choose the new capacity that
-      you want for your DB cluster.
-   2. For the **If a seamless scaling point cannot be found**
-      check box, choose the behavior that you want for your Aurora Serverless v1 DB
-      cluster's `TimeoutAction` setting, as follows:
-      - Clear this option if you want your capacity to remain unchanged if
-        Aurora Serverless v1 can't find a scaling point before timing out.
-      - Select this option if you want to force your Aurora Serverless v1 DB
-        cluster change its capacity even if it can't find a scaling point before
-        timing out. This option can result Aurora Serverless v1 dropping connections
-        that prevent it from finding a scaling point.
+2. In the navigation pane, choose **DB clusters**.
+3. Choose your Aurora Serverless v1 DB cluster from the list.
+4. Choose **Modify** to open your DB cluster's configuration. The Modify DB cluster
+   page opens the Settings, Capacity settings, and other configuration details for your Aurora Serverless v1 DB
+   cluster. Deletion protection is in the **Additional configuration** section.
+5. Clear the **Enable deletion protection** check box in the
+   **Additional configuration** properties card.
+6. Choose **Continue**. The **Summary of modifications** appears.
+7. Choose **Modify cluster** to accept the summary of modifications. You can also choose
+   **Back** to modify your changes or **Cancel** to discard your changes.
 
-   3. For **seconds**, enter the amount of time you want to allow
-      your Aurora Serverless v1 DB cluster to look for a scaling point before timing out.
-      You can specify anywhere from 10 seconds to 600 seconds (10 minutes). The default
-      is five minutes (300 seconds). This following example forces the
-      Aurora Serverless v1 DB cluster to scale down to 2 ACUs even if it can't find a
-      scaling point within five minutes.
+After deletion protection is no longer active, you can delete your Aurora Serverless v1 DB cluster by using the
+AWS Management Console.
 
-   ![Setting capacity for an Aurora Serverless v1 DB cluster with console](images/aurora-serverless-set-capacity.png)
+###### To delete an Aurora Serverless v1 DB cluster
 
-6. Choose **Apply**.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the **Resources** section, choose **DB Clusters**.
+3. Choose the Aurora Serverless v1 DB cluster that you want to delete.
+4. For **Actions**, choose **Delete**. You're prompted to confirm
+   that you want to delete your Aurora Serverless v1 DB cluster.
+5. We recommend that you keep the preselected options:
+   - **Yes** for **Create final snapshot?**
+   - Your Aurora Serverless v1 DB cluster name plus `-final-snapshot` for **Final
+     snapshot name**. However, you can change the name for your final snapshot in this field.
 
-To learn more about scaling points, `TimeoutAction`, and cooldown periods, see
-[Autoscaling for Aurora Serverless v1](aurora-serverless-v1.md#aurora-serverless.how-it-works.auto-scaling "aurora-serverless-v1.md#aurora-serverless.how-it-works.auto-scaling").
+![Screenshot of deleting Aurora Serverless v1 database cluster](images/aurora-sles-delete-db-1.png)
 
-To set the capacity of an Aurora Serverless v1 DB cluster using the AWS CLI, run the
-[modify-current-db-cluster-capacity](../../../cli/latest/reference/rds/modify-current-db-cluster-capacity.md "../../../cli/latest/reference/rds/modify-current-db-cluster-capacity.md")
-AWS CLI command, and specify the `--capacity` option. Valid capacity values include the
-following:
+If you choose **No** for **Create final snapshot?** you can't
+restore your DB cluster using snapshots or point-in-time recovery. 6. Choose **Delete DB cluster**.
 
-- Aurora MySQL: `1`, `2`, `4`, `8`, `16`,
-  `32`, `64`, `128`, and `256`.
-- Aurora PostgreSQL: `2`, `4`, `8`, `16`, `32`,
-  `64`, `192`, and `384`.
+Aurora Serverless v1 deletes your DB cluster. If you chose to have a final snapshot, you see your
+Aurora Serverless v1 DB cluster's status change to "Backing-up" before it's deleted and no longer
+appears in the list.
 
-In this example, you set the capacity of an Aurora Serverless v1 DB cluster named
-`sample-cluster` to `64`.
+Before you begin, configure your AWS CLI with your AWS Access Key ID, AWS Secret Access Key, and the
+AWS Region where your Aurora Serverless v1 DB cluster is. For more information, see
+[Configuration
+basics](../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config "../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config") in the AWS Command Line Interface User Guide.
 
-```
-
-aws rds modify-current-db-cluster-capacity --db-cluster-identifier sample-cluster --capacity 64
+You can't delete an Aurora Serverless v1 DB cluster until after you first disable deletion protection
+for clusters configured with this option. If you try to delete a cluster that has this protection option
+enabled, you see the following error message.
 
 ```
+An error occurred (InvalidParameterCombination) when calling the DeleteDBCluster
+  operation: Cannot delete protected Cluster, please disable deletion protection and try again.
+```
 
-You can set the capacity of an Aurora DB cluster with the
-[ModifyCurrentDBClusterCapacity](../APIReference/API_ModifyCurrentDBClusterCapacity.md "../APIReference/API_ModifyCurrentDBClusterCapacity.md")
-API operation. Specify the `Capacity` parameter. Valid capacity values include the following:
+You can change your Aurora Serverless v1 DB cluster's deletion-protection setting by using the
+[modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") AWS CLI command as shown in
+the following:
 
-- Aurora MySQL: `1`, `2`, `4`, `8`, `16`,
-  `32`, `64`, `128`, and `256`.
-- Aurora PostgreSQL: `2`, `4`, `8`, `16`, `32`,
-  `64`, `192`, and `384`.
+```
+aws rds modify-db-cluster --db-cluster-identifier `your-cluster-name` --no-deletion-protection
+```
+
+This command returns the revised properties for the specified DB cluster. You can now delete your
+Aurora Serverless v1 DB cluster.
+
+We recommend that you always create a final snapshot whenever you delete an Aurora Serverless v1 DB cluster.
+The following example of using the AWS CLI
+[delete-db-cluster](../../../cli/latest/reference/rds/delete-db-cluster.md "../../../cli/latest/reference/rds/delete-db-cluster.md") shows you how. You provide
+the name of your DB cluster and a name for the snapshot.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds delete-db-cluster --db-cluster-identifier \
+  `your-cluster-name` --no-skip-final-snapshot \
+  --final-db-snapshot-identifier `name-your-snapshot`
+```
+
+For Windows:
+
+```
+aws rds delete-db-cluster --db-cluster-identifier ^
+  `your-cluster-name` --no-skip-final-snapshot ^
+  --final-db-snapshot-identifier `name-your-snapshot`
+```

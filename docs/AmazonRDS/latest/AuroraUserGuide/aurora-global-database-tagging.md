@@ -59,7 +59,7 @@ Here are some examples of the kinds of tags you might assign within a global dat
 In the AWS Management Console, you add tags to the global cluster container as a separate step after you create it. If
 you want to avoid any time interval when the global cluster exists without access control tags, you can
 apply the tags during the `CreateGlobalCluster` operation by creating that resource through
-AWS CLI, RDS API, or a AWS CloudFormation template.
+AWS CLI, RDS API, or a CloudFormation template.
 
 - You might use tags at the cluster level, or for the global cluster, to record information about quality
   assurance and testing of your application. For example, you might specify a tag on a DB cluster to record

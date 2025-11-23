@@ -97,7 +97,7 @@ place for storing and managing credentials for multiple DB
 clusters.
 
 To use credentials from your self-managed Active Directory,
-you need to setup a trust relationship to the AWS Directory Service for Microsoft Active Directory that the
+you need to setup a trust relationship to the Directory Service for Microsoft Active Directory that the
 
 DB cluster is joined to.
 

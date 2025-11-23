@@ -18,6 +18,7 @@ connectivity issues with Aurora MySQL.
 - [Examples of troubleshooting database connection issues for Aurora MySQL](mysql-troubleshooting-dbconn.md#mysql-dbconn-examples "mysql-troubleshooting-dbconn.md#mysql-dbconn-examples")
   - [Example 1: Troubleshooting failed connection attempts](mysql-troubleshooting-dbconn.md#mysql-dbconn-example1 "mysql-troubleshooting-dbconn.md#mysql-dbconn-example1")
   - [Example 2: Troubleshooting abnormal client disconnects](mysql-troubleshooting-dbconn.md#mysql-dbconn-example2 "mysql-troubleshooting-dbconn.md#mysql-dbconn-example2")
+  - [Example 3: Troubleshooting IAM failed connection attempts](mysql-troubleshooting-dbconn.md#mysql-dbconn-example3 "mysql-troubleshooting-dbconn.md#mysql-dbconn-example3")
 
 ## Identifying database connectivity issues for Aurora MySQL
 
@@ -553,3 +554,31 @@ def execute_query(query):
 
 In this example, the `connection.close()` method is called in the `finally` block to make sure that the connection is
 closed, whether or not an exception occurs.
+
+### Example 3: Troubleshooting IAM failed connection attempts
+
+Connectivity with AWS Identity and Access Management (IAM) users can fail for several reasons, such as:
+
+- Incorrect IAM policy configuration
+- Expired security credentials
+- Network connectivity issues
+- Database permission mismatches
+
+To troubleshoot these authentication errors, enable the `iam-db-auth-error` log export feature in your Amazon Relational Database Service (RDS) or Aurora database.
+This will allow you to view detailed authentication error messages in CloudWatch Log group for your Amazon RDS or Amazon Aurora cluster.
+
+Once enabled, you can review these logs to identify and resolve the specific cause of your IAM authentication failures.
+
+For example:
+
+```
+2025-09-22T12:02:30,806 [ERROR] Failed to authorize the connection request for user 'user_1' due to an internal IAM DB Auth error. (Status Code: 500, Error Code: InternalError)
+```
+
+and
+
+```
+2025-09-22T12:02:51,954 [ERROR] Failed to authenticate the connection request for user 'user_2' because the provided token is malformed or otherwise invalid. (Status Code: 400, Error Code: InvalidToken)
+```
+
+For troubleshooting guidance, refer to the [Aurora](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md") troubleshooting guide for IAM DB authentication.

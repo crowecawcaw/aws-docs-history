@@ -14,7 +14,7 @@ You have two connectivity options between your private network and AWS:
 
 - An AWS Site-to-Site VPN connection. For more information, see [What is
   AWS Site-to-Site VPN?](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md")
-- An AWS Direct Connect connection. For more information, see [What is AWS Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")
+- An Direct Connect connection. For more information, see [What is Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")
 
 You get access to
 Amazon Aurora through the network by using

@@ -78,8 +78,9 @@ new DB cluster.
 
 You can specify other settings. For information about each setting, see [Settings for Aurora DB clusters](Aurora.md#Aurora.CreateInstance.Settings "Aurora.md#Aurora.CreateInstance.Settings").
 
-Resource tagging is supported for this operation. When you use the `--tags` option, the source DB cluster tags
-are ignored and the provided ones are used. Otherwise, the latest tags from the source cluster are used.
+If tags are provided in the request then the provided tags are applied to the restored DB cluster.
+If tags are not provided in the request and if the source DB cluster is in-region active and has tags, Aurora
+adds the latest tags from the source DB cluster to the restored DB cluster.
 
 For Linux, macOS, or Unix:
 

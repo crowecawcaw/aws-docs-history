@@ -1,42 +1,63 @@
-# Using pgAudit to log database activity
+# Delegating and
 
-Financial institutions, government agencies, and many industries need to keep
-_audit logs_ to meet regulatory requirements. By using the PostgreSQL Audit
-extension (pgAudit) with your Aurora PostgreSQL DB
-cluster, you can
-capture the detailed records that are typically needed by auditors or to meet regulatory
-requirements. For example, you can set up the pgAudit extension to track changes made to
-specific databases and tables, to record the user who made the change, and many other
-details.
+controlling user password management
 
-The pgAudit extension builds on the functionality of the native PostgreSQL
-logging infrastructure by extending the log messages with more detail. In other words, you use the same
-approach to view your audit log as you do to view any log messages. For more information about PostgreSQL logging,
-see [Aurora PostgreSQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md").
+As a DBA, you might want to delegate the management of user passwords. Or, you might want
+to prevent database users from changing their passwords or reconfiguring password constraints,
+such as password lifetime. To ensure that only the database users that you choose can change
+password settings, you can turn on the restricted password management feature. When you
+activate this feature, only those database users that have been granted the
+`rds_password` role can manage passwords.
 
-The pgAudit extension redacts sensitive data such as cleartext passwords from the logs.
-If your Aurora PostgreSQL DB cluster is configured to log data manipulation language (DML) statements as detailed in
-[Turning on query
-logging for your Aurora PostgreSQL DB cluster](USER_LogAccess.Concepts.PostgreSQL.md "USER_LogAccess.Concepts.PostgreSQL.md"),
-you can avoid the cleartext password issue by using the PostgreSQL Audit extension.
+###### Note
 
-You can configure auditing on your database instances with a great degree of specificity. You can audit
-all databases and all users. Or, you can choose to audit only certain databases, users, and other objects.
-You can also explicitly exclude certain users and databases from being audited. For more information, see
-[Excluding users or databases from audit logging](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md").
+To use restricted password management, your
+Aurora PostgreSQL DB cluster must be running Amazon Aurora
+PostgreSQL 10.6 or higher.
 
-Given the amount of detail that can be captured, we recommend that if you do use pgAudit, you monitor
-your storage consumption.
+By default, this feature is `off`, as shown in the following:
 
-The pgAudit extension is supported on all available Aurora PostgreSQL versions.
-For a list of pgAudit versions supported by Aurora PostgreSQL version,
-see [Extension
-versions for Amazon Aurora PostgreSQL](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") in the _Release Notes for Aurora PostgreSQL_.
+```
+`postgres=>` `SHOW rds.restrict_password_commands;`
+ `rds.restrict_password_commands
+--------------------------------
+ off
+(1 row)`
+```
 
-###### Topics
+To turn on this feature, you use a custom parameter group and change the setting for
+`rds.restrict_password_commands` to 1. Be sure to reboot your Aurora PostgreSQL's primary DB instance
+so that the setting takes
+effect.
 
-- [Setting up the pgAudit extension](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md")
-- [Auditing database objects](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md")
-- [Excluding users or databases from audit logging](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md")
-- [Reference for the pgAudit
-  extension](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md")
+With this feature active, `rds_password` privileges are needed for the
+following SQL commands:
+
+```
+CREATE ROLE myrole WITH PASSWORD 'mypassword';
+CREATE ROLE myrole WITH PASSWORD 'mypassword' VALID UNTIL '2023-01-01';
+ALTER ROLE myrole WITH PASSWORD 'mypassword' VALID UNTIL '2023-01-01';
+ALTER ROLE myrole WITH PASSWORD 'mypassword';
+ALTER ROLE myrole VALID UNTIL '2023-01-01';
+ALTER ROLE myrole RENAME TO myrole2;
+```
+
+Renaming a role (`ALTER ROLE myrole RENAME TO newname`) is also restricted if
+the password uses the MD5 hashing algorithm.
+
+With this feature active, attempting any of these SQL commands without the
+`rds_password` role permissions generates the following error:
+
+```
+ERROR: must be a member of rds_password to alter passwords
+```
+
+We recommend that you grant the `rds_password` to only a few roles that you use
+solely for password management. If you grant `rds_password` privileges to database
+users that don't have `rds_superuser` privileges, you need to also grant them
+the `CREATEROLE` attribute.
+
+Make sure that you verify password requirements such as expiration and needed complexity
+on the client side. If you use your own client-side utility for password related changes, the
+utility needs to be a member of `rds_password` and have `CREATE ROLE`
+privileges.

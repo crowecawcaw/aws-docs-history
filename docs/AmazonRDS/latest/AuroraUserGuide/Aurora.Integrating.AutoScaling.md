@@ -4,7 +4,7 @@ You can add a scaling policy using the AWS Management Console, the AWS CLI, or t
 
 ###### Note
 
-For an example that adds a scaling policy using AWS CloudFormation, see [Declaring a scaling policy for
+For an example that adds a scaling policy using CloudFormation, see [Declaring a scaling policy for
 an Aurora DB cluster](../../../AWSCloudFormation/latest/UserGuide/quickref-autoscaling.md#w2ab1c19c22c15c21c11 "../../../AWSCloudFormation/latest/UserGuide/quickref-autoscaling.md#w2ab1c19c22c15c21c11") in the _AWS CloudFormation User Guide._
 
 You can add a scaling policy to an Aurora DB cluster by using the AWS Management Console.

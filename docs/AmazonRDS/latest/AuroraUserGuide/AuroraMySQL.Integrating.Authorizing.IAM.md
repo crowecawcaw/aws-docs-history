@@ -1,10 +1,12 @@
-# Creating an IAM policy to access AWS Lambda resources
+# Creating an IAM policy to access AWS KMS resources
 
-You can create an IAM policy that provides the minimum
-required permissions for Aurora to invoke an AWS Lambda function on your behalf.
+Aurora can access the AWS KMS keys
+used for encrypting their database backups.
+However, you must first create an IAM policy that provides the
+permissions that allow Aurora to access KMS keys.
 
-The following policy adds the permissions required by Aurora to invoke an
-AWS Lambda function on your behalf.
+The following policy adds the permissions required by Aurora to access KMS keys on
+your behalf.
 
 JSON
 
@@ -13,53 +15,43 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
- "Sid": "AllowAuroraToExampleFunction",
+ "Sid": "AllowAuroraToAccessKey",
  "Effect": "Allow",
- "Action": "lambda:InvokeFunction",
- "Resource": "arn:aws:lambda:`us-east-1`:`123456789012`:function:`example_function`"
+ "Action": [
+ "kms:Decrypt"
+ ],
+ "Resource": "arn:aws:kms:`us-east-1`:`123456789012`:key/`key-ID`"
  }
  ]
 }`
 
 ```
 
-You can use the following steps to create an IAM policy that provides the minimum
-required permissions for Aurora to invoke an AWS Lambda function on your behalf. To
-allow Aurora to invoke all of your AWS Lambda functions, you can skip these steps and
-use the predefined `AWSLambdaRole` policy instead of creating your
-own.
+You can use the following steps to create an IAM policy that provides the
+minimum required permissions for Aurora to access KMS keys on your behalf.
 
-###### To create an IAM policy to grant invoke to your AWS Lambda
-
-functions
+###### To create an IAM policy to grant access to your KMS keys
 
 1. Open the [IAM
    console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home").
 2. In the navigation pane, choose **Policies**.
 3. Choose **Create policy**.
-4. On the **Visual editor** tab, choose **Choose a service**,
-   and then choose **Lambda**.
-5. For **Actions**, choose **Expand all**, and then choose the
-   AWS Lambda permissions needed for the IAM policy.
+4. On the **Visual editor** tab, choose **Choose
+   a service**, and then choose **KMS**.
+5. For **Actions**, choose **Write**, and then choose
+   **Decrypt**.
+6. Choose **Resources**, and choose **Add ARN**.
+7. In the **Add ARN(s)** dialog box, enter the following values:
+   - **Region** – Type the AWS Region, such as `us-west-2`.
+   - **Account** – Type the user account number.
+   - **Log Stream Name** – Type the KMS key identifier.
 
-Ensure that `InvokeFunction` is selected. It is the minimum required permission to enable Amazon Aurora to
-invoke an AWS Lambda function. 6. Choose **Resources** and choose **Add ARN** for **function**. 7. In the **Add ARN(s)** dialog box, provide the details
-about your resource.
-
-Specify the Lambda function to allow access to. For instance, if you want to allow Aurora
-to access a Lambda function named `example_function`, then set the
-ARN value to `arn:aws:lambda:::function:example_function`.
-
-For more information on how to define an access policy for AWS Lambda, see
-[Authentication and access control for AWS Lambda](../../../lambda/latest/dg/lambda-auth-and-access-control.md "../../../lambda/latest/dg/lambda-auth-and-access-control.md"). 8. Optionally, choose **Add additional permissions** to add another AWS Lambda function
-to the policy, and repeat the previous steps for the function.
-
-###### Note
-
-You can repeat this to add corresponding
-function permission statements to your policy for each AWS Lambda function
-that you want Aurora to access. 9. Choose **Review policy**. 10. Set **Name** to a name for your IAM policy, for
-example `AllowAuroraToExampleFunction`. You use this name when you
-create an IAM role to associate with your Aurora DB cluster. You can also add
-an optional **Description** value. 11. Choose **Create policy**. 12. Complete the steps in [Creating an
-IAM role to allow Amazon Aurora to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md").
+8. In the **Add ARN(s)** dialog box, choose **Add**.
+9. Choose **Review policy**.
+10. Set **Name** to a name for your IAM policy, for
+    example `AmazonRDSKMSKey`. You use this name when you
+    create an IAM role to associate with your Aurora DB cluster. You can also add
+    an optional **Description** value.
+11. Choose **Create policy**.
+12. Complete the steps in [Creating an
+    IAM role to allow Amazon Aurora to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md").

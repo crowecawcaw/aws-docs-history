@@ -1,67 +1,82 @@
-# LWLock:BufferIO (IPC:BufferIO)
+# IO:XactSync
 
-The `LWLock:BufferIO` event occurs when Aurora PostgreSQL or RDS for PostgreSQL is waiting for other processes to
-finish their input/output (I/O) operations when concurrently trying to access a page. Its
-purpose is for the same page to be read into the shared buffer.
+The `IO:XactSync` event occurs when the database is waiting for the Aurora
+storage subsystem to acknowledge the commit of a regular transaction, or the commit or
+rollback of a prepared transaction. A prepared transaction is part of PostgreSQL's
+support for a two-phase commit. This event can also occur when a query is waiting for
+another transaction to commit, particularly in cases where auto-commit is turned off. In
+such scenarios, updates might appear to be waiting on XactSync even though they haven't been
+committed yet.
 
 ###### Topics
 
-- [Relevant engine versions](#apg-waits.lwlockbufferio.context.supported "#apg-waits.lwlockbufferio.context.supported")
-- [Context](#apg-waits.lwlockbufferio.context "#apg-waits.lwlockbufferio.context")
-- [Causes](#apg-waits.lwlockbufferio.causes "#apg-waits.lwlockbufferio.causes")
-- [Actions](#apg-waits.lwlockbufferio.actions "#apg-waits.lwlockbufferio.actions")
+- [Supported engine versions](#apg-waits.xactsync.context.supported "#apg-waits.xactsync.context.supported")
+- [Context](#apg-waits.xactsync.context "#apg-waits.xactsync.context")
+- [Likely causes of increased waits](#apg-waits.xactsync.causes "#apg-waits.xactsync.causes")
+- [Actions](#apg-waits.xactsync.actions "#apg-waits.xactsync.actions")
 
-## Relevant engine versions
+## Supported engine versions
 
-This wait event information is relevant for all Aurora PostgreSQL versions. For Aurora PostgreSQL
-12 and earlier versions this wait event is named as lwlock:buffer_io whereas in Aurora PostgreSQL
-13 version it is named as lwlock:bufferio. From Aurora PostgreSQL 14 version BufferIO wait event
-moved from `LWLock` to `IPC` wait event type (IPC:BufferIO).
+This wait event information is supported for all versions of Aurora PostgreSQL.
 
 ## Context
 
-Each shared buffer has an I/O lock that is associated with the `LWLock:BufferIO` wait event, each time a block (or
-a page) has to be retrieved outside the shared buffer pool.
+The event `IO:XactSync` indicates that the instance is spending time waiting for the Aurora storage subsystem to confirm that transaction data was processed.
 
-This lock is used to handle multiple sessions that all require access to the same
-block. This block has to be read from outside the shared buffer pool, defined by the
-`shared_buffers` parameter.
+## Likely causes of increased waits
 
-As soon as the page is read inside the shared buffer pool, the `LWLock:BufferIO` lock is released.
+When the `IO:XactSync` event appears more than normal, possibly indicating a performance problem, typical causes include the following:
 
-###### Note
+**Network saturation**
 
-The `LWLock:BufferIO` wait event precedes the [IO:DataFileRead](apg-waits.md "apg-waits.md") wait event. The `IO:DataFileRead` wait event occurs while data is
-being read from storage.
+Traffic between clients and the DB instance or traffic to the
+storage subsystem might be too heavy for the network bandwidth.
 
-For more information on lightweight locks, see [Locking Overview](https://github.com/postgres/postgres/blob/65dc30ced64cd17f3800ff1b73ab1d358e92efd8/src/backend/storage/lmgr/README#L20 "https://github.com/postgres/postgres/blob/65dc30ced64cd17f3800ff1b73ab1d358e92efd8/src/backend/storage/lmgr/README#L20").
+**CPU pressure**
 
-## Causes
-
-Common causes for the `LWLock:BufferIO` event to appear in top waits include the following:
-
-- Multiple backends or connections trying to access the same page that's
-  also pending an I/O operation
-- The ratio between the size of the shared buffer pool (defined by the `shared_buffers` parameter) and the
-  number of buffers needed by the current workload
-- The size of the shared buffer pool not being well balanced with the number of pages being evicted by other
-  operations
-- Large or bloated indexes that require the engine to read more pages than necessary into the shared buffer pool
-- Lack of indexes that forces the DB engine to read more pages from the tables than necessary
-- Sudden spikes for database connections trying to perform operations on the same page
+A heavy workload might be preventing the Aurora storage daemon from getting sufficient CPU time.
 
 ## Actions
 
-We recommend different actions depending on the causes of your wait event:
+We recommend different actions depending on the causes of your wait event.
 
-- Observe Amazon CloudWatch metrics for correlation between sharp decreases in the
-  `BufferCacheHitRatio` and `LWLock:BufferIO` wait
-  events. This effect can mean that you have a small shared buffers setting. You
-  might need to increase it or scale up your DB instance class. You can split your
-  workload into more reader nodes.
-- Verify whether you have unused indexes, then remove them.
-- Use partitioned tables (which also have partitioned indexes). Doing this helps
-  to keep index reordering low and reduces its impact.
-- Avoid indexing columns unnecessarily.
-- Prevent sudden database connection spikes by using a connection pool.
-- Restrict the maximum number of connections to the database as a best practice.
+###### Topics
+
+- [Monitor your resources](#apg-waits.xactsync.actions.monitor "#apg-waits.xactsync.actions.monitor")
+- [Scale up the CPU](#apg-waits.xactsync.actions.scalecpu "#apg-waits.xactsync.actions.scalecpu")
+- [Increase network bandwidth](#apg-waits.xactsync.actions.scalenetwork "#apg-waits.xactsync.actions.scalenetwork")
+- [Reduce the number of commits](#apg-waits.xactsync.actions.commits "#apg-waits.xactsync.actions.commits")
+
+### Monitor your resources
+
+To determine the cause of the increased `IO:XactSync` events, check the following metrics:
+
+- `WriteThroughput` and `CommitThroughput` – Changes in write
+  throughput or commit throughput can show an increase in workload.
+- `WriteLatency` and `CommitLatency` – Changes in write latency or
+  commit latency can show that the storage subsystem is being asked to do more
+  work.
+- `CPUUtilization` – If the instance's CPU utilization is above 90
+  percent, the Aurora storage daemon might not be getting sufficient time on
+  the CPU. In this case, I/O performance degrades.
+
+For information about these metrics, see [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
+
+### Scale up the CPU
+
+To address CPU starvation issues, consider changing to an instance type with more CPU capacity. For information about CPU capacity for a DB instance class, see [Hardware specifications for DB instance
+classes for Aurora](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+
+### Increase network bandwidth
+
+To determine whether the instance is reaching its network bandwidth limits, check for the following other wait events:
+
+- `IO:DataFileRead`, `IO:BufferRead`, `IO:BufferWrite`, and `IO:XactWrite` – Queries using large amounts of I/O can generate more of these wait events.
+- `Client:ClientRead` and `Client:ClientWrite` – Queries with large amounts of client communication can generate more of these wait events.
+
+If network bandwidth is an issue, consider changing to an instance type with more network bandwidth. For information about network performance for a DB instance class, see [Hardware specifications for DB instance
+classes for Aurora](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+
+### Reduce the number of commits
+
+To reduce the number of commits, combine statements into transaction blocks.

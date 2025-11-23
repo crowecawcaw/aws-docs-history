@@ -1,34 +1,37 @@
-# Troubleshooting DB cluster exports
+# Canceling a DB cluster export task
 
-Use the following sections to help troubleshoot failure messages and PostgreSQL permission errors for DB cluster export tasks to Amazon S3.
+You can cancel a DB cluster export task using the AWS Management Console, the AWS CLI, or the RDS API.
 
-## Failure messages for Amazon S3 export tasks
+###### Note
 
-The following table describes the messages that are returned when Amazon S3 export tasks fail.
+Canceling an export task doesn't remove any data that was exported to Amazon S3. For information about how to delete the
+data using the console, see [How do I
+delete objects from an S3 bucket?](../../../AmazonS3/latest/user-guide/delete-objects.md "../../../AmazonS3/latest/user-guide/delete-objects.md") To delete the data using the CLI, use the [delete-object](../../../cli/latest/reference/s3api/delete-object.md "../../../cli/latest/reference/s3api/delete-object.md") command.
 
-| Failure message                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`Failed to find or access the source DB cluster: [cluster name]`**                                                                                                                | The source DB cluster can't be cloned.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| **`An unknown internal error occurred.`**                                                                                                                                           | The task has failed because of an unknown error, exception, or failure.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **`An unknown internal error occurred writing the export task's metadata to the S3 bucket<br>[bucket name].`**                                                                      | The task has failed because of an unknown error, exception, or failure.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **`The RDS export failed to write the export task's metadata because it can't assume the<br>IAM role [role ARN].`**                                                                 | The export task assumes your IAM role to validate whether it is allowed to write metadata to your S3<br>bucket. If the task can't assume your IAM role, it fails.                                                                                                                                                                                                                                                                                                                                                          |
-| **`The RDS export failed to write the export task's metadata to the S3 bucket [bucket name]<br>using the IAM role [role ARN] with the KMS key [key ID]. Error code: [error code]`** | One or more permissions are missing, so the export task can't access the S3 bucket. This failure<br>message is raised when receiving one of the following error codes:<br>• `AWSSecurityTokenServiceException` with the error code `AccessDenied`<br>• `AmazonS3Exception` with the error code `NoSuchBucket`,<br>`AccessDenied`, `KMS.KMSInvalidStateException`, `403<br>Forbidden`, or `KMS.DisabledException`<br>These error codes indicate that settings are misconfigured for the IAM role, S3 bucket, or<br>KMS key. |
-| **`The IAM role [role ARN] isn't authorized to call [S3 action] on the S3 bucket [bucket name].<br>Review your permissions and retry the export.`**                                 | The IAM policy is misconfigured. Permission for the specific S3 action on the S3 bucket is missing,<br>which causes the export task to fail.                                                                                                                                                                                                                                                                                                                                                                               |
-| **`KMS key check failed. Check the credentials on your KMS key and try again.`**                                                                                                    | The KMS key credential check failed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| **`S3 credential check failed. Check the permissions on your S3 bucket and IAM<br>policy.`**                                                                                        | The S3 credential check failed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| **`The S3 bucket [bucket name] isn't valid. Either it isn't located in the current<br>AWS Region or it doesn't exist. Review your S3 bucket name and retry the export.`**           | The S3 bucket is invalid.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| **`The S3 bucket [bucket name] isn't located in the current AWS Region. Review your S3 bucket<br>name and retry the export.`**                                                      | The S3 bucket is in the wrong AWS Region.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+###### To cancel a DB cluster export task
 
-## Troubleshooting PostgreSQL permissions errors
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Exports in Amazon S3**.
 
-When exporting PostgreSQL databases to Amazon S3, you might see a `PERMISSIONS_DO_NOT_EXIST` error stating that certain
-tables were skipped. This error usually occurs when the superuser, which you specified when creating the DB cluster, doesn't
-have permissions to access those tables.
+DB cluster exports are indicated in the **Source type** column. Export status is displayed in
+the **Status** column. 3. Choose the export task that you want to cancel. 4. Choose **Cancel**. 5. Choose **Cancel export task** on the confirmation page.
 
-To fix this error, run the following command:
+To cancel an export task using the AWS CLI, use the [cancel-export-task](../../../cli/latest/reference/rds/cancel-export-task.md "../../../cli/latest/reference/rds/cancel-export-task.md") command. The command requires the `--export-task-identifier` option.
 
 ```
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA `schema_name` TO `superuser_name`
+aws rds cancel-export-task --export-task-identifier my-export
+{
+    "Status": "CANCELING",
+    "S3Prefix": "",
+    "S3Bucket": "`amzn-s3-demo-bucket`",
+    "PercentProgress": 0,
+    "KmsKeyId": "arn:aws:kms:`us-west-2`:123456789012:key/K7MDENG/bPxRfiCYEXAMPLEKEY",
+    "ExportTaskIdentifier": "my-export",
+    "IamRoleArn": "arn:aws:iam::123456789012:role/export-to-s3",
+    "TotalExtractedDataInGB": 0,
+    "SourceArn": "arn:aws:rds:`us-west-2`:123456789012:cluster:export-example-1"
+}
 ```
 
-For more information on superuser privileges, see [Master user account privileges](UsingWithRDS.md "UsingWithRDS.md").
+To cancel an export task using the Amazon RDS API, use the [CancelExportTask](../APIReference/API_CancelExportTask.md "../APIReference/API_CancelExportTask.md") operation with the `ExportTaskIdentifier` parameter.

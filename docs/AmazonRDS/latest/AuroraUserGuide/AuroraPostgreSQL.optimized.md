@@ -25,12 +25,13 @@ capacity of a DB instance.
 Reads in PostgreSQL
 
 Aurora Optimized Reads is available by default when you create a DB cluster that uses
-Graviton-based R6gd and Intel-based R6id instances with non-volatile memory express
-(NVMe) storage. It is available from the following PostgreSQL versions:
+Graviton-based R6gd, R8gd, and Intel-based R6id instances with non-volatile memory
+express (NVMe) storage. It is available from the following PostgreSQL versions:
 
-- 16.1 and all higher versions
-- 15.4 and higher versions
-- 14.9 and higher versions
+- 14.12 and higher versions, 15.7 and higher versions, 16.3 and higher versions,
+  17.4 and higher versions for R8gd instances
+- 14.9 and higher versions, 15.4 and higher versions, 16.1 and all higher
+  versions for R6gd and R6id instances
 
 Aurora Optimized Reads supports two capabilities: tiered cache and temporary
 objects.
@@ -43,9 +44,9 @@ result-set based caching solutions. It offers up to 8x better latency for querie
 were previously fetching data from Aurora storage.
 
 In Aurora, the value for `shared_buffers` in the default parameter group is
-usually set to around 75% of the available memory. However, for the r6gd and r6id
-instance types, Aurora will reduce the `shared_buffers` space by 4.5% to host
-the metadata for the Optimized Reads cache.
+usually set to around 75% of the available memory. However, for the r8gd, r6gd, and r6id
+instance types, Aurora reduces the `shared_buffers` space by 4.5% to host the
+metadata for the Optimized Reads cache.
 
 Optimized Reads-enabled temporary objects - Using
 temporary objects, you can achieve faster query processing by placing the temporary
@@ -77,9 +78,9 @@ in temporary objects to accommodate the new size request. After you resize Optim
 Reads-enabled temporary objects, the tiered cache automatically adjusts to use any
 available space.
 
-| Engine                               | Cluster storage configuration | Optimized Reads-enabled temporary objects | Optimized Reads-enabled tiered cache | Versions supported                                                                                  |
-| ------------------------------------ | ----------------------------- | ----------------------------------------- | ------------------------------------ | --------------------------------------------------------------------------------------------------- |
-| Aurora PostgreSQL-Compatible Edition | Standard                      | Yes                                       | No                                   | Aurora PostgreSQL version 16.1 and all higher versions, 15.4<br>and higher, version 14.9 and higher |
+| Engine                               | Cluster storage configuration | Optimized Reads-enabled temporary objects | Optimized Reads-enabled tiered cache | Versions supported                                                                                                                                                                                                                                         |
+| ------------------------------------ | ----------------------------- | ----------------------------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Aurora PostgreSQL-Compatible Edition | Standard                      | Yes                                       | No                                   | • 14.9 and higher versions, 15.4 and higher<br>versions, 16.1 and all higher versions for r6gd and r6id<br>instances<br>• 14.12 and higher versions, 15.7 and higher versions,<br>16.3 and higher versions, 17.4 and higher versions for r8gd<br>instances |
 | I/O-Optimized                        | Yes                           | Yes                                       |
 
 ###### Note

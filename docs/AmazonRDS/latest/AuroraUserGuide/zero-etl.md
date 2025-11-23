@@ -1,146 +1,323 @@
-# Troubleshooting Aurora zero-ETL integrations
+# Data filtering for Aurora zero-ETL integrations
 
-You can check the state of a zero-ETL integration by querying the [SVV_INTEGRATION](../../../redshift/latest/dg/r_SVV_INTEGRATION.md "../../../redshift/latest/dg/r_SVV_INTEGRATION.md") system table in the
-analytics destination. If the `state` column has a value of
-`ErrorState`, it means something's wrong. For more information, see [Monitoring integrations using system tables for Amazon Redshift](zero-etl.md#zero-etl.monitoring "zero-etl.md#zero-etl.monitoring").
+Aurora
+zero-ETL integrations support data filtering, which lets you control which data is replicated from
+your source Aurora DB cluster to your target data warehouse. Instead of replicating the entire
+database, you can apply one or more filters to selectively include or exclude specific tables.
+This helps you optimize storage and query performance by ensuring that only relevant data is
+transferred. Currently, filtering is limited to the database and table levels. Column- and
+row-level filtering are not supported.
 
-Use the following information to troubleshoot common issues with Aurora
-zero-ETL integrations.
+Data filtering can be useful when you want to:
 
-###### Important
+- Join certain tables from two or more different source clusters, and you don't need
+  complete data from either cluster.
+- Save costs by performing analytics using only a subset of tables rather than an entire
+  fleet of databases.
+- Filter out sensitive information—such as phone numbers, addresses, or credit card
+  details—from certain tables.
+  You can add data filters to a zero-ETL integration using the AWS Management Console, the AWS Command Line Interface (AWS CLI), or
+  the Amazon RDS API.
 
-Resync and refresh operations are not available for zero-ETL integrations with an
-Amazon SageMaker AI lakehouse. If there are issues with an
-integration, you must delete the integration and create a new integration. You can't
-refresh or resync an existing integration.
+If the integration has a provisioned cluster as its target, the cluster must be on [patch 180](../../../redshift/latest/mgmt/cluster-versions.md#cluster-version-180 "../../../redshift/latest/mgmt/cluster-versions.md#cluster-version-180") or higher to
+use data filtering.
 
 ###### Topics
 
-- [I can't create a
-  zero-ETL integration](#zero-etl.troubleshooting.creation "#zero-etl.troubleshooting.creation")
-- [My integration is stuck in a state
-  of Syncing](#zero-etl.troubleshooting.syncing "#zero-etl.troubleshooting.syncing")
-- [My tables aren't replicating
-  to Amazon Redshift](#zero-etl.troubleshooting.primarykey "#zero-etl.troubleshooting.primarykey")
-- [One or more of my Amazon Redshift tables
-  requires a resync](#zero-etl.troubleshooting.resync "#zero-etl.troubleshooting.resync")
-- [Integration failed
-  issues for Amazon SageMaker AI lakehouse zero-ETL integrations](#zero-etl.troubleshooting.integration-issues "#zero-etl.troubleshooting.integration-issues")
-- [DDL changes are in Amazon Redshift before the
-  DDL transaction is complete for Aurora PostgreSQL](#zero-etl.troubleshooting.ddl "#zero-etl.troubleshooting.ddl")
+- [Format of a data filter](#zero-etl.filtering-format "#zero-etl.filtering-format")
+- [Filter logic](#zero-etl.filtering-evaluate "#zero-etl.filtering-evaluate")
+- [Filter precedence](#zero-etl.filtering-precedence "#zero-etl.filtering-precedence")
+- [Aurora MySQL
+  examples](#zero-etl.filtering-examples-mysql "#zero-etl.filtering-examples-mysql")
+- [Aurora PostgreSQL examples](#zero-etl.filtering-examples-postgres "#zero-etl.filtering-examples-postgres")
+- [Adding data filters to an integration](#zero-etl.add-filter "#zero-etl.add-filter")
+- [Removing data filters from an integration](#zero-etl.remove-filter "#zero-etl.remove-filter")
 
-## I can't create a
+## Format of a data filter
 
-zero-ETL integration
+You can define multiple filters for a single integration. Each filter either includes or
+excludes any existing and future database tables that match one of the patterns in the filter
+expression. Aurora zero-ETL integrations use [Maxwell filter syntax](https://maxwells-daemon.io/filtering/ "https://maxwells-daemon.io/filtering/") for data filtering.
 
-If you can't create a zero-ETL integration, make sure that the following are correct for
-your source database:
+Each filter has the following elements:
 
-- Your source database must be running a supported DB engine version. For a
-  list of supported versions, see [Supported
-  Regions and Aurora DB engines for zero-ETL integrations](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
-- You correctly configured DB parameters. If the required parameters are
-  set incorrectly or not associated with the database, creation fails. See
-  [Step 1: Create a custom DB cluster parameter group](zero-etl.md#zero-etl.parameters "zero-etl.md#zero-etl.parameters").
+| Element           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Filter type       | An `Include` filter type *includes<br>• all tables<br>that match one of the patterns in the filter expression. An `Exclude`<br>filter type *excludes<br>• all tables that match one of the<br>patterns.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Filter expression | A comma-separated list of patterns. Expressions must use [Maxwell filter syntax](https://maxwells-daemon.io/filtering/ "https://maxwells-daemon.io/filtering/").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Pattern           | A filter pattern in the format<br>``database`.`table``<br>for Aurora MySQL, or<br>``database`.`schema`.`table``<br>for Aurora PostgreSQL. You can specify literal names, or define regular<br>expressions.<br>NoteFor Aurora MySQL, regular expressions are supported in both the database and<br>table name. For Aurora PostgreSQL, regular expressions are supported only in the<br>schema and table name, not in the database name.<br>You can't include column-level filters or denylists.<br>A single integration can have a maximum of 99 total patterns. In the console, you<br>can enter patterns within a single filter expression, or spread them out among<br>multiple expressions. A single pattern can't exceed 256 characters in length. |
 
-In addition, make sure the following are correct for your target data
-warehouse:
+###### Important
 
-- Case sensitivity is enabled. See [Turn on case sensitivity for your data warehouse](../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-setting-up.case-sensitivity "../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-setting-up.case-sensitivity").
-- You added the correct authorized principal and integration source. See
-  [Configure authorization for your Amazon Redshift data
-  warehouse](../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.redshift-iam "../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.redshift-iam").
-- The data warehouse is encrypted (if it's a provisioned cluster). See
-  [Amazon Redshift database
-  encryption](../../../redshift/latest/mgmt/working-with-db-encryption.md "../../../redshift/latest/mgmt/working-with-db-encryption.md").
+If you select an Aurora PostgreSQL source DB cluster, you must specify at least one
+data filter pattern. At minimum, the pattern must include a single database
+(``database-name`._._`) for replication to
+the target data warehouse.
 
-## My integration is stuck in a state
+The following image shows the structure of Aurora MySQL data filters in the
+console:
 
-of `Syncing`
+![Data filters for a zero-ETL integration](images/zero-etl-filter.png)
 
-Your integration might consistently show a status of `Syncing` if you
-change the value of one of the required DB parameters.
+###### Important
 
-To fix this issue, check the values of the parameters in the parameter group
-associated with the source DB cluster, and make sure that they match the required
-values. For more information, see [Step 1: Create a custom DB cluster parameter group](zero-etl.md#zero-etl.parameters "zero-etl.md#zero-etl.parameters").
+Do not include personally identifying, confidential, or sensitive information in your
+filter patterns.
 
-If you modify any parameters, make sure to reboot the DB cluster
-to apply the changes.
+### Data filters in the AWS CLI
 
-## My tables aren't replicating
+When using the AWS CLI to add a data filter, the syntax differs slightly from the console.
+You must assign a filter type (`Include` or `Exclude`) to each pattern
+individually, so you can't group multiple patterns under one filter type.
 
-to Amazon Redshift
+For example, in the console you can group the following comma-separated patterns under a
+single `Include` statement:
 
-If you don't see one or more tables reflected in Amazon Redshift, you can run the following
-command to resynchronize them:
+**Aurora MySQL**
 
 ```
-ALTER DATABASE `dbname` INTEGRATION REFRESH TABLES `table1`, `table2`;
+`mydb`.`mytable`, `mydb`.`/table_\d+/`
 ```
 
-For more information, see [ALTER
-DATABASE](../../../redshift/latest/dg/r_ALTER_DATABASE.md "../../../redshift/latest/dg/r_ALTER_DATABASE.md") in the Amazon Redshift SQL reference.
+**Aurora PostgreSQL**
 
-Your data might not be replicating because one or more of your source tables
-doesn't have a primary key. The monitoring dashboard in Amazon Redshift displays the status of
-these tables as `Failed`, and the status of the overall zero-ETL integration
-changes to `Needs attention`. To resolve this issue, you can identify an
-existing key in your table that can become a primary key, or you can add a synthetic
-primary key. For detailed solutions, see
-the following resources:
+```
+`mydb`.`myschema`.`mytable`, `mydb`.`myschema`.`/table_\d+/`
+```
 
-- [Handle tables without primary keys while creating Amazon Aurora MySQL
-  or Amazon RDS for MySQL zero-ETL integrations with Amazon
-  Redshift](https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-mysql-or-amazon-rds-for-mysql-zero-etl-integrations-with-amazon-redshift/ "https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-mysql-or-amazon-rds-for-mysql-zero-etl-integrations-with-amazon-redshift/")
-- [Handle tables without primary keys while creating Amazon Aurora
-  PostgreSQL zero-ETL integrations with Amazon Redshift](https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-postgresql-zero-etl-integrations-with-amazon-redshift/ "https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-postgresql-zero-etl-integrations-with-amazon-redshift/")
+However, when using the AWS CLI, the same data filter must be in the following
+format:
 
-## One or more of my Amazon Redshift tables
+**Aurora MySQL**
 
-requires a resync
+```
+'include: `mydb.mytable`, include: `mydb./table_\d+/`'
+```
 
-Running certain commands on your source database might require your tables to be
-resynchronized. In these cases, the [SVV_INTEGRATION_TABLE_STATE](../../../redshift/latest/dg/r_SVV_INTEGRATION_TABLE_STATE.md "../../../redshift/latest/dg/r_SVV_INTEGRATION_TABLE_STATE.md") system view shows a
-`table_state` of `ResyncRequired`, which means that the
-integration must completely reload data for that specific table from MySQL to
-Amazon Redshift.
+**Aurora PostgreSQL**
 
-When the table starts to resynchronize, it enters a state of `Syncing`.
-You don't need to take any manual action to resynchronize a table. While table data
-is resynchronizing, you can't access it in Amazon Redshift.
+```
+'include: `mydb.myschema.mytable`, include: `mydb.myschema./table_\d+/`'
+```
 
-The following are some example operations that can put a table into a
-`ResyncRequired` state, and possible alternatives to consider.
+## Filter logic
 
-| Operation                                                         | Example                                                                                                           | Alternative                                                                                                                                                                                                                                                                                                                          |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Adding a column into a specific position                          | ``<br>ALTER TABLE `table_name`<br>ADD COLUMN `column_name` INTEGER<br>NOT NULL first;<br>``                       | Amazon Redshift doesn't support adding columns into specific positions using<br>`first` or `after` keywords. If the order<br>of columns in the target table isn't critical, add the column to the<br>end of the table using a simpler<br>command:<br>``<br>ALTER TABLE `table_name`<br>ADD COLUMN `column_name` `column_type`;<br>`` |
-| Adding a timestamp column with the default<br>`CURRENT_TIMESTAMP` | ``<br>ALTER TABLE `table_name`<br>ADD COLUMN `column_name` TIMESTAMP<br>NOT NULL DEFAULT CURRENT_TIMESTAMP;<br>`` | The `CURRENT_TIMESTAMP` value for existing table rows<br>is calculated by Aurora MySQL and can't be simulated in Amazon Redshift without full<br>table data resynchronization. If possible, switch the default<br>value to a literal constant like `2023-01-01<br>00:00:15` to avoid latency in table<br>availability.               |
-| Performing multiple column operations within a single<br>command  | ``<br>ALTER TABLE `table_name`<br>ADD COLUMN `column_1`,<br>RENAME COLUMN `column_2` TO `column_3`;<br>``         | Consider splitting the command into two separate operations,<br>`ADD` and `RENAME`, which won't require<br>resynchronization.                                                                                                                                                                                                        |
+If you don't specify any data filters in your integration, Aurora assumes a default filter of
+`include:*.*`, which replicates all tables to the target data warehouse. However,
+if you add at least one filter, the default logic switches to `exclude:*.*`, which
+excludes all tables by default. This lets you explicitly define which databases and tables to
+include in replication.
 
-## Integration failed
+For example, if you define the following filter:
 
-issues for Amazon SageMaker AI lakehouse zero-ETL integrations
+```
+'include: db.table1, include: db.table2'
+```
 
-If you encounter issues with an existing zero-ETL integration with an Amazon SageMaker AI lakehouse, the only resolution is to delete the integration
-and create a new one. Unlike other AWS services, zero-ETL integrations do not support
-refresh or resync operations.
+Aurora
+evaluates the filter as follows:
 
-To resolve integration issues:
+```
+'**exclude:\*.\***, include: db.table1, include: db.table2'
+```
 
-1. Delete the problematic zero-ETL integration using the console, CLI, or
-   API.
-2. Verify that the source database and target data warehouse configurations
-   are correct.
-3. Create a new zero-ETL integration with the same or updated configuration.
+Therefore, Aurora only replicates `table1` and `table2` from the
+database named `db` to the target data warehouse.
 
-This process will result in a complete re-initialization of the data pipeline,
-which may take time depending on the size of your source database.
+## Filter precedence
 
-## DDL changes are in Amazon Redshift before the
+Aurora
+evaluates data filters in the order you specify. In the AWS Management Console, it processes filter
+expressions from left to right and top to bottom. A second filter or an individual pattern
+that follows the first can override it.
 
-DDL transaction is complete for Aurora PostgreSQL
+For example, if the first filter is `Include books.stephenking`, it includes
+only the `stephenking` table from the `books` database. However, if you
+add a second filter, `Exclude books.*`, it overrides the first filter. This
+prevents any tables from the `books` index from being replicated to the target data warehouse.
 
-DDL changes can appear in Amazon Redshift before a DDL operation finishes in Aurora PostgreSQL
-zero-ETL integrations. For more information, see [DDL operations for Aurora PostgreSQL](zero-etl.md#zero-etl.ddl-postgres "zero-etl.md#zero-etl.ddl-postgres").
+When you specify at least one filter, the logic starts by assuming
+`exclude:*.*` by default, which automatically _excludes_ all
+tables from replication. As a best practice, define filters from broadest to most specific.
+Start with one or more `Include` statements to specify the data to replicate, then
+add `Exclude` filters to selectively remove certain tables.
+
+The same principle applies to filters that you define using the AWS CLI. Aurora evaluates
+these filter patterns in the order that you specify them, so a pattern might override one that
+you specify before it.
+
+## Aurora MySQL
+
+examples
+
+The following examples demonstrate how data filtering works for
+Aurora MySQL
+examples zero-ETL integrations:
+
+- Include all databases and all tables:
+
+```
+'include: *.*'
+```
+
+- Include all tables within the `books` database:
+
+```
+'include: books.*'
+```
+
+- Exclude any tables named `mystery`:
+
+```
+'include: *.*, exclude: *.mystery'
+```
+
+- Include two specific tables within the `books` database:
+
+```
+'include: books.stephen_king, include: books.carolyn_keene'
+```
+
+- Include all tables in the `books` database, except for those containing the
+  substring `mystery`:
+
+```
+'include: books.*, exclude: books./.*mystery.*/'
+```
+
+- Include all tables in the `books` database, except those starting with
+  `mystery`:
+
+```
+'include: books.*, exclude: books./mystery.*/'
+```
+
+- Include all tables in the `books` database, except those ending with
+  `mystery`:
+
+```
+'include: books.*, exclude: books./.*mystery/'
+```
+
+- Include all tables in the `books` database that start with
+  `table_`, except for the one named `table_stephen_king`. For
+  example, `table_movies` or `table_books` would be replicated, but
+  not `table_stephen_king`.
+
+```
+'include: books./table_.*/, exclude: books.table_stephen_king'
+```
+
+## Aurora PostgreSQL examples
+
+The following examples demonstrate how data filtering works for Aurora PostgreSQL
+zero-ETL integrations:
+
+- Include all tables within the `books` database:
+
+```
+'include: books.*.*'
+```
+
+- Exclude any tables named `mystery` in the `books`
+  database:
+
+```
+'include: books.*.*, exclude: books.*.mystery'
+```
+
+- Include one table within the `books` database in the `mystery`
+  schema, and one table within `employee` database in the `finance`
+  schema:
+
+```
+'include: books.mystery.stephen_king, include: employee.finance.benefits'
+```
+
+- Include all tables in the `books` database and `science_fiction`
+  schema, except for those containing the substring `king`:
+
+```
+'include: books.science_fiction.*, exclude: books.*./.*king.*/
+```
+
+- Include all tables in the `books` database, except those with a schema name
+  starting with `sci`:
+
+```
+'include: books.*.*, exclude: books./sci.*/.*'
+```
+
+- Include all tables in the `books` database, except those in the
+  `mystery` schema ending with `king`:
+
+```
+'include: books.*.*, exclude: books.mystery./.*king/'
+```
+
+- Include all tables in the `books` database that start with
+  `table_`, except for the one named `table_stephen_king`. For
+  example, `table_movies` in the `fiction` schema and
+  `table_books` in the `mystery` schema are replicated, but not
+  `table_stephen_king` in either schema:
+
+```
+'include: books.*./table_.*/, exclude: books.*.table_stephen_king'
+```
+
+## Adding data filters to an integration
+
+You can configure data filtering using the AWS Management Console, the AWS CLI, or the Amazon RDS API.
+
+###### Important
+
+If you add a filter after you create an integration, Aurora treats it as if it always
+existed. It removes any data in the target data warehouse that doesn’t match the new
+filtering criteria and resynchronizes all affected tables.
+
+###### To add data filters to a zero-ETL integration
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Zero-ETL integrations**. Select the
+   integration that you want to add data filters to, and then choose
+   **Modify**.
+3. Under **Source**, add one or more `Include` and
+   `Exclude` statements.
+
+The following image shows an example of data filters for a MySQL integration:
+
+![Data filters for a zero-ETL integration in the RDS console](images/zero-etl-filter-data.png) 4. When you're satisfied with the changes, choose **Continue** and
+**Save changes**.
+To add data filters to a zero-ETL integration using the AWS CLI, call the [modify-integration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-integration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-integration.html") command. In addition to the integration identifier, specify
+the `--data-filter` parameter with a comma-separated list of
+`Include` and `Exclude` Maxwell filters.
+
+The following example adds filter patterns to `my-integration`.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-integration \
+    --integration-identifier `my-integration` \
+    --data-filter `'include: foodb.*, exclude: foodb.tbl, exclude: foodb./table_\d+/'`
+```
+
+For Windows:
+
+```
+aws rds modify-integration ^
+    --integration-identifier `my-integration` ^
+    --data-filter `'include: foodb.*, exclude: foodb.tbl, exclude: foodb./table_\d+/'`
+```
+
+To modify a zero-ETL integration using the RDS API, call the [ModifyIntegration](../APIReference/API_ModifyIntegration.md "../APIReference/API_ModifyIntegration.md")
+operation. Specify the integration identifier and provide a comma-separated list of filter
+patterns.
+
+## Removing data filters from an integration
+
+When you remove a data filter from an integration, Aurora reevaluates the remaining filters
+as if the removed filter never existed. It then replicates any previously excluded data that
+now meets the criteria into the target data warehouse. This triggers a resynchronization
+of all affected tables.

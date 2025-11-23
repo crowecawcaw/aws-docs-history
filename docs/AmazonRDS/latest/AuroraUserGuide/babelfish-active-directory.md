@@ -5,7 +5,7 @@ method allows you to use Microsoft Windows Authentication to authenticate users 
 connect to your Babelfish database. To do so, you must first configure your DB
 cluster to use AWS Directory Service for Microsoft Active Directory for Kerberos authentication. For more information, see
 [What
-is AWS Directory Service?](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md") in the _AWS Directory Service Administration Guide_.
+is Directory Service?](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md") in the _AWS Directory Service Administration Guide_.
 
 ## Setting up Kerberos Authentication
 
@@ -143,7 +143,7 @@ following:
 
 ###### Note
 
-All password management is performed through AWS Directory Service, so the ALTER LOGIN command doesn't allow
+All password management is performed through Directory Service, so the ALTER LOGIN command doesn't allow
 database administrators to change or set passwords for Windows logins.
 
 ### Connecting to Babelfish

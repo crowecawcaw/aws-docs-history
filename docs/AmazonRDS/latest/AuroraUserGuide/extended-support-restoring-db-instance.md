@@ -14,7 +14,7 @@ or the RDS API to restore your database. If you use the console, you don't selec
 is past the Aurora end of standard support, then Amazon Aurora automatically upgrades
 your DB instance to a newer engine version. If you use the AWS CLI or the RDS API and you
 don't specify the RDS Extended Support setting, then Amazon RDS defaults to enabling RDS Extended Support. When you
-automate by using [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md#aws-resource-rds-dbinstance-return-values:~:text=EngineLifecycleSupport "../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md#aws-resource-rds-dbinstance-return-values:~:text=EngineLifecycleSupport") or other services, this default behavior maintains the availability of
+automate by using [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md#aws-resource-rds-dbinstance-return-values:~:text=EngineLifecycleSupport "../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md#aws-resource-rds-dbinstance-return-values:~:text=EngineLifecycleSupport") or other services, this default behavior maintains the availability of
 your database past the Aurora end of standard support date. You can disable RDS Extended Support by using the
 AWS CLI or the RDS API.
 

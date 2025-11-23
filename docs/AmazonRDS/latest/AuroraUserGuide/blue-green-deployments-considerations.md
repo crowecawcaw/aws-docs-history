@@ -62,7 +62,7 @@ The following general limitations apply to blue/green deployments:
   - Amazon RDS Proxy
   - Cross-Region read replicas
   - Aurora Serverless v1 DB clusters
-  - AWS CloudFormation
+  - CloudFormation
 
 ### Aurora MySQL limitations for
 

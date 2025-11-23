@@ -3,7 +3,7 @@
 You can use Kerberos authentication to authenticate users when they connect to your
 Aurora MySQL DB cluster. To do so, configure your DB cluster to use AWS Directory Service for Microsoft Active Directory for
 Kerberos authentication. AWS Directory Service for Microsoft Active Directory is also called AWS Managed Microsoft AD. It's a feature
-available with AWS Directory Service. To learn more, see [What is AWS Directory Service?](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md") in the
+available with Directory Service. To learn more, see [What is Directory Service?](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md") in the
 _AWS Directory Service Administration Guide_.
 
 To start, create an AWS Managed Microsoft AD directory to store user credentials. Then, provide the
@@ -61,7 +61,7 @@ To set up Kerberos authentication for an Aurora MySQL DB cluster, complete the f
 general steps. These steps are described in more detail later.
 
 1. Use AWS Managed Microsoft AD to create an AWS Managed Microsoft AD directory. You can use the AWS Management Console, the
-   AWS CLI, or the AWS Directory Service to create the directory. For detailed instructions, see
+   AWS CLI, or the Directory Service to create the directory. For detailed instructions, see
    [Create your AWS Managed Microsoft AD directory](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_create_directory.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_create_directory.md") in the _AWS Directory Service Administration Guide_.
 2. Create an AWS Identity and Access Management (IAM) role that uses the managed IAM policy `AmazonRDSDirectoryServiceAccess`. The role
    allows Amazon Aurora to make calls to your directory.
@@ -86,7 +86,7 @@ information, see [Connecting to Aurora MySQL with Kerberos authentication](auror
 
 To use Kerberos authentication with an on-premises or self-hosted Microsoft Active Directory, create a _forest
 trust_. A forest trust is a trust relationship between two groups of domains. The trust can be one-way or two-way.
-For more information about setting up forest trusts using AWS Directory Service, see [When to create a trust relationship](../../../directoryservice/latest/admin-guide/ms_ad_setup_trust.md "../../../directoryservice/latest/admin-guide/ms_ad_setup_trust.md") in the
+For more information about setting up forest trusts using Directory Service, see [When to create a trust relationship](../../../directoryservice/latest/admin-guide/ms_ad_setup_trust.md "../../../directoryservice/latest/admin-guide/ms_ad_setup_trust.md") in the
 _AWS Directory Service Administration Guide_.
 
 ## Limitations of Kerberos authentication for Aurora MySQL

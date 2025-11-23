@@ -1,362 +1,148 @@
-# Processing a database activity stream using the AWS SDK
+# Monitoring Amazon Aurora with Database Activity
 
-You can programmatically process an activity stream by using the AWS SDK. The
-following are fully functioning Java and Python examples of how you might process the Kinesis data
+Streams
+
+By using Database Activity Streams, you can monitor near real-time streams of database
+activity.
+
+###### Topics
+
+- [Overview of Database Activity Streams](#DBActivityStreams.Overview "#DBActivityStreams.Overview")
+- [Network prerequisites for Aurora MySQL database activity streams](DBActivityStreams.md "DBActivityStreams.md")
+- [Starting a database activity stream](DBActivityStreams.md "DBActivityStreams.md")
+- [Getting the status of a database activity stream](DBActivityStreams.md "DBActivityStreams.md")
+- [Stopping a database activity stream](DBActivityStreams.md "DBActivityStreams.md")
+- [Monitoring database activity streams](DBActivityStreams.md "DBActivityStreams.md")
+- [IAM policy examples for database activity streams](DBActivityStreams.md "DBActivityStreams.md")
+
+## Overview of Database Activity Streams
+
+As an Amazon Aurora database
+administrator, you need to safeguard your database and meet compliance and regulatory requirements. One strategy is to
+integrate database activity streams with your monitoring tools. In this way, you monitor and set alarms for auditing
+activity in your Amazon Aurora cluster.
+
+Security threats are both external and internal. To protect against internal threats, you
+can control administrator access to data streams by configuring the Database Activity Streams
+feature. DBAs don't have access to the collection,
+transmission, storage, and processing of the streams.
+
+###### Contents
+
+- [How database activity streams work](DBActivityStreams.md#DBActivityStreams.Overview.how-they-work "DBActivityStreams.md#DBActivityStreams.Overview.how-they-work")
+- [Asynchronous and synchronous
+  mode for database activity streams](DBActivityStreams.md#DBActivityStreams.Overview.sync-mode "DBActivityStreams.md#DBActivityStreams.Overview.sync-mode")
+- [Requirements and limitations for
+  database activity streams](DBActivityStreams.md#DBActivityStreams.Overview.requirements "DBActivityStreams.md#DBActivityStreams.Overview.requirements")
+- [Region and version availability](DBActivityStreams.md#DBActivityStreams.Overview.Availability "DBActivityStreams.md#DBActivityStreams.Overview.Availability")
+- [Supported DB instance classes for database activity streams](DBActivityStreams.md#DBActivityStreams.Overview.requirements.classes "DBActivityStreams.md#DBActivityStreams.Overview.requirements.classes")
+
+### How database activity streams work
+
+In Amazon Aurora, you start a database activity stream at the cluster level. All DB instances within your cluster have
+database activity streams enabled.
+
+Your Aurora DB cluster pushes activities to an
+Amazon Kinesis data stream in near real time. The Kinesis stream is created automatically. From Kinesis, you can configure AWS services such as Amazon Data Firehose
+and AWS Lambda to consume the stream and store the data.
+
+###### Important
+
+Use of the database activity streams feature in
+Amazon Aurora is free, but Amazon Kinesis
+charges for a data stream. For more information, see [Amazon Kinesis Data Streams
+pricing](https://aws.amazon.com/kinesis/data-streams/pricing/ "https://aws.amazon.com/kinesis/data-streams/pricing/").
+
+If you use an Aurora global database, start a database activity stream on each DB cluster separately. Each cluster delivers
+audit data to its own Kinesis stream within its own AWS Region. The activity streams don't operate differently during a failover. They continue
+to audit your global database as usual.
+
+You can configure applications for compliance management to consume database activity streams. For
+Aurora PostgreSQL, compliance applications include IBM's Security Guardium and Imperva's SecureSphere Database Audit and
+Protection. These applications can use the stream to generate alerts and audit activity on your Aurora DB
+cluster.
+
+The following graphic shows an Aurora DB cluster configured with Amazon Data Firehose.
+
+![Architecture diagram showing database activity streams from an Aurora DB cluster consumed by Firehose](images/aurora-das.png)
+
+### Asynchronous and synchronous
+
+mode for database activity streams
+
+You can choose to have the database session handle database activity events in either of the
+following modes:
+
+- **Asynchronous mode** – When a database session generates an activity
+  stream event, the session returns to normal activities immediately. In the background, the activity stream event
+  is made a durable record. If an error occurs in the background task, an RDS event is sent. This event indicates
+  the beginning and end of any time windows where activity stream event records might have been lost.
+
+Asynchronous mode favors database performance over the accuracy of the activity
 stream.
 
-Java
+###### Note
 
-```
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.Security;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-import java.util.zip.GZIPInputStream;
+Asynchronous mode is available for both Aurora PostgreSQL and Aurora MySQL.
 
-import javax.crypto.Cipher;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.SecretKeySpec;
+- **Synchronous mode** – When a database session generates an activity
+  stream event, the session blocks other activities until the event is made durable. If the event can't be
+  made durable for some reason, the database session returns to normal activities. However, an RDS event is sent
+  indicating that activity stream records might be lost for some time. A second RDS event is sent after the system
+  is back to a healthy state.
 
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.encryptionsdk.AwsCrypto;
-import com.amazonaws.encryptionsdk.CryptoInputStream;
-import com.amazonaws.encryptionsdk.jce.JceMasterKey;
-import com.amazonaws.services.kinesis.clientlibrary.exceptions.InvalidStateException;
-import com.amazonaws.services.kinesis.clientlibrary.exceptions.ShutdownException;
-import com.amazonaws.services.kinesis.clientlibrary.exceptions.ThrottlingException;
-import com.amazonaws.services.kinesis.clientlibrary.interfaces.IRecordProcessor;
-import com.amazonaws.services.kinesis.clientlibrary.interfaces.IRecordProcessorCheckpointer;
-import com.amazonaws.services.kinesis.clientlibrary.interfaces.IRecordProcessorFactory;
-import com.amazonaws.services.kinesis.clientlibrary.lib.worker.InitialPositionInStream;
-import com.amazonaws.services.kinesis.clientlibrary.lib.worker.KinesisClientLibConfiguration;
-import com.amazonaws.services.kinesis.clientlibrary.lib.worker.ShutdownReason;
-import com.amazonaws.services.kinesis.clientlibrary.lib.worker.Worker;
-import com.amazonaws.services.kinesis.clientlibrary.lib.worker.Worker.Builder;
-import com.amazonaws.services.kinesis.model.Record;
-import com.amazonaws.services.kms.AWSKMS;
-import com.amazonaws.services.kms.AWSKMSClientBuilder;
-import com.amazonaws.services.kms.model.DecryptRequest;
-import com.amazonaws.services.kms.model.DecryptResult;
-import com.amazonaws.util.Base64;
-import com.amazonaws.util.IOUtils;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.annotations.SerializedName;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+The synchronous mode favors the accuracy of the activity stream over database performance.
 
-public class DemoConsumer {
+###### Note
 
-    private static final String STREAM_NAME = "aws-rds-das-[cluster-external-resource-id]";
-    private static final String APPLICATION_NAME = "AnyApplication"; //unique application name for dynamo table generation that holds kinesis shard tracking
-    private static final String AWS_ACCESS_KEY = "[AWS_ACCESS_KEY_TO_ACCESS_KINESIS]";
-    private static final String AWS_SECRET_KEY = "[AWS_SECRET_KEY_TO_ACCESS_KINESIS]";
-    private static final String DBC_RESOURCE_ID = "[cluster-external-resource-id]";
-    private static final String REGION_NAME = "[region-name]"; //us-east-1, us-east-2...
-    private static final BasicAWSCredentials CREDENTIALS = new BasicAWSCredentials(AWS_ACCESS_KEY, AWS_SECRET_KEY);
-    private static final AWSStaticCredentialsProvider CREDENTIALS_PROVIDER = new AWSStaticCredentialsProvider(CREDENTIALS);
+Synchronous mode is available for Aurora PostgreSQL. You can't use synchronous mode with Aurora MySQL.
 
-    private static final AwsCrypto CRYPTO = new AwsCrypto();
-    private static final AWSKMS KMS = AWSKMSClientBuilder.standard()
-            .withRegion(REGION_NAME)
-            .withCredentials(CREDENTIALS_PROVIDER).build();
+### Requirements and limitations for
 
-    class Activity {
-        String type;
-        String version;
-        String databaseActivityEvents;
-        String key;
-    }
+database activity streams
 
-    class ActivityEvent {
-        @SerializedName("class") String _class;
-        String clientApplication;
-        String command;
-        String commandText;
-        String databaseName;
-        String dbProtocol;
-        String dbUserName;
-        String endTime;
-        String errorMessage;
-        String exitCode;
-        String logTime;
-        String netProtocol;
-        String objectName;
-        String objectType;
-        List<String> paramList;
-        String pid;
-        String remoteHost;
-        String remotePort;
-        String rowCount;
-        String serverHost;
-        String serverType;
-        String serverVersion;
-        String serviceName;
-        String sessionId;
-        String startTime;
-        String statementId;
-        String substatementId;
-        String transactionId;
-        String type;
-    }
+In Aurora, database activity streams have the
+following requirements and limitations:
 
-    class ActivityRecords {
-        String type;
-        String clusterId;
-        String instanceId;
-        List<ActivityEvent> databaseActivityEventList;
-    }
+- Amazon Kinesis is required for database activity streams.
+- AWS Key Management Service (AWS KMS) is required for database activity streams because they are always encrypted.
+- Applying additional encryption to your Amazon Kinesis data stream is incompatible with database activity streams, which are already encrypted
+  with your AWS KMS key.
+- Start your database activity stream at the DB cluster level. If you add a DB instance to your cluster, you don't need to start an
+  activity stream on the instance: it is audited automatically.
+- In an Aurora global database, make sure to start an activity stream on each DB cluster separately. Each cluster delivers audit data to
+  its own Kinesis stream within its own AWS Region.
+- In Aurora PostgreSQL, make sure to stop database activity stream before a major version upgrade. You can start the database activity stream after the upgrade completes.
 
-    static class RecordProcessorFactory implements IRecordProcessorFactory {
-        @Override
-        public IRecordProcessor createProcessor() {
-            return new RecordProcessor();
-        }
-    }
+### Region and version availability
 
-    static class RecordProcessor implements IRecordProcessor {
+Feature availability and support varies across specific versions of each Aurora database engine, and across AWS Regions.
+For more information on version and Region availability with Aurora and database activity streams, see
+[Supported
+Regions and Aurora DB engines for database activity streams](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
 
-        private static final long BACKOFF_TIME_IN_MILLIS = 3000L;
-        private static final int PROCESSING_RETRIES_MAX = 10;
-        private static final long CHECKPOINT_INTERVAL_MILLIS = 60000L;
-        private static final Gson GSON = new GsonBuilder().serializeNulls().create();
+### Supported DB instance classes for database activity streams
 
-        private static final Cipher CIPHER;
-        static {
-            Security.insertProviderAt(new BouncyCastleProvider(), 1);
-            try {
-                CIPHER = Cipher.getInstance("AES/GCM/NoPadding", "BC");
-            } catch (NoSuchAlgorithmException | NoSuchPaddingException | NoSuchProviderException e) {
-                throw new ExceptionInInitializerError(e);
-            }
-        }
+For Aurora MySQL, you can use database activity streams with the following DB instance
+classes:
 
-        private long nextCheckpointTimeInMillis;
+- db.r8g.\*large
+- db.r7g.\*large
+- db.r7i.\*large
+- db.r6g.\*large
+- db.r6i.\*large
+- db.r5.\*large
+- db.x2g.\*
 
-        @Override
-        public void initialize(String shardId) {
-        }
+For Aurora PostgreSQL, you can use database activity streams with the following DB instance
+classes:
 
-        @Override
-        public void processRecords(final List<Record> records, final IRecordProcessorCheckpointer checkpointer) {
-            for (final Record record : records) {
-                processSingleBlob(record.getData());
-            }
-
-            if (System.currentTimeMillis() > nextCheckpointTimeInMillis) {
-                checkpoint(checkpointer);
-                nextCheckpointTimeInMillis = System.currentTimeMillis() + CHECKPOINT_INTERVAL_MILLIS;
-            }
-        }
-
-        @Override
-        public void shutdown(IRecordProcessorCheckpointer checkpointer, ShutdownReason reason) {
-            if (reason == ShutdownReason.TERMINATE) {
-                checkpoint(checkpointer);
-            }
-        }
-
-        private void processSingleBlob(final ByteBuffer bytes) {
-            try {
-                // JSON $Activity
-                final Activity activity = GSON.fromJson(new String(bytes.array(), StandardCharsets.UTF_8), Activity.class);
-
-                // Base64.Decode
-                final byte[] decoded = Base64.decode(activity.databaseActivityEvents);
-                final byte[] decodedDataKey = Base64.decode(activity.key);
-
-                Map<String, String> context = new HashMap<>();
-                context.put("aws:rds:dbc-id", DBC_RESOURCE_ID);
-
-                // Decrypt
-                final DecryptRequest decryptRequest = new DecryptRequest()
-                        .withCiphertextBlob(ByteBuffer.wrap(decodedDataKey)).withEncryptionContext(context);
-                final DecryptResult decryptResult = KMS.decrypt(decryptRequest);
-                final byte[] decrypted = decrypt(decoded, getByteArray(decryptResult.getPlaintext()));
-
-                // GZip Decompress
-                final byte[] decompressed = decompress(decrypted);
-                // JSON $ActivityRecords
-                final ActivityRecords activityRecords = GSON.fromJson(new String(decompressed, StandardCharsets.UTF_8), ActivityRecords.class);
-
-                // Iterate throught $ActivityEvents
-                for (final ActivityEvent event : activityRecords.databaseActivityEventList) {
-                    System.out.println(GSON.toJson(event));
-                }
-            } catch (Exception e) {
-                // Handle error.
-                e.printStackTrace();
-            }
-        }
-
-        private static byte[] decompress(final byte[] src) throws IOException {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(src);
-            GZIPInputStream gzipInputStream = new GZIPInputStream(byteArrayInputStream);
-            return IOUtils.toByteArray(gzipInputStream);
-        }
-
-        private void checkpoint(IRecordProcessorCheckpointer checkpointer) {
-            for (int i = 0; i < PROCESSING_RETRIES_MAX; i++) {
-                try {
-                    checkpointer.checkpoint();
-                    break;
-                } catch (ShutdownException se) {
-                    // Ignore checkpoint if the processor instance has been shutdown (fail over).
-                    System.out.println("Caught shutdown exception, skipping checkpoint." + se);
-                    break;
-                } catch (ThrottlingException e) {
-                    // Backoff and re-attempt checkpoint upon transient failures
-                    if (i >= (PROCESSING_RETRIES_MAX - 1)) {
-                        System.out.println("Checkpoint failed after " + (i + 1) + "attempts." + e);
-                        break;
-                    } else {
-                        System.out.println("Transient issue when checkpointing - attempt " + (i + 1) + " of " + PROCESSING_RETRIES_MAX + e);
-                    }
-                } catch (InvalidStateException e) {
-                    // This indicates an issue with the DynamoDB table (check for table, provisioned IOPS).
-                    System.out.println("Cannot save checkpoint to the DynamoDB table used by the Amazon Kinesis Client Library." + e);
-                    break;
-                }
-                try {
-                    Thread.sleep(BACKOFF_TIME_IN_MILLIS);
-                } catch (InterruptedException e) {
-                    System.out.println("Interrupted sleep" + e);
-                }
-            }
-        }
-    }
-
-    private static byte[] decrypt(final byte[] decoded, final byte[] decodedDataKey) throws IOException {
-        // Create a JCE master key provider using the random key and an AES-GCM encryption algorithm
-        final JceMasterKey masterKey = JceMasterKey.getInstance(new SecretKeySpec(decodedDataKey, "AES"),
-                "BC", "DataKey", "AES/GCM/NoPadding");
-        try (final CryptoInputStream<JceMasterKey> decryptingStream = CRYPTO.createDecryptingStream(masterKey, new ByteArrayInputStream(decoded));
-             final ByteArrayOutputStream out = new ByteArrayOutputStream()) {
-            IOUtils.copy(decryptingStream, out);
-            return out.toByteArray();
-        }
-    }
-
-    public static void main(String[] args) throws Exception {
-        final String workerId = InetAddress.getLocalHost().getCanonicalHostName() + ":" + UUID.randomUUID();
-        final KinesisClientLibConfiguration kinesisClientLibConfiguration =
-                new KinesisClientLibConfiguration(APPLICATION_NAME, STREAM_NAME, CREDENTIALS_PROVIDER, workerId);
-        kinesisClientLibConfiguration.withInitialPositionInStream(InitialPositionInStream.LATEST);
-        kinesisClientLibConfiguration.withRegionName(REGION_NAME);
-        final Worker worker = new Builder()
-                .recordProcessorFactory(new RecordProcessorFactory())
-                .config(kinesisClientLibConfiguration)
-                .build();
-
-        System.out.printf("Running %s to process stream %s as worker %s...\n", APPLICATION_NAME, STREAM_NAME, workerId);
-
-        try {
-            worker.run();
-        } catch (Throwable t) {
-            System.err.println("Caught throwable while processing data.");
-            t.printStackTrace();
-            System.exit(1);
-        }
-        System.exit(0);
-    }
-
-    private static byte[] getByteArray(final ByteBuffer b) {
-        byte[] byteArray = new byte[b.remaining()];
-        b.get(byteArray);
-        return byteArray;
-    }
-}
-
-```
-
-Python
-
-```
-import base64
-import json
-import zlib
-import aws_encryption_sdk
-from aws_encryption_sdk import CommitmentPolicy
-from aws_encryption_sdk.internal.crypto import WrappingKey
-from aws_encryption_sdk.key_providers.raw import RawMasterKeyProvider
-from aws_encryption_sdk.identifiers import WrappingAlgorithm, EncryptionKeyType
-import boto3
-
-REGION_NAME = '<region>'                    # us-east-1
-RESOURCE_ID = '<external-resource-id>'      # cluster-ABCD123456
-STREAM_NAME = 'aws-rds-das-' + RESOURCE_ID  # aws-rds-das-cluster-ABCD123456
-
-enc_client = aws_encryption_sdk.EncryptionSDKClient(commitment_policy=CommitmentPolicy.FORBID_ENCRYPT_ALLOW_DECRYPT)
-
-class MyRawMasterKeyProvider(RawMasterKeyProvider):
-    provider_id = "BC"
-
-    def __new__(cls, *args, **kwargs):
-        obj = super(RawMasterKeyProvider, cls).__new__(cls)
-        return obj
-
-    def __init__(self, plain_key):
-        RawMasterKeyProvider.__init__(self)
-        self.wrapping_key = WrappingKey(wrapping_algorithm=WrappingAlgorithm.AES_256_GCM_IV12_TAG16_NO_PADDING,
-                                        wrapping_key=plain_key, wrapping_key_type=EncryptionKeyType.SYMMETRIC)
-
-    def _get_raw_key(self, key_id):
-        return self.wrapping_key
-
-
-def decrypt_payload(payload, data_key):
-    my_key_provider = MyRawMasterKeyProvider(data_key)
-    my_key_provider.add_master_key("DataKey")
-    decrypted_plaintext, header = enc_client.decrypt(
-        source=payload,
-        materials_manager=aws_encryption_sdk.materials_managers.default.DefaultCryptoMaterialsManager(master_key_provider=my_key_provider))
-    return decrypted_plaintext
-
-
-def decrypt_decompress(payload, key):
-    decrypted = decrypt_payload(payload, key)
-    return zlib.decompress(decrypted, zlib.MAX_WBITS + 16)
-
-
-def main():
-    session = boto3.session.Session()
-    kms = session.client('kms', region_name=REGION_NAME)
-    kinesis = session.client('kinesis', region_name=REGION_NAME)
-
-    response = kinesis.describe_stream(StreamName=STREAM_NAME)
-    shard_iters = []
-    for shard in response['StreamDescription']['Shards']:
-        shard_iter_response = kinesis.get_shard_iterator(StreamName=STREAM_NAME, ShardId=shard['ShardId'],
-                                                         ShardIteratorType='LATEST')
-        shard_iters.append(shard_iter_response['ShardIterator'])
-
-    while len(shard_iters) > 0:
-        next_shard_iters = []
-        for shard_iter in shard_iters:
-            response = kinesis.get_records(ShardIterator=shard_iter, Limit=10000)
-            for record in response['Records']:
-                record_data = record['Data']
-                record_data = json.loads(record_data)
-                payload_decoded = base64.b64decode(record_data['databaseActivityEvents'])
-                data_key_decoded = base64.b64decode(record_data['key'])
-                data_key_decrypt_result = kms.decrypt(CiphertextBlob=data_key_decoded,
-                                                      EncryptionContext={'aws:rds:dbc-id': RESOURCE_ID})
-                print (decrypt_decompress(payload_decoded, data_key_decrypt_result['Plaintext']))
-            if 'NextShardIterator' in response:
-                next_shard_iters.append(response['NextShardIterator'])
-        shard_iters = next_shard_iters
-
-
-if __name__ == '__main__':
-    main()
-
-```
+- db.r8g.\*large
+- db.r7i.\*large
+- db.r7g.\*large
+- db.r6g.\*large
+- db.r6i.\*large
+- db.r6id.\*large
+- db.r5.\*large
+- db.r4.\*large
+- db.x2g.\*

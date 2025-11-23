@@ -19,7 +19,7 @@ For access to your restored database on the deprecated version after an upgrade 
 You can use the restored DB cluster as soon as its status is
 `available`.
 
-You can use AWS CloudFormation to restore a DB cluster from a DB cluster snapshot. For more
+You can use CloudFormation to restore a DB cluster from a DB cluster snapshot. For more
 information, see [AWS::RDS::DBCluster](../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.md") in the _AWS CloudFormation User Guide_.
 
 ###### Note

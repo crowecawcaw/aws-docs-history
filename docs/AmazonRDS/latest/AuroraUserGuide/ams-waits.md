@@ -1,55 +1,34 @@
-# synch/sxlock/innodb/hash_table_locks
+# io/redo_log_flush
 
-The `synch/sxlock/innodb/hash_table_locks` event occurs when pages not found in the buffer pool must be read
-from storage.
+The `io/redo_log_flush` event occurs when a session is writing persistent data to Amazon Aurora storage.
 
 ###### Topics
 
-- [Supported engine versions](#ams-waits.sx-lock-hash-table-locks.context.supported "#ams-waits.sx-lock-hash-table-locks.context.supported")
-- [Context](#ams-waits.sx-lock-hash-table-locks.context "#ams-waits.sx-lock-hash-table-locks.context")
-- [Likely causes of increased waits](#ams-waits.sx-lock-hash-table-locks.causes "#ams-waits.sx-lock-hash-table-locks.causes")
-- [Actions](#ams-waits.sx-lock-hash-table-locks.actions "#ams-waits.sx-lock-hash-table-locks.actions")
+- [Supported engine versions](#ams-waits.io-redologflush.context.supported "#ams-waits.io-redologflush.context.supported")
+- [Context](#ams-waits.io-redologflush.context "#ams-waits.io-redologflush.context")
+- [Likely causes of increased waits](#ams-waits.io-redologflush.causes "#ams-waits.io-redologflush.causes")
+- [Actions](#ams-waits.io-redologflush.actions "#ams-waits.io-redologflush.actions")
 
 ## Supported engine versions
 
-This wait event information is supported for the following versions:
+This wait event information is supported for the following engine versions:
 
-- Aurora MySQL versions 2 and 3
+- Aurora MySQL version 3
 
 ## Context
 
-The event `synch/sxlock/innodb/hash_table_locks` indicates that a workload is frequently accessing data
-that isn't stored in the buffer pool. This wait event is associated with new page additions and old data evictions
-from the buffer pool. The data stored in the buffer pool aged and new data must be cached, so the aged pages are evicted
-to allow caching of the new pages. MySQL uses a least recently used (LRU) algorithm to evict pages from the buffer pool.
-The workload is trying to access data that hasn't been loaded into the buffer pool or data that has been evicted
-from the buffer pool.
+The `io/redo_log_flush` event is for a write input/output (I/O) operation in Aurora MySQL.
 
-This wait event occurs when the workload must access the data in files on disk
-or when blocks are freed from or added to the buffer pool's LRU list. These operations
-wait to obtain a shared excluded lock (SX-lock). This SX-lock is used for the
-synchronization over the _hash table_, which is a table
-in memory designed to improve buffer pool access performance.
+###### Note
 
-For more information, see [Buffer Pool](https://dev.mysql.com/doc/refman/5.7/en/innodb-buffer-pool.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-buffer-pool.html")
-in the MySQL documentation.
+In Aurora MySQL version 2, this wait event is named [io/aurora_redo_log_flush](ams-waits.md "ams-waits.md").
 
 ## Likely causes of increased waits
 
-When the `synch/sxlock/innodb/hash_table_locks` wait event appears more than normal, possibly indicating
-a performance problem, typical causes include the following:
+For data persistence, commits require a durable write to stable storage. If the database is doing too many commits, there is a wait event on the
+write I/O operation, the `io/redo_log_flush` wait event.
 
-**An undersized buffer pool**
-
-The size of the buffer pool is too small to keep all of the frequently accessed pages in memory.
-
-**Heavy workload**
-
-The workload is causing frequent evictions and data pages reloads in the buffer cache.
-
-**Errors reading the pages**
-
-There are errors reading pages in the buffer pool, which might indicate data corruption.
+For examples of the behavior of this wait event, see [io/aurora_redo_log_flush](ams-waits.md "ams-waits.md").
 
 ## Actions
 
@@ -57,56 +36,113 @@ We recommend different actions depending on the causes of your wait event.
 
 ###### Topics
 
-- [Increase the size of the buffer pool](#ams-waits.sx-lock-hash-table-locks.actions.increase-buffer-pool-size "#ams-waits.sx-lock-hash-table-locks.actions.increase-buffer-pool-size")
-- [Improve data access patterns](#ams-waits.sx-lock-hash-table-locks.actions.improve-data-access-patterns "#ams-waits.sx-lock-hash-table-locks.actions.improve-data-access-patterns")
-- [Reduce or avoid full-table scans](#ams-waits.sx-lock-hash-table-locks.actions.reduce-full-table-scans "#ams-waits.sx-lock-hash-table-locks.actions.reduce-full-table-scans")
-- [Check the error logs for page corruption](#ams-waits.sx-lock-hash-table-locks.actions.check-error-logs "#ams-waits.sx-lock-hash-table-locks.actions.check-error-logs")
+- [Identify the problematic sessions and
+  queries](#ams-waits.io-redologflush.actions.identify-queries "#ams-waits.io-redologflush.actions.identify-queries")
+- [Group your write operations](#ams-waits.io-redologflush.actions.action0 "#ams-waits.io-redologflush.actions.action0")
+- [Turn off
+  autocommit](#ams-waits.io-redologflush.actions.action1 "#ams-waits.io-redologflush.actions.action1")
+- [Use transactions](#ams-waits.io-redologflush.action2 "#ams-waits.io-redologflush.action2")
+- [Use batches](#ams-waits.io-redologflush.action3 "#ams-waits.io-redologflush.action3")
 
-### Increase the size of the buffer pool
+### Identify the problematic sessions and
 
-Make sure that the buffer pool is appropriately sized for the workload. To
-do so, you can check the buffer pool cache hit rate. Typically, if the value drops
-below 95 percent, consider increasing the buffer pool size. A larger buffer pool can
-keep frequently accessed pages in memory longer. To increase the size of the buffer
-pool, modify the value of the `innodb_buffer_pool_size` parameter. The
-default value of this parameter is based on the DB instance class size. For more
-information, see [Best practices for Amazon Aurora MySQL database configuration](https://aws.amazon.com/blogs/database/best-practices-for-amazon-aurora-mysql-database-configuration/ "https://aws.amazon.com/blogs/database/best-practices-for-amazon-aurora-mysql-database-configuration/").
+queries
 
-### Improve data access patterns
+If your DB instance is experiencing a bottleneck, your first task is to find the sessions and queries that
+cause it. For a useful AWS Database Blog post, see [Analyze Amazon Aurora
+MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
 
-Check the queries affected by this wait and their execution plans. Consider improving data access patterns. For example,
-if you are using [mysqli_result::fetch_array](https://www.php.net/manual/en/mysqli-result.fetch-array.php "https://www.php.net/manual/en/mysqli-result.fetch-array.php"),
-you can try increasing the array fetch size.
-
-You can use Performance Insights to show queries and sessions that might be causing the `synch/sxlock/innodb/hash_table_locks`
-wait event.
-
-###### To find SQL queries that are responsible for high load
+###### To identify sessions and queries causing a bottleneck
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Performance Insights**.
-3. Choose a DB instance. The Performance Insights dashboard is shown for that DB
-   instance.
-4. In the **Database load** chart, choose **Slice by
-   wait**.
+3. Choose your DB instance.
+4. In **Database load**, choose **Slice by wait**.
 5. At the bottom of the page, choose **Top SQL**.
 
-The chart lists the SQL queries that are responsible for the load. Those at the top of the
-list are most responsible. To resolve a bottleneck, focus on these statements.
+The queries at the top of the list are causing the highest load on the database.
 
-For a useful overview of troubleshooting using Performance Insights, see
-the AWS Database Blog post [Analyze Amazon Aurora MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
+### Group your write operations
 
-### Reduce or avoid full-table scans
+The following examples trigger the `io/redo_log_flush` wait
+event. (Autocommit is turned on.)
 
-Monitor your workload to see if it's running full-table scans, and, if it
-is, reduce or avoid them. For example, you can monitor status variables such as
-`Handler_read_rnd_next`. For more information, see [Server Status Variables](https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Handler_read_rnd_next "https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Handler_read_rnd_next") in the MySQL documentation.
+```
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+....
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
 
-### Check the error logs for page corruption
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE id=xx;
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE id=xx;
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE id=xx;
+....
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE id=xx;
 
-You can check the mysql-error.log for corruption-related messages that
-were detected near the time of the issue. Messages that you can work with to resolve
-the issue are in the error log. You might need to recreate objects that were
-reported as corrupted.
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
+....
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
+```
+
+To reduce the time spent waiting on the `io/redo_log_flush` wait event, group your write operations
+logically into a single commit to reduce persistent calls to storage.
+
+### Turn off
+
+autocommit
+
+Turn off autocommit before making large changes that aren't within a
+transaction, as shown in the following example.
+
+```
+SET SESSION AUTOCOMMIT=OFF;
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1=xx;
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1=xx;
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1=xx;
+....
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1=xx;
+-- Other DML statements here
+COMMIT;
+
+SET SESSION AUTOCOMMIT=ON;
+```
+
+### Use transactions
+
+You can use transactions, as shown in the following example.
+
+```
+BEGIN
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+....
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
+....
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
+
+-- Other DML statements here
+END
+```
+
+### Use batches
+
+You can make changes in batches, as shown in the following example. However, using batches that are too large can cause
+performance issues, especially in read replicas or when doing point-in-time recovery (PITR).
+
+```
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES
+('xxxx','xxxxx'),('xxxx','xxxxx'),...,('xxxx','xxxxx'),('xxxx','xxxxx');
+
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1 BETWEEN xx AND xxx;
+
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1<xx;
+```

@@ -11,9 +11,9 @@ PostgreSQL DB cluster. To set up Kerberos authentication, take the following ste
   directory using AWS Managed Microsoft AD](#postgresql-kerberos-setting-up.create-directory "#postgresql-kerberos-setting-up.create-directory")
 - [Step 2: (Optional)
   Create a trust relationship between your on-premises Active Directory and
-  AWS Directory Service](#postgresql-kerberos-setting-up.create-trust "#postgresql-kerberos-setting-up.create-trust")
+  Directory Service](#postgresql-kerberos-setting-up.create-trust "#postgresql-kerberos-setting-up.create-trust")
 - [Step 3: Create an IAM
-  role for Amazon Aurora to access the AWS Directory Service](#postgresql-kerberos-setting-up.CreateIAMRole "#postgresql-kerberos-setting-up.CreateIAMRole")
+  role for Amazon Aurora to access the Directory Service](#postgresql-kerberos-setting-up.CreateIAMRole "#postgresql-kerberos-setting-up.CreateIAMRole")
 - [Step 4: Create and
   configure users](#postgresql-kerberos-setting-up.create-users "#postgresql-kerberos-setting-up.create-users")
 - [Step 5: Enable
@@ -29,8 +29,8 @@ PostgreSQL DB cluster. To set up Kerberos authentication, take the following ste
 
 directory using AWS Managed Microsoft AD
 
-AWS Directory Service creates a fully managed Active Directory in the AWS Cloud. When you create
-an AWS Managed Microsoft AD directory, AWS Directory Service creates two domain controllers and DNS servers for
+Directory Service creates a fully managed Active Directory in the AWS Cloud. When you create
+an AWS Managed Microsoft AD directory, Directory Service creates two domain controllers and DNS servers for
 you. The directory servers are created in different subnets in a VPC. This
 redundancy helps make sure that your directory remains accessible even if a failure
 occurs.
@@ -45,7 +45,7 @@ following tasks on your behalf:
 
 ###### Important
 
-Make sure to save this password. AWS Directory Service doesn't store this
+Make sure to save this password. Directory Service doesn't store this
 password, and it can't be retrieved or reset.
 
 - Creates a security group for the directory controllers. The security group
@@ -78,7 +78,7 @@ domain-wide activities:
 
 ###### To create a directory with AWS Managed Microsoft AD
 
-1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation
+1. In the [Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation
    pane, choose **Directories**, and then choose
    **Set up directory**.
 2. Choose **AWS Managed Microsoft AD**. AWS Managed Microsoft AD is the
@@ -128,7 +128,7 @@ Retype the administrator password.
 
 ###### Important
 
-Make sure that you save this password. AWS Directory Service doesn't
+Make sure that you save this password. Directory Service doesn't
 store this password, and it can't be retrieved or
 reset. 5. Choose **Next**. 6. On the **Choose VPC and subnets** page, provide the
 following information:
@@ -161,11 +161,11 @@ value when you create or modify your PostgreSQL DB instance.
 ## Step 2: (Optional)
 
 Create a trust relationship between your on-premises Active Directory and
-AWS Directory Service
+Directory Service
 
 If you don't plan to use your own on-premises Microsoft Active Directory,
 skip to [Step 3: Create an IAM
-role for Amazon Aurora to access the AWS Directory Service](#postgresql-kerberos-setting-up.CreateIAMRole "#postgresql-kerberos-setting-up.CreateIAMRole").
+role for Amazon Aurora to access the Directory Service](#postgresql-kerberos-setting-up.CreateIAMRole "#postgresql-kerberos-setting-up.CreateIAMRole").
 
 To get Kerberos authentication using your on-premises Active Directory, you need
 to create a trusting domain relationship using a forest trust between your
@@ -174,7 +174,7 @@ on-premises Microsoft Active Directory and the AWS Managed Microsoft AD director
 directory using AWS Managed Microsoft AD](#postgresql-kerberos-setting-up.create-directory "#postgresql-kerberos-setting-up.create-directory")). The trust
 can be one-way, where the AWS Managed Microsoft AD directory trusts the on-premises Microsoft
 Active Directory. The trust can also be two-way, where both Active Directories trust
-each other. For more information about setting up trusts using AWS Directory Service, see [When to create
+each other. For more information about setting up trusts using Directory Service, see [When to create
 a trust relationship](../../../directoryservice/latest/admin-guide/ms_ad_setup_trust.md "../../../directoryservice/latest/admin-guide/ms_ad_setup_trust.md") in the
 _AWS Directory Service Administration Guide_.
 
@@ -182,7 +182,7 @@ _AWS Directory Service Administration Guide_.
 
 If you use an on-premises Microsoft Active Directory:
 
-- Windows clients must connect using the domain name of the AWS Directory Service in the
+- Windows clients must connect using the domain name of the Directory Service in the
   endpoint rather than rds.amazonaws.com. For more information, see [Connecting to PostgreSQL with Kerberos
   authentication](postgresql-kerberos-connecting.md "postgresql-kerberos-connecting.md").
 - Windows clients can't connect using Aurora custom endpoints. To
@@ -203,11 +203,11 @@ following screenshot shows an example.
 
 ## Step 3: Create an IAM
 
-role for Amazon Aurora to access the AWS Directory Service
+role for Amazon Aurora to access the Directory Service
 
-For Amazon Aurora to call AWS Directory Service for you, your AWS account needs an IAM role
+For Amazon Aurora to call Directory Service for you, your AWS account needs an IAM role
 that uses the managed IAM policy `AmazonRDSDirectoryServiceAccess`.
-This role allows Amazon Aurora to make calls to AWS Directory Service. (Note that this IAM role to access the AWS Directory Service is different
+This role allows Amazon Aurora to make calls to Directory Service. (Note that this IAM role to access the Directory Service is different
 than the IAM role used for [IAM database authentication](UsingWithRDS.md "UsingWithRDS.md").)
 
 When you create a DB instance using the AWS Management Console and your console user account
@@ -327,8 +327,8 @@ documentation. In this case, users are individuals or other entities, such as th
 computers that are part of the domain and whose identities are being maintained in
 the directory.
 
-To create users in an AWS Directory Service directory, you must be connected to a Windows-based
-Amazon EC2 instance that's a member of the AWS Directory Service directory. At the same time, you
+To create users in an Directory Service directory, you must be connected to a Windows-based
+Amazon EC2 instance that's a member of the Directory Service directory. At the same time, you
 must be logged in as a user that has privileges to create users. For more
 information, see [Create a
 user](../../../directoryservice/latest/admin-guide/ms_ad_manage_users_groups_create_user.md "../../../directoryservice/latest/admin-guide/ms_ad_manage_users_groups_create_user.md") in the _AWS Directory Service Administration Guide_.
@@ -368,12 +368,12 @@ directory.
 1. Start sharing the directory with the AWS account that the DB instance
    will be created in by following the instructions in [Tutorial:
    Sharing your AWS Managed Microsoft AD directory for seamless EC2
-   Domain-join](../../../directoryservice/latest/admin-guide/ms_ad_tutorial_directory_sharing.md "../../../directoryservice/latest/admin-guide/ms_ad_tutorial_directory_sharing.md") in the _AWS Directory Service Administration
+   Domain-join](../../../directoryservice/latest/admin-guide/ms_ad_tutorial_directory_sharing.md "../../../directoryservice/latest/admin-guide/ms_ad_tutorial_directory_sharing.md") in the _Directory Service Administration
    Guide_.
-2. Sign in to the AWS Directory Service console using the account for the DB instance, and
+2. Sign in to the Directory Service console using the account for the DB instance, and
    ensure that the domain has the `SHARED` status before
    proceeding.
-3. While signed into the AWS Directory Service console using the account for the DB instance,
+3. While signed into the Directory Service console using the account for the DB instance,
    note the **Directory ID** value. You use this directory ID
    to join the DB instance to the domain.
 
@@ -528,11 +528,11 @@ a PostgreSQL client
 To configure a PostgreSQL client, take the following steps:
 
 - Create a krb5.conf file (or equivalent) to point to the domain.
-- Verify that traffic can flow between the client host and AWS Directory Service. Use a
+- Verify that traffic can flow between the client host and Directory Service. Use a
   network utility such as Netcat for the following:
   - Verify traffic over DNS for port 53.
   - Verify traffic over TCP/UDP for port 53 and for Kerberos, which
-    includes ports 88 and 464 for AWS Directory Service.
+    includes ports 88 and 464 for Directory Service.
 
 - Verify that traffic can flow between the client host and the DB instance
   over the database port. For example, use psql to connect and access the
