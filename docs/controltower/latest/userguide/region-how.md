@@ -99,7 +99,7 @@ adhere to the following rules:
 
 ###### Configure AWS Control Tower Regions
 
-1. Sign in to the AWS Control Tower console at [https://console.aws.amazon.com/controltower](https://console.aws.amazon.com/controltower "https://console.aws.amazon.com/controltower")
+1. Sign in to the AWS Control Tower console at [https://console.aws.amazon.com//controltower](https://console.aws.amazon.com//controltower "https://console.aws.amazon.com//controltower")
 2. In the left-pane navigation menu, choose **Landing zone
    settings**.
 3. On the **Landing zone settings** page,in the

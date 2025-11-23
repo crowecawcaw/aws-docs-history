@@ -9,8 +9,11 @@ all of your accounts and OUs.
 2. In the left-pane navigation menu, choose **Organization** .
 3. On the **Organization** page, choose any OU to view the
    **OU details** page.
-4. Under **Actions** in the upper right, select
-   **Re-Register OU**.
+4. If AWSControlTowerBaseline is enabled on the OU, select **Re-Register OU**
+   under **Actions**. If AWSControlTowerBaseline is not enabled on the OU,
+   select **Reset AWS Config baseline** under **Actions**
+   to reset enabled baseline and select enabled controls and **Reset control**
+   under "Enabled controls" section to reset enabled controls.
    Alternatively, you can select any account that shows a status of **Update
    available** and then choose **Update account**, for as
    many accounts as needed.

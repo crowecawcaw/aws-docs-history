@@ -14,7 +14,7 @@ full screen. Captioning is available.
 
 For guidance regarding best practices for nested OUs and your landing zone, see the
 blog post [Organizing
-your AWS Control Tower landing zone with nested OUs](https://aws.amazon.com/blogs/mt/organizing-your-aws-control-tower-landing-zone-with-nested-ous/ "https://aws.amazon.com/blogs/mt/organizing-your-aws-control-tower-landing-zone-with-nested-ous/").
+your AWS Control Tower landing zone with nested OUs](https://aws.amazon.com/blogs//mt/organizing-your-aws-control-tower-landing-zone-with-nested-ous/ "https://aws.amazon.com/blogs//mt/organizing-your-aws-control-tower-landing-zone-with-nested-ous/").
 
 ## Expand from flat OU structure to nested OU
 

@@ -10,6 +10,11 @@ created through account factory, all resources attached to the account are deplo
 automatically. You can deploy the custom templates and policies to individual accounts and
 organizational units (OUs) within your organization.
 
+###### Note
+
+The target organizational unit (OU) configured in CfCT must have AWSControlTowerBaseline enabled
+in AWS Control Tower.
+
 The following video describes best practices for deploying a scalable CfCT pipeline and
 common CfCT customizations.
 

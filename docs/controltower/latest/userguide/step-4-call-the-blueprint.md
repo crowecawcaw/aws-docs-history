@@ -22,7 +22,7 @@ and begin to provision customized accounts.
    point in the process. The blueprint provisioning policy is written in JSON
    and attached to an IAM role, so it can provision the resources that are
    specified in the blueprint template. AWS Control Tower creates this role in the
-   member account so that Service Catalog can deploy resources using AWS CloudFormation stack sets. The
+   member account so that Service Catalog can deploy resources using CloudFormation stack sets. The
    role is named
    `AWSControlTower-BlueprintExecution-bp-`xxxx``.
 The `AdministratorAccess` policy is applied here by default.

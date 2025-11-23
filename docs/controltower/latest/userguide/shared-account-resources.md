@@ -28,7 +28,7 @@ management account.
 
 ###### Note
 
-The AWS CloudFormation StackSet `BP_BASELINE_CLOUDTRAIL` is not deployed in landing zone versions 3.0 or later. However, it continues to exist in earlier versions of the landing zone, until you update your landing zone.
+The CloudFormation StackSet `BP_BASELINE_CLOUDTRAIL` is not deployed in landing zone versions 3.0 or later. However, it continues to exist in earlier versions of the landing zone, until you update your landing zone.
 
 ## Log archive account resources
 

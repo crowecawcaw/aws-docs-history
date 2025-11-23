@@ -30,10 +30,10 @@ OU.
 The mandatory controls that AWS Control Tower always enforces are not counted toward the
 number of controls you've enabled on an OU, for purposes of registration.
 
-**AWS CloudFormation stack set limitations**
+**CloudFormation stack set limitations**
 
 If you plan to register a large number of accounts across multiple AWS Regions, you
-may encounter limits created by AWS CloudFormation stack sets on the overall size of an organization.
+may encounter limits created by CloudFormation stack sets on the overall size of an organization.
 You can estimate the limitation with this formula:
 
 _Number of managed accounts in the organization x Number of governed Regions

@@ -17,7 +17,7 @@ instructions, follow the links for each step.
 
 [Step 1. Launch the stack](step1.md "step1.md")
 
-- Launch the AWS CloudFormation template into your management account.
+- Launch the CloudFormation template into your management account.
 - Review the template parameters, and adjust if necessary.
 
 [Step 2. Create a custom package](step2.md "step2.md")

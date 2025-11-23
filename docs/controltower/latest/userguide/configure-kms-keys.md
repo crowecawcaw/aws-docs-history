@@ -49,7 +49,7 @@ following information:
 
 ###### To update the KMS key policy
 
-1. Open the AWS KMS console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms")
+1. Open the AWS KMS console at [https://console.aws.amazon.com//kms](https://console.aws.amazon.com//kms "https://console.aws.amazon.com//kms")
 2. From the navigation pane, choose **Customer managed
    keys**.
 3. In the table, select the key that you want to edit.

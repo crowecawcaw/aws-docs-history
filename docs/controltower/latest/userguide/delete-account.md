@@ -25,6 +25,10 @@ would be. The account shows a **Suspended** status in AWS Control Tower and
 AWS Organizations. If you attempt to work with the account during that 90 days, AWS Control Tower
 gives an error message.
 
+###### Note
+
+If an OU has suspended accounts, EnabledControl operations will fail for regional controls on the target.
+
 Before the 90 days expire, you can restore the member account, as you can do with
 any AWS account. After that 90-day time, the account’s records are removed.
 

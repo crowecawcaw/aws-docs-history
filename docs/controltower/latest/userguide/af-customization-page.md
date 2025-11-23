@@ -2,6 +2,13 @@
 
 Customization (AFC)
 
+###### Note
+
+Single account provision, update and customization must target an organizational unit (OU)
+with AWSControlTowerBaseline enabled. If an OU does not have the AWSControlTowerBaseline enabled, you can activate account auto-enrollment
+or use ResetEnabledBaseline and ResetEnabledControl APIs on EnabledBaselines and EnabledControls on that OU to enroll accounts.
+There are no single account provisioning limitations when an OU has the AWSControlTowerBaseline enabled.
+
 AWS Control Tower allows you to customize new and existing AWS accounts when you provision their
 resources from the AWS Control Tower console. After you set up Account Factory customization,
 AWS Control Tower automates this process for future provisioning, so you don't have to maintain any
@@ -10,7 +17,7 @@ provisioned.
 
 **Provision new accounts with blueprints**
 
-Your customized accounts are provisioned in the AWS Control Tower Account Factory, through AWS CloudFormation templates, or with Terraform.
+Your customized accounts are provisioned in the AWS Control Tower Account Factory, through CloudFormation templates, or with Terraform.
 You'll define a template that serves as customized account _blueprint_. Your blueprint describes the specific resources and
 configurations you require when an account is provisioned. Pre-defined blueprints, built and
 managed by AWS partners, also are available. For more information about partner-managed
@@ -36,13 +43,13 @@ Guide_.
 ###### Note
 
 AWS Control Tower contains _proactive controls_, which monitor
-AWS CloudFormation resources in AWS Control Tower. Optionally, you can activate these controls in your landing
+CloudFormation resources in AWS Control Tower. Optionally, you can activate these controls in your landing
 zone. When you apply proactive controls, they check to make sure that the resources
 you're about to deploy to your accounts are compliant with your organization's policies
 and procedures. For more information about proactive controls, see [Proactive controls](proactive-controls.md "proactive-controls.md").
 
 For more information about working with AFC, see [Automate account customization using Account Factory Customization in
-AWS Control Tower](https://aws.amazon.com/blogs/mt/automate-account-customization-using-account-factory-customization-in-aws-control-tower/ "https://aws.amazon.com/blogs/mt/automate-account-customization-using-account-factory-customization-in-aws-control-tower/").
+AWS Control Tower](https://aws.amazon.com//blogs/mt/automate-account-customization-using-account-factory-customization-in-aws-control-tower/ "https://aws.amazon.com//blogs/mt/automate-account-customization-using-account-factory-customization-in-aws-control-tower/").
 
 ###### Prerequisites
 
@@ -178,20 +185,20 @@ The following workarounds are available:
 
 blueprints based on CloudFormation
 
-When you enable a blueprint through account factory, AWS Control Tower directs AWS CloudFormation to create
-a StackSet on your behalf. AWS CloudFormation requires access to your managed account to create AWS CloudFormation
-stacks in the StackSet. Although AWS CloudFormation already has administrator privileges in the
+When you enable a blueprint through account factory, AWS Control Tower directs CloudFormation to create
+a StackSet on your behalf. CloudFormation requires access to your managed account to create CloudFormation
+stacks in the StackSet. Although CloudFormation already has administrator privileges in the
 managed account through the `AWSControlTowerExecution` role, this role is not
-assumable by AWS CloudFormation.
+assumable by CloudFormation.
 
 As part of enabling a blueprint, AWS Control Tower creates a role in the member account, which
-AWS CloudFormation may assume to complete the StackSet management tasks. The simplest way to enable
+CloudFormation may assume to complete the StackSet management tasks. The simplest way to enable
 your customized blueprint through account factory is to use an _allow-all_ policy, because those policies are compatible with any
 blueprint template.
 
-However, best practices suggest that you must restrict the permissions for AWS CloudFormation in
+However, best practices suggest that you must restrict the permissions for CloudFormation in
 the target account. You can provide a customized policy, which AWS Control Tower applies to the
-role it creates for AWS CloudFormation to use. For example, if your blueprint creates an SSM
+role it creates for CloudFormation to use. For example, if your blueprint creates an SSM
 Parameter called _something-important_, you could
 provide the following policy:
 
@@ -224,8 +231,8 @@ JSON
 ```
 
 The `AllowCloudFormationActionsOnStacks` statement is required for all AFC
-custom policies; AWS CloudFormation uses this role to create stack instances, therefore it requires
-permission to perform AWS CloudFormation actions on stacks. The `AllowSsmParameterActions`
+custom policies; CloudFormation uses this role to create stack instances, therefore it requires
+permission to perform CloudFormation actions on stacks. The `AllowSsmParameterActions`
 section is specific to the template being enabled.
 
 **Resolve permission issues**
@@ -234,7 +241,7 @@ When you enable a blueprint with a restricted policy, you may find that there ar
 insufficient permissions to enable the blueprint. To resolve these issues, revise your
 policy document and update the member account's blueprint preferences to use the
 corrected policy. To check that the policy is sufficient to enable the blueprint, ensure
-that the AWS CloudFormation permissions are granted, and that you can create a stack directly using
+that the CloudFormation permissions are granted, and that you can create a stack directly using
 that role.
 
 ## Additional permissions required for creating a Terraform-based Service Catalog product
@@ -331,7 +338,7 @@ AWS Service Catalog and AWS Control Tower.
    Source_ as the product type.
 5. Going forward, all accounts created or enrolled using AWS Control Tower account
    factory customization must reference blueprints using the
-   _AWS CloudFormation_ or _External_ product
+   _CloudFormation_ or _External_ product
    type.
 
 For blueprints created using the _External_ product

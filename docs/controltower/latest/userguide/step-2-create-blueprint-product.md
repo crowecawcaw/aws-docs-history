@@ -16,7 +16,7 @@ blueprints to the External product type, review [Transition to External product 
 
 ###### Summary of steps to create a blueprint
 
-- Create or download an AWS CloudFormation template or Terraform tar.gz configuration file that will become your account
+- Create or download an CloudFormation template or Terraform tar.gz configuration file that will become your account
   blueprint. Some template examples are given later in this section.
 - Sign in to the AWS account where you store your Account Factory blueprints
   (sometimes called the hub account).
@@ -29,7 +29,7 @@ blueprints to the External product type, review [Transition to External product 
   you've developed or downloaded for use as your blueprint.
 - Choose **Create product** at the bottom of the console
   page.
-  You can download an AWS CloudFormation template from the AWS Service Catalog reference architecture
+  You can download an CloudFormation template from the AWS Service Catalog reference architecture
   repository. [One example from that repository helps set up a backup plan for your
   resources](https://github.com/aws-samples/aws-service-catalog-reference-architectures/blob/master/backup/backup-tagoptions.yml "https://github.com/aws-samples/aws-service-catalog-reference-architectures/blob/master/backup/backup-tagoptions.yml").
 

@@ -83,7 +83,7 @@ AWS services.
   account, for logging data events for Amazon S3 buckets and AWS Lambda functions. AFT
   sends these logs to a central S3 bucket in the AWS Control Tower log archive account.
 - **[AWS Support
-  (Optional)](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/")** – When this feature is enabled, AFT
+  (Optional)](https://aws.amazon.com//premiumsupport/ "https://aws.amazon.com//premiumsupport/")** – When this feature is enabled, AFT
   turns on the AWS Enterprise Support plan for accounts provisioned by AFT. By
   default, AWS accounts are created with the AWS Basic Support plan
   enabled.

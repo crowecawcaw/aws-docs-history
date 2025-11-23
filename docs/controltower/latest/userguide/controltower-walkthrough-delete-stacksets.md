@@ -3,9 +3,9 @@
 AWS Control Tower uses StackSets and stacks to deploy AWS Config Rules related to controls in your landing zone. The
 following procedures walk through how to delete these specific resources.
 
-###### To delete AWS CloudFormation StackSets
+###### To delete CloudFormation StackSets
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. From the left navigation menu, choose **StackSets**.
 3. For each StackSet with the prefix **AWSControlTower**, do the following.
@@ -35,9 +35,9 @@ following procedures walk through how to delete these specific resources.
 5. When the records in the **Stacks** table are empty, choose
    **Delete StackSet**.
 
-###### To delete AWS CloudFormation stacks
+###### To delete CloudFormation stacks
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. From the **Stacks** dashboard, search for all of the stacks with the
    prefix **AWSControlTower**.

@@ -32,6 +32,10 @@ your accounts and OUs in a hierarchy. It is a central location for monitoring an
 actions on all of your AWS Control Tower resources. For more information about the
 **Organization** page, you can view the video walkthrough.
 
+###### Note
+
+When you enable trusted access on the organization that contains your landing zone, AWS Control Tower can create roles, manage resources, and read data for all accounts in the organization. Through trusted access, any account or OU in the organization is available to AWS Control Tower, whether registered and enrolled, or _not_ registered and _not_ enrolled.
+
 ## Video walkthrough
 
 This video (4:01) describes how to work with the **Organization**

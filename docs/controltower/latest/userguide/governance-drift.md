@@ -10,6 +10,13 @@ governance drift that can be detected in AWS Control Tower are as follows:
 - Inheritance drift for baselines and controls
   The next sections provide detail about these types of drift that AWS Control Tower reports, and how to resolve them.
 
+###### Note
+
+AWS Control Tower will stop sending drift notifications to SNS topic for LZ4.0+ customers
+and will start sending drift notifications to EventBridge in the management account
+instead. To see sample events and guidance on how to receive drift notifications
+through EventBridge please see the section below on **EventBridge creation**.
+
 ###### Account and OU governance drift
 
 - [Moved member account](#drift-account-moved "#drift-account-moved")
@@ -57,19 +64,23 @@ When enabled control configurations on a member account are different than those
 ###### Drift that is not reported
 
 - AWS Control Tower does not look for drift regarding other services that work with
-  the management account, including AWS CloudTrail, Amazon CloudWatch, IAM Identity Center, AWS CloudFormation, AWS Config,
+  the management account, including AWS CloudTrail, Amazon CloudWatch, IAM Identity Center, CloudFormation, AWS Config,
   and so forth.
 - AWS Control Tower does not detect resource drift or other kinds of drift that may
   happen if you modify the resources contained in a baseline.
 
 ## Moved member account
 
+###### Note
+
+For customers on LZ 4.0+, AWS Control Tower will not send move account drift notifications for Account Factory accounts without AWSControlTowerBaseline.
+
 This type of drift occurs on the account rather than the OU. This type of drift
 can occur when an AWS Control Tower member account, the audit account, or the log archive
 account is moved from a registered AWS Control Tower OU to any other OU. In many cases, you can avoid this type of drift if you activate the auto-enrollment feature for accounts, on the **Settings** page. For more details, see [Move and enroll accounts with auto-enrollment](account-auto-enrollment.md "account-auto-enrollment.md").
 
 The following is an
-example of the Amazon SNS notification when this type of drift is detected.
+example of the drift notification when this type of drift is detected.
 
 ```
 
@@ -138,7 +149,7 @@ that contain the deprecated field name no longer work.
 ## Removed member account
 
 This type of drift can occur when a member account is removed from a registered
-AWS Control Tower organizational unit. The following example shows the Amazon SNS notification
+AWS Control Tower organizational unit. The following example shows the drift notification
 when this type of drift is detected.
 
 ```
@@ -178,7 +189,7 @@ up, go to the Service Catalog, choose the provisioned product, and then choose
 
 This type of drift can occur when an SCP for a control is updated in the AWS Organizations
 console or programmatically using the AWS CLI or one of the AWS SDKs. The following is
-an example of the Amazon SNS notification when this type of drift is detected.
+an example of the drift notification when this type of drift is detected.
 
 ```
 
@@ -213,7 +224,7 @@ it by updating your landing zone. For more information, see [Update your landing
 This type of drift can occur when an SCP for a control has been detached from an
 OU that's managed by AWS Control Tower. This occurrence is especially common when you're
 working from outside of the AWS Control Tower console. The following is an example of the
-Amazon SNS notification when this type of drift is detected.
+drift notification when this type of drift is detected.
 
 ```
 
@@ -255,7 +266,7 @@ OU. It can occur if a Foundational OU is deleted outside of the AWS Control Towe
 Foundational OUs cannot be moved without creating this type of drift, because moving
 an OU is the same as deleting it and then adding it someplace else. When you resolve
 the drift by updating your landing zone, AWS Control Tower replaces the Foundational OU in the
-original location. The following example shows an Amazon SNS notification you may receive
+original location. The following example shows a drift notification you may receive
 when this type of drift is detected.
 
 ```
@@ -289,7 +300,7 @@ Instead, the service sends its findings to AWS Control Tower.
 Security Hub control drift also can be detected if AWS Control Tower has not received a status
 update from Security Hub in more than 24 hours. If those findings are not received as
 expected, AWS Control Tower verifies that the control is in drift. The following example
-shows an Amazon SNS notification you may receive when this type of drift is
+shows a drift notification you may receive when this type of drift is
 detected.
 
 ```
@@ -326,7 +337,7 @@ This type of drift occurs when a control that's implemented with _resource contr
 
 This type of drift is not reported for SCP-based controls.
 
-The following example shows an Amazon SNS notification you may receive when this type
+The following example shows a drift notification you may receive when this type
 of drift is detected.
 
 ```
@@ -370,9 +381,9 @@ AWS Organizations. AWS Control Tower relies on these change events to stay synch
 As a result, AWS Control Tower may miss organizational changes in accounts and OUs. That is
 why it is important to re-register each OU, each time you update your landing zone.
 
-###### Example: Amazon SNS notification
+###### Example: drift notification
 
-The following is an example of the Amazon SNS notification that you receive when
+The following is an example of the drift notification that you receive when
 this type of drift occurs.
 
 ```
@@ -398,7 +409,7 @@ This type of drift can occur to AWS Control Tower OUs and accounts.
 
 ### Resolution
 
-AWS Control Tower notifies you when this type of drift occurs. For almost all cases of inheritance drift, you will receive an SNS notification for _Moved member account_ drift. That's because this type of drift typically occurs when an account has been moved, or an account fails enrollment.
+AWS Control Tower notifies you when this type of drift occurs. For almost all cases of inheritance drift, you will receive a drift notification for _Moved member account_ drift. That's because this type of drift typically occurs when an account has been moved, or an account fails enrollment.
 
 **View and resolve drift in the console**
 
@@ -424,7 +435,7 @@ This type of drift can occur to AWS Control Tower OUs and accounts.
 
 ### Resolution
 
-AWS Control Tower notifies you when this type of drift occurs. For almost all cases of inheritance drift, you will receive an SNS notification for _Moved member account_ drift. That's because this type of drift typically occurs when an account has been moved, or an account fails enrollment.
+AWS Control Tower notifies you when this type of drift occurs. For almost all cases of inheritance drift, you will receive a drift notification for _Moved member account_ drift. That's because this type of drift typically occurs when an account has been moved, or an account fails enrollment.
 
 **View and resolve drift in the console**
 
@@ -442,3 +453,60 @@ enabled controls on your OUs. To view statuses for individual accounts programma
 
 You can resolve this type of inheritance
 drift programmatically, by calling the [`ResetEnabledControl`](../APIReference/API_ResetEnabledControl.md "../APIReference/API_ResetEnabledControl.md") API.
+
+## EventBridge creation
+
+###### Note
+
+EventBridge is enabled for LZ4.0+ customers only.
+
+Example EventBridge format for AWS Control Tower
+
+```
+
+{
+   "version": "0",
+   "id": "cd4d811e-ab12-322b-8255-872ce65b1bc8",
+   "detail-type": "Drift Detected",
+   "source": "aws.controltower",
+   "account": "111122223333",
+   "time": "2018-03-22T00:38:11Z",
+   "region": "us-east-1",
+   "resources": [],
+   "detail": {
+       "message" : "AWS Control Tower has detected that your member account 'account-email@amazon.com (012345678909)' has been moved from organizational unit 'Sandbox (ou-0123-eEXAMPLE)' to 'Security (ou-3210-1EXAMPLE)'. For more information, including steps to resolve this issue, see 'https://docs.aws.amazon.com/console/controltower/move-account'",
+       "managementAccountId" : "012345678912",
+       "organizationId" : "o-123EXAMPLE",
+       "driftType" : "ACCOUNT_MOVED_BETWEEN_OUS",
+       "remediationStep" : "Re-register this organizational unit (OU), or if the OU has more than 1000 accounts, you must update the provisioned product in Account Factory.",
+       "accountId" : "012345678909",
+       "sourceId" : "012345678909",
+       "destinationId" : "ou-3210-1EXAMPLE"
+   }
+}
+
+```
+
+Guidance to create EventBridge rule to receive drift notifications:
+
+###### To create an EventBridge rule for drift notifications
+
+1. Open the **Amazon EventBridge Console**:
+2. In the navigation pane, choose **Rules**.
+3. Choose **Create rule**.
+4. Enter a name and description for the rule.
+5. For **Rule type**, choose **Rule with an event pattern**.
+6. **Define the Event Source**:
+   - For "Event source", select **AWS services** as the event source.
+   - For "AWS service name", select **AWS Control Tower**.
+   - For "Event type", select **Drift Detected**
+
+7. **Select the Target**:
+   - For **Target types**, choose **AWS service**, and for **Select a target**, choose a target such as an drift notification topic or Lambda function. The target is triggered when an event is received that matches the event pattern defined in the rule.
+   - Depending on the target you selected, provide the necessary configuration details, such as the Lambda function name or the drift notification topic ARN.
+
+8. **Review and Create the Rule**:
+   - Review the details of your rule and make any necessary changes.
+   - Once you're satisfied, click on **Create rule** to save the new EventBridge rule.
+
+After creating the rule, it will start monitoring for the specified AWS Control Tower events and trigger the selected target action when drift events occur.

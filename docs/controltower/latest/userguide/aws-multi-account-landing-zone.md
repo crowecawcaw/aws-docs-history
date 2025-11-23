@@ -20,7 +20,7 @@ guidance on how to plan and set up your AWS Control Tower landing zone, in align
 multi-account strategy, and extend it over time.
 
 For a general discussion about best practices for organizational units, see [Best
-Practices for Organizational Units with AWS Organizations](https://aws.amazon.com/blogs/mt/best-practices-for-organizational-units-with-aws-organizations/ "https://aws.amazon.com/blogs/mt/best-practices-for-organizational-units-with-aws-organizations/").
+Practices for Organizational Units with AWS Organizations](https://aws.amazon.com//blogs/mt/best-practices-for-organizational-units-with-aws-organizations/ "https://aws.amazon.com//blogs/mt/best-practices-for-organizational-units-with-aws-organizations/").
 
 ## AWS multi-account strategy: Best practices
 

@@ -8,7 +8,7 @@ pipeline in that account and Region.
 
 ## Prepare for deployment
 
-You have some options when you prepare your AWS CloudFormation template for initial deployment. You
+You have some options when you prepare your CloudFormation template for initial deployment. You
 can choose the configuration source, and you can allow for manual approval of pipeline
 deployments. The next two sections explain more about these options.
 
@@ -30,7 +30,7 @@ customizing the configuration package, be sure to upload the
 
 If you have an existing AWS CodeCommit Git repository, you can change the storage location of the configuration package from the Amazon S3
 bucket to an AWS CodeCommit Git repository. To do so, select the `CodeCommit`
-option in the AWS CloudFormation parameter.
+option in the CloudFormation parameter.
 
 ###### To zip, or not to zip?
 
@@ -68,5 +68,5 @@ implementation.
 
 ## To update Customizations for AWS Control Tower
 
-If you have previously deployed CfCT, you must update the AWS CloudFormation stack to get the
+If you have previously deployed CfCT, you must update the CloudFormation stack to get the
 latest version of the CfCT framework. For details, refer to [Update the Stack](update-stack.md "update-stack.md").

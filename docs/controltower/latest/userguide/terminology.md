@@ -50,7 +50,7 @@ this document.
   as a whole.
 - **Blueprint:** A blueprint is an artifact that
   encapsulates some metadata, which describes infrastructure components that are
-  deployed within an account. For example, an AWS CloudFormation template can serve as a blueprint
+  deployed within an account. For example, an CloudFormation template can serve as a blueprint
   for an AWS Control Tower account.
 - **Drift:** A change in a resource installed by and
   configured by AWS Control Tower. Resources without drift enable AWS Control Tower to function
@@ -90,7 +90,7 @@ this document.
 - **Control:** A control (also known as a _guardrail_) is a high-level rule that provides ongoing
   governance for your overall AWS Control Tower environment. Each control enforces a single
   rule. Preventive controls are implemented with SCPs. Detective controls are
-  implemented with AWS Config rules. Proactive controls are implemented with AWS CloudFormation hooks.
+  implemented with AWS Config rules. Proactive controls are implemented with CloudFormation hooks.
   For more information, see [How controls work](how-controls-work.md "how-controls-work.md").
 - **Control Catalog:** The AWS Control Tower control catalog is the compendium of all controls that are available through AWS Control Tower, in the console and APIs. It formerly was called the Control Library. We aligned the terminology to the name of the namespace, _controlcatalog_.
 - **Landing zone:** A landing zone is a cloud

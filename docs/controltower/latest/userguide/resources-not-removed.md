@@ -8,9 +8,9 @@ Certain resources remain, which may be removed manually.
 ###### AWS Organizations
 
 For customers without existing AWS Organizations organizations, AWS Control Tower sets up an
-organization with two organizational units (OUs), named
-**Security** and **Sandbox**. When you
-decommission your landing zone, the hierarchy of the organization is preserved, as
+organization with one or more organizational units (OUs). The designated
+**Security OU** and optionally created **Sandbox OU**.
+When you decommission your landing zone, the hierarchy of the organization is preserved, as
 follows:
 
 - Organizational Units (OUs) you created from the AWS Control Tower console are not
@@ -50,22 +50,34 @@ decommission your landing zone, the following roles are not removed:
 - `AWSControlTowerStackSetRole`
 - `AWSControlTowerConfigAggregatorRoleForOrganizations`
 
+###### Note
+
+The `AWSControlTowerExecution` role in member accounts will be deleted when landing zone
+is deleted, whether AWS Control Tower created the role on your behalf or if you created the
+role manually. However, if you have attached additional policies to this role, or
+modified the policies attached to this role, AWS Control Tower may be unable to delete this
+role during Landing Zone deletion. For such cases, the Landing Zone deletion will
+succeed but role will be retained in your member account.
+
 ###### Amazon S3 Buckets
 
-During setup, AWS Control Tower creates buckets in the logging account for logging and for
-logging access. When you decommission your landing zone, the following resources are
-not removed:
+During setup, AWS Control Tower creates buckets in the log archive account for AWS CloudTrail and in the
+config central aggregator account for AWS Config integration. AWS Control Tower creates buckets for
+logging and for logging access in each of these accounts. When you decommission your landing zone,
+the following resources are not removed:
 
-- Logging and logging access S3 buckets in the logging account are not
+- Logging and logging access S3 buckets in the log archive account are not
   removed.
-- Contents of the logging and logging access buckets are not removed.
+- Logging and logging access S3 buckets in the config central aggregator account are not
+  removed.
+- Contents of the logging and logging access buckets in each of these accounts are not removed.
 
-###### Shared Accounts
+###### Service integration Accounts
 
-Two shared accounts (Audit and Log Archive) are created in the Security OU during
-AWS Control Tower setup. When you decommission your landing zone:
+AWS Control Tower requires each service integration configuration to have a central account. This account may or
+may not be created during the AWS Control Tower setup based on landing zone version. When you decommission your landing zone:
 
-- Shared accounts that were created during AWS Control Tower setup are not closed.
+- Service integration accounts that were created during AWS Control Tower setup are not closed.
 - The `OrganizationAccountAccessRole` IAM role is recreated to align
   with standard AWS Organizations configuration.
 - The `AWSControlTowerExecution` role is removed.
@@ -87,14 +99,11 @@ decommission your landing zone:
 
 ###### CloudWatch Logs Log Group
 
-A CloudWatch Logs log group, `aws-controltower/CloudTrailLogs`, is created as
-part of the blueprint named
-`AWSControlTowerBP-BASELINE-CLOUDTRAIL-MANAGEMENT`. This log group is
-not removed. Instead, the blueprint is deleted and the resources are
-retained.
-
-- This log group must be deleted manually before you set up another landing
-  zone.
+- A CloudWatch Logs log group, `aws-controltower/CloudTrailLogs`, is created as
+  part of the blueprint named
+  `AWSControlTowerBP-BASELINE-CLOUDTRAIL-MASTER`. This log group is
+  not removed. Instead, the blueprint is deleted and the resources are
+  retained.
 
 ###### Note
 
@@ -105,8 +114,8 @@ management account only, for the organization-level trail.
 Beginning with landing zone version 3.2, AWS Control Tower creates an Amazon EventBridge rule, called
 `AWSControlTowerManagedRule`. This rule is created in each member
 account, for all governed Regions. The rule is not deleted automatically during
-decommissioning, so you must delete it manually from the shared and member accounts
-for all governed Regions before you can set up a landing zone in a new
+decommissioning, so you must delete it manually from the service integration accounts
+and member accounts for all governed Regions before you can set up a landing zone in a new
 Region.
 
 Procedures for how to delete AWS Control Tower resources are given in [Remove AWS Control Tower resources](walkthrough-delete.md "walkthrough-delete.md").

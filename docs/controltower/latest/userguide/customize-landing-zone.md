@@ -31,6 +31,11 @@ Unlike Account Factory and AFT, CfCT is not specifically intended to create new
 accounts, but to customize accounts and OUs in your landing zone by deploying
 resources that you specify.
 
+###### Note
+
+The target organizational unit (OU) configured in CfCT must have AWSControlTowerBaseline enabled
+in AWS Control Tower.
+
 ###### Benefits
 
 - **Expand a customized and secure AWS
@@ -53,7 +58,7 @@ resources that you specify.
 
 - An example networking use case with _Customizations for
   AWS Control Tower_ (CfCT) is given in the AWS Architecture blog post,
-  [Deploy consistent DNS with Service Catalog and AWS Control Tower customizations](https://aws.amazon.com/blogs/architecture/deploy-consistent-dns-with-aws-service-catalog-and-aws-control-tower-customizations/ "https://aws.amazon.com/blogs/architecture/deploy-consistent-dns-with-aws-service-catalog-and-aws-control-tower-customizations/").
+  [Deploy consistent DNS with Service Catalog and AWS Control Tower customizations](https://aws.amazon.com/blogs//architecture/deploy-consistent-dns-with-aws-service-catalog-and-aws-control-tower-customizations/ "https://aws.amazon.com/blogs//architecture/deploy-consistent-dns-with-aws-service-catalog-and-aws-control-tower-customizations/").
 - A specific example [related to CfCT and Amazon GuardDuty](https://github.com/aws-samples/aws-security-reference-architecture-examples/tree/main/aws_sra_examples/solutions/guardduty/guardduty_org/customizations_for_aws_control_tower "https://github.com/aws-samples/aws-security-reference-architecture-examples/tree/main/aws_sra_examples/solutions/guardduty/guardduty_org/customizations_for_aws_control_tower") is available on GitHub in the [`aws-samples` repository](https://github.com/aws-samples/aws-security-reference-architecture-examples "https://github.com/aws-samples/aws-security-reference-architecture-examples").
 - Additional code examples regarding CfCT are available as part of the AWS
   Security Reference Architecture, in the [`aws-samples` repository](https://github.com/aws-samples/aws-security-reference-architecture-examples "https://github.com/aws-samples/aws-security-reference-architecture-examples"). Many of these examples

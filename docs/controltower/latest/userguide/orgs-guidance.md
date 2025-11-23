@@ -16,7 +16,7 @@ AWS Control Tower is closely associated with AWS Organizations. Here is some spe
 - If you use AWS Organizations to create, invite, or move accounts within an organization registered
   with AWS Control Tower, those accounts are not enrolled by AWS Control Tower and those changes are not recorded.
   If you need access to these accounts through SSO, see [Member Account
-  Access](https://aws.amazon.com/premiumsupport/knowledge-center/organizations-member-account-access/ "https://aws.amazon.com/premiumsupport/knowledge-center/organizations-member-account-access/").
+  Access](https://aws.amazon.com//premiumsupport/knowledge-center/organizations-member-account-access/ "https://aws.amazon.com//premiumsupport/knowledge-center/organizations-member-account-access/").
 - If you use AWS Organizations to move an OU into an organization created by AWS Control Tower, the external
   OU is not registered by AWS Control Tower.
 - AWS Control Tower handles permission filtering differently than AWS Organizations does. If your

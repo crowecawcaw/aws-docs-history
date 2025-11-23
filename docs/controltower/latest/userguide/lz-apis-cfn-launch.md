@@ -1,6 +1,6 @@
-# Create a new landing zone using AWS CloudFormation
+# Create a new landing zone using CloudFormation
 
-From the AWS CloudFormation console or using the AWS CLI, deploy the following AWS CloudFormation template to create a landing zone.
+From the CloudFormation console or using the AWS CLI, deploy the following CloudFormation template to create a landing zone.
 
 ```
 Parameters:

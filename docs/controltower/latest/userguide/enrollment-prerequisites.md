@@ -72,12 +72,12 @@ account before you enroll it in AWS Control Tower.
 Before you can enroll an existing AWS account into AWS Control Tower you must give permission for
 AWS Control Tower to manage, or _govern_, the account. Specifically,
 AWS Control Tower requires permission to establish trusted access between AWS CloudFormation and AWS Organizations on
-your behalf, so that AWS CloudFormation can deploy your stack automatically to the accounts in your
+your behalf, so that CloudFormation can deploy your stack automatically to the accounts in your
 selected organization. With this trusted access, the `AWSControlTowerExecution`
 role conducts activities required to manage each account. That's why you must add this role
 to each account before you enroll it.
 
-When trusted access is enabled, AWS CloudFormation can create, update, or delete stacks across
+When trusted access is enabled, CloudFormation can create, update, or delete stacks across
 multiple accounts and AWS Regions with a single operation. AWS Control Tower relies on this trust
 capability so it can apply roles and permissions to existing accounts before it moves them
 into a registered organizational unit, and thereby brings them under governance.

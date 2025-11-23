@@ -59,12 +59,12 @@ management account on your behalf:
 
 ## How AWS Control Tower works with StackSets
 
-AWS Control Tower uses AWS CloudFormation StackSets to set up resources in your accounts, by default. Each
+AWS Control Tower uses CloudFormation StackSets to set up resources in your accounts, by default. Each
 stack set has StackInstances that correspond to accounts, and to AWS Regions per
 account. AWS Control Tower deploys one stack set instance per account and Region.
 
 AWS Control Tower applies updates to certain accounts and AWS Regions selectively, based on
-AWS CloudFormation parameters. When updates are applied to some stack instances, other stack
+CloudFormation parameters. When updates are applied to some stack instances, other stack
 instances may be left in **Outdated** status. This behavior is expected
 and normal.
 
@@ -73,19 +73,19 @@ that the stack corresponding to that stack instance is not aligned with the late
 template in the stack set. The stack remains in the older template, so it might not
 include the latest resources or parameters. The stack is still completely usable.
 
-Here's a quick summary of what behavior to expect, based on AWS CloudFormation
+Here's a quick summary of what behavior to expect, based on CloudFormation
 parameters that are specified during an update:
 
 If the stack set update includes changes to the template (that is, if the
 `TemplateBody` or `TemplateURL` properties are specified), or
-if the `Parameters` property is specified, AWS CloudFormation marks all stack
+if the `Parameters` property is specified, CloudFormation marks all stack
 instances with a status of **Outdated** prior to updating the stack
 instances in the specified accounts and AWS Regions. If the stack set update does not
-include changes to the template or parameters, AWS CloudFormation updates the stack
+include changes to the template or parameters, CloudFormation updates the stack
 instances in the specified accounts and Regions, while leaving all other stack instances
 with their existing stack instance status. To update all of the stack instances
 associated with a stack set, do not specify the `Accounts` or
 `Regions` properties.
 
 For more information, see [Update Your Stack
-Set](../../../AWSCloudFormation/latest/UserGuide/stacksets-update.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-update.md") in the AWS CloudFormation User Guide.
+Set](../../../AWSCloudFormation/latest/UserGuide/stacksets-update.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-update.md") in the CloudFormation User Guide.

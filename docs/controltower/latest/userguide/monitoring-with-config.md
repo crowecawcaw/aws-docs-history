@@ -13,14 +13,14 @@ change relates to a known resource or a newly discovered one.
 **If your landing zone version is 3.0 or later**: AWS Control Tower
 limits recording for global resources, such as IAM users, groups, roles, and customer managed
 polices, to your home Region only. Copies of global resource changes are not stored in every
-Region. This limitation of resource recording conforms with AWS Config [best practices](https://aws.amazon.com/blogs/mt/aws-config-best-practices/ "https://aws.amazon.com/blogs/mt/aws-config-best-practices/"). A [full list of
+Region. This limitation of resource recording conforms with AWS Config [best practices](https://aws.amazon.com//blogs/mt/aws-config-best-practices/ "https://aws.amazon.com//blogs/mt/aws-config-best-practices/"). A [full list of
 global resources](../../../config/latest/developerguide/select-resources.md "../../../config/latest/developerguide/select-resources.md") is available in AWS Config documentation.
 
 - To learn more about AWS Config, see [How AWS Config works](../../../config/latest/developerguide/how-does-config-work.md "../../../config/latest/developerguide/how-does-config-work.md").
 - For a list of resources that AWS Config can support, see [Supported resource
   types](../../../config/latest/developerguide/resource-config-reference.md "../../../config/latest/developerguide/resource-config-reference.md").
 - To learn about how to customize resource tracking in the AWS Control Tower environment, see the
-  blog post entitled [Customize AWS Config resource tracking in AWS Control Tower](https://aws.amazon.com/blogs/mt/customize-aws-config-resource-tracking-in-aws-control-tower-environment "https://aws.amazon.com/blogs/mt/customize-aws-config-resource-tracking-in-aws-control-tower-environment").
+  blog post entitled [Customize AWS Config resource tracking in AWS Control Tower](https://aws.amazon.com/blogs//mt/customize-aws-config-resource-tracking-in-aws-control-tower-environment "https://aws.amazon.com/blogs//mt/customize-aws-config-resource-tracking-in-aws-control-tower-environment").
   AWS Control Tower sets up an AWS Config delivery channel in all enrolled accounts. Through this delivery
   channel, it logs all changes recorded by AWS Config in the log archive account, where they are stored
   to a folder in an Amazon Simple Storage Service bucket.

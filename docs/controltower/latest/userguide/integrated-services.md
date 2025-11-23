@@ -12,7 +12,7 @@ Well-Architected Tool](../../../wellarchitected/latest/userguide/intro.md "../..
 ###### Topics
 
 - [AWS Backup options available](with-backup.md "with-backup.md")
-- [Deploy Environments with AWS CloudFormation](cloudformation.md "cloudformation.md")
+- [Deploy Environments with CloudFormation](cloudformation.md "cloudformation.md")
 - [Monitor Events with CloudTrail](cloudtrail.md "cloudtrail.md")
 - [Monitor Resources and Services with CloudWatch](cloudwatch.md "cloudwatch.md")
 - [Govern Resource Configurations with AWS Config](config.md "config.md")

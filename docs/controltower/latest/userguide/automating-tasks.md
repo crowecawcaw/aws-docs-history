@@ -16,7 +16,7 @@ control assignment, and auditing. You can set up these automated actions with ca
 You can automate tasks related to applying and removing controls (also known as _guardrails_) through the AWS Control Tower API. For details, see the [AWS Control Tower API
 Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
 
-For more information about how to perform control operations with AWS Control Tower APIs, see the blog post [AWS Control Tower releases API, pre-defined controls to your organizational units](https://aws.amazon.com/blogs/mt/aws-control-tower-releases-api-pre-defined-controls-to-your-organizational-units/ "https://aws.amazon.com/blogs/mt/aws-control-tower-releases-api-pre-defined-controls-to-your-organizational-units/").
+For more information about how to perform control operations with AWS Control Tower APIs, see the blog post [AWS Control Tower releases API, pre-defined controls to your organizational units](https://aws.amazon.com//blogs/mt/aws-control-tower-releases-api-pre-defined-controls-to-your-organizational-units/ "https://aws.amazon.com//blogs/mt/aws-control-tower-releases-api-pre-defined-controls-to-your-organizational-units/").
 
 **Automating landing zone tasks**
 
@@ -35,7 +35,7 @@ AWS Organizations](delete-account.md#close-account-with-orgs-api "delete-account
 
 **Automated account provisioning and updating**
 
-_AWS Control Tower Account Factory Customization (AFC)_ helps you create accounts from the AWS Control Tower console, with customized AWS CloudFormation templates that we refer to as blueprints. This process is automated in the sense that you can create new accounts and update accounts repeatedly, after setting up a single blueprint, without maintaining pipelines.
+_AWS Control Tower Account Factory Customization (AFC)_ helps you create accounts from the AWS Control Tower console, with customized CloudFormation templates that we refer to as blueprints. This process is automated in the sense that you can create new accounts and update accounts repeatedly, after setting up a single blueprint, without maintaining pipelines.
 
 _AWS Control Tower Account Factory for Terraform_ (AFT) follows a GitOps model to automate
 the processes of account provisioning and account updating in AWS Control Tower. For more

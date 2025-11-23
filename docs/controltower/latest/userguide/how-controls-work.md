@@ -22,11 +22,11 @@ EC2 instance in your landing zone.
 Proactive controls check whether resources are compliant with your company policies
 and objectives, before the resources are provisioned in your accounts. If the resources
 are out of compliance, they are not provisioned. Proactive controls monitor resources
-that would be deployed in your accounts by means of AWS CloudFormation templates.
+that would be deployed in your accounts by means of CloudFormation templates.
 
 _For those who are familiar with AWS:_ In AWS Control Tower
 preventive controls are implemented with service control policies (SCPs) and resource control policies (RCPs). Detective
-controls are implemented with AWS Config rules. Proactive controls are implemented with AWS CloudFormation hooks.
+controls are implemented with AWS Config rules. Proactive controls are implemented with CloudFormation hooks.
 
 ## Related Topics
 

@@ -1,8 +1,8 @@
-# Prerequisites for launching a landing zone using AWS CloudFormation
+# Prerequisites for launching a landing zone using CloudFormation
 
 1. From the AWS CLI, use the AWS Organizations `CreateOrganization` API to create an organization and enable all features.
 
-For more detailed instructions, review [Step 1: Configure your landing zone](lz-api-prereques.md "lz-api-prereques.md") . 2. From the AWS CloudFormation console or using the AWS CLI, deploy a AWS CloudFormation template that creates the following
+For more detailed instructions, review [Step 1: Configure your landing zone](lz-api-prereques.md "lz-api-prereques.md"). 2. From the CloudFormation console or using the AWS CLI, deploy a CloudFormation template that creates the following
 resources in the management account:
 
     * Log Archive account (sometimes called the "Logging" account)

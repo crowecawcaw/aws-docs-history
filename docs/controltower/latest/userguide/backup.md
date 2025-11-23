@@ -19,7 +19,7 @@ steps:
    specified by the resource tags on each resource.
    For more information, see [_The AWS Backup Developer
    Guide_](../../../aws-backup/latest/devguide/whatisbackup.md "../../../aws-backup/latest/devguide/whatisbackup.md"). No cost is incurred when you configure AWS Backup with
-   AWS Control Tower. You will incur cost from AWS Backup. For information about pricing, see [AWS Backup pricing](https://aws.amazon.com/backup/pricing/ "https://aws.amazon.com/backup/pricing/").
+   AWS Control Tower. You will incur cost from AWS Backup. For information about pricing, see [AWS Backup pricing](https://aws.amazon.com//backup/pricing/ "https://aws.amazon.com//backup/pricing/").
 
 For more details about the AWS Backup resources that AWS Control Tower creates in your AWS Control Tower landing
 zone, see [Resources created for AWS Backup](backup-resources.md "backup-resources.md")

@@ -42,7 +42,7 @@ drops out of its existing organization.
 
 stack
 
-1. To keep the applied AWS CloudFormation stack, delete the stack instance from the stack
+1. To keep the applied CloudFormation stack, delete the stack instance from the stack
    sets, and choose **Retain stacks** for the instance.
 2. Terminate the account provisioned product in AWS Service Catalog Account Factory. (This step
    only removes the provisioned product from AWS Control Tower. It doesn't delete the

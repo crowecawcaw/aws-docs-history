@@ -87,10 +87,10 @@ Work with existing AWS organizations and accounts.
 
 - [Enroll an account](enroll-account.md "enroll-account.md") – This user guide topic describes how to
   enroll an existing AWS account in AWS Control Tower.
-- [Bring an account under AWS Control Tower](https://aws.amazon.com/blogs/architecture/field-notes-enroll-existing-aws-accounts-into-aws-control-tower/ "https://aws.amazon.com/blogs/architecture/field-notes-enroll-existing-aws-accounts-into-aws-control-tower/") – This blog post describes
+- [Bring an account under AWS Control Tower](https://aws.amazon.com/blogs//architecture/field-notes-enroll-existing-aws-accounts-into-aws-control-tower/ "https://aws.amazon.com/blogs//architecture/field-notes-enroll-existing-aws-accounts-into-aws-control-tower/") – This blog post describes
   how to deploy AWS Control Tower into your existing AWS organizations.
 - [Extend AWS Control Tower governance using AWS Config conformance
-  packs](https://aws.amazon.com/blogs/mt/extend-aws-control-tower-governance-using-aws-config-conformance-packs/ "https://aws.amazon.com/blogs/mt/extend-aws-control-tower-governance-using-aws-config-conformance-packs/") – This blog post describes how to deploy AWS Config
+  packs](https://aws.amazon.com/blogs//mt/extend-aws-control-tower-governance-using-aws-config-conformance-packs/ "https://aws.amazon.com/blogs//mt/extend-aws-control-tower-governance-using-aws-config-conformance-packs/") – This blog post describes how to deploy AWS Config
   conformance packs to assist with bringing existing accounts and organizations
   into governance by AWS Control Tower.
 - [How to Detect and Mitigate Guardrail Violation with AWS Control Tower](https://aws.amazon.com/blogs/mt/how-to-detect-and-mitigate-guardrail-violation-with-aws-control-tower/ "https://aws.amazon.com/blogs/mt/how-to-detect-and-mitigate-guardrail-violation-with-aws-control-tower/")
@@ -108,7 +108,7 @@ Automate account creation and integrate lifecycle events with AWS Control Tower.
   set up automated account creation in AWS Control Tower.
 - [Amazon VPC flow log automation](https://aws.amazon.com/blogs/mt/vpc-flow-log-with-aws-control-tower-lifecycle "https://aws.amazon.com/blogs/mt/vpc-flow-log-with-aws-control-tower-lifecycle") – This blog post describes how to
   automate and centralize Amazon VPC Flow Logs in a multi-account environment.
-- [Automate VPC tagging with AWS Control Tower lifecycle events](https://aws.amazon.com/blogs/infrastructure-and-automation/automate-vpc-tagging-with-aws-control-tower-lifecycle-events/ "https://aws.amazon.com/blogs/infrastructure-and-automation/automate-vpc-tagging-with-aws-control-tower-lifecycle-events/")– This
+- [Automate VPC tagging with AWS Control Tower lifecycle events](https://aws.amazon.com/blogs//infrastructure-and-automation/automate-vpc-tagging-with-aws-control-tower-lifecycle-events/ "https://aws.amazon.com/blogs//infrastructure-and-automation/automate-vpc-tagging-with-aws-control-tower-lifecycle-events/")– This
   blog post describes how to automate resource tagging for VPCs, by means of
   lifecycle events in AWS Control Tower.
 - [Automated account management](https://aws.amazon.com/blogs/mt/using-aws-control-tower-and-aws-service-catalog-to-automate-control-tower-lifecycle-events/ "https://aws.amazon.com/blogs/mt/using-aws-control-tower-and-aws-service-catalog-to-automate-control-tower-lifecycle-events/") – This blog post describes how

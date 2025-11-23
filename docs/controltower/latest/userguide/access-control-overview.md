@@ -49,7 +49,7 @@ AWS Control Tower provides a set of API operations to work with AWS Control Towe
 list of available operations, see AWS Control Tower [the AWS Control Tower API
 Reference](../APIReference/API_Operations.md "../APIReference/API_Operations.md").
 
-For more information about the AWS CloudFormation resources in AWS Control Tower, see [the AWS CloudFormation
+For more information about the CloudFormation resources in AWS Control Tower, see [the AWS CloudFormation
 User Guide](../../../AWSCloudFormation/latest/UserGuide/AWS_ControlTower.md "../../../AWSCloudFormation/latest/UserGuide/AWS_ControlTower.md").
 
 ## About resource ownership

@@ -126,7 +126,7 @@ following section.
 
 - First, use an AWS Config _conformance pack_ to
   evaluate how your accounts may be affected by some AWS Control Tower controls. To
-  determine how enrollment into AWS Control Tower may affect your accounts, see [Extend AWS Control Tower governance using AWS Config conformance packs](https://aws.amazon.com/blogs/mt/extend-aws-control-tower-governance-using-aws-config-conformance-packs/ "https://aws.amazon.com/blogs/mt/extend-aws-control-tower-governance-using-aws-config-conformance-packs/").
+  determine how enrollment into AWS Control Tower may affect your accounts, see [Extend AWS Control Tower governance using AWS Config conformance packs](https://aws.amazon.com//blogs/mt/extend-aws-control-tower-governance-using-aws-config-conformance-packs/ "https://aws.amazon.com//blogs/mt/extend-aws-control-tower-governance-using-aws-config-conformance-packs/").
 - Next, you may wish to enroll the account. If the compliance results are
   satisfactory, the migration path is easier because you can enroll the account
   without unexpected consequences.

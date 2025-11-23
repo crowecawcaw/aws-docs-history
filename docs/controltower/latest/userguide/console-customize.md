@@ -39,7 +39,7 @@ creating, deleting, or re-registering an OU.
   in which you store and allow access to your data.
 - The optional controls that are part of the integrated Security Hub standard allow you
   to scan your AWS Control Tower environment to check for security risks.
-- The optional proactive controls allow you to check your AWS CloudFormation resources before
+- The optional proactive controls allow you to check your CloudFormation resources before
   they are provisioned, to make sure the new resources will comply with your
   environment's control objectives.
 

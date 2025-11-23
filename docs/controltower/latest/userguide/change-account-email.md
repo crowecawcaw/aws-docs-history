@@ -11,14 +11,14 @@ The following procedure doesn't allow you to change the email address of a
 **management account**, **log
 archive account**, or **audit account**.
 For more information about that, see [How do I change the
-email address associated with my AWS account?](https://aws.amazon.com/premiumsupport/knowledge-center/change-email-address/ "https://aws.amazon.com/premiumsupport/knowledge-center/change-email-address/") or contact AWS
+email address associated with my AWS account?](https://aws.amazon.com//premiumsupport/knowledge-center/change-email-address/ "https://aws.amazon.com//premiumsupport/knowledge-center/change-email-address/") or contact AWS
 Support.
 
 ###### To change the email address of an account that AWS Control Tower creates
 
 1. Recover the root user password for the account. You can follow the steps in the
    article [How do I
-   recover a lost or forgotten AWS password?](https://aws.amazon.com/premiumsupport/knowledge-center/recover-aws-password/ "https://aws.amazon.com/premiumsupport/knowledge-center/recover-aws-password/")
+   recover a lost or forgotten AWS password?](https://aws.amazon.com//premiumsupport/knowledge-center/recover-aws-password/ "https://aws.amazon.com//premiumsupport/knowledge-center/recover-aws-password/")
 2. Sign in to the account with the root user password.
 3. Change the email address as you would for any other AWS account, and wait
    for the change to reflect in AWS Organizations. You might experience a delay while the

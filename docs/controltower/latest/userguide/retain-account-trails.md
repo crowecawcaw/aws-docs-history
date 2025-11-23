@@ -46,4 +46,4 @@ If you need to retain account-level trails during a Landing Zone update, you mus
 
 ###### Note
 
-To delete the account-level trail after it is allowlisted, use the management account to delete the AWS CloudFormation stack set or specific stack instance. All resources in the stack are deleted.
+To delete the account-level trail after it is allowlisted, use the management account to delete the CloudFormation stack set or specific stack instance. All resources in the stack are deleted.

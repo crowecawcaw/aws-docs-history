@@ -1,7 +1,7 @@
 # Data protection
 
 The [AWS shared
-responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") applies to data protection in AFT. For data protection
+responsibility model](https://aws.amazon.com//compliance/shared-responsibility-model/ "https://aws.amazon.com//compliance/shared-responsibility-model/") applies to data protection in AFT. For data protection
 purposes, we recommend the following best practices for security.
 
 - Follow the Data Protection guidelines provided by AWS Control Tower. For details, see [Data Protection in AWS Control Tower](controltower-console-encryption.md "controltower-console-encryption.md").

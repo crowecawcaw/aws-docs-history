@@ -32,7 +32,7 @@ Newly created accounts and organizations might experience a quota below the defa
 A service quota increase request may require up to two days before it takes
 effect. Be sure to request the quota increase from your AWS Control Tower home Region.
 
-As an alternative, you can contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/") to request a quota increase for some resources in AWS Control Tower.
+As an alternative, you can contact [AWS Support](https://aws.amazon.com//premiumsupport/ "https://aws.amazon.com//premiumsupport/") to request a quota increase for some resources in AWS Control Tower.
 Or you can view the video that follows, and learn how to automate certain service quota
 increases.
 

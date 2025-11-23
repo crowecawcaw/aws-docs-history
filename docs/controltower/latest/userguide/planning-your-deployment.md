@@ -58,7 +58,7 @@ organization.
 
 ###### Important
 
-Special consideration: If you currently are using the [AWS Landing Zone solution (ALZ)](https://aws.amazon.com/solutions/implementations/aws-landing-zone/ "https://aws.amazon.com/solutions/implementations/aws-landing-zone/") for
+Special consideration: If you currently are using the [AWS Landing Zone solution (ALZ)](https://aws.amazon.com//solutions/implementations/aws-landing-zone/ "https://aws.amazon.com//solutions/implementations/aws-landing-zone/") for
 AWS Organizations, check with your AWS solutions architect before you try to enable AWS Control Tower in
 your organization. AWS Control Tower cannot perform pre-checks that determine whether AWS Control Tower
 may interfere with your current landing zone deployment. For more information, see [Walkthrough: Move from ALZ to AWS Control Tower](alz-to-control-tower.md "alz-to-control-tower.md"). Also, for

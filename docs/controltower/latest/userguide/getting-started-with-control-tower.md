@@ -11,6 +11,7 @@ section called [Plan your AWS Control Tower landing zone](planning-your-deployme
 - [AWS Control Tower quick start guide](quick-start.md "quick-start.md")
 - [Prerequisite: Automated pre-launch checks for
   your management account](getting-started-prereqs.md "getting-started-prereqs.md")
+- [Setting up your controls dedicated environment](setting-up-controls-dedicated-environment.md "setting-up-controls-dedicated-environment.md")
 - [Get started with AWS Control Tower from the console](getting-started-from-console.md "getting-started-from-console.md")
 - [Get started with AWS Control Tower using APIs](getting-started-apis.md "getting-started-apis.md")
 - [Next steps](getting-started-next.md "getting-started-next.md")

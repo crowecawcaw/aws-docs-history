@@ -4,7 +4,7 @@ This section tells you how to deploy Customizations for AWS Control Tower (CfCT)
 
 - Prepare a GitHub repository
 - Create the GitHub code connection
-- Deploy the AWS CloudFormation stack
+- Deploy the CloudFormation stack
 
 ## Prepare a GitHub repository
 
@@ -21,12 +21,12 @@ From your **Developer Tools --Connections** instance for Github, perform the fol
 3. Select **Connect to GitHub** and then choose **Install a new app**
 4. Select the GitHub User or Organization for your repository
 5. Under **Repository access**, choose **Only select repositories**, then select the repository you created earlier, and **Save** your work.
-6. Note the Code Connections ARN - you'll need it when deploying the AWS CloudFormation stack.
+6. Note the Code Connections ARN - you'll need it when deploying the CloudFormation stack.
 
-## Deploy the AWS CloudFormation stack
+## Deploy the CloudFormation stack
 
 - Download the `custom-control-tower-initiation.template` file from the repository.
-- Create a new AWS CloudFormation stack, using the `custom-control-tower-initiation.template` file.
+- Create a new CloudFormation stack, using the `custom-control-tower-initiation.template` file.
 - Under **AWS CodePipeline Source**, choose **GitHub (via Code Connection)**.
 - Under **GitHub Setup**, specify these fields:
   - For **ARN of the Code Connection**, provide the Code Connection ARN

@@ -51,7 +51,7 @@ about troubleshooting a failure to update, see [Unable to Update Landing Zone](t
 
 You have the opportunity to clear unused AWS Identity center (formerly called AWS SSO)
 mappings when you update your landing zone. For more information, see [Field Notes: Clear Unused IAM Identity Center Mappings Automatically During AWS Control Tower
-Upgrades](https://aws.amazon.com/blogs/architecture/field-notes-clear-unused-aws-sso-mappings-automatically-during-aws-control-tower-upgrades/ "https://aws.amazon.com/blogs/architecture/field-notes-clear-unused-aws-sso-mappings-automatically-during-aws-control-tower-upgrades/").
+Upgrades](https://aws.amazon.com//blogs/architecture/field-notes-clear-unused-aws-sso-mappings-automatically-during-aws-control-tower-upgrades/ "https://aws.amazon.com//blogs/architecture/field-notes-clear-unused-aws-sso-mappings-automatically-during-aws-control-tower-upgrades/").
 
 ###### Prerequisite for Update and Reset – turn off Requester Pays
 

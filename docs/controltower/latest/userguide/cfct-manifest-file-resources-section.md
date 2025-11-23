@@ -7,7 +7,7 @@ where you'll define the resources that are required for your customizations. Thi
 the CfCT manifest file begins at the keyword **resources** and continues to the
 end of the file.
 
-The **resources** section of the manifest file specifies the AWS CloudFormation
+The **resources** section of the manifest file specifies the CloudFormation
 StackSets, or AWS Organizations SCPs and RCPs, which CfCT deploys automatically through the code pipeline. You
 can list OUs, accounts, and Regions to deploy stack instances.
 
@@ -44,7 +44,7 @@ resources: # List of resources
 keywords shown in the previous code example.**
 
 **name** – The name that is associated with the
-AWS CloudFormation StackSets. The string you provide assigns a more user-friendly name for a stack
+CloudFormation StackSets. The string you provide assigns a more user-friendly name for a stack
 set.
 
 - **Type:** String
@@ -58,8 +58,8 @@ set.
 - **Required:** No
 
 **resource_file** – This file can be specified as the
-relative location to the manifest file, an Amazon S3 URI or URL that points to an AWS CloudFormation template
-or AWS Organizations service control policy in JSON for creating AWS CloudFormation resources, SCPs, or RCPs.
+relative location to the manifest file, an Amazon S3 URI or URL that points to an CloudFormation template
+or AWS Organizations service control policy in JSON for creating CloudFormation resources, SCPs, or RCPs.
 
 - **Type:** String
 - **Required:** Yes
@@ -117,7 +117,7 @@ example with the AWS account ID for the management account that is deploying CfC
 more examples, refer to [Bucket policy
 examples](../../../AmazonS3/latest/userguide/example-bucket-policies.md "../../../AmazonS3/latest/userguide/example-bucket-policies.md") in the Amazon Simple Storage Service User Guide.
 **parameters** – Specifies the name and value for
-AWS CloudFormation parameters.
+CloudFormation parameters.
 
 - **Type:** MapList
 - **Required:** No
@@ -146,14 +146,14 @@ parameters:
   **deploy_method** – The deployment method for
   deploying resource(s) into the account. Currently, **deploy_method**
   supports deploying resources using the `stack_set` option for resource deployment
-  through AWS CloudFormation StackSets, the `scp` option if you are deploying SCPs, or the `rcp` option if you are deploying RCPs.
+  through CloudFormation StackSets, the `scp` option if you are deploying SCPs, or the `rcp` option if you are deploying RCPs.
 
 - **Type:** String
 - **Valid Values:**
   `stack_set` | `scp` | `rcp`
 - **Required:** Yes
   **deployment_targets** – List of accounts or
-  Organizational Units (OUs), into which CfCT will deploy the AWS CloudFormation resources, specified as
+  Organizational Units (OUs), into which CfCT will deploy the CloudFormation resources, specified as
   **accounts** or **organizational_units**.
 
 ###### Note
@@ -206,8 +206,8 @@ export_outputs: # List of SSM parameters
 - **Valid Values:** Any string or the
   `$[output_`CfnOutput-Logical-ID`]` variable
   where `CfnOutput-Logical-ID` corresponds to the template output
-  variable. For more information about the Outputs section in an AWS CloudFormation template, see
-  [**Outputs**](../../../AWSCloudFormation/latest/UserGuide/outputs-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/outputs-section-structure.md") in the _AWS CloudFormation User
+  variable. For more information about the Outputs section in an CloudFormation template, see
+  [**Outputs**](../../../AWSCloudFormation/latest/UserGuide/outputs-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/outputs-section-structure.md") in the _CloudFormation User
   Guide_.
 - **Required:** No
   For example, the following code snippet stores the template `VPCID` output
@@ -228,7 +228,7 @@ The **export_outputs** key name may contain a value other than
 `production`.
 
 **regions** – List of Regions in which CfCT will
-deploy the AWS CloudFormation stack instances.
+deploy the CloudFormation stack instances.
 
 - **Type:** Any list of AWS commercial Region names, to
   indicate that this resource will be deployed into the given Region list. If this keyword

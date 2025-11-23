@@ -56,9 +56,6 @@ Mixed governance is not the same as drift, and it is not reported as drift.
 
 ###### To repair mixed governance
 
-- Choose **Update account** for each account in the OU that
-  shows **Update available** status on the
-  **Organizations** page in the console.
-- Choose **Re-Register OU** on the
-  **Organizations** page, which automatically updates all
-  accounts in the OU, for OUs with fewer than 1000 accounts.
+- Customers are now able to repair mixed governance by resetting regional controls.
+  Any non-global controls are regional (detective and proactive controls). You will be alerted
+  that your OU is in a mixed governance through an alert banner.

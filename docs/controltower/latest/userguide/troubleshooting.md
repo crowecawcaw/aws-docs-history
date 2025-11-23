@@ -31,7 +31,7 @@ contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon
 Common causes of landing zone launch failure:
 
 - Lack of response to a confirmation email message.
-- AWS CloudFormation StackSet failure.
+- CloudFormation StackSet failure.
 
 **Confirmation email messages**: If your
 management account is less than an hour old, you may encounter issues when the additional
@@ -44,19 +44,19 @@ confirmation email that is awaiting response. Alternatively, we recommend that y
 wait an hour, and then try again. If the issue persists, contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
 **Failed StackSets**: Another possible cause of landing
-zone launch failure is AWS CloudFormation StackSet failure. AWS Security Token Service (STS)
+zone launch failure is CloudFormation StackSet failure. AWS Security Token Service (STS)
 regions must be enabled in the management account for all AWS Regions that AWS Control Tower is
 governing, so that the provisioning can be successful; otherwise, stack sets will fail
 to launch.
 
 ###### Action to take
 
-Be sure to enable all of your required AWS Security Token Service [(STS) endpoint regions](https://console.aws.amazon.com/iam/home#/account_settings "https://console.aws.amazon.com/iam/home#/account_settings")
+Be sure to enable all of your required AWS Security Token Service [(STS) endpoint regions](https://console.aws.amazon.com//iam/home#/account_settings "https://console.aws.amazon.com//iam/home#/account_settings")
 before you launch AWS Control Tower.
 
 **To remediate failed stack sets and retry the setup**
 
-1. Navigate to the AWS CloudFormation console in the appropriate AWS Region.
+1. Navigate to the CloudFormation console in the appropriate AWS Region.
 2. Clean up the failed stack with the name **AWSControlTowerBP-BASELINE-CLOUDTRAIL-MASTER**.
 3. Wait for the stack deletion to complete.
 4. Return to the AWS Control Tower page.
@@ -188,7 +188,7 @@ information, see [Provision accounts in the Service Catalog console, with Accoun
 
 - Navigate to **AWS CloudFormation > StackSets**
 - Check each stack set related to AWS Control Tower (prefix: "AWSControlTower")
-- Look for AWS CloudFormation StackSets operations that are still running.
+- Look for CloudFormation StackSets operations that are still running.
 
 If your account provisioning takes longer than one hour, it's best to terminate the
 provisioning process and try again.

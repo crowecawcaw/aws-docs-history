@@ -52,7 +52,7 @@ OU.
 - _For controls implemented with SCPs:_ The
   SCP-based controls from the previous OU are  removed. The SCP-based controls
   for the destination OU go into effect on this account.
-- _For controls implemented with AWS CloudFormation
+- _For controls implemented with CloudFormation
   hooks:_ This behavior  depends on the status of controls in
   the new OU.
   - _If the destination OU has no hook-based

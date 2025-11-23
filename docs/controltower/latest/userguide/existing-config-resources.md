@@ -33,7 +33,7 @@ AWS Control Tower.
 - Your account is not the AWS Control Tower management account.
 - Your account is not in governance drift.
   For a blog that describes an automated approach to enrolling accounts with existing AWS Config
-  resources, see [Automate enrollment of accounts with existing AWS Config resources into AWS Control Tower](https://aws.amazon.com/blogs/mt/automate-enrollment-of-accounts-with-existing-aws-config-resources-into-aws-control-tower/ "https://aws.amazon.com/blogs/mt/automate-enrollment-of-accounts-with-existing-aws-config-resources-into-aws-control-tower/").
+  resources, see [Automate enrollment of accounts with existing AWS Config resources into AWS Control Tower](https://aws.amazon.com//blogs/mt/automate-enrollment-of-accounts-with-existing-aws-config-resources-into-aws-control-tower/ "https://aws.amazon.com//blogs/mt/automate-enrollment-of-accounts-with-existing-aws-config-resources-into-aws-control-tower/").
   You'll be able to submit a single support ticket for all of the accounts you wish to enroll,
   as described in [Step 1: Contact customer support with a ticket,
   to add the account to the AWS Control Tower allow list](#existing-config-step-1 "#existing-config-step-1"), which follows.
@@ -44,8 +44,9 @@ If you've enabed auto-enroll for accounts (in the **Settings** page), you will n
 
 ###### Limitations
 
-- The account can be enrolled only by using the AWS Control Tower workflow for extending
-  governance.
+- The account can be enrolled only by using the OU registration or re-registration workflow
+  which enables the `AWSControlTowerBaseline`. The account can not be enrolled by
+  enabling or resetting the `ConfigBaseline`.
 - If the resources are modified and create drift on the account, AWS Control Tower does not
   update the resources.
 - AWS Config resources in Regions that are not governed by AWS Control Tower are not
@@ -104,7 +105,7 @@ days.
 
 account
 
-1. Open the AWS CloudFormation console for the member account.
+1. Open the CloudFormation console for the member account.
 2. Create a new stack using the following template
 
 ```
@@ -262,7 +263,7 @@ command:
 
 exist, in Regions governed by AWS Control Tower
 
-Revise the AWS CloudFormation template, so that in your home Region the
+Revise the CloudFormation template, so that in your home Region the
 **IncludeGlobalResourcesTypes** parameter has the value
 `GLOBAL_RESOURCE_RECORDING`, as shown in the example that follows. Also
 update the required fields in the template, as specified in this section.
@@ -271,7 +272,7 @@ Replace the item `GLOBAL_RESOURCE_RECORDING` with **true**
 in your home Region. Replace the item with **false** for other Regions
 where an AWS Config recorder does not exist.
 
-1. Navigate to the management account’s AWS CloudFormation console.
+1. Navigate to the management account’s CloudFormation console.
 2. Create a new StackSet with the name
    **CustomerCreatedConfigResourcesForControlTower**.
 3. Copy and update the following template:
@@ -320,7 +321,7 @@ Resources:
     5. In the **AuthorizedAwsRegion** field, replace the
      `HOME_REGION`
 
-4. During deployment on the AWS CloudFormation console, add the member account number.
+4. During deployment on the CloudFormation console, add the member account number.
 5. Add the AWS Regions that were identified in Step 4.
 6. Deploy the stack set.
 

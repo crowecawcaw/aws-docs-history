@@ -13,6 +13,14 @@ accounts, you cannot register it in AWS Control Tower.
 When you register an OU, its member accounts are enrolled into the AWS Control Tower landing zone. They
 are governed by the controls that apply to their OU.
 
+Starting with Landing Zone version 4.0, you can directly enable controls on an OU.
+Detective controls require AWS Config recording which can be activated by registering the OU or
+enabling AWS Config recording on the OU. Register OU will enable `AWSControlTowerBaseline`.
+Enable AWS Config recording will enable `ConfigBaseline`. For more information, see
+[Types of baselines](types-of-baselines.md "types-of-baselines.md") and
+[The AWS Control Tower Controls Reference
+Guide](link-to-new-guide.md "link-to-new-guide.md")
+
 ###### Note
 
 If you don't already have an AWS Control Tower landing zone, start by setting up a landing zone, either

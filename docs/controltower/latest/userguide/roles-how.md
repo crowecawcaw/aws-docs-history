@@ -34,17 +34,27 @@ For more information about accounts and resources, see [About AWS accounts in AW
 
 unmanaged OUs and accounts
 
-The AWS Control Tower management account creates an organization-level aggregator, which assists in
-detecting external AWS Config rules, so that AWS Control Tower does not need to gain access to unmanaged
-accounts. The AWS Control Tower console shows you how many externally created AWS Config rules you have
-for a given account. You can view details about
-those external rules in the **External Config Rule Compliance** tab of the **Account details** page.
+- The AWS Control Tower management account creates an organization-level aggregator, which assists in
+  detecting external AWS Config rules, so that AWS Control Tower does not need to gain access to unmanaged
+  accounts. The AWS Control Tower console shows you how many externally created AWS Config rules you have
+  for a given account. You can view details about those external rules in the
+  **External Config Rule Compliance** tab of the **Account details** page.
+- To create the aggregator, AWS Control Tower adds a role with the permissions required to describe an
+  organization and list the accounts under it. The `AWSControlTowerConfigAggregatorRoleForOrganizations`
+  role requires the `AWSConfigRoleForOrganizations` managed policy and a trust relationship with
+  `config.amazonaws.com`.
 
-To create the aggregator, AWS Control Tower adds a role with the permissions required to describe an
-organization and list the accounts under it. The
-`AWSControlTowerConfigAggregatorRoleForOrganizations` role requires the
-`AWSConfigRoleForOrganizations` managed policy and a trust relationship with
-`config.amazonaws.com`.
+###### Note
+
+_Customers using landing zone version 4.0 will not need this role because AWS Control Tower have migrated from the existing
+organization-level config aggregator to the service-linked config aggregator_
+
+###### Note
+
+When you enable trusted access on the organization that contains your landing zone, AWS Control Tower can create roles,
+manage resources, and read data for all accounts in the organization. Through trusted access, any account or
+OU in the organization is available to AWS Control Tower, whether registered and enrolled, or _not_
+registered and _not_ enrolled.
 
 Here is the IAM policy (JSON artifact) attached to the role:
 

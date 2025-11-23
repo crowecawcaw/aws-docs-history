@@ -35,7 +35,7 @@ provision new accounts.
 If you set the account factory VPC configuration so that public subnets
 are **enabled** when provisioning a new
 account, account factory configures Amazon VPC to create a [NAT Gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md"). You will be billed for your usage by Amazon VPC.
-See [VPC Pricing](https://aws.amazon.com/vpc/pricing/ "https://aws.amazon.com/vpc/pricing/") for more
+See [VPC Pricing](https://aws.amazon.com//vpc/pricing/ "https://aws.amazon.com//vpc/pricing/") for more
 information.
 
 - Choose the maximum number of private subnets in Amazon VPC from the list. By

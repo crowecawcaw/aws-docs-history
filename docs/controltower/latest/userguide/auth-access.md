@@ -67,7 +67,7 @@ Version 4 Signing Process](../../../general/latest/gr/signature-version-4.md "..
   credentials for your role session. IAM roles with temporary credentials are
   useful in the following situations:
   - **Federated user access** – Instead
-    of creating an IAM user, you can use existing identities from AWS Directory Service,
+    of creating an IAM user, you can use existing identities from Directory Service,
     your enterprise user directory, or a web identity provider. These are
     known as _federated users_. AWS assigns a role to a
     federated user when access is requested through an identity provider.

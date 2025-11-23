@@ -49,7 +49,7 @@ AWS Control Tower dashboard.
   **View details** button at the upper right.
   For more information about how to integrate AWS Control Tower lifecycle events into your
   workflows, see this blog post, [Using lifecycle events to track AWS Control Tower actions and trigger automated
-  workflows](https://aws.amazon.com/blogs/mt/using-lifecycle-events-to-track-aws-control-tower-actions-and-trigger-automated-workflows/ "https://aws.amazon.com/blogs/mt/using-lifecycle-events-to-track-aws-control-tower-actions-and-trigger-automated-workflows/").
+  workflows](https://aws.amazon.com//blogs/mt/using-lifecycle-events-to-track-aws-control-tower-actions-and-trigger-automated-workflows/ "https://aws.amazon.com//blogs/mt/using-lifecycle-events-to-track-aws-control-tower-actions-and-trigger-automated-workflows/").
 
 **Expected behavior of CreateManagedAccount and UpdateManagedAccount
 lifecycle events**
@@ -98,11 +98,9 @@ of letters and numbers. Its form is preserved in the examples.
   provisioned product that's associated with an account you had previously created by
   using account factory.
 - [EnableGuardrail](#enable-control "#enable-control"): The log records
-  whether AWS Control Tower successfully completed every action to enable a control on an OU
-  that was created by AWS Control Tower.
+  whether AWS Control Tower successfully completed every action to enable a control on an OU.
 - [DisableGuardrail](#disable-control "#disable-control"): The log records
-  whether AWS Control Tower successfully completed every action to disable a control on an OU
-  that was created by AWS Control Tower.
+  whether AWS Control Tower successfully completed every action to disable a control on an OU.
 - [SetupLandingZone](#setup-landing-zone "#setup-landing-zone"): The log
   records whether AWS Control Tower successfully completed every action to set up a landing
   zone.

@@ -2,6 +2,11 @@
 
 Subscribe to SNS topics to get information about your AWS Control Tower environment.
 
+###### Note
+
+AWS Control Tower will stop sending drift notifications to SNS topic for all customers on
+LZ4.0+.
+
 - The `aws-controltower-AllConfigNotifications` SNS topic receives all events
   published by AWS Config, including compliance notifications and Amazon CloudWatch event notifications. For
   example, this topic informs you if a control violation has occurred. It also gives information

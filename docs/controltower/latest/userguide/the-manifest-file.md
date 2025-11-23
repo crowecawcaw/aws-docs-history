@@ -20,7 +20,7 @@ Here are the definitions of those keywords.
 **region** – A text string for the AWS Control Tower default
 Region. This value must be a valid AWS Region name (such as `us-east-1`,
 `eu-west-1`, or `ap-southeast-1`). The AWS Control Tower home Region is the
-default when you create custom AWS Control Tower resources (such as AWS CloudFormation StackSets),
+default when you create custom AWS Control Tower resources (such as CloudFormation StackSets),
 unless a more resource-specific Region is specified.
 
 ```

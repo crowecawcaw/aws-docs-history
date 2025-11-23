@@ -50,9 +50,9 @@ or an AWS CodeCommit repository, in which the configuration package can be hoste
 
 The build stage requires AWS CodeBuild to validate the contents of the configuration
 package. These checks include testing the `manifest.yaml` file syntax and
-schema, along with all AWS CloudFormation templates included in the package or remotely hosted, using
-AWS CloudFormation `validate-template` and `cfn_nag`. If the manifest file and
-AWS CloudFormation templates pass the tests, the pipeline continues to the next stage. If the tests
+schema, along with all CloudFormation templates included in the package or remotely hosted, using
+CloudFormation `validate-template` and `cfn_nag`. If the manifest file and
+CloudFormation templates pass the tests, the pipeline continues to the next stage. If the tests
 fail, you can review the CodeBuild logs to identify the issue and edit the configuration
 source file as needed. 3. **Manual approval stage (optional)**
 
@@ -63,11 +63,11 @@ deployment, until an approval is given. You can opt into manual approval by edit
 when you launch the stack. 4. **Policy stage**
 
 The policy stage invokes the service control policy (SCP) or resource control policy (RCP) state machine to
-call AWS Organizations APIs that create SCPs or RCPs. 5. **AWS CloudFormation resource stage**
+call AWS Organizations APIs that create SCPs or RCPs. 5. **CloudFormation resource stage**
 
-The AWS CloudFormation resource stage invokes the stack set state machine to deploy the resources
+The CloudFormation resource stage invokes the stack set state machine to deploy the resources
 specified in the list of accounts or organizational units (OUs), which you provided in
-the manifest file. The state machine creates the AWS CloudFormation resources in the order that they
+the manifest file. The state machine creates the CloudFormation resources in the order that they
 are specified in the manifest file. To specify a resource dependency, arrange the order
 in which resources are specified in the manifest file. The order of resources within the
 manifest file is the only way to specify a dependency.

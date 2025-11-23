@@ -59,7 +59,7 @@ and AWS Organizations. For more information, see [Integrated services](integrate
 
 You can incorporate AWS Control Tower with other AWS services into a solution that helps you migrate
 your existing workloads to AWS. For more information, see [How to take advantage of AWS Control Tower and CloudEndure to migrate workloads to
-AWS](https://aws.amazon.com/blogs/mt/how-to-take-advantage-of-aws-control-tower-and-cloudendure-to-migrate-workloads-to-aws/ "https://aws.amazon.com/blogs/mt/how-to-take-advantage-of-aws-control-tower-and-cloudendure-to-migrate-workloads-to-aws/").
+AWS](https://aws.amazon.com//blogs/mt/how-to-take-advantage-of-aws-control-tower-and-cloudendure-to-migrate-workloads-to-aws/ "https://aws.amazon.com//blogs/mt/how-to-take-advantage-of-aws-control-tower-and-cloudendure-to-migrate-workloads-to-aws/").
 
 ###### Configuration, Governance, and Extensibility
 

@@ -5,7 +5,7 @@ them.
 
 ###### To update your custom blueprints
 
-1. Update your AWS CloudFormation template or Terraform tar.gz file (blueprint) with your new
+1. Update your CloudFormation template or Terraform tar.gz file (blueprint) with your new
    configurations.
 2. Save the updated blueprint as a new version in AWS Service Catalog.
 

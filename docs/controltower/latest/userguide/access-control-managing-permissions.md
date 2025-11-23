@@ -131,7 +131,7 @@ To view more details about the policy, including the latest version of the JSON 
 
 ## AWSControlTowerStackSetRole
 
-AWS CloudFormation assumes this role to deploy stack sets in accounts created by AWS Control Tower. Inline
+CloudFormation assumes this role to deploy stack sets in accounts created by AWS Control Tower. Inline
 Policy:
 
 JSON
@@ -174,10 +174,29 @@ JSON
 
 ```
 
-## AWSControlTowerCloudTrailRole
+## AWSControlTowerCloudTrailRolePolicy
 
 AWS Control Tower enables CloudTrail as a best practice and provides this role to CloudTrail. CloudTrail assumes
-this role to create and publish CloudTrail logs. Inline Policy:
+this role to create and publish CloudTrail logs.
+
+**Managed Policy:** `AWSControlTowerCloudTrailRolePolicy`
+
+This role uses the AWS-managed policy `AWSControlTowerCloudTrailRolePolicy`,
+which grants CloudTrail the permissions necessary to publish audit logs to Amazon CloudWatch Logs on behalf of
+AWS Control Tower. This managed policy replaces the inline policy that was previously used for this role,
+enabling AWS to update the policy without customer intervention.
+
+For more information, see [AWSControlTowerCloudTrailRolePolicy](../../../aws-managed-policy/latest/reference/AWSControlTowerCloudTrailRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSControlTowerCloudTrailRolePolicy.md") in the _AWS Managed Policy Reference Guide_.
+
+Updates to this managed policy are summarized in the table, [Managed policies for AWS Control Tower](managed-policies-table.md "managed-policies-table.md").
+
+###### Note
+
+Prior to the introduction of the managed policy, this role used an inline policy with
+equivalent permissions. The inline policy has been replaced by the managed policy to
+enable seamless updates.
+
+**Previous Inline Policy (for reference):**
 
 JSON
 

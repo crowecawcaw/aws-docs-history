@@ -22,4 +22,4 @@ service for access to your resources.
   contains the account ID, the `aws:SourceAccount` value and the
   account in the `aws:SourceArn` value must show the same account ID
   when used in the same policy statement
-  For more information and examples, see [https://docs.aws.amazon.com/controltower/latest/userguide/conditions-for-role-trust.html](conditions-for-role-trust.md "conditions-for-role-trust.md").
+  For more information and examples, see [https://docs.aws.amazon.com//controltower/latest/userguide/conditions-for-role-trust.html](conditions-for-role-trust.md "conditions-for-role-trust.md").

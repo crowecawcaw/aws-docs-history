@@ -52,11 +52,11 @@ more information, see [Move and enroll accounts with auto-enrollment](account-au
 - **Account Factory customization in the AWS Control Tower
   console:** After the setup steps, future provisioning of customized
   accounts requires no additional configuration or pipeline maintenance. Accounts
-  are provisioned by means of a AWS Service Catalog product called a _blueprint_. A blueprint can use AWS CloudFormation templates, or Terraform
+  are provisioned by means of a AWS Service Catalog product called a _blueprint_. A blueprint can use CloudFormation templates, or Terraform
   templates.
 
 ###### Note
 
-AWS CloudFormation blueprints can deploy resources to multiple Regions. Terraform
+CloudFormation blueprints can deploy resources to multiple Regions. Terraform
 blueprints can deploy resources to a single Region only. By default, that is
 the home Region.

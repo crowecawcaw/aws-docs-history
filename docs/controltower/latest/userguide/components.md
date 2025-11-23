@@ -8,7 +8,7 @@ AWS Control Tower_ (CfCT).
 If you have an existing AWS CodeCommit repository, you can configure it as a source for
 your pipeline, as an alternative to Amazon S3.
 
-Based on your input to the AWS CloudFormation template, CfCT can create an [AWS CodeCommit](https://aws.amazon.com/codecommit/ "https://aws.amazon.com/codecommit/") repository with the same sample
+Based on your input to the CloudFormation template, CfCT can create an [AWS CodeCommit](https://aws.amazon.com/codecommit/ "https://aws.amazon.com/codecommit/") repository with the same sample
 configuration that's explained in the Amazon Simple Storage Service section.
 
 To clone the CfCT AWS CodeCommit repository to your local computer, you must create

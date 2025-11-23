@@ -29,7 +29,7 @@ You can delegate administration of AWS IAM Identity Center in your organization 
 than the management account, by using the delegated administrator feature of IAM
 Identity Center. If you choose to use this feature, be aware that Administrators with
 access to manage group membership _also_ can manage groups assigned
-to the management account. For more information, see this blog post, entitled, [Getting started with AWS SSO delegated administration](https://aws.amazon.com/blogs/security/getting-started-with-aws-sso-delegated-administration/ "https://aws.amazon.com/blogs/security/getting-started-with-aws-sso-delegated-administration/")
+to the management account. For more information, see this blog post, entitled, [Getting started with AWS SSO delegated administration](https://aws.amazon.com/blogs//security/getting-started-with-aws-sso-delegated-administration/ "https://aws.amazon.com/blogs//security/getting-started-with-aws-sso-delegated-administration/")
 
 ## Things to know about IAM Identity Center accounts and
 
@@ -48,7 +48,7 @@ AWS Control Tower.
   AWS IAM Identity Center, see [Disabling a
   User](../../../singlesignon/latest/userguide/disableuser.md "../../../singlesignon/latest/userguide/disableuser.md").
 - AWS IAM Identity Center has been [integrated with
-  Azure Active Directory](https://aws.amazon.com/blogs/aws/the-next-evolution-in-aws-single-sign-on/ "https://aws.amazon.com/blogs/aws/the-next-evolution-in-aws-single-sign-on/"), and you can connect your existing Azure
+  Azure Active Directory](https://aws.amazon.com//blogs/aws/the-next-evolution-in-aws-single-sign-on/ "https://aws.amazon.com//blogs/aws/the-next-evolution-in-aws-single-sign-on/"), and you can connect your existing Azure
   Active Directory to AWS Control Tower.
 - For more information about how the behavior of AWS Control Tower interacts with AWS
   IAM Identity Center and different identity sources, refer to the [Considerations for Changing Your Identity Source](../../../singlesignon/latest/userguide/manage-your-identity-source-considerations.md "../../../singlesignon/latest/userguide/manage-your-identity-source-considerations.md") in the AWS IAM Identity Center

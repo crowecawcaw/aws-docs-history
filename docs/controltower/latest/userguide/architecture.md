@@ -47,7 +47,7 @@ stages.
 - **SCP Stage** – invokes the service
   control policy state machine, which calls the AWS Organizations API to create
   SCPs.
-- **AWS CloudFormation Stage** – invokes the
+- **CloudFormation Stage** – invokes the
   stack set state machine to deploy the resources specified in the list of
   accounts or OUs, which you've provided in [the
   manifest file](the-manifest-file.md "the-manifest-file.md").

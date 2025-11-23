@@ -2,7 +2,7 @@
 
 AWS Control Tower assists you with maintaining a secure, multi-account environment on AWS by
 means of controls, which are implemented in various forms, such as service control
-policies (SCPs), AWS Config rules, and AWS CloudFormation hooks.
+policies (SCPs), AWS Config rules, and CloudFormation hooks.
 
 ###### The Controls Reference Guide
 

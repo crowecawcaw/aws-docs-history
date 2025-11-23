@@ -5,24 +5,25 @@ specific configurations that you can apply to a target. The most common baseline
 be an organizational unit (OU). For example, you can enable a baseline with an OU selected
 as a target, to register that OU into AWS Control Tower.
 
-During landing zone setup, the baseline target may be a shared account or the landing zone
-as a whole. Certain baselines may be enabled and updated based on your landing zone settings
+During landing zone setup, some baselines may be enabled on shared account automatically.
+Certain baselines may be enabled and updated based on your landing zone settings
 and configurations. AWS Control Tower creates and deploys the resources to the target in the way that
 the baseline specifies.
 
-When you enable a baseline for a target, the baseline is represented as an AWS CloudFormation resource,
+When you enable a baseline on a target, the baseline is represented as an AWS resource,
 called an `EnabledBaseline` resource.
 
 AWS Control Tower includes two general types of baselines:
 
-- Baseline types that can apply to an OU that's registered with AWS Control Tower, or to an
-  OU that you intend to register by applying the baseline.
-- Baseline types that can apply to a landing zone or shared account, during initial
-  set up or during a landing zone update.
+- Baselines that can be enabled on an OU.
+- Baselines that can be enabled on shared account, during landing zone set up.
 
-## Baseline types that apply at the OU level, for registering and updating
+## Baseline types that apply at the OU level
 
-OUs
+###### Note
+
+Only Baselines that apply at OU level can be directly enabled
+with the `EnableBaseline` API.
 
 - **Name**: `AWSControlTowerBaseline`
 
@@ -47,6 +48,19 @@ the landing zone Region deny control, before you call the
 `EnableBaseline` API for the OU, or you could lose access to
 resources in certain Regions.
 
+- **Name**: `ConfigBaseline`
+
+**Description**: This baseline sets up AWS Config related resources
+for member accounts within the target OU required for Detective Controls enablement.
+The resources set up are a subset of resources of AWSControlTowerBaseline.
+
+**Consideration**: This baseline does not retain the settings of
+the landing zone Region deny control. Region deny control will not be enabled
+as part of enabling ConfigBaseline.
+
+**Limitation**: AWSControlTowerBaseline and ConfigBaseline cannot
+be enabled on the same OU. Only one of them is allowed on an OU.
+
 - **Name**: `BackupBaseline`
 
 **Description**: This baseline sets up resources and controls
@@ -66,15 +80,11 @@ the target OU must be registered in AWS Control Tower.
     + The `BackupBaseline` is not applied to the management
      account.
 
-###### Note
+## Baseline types that may be applied on shared account
 
-Landing zone baselines behave differently than OU-level baselines.
+during landing zone set up
 
-## Baseline types that may apply to your landing zone
-
-or shared accounts
-
-AWS Control Tower enables the baselines that apply at the landing zone level automatically, as
+AWS Control Tower enables certain baselines on shared account, as
 part of the landing zone setup and update process. Baselines for your landing zone may
 change as you change your landing zone settings. For example, if you opt in for IAM Identity Center,
 AWS Control Tower can enable the latest version of the `IdentityCenterBaseline`
@@ -85,23 +95,28 @@ You can view the enabled baselines for your landing zone with the
 
 ###### Note
 
-Only the `AWSControlTowerBaseline` can be applied directly with the
-`EnableBaseline` API. Other baselines are managed automatically
-(`AuditBaseline`, `LogArchiveBaseline`). The status of
-`IdentityCenterBaseline` is provided as information when you apply
-the `AWSControlTowerBaseline`.
+Starting with Landing Zone version 4.0, the AuditBaseline is replaced by two distinct
+baselines: `CentralSecurityRolesBaseline` and `CentralConfigBaseline`.
+
+- **Name**: `CentralConfigBaseline`
+
+**Description**: Sets up central resources for compliance monitoring
+and auditing within your organization using AWS Config.
+
+- **Name**: `CentralSecurityRolesBaseline`
+
+**Description**: Sets up central resources for security monitoring
+within your organization.
 
 - **Name**: `AuditBaseline`
 
 **Description**: Sets up resources to monitor security and
-compliance of accounts in your organization. You cannot change this baseline, it
-is deployed by AWS Control Tower.
+compliance of accounts in your organization.
 
 - **Name**: `LogArchiveBaseline`
 
 **Description**: Sets up a central repository for logs of API
-activities and resource configurations from accounts in your organization. You
-cannot change this baseline, it is deployed by AWS Control Tower.
+activities and resource configurations from accounts in your organization.
 
 - **Name**: `IdentityCenterBaseline`
 
@@ -140,6 +155,11 @@ can track the enablement and drift status of each member account by means of the
 enabled baselines. To view the status of your accounts, you can call the
 [`ListEnabledBaselines`](../APIReference/API_ListEnabledBaselines.md "../APIReference/API_ListEnabledBaselines.md") API with the `includeChildren` feature
 flag.
+
+**Disable an account's baseline**
+
+AWS Control Tower does not allow you to disable a child enabled baseline linked to a parent enabled baseline.
+A child enabled baseline can be disabled if it is inheritance drifted and no longer linked to a parent enabled baseline.
 
 ## Baselines and versioning defaults
 

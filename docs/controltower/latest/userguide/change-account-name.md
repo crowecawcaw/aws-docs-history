@@ -16,7 +16,7 @@ permissions and be logged in as the account's root user.
 
 1. Recover the root password for the account. You can follow the steps outlined
    in this article, [How do I
-   recover a lost or forgotten AWS password?](https://aws.amazon.com/premiumsupport/knowledge-center/recover-aws-password/ "https://aws.amazon.com/premiumsupport/knowledge-center/recover-aws-password/")
+   recover a lost or forgotten AWS password?](https://aws.amazon.com//premiumsupport/knowledge-center/recover-aws-password/ "https://aws.amazon.com//premiumsupport/knowledge-center/recover-aws-password/")
 2. Sign in to the account with the root password.
 3. In the AWS Billing console, navigate to the **Account settings** page.
 4. Change the name in **Account settings**, as you would for any

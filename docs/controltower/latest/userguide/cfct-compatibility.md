@@ -8,7 +8,7 @@ AWS Control Tower_ (CfCT), see the [`CHANGELOG.md` file](https://github.com/aws-
 Version 2.2.0 of _Customizations for AWS Control Tower_ (CfCT)
 introduced a CfCT manifest schema (version _2021-03-15_) to
 align with related AWS service APIs. The manifest schema allows a single manifest.yaml
-file to manage supported resources (AWS CloudFormation templates, SCPs, and RCPs) through decoupled DevOps
+file to manage supported resources (CloudFormation templates, SCPs, and RCPs) through decoupled DevOps
 workflows.
 
 We strongly recommend that you update the CfCT manifest schema from version _2020-01-01_ to version _2021-03-15_ or later.
@@ -52,7 +52,7 @@ The next sections outline mandatory and recommended changes for the transition.
 4. Add a new property **deploy_method** with the value
    **scp** or **rcp**.
 
-###### AWS CloudFormation resources
+###### CloudFormation resources
 
 1. Move the CloudFormation resources under
    **cloudformation_resources** under new property
@@ -70,7 +70,7 @@ The next sections outline mandatory and recommended changes for the transition.
 
 ## Highly recommended CfCT upgrade steps
 
-###### AWS CloudFormation parameters
+###### CloudFormation parameters
 
 1. Change the **parameter_file** property to new property
    **parameters**.

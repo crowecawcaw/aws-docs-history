@@ -48,4 +48,4 @@ AWS based on the requested AWS Region](../controlreference/lz-region-deny.md "..
   Control reference_. The AWS Control Tower SCP is similar to [the SCP for AWS Organizations](../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_general.md#example-scp-deny-region "../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_general.md#example-scp-deny-region"), but not identical.
 
 You can determine Regional service endpoints on the [Regional services
-page](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services").
+page](https://aws.amazon.com//about-aws/global-infrastructure/regional-product-services "https://aws.amazon.com//about-aws/global-infrastructure/regional-product-services").

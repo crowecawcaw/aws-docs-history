@@ -2,6 +2,13 @@
 
 automation
 
+###### Note
+
+Single account provision, update and customization must target an organizational unit (OU)
+with AWSControlTowerBaseline enabled. If an OU does not have the AWSControlTowerBaseline enabled, you can activate account auto-enrollment
+or use ResetEnabledBaseline and ResetEnabledControl APIs on EnabledBaselines and EnabledControls on that OU to enroll accounts.
+There are no single account provisioning limitations when an OU has the AWSControlTowerBaseline enabled.
+
 You can provision or update individual accounts in AWS Control Tower by several methods:
 
 - You can provision and customize accounts with _AWS Control Tower Account

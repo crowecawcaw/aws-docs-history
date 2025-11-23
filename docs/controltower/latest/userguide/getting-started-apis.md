@@ -5,7 +5,7 @@ includes two main steps.
 
 In this procedure, you will use APIs from AWS Control Tower and other AWS services to configure and launch a landing zone.
 These APIs allow you to create a AWS Control Tower environment programatically, either
-[through the AWS CloudFormation console](lz-apis-cfn.md "lz-apis-cfn.md"), or through the AWS CLI.
+[through the CloudFormation console](lz-apis-cfn.md "lz-apis-cfn.md"), or through the AWS CLI.
 
 Before you launch your AWS Control Tower landing zone, perform these prerequisite tasks:
 
@@ -20,7 +20,7 @@ Before you launch your AWS Control Tower landing zone, perform these prerequisit
 
 - [Expectations for landing zone configuration with APIs](getting-started-expectations-api.md "getting-started-expectations-api.md")
 - [Step 1: Configure your landing zone](lz-api-prereques.md "lz-api-prereques.md")
-- [Step 2: Launch your landing zone](lz-api-launch.md "lz-api-launch.md")
+- [Step 2: Launch your landing zone using the AWS Control Tower APIs](lz-api-launch.md "lz-api-launch.md")
 - [Identify your landing zone](lz-api-list.md "lz-api-list.md")
 - [Update your landing zone](lz-api-update.md "lz-api-update.md")
 - [Reset the landing zone to resolve drift](lz-api-reset.md "lz-api-reset.md")
@@ -28,4 +28,4 @@ Before you launch your AWS Control Tower landing zone, perform these prerequisit
 - [View the status of your landing zone operations](lz-api-examples-short.md "lz-api-examples-short.md")
 - [Examples: Set up an AWS Control Tower landing zone with APIs only](walkthrough-api-setup.md "walkthrough-api-setup.md")
 - [Landing zone schemas](landing-zone-schemas.md "landing-zone-schemas.md")
-- [Launch a landing zone using AWS CloudFormation](lz-apis-cfn.md "lz-apis-cfn.md")
+- [Launch a landing zone using CloudFormation](lz-apis-cfn.md "lz-apis-cfn.md")

@@ -1,12 +1,12 @@
-# Set up a configuration package for AWS CloudFormation StackSets
+# Set up a configuration package for CloudFormation StackSets
 
-This section explains how to set up a configuration package for AWS CloudFormation StackSets. The two
+This section explains how to set up a configuration package for CloudFormation StackSets. The two
 main parts of this process are: (1) prepare the manifest file, and (2) update the folder
 structure.
 
 ## Step 1: Edit the existing manifest file
 
-Add the new AWS CloudFormation StackSets information to the manifest file that you previously
+Add the new CloudFormation StackSets information to the manifest file that you previously
 edited.
 
 Just for review, the following snippet contains the same customized manifest file that
@@ -80,7 +80,7 @@ regions:
   - `region-name`
 ```
 
-The following example shows that you can add more than one AWS CloudFormation resource in the
+The following example shows that you can add more than one CloudFormation resource in the
 manifest file.
 
 ```
@@ -118,7 +118,7 @@ resources:
 
 ## Step 2: Update the folder structure
 
-When you update the folder structure, you can include all supporting AWS CloudFormation template
+When you update the folder structure, you can include all supporting CloudFormation template
 files and SCP or RCP policy files that are in the manifest file. Verify that the file paths match
 what is provided in the manifest file.
 
