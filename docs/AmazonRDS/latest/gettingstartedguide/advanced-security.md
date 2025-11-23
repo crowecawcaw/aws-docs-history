@@ -18,7 +18,7 @@ the VPC environment appropriately, you can access your DB instance from applicat
 on-premises systems, or other VPCs.
 
 For example, consider an application running in an on-premises data center that needs to
-connect to a DB instance in a VPC. Using AWS Direct Connect or a VPN connection, you can establish a
+connect to a DB instance in a VPC. Using Direct Connect or a VPN connection, you can establish a
 private link to securely access the database while keeping the communication isolated from
 the public internet.
 
@@ -31,7 +31,7 @@ The following are the main ways to connect to a DB instance:
 - **From a different VPC** – If your application
   is in another VPC, establish connectivity through VPC peering, AWS Transit Gateway, or private
   VPC endpoints. Each option has unique benefits and cost implications.
-- **From on-premises systems** – Use AWS Direct Connect or a
+- **From on-premises systems** – Use Direct Connect or a
   VPN connection to create a secure link between your on-premises environment and the VPC
   hosting the DB instance.
 - **From public internet** – If you enable public

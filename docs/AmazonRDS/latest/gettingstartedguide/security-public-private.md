@@ -69,7 +69,7 @@ threats because RDS isolates the database from the public internet.
 establish connectivity through private resources. For example, you can use the following
 strategies:
 
-- Set up an AWS VPN or AWS Direct Connect for on-premises access.
+- Set up an AWS VPN or Direct Connect for on-premises access.
 - Use a bastion host or VPN for administrative tasks from outside the VPC.
 
 The decision between public and private access must align with your application
