@@ -48,4 +48,5 @@ Using the API
 - [Using assisted slot resolution to clarify slot values in Amazon Lex V2](assisted-slot.md "assisted-slot.md")
 - [Using BedrockAgentIntent to use a Amazon Bedrock Agent in Amazon Lex V2](bedrock-agent-intent.md "bedrock-agent-intent.md")
 - [Improve intent classification and slot resolution in Lex V2 with assisted NLU](assisted-nlu.md "assisted-nlu.md")
+- [Resolve ambiguous user inputs with Intent Disambiguation](generative-intent-disambiguation.md "generative-intent-disambiguation.md")
 - [AMAZON.QnAIntent](generative-qna.md "generative-qna.md")

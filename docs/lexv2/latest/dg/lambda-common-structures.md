@@ -47,7 +47,7 @@ Indicates the fulfillment state for the intent. The following values are possibl
 
 `Waiting` – The bot is waiting for a response from the user (limited to streaming conversations).
 
-Contains information about the results of the Kendra search query. This field only appears if the intent is a `KendraSearchIntent`. See [the response syntax in the Query API call for Kendra](../../../https:/docs.aws.amazon.com/kendra/latest/dg/API_Query.md#API_Query_ResponseSyntax "../../../https:/docs.aws.amazon.com/kendra/latest/dg/API_Query.md#API_Query_ResponseSyntax") for more information.
+Contains information about the results of the Kendra search query. This field only appears if the intent is a `KendraSearchIntent`. See [the response syntax in the Query API call for Kendra](../../../kendra/latest/dg/API_Query.md#API_Query_ResponseSyntax "../../../kendra/latest/dg/API_Query.md#API_Query_ResponseSyntax") for more information.
 
 ## Slots
 

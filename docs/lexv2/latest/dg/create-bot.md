@@ -8,7 +8,7 @@ You can create a bot with Amazon Lex V2 in the following ways:
 4. Use an [AWS SDK](https://aws.amazon.com/tools/#sdk "https://aws.amazon.com/tools/#sdk") to create a bot using API operations.
 5. Use the Automated Chatbot designer to create a bot using existing chat transcripts between agents and customers. For more information, see [Creating Amazon Lex V2 bots using the Automated Chatbot Designer](designing.md "designing.md").
 6. Import an existing bot definition. For more information, see [Importing bots in Lex V2](import.md "import.md").
-7. Use AWS CloudFormation to create a bot. For more information, see [Creating
+7. Use CloudFormation to create a bot. For more information, see [Creating
    Amazon Lex V2 resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").
 
 ###### Topics

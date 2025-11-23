@@ -6,5 +6,6 @@ The default behavior of your bot may sometimes result in inaccurate speech trans
 
 - [Configuring speech recognition model preferences](customizing-speech-model-preferences.md "customizing-speech-model-preferences.md")
 - [Improving speech recognition with a custom vocabulary](vocab.md "vocab.md")
+- [Configuring voice activity detection sensitivity](customizing-speech-vad-sensitivity.md "customizing-speech-vad-sensitivity.md")
 - [Improving recognition of slot values with runtime hints in the conversation](using-hints.md "using-hints.md")
 - [Capturing slot values with spelling styles during the conversation](spelling-styles.md "spelling-styles.md")
