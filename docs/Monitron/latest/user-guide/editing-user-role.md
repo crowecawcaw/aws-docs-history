@@ -13,8 +13,8 @@ adding new users, see [Adding a user](adding-user.md "adding-user.md").
 
 ###### Topics
 
-- [To change a user role using the mobile app](#w28aac28c19c19b9 "#w28aac28c19c19b9")
-- [To change a user role using the web app](#w28aac28c19c19c11 "#w28aac28c19c19c11")
+- [To change a user role using the mobile app](#w2aac28c19c19b9 "#w2aac28c19c19b9")
+- [To change a user role using the web app](#w2aac28c19c19c11 "#w2aac28c19c19c11")
 
 ## To change a user role using the mobile app
 

@@ -9,8 +9,8 @@ historical data or user permissions) changes.
 
 ###### Topics
 
-- [To change a site name using the mobile app](#w28aac17c25b7 "#w28aac17c25b7")
-- [To change a site name using the web app](#w28aac17c25b9 "#w28aac17c25b9")
+- [To change a site name using the mobile app](#w2aac17c25b7 "#w2aac17c25b7")
+- [To change a site name using the web app](#w2aac17c25b9 "#w2aac17c25b9")
 
 ## To change a site name using the mobile app
 

@@ -10,8 +10,8 @@ other sites or projects, this won't remove those permissions.
 
 ###### Topics
 
-- [To remove a user using the mobile app](#w28aac28c19c23b7 "#w28aac28c19c23b7")
-- [To remove a user using the web app](#w28aac28c19c23b9 "#w28aac28c19c23b9")
+- [To remove a user using the mobile app](#w2aac28c19c23b7 "#w2aac28c19c23b7")
+- [To remove a user using the web app](#w2aac28c19c23b9 "#w2aac28c19c23b9")
 
 ## To remove a user using the mobile app
 

@@ -23,9 +23,9 @@ shows you how.
 ###### Topics
 
 - [To view Ethernet gateway
-  details in the mobile app](#w28aac19c13c43c13 "#w28aac19c13c43c13")
+  details in the mobile app](#w2aac19c13c43c13 "#w2aac19c13c43c13")
 - [To view Ethernet gateway
-  details in the web app](#w28aac19c13c43c15 "#w28aac19c13c43c15")
+  details in the web app](#w2aac19c13c43c15 "#w2aac19c13c43c15")
 
 ## To view Ethernet gateway
 

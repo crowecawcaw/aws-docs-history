@@ -10,8 +10,8 @@ You can make up to 20 users into admin users or technicians for a site.
 
 ###### Topics
 
-- [To add a site using the mobile app](#w28aac17c21b7 "#w28aac17c21b7")
-- [To add a new site using the web app](#w28aac17c21b9 "#w28aac17c21b9")
+- [To add a site using the mobile app](#w2aac17c21b7 "#w2aac17c21b7")
+- [To add a new site using the web app](#w2aac17c21b9 "#w2aac17c21b9")
 
 ## To add a site using the mobile app
 

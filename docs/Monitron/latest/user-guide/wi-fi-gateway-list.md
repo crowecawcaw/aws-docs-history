@@ -9,8 +9,8 @@ app.
 
 ###### Topics
 
-- [To list your gateways list using the mobile app](#w28aac19c17c39b7 "#w28aac19c17c39b7")
-- [To list your gateways using the web app](#w28aac19c17c39b9 "#w28aac19c17c39b9")
+- [To list your gateways list using the mobile app](#w2aac19c17c39b7 "#w2aac19c17c39b7")
+- [To list your gateways using the web app](#w2aac19c17c39b9 "#w2aac19c17c39b9")
 
 ## To list your gateways list using the mobile app
 

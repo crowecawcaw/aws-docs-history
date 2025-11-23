@@ -30,8 +30,8 @@ Users can have the following roles:
 
 ###### Topics
 
-- [To add a user using the mobile app](#w28aac28c19c15c13 "#w28aac28c19c15c13")
-- [To add a user using the web app](#w28aac28c19c15c15 "#w28aac28c19c15c15")
+- [To add a user using the mobile app](#w2aac28c19c15c13 "#w2aac28c19c15c13")
+- [To add a user using the web app](#w2aac28c19c15c15 "#w2aac28c19c15c15")
 
 ## To add a user using the mobile app
 

@@ -11,9 +11,9 @@ contains instructions for connecting to your project.
 ###### Topics
 
 - [To generate an email invitation to a site or project using the mobile
-  app](#w28aac28c15c27b7 "#w28aac28c15c27b7")
+  app](#w2aac28c15c27b7 "#w2aac28c15c27b7")
 - [To generate an email invitation to a site or project using the web
-  app](#w28aac28c15c27b9 "#w28aac28c15c27b9")
+  app](#w2aac28c15c27b9 "#w2aac28c15c27b9")
 
 ## To generate an email invitation to a site or project using the mobile
 

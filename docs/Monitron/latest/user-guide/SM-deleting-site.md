@@ -10,8 +10,8 @@ with a site.
 
 ###### Topics
 
-- [To delete a site using the mobile app](#w28aac17c29b7 "#w28aac17c29b7")
-- [To delete a site using the web app](#w28aac17c29b9 "#w28aac17c29b9")
+- [To delete a site using the mobile app](#w2aac17c29b7 "#w2aac17c29b7")
+- [To delete a site using the web app](#w2aac17c29b9 "#w2aac17c29b9")
 
 ## To delete a site using the mobile app
 

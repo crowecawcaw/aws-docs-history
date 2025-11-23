@@ -21,9 +21,9 @@ shows you how.
 ###### Topics
 
 - [To view Wi-Fi gateway details
-  in the mobile app](#w28aac19c17c43c13 "#w28aac19c17c43c13")
+  in the mobile app](#w2aac19c17c43c13 "#w2aac19c17c43c13")
 - [To view Wi-FI gateway details in
-  the web app](#w28aac19c17c43c15 "#w28aac19c17c43c15")
+  the web app](#w2aac19c17c43c15 "#w2aac19c17c43c15")
 
 ## To view Wi-Fi gateway details
 

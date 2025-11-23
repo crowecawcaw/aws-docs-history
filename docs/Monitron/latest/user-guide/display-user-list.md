@@ -18,8 +18,8 @@ list of users:
 ###### Topics
 
 - [To display the list of users in the mobile
-  app](#w28aac28c19c11b9 "#w28aac28c19c11b9")
-- [To display the list of users in the web app](#w28aac28c19c11c11 "#w28aac28c19c11c11")
+  app](#w2aac28c19c11b9 "#w2aac28c19c11b9")
+- [To display the list of users in the web app](#w2aac28c19c11c11 "#w2aac28c19c11c11")
 
 ## To display the list of users in the mobile
 

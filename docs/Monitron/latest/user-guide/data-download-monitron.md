@@ -18,7 +18,7 @@ information, see [Amazon Monitron Kinesis data export v2](monitron-kinesis-expor
 ###### Topics
 
 - [Prerequisites](exporting-data-procedure.md "exporting-data-procedure.md")
-- [Exporting your data with AWS CloudFormation
+- [Exporting your data with CloudFormation
   (recommended option)](onetime-download-cflink.md "onetime-download-cflink.md")
 - [Exporting your data with the
   console](onetime-download-console.md "onetime-download-console.md")

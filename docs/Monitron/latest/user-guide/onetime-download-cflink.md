@@ -2,7 +2,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can
 continue to use the service as normal. For capabilities similar to Amazon
 Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
 
-# Exporting your data with AWS CloudFormation
+# Exporting your data with CloudFormation
 
 (recommended option)
 
@@ -24,7 +24,7 @@ IAM role, and IAM policies.
 https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://s3.us-east-1.amazonaws.com/monitron-cloudformation-templates-us-east-1/monitron_manual_download.yaml&stackName=monitronexport
 ```
 
-3. On the AWS CloudFormation page that opens, in the upper right corner, select the
+3. On the CloudFormation page that opens, in the upper right corner, select the
    region in which you are using Amazon Monitron.
 4. Choose **Create stack**.
 
@@ -42,7 +42,7 @@ the status of the stack (monitronexport) is CREATE_COMPLETE.
 5. Note the region you chose in Step 1. It also now appears at the top of
    the page, to the left of your account ID.
 
-![AWS CloudFormation stack outputs page showing MonRoleArn and S3BucketArn with descriptions.](images/s3-export-3.png)
+![CloudFormation stack outputs page showing MonRoleArn and S3BucketArn with descriptions.](images/s3-export-3.png)
 
 ## Step 3: Create the support case
 
@@ -80,7 +80,7 @@ following:
       4. the ARN of the role you created (for example:
          "arn:aws:iam::273771705212:role/role-for-monitron")
 
-   ![Form for Amazon Monitron data export request with fields for account and bucket details.](/images/Monitron/latest/user-guide/images/s3-export-6.png) 3. Choose **Next step: Solve now or contact
+   ![Form for Amazon Monitron data export request with fields for account and bucket details.](images/s3-export-6.png) 3. Choose **Next step: Solve now or contact
    us**.
 
 5. In **Solve now or contact us** do the
@@ -88,7 +88,7 @@ following:
    1. In **Solve now**, select
       **Next**.
 
-   ![Support options interface with "Solve now" and "Contact us" buttons, and recommendations.](/images/Monitron/latest/user-guide/images/s3-export-7.png) 2. In **Contact us**, choose your
+   ![Support options interface with "Solve now" and "Contact us" buttons, and recommendations.](images/s3-export-7.png) 2. In **Contact us**, choose your
    **Preferred contact language** and
    preferred method of contact. 3. Choose **Submit**. A confirmation screen with
    your case ID and details will be displayed.

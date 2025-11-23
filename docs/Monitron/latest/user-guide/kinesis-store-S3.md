@@ -29,7 +29,7 @@ use the following key format recommended by Amazon Monitron:
 https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://s3.us-east-1.amazonaws.com/monitron-cloudformation-templates-us-east-1/monitron_kinesis_data_export.yaml&stackName=monitron-kinesis-live-data-export
 ```
 
-3. On the AWS CloudFormation page that opens, in the upper right corner, select the
+3. On the CloudFormation page that opens, in the upper right corner, select the
    region in which you are using Amazon Monitron.
 4. By default, the template will create a new Kinesis data stream and S3
    bucket along with other resources needed to deliver data to Amazon S3. You
