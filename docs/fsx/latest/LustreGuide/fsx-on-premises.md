@@ -1,7 +1,7 @@
 # Using Amazon FSx with your on-premises data
 
 You can use FSx for Lustre to process your on-premises data with in-cloud compute instances.
-FSx for Lustre supports access over AWS Direct Connect and VPN, enabling you to mount your file systems
+FSx for Lustre supports access over Direct Connect and VPN, enabling you to mount your file systems
 from on-premises clients.
 
 ###### To use FSx for Lustre with your on-premises data

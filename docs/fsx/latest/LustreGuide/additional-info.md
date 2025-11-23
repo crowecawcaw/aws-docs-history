@@ -40,7 +40,7 @@ AWS Cloud.
 
 This solution does the following:
 
-1. The AWS CloudFormation template deploys an CloudWatch Event, a Lambda function, an Amazon SNS queue, and an IAM
+1. The CloudFormation template deploys an CloudWatch Event, a Lambda function, an Amazon SNS queue, and an IAM
    role. The IAM role gives the Lambda function permission to invoke the Amazon FSx for Lustre API
    operations.
 2. The CloudWatch event runs on a schedule you define as a CRON pattern, during the initial
@@ -53,10 +53,10 @@ This solution does the following:
    if you choose the option to be notified during the initial deployment. A notification is always
    sent in the event of a failure.
 
-### AWS CloudFormation template
+### CloudFormation template
 
-This solution uses AWS CloudFormation to automate the deployment of the Amazon FSx for Lustre custom backup scheduling
-solution. To use this solution, download the [fsx-scheduled-backup.template](https://s3.amazonaws.com/solution-references/fsx/backup/fsx-scheduled-backup.template "https://s3.amazonaws.com/solution-references/fsx/backup/fsx-scheduled-backup.template") AWS CloudFormation template.
+This solution uses CloudFormation to automate the deployment of the Amazon FSx for Lustre custom backup scheduling
+solution. To use this solution, download the [fsx-scheduled-backup.template](https://s3.amazonaws.com/solution-references/fsx/backup/fsx-scheduled-backup.template "https://s3.amazonaws.com/solution-references/fsx/backup/fsx-scheduled-backup.template") CloudFormation template.
 
 ### Automated deployment
 
@@ -72,8 +72,8 @@ information, see the pricing details pages for those services.
 
 ###### To launch the custom backup solution stack
 
-1. Download the [fsx-scheduled-backup.template](https://s3.amazonaws.com/solution-references/fsx/backup/fsx-scheduled-backup.template "https://s3.amazonaws.com/solution-references/fsx/backup/fsx-scheduled-backup.template") AWS CloudFormation template. For more information on creating an
-   AWS CloudFormation stack, see [Creating a Stack on
+1. Download the [fsx-scheduled-backup.template](https://s3.amazonaws.com/solution-references/fsx/backup/fsx-scheduled-backup.template "https://s3.amazonaws.com/solution-references/fsx/backup/fsx-scheduled-backup.template") CloudFormation template. For more information on creating an
+   CloudFormation stack, see [Creating a Stack on
    the AWS CloudFormation Console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the _AWS CloudFormation User Guide_.
 
 ###### Note
@@ -99,7 +99,7 @@ them for the needs of your file system. This solution uses the following default
    check box acknowledging that the template create IAM resources.
 6. Choose **Create** to deploy the stack.
 
-You can view the status of the stack in the AWS CloudFormation console in the **Status**
+You can view the status of the stack in the CloudFormation console in the **Status**
 column. You should see a status of **CREATE_COMPLETE** in about five
 minutes.
 
@@ -109,7 +109,7 @@ You can use the Lambda function created by this solution to perform custom sched
 of more than one Amazon FSx for Lustre file system. The file system ID is passed to the Amazon FSx for Lustre function in the
 input JSON for the CloudWatch event. The default JSON passed to the Lambda function is as follows, where
 the values for `FileSystemId` and `SuccessNotification` are passed from the
-parameters specified when launching the AWS CloudFormation stack.
+parameters specified when launching the CloudFormation stack.
 
 ```
 {
@@ -130,4 +130,4 @@ system to back up in place of `${FileSystemId}`. Also, substitute either
 above.
 
 Any additional CloudWatch Event rules you create manually aren't part of the Amazon FSx for Lustre custom
-scheduled backup solution AWS CloudFormation stack. Thus, they aren't removed if you delete the stack.
+scheduled backup solution CloudFormation stack. Thus, they aren't removed if you delete the stack.

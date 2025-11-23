@@ -63,6 +63,19 @@ Amazon EC2 instances) and speed.
       sudo lctl set_param mdc.*.max_rpcs_in_flight=64
       sudo lctl set_param mdc.*.max_mod_rpcs_in_flight=50
       ```
+      3. To optimize performance for directory listing (ls), the following tuning needs to be applied:
+
+
+
+      ```
+      sudo lctl set_param llite.*.statahead_max=512
+      sudo lctl set_param llite.*.statahead_agl=1
+      if sudo lctl get_param llite.*.statahead_xattr > /dev/null 2>&1; then
+          sudo lctl set_param llite.*.statahead_xattr=1
+      else
+          echo "Warning: Xattr statahead is not supported on this Lustre client. Please upgrade to the latest Lustre 2.15 client to apply this tuning"
+      fi
+      ```
 
   Note that `lctl set_param` is known to not persist over reboot.
   Since these parameters cannot be set permanently from the client side, it is

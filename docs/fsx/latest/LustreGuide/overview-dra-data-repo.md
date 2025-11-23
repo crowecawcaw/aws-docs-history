@@ -51,7 +51,7 @@ task are exported.
   won't be exported as part of the export processes like automatic export and export data repository
   tasks.
   FSx for Lustre also supports cloud bursting workloads with on-premises file systems by enabling
-  you to copy data from on-premises clients using AWS Direct Connect or VPN.
+  you to copy data from on-premises clients using Direct Connect or VPN.
 
 ###### Important
 

@@ -2,7 +2,7 @@
 
 You can access your Amazon FSx file system in two ways. One is from Amazon EC2 instances located in
 an Amazon VPC that's peered to the file system's VPC. The other is from on-premises clients that
-are connected to your file system's VPC using AWS Direct Connect or VPN.
+are connected to your file system's VPC using Direct Connect or VPN.
 
 You connect the client's VPC and your Amazon FSx file system's VPC using either a VPC
 peering connection or a VPC transit gateway. When you use a VPC peering
@@ -32,10 +32,10 @@ address from the Amazon Web Services Management Console.
 The following table illustrates IP address requirements for accessing Amazon FSx file systems
 using a client that's outside of the file system's VPC.
 
-| For clients located in...                            | Access to file systems created before December 17, 2020                                                                                                                                                    | Access to file systems created on or after December 17, 2020 |
-| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| Peered VPCs using VPC Peering or AWS Transit Gateway | Clients with IP addresses in an [RFC 1918](http://www.faqs.org/rfcs/rfc1918.html "http://www.faqs.org/rfcs/rfc1918.html") private IP address range:<br>• 10.0.0.0/8<br>• 172.16.0.0/12<br>• 192.168.0.0/16 | ✓                                                            |
-| Peered networks using AWS Direct Connect or AWS VPN  | ✓                                                                                                                                                                                                          |
+| For clients located in...                                | Access to file systems created before December 17, 2020                                                                                                                                                    | Access to file systems created on or after December 17, 2020 |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| Peered VPCs using VPC Peering or AWS Transit Gateway     | Clients with IP addresses in an [RFC 1918](http://www.faqs.org/rfcs/rfc1918.html "http://www.faqs.org/rfcs/rfc1918.html") private IP address range:<br>• 10.0.0.0/8<br>• 172.16.0.0/12<br>• 192.168.0.0/16 | ✓                                                            |
+| Peered networks using Direct Connect or Site-to-Site VPN | ✓                                                                                                                                                                                                          |
 
 If you need to access your Amazon FSx file system that was created before December 17, 2020
 using a non-private IP address range, you can create a new file system by

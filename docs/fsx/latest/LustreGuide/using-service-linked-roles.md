@@ -45,7 +45,7 @@ For updates to this policy, see
 
 The AWSServiceRoleForAmazonFSx is used by all Amazon FSx file system types; some of the listed permissions are not applicable to FSx for Lustre.
 
-- `ds` – Allows Amazon FSx to view, authorize, and unauthorize applications in your AWS Directory Service directory.
+- `ds` – Allows Amazon FSx to view, authorize, and unauthorize applications in your Directory Service directory.
 - `ec2` – Allows Amazon FSx to do the following:
   - View, create, and disassociate network interfaces associated with an Amazon FSx file system.
   - View one or more Elastic IP addresses associated with an Amazon FSx file system.

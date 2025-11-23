@@ -3,7 +3,7 @@
 You can use AWS DataSync to transfer data between FSx for Lustre file systems. DataSync is a
 data transfer service that simplifies, automates, and accelerates moving and replicating data
 between self-managed storage systems and AWS storage services over the internet or
-AWS Direct Connect. DataSync can transfer your file system data and metadata, such as ownership, timestamps,
+Direct Connect. DataSync can transfer your file system data and metadata, such as ownership, timestamps,
 and access permissions.
 
 ## How to migrate existing files to FSx for Lustre using
@@ -27,7 +27,7 @@ in the _AWS DataSync User Guide_.
 - The source and destination file systems are connected in the same virtual private cloud (VPC).
   The source file system can be located on-premises or in another Amazon VPC, AWS account, or AWS Region, but it must be in a
   network peered with that of the destination file system using Amazon VPC Peering, Transit Gateway, AWS Direct Connect,
-  or AWS VPN. For more information, see
+  or Site-to-Site VPN. For more information, see
   [What is VPC peering?](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md")
   in the _Amazon VPC Peering Guide_.
 

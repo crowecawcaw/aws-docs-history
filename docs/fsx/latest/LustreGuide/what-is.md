@@ -82,7 +82,7 @@ file system and its durable data repository on Amazon S3. For more information, 
 ### FSx for Lustre and on-premises data repositories
 
 With Amazon FSx for Lustre, you can burst your data processing workloads from on-premises into
-the AWS Cloud by importing data using AWS Direct Connect or AWS VPN. For more information, see
+the AWS Cloud by importing data using Direct Connect or Site-to-Site VPN. For more information, see
 [Using Amazon FSx with your on-premises data](fsx-on-premises.md "fsx-on-premises.md").
 
 ## Accessing FSx for Lustre file systems
@@ -112,7 +112,7 @@ with Amazon Linux 2023 and Amazon Linux 2. For RHEL, CentOS, and Ubuntu, an AWS 
 provides clients that are compatible with these operating systems.
 
 Using FSx for Lustre, you can burst your compute-intensive workloads from on-premises into the
-AWS Cloud by importing data over AWS Direct Connect or AWS Virtual Private Network. You can access your Amazon FSx file system from
+AWS Cloud by importing data over Direct Connect or AWS Virtual Private Network. You can access your Amazon FSx file system from
 on-premises, copy data into your file system as-needed, and run compute-intensive workloads on
 in-cloud instances.
 

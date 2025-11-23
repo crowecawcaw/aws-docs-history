@@ -1,7 +1,7 @@
 # Accessing file systems
 
 Using Amazon FSx, you can burst your compute-intensive workloads from on-premises into the Amazon Web Services
-Cloud by importing data over AWS Direct Connect or VPN. You can access your Amazon FSx file system from
+Cloud by importing data over Direct Connect or VPN. You can access your Amazon FSx file system from
 on-premises, copy data into your file system as-needed, and run compute-intensive workloads on
 in-cloud instances.
 
