@@ -33,8 +33,6 @@ IAM console administration actions.
            "Effect": "Allow",
            "Action": [
                "quicksight:*",
-               "iam:AttachRolePolicy",
-               "iam:DetachRolePolicy",
                "iam:ListAttachedRolePolicies",
                "iam:GetPolicy",
                "iam:CreatePolicyVersion",
@@ -227,8 +225,6 @@ Enterprise edition Amazon Quick Suite account with Amazon Quick Suite managed us
             "Effect": "Allow",
             "Action": [
                 "quicksight:*",
-                "iam:AttachRolePolicy",
-                "iam:DetachRolePolicy",
                 "iam:ListAttachedRolePolicies",
                 "iam:GetPolicy",
                 "iam:CreatePolicyVersion",
@@ -384,8 +380,6 @@ This example explicitly denies permission to unsubscribe from Amazon Quick Suite
             "Effect": "Allow",
             "Action": [
                 "quicksight:*",
-                "iam:AttachRolePolicy",
-                "iam:DetachRolePolicy",
                 "iam:ListAttachedRolePolicies",
                 "iam:GetPolicy",
                 "iam:CreatePolicyVersion",
@@ -456,8 +450,6 @@ This example explicitly denies permission to unsubscribe from Amazon Quick Suite
             "Effect": "Allow",
             "Action": [
                 "quicksight:*",
-                "iam:AttachRolePolicy",
-                "iam:DetachRolePolicy",
                 "iam:ListAttachedRolePolicies",
                 "iam:GetPolicy",
                 "iam:CreatePolicyVersion",

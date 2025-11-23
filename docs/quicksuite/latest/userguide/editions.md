@@ -3,7 +3,7 @@
 Amazon Quick Suite offers Standard and Enterprise editions. Both editions offer a full set of
 features for creating and sharing data visualizations. Enterprise edition additionally
 offers encryption at rest and Microsoft Active Directory integration. In Enterprise edition,
-you select a Microsoft Active Directory directory in AWS Directory Service. You use that active directory to
+you select a Microsoft Active Directory directory in Directory Service. You use that active directory to
 identify and manage your Quick Suite users and administrators.
 
 For more information about the different features offered by the Quick Suite
@@ -76,7 +76,7 @@ In the Enterprise edition, as a system administrator, you can select one or more
 IAM Identity Center or Microsoft Active Directory groups for administrative access. All users in
 these groups are authorized to sign in to Amazon Quick Suite as Amazon Quick Suite
 administrators. You can also select one or more IAM Identity Center or Microsoft
-Active Directory groups in AWS Directory Service for user access. All users in these groups are
+Active Directory groups in Directory Service for user access. All users in these groups are
 authorized to sign in to Amazon Quick Suite as users.
 
 ###### Important

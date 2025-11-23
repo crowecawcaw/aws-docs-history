@@ -29,6 +29,8 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
   provide a URL to an external server, we strongly recommend that you do not include credentials
   information in the URL to validate your request to that server.
 
+Amazon Quick Suite does not use customer data for training or improving underlying LLMs.
+
 ###### Topics
 
 - [Data encryption in Amazon Quick Suite](data-encryption.md "data-encryption.md")

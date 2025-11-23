@@ -9,7 +9,7 @@ of IP ranges, VPC IDs, and VPC endpoint IDs. For example, you can create an IP r
 allows users to access your Quick Suite account only from IP addresses associated
 with your company's office or remote virtual private network (VPN). You can also
 create a VPC endpoint rule that allows users access to your Quick Suite account
-only from the VPC that is used for AWS Direct Connect.
+only from the VPC that is used for Direct Connect.
 
 For more information about setting up VPC endpoints in Quick Suite, see [Quick Suite Interface VPC endpoints (AWS PrivateLink)](../../../quicksight/latest/developerguide/vpc-interface-endpoints.md "../../../quicksight/latest/developerguide/vpc-interface-endpoints.md") for more
 information about how to setup VPC endpoints.

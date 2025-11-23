@@ -5,7 +5,7 @@ dashboard visuals
 ## Prerequisites
 
 Before you begin, make sure to
-[create at least one action connector](creating-action-connectors-admin-console.md "creating-action-connectors-admin-console.md").
+[create at least one action connector](builtin-services-integration.md "builtin-services-integration.md").
 
 The connector must meet these requirements:
 

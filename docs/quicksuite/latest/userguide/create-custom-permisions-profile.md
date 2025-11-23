@@ -129,7 +129,7 @@ Directory.
 integrated with IAM Identity Center or Active Directory
 
 1. Sign in to the [AWS Management
-   Console](https://aws.amazon.com/console "https://aws.amazon.com/console").
+   Console](https://aws.amazon.com//console "https://aws.amazon.com//console").
 2. Open Amazon Quick Suite.
 3. The Amazon Quick Suite Admin console opens. Choose **Custom Permissions**.
 4. The **Manage custom permissions** page opens. Choose one of
@@ -205,7 +205,7 @@ the following options.
 
 After you create a custom permissions profile, use Amazon Quick Suite APIs to add or
 change the custom permissions profile that is assigned to a user, role, or account. Users with
-sufficient permissions can also use the [`AWS::QuickSight::CustomPermissions`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-custompermissions.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-custompermissions.md") AWS CloudFormation resource to
+sufficient permissions can also use the [`AWS::QuickSight::CustomPermissions`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-custompermissions.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-custompermissions.md") CloudFormation resource to
 manage Amazon Quick Suite custom permissions profiles. Use the following topics to learn more
 about managing custom permissions profiles with the Amazon Quick Suite APIs.
 

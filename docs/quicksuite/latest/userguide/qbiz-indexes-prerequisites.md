@@ -2,14 +2,15 @@
 
 Before you can use Amazon Q Business indexes in Amazon Quick Suite, ensure that you meet the following prerequisites:
 
+## Common Prerequisites
+
 - You have an existing Amazon Q Business index with indexed data.
-- Both the Q Business instance and the Amazon Quick Suite instance are:
-  - Authenticating through IAM Identity Center
-  - Are in the same AWS account
-  - Are in the same region
+- Both the Amazon Q Business index and the Amazon Quick Suite instance are in the same AWS account and region.
+- You have administrator permissions in Amazon Quick Suite.
 
-- You have administrator permissions in both Amazon Q Business and Amazon Quick Suite.
+## IDC Implementation Prerequisites
 
-###### Note
-
-Currently, BYOI requires both Amazon Q Business and Amazon Quick Suite to authenticate through IAM Identity Center. Support for Amazon Q Business instances using other authentication methods is coming in the next few weeks.
+- AWS Identity Center is enabled and configured.
+- Both Amazon Q Business and Amazon Quick Suite authenticate through IAM Identity Center.
+- The IAM Identity Center region and Amazon Q Business index region are the same.
+- You have access to both the Amazon Q Business index and AWS Identity Center administration.

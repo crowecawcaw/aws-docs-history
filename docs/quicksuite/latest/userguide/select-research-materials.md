@@ -20,7 +20,15 @@ After defining your research objective, you can select the data sources that Qui
 
 Enable web search to allow Quick Research to gather information from publicly available online sources. This includes academic papers, industry reports, news articles, and other relevant web content related to your research objective.
 
-Amazon Quick Suite uses the internet to enhance your results. Web search queries will be processed securely in an AWS region located in the US. For more information, see [Amazon Quick Suite User Guide](what-is.md "what-is.md").
+Amazon Quick Suite uses the internet to enhance your results. Web search queries will be processed securely in an AWS Region located in the US. For more information, see [Amazon Quick Suite User Guide](what-is.md "what-is.md").
+
+To prioritize or avoid certain websites, you can expand the web search section to enter a list of preferred websites and a list of websites to avoid. Both fields are optional and can take a maximum of 3,500 characters.
+
+We recommend providing a list of web domains (such as `example.com`), but you can also include types of websites such as `government websites` or `blogs`. If you enter a website address like `example.com/path/to/specific/page`, it will be shortened to `example.com`, so you don't need to enter multiple websites for a single domain.
+
+###### Note
+
+Adding a domain to the list of preferred websites doesn't guarantee that the website will be used in research. A website might not be used include: the site is behind a paywall, the site doesn't allow agents to access it, or the site's content is found to be less relevant than other sites.
 
 ## Uploaded files
 

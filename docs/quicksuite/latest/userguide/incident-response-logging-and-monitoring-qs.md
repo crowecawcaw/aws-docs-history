@@ -51,7 +51,7 @@ Event History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md
 For an ongoing record of events in your AWS account, including events for
 Amazon Quick Sight, create a trail. A _trail_ enables CloudTrail to deliver log
 files to an Amazon S3 bucket. By default, when you create a trail in the console, the
-trail applies to all AWS Regions. The trail logs events from all Regions in the
+trail applies to all . The trail logs events from all Regions in the
 AWS partition and delivers the log files to the Amazon S3 bucket that you specify.
 Additionally, you can configure other AWS services to further analyze and act upon
 the event data collected in CloudTrail logs. For more information, see the following:

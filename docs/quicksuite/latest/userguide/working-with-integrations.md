@@ -41,7 +41,5 @@ Not all applications support all integration types. Available options depend on 
 - [Knowledge bases](knowledge-base-integrations.md "knowledge-base-integrations.md")
 - [Action connectors](action-integrations.md "action-integrations.md")
 - [Integration-specific guides](integration-guides.md "integration-guides.md")
-- [Creating AWS service action
-  connectors using the admin console](creating-action-connectors-admin-console.md "creating-action-connectors-admin-console.md")
 - [Bring Your Own Amazon Q Business Index (BYOI)](quick-byoa.md "quick-byoa.md")
 - [Cross-region inference in Amazon Quick Suite integrations](integrations-cris.md "integrations-cris.md")

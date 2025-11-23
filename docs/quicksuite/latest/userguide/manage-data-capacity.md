@@ -10,7 +10,7 @@ Quick Suite automatically creates an index when you sign up in your home region,
 auto-provisions 50 MB default index capacity with auto-scaling enabled (a mechanism where
 your index capacity is adjusted automatically based on usage). In any other region, an admin
 has to explicitly provision index capacity. The minimum index capacity you can purchase is
-25 MB. The maximum is 10,000 MB.
+25 MB. The maximum is 60,000 MB.
 
 The Amazon Quick Suite admin console displays both your purchased index capacity and your index
 capacity usage. You can switch between manual and auto-scaled index capacity modes as per
@@ -63,12 +63,12 @@ maximum purchase limit, not for any temporary over-provisioning that occurs.
          on your usage, purchasing or releasing as needed. Then, in
          **Maximum purchase limit** set the limit at
          which auto-purchase stops. The value of the maximum purchase
-         limit must be 10,000. Maximum purchase limit cannot be lower
+         limit must be 60,000. Maximum purchase limit cannot be lower
          that current used capacity.
       2. To manually purchase capacity, select
          **Manual**. Then, in **Index
          capacity**, set the total capacity you want your
-         index to hold. The capacity must be between 25-10,000 MB and you
+         index to hold. The capacity must be between 25-60,000 MB and you
          can increase it in 25 MB increments. When you want to lower the
          current capacity held by the index, it can't be lowered below
          the used capacity. Since capacity is managed in 25 MB
@@ -140,7 +140,7 @@ To switch from auto-scale to manual capacity
 5. In **Manage index capacity**, select
    **Manual**.
 6. In **Index capacity**, set your desired manual
-   capacity. The value must be between 25-10,000 MB in 25 MB increments
+   capacity. The value must be between 25-60,000 MB in 25 MB increments
    and can't be less than current usage.
 7. Select **Confirm**.
 
@@ -157,6 +157,6 @@ To switch from manual to auto-scale capacity
 5. In **Manage index capacity**, select
    **Auto-scale (Recommended)**.
 6. In **Maximum purchase limit**, set your maximum
-   purchase limit. The value must be between 25-10,000 MB in 25 MB
+   purchase limit. The value must be between 25-60,000 MB in 25 MB
    increments and can't be less than current usage.
 7. Select **Confirm**.

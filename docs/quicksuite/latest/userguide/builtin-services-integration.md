@@ -58,17 +58,13 @@ allows Amazon Quick Suite to assume the role for executing actions.
 
 First, you will need to create an IAM role that will be used by Amazon Quick Suite to call the AWS service needed in your Amazon Quick Automate workflow.
 
-1. Login to the AWS Console of the AWS account where the Amazon Quick Suite subscription resides.
+1. Log in to the AWS Console of the AWS account where the Amazon Quick Suite subscription resides.
 2. Open IAM and create a new IAM role.
 3. Give it all the permissions for the AWS service you want to invoke via action connectors. For example, you can assign a managed policy like `AmazonS3FullAccess` if you need to invoke Amazon S3.
-4. In the trust relationship, give the assume role permission to `quicksight.amazonaws.com`. This allows Amazon Quick Suite to assume this role and call Amazon S3/Amazon Textract/etc on your behalf.
+4. In the trust relationship, give the assume role permission to `quicksight.amazonaws.com`. This allows Amazon Quick Suite to assume this role and call AWS services on your behalf.
 5. Once the Customer Role is created, take a note of the IAM role ARN.
 
 Example trust policy:
-
-###### Note
-
-For pre-prod stages, you will also have to include `"quicksight-test.amazonaws.com"` in the `"Service"` array.
 
 ```
 {
@@ -108,50 +104,27 @@ services action connector:
    - Textract
    - Amazon S3
 
-6. Select **Next**.
-7. Review all of the supported actions in the list for your selected service.
-8. Select **Next**.
-9. Customize the connection details:
+6. Select **Next** to eview all of the supported actions in the list for your selected service.
+7. Select **Next**.
+8. Customize the connection details:
    - **Name** - Enter a descriptive name for your action connector.
    - **Description** - Describe the purpose of this action connector.
    - **Role ARN** - Enter the ARN of the IAM role that provides the proper permissions for the AWS service.
 
-10. Select **Next**.
-11. Add users you want to share the action connector with.
-12. Select **Next** to finish creating the action connector.
+9. Select **Next**.
+10. Share the integration with users and/or user groups.
+    1. Provide **Owner** access, for any users who need to edit, share and delete the integration. Note: Owner access is required to add Integrations to Automation Groups in order to give access within Quick Automate.
+    2. Provide **User** access, for any users who need to invoke actions across Quick Suite. For a list of integrations supported in various Quick Suite capabilities, see [Supported action connector types and available actions](action-connector-apis-supported-types.md#action-connector-compatibility-matrix "action-connector-apis-supported-types.md#action-connector-compatibility-matrix").
+
+11. Select **Add** to finish creating the action connector. For more information, see [Managing existing integrations](integration-workflows.md "integration-workflows.md").
 
 After creating the action connector, it becomes available for use in Amazon Quick Automate workflows. The connector will be found in Actions tab under integration.
 
-## Use action connectors in workflows
+## Next steps
 
-After setting up your AWS services action connector, you can use it in Amazon Quick Automate
-workflows.
+After creating your action integration, you can:
 
-### Access in Amazon Quick Automate
-
-To use your AWS action connector in Amazon Quick Automate:
-
-1. Open Amazon Quick Automate and go to Projects.
-2. Click Manage groups and select your group.
-3. In the Assets sections, click **Add** → **Actions**.
-4. Select the Action you created earlier and Add to the automation group.
-5. Go to the automation in the group and your action will be available for use.
-6. In the Actions panel, look for your AWS service action connector.
-7. Drag the desired action into your workflow.
-8. Configure the action parameters as needed for your use case.
-9. Test and save your workflow.
-
-### Manage existing connectors
-
-You can modify your existing AWS action connectors:
-
-1. In the Admin console, choose **AWS actions**.
-2. Select your action connector from the list.
-3. Choose the actions menu, then choose **Edit**.
-4. Update your configuration settings as needed and choose **Save**.
-
-###### Note
-
-AWS services action connectors use IAM role-based authentication and can only
-be used within Amazon Quick Automate workflows. Make sure your IAM role has the minimum
-required permissions for the AWS services you plan to use.
+- Share the integration with additional users or groups as needed
+- Add the integration to an Automation Group to use it in Amazon Quick Suite Automate. For more information, see [Getting Started](getting-started-quick-automate.md#automate-setup-tasks "getting-started-quick-automate.md#automate-setup-tasks").
+- Monitor the integration's usage and performance through the admin console
+- Update the integration's configuration or permissions as requirements change

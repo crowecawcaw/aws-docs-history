@@ -15,7 +15,7 @@ Amazon Quick Suite
 
 Amazon Quick Suite administrators need to perform a one-time setup to enable Google
 Sheets as a data source. For detailed instructions and important considerations, see
-[the blog](https://aws.amazon.com/blogs/business-intelligence/transform-your-google-sheets-data-into-powerful-analytics-with-amazon-quicksight/ "https://aws.amazon.com/blogs/business-intelligence/transform-your-google-sheets-data-into-powerful-analytics-with-amazon-quicksight/").
+[the blog](https://aws.amazon.com//blogs/business-intelligence/transform-your-google-sheets-data-into-powerful-analytics-with-amazon-quicksight/ "https://aws.amazon.com//blogs/business-intelligence/transform-your-google-sheets-data-into-powerful-analytics-with-amazon-quicksight/").
 
 ## Creating a dataset using a Google
 

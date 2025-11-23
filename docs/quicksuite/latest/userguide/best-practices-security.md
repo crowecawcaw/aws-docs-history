@@ -31,5 +31,5 @@ including the following.
   Edition) Use a virtual private cloud (VPC) for data in AWS data sources and for data in
   on-premises servers without public connectivity. For AWS sources, VPC access for
   Amazon Quick Suite uses an elastic network interface for secure, private communication with data
-  sources in a VPC. For your local data, VPC allows you to use AWS Direct Connect to create a secure,
+  sources in a VPC. For your local data, VPC allows you to use Direct Connect to create a secure,
   private link with your on-premises resources.

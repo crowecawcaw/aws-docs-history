@@ -33,7 +33,7 @@ with Amazon VPC](../../../vpc/latest/userguide/vpc-getting-started.md "../../../
 section offers guidance on how to set up your VPC. The guidance includes options for
 public and private subnets and for AWS Site-to-Site VPN access for your corporate
 network (known as _on-premises access_). You can also
-use VPC peering or AWS Direct Connect to reach an on-premises database instance.
+use VPC peering or Direct Connect to reach an on-premises database instance.
 
 **Using the AWS CLI**
 

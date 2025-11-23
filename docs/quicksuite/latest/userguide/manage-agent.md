@@ -25,6 +25,8 @@ with will use these default guardrails powering the chat interactions:
   don't include these words or phrases. No blocked words or phrases are assigned to your chat
   agent or flows by default. You can choose up to 50 words or phrases to block.
 
+Admins can also configure whether URLs in chat responses appear as clickable hyperlinks or plain text. This setting applies across all chat agents and flows in your instance, allowing you to control how links are presented to users.
+
 ###### Note
 
 Admins can also control permissions for whether users can create and use chat agents
@@ -38,6 +40,7 @@ for chat to influence all agent responses and flows.
 - [Grant user permissions to edit system
   default chat agent](#edit-default-agent-permissions "#edit-default-agent-permissions")
 - [Edit system chat agent settings](#edit-default-agent "#edit-default-agent")
+- [Configure clickable external links in chat responses](#configure-clickable-links "#configure-clickable-links")
 - [Adding blocked words and phrases for chat
   agents](#general-agent-settings "#general-agent-settings")
 - [Edit blocked words and phrases for chat
@@ -119,6 +122,20 @@ your system agent works as you configure it.
 6. In **Customization**, configure details to help recognize the
    chat agent. For detailed information about customization options, see [Working with chat agents](working-with-agents.md "working-with-agents.md") in the
    _Amazon Quick Suite User Guide_.
+
+## Configure clickable external links in chat responses
+
+Admins can configure whether URLs in chat agent responses appear as clickable hyperlinks. The following procedure shows you how to enable clickable hyperlinks for all chat agents in your Amazon Quick Suite instance.
+
+###### To enable clickable external links
+
+1. Log in to the Amazon Quick Suite console.
+2. Select **Manage Quick Suite** from the Amazon Quick Suite
+   admin console.
+3. From the admin console left navigation menu, select
+   **Customization**, and then select **Chat agent
+   customization**.
+4. Under **Clickable external links**, turn the toggle on.
 
 ## Adding blocked words and phrases for chat
 

@@ -44,7 +44,7 @@ filter scope:
 
 ######
 
-1. Follow the instructions at [Editing filters in analyses](../../../https:/docs.aws.amazon.com/quicksight/latest/user/edit-a-filter-data-prep.md#edit-a-filter-data-prep-analyses "../../../https:/docs.aws.amazon.com/quicksight/latest/user/edit-a-filter-data-prep.md#edit-a-filter-data-prep-analyses") to get to the filter.
+1. Follow the instructions at [Editing filters in analyses](../../../quicksight/latest/user/edit-a-filter-data-prep.md#edit-a-filter-data-prep-analyses "../../../quicksight/latest/user/edit-a-filter-data-prep.md#edit-a-filter-data-prep-analyses") to get to the filter.
 2. One of the edits you can make is changing the scope. You can switch to
    **Single sheet** or **Single visual**.
    You can also remove a sheet from the Cross-sheet selection.

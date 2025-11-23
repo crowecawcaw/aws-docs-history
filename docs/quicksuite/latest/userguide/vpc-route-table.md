@@ -1,6 +1,6 @@
 # Route table
 
-To use VPC peering or AWS Direct Connect to reach an on-premises database instance, update the
+To use VPC peering or Direct Connect to reach an on-premises database instance, update the
 route table that's associated with the VPC you're using with Amazon Quick Suite. For more
 information on route tables, see [Route
 tables](../../../vpc/latest/userguide/VPC_Route_Tables.md "../../../vpc/latest/userguide/VPC_Route_Tables.md") in the _Amazon VPC User Guide._

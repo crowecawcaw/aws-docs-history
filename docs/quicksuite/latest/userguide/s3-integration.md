@@ -23,8 +23,7 @@ efficient information discovery and better-informed decision making.
 ###### Note
 
 This guide covers Amazon S3 data ingestion integration for knowledge base creation. For Amazon S3 action connectors that perform Amazon S3
-operations (upload, download, delete files), these must be created through the admin console. For more information, see [Creating AWS service action
-connectors using the admin console](creating-action-connectors-admin-console.md "creating-action-connectors-admin-console.md").
+operations (upload, download, delete files), these must be created through the admin console. For more information, see [AWS service action connectors](builtin-services-integration.md "builtin-services-integration.md").
 
 ## Before you begin
 
@@ -117,6 +116,100 @@ If your Amazon S3 bucket uses AWS KMS encryption, complete the following steps.
 During the integration setup, you will need to:
 
 - Verify the connection and bucket access.
+
+## Configure VPC access for Amazon S3 Connector in Amazon Quick Suite
+
+VPC permissions ensure Amazon Quick Suite can only access your Amazon S3 bucket through secure VPC or VPC endpoint connections.
+
+### Required policy change
+
+Add this statement to your bucket access policy to allow Amazon Quick Suite to access your bucket through VPC endpoints:
+
+```
+{
+  "Sid": "Allow-Quick-access"		 	 	 ,
+  "Principal": "arn:aws:iam::Quick Account:role/service-role/aws-quicksight-service-role-v0",
+  "Action": "s3:*",
+  "Effect": "Allow",
+  "Resource": [
+    "arn:aws:s3:::amzn-s3-demo-bucket",
+    "arn:aws:s3:::amzn-s3-demo-bucket/*"
+  ],
+  "Condition": {
+    "Null": {
+      "aws:SourceVpce": "false"
+    }
+  }
+}
+```
+
+- Replace `amzn-s3-demo-bucket` with your bucket name.
+- Replace `Quick Account` with your Amazon Quick Suite account.
+
+The `"aws:SourceVpce": "false"` condition ensures Amazon Quick Suite can only access your bucket through VPC endpoints, maintaining your security requirements.
+
+### Deny policies
+
+If your bucket has a policy that restricts traffic to a specific VPC or VPC endpoint via Deny Policy, this policy needs to be reversed because deny policies take precedence over allow policies.
+
+For example:
+
+```
+{
+   "Version":"2012-10-17"		 	 	 ,
+   "Id": "Policy1415115909152",
+   "Statement": [
+     {
+       "Sid": "Access-to-specific-VPCE-only",
+       "Principal": "*",
+       "Action": "s3:*",
+       "Effect": "Deny",
+       "Resource": ["arn:aws:s3:::amzn-s3-demo-bucket",
+                    "arn:aws:s3:::amzn-s3-demo-bucket/*"],
+       "Condition": {
+         "StringNotEquals": {
+           "aws:SourceVpce": "vpce-0abcdef1234567890"
+         }
+       }
+     }
+   ]
+}
+```
+
+Should be reversed into:
+
+```
+{
+   "Version":"2012-10-17"		 	 	 ,
+   "Id": "Policy1415115909152",
+   "Statement": [
+     {
+       "Sid": "Access-to-specific-VPCE-only",
+       "Principal": "*",
+       "Action": "s3:*",
+       "Effect": "Allow",
+       "Resource": ["arn:aws:s3:::amzn-s3-demo-bucket",
+                    "arn:aws:s3:::amzn-s3-demo-bucket/*"],
+       "Condition": {
+         "StringEquals": {
+           "aws:SourceVpce": "vpce-0abcdef1234567890"
+         }
+       }
+     }
+   ]
+}
+```
+
+### Best practices
+
+**Restrict access to your Amazon Quick Suite role**
+
+Access policies should enforce that the caller is your Amazon Quick Suite role ARN or, at minimum, your Amazon Quick Suite account. This ensures that despite allowing VPC traffic, calls come only from expected sources.
+
+### Security recommendations
+
+- Restrict policies to your Amazon Quick Suite role for most secure traffic
+- Review your bucket policies regularly to ensure they follow the principle of least privilege
 
 ## Set up Amazon S3 integration
 

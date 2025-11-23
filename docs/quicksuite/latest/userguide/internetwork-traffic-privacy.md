@@ -25,7 +25,7 @@ You have two connectivity options between your private network and AWS:
 
 - An AWS Site-to-Site VPN connection. For more information, see [What is AWS site-to-site
   VPN?](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md")
-- An AWS Direct Connect connection. For more information, see [What is AWS direct
+- An Direct Connect connection. For more information, see [What is AWS direct
   connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")
 
 If you are using AWS API operations to interact with Amazon Quick Suite through the network,

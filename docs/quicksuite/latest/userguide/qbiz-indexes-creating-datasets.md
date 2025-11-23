@@ -1,8 +1,8 @@
 # Creating knowledge bases from Amazon Q Business indexes
 
-After setting up permissions, Author users can create knowledge bases from Amazon Q Business indexes:
+After setting up permissions, Admin or Admin Pro users can create knowledge bases from Amazon Q Business indexes:
 
-1. Sign in to the Amazon Quick Suite console as an Author PRO user.
+1. Sign in to the Amazon Quick Suite console as an Admin or Admin pro user.
 2. Navigate to **Knowledge bases**.
 3. Choose **Create knowledge base**.
 4. Select **Amazon Q Business** as the data source.
@@ -12,4 +12,4 @@ After setting up permissions, Author users can create knowledge bases from Amazo
 
 ###### Note
 
-Each Amazon Q Business index creates exactly one knowledge base in Amazon Quick Suite. If multiple Author users create knowledge bases from the same Amazon Q Business index, these knowledge bases will functionally be identical.
+If multiple Admin users create knowledge bases from the same Amazon Q Business index, these knowledge bases will functionally be identical.

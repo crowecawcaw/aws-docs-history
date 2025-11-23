@@ -3,7 +3,7 @@
 Amazon Q Business
 
 Amazon Quick Suite account admins can connect their Quick Suite account to Amazon Q Business
-to augment insights with unstructured data sources. [Amazon Q Business](https://aws.amazon.com/q/business/ "https://aws.amazon.com/q/business/") is a generative AI assistant that helps your
+to augment insights with unstructured data sources. [Amazon Q Business](https://aws.amazon.com//q/business/ "https://aws.amazon.com//q/business/") is a generative AI assistant that helps your
 team work smarter. It can answer questions, provide summaries, generate content, and
 securely complete tasks based on the information in your enterprise systems.
 

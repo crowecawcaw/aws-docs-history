@@ -66,7 +66,7 @@ account with IAM Identity Center
 IAM Identity Center helps you securely create or configure your existing workforce identities and
 manage their access across AWS accounts and applications. IAM Identity Center is the recommended
 approach for workforce authentication and authorization on AWS for organizations of
-any size and type. To learn more about IAM Identity Center, see [AWS IAM Identity Center](https://aws.amazon.com/iam/identity-center/ "https://aws.amazon.com/iam/identity-center/").
+any size and type. To learn more about IAM Identity Center, see [AWS IAM Identity Center](https://aws.amazon.com//iam/identity-center/ "https://aws.amazon.com//iam/identity-center/").
 
 Configure Amazon Quick Suite and IAM Identity Center so that you can sign up for a new Amazon Quick Suite
 account with an IAM Identity Center configured identity source. With IAM Identity Center, you can configure your

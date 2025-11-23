@@ -26,7 +26,7 @@ Use the following topics to add, view, and deactivate Quick Suite users.
 ###### Important
 
 You can't remap Amazon Quick Suite users or groups from one identity store to another.
-For example, if you are migrating from an on-premises Active Directory to AWS Directory Service, or
+For example, if you are migrating from an on-premises Active Directory to Directory Service, or
 the other way around, you unsubscribe and resubscribe to Amazon Quick Suite. You do this
 because even if the user's aliases remain the same, the underlying identity data
 changes. To make the transition easier, request in advance that your users document
