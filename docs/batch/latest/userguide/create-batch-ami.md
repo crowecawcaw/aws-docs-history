@@ -37,7 +37,7 @@ _Amazon Elastic Container Service Developer Guide_:
 
 For example, if you want to run GPU workloads on your AWS Batch compute resources, you can
 start with the [Amazon Linux Deep Learning
-AMI](https://aws.amazon.com/https://aws.amazon.com/marketplace/pp/B01M0AXXQB "https://aws.amazon.com/https://aws.amazon.com/marketplace/pp/B01M0AXXQB"). Then, configure the AMI to run AWS Batch jobs. For more information, see [Use a GPU workload AMI](batch-gpu-ami.md "batch-gpu-ami.md").
+AMI](https://aws.amazon.com/marketplace/pp/B01M0AXXQB "https://aws.amazon.com/marketplace/pp/B01M0AXXQB"). Then, configure the AMI to run AWS Batch jobs. For more information, see [Use a GPU workload AMI](batch-gpu-ami.md "batch-gpu-ami.md").
 
 ###### Important
 

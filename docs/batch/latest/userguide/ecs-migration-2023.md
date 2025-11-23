@@ -35,9 +35,9 @@ environment may not function properly.
 - For AL2023 AMIs, verify that any custom user data or initialization scripts are
   compatible with the AL2023 environment and package management system.
 
-###### Upgrade using AWS CloudFormation
+###### Upgrade using CloudFormation
 
-- If you use AWS CloudFormation to manage your compute environments, update your template to change the `ImageType` property in the `Ec2Configuration` from `ECS_AL2` to `ECS_AL2023` (or `ECS_AL2023_NVIDIA` when using GPU instances):
+- If you use CloudFormation to manage your compute environments, update your template to change the `ImageType` property in the `Ec2Configuration` from `ECS_AL2` to `ECS_AL2023` (or `ECS_AL2023_NVIDIA` when using GPU instances):
 
 ```
 ComputeEnvironment:
@@ -48,9 +48,9 @@ ComputeEnvironment:
         - ImageType: ECS_AL2023
 ```
 
-Then update your AWS CloudFormation stack to apply the changes.
+Then update your CloudFormation stack to apply the changes.
 
-- If your AWS CloudFormation template specifies a custom AMI using `ImageIdOverride`, ensure the AMI ID corresponds to an AL2023-based AMI and matches the `ImageType` setting.
+- If your CloudFormation template specifies a custom AMI using `ImageIdOverride`, ensure the AMI ID corresponds to an AL2023-based AMI and matches the `ImageType` setting.
 
 ## Migration considerations
 

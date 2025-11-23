@@ -139,7 +139,7 @@ and resolve this issue.
    instance types are supported in your specified AWS Region and Availability Zones, check
    that your launch template settings are compatible with your instance types, and consider
    updating to newer generation instance types. For more information about finding supported
-   instance types, see [Finding an Amazon EC2 instance type](../../../https:/docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-discovery.md "../../../https:/docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-discovery.md") in the _Amazon
+   instance types, see [Finding an Amazon EC2 instance type](../../../AWSEC2/latest/UserGuide/instance-discovery.md "../../../AWSEC2/latest/UserGuide/instance-discovery.md") in the _Amazon
    EC2 User Guide_.
    - **`statusReason` message while the job is
      stuck:**

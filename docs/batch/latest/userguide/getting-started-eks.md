@@ -107,7 +107,7 @@ resources that you need to create and manage both AWS Batch and Amazon EKS resou
   **Amazon EKS User Guide**.
 - Required IAM permissions – The IAM security
   principal that you're using must have permissions to work with Amazon EKS IAM roles and
-  service linked roles, AWS CloudFormation, and a VPC and related resources. For more information, see
+  service linked roles, CloudFormation, and a VPC and related resources. For more information, see
   [Actions, resources, and condition keys for Amazon Elastic Kubernetes Service](../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md "../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md") and [Using
   service-linked roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") in the _IAM User Guide_. You must
   complete all steps in this guide as the same user.

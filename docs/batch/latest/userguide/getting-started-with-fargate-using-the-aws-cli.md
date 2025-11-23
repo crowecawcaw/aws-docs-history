@@ -358,7 +358,7 @@ This tutorial is designed to help you understand how AWS Batch works with Fargat
 
 - Set up CloudWatch dashboards and alarms for monitoring
 - Implement proper logging and audit trails
-- Use AWS CloudFormation or the AWS CDK for infrastructure as code
+- Use CloudFormation or the AWS CDK for infrastructure as code
 - Establish backup and disaster recovery procedures
 
 For comprehensive guidance on production-ready architectures, see the [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/ "https://aws.amazon.com/architecture/well-architected/") and [AWS Security Best Practices](https://aws.amazon.com/architecture/security-identity-compliance/ "https://aws.amazon.com/architecture/security-identity-compliance/").
