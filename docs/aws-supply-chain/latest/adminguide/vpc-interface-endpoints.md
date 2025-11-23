@@ -2,7 +2,7 @@
 
 You can use AWS PrivateLink to create a private connection between your VPC and
 AWS Supply Chain. You can access AWS Supply Chain as if it were in your VPC, without the
-use of an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
+use of an internet gateway, NAT device, VPN connection, or Direct Connect connection.
 Instances in your VPC don't need public IP addresses to access AWS Supply Chain.
 
 You establish this private connection by creating an \*interface
