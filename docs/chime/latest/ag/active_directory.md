@@ -56,12 +56,12 @@ domains you claimed in your Amazon Chime Enterprise account.
 1. Open the Amazon Chime console at [https://chime.aws.amazon.com/](https://chime.aws.amazon.com "https://chime.aws.amazon.com").
 2. In the navigation pane, for **Identity**, choose
    **Active directory**.
-3. For **Cloud directory ID**, select the AWS Directory Service directory to
+3. For **Cloud directory ID**, select the Directory Service directory to
    use for Amazon Chime, and then choose **Connect**.
 
 ###### Note
 
-You can find your directory ID using the [AWS Directory Service
+You can find your directory ID using the [Directory Service
 console](https://console.aws.amazon.com/directoryservice/ "https://console.aws.amazon.com/directoryservice/"). 4. After your directory connects, choose **Add a new
 group**. 5. For **Group**, enter the group name. The name must
 exactly match an Active Directory group in the target directory. Active

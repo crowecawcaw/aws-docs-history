@@ -25,7 +25,7 @@ claiming a domain, see [Claiming a domain](claim-domain.md "claim-domain.md").
 5. (Optional) Follow the steps in the console to set up your identity
    provider and configure your directory group.
    After your account is converted to an Enterprise account, you can decide whether to
-   connect an Active Directory instance through AWS Directory Service. Connecting to an Active Directory
+   connect an Active Directory instance through Directory Service. Connecting to an Active Directory
    instance allows your users to sign in to Amazon Chime using their Active Directory credentials.
    For more information, see [Connecting to your Active Directory](active_directory.md "active_directory.md").
 
