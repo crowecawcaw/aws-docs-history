@@ -1,19 +1,17 @@
-# Managing nodes
+# MemoryDB nodes and shards
 
-A node is the smallest building block of a MemoryDB deployment.
-A node belongs to a shard which belongs to a cluster.
-Each node runs the engine version that was chosen when the cluster was created or last modified.
-Each node has its own Domain Name Service (DNS) name and port. Multiple types of MemoryDB nodes are supported,
-each with varying amounts of associated memory and computational power.
+A shard is a hierarchical arrangement of nodes, each
+wrapped in a cluster. Shards support replication. Within a shard, one node functions as
+the read/write primary node. All the other nodes in a shard function as read-only
+replicas of the primary node. MemoryDB supports multiple shards within
+a cluster. This support enables partitioning of
+your data in a MemoryDB cluster.
 
-###### Topics
+MemoryDB supports replication via shards. The API operation
+[DescribeClusters](../APIReference/API_DescribeClusters.md "../APIReference/API_DescribeClusters.md") lists the shards with the member nodes,
+the node names, endpoints and also other information.
 
-- [MemoryDB nodes and shards](nodes.md "nodes.md")
-- [Supported node types](nodes.md "nodes.md")
-- [MemoryDB reserved nodes](nodes.md "nodes.md")
-- [Replacing nodes](nodes.md "nodes.md")
-  Important operations involving nodes include:
+After a MemoryDB cluster is created, it can be altered (scaled in or out). For more information, see [Scaling](scaling.md "scaling.md") and [Replacing nodes](nodes.md "nodes.md").
 
-- [Adding / Removing nodes from a cluster](clusters.md "clusters.md")
-- [Scaling](scaling.md "scaling.md")
-- [Finding connection endpoints](endpoints.md "endpoints.md")
+When you create a new cluster, you can seed it with data from the old cluster so it doesn't
+start out empty. Doing this can be helpful if you need change your node type, engine version or migrate from Amazon ElastiCache (Redis OSS). For more information, see [Making manual snapshots](snapshots-manual.md "snapshots-manual.md") and [Restoring from a snapshot](snapshots-restoring.md "snapshots-restoring.md").
