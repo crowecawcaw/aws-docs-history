@@ -29,7 +29,7 @@ The following are the prerequisites for completing this tutorial:
   in the _AWS IAM Identity Center User Guide_.
 - A security group to control access to the application. Allow all inbound traffic from
   the VPC CIDR and all outbound traffic.
-- An application running behind an internal load balancer from Elastic Load Balancing. Associate your
+- An application running behind an internal load balancer from ELB. Associate your
   security group with the load balancer.
 - A self-signed or public TLS certificate in AWS Certificate Manager. Use an RSA certificate with a key length of
   1,024 or 2,048.
@@ -87,7 +87,7 @@ Use the following procedure to create a Verified Access group.
 ## Step 4: Create a Verified Access endpoint
 
 Use the following procedure to create a Verified Access endpoint. This step assumes that you have an
-application running behind an internal load balancer from Elastic Load Balancing and a public domain certificate
+application running behind an internal load balancer from ELB and a public domain certificate
 in AWS Certificate Manager.
 
 ###### To create a Verified Access endpoint
