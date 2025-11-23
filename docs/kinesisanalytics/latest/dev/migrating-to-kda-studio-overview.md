@@ -1336,7 +1336,7 @@ Amazon Kinesis Data Streams.
 
 First we share a typical KDA-SQL architecture, before showing how you can replace this
 using Amazon Managed Service for Apache Flink Studio and Amazon Kinesis Data Streams.
-Alternatively you can launch the AWS CloudFormation template [here](https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/Converting-KDASQL-KDAStudio/environmentStackCfn/KdaStudioStack.template.yaml "https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/Converting-KDASQL-KDAStudio/environmentStackCfn/KdaStudioStack.template.yaml"):
+Alternatively you can launch the CloudFormation template [here](https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/Converting-KDASQL-KDAStudio/environmentStackCfn/KdaStudioStack.template.yaml "https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/Converting-KDASQL-KDAStudio/environmentStackCfn/KdaStudioStack.template.yaml"):
 
 ### Amazon Kinesis Data Analytics-SQL and Amazon Kinesis
 
@@ -1359,9 +1359,9 @@ Kinesis Data Firehose, which then saves the output in an Amazon S3 bucket.
 
 In this case, you use Amazon Kinesis Data Generator. Amazon Kinesis Data Generator
 allows you to send test data to your Amazon Kinesis Data Streams or Amazon Kinesis Data
-Firehose delivery streams. To get started, follow the instructions [here](https://awslabs.github.io/amazon-kinesis-data-generator/web/help.html "https://awslabs.github.io/amazon-kinesis-data-generator/web/help.html"). Use the AWS CloudFormation template [here](https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/Converting-KDASQL-KDAStudio/environmentStackCfn/KdaStudioStack.template.yaml "https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/Converting-KDASQL-KDAStudio/environmentStackCfn/KdaStudioStack.template.yaml") in place of the one provided in the [instructions:](https://awslabs.github.io/amazon-kinesis-data-generator/web/help.html "https://awslabs.github.io/amazon-kinesis-data-generator/web/help.html").
+Firehose delivery streams. To get started, follow the instructions [here](https://awslabs.github.io/amazon-kinesis-data-generator/web/help.html "https://awslabs.github.io/amazon-kinesis-data-generator/web/help.html"). Use the CloudFormation template [here](https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/Converting-KDASQL-KDAStudio/environmentStackCfn/KdaStudioStack.template.yaml "https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/Converting-KDASQL-KDAStudio/environmentStackCfn/KdaStudioStack.template.yaml") in place of the one provided in the [instructions:](https://awslabs.github.io/amazon-kinesis-data-generator/web/help.html "https://awslabs.github.io/amazon-kinesis-data-generator/web/help.html").
 
-Once you run the AWS CloudFormation template, the output section will provide the Amazon Kinesis
+Once you run the CloudFormation template, the output section will provide the Amazon Kinesis
 Data Generator url. Log in to the portal using the Cognito user id and password you
 set up [here](https://awslabs.github.io/amazon-kinesis-data-generator/web/help.html "https://awslabs.github.io/amazon-kinesis-data-generator/web/help.html"). Select the Region and the target stream name. For current state,
 choose the Amazon Kinesis Data Firehose Delivery streams. For the new state, choose
@@ -1672,9 +1672,9 @@ Here is what the contents looks like:
 
 ![Financial data table showing stock prices and volumes for tech companies on March 1, 2023.](images/kda-studio-contents.png)
 
-You can use the [AWS CloudFormation template](https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/Converting-KDASQL-KDAStudio/environmentStackCfn/KdaStudioStack.template.yaml "https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/Converting-KDASQL-KDAStudio/environmentStackCfn/KdaStudioStack.template.yaml") to create the infrastructure.
+You can use the [CloudFormation template](https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/Converting-KDASQL-KDAStudio/environmentStackCfn/KdaStudioStack.template.yaml "https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/Converting-KDASQL-KDAStudio/environmentStackCfn/KdaStudioStack.template.yaml") to create the infrastructure.
 
-AWS CloudFormation will create the following resources in your AWS account:
+CloudFormation will create the following resources in your AWS account:
 
 - Amazon Kinesis Data Streams
 - Amazon Managed Service for Apache Flink Studio
@@ -1684,7 +1684,7 @@ AWS CloudFormation will create the following resources in your AWS account:
   Studio to access appropriate resources
 
 Import the notebook and change the Amazon S3 bucket name with the new Amazon S3 bucket
-created by AWS CloudFormation.
+created by CloudFormation.
 
 ![SQL code snippet creating a table with timestamp, ticker, volume, and price fields.](images/kda-studio-cfn.png)
 
@@ -1756,9 +1756,9 @@ script to launch the following resources:
 - Lambda Role to execute the preceding Lambda function
 - Custom resource to invoke the Lambda function
 
-Download the AWS CloudFormation template [here](https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/kda-udf-sample/cfn/kda-flink-udf.yml "https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/kda-udf-sample/cfn/kda-flink-udf.yml").
+Download the CloudFormation template [here](https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/kda-udf-sample/cfn/kda-flink-udf.yml "https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/kda-udf-sample/cfn/kda-flink-udf.yml").
 
-###### Create the AWS CloudFormation stack
+###### Create the CloudFormation stack
 
 1. Go to the AWS Management Console and choose **CloudFormation** under
    the list of services.
@@ -1778,7 +1778,7 @@ Download the AWS CloudFormation template [here](https://github.com/aws-samples/a
 6. On the **Review** page, check the boxes allowing for the
    creation of IAM resources and then choose **Submit**.
 
-The AWS CloudFormation stack may take 10 to 15 minutes to launch depending on the Region you are
+The CloudFormation stack may take 10 to 15 minutes to launch depending on the Region you are
 launching in. Once you see `CREATE_COMPLETE` status for the entire stack, you
 are ready to continue.
 
@@ -1820,7 +1820,7 @@ tools, including the following:
    load data into the Kinesis Stream.
 6. Import the `Data Producer` Zeppelin Notebook. Make sure to
    modify input `STREAM_NAME` and `REGION` in the notebook
-   code. The input stream name can be found in the [AWS CloudFormation stack output](https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/kda-udf-sample/cfn/kda-flink-udf.yml "https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/kda-udf-sample/cfn/kda-flink-udf.yml").
+   code. The input stream name can be found in the [CloudFormation stack output](https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/kda-udf-sample/cfn/kda-flink-udf.yml "https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/kda-udf-sample/cfn/kda-flink-udf.yml").
 7. Execute **Data Producer** notebook by choosing the
    **Run this paragraph** button to insert sample data into the
    input Kinesis Data Stream.
@@ -1946,7 +1946,7 @@ configuration to specify a location for your code in Amazon S3.
 1. On the AWS Management Console, choose your notebook and in **Deploy as application
    configuration - optional**, choose **Edit**.
 2. Under **Destination for code in Amazon S3**, choose the Amazon S3
-   bucket that was created by the [AWS CloudFormation scripts](https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/kda-udf-sample/cfn/kda-flink-udf.yml "https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/kda-udf-sample/cfn/kda-flink-udf.yml"). The process may take a few minutes.
+   bucket that was created by the [CloudFormation scripts](https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/kda-udf-sample/cfn/kda-flink-udf.yml "https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/kda-udf-sample/cfn/kda-flink-udf.yml"). The process may take a few minutes.
 3. You won't be able to promote the note as is. If you try, you will an error as
    `Select` statements are not supported. To avert this issue, download
    the [MaskPhoneNumber-Streaming Zeppelin Notebook](https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/kda-udf-sample/notebooks/MaskPhoneNumber-Streaming.zpln "https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/kda-udf-sample/notebooks/MaskPhoneNumber-Streaming.zpln").
@@ -1971,5 +1971,5 @@ For more information on deploying applications with durable state and limits, se
 ## Cleanup
 
 Optionally, you can now [uninstall the
-AWS CloudFormation stack](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md"). This will remove all the services which you set up in
+CloudFormation stack](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md"). This will remove all the services which you set up in
 previously.

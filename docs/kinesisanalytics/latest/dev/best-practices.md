@@ -220,8 +220,8 @@ production.
 
 ### Setting up a Test Application
 
-You can set up a test application either through the console, or by using an AWS CloudFormation
-template. Using an AWS CloudFormation template helps ensure that the code changes you make to the
+You can set up a test application either through the console, or by using an CloudFormation
+template. Using an CloudFormation template helps ensure that the code changes you make to the
 test application and your live application are consistent.
 
 When setting up a test application, you can either connect the application to your
