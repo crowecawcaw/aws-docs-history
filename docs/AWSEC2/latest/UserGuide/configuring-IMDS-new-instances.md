@@ -485,8 +485,8 @@ New-EC2Instance `
     -MetadataOptions_HttpTokens required
 ```
 
-AWS CloudFormation
-To specify the metadata options for an instance using AWS CloudFormation,
+CloudFormation
+To specify the metadata options for an instance using CloudFormation,
 see the [AWS::EC2::LaunchTemplate MetadataOptions](../../../AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-metadataoptions.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-metadataoptions.md") property
 in the _AWS CloudFormation User Guide_.
 
@@ -758,10 +758,10 @@ New-EC2Instance `
     -MetadataOptions_HttpEndpoint disabled
 ```
 
-AWS CloudFormation
-To specify the metadata options for an instance using AWS CloudFormation, see
+CloudFormation
+To specify the metadata options for an instance using CloudFormation, see
 the [AWS::EC2::LaunchTemplate MetadataOptions](../../../AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-metadataoptions.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-metadataoptions.md") property in
-the _AWS CloudFormation User Guide_.
+the _CloudFormation User Guide_.
 
 ## Allow
 

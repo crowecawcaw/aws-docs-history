@@ -121,7 +121,7 @@ but for ease of use, use the same name.
 
 ## Create a key pair using AWS CloudFormation
 
-When you create a new key pair using AWS CloudFormation, the private key is saved to AWS Systems Manager
+When you create a new key pair using CloudFormation, the private key is saved to AWS Systems Manager
 Parameter Store. The parameter name has the following format:
 
 ```
@@ -131,7 +131,7 @@ Parameter Store. The parameter name has the following format:
 For more information, see [AWS Systems Manager Parameter Store](../../../systems-manager/latest/userguide/systems-manager-parameter-store.md "../../../systems-manager/latest/userguide/systems-manager-parameter-store.md")
 in the _AWS Systems Manager User Guide_.
 
-###### To create a key pair using AWS CloudFormation
+###### To create a key pair using CloudFormation
 
 1. Specify the [AWS::EC2::KeyPair](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.md") resource in your template.
 
@@ -165,19 +165,19 @@ aws ssm get-parameter --name /ec2/keypair/`key-05abb699beEXAMPLE` --with-decrypt
 
 ###### Required IAM permissions
 
-To enable AWS CloudFormation to manage Parameter Store parameters on your behalf, the IAM role
-assumed by AWS CloudFormation or your user must have the following permissions:
+To enable CloudFormation to manage Parameter Store parameters on your behalf, the IAM role
+assumed by CloudFormation or your user must have the following permissions:
 
 - `ssm:PutParameter` – Grants permission to create a parameter for
   the private key material.
 - `ssm:DeleteParameter` – Grants permission to delete the parameter
   that stored the private key material. This permission is required whether the key pair
-  was imported or created by AWS CloudFormation.
+  was imported or created by CloudFormation.
 
-When AWS CloudFormation deletes a key pair that was created or imported by a stack, it performs a
+When CloudFormation deletes a key pair that was created or imported by a stack, it performs a
 permissions check to determine whether you have permission to delete parameters, even though
-AWS CloudFormation creates a parameter only when it creates a key pair, not when it imports a key pair.
-AWS CloudFormation tests for the required permission using a fabricated parameter name that does not
+CloudFormation creates a parameter only when it creates a key pair, not when it imports a key pair.
+CloudFormation tests for the required permission using a fabricated parameter name that does not
 match any parameter in your account. Therefore, you might see a fabricated parameter name in
 the `AccessDeniedException` error message.
 

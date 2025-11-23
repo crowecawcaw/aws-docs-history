@@ -50,7 +50,7 @@ instance until the scheduled work is completed.
 
 Proactively launch new replacement instances
 
-You can configure Auto Scaling groups, EC2 Fleet, or Spot Fleet to automatically launch replacement Spot Instances
+You can configure Amazon EC2 Auto Scaling groups, EC2 Fleet, or Spot Fleet to automatically launch replacement Spot Instances
 when a rebalance recommendation signal is emitted. For more information,
 see [Use Capacity
 Rebalancing to handle Amazon EC2 Spot interruptions](../../../autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.md") in the _Amazon EC2 Auto Scaling User Guide_,

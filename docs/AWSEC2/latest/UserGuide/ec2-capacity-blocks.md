@@ -35,7 +35,7 @@ The following are some common use cases for Capacity Blocks.
   For Amazon EC2 UltraServers, each UltraServer corresponds to one Capacity Block. You can request multiple
   UltraServers through a single request.
 
-You can use Capacity Blocks to reserve `p6-b200`, `p5`, `p5e`,
+You can use Capacity Blocks to reserve `p6-b300`, `p6-b200`, `p5`, `p5e`,
 `p5en`, `p4d`, `p4de`, `trn1`, and
 `trn2` instances. You can purchase the following UltraServer types through
 Capacity Blocks: `P6e-GB200` and `Trn2` (in preview).

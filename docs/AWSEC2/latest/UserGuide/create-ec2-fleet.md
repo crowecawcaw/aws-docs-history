@@ -24,7 +24,7 @@ The following limitations apply to EC2 Fleet:
 
 - Creating an EC2 Fleet is available only through the [Amazon EC2 API](../APIReference/API_CreateFleet.md "../APIReference/API_CreateFleet.md"),
   [AWS CLI](../../../cli/latest/reference/ec2/create-fleet.md "../../../cli/latest/reference/ec2/create-fleet.md"),
-  [AWS SDKs](../APIReference/API_CreateFleet.md#API_CreateFleet_SeeAlso "../APIReference/API_CreateFleet.md#API_CreateFleet_SeeAlso"), and [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.md").
+  [AWS SDKs](../APIReference/API_CreateFleet.md#API_CreateFleet_SeeAlso "../APIReference/API_CreateFleet.md#API_CreateFleet_SeeAlso"), and [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.md").
 - An EC2 Fleet request can't span AWS Regions. You need to create a separate
   EC2 Fleet for each Region.
 - An EC2 Fleet request can't span different subnets from the same Availability

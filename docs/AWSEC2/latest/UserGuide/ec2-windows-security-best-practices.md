@@ -183,11 +183,11 @@ tables, and network ACLs) as well as to OS and application configurations (such 
 application patching, software upgrades, or configuration file updates).
 
 AWS provides several tools to help manage changes to AWS resources, including
-AWS CloudTrail, AWS Config, AWS CloudFormation, and AWS Elastic Beanstalk, and management packs for Systems Center
+AWS CloudTrail, AWS Config, CloudFormation, and AWS Elastic Beanstalk, and management packs for Systems Center
 Operations Manager and System Center Virtual Machine Manager. Note that Microsoft releases
 Windows patches the second Tuesday of each month (or as needed) and AWS updates all
 Windows AMIs managed by AWS within five days after Microsoft releases a patch. Therefore
-it is important to continually patch all baseline AMIs, update AWS CloudFormation templates and Auto
+it is important to continually patch all baseline AMIs, update CloudFormation templates and Auto
 Scaling group configurations with the latest AMI IDs, and implement tools to automate
 running instance patch management.
 

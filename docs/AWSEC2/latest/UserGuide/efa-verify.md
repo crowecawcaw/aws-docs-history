@@ -49,6 +49,7 @@ The following table lists the checksums for recent versions of EFA.
 
 | Version    | Checksums                                                                                                                               |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| EFA 1.45.0 | **MD5:\*<br>• 800aeddfa9d9c5f139a7b8f7c4fec627<br>**SHA256:\*<br>• `25ba26a0877fe3317390dc126aad2f23e27fc461cf0b940004f032cb342fa539`   |
 | EFA 1.44.0 | **MD5:\*<br>• d024f6bebe080db42745103b84ca7c43<br>**SHA256:\*<br>• `f129a5b44a49d593d247e55a59eb9bcb57121566e1c2e42b832a4e794fa83d8a`   |
 | EFA 1.43.3 | **MD5:\*<br>• `4dbc6eeecc516760253c10cbedb6319d`<br>**SHA256:\*<br>• `6c470ebce254c7165347b5048895ac2996c88567271642297f4c597738300652` |
 | EFA 1.43.2 | **MD5:\*<br>• `7287b25a07c9747c0d4001e8fc5f59b2`<br>**SHA256:\*<br>• `de15c5bdbc83b952afbde876110830c604ad0796680e5157c05f7c1979a41069` |

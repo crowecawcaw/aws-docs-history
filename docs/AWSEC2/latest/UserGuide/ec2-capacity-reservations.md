@@ -87,6 +87,7 @@ Capacity Reservations that you create and manage.
   metrics](capacity-reservation-cw-metrics.md "capacity-reservation-cw-metrics.md")
 - [Monitor Capacity Reservation underutilization](cr-eventbridge.md "cr-eventbridge.md")
 - [Monitor state changes for future-dated Capacity Reservations](monitor-fcr-state.md "monitor-fcr-state.md")
+- [Interruptible Capacity Reservations](interruptible-capacity-reservations.md "interruptible-capacity-reservations.md")
 
 ## Differences between Capacity Reservations, Reserved Instances,
 

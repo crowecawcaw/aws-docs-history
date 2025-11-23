@@ -34,11 +34,11 @@ default stop method. Note that some aspects might vary depending on which [stop 
 - The instance stops running.
 - The instance state changes to `stopping` and then
   `stopped`.
-- [Auto Scaling] If your instance is in an Auto Scaling group, when the instance is in any
+- [Amazon EC2 Auto Scaling] If your instance is in an Amazon EC2 Auto Scaling group, when the instance is in any
   Amazon EC2 state other than `running`, or if its status for the status
   checks becomes `impaired`, Amazon EC2 Auto Scaling considers the instance to be
   unhealthy and replaces it. For more information, see [Health checks for
-  instances in an Auto Scaling group](../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md") in the
+  instances in an Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md") in the
   _Amazon EC2 Auto Scaling User Guide_.
 - [Windows instances] When you stop and start a Windows instance, the launch
   agent performs tasks on the instance, such as changing the drive letters for
@@ -96,6 +96,13 @@ see [Stop or terminate your Amazon EC2 Mac instance](mac-instance-stop.md "mac-i
   configured to receive a public IPv4 address, unless it has a secondary
   network interface or a secondary private IPv4 address that is associated
   with an Elastic IP address.
+- If you stop an instance in a placement group and then start it again, it
+  still runs in the placement group. However, the start fails if there isn't
+  enough capacity for the instance. If you receive a capacity error when
+  starting an instance in a placement group that already has running
+  instances, stop all the instances in the placement group and start them all
+  again. Starting the instances may migrate them to hardware that has capacity
+  for all of the requested instances.
 
 ## Test application response to stop and
 

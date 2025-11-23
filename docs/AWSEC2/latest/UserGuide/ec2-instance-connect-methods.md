@@ -164,9 +164,9 @@ method works for instances with public and private IP addresses.
   connectivity to the EC2 Instance Connect service endpoint (to push your SSH public
   key to the instance) as well as network connectivity to the instance's
   private IP address to establish the SSH session. The EC2 Instance Connect service
-  endpoint is reachable over the internet or over an AWS Direct Connect public virtual
+  endpoint is reachable over the internet or over an Direct Connect public virtual
   interface. To connect to the instance's private IP address, you can leverage
-  services such as [AWS Direct Connect](https://aws.amazon.com/directconnect/ "https://aws.amazon.com/directconnect/"), [AWS Site-to-Site VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/"),
+  services such as [Direct Connect](https://aws.amazon.com/directconnect/ "https://aws.amazon.com/directconnect/"), [AWS Site-to-Site VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/"),
   or [VPC
   peering](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md").
 

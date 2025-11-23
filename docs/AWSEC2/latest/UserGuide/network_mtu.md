@@ -51,9 +51,9 @@ achieve the maximum network throughput possible, and they are recommended in thi
 For more information, see [Placement groups for your Amazon EC2 instances](placement-groups.md "placement-groups.md").
 
 You can use jumbo frames for traffic between your VPCs and your on-premises networks
-over AWS Direct Connect. For more information, and for how to verify Jumbo Frame capability, see
+over Direct Connect. For more information, and for how to verify Jumbo Frame capability, see
 [MTU for private virtual interfaces or transit virtual interfaces](../../../directconnect/latest/UserGuide/WorkingWithVirtualInterfaces.md#set-jumbo-frames-vif.html "../../../directconnect/latest/UserGuide/WorkingWithVirtualInterfaces.md#set-jumbo-frames-vif.html")
-in the _AWS Direct Connect User Guide_.
+in the _Direct Connect User Guide_.
 
 All [current generation](../../../ec2/latest/instancetypes/instance-types.md#current-gen-instances "../../../ec2/latest/instancetypes/instance-types.md#current-gen-instances")
 instance types support jumbo frames.

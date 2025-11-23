@@ -74,7 +74,7 @@ Consider the following options for controlling network traffic to your EC2 insta
   instance in a private subnet.
 - [Windows instances] Use secure administration protocols like RDP encapsulation over SSL/TLS. The Remote Desktop Gateway Quick Start provides best practices for deploying remote desktop gateway, including
   configuring RDP to use SSL/TLS.
-- [Windows instances] Use Active Directory or AWS Directory Service to tightly and centrally control and monitor interactive user
+- [Windows instances] Use Active Directory or Directory Service to tightly and centrally control and monitor interactive user
   and group access to Windows instances, and avoid local user permissions. Also avoid
   using Domain Administrators and instead create more granular, application-specific
   role-based accounts. Just Enough Administration (JEA) allows changes to Windows
@@ -100,7 +100,7 @@ Consider the following options for controlling network traffic to your EC2 insta
   options for controlling network traffic, including the ability to create host-based
   routing policies or leverage different VPC subnet routing rules based on the assigned
   subnet of the network interface.
-- Use AWS Virtual Private Network or AWS Direct Connect to establish private connections from your remote
+- Use AWS Virtual Private Network or Direct Connect to establish private connections from your remote
   networks to your VPCs. For more information, see [Network-to-Amazon VPC Connectivity Options](../../../whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.md "../../../whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.md").
 - Use [VPC Flow Logs](../../../vpc/latest/userguide/flow-logs.md "../../../vpc/latest/userguide/flow-logs.md") to monitor the traffic
   that reaches your instances.

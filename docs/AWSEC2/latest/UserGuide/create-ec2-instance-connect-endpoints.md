@@ -109,6 +109,7 @@ The following is example output.
         ],
         "VpcId": "`vpc-0123abcd`",
         "AvailabilityZone": "`us-east-1a`",
+        "AvailabilityZoneId": "`use1-az4`",
         "CreatedAt": "`2023-04-07T15:43:53.000Z`",
         "SubnetId": "`subnet-0123abcd`",
         "PreserveClientIp": false,
@@ -175,6 +176,7 @@ FipsDnsName                 : `eice-0123456789example`.`0123abcd`.fips.ec2-insta
 NetworkInterfaceIds         : {`eni-0123abcd`}
 VpcId                       : `vpc-0123abcd`
 AvailabilityZone            : `us-east-1a`
+AvailabilityZoneId          : `use1-az4`
 CreatedAt                   : 4/7/2023 3:43:53 PM
 SubnetId                    : `subnet-0123abcd`
 PreserveClientIp            : False

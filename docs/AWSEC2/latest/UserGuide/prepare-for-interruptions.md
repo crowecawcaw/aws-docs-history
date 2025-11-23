@@ -9,9 +9,9 @@ interruption.
 We recommend that you follow these best practices so that you're prepared for a
 Spot Instance interruption.
 
-- Create your Spot request using an Auto Scaling group. If your Spot Instances are interrupted, the Auto Scaling
+- Create your Spot request using an Amazon EC2 Auto Scaling group. If your Spot Instances are interrupted, the Amazon EC2 Auto Scaling
   group will automatically launch replacement instances. For more information,
-  see [Auto Scaling groups with multiple instance types and purchase options](../../../autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.md")
+  see [Amazon EC2 Auto Scaling groups with multiple instance types and purchase options](../../../autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.md")
   in the _Amazon EC2 Auto Scaling User Guide_.
 - Ensure that your instance is ready to go as soon as the request is fulfilled by using an
   Amazon Machine Image (AMI) that contains the required software

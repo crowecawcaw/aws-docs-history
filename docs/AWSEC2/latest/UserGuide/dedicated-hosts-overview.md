@@ -59,7 +59,7 @@ AWS or that are available on AWS Marketplace can be used with these hosts.
   pending, stopping, or stopped, it does not count towards your quota. To view the
   quotas for your account, or to request a quota increase, use the [Service Quotas
   console](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas").
-- Auto Scaling groups are supported when using a launch template that specifies a host
+- Amazon EC2 Auto Scaling groups are supported when using a launch template that specifies a host
   resource group. For more information, see [Create a launch template using advanced settings](../../../autoscaling/ec2/userguide/advanced-settings-for-your-launch-template.md "../../../autoscaling/ec2/userguide/advanced-settings-for-your-launch-template.md") in the
   _Amazon EC2 Auto Scaling User Guide_.
 - Amazon RDS instances are not supported.

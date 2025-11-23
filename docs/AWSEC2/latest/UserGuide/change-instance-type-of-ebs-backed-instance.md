@@ -17,11 +17,11 @@ For more information, see [Compatibility for changing the instance type](resize-
 - [Windows instances] We recommend that you update the AWS PV driver package before
   changing the instance type. For more information, see [Upgrade PV drivers on EC2 Windows
   instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
-- If your instance is in an Auto Scaling group, the Amazon EC2 Auto Scaling service marks the stopped
+- If your instance is in an Amazon EC2 Auto Scaling group, the Amazon EC2 Auto Scaling service marks the stopped
   instance as unhealthy, and might terminate it and launch a replacement instance. To
   prevent this, you can suspend the scaling processes for the group while you're changing
   the instance type. For more information, see [Suspending and resuming a process
-  for an Auto Scaling group](../../../autoscaling/ec2/userguide/as-suspend-resume-processes.md "../../../autoscaling/ec2/userguide/as-suspend-resume-processes.md") in the _Amazon EC2 Auto Scaling User Guide_.
+  for an Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/as-suspend-resume-processes.md "../../../autoscaling/ec2/userguide/as-suspend-resume-processes.md") in the _Amazon EC2 Auto Scaling User Guide_.
 - When you change the instance type of an instance with NVMe instance store volumes, the
   updated instance might have additional instance store volumes, because all NVMe instance
   store volumes are available even if they are not specified in the AMI or instance block

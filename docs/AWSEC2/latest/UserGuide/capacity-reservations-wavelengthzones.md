@@ -5,7 +5,7 @@ ultra-low latencies to mobile devices and end users. Wavelength deploys standard
 compute and storage services to the edge of telecommunication carriers' 5G networks. You
 can extend an Amazon Virtual Private Cloud (VPC) to one or more Wavelength Zones. You can then use AWS
 resources like Amazon EC2 instances to run applications that require ultra-low latency and a
-connection to AWS services in the Region. For more information, see [AWS Wavelength Zones](https://aws.amazon.com/wavelength/ "https://aws.amazon.com/wavelength/").
+connection to AWS services in the Region. For more information, see [AWS Wavelength Zones](https://aws.amazon.com//wavelength/ "https://aws.amazon.com//wavelength/").
 
 When you create On-Demand Capacity Reservations, you can choose the Wavelength Zone and you can launch
 instances into a Capacity Reservation in a Wavelength Zone by specifying the subnet associated with the

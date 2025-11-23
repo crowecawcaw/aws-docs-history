@@ -97,7 +97,7 @@ Guide_.
 ## Local Zones
 
 A Local Zone is an extension of an AWS Region in geographic proximity to your users. Local Zones
-have their own connections to the internet and support AWS Direct Connect, so that resources
+have their own connections to the internet and support Direct Connect, so that resources
 created in a Local Zone can serve local users with low-latency communications. For more information, see [What is AWS Local Zones?](../../../local-zones/latest/ug/what-is-aws-local-zones.md "../../../local-zones/latest/ug/what-is-aws-local-zones.md") in the _AWS Local Zones User Guide_.
 
 The code for a Local Zone is its Region code followed by an identifier that indicates its

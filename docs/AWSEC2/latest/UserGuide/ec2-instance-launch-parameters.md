@@ -442,7 +442,7 @@ For **Advanced details**, expand the section to view the fields and
 specify any additional parameters for the instance.
 
 - (Launch instance wizard only) **Domain join directory**:
-  Select the AWS Directory Service directory (domain) to which your instance is joined to after
+  Select the Directory Service directory (domain) to which your instance is joined to after
   launch. If you select a domain, you must select an IAM role with the required
   permissions. For more information about domain joining, see [Seamlessly join an
   Amazon EC2 Linux instance to your AWS Managed Microsoft AD directory](../../../directoryservice/latest/admin-guide/seamlessly_join_linux_instance.md "../../../directoryservice/latest/admin-guide/seamlessly_join_linux_instance.md")
@@ -574,19 +574,19 @@ each instead of one launch request for 500 instances.
 
 - (Optional) If you specify more than one instance, to help ensure that you
   maintain the correct number of instances to handle demand on your application,
-  you can choose **consider EC2 Auto Scaling** to create a launch
-  template and an Auto Scaling group. Auto Scaling scales the number of instances in the group
+  you can choose **consider EC2 Amazon EC2 Auto Scaling** to create a launch
+  template and an Amazon EC2 Auto Scaling group. Amazon EC2 Auto Scaling scales the number of instances in the group
   according to your specifications. For more information, see the
   [Amazon EC2 Auto Scaling User Guide](../../../autoscaling/ec2/userguide.md "../../../autoscaling/ec2/userguide.md").
 
 ###### Note
 
-If Amazon EC2 Auto Scaling marks an instance that is in an Auto Scaling group as unhealthy, the
+If Amazon EC2 Amazon EC2 Auto Scaling marks an instance that is in an Amazon EC2 Auto Scaling group as unhealthy, the
 instance is automatically scheduled for replacement where it is terminated
 and another is launched, and you lose your data on the original instance. An
 instance is marked as unhealthy if you stop or reboot the instance, or if
 another event marks the instance as unhealthy. For more information, see
-[Health checks for instances in an Auto Scaling group](../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md") in the
+[Health checks for instances in an Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md") in the
 _Amazon EC2 Auto Scaling User Guide_.
 
 - Review the details of your instance, and make any necessary changes. You can

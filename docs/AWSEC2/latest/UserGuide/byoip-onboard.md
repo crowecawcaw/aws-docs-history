@@ -100,7 +100,7 @@ internet. You can provision an IPv6 address range that will not be publicly
 advertisable. For routes that are not publicly advertisable, the provisioning
 process generally completes within minutes. When you associate an IPv6 CIDR block
 from a non-public address range with a VPC, the IPv6 CIDR can only be accessed
-through hybrid connectivity options that support IPv6, such as [AWS Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md"), [AWS Site-to-Site VPN](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md"), or [Amazon VPC Transit Gateways](../../../vpc/latest/tgw/what-is-transit-gateway.md "../../../vpc/latest/tgw/what-is-transit-gateway.md").
+through hybrid connectivity options that support IPv6, such as [Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md"), [AWS Site-to-Site VPN](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md"), or [Amazon VPC Transit Gateways](../../../vpc/latest/tgw/what-is-transit-gateway.md "../../../vpc/latest/tgw/what-is-transit-gateway.md").
 
 A ROA is not required to provision a non-public address range.
 

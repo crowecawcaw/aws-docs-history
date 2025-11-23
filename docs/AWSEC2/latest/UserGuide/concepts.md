@@ -142,10 +142,10 @@ Enables you to interact with AWS services using commands in your command-line sh
 is supported on Windows, Mac, and Linux. For more information about the
 AWS CLI , see [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md"). You can find the Amazon EC2 commands in the [AWS CLI Command Reference](../../../cli/latest/reference/ec2/index.md "../../../cli/latest/reference/ec2/index.md").
 
-**AWS CloudFormation**
+**CloudFormation**
 
-Amazon EC2 supports creating resources using AWS CloudFormation. You create a template, in JSON or YAML
-format, that describes your AWS resources, and AWS CloudFormation provisions and
+Amazon EC2 supports creating resources using CloudFormation. You create a template, in JSON or YAML
+format, that describes your AWS resources, and CloudFormation provisions and
 configures those resources for you. You can reuse your CloudFormation
 templates to provision the same resources multiple times, whether in the
 same Region and account or in multiple Regions and accounts. For more

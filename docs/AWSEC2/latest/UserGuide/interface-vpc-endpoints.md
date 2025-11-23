@@ -2,7 +2,7 @@
 
 You can improve the security posture of your VPC by creating a private connection between
 resources in your VPC and the Amazon EC2 API. You can access the Amazon EC2 API as if it were in your VPC,
-without the use of an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
+without the use of an internet gateway, NAT device, VPN connection, or Direct Connect connection.
 EC2 instances in your VPC don't need public IP addresses to access the Amazon EC2 API.
 
 For more information, see [Access AWS services through

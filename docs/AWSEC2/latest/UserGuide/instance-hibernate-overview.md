@@ -61,10 +61,10 @@ see [Differences between instance states](ec2-instance-lifecycle.md#lifecycle-di
   can resume your instance. A hibernated Spot Instance can only be resumed if capacity
   is available and the Spot price is less than or equal to your specified
   maximum price.
-- You can't hibernate an instance that is in an Auto Scaling group or used by Amazon ECS.
-  If your instance is in an Auto Scaling group and you try to hibernate it, the Amazon EC2
-  Auto Scaling service marks the stopped instance as unhealthy, and might terminate it
-  and launch a replacement instance. For more information, see [Health checks for instances in an Auto Scaling group](../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md") in the
+- You can't hibernate an instance that is in an Amazon EC2 Auto Scaling group or used by Amazon ECS.
+  If your instance is in an Amazon EC2 Auto Scaling group and you try to hibernate it, the Amazon EC2
+  Amazon EC2 Auto Scaling service marks the stopped instance as unhealthy, and might terminate it
+  and launch a replacement instance. For more information, see [Health checks for instances in an Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.md") in the
   _Amazon EC2 Auto Scaling User Guide_.
 - You can't hibernate an instance that is configured to boot in UEFI mode
   with [UEFI Secure Boot](uefi-secure-boot.md "uefi-secure-boot.md")

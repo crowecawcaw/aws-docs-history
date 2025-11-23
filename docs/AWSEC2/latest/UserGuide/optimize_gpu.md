@@ -111,6 +111,13 @@ clock speed, and display the error `"Setting applications clocks is not
     ```
     `[ec2-user ~]$` sudo nvidia-smi -ac `3996,1965`
     ```
+    * P6-B300 instances:
+
+
+
+    ```
+    `[ec2-user ~]$` sudo nvidia-smi -ac `3996,2032`
+    ```
 
 1. Open a PowerShell window and navigate to the NVIDIA installation
    folder.

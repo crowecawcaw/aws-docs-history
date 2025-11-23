@@ -407,6 +407,7 @@ Accelerated computing
 | `p5e.48xlarge`     | x86_64       |
 | `p5en.48xlarge`    | x86_64       |
 | `p6-b200.48xlarge` | x86_64       |
+| `p6-b300.48xlarge` | x86_64       |
 
 Storage optimized
 

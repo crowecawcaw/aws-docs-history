@@ -97,6 +97,7 @@ type.
 | P5en          | Yes          | No          | No            |
 | P6-B200       | Yes          | No          | No            |
 | P6e-GB200     | Yes          | No          | No            |
+| P6-B300       | Yes          | No          | No            |
 
 ¹ This Tesla driver also supports optimized graphics applications specific to
 the ARM64 platform

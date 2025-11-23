@@ -87,7 +87,7 @@ instance exceeded the maximum number of connections that can be tracked, use the
 information, see [Monitor network performance for ENA
 settings on your EC2 instance](monitoring-network-performance-ena.md "monitoring-network-performance-ena.md").
 
-With Elastic Load Balancing, if you exceed the maximum number of connections that can be tracked per instance,
+With ELB, if you exceed the maximum number of connections that can be tracked per instance,
 we recommend that you scale either the number of instances registered with the
 load balancer or the size of the instances registered with the load balancer.
 

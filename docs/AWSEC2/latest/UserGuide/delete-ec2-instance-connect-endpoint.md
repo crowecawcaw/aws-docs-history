@@ -56,6 +56,7 @@ The following is example output.
         "NetworkInterfaceIds": [],
         "VpcId": "`vpc-0123abcd`",
         "AvailabilityZone": "`us-east-1d`",
+        "AvailabilityZoneId": "`use1-az2`",
         "CreatedAt": "`2023-02-07T12:05:37+00:00`",
         "SubnetId": "`subnet-0123abcd`"
     }
@@ -86,6 +87,7 @@ The following is example output.
         NetworkInterfaceIds = @()
         VpcId = "`vpc-0123abcd`"
         AvailabilityZone = "`us-east-1d`"
+        AvailabilityZoneId = "`use1-az2`"
         CreatedAt = "2023-02-07T12:05:37+00:00"
         SubnetId = "`subnet-0123abcd`"
     }

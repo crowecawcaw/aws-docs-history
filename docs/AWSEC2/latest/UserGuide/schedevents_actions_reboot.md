@@ -209,7 +209,7 @@ with the following characteristics:
   instead.
 - Storage: Instances with instance store volumes
 - Networking: Instances using an Elastic Fabric Adapter
-- Auto Scaling: Instances that are part of an Auto Scaling group
+- Auto Scaling: Instances that are part of an Amazon EC2 Auto Scaling group
 
 ### Steps for enabling or
 

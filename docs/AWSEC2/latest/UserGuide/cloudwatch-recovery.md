@@ -85,7 +85,7 @@ characteristics:
 
 - Tenancy: Dedicated Host. For Dedicated Hosts, use [Dedicated Host Auto Recovery](dedicated-hosts-recovery.md "dedicated-hosts-recovery.md") instead.
 - Networking: Instances using an Elastic Fabric Adapter
-- Auto Scaling: Instances that are part of an Auto Scaling group
+- Auto Scaling: Instances that are part of an Amazon EC2 Auto Scaling group
 - Maintenance: Instances currently undergoing a scheduled maintenance event
 
 ### Find a supported instance type

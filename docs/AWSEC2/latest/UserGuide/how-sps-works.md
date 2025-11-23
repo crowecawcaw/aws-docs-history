@@ -113,11 +113,11 @@ to get the best results:
 - **Use the same configuration** – The
   Spot placement score is relevant only if the Spot request configuration (target capacity,
   target capacity unit, and instance types or instance attributes) in your
-  Auto Scaling group, EC2 Fleet, or Spot Fleet is the same as what you entered to get the
+  Amazon EC2 Auto Scaling group, EC2 Fleet, or Spot Fleet is the same as what you entered to get the
   Spot placement score.
 
 If you used attribute-based instance type selection in your Spot placement score request, you can use
-attribute-based instance type selection to configure your Auto Scaling group, EC2 Fleet,
+attribute-based instance type selection to configure your Amazon EC2 Auto Scaling group, EC2 Fleet,
 or Spot Fleet. For more information, see [Create mixed instances group using attribute-based instance type
 selection](../../../autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.md "../../../autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.md") and [Specify attributes for
 instance type selection for EC2 Fleet or Spot Fleet](ec2-fleet-attribute-based-instance-type-selection.md "ec2-fleet-attribute-based-instance-type-selection.md").
@@ -127,7 +127,7 @@ instance type selection for EC2 Fleet or Spot Fleet](ec2-fleet-attribute-based-i
 If you specified your target capacity in terms of the number of vCPUs
 or the amount of memory, and you specified instance types in your Spot
 placement score configuration, note that you can’t currently create this
-configuration in your Auto Scaling group, EC2 Fleet, or Spot Fleet. Instead, you must
+configuration in your Amazon EC2 Auto Scaling group, EC2 Fleet, or Spot Fleet. Instead, you must
 manually set the instance weighting by using the
 `WeightedCapacity` parameter.
 

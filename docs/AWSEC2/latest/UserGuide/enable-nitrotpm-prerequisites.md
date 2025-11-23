@@ -46,7 +46,7 @@ You must use one of the following virtualized instance types:
 - **Storage optimized**:
   D3, D3en, I3en, I4i, I7i, I7ie, I8g, I8ge, Im4gn
 - **Accelerated computing**:
-  F2, G4dn, G5, G6, G6e, G6f, Gr6, Gr6f, Inf1, Inf2, P5, P5e, P5en, P6-B200, Trn2, Trn2u
+  F2, G4dn, G5, G6, G6e, G6f, Gr6, Gr6f, Inf1, Inf2, P5, P5e, P5en, P6-B200, P6-B300, Trn2, Trn2u
 - **High-performance computing**:
   Hpc6a, Hpc6id
 

@@ -9,7 +9,7 @@ prerequisites that are required to create snapshots for the AMIs in your AWS acc
 - If you don't use a custom launch template to configure your settings, you must attach the
   [EC2FastLaunchFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-EC2FastLaunchFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-EC2FastLaunchFullAccess") policy
   to your current IAM role before you enable EC2 Fast Launch. Then the service automatically
-  creates an AWS CloudFormation stack with the following resources in your AWS account.
+  creates an CloudFormation stack with the following resources in your AWS account.
   - A virtual private cloud (VPC)
   - Private subnets across multiple Availability Zones
   - A launch template configured with Instance Metadata Service Version 2 (IMDSv2)

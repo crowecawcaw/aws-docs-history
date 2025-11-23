@@ -38,7 +38,7 @@ For more information, see [Rules to connect to instances from your computer](sec
 ## Retrieve the administrator password
 
 If you joined your instance to a domain, you can connect to your instance using the domain
-credentials from AWS Directory Service. On the Remote Desktop login screen, instead of using the local computer
+credentials from Directory Service. On the Remote Desktop login screen, instead of using the local computer
 name and the generated password, use the fully-qualified username for the administrator
 (for example, `corp.example.com\Admin`), and the password for this account.
 

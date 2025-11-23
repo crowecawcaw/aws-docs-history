@@ -187,6 +187,7 @@ the number of network interfaces that an instance type supports, see
 | `p5e.48xlarge`         | 32                      |
 | `p5en.48xlarge`        | 16                      |
 | `p6-b200.48xlarge`     | 8                       |
+| `p6-b300.48xlarge`     | 17                      |
 | `p6e-gb200.36xlarge`   | 17                      |
 | `r8gn.48xlarge`        | 2                       |
 | `r8gn.metal-48xl`      | 2                       |

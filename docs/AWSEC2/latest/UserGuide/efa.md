@@ -152,6 +152,7 @@ Nitro v6
 | i8ge.metal-48xl       | Yes               | No                 |
 | Accelerated Computing |
 | p6-b200.48xlarge      | Yes               | Yes                |
+| p6-b300.48xlarge      | Yes               | Yes                |
 
 Nitro v5
 

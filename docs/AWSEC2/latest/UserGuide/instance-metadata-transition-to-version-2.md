@@ -77,15 +77,15 @@ IMDSv2. For more information, see [Modify instance metadata
 options for existing instances](configuring-IMDS-existing-instances.md "configuring-IMDS-existing-instances.md").
 
 To require the use of IMDSv2 on all new instances launched
-by Auto Scaling groups, your Auto Scaling groups can use either a launch template or
+by Amazon EC2 Auto Scaling groups, your Amazon EC2 Auto Scaling groups can use either a launch template or
 a launch configuration. When you [create a launch template](../../../cli/latest/reference/ec2/create-launch-template.md "../../../cli/latest/reference/ec2/create-launch-template.md") or [create a launch configuration](../../../cli/latest/reference/autoscaling/create-launch-configuration.md "../../../cli/latest/reference/autoscaling/create-launch-configuration.md"), you must configure the
 `MetadataOptions` parameters to require the use of
-IMDSv2. The Auto Scaling group launches new instances using the new
+IMDSv2. The Amazon EC2 Auto Scaling group launches new instances using the new
 launch template or launch configuration, but existing instances are
-not affected. For existing instances in an Auto Scaling group, you can use
+not affected. For existing instances in an Amazon EC2 Auto Scaling group, you can use
 the [ModifyInstanceMetadataOptions](../APIReference/API_ModifyInstanceMetadataOptions.md "../APIReference/API_ModifyInstanceMetadataOptions.md") API to require the use of
 IMDSv2 on the existing instances, or terminate the instances
-and the Auto Scaling group will launch new replacement instances with the
+and the Amazon EC2 Auto Scaling group will launch new replacement instances with the
 instance metadata options settings that are defined in the new
 launch template or launch configuration.
 

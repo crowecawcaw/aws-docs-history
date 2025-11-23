@@ -6,7 +6,7 @@ specify them every time you launch an instance.
 Several instance launch services can optionally use launch templates when launching
 instances, while for other services, like EC2 Fleet, instances can't be launched unless a
 launch template is used. This topic describes how to use a launch template when
-launching an instance using the EC2 launch instance wizard, Amazon EC2 Auto Scaling, EC2 Fleet, and
+launching an instance using the EC2 launch instance wizard, Amazon EC2 Amazon EC2 Auto Scaling, EC2 Fleet, and
 Spot Fleet.
 
 For more information about launch templates, including how to create a launch
@@ -246,22 +246,22 @@ If the instance fails to launch or the state immediately goes to
 
 launch template
 
-You can create an Auto Scaling group and specify a launch template to use for the group.
-When Amazon EC2 Auto Scaling launches instances in the Auto Scaling group, it uses the launch parameters
+You can create an Amazon EC2 Auto Scaling group and specify a launch template to use for the group.
+When Amazon EC2 Auto Scaling launches instances in the Amazon EC2 Auto Scaling group, it uses the launch parameters
 defined in the associated launch template.
 
-Before you can create an Auto Scaling group using a launch template, you must first create
+Before you can create an Amazon EC2 Auto Scaling group using a launch template, you must first create
 a launch template that includes the parameters required to launch an instance in an
-Auto Scaling group. Some parameters are required, such as the ID of the AMI, and some
-parameters are not available to use with an Auto Scaling group. The console provides
+Amazon EC2 Auto Scaling group. Some parameters are required, such as the ID of the AMI, and some
+parameters are not available to use with an Amazon EC2 Auto Scaling group. The console provides
 guidance to help you create a template that you can use with Amazon EC2 Auto Scaling.
 
-###### To create an Auto Scaling group with a launch template using the console
+###### To create an Amazon EC2 Auto Scaling group with a launch template using the console
 
 - For the instructions, see Create an Auto Scaling group using a launch
   template in the _Amazon EC2 Auto Scaling User Guide_.
 
-###### To create or update an Auto Scaling group with a launch template using the
+###### To create or update an Amazon EC2 Auto Scaling group with a launch template using the
 
 AWS CLI
 
@@ -272,14 +272,14 @@ For more information, see the following topics in the
 _Amazon EC2 Auto Scaling User Guide_:
 
 - [Create a
-  launch template for an Auto Scaling group](../../../autoscaling/ec2/userguide/create-launch-template.md "../../../autoscaling/ec2/userguide/create-launch-template.md")
+  launch template for an Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/create-launch-template.md "../../../autoscaling/ec2/userguide/create-launch-template.md")
 - [Create a launch template using advanced settings](../../../autoscaling/ec2/userguide/advanced-settings-for-your-launch-template.md "../../../autoscaling/ec2/userguide/advanced-settings-for-your-launch-template.md")
 - [Examples for creating and managing launch templates with the AWS Command Line Interface
   (AWS CLI)](../../../autoscaling/ec2/userguide/examples-launch-templates-aws-cli.md "../../../autoscaling/ec2/userguide/examples-launch-templates-aws-cli.md") – Provides examples that show how to create
   launch templates with various parameter combinations.
-- [Create Auto Scaling groups using launch templates](../../../autoscaling/ec2/userguide/create-auto-scaling-groups-launch-template.md "../../../autoscaling/ec2/userguide/create-auto-scaling-groups-launch-template.md")
+- [Create Amazon EC2 Auto Scaling groups using launch templates](../../../autoscaling/ec2/userguide/create-auto-scaling-groups-launch-template.md "../../../autoscaling/ec2/userguide/create-auto-scaling-groups-launch-template.md")
 - [Update an
-  Auto Scaling group](../../../autoscaling/ec2/userguide/update-auto-scaling-group.md "../../../autoscaling/ec2/userguide/update-auto-scaling-group.md")
+  Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/update-auto-scaling-group.md "../../../autoscaling/ec2/userguide/update-auto-scaling-group.md")
 
 ## Launch an EC2 Fleet using a launch
 

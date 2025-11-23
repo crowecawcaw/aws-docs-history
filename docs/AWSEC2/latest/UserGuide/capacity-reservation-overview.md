@@ -14,6 +14,9 @@ There are two types of Capacity Reservations serving different use cases.
 - **Regulatory requirements and disaster recovery** –
   Use On-Demand Capacity Reservations to satisfy regulatory requirements for high availability, and reserve
   capacity in a different Availability Zone or Region for disaster recovery.
+- **Sharing unused capacity** –
+  Use Interruptible Capacity Reservations to make unused capacity available for other workloads
+  within your account while maintaining control to reclaim it when needed.
   The following are some common use cases for Capacity Blocks for ML:
 
 - **Machine learning (ML) model training and fine-tuning**

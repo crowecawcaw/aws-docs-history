@@ -10,7 +10,7 @@ traditional single or multiple data center infrastructures.
 If you need to replicate your data or applications over greater geographic distances, use
 AWS Local Zones. An AWS Local Zone is an extension of an AWS Region in geographic
 proximity to your users. Local Zones have their own connections to the internet and support
-AWS Direct Connect. Like all AWS Regions, AWS Local Zones are completely isolated from other AWS
+Direct Connect. Like all AWS Regions, AWS Local Zones are completely isolated from other AWS
 Zones.
 
 If you need to replicate your data or applications in an AWS Local Zone, AWS
@@ -30,4 +30,4 @@ to support your data resiliency:
 - Automating EBS snapshots using Amazon Data Lifecycle Manager
 - Maintaining the health and availability of your fleet using Amazon EC2 Auto Scaling
 - Distributing incoming traffic across multiple instances in a single Availability Zone
-  or multiple Availability Zones using Elastic Load Balancing
+  or multiple Availability Zones using ELB

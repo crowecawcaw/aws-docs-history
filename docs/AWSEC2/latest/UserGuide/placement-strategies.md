@@ -82,7 +82,7 @@ The following rules apply to cluster placement groups:
   group by creating an [On-Demand Capacity Reservation in the cluster placement
   group](cr-cpg.md "cr-cpg.md"). Note that you can't reserve capacity using zonal Reserved Instances, as
   they can't reserve capacity explicitly in a placement group.
-- Network traffic to the internet and over an AWS Direct Connect connection to
+- Network traffic to the internet and over an Direct Connect connection to
   on-premises resources is limited to 5 Gbps for cluster placement
   groups.
 

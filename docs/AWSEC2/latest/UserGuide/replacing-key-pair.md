@@ -46,7 +46,7 @@ You might add or replace a key pair for the following reasons:
    public key information and then save the file.
 5. Disconnect from your instance. Test that you can connect to your instance using
    the private key file from the new key pair.
-6. If you're using Auto Scaling, EC2 fleet, or a launch template to launch your instances,
+6. If you're using Amazon EC2 Auto Scaling, EC2 fleet, or a launch template to launch your instances,
    check whether the key pair that you're replacing is specified in your launch template
    or launch configuration. Otherwise, instance launches will fail.
 7. (Optional) If you're replacing an existing key pair, connect to your instance and

@@ -10,35 +10,35 @@ the following:
 
  
 
-###### P6-B200 instance type considerations
+###### P6-B200 and P6-B300 instance type considerations
 
-The P6-B200 platform is unique in that it exposes Mellanox ConnectX 7 network
-interface cards (NICs) to the instance as PCIe devices. These CX7 NICs do not act as
-typical network interfaces but instead function as NVSwitch bridges providing a control
-path to initialize and configure the NVFabric, which is the NVLink topology of the GPU
-interconnect.
+The P6-B200 and P6-B300 platforms are unique in that they expose Mellanox
+ConnectX network interface cards (NICs) to the instance as PCIe devices. These NICs do not
+act as typical network interfaces but instead function as NVSwitch bridges providing a
+control path to initialize and configure the NVFabric, which is the NVLink topology of the
+GPU interconnect.
 
-To fully initialize the system, the NVIDIA Fabric Manager must configure
-`NVFabric` and establish the NVSwitch topology. This enables
-InfiniBand kernel modules to communicate with the CX7 devices.
+To fully initialize the system, the NVIDIA Fabric Manager must configure `NVFabric`
+and establish the NVSwitch topology. This enables InfiniBand kernel modules to communicate with
+the Mellanox ConnectX NICs.
 
 NVIDIA Fabric Manager is included in the CUDA toolkit. We recommend [Option 2: Install with the CUDA toolkit](#public-nvidia-driver-cuda-install "#public-nvidia-driver-cuda-install")
 for this instance type.
 
 ## Option 1: Driver-only install
 
-To install a specific driver, log on to your instance and download the 64-bit
-NVIDIA public driver for the instance type from [http://www.nvidia.com/Download/Find.aspx](http://www.nvidia.com/Download/Find.aspx "http://www.nvidia.com/Download/Find.aspx"). For **Product
-Type**, **Product Series**, and
-**Product**, use the options shown in the following
-table.
+To install a specific driver, log on to your instance and download the 64-bit NVIDIA public
+driver for the instance type from [http://www.nvidia.com/Download/Find.aspx](http://www.nvidia.com/Download/Find.aspx "http://www.nvidia.com/Download/Find.aspx"). For **Product Type**,
+**Product Series**, and **Product**, use the options shown
+in the following table.
 
-Then follow the **Local Repository Installation** instructions in the [NVIDIA Driver Installation Guide](https://docs.nvidia.com/datacenter/tesla/driver-installation-guide/index.html "https://docs.nvidia.com/datacenter/tesla/driver-installation-guide/index.html").
+Then follow the **Local Repository Installation** instructions in the
+[NVIDIA Driver Installation Guide](https://docs.nvidia.com/datacenter/tesla/driver-installation-guide/index.html "https://docs.nvidia.com/datacenter/tesla/driver-installation-guide/index.html").
 
 ###### Note
 
-P6-B200 instance types require installation and configuration of additional
-packages that come bundled with the NVIDIA CUDA Toolkit. For more information, see
+P6-B200 and P6-B300 instance types require installation and configuration of
+additional packages that come bundled with the NVIDIA CUDA Toolkit. For more information, see
 instructions for your Linux distribution in [Option 2: Install with the CUDA toolkit](#public-nvidia-driver-cuda-install "#public-nvidia-driver-cuda-install").
 
 | Instance  | Product type | Product series | Product    | Minimum driver version |
@@ -59,11 +59,12 @@ instructions for your Linux distribution in [Option 2: Install with the CUDA too
 | P5en      | Tesla        | H-Series       | H200       | 550 or later           |
 | P6-B2002  | Tesla        | HGX-Series     | B200       | 570 or later           |
 | P6e-GB200 | Tesla        | HGX-Series     | B200       | 570 or later           |
+| P6-B3002  | Tesla        | HGX-Series     | B300       | 580 or later           |
 
 1 The operating system for G5g instances is Linux aarch64.
 
-2 For P6-B200 instance types, there are additional installation
-requirements to configure NVIDIA Fabric Manager.
+2 For P6-B200 and P6-B300 instance types, there are additional
+installation requirements to configure NVIDIA Fabric Manager.
 
 ## Option 2: Install with the CUDA toolkit
 
@@ -151,25 +152,20 @@ Remaining steps are the same for both local and network installation.
 `[ec2-user ~]$` sudo systemctl enable nvidia-persistenced
 ```
 
-5. Additional configuration for P6-B200 instance types:
+5. (_P6-B200 and P6-B300 only_) These instance types
+   require installation and configuration of additional packages that come bundled with
+   the NVIDIA CUDA Toolkit.
+   1. Install NVIDIA Link Subnet Manager and `ibstat`.
 
-P6-B200 instance types require installation and configuration of additional
-packages that come bundled with the NVIDIA CUDA Toolkit.
+   ```
+   `[ec2-user ~]$` sudo dnf install nvlink5
+   ```
 
-    1. Install NVIDIA Link Subnet Manager and `ibstat`.
+   2. Enable automatic loading of the Infiniband module on startup.
 
-
-
-    ```
-    `[ec2-user ~]$` sudo dnf install nvlink5
-    ```
-    2. Enable automatic loading of the Infiniband module on startup.
-
-
-
-    ```
-    `[ec2-user ~]$` echo "ib_umad" | sudo tee -a /etc/modules-load.d/modules.conf
-    ```
+   ```
+   `[ec2-user ~]$` echo "ib_umad" | sudo tee -a /etc/modules-load.d/modules.conf
+   ```
 
 6. Reboot the instance
 
@@ -255,27 +251,21 @@ Remaining steps are the same for both local and network installation.
 `$` sudo systemctl enable nvidia-persistenced
 ```
 
-5. Additional configuration for P6-B200 instance types:
+5. (_P6-B200 and P6-B300 only_) These instance types
+   require installation and configuration of additional packages that come bundled with
+   the NVIDIA CUDA Toolkit.
+   1. Install the latest InfiniBand-specific device driver and diagnostic utilities.
 
-P6-B200 instance types require installation and configuration of additional
-packages that come bundled with the NVIDIA CUDA Toolkit.
+   ```
+   `$` sudo apt install linux-modules-extra-$(uname -r) -y
+   `$` sudo apt install infiniband-diags -y
+   ```
 
-    1. Install the latest InfiniBand-specific device driver (`mlx5_ib`) and
-     diagnostic utilities.
+   2. Install NVIDIA Link Subnet Manager.
 
-
-
-    ```
-    `$` sudo apt install linux-modules-extra-$(uname -r) -y
-    `$` sudo apt install infiniband-diags -y
-    ```
-    2. Install NVIDIA Link Subnet Manager.
-
-
-
-    ```
-    `$` sudo apt install nvlsm -y
-    ```
+   ```
+   `$` sudo apt install nvlsm -y
+   ```
 
 6. Reboot the instance
 

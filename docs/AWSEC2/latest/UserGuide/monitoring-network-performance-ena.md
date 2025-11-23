@@ -16,7 +16,7 @@ maximums for the following for each instance:
   a maximum bandwidth for aggregate inbound and outbound traffic, based on instance
   type and size. Some instances use a network I/O credit mechanism to allocate network
   bandwidth based on average bandwidth utilization. Amazon EC2 also has maximum bandwidth
-  for traffic to AWS Direct Connect and the internet. For more information, see [Amazon EC2 instance network bandwidth](ec2-instance-network-bandwidth.md "ec2-instance-network-bandwidth.md").
+  for traffic to Direct Connect and the internet. For more information, see [Amazon EC2 instance network bandwidth](ec2-instance-network-bandwidth.md "ec2-instance-network-bandwidth.md").
 - Packet-per-second (PPS) performance – Each
   EC2 instance has a maximum PPS performance, based on instance type and size.
 - Connections tracked – The security group

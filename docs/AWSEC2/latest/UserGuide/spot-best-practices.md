@@ -44,7 +44,7 @@ follow these best practices to have the best experience using the Spot service.
 - [Use attribute-based instance type selection](#use-attribute-based-instance-type-selection "#use-attribute-based-instance-type-selection")
 - [Use Spot placement scores to identify optimal Regions and Availability
   Zones](#use-spot-placement-scores-to-identify-optimal-regions-and-availability-zones "#use-spot-placement-scores-to-identify-optimal-regions-and-availability-zones")
-- [Use EC2 Auto Scaling groups or EC2 Fleet to manage your
+- [Use EC2 Amazon EC2 Auto Scaling groups or EC2 Fleet to manage your
   aggregate capacity](#use-sf-asg-for-aggregate-capacity "#use-sf-asg-for-aggregate-capacity")
 - [Use the price and capacity optimized
   allocation strategy](#use-capacity-optimized-allocation-strategy "#use-capacity-optimized-allocation-strategy")
@@ -106,7 +106,7 @@ VPC and selected for your workload.
 
 With attribute-based instance type selection, you can specify instance
 attributes—such as vCPUs, memory, and storage—for the workload you
-want to run. EC2 Auto Scaling or EC2 Fleet will then automatically identify and launch instances
+want to run. EC2 Amazon EC2 Auto Scaling or EC2 Fleet will then automatically identify and launch instances
 that match your specified attributes. This removes the effort required to manually
 select specific instance types, which requires an in-depth understanding of each
 instance type's offering.
@@ -151,24 +151,24 @@ interruption.
 You can use the Spot placement score feature in the Amazon EC2 console, AWS CLI, or an SDK. For more information,
 see [Spot placement score](spot-placement-score.md "spot-placement-score.md").
 
-## Use EC2 Auto Scaling groups or EC2 Fleet to manage your
+## Use EC2 Amazon EC2 Auto Scaling groups or EC2 Fleet to manage your
 
 aggregate capacity
 
 Spot enables you to think in terms of aggregate capacity—in units that include
 vCPUs, memory, storage, or network throughput—rather than thinking in terms
-of individual instances. Auto Scaling groups and EC2 Fleet enable you to launch and maintain a
+of individual instances. Amazon EC2 Auto Scaling groups and EC2 Fleet enable you to launch and maintain a
 target capacity, and to automatically request resources to replace any that are
-disrupted or manually terminated. When you configure an Auto Scaling group or an EC2 Fleet, you
+disrupted or manually terminated. When you configure an Amazon EC2 Auto Scaling group or an EC2 Fleet, you
 need only specify the instance types and target capacity based on your application
-needs. For more information, see [Auto Scaling groups](../../../autoscaling/ec2/userguide/auto-scaling-groups.md "../../../autoscaling/ec2/userguide/auto-scaling-groups.md")
+needs. For more information, see [Amazon EC2 Auto Scaling groups](../../../autoscaling/ec2/userguide/auto-scaling-groups.md "../../../autoscaling/ec2/userguide/auto-scaling-groups.md")
 in the _Amazon EC2 Auto Scaling User Guide_ and [Create an EC2 Fleet](create-ec2-fleet.md "create-ec2-fleet.md") in this user guide.
 
 ## Use the price and capacity optimized
 
 allocation strategy
 
-Allocation strategies in Auto Scaling groups help you to provision your target capacity without the
+Allocation strategies in Amazon EC2 Auto Scaling groups help you to provision your target capacity without the
 need to manually look for the Spot capacity pools with spare capacity. We recommend
 using the `price-capacity-optimized` strategy because this strategy
 automatically provisions instances from the most-available Spot capacity pools that

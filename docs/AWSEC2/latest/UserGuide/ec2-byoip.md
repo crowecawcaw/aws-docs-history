@@ -111,7 +111,7 @@ control the range:
 
 ## Regional availability
 
-The BYOIP feature is currently available in all commercial [AWS Regions](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/ "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/") except for
+The BYOIP feature is currently available in all commercial [AWS Regions](https://aws.amazon.com//about-aws/global-infrastructure/regions_az/ "https://aws.amazon.com//about-aws/global-infrastructure/regions_az/") except for
 China Regions.
 
 ## Local Zone availability

@@ -38,7 +38,7 @@ see [Create an Amazon EC2 AMI using Windows Sysprep](ami-create-win-sysprep.md "
 
 If you don't use a launch template to specify an existing VPC, and don't
 have a default VPC defined for your account, the service automatically
-creates an AWS CloudFormation stack that includes a VPC and other resources, as described
+creates an CloudFormation stack that includes a VPC and other resources, as described
 in [EC2 Fast Launch prerequisites](win-start-fast-launch-prereqs.md "win-start-fast-launch-prereqs.md").
 
 #### Cause
@@ -75,7 +75,7 @@ increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../
 
 When you enable EC2 Fast Launch for the first time without
 specifying a Launch Template, EC2 Fast Launch creates a service-owned
-AWS CloudFormation stack with service default resources. However, the CloudFormation templates
+CloudFormation stack with service default resources. However, the CloudFormation templates
 will fail to deploy if your IAM principal (role or user) lacks the
 necessary permissions.
 

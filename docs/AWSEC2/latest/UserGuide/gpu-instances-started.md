@@ -5,6 +5,7 @@ deliver the highest performance capabilities for deep learning and high performa
 applications. Select the instance type link to learn more about its capabilities.
 
 - [P6 family](https://aws.amazon.com/ec2/instance-types/p6/ "https://aws.amazon.com/ec2/instance-types/p6/")
+- [P6 family](https://aws.amazon.com/ec2/instance-types/p6/ "https://aws.amazon.com/ec2/instance-types/p6/")
 - [P5 family](https://aws.amazon.com/ec2/instance-types/p5/ "https://aws.amazon.com/ec2/instance-types/p5/")
   For a complete list of instance type specifications for accelerated instance types, see
   [Accelerated computing](../../../ec2/latest/instancetypes/ac.md "../../../ec2/latest/instancetypes/ac.md")
@@ -27,6 +28,8 @@ we recommend that you install the following minimum software versions on top of 
 | P5e           | 550           | 12.1 | 2.3            | 1.24.1        | 2.18.3   | 0.5.5     |
 | P5en          | 550           | 12.1 | 2.3            | 1.24.1        | 2.18.3   | 0.5.6     |
 | P6-B200       | 570           | 12.8 | 2.5            | 1.41.0        | 2.26.2-1 | 0.5.10    |
+| P6e-GB200     | 570           | 12.8 | 2.5            | 1.41.0        | 2.26.2-1 | 0.5.10    |
+| P6-B300       | 580           | 13.0 | 2.5            | 1.44.0        | 2.28.3   | 0.5.10    |
 
 **¹** The **EFA K8s** column contains the minimum recommended
 version for `aws-efa-k8s-device-plugin`.

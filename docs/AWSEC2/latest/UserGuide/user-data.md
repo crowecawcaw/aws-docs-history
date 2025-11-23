@@ -4,9 +4,9 @@ When you launch an Amazon EC2 instance, you can pass user data to the instance t
 is used to perform automated configuration tasks, or to run scripts after the instance
 starts.
 
-If you're interested in more complex automation scenarios, you might consider AWS CloudFormation.
+If you're interested in more complex automation scenarios, you might consider CloudFormation.
 For more information, see [Deploying applications
-on Amazon EC2 with AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/deploying.md "../../../AWSCloudFormation/latest/UserGuide/deploying.md") in the _AWS CloudFormation User Guide_.
+on Amazon EC2 with CloudFormation](../../../AWSCloudFormation/latest/UserGuide/deploying.md "../../../AWSCloudFormation/latest/UserGuide/deploying.md") in the _AWS CloudFormation User Guide_.
 
 On Linux instances, you can pass two types of user data to Amazon EC2: shell
 scripts and cloud-init directives. You can also pass this data into the launch instance
@@ -512,10 +512,10 @@ information, see the following:
 - [EC2Launch](ec2launch.md "ec2launch.md")
 - [EC2Config service](ec2config-service.md "ec2config-service.md")
 
-For examples of the assembly of a `UserData` property in a AWS CloudFormation template, see
+For examples of the assembly of a `UserData` property in a CloudFormation template, see
 [Base64 Encoded UserData Property](../../../AWSCloudFormation/latest/UserGuide/quickref-general.md#scenario-userdata-base64 "../../../AWSCloudFormation/latest/UserGuide/quickref-general.md#scenario-userdata-base64") and [Base64 Encoded UserData Property with AccessKey and SecretKey](../../../AWSCloudFormation/latest/UserGuide/quickref-general.md#scenario-userdata-base64-with-keys "../../../AWSCloudFormation/latest/UserGuide/quickref-general.md#scenario-userdata-base64-with-keys").
 
-For an example of running commands on an instance within an Auto Scaling group that works with lifecycle
+For an example of running commands on an instance within an Amazon EC2 Auto Scaling group that works with lifecycle
 hooks, see [Tutorial:
 Configure user data to retrieve the target lifecycle state through instance
 metadata](../../../autoscaling/ec2/userguide/tutorial-lifecycle-hook-instance-metadata.md "../../../autoscaling/ec2/userguide/tutorial-lifecycle-hook-instance-metadata.md") in the _Amazon EC2 Auto Scaling User Guide_.

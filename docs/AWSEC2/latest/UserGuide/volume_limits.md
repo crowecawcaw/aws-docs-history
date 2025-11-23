@@ -59,7 +59,7 @@ volumes and network interfaces.
 - **Compute optimized:** C7a | C7i | C7i-flex | C8g | C8gd | C8gn | C8i | C8i-flex
 - **Memory optimized:** R7a | R7i | R7iz | R8a | R8g | R8gb | R8gd | R8gn | R8i | R8i-flex | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | U7in-32tb | U7inh-32tb | X8g
 - **Storage optimized:** I7i | I7ie | I8g | I8ge
-- **Accelerated computing:** F2 | G6 | G6e | G6f | Gr6 | Gr6f | P4d | P4de | P5 | P5e | P5en | P6-B200 | P6e-GB200 | Trn2 | Trn2u
+- **Accelerated computing:** F2 | G6 | G6e | G6f | Gr6 | Gr6f | P4d | P4de | P5 | P5e | P5en | P6-B200 | P6-B300 | P6e-GB200 | Trn2 | Trn2u
 - **High performance computing:** Hpc7a
 
 ### Shared EBS volume limit

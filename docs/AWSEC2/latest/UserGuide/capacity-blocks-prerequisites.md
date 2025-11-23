@@ -3,6 +3,13 @@
 You must launch instances into an AWS Region that supports the instance type that
 you want to use.
 
+Capacity Blocks with **`p6-b300.48xlarge`**
+instances are available in the following AWS Regions.
+
+| Region code | Region name      |
+| ----------- | ---------------- |
+| us-west-2   | US West (Oregon) |
+
 Capacity Blocks with **`p6-b200.48xlarge`**
 instances are available in the following AWS Regions.
 
@@ -112,9 +119,10 @@ AWS Regions.
 Capacity Blocks with **`Trn2.3xlarge`** instances are available in the following
 AWS Region.
 
-| Region code    | Region name              |
-| -------------- | ------------------------ |
-| ap-southeast-4 | Asia Pacific (Melbourne) |
+| Region code    | Region name               |
+| -------------- | ------------------------- |
+| ap-southeast-4 | Asia Pacific (Melbourne)  |
+| sa-east-1      | South America (São Paulo) |
 
 Capacity Blocks with **`trn2.48xlarge`** instances are available in the following
 AWS Region.

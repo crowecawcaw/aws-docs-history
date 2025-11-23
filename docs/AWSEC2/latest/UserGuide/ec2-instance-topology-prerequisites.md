@@ -58,7 +58,8 @@ Supported instance types:
     `trn2u.48xlarge`
 
 - Returns 4\* network nodes in the response
-  - `p6-b200.48xlarge`
+  - `p6-b200.48xlarge` |
+    `p6-b300.48xlarge`
 
 \* The number of network nodes returned is only applicable when using the
 DescribeInstanceTopology API. For the DescribeCapacityReservationTopology API, the

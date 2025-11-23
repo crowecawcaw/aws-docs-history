@@ -37,7 +37,7 @@ Consider the following when sharing AMIs with specific AWS accounts.
     must allow the AWS accounts to use the KMS keys that were used
     to encrypt the snapshots. For more
     information, see [Allow organizations and OUs to use a KMS key](allow-org-ou-to-use-key.md "allow-org-ou-to-use-key.md"). To set
-    up the key policy that you need to launch Auto Scaling instances when you
+    up the key policy that you need to launch Amazon EC2 Auto Scaling instances when you
     use a customer managed key for encryption, see [Required AWS KMS key policy for use with encrypted
     volumes](../../../autoscaling/ec2/userguide/key-policy-requirements-EBS-encryption.md "../../../autoscaling/ec2/userguide/key-policy-requirements-EBS-encryption.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
