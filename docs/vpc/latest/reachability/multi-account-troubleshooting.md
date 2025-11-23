@@ -52,7 +52,7 @@ JSON
 
 ```
 
-- Verify that you have permission to call AWS CloudFormation API actions. For example, the
+- Verify that you have permission to call CloudFormation API actions. For example, the
   [AWSCloudFormationFullAccess](../../../aws-managed-policy/latest/reference/AWSCloudFormationFullAccess.md "../../../aws-managed-policy/latest/reference/AWSCloudFormationFullAccess.md") and [AWSCloudFormationReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSCloudFormationReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSCloudFormationReadOnlyAccess.md") policies grant permissions to
   call these actions.
 - Verify that you have permission to call AWS Organizations API actions. For example, the
@@ -66,7 +66,7 @@ resolve the issue.
 
 ###### To resolve the issue
 
-1. Open the AWS CloudFormation console at
+1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. In the navigation pane, choose **StackSets**.
 3. Select `ReachabilityAnalyzerCrossAccountResourceAccessStackSet`

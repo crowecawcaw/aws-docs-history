@@ -1,6 +1,6 @@
 # Cross-account access roles for Reachability Analyzer
 
-When you enable trusted access for Reachability Analyzer, we use AWS CloudFormation StackSets to deploy the
+When you enable trusted access for Reachability Analyzer, we use CloudFormation StackSets to deploy the
 IAMRoleForReachabilityAnalyzerCrossAccountResourceAccess IAM role to all
 member accounts in the organization. This role allows the management account and delegated
 administrator accounts to specify resources from member accounts in path analyses.

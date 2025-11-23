@@ -131,7 +131,7 @@ Use the following documentation to help you update the configuration of your net
 - [Elastic network interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md")
 - [Firewalls (AWS Network Firewall)](../../../network-firewall/latest/developerguide/firewalls.md "../../../network-firewall/latest/developerguide/firewalls.md")
 - [Internet gateways](../userguide/VPC_Internet_Gateway.md "../userguide/VPC_Internet_Gateway.md")
-- Load balancers and target groups (Elastic Load Balancing)
+- Load balancers and target groups (ELB)
   - [Application Load Balancers](../../../elasticloadbalancing/latest/application.md "../../../elasticloadbalancing/latest/application.md")
   - [Classic Load Balancers](../../../elasticloadbalancing/latest/classic.md "../../../elasticloadbalancing/latest/classic.md")
   - [Gateway Load Balancers](../../../elasticloadbalancing/latest/gateway.md "../../../elasticloadbalancing/latest/gateway.md")

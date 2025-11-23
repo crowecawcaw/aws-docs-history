@@ -151,7 +151,7 @@ NAT gateways do not alter destination addresses.
 **NGW_REQUIRES_SOURCE_IN_VPC**
 NAT gateways can only transmit traffic that originates from network interfaces within the same
 VPC. NAT gateways can't transmit traffic that originates from peering connections, VPN
-connections, or AWS Direct Connect.
+connections, or Direct Connect.
 
 **NGW_SOURCE_ADDRESS_REASSIGN**
 NAT gateways transform the source's addresses in outbound traffic to match its private IP
@@ -171,6 +171,9 @@ within the CIDR block of the destination VPC.
 
 **PROTOCOL_RESTRICTION**
 This component only accepts traffic with specific protocols.
+
+**REGIONAL_NGW_ROUTE_AZ_RESTRICTION**
+The regional NAT gateway is not registered in the Availability Zone where the traffic originates.
 
 **REMAP_EPHEMERAL_PORT**
 Outbound traffic from a NAT gateway or load balancer has the source port remapped to an

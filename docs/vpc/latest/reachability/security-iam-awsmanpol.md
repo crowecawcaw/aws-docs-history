@@ -30,7 +30,7 @@ VPC endpoints, VPC peering connections, and virtual private gateways.
 
 To view the permissions for this policy, see [AmazonVPCReachabilityAnalyzerFullAccessPolicy](../../../aws-managed-policy/latest/reference/AmazonVPCReachabilityAnalyzerFullAccessPolicy.md "../../../aws-managed-policy/latest/reference/AmazonVPCReachabilityAnalyzerFullAccessPolicy.md") in the _AWS Managed Policy Reference_.
 
-Reachability Analyzer does not support resources from AWS Direct Connect (service prefix: `directconnect`)
+Reachability Analyzer does not support resources from Direct Connect (service prefix: `directconnect`)
 or AWS Global Accelerator (service prefix: `globalaccelerator`). If you use this policy as a model
 for your own policies, you can omit these actions.
 

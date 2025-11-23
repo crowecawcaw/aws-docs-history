@@ -31,7 +31,7 @@ You can use any of the following options to create and manage Reachability Analy
 - AWS Command Line Interface (AWS CLI) — Provides commands for AWS
   services, including Reachability Analyzer. The AWS CLI is supported on Windows, macOS, and Linux. For more
   information, see the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md").
-- AWS CloudFormation — Enables you to create templates that
+- CloudFormation — Enables you to create templates that
   describe your AWS resources. You use a template to provision and manage AWS resources
   as a single unit. For more information, see the following resources: [AWS::EC2::NetworkInsightsAnalysis](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.md") and [AWS::EC2::NetworkInsightsPath](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.md").
 - AWS SDKs — Provide language-specific APIs and
