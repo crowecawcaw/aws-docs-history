@@ -275,7 +275,7 @@ endpoint (AWS PrivateLink)
 
 You can use AWS PrivateLink to create a private connection between your VPC and
 AWS AppConfig. You can access AWS AppConfig as if it were in your VPC, without the use of an
-internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your
+internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your
 VPC don't need public IP addresses to access AWS AppConfig.
 
 You establish this private connection by creating an _interface
