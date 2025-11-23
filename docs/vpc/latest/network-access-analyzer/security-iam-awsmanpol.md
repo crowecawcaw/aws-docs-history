@@ -30,7 +30,7 @@ VPC endpoints, VPC peering connections, and virtual private gateways.
 
 To view the permissions for this policy, see [AmazonVPCNetworkAccessAnalyzerFullAccessPolicy](../../../aws-managed-policy/latest/reference/AmazonVPCNetworkAccessAnalyzerFullAccessPolicy.md "../../../aws-managed-policy/latest/reference/AmazonVPCNetworkAccessAnalyzerFullAccessPolicy.md") in the _AWS Managed Policy Reference_.
 
-Network Access Analyzer does not support resources from AWS Direct Connect (service prefix:
+Network Access Analyzer does not support resources from Direct Connect (service prefix:
 `directconnect`) or AWS Global Accelerator (service prefix:
 `globalaccelerator`). If you use this policy as a model for your own policies,
 you can omit these actions.

@@ -74,7 +74,7 @@ You can use any of the following interfaces to access and work with Network Acce
 - AWS Command Line Interface (AWS CLI) – Provides commands for
   AWS services including Network Access Analyzer. The AWS CLI is supported on Windows, macOS, and Linux.
   For more information, see the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md").
-- AWS CloudFormation – Create templates to provision and manage
+- CloudFormation – Create templates to provision and manage
   AWS resources as a single unit. For more information, see
   [AWS::EC2::NetworkInsightsAccessScope](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscope.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscope.md") and [AWS::EC2::NetworkInsightsAccessScopeAnalysis](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscopeanalysis.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscopeanalysis.md").
 - AWS SDKs – Provides language-specific APIs and
