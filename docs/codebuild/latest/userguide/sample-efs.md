@@ -47,27 +47,27 @@ A file system created in Amazon EFS is supported on Linux platforms only.
 
 ###### Topics
 
-- [Step 1: Create a VPC using AWS CloudFormation](#sample-efs-create-vpc "#sample-efs-create-vpc")
+- [Step 1: Create a VPC using CloudFormation](#sample-efs-create-vpc "#sample-efs-create-vpc")
 - [Step 2: Create an Amazon Elastic File System file system with
   your VPC](#sample-efs-create-efs "#sample-efs-create-efs")
 - [Step 3: Create a CodeBuild project to use with
   Amazon EFS](#sample-efs-create-acb "#sample-efs-create-acb")
 - [Step 4: Review the build project](#sample-efs-summary "#sample-efs-summary")
 
-### Step 1: Create a VPC using AWS CloudFormation
+### Step 1: Create a VPC using CloudFormation
 
-Create your VPC with an AWS CloudFormation template.
+Create your VPC with an CloudFormation template.
 
-1. Follow the instructions in [AWS CloudFormation VPC template](cloudformation-vpc-template.md "cloudformation-vpc-template.md") to use AWS CloudFormation to create a
+1. Follow the instructions in [CloudFormation VPC template](cloudformation-vpc-template.md "cloudformation-vpc-template.md") to use CloudFormation to create a
    VPC.
 
 ###### Note
 
-The VPC created by this AWS CloudFormation template has two private subnets and
+The VPC created by this CloudFormation template has two private subnets and
 two public subnets. You must only use private subnets when you use
 AWS CodeBuild to mount the file system you created in Amazon EFS. If you use one
 of the public subnets, the build fails. 2. Sign in to the AWS Management Console and open the Amazon VPC console at
-[https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/"). 3. Choose the VPC you created with AWS CloudFormation. 4. On the **Description** tab, make a note of the name of
+[https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/"). 3. Choose the VPC you created with CloudFormation. 4. On the **Description** tab, make a note of the name of
 your VPC and its ID. Both are required when you create your AWS CodeBuild
 project later in this sample.
 

@@ -274,8 +274,8 @@ and use the token credentials for all git requests to that particular third part
 
 ## Additional setup options
 
-You can configure Secrets Manager account level credentials by using AWS CloudFormation templates. You
-can use the following AWS CloudFormation template to set an account level credential:
+You can configure Secrets Manager account level credentials by using CloudFormation templates. You
+can use the following CloudFormation template to set an account level credential:
 
 ```
 Parameters:
@@ -310,11 +310,11 @@ Resources:
 
 ###### Note
 
-If you're also creating a project in the same stack, use the AWS CloudFormation attribute [DependsOn](../../../AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.md "../../../AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.md")
+If you're also creating a project in the same stack, use the CloudFormation attribute [DependsOn](../../../AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.md "../../../AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.md")
 to ensure the `AccountCredential` is created before the project.
 
-You can also configure Secrets Manager multiple source level credentials by using AWS CloudFormation templates. You
-can use the following AWS CloudFormation template to use multiple tokens to pull in multiple sources:
+You can also configure Secrets Manager multiple source level credentials by using CloudFormation templates. You
+can use the following CloudFormation template to use multiple tokens to pull in multiple sources:
 
 ```
 Parameters:

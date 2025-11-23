@@ -6,7 +6,7 @@ application model](https://github.com/awslabs/serverless-application-model "http
 
 You can use AWS CodeBuild to package and deploy serverless applications that follow the AWS SAM
 standard. For the deployment step, CodeBuild can use AWS CloudFormation. To automate the building and
-deployment of serverless applications with CodeBuild and AWS CloudFormation, you can use AWS CodePipeline.
+deployment of serverless applications with CodeBuild and CloudFormation, you can use AWS CodePipeline.
 
 For more information, see [Deploying Serverless Applications](../../../serverless-application-model/latest/developerguide/serverless-deploying.md "../../../serverless-application-model/latest/developerguide/serverless-deploying.md") in the
 _AWS Serverless Application Model Developer Guide_.

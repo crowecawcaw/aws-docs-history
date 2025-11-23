@@ -266,9 +266,9 @@ specific **Job** that you'd like to review the logs for.
 You can review the requested labels in the log while the job is waiting to be picked
 up by a self-managed runner in CodeBuild.
 
-## Filter GitLab webhook events (AWS CloudFormation)
+## Filter GitLab webhook events (CloudFormation)
 
-The following YAML-formatted portion of an AWS CloudFormation
+The following YAML-formatted portion of an CloudFormation
 template creates a filter group that triggers a build when it evaluates to true.
 The following filter group specifies a GitLab CI/CD pipeline job request with a
 CI/CD pipeline name matching the regular expression `\[CI-CodeBuild\]`.

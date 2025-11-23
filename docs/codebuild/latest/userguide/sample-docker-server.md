@@ -4,7 +4,7 @@ The following sample offloads your Docker builds to a managed image build server
 sample to provision a dedicated and managed Docker image build server in your CodeBuild project configuration. Note
 that the provisioned instance is active while builds are actively run for the project, and the instance
 is stopped when builds are not running. The provisioned instance is stored for up to a month before it is recycled.
-For more information, see [CodeBuild Docker Server Capability](https://aws.amazon.com/blogs/aws/accelerate-ci-cd-pipelines-with-the-new-aws-codebuild-docker-server-capability "https://aws.amazon.com/blogs/aws/accelerate-ci-cd-pipelines-with-the-new-aws-codebuild-docker-server-capability").
+For more information, see [CodeBuild Docker Server Capability](https://aws.amazon.com/blogs//aws/accelerate-ci-cd-pipelines-with-the-new-aws-codebuild-docker-server-capability "https://aws.amazon.com/blogs//aws/accelerate-ci-cd-pipelines-with-the-new-aws-codebuild-docker-server-capability").
 
 ###### Important
 

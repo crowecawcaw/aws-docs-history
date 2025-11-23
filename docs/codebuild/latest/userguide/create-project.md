@@ -8,7 +8,7 @@ You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to create a build pr
 - [Create a build project (console)](#create-project-console "#create-project-console")
 - [Create a build project (AWS CLI)](#create-project-cli "#create-project-cli")
 - [Create a build project (AWS SDKs)](#create-project-sdks "#create-project-sdks")
-- [Create a build project (AWS CloudFormation)](#create-project-cloud-formation "#create-project-cloud-formation")
+- [Create a build project (CloudFormation)](#create-project-cloud-formation "#create-project-cloud-formation")
 
 ## Prerequisites
 
@@ -1980,7 +1980,7 @@ source code every time a code change is pushed to the repository, see [Start run
 
 For information about using AWS CodeBuild with the AWS SDKs, see the [AWS SDKs and tools reference](sdk-ref.md "sdk-ref.md").
 
-## Create a build project (AWS CloudFormation)
+## Create a build project (CloudFormation)
 
-For information about using AWS CodeBuild with AWS CloudFormation, see [the AWS CloudFormation template for CodeBuild](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.md") in the _AWS CloudFormation User
+For information about using AWS CodeBuild with CloudFormation, see [the CloudFormation template for CodeBuild](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.md") in the _AWS CloudFormation User
 Guide_.

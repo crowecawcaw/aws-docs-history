@@ -1,13 +1,13 @@
 # Specify a local cache
 
-You can use the AWS CLI, console, SDK, or AWS CloudFormation to
+You can use the AWS CLI, console, SDK, or CloudFormation to
 specify a local cache. For more information about local caching, see [Local caching](caching-local.md "caching-local.md").
 
 ###### Topics
 
 - [Specify local caching (CLI)](#caching-local-cli "#caching-local-cli")
 - [Specify local caching (console)](#caching-local-console "#caching-local-console")
-- [Specify local caching (AWS CloudFormation)](#caching-local-cfn "#caching-local-cfn")
+- [Specify local caching (CloudFormation)](#caching-local-cfn "#caching-local-cfn")
 
 ## Specify local caching (CLI)
 
@@ -45,11 +45,11 @@ one or more of the three local cache options.
 
 For more information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console").
 
-## Specify local caching (AWS CloudFormation)
+## Specify local caching (CloudFormation)
 
-If you use AWS CloudFormation to specify a local cache, on the `Cache` property,
+If you use CloudFormation to specify a local cache, on the `Cache` property,
 for `Type`, specify `LOCAL`. The following sample
-YAML-formatted AWS CloudFormation code specifies all three local cache types. You can specify
+YAML-formatted CloudFormation code specifies all three local cache types. You can specify
 any combination of the types. If you use a Docker layer cache, under
 `Environment`, you must set `PrivilegedMode` to
 `true` and `Type` to `LINUX_CONTAINER`.
@@ -94,4 +94,4 @@ By default, Docker daemon is enabled for non-VPC builds. If you would like to us
 containers for VPC builds, see [Runtime
 Privilege and Linux Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities "https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities") on the Docker Docs website and enable privileged mode. Also, Windows does not support privileged mode.
 
-For more information, see [Create a build project (AWS CloudFormation)](create-project.md#create-project-cloud-formation "create-project.md#create-project-cloud-formation").
+For more information, see [Create a build project (CloudFormation)](create-project.md#create-project-cloud-formation "create-project.md#create-project-cloud-formation").

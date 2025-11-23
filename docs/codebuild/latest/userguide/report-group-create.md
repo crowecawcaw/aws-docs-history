@@ -13,7 +13,7 @@ For more information, see [Test report permissions](test-permissions.md "test-pe
 - [Create a report group
   (CLI)](#test-report-group-create-cli "#test-report-group-create-cli")
 - [Create a report group
-  (AWS CloudFormation)](#test-report-group-create-cfn "#test-report-group-create-cfn")
+  (CloudFormation)](#test-report-group-create-cfn "#test-report-group-create-cfn")
 
 ## Create a report group
 
@@ -193,19 +193,19 @@ aws codebuild create-report-group --cli-input-json file://CreateReportGroupInput
 
 ## Create a report group
 
-(AWS CloudFormation)
+(CloudFormation)
 
-Use the following instructions to create a report group using the AWS CloudFormation
+Use the following instructions to create a report group using the CloudFormation
 template
 
-**To create a report group using the AWS CloudFormation
+**To create a report group using the CloudFormation
 template**
 
-You can use an AWS CloudFormation template file to create and provision a report group.
-For more information, see [AWS CloudFormation User
+You can use an CloudFormation template file to create and provision a report group.
+For more information, see [CloudFormation User
 Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md").
 
-The following AWS CloudFormation YAML template creates a report group that does not export
+The following CloudFormation YAML template creates a report group that does not export
 raw test result files.
 
 ```
@@ -220,7 +220,7 @@ Resources:
 
 ```
 
-The following AWS CloudFormation YAML template creates a report group that exports raw
+The following CloudFormation YAML template creates a report group that exports raw
 test result files to an Amazon S3 bucket.
 
 ```

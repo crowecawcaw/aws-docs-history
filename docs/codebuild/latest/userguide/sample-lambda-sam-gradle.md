@@ -3,7 +3,7 @@
 The AWS Serverless Application Model (AWS SAM) is an open-source framework for building serverless applications. For more information,
 see the [AWS Serverless Application Model repository](https://github.com/aws/serverless-application-model "https://github.com/aws/serverless-application-model") on GitHub.
 The following Java sample uses Gradle to build and test a AWS Lambda function. After which, the AWS SAM CLI is used to
-deploy the AWS CloudFormation template and deployment bundle. By using CodeBuild Lambda, the build, test, and deployment steps are all
+deploy the CloudFormation template and deployment bundle. By using CodeBuild Lambda, the build, test, and deployment steps are all
 handled automatically, allowing for infrastructure to be quickly updated without manual intervention in a single build.
 
 ## Set up your AWS SAM repository
@@ -120,7 +120,7 @@ Use CodeBuild Lambda to automatically deploy your Lambda infrastructure
 
 ###### To deploy your Lambda infrastructure
 
-1. Choose **Start build**. This will automatically build, test, and deploy your AWS SAM application to AWS Lambda using AWS CloudFormation.
+1. Choose **Start build**. This will automatically build, test, and deploy your AWS SAM application to AWS Lambda using CloudFormation.
 2. Once the build has finished, navigate to the AWS Lambda console and search for your new Lambda function under the AWS SAM project name.
 3. Test your Lambda function by selecting **API Gateway** under the **Function** overview, then clicking the **API endpoint** URL. You should see a page open with the message `"message": "hello world"`.
 
@@ -130,9 +130,9 @@ To avoid further charges for resources you used during this tutorial, delete the
 
 ###### To clean up your infrastructure
 
-1. Navigate to the AWS CloudFormation console and select the `aws-sam-cli-managed-default`.
+1. Navigate to the CloudFormation console and select the `aws-sam-cli-managed-default`.
 2. In **Resources**, empty the deployment bucket `SamCliSourceBucket`.
 3. Delete the `aws-sam-cli-managed-default` stack.
-4. Delete the AWS CloudFormation stack associated with your AWS SAM project. This stack should have the same name as your AWS SAM project.
+4. Delete the CloudFormation stack associated with your AWS SAM project. This stack should have the same name as your AWS SAM project.
 5. Navigate to the CloudWatch console and delete the CloudWatch log groups associated with your CodeBuild project.
 6. Navigate to the CodeBuild console and delete your CodeBuild project by choosing **Delete build project**.

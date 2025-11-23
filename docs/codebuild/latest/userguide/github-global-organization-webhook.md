@@ -17,4 +17,4 @@ from multiple repositories within a single project.
 - [Filter GitHub global
   or organization webhook events (console)](github-global-organization-webhook-events-console.md "github-global-organization-webhook-events-console.md")
 - [Filter GitHub organization
-  webhook events (AWS CloudFormation)](github-organization-webhook-events-cfn.md "github-organization-webhook-events-cfn.md")
+  webhook events (CloudFormation)](github-organization-webhook-events-cfn.md "github-organization-webhook-events-cfn.md")

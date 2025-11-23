@@ -330,9 +330,9 @@ jobs:
       - run: echo "Hello World!"
 ```
 
-## Filter GitHub Actions webhook events (AWS CloudFormation)
+## Filter GitHub Actions webhook events (CloudFormation)
 
-The following YAML-formatted portion of an AWS CloudFormation
+The following YAML-formatted portion of an CloudFormation
 template creates a filter group that triggers a build when it evaluates to true.
 The following filter group specifies a GitHub Actions workflow job request with a
 workflow name matching the regular expression `\[CI-CodeBuild\]`.

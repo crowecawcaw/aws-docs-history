@@ -18,7 +18,7 @@ Guide](../../../vpc/latest/userguide/VPC_Introduction.md "../../../vpc/latest/us
 - [Use VPC endpoints](use-vpc-endpoints-with-codebuild.md "use-vpc-endpoints-with-codebuild.md")
 - [Use AWS CodeBuild with a managed proxy server](run-codebuild-in-managed-proxy-server.md "run-codebuild-in-managed-proxy-server.md")
 - [Use AWS CodeBuild with a proxy server](use-proxy-server.md "use-proxy-server.md")
-- [AWS CloudFormation VPC template](cloudformation-vpc-template.md "cloudformation-vpc-template.md")
+- [CloudFormation VPC template](cloudformation-vpc-template.md "cloudformation-vpc-template.md")
 
 ## Use cases
 
@@ -28,7 +28,7 @@ VPC connectivity from AWS CodeBuild builds makes it possible to:
   isolated on a private subnet.
 - Query data in an Amazon ElastiCache cluster directly from tests.
 - Interact with internal web services hosted on Amazon EC2, Amazon ECS, or services that
-  use internal Elastic Load Balancing.
+  use internal ELB.
 - Retrieve dependencies from self-hosted, internal artifact repositories, such
   as PyPI for Python, Maven for Java, and npm for Node.js.
 - Access objects in an S3 bucket configured to allow access through an Amazon VPC
@@ -74,8 +74,8 @@ Guide_.
 
 For more information about setting up a VPC in Amazon VPC, see the [Amazon VPC User Guide](../../../vpc/latest/userguide/VPC_Introduction.md "../../../vpc/latest/userguide/VPC_Introduction.md").
 
-For more information about using AWS CloudFormation to configure a VPC to use the CodeBuild VPC
-feature, see the [AWS CloudFormation VPC template](cloudformation-vpc-template.md "cloudformation-vpc-template.md").
+For more information about using CloudFormation to configure a VPC to use the CodeBuild VPC
+feature, see the [CloudFormation VPC template](cloudformation-vpc-template.md "cloudformation-vpc-template.md").
 
 ## Limitations of VPCs
 

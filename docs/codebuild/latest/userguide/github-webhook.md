@@ -135,4 +135,4 @@ You can find the webhook payload in the webhook settings of your GitHub reposito
 - [Filter GitHub webhook events
   (console)](github-webhook-events-console.md "github-webhook-events-console.md")
 - [Filter GitHub webhook events (SDK)](github-webhook-events-sdk.md "github-webhook-events-sdk.md")
-- [Filter GitHub webhook events (AWS CloudFormation)](github-webhook-events-cfn.md "github-webhook-events-cfn.md")
+- [Filter GitHub webhook events (CloudFormation)](github-webhook-events-cfn.md "github-webhook-events-cfn.md")

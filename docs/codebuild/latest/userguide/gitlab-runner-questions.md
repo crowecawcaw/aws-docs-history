@@ -17,9 +17,9 @@ You can include the image and instance overrides in the label in order to specif
 different build environment for each of your GitLab CI/CD pipeline jobs. This can
 be done without the need to create multiple CodeBuild projects or webhooks.
 
-## Can I use AWS CloudFormation for this feature?
+## Can I use CloudFormation for this feature?
 
-Yes, you can include a filter group in your AWS CloudFormation template that specifies a GitLab workflow job event filter in your project webhook.
+Yes, you can include a filter group in your CloudFormation template that specifies a GitLab workflow job event filter in your project webhook.
 
 ```
 Triggers:
@@ -29,9 +29,9 @@ Triggers:
         Pattern: WORKFLOW_JOB_QUEUED
 ```
 
-For more information, see [Filter GitLab webhook events (AWS CloudFormation)](gitlab-webhook-events-cfn.md "gitlab-webhook-events-cfn.md").
+For more information, see [Filter GitLab webhook events (CloudFormation)](gitlab-webhook-events-cfn.md "gitlab-webhook-events-cfn.md").
 
-If you need help setting up project credentials in your AWS CloudFormation template, see [AWS::CodeBuild::SourceCredential](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.md") in the
+If you need help setting up project credentials in your CloudFormation template, see [AWS::CodeBuild::SourceCredential](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.md") in the
 _AWS CloudFormation User Guide_ for more information.
 
 ## How can I mask secrets when using this

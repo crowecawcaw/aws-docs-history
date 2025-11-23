@@ -39,9 +39,9 @@ jobs:
 Quotation marks might be required if `runs-on` has multiple labels
 containing GitHub Actions context.
 
-## Can I use AWS CloudFormation for this feature?
+## Can I use CloudFormation for this feature?
 
-Yes, you can include a filter group in your AWS CloudFormation template that specifies a GitHub
+Yes, you can include a filter group in your CloudFormation template that specifies a GitHub
 Actions workflow job event filter in your project webhook.
 
 ```
@@ -52,9 +52,9 @@ Triggers:
         Pattern: WORKFLOW_JOB_QUEUED
 ```
 
-For more information, see [Filter GitHub webhook events (AWS CloudFormation)](github-webhook-events-cfn.md "github-webhook-events-cfn.md").
+For more information, see [Filter GitHub webhook events (CloudFormation)](github-webhook-events-cfn.md "github-webhook-events-cfn.md").
 
-If you need help setting up project credentials in your AWS CloudFormation template, see [AWS::CodeBuild::SourceCredential](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.md") in the
+If you need help setting up project credentials in your CloudFormation template, see [AWS::CodeBuild::SourceCredential](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.md") in the
 _AWS CloudFormation User Guide_ for more information.
 
 ## How can I mask secrets when using this

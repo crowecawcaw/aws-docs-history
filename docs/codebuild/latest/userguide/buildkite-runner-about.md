@@ -40,11 +40,11 @@ console. You can follow the tutorial at [Tutorial: Configure a CodeBuild-hosted 
 runner](sample-runner-buildkite.md "sample-runner-buildkite.md") to create a Buildkite webhook manually
 in the Buildkite console.
 
-## Can I use AWS CloudFormation to create
+## Can I use CloudFormation to create
 
 Buildkite webhooks?
 
-AWS CloudFormation is not currently supported for Buildkite runner webhooks, as Buildkite
+CloudFormation is not currently supported for Buildkite runner webhooks, as Buildkite
 requires webhooks to be created manually using their console.
 
 ## Which regions support using a
