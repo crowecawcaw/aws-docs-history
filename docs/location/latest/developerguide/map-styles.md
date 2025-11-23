@@ -1,4 +1,4 @@
-# AWS map styles and customization
+# AWS map styles and features
 
 ## Map styles overview
 
@@ -22,12 +22,12 @@ resource-intensive process of designing and constructing map styles from scratch
 accelerates your development process, allowing you to focus on core
 functionalities.
 
-| Map style name | Description                                 | Color scheme   | Supports                           |
-| -------------- | ------------------------------------------- | -------------- | ---------------------------------- |
-| Standard       | Colored map style                           | Dark and Light | Dynamic Map: Yes, Static Maps: No  |
-| Monochrome     | Grey scale map styles                       | Dark and Light | Dynamic Map: Yes, Static Maps: No  |
-| Hybrid         | Road and label overlay on satellite imagery | Not Applicable | Dynamic Map: Yes, Static Maps: No  |
-| Satellite      | Satellite imagery-based map style           | Not Applicable | Dynamic Map: Yes, Static Maps: Yes |
+| Map style name | Description                                 | Color scheme   | Supports Dynamic Map | Supports Static Map |
+| -------------- | ------------------------------------------- | -------------- | -------------------- | ------------------- |
+| Standard       | Colored map style                           | Dark and Light | Yes                  | Yes                 |
+| Monochrome     | Grey scale map styles                       | Dark and Light | Yes                  | No                  |
+| Hybrid         | Road and label overlay on satellite imagery | Not Applicable | Yes                  | No                  |
+| Satellite      | Satellite imagery-based map style           | Not Applicable | Yes                  | Yes                 |
 
 Amazon Location Service provides styles following the [MapLibre GL style
 specification](https://maplibre.org/maplibre-style-spec/ "https://maplibre.org/maplibre-style-spec/").

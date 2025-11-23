@@ -124,11 +124,11 @@ decisions.
 
 ## Standalone Map APIs
 
-| API Name           | Short Description                                                                                                                             | Resources                                                         |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| GetStyleDescriptor | Retrieves the available map styles, such as standard, monochrome,<br>hybrid, and satellite, that can be applied to maps.                      | [AWS map styles and customization](map-styles.md "map-styles.md") |
-| GetTile            | Fetches individual map tiles based on a specified style and zoom<br>level, allowing for the rendering of maps at various levels of<br>detail. | [Tiles](tiles.md "tiles.md")                                      |
-| GetStaticMap       | Generates a static map image based on specific coordinates and<br>parameters, useful for embedding maps in reports or emails.                 | [Static maps](static-maps.md "static-maps.md")                    |
+| API Name           | Short Description                                                                                                                             | Resources                                                    |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| GetStyleDescriptor | Retrieves the available map styles, such as standard, monochrome,<br>hybrid, and satellite, that can be applied to maps.                      | [AWS map styles and features](map-styles.md "map-styles.md") |
+| GetTile            | Fetches individual map tiles based on a specified style and zoom<br>level, allowing for the rendering of maps at various levels of<br>detail. | [Tiles](tiles.md "tiles.md")                                 |
+| GetStaticMap       | Generates a static map image based on specific coordinates and<br>parameters, useful for embedding maps in reports or emails.                 | [Static maps](static-maps.md "static-maps.md")               |
 
 ## Displaying Map
 

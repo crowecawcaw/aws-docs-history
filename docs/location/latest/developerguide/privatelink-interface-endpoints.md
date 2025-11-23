@@ -3,7 +3,7 @@
 With AWS PrivateLink for Amazon Location, you can provision _interface
 Amazon VPC endpoints_ (interface endpoints) in your virtual private cloud (Amazon VPC).
 These endpoints are directly accessible from applications that are on premises over VPN and
-AWS Direct Connect, or in a different AWS Region over [Amazon VPC peering](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md"). Using
+Direct Connect, or in a different AWS Region over [Amazon VPC peering](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md"). Using
 AWS PrivateLink and interface endpoints, you can simplify private network connectivity from
 your applications to Amazon Location.
 
@@ -12,8 +12,8 @@ interface VPC endpoints for Amazon Location operations. Interface endpoints are 
 or more elastic network interfaces (ENIs) that are assigned private IP addresses from
 subnets in your Amazon VPC. Requests to Amazon Location over interface endpoints stay on the Amazon
 network. You can also access interface endpoints in your Amazon VPC from on-premises applications
-through AWS Direct Connect or AWS Virtual Private Network (AWS VPN). For more information about how to connect your Amazon VPC
-with your on-premises network, see the [AWS Direct Connect User Guide](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") and the
+through Direct Connect or AWS Virtual Private Network (Site-to-Site VPN). For more information about how to connect your Amazon VPC
+with your on-premises network, see the [Direct Connect User Guide](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") and the
 [AWS Site-to-Site VPN
 User Guide](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md").
 

@@ -36,7 +36,7 @@ operational costs.
 With Amazon Location Service, you quickly deploy and accelerate application development with
 seamless integrations with AWS services. Amazon Location seamlessly integrates with a
 suite of AWS services to streamline development workflows, accelerate deployment,
-and provide robust monitoring, security, and compliance. It works with AWS CloudFormation for
+and provide robust monitoring, security, and compliance. It works with CloudFormation for
 consistent resource provisioning, Amazon CloudWatch for tracking metrics, AWS CloudTrail for
 logging account activity, and Amazon EventBridge for event-driven architectures utilizing
 AWS Lambda. Amazon Location also leverages AWS Identity and Access Management (IAM) for secure access controls and
@@ -70,16 +70,16 @@ request your application makes to the service.
 See the following case studies:
 
 - [Halodoc, a digital health system, reduced 88% cost using
-  Amazon Location Service](https://aws.amazon.com/solutions/case-studies/halodoc-amazon-location-case-study/ "https://aws.amazon.com/solutions/case-studies/halodoc-amazon-location-case-study/")
+  Amazon Location Service](https://aws.amazon.com//solutions/case-studies/halodoc-amazon-location-case-study/ "https://aws.amazon.com//solutions/case-studies/halodoc-amazon-location-case-study/")
 - [Geo.me, a web services provider, reduced 90% geospatial cost using
-  Amazon Location Service](https://aws.amazon.com/solutions/case-studies/geo-me-case-study/ "https://aws.amazon.com/solutions/case-studies/geo-me-case-study/")
+  Amazon Location Service](https://aws.amazon.com//solutions/case-studies/geo-me-case-study/ "https://aws.amazon.com//solutions/case-studies/geo-me-case-study/")
 
 ## Rapid development
 
 Amazon Location Service enables developers to quickly integrate geospatial data and functionality
 into their applications. By providing fully managed APIs, Amazon Location eliminates the
 need to build and maintain complex location data infrastructure. The service also
-seamlessly integrates with AWS services like AWS CloudFormation, CloudWatch, CloudTrail, and EventBridge, allowing
+seamlessly integrates with AWS services like CloudFormation, CloudWatch, CloudTrail, and EventBridge, allowing
 developers to leverage these tools to build efficient, event-driven architectures.
 This integration streamlines the development process, accelerating the prototyping,
 iteration, and deployment of location-based experiences. With Amazon Location,

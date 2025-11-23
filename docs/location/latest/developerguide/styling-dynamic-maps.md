@@ -13,7 +13,7 @@ deliver a sophisticated, professional aesthetic. By leveraging these styles in
 Amazon Location Service, you can reduce time-to-market and eliminate the need for dedicated
 cartographers to create map styles from scratch.
 
-For more information, see [AWS map styles and customization](map-styles.md "map-styles.md").
+For more information, see [AWS map styles and features](map-styles.md "map-styles.md").
 
 To learn more about predefined map styles, see:
 

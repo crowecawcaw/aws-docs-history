@@ -1,7 +1,7 @@
 # How to display a map
 
 Amazon Location Service allows you to display both interactive and non-interactive maps using our map
-styles. See [AWS map styles and customization](map-styles.md "map-styles.md") to learn more.
+styles. See [AWS map styles and features](map-styles.md "map-styles.md") to learn more.
 
 ## Interactive map
 

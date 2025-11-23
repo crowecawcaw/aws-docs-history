@@ -157,7 +157,7 @@ Choose an initial center location and zoom level. In this example, we set the ma
 #### Initialize the Map
 
 Call `initializeMap(...)` to initialize the map. Optionally, you can initialize it with your preferred style
-and color scheme after the `initializeMap` function. For more style options, see [AWS map styles and customization](map-styles.md "map-styles.md").
+and color scheme after the `initializeMap` function. For more style options, see [AWS map styles and features](map-styles.md "map-styles.md").
 
 ```
 
@@ -592,4 +592,4 @@ check out the following resources:
 - **Documentation and product information**
 
 * For complete documentation, visit the [Amazon Location Service Developer Guide](../../../location.md "../../../location.md") .
-  To learn more about the product, go to the [Amazon Location Service Product](https://aws.amazon.com/location "https://aws.amazon.com/location") page.
+  To learn more about the product, go to the [Amazon Location Service Product](https://aws.amazon.com//location "https://aws.amazon.com//location") page.

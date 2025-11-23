@@ -30,7 +30,7 @@ Park
 
 ![](images/dynamic-parks.png)
 
-For more information about AWS Map Styles, see [AWS map styles and customization](map-styles.md "map-styles.md").
+For more information about AWS Map Styles, see [AWS map styles and features](map-styles.md "map-styles.md").
 
 ## Common use cases
 

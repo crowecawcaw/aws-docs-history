@@ -2,7 +2,7 @@
 
 ###### Note
 
-Static maps only support Satellite style. For more information, see [AWS map styles and customization](map-styles.md "map-styles.md").
+Static maps only support Standard and Satellite styles. For more information, see [AWS map styles and features](map-styles.md "map-styles.md").
 
 Static maps offer a pre-rendered representation of geographic data with the option to
 overlay markers (or pins), routes, and polygon areas, as needed for your application. The

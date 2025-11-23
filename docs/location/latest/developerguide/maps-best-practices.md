@@ -15,7 +15,7 @@ Amazon Location Service.
 MapLibre
 
 The following are few features of MapLibre which help optimize rendering for
-AWS map styles. For more information, see [AWS map styles and customization](map-styles.md "map-styles.md").
+AWS map styles. For more information, see [AWS map styles and features](map-styles.md "map-styles.md").
 
 #### Skip validation of style
 
