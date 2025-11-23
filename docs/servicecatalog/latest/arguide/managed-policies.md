@@ -36,7 +36,7 @@ All tagged resources with defined tag keys and values can be included as resourc
 
 ###### Permissions details
 
-- **AWS CloudFormation** – Allows AppRegistry to update a stack in AWS CloudFormation.
+- **CloudFormation** – Allows AppRegistry to update a stack in CloudFormation.
 - **Resource Groups** – Allows AppRegistry to create resource groups, return information about resource groups, delete resource groups, tag resource groups, return lists of tags associated with resource groups, remove tags from resource groups, retrieve resource tag information, and retrieve service configurations associated with resource groups.
 - **IAM** – Allows AppRegistry to create an IAM role that's linked to a specific AWS service.
 

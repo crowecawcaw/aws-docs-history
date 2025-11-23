@@ -153,19 +153,19 @@ The following shows the output you might encounter.
 
 #### Add AWS CloudFormation stack resource to an application
 
-The procedure in this section shows how to add an AWS CloudFormation stack resource to an application in the AWS CLI.
-For information about associating an AWS CloudFormation stack resource with an application in the console,
+The procedure in this section shows how to add an CloudFormation stack resource to an application in the AWS CLI.
+For information about associating an CloudFormation stack resource with an application in the console,
 see [Associating and disassociating application resources](associate-resources.md "associate-resources.md").
 
-The example includes information from the application you created from the application builder's perspective and a AWS CloudFormation stack resource you must create separately.
+The example includes information from the application you created from the application builder's perspective and a CloudFormation stack resource you must create separately.
 
 ###### Important
 
-To complete this tutorial, you must create a AWS CloudFormation stack resource named **cc_payment_app_cfn_stackCODE**.
-For information about how to create a AWS CloudFormation stack resource,
-see [Creating a stack](associate-attr-groups.md "associate-attr-groups.md") in the _AWS CloudFormation User Guide_
+To complete this tutorial, you must create a CloudFormation stack resource named **cc_payment_app_cfn_stackCODE**.
+For information about how to create a CloudFormation stack resource,
+see [Creating a stack](associate-attr-groups.md "associate-attr-groups.md") in the _CloudFormation User Guide_
 
-- To add an AWS CloudFormation stack resource to an application, run the following command:
+- To add an CloudFormation stack resource to an application, run the following command:
 
 ```
 aws servicecatalog-appregistry associate-resource --application CC_Payments_App --resource-type CFN_STACK --resource cc_payment_app_cfn_stackCODE --apply-tag cc_payment_application

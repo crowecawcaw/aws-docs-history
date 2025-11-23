@@ -13,9 +13,9 @@ when you create the application.
 
 ###### Topics
 
-- [Associate application resources in a new application](#w60aab9b7c19c21b9 "#w60aab9b7c19c21b9")
-- [Associate application resources in an existing application](#w60aab9b7c19c21c11 "#w60aab9b7c19c21c11")
-- [Disassociate application resources from an application](#w60aab9b7c19c21c13 "#w60aab9b7c19c21c13")
+- [Associate application resources in a new application](#w2aab9b7c19c21b9 "#w2aab9b7c19c21b9")
+- [Associate application resources in an existing application](#w2aab9b7c19c21c11 "#w2aab9b7c19c21c11")
+- [Disassociate application resources from an application](#w2aab9b7c19c21c13 "#w2aab9b7c19c21c13")
 
 ##
 

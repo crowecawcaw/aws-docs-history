@@ -14,7 +14,7 @@ This topic describes the key components of AppRegistry.
 ## Applications
 
 An application is a group of resources and metadata. When you create an application, you provide the application with a name and description.
-After you create an application, you can add a tag-based resource group or an AWS CloudFormation stack resource group to it.
+After you create an application, you can add a tag-based resource group or an CloudFormation stack resource group to it.
 You can also associate attribute groups and tags with the application.
 
 ###### Note
@@ -52,7 +52,7 @@ You can use the AppRegistry `AssociateAttributeGroup` API to apply metadata to a
 You can use the AppRegistry `DisassociateAttributeGroup` API to remove metadata from an application.
 
 You can associate attribute groups with applications in the console and with the AWS CLI using the [AppRegistry API](../dg/API_Operations_AWS_Service_Catalog_App_Registry.md "../dg/API_Operations_AWS_Service_Catalog_App_Registry.md"),
-with [AWS CloudFormation stack resources](../../../AWSCloudFormation/latest/UserGuide/resources-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/resources-section-structure.md"), or with [CDK constructs](https://aws.amazon.com/cdk/features/ "https://aws.amazon.com/cdk/features/").
+with [CloudFormation stack resources](../../../AWSCloudFormation/latest/UserGuide/resources-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/resources-section-structure.md"), or with [CDK constructs](https://aws.amazon.com/cdk/features/ "https://aws.amazon.com/cdk/features/").
 
 You can update an attribute group definition at any time with the AppRegistry `UpdateAttributeGroup` API.
 When you update an attribute group definition, the update applies to every application the attribute group is associated with.

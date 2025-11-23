@@ -12,10 +12,10 @@ to all resources in the application.
 
 ###### Topics
 
-- [Adding and deleting tags in a new application](#w60aab9c13b9 "#w60aab9c13b9")
-- [Adding and deleting tags from the Application details screen](#w60aab9c13c11 "#w60aab9c13c11")
-- [Adding and deleting tags in a new attribute group](#w60aab9c13c13 "#w60aab9c13c13")
-- [Adding and deleting tags from Attribute group details](#w60aab9c13c15 "#w60aab9c13c15")
+- [Adding and deleting tags in a new application](#w2aab9c13b9 "#w2aab9c13b9")
+- [Adding and deleting tags from the Application details screen](#w2aab9c13c11 "#w2aab9c13c11")
+- [Adding and deleting tags in a new attribute group](#w2aab9c13c13 "#w2aab9c13c13")
+- [Adding and deleting tags from Attribute group details](#w2aab9c13c15 "#w2aab9c13c15")
 
 ##
 

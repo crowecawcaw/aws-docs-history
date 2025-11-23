@@ -40,7 +40,7 @@ With [Resource Groups](../../../ARG/latest/userguide/resource-groups.md "../../.
 
 - **AWS Service Catalog**
 
-With [Service Catalog](../adminguide/introduction.md "../adminguide/introduction.md"), you can [create provisioned products](../adminguide/provisioned-products.md "../adminguide/provisioned-products.md"), which are AWS CloudFormation stacks, that you can associate with applications.
+With [Service Catalog](../adminguide/introduction.md "../adminguide/introduction.md"), you can [create provisioned products](../adminguide/provisioned-products.md "../adminguide/provisioned-products.md"), which are CloudFormation stacks, that you can associate with applications.
 
 - **AWS Service Management Connector**
 

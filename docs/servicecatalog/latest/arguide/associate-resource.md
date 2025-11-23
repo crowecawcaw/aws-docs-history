@@ -21,7 +21,7 @@ Adding and removing resources requires certain permissions.
 For more information, see [AssociateResource](../dg/API_app-registry_AssociateResource.md "../dg/API_app-registry_AssociateResource.md") and
 [DisassociateResource](../dg/API_app-registry_DisassociateResource.md "../dg/API_app-registry_DisassociateResource.md") in the _AWS Service Catalog AppRegistry Developer Guide_.
 
-AppRegistry integrates with AWS Resource Groups. When you create an application, AWS Resource Groups creates an application resource group and a resource group for every AWS CloudFormation
+AppRegistry integrates with AWS Resource Groups. When you create an application, AWS Resource Groups creates an application resource group and a resource group for every CloudFormation
 stack or tag-based resource you associate with your application. You can list the resources in
 your application by calling the Resource Groups `ListGroupResources` API on the application
 resource group. Any resource tagged with the `awsApplication` tag for this application

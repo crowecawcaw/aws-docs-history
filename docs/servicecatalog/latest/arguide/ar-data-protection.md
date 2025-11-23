@@ -16,8 +16,8 @@ about data protection
 in Europe,
 see the following:
 
-- [Data Privacy FAQ](https://aws.amazon.com/blogs/https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/blogs/https://aws.amazon.com/compliance/data-privacy-faq/")
-- [AWS Shared Responsibility Model and GDPR](https://aws.amazon.com/blogs/https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/ "https://aws.amazon.com/blogs/https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/")
+- [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/")
+- [AWS Shared Responsibility Model and GDPR](https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/ "https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/")
 
 You can use AWS Identity and Access Management (IAM)
 to set up user accounts and protect AWS account credentials.
@@ -53,7 +53,7 @@ inlclude the following:
   if you need FIPS 140-2 validated cryptographic modules.
   For information
   about the available FIPS endpoints,
-  see [Federal Information Processing Standard (FIPS) 140-2](https://aws.amazon.com/blogs/https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/blogs/https://aws.amazon.com/compliance/fips/").
+  see [Federal Information Processing Standard (FIPS) 140-2](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
 
 ###### Note
 

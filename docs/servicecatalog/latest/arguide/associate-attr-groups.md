@@ -5,10 +5,10 @@ in AppRegistry.
 
 ###### Topic
 
-- [Associate attribute groups to a new application](#w60aab9b9c19b7 "#w60aab9b9c19b7")
-- [Associate attribute groups to an existing application from the Applications screen](#w60aab9b9c19b9 "#w60aab9b9c19b9")
-- [Associate attribute groups to an existing application from the Attribute groups screen](#w60aab9b9c19c11 "#w60aab9b9c19c11")
-- [Disassociate attribute groups from an existing application](#w60aab9b9c19c13 "#w60aab9b9c19c13")
+- [Associate attribute groups to a new application](#w2aab9b9c19b7 "#w2aab9b9c19b7")
+- [Associate attribute groups to an existing application from the Applications screen](#w2aab9b9c19b9 "#w2aab9b9c19b9")
+- [Associate attribute groups to an existing application from the Attribute groups screen](#w2aab9b9c19c11 "#w2aab9b9c19c11")
+- [Disassociate attribute groups from an existing application](#w2aab9b9c19c13 "#w2aab9b9c19c13")
 
 ## Associate attribute groups to a new application
 
