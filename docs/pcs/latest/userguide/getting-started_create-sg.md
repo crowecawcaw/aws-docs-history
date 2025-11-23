@@ -14,8 +14,8 @@ In this step, you will use an CloudFormation template to create two security gro
 ## Create the security groups for AWS PCS
 
 You can use a CloudFormation template to create the security groups. Use the following
-URL to download the CloudFormation template, then upload the template in the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/home#/stacks/create "https://console.aws.amazon.com/cloudformation/home#/stacks/create") to create a new
-CloudFormation stack. For more information, see [Using the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-using-console.md "../../../AWSCloudFormation/latest/UserGuide/cfn-using-console.md")
+URL to download the CloudFormation template, then upload the template in the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home#/stacks/create "https://console.aws.amazon.com/cloudformation/home#/stacks/create") to create a new
+CloudFormation stack. For more information, see [Using the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-using-console.md "../../../AWSCloudFormation/latest/UserGuide/cfn-using-console.md")
 in the _AWS CloudFormation User Guide_.
 
 ```

@@ -1,6 +1,6 @@
-# Clean up an AWS PCS cluster in AWS CloudFormation
+# Clean up an AWS PCS cluster in CloudFormation
 
-If you used AWS CloudFormation to create your AWS PCS cluster, you can open the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation") and delete the stack to delete the cluster
+If you used CloudFormation to create your AWS PCS cluster, you can open the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation") and delete the stack to delete the cluster
 and all its associated resources.
 
 ###### Important

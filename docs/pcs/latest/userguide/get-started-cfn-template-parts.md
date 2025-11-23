@@ -1,7 +1,7 @@
 # Parts of a CloudFormation template for AWS PCS
 
 A CloudFormation template has 1 or more sections that each serve a specific purpose.
-AWS CloudFormation defines standard format, syntax, and language in a template. For more information,
+CloudFormation defines standard format, syntax, and language in a template. For more information,
 see [Working
 with CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") in the _AWS CloudFormation User Guide_.
 
@@ -15,7 +15,7 @@ briefly explains the sections of that sample template.
 The code samples in this topic are **not complete**.
 The presence of ellipsis (`[...]`) indicates that there is additional code
 that isn't displayed. To download the complete YAML-formatted CloudFormation template, see
-[AWS CloudFormation templates to create a sample AWS PCS cluster](get-started-cfn-sample-templates.md "get-started-cfn-sample-templates.md").
+[CloudFormation templates to create a sample AWS PCS cluster](get-started-cfn-sample-templates.md "get-started-cfn-sample-templates.md").
 
 ###### Contents
 
@@ -43,7 +43,7 @@ template format version syntax](../../../AWSCloudFormation/latest/UserGuide/form
 to process the template. For more information, see
 [CloudFormation
 template Transform section](../../../AWSCloudFormation/latest/UserGuide/transform-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/transform-section-structure.md") in the _AWS CloudFormation User Guide_.
-The `AWS::Serverless-2016-10-31` transform enables AWS CloudFormation to process a template
+The `AWS::Serverless-2016-10-31` transform enables CloudFormation to process a template
 written in the AWS Serverless Application Model (AWS SAM) syntax. For more information, see
 [`AWS::Serverless`
 transform](../../../AWSCloudFormation/latest/UserGuide/transform-aws-serverless.md "../../../AWSCloudFormation/latest/UserGuide/transform-aws-serverless.md") in the _AWS CloudFormation User Guide_.
@@ -77,7 +77,7 @@ Metadata:
 The `metadata` section of a CloudFormation template provides information about the
 template itself. The sample template creates a complete high performance computing (HPC)
 cluster that uses AWS PCS. The metadata section of the sample template declares parameters
-that control how AWS CloudFormation launches (provisions) the corresponding stack.
+that control how CloudFormation launches (provisions) the corresponding stack.
 There are parameters that control architecture choice (`NodeArchitecture`),
 Slurm version (`SlurmVersion`), and access controls
 (`KeyName` and `ClientIpCidr`).
@@ -85,7 +85,7 @@ Slurm version (`SlurmVersion`), and access controls
 ## Parameters
 
 The `Parameters` section defines the custom parameters for the template.
-AWS CloudFormation uses these parameter definitions to construct and validate the form that you interact
+CloudFormation uses these parameter definitions to construct and validate the form that you interact
 with when you launch a stack from this template.
 
 ```

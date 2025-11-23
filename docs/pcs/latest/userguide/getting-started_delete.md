@@ -46,7 +46,7 @@ Wait until the cluster has been deleted before proceeding with subsequent steps.
   - Select the policy named **AWSPCS-getstarted-policy** then choose
     **Delete**.
 
-- Open the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
+- Open the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
   - Select the stack named **getstarted-lt**.
   - Choose **Delete**.
 
@@ -72,10 +72,10 @@ Wait until the cluster has been deleted before proceeding with subsequent steps.
 
   Wait for the file system to delete before proceeding.
 
-- Open the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
+- Open the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
   - Select the stack named **getstarted-sg**.
   - Choose **Delete**.
 
-- Open the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
+- Open the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
   - Select the stack named **hpc-networking**.
   - Choose **Delete**.

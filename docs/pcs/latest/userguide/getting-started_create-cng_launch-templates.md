@@ -14,8 +14,8 @@ SSH access.
 CloudFormation template
 
 Use the following URL to download the CloudFormation template, then upload the template in
-the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/home#/stacks/create "https://console.aws.amazon.com/cloudformation/home#/stacks/create") to
-create a new CloudFormation stack. For more information, see [Using the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-using-console.md "../../../AWSCloudFormation/latest/UserGuide/cfn-using-console.md")
+the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home#/stacks/create "https://console.aws.amazon.com/cloudformation/home#/stacks/create") to
+create a new CloudFormation stack. For more information, see [Using the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-using-console.md "../../../AWSCloudFormation/latest/UserGuide/cfn-using-console.md")
 in the _AWS CloudFormation User Guide_.
 
 ```
@@ -27,7 +27,7 @@ https://aws-hpc-recipes.s3.amazonaws.com/main/recipes/pcs/getting_started/assets
 CloudFormation template to create EC2 launch templates
 
 Use the following procedure to complete the CloudFormation template in the
-AWS CloudFormation console
+CloudFormation console
 
 - Under **Provide a stack name**:
   - Under **Stack name**, enter `getstarted-lt`.
@@ -58,5 +58,5 @@ Monitor the status of the CloudFormation stack. When it reaches
 
 ###### Note
 
-To see all the resources the CloudFormation template created, open the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation"). Choose the
+To see all the resources the CloudFormation template created, open the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation"). Choose the
 `getstarted-lt` stack and then choose the **Resources** tab.

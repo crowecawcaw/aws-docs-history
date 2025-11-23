@@ -15,7 +15,7 @@ An PCS cluster, nodes, and supporting resources (such as file systems and direct
 services) are deployed within your Amazon VPC. If you want to use an existing Amazon VPC with PCS,
 it must meet the requirements described in [AWS PCS VPC and subnet requirements
 and considerations](working-with_networking_vpc-requirements.md "working-with_networking_vpc-requirements.md") . This topic describes how to create a
-VPC that meets PCS requirements using an AWS–provided AWS CloudFormation template. Once
+VPC that meets PCS requirements using an AWS–provided CloudFormation template. Once
 you've deployed a template, you can view the resources created by the template to know exactly
 what resources it created, and the configuration of those resources.
 
@@ -30,8 +30,8 @@ condition keys for Amazon EC2](../../../service-authorization/latest/reference/l
 ## Create an Amazon VPC
 
 Create a VPC by copy and pasting the appropriate URL for the AWS Region where you will use
-PCS. You may also download the AWS CloudFormation template and upload it yourself to the
-[AWS CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
+PCS. You may also download the CloudFormation template and upload it yourself to the
+[CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
 
 - **US East (N. Virginia) (us-east-1)**
 
@@ -59,7 +59,7 @@ https://aws-hpc-recipes.s3.us-east-1.amazonaws.com/main/recipes/net/hpc_large_sc
 
 ###### To create an Amazon VPC for PCS
 
-1. Open the template in the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
+1. Open the template in the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
 
 ###### Note
 
@@ -95,11 +95,11 @@ values. 2. Under **Provide a stack name**, then **Stack name**, enter
 4. Under **Capabilities**, check the box for **I acknowledge that
    AWS CloudFormation might create IAM resources**.
 
-Monitor the status of the AWS CloudFormation stack. When it reaches `CREATE_COMPLETE`, the VPC
+Monitor the status of the CloudFormation stack. When it reaches `CREATE_COMPLETE`, the VPC
 resource are ready for you to use.
 
 ###### Note
 
-To see all the resources the AWS CloudFormation template created, open the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation"). Choose the
+To see all the resources the CloudFormation template created, open the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation"). Choose the
 `hpc-networking` stack and then choose the **Resources**
 tab.

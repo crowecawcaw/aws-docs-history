@@ -14,7 +14,7 @@ CloudFormation console in the AWS Region where you use AWS PCS.
 https://aws-hpc-recipes.s3.amazonaws.com/main/recipes/pcs/enable_efa/assets/pcs-lt-efa.yaml
 ```
 
-With the template open in the AWS CloudFormation console, enter the following values. Note that the
+With the template open in the CloudFormation console, enter the following values. Note that the
 template will provide some default parameter values—you can leave them as
 their default values.
 

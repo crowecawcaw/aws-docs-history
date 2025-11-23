@@ -5,7 +5,7 @@ and considerations
 When you create an AWS PCS cluster, you specify a VPC a subnet in that VPC. This topic
 provides an overview of AWS PCS specific requirements and considerations for the VPC and
 subnet(s) that you use with your cluster. If you don't have a VPC to use with AWS PCS,
-you can create one using an AWS-provided AWS CloudFormation template. For more information about VPCs, see
+you can create one using an AWS-provided CloudFormation template. For more information about VPCs, see
 [Virtual private
 clouds (VPC)](../../../vpc/latest/userguide/configure-your-vpc.md "../../../vpc/latest/userguide/configure-your-vpc.md") in the _Amazon VPC User Guide_.
 

@@ -12,7 +12,7 @@ Use these steps to modify scheduler settings, accounting configuration, and Slur
 
 AWS Management Console
 
-1. Open the AWS PCS console at [https://console.aws.amazon.com/pcs/](https://console.aws.amazon.com/https://console.aws.amazon.com/pcs/ "https://console.aws.amazon.com/https://console.aws.amazon.com/pcs/").
+1. Open the AWS PCS console at [https://console.aws.amazon.com/pcs/](https://console.aws.amazon.com/pcs/ "https://console.aws.amazon.com/pcs/").
 2. In the navigation pane, choose **Clusters**.
 3. Select the cluster to update.
 4. Choose **Edit**.

@@ -1,10 +1,10 @@
-# Use AWS CloudFormation to create a sample AWS PCS cluster
+# Use CloudFormation to create a sample AWS PCS cluster
 
 The following procedure uses a
 CloudFormation template in the AWS Management Console to create a sample AWS PCS cluster.
-For more information about AWS CloudFormation, see [What is AWS CloudFormation?](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
+For more information about CloudFormation, see [What is CloudFormation?](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
 in the _AWS CloudFormation User Guide_. For more information
-about AWS PCS resource types in AWS CloudFormation, see [AWS PCS resource type
+about AWS PCS resource types in CloudFormation, see [AWS PCS resource type
 reference](../../../AWSCloudFormation/latest/UserGuide/AWS_PCS.md "../../../AWSCloudFormation/latest/UserGuide/AWS_PCS.md") in the _AWS CloudFormation User Guide_.
 
 ###### To create the sample cluster
@@ -48,9 +48,9 @@ reference](../../../AWSCloudFormation/latest/UserGuide/AWS_PCS.md "../../../AWSC
    their default values.
 
 4. Under **Capabilities and transforms**:
-   1. Select the checkbox to acknowledge that AWS CloudFormation
+   1. Select the checkbox to acknowledge that CloudFormation
       will create IAM resources.
-   2. Select the checkbox to acknowledge that AWS CloudFormation
+   2. Select the checkbox to acknowledge that CloudFormation
       will create IAM resources with custom names.
    3. Select the checkbox to acknowledge `CAPABILITY_AUTO_EXPAND`
       for the new stack. For more information, see

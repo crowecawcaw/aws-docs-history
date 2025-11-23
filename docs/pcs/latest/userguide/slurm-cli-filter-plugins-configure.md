@@ -18,7 +18,7 @@ Before you configure CLI Filter Plugins, complete these tasks:
 
 AWS PCS console
 
-1. Open the AWS PCS console at [https://console.aws.amazon.com/pcs/](https://console.aws.amazon.com/https://console.aws.amazon.com/pcs/ "https://console.aws.amazon.com/https://console.aws.amazon.com/pcs/").
+1. Open the AWS PCS console at [https://console.aws.amazon.com/pcs/](https://console.aws.amazon.com/pcs/ "https://console.aws.amazon.com/pcs/").
 2. In the navigation pane, choose **Clusters**.
 3. Choose **Create cluster**.
 4. Select a valid version of Slurm (version 24.11 or later).
@@ -75,7 +75,7 @@ You can enable or disable CLI Filter Plugins on existing clusters without rebuil
 
 AWS PCS console
 
-1. Open the AWS PCS console at [https://console.aws.amazon.com/pcs/](https://console.aws.amazon.com/https://console.aws.amazon.com/pcs/ "https://console.aws.amazon.com/https://console.aws.amazon.com/pcs/").
+1. Open the AWS PCS console at [https://console.aws.amazon.com/pcs/](https://console.aws.amazon.com/pcs/ "https://console.aws.amazon.com/pcs/").
 2. In the navigation pane, choose **Clusters**.
 3. Select the cluster to update.
 4. Choose **Edit** action.
