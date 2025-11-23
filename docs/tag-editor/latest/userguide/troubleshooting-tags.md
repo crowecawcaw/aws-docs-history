@@ -18,7 +18,7 @@ query results.
 - You might not have permissions to change the resource. Changes to the resource's
   metadata might be restricted by another administrator.
 - The resource might have been edited or deleted by another user or process. For
-  example, assume that a resource was launched as part of the creation of an AWS CloudFormation
+  example, assume that a resource was launched as part of the creation of an CloudFormation
   stack. If the stack was deleted or is no longer in an active state, the resource
   might no longer be available.
 - Tag changes might not be possible if a resource is offline or terminated, or if

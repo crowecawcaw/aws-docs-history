@@ -46,7 +46,7 @@ following:
 
 - `aws:ec2spot:fleet-request-id` is a tag that identifies the Amazon EC2
   Spot Instance Request that launched the instance.
-- `aws:cloudformation:stack-name` is a tag that identifies the AWS CloudFormation
+- `aws:cloudformation:stack-name` is a tag that identifies the CloudFormation
   stack that created the resource.
 - `elasticbeanstalk:environment-name` is a tag that identifies the
   application that created the resource.
@@ -175,10 +175,10 @@ approaches for governing tags in your AWS environment.
   API, AWS Config Rules, and custom scripts. To find resources manually, you can use Tag
   Editor and detailed billing reports.
 - **Proactive governance** uses tools such as
-  AWS CloudFormation, Service Catalog, tag policies in AWS Organizations, or IAM resource-level permissions to
+  CloudFormation, Service Catalog, tag policies in AWS Organizations, or IAM resource-level permissions to
   ensure standardized tags are consistently applied at resource creation.
 
-For example, you can use the AWS CloudFormation `Resource Tags` property to
+For example, you can use the CloudFormation `Resource Tags` property to
 apply tags to resource types. In Service Catalog, you can add portfolio and product tags
 that are combined and applied to a product automatically when it is launched.
 More rigorous forms of proactive governance include automated tasks. For
