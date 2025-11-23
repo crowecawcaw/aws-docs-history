@@ -17,7 +17,7 @@ The following are best practices for your transit gateway design:
   example, a middle-box VPC that routes traffic through multiple NAT gateways).
 - Use Border Gateway Protocol (BGP) Site-to-Site VPN connections. If your customer gateway
   device or firewall for the connection supports multipath, enable the feature.
-- Enable route propagation for AWS Direct Connect gateway attachments and BGP Site-to-Site VPN
+- Enable route propagation for Direct Connect gateway attachments and BGP Site-to-Site VPN
   attachments.
 - When migrating from VPC peering to use a transit gateway. An MTU size mismatch between VPC peering
   and the transit gateway might result in some packets dropping for asymmetric traffic. Update

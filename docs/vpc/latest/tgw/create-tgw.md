@@ -5,6 +5,13 @@ default association route table and the default propagation route table. If you
 choose not to create the default transit gateway route table, you can create one later on. For
 more information about routes and route tables, see [Routing](how-transit-gateways-work.md#tgw-routing-overview "how-transit-gateways-work.md#tgw-routing-overview").
 
+###### Note
+
+If you want to enable Encryption support on a transit gateway, you can’t enable it
+while creating the gateway. After you create the transit gateway, and it’s in the
+available state, you can then modify it to enable Encryption support. For more
+information, see [Encryption Support for AWS Transit Gateway](tgw-encryption-support.md "tgw-encryption-support.md").
+
 ###### To create a transit gateway using the console
 
 1. Open the Amazon VPC console at

@@ -14,7 +14,7 @@ The cause might be one of the following:
 1. The user that is creating the VPC attachment does not have correct permissions to
    create service-linked role.
 2. There is a throttling issue because of too many IAM requests, for example you are using
-   AWS CloudFormation to create permissions and roles.
+   CloudFormation to create permissions and roles.
 3. The account has the service-linked role, and the service-linked role has been
    modified.
 4. The transit gateway is not in the `available` state.

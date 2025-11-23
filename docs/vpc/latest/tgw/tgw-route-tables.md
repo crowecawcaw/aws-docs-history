@@ -6,7 +6,7 @@ and VPNs. Each route in the table contains the range of IP addresses for the des
 that you want to send traffic to.
 
 Transit gateway route tables allows you to associate a table with a transit gateway
-attachment. VPC, VPN, Direct Connect gateway, Peering, and Connect attachments are all
+attachment. VPC, VPN, VPN Concentrator, Direct Connect gateway, Peering, and Connect attachments are all
 supported. When associated, routes for these attachments are propagated from the attachment
 to the target transit gateway route table. An attachment can be propagated to multiple route
 tables.

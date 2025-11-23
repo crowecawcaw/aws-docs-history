@@ -18,15 +18,22 @@ The following are the key concepts for transit gateways:
   - An AWS Direct Connect gateway
   - A peering connection with another transit gateway
   - A VPN connection to a transit gateway
+  - A VPN Concentrator to a transit gateway
   - A network function attachment. For more information, see [Network function attachments](how-transit-gateways-work.md#nf-attachment-overview "how-transit-gateways-work.md#nf-attachment-overview").
 
 - Transit gateway Maximum Transmission Unit (MTU) —
   The maximum transmission unit (MTU) of a network connection is the size, in bytes, of the
   largest permissible packet that can be passed over the connection. The larger the MTU of a
   connection, the more data that can be passed in a single packet. A transit gateway supports an MTU
-  of 8500 bytes for traffic between VPCs, AWS Direct Connect, Transit Gateway Connect, and peering
+  of 8500 bytes for traffic between VPCs, Direct Connect, Transit Gateway Connect, and peering
   attachments (intra-Region, inter-Region, and Cloud WAN peering attachments). Traffic over
   VPN connections can have an MTU of 1500 bytes.
+- Encryption control — A transit gateway can be configured to
+  support Encryption control, which enforces encryption-in-transit for all traffic on VPCs
+  attached to the transit gateway. When Encryption control is enabled, the transit gateway
+  can be attached to VPCs with Encryption control enforced. This feature ensures that all
+  traffic flowing through the transit gateway is encrypted, providing enhanced security for
+  your network communications.
 - Transit gateway route table — A transit gateway has a
   default route table and can optionally have additional route tables. A route table
   includes dynamic and static routes that decide the next hop based on the destination IP
@@ -75,4 +82,7 @@ You can create, access, and manage your transit gateways using any of the follow
 ## Pricing
 
 You are charged hourly for each attachment on a transit gateway, and you are charged for
-the amount of traffic processed on the transit gateway. For more information, see [AWS Transit Gateway pricing](https://aws.amazon.com/transit-gateway/pricing/ "https://aws.amazon.com/transit-gateway/pricing/").
+the amount of traffic processed on the transit gateway. By default, data processing charges
+are allocated to the account that owns the source attachment. You can use flexible cost allocation to customize how these charges are allocated based on your organizational needs.
+For more information, see [AWS Transit Gateway pricing](https://aws.amazon.com/transit-gateway/pricing/ "https://aws.amazon.com/transit-gateway/pricing/")
+and [Flexible cost allocation](metering-policy.md "metering-policy.md").

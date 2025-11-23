@@ -1,6 +1,7 @@
 # Work with AWS Transit Gateway
 
-You can work with transit gateways using the Amazon VPC console or the AWS CLI.
+You can work with transit gateways using the Amazon VPC console or the AWS CLI. For information about enabling
+and managing Encryption support for your transit gateway, see [Encryption Support for AWS Transit Gateway](tgw-encryption-support.md "tgw-encryption-support.md").
 
 ###### Topics
 
@@ -9,12 +10,14 @@ You can work with transit gateways using the Amazon VPC console or the AWS CLI.
 - [VPC attachments](tgw-vpc-attachments.md "tgw-vpc-attachments.md")
 - [Network function attachments](tgw-nf-fw.md "tgw-nf-fw.md")
 - [VPN attachments](tgw-vpn-attachments.md "tgw-vpn-attachments.md")
+- [VPN Concentrator attachments](tgw-vpn-concentrator-attachments.md "tgw-vpn-concentrator-attachments.md")
 - [Transit gateway attachments to a Direct Connect gateway](tgw-dcg-attachments.md "tgw-dcg-attachments.md")
 - [Peering attachments](tgw-peering.md "tgw-peering.md")
 - [Connect attachments and Connect peers](tgw-connect.md "tgw-connect.md")
 - [Transit gateway route tables](tgw-route-tables.md "tgw-route-tables.md")
 - [Transit gateway policy tables](tgw-policy-tables.md "tgw-policy-tables.md")
 - [Multicast on transit gateways](tgw-multicast-overview.md "tgw-multicast-overview.md")
+- [Flexible cost allocation](metering-policy.md "metering-policy.md")
 
 ## Shared transit gateways
 

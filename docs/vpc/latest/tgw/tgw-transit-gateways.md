@@ -23,7 +23,8 @@ with a different route table. This enables you to create isolated networks insid
 transit gateway similar to virtual routing and forwarding (VRFs) in traditional networks.
 
 Transit gateways support dynamic and static routing between attached VPCs and VPN
-connections. You can enable or disable route propagation for each attachment. Transit
+connections. You can enable or disable route propagation for each attachment.
+VPN Concentrator attachments support BGP (dynamic) routing only. Transit
 gateway peering attachments support static routing only. You can point routes in transit
 gateway route tables to the peering attachment for routing traffic between the peered
 transit gateways.
@@ -46,3 +47,4 @@ in the _Amazon VPC User Guide_.
 - [Accept a resource share](share-accept-tgw.md "share-accept-tgw.md")
 - [Accept a shared attachment](acccept-tgw-attach.md "acccept-tgw-attach.md")
 - [Delete a transit gateway](delete-tgw.md "delete-tgw.md")
+- [Encryption Support](tgw-encryption-support.md "tgw-encryption-support.md")

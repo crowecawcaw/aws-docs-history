@@ -36,7 +36,7 @@ source or destination information, as traffic from the transport attachment.
 ###### Note
 
 To use a Direct Connect attachment as a transport mechanism, you'll first need to integrate
-Direct Connect with AWS Transit Gateway. For the steps to create this integration, see [Integrate SD-WAN devices with AWS Transit Gateway and AWS Direct Connect](https://aws.amazon.com/blogs/networking-and-content-delivery/integrate-sd-wan-devices-with-aws-transit-gateway-and-aws-direct-connect/ "https://aws.amazon.com/blogs/networking-and-content-delivery/integrate-sd-wan-devices-with-aws-transit-gateway-and-aws-direct-connect/").
+Direct Connect with AWS Transit Gateway. For the steps to create this integration, see [Integrate SD-WAN devices with AWS Transit Gateway and Direct Connect](https://aws.amazon.com/blogs/networking-and-content-delivery/integrate-sd-wan-devices-with-aws-transit-gateway-and-aws-direct-connect/ "https://aws.amazon.com/blogs/networking-and-content-delivery/integrate-sd-wan-devices-with-aws-transit-gateway-and-aws-direct-connect/").
 
 ## Connect peers
 

@@ -72,7 +72,7 @@ traffic.
   checkbox. For information about disabling the check, see [Changing the source or
   destination checking](../../../AWSEC2/latest/UserGuide/using-eni.md#change_source_dest_check "../../../AWSEC2/latest/UserGuide/using-eni.md#change_source_dest_check") in the _Amazon EC2 User Guide_.
 - A non-Nitro instance cannot be a multicast sender.
-- Multicast routing is not supported over AWS Direct Connect, Site-to-Site VPN, peering attachments, or
+- Multicast routing is not supported over Direct Connect, Site-to-Site VPN, peering attachments, or
   transit gateway Connect attachments.
 - A transit gateway does not support fragmentation of multicast packets. Fragmented multicast
   packets are dropped. For more information, see [Maximum transmission unit (MTU)](transit-gateway-quotas.md#mtu-quotas "transit-gateway-quotas.md#mtu-quotas").

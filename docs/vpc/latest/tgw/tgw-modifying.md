@@ -9,6 +9,20 @@ You cannot modify a transit gateway that has been shared with you.
 You cannot remove a CIDR block for the transit gateway if any of the IP addresses
 are currently used for a [Connect peer](tgw-connect.md "tgw-connect.md").
 
+###### Note
+
+You must enable Encryption Support on a Transit Gateway explicitly to encrypt traffic between your VPCs
+that have encryption controls turned on.
+
+Traffic between two VPCs in enforce mode (without exclusions) is end-to-end encrypted via the TGW.
+Encryption on Transit Gateway also allows you to connect two VPCs that are in different Encryption Controls
+modes. Traffic between VPCs (one in enforce mode and another in Monitor or OFF mode) is guaranteed to be
+encrypted only between the VPC running in enforce mode, up to the Transit Gateway. Beyond that, it depends
+on the resource that is running in the non-enforced VPC and is not guaranteed to be encrypted between the
+Transit Gateway and the non-enforced VPC.
+
+For more detailed information, see [Encryption Support for AWS Transit Gateway](tgw-encryption-support.md "tgw-encryption-support.md").
+
 ###### To modify a transit gateway
 
 1. Open the Amazon VPC console at

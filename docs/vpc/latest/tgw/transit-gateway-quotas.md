@@ -45,25 +45,27 @@ A transit gateway cannot have more than one VPC attachment to the same VPC.
 | Pending peering attachments per transit gateway                                                                            | 10      | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-62499967 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-62499967") |
 | Peering attachments between two transit gateways or between one transit gateway and a<br>Cloud WAN core network edge (CNE) | 1       | No                                                                                                                                                                         |
 | Connect peers (GRE tunnels) per Connect attachment                                                                         | 4       | No                                                                                                                                                                         |
+| VPN Concentrators per transit gateway                                                                                      | 5       | No                                                                                                                                                                         |
+| VPN connections per VPN Concentrator                                                                                       | 100     | No                                                                                                                                                                         |
 
 ## Bandwidth
 
 There are many factors that can affect realized bandwidth through a Site-to-Site VPN connection,
 including but not limited to: packet size, traffic mix (TCP/UDP), shaping or throttling
 policies on intermediate networks, internet weather, and specific application
-requirements. For VPC attachments, AWS Direct Connect gateways, or peered transit gateway attachments, we
+requirements. For VPC attachments, Direct Connect gateways, or peered transit gateway attachments, we
 will attempt to provide additional bandwidth beyond the default value.
 
-| Name                                                                                                                                            | Default         | Adjustable                                                                                          |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | --------------------------------------------------------------------------------------------------- |
-| Bandwidth per VPC attachment per Availability Zone                                                                                              | Up to 100 Gbps  | Contact your Solutions Architect (SA) or Technical Account Manager<br>(TAM) for further assistance. |
-| Packets per second per transit gateway VPC attachment per Availability<br>Zone                                                                  | Up to 7,500,000 | Contact your Solutions Architect (SA) or Technical Account Manager<br>(TAM) for further assistance. |
-| Bandwidth for AWS Direct Connect gateway or peered transit gateway connection<br>per available Availability Zone in the Region                  | Up to 100 Gbps  | Contact your Solutions Architect (SA) or Technical Account Manager<br>(TAM) for further assistance. |
-| Packets per second per transit gateway attachment (AWS Direct Connect and<br>peering attachments) per available Availability Zone in the Region | Up to 7,500,000 | Contact your Solutions Architect (SA) or Technical Account Manager<br>(TAM) for further assistance. |
-| Maximum bandwidth per VPN tunnel                                                                                                                | Up to 1.25 Gbps | No                                                                                                  |
-| Maximum packets per second per VPN tunnel                                                                                                       | Up to 140,000   | No                                                                                                  |
-| Maximum bandwidth per Connect peer (GRE tunnel) per Connect attachment                                                                          | Up to 5 Gbps    | No                                                                                                  |
-| Maximum packets per second per Connect peer                                                                                                     | Up to 300,000   | No                                                                                                  |
+| Name                                                                                                                                        | Default         | Adjustable                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | --------------------------------------------------------------------------------------------------- |
+| Bandwidth per VPC attachment per Availability Zone                                                                                          | Up to 100 Gbps  | Contact your Solutions Architect (SA) or Technical Account Manager<br>(TAM) for further assistance. |
+| Packets per second per transit gateway VPC attachment per Availability<br>Zone                                                              | Up to 7,500,000 | Contact your Solutions Architect (SA) or Technical Account Manager<br>(TAM) for further assistance. |
+| Bandwidth for Direct Connect gateway or peered transit gateway connection<br>per available Availability Zone in the Region                  | Up to 100 Gbps  | Contact your Solutions Architect (SA) or Technical Account Manager<br>(TAM) for further assistance. |
+| Packets per second per transit gateway attachment (Direct Connect and<br>peering attachments) per available Availability Zone in the Region | Up to 7,500,000 | Contact your Solutions Architect (SA) or Technical Account Manager<br>(TAM) for further assistance. |
+| Maximum bandwidth per VPN tunnel                                                                                                            | Up to 1.25 Gbps | No                                                                                                  |
+| Maximum packets per second per VPN tunnel                                                                                                   | Up to 140,000   | No                                                                                                  |
+| Maximum bandwidth per Connect peer (GRE tunnel) per Connect attachment                                                                      | Up to 5 Gbps    | No                                                                                                  |
+| Maximum packets per second per Connect peer                                                                                                 | Up to 300,000   | No                                                                                                  |
 
 You can use equal-cost multipath routing (ECMP) to get
 higher VPN bandwidth by aggregating multiple VPN tunnels. To use ECMP, the VPN
@@ -72,25 +74,25 @@ connections that use static routing.
 
 You can create up to 4 Connect peers per Connect
 attachment (up to 20 Gbps in total bandwidth per Connect attachment), as long
-as the underlying transport (VPC or AWS Direct Connect) attachment supports the required
+as the underlying transport (VPC or Direct Connect) attachment supports the required
 bandwidth. You can use ECMP to get higher bandwidth by scaling horizontally
 across multiple Connect peers of the same Connect attachment or across
 multiple Connect attachments on the same transit gateway. The transit gateway cannot use ECMP
 between the BGP peerings of the same Connect peer.
 
-## AWS Direct Connect gateways
+## Direct Connect gateways
 
-| Name                                            | Default | Adjustable |
-| ----------------------------------------------- | ------- | ---------- |
-| AWS Direct Connect gateways per transit gateway | 20      | No         |
-| Transit gateways per AWS Direct Connect gateway | 6       | No         |
+| Name                                        | Default | Adjustable |
+| ------------------------------------------- | ------- | ---------- |
+| Direct Connect gateways per transit gateway | 20      | No         |
+| Transit gateways per Direct Connect gateway | 6       | No         |
 
 ## Maximum transmission unit (MTU)
 
 - The MTU of a network connection is the size, in bytes, of the largest
   permissible packet that can be passed over the connection. The larger the MTU of
   a connection, the more data that can be passed in a single packet. A transit gateway
-  supports an MTU of 8500 bytes for traffic between VPCs, AWS Direct Connect, Transit
+  supports an MTU of 8500 bytes for traffic between VPCs, Direct Connect, Transit
   Gateway Connect, and peering attachments (intra-Region, inter-Region, and Cloud
   WAN peering attachments). Traffic over VPN connections can have an MTU of 1500
   bytes.
@@ -151,5 +153,5 @@ For more information, see the following:
   _AWS Site-to-Site VPN User Guide_
 - [Amazon VPC quotas](../userguide/amazon-vpc-limits.md "../userguide/amazon-vpc-limits.md") in the
   _Amazon VPC User Guide_
-- [AWS Direct Connect
+- [Direct Connect
   quotas](../../../directconnect/latest/UserGuide/limits.md "../../../directconnect/latest/UserGuide/limits.md") in the _AWS Direct Connect User Guide_

@@ -48,6 +48,7 @@ following resources to your transit gateway:
   includes a route to the transit gateway, traffic is only forwarded to the transit gateway if the
   transit gateway has an attachment in the subnet of the same Availability Zone.
 - One or more VPN connections
+- One or more VPN Concentrators
 - One or more AWS Direct Connect gateways
 - One or more Transit Gateway Connect attachments
 - One or more transit gateway peering connections
@@ -75,6 +76,7 @@ restrictions apply:
 - Transit gateway peering - Transit gateway peering does not support ECMP since
   it neither supports dynamic routing nor can you configure the same static route
   against two different targets.
+- VPN Concentrator - VPN Concentrator does not support ECMP.
 
 ###### Note
 
@@ -173,12 +175,12 @@ installed in the route table. You can't filter on advertised routes.
 For a VPC attachment, the CIDR blocks of the VPC are propagated to the transit
 gateway route table.
 
-When dynamic routing is used with a VPN attachment or a Direct Connect gateway
+When dynamic routing is used with a VPN attachment, VPN Concentrator attachment or a Direct Connect gateway
 attachment, you can propagate the routes learned from the on-premises router through
 BGP to any of the transit gateway route tables.
 
-When dynamic routing is used with a VPN attachment, the routes in the route table
-associated with the VPN attachment are advertised to the customer gateway through
+When dynamic routing is used with a VPN attachment or a VPN Concentrator attachment, the routes in the route table
+associated with the VPN attachment or VPN Concentrator attachment are advertised to the customer gateway through
 BGP.
 
 For a Connect attachment, routes in the route table associated with the Connect
@@ -218,6 +220,7 @@ Transit gateway routes are evaluated in the following order:
   - Site-to-Site VPN over private Direct Connect-propagated
     routes
   - Site-to-Site VPN-propagated routes
+  - Site-to-Site VPN-Concentrator propagated routes
   - Transit Gateway peering-propagated routes (Cloud WAN)
 
 Some attachments support route advertisement over BGP. For routes with the same
@@ -272,17 +275,17 @@ priority.
 | 172.31.0.0/16  | vgw-12345 (propagated)                  | 3        |
 | 0.0.0.0/0      | igw-12345                               | 4        |
 
-The following example shows a transit gateway route table. If you prefer the AWS Direct Connect
+The following example shows a transit gateway route table. If you prefer the Direct Connect
 gateway attachment to the VPN attachment, use a BGP VPN connection and propagate
 the routes in the transit gateway route table.
 
-| Destination    | Attachment (Target) | Resource type        | Route type                 | Priority             |
-| -------------- | ------------------- | -------------------- | -------------------------- | -------------------- | --- |
-| 10.0.0.0/16    | tgw-attach-123      | vpc-1234             | VPC                        | Static or propagated | 1   |
-| 192.168.0.0/16 | tgw-attach-789      | vpn-5678             | VPN                        | Static               | 2   |
-| 172.31.0.0/16  | tgw-attach-456      | dxgw_id              | AWS Direct Connect gateway | Propagated           | 3   |
-| 172.31.0.0/16  | tgw-attach-789      | tgw-connect-peer-123 | Connect                    | Propagated           | 4   |
-| 172.31.0.0/16  | tgw-attach-789      | vpn-5678             | VPN                        | Propagated           | 5   |
+| Destination    | Attachment (Target) | Resource type        | Route type             | Priority             |
+| -------------- | ------------------- | -------------------- | ---------------------- | -------------------- | --- |
+| 10.0.0.0/16    | tgw-attach-123      | vpc-1234             | VPC                    | Static or propagated | 1   |
+| 192.168.0.0/16 | tgw-attach-789      | vpn-5678             | VPN                    | Static               | 2   |
+| 172.31.0.0/16  | tgw-attach-456      | dxgw_id              | Direct Connect gateway | Propagated           | 3   |
+| 172.31.0.0/16  | tgw-attach-789      | tgw-connect-peer-123 | Connect                | Propagated           | 4   |
+| 172.31.0.0/16  | tgw-attach-789      | vpn-5678             | VPN                    | Propagated           | 5   |
 
 ## Network function attachments
 
@@ -882,7 +885,7 @@ response traffic is routed to the same Availability Zone in VPC C as the source
 traffic.
 
 The Amazon VPC console supports appliance mode. You can also use the Amazon VPC API, an
-AWS SDK, the AWS CLI to enable appliance mode, or AWS CloudFormation. For example, add
+AWS SDK, the AWS CLI to enable appliance mode, or CloudFormation. For example, add
 `--options ApplianceModeSupport=enable` to the [create-transit-gateway-vpc-attachment](../../../cli/latest/reference/ec2/create-transit-gateway-vpc-attachment.md "../../../cli/latest/reference/ec2/create-transit-gateway-vpc-attachment.md") or [modify-transit-gateway-vpc-attachment](../../../cli/latest/reference/ec2/modify-transit-gateway-vpc-attachment.md "../../../cli/latest/reference/ec2/modify-transit-gateway-vpc-attachment.md") command.
 
 ###### Note
