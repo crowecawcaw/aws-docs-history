@@ -10,7 +10,7 @@ To complete this step, you launch an Amazon EC2 instance using the Amazon Linux 
 
 ###### Note
 
-An AWS CloudFormation template to create a Hyperledger Fabric client is available in the [amazon-managed-blockchain-client-templates repository](https://github.com/awslabs/amazon-managed-blockchain-client-templates "https://github.com/awslabs/amazon-managed-blockchain-client-templates") on Github. For more information, see the [readme.md](https://github.com/awslabs/amazon-managed-blockchain-client-templates/blob/master/README.md "https://github.com/awslabs/amazon-managed-blockchain-client-templates/blob/master/README.md") in that repository. For more information about using AWS CloudFormation, see [Getting Started](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md") in the _AWS CloudFormation User Guide_.
+An AWS CloudFormation template to create a Hyperledger Fabric client is available in the [amazon-managed-blockchain-client-templates repository](https://github.com/awslabs/amazon-managed-blockchain-client-templates "https://github.com/awslabs/amazon-managed-blockchain-client-templates") on Github. For more information, see the [readme.md](https://github.com/awslabs/amazon-managed-blockchain-client-templates/blob/master/README.md "https://github.com/awslabs/amazon-managed-blockchain-client-templates/blob/master/README.md") in that repository. For more information about using CloudFormation, see [Getting Started](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md") in the _AWS CloudFormation User Guide_.
 
 ## Step 4.1: Install Packages
 

@@ -5,9 +5,9 @@ otherwise, the requirements apply to both network creators and invited members.
 
 ######
 
-- [An AWS account](#w4aab9b9b7 "#w4aab9b9b7")
-- [A Linux Client (EC2 Instance)](#w4aab9b9b9 "#w4aab9b9b9")
-- [A VPC](#w4aab9b9c11 "#w4aab9b9c11")
+- [An AWS account](#w2aab9b9b7 "#w2aab9b9b7")
+- [A Linux Client (EC2 Instance)](#w2aab9b9b9 "#w2aab9b9b9")
+- [A VPC](#w2aab9b9c11 "#w2aab9b9c11")
 - [Permissions to Create an Interface VPC Endpoint](#vpc-endpoint-permissions "#vpc-endpoint-permissions")
 - [EC2 Security Groups That Allow Communication on Required Ports](#get-started-prerequisites-sgs "#get-started-prerequisites-sgs")
 - [Additional Considerations](#additional-considerations "#additional-considerations")
@@ -39,7 +39,7 @@ as the VPC endpoint for the Hyperledger Fabric network on AMB Access. This is th
 For instructions to set up a Hyperledger Fabric client using this configuration, see
 [Step 4: Create an Amazon EC2 Instance and Set Up the Hyperledger Fabric Client](get-started-create-client.md "get-started-create-client.md").
 
-An AWS CloudFormation template to create a Hyperledger Fabric client is available in the [amazon-managed-blockchain-client-templates repository](https://github.com/awslabs/amazon-managed-blockchain-client-templates "https://github.com/awslabs/amazon-managed-blockchain-client-templates") on Github. For more information, see the [readme.md](https://github.com/awslabs/amazon-managed-blockchain-client-templates/blob/master/README.md "https://github.com/awslabs/amazon-managed-blockchain-client-templates/blob/master/README.md") in that repository. For more information about using AWS CloudFormation, see [Getting Started](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md") in the _AWS CloudFormation User Guide_.
+An AWS CloudFormation template to create a Hyperledger Fabric client is available in the [amazon-managed-blockchain-client-templates repository](https://github.com/awslabs/amazon-managed-blockchain-client-templates "https://github.com/awslabs/amazon-managed-blockchain-client-templates") on Github. For more information, see the [readme.md](https://github.com/awslabs/amazon-managed-blockchain-client-templates/blob/master/README.md "https://github.com/awslabs/amazon-managed-blockchain-client-templates/blob/master/README.md") in that repository. For more information about using CloudFormation, see [Getting Started](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md") in the _AWS CloudFormation User Guide_.
 
 ## A VPC
 
