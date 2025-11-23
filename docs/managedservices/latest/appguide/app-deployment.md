@@ -5,7 +5,7 @@ During onboarding, AWS Managed Services (AMS) works with you to determine the in
 The basic infrastructure includes an AWS virtual private cloud (VPC), communication
 security via an ADFS forest trust, the basic subnets (DMZ, Shared Services, and Private)
 mirrored across two availability zones and configured with a managed NAT, bastions, public
-load balancers, AWS Direct Connect (DX), and required security. Your application resources
+load balancers, Direct Connect (DX), and required security. Your application resources
 will be deployed in your private, or customer-applications, subnet. You can learn more about
 a typical AMS architecture in the AWS Managed Services User Guide.
 

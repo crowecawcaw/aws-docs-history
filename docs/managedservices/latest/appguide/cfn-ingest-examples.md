@@ -1,11 +1,11 @@
-# AWS CloudFormation Ingest: Examples
+# CloudFormation Ingest: Examples
 
 Find here some detailed examples of how to use the **Create stack with CloudFormation template** change type.
 
 To download a set of sample CloudFormation templates per AWS Region, see
 [Sample Templates](../../../AWSCloudFormation/latest/UserGuide/cfn-sample-templates.md "../../../AWSCloudFormation/latest/UserGuide/cfn-sample-templates.md").
 
-For reference information on AWS CloudFormation resources, see
+For reference information on CloudFormation resources, see
 [AWS Resource and Property Types Reference](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md").
 However, AMS supports a smaller set of resources, which are described in [AMS CloudFormation ingest](ams-cfn-ingest.md "ams-cfn-ingest.md").
 
@@ -18,5 +18,5 @@ the future CFN Ingest templates.
 
 ###### Topics
 
-- [AWS CloudFormation Ingest examples: Defining resources](cfn-ingest-ex-define-resource.md "cfn-ingest-ex-define-resource.md")
+- [CloudFormation Ingest examples: Defining resources](cfn-ingest-ex-define-resource.md "cfn-ingest-ex-define-resource.md")
 - [CloudFormation Ingest examples: 3-tier Web application](cfn-ingest-ex-3-tier.md "cfn-ingest-ex-3-tier.md")

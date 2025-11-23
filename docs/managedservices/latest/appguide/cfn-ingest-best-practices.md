@@ -1,6 +1,6 @@
 # Best Practices
 
-Following are some best practices you can use to migrate resources using the AMS AWS CloudFormation ingest process:
+Following are some best practices you can use to migrate resources using the AMS CloudFormation ingest process:
 
 - **Submit IAM and other policy-related resources in one CT**–
   If you can use automated CTs such as CloudFormation Ingest to deploy IAM roles, we recommend you do so. In other cases, AMS recommends that you gather
@@ -13,6 +13,6 @@ Following are some best practices you can use to migrate resources using the AMS
   CloudFormation ingest stack are bootstrapped and join the domain successfully, AMS includes a CreationPolicy and an UpdatePolicy for an
   Auto Scaling group resource (that is, if these policies don't already exist).
 - **Amazon RDS DB instance parameter must be specified**–
-  When creating an Amazon RDS database via AWS CloudFormation ingest, you must specify the `DBSnapshotIdentifier` parameter in order to restore
-  from a previous DB snapshot. This is required because AWS CloudFormation ingest does not currently handle sensitive data.
-  For an example of how to use a CloudFormation template for AMS CloudFormation template ingest, see [AWS CloudFormation Ingest: Examples](cfn-ingest-examples.md "cfn-ingest-examples.md").
+  When creating an Amazon RDS database via CloudFormation ingest, you must specify the `DBSnapshotIdentifier` parameter in order to restore
+  from a previous DB snapshot. This is required because CloudFormation ingest does not currently handle sensitive data.
+  For an example of how to use a CloudFormation template for AMS CloudFormation template ingest, see [CloudFormation Ingest: Examples](cfn-ingest-examples.md "cfn-ingest-examples.md").

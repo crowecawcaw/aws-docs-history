@@ -112,13 +112,13 @@ account. An AWS Managed Services Activation Notification occurs when:
 - _AMS stack_: A group of one or more AWS
   resources that are managed by AMS as a single unit.
 - _Immutable infrastructure_: An infrastructure
-  maintenance model typical for Amazon EC2 Auto Scaling groups (ASGs) where updated
+  maintenance model typical for Amazon EC2 Amazon EC2 Auto Scaling groups (ASGs) where updated
   infrastructure components, (in AWS, the AMI) are replaced for every deployment, rather
   than being updated in-place. The advantages to immutable infrastructure is that all
   components stay in a synchronous state since they are always generated from the same
   base. Immutability is independent of any tool or workflow for building the AMI.
 - _Mutable infrastructure_: An infrastructure
-  maintenance model typical for stacks that are not Amazon EC2 Auto Scaling groups and contain
+  maintenance model typical for stacks that are not Amazon EC2 Amazon EC2 Auto Scaling groups and contain
   a single instance or just a few instances. This model most closely represents traditional,
   hardware-based, system deployment where a system is deployed at the beginning of its
   life cycle and then updates are layered onto that system over time. Any updates to the

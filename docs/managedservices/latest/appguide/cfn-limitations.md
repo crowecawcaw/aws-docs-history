@@ -1,6 +1,6 @@
 # Limitations
 
-The following features and functionality currently aren't supported by the AMS AWS CloudFormation
+The following features and functionality currently aren't supported by the AMS CloudFormation
 ingest process.
 
 - **YAML** – Not supported. Only JSON-based CloudFormation

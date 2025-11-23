@@ -1,6 +1,6 @@
 # Supported Resources
 
-The following AWS resources are supported in the AMS AWS CloudFormation ingest process.
+The following AWS resources are supported in the AMS CloudFormation ingest process.
 
 ## CloudFormation Ingest Stack: Supported resources
 

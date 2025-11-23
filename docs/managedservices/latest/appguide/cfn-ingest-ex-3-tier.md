@@ -3,7 +3,7 @@
 Ingest a CloudFormation template for a standard 3-Tier Web Application.
 
 ![AWS Cloud architecture diagram showing VPC with two availability zones, load balancer, and multi-AZ RDS setup.](images/cfn-ingest-ex-3-tier.png)
-This includes an Application Load Balancer, Application Load Balancer target group, Auto Scaling group, Auto Scaling group launch template, Amazon Relational Database Service (RDS for SQL Server) with a MySQL database,
+This includes an Application Load Balancer, Application Load Balancer target group, Amazon EC2 Auto Scaling group, Amazon EC2 Auto Scaling group launch template, Amazon Relational Database Service (RDS for SQL Server) with a MySQL database,
 AWS SSM Parameter store, and AWS Secrets Manager. Allow 30-60 minutes to walk through this example.
 
 ## Prerequisites
@@ -63,5 +63,5 @@ resources, and adheres to security standards.
     aws --profile=saml amscm create-rfc  --change-type-id ct-36cn2avfrrj9v --change-type-version "2.0" --title "`TEST_CFN_INGEST`" --execution-parameters "{\"CloudFormationTemplateS3Endpoint\":\"`https://s3-ap-southeast-2.amazonaws.com/my-bucket/`3-tier-cfn-ingest.json?AWSAccessKeyId=#{`S3_ACCESS_KEY_ID`}&Expires=#{`EXPIRE_DATE`}&Signature=#{`SIGNATURE`}\",\"TimeoutInMinutes\":120,\"Description\":\"`TEST`\",\”VpcId”\”:\”`VPC_ID`\”,\"Name\":\"`MY_TEST`\",\"Tags\":[{\"Key\":\"`env`\",\"Value\":\"`test`\"}],\"Parameters\":[{\"Name\":\"`IAMEC2InstanceProfile`\",\"Value\":\"`customer_ec2_secrets_manager_instance_profile`\"},{\"Name\":\"`MultiAZDatabase`\",\"Value\":\"`true`\"},{\"Name\":\"VpcId\",\"Value\":\"`VPC_ID`\"},{\"Name\":\"`WebServerCapacity`\",\"Value\":\"`2`\"}]}" --endpoint-url `https://amscm.us-east-1.amazonaws.com/operational/` --no-verify-ssl
     ```
 
-Find the Application Load Balancer URL in the AWS CloudFormation RFC execution output to access the website. For information
+Find the Application Load Balancer URL in the CloudFormation RFC execution output to access the website. For information
 about accessing resources, see [Accessing instances](../userguide/access-instance.md "../userguide/access-instance.md").

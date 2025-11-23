@@ -5,14 +5,14 @@ CloudFormation templates, with some modifications, to deploy custom stacks in an
 
 ###### Topics
 
-- [AWS CloudFormation Ingest Guidelines, Best Practices, and Limitations](cfn-author-templates.md "cfn-author-templates.md")
-- [AWS CloudFormation Ingest: Examples](cfn-ingest-examples.md "cfn-ingest-examples.md")
+- [CloudFormation Ingest Guidelines, Best Practices, and Limitations](cfn-author-templates.md "cfn-author-templates.md")
+- [CloudFormation Ingest: Examples](cfn-ingest-examples.md "cfn-ingest-examples.md")
 - [Create CloudFormation ingest stack](#ex-cfn-ingest-create-col "#ex-cfn-ingest-create-col")
-- [Update AWS CloudFormation ingest stack](#ex-cfn-ingest-update-col "#ex-cfn-ingest-update-col")
+- [Update CloudFormation ingest stack](#ex-cfn-ingest-update-col "#ex-cfn-ingest-update-col")
 - [Approve a CloudFormation ingest stack changeset](#ex-cfn-ingest-approve-and-update-col "#ex-cfn-ingest-approve-and-update-col")
-- [Update AWS CloudFormation stacks termination protection](#ex-cfn-term-pro-update-col "#ex-cfn-term-pro-update-col")
+- [Update CloudFormation stacks termination protection](#ex-cfn-term-pro-update-col "#ex-cfn-term-pro-update-col")
 - [Automated IAM deployments using CFN ingest or stack update CTs in AMS](cfn-ingest-iam-deploy.md "cfn-ingest-iam-deploy.md")
-  The AMS AWS CloudFormation ingest process involves the following:
+  The AMS CloudFormation ingest process involves the following:
 
 - Prepare and upload your custom CloudFormation template to an S3 bucket, or provide
   the template inline when creating the RFC. If you are using an S3 bucket with a
@@ -20,7 +20,7 @@ CloudFormation templates, with some modifications, to deploy custom stacks in an
   [presign](../../../cli/latest/reference/s3/presign.md "../../../cli/latest/reference/s3/presign.md").
 - Submit the CloudFormation ingest change type to AMS in an RFC. For the CFN ingest change type walkthrough, see
   [Create CloudFormation ingest stack](#ex-cfn-ingest-create-col "#ex-cfn-ingest-create-col"). For CFN ingest examples, see
-  [AWS CloudFormation Ingest: Examples](cfn-ingest-examples.md "cfn-ingest-examples.md").
+  [CloudFormation Ingest: Examples](cfn-ingest-examples.md "cfn-ingest-examples.md").
 - Once your stack is created, you can update it, and remediate drift on it; additionally,
   should the update fail, you can explicitly approve and implement the update. All of these procedures are
   described in this section.
@@ -197,7 +197,7 @@ credentials for this command. For example, you may need to append `--profile sam
 
 Related change types:
 [Approve a CloudFormation ingest stack changeset](#ex-cfn-ingest-approve-and-update-col "#ex-cfn-ingest-approve-and-update-col"),
-[Update AWS CloudFormation ingest stack](#ex-cfn-ingest-update-col "#ex-cfn-ingest-update-col")
+[Update CloudFormation ingest stack](#ex-cfn-ingest-update-col "#ex-cfn-ingest-update-col")
 
 To learn more about AWS CloudFormation, see [AWS Cloud​Formation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/").
 To see CloudFormation templates, open the AWS CloudFormation
@@ -212,7 +212,7 @@ The RFC is rejected if any of the following are true:
 
 - RFC JSON Syntax is incorrect or does not follow the given format.
 - The provided S3 bucket presigned URL is not valid.
-- The template is not valid AWS CloudFormation syntax.
+- The template is not valid CloudFormation syntax.
 - The template does not have defaults set for all parameter values.
 - The template fails AMS validation. For AMS validation steps, see the information later in this topic.
   The RFC fails if the CloudFormation stack fails to create due to a resource creation issue.
@@ -220,7 +220,7 @@ The RFC is rejected if any of the following are true:
 To learn more about CFN validation and validator, see
 [Template Validation](cfn-author-templates.md "cfn-author-templates.md") and [CloudFormation ingest stack: CFN validator examples](ex-cfn-ingest-validator.md "ex-cfn-ingest-validator.md").
 
-## Update AWS CloudFormation ingest stack
+## Update CloudFormation ingest stack
 
 ![CloudFormation stack update interface showing description, ID, and version details.](images/guiCfnStackUpdateCT-v2.png)
 **To update a CloudFormation Ingest Stack using the console**
@@ -266,7 +266,7 @@ change type. For example, to get notifications when the RFC status changes, add 
 RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
 [AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
 
-1. Prepare the AWS CloudFormation template that you want to use to update the stack, and
+1. Prepare the CloudFormation template that you want to use to update the stack, and
    upload it to your S3 bucket. For important details, see
    [AWS CloudFormation Ingest Guidelines, Best Practices, and Limitations](cfn-author-templates.md "cfn-author-templates.md").
 2. Create and submit the RFC to AMS:
@@ -347,10 +347,10 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 IMPORTANT: Missing parameters not supplied explicitly in the form, default to the currently set values on the existing stack or template.
 
-- For a list of which self-provisioned services you can add using AWS CloudFormation Ingest, see
+- For a list of which self-provisioned services you can add using CloudFormation Ingest, see
   [CloudFormation Ingest Stack: Supported Resources](cfn-ingest-supp-services.md "cfn-ingest-supp-services.md").
 
-To learn more about AWS CloudFormation, see
+To learn more about CloudFormation, see
 [AWS Cloud​Formation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/").
 
 The template is validated to ensure that it can be created in an AMS account. If
@@ -362,7 +362,7 @@ The RFC is rejected if any of the following are true:
 
 - RFC JSON Syntax is incorrect or does not follow the given format.
 - The provided S3 bucket presigned URL is not valid.
-- The template is not valid AWS CloudFormation syntax.
+- The template is not valid CloudFormation syntax.
 - The template does not have defaults set for all parameter values.
 - The template fails AMS validation. For AMS validation steps, see the
   information later in this topic.
@@ -448,7 +448,7 @@ of the stack resources, use the CloudFormation Update CT; see
 
 To learn more about AWS CloudFormation, see [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/").
 
-## Update AWS CloudFormation stacks termination protection
+## Update CloudFormation stacks termination protection
 
 The following shows this change type in the AMS console.
 

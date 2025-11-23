@@ -1,6 +1,6 @@
-# AWS CloudFormation Ingest examples: Defining resources
+# CloudFormation Ingest examples: Defining resources
 
-When using AMS AWS CloudFormation ingest, you customize a CloudFormation template and submit it to AMS in an RFC with the CloudFormation ingest change type (ct-36cn2avfrrj9v).
+When using AMS CloudFormation ingest, you customize a CloudFormation template and submit it to AMS in an RFC with the CloudFormation ingest change type (ct-36cn2avfrrj9v).
 To create a CloudFormation template that can be reused multiple times, you add the stack configuration parameters to the CloudFormation ingest change type execution
 input rather than hard coding them in the CloudFormation template. The biggest benefit is that you can reuse the template.
 
@@ -11,15 +11,15 @@ CloudFormation templates, as a parameter in the AMS CloudFormation ingest CT. Th
 
 ###### Topics
 
-- [Example 1: Hard code the AWS CloudFormation SNSTopic resource TopicName property](#cfn-ingest-example-1 "#cfn-ingest-example-1")
+- [Example 1: Hard code the CloudFormation SNSTopic resource TopicName property](#cfn-ingest-example-1 "#cfn-ingest-example-1")
 - [Example 2: Use an SNSTopic resource to reference a parameter in the AMS change type](#cfn-ingest-example-2 "#cfn-ingest-example-2")
 - [Example 3: Create an SNS topic by submitting a JSON execution parameters file with the AMS ingest change type](#cfn-ingest-example-3 "#cfn-ingest-example-3")
 - [Example 4: Submit a new change type that references the same CloudFormation template](#cfn-ingest-example-4 "#cfn-ingest-example-4")
 - [Example 5: Use the default parameter values in the CloudFormation template](#cfn-ingest-example-5 "#cfn-ingest-example-5")
 
-## Example 1: Hard code the AWS CloudFormation SNSTopic resource `TopicName` property
+## Example 1: Hard code the CloudFormation SNSTopic resource `TopicName` property
 
-In this example, you hard code the AWS CloudFormation SNSTopic resource `TopicName` property in the CloudFormation template. Note that the `Parameters`
+In this example, you hard code the CloudFormation SNSTopic resource `TopicName` property in the CloudFormation template. Note that the `Parameters`
 section is empty.
 
 To have a CloudFormation template that allows you to change the value for the SNSTopic name for a new stack without having to create a new CloudFormation template,
