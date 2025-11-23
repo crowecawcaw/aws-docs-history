@@ -21,8 +21,8 @@ Interface endpoints are represented by one or more elastic network interfaces (E
 assigned private IP addresses from subnets in your VPC. Requests made to interface endpoints
 for S3 on Outposts are automatically routed to S3 on Outposts bucket and endpoint management APIs on
 the AWS network. You can also access interface endpoints in your VPC from on-premises
-applications through AWS Direct Connect or AWS Virtual Private Network (AWS VPN). For more information about how to
-connect your VPC with your on-premises network, see the [_AWS Direct Connect User
+applications through AWS Direct Connect or AWS Virtual Private Network (Site-to-Site VPN). For more information about how to
+connect your VPC with your on-premises network, see the [_Direct Connect User
 Guide_](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") and the [_AWS Site-to-Site VPN User Guide_](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md").
 
 Interface endpoints route requests for S3 on Outposts bucket and endpoint management APIs over
