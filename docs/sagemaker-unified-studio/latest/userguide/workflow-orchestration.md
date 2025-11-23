@@ -1,20 +1,9 @@
-# Using
+# Using workflows in Amazon SageMaker Unified Studio
 
-workflows in Amazon SageMaker Unified Studio
+Amazon SageMaker Unified Studio provides workflow capabilities that allow you to set up and run a series of tasks to orchestrate your data processing procedures. Workflows use Apache Airflow to model data processing procedures and orchestrate your Amazon SageMaker Unified Studio code artifacts.
 
-With a Amazon SageMaker Unified Studio workflow, you can set up and run a series of tasks in Amazon SageMaker Unified Studio.
-Amazon SageMaker Unified Studio workflows use Apache Airflow to model data processing procedures and orchestrate your
-Amazon SageMaker Unified Studio code artifacts. Go to the **Workflows** page of a project in
-Amazon SageMaker Unified Studio to create workflows in Python code, run them, and review logs.
+Amazon SageMaker Unified Studio supports workflows in two domain types:
 
-###### Note
-
-Workflows are available in Amazon SageMaker Unified Studio projects created with the **All capabilities** project profile.
-
-To use workflows in Amazon SageMaker Unified Studio, you must provision an instance of at least 4GB memory and 4vCPUs.
-
-There are two compute spaces that you can use for workflows in your project:
-
-- **Local space**. Only you can view and edit the workflows in your local space.
-- **Shared environment**. Everyone in the project sees and accesses the files in the shared environment.
-  Each workflow that you create starts in your local space as a file. To share your workflows with other users, commit the file defining your workflow and sync the workflow with a shared environment.
+- **IDC-based domains** - The original Amazon SageMaker Unified Studio interface that provides comprehensive workflow capabilities including visual workflows, code workflows, and workflow environments.
+- **IAM-based domains** - A new domain type that provides workflow capabilities through federated role access with existing IAM permissions.
+  The workflow experience and available features may differ between domain types. Choose the appropriate section below based on your domain type to access the relevant documentation.

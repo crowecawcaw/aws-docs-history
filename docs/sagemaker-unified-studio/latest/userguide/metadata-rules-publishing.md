@@ -19,16 +19,28 @@ enforcement in Amazon SageMaker Unified Studio:
    want to work with.
 3. Choose the **Rules** tab and then choose
    **Add**.
-4. On the **Create required metadata form rule** page, do the
-   following and then choose **Add rule**:
+4. On the **Rule configuration** page, do the following and then
+   choose **Add rule**:
    - Specify a name for your rule.
    - Under **Action**, choose **Data asset and
-     product publishing**.
-   - Under **Required forms**, choose **Add
-     metadata form**, choose a metadata form within the domain /
-     domain unit that you want to add to this rule, and then choose
-     **Add**. You can add up to 5 metadata forms per
-     rule.
+     product publishing** or **Subscription
+     request**.
+   - If you chose **Subscription request**, then under
+     Required metadata forms, choose **Add metadata form**,
+     choose a metadata form within the domain / domain unit that you want to
+     add to this rule, and then choose **Add**. You can add
+     up to 5 metadata forms per rule.
+   - If you chose **Data asset and product publishing**,
+     then under **Rule requirements**, choose either
+     **Metadata forms** or **Glossary
+     association**. If you chose **Metadata
+     forms**, then under Required metadata forms, choose
+     **Add metadata form**, choose a metadata form
+     within the domain / domain unit that you want to add to this rule, and
+     then choose **Add**. You can add up to 5 metadata forms
+     per rule. If you chose **Glossary association**, then
+     choose **Add terms** and add your glossary terms to
+     your rule. You can add up to 5 glossary terms per rule.
    - Under **Scope**, specify with which data entities you
      want to associate these forms. You can choose data products and/or data
      assets.

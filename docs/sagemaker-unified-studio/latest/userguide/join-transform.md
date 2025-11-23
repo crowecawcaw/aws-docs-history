@@ -11,8 +11,8 @@ and Anti.
 
 1. Open the menu and then choose Join to add a new transform to your job diagram, if
    needed.
-2. (Optional) Click on the rename node icon to enter a new name for the node in the
-   job diagram.
+2. (Optional) Click on the rename node icon to enter a new name for the node in the job
+   diagram.
 3. Optional) Ensure two data sources are connected to the Join node.
 4. Modify the input schema:
    1. Select a join type from the "Join type" dropdown menu.Optional).

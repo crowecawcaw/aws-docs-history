@@ -1,6 +1,7 @@
 # Secrets
 
-Retrieve the secret (username, password, other connection-related metadata) for the connection using the following property.
+Retrieve the secret (username, password, other connection-related metadata)
+for the connection using the following property.
 
 ```
 
@@ -9,4 +10,5 @@ secret = snowflake_connection.secret
 
 ```
 
-Secrets can be a dictionary containing credentials or a single string depending on the connection type.
+Secrets can be a dictionary containing credentials or a single string
+depending on the connection type.

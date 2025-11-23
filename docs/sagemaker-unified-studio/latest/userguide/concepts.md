@@ -11,7 +11,7 @@ credentials from your identity provider through the IAM Identity Center or with 
 can obtain the Amazon SageMaker Unified Studio URL for your domains by accessing the SageMaker AI management console at
 [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone").
 
-**Amazon SageMaker AI management console**
+**Amazon SageMaker management console**
 
 You can use the SageMaker AI management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone")
 to access and conﬁgure your domains for user management, account associations, project
@@ -232,8 +232,8 @@ account owners.
 **JupyterLab**
 
 Amazon SageMaker Unified Studio provides a JupyterLab interactive development environment (IDE) for you to use
-as you perform data integration, analytics, or machine learning in your projects. Amazon SageMaker Unified Studio
-notebooks are built on JupyterLab spaces and Amazon SageMaker Distribution.
+as you perform data integration, analytics, or machine learning in your projects. JupyterLab
+IDE is built on JupyterLab spaces and Amazon SageMaker Distribution.
 
 **Metadata form type**
 
@@ -273,7 +273,7 @@ In the current release of Amazon SageMaker Unified Studio, you can create the fo
 - Generative AI application development project profile
 - Custom project profile
 
-**Project**
+**Projects in Identity Center-based domains**
 
 The project entity is the mechanism by which Amazon SageMaker Unified Studio users organize their work and
 provide business context over the jobs they are performing. A project is a container for all

@@ -7,8 +7,8 @@ indicate which columns you want to keep and the rest are removed from the datase
 
 1. Open the menu and then choose Filter to add a new transform to your job diagram, if
    needed.
-2. (Optional) Click on the rename node icon to enter a new name for the node in the
-   job diagram.
+2. (Optional) Click on the rename node icon to enter a new name for the node in the job
+   diagram.
 3. Modify the input schema:
    1. Select the columns you want to keep in the output frame by checking the
       corresponding box under the "Field" option.

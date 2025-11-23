@@ -1,10 +1,12 @@
 # Remote Execution APIs
 
-Use the following APIs to start, stop, get, or list executions running on remote compute.
+Use the following APIs to start, stop, get, or list executions running on remote
+compute.
 
 ## StartExecution
 
-You can start a notebook execution headlessly on a remote compute specified in the `StartExecution` request.
+You can start a notebook execution headlessly on a remote compute specified in
+the `StartExecution` request.
 
 ```
 
@@ -36,7 +38,8 @@ print(result)
 
 ## GetExecution
 
-You can retrieve details about an execution running on remote compute using the `GetExecution` API.
+You can retrieve details about an execution running on remote compute using
+the `GetExecution` API.
 
 ```
 
@@ -53,7 +56,8 @@ print(get_response)
 
 ## ListExecutions
 
-You can use the `ListExecutions` API to list all the headless executions that ran on remote compute.
+You can use the `ListExecutions` API to list all the headless
+executions that ran on remote compute.
 
 ```
 
@@ -70,7 +74,8 @@ print(list_executions_response)
 
 ## StopExecution
 
-You can use the `StopExecution` API to stop an execution that's running on remote compute.
+You can use the `StopExecution` API to stop an execution that's
+running on remote compute.
 
 ```
 

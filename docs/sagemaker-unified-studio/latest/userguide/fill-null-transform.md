@@ -9,8 +9,8 @@ select columns.
 
 1. Open the menu and then choose Fill nulls to add a new transform to your job
    diagram.
-2. (Optional) Click on the rename node icon to enter a new name for the node in the
-   job diagram.
+2. (Optional) Click on the rename node icon to enter a new name for the node in the job
+   diagram.
 3. Modify the input schema:
    1. To create a subset, use the dropdown menu and select a column or columns to
       consider.

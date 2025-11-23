@@ -10,7 +10,7 @@ Amazon SageMaker Unified Studio](getting-started-querying.md "getting-started-qu
 
 - [Navigate the query editor](query-editor-navigate.md "query-editor-navigate.md")
 - [Connect data resources](query-connect-resources.md "query-connect-resources.md")
-- [Supported query engines](#w124aac60c15 "#w124aac60c15")
+- [Supported query engines](#w2aac67c15 "#w2aac67c15")
 - [Create a query](query-create.md "query-create.md")
 - [Generative SQL](generative-sql.md "generative-sql.md")
 - [Review query history](query-history.md "query-history.md")

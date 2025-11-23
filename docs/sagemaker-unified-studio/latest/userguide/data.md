@@ -9,8 +9,8 @@ with certain profiles contain an lakehouse architecture for accessing data withi
 default Amazon Redshift connection and an Amazon S3 bucket. You can add data to the project
 on the **Data** page by uploading data from your local desktop or by gaining
 access to existing data sources and then adding a connection to them in your Amazon SageMaker Unified Studio project.
-For more information about lakehouse architecture,
-see [What is the lakehouse architecture of Amazon SageMaker?](../../../sagemaker-lakehouse-architecture/latest/userguide/what-is-smlh.md "../../../sagemaker-lakehouse-architecture/latest/userguide/what-is-smlh.md").
+For more information about lakehouse architecture, see [What is the
+lakehouse architecture of Amazon SageMaker?](../../../sagemaker-lakehouse-architecture/latest/userguide/what-is-smlh.md "../../../sagemaker-lakehouse-architecture/latest/userguide/what-is-smlh.md").
 
 You can also connect to AWS Glue and Amazon Redshift data sources from
 within your project catalog. The project catalog contains your data as data products and assets
@@ -22,7 +22,16 @@ fine-grained access control. For more information, see [Data inventory and publi
 
 The Amazon SageMaker Catalog contains business glossaries and metadata forms. If you have been
 granted access through the authorization policies, you can create business glossaries and
-metadata forms. For more information, see [Domain units and authorization policies in Amazon SageMaker Unified Studio](../adminguide/domain-units.md "../adminguide/domain-units.md") and [Amazon SageMaker Unified Studio data catalog](working-with-business-catalog.md "working-with-business-catalog.md").
+metadata forms. For more information, see [Domain units and
+authorization policies in Amazon SageMaker Unified Studio](../adminguide/domain-units.md "../adminguide/domain-units.md") and [Amazon SageMaker Catalog](working-with-business-catalog.md "working-with-business-catalog.md").
 
 You can use the Amazon SageMaker Catalog to discover and subscribe to assets and data products. For
 more information, see [Data discovery, subscription, and consumption](discover-data.md "discover-data.md").
+
+###### Topics
+
+- [Data in Identity Center-based
+  domains](data-identity-center-based-domains.md "data-identity-center-based-domains.md")
+- [Working with Catalog in IAM-based domains](data-iam-based-domains.md "data-iam-based-domains.md")
+- [Data and catalog connections in IAM-based
+  domains](data-connections-iam-based-domains.md "data-connections-iam-based-domains.md")

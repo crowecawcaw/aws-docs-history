@@ -12,8 +12,8 @@ configured for the target data. In a Change Columns transform node, you can:
 
 1. Open the menu and then choose Change Columns to add a new transform to your job
    diagram, if needed.
-2. (Optional) Click on the rename node icon to enter a new name for the node in the
-   job diagram.
+2. (Optional) Click on the rename node icon to enter a new name for the node in the job
+   diagram.
 3. Modify the input schema by clicking on the node, then:
    1. To rename a column, enter the new name in the Target column field.
    2. To change the data type for a selected column, select "Add new type cast", then

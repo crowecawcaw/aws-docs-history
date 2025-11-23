@@ -8,8 +8,8 @@ provide the string that you want to update the column name to.
 
 1. Open the menu and then choose Rename columns to add a new transform to your job
    diagram, if needed.
-2. (Optional) Click on the rename node icon to enter a new name for the node in the
-   job diagram.
+2. (Optional) Click on the rename node icon to enter a new name for the node in the job
+   diagram.
 3. Modify the input schema:
    1. Select "Add new rename pair".
    2. Select the current column to rename from the "Current name" column.

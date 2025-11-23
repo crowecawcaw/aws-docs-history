@@ -8,8 +8,8 @@ rest of the keys are retained.
 
 1. Open the Resource panel and then choose Drop columns to add a new transform to your
    diagram.
-2. (Optional) Click on the rename node icon to enter a new name for the node in the
-   job diagram.
+2. (Optional) Click on the rename node icon to enter a new name for the node in the job
+   diagram.
 3. Click on the node and view the Node properties panel.
 4. Choose the data property keys from the "Field" column to drop the column from the
    data source.

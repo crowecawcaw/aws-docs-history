@@ -12,12 +12,13 @@ resources:
   Clusters are scalable compute environments that enable the processing and analysis of large
   datasets. For more information, see [Amazon Redshift compute connections in Amazon SageMaker Unified Studio](compute-redshift.md "compute-redshift.md").
 - **Data processing**: This includes connections to Amazon EMR on EC2
-  clusters and EMR Serverless
+  clusters, Amazon EMR on EKS virtual clusters, Amazon EMR Serverless
   applications, and
   Glue ETL computes. For more information, see
   the following
   links:
   - [Amazon EMR on EC2 connections in Amazon SageMaker Unified Studio](managing-emr-on-ec2.md "managing-emr-on-ec2.md")
+  - [Amazon EMR on EKS in Amazon SageMaker Unified Studio](managing-emr-on-eks.md "managing-emr-on-eks.md")
   - [EMR Serverless compute connections in Amazon SageMaker Unified Studio](adding-deleting-emr-serverless.md "adding-deleting-emr-serverless.md")
   - [Glue ETL in Amazon SageMaker Unified Studio](compute-glue-etl.md "compute-glue-etl.md")
 

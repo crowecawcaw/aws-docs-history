@@ -33,9 +33,9 @@ following procedure:
    choose **Add** and then choose
    **Next**.
 8. Choose **Create resource share**.
-   Once this is completed, you can invoke the `CreateDataSource` API action or the
-   `create-data-source` CLI action to create a new data source for Amazon SageMaker AI in
-   Amazon SageMaker Unified Studio.
+   Once this is completed, you can invoke the `CreateDataSource` API action or
+   the `create-data-source` CLI action to create a new data source for Amazon
+   SageMaker AI in Amazon SageMaker Unified Studio.
 
 ```
 
@@ -43,8 +43,8 @@ aws datazone create-data-source --cli-input-json file://create-sagemaker-datasou
 
 ```
 
-Sample payload (create-sagemaker-datasource-example.json per example above) to create an Amazon Sagemaker data sources in an Amazon DataZone
-domain:
+Sample payload (create-sagemaker-datasource-example.json per example above) to create
+an Amazon Sagemaker data sources in an Amazon DataZone domain:
 
 ```
 
@@ -88,8 +88,8 @@ domain:
 
 ```
 
-Sample payload (create-sagemaker-datasource-example.json per example above) to create an Amazon Sagemaker data sources in an Amazon SageMaker
-unified domain:
+Sample payload (create-sagemaker-datasource-example.json per example above) to create
+an Amazon Sagemaker data sources in an Amazon SageMaker unified domain:
 
 ```
 

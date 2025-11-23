@@ -4,7 +4,7 @@ With Amazon Bedrock in SageMaker Unified Studio, you can export the files for an
 lets you can use the app outside of Amazon SageMaker Unified Studio.
 
 When you export an app, Amazon Bedrock in SageMaker Unified Studio exports a zip file with the AWS CloudFormation
-templates and other files required by your app. To use your app, you need to deploy the AWS CloudFormation
+templates and other files required by your app. To use your app, you need to deploy the CloudFormation
 templates to an AWS account. The actual contents of the zip file vary on the
 Amazon Bedrock in SageMaker Unified Studio components that your app uses. After uncompressing the zip file, you
 deploy the contents of the zip file into your AWS account (or another AWS account, if
@@ -13,7 +13,7 @@ you prefer).
 ###### Important
 
 Once you export your app, it's your responsibility to audit the app files
-and make sure they are correct. You can use the AWS CloudFormation templates as you wish.
+and make sure they are correct. You can use the CloudFormation templates as you wish.
 
 An app can include one or more different types of Amazon Bedrock in SageMaker Unified Studio components. For example, a
 chat agent app could use a guardrail or a knowledge base. When you deploy your app's
@@ -29,7 +29,7 @@ following files:
 
 - **README.md** — Instructions for deploying
   and running your app.
-- **function-stack-\*.json** — AWS CloudFormation template
+- **function-stack-\*.json** — CloudFormation template
   that creates your function component, if any. This includes:
   - An AWS Lambda [function](../../../bedrock/latest/studio-ug/functions.md "../../../bedrock/latest/studio-ug/functions.md") for
     calling the API defined in your OpenAPI schema.
@@ -43,14 +43,14 @@ following files:
   Knowledge Base for Amazon Bedrock configured with your selected data store and
   vector store. This knowledge base will not have the data you have uploaded in to
   Amazon Bedrock in SageMaker Unified Studio, and you are expected to provide data files manually.
-- **flow-stack.json** — AWS CloudFormation template
+- **flow-stack.json** — CloudFormation template
   that creates an Amazon Bedrock flows resource.
-- **guardrails-stack-\*.json** — AWS CloudFormation template
+- **guardrails-stack-\*.json** — CloudFormation template
   that creates a [guardrail](../../../bedrock/latest/studio-ug/guardrails.md "../../../bedrock/latest/studio-ug/guardrails.md") for
   Amazon Bedrock, if any.
-- **agent-stack.json** — AWS CloudFormation template that
+- **agent-stack.json** — CloudFormation template that
   creates an Amazon Bedrock Agent, if any.
-- **invocation-policy-\*.json** — AWS CloudFormation template
+- **invocation-policy-\*.json** — CloudFormation template
   that creates an IAM policy with the runtime permissions that you need
   to talk to your deployed chat agent app.
 - **br-studio-app-stack-\*.json** — Parent

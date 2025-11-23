@@ -9,8 +9,8 @@ single dataset as output. It contains a text field, where you enter the SQL quer
 
 1. Open the menu and then choose SQL query to add a new transform to your job diagram,
    if needed.
-2. (Optional) Click on the rename node icon to enter a new name for the node in the
-   job diagram.
+2. (Optional) Click on the rename node icon to enter a new name for the node in the job
+   diagram.
 3. Modify the input schema:
    1. Ensure the alias in the "SQL aliases" box is appropriate. Visual ETL will
       autopopulate this field, but you can change it.

@@ -8,8 +8,8 @@ The Custom code node allows you to enter a script that performs the transformati
 
 1. Open the Resource panel and then choose Custom Code to add a custom transform to
    your job diagram.
-2. (Optional) Click on the rename node icon to enter a new name for the node in the
-   job diagram.
+2. (Optional) Click on the rename node icon to enter a new name for the node in the job
+   diagram.
 3. Enter desired code changes.
    The following examples show the format of the code to enter in the code box:
 

@@ -1,14 +1,17 @@
 # Execution APIs
 
-Execution APIs provide you the ability to start an execution to run a notebook headlessly within the same user space or on remote compute.
+Execution APIs provide you the ability to start an execution to run a notebook
+headlessly within the same user space or on remote compute.
 
 ## Local Execution APIs
 
-Use the following APIs to start, stop, get, or list executions within the user's space.
+Use the following APIs to start, stop, get, or list executions within the user's
+space.
 
 ### StartExecution
 
-You can start a notebook execution headlessly within the same user space.
+You can start a notebook execution headlessly within the same user
+space.
 
 ```
 
@@ -37,7 +40,8 @@ print(result)
 
 ### GetExecution
 
-You can retrieve details about a local execution using the `GetExecution` API.
+You can retrieve details about a local execution using the
+`GetExecution` API.
 
 ```
 
@@ -58,7 +62,8 @@ print(get_response)
 
 ### ListExecutions
 
-You can use the `ListExecutions` API to list all the executions that ran in the user's space.
+You can use the `ListExecutions` API to list all the executions
+that ran in the user's space.
 
 ```
 
@@ -79,7 +84,8 @@ print(list_executions_response)
 
 ### StopExecution
 
-You can use the `StopExecution` API to stop an execution that's running in the user space.
+You can use the `StopExecution` API to stop an execution that's
+running in the user space.
 
 ```
 

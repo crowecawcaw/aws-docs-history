@@ -9,8 +9,8 @@ serve as the key, a comparison operation, and provide a value to filter on.
 
 1. Open the menu and then choose Filter to add a new transform to your job
    diagram.
-2. (Optional) Click on the rename node icon to enter a new name for the node in the
-   job diagram.
+2. (Optional) Click on the rename node icon to enter a new name for the node in the job
+   diagram.
 3. Modify the input schema:
    1. Select "Add new filter condition".
    2. Choose a filter type: "Global AND" or "Global or".

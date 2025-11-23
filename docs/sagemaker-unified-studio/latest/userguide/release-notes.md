@@ -252,7 +252,7 @@ Amazon SageMaker Unified Studio now delivers enhanced autocomplete capabilities 
 
 **CloudFormation template**
 
-Amazon SageMaker Unified Studio now provides an [AWS CloudFormation
+Amazon SageMaker Unified Studio now provides an [CloudFormation
 template](https://github.com/aws/Unified-Studio-for-Amazon-Sagemaker/tree/main/cloudformation "https://github.com/aws/Unified-Studio-for-Amazon-Sagemaker/tree/main/cloudformation") to setup and create a new Amazon SageMaker Unified domain and project.
 
 ### June 2, 2025

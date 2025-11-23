@@ -21,6 +21,22 @@ Glossary terms can be added at the asset level by filling out available forms.
 To curate the schema, you can review the columns, add business names, descriptions,
 and add glossary terms at column level.
 
+###### To update the schema of an asset
+
+1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
+   using your SSO or AWS credentials.
+2. Choose **Select project** from the top navigation pane and
+   select the project to which the asset belongs.
+3. Under **Project catalog** in the left side navigation, choose
+   **Assets**.
+4. Make sure you are on the **Inventory** tab, then choose the
+   name of the asset that you want to publish. You are then brought to the asset
+   details page.
+5. Choose the **Schema** tab and then on the schema details page, choose the
+   **View/Edit** link of the column that you'd like to curate.
+
+In the right-hand pane that opens, you can edit the details, ReadMe, glossary
+terms, and metadata forms of the column.
 If automated metadata generation is enabled when the data source is created, the
 business names for assets and columns are available to review and accept or reject
 individually or all at once.

@@ -69,7 +69,8 @@ source.
 16. Review your data source configuration and choose
     **Create**.
     You can also create a Amazon SageMaker Unified Studio data source for Amazon Redshift by invoking the
-    `CreateDataSource` API action or the `create-data-source` CLI action:
+    `CreateDataSource` API action or the `create-data-source` CLI
+    action:
 
 ```
 
@@ -77,8 +78,8 @@ aws datazone create-data-source --cli-input-json file://create-sagemaker-datasou
 
 ```
 
-Sample payload (create-sagemaker-datasource-example.json per example above) to create an Amazon Sagemaker data sources in an Amazon DataZone
-domain:
+Sample payload (create-sagemaker-datasource-example.json per example above) to create
+an Amazon Sagemaker data sources in an Amazon DataZone domain:
 
 ```
 
@@ -131,8 +132,8 @@ domain:
 
 ```
 
-Sample payload (create-sagemaker-datasource-example.json per example above) to create an Amazon Sagemaker data sources in an Amazon SageMaker
-unified domain:
+Sample payload (create-sagemaker-datasource-example.json per example above) to create
+an Amazon Sagemaker data sources in an Amazon SageMaker unified domain:
 
 ```
 

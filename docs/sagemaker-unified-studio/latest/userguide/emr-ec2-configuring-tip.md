@@ -22,14 +22,12 @@ To find the name of the instance profile role for an EMR on EC2 cluster, complet
    As an admin user who could edit IAM policies in the account that owns the project, add the following inline policy to the instance profile role.
 
 ```
-
-  {
-
+{
     "Statement": [
         {
             "Sid": "IdCPermissions",
             "Effect": "Allow",
-          "Action": [
+            "Action": [
                 "sso-oauth:CreateTokenWithIAM",
                 "sso-oauth:IntrospectTokenWithIAM",
                 "sso-oauth:RevokeTokenWithIAM"
@@ -48,7 +46,6 @@ To find the name of the instance profile role for an EMR on EC2 cluster, complet
         }
     ]
 }
-
 ```
 
 After updating the role’s policy, you can use the EMR on EC2 connection to initiate interactive Spark sessions.

@@ -1,6 +1,7 @@
 # S3 Path
 
-One of the properties of a `Project` is `s3`. You can access various S3 paths that exist within your project.
+One of the properties of a `Project` is `s3`. You can access
+various S3 paths that exist within your project.
 
 ```
 
@@ -27,7 +28,8 @@ proj.s3.emr_ec2_log_bootstrap
 
 Environment S3 Paths
 
-You can also access the S3 path of a different environment by providing an environment ID.
+You can also access the S3 path of a different environment by providing an
+environment ID.
 
 ```
 

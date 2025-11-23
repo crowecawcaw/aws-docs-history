@@ -1,4 +1,4 @@
-# Amazon SageMaker Unified Studio data catalog
+# Amazon SageMaker Catalog
 
 You can use the Amazon SageMaker Catalog to catalog data across your organization
 with business context and thus enable everyone in your organization to ﬁnd and understand data
@@ -24,23 +24,8 @@ For more information, see [Amazon SageMaker Unified Studio terminology and conce
 
 ###### Topics
 
-- [Create a business glossary in
-  Amazon SageMaker Unified Studio](create-maintain-business-glossary.md "create-maintain-business-glossary.md")
-- [Edit a business
-  glossary in Amazon SageMaker Unified Studio](edit-business-glossary.md "edit-business-glossary.md")
-- [Delete a business
-  glossary in Amazon SageMaker Unified Studio](delete-business-glossary.md "delete-business-glossary.md")
-- [Create a term in a glossary in Amazon SageMaker Unified Studio](create-maintain-term.md "create-maintain-term.md")
-- [Edit a term in a glossary in Amazon SageMaker Unified Studio](edit-term.md "edit-term.md")
-- [Delete a term in a glossary in Amazon SageMaker Unified Studio](delete-term.md "delete-term.md")
-- [Create a metadata form in Amazon SageMaker Unified Studio](create-metadata-form.md "create-metadata-form.md")
-- [Edit a metadata form in Amazon SageMaker Unified Studio](edit-metadata-form.md "edit-metadata-form.md")
-- [Delete a metadata form in Amazon SageMaker Unified Studio](delete-metadata-form.md "delete-metadata-form.md")
-- [Create a field in a metadata
-  form in Amazon SageMaker Unified Studio](create-field-in-metadata-form.md "create-field-in-metadata-form.md")
-- [Edit a field in a metadata
-  form in Amazon SageMaker Unified Studio](edit-field-in-metadata-form.md "edit-field-in-metadata-form.md")
-- [Delete a field in a metadata
-  form in Amazon SageMaker Unified Studio](delete-field-in-metadata-form.md "delete-field-in-metadata-form.md")
-- [Restricted asset classification
-  Amazon SageMaker Unified Studio](restricted-asset-classification.md "restricted-asset-classification.md")
+- [Data governance and metadata](data-governance.md "data-governance.md")
+- [Data products](data-products.md "data-products.md")
+- [Data inventory and publishing](data-publishing.md "data-publishing.md")
+- [Data discovery, subscription, and consumption](discover-data.md "discover-data.md")
+- [Fine-grained access control to data](fine-grained-access-control.md "fine-grained-access-control.md")

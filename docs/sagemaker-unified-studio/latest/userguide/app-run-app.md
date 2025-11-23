@@ -40,7 +40,7 @@ npm install @aws-sdk/client-bedrock-agent
 ## Run the app
 
 To run your app, you need an IAM role with with permissions to invoke Amazon Bedrock
-resources. When you deploy the app, the AWS CloudFormation stack deployed through
+resources. When you deploy the app, the CloudFormation stack deployed through
 `deployApp.sh` script provisions a suitable policy in your AWS account (declared in `invocation-policy-*.json`).
 
 ###### To run the app

@@ -6,8 +6,8 @@ fields.
 ###### To use the Aggregate transform
 
 1. Add the Aggregate node to the visual job diagram.
-2. (Optional) Click on the rename node icon to enter a new name for the node in the
-   job diagram.
+2. (Optional) Click on the rename node icon to enter a new name for the node in the job
+   diagram.
 3. On the Node properties view, choose the "fields to group by", selecting the
    drop-down field (optional). You can select more than one field at a time or search for a
    field name by typing in the search bar.

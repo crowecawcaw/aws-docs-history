@@ -6,8 +6,7 @@ There are two ways to schedule queries in Amazon SageMaker Unified Studio.
   query quickly. The following sections contain information about this method.
 - You can schedule your queries using a DAG and the workflows interface. This way you can
   combine multiple elements in the same schedule. For more information about this method, see
-  [Using
-  workflows in Amazon SageMaker Unified Studio](workflow-orchestration.md "workflow-orchestration.md").
+  [Using workflows in Amazon SageMaker Unified Studio](workflow-orchestration.md "workflow-orchestration.md").
 
 ## Create a schedule for a query in Amazon SageMaker Unified Studio
 

@@ -1,15 +1,19 @@
 # Catalogs, databases, and tables
 
-If your `Connection` is of the `LAKEHOUSE` or `IAM` type, you can retrieve catalogs, databases, and tables within a project.
+If your `Connection` is of the `LAKEHOUSE` or
+`IAM` type, you can retrieve catalogs, databases, and tables
+within a project.
 
 ## Catalogs
 
-If your `Connection` is of the `LAKEHOUSE` or `IAM` type, you can retrieve a list of catalogs or a single catalog by providing its `id`.
+If your Connection is of the `LAKEHOUSE` or `IAM` type, you can retrieve a list of catalogs, or a single catalog by providing its id.
 
 ```
-conn_catalogs: List[Catalog] = proj.connection("`project.iam`").catalogs
-my_catalog: Catalog = proj.connection("`project.iam`").catalog("`123456789012:catalog1/sub_catalog`")
-proj.connection("`project.default_lakehouse`").catalogs
+
+conn_catalogs: List[Catalog] = proj.connection().catalogs
+my_default_catalog: Catalog = proj.connection().catalog()
+my_catalog: Catalog = proj.connection().catalog("1234567890:catalog1/sub_catalog")
+proj.connection("<lakehouse_connection_name>").catalogs
 
 ```
 
@@ -27,7 +31,8 @@ my_catalog.resource_arn
 
 ## Databases
 
-You can retrieve a list of databases or a single database within a catalog by providing its name.
+You can retrieve a list of databases or a single database within a catalog
+by providing its name.
 
 ```
 
@@ -37,7 +42,8 @@ my_db: Database = my_catalog.database("my_db")
 
 ```
 
-Each `Database` object has several properties that can provide information about the database.
+Each `Database` object has several properties that can provide
+information about the database.
 
 ```
 
@@ -51,7 +57,8 @@ my_db.domain_id
 
 ## Tables
 
-You can also retrieve a list of tables or a specific table within a `Database`.
+You can also retrieve a list of tables or a specific table within a
+`Database`.
 
 ```
 
@@ -60,7 +67,8 @@ my_table: Table = my_db.table("my_table")
 
 ```
 
-Each `Table` object has several properties that can provide information about the table.
+Each `Table` object has several properties that can provide
+information about the table.
 
 ```
 
@@ -71,7 +79,9 @@ my_table.location
 
 ```
 
-You can also retrieve a list of the columns within a table. `Column` contains the column name and the data type of the column.
+You can also retrieve a list of the columns within a table.
+`Column` contains the column name and the data type of the
+column.
 
 ```
 

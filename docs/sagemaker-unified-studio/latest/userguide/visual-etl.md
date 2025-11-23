@@ -17,24 +17,25 @@ You can use Visual ETL to implement solutions such as:
 - Creating data warehouses or data lakes
 - Preparing data for machine learning models
 - Automating regular data processing tasks
-  Authoring flows with Visual ETL utilizes AWS Glue interactive sessions
-  Version 5.0.
+  Authoring flows with Visual ETL utilizes AWS Glue interactive sessions Version
+  5.0.
 
-## Key features
+Amazon SageMaker Unified Studio supports Visual ETL in two domain types:
 
-Visual ETL offers several capabilities to streamline your data workflows:
+- **IAM-based domains** - New domain type where customers log
+  into Amazon SageMaker Unified Studio using federated roles and existing IAM permissions apply when using
+  Amazon SageMaker Unified Studio IAM-based domains. Provides access to a new Amazon SageMaker Unified Studio interface.
+- **Identity Center-based domains** - Original Amazon SageMaker Unified Studio
+  interface and user experience that continues to be supported and maintained.
+  While workflows are similar across both domain types, the steps to complete actions differ
+  between the two interfaces. Choose the appropriate section below based on your domain
+  type.
 
-1. Drag-and-drop interface: Create Visual ETL flows by dragging
-   and connecting components on a canvas.
-2. Wide range of data connectors: Connect to various data sources and destinations,
-   including databases, file systems, cloud storage, and APIs.
-3. Extensive transformation library: Apply a variety of pre-built transformations to your
-   data, such as filtering, aggregation, joining, and data type conversions.
-4. Custom transformations: Create and save custom transformations using SQL or Python for
-   reuse in multiple flows.
-5. Data preview: Visualize your data at each step of the authoring process to ensure
-   accuracy and data quality.
-6. View scripts: View the code generated and choose to convert the flow to a notebook and
-   continue authoring with code.
-7. Code and compute configuration: Use a configuration panel to add code libraries and
-   adjust the compute settings.
+###### Topics
+
+- [Supported connectors for Visual ETL](connectors-visual-etl.md "connectors-visual-etl.md")
+- [Supported transforms for
+  Visual ETL](visual-etl-supported-transforms.md "visual-etl-supported-transforms.md")
+- [Visual ETL for IAM-based domains](visual-etl-iam-domains.md "visual-etl-iam-domains.md")
+- [Visual ETL for Identity Center-based
+  domains](visual-etl-identity-center-domains.md "visual-etl-identity-center-domains.md")
