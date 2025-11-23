@@ -186,9 +186,9 @@ attempted-to-deliver events will be subject to standard CloudTrail charges. To a
 charges on a misconfigured trail, you need to delete the trail.
 
 CloudTrail captures actions made directly by the user or on behalf of the user by an
-AWS service. For example, an AWS CloudFormation `CreateStack` call can result in
+AWS service. For example, an CloudFormation `CreateStack` call can result in
 additional API calls to Amazon EC2, Amazon RDS, Amazon EBS, or other services as required by the
-AWS CloudFormation template. This behavior is normal and expected. You can identify if the action
+CloudFormation template. This behavior is normal and expected. You can identify if the action
 was taken by an AWS service with the `invokedby` field in the CloudTrail
 event.
 

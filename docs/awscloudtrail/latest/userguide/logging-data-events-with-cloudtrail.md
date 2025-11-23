@@ -32,7 +32,7 @@ for these S3 objects are available in Amazon EventBridge. For more information, 
 ###### Contents
 
 - [Data events](logging-data-events-with-cloudtrail.md#logging-data-events "logging-data-events-with-cloudtrail.md#logging-data-events")
-  - [Data events supported by AWS CloudTrail](logging-data-events-with-cloudtrail.md#w33aac21c31c19c11 "logging-data-events-with-cloudtrail.md#w33aac21c31c19c11")
+  - [Data events supported by AWS CloudTrail](logging-data-events-with-cloudtrail.md#w2aac21c31c19c11 "logging-data-events-with-cloudtrail.md#w2aac21c31c19c11")
   - [Examples: Logging data events for
     Amazon S3 objects](logging-data-events-with-cloudtrail.md#logging-data-events-examples "logging-data-events-with-cloudtrail.md#logging-data-events-examples")
   - [Logging
@@ -70,6 +70,11 @@ for these S3 objects are available in Amazon EventBridge. For more information, 
     - [Example 3: Filtering on
       the resources.type and eventName fields to exclude
       individual objects deleted by an Amazon S3 DeleteObjects event](filtering-data-events.md#filtering-data-events-deleteobjects "filtering-data-events.md#filtering-data-events-deleteobjects")
+
+- [Aggregating data events](aggregating-data-events.md "aggregating-data-events.md")
+  - [Enabling aggregations for data events for Amazon S3 objects using the AWS CLI](aggregating-data-events.md#aggregating-data-events-cli "aggregating-data-events.md#aggregating-data-events-cli")
+    - [Example: API_ACTIVITY aggregated event](aggregating-data-events.md#aggregating-data-events-api-activity-example "aggregating-data-events.md#aggregating-data-events-api-activity-example")
+    - [Example: RESOURCE_ACCESS aggregated event](aggregating-data-events.md#aggregating-data-events-resource-access-example "aggregating-data-events.md#aggregating-data-events-resource-access-example")
 
 - [Logging data events for AWS Config
   compliance](logging-data-events-with-cloudtrail.md#config-data-events-best-practices "logging-data-events-with-cloudtrail.md#config-data-events-best-practices")

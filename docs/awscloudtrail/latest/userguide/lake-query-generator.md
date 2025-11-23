@@ -269,7 +269,7 @@ ORDER BY 2 DESC;
 ```
 
 **Prompt:**
-Give me all event IDs that touched resources within the AWS CloudFormation stack with name
+Give me all event IDs that touched resources within the CloudFormation stack with name
 myStack on the date 2024-05-01.
 
 **SQL query:**

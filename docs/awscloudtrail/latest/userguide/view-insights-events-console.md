@@ -14,11 +14,11 @@ You can monitor your trail logs and be notified when specific Insights events oc
 
 ###### Note
 
-CloudTrail Insights events must be enabled on your trail to see Insights events in the console. Allow up to
-36 hours for CloudTrail to deliver the first Insights events, provided that unusual activity is detected during that time.
-
-To log Insights events on the API call rate, the trail must log `write` management events.
-To log Insights events on the API error rate, the trail must log `read` or `write` management events.
+- CloudTrail Insights events must be enabled on your trail to see Insights events in the console. Allow up to
+  36 hours for CloudTrail to deliver the first Insights events, provided that unusual activity is detected during that time.
+- For Management events Insights: To log Insights events on the API call rate, the trail must log `write` management events.
+  To log Insights events on the API error rate, the trail must log `read` or `write` management events.
+- For Data events Insights: To log Insights events on the API call rate or API error rate, the trail must log `read` or `write` data events.
 
 ###### To view Insights events
 
@@ -26,9 +26,10 @@ To log Insights events on the API error rate, the trail must log `read` or `writ
 2. In the navigation pane, choose **Insights** to see all Insights events logged in your
    account in the last 90 days. You can also view the five most recent Insights events
    from the **Dashboards** page.
-3. On the **Insights** page, you can filter Insights events by event source, event name, or event ID. For more information about
+3. On the **Insights** page, you can select either the management events Insights or data events Insights tab
+4. You can filter Insights events by event source, event name, or event ID. For more information about
    filtering Insights events, see [Filtering Insights events](#filtering-insights-events "#filtering-insights-events").
-4. You can further limit the list to a **Relative range** or **Absolute range**.
+5. You can further limit the list to a **Relative range** or **Absolute range**.
 
 ###### Contents
 
@@ -60,7 +61,7 @@ scroll through a list of event sources.
 
 The ID of the Insights event. Event IDs are not shown in the
 **Insights** page table, but they are an attribute on
-which you can filter Insights events. The event IDs of management events that are
+which you can filter Insights events. The event IDs of management or data events that are
 analyzed to generate Insights events are different from the event IDs of
 Insights events.
 
@@ -72,9 +73,9 @@ The following list describes the attributes of an event, which are not filterabl
 
 The type of CloudTrail Insights event, which is either **API call rate**
 or **API error rate**. The **API call rate** insight type
-analyzes write-only management API calls that are aggregated per minute against
+analyzes write-only management or data API calls that are aggregated per minute against
 a baseline API call volume. The **API error rate** insight type analyzes
-management API calls that result in error codes. The error is shown if the API call is
+management or data API calls that result in error codes. The error is shown if the API call is
 unsuccessful.
 
 **Event start time**
@@ -178,7 +179,7 @@ information** area of the graph:
      error rate.
     * **Trigger**. This is a link to the
      **Cloudtrail events** tab, which lists the
-     management events that were analyzed to determine that unusual activity
+     management or data events that were analyzed to determine that unusual activity
      occurred.
     * **API calls per minute** or **Errors per minute**
 
@@ -226,7 +227,7 @@ information** area of the graph:
 4. On the **CloudTrail events** tab, view related events that CloudTrail
    analyzed to determine that unusual activity occurred. By default, a filter is
    already applied for the Insights event name, which is also the name of the
-   related API. The **CloudTrail events** tab shows CloudTrail management
+   related API. The **CloudTrail events** tab shows CloudTrail management or data
    events related to the subject API that occurred between the start time (minus
    one minute) and end time (plus one minute) of the Insights event.
 

@@ -32,7 +32,10 @@ file has a formatted name that includes the following elements:
 - The (optional) prefix you specified when you created your trail
 - The string "AWSLogs"
 - The account number
-- The string "CloudTrail"
+- The string "CloudTrail" for data, management events
+- The string "CloudTrail-Insight" for insights events
+- The string "CloudTrail-NetworkActivity" for network activity events
+- The string "CloudTrail-Aggregated" for aggregated events for data events
 - A Region identifier such as us-west-1
 - The year the log file was published in `YYYY` format
 - The month the log file was published in `MM` format
@@ -40,10 +43,28 @@ file has a formatted name that includes the following elements:
 - An alphanumeric string that disambiguates the file from others that cover the
   same time period
 
-The following example shows a complete log file object name:
+The following example shows a complete log file object name for data, management events:
 
 ```
 `amzn-s3-demo-bucket`/`prefix_name`/AWSLogs/`Account ID`/CloudTrail/`region`/`YYYY`/`MM`/`DD`/`file_name.json.gz`
+```
+
+The following example shows a complete log file object name for insight events:
+
+```
+`amzn-s3-demo-bucket`/`prefix_name`/AWSLogs/`Account ID`/CloudTrail-Insight/`region`/`YYYY`/`MM`/`DD`/`file_name.json.gz`
+```
+
+The following example shows a complete log file object name for network activity events:
+
+```
+`amzn-s3-demo-bucket`/`prefix_name`/AWSLogs/`Account ID`/CloudTrail-NetworkActivity/`region`/`YYYY`/`MM`/`DD`/`file_name.json.gz`
+```
+
+The following example shows a complete log file object name for data event aggregations:
+
+```
+`amzn-s3-demo-bucket`/`prefix_name`/AWSLogs/`Account ID`/CloudTrail-Aggregated/`region`/`YYYY`/`MM`/`DD`/`file_name.json.gz`
 ```
 
 ###### Note

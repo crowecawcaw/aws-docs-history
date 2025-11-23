@@ -30,13 +30,9 @@ Use the following procedure to enable CloudTrail Insights on an existing trail.
 Additional charges apply for logging Insights events. For CloudTrail pricing, see
 [AWS CloudTrail
 Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/"). 3. In **Event type**, choose **Insights
-events**. 4. In **Insights events**, under **Choose Insights
-types**, choose **API call rate**,
-**API error rate**, or both. Your trail must be logging
-**Write** management events to log Insights events for
-**API call rate**. Your trail must be logging
-**Read** or **Write** management
-events to log Insights events for **API error rate**. 5. Choose **Save changes** to save your changes.
+events**. 4. In **Insights events** choose **management events** or **data events** 5. Under **Insights types**, choose **API call rate, API error rate,** or both.
+Your trail must be logging **Write** management or data events to log Insights events for **API call rate**.
+Your trail must be logging **Read** or **Write** management or data to log Insights events for **API error rate**. 6. Choose **Save changes** to save your changes.
 
 CloudTrail may take up to 36 hours to begin delivering Insights events after you enable
 Insights events on a trail, provided that unusual activity is detected during that

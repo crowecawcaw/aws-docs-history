@@ -389,7 +389,7 @@ dashboard
 This dashboard provides a comprehensive view of resource management
 activities, monitoring trends in provisioning, deletion, and modifications
 across services. It highlights critical changes, including those made through
-AWS CloudFormation, manually, and to policies like S3 bucket and KMS access.
+CloudFormation, manually, and to policies like S3 bucket and KMS access.
 
 This dashboard is available for event data stores that collect management
 events and includes the following widgets:

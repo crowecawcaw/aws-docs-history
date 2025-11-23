@@ -165,7 +165,7 @@ applied and the value is set to **false**.
 **Resource name**
 
 The name or ID of the resource referenced by the event. For example, the
-resource name might be "auto-scaling-test-group" for an Auto Scaling group or
+resource name might be "auto-scaling-test-group" for an Amazon EC2 Auto Scaling group or
 "i-12345678910" for an EC2 instance.
 
 **Resource type**

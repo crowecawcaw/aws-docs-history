@@ -7,6 +7,10 @@ typical usage patterns.
 Where CloudTrail delivers events and how long it takes to receive Insights events differs between
 trails and event data stores.
 
+###### Note
+
+Insights events on data events are only supported on trails.
+
 **Insights events delivery for trails**
 
 If you've enabled Insights events on a trail and CloudTrail detects unusual activity, CloudTrail delivers

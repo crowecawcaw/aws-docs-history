@@ -1,28 +1,44 @@
 # Working with CloudTrail Insights
 
 AWS CloudTrail Insights help AWS users identify and respond to unusual activity associated with API
-call rates and API error rates by continuously analyzing CloudTrail management events. CloudTrail Insights
-analyzes your past management events to establish your normal patterns of API call rates and
+call rates and API error rates by continuously analyzing CloudTrail management and data events. CloudTrail Insights
+analyzes your past management and data events to establish your normal patterns of API call rates and
 API error rates, also called the _baseline_. CloudTrail then generates Insights events
 when the current API call rates or error rates deviate from the baseline.
 
-You can collect two types of Insights:
+You can collect two types of Insights, each for management and data events.
+
+**Management events Insights**
 
 - **API call rate** – A measurement of write-only management
-  API calls that occur per minute against a baseline API call volume. To log Insights events on the API call rate, the trail or event data store must enable Insights and log
+  API calls that occur per minute against a baseline API call volume. To log Insights events on the API call rate for management events, the trail or event data store must enable Insights and log
   `write` management events.
 - **API error rate** – A measurement of management API calls
   that result in error codes. The error is shown if the API call is unsuccessful. To
   log Insights events on API error rate, the trail or event data store must enable Insights and
   log `read` or `write` management events, or both
   `read` and `write` management events.
-  CloudTrail Insights analyzes the management events that occur in each Region for the trail or event data
-  store and generates an Insights event when unusual activity is detected that deviates from the
-  baseline. A CloudTrail Insights event is generated in the same Region as its supporting management event
-  is generated.
+  **Data events Insights**
 
-Additional charges apply for Insights events. You will be charged separately if you enable Insights
-for both trails and event data stores. For more information, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+- **API call rate** – A measurement of data
+  API calls that occur per minute against a baseline API call volume. To log Insights events on the API call rate, the trail must enable Insights and log
+  data events.
+- **API error rate** – A measurement of data API calls
+  that result in error codes. The error is shown if the API call is unsuccessful. To
+  log Insights events on API error rate, the trail must enable Insights and
+  log `read` or `write` data events, or both
+  `read` and `write` data events.
+
+###### Note
+
+Insights events on data events are only supported on trails and not on event data stores.
+
+CloudTrail Insights analyzes the management and data events that occur in each Region and generates an Insights event when unusual activity is detected that deviates from the
+baseline. A CloudTrail Insights event is generated in the same Region as its supporting management or data event
+is generated.
+
+Additional charges apply for Insights events. You will be charged separately if you enable management events Insights
+for both trails and event data stores, and data events Insights. For more information, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
 
 ###### Topics
 

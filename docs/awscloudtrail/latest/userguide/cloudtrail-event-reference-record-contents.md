@@ -79,7 +79,7 @@ The service that the request was made to. This name is typically a short form
 of the service name without spaces plus `.amazonaws.com`. For
 example:
 
-- AWS CloudFormation is `cloudformation.amazonaws.com`.
+- CloudFormation is `cloudformation.amazonaws.com`.
 - Amazon EC2 is `ec2.amazonaws.com`.
 - Amazon Simple Workflow Service is `swf.amazonaws.com`.
 
@@ -560,6 +560,11 @@ the CloudTrail event.
 - **`clientProvidedHostHeader`** - The
   client-provided host name used in the service API call, which is
   typically the FQDN of the service endpoint.
+- **`keyExchange`** - The key exchange
+  method used in the TLS handshake. This field indicates whether the connection
+  used classical cryptography or post-quantum cryptography. Example values include
+  `X25519MLKEM768` for post-quantum TLS 1.3, `x25519` for
+  classical TLS 1.3, and `secp256r1` for TLS 1.2.
 
 ###### Note
 

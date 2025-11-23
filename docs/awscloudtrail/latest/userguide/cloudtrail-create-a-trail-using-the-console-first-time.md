@@ -345,9 +345,14 @@ you may use `StartsWith`, `EndsWith`, `NotStartsWith`, or `NotEndsWith` to expli
 16. To add another resource type on which to log data events, choose **Add
     data event type**. Repeat steps 12 through this step to configure
     advanced event selectors for the resource type.
-17. To log network activity events, choose **Network activity events**.
-    Network activity events enable VPC endpoint owners to record AWS API calls made using their VPC endpoints from a private VPC to the AWS service. Additional charges apply
-    for logging network activity events. For more information, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+17. To enable aggregation on data events, choose one or more aggregation templates. These templates define how your data events will be summarized. You can choose from the following templates:
+    1.  **API Activity** to get 5-minute summaries of your data events based on the API calls made. Use this to understand your API usage patterns, including frequency, callers, and source.
+    2.  **Resource Access** to get the activity patterns on your AWS resources. Use this to understand how your AWS resources are being accessed, how many times they are being accessed in the 5-minute window, who is accessing the resource, and what actions are being performed.
+    3.  **User Actions** to get activity patterns based on IAM principals making API calls in your account.###### Note
+
+Aggregations apply to all data events collected in your trail. 18. To log network activity events, choose **Network activity events**.
+Network activity events enable VPC endpoint owners to record AWS API calls made using their VPC endpoints from a private VPC to the AWS service. Additional charges apply
+for logging network activity events. For more information, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
 
 To log network activity events, do the following:
 
@@ -380,7 +385,7 @@ To log network activity events, do the following:
     6. Optionally, expand **JSON view** to see your
      advanced event selectors as a JSON block.
 
-18. Choose **Insights events** if you want your trail to log CloudTrail
+19. Choose **Insights events** if you want your trail to log CloudTrail
     Insights events.
 
 In **Event type**, select **Insights
@@ -401,11 +406,11 @@ the **Storage location** area of the trail details page. CloudTrail
 creates the new prefix for you. For example, if your current destination S3
 bucket is named `amzn-s3-demo-bucket/AWSLogs/CloudTrail/`, the S3 bucket
 name with a new prefix is named
-`amzn-s3-demo-bucket/AWSLogs/CloudTrail-Insight/`. 19. When you are finished choosing event types to log, choose
-**Next**. 20. On the **Review and create** page, review your choices.
+`amzn-s3-demo-bucket/AWSLogs/CloudTrail-Insight/`. 20. When you are finished choosing event types to log, choose
+**Next**. 21. On the **Review and create** page, review your choices.
 Choose **Edit** in a section to change the trail settings
 shown in that section. When you are ready to create the trail, choose
-**Create trail**. 21. The new trail appears on the **Trails** page. In about 5 minutes,
+**Create trail**. 22. The new trail appears on the **Trails** page. In about 5 minutes,
 CloudTrail publishes log files that show the
 AWS API calls made in your account. You can see the log files in the S3
 bucket that you specified.

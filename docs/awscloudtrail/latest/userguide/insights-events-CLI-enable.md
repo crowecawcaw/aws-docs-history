@@ -5,10 +5,10 @@ using the AWS CLI.
 
 ###### Note
 
-To log Insights events on the API call rate, the trail or event data store must log
-`write` management events. To log Insights events on the API error rate, the trail
-or event data store must log `read` or `write` management
-events.
+For Management events Insights: To log Insights events on the API call rate, the trail or event data store must log `write` management events.
+To log Insights events on the API error rate, the trail or event data store must log `read` or `write` management.
+
+For Data events Insights: To log Insights events on the API call rate or API error rate, the trail must log `read` or `write` data events.
 
 ###### Topics
 
@@ -36,10 +36,18 @@ The following example response shows the Insights selectors for a trail named
     "TrailARN": "arn:aws:cloudtrail:us-east-1:123456789012:trail/insights-trail",
     "InsightSelectors": [
         {
-            "InsightType": "ApiCallRateInsight"
+            "InsightType": "ApiCallRateInsight",
+            "EventCategories": [
+                "Management",
+                "Data"
+            ]
         },
         {
-            "InsightType": "ApiErrorRateInsight"
+            "InsightType": "ApiErrorRateInsight",
+            "EventCategories": [
+                "Management",
+                "Data"
+            ]
         }
     ]
 }
@@ -56,10 +64,10 @@ operation again."
 To configure your trail to log Insights events, run the `put-insight-selectors`
 command. The following example shows how to configure your trail to include Insights events.
 Insights selector values can be `ApiCallRateInsight`,
-`ApiErrorRateInsight`, or both.
+`ApiErrorRateInsight`, or both. Each InsightType can be enabled for management EventCategory or data EventCategory or both.
 
 ```
-aws cloudtrail put-insight-selectors --trail-name `TrailName` --insight-selectors '[{"InsightType": "ApiCallRateInsight"},{"InsightType": "ApiErrorRateInsight"}]'
+aws cloudtrail put-insight-selectors --trail-name `TrailName` --insight-selectors '[{"InsightType": "ApiCallRateInsight", "EventCategories": ["Data"]},{"InsightType": "ApiErrorRateInsight", "EventCategories": ["Data", "Management"]}]'
 ```
 
 The following result shows the Insights event selector that is configured for the
@@ -71,10 +79,17 @@ trail.
   "InsightSelectors":
       [
          {
-            "InsightType": "ApiErrorRateInsight"
+            "InsightType": "ApiErrorRateInsight",
+            "EventCategories": [
+                "Data"
+            ]
          },
          {
-            "InsightType": "ApiCallRateInsight"
+            "InsightType": "ApiCallRateInsight",
+            "EventCategories": [
+                "Data",
+                "Management"
+            ]
          }
       ]
  }

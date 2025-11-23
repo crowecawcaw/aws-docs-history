@@ -11,7 +11,7 @@ Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/clou
   options](#cloudtrail-lake-manage-costs-pricing-option "#cloudtrail-lake-manage-costs-pricing-option")
 - [Understanding CloudTrail Lake charges](#cloudtrail-lake-charges "#cloudtrail-lake-charges")
 - [Recommendations for how you can reduce costs](#cloudtrail-lake-manage-costs-recommendations "#cloudtrail-lake-manage-costs-recommendations")
-- [See also](#w33aab9c23c13 "#w33aab9c23c13")
+- [See also](#w2aab9c23c13 "#w2aab9c23c13")
 
 ## Event data store pricing
 

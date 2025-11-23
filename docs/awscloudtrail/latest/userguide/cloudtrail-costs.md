@@ -8,7 +8,7 @@ For details about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.a
 ###### To view CloudTrail cost and usage with Cost Explorer
 
 1. Sign in to the AWS Management Console and open the Cost Explorer console
-   at [https://console.aws.amazon.com/cost-management/home#/custom](https://console.aws.amazon.com/https://console.aws.amazon.com/cost-management/home#/custom "https://console.aws.amazon.com/https://console.aws.amazon.com/cost-management/home#/custom").
+   at [https://console.aws.amazon.com/cost-management/home#/custom](https://console.aws.amazon.com/cost-management/home#/custom "https://console.aws.amazon.com/cost-management/home#/custom").
 2. Under **Time**, choose the date range you want to analyze.
 3. Under **Group by**, for **Dimension**, choose **Usage type**.
 4. Under **Filters**, for **Service**, choose **CloudTrail**.
