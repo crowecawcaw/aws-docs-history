@@ -695,7 +695,7 @@ This parameter is optional.
 
 ## ProxyPwd
 
-- Default Value – None
+- Default ValPrevious ODBC driver versionsue – None
 - Data Type – String
 
 The password that you use to access the proxy server.

@@ -17,11 +17,13 @@ information, see [Quotas for Amazon Redshift Serverless objects](amazon-redshift
 When you DECLARE a cursor, the result-set size specifications for
 Amazon Redshift Serverless is specified in [DECLARE](../dg/declare.md "../dg/declare.md"). Amazon Redshift Serverless has a cursor maximum total result set size of 150,000 MB.
 
-_Maintenance window_ – There is no maintenance window
-with Amazon Redshift Serverless. Software version updates are automatically applied. There's
-no interruption for existing connection or query execution when Amazon Redshift switches
-versions. New connections will always connect and work with Amazon Redshift Serverless
-instantly.
+_Maintenance Window_ – Amazon Redshift Serverless offers automatic
+software updates without requiring traditional maintenance windows. When a new update is available,
+the system applies it within 14 days of release during idle periods. The update process typically
+takes up to 15 minutes. If no 15-minute idle period occurs within 14 days, your Serverless endpoint
+may experience brief unavailability. During this time, application connections to endpoints may fail.
+You can monitor Redshift patch releases in the "Cluster versions for Amazon Redshift" documentation.
+For information about Amazon Redshift Serverless SLAs, see [Amazon Redshift Service Level Agreement](https://aws.amazon.com/redshift/sla/ "https://aws.amazon.com/redshift/sla/").
 
 _Track_ – When Amazon Redshift releases a new workgroup version, your
 workgroup is updated automatically. You can control whether your workgroup is updated to the most

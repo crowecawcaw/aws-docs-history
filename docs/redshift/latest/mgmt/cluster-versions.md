@@ -26,6 +26,7 @@ and avoid potential disruptions to your workloads, see
 
 ###### Topics
 
+- [Amazon Redshift patch 197](#cluster-version-197 "#cluster-version-197")
 - [Amazon Redshift patch 196](#cluster-version-196 "#cluster-version-196")
 - [Amazon Redshift patch 195](#cluster-version-195 "#cluster-version-195")
 - [Amazon Redshift patch 194](#cluster-version-194 "#cluster-version-194")
@@ -56,10 +57,46 @@ and avoid potential disruptions to your workloads, see
 - [Amazon Redshift patch 169](#cluster-version-169 "#cluster-version-169")
 - [Amazon Redshift patch 168](#cluster-version-168 "#cluster-version-168")
 
+## Amazon Redshift patch 197
+
+Cluster versions in this patch:
+
+- 1.0.166219 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
+  version – Released on November 21, 2025
+
+### New features and improvements in this patch
+
+- Added support to store strings literals up to 16,000,000 bytes within the SUPER data types
+- Added GET_NUMBER_ATTRIBUTES(super_object) function that returns the total number of attributes contained within a SUPER object.
+- Release patch compatibility restrictions are enforced for table restore operations. When attempting to restore a table, the backup can only be used on clusters running the same patch version as when the backup was created, one patch version lower than the backup, or any patch version higher than the backup.
+- Enhanced the LIKE operator to properly handle trailing whitespaces in patterns when using CHAR datatype.
+- Introduced 4 new spatial H3 functions operating on cell hierarchies: H3_Resolution, H3_ToParent, H3_ToChildren and H3_IsValid.
+- Enables Amazon Redshift Federated Permissions that simplifies permissions management across multiple Redshift data warehouses by enabling you to define data permissions once and automatically enforce them across all warehouses in your AWS account.
+- Enables object-level grants, fine-grained column-level access control, scoped permissions grants and database-level grants on Amazon Redshift Federated Permissions Catalog objects.
+- Enables CREATE, ALTER, ATTACH, DETACH and DROP RLS policy operations on Amazon Redshift Federated Permissions Catalog.
+- Enables the ability to turn on or off row-level security for relations in Amazon Redshift Federated Permissions Catalog.
+- Enable CREATE, ALTER, ATTACH, DETACH and DROP masking policy operations on Amazon Redshift Federated Permissions Catalog objects.
+- Enables SHOW POLICIES to show RLS and Masking policies on a connected database and attachments on relations in Amazon Redshift Federated Permissions Catalog objects.
+- Enables database users to assume an IAM role to query on an Amazon Redshift Federated Permissions Catalog objects.
+- Enhanced SHOW GRANTS command to support cross-database grant visibility within the same Redshift cluster.
+- Added support for SHOW COLUMN GRANTS command to simplify discovery of column-level access controls.
+- Added support for SHOW PROCEDURES command to simplify discovery of stored procedure metadata discovery.
+- Added support for SHOW FUNCTIONS command to simplify discovery of user-defined function metadata.
+- Introduced SHOW PARAMETERS command to display parameter metadata for functions and stored procedures.
+- Introduced SHOW CONSTRAINTS command to display constraint metadata for functions and stored procedures.
+- Added support for CREATE/CREATE OR REPLACE/DROP VIEW operations on Amazon Redshift Federated Permissions Catalog and on cross-database within the same Redshift cluster.
+- Improved constant strings collation handling in some INTERSECT or EXCEPT queries.
+- Enhanced SHOW TABLES to display a warning message instead of failing when FAS credentials are missing for AWS Glue Data Catalog access.
+- Enhanced SHOW COLUMNS command with additional metadata columns for sort keys, distribution style, encoding, and collation information.
+- Added grantor_name column to SHOW GRANTS output and standardized database_name inclusion across all SHOW GRANTS result sets.
+- Enhanced SHOW TABLES command with additional columns: table_owner, last_altered_time, last_modified_time, dist_style, and table_sub_type.
+
 ## Amazon Redshift patch 196
 
 Cluster versions in this patch:
 
+- 1.0.163480 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
+  version – Released on November 19, 2025
 - 1.0.160807 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
   version – Released on November 13, 2025
 - 1.0.155905 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
@@ -67,13 +104,14 @@ Cluster versions in this patch:
 
 ### New features and improvements in this patch
 
+- Optimized the plans for correlated IN and EXISTS subqueries by decorrelating them into semi joins.
 - Extended the SHOW TABLE command to include collation information for every column.
-- Enhanced the LIKE operator to properly handle trailing whitespaces in patterns when using CHAR datatype.
 
 ## Amazon Redshift patch 195
 
 Cluster versions in this patch:
 
+- 1.0.162991 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on November 17, 2025
 - 1.0.160706 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on November 13, 2025
 - 1.0.151179 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on November 4, 2025
 - 1.0.148180 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on November 3, 2025
@@ -82,6 +120,7 @@ Cluster versions in this patch:
 
 ### New features and improvements in this patch
 
+- Adds support for writing to Iceberg tables using CREATE TABLE , CREATE TABLE AS SELECT, INSERT INTO, SQL commands.
 - Adds support for the SUPER data type in databases with case-insensitive collation.
 - Updates the IANA Time Zone Database database version to 2025b.
 - Adds support for the TZDB_VERSION function. This
@@ -95,7 +134,7 @@ Cluster versions in this patch:
 - Adds support for the JIT (Just In Time) ANALYZE feature.
   JIT ANALYZE automatically, intelligently, and efficiently collects the minimal set
   of statistics that Amazon Redshift's query optimizer needs to generate efficient query
-  exuection plans, allowing customers to achieve best price-performance
+  execution plans, allowing customers to achieve best price-performance
   for Apache Iceberg out-of-box (OOB) queries and workloads.
 
 ## Amazon Redshift patch 194

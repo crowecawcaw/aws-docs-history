@@ -30,7 +30,7 @@ AWS SDK for Java 1.11.118 or later in your Java class path. If you don't have AW
 installed, download the ZIP file with JDBC 4.2–compatible driver and driver dependent
 libraries for the AWS SDK:
 
-- [JDBC 4.2–compatible driver version 2.x and AWS SDK driver–dependent libraries](https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.2.0/redshift-jdbc42-2.2.0.zip "https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.2.0/redshift-jdbc42-2.2.0.zip")
+- [JDBC 4.2–compatible driver version 2.x and AWS SDK driver–dependent libraries](https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.2.1/redshift-jdbc42-2.2.1.zip "https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.2.1/redshift-jdbc42-2.2.1.zip")
 
 This ZIP file contains the JDBC 4.2–compatible driver version 2.x and
 AWS SDK for Java 1.x driver–dependent library files. Unzip the
@@ -48,7 +48,7 @@ database authentication.
 To install the complete AWS SDK for Java 1.x, see [AWS SDK for Java 1.x](../../../sdk-for-java/v1/developer-guide/welcome.md "../../../sdk-for-java/v1/developer-guide/welcome.md") in the _AWS SDK for Java Developer
 Guide_.
 
-- [JDBC 4.2–compatible driver version 2.x (without the AWS SDK)](https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.2.0/redshift-jdbc42-2.2.0.jar "https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.2.0/redshift-jdbc42-2.2.0.jar")
+- [JDBC 4.2–compatible driver version 2.x (without the AWS SDK)](https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.2.1/redshift-jdbc42-2.2.1.jar "https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.2.1/redshift-jdbc42-2.2.1.jar")
   Review the JDBC driver version 2.x software license and change log file:
 
 - [JDBC driver version 2.x license](https://github.com/aws/amazon-redshift-jdbc-driver/blob/master/LICENSE "https://github.com/aws/amazon-redshift-jdbc-driver/blob/master/LICENSE")

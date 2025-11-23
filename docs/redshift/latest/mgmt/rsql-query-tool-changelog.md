@@ -5,7 +5,13 @@ Existing Python UDFs will continue to function as normal. For more information, 
 
 # Amazon Redshift RSQL change log
 
-_1.1.0 (2025-11-11)_
+_1.1.1 (2025-11-20)_
+
+Bug Fixes
+
+- Fixed an issue where RSQL incorrectly parsed queries when using the -c flag. This fix applies to all platforms.
+- Fix a bug on Mac that prevented users from using the \s command in RSQL.
+  _1.1.0 (2025-11-11)_
 
 Bug Fixes
 

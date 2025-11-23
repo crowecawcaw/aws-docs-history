@@ -3,7 +3,7 @@ If you would like to use Python UDFs, create the UDFs prior to that date.
 Existing Python UDFs will continue to function as normal. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Downloading and installing the Amazon Redshift ODBC driver
+# rs-odbc-msi Amazon Redshift ODBC driver
 
 Use the steps in this section to download and install the Amazon Redshift ODBC
 drivers on a supported Linux distribution. The installation process installs

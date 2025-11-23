@@ -14,6 +14,6 @@ requirements, see the [Amazon Redshift ODBC connector installation and configura
 
 ###### Topics
 
-- [Downloading and installing the Amazon Redshift ODBC driver](odbc-driver-linux-how-to-install.md "odbc-driver-linux-how-to-install.md")
+- [rs-odbc-msi Amazon Redshift ODBC driver](odbc-driver-linux-how-to-install.md "odbc-driver-linux-how-to-install.md")
 - [Using an ODBC driver manager to
   configure the driver](odbc-driver-configure-linux.md "odbc-driver-configure-linux.md")

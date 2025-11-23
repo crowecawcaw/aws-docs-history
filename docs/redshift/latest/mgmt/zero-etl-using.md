@@ -3,174 +3,131 @@ If you would like to use Python UDFs, create the UDFs prior to that date.
 Existing Python UDFs will continue to function as normal. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Querying replicated
+# Viewing zero-ETL integrations
 
-data in Amazon Redshift
+You can view your zero-ETL integrations from the Amazon Redshift console. Here you can view its configuration
+information and current status, and open screens to query and share data.
 
-After you add data to your source, it's replicated in near real time to the Amazon Redshift data
-warehouse, and it's ready for querying. For information about integration metrics and table
-statistics, see [Metrics for zero-ETL integrations](zero-etl-using.md "zero-etl-using.md").
+Amazon Redshift console
+
+###### To view the details of a zero-ETL integration
+
+1. Sign in to the AWS Management Console and open the Amazon Redshift console at
+   [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").
+2. From the left navigation pane, choose either the
+   **Serverless** or **Provisioned clusters**
+   dashboard. Then, choose **Zero-ETL integrations**.
+3. Select the zero-ETL integration that you want to view. For each integration, the
+   following information is provided:
+   - **Integration ID** is the identifier returned when the
+     integration is created.
+   - **Status** can be one of the following:
+     - `Active` – The zero-ETL integration is sending transactional
+       data to the target Amazon Redshift data warehouse.
+     - `Syncing` – The zero-ETL integration has encountered a
+       recoverable error and is reseeding data. Affected tables aren’t available
+       for querying in Amazon Redshift until they finish resyncing.
+     - `Failed` – The zero-ETL integration encountered an
+       unrecoverable event or error that can't be fixed. You must delete and
+       recreate the zero-ETL integration.
+     - `Creating` – The zero-ETL integration is being created.
+     - `Deleting` – The zero-ETL integration is being deleted.
+     - `Needs attention` – The zero-ETL integration encountered an
+       event or error that requires manual intervention to resolve it. To fix the
+       issue, follow the steps in the error message.
+
+   - **Source type** is the type of source data replicating to
+     the target. Types can specify other database managers, such as Aurora MySQL-Compatible Edition,
+     Amazon Aurora PostgreSQL, RDS for MySQL, and from applications (`GlueSAAS`).
+   - **Source ARN** is the ARN of the source data. For most
+     sources this is the ARN of the source database or table. For zero-ETL integration with
+     applications sources, this is the ARN of the AWS Glue connection object.
+   - **Target** is the namespace of the Amazon Redshift data warehouse
+     receiving source data.
+   - **Database** can be one of the following:
+     - `No database` – There is no destination database for
+       the integration.
+     - `Creating` – Amazon Redshift is creating the destination
+       database for the integration.
+     - `Active` – Data is being replicated from the
+       integration source to Amazon Redshift.
+     - `Error` – There is an error with the
+       integration.
+     - `Recovering` – The integration is recovering after
+       the data warehouse restarted.
+     - `Resyncing` – Amazon Redshift is resynchronizing the tables
+       in the integration.
+
+   - **Target type** is the type of Amazon Redshift data
+     warehouse.
+   - **Creation date** is the date and time (UTC) when the
+     integration was created.
 
 ###### Note
 
-As a database is the same as a schema in MySQL, MySQL database level maps to Amazon Redshift schema
-level. Note this mapping difference when you query data replicated from Aurora MySQL or
-RDS for MySQL.
+To view integration details for a data warehouse, choose the details page for
+your provisioned cluster or serverless namespace and then choose the
+**Zero-ETL integrations** tab.
 
-###### To query replicated data
+From the **Zero-ETL integrations** list, you can choose **Query
+data** to jump to Amazon Redshift query editor v2. The Amazon Redshift target database has the [enable_case_sensitive_identifier](../dg/r_enable_case_sensitive_identifier.md "../dg/r_enable_case_sensitive_identifier.md") parameter enabled. When you write SQL, you
+might need to surround schemas, tables, and column names with double quotes
+("<name>"). For more information about querying data in your Amazon Redshift data
+warehouse, see [Querying a database using the query editor v2](query-editor-v2.md "query-editor-v2.md").
 
-1. Navigate to the Amazon Redshift console and choose **Query editor
-   v2**.
-2. Connect to your Amazon Redshift Serverless workgroup or Amazon Redshift provisioned cluster and choose your
-   database from the dropdown list.
-3. Use a SELECT statement to select all replicated data from the schema and table that
-   you created in the source. For case sensitivity, use double quotes (" ") for schema,
-   table, and column names. For example:
+From the **Zero-ETL integrations** list, you can choose **Share
+data** to create a datashare. To create a datashare for the Amazon Redshift database,
+follow the instructions on the **Create datashare** page. Before you
+can share data in your Amazon Redshift database, you must first create a destination database.
+For more information about data sharing, see [Data sharing concepts for
+Amazon Redshift](../dg/concepts.md "../dg/concepts.md").
 
-```
-SELECT * FROM "`schema_name`"."`table_name`";
-```
-
-You can also query the data using the Amazon Redshift Data API.
-
-## Querying replicated data with materialized
-
-views
-
-You can create materialized views in your local Amazon Redshift database to transform data
-replicated through zero-ETL integrations.
-Connect
-to your local database and use cross-database queries to access the destination databases.
-You can use either fully qualified object names with the three-part notation
-(destination-database-name.schema-name.table-name) or create an external schema referencing
-the destination database-schema pair and use the two-part notation
-(external-schema-name.table-name). For more information on cross-database queries, see
-[Querying
-data across databases](../dg/cross-database-overview.md "../dg/cross-database-overview.md").
-
-Use the following example to create and insert sample data into the
-`sales_zetl` and `event_zetl` tables
-from the source `tickit_zetl`. The tables are replicated into the
-Amazon Redshift database `zetl_int_db`.
+To refresh your integration, you can use the [ALTER DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") command. Doing
+so replicates all of the data from your integration source into your destination
+database. The following example refreshes all synced and failed tables within your
+zero-ETL integration.
 
 ```
-CREATE TABLE sales_zetl (
-        salesid integer NOT NULL primary key,
-        eventid integer NOT NULL,
-        pricepaid decimal(8, 2)
-);
-
-CREATE TABLE event_zetl (
-        eventid integer NOT NULL PRIMARY KEY,
-        eventname varchar(200)
-);
-
-INSERT INTO sales_zetl VALUES(1, 1, 3.33);
-INSERT INTO sales_zetl VALUES(2, 2, 4.44);
-INSERT INTO sales_zetl VALUES(3, 2, 5.55);
-
-INSERT INTO event_zetl VALUES(1, "Event 1");
-INSERT INTO event_zetl VALUES(2, "Event 2");
+ALTER DATABASE sample_integration_db INTEGRATION REFRESH ALL tables;
 ```
 
-You can create a materialized view to get total sales per event using the three-part
-notation:
+AWS CLI
+To describe an Amazon DynamoDB zero-ETL integration with Amazon Redshift using the AWS CLI, use the
+`describe-integrations` command with the following options:
+
+- `integration-arn` – Specify the ARN of the DynamoDB integration
+  to describe.
+- `integration-name` – Specify an optional filter that
+  specifies one or more resources to return.
+
+The follow example describes an integration by providing the integration
+ARN.
 
 ```
---three part notation zetl-database-name.schema-name.table-name
-CREATE MATERIALIZED VIEW mv_transformed_sales_per_event_3p
-AUTO REFRESH YES
-AS
-(SELECT eventname, sum(pricepaid) as total_price
-FROM  zetl_int_db.tickit_zetl.sales_zetl S, zetl_int_db.tickit_zetl.event_zetl E
-WHERE S.eventid = E.eventid
-GROUP BY 1);
-```
-
-You can create a materialized view to get total sales per event using the two-part
-notation:
-
-```
---two part notation external-schema-name.table-name notation
-CREATE EXTERNAL schema ext_tickit_zetl
-FROM REDSHIFT
-DATABASE zetl_int_db
-SCHEMA tickit_zetl;
-
-CREATE MATERIALIZED VIEW mv_transformed_sales_per_event_2p
-AUTO REFRESH YES
-AS
-(
-    SELECT eventname, sum(pricepaid) as total_price
-    FROM  ext_tickit_zetl.sales_zetl S, ext_tickit_zetl.event_zetl E
-    WHERE S.eventid = E.eventid
-    GROUP BY 1
-);
-```
-
-To view the materialized views you created, use the following example.
+`aws redshift describe-integrations`
+         `{
+ "Integrations": [
+ {
+ "Status": "failed",
+ "IntegrationArn": "arn:aws:redshift:us-east-1:123456789012:integration:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ "Errors": [
+ {
+ "ErrorCode": "INVALID_TABLE_PERMISSIONS",
+ "ErrorMessage": "Redshift does not have sufficient access on the table key. Refer to the Amazon DynamoDB Developer Guide."
+ }
+ ],
+ "Tags": [],
+ "CreateTime": "2023-11-09T00:32:46.444Z",
+ "KMSKeyId": "arn:aws:kms:us-east-1:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+ "TargetArn": "arn:aws:redshift:us-east-1:123456789012:namespace:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+ "IntegrationName": "ddb-to-provisioned-02",
+ "SourceArn": "arn:aws:dynamodb:us-east-1:123456789012:table/mytable"
+ }
+ ]
+}`
 
 ```
-`SELECT * FROM mv_transformed_sales_per_event_3p;`
 
-`+-----------+-------------+
-| eventname | total_price |
-+-----------+-------------+
-| Event 1 | 3.33 |
-| Event 2 | 9.99 |
-+-----------+-------------+`
-
-`SELECT * FROM mv_transformed_sales_per_event_2p;`
-
-`+-----------+-------------+
-| eventname | total_price |
-+-----------+-------------+
-| Event 1 | 3.33 |
-| Event 2 | 9.99 |
-+-----------+-------------+`
-```
-
-## Querying replicated data from DynamoDB
-
-When you replicate data from Amazon DynamoDB to a Amazon Redshift database, it is stored in a
-materialized view in a column of SUPER data type.
-
-For this example, the following data is stored in DynamoDB.
-
-```
-{
-    "key1": {
-        "S": "key_1"
-    },
-    "key2": {
-        "N": 0
-    },
-    "payload": {
-        "L": [
-            {
-                "S": "sale1"
-            },
-            {
-                "S": "sale2"
-            },
-        ]
-    },
-}
-```
-
-The Amazon Redshift materialized view is defined as the following.
-
-```
-CREATE MATERIALIZED VIEW mv_sales
-                    BACKUP NO
-                    AUTO REFRESH YES
-                    AS
-                    SELECT "value"."payload"."L"[0]."S"::VARCHAR AS first_payload
-                    FROM public.sales;
-```
-
-To view the data in the materialized view run an SQL command.
-
-```
-SELECT first_payload FROM mv_sales;
-```
+You can also filter the results of `describe-integrations` by the
+`integration-arn`, `source-arn`, `source-types`, or
+`status`. For more information, see [describe-integrations](../../../cli/latest/reference/redshift/describe-integrations.md "../../../cli/latest/reference/redshift/describe-integrations.md") in the _Amazon Redshift CLI Guide_.

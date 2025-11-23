@@ -12,14 +12,14 @@ To route traffic between Amazon Redshift and clients and applications on a corpo
 
 - Set up a private connection between your virtual private cloud (VPC) and your corporate network. Set up either
   an IPsec VPN connection over the internet or a private physical connection using
-  AWS Direct Connect connection. AWS Direct Connect enables you to establish a
+  Direct Connect connection. Direct Connect enables you to establish a
   private virtual interface from your on-premises network directly to your Amazon
   VPC, providing you with a private, high-bandwidth network connection between
   your network and your VPC. With multiple virtual interfaces, you can even
   establish private connectivity to multiple VPCs while maintaining network
   isolation. For more information, see [What is AWS
   Site-to-Site VPN?](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md") and [What
-  is AWS Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")
+  is Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")
   To route traffic between an Amazon Redshift cluster in a VPC and Amazon S3 buckets in the same AWS Region:
 
 - Set up an Amazon S3 private VPC endpoint to privately access Amazon S3 data from an ETL load or unload.

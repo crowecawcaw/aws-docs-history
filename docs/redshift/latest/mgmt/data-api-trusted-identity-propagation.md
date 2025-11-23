@@ -14,7 +14,7 @@ integration with Amazon Redshift](redshift-iam-access-control-idp-connect-consol
 Amazon Redshift Data API supports propagating IAM Identity Center user identities to an Amazon Redshift cluster or
 workgroup, and to other services, such as, AWS Lake Formation, down the chain. You can set up and
 query using the Data API by following the steps in [Access AWS services programmatically using trusted identity
-propagation](https://aws.amazon.com/blogs/security/access-aws-services-programmatically-using-trusted-identity-propagation/ "https://aws.amazon.com/blogs/security/access-aws-services-programmatically-using-trusted-identity-propagation/").
+propagation](https://aws.amazon.com/blogs//security/access-aws-services-programmatically-using-trusted-identity-propagation/ "https://aws.amazon.com/blogs//security/access-aws-services-programmatically-using-trusted-identity-propagation/").
 
 When you call the Data API using an IAM Identity Center user identity from an identity-enhanced
 IAM role session, you can only access the resulting statement and statement result

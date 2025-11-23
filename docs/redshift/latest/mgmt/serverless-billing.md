@@ -35,7 +35,7 @@ depending on your usage tier.
 Data transfer costs and machine learning (ML) costs apply separately, the same as
 provisioned clusters. Snapshot replication and data sharing across AWS Regions are
 billed at the transfer rates outlined on the pricing page. For more information, see
-[Amazon Redshift pricing](https://aws.amazon.com/redshift/pricing/ "https://aws.amazon.com/redshift/pricing/").
+[Amazon Redshift pricing](https://aws.amazon.com//redshift/pricing/ "https://aws.amazon.com//redshift/pricing/").
 
 ### Visualizing billing usage with
 
@@ -53,7 +53,7 @@ view the free trial credit balance in the Redshift console, and check free trial
 in the [SYS_SERVERLESS_USAGE](../dg/SYS_SERVERLESS_USAGE.md "../dg/SYS_SERVERLESS_USAGE.md")
 system view. Note that billing details for free trial usage does not appear in the
 billing console. You can only view usage in the billing console after the free trial
-ends. For more information about the Amazon Redshift Serverless free trial, see [Amazon Redshift Serverless free trial](https://aws.amazon.com/redshift/free-trial/ "https://aws.amazon.com/redshift/free-trial/").
+ends. For more information about the Amazon Redshift Serverless free trial, see [Amazon Redshift Serverless free trial](https://aws.amazon.com//redshift/free-trial/ "https://aws.amazon.com//redshift/free-trial/").
 
 ## Billing usage notes
 
@@ -95,7 +95,7 @@ ends. For more information about the Amazon Redshift Serverless free trial, see 
 - **Snapshot billing** - Snapshot billing doesn't
   change. It's charged according to storage, billed at a rate of GB / month. You
   can restore your data warehouse to specific points in the last 24 hours at a 30
-  minute granularity, free of charge. For more information, see [Amazon Redshift pricing](https://aws.amazon.com/redshift/pricing/ "https://aws.amazon.com/redshift/pricing/").
+  minute granularity, free of charge. For more information, see [Amazon Redshift pricing](https://aws.amazon.com//redshift/pricing/ "https://aws.amazon.com//redshift/pricing/").
 
 ### Amazon Redshift Serverless best
 

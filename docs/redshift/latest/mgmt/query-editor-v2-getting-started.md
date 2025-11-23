@@ -298,10 +298,10 @@ required to use the query editor v2](redshift-iam-access-control-identity-based.
 
 For information about how to set up Active Directory Federation
 Services (AD FS), see the blog post: [Federate access to Amazon Redshift query editor v2 with Active Directory Federation Services (AD
-FS)](https://aws.amazon.com/blogs/big-data/federate-access-to-amazon-redshift-query-editor-v2-with-active-directory-federation-services-ad-fs-part-3/ "https://aws.amazon.com/blogs/big-data/federate-access-to-amazon-redshift-query-editor-v2-with-active-directory-federation-services-ad-fs-part-3/").
+FS)](https://aws.amazon.com/blogs//big-data/federate-access-to-amazon-redshift-query-editor-v2-with-active-directory-federation-services-ad-fs-part-3/ "https://aws.amazon.com/blogs//big-data/federate-access-to-amazon-redshift-query-editor-v2-with-active-directory-federation-services-ad-fs-part-3/").
 
 For information about how to set up Okta, see the blog post:
-[Federate single sign-on access to Amazon Redshift query editor v2 with Okta](https://aws.amazon.com/blogs/big-data/federate-single-sign-on-access-to-amazon-redshift-query-editor-v2-with-okta/ "https://aws.amazon.com/blogs/big-data/federate-single-sign-on-access-to-amazon-redshift-query-editor-v2-with-okta/").
+[Federate single sign-on access to Amazon Redshift query editor v2 with Okta](https://aws.amazon.com/blogs//big-data/federate-single-sign-on-access-to-amazon-redshift-query-editor-v2-with-okta/ "https://aws.amazon.com/blogs//big-data/federate-single-sign-on-access-to-amazon-redshift-query-editor-v2-with-okta/").
 
 ###### Note
 

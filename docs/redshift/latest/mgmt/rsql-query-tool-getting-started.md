@@ -12,12 +12,12 @@ operating system.
 
 ## Download RSQL
 
-- Linux 64-bit RPM: [RSQL Version 1.1.0](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.rhel.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.rhel.x86_64.rpm")
-  - Linux Artifact Signature Key: [Key](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0-certificate.pem "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0-certificate.pem")
-  - Linux Artifact Signed Hash: [Hash](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0-signature.bin "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0-signature.bin")
+- Linux 64-bit RPM: [RSQL Version 1.1.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.rhel.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.rhel.x86_64.rpm")
+  - Linux Artifact Signature Key: [Key](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1-certificate.pem "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1-certificate.pem")
+  - Linux Artifact Signed Hash: [Hash](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1-signature.bin "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1-signature.bin")
 
-- Mac OS 64-bit PKG: [RSQL Version 1.1.0](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.universal.pkg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.universal.pkg")
-- Windows 64-bit MSI: [RSQL Version 1.1.0](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.x86_64.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.x86_64.msi")
+- Mac OS 64-bit PKG: [RSQL Version 1.1.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.universal.pkg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.universal.pkg")
+- Windows 64-bit MSI: [RSQL Version 1.1.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.x86_64.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.x86_64.msi")
 
 See the change log and downloads for previous versions at [Amazon Redshift RSQL change log](rsql-query-tool-changelog.md "rsql-query-tool-changelog.md").
 

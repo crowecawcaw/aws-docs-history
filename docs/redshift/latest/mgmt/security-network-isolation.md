@@ -95,15 +95,15 @@ interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/lates
 
 An interface VPC endpoint connects your VPC directly to Amazon Redshift. It doesn't use an internet
 gateway, network address translation (NAT) device, virtual private network (VPN) connection,
-or AWS Direct Connect connection. The instances in your VPC don't need public IP addresses to
+or Direct Connect connection. The instances in your VPC don't need public IP addresses to
 communicate with the Amazon Redshift API.
 
 To use Amazon Redshift or Redshift Serverless through your VPC, you have two options. One is to connect from an
 instance that is inside your VPC. The other is to connect your private network to your VPC
-by using an AWS VPN option or AWS Direct Connect. For more information about AWS VPN options, see [VPN
+by using an Site-to-Site VPN option or Direct Connect. For more information about Site-to-Site VPN options, see [VPN
 connections](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md") in the _Amazon VPC User Guide_. For information about
-AWS Direct Connect, see [Creating a
-Connection](../../../directconnect/latest/UserGuide/create-connection.md "../../../directconnect/latest/UserGuide/create-connection.md") in the _AWS Direct Connect User Guide_.
+Direct Connect, see [Creating a
+Connection](../../../directconnect/latest/UserGuide/create-connection.md "../../../directconnect/latest/UserGuide/create-connection.md") in the _Direct Connect User Guide_.
 
 You can create an interface VPC endpoint to connect to Amazon Redshift using the AWS Management Console or
 AWS Command Line Interface (AWS CLI) commands. For more information, see [Creating

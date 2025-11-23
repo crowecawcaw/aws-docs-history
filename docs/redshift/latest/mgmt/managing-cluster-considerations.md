@@ -89,9 +89,11 @@ default maintenance windows are assigned:
 
 If a maintenance event is scheduled for a given week, it starts during the
 assigned 30-minute maintenance window. While Amazon Redshift is performing maintenance,
-it terminates any queries or other operations that are in progress. Most
-maintenance completes during the 30-minute maintenance window, but some
-maintenance tasks might continue running after the window closes. If there are
+it terminates any queries or other operations that are in progress. Downtime experienced
+during planned maintenance is not considered monthly downtime or unavailability within the
+[Amazon Redshift Service
+Level Agreement](https://aws.amazon.com/redshift/sla/ "https://aws.amazon.com/redshift/sla/"). Most maintenance completes during the 30-minute maintenance window,
+but some maintenance tasks might continue running after the window closes. If there are
 no maintenance tasks to perform during the scheduled maintenance window, your
 cluster continues to operate normally until the next scheduled maintenance
 window.
