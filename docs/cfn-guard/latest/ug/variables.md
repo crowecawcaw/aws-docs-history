@@ -26,7 +26,7 @@ let ecs_task_definition_task_role_arn = 'arn:aws:iam::123456789012:role/my-role-
 ```
 
 In the following example, the variable `ecs_tasks` stores the results of a
-query that searches for all `AWS::ECS::TaskDefinition` resources in an AWS CloudFormation
+query that searches for all `AWS::ECS::TaskDefinition` resources in an CloudFormation
 template. You could reference `ecs_tasks` to access information about those
 resources when you write rules.
 
@@ -218,7 +218,7 @@ The rule clause checks whether the value specified for the
 `ecs_task_definition_task_role_arn` variable in the
 `query` section.
 
-### Enforcing AWS CloudFormation template configuration
+### Enforcing CloudFormation template configuration
 
 Let’s walk through a more complex example of a production use case. In this
 example, we write Guard rules to ensure stricter controls on how Amazon ECS tasks

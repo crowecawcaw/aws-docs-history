@@ -18,7 +18,7 @@ traverse hierarchical data. Query expressions can include filter expressions to 
 subset of values. When queries are evaluated, they result in a collection of values,
 similar to a result set returned from an SQL query.
 
-The following example query searches a AWS CloudFormation template for `AWS::IAM::Role`
+The following example query searches a CloudFormation template for `AWS::IAM::Role`
 resources.
 
 ```

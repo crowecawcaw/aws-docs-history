@@ -47,7 +47,7 @@ following sections:
 ## Guard features
 
 Using Guard, you can write policy rules to validate any JSON- or YAML-formatted
-structured data against, including but not limited to AWS CloudFormation templates. Guard supports the
+structured data against, including but not limited to CloudFormation templates. Guard supports the
 entire spectrum of end-to-end evaluation of policy checks. Rules are useful in the following
 business domains:
 
@@ -73,7 +73,7 @@ Hooks ensure your resource configurations are compliant with your organization's
 
 For details on how to use Guard to author CloudFormation Guard Hooks, see
 [Write Guard rules to evaluate
-resources for Guard Hooks](../../../cloudformation-cli/latest/hooks-userguide/guard-hooks-write-rules.md "../../../cloudformation-cli/latest/hooks-userguide/guard-hooks-write-rules.md") in the _AWS CloudFormation Hooks User Guide_.
+resources for Guard Hooks](../../../cloudformation-cli/latest/hooks-userguide/guard-hooks-write-rules.md "../../../cloudformation-cli/latest/hooks-userguide/guard-hooks-write-rules.md") in the _CloudFormation Hooks User Guide_.
 
 ## Accessing Guard
 

@@ -30,7 +30,7 @@ let api_gws = Resources.*[ Type == 'AWS::ApiGateway::RestApi' ]
 ## Guard does not evaluate CloudFormation template with short-form Fn::GetAtt references
 
 Guard doesn't support the short forms of intrinsic functions. For example, using
-`!Join`, `!Sub` in a YAML-formatted AWS CloudFormation template isn't supported.
+`!Join`, `!Sub` in a YAML-formatted CloudFormation template isn't supported.
 Instead, use the expanded forms of CloudFormation intrinsic functions. For example, use
 `Fn::Join`, `Fn::Sub` in YAML-formatted CloudFormation templates when
 evaluating them against Guard rules.
