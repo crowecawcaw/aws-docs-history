@@ -295,7 +295,7 @@ recommendations:
 - **Use conditions in IAM policies to further restrict access**
   – You can add a condition to your policies to limit access to actions and resources. For example, you can write a policy condition to specify that all requests must
   be sent using SSL. You can also use conditions to grant access to service actions
-  if they are used through a specific AWS service, such as AWS CloudFormation. For more information, see
+  if they are used through a specific AWS service, such as CloudFormation. For more information, see
   [IAM JSON policy elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
 - **Use IAM Access Analyzer to validate your IAM policies to ensure secure and functional permissions**
   – IAM Access Analyzer validates new and existing policies so that the policies adhere to the IAM policy language (JSON) and IAM best practices.
@@ -385,7 +385,7 @@ When you create an AWS account, you begin with one sign-in identity called the A
 
 As a best practice, require human users to use federation with an identity provider to access AWS services using temporary credentials.
 
-A _federated identity_ is a user from your enterprise directory, web identity provider, or AWS Directory Service that accesses AWS services using credentials from an identity source. Federated identities assume roles that provide temporary credentials.
+A _federated identity_ is a user from your enterprise directory, web identity provider, or Directory Service that accesses AWS services using credentials from an identity source. Federated identities assume roles that provide temporary credentials.
 
 For centralized access management, we recommend AWS IAM Identity Center. For more information, see [What is IAM Identity Center?](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md") in the _AWS IAM Identity Center User Guide_.
 

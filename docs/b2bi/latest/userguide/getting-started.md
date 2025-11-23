@@ -26,4 +26,4 @@ the transformation activity using processed input-output pairs view.
 
 - [Prerequisites for using AWS B2B Data Interchange](b2bi-prereq.md "b2bi-prereq.md")
 - [Quick setup using the console](getting-started-quick.md "getting-started-quick.md")
-- [Configure AWS B2B Data Interchange using an AWS CloudFormation template](quickstart-template.md "quickstart-template.md")
+- [Configure AWS B2B Data Interchange using an CloudFormation template](quickstart-template.md "quickstart-template.md")

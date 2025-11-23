@@ -33,4 +33,4 @@ entered. You can select **Cancel**, or **Previous** if
 anything needs to be changed, or **Complete setup** to create your profile,
 transformer, trading capability and partnership.
 B2B Data Interchange also provides a self-contained, AWS CloudFormation template to quickly create a B2B Data Interchange
-configuration. For details on how to deploy this template, see [Configure AWS B2B Data Interchange using an AWS CloudFormation template](quickstart-template.md "quickstart-template.md").
+configuration. For details on how to deploy this template, see [Configure AWS B2B Data Interchange using an CloudFormation template](quickstart-template.md "quickstart-template.md").
