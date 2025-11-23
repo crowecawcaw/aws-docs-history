@@ -3,7 +3,7 @@
 The AWS Serverless Application Model (AWS SAM) is a toolkit that helps streamline the process of building and running serverless applications on AWS. You define
 the resources for your application in a YAML or JSON template and use the AWS SAM command line interface (AWS SAM CLI) to build, package, and
 deploy your applications. When you build a Lambda function from an AWS SAM template, AWS SAM automatically creates a .zip deployment package or
-container image with your function code and any dependencies you specify. AWS SAM then deploys your function using an [AWS CloudFormation stack](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md").
+container image with your function code and any dependencies you specify. AWS SAM then deploys your function using an [CloudFormation stack](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md").
 To learn more about using AWS SAM to build and deploy Lambda functions, see [Getting started with AWS SAM](../../../serverless-application-model/latest/developerguide/serverless-getting-started.md "../../../serverless-application-model/latest/developerguide/serverless-getting-started.md")
 in the _AWS Serverless Application Model Developer Guide_.
 
@@ -84,14 +84,14 @@ press Enter.
 For **HelloWorldFunction may not have authorization defined, is this okay?**, be sure to enter
 `y`.
 
-    * **Stack Name**: The name of the stack to deploy to AWS CloudFormation. This name must be unique to your
+    * **Stack Name**: The name of the stack to deploy to CloudFormation. This name must be unique to your
      AWS account and AWS Region.
     * **AWS Region**: The AWS Region you want to deploy your app to.
     * **Confirm changes before deploy**: Select yes to manually review any change sets before
      AWS SAM deploys application changes. If you select no, the AWS SAM CLI automatically deploys application changes.
     * **Allow SAM CLI IAM role creation**: Many AWS SAM templates, including the Hello world one in this
      example, create AWS Identity and Access Management (IAM) roles to give your Lambda functions permission to access other AWS services. Select Yes to provide
-     permission to deploy a AWS CloudFormation stack that creates or modifies IAM roles.
+     permission to deploy a CloudFormation stack that creates or modifies IAM roles.
     * **Disable rollback**: By default, if AWS SAM encounters an error during creation or deployment
      of your stack, it rolls the stack back to the previous version. Select No to accept this default.
     * **HelloWorldFunction may not have authorization defined, is this okay**: Enter `y`.

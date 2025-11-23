@@ -213,7 +213,7 @@ You can now use the .zip file deployment package to create or update your Lambda
 
 After you have created your .zip deployment package, you can use it to create a new Lambda function or update an existing one. You can deploy
 your .zip package using the Lambda console, the AWS Command Line Interface, and the Lambda API. You can also create and update Lambda functions using
-AWS Serverless Application Model (AWS SAM) and AWS CloudFormation.
+AWS Serverless Application Model (AWS SAM) and CloudFormation.
 
 The maximum size for a .zip deployment package for Lambda is 250 MB (unzipped). Note that this limit applies to the combined size of all the files you upload,
 including any Lambda layers.
@@ -379,18 +379,18 @@ the maximum allowed size of 250MB (unzipped) from a location on your local build
 
 To learn more about deploying functions using .zip file in AWS SAM, see [AWS::Serverless::Function](../../../serverless-application-model/latest/developerguide/sam-resource-function.md "../../../serverless-application-model/latest/developerguide/sam-resource-function.md") in the _AWS SAM Developer Guide_.
 
-### Creating and updating functions with .zip files using AWS CloudFormation
+### Creating and updating functions with .zip files using CloudFormation
 
-You can use AWS CloudFormation to create a Lambda function using a .zip file archive. To create a Lambda function from a .zip file, you must first upload
+You can use CloudFormation to create a Lambda function using a .zip file archive. To create a Lambda function from a .zip file, you must first upload
 your file to an Amazon S3 bucket. For instructions on how to upload a file to an Amazon S3 bucket using the AWS CLI, see [Move objects](../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move "../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move")
 in the _AWS CLI User Guide._
 
-In your AWS CloudFormation template, the `AWS::Lambda::Function` resource specifies your Lambda function. In this resource, set the following
+In your CloudFormation template, the `AWS::Lambda::Function` resource specifies your Lambda function. In this resource, set the following
 properties to create a function using a .zip file archive:
 
 - `PackageType` - Set to `Zip`
 - `Code` - Enter the Amazon S3 bucket name and the .zip file name in the `S3Bucket` and `S3Key` fields
 - `Runtime` - Set to your chosen runtime
 
-The .zip file that AWS CloudFormation generates cannot exceed 4MB. To learn more about deploying functions using .zip file in AWS CloudFormation, see [AWS::Lambda::Function](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md")
-in the _AWS CloudFormation User Guide_.
+The .zip file that CloudFormation generates cannot exceed 4MB. To learn more about deploying functions using .zip file in CloudFormation, see [AWS::Lambda::Function](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md")
+in the _CloudFormation User Guide_.

@@ -499,7 +499,7 @@ Using the `--guided` flag means that AWS SAM will show you prompts to guide you 
 deployment, accept the default options by pressing Enter.
 During the deployment process, AWS SAM creates the following resources in your AWS account:
 
-- An AWS CloudFormation [stack](../../../AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.md#cfn-concepts-stacks "../../../AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.md#cfn-concepts-stacks")
+- An CloudFormation [stack](../../../AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.md#cfn-concepts-stacks "../../../AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.md#cfn-concepts-stacks")
   named `sam-app`
 - A Lambda function with the name `EncryptPDF`
 - Two S3 buckets with the names you chose when you edited the `template.yaml` AWS SAM template file

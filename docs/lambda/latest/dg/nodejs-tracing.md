@@ -28,7 +28,7 @@ Distro for Open Telemetry and X-Ray SDKs](../../../xray/latest/devguide/xray-ins
 - [Using the X-Ray SDK to instrument your Node.js functions](#nodejs-xray-sdk "#nodejs-xray-sdk")
 - [Activating tracing with the Lambda console](#nodejs-tracing-console "#nodejs-tracing-console")
 - [Activating tracing with the Lambda API](#nodejs-tracing-api "#nodejs-tracing-api")
-- [Activating tracing with AWS CloudFormation](#nodejs-tracing-cloudformation "#nodejs-tracing-cloudformation")
+- [Activating tracing with CloudFormation](#nodejs-tracing-cloudformation "#nodejs-tracing-cloudformation")
 - [Interpreting an X-Ray trace](#nodejs-tracing-interpretation "#nodejs-tracing-interpretation")
 - [Storing runtime dependencies in a layer (X-Ray SDK)](#nodejs-tracing-layers "#nodejs-tracing-layers")
 
@@ -140,9 +140,9 @@ The following example AWS CLI command enables active tracing on a function named
 Tracing mode is part of the version-specific configuration when you publish a version of your function.
 You can't change the tracing mode on a published version.
 
-## Activating tracing with AWS CloudFormation
+## Activating tracing with CloudFormation
 
-To activate tracing on an `AWS::Lambda::Function` resource in an AWS CloudFormation template, use the
+To activate tracing on an `AWS::Lambda::Function` resource in an CloudFormation template, use the
 `TracingConfig` property.
 
 ###### Example [function-inline.yml](https://github.com/awsdocs/aws-lambda-developer-guide/blob/master/templates/function-inline.yml "https://github.com/awsdocs/aws-lambda-developer-guide/blob/master/templates/function-inline.yml") –

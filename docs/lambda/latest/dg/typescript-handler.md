@@ -13,6 +13,8 @@ in an Amazon Simple Storage Service (Amazon S3) bucket. For information about ho
 
 - [Setting up your TypeScript project](#typescript-handler-setup "#typescript-handler-setup")
 - [Example TypeScript Lambda function code](#typescript-example-code "#typescript-example-code")
+- [CommonJS and ES Modules](#typescript-commonjs-es-modules "#typescript-commonjs-es-modules")
+- [Node.js initialization](#typescript-initialization "#typescript-initialization")
 - [Handler naming conventions](#typescript-handler-naming "#typescript-handler-naming")
 - [Defining and accessing the input event object](#typescript-example-input "#typescript-example-input")
 - [Valid handler patterns for TypeScript functions](#typescript-handler-signatures "#typescript-handler-signatures")
@@ -56,7 +58,7 @@ produces a text file receipt, and puts this file in an Amazon S3 bucket. This ex
 
 ###### Note
 
-This example uses an ES module handler. Lambda supports both ES module and CommonJS handlers. For more information, see [Designating a function handler as an ES module](lambda-nodejs.md#designate-es-module "lambda-nodejs.md#designate-es-module").
+This example uses an ES module handler. Lambda supports both ES module and CommonJS handlers. For more information, see [CommonJS and ES Modules](nodejs-handler.md#nodejs-commonjs-es-modules "nodejs-handler.md#nodejs-commonjs-es-modules").
 
 ###### Example index.ts Lambda function
 
@@ -127,6 +129,20 @@ This `index.ts` file contains the following sections of code:
 
 For this function to work properly, its [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") must allow the `s3:PutObject` action. Also, ensure that you define the `RECEIPT_BUCKET` environment variable. After a successful invocation, the Amazon S3 bucket should contain a receipt file.
 
+## CommonJS and ES Modules
+
+Node.js supports two module systems: CommonJS and ECMAScript modules (ES modules). Lambda recommends using ES modules as it supports top-level await, which enables asynchronous tasks to be completed during [execution environment initialization](#typescript-initialization "#typescript-initialization").
+
+Node.js treats files with a `.cjs` file name extension as CommonJS modules while a `.mjs` extension denotes ES modules. By default, Node.js treats files with the `.js` file name extension as CommonJS modules. You can configure Node.js to treat `.js` files as ES modules by specifying the `type` as `module` in the function's `package.json` file. You can configure Node.js in Lambda to detect automatically whether a `.js` file should be treated as CommonJS or as an ES module by adding the `—experimental-detect-module` flag to the `NODE_OPTIONS` environment variable. For more information, see [Experimental Node.js features](lambda-nodejs.md#nodejs-experimental-features "lambda-nodejs.md#nodejs-experimental-features").
+
+The following examples show function handlers written using both ES modules and CommonJS modules. The remaining examples on this page all use ES modules.
+
+## Node.js initialization
+
+Node.js uses a non-blocking I/O model that supports efficient asynchronous operations using an event loop. For example, if Node.js makes a network call, the function continues to process other operations without blocking on a network response. When the network response is received, it is placed into the callback queue. Tasks from the queue are processed when the current task completes.
+
+Lambda recommends using top-level await so that asynchronous tasks initiated during execution environment initialization are completed during initialization. Asynchronous tasks that are not completed during initialization will typically run during the first function invoke. This can cause unexpected behavior or errors. For example, your function initialization may make a network call to fetch a parameter from AWS Parameter Store. If this task is not completed during initialization, the value may be null during an invocation. There can also be a delay between initialization and invoke which can trigger errors in time-sensitive operations. In particular, AWS service calls can rely on time-sensitive request signatures, resulting in service call failures if the call is not completed during the initialization phase. Completing tasks during initialization typically improves cold-start performance, and first invoke performance when using Provisioned Concurrency. For more information, see our blog post [Using Node.js ES modules and top-level await in AWS Lambda](https://aws.amazon.com/blogs/compute/using-node-js-es-modules-and-top-level-await-in-aws-lambda "https://aws.amazon.com/blogs/compute/using-node-js-es-modules-and-top-level-await-in-aws-lambda").
+
 ## Handler naming conventions
 
 When you configure a function, the value of the [Handler](../api/API_CreateFunction.md#lambda-CreateFunction-request-Handler "../api/API_CreateFunction.md#lambda-CreateFunction-request-Handler") setting is
@@ -189,7 +205,7 @@ npm install -D @types/aws-lambda
 
 2. Import the types you need, such as `Context`, `S3Event`, or `Callback`.
 
-### Using async/await (recommended)
+### async function handlers (recommended)
 
 The `async` keyword marks a function as asynchronous, and the `await` keyword pauses the execution of the function until a `Promise` is resolved. The handler accepts the following arguments:
 
@@ -198,13 +214,9 @@ The `async` keyword marks a function as asynchronous, and the `await` keyword pa
 
 Here are the valid signatures for the async/await pattern:
 
-- **Event only:**
-
 ```
 export const handler = async `(event: S3Event)`: Promise<void> => { };
 ```
-
-- **Event and context object:**
 
 ```
 export const handler = async `(event: S3Event, context: Context)`: Promise<void> => { };
@@ -214,25 +226,43 @@ export const handler = async `(event: S3Event, context: Context)`: Promise<void>
 
 When processing arrays of items asynchronously, make sure to use await with `Promise.all` to ensure all operations complete. Methods like `forEach` don't wait for async callbacks to complete. For more information, see [Array.prototype.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach") in the Mozilla documentation.
 
-### Using callbacks
+### Synchronous function handlers
 
-Callback handlers can use the event, context, and callback arguments. The callback argument expects an `Error` and a response, which must be JSON-serializable.
-
-Here are the valid signatures for the callback handler pattern:
-
-- **Event and callback object:**
+Where your function does not perform any asynchronous tasks, you can use a synchronous function handler, using one of the following function signatures:
 
 ```
-export const handler = `(event: S3Event, callback: Callback<void>)`: void => { };
+export const handler = (event: S3Event): void => { };
 ```
 
-- **Event, context, and callback objects:**
+```
+export const handler = (event: S3Event, context: Context): void => { };
+```
+
+### Response streaming function handlers
+
+Lambda supports response streaming with Node.js. Response streaming function handlers use the awslambda.streamifyResponse() decorator and take 3 parameters: event, responseStream, and context. The function signature is:
+
+```
+export const handler = awslambda.streamifyResponse(async (event: APIGatewayProxyEvent, responseStream: NodeJS.WritableStream, context: Context) => { });
+```
+
+For more information, see Response streaming for Lambda functions.
+
+### Callback-based function handlers
+
+###### Note
+
+Callback-based function handlers are only supported up to Node.js 22. Starting from Node.js 24, asynchronous tasks should be implemented using async function handlers.
+
+Callback-based function handlers can use the event, context, and callback arguments. The callback argument expects an `Error` and a response, which must be JSON-serializable.
+
+Here is the valid signature for the callback handler pattern:
 
 ```
 export const handler = `(event: S3Event, context: Context, callback: Callback<void>)`: void => { };
 ```
 
-The function continues to execute until the [event loop](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/ "https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/") is empty or the function times out. The response isn't sent to the invoker until all event loop tasks are finished. If the function times out, an error is returned instead. You can configure the runtime to send the response immediately by setting [context.callbackWaitsForEmptyEventLoop](nodejs-context.md "nodejs-context.md") to false.
+The function continues to execute until the [event loop](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/ "https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/") is empty or the function times out. The response isn't sent to the invoker until all event loop tasks are finished. If the function times out, an error is returned instead. You can configure the runtime to send the response immediately by setting [context.callbackWaitsForEmptyEventLoop](typescript-context.md "typescript-context.md") to false.
 
 ###### Example TypeScript function with callback
 

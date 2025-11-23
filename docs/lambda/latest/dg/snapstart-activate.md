@@ -10,7 +10,7 @@ To use SnapStart, activate SnapStart on a new or existing Lambda function. Then,
 - [Lambda SnapStart and function states](#snapstart-function-states "#snapstart-function-states")
 - [Updating a snapshot](#update-snapshot "#update-snapshot")
 - [Using SnapStart with AWS SDKs](#snapstart-credentials "#snapstart-credentials")
-- [Using SnapStart with AWS CloudFormation, AWS SAM, and AWS CDK](#snapstart-cfn-sam "#snapstart-cfn-sam")
+- [Using SnapStart with CloudFormation, AWS SAM, and AWS CDK](#snapstart-cfn-sam "#snapstart-cfn-sam")
 - [Deleting snapshots](#snapshot-delete "#snapshot-delete")
 
 ## Activating SnapStart (console)
@@ -206,7 +206,7 @@ and `AWS_SESSION_TOKEN`).
 
 When SnapStart is activated, the Lambda runtime automatically uses the container credentials (`AWS_CONTAINER_CREDENTIALS_FULL_URI` and `AWS_CONTAINER_AUTHORIZATION_TOKEN`) instead of the access key environment variables. This prevents credentials from expiring before the function is restored.
 
-## Using SnapStart with AWS CloudFormation, AWS SAM, and AWS CDK
+## Using SnapStart with CloudFormation, AWS SAM, and AWS CDK
 
 - **AWS CloudFormation:** Declare the [SnapStart](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-snapstart.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-snapstart.md") entity in your template.
 - **AWS Serverless Application Model (AWS SAM):** Declare the [SnapStart](../../../serverless-application-model/latest/developerguide/sam-resource-function.md#sam-function-snapstart "../../../serverless-application-model/latest/developerguide/sam-resource-function.md#sam-function-snapstart") property in your template.

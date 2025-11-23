@@ -278,7 +278,7 @@ $region = $env:AWS_REGION
 ```
 
 Lambda stores environment variables securely by encrypting them at rest. You can [configure Lambda to use a different encryption key](configuration-envvars-encryption.md "configuration-envvars-encryption.md"), encrypt
-environment variable values on the client side, or set environment variables in an AWS CloudFormation template with
+environment variable values on the client side, or set environment variables in an CloudFormation template with
 AWS Secrets Manager.
 
 ## Defined runtime environment variables

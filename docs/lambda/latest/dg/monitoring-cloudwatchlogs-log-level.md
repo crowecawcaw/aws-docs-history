@@ -63,7 +63,7 @@ levels that Lambda maps different system log events to, see [System log level ev
 To configure application and system log-level filtering for your function, you can use the Lambda console or the AWS Command Line Interface (AWS CLI). You
 can also configure a function’s log level using the [CreateFunction](../api/API_CreateFunction.md "../api/API_CreateFunction.md") and [UpdateFunctionConfiguration](../api/API_UpdateFunctionConfiguration.md "../api/API_UpdateFunctionConfiguration.md") Lambda API
 commands, the AWS Serverless Application Model (AWS SAM) [AWS::Serverless::Function](../../../serverless-application-model/latest/developerguide/sam-resource-function.md "../../../serverless-application-model/latest/developerguide/sam-resource-function.md")
-resource, and the AWS CloudFormation [AWS::Lambda::Function](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md")
+resource, and the CloudFormation [AWS::Lambda::Function](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md")
 resource.
 
 Note that if you set your function's log level in your code, this setting takes precedence over any other log level settings you configure.

@@ -30,7 +30,7 @@ Distro for Open Telemetry and X-Ray SDKs](../../../xray/latest/devguide/xray-ins
 - [Using the X-Ray SDK to instrument your .NET functions](#dotnet-xray-sdk "#dotnet-xray-sdk")
 - [Activating tracing with the Lambda console](#dotnet-tracing-console "#dotnet-tracing-console")
 - [Activating tracing with the Lambda API](#dotnet-tracing-api "#dotnet-tracing-api")
-- [Activating tracing with AWS CloudFormation](#dotnet-tracing-cloudformation "#dotnet-tracing-cloudformation")
+- [Activating tracing with CloudFormation](#dotnet-tracing-cloudformation "#dotnet-tracing-cloudformation")
 - [Interpreting an X-Ray trace](#dotnet-tracing-interpretation "#dotnet-tracing-interpretation")
 
 ## Using Powertools for AWS Lambda (.NET) and AWS SAM for tracing
@@ -251,9 +251,9 @@ The following example AWS CLI command enables active tracing on a function named
 Tracing mode is part of the version-specific configuration when you publish a version of your function.
 You can't change the tracing mode on a published version.
 
-## Activating tracing with AWS CloudFormation
+## Activating tracing with CloudFormation
 
-To activate tracing on an `AWS::Lambda::Function` resource in an AWS CloudFormation template, use the
+To activate tracing on an `AWS::Lambda::Function` resource in an CloudFormation template, use the
 `TracingConfig` property.
 
 ###### Example [function-inline.yml](https://github.com/awsdocs/aws-lambda-developer-guide/blob/master/templates/function-inline.yml "https://github.com/awsdocs/aws-lambda-developer-guide/blob/master/templates/function-inline.yml") –

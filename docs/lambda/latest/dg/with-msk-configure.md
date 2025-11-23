@@ -6,6 +6,7 @@ This page describes how to create an event source mapping for Amazon MSK.
 This page assumes that you've already properly configured your MSK cluster and the
 [Amazon Virtual Private Cloud (VPC)](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md")
 it resides in. If you need to set up your cluster or VPC, see [Configuring your Amazon MSK cluster and Amazon VPC network for Lambda](with-msk-cluster-network.md "with-msk-cluster-network.md").
+To configure retry behavior for error handling, see [Configuring error handling controls for Kafka event sources](kafka-retry-configurations.md "kafka-retry-configurations.md").
 
 ###### Topics
 

@@ -7,7 +7,7 @@ ensures that your resources are deployed the same way every time.
 
 ## IaC tools for Lambda
 
-**AWS CloudFormation**
+**CloudFormation**
 
 CloudFormation is the foundational IaC service from AWS. You can use [YAML or JSON templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") to model and provision your entire AWS infrastructure, including Lambda functions. CloudFormation handles the complexities of creating, updating, and deleting your AWS resources.
 
@@ -21,11 +21,11 @@ The CDK is a code-first approach to IaC. You can define your Lambda-based archit
 conditionals, loops, composition, and inheritance to define the desired outcome of your infrastructure. The CDK then generates the underlying CloudFormation templates for deployment.
 For an example of how to use Lambda with CDK, see [Deploying Lambda functions with AWS CDK](lambda-cdk-tutorial.md "lambda-cdk-tutorial.md").
 
-![Diagram showing how AWS SAM and AWS CDK deploy AWS resources and code using AWS CloudFormation](images/IaC_tools.png)
+![Diagram showing how AWS SAM and AWS CDK deploy AWS resources and code using CloudFormation](images/IaC_tools.png)
 
 AWS also provides a service called AWS Infrastructure Composer to develop IaC templates using a simple graphical interface. With Infrastructure Composer, you design an
 application architecture by dragging, grouping, and connecting AWS services in a visual canvas. Infrastructure Composer then creates an AWS SAM template or
-an AWS CloudFormation template from your design that you can use to deploy your application.
+an CloudFormation template from your design that you can use to deploy your application.
 
 In the [Using Lambda functions in AWS SAM and Infrastructure Composer](foundation-iac-getting-started.md "foundation-iac-getting-started.md") section below, you use Infrastructure Composer to develop a template for a serverless application
 based on an existing Lambda function.

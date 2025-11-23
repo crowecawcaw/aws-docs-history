@@ -56,6 +56,8 @@ stream. This method signals that no more data should be written to the stream. T
 isn't required if you write to the stream with `pipeline()` or
 `pipe()`.
 
+Starting with Node.js 24, Lambda no longer waits for unresolved promises to complete after your handler returns or the response stream ends. If your function depends on additional asynchronous operations, such as timers or fetches, you should `await` them in your handler.
+
 ###### Example ending a stream with pipeline()
 
 ```

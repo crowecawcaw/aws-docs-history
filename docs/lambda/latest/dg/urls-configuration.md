@@ -34,7 +34,7 @@ options.
 You can apply function URLs to any function alias, or to the `$LATEST` unpublished function version.
 You can't add a function URL to any other function version.
 
-The following section show how to create and manage a function URL using the Lambda console, AWS CLI, and AWS CloudFormation template
+The following section show how to create and manage a function URL using the Lambda console, AWS CLI, and CloudFormation template
 
 ###### Topics
 
@@ -44,7 +44,7 @@ The following section show how to create and manage a function URL using the Lam
 - [Cross-origin resource sharing (CORS)](#urls-cors "#urls-cors")
 - [Throttling function URLs](#urls-throttling "#urls-throttling")
 - [Deactivating function URLs](#urls-deactivating "#urls-deactivating")
-- [Deleting function URLs](#w7aac31c75c53 "#w7aac31c75c53")
+- [Deleting function URLs](#w2aac31c75c53 "#w2aac31c75c53")
 - [Control access to Lambda function URLs](urls-auth.md "urls-auth.md")
 - [Invoking Lambda function URLs](urls-invocation.md "urls-invocation.md")
 - [Monitoring Lambda function URLs](urls-monitoring.md "urls-monitoring.md")
@@ -132,7 +132,7 @@ To create a function URL via the AWS CLI, the function must already exist.
 
 ## Adding a function URL to a CloudFormation template
 
-To add an `AWS::Lambda::Url` resource to your AWS CloudFormation template, use the following syntax:
+To add an `AWS::Lambda::Url` resource to your CloudFormation template, use the following syntax:
 
 ### JSON
 

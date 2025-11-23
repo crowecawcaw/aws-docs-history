@@ -26,12 +26,16 @@ contain the source code for Lambda's RICs:
 - [Ruby Runtime Interface Client](https://github.com/aws/aws-lambda-ruby-runtime-interface-client "https://github.com/aws/aws-lambda-ruby-runtime-interface-client")
 - [.NET Runtime Interface
   Client](https://github.com/aws/aws-lambda-dotnet "https://github.com/aws/aws-lambda-dotnet")
+- [Rust Runtime
+  Interface Client](https://github.com/aws/aws-lambda-rust-runtime "https://github.com/aws/aws-lambda-rust-runtime")
 - [Go Runtime Interface
   Client](https://github.com/aws/aws-lambda-go "https://github.com/aws/aws-lambda-go")
+- [Swift Runtime Interface
+  Client](https://github.com/awslabs/swift-aws-lambda-runtime "https://github.com/awslabs/swift-aws-lambda-runtime") (experimental)
+- [C++ Runtime Interface
+  Client](https://github.com/awslabs/aws-lambda-cpp "https://github.com/awslabs/aws-lambda-cpp") (experimental)
 - [Lambda Base
   Images](https://github.com/aws/aws-lambda-base-images "https://github.com/aws/aws-lambda-base-images")
-- [Rust Runtime
-  Interface Client (experimental)](https://github.com/awslabs/aws-lambda-rust-runtime "https://github.com/awslabs/aws-lambda-rust-runtime")
 
 For more information about using these clients to build custom runtimes, see [Building a custom runtime for AWS Lambda](runtimes-custom.md "runtimes-custom.md").
 

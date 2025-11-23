@@ -143,8 +143,8 @@ AWS SAM
 
 - To attach a Lambda function to an Amazon VPC, add the `VpcConfig` property to your function definition as shown in
   the following example template. For more information about this property, see [AWS::Lambda::Function VpcConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.md")
-  in the _AWS CloudFormation User Guide_ (the AWS SAM `VpcConfig` property is passed directly to the `VpcConfig`
-  property of an AWS CloudFormation `AWS::Lambda::Function` resource).
+  in the _CloudFormation User Guide_ (the AWS SAM `VpcConfig` property is passed directly to the `VpcConfig`
+  property of an CloudFormation `AWS::Lambda::Function` resource).
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -191,7 +191,7 @@ Resources:
 ```
 
 For more information about configuring your VPC in AWS SAM, see [AWS::EC2::VPC](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.md")
-in the _AWS CloudFormation User Guide_.
+in the _CloudFormation User Guide_.
 
 ## Internet access when attached to a VPC
 

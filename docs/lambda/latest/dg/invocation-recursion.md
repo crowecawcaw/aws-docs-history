@@ -208,7 +208,7 @@ risks of implementation errors. To learn more about best practices for using rec
 in Serverless Land.
 
 You can configure functions to allow recursive loops using the Lambda console, the AWS Command Line Interface (AWS CLI), and the [PutFunctionRecursionConfig](../api/API_PutFunctionRecursionConfig.md "../api/API_PutFunctionRecursionConfig.md")
-API. You can also configure a function's recursive loop detection setting in AWS SAM and AWS CloudFormation.
+API. You can also configure a function's recursive loop detection setting in AWS SAM and CloudFormation.
 
 By default, Lambda detects and terminates recursive loops. Unless your design intentionally uses a recursive loop, we recommend
 that you don't change your functions' default configuration.

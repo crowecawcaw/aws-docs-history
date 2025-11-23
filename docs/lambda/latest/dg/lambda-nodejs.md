@@ -8,28 +8,9 @@ Lambda supports the following Node.js runtimes.
 
 | Name       | Identifier   | Operating system  | Deprecation date | Block function create | Block function update |
 | ---------- | ------------ | ----------------- | ---------------- | --------------------- | --------------------- |
+| Node.js 24 | `nodejs24.x` | Amazon Linux 2023 | Apr 30, 2028     | Jun 1, 2028           | Jul 1, 2028           |
 | Node.js 22 | `nodejs22.x` | Amazon Linux 2023 | Apr 30, 2027     | Jun 1, 2027           | Jul 1, 2027           |
 | Node.js 20 | `nodejs20.x` | Amazon Linux 2023 | Apr 30, 2026     | Jun 1, 2026           | Jul 1, 2026           |
-
-The upstream Node.js language releases enable some experimental features by default. Lambda disables these features to
-ensure runtime stability and consistent performance. The following table lists the experimental
-features that Lambda disables.
-
-| Experimental feature                                       | Supported Node.js versions | Node.js flag applied by Lambda     | Lambda flag to re-enable        |
-| ---------------------------------------------------------- | -------------------------- | ---------------------------------- | ------------------------------- |
-| Support for importing modules using require in ES modules  | Node.js 20, Node.js 22     | `--no-experimental-require-module` | `--experimental-require-module` |
-| Support for automatically detecting ES vs CommonJS modules | Node.js 22                 | `--no-experimental-detect-module`  | `--experimental-detect-module`  |
-
-To enable a disabled experimental feature, set the re-enable flag in the `NODE_OPTIONS`
-environment variable. For example, to enable ES module require support, set `NODE_OPTIONS` to
-`--experimental-require-module`. Lambda detects this override and removes the corresponding
-disable flag.
-
-###### Important
-
-Using experimental features can lead to instability and performance issues. These features
-might be changed or removed in future Node.js versions. Functions that use experimental
-features aren't eligible for the Lambda Service Level Agreement (SLA) or AWS Support.
 
 ###### To create a Node.js function
 
@@ -61,10 +42,10 @@ invoker.
 
 ###### Topics
 
-- [Node.js initialization](#nodejs-initialization "#nodejs-initialization")
 - [Runtime-included SDK versions](#nodejs-sdk-included "#nodejs-sdk-included")
 - [Using keep-alive for TCP connections](#nodejs-keep-alive "#nodejs-keep-alive")
 - [CA certificate loading](#nodejs-certificate-loading "#nodejs-certificate-loading")
+- [Experimental Node.js features](#nodejs-experimental-features "#nodejs-experimental-features")
 - [Define Lambda function handler in Node.js](nodejs-handler.md "nodejs-handler.md")
 - [Deploy Node.js Lambda functions with .zip file archives](nodejs-package.md "nodejs-package.md")
 - [Deploy Node.js Lambda functions with container images](nodejs-image.md "nodejs-image.md")
@@ -72,85 +53,6 @@ invoker.
 - [Using the Lambda context object to retrieve Node.js function information](nodejs-context.md "nodejs-context.md")
 - [Log and monitor Node.js Lambda functions](nodejs-logging.md "nodejs-logging.md")
 - [Instrumenting Node.js code in AWS Lambda](nodejs-tracing.md "nodejs-tracing.md")
-
-## Node.js initialization
-
-Node.js has a unique event loop model that causes its initialization behavior to be different from other runtimes.
-Specifically, Node.js uses a non-blocking I/O model that supports asynchronous operations.
-This model allows Node.js to perform efficiently for most workloads.
-For example, if a Node.js function makes a network call, that request may be designated as an asynchronous operation and placed into a callback queue.
-The function may continue to process other operations within the main call stack without getting blocked by waiting for the network call to return.
-Once the network call is completed, its callback is executed and then removed from the callback queue.
-
-Some initialization tasks may run asynchronously. These asynchronous tasks are not
-guaranteed to complete execution prior to an invocation. For example, code that makes a
-network call to fetch a parameter from AWS Parameter Store may not be complete by the time
-Lambda executes the handler function. As a result, the variable may be null during an
-invocation. There can also be a delay between `INIT` and `INVOKE` which
-can trigger errors in time-sensitive operations. In particular, AWS service calls can rely
-on time-sensitive request signatures, resulting in service call failures if the call is not
-completed during the `INIT` phase.
-
-To avoid this, we recommend deploying your code as an ECMAScript module (ES module), and using top-level `await` to ensure all initialization is completed during the function `INIT` phase.
-This ensures initialization tasks are completed before handler invocations, avoids delays between `INIT` and `INVOKE` disrupting time-sensitive operations, and also maximizes the effectiveness of
-[provisioned concurrency](provisioned-concurrency.md "provisioned-concurrency.md") in reducing cold start latency. For more information and an example,
-see [Using Node.js ES modules and top-level await in AWS Lambda](https://aws.amazon.com/blogs/compute/using-node-js-es-modules-and-top-level-await-in-aws-lambda "https://aws.amazon.com/blogs/compute/using-node-js-es-modules-and-top-level-await-in-aws-lambda").
-
-### Designating a function handler as an ES module
-
-By default, Lambda treats files with the `.js` suffix as CommonJS modules. Optionally, you can designate your
-code as an ES module. You can do this in two ways: specifying the `type` as `module` in the function's
-`package.json` file, or by using the `.mjs` file name extension. In the first approach, your function
-code treats all `.js` files as ES modules, while in the second scenario, only the file you specify with `.mjs`
-is an ES module. You can mix ES modules and CommonJS modules by naming them `.mjs` and `.cjs` respectively,
-as `.mjs` files are always ES modules and `.cjs` files are always CommonJS modules.
-
-Lambda searches folders in the `NODE_PATH` environment variable when loading
-ES modules. You can load the AWS SDK that's included in the runtime using ES module `import`
-statements. You can also load ES modules from [layers](chapter-layers.md "chapter-layers.md").
-
-ES module example
-
-###### Example – ES module handler
-
-```
-const url = "https://aws.amazon.com/";
-
-export const handler = async(event) => {
-    try {
-        const res = await fetch(url);
-        console.info("status", res.status);
-        return res.status;
-    }
-    catch (e) {
-        console.error(e);
-        return 500;
-    }
-};
-```
-
-CommonJS module example
-
-###### Example – CommonJS module handler
-
-```
-const https = require("https");
-let url = "https://aws.amazon.com/";
-
-exports.handler = async function (event) {
-  let statusCode;
-  await new Promise(function (resolve, reject) {
-    https.get(url, (res) => {
-        statusCode = res.statusCode;
-        resolve(statusCode);
-      }).on("error", (e) => {
-        reject(Error(e));
-      });
-  });
-  console.log(statusCode);
-  return statusCode;
-};
-```
 
 ## Runtime-included SDK versions
 
@@ -202,3 +104,25 @@ and loading them via the `NODE_EXTRA_CA_CERTS` environment variable. The certifi
 consist of one or more trusted root or intermediate CA certificates in PEM format. For example, for RDS, include
 the required certificates alongside your code as `certificates/rds.pem`. Then, load the certificates
 by setting `NODE_EXTRA_CA_CERTS` to `/var/task/certificates/rds.pem`.
+
+## Experimental Node.js features
+
+The upstream Node.js language releases enable some experimental features by default. Lambda disables these features to
+ensure runtime stability and consistent performance. The following table lists the experimental
+features that Lambda disables.
+
+| Experimental feature                                       | Supported Node.js versions | Node.js flag applied by Lambda     | Lambda flag to re-enable        |
+| ---------------------------------------------------------- | -------------------------- | ---------------------------------- | ------------------------------- |
+| Support for importing modules using require in ES modules  | Node.js 20, Node.js 22     | `--no-experimental-require-module` | `--experimental-require-module` |
+| Support for automatically detecting ES vs CommonJS modules | Node.js 22                 | `--no-experimental-detect-module`  | `--experimental-detect-module`  |
+
+To enable a disabled experimental feature, set the re-enable flag in the `NODE_OPTIONS`
+environment variable. For example, to enable ES module require support, set `NODE_OPTIONS` to
+`--experimental-require-module`. Lambda detects this override and removes the corresponding
+disable flag.
+
+###### Important
+
+Using experimental features can lead to instability and performance issues. These features
+might be changed or removed in future Node.js versions. Functions that use experimental
+features aren't eligible for the Lambda Service Level Agreement (SLA) or AWS Support.

@@ -198,9 +198,9 @@ The following example AWS CLI command enables active tracing on a function named
 Tracing mode is part of the version-specific configuration when you publish a version of your function.
 You can't change the tracing mode on a published version.
 
-## Enabling `Active` tracing with AWS CloudFormation
+## Enabling `Active` tracing with CloudFormation
 
-To activate tracing on an `AWS::Lambda::Function` resource in an AWS CloudFormation template, use the
+To activate tracing on an `AWS::Lambda::Function` resource in an CloudFormation template, use the
 `TracingConfig` property.
 
 ###### Example [function-inline.yml](https://github.com/awsdocs/aws-lambda-developer-guide/blob/master/templates/function-inline.yml "https://github.com/awsdocs/aws-lambda-developer-guide/blob/master/templates/function-inline.yml") –

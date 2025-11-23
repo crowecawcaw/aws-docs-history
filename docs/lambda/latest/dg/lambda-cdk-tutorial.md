@@ -3,7 +3,7 @@
 The AWS Cloud Development Kit (AWS CDK) is an infrastructure as code (IaC) framework that you can use to define
 AWS cloud infrastructure by using a programming language of your choosing. To define your
 own cloud infrastructure, you first write an app (in one of the CDK's supported
-languages) that contains one or more stacks. Then, you synthesize it to an AWS CloudFormation template
+languages) that contains one or more stacks. Then, you synthesize it to an CloudFormation template
 and deploy your resources to your AWS account. Follow the steps in this topic to deploy a
 Lambda function that returns an event from an Amazon API Gateway endpoint.
 
@@ -87,7 +87,7 @@ installed when you build the project for the first time.
 ## Step 2: Define the AWS CDK stack
 
 A CDK _stack_ is a collection of one or more constructs, which define AWS resources.
-Each CDK stack represents an AWS CloudFormation stack in your CDK app.
+Each CDK stack represents an CloudFormation stack in your CDK app.
 
 To define your CDK stack, follow the instructions for your preferred programming language. This stack defines the following:
 
@@ -301,7 +301,7 @@ If you get the following error, make sure that you are in the root of your proje
 --app is required either in command-line, in cdk.json or in ~/.cdk.json
 ```
 
-###### Example AWS CloudFormation template
+###### Example CloudFormation template
 
 ```
 Resources:

@@ -36,6 +36,7 @@ subject to change.
 
 | Name                    | Identifier        | Operating system  | Deprecation date | Block function create | Block function update |
 | ----------------------- | ----------------- | ----------------- | ---------------- | --------------------- | --------------------- |
+| Node.js 24              | `nodejs24.x`      | Amazon Linux 2023 | Apr 30, 2028     | Jun 1, 2028           | Jul 1, 2028           |
 | Node.js 22              | `nodejs22.x`      | Amazon Linux 2023 | Apr 30, 2027     | Jun 1, 2027           | Jul 1, 2027           |
 | Node.js 20              | `nodejs20.x`      | Amazon Linux 2023 | Apr 30, 2026     | Jun 1, 2026           | Jul 1, 2026           |
 | Python 3.14             | `python3.14`      | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
@@ -70,7 +71,7 @@ during automatic runtime updates, we recommend that you always include the SDK m
 function's deployment package or in a [Lambda layer](chapter-layers.md "chapter-layers.md").
 
 We recommend that you use the runtime-included SDK version only when you can't include additional packages in your deployment. For example,
-when you create your function using the Lambda console code editor or using inline function code in an AWS CloudFormation template.
+when you create your function using the Lambda console code editor or using inline function code in an CloudFormation template.
 
 Lambda periodically updates the versions of the AWS SDKs included in the Node.js, Python, and Ruby runtimes. To determine the version of the
 AWS SDK included in the runtime you're using, see the following sections:
@@ -98,7 +99,6 @@ Lambda doesn't provide managed runtimes for language versions which aren't sched
 
 The following list shows the target launch month for upcoming Lambda runtimes. These dates are indicative only and subject to change.
 
-- **Node.js 24** - November 2025
 - **.NET 10** - January 2026
 
 ## Runtime deprecation policy
@@ -155,8 +155,8 @@ The following timeline describes what happens when a runtime is deprecated:
 | Runtime lifecycle phase   | When                                 | What                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Deprecation notice period | At least 180 days before deprecation | • AWS sends notifications through email and the AWS Health Dashboard to accounts that have functions using this runtime in their `$LATEST` version.<br>• Affected functions are also listed in the [AWS Health Dashboard Scheduled changes tab](../../../health/latest/ug/aws-health-account-views.md "../../../health/latest/ug/aws-health-account-views.md") and the [AWS Trusted Advisor deprecated runtimes check](../../../awssupport/latest/user/security-checks.md#aws-lambda-functions-deprecated-runtimes "../../../awssupport/latest/user/security-checks.md#aws-lambda-functions-deprecated-runtimes"). |
-| Deprecation               | Deprecation date                     | • AWS may no longer apply security updates or other updates.<br>• Functions are no longer eligible for technical support.<br>• You can no longer create or update functions using the deprecated runtime in the Lambda console. You can continue to create and update functions through the AWS CLI, AWS SAM, or AWS CloudFormation.                                                                                                                                                                                                                                                                               |
-| Block function create     | At least 30 days after deprecation   | • Lambda begins blocking creation of new functions.<br>• You can continue to update code and configuration for existing functions through the AWS CLI, AWS SAM, or AWS CloudFormation..                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Deprecation               | Deprecation date                     | • AWS may no longer apply security updates or other updates.<br>• Functions are no longer eligible for technical support.<br>• You can no longer create or update functions using the deprecated runtime in the Lambda console. You can continue to create and update functions through the AWS CLI, AWS SAM, or CloudFormation.                                                                                                                                                                                                                                                                                   |
+| Block function create     | At least 30 days after deprecation   | • Lambda begins blocking creation of new functions.<br>• You can continue to update code and configuration for existing functions through the AWS CLI, AWS SAM, or CloudFormation..                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Block function update     | At least 60 days after deprecation   | • Lambda begins blocking the update of code and configuration for existing functions.<br>• You can still upgrade the function configuration to a supported runtime. However, rolling back to the deprecated runtime may be blocked.                                                                                                                                                                                                                                                                                                                                                                                |
 
 ###### Note
@@ -206,16 +206,16 @@ The following runtimes have reached end of support:
 
 | Name                    | Identifier       | Operating system | Deprecation date | Block function create | Block function update |
 | ----------------------- | ---------------- | ---------------- | ---------------- | --------------------- | --------------------- |
-| Node.js 18              | `nodejs18.x`     | Amazon Linux 2   | Sep 1, 2025      | Feb 3, 2026           | Mar 9, 2026           |
+| Node.js 18              | `nodejs18.x`     | Amazon Linux 2   | Sep 1, 2025      | Jun 1, 2026           | Jul 1, 2026           |
 | .NET 6                  | `dotnet6`        | Amazon Linux 2   | Dec 20, 2024     | Jun 1, 2026           | Jul 1, 2026           |
 | Python 3.8              | `python3.8`      | Amazon Linux 2   | Oct 14, 2024     | Jun 1, 2026           | Jul 1, 2026           |
-| Node.js 16              | `nodejs16.x`     | Amazon Linux 2   | Jun 12, 2024     | Feb 3, 2026           | Mar 9, 2026           |
+| Node.js 16              | `nodejs16.x`     | Amazon Linux 2   | Jun 12, 2024     | Jun 1, 2026           | Jul 1, 2026           |
 | .NET 7 (container only) | `dotnet7`        | Amazon Linux 2   | May 14, 2024     | N/A                   | N/A                   |
 | Java 8                  | `java8`          | Amazon Linux     | Jan 8, 2024      | Feb 8, 2024           | Jul 1, 2026           |
 | Go 1.x                  | `go1.x`          | Amazon Linux     | Jan 8, 2024      | Feb 8, 2024           | Jul 1, 2026           |
 | OS-only Runtime         | `provided`       | Amazon Linux     | Jan 8, 2024      | Feb 8, 2024           | Jul 1, 2026           |
 | Ruby 2.7                | `ruby2.7`        | Amazon Linux 2   | Dec 7, 2023      | Jan 9, 2024           | Jul 1, 2026           |
-| Node.js 14              | `nodejs14.x`     | Amazon Linux 2   | Dec 4, 2023      | Jan 9, 2024           | Mar 9, 2026           |
+| Node.js 14              | `nodejs14.x`     | Amazon Linux 2   | Dec 4, 2023      | Jan 9, 2024           | Jul 1, 2026           |
 | Python 3.7              | `python3.7`      | Amazon Linux     | Dec 4, 2023      | Jan 9, 2024           | Mar 9, 2026           |
 | .NET Core 3.1           | `dotnetcore3.1`  | Amazon Linux 2   | Apr 3, 2023      | Apr 3, 2023           | May 3, 2023           |
 | Node.js 12              | `nodejs12.x`     | Amazon Linux 2   | Mar 31, 2023     | Mar 31, 2023          | Apr 30, 2023          |

@@ -13,6 +13,8 @@ in an Amazon Simple Storage Service (Amazon S3) bucket. For information about ho
 
 - [Setting up your Node.js handler project](#nodejs-handler-setup "#nodejs-handler-setup")
 - [Example Node.js Lambda function code](#nodejs-example-code "#nodejs-example-code")
+- [CommonJS and ES Modules](#nodejs-commonjs-es-modules "#nodejs-commonjs-es-modules")
+- [Node.js initialization](#nodejs-initialization "#nodejs-initialization")
 - [Handler naming conventions](#nodejs-handler-naming "#nodejs-handler-naming")
 - [Defining and accessing the input event object](#nodejs-example-input "#nodejs-example-input")
 - [Valid handler patterns for Node.js functions](#nodejs-handler-signatures "#nodejs-handler-signatures")
@@ -33,7 +35,7 @@ npm init
 
 This command initializes your project and generates a `package.json` file that manages your project's metadata and dependencies.
 
-Your function code lives in a `.js` or `.mjs` JavaScript file. In the following example, we name this file `index.mjs` because it uses an ES module handler. Lambda supports both ES module and CommonJS handlers. For more information, see [Designating a function handler as an ES module](lambda-nodejs.md#designate-es-module "lambda-nodejs.md#designate-es-module").
+Your function code lives in a `.js` or `.mjs` JavaScript file. In the following example, we name this file `index.mjs` because it uses an ES module handler. Lambda supports both ES module and CommonJS handlers. For more information, see [CommonJS and ES Modules](#nodejs-commonjs-es-modules "#nodejs-commonjs-es-modules").
 
 A typical Node.js Lambda function project follows this general structure:
 
@@ -49,10 +51,6 @@ A typical Node.js Lambda function project follows this general structure:
 
 The following example Lambda function code takes in information about an order,
 produces a text file receipt, and puts this file in an Amazon S3 bucket.
-
-###### Note
-
-This example uses an ES module handler. Lambda supports both ES module and CommonJS handlers. For more information, see [Designating a function handler as an ES module](lambda-nodejs.md#designate-es-module "lambda-nodejs.md#designate-es-module").
 
 ###### Example index.mjs Lambda function
 
@@ -125,6 +123,63 @@ This `index.mjs` file contains the following sections of code:
 
 For this function to work properly, its [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") must allow the `s3:PutObject` action. Also, ensure that you define the `RECEIPT_BUCKET` environment variable. After a successful invocation, the Amazon S3 bucket should contain a receipt file.
 
+## CommonJS and ES Modules
+
+Node.js supports two module systems: CommonJS and ECMAScript modules (ES modules). Lambda recommends using ES modules as it supports top-level await, which enables asynchronous tasks to be completed during [execution environment initialization](#nodejs-initialization "#nodejs-initialization").
+
+Node.js treats files with a `.cjs` file name extension as CommonJS modules while a `.mjs` extension denotes ES modules. By default, Node.js treats files with the `.js` file name extension as CommonJS modules. You can configure Node.js to treat `.js` files as ES modules by specifying the `type` as `module` in the function's `package.json` file. You can configure Node.js in Lambda to detect automatically whether a `.js` file should be treated as CommonJS or as an ES module by adding the `—experimental-detect-module` flag to the `NODE_OPTIONS` environment variable. For more information, see [Experimental Node.js features](lambda-nodejs.md#nodejs-experimental-features "lambda-nodejs.md#nodejs-experimental-features").
+
+The following examples show function handlers written using both ES modules and CommonJS modules. The remaining examples on this page all use ES modules.
+
+ES module example
+
+###### Example – ES module handler
+
+```
+const url = "https://aws.amazon.com/";
+
+export const handler = async(event) => {
+    try {
+        const res = await fetch(url);
+        console.info("status", res.status);
+        return res.status;
+    }
+    catch (e) {
+        console.error(e);
+        return 500;
+    }
+};
+```
+
+CommonJS module example
+
+###### Example – CommonJS module handler
+
+```
+const https = require("https");
+let url = "https://aws.amazon.com/";
+
+exports.handler = async function (event) {
+  let statusCode;
+  await new Promise(function (resolve, reject) {
+    https.get(url, (res) => {
+        statusCode = res.statusCode;
+        resolve(statusCode);
+      }).on("error", (e) => {
+        reject(Error(e));
+      });
+  });
+  console.log(statusCode);
+  return statusCode;
+};
+```
+
+## Node.js initialization
+
+Node.js uses a non-blocking I/O model that supports efficient asynchronous operations using an event loop. For example, if Node.js makes a network call, the function continues to process other operations without blocking on a network response. When the network response is received, it is placed into the callback queue. Tasks from the queue are processed when the current task completes.
+
+Lambda recommends using top-level await so that asynchronous tasks initiated during execution environment initialization are completed during initialization. Asynchronous tasks that are not completed during initialization will typically run during the first function invoke. This can cause unexpected behavior or errors. For example, your function initialization may make a network call to fetch a parameter from AWS Parameter Store. If this task is not completed during initialization, the value may be null during an invocation. There can also be a delay between initialization and invoke which can trigger errors in time-sensitive operations. In particular, AWS service calls can rely on time-sensitive request signatures, resulting in service call failures if the call is not completed during the initialization phase. Completing tasks during initialization typically improves cold-start performance, and first invoke performance when using Provisioned Concurrency. For more information, see our blog post [Using Node.js ES modules and top-level await in AWS Lambda](https://aws.amazon.com/blogs/compute/using-node-js-es-modules-and-top-level-await-in-aws-lambda "https://aws.amazon.com/blogs/compute/using-node-js-es-modules-and-top-level-await-in-aws-lambda").
+
 ## Handler naming conventions
 
 When you configure a function, the value of the [Handler](../api/API_CreateFunction.md#lambda-CreateFunction-request-Handler "../api/API_CreateFunction.md#lambda-CreateFunction-request-Handler") setting is
@@ -175,7 +230,7 @@ After you define these types in your JSDoc comment, you can access the fields of
 
 We recommend that you use [async/await](../../../sdk-for-javascript/v3/developer-guide/using-async-await.md "../../../sdk-for-javascript/v3/developer-guide/using-async-await.md") to declare the function handler instead of using [callbacks](../../../sdk-for-javascript/v3/developer-guide/using-a-callback-function.md "../../../sdk-for-javascript/v3/developer-guide/using-a-callback-function.md"). Async/await is a concise and readable way to write asynchronous code, without the need for nested callbacks or chaining promises. With async/await, you can write code that reads like synchronous code, while still being asynchronous and non-blocking.
 
-### Using async/await (recommended)
+### async function handlers (recommended)
 
 The `async` keyword marks a function as asynchronous, and the `await` keyword pauses the execution of the function until a `Promise` is resolved. The handler accepts the following arguments:
 
@@ -184,22 +239,43 @@ The `async` keyword marks a function as asynchronous, and the `await` keyword pa
 
 Here are the valid signatures for the async/await pattern:
 
-- ```
-  export const handler = async `(event)` => { };
-  ```
+```
+export const handler = async `(event)` => { };
+```
 
-````
-* ```
+```
 export const handler = async `(event, context)` => { };
-````
+```
+
+### Synchronous function handlers
+
+Where your function does not perform any asynchronous tasks, you can use a synchronous function handler, using one of the following function signatures:
+
+```
+export const handler = (event) => { };
+```
+
+```
+export const handler = (event, context) => { };
+```
+
+### Response streaming function handlers
+
+Lambda supports response streaming with Node.js. Response streaming function handlers use the `awslambda.streamifyResponse()` decorator and take 3 parameters: `event`, `responseStream`, and `context`. The function signature is:
+
+```
+export const handler = awslambda.streamifyResponse(async (event, responseStream, context) => { });
+```
+
+For more information, see [Response streaming for Lambda functions](configuration-response-streaming.md "configuration-response-streaming.md").
+
+### Callback-based function handlers
 
 ###### Note
 
-Use a local integrated development environment (IDE) or text editor to write your TypeScript function code. You can’t create TypeScript code on the Lambda console.
+Callback-based function handlers are only supported up to Node.js 22. Starting from Node.js 24, asynchronous tasks should be implemented using async function handlers.
 
-### Using callbacks
-
-Callback handlers must use the event, context, and callback arguments. Example:
+Callback-based function handlers must use the event, context, and callback arguments. Example:
 
 ```
 export const handler = `(event, context, callback)` => { };

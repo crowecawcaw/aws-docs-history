@@ -41,7 +41,7 @@ this creates an event source mapping resource.
    - Choose whether you want to **Configure provisioned mode** for your event source
      mapping. For more information, see [Apache Kafka event poller scaling modes in Lambda](kafka-scaling-modes.md "kafka-scaling-modes.md").
      - If you configure provisioned mode, enter a value for **Minimum event pollers**,
-       a value for **Maximum event pollers**, or both values.
+       a value for **Maximum event pollers**, and an optional value for PollerGroupName to specify grouping of multiple ESMs within the same event source VPC.
 
    - For **Starting position**, choose how you want Lambda to start reading from your stream.
      For more information, see [Apache Kafka polling and stream starting positions in Lambda](kafka-starting-positions.md "kafka-starting-positions.md").

@@ -2,7 +2,7 @@
 
 ###### Note
 
-You must invoke your function using a function URL to stream the responses.
+Your Lambda function can now stream response payloads through the [Amazon API Gateway proxy integration](../../../apigateway/latest/developerguide/response-transfer-mode-lambda.md "../../../apigateway/latest/developerguide/response-transfer-mode-lambda.md").
 
 You can invoke response streaming enabled functions by changing the invoke mode of your
 function's URL. The invoke mode determines which API operation Lambda uses to invoke your
@@ -42,8 +42,8 @@ aws lambda update-function-url-config \
   --invoke-mode RESPONSE_STREAM
 ```
 
-AWS CloudFormation
-**To set the invoke mode of a function's URL (AWS CloudFormation)**
+CloudFormation
+**To set the invoke mode of a function's URL (CloudFormation)**
 
 ```
 MyFunctionUrl:

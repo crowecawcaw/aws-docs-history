@@ -32,7 +32,7 @@ code and other content. To learn more about using Lambda layers in Python, see [
 
 The Lambda Python runtimes include the AWS SDK for Python (Boto3) and its dependencies. Lambda provides the SDK in the runtime for deployment scenarios
 where you are unable to add your own dependencies. These scenarios include creating functions in the console using the built-in code editor or
-using inline functions in AWS Serverless Application Model (AWS SAM) or AWS CloudFormation templates.
+using inline functions in AWS Serverless Application Model (AWS SAM) or CloudFormation templates.
 
 Lambda periodically updates the libraries in the Python runtime to include the latest updates and security patches. If your function uses
 the version of the Boto3 SDK included in the runtime but your deployment package includes SDK dependencies, this can cause version misalignment
@@ -281,7 +281,7 @@ To learn how to launch and connect to an Amazon EC2 Linux instance, see [Get sta
 
 After you have created your .zip deployment package, you can use it to create a new Lambda function or update an existing one. You can deploy
 your .zip package using the Lambda console, the AWS Command Line Interface, and the Lambda API. You can also create and update Lambda functions using
-AWS Serverless Application Model (AWS SAM) and AWS CloudFormation.
+AWS Serverless Application Model (AWS SAM) and CloudFormation.
 
 The maximum size for a .zip deployment package for Lambda is 250 MB (unzipped). Note that this limit applies to the combined size of all the files you upload,
 including any Lambda layers.
@@ -447,18 +447,18 @@ the maximum allowed size of 250MB (unzipped) from a location on your local build
 
 To learn more about deploying functions using .zip file in AWS SAM, see [AWS::Serverless::Function](../../../serverless-application-model/latest/developerguide/sam-resource-function.md "../../../serverless-application-model/latest/developerguide/sam-resource-function.md") in the _AWS SAM Developer Guide_.
 
-### Creating and updating functions with .zip files using AWS CloudFormation
+### Creating and updating functions with .zip files using CloudFormation
 
-You can use AWS CloudFormation to create a Lambda function using a .zip file archive. To create a Lambda function from a .zip file, you must first upload
+You can use CloudFormation to create a Lambda function using a .zip file archive. To create a Lambda function from a .zip file, you must first upload
 your file to an Amazon S3 bucket. For instructions on how to upload a file to an Amazon S3 bucket using the AWS CLI, see [Move objects](../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move "../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move")
 in the _AWS CLI User Guide._
 
-For Node.js and Python runtimes, you can also provide inline source code in your AWS CloudFormation
-template. AWS CloudFormation then creates a .zip file containing your code when you build your function.
+For Node.js and Python runtimes, you can also provide inline source code in your CloudFormation
+template. CloudFormation then creates a .zip file containing your code when you build your function.
 
 **Using an existing .zip file**
 
-In your AWS CloudFormation template, the `AWS::Lambda::Function` resource specifies your Lambda function. In this resource, set the following
+In your CloudFormation template, the `AWS::Lambda::Function` resource specifies your Lambda function. In this resource, set the following
 properties to create a function using a .zip file archive:
 
 - `PackageType` - Set to `Zip`
@@ -467,7 +467,7 @@ properties to create a function using a .zip file archive:
 
 **Creating a .zip file from inline code**
 
-You can declare simple functions written in Python or Node.js inline in an AWS CloudFormation template. Because the code is embedded in YAML or JSON, you can't add any external
+You can declare simple functions written in Python or Node.js inline in an CloudFormation template. Because the code is embedded in YAML or JSON, you can't add any external
 dependenices to your deployment package. This means your function has to use the version of the AWS SDK that's included in the runtime. The requirements of the template,
 such as having to escape certain characters, also make it harder to use your IDE's syntax checking and code completion features. This means that your template might require
 additional testing. Because of these limitations, declaring functions inline is best suited for very simple code that does not change frequently.
@@ -478,5 +478,5 @@ To create a .zip file from inline code for Node.js and Python runtimes, set the 
 - `Code` - Enter your function code in the `ZipFile` field
 - `Runtime` - Set to your chosen runtime
 
-The .zip file that AWS CloudFormation generates cannot exceed 4MB. To learn more about deploying functions using .zip file in AWS CloudFormation, see [AWS::Lambda::Function](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md")
-in the _AWS CloudFormation User Guide_.
+The .zip file that CloudFormation generates cannot exceed 4MB. To learn more about deploying functions using .zip file in CloudFormation, see [AWS::Lambda::Function](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md")
+in the _CloudFormation User Guide_.

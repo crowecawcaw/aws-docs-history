@@ -39,13 +39,13 @@ In X-Ray, a _trace_ records information about a request that is processed by one
 _services_. Lambda records 2 segments per trace, which creates
 two nodes on the service graph. The following image highlights these two nodes:
 
-![An X-Ray service map with a single function.](images/xray-servicemap-function.png)
+![An X-Ray service map with a single function.](/images/lambda/latest/dg/images/xray-servicemap-function.png)
 The first node on the left represents the Lambda service, which receives the invocation request. The second
 node represents your specific Lambda function. The following example shows a trace with these two segments. Both
 are named **my-function**, but one has an origin of `AWS::Lambda` and the other has
 an origin of `AWS::Lambda::Function`. If the `AWS::Lambda` segment shows an error, the Lambda service had an issue. If the `AWS::Lambda::Function` segment shows an error, your function had an issue.
 
-![An X-Ray trace that shows latency across each subsegment of a specific Lambda invocation.](images/V2_sandbox_images/my-function-2-v1.png)
+![An X-Ray trace that shows latency across each subsegment of a specific Lambda invocation.](/images/lambda/latest/dg/images/V2_sandbox_images/my-function-2-v1.png)
 This example expands the `AWS::Lambda::Function` segment to show its three subsegments.
 
 ###### Note
@@ -109,13 +109,13 @@ In X-Ray, a _trace_ records information about a request that is processed by one
 _services_. Lambda records 2 segments per trace, which creates
 two nodes on the service graph. The following image highlights these two nodes:
 
-![An X-Ray service map with a single function.](images/xray-servicemap-function.png)
+![An X-Ray service map with a single function.](/images/lambda/latest/dg/images/xray-servicemap-function.png)
 The first node on the left represents the Lambda service, which receives the invocation request. The second
 node represents your specific Lambda function. The following example shows a trace with these two segments. Both
 are named **my-function**, but one has an origin of `AWS::Lambda` and the other has
 an origin of `AWS::Lambda::Function`. If the `AWS::Lambda` segment shows an error, the Lambda service had an issue. If the `AWS::Lambda::Function` segment shows an error, your function had an issue.
 
-![An X-Ray trace that shows latency across each subsegment of a specific Lambda invocation.](images/V2_sandbox_images/my-function-2-v1.png)
+![An X-Ray trace that shows latency across each subsegment of a specific Lambda invocation.](/images/lambda/latest/dg/images/V2_sandbox_images/my-function-2-v1.png)
 This example expands the `AWS::Lambda::Function` segment to show its three subsegments.
 
 ###### Note
@@ -147,7 +147,7 @@ the AWS X-Ray Developer Guide.
 ###### Sections
 
 - [Enabling active tracing with the Lambda API](#ruby-tracing-api "#ruby-tracing-api")
-- [Enabling active tracing with AWS CloudFormation](#ruby-tracing-cloudformation "#ruby-tracing-cloudformation")
+- [Enabling active tracing with CloudFormation](#ruby-tracing-cloudformation "#ruby-tracing-cloudformation")
 - [Storing runtime dependencies in a layer](#ruby-tracing-layers "#ruby-tracing-layers")
 
 ## Enabling active tracing with the Lambda API
@@ -169,9 +169,9 @@ The following example AWS CLI command enables active tracing on a function named
 Tracing mode is part of the version-specific configuration when you publish a version of your function.
 You can't change the tracing mode on a published version.
 
-## Enabling active tracing with AWS CloudFormation
+## Enabling active tracing with CloudFormation
 
-To activate tracing on an `AWS::Lambda::Function` resource in an AWS CloudFormation template, use the
+To activate tracing on an `AWS::Lambda::Function` resource in an CloudFormation template, use the
 `TracingConfig` property.
 
 ###### Example [function-inline.yml](https://github.com/awsdocs/aws-lambda-developer-guide/blob/master/templates/function-inline.yml "https://github.com/awsdocs/aws-lambda-developer-guide/blob/master/templates/function-inline.yml") –

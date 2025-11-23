@@ -38,8 +38,8 @@ configure destinations on a function, function version, or alias.
 
 You can also retain records of failed invocations for the following event source mapping types:
 [Amazon Kinesis](kinesis-on-failure-destination.md#kinesis-on-failure-destination-console "kinesis-on-failure-destination.md#kinesis-on-failure-destination-console"),
-[Amazon DynamoDB](services-dynamodb-errors.md "services-dynamodb-errors.md"),
-[Kafka (Amazon MSK and self-managed Apache Kafka)](kafka-on-failure.md#kafka-onfailure-destination "kafka-on-failure.md#kafka-onfailure-destination").
+[Amazon DynamoDB](services-dynamodb-errors.md "services-dynamodb-errors.md"), and
+[Apache Kafka (Amazon MSK and self-managed Apache Kafka)](kafka-on-failure.md#kafka-onfailure-destination "kafka-on-failure.md#kafka-onfailure-destination").
 
 The following table lists supported destinations for asynchronous invocation records. For Lambda to
 successfully send records to your chosen destination, ensure that your function's

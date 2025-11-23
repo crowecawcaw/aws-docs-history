@@ -35,9 +35,7 @@ environment.
   - `env.locale`
   - `custom` – Custom values that are set by the client application.
 
-- `callbackWaitsForEmptyEventLoop` – Set to false to send the response right away when the
-  [callback](../../../sdk-for-javascript/v3/developer-guide/using-a-callback-function.md "../../../sdk-for-javascript/v3/developer-guide/using-a-callback-function.md") runs, instead of waiting for the Node.js event loop to
-  be empty. If this is false, any outstanding events continue to run during the next invocation.
+- `callbackWaitsForEmptyEventLoop` – By default (`true`), when using a callback-based function handler, Lambda waits for the event loop to be empty after the callback runs before ending the function invoke. Set to `false` to send the response and end the invoke immediately after the callback runs instead of waiting for the event loop to be empty. Outstanding events continue to run during the next invocation. Note that Lambda supports callback-based function handlers for Node.js 22 and earlier runtimes only.
   The following example function logs context information and returns the location of the logs.
 
 ###### Example index.js file

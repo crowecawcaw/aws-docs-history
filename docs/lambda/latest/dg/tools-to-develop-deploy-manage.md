@@ -3,7 +3,7 @@
 You have access to a variety of tools that increase productivity and ease-of-use throughout the entire development lifecycle. This section provides information on tools that help many Lambda customers design, develop, and manage their applications. From local development in your IDE to deploying and managing complex serverless applications, these tools help you streamline your workflow, improve code quality, and accelerate the development of robust Lambda-based solutions.
 
 - **Local development**—Write and test Lambda functions faster in your preferred development environment. The AWS Toolkit for VS Code enables local function development, debugging, and testing with direct deployment capabilities to Lambda.
-- **Infrastructure as Code (IaC)**—Deploy and manage serverless applications consistently from local testing to production. AWS SAM, AWS CDK, and AWS CloudFormation let you define and manage your serverless infrastructure through code for consistent, version-controlled deployments.
+- **Infrastructure as Code (IaC)**—Deploy and manage serverless applications consistently from local testing to production. AWS SAM, AWS CDK, and CloudFormation let you define and manage your serverless infrastructure through code for consistent, version-controlled deployments.
 - **GitHub Actions**—Automate Lambda deployments directly from your code repository. GitHub Actions allows you to set up workflows that automatically deploy your Lambda functions whenever you push code or configuration changes, simplifying your CI/CD pipeline.
 - **Powertools for AWS Lambda**—Build production-ready serverless applications with less custom code. Powertools for AWS Lambda (also referred to as Powertools for AWS) is an open-source developer toolkit that simplifies implementing serverless best practices such as observability, parameter retrieval, and idempotency across Python, TypeScript, Java, and .NET.
 - **Workflows and events**—Coordinate Lambda functions with AWS services, APIs, and external systems. AWS Step Functions and Amazon EventBridge provide orchestration and event management capabilities to coordinate complex Lambda-based application workflows.
@@ -30,7 +30,7 @@ With Infrastructure as Code (IaC) tools, you can define and manage your serverle
 Key IaC tools and concepts for Lambda include frameworks for template creation, deployment management, and best practices for serverless infrastructure:
 
 - Core IaC principles for Lambda development
-- AWS CloudFormation, AWS SAM, and AWS CDK capabilities
+- CloudFormation, AWS SAM, and AWS CDK capabilities
 - Tool selection criteria and comparison
 - Best practices for Lambda IaC implementation
 

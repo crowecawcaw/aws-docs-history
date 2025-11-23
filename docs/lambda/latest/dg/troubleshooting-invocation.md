@@ -263,9 +263,9 @@ Verify that the ENTRYPOINT to your container image includes the absolute path as
 location. Also verify that the image does not contain a symlink as the ENTRYPOINT.
 
 **Error:**
-_You are using an AWS CloudFormation template, and your container ENTRYPOINT is being overridden
+_You are using an CloudFormation template, and your container ENTRYPOINT is being overridden
 with a null or empty value._
 
-Review the [ImageConfig](../../../AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-function-imageconfig.md "../../../AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-function-imageconfig.md") resource in the AWS CloudFormation template. If you declare an
+Review the [ImageConfig](../../../AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-function-imageconfig.md "../../../AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-function-imageconfig.md") resource in the CloudFormation template. If you declare an
 `ImageConfig` resource in your template, you must provide non-empty values for
 all three of the properties.

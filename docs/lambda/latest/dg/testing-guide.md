@@ -135,7 +135,7 @@ Fortunately, tools such as [AWS Serverless Application Model (AWS SAM) Accelerat
 
 ###### Note
 
-See how to [create infrastructure as code](../../../serverless/latest/devguide/serverless-dev-workflow.md#dev_create-infrastructure-with-code "../../../serverless/latest/devguide/serverless-dev-workflow.md#dev_create-infrastructure-with-code") in the _Serverless Developer Guide_ to learn more about AWS Serverless Application Model, AWS CloudFormation, and AWS Cloud Development Kit (AWS CDK).
+See how to [create infrastructure as code](../../../serverless/latest/devguide/serverless-dev-workflow.md#dev_create-infrastructure-with-code "../../../serverless/latest/devguide/serverless-dev-workflow.md#dev_create-infrastructure-with-code") in the _Serverless Developer Guide_ to learn more about AWS Serverless Application Model, CloudFormation, and AWS Cloud Development Kit (AWS CDK).
 
 Unlike local testing, testing in the cloud requires additional resources which may incur service costs. Creating isolated testing environments may increase the burden on your DevOps teams, especially in organizations with strict controls around accounts and infrastructure. Even so, when working with complex infrastructure scenarios, the cost in developer time to set up and maintain an intricate local environment could be similar (or more costly) than using disposable testing environments created with Infrastructure as Code automation tools.
 

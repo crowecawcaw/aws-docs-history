@@ -657,7 +657,7 @@ In **Account A**, clean up your Amazon SNS topic.
 
 ###### To delete the Amazon SNS topic
 
-1. Open the [Topics page](https://console.aws.amazon.com/sns/home#topics: "https://console.aws.amazon.com/sns/home#topics:") of the Amazon SNS console.
+1. Open the [Topics page](https://console.aws.amazon.com//sns/home#topics: "https://console.aws.amazon.com//sns/home#topics:") of the Amazon SNS console.
 2. Select the topic you created.
 3. Choose **Delete**.
 4. Enter `delete me` in the text input field.
@@ -681,6 +681,6 @@ In **Account B**, clean up your execution role, Lambda function, and Amazon SNS 
 
 ###### To delete the Amazon SNS subscription
 
-1. Open the [Subscriptions page](https://console.aws.amazon.com/sns/home#subscriptions: "https://console.aws.amazon.com/sns/home#subscriptions:") of the Amazon SNS console.
+1. Open the [Subscriptions page](https://console.aws.amazon.com//sns/home#subscriptions: "https://console.aws.amazon.com//sns/home#subscriptions:") of the Amazon SNS console.
 2. Select the subscription you created.
 3. Choose **Delete**, **Delete**.

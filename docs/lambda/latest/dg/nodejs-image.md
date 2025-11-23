@@ -32,6 +32,7 @@ AWS provides the following base images for Node.js:
 
 | Tags | Runtime    | Operating system  | Dockerfile                                                                                                                                                                                                          | Deprecation  |
 | ---- | ---------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| 24   | Node.js 24 | Amazon Linux 2023 | [Dockerfile<br>for Node.js 24 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/nodejs24.x/Dockerfile.nodejs24.x "https://github.com/aws/aws-lambda-base-images/blob/nodejs24.x/Dockerfile.nodejs24.x") | Apr 30, 2028 |
 | 22   | Node.js 22 | Amazon Linux 2023 | [Dockerfile<br>for Node.js 22 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/nodejs22.x/Dockerfile.nodejs22.x "https://github.com/aws/aws-lambda-base-images/blob/nodejs22.x/Dockerfile.nodejs22.x") | Apr 30, 2027 |
 | 20   | Node.js 20 | Amazon Linux 2023 | [Dockerfile<br>for Node.js 20 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/nodejs20.x/Dockerfile.nodejs20.x "https://github.com/aws/aws-lambda-base-images/blob/nodejs20.x/Dockerfile.nodejs20.x") | Apr 30, 2026 |
 

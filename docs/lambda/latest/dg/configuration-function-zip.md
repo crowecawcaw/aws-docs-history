@@ -21,7 +21,7 @@ You cannot change the [deployment package type](../api/API_CreateFunction.md#lam
 - [Changing the architecture](#configuration-function-arch "#configuration-function-arch")
 - [Using the Lambda API](#configuration-function-api "#configuration-function-api")
 - [Downloading your function code](#configuration-function-download "#configuration-function-download")
-- [AWS CloudFormation](#configuration-function-cloudformation "#configuration-function-cloudformation")
+- [CloudFormation](#configuration-function-cloudformation "#configuration-function-cloudformation")
 - [Encrypting Lambda .zip deployment packages](encrypt-zip-package.md "encrypt-zip-package.md")
 
 ## Creating the function
@@ -186,9 +186,9 @@ via the Lambda console. To do this, first ensure that you have the following IAM
       download a SAM template based on your function's configuration. You can also choose
       **Download both** to download both the .zip and the SAM template.
 
-## AWS CloudFormation
+## CloudFormation
 
-You can use AWS CloudFormation to create a Lambda function that uses a .zip file archive. In your AWS CloudFormation template, the
+You can use CloudFormation to create a Lambda function that uses a .zip file archive. In your CloudFormation template, the
 `AWS::Lambda::Function` resource specifies the Lambda function. For descriptions of the properties in
 the `AWS::Lambda::Function` resource, see [AWS::Lambda::Function](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md") in the
 _AWS CloudFormation User Guide_.

@@ -1,4 +1,4 @@
-# Using AWS Lambda with AWS CloudFormation
+# Using AWS Lambda with CloudFormation
 
 In an AWS CloudFormation template, you can specify a Lambda function as the target of a custom resource. Use custom
 resources to process parameters, retrieve configuration values, or call other AWS services during stack lifecycle
@@ -18,14 +18,14 @@ Resources:
  FunctionName: !Ref randomerror`
 ```
 
-The service token is the Amazon Resource Name (ARN) of the function that AWS CloudFormation invokes when you create, update,
-or delete the stack. You can also include additional properties like `FunctionName`, which AWS CloudFormation passes
+The service token is the Amazon Resource Name (ARN) of the function that CloudFormation invokes when you create, update,
+or delete the stack. You can also include additional properties like `FunctionName`, which CloudFormation passes
 to your function as is.
 
-AWS CloudFormation invokes your Lambda function [asynchronously](invocation-async.md "invocation-async.md") with an event that
+CloudFormation invokes your Lambda function [asynchronously](invocation-async.md "invocation-async.md") with an event that
 includes a callback URL.
 
-###### Example – AWS CloudFormation message event
+###### Example – CloudFormation message event
 
 ```
 {
@@ -47,7 +47,7 @@ The function is responsible for returning a response to the callback URL that in
 the full response syntax, see [Custom resource response
 objects](../../../AWSCloudFormation/latest/UserGuide/crpg-ref-responses.md "../../../AWSCloudFormation/latest/UserGuide/crpg-ref-responses.md").
 
-###### Example – AWS CloudFormation custom resource response
+###### Example – CloudFormation custom resource response
 
 ```
 {
@@ -59,13 +59,13 @@ objects](../../../AWSCloudFormation/latest/UserGuide/crpg-ref-responses.md "../.
 }
 ```
 
-AWS CloudFormation provides a library called `cfn-response` that handles sending the response. If you define your
-function within a template, you can require the library by name. AWS CloudFormation then adds the library to the deployment
+CloudFormation provides a library called `cfn-response` that handles sending the response. If you define your
+function within a template, you can require the library by name. CloudFormation then adds the library to the deployment
 package that it creates for the function.
 
 If your function that a Custom Resource uses has an [Elastic Network Interface](configuration-vpc.md#configuration-vpc-enis "configuration-vpc.md#configuration-vpc-enis") attached to it,
 add the following resources to the VPC policy where `region` is the Region the function is in without the dashes. For example,
-`us-east-1` is `useast1`. This will allow the Custom Resource to respond to the callback URL that sends a signal back to the AWS CloudFormation stack.
+`us-east-1` is `useast1`. This will allow the Custom Resource to respond to the callback URL that sends a signal back to the CloudFormation stack.
 
 ```
 arn:aws:s3:::cloudformation-custom-resource-response-`region`",
@@ -73,7 +73,7 @@ arn:aws:s3:::cloudformation-custom-resource-response-`region`",
 ```
 
 The following example function invokes a second function. If the call succeeds, the function sends a success
-response to AWS CloudFormation, and the stack update continues. The template uses the [AWS::Serverless::Function](../../../serverless-application-model/latest/developerguide/sam-resource-function.md "../../../serverless-application-model/latest/developerguide/sam-resource-function.md") resource type provided by
+response to CloudFormation, and the stack update continues. The template uses the [AWS::Serverless::Function](../../../serverless-application-model/latest/developerguide/sam-resource-function.md "../../../serverless-application-model/latest/developerguide/sam-resource-function.md") resource type provided by
 AWS Serverless Application Model.
 
 ###### Example – Custom resource function

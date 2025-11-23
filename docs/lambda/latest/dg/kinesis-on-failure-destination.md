@@ -13,16 +13,19 @@ Error handling for Kinesis event source mappings depends on whether the error oc
 
 To retain records of failed event source mapping invocations, add a destination to your function's event source mapping.
 Each record sent to the destination is a JSON document containing metadata about the failed invocation. For Amazon S3 destinations, Lambda also sends the entire invocation record along with the
-metadata. You can configure any Amazon SNS topic, Amazon SQS queue, or S3 bucket as a destination.
+metadata. You can configure any Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, or Kafka as a destination.
 
 With Amazon S3 destinations, you can use the [Amazon S3 Event Notifications](../../../index.md "../../../index.md") feature to receive notifications when objects are uploaded to
 your destination S3 bucket. You can also configure S3 Event Notifications to invoke another Lambda function to perform automated processing on failed batches.
 
 Your execution role must have permissions for the destination:
 
-- **For SQS destinations:** [sqs:SendMessage](../../../AWSSimpleQueueService/latest/APIReference/API_SendMessage.md "../../../AWSSimpleQueueService/latest/APIReference/API_SendMessage.md")
-- **For SNS destinations:** [sns:Publish](../../../sns/latest/api/API_Publish.md "../../../sns/latest/api/API_Publish.md")
-- **For S3 bucket destinations:** [s3:PutObject](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md") and [s3:ListBucket](../../../AmazonS3/latest/API/ListObjectsV2.md "../../../AmazonS3/latest/API/ListObjectsV2.md")
+- **For an SQS destination:** [sqs:SendMessage](../../../AWSSimpleQueueService/latest/APIReference/API_SendMessage.md "../../../AWSSimpleQueueService/latest/APIReference/API_SendMessage.md")
+- **For an SNS destination:** [sns:Publish](../../../sns/latest/api/API_Publish.md "../../../sns/latest/api/API_Publish.md")
+- **For an S3 destination:** [s3:PutObject](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md") and [s3:ListBucket](../../../AmazonS3/latest/API/ListObjectsV2.md "../../../AmazonS3/latest/API/ListObjectsV2.md")
+- **For a Kafka destination:** [kafka-cluster:WriteData](../../../msk/latest/developerguide/kafka-actions.md "../../../msk/latest/developerguide/kafka-actions.md")
+
+You can configure a Kafka topic as an on-failure destination for your Kafka event source mappings. When Lambda can't process records after exhausting retry attempts or when records exceed the maximum age, Lambda sends the failed records to the specified Kafka topic for later processing. Refer to [Using a Kafka topic as an on-failure destination](kafka-on-failure-destination.md "kafka-on-failure-destination.md").
 
 If you've enabled encryption with your own KMS key for an S3 destination, your function's execution role must also have permission to call
 [kms:GenerateDataKey](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md").

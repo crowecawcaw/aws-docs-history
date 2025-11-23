@@ -4,7 +4,7 @@ In this tutorial, you can get started using IaC with Lambda by creating an AWS S
 serverless application in Infrastructure Composer by adding other AWS resources.
 
 As you carry out this tutorial, you’ll learn some fundamental concepts, like how AWS resources are specified in AWS SAM. You’ll also learn
-how to use Infrastructure Composer to build a serverless application you can deploy using AWS SAM or AWS CloudFormation.
+how to use Infrastructure Composer to build a serverless application you can deploy using AWS SAM or CloudFormation.
 
 To complete this tutorial, you’ll carry out the following steps:
 
@@ -100,12 +100,12 @@ Resources:
 Let’s take a moment to look at the YAML template for your function and understand some key concepts.
 
 The template starts with the declaration `Transform: AWS::Serverless-2016-10-31`. This declaration is required because behind
-the scenes, AWS SAM templates are deployed through AWS CloudFormation. Using the `Transform` statement identifies the template as an AWS SAM
+the scenes, AWS SAM templates are deployed through CloudFormation. Using the `Transform` statement identifies the template as an AWS SAM
 template file.
 
 Following the `Transform` declaration comes the `Resources` section. This is where the AWS resources you want to
-deploy with your AWS SAM template are defined. AWS SAM templates can contain a combination of AWS SAM resources and AWS CloudFormation resources. This is
-because during deployment, AWS SAM templates expand to AWS CloudFormation templates, so any valid AWS CloudFormation syntax can be added to an AWS SAM template.
+deploy with your AWS SAM template are defined. AWS SAM templates can contain a combination of AWS SAM resources and CloudFormation resources. This is
+because during deployment, AWS SAM templates expand to CloudFormation templates, so any valid CloudFormation syntax can be added to an AWS SAM template.
 
 At the moment, there is just one resource defined in the `Resources` section of the template, your Lambda function
 `LambdaIaCDemo`. To add a Lambda function to an AWS SAM template, you use the `AWS::Serverless::Function` resource type. The `Properties` of a Lambda
@@ -196,7 +196,7 @@ When you add an Amazon SQS queue using Infrastructure Composer, Infrastructure C
 
 To set other properties for your queue, you can manually edit the template to add them. To learn more
 about the `AWS::SQS::Queue` resource and its available properties, see [AWS::SQS::Queue](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.md")
-in the _AWS CloudFormation User Guide_.
+in the _CloudFormation User Guide_.
 
 - An `Events` property in your Lambda function definition that specifies the Amazon SQS queue as a trigger for the function
 
@@ -236,7 +236,7 @@ When you add a DynamoDB table using Infrastructure Composer, you can set your ta
 values for a number of other properties including `BillingMode` and
 `StreamViewType`.
 
-To learn more about these properties and other properties you can add to your AWS SAM template, see [AWS::DynamoDB::Table](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md") in the _AWS CloudFormation User Guide_.
+To learn more about these properties and other properties you can add to your AWS SAM template, see [AWS::DynamoDB::Table](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md") in the _CloudFormation User Guide_.
 
 - A new IAM policy that gives your function permission to perform CRUD operations on the DynamoDB table you added.
 
@@ -399,7 +399,7 @@ deployment, accept the default options by pressing Enter.
 
 During the deployment process, AWS SAM creates the following resources in your AWS account:
 
-- An AWS CloudFormation [stack](../../../AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.md#cfn-concepts-stacks "../../../AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.md#cfn-concepts-stacks")
+- An CloudFormation [stack](../../../AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.md#cfn-concepts-stacks "../../../AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.md#cfn-concepts-stacks")
   named `sam-app`
 - A Lambda function with the name format `sam-app-LambdaIaCDemo-`99VXPpYQVv1M``
 - An Amazon SQS queue with the name format `sam-app-LambdaIaCQueue-`xL87VeKsGiIo``

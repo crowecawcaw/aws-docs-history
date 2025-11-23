@@ -347,7 +347,7 @@ following example command. You only need to use the `--s3-object-version` parame
 ## Uploading a deployment package with AWS SAM
 
 You can use AWS SAM to automate deployments of your function code, configuration, and dependencies. AWS SAM is an
-extension of AWS CloudFormation that provides a simplified syntax for defining serverless applications. The following example
+extension of CloudFormation that provides a simplified syntax for defining serverless applications. The following example
 template defines a function with a deployment package in the `build/distributions` directory that
 Gradle uses:
 
@@ -381,7 +381,7 @@ customizations to the AWS CLI. They wrap other commands to upload the deployment
 template with the object URI, and update the function's code.
 
 The following example script runs a Gradle build and uploads the deployment package that it creates. It
-creates an AWS CloudFormation stack the first time you run it. If the stack already exists, the script updates it.
+creates an CloudFormation stack the first time you run it. If the stack already exists, the script updates it.
 
 ###### Example deploy.sh
 

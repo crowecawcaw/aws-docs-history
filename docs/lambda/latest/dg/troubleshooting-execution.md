@@ -32,6 +32,7 @@ errors](troubleshooting-invocation.md "troubleshooting-invocation.md").
 - [AWS SDK: Versions and updates](#troubleshooting-execution-versions "#troubleshooting-execution-versions")
 - [Python: Libraries load incorrectly](#troubleshooting-execution-libraries "#troubleshooting-execution-libraries")
 - [Java: Your function takes longer to process events after updating to Java 17 from Java 11](#troubleshooting-execution-java-perf "#troubleshooting-execution-java-perf")
+- [Kafka: Error handling and retry configuration issues](#troubleshooting-kafka-error-handling "#troubleshooting-kafka-error-handling")
 
 ## Lambda: Remote debugging with Visual Studio Code
 
@@ -333,3 +334,16 @@ Java versions change the default compiler options. The change improves cold star
 previous behavior is better suited to computationally intensive, longer-running functions. Set
 `JAVA_TOOL_OPTIONS` to `-XX:-TieredCompilation` to revert to the Java 11 behavior. For more
 information about the `JAVA_TOOL_OPTIONS` parameter, see [Understanding the JAVA_TOOL_OPTIONS environment variable](java-customization.md#java-tool-options "java-customization.md#java-tool-options").
+
+## Kafka: Error handling and retry configuration issues
+
+**Issue:** _Kafka event source mapping fails to configure retry settings or on-failure destinations_
+
+Kafka retry configurations and on-failure destinations are only available for event source mappings with provisioned mode enabled. Ensure that you have configured `MinimumPollers` in your `ProvisionedPollerConfig` before attempting to set retry configurations.
+
+Common configuration errors:
+
+- **Infinite retries with bisect batch** – You cannot enable `BisectBatchOnFunctionError` when `MaximumRetryAttempts` is set to -1 (infinite). Set a finite retry limit or disable bisect batch.
+- **Same topic recursion** – The Kafka on-failure destination topic cannot be the same as any of your source topics. Choose a different topic name for your dead letter topic.
+- **Invalid Kafka destination format** – Use the `kafka://<topic-name>` format when specifying a Kafka topic as an on-failure destination.
+- **kafka:WriteData permission issues** – Ensure your execution role has `kafka-cluster:WriteData` permissions for the destination topic. Topic doesn't exist timeout exceptions or write API throttling issues may require increasing the account limits.

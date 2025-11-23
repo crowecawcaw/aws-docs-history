@@ -8,7 +8,7 @@ processor that Lambda uses to run the function. Lambda provides a choice of inst
 
 ###### Note
 
-The arm64 architecture is available in most AWS Regions. For more information, see [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/#aws-element-9ccd9262-b656-4d9c-8a72-34ee6b662135 "https://aws.amazon.com/lambda/pricing/#aws-element-9ccd9262-b656-4d9c-8a72-34ee6b662135"). In the memory prices table, choose the **Arm Price** tab, and then open the **Region** dropdown list to see which AWS Regions support arm64 with Lambda.
+The arm64 architecture is available in most AWS Regions. For more information, see [AWS Lambda Pricing](https://aws.amazon.com//lambda/pricing/#aws-element-9ccd9262-b656-4d9c-8a72-34ee6b662135 "https://aws.amazon.com//lambda/pricing/#aws-element-9ccd9262-b656-4d9c-8a72-34ee6b662135"). In the memory prices table, choose the **Arm Price** tab, and then open the **Region** dropdown list to see which AWS Regions support arm64 with Lambda.
 
 For an example of how to create a function with arm64 architecture, see [AWS Lambda Functions Powered by AWS Graviton2 Processor](https://aws.amazon.com/blogs/aws/aws-lambda-functions-powered-by-aws-graviton2-processor-run-your-functions-on-arm-and-get-up-to-34-better-price-performance/ "https://aws.amazon.com/blogs/aws/aws-lambda-functions-powered-by-aws-graviton2-processor-run-your-functions-on-arm-and-get-up-to-34-better-price-performance/").
 
@@ -94,7 +94,7 @@ repository.
 ## Configuring the instruction set architecture
 
 You can configure the instruction set architecture for new and existing Lambda functions using the Lambda console, AWS
-SDKs, AWS Command Line Interface (AWS CLI), or AWS CloudFormation. Follow these steps to change the instruction set architecture for an existing Lambda
+SDKs, AWS Command Line Interface (AWS CLI), or CloudFormation. Follow these steps to change the instruction set architecture for an existing Lambda
 function from the console.
 
 1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.

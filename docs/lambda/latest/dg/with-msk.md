@@ -17,15 +17,20 @@ process for integrating Amazon MSK with Lambda involves the following steps:
 3. **[Function and permissions setup](with-msk-permissions.md "with-msk-permissions.md")**
    – Finally, ensure that your function is correctly set up, and has the necessary permissions in its
    [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md").
-   For examples on how to set up a Lambda integration with an Amazon MSK cluster, see [Tutorial: Using an Amazon MSK event source mapping to invoke a Lambda function](services-msk-tutorial.md "services-msk-tutorial.md"),
-   [Using Amazon MSK as an event source for
-   AWS Lambda](https://aws.amazon.com/blogs/compute/using-amazon-msk-as-an-event-source-for-aws-lambda/ "https://aws.amazon.com/blogs/compute/using-amazon-msk-as-an-event-source-for-aws-lambda/") on the AWS Compute Blog, and [Amazon MSK Lambda Integration](https://amazonmsk-labs.workshop.aws/en/msklambda.html "https://amazonmsk-labs.workshop.aws/en/msklambda.html") in the Amazon MSK Labs.
+
+###### Note
+
+You can now create and manage your Amazon MSK event source mappings directly from either the Lambda or the Amazon MSK console. Both consoles offer the option to automatically handle the setup of the necessary Lambda execution role permissions for a more streamlined configuration process.
+
+For examples on how to set up a Lambda integration with an Amazon MSK cluster, see [Tutorial: Using an Amazon MSK event source mapping to invoke a Lambda function](services-msk-tutorial.md "services-msk-tutorial.md"),
+[Using Amazon MSK as an event source for
+AWS Lambda](https://aws.amazon.com/blogs/compute/using-amazon-msk-as-an-event-source-for-aws-lambda/ "https://aws.amazon.com/blogs/compute/using-amazon-msk-as-an-event-source-for-aws-lambda/") on the AWS Compute Blog, and [Amazon MSK Lambda Integration](https://amazonmsk-labs.workshop.aws/en/msklambda.html "https://amazonmsk-labs.workshop.aws/en/msklambda.html") in the Amazon MSK Labs.
 
 ###### Topics
 
 - [Example event](#msk-sample-event "#msk-sample-event")
 - [Configuring your Amazon MSK cluster and Amazon VPC network for Lambda](with-msk-cluster-network.md "with-msk-cluster-network.md")
-- [Configuring Lambda execution role permissions](with-msk-permissions.md "with-msk-permissions.md")
+- [Configuring Lambda permissions for Amazon MSK event source mappings](with-msk-permissions.md "with-msk-permissions.md")
 - [Configuring Amazon MSK event sources for Lambda](with-msk-configure.md "with-msk-configure.md")
 - [Tutorial: Using an Amazon MSK event source mapping to invoke a Lambda function](services-msk-tutorial.md "services-msk-tutorial.md")
 

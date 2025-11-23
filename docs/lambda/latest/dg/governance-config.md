@@ -10,7 +10,7 @@ consistently across your AWS accounts.
 For example, suppose your compliance administrators defined a requirement to ensure that all Lambda functions include AWS X-Ray tracing. With AWS Config's proactive mode, you can run compliance checks on your Lambda function resources before deployment, reducing the risk of deploying improperly configured Lambda functions and saving developers time by giving them faster feedback on infrastructure as code templates.
 The following is a visualization of the flow for preventative controls with AWS Config:
 
-![AWS CloudFormation requests must pass AWS Config rules before provisioning.](images/governance-config-1.png)
+![CloudFormation requests must pass AWS Config rules before provisioning.](images/governance-config-1.png)
 
 Consider a requirement that all Lambda functions must have tracing enabled. In response, the
 platform team identifies the need for a specific AWS Config rule to run proactively across all
@@ -201,7 +201,7 @@ subsequent review. Compliance notifications are sent to the relevant stakeholder
 
 You can find the hook success/fail information in the CloudFormation console:
 
-![Hook success/fail information in the AWS CloudFormation console](images/governance-config-2.png)
+![Hook success/fail information in the CloudFormation console](images/governance-config-2.png)
 
 If you have logs enabled for your CloudFormation hook, you can capture the hook evaluation result.
 Here is a sample log for a hook with a failed status, indicating that the Lambda function does not
@@ -213,7 +213,7 @@ If the developer chooses to change the IaC to update `TracingConfig Mode` value
 to `Active` and redeploy, the hook executes successfully and the stack proceeds
 with creating the Lambda resource.
 
-![AWS CloudFormation console shows successful resource deployment](images/governance-config-4.png)
+![CloudFormation console shows successful resource deployment](images/governance-config-4.png)
 
 In this way, you can implement preventative controls with AWS Config in proactive mode when
 developing and deploying serverless resources in your AWS accounts. By integrating AWS Config

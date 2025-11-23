@@ -355,7 +355,7 @@ of `FilterCriteria`, use the [GetEventSourceMapping](../api/API_GetEventSourceMa
 To view the decrypted value of `FilterCriteria` in the console,
 ensure that your IAM role contains permissions for [GetEventSourceMapping](../api/API_GetEventSourceMapping.md "../api/API_GetEventSourceMapping.md").
 
-You can specify your own KMS key via the console, API/CLI, or AWS CloudFormation.
+You can specify your own KMS key via the console, API/CLI, or CloudFormation.
 
 ###### To encrypt filter criteria with a customer-owned KMS key (console)
 
@@ -497,7 +497,7 @@ the `--kms-key-arn` flag along with an empty argument, Lambda stops using your
 KMS key to encrypt filter criteria. Instead, Lambda defaults back to using an
 Amazon-owned key.
 
-To specify your own KMS key in a AWS CloudFormation template, use the `KMSKeyArn`
+To specify your own KMS key in a CloudFormation template, use the `KMSKeyArn`
 property of the `AWS::Lambda::EventSourceMapping` resource type. For
 example, you can insert the following snippet into the YAML template for your event
 source.

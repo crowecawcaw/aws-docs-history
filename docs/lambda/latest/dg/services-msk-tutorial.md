@@ -266,7 +266,7 @@ JSON
 
 ```
 
-For more information, consult [Configuring Lambda execution role permissions](with-msk-permissions.md "with-msk-permissions.md"). When writing your
+For more information, consult [Configuring Lambda permissions for Amazon MSK event source mappings](with-msk-permissions.md "with-msk-permissions.md"). When writing your
 policy:
 
     * Replace `us-east-1` and

@@ -1,7 +1,7 @@
 # Java sample applications for AWS Lambda
 
 The GitHub repository for this guide provides sample applications that demonstrate the use of Java in AWS Lambda.
-Each sample application includes scripts for easy deployment and cleanup, an AWS CloudFormation template, and supporting
+Each sample application includes scripts for easy deployment and cleanup, an CloudFormation template, and supporting
 resources.
 
 ###### Sample Lambda applications in Java

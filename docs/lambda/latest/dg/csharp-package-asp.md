@@ -117,7 +117,7 @@ AspNetOnLambda::AspNetOnLambda.LambdaEntryPoint::FunctionHandlerAsync
 ```
 
 To deploy the API to Lambda, run the following commands to navigate into the directory containing your source code file and deploy
-your function using AWS CloudFormation.
+your function using CloudFormation.
 
 ```
 `cd AspNetOnLambda/src/AspNetOnLambda
@@ -126,10 +126,10 @@ dotnet lambda deploy-serverless`
 
 ###### Tip
 
-When you deploy an API using the `dotnet lambda deploy-serverless` command, AWS CloudFormation gives your Lambda function a name
+When you deploy an API using the `dotnet lambda deploy-serverless` command, CloudFormation gives your Lambda function a name
 based on the stack name you specify during the deployment. To give your Lambda function a custom name, edit the `serverless.template` file
 to add a `FunctionName` property to the `AWS::Serverless::Function` resource. See
-[Name type](../../../AWSCloudFormation/latest/UserGuide/aws-properties-name.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-name.md") in the _AWS CloudFormation User Guide_
+[Name type](../../../AWSCloudFormation/latest/UserGuide/aws-properties-name.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-name.md") in the _CloudFormation User Guide_
 to learn more.
 
 ## Deploying ASP.NET minimal APIs to Lambda
@@ -190,7 +190,7 @@ load balancer, replace `(LambdaEventSource.RestApi)` with one of the following o
 - `(LambdaEventSource.ApplicationLoadBalancer)`
 
 To deploy your minimal API to Lambda, run the following commands to navigate into the directory containing your source code file and
-deploy your function using AWS CloudFormation.
+deploy your function using CloudFormation.
 
 ```
 `cd MinimalApiOnLambda/src/MinimalApiOnLambda

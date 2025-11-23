@@ -13,7 +13,7 @@ An internal extension runs as part of the runtime process. Your function accesse
 wrapper scripts or in-process mechanisms such as `JAVA_TOOL_OPTIONS`. For more information, see [Modifying the runtime environment](runtimes-modify.md "runtimes-modify.md").
 
 You can add extensions to a function using the Lambda console, the AWS Command Line Interface (AWS CLI), or infrastructure as code
-(IaC) services and tools such as AWS CloudFormation, AWS Serverless Application Model (AWS SAM), and Terraform.
+(IaC) services and tools such as CloudFormation, AWS Serverless Application Model (AWS SAM), and Terraform.
 
 You are charged for the execution time that the extension consumes (in 1 ms increments). There is no cost to
 install your own extensions. For more pricing information for extensions, see
@@ -96,5 +96,5 @@ versions of your functions side by side.
 Extensions have access to the same resources as functions. Because extensions are executed within the same
 environment as the function, permissions are shared between the function and the extension.
 
-For a .zip file archive, you can create an AWS CloudFormation template to simplify the task of attaching the same extension
+For a .zip file archive, you can create an CloudFormation template to simplify the task of attaching the same extension
 configuration—including AWS Identity and Access Management (IAM) permissions—to multiple functions.

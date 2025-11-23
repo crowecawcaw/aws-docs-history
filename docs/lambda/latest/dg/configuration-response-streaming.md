@@ -1,6 +1,6 @@
 # Response streaming for Lambda functions
 
-Lambda functions can stream response payloads back to clients through [Lambda function URLs](urls-configuration.md "urls-configuration.md") or by using the [InvokeWithResponseStream](API_InvokeWithResponseStream.md "API_InvokeWithResponseStream.md") API (via the AWS SDK or direct API calls). Response
+Lambda functions can natively stream response payloads back to clients through [Lambda function URLs](urls-configuration.md "urls-configuration.md") or by using the [InvokeWithResponseStream](../api/API_InvokeWithResponseStream.md "../api/API_InvokeWithResponseStream.md") API (via the AWS SDK or direct API calls). Your Lambda function can also stream response payloads through the [Amazon API Gateway proxy integration](../../../apigateway/latest/developerguide/response-transfer-mode-lambda.md "../../../apigateway/latest/developerguide/response-transfer-mode-lambda.md"), which uses the [InvokeWithResponseStream](../api/API_InvokeWithResponseStream.md "../api/API_InvokeWithResponseStream.md") API to invoke your function. Response
 streaming can benefit latency sensitive applications by improving time to first byte (TTFB)
 performance. This is because you can send partial responses back to the client as they become
 available. Additionally, response streaming functions can return payloads up to 200 MB, compared to the 6 MB maximum for
@@ -8,13 +8,17 @@ buffered responses. Streaming a response also means that your function doesn’t
 response in memory. For very large responses, this can reduce the amount of memory you need to
 configure for your function.
 
+###### Note
+
+Lambda response streaming is not yet available in all AWS Regions. Please refer to Builder Center's [AWS Capabilities by Region](https://builder.aws.com/build/capabilities "https://builder.aws.com/build/capabilities") for feature availability by Region.
+
 The speed at which Lambda streams your responses depends on the response size. The streaming rate for
 the first 6 MB of your function’s response is uncapped. For responses larger than 6 MB, the remainder of the response
 is subject to a bandwidth cap. For more information on streaming bandwidth, see [Bandwidth limits for response streaming](#config-rs-bandwidth-cap "#config-rs-bandwidth-cap").
 
-Streaming responses incurs a cost. For more information, see [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/").
+Streaming responses incur cost and streamed responses are not interrupted or stopped when the invoking client connection is broken. Customers will be billed for the full function duration, so customers should exercise caution when configuring long function timeouts.
 
-Lambda supports response streaming on Node.js managed runtimes. For other languages, you can [use a
+Lambda supports response streaming on Node.js managed runtimes. For other languages, including Python, you can [use a
 custom runtime with a custom Runtime API integration](runtimes-custom.md#runtimes-custom-response-streaming "runtimes-custom.md#runtimes-custom-response-streaming") to stream responses or use the [Lambda Web Adapter](https://github.com/awslabs/aws-lambda-web-adapter "https://github.com/awslabs/aws-lambda-web-adapter").
 
 ###### Note

@@ -8,7 +8,7 @@ The function's runtime communicates with Lambda using the [Runtime API](runtimes
 Extensions communicate with Lambda using the [Extensions API](runtimes-extensions-api.md "runtimes-extensions-api.md").
 Extensions can also receive log messages and other telemetry from the function by using the [Telemetry API](telemetry-api.md "telemetry-api.md").
 
-![Architecture diagram of the execution environment.](/images/lambda/latest/dg/images/telemetry-api-concept-diagram.png)
+![Architecture diagram of the execution environment.](images/telemetry-api-concept-diagram.png)
 When you create your Lambda function, you specify configuration information, such as the amount of memory
 available and the maximum execution time allowed for your function. Lambda uses this information to set up the
 execution environment.

@@ -141,7 +141,7 @@ For comparison, the following two examples show the same log output in both plai
 To configure the log format for your function, you can use the Lambda console or the AWS Command Line Interface (AWS CLI). You can also configure a
 function’s log format using the [CreateFunction](../api/API_CreateFunction.md "../api/API_CreateFunction.md") and [UpdateFunctionConfiguration](../api/API_UpdateFunctionConfiguration.md "../api/API_UpdateFunctionConfiguration.md") Lambda API
 commands, the AWS Serverless Application Model (AWS SAM) [AWS::Serverless::Function](../../../serverless-application-model/latest/developerguide/sam-resource-function.md "../../../serverless-application-model/latest/developerguide/sam-resource-function.md")
-resource, and the AWS CloudFormation [AWS::Lambda::Function](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md")
+resource, and the CloudFormation [AWS::Lambda::Function](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md")
 resource.
 
 Changing your function’s log format doesn’t affect existing logs stored in CloudWatch Logs. Only new logs will use the updated format.
