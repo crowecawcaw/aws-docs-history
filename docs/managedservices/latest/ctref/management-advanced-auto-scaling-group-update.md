@@ -21,7 +21,7 @@ Update an Auto Scaling Group and associated launch configuration created with CT
 
 The following shows this change type in the AMS console.
 
-![Change type details for updating an Auto Scaling Group, showing description, ID, and execution mode.](images/guiAsgUpdateCT.png)
+![Change type details for updating an Amazon EC2 Auto Scaling Group, showing description, ID, and execution mode.](images/guiAsgUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -17,7 +17,7 @@ Update existing defined termination protection for stacks.
 
 ## Additional Information
 
-### Update AWS CloudFormation stacks termination protection
+### Update CloudFormation stacks termination protection
 
 The following shows this change type in the AMS console.
 

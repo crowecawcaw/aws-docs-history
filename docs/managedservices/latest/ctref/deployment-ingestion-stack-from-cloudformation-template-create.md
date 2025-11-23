@@ -178,7 +178,7 @@ credentials for this command. For example, you may need to append `--profile sam
 
 Related change types:
 [Approve a CloudFormation ingest stack changeset](management-custom-stack-from-cloudformation-template-approve-changeset-and-update.md#ex-cfn-ingest-approve-and-update-col "management-custom-stack-from-cloudformation-template-approve-changeset-and-update.md#ex-cfn-ingest-approve-and-update-col"),
-[Update AWS CloudFormation ingest stack](management-custom-stack-from-cloudformation-template-update.md#ex-cfn-ingest-update-col "management-custom-stack-from-cloudformation-template-update.md#ex-cfn-ingest-update-col")
+[Update CloudFormation ingest stack](management-custom-stack-from-cloudformation-template-update.md#ex-cfn-ingest-update-col "management-custom-stack-from-cloudformation-template-update.md#ex-cfn-ingest-update-col")
 
 To learn more about AWS CloudFormation, see [AWS Cloud​Formation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/").
 To see CloudFormation templates, open the AWS CloudFormation
@@ -193,7 +193,7 @@ The RFC is rejected if any of the following are true:
 
 - RFC JSON Syntax is incorrect or does not follow the given format.
 - The provided S3 bucket presigned URL is not valid.
-- The template is not valid AWS CloudFormation syntax.
+- The template is not valid CloudFormation syntax.
 - The template does not have defaults set for all parameter values.
 - The template fails AMS validation. For AMS validation steps, see the information later in this topic.
   The RFC fails if the CloudFormation stack fails to create due to a resource creation issue.

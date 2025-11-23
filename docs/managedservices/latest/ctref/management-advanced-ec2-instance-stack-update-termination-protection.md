@@ -126,7 +126,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 ###### Note
 
-There is a related CT for AWS CloudFormation stacks, [RDS Database Stack | Create](deployment-advanced-rds-database-stack-create.md "deployment-advanced-rds-database-stack-create.md").
+There is a related CT for CloudFormation stacks, [RDS Database Stack | Create](deployment-advanced-rds-database-stack-create.md "deployment-advanced-rds-database-stack-create.md").
 
 To learn more about termination protection, see
 [How do I protect my data against accidental EC2 instance termination?](https://aws.amazon.com/premiumsupport/knowledge-center/accidental-termination/ "https://aws.amazon.com/premiumsupport/knowledge-center/accidental-termination/")

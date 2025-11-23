@@ -17,7 +17,7 @@ Update the template and/or parameters of a CFN stack. To only update the paramet
 
 ## Additional Information
 
-### Update AWS CloudFormation ingest stack
+### Update CloudFormation ingest stack
 
 ![CloudFormation stack update interface showing description, ID, and version details.](images/guiCfnStackUpdateCT-v2.png)
 **To update a CloudFormation Ingest Stack using the console**
@@ -63,7 +63,7 @@ change type. For example, to get notifications when the RFC status changes, add 
 RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
 [AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
 
-1. Prepare the AWS CloudFormation template that you want to use to update the stack, and
+1. Prepare the CloudFormation template that you want to use to update the stack, and
    upload it to your S3 bucket. For important details, see
    [AWS CloudFormation Ingest Guidelines, Best Practices, and Limitations](../appguide/cfn-author-templates.md "../appguide/cfn-author-templates.md").
 2. Create and submit the RFC to AMS:
@@ -144,10 +144,10 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 IMPORTANT: Missing parameters not supplied explicitly in the form, default to the currently set values on the existing stack or template.
 
-- For a list of which self-provisioned services you can add using AWS CloudFormation Ingest, see
+- For a list of which self-provisioned services you can add using CloudFormation Ingest, see
   [CloudFormation Ingest Stack: Supported Resources](../appguide/cfn-ingest-supp-services.md "../appguide/cfn-ingest-supp-services.md").
 
-To learn more about AWS CloudFormation, see
+To learn more about CloudFormation, see
 [AWS Cloud​Formation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/").
 
 The template is validated to ensure that it can be created in an AMS account. If
@@ -159,7 +159,7 @@ The RFC is rejected if any of the following are true:
 
 - RFC JSON Syntax is incorrect or does not follow the given format.
 - The provided S3 bucket presigned URL is not valid.
-- The template is not valid AWS CloudFormation syntax.
+- The template is not valid CloudFormation syntax.
 - The template does not have defaults set for all parameter values.
 - The template fails AMS validation. For AMS validation steps, see the
   information later in this topic.

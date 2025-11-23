@@ -137,9 +137,9 @@ aws amscm create-rfc --cli-input-json file://UpdateStacksetsStackRfc.json  --exe
 
 You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 
-- For AWS CloudFormation details, see
+- For CloudFormation details, see
   [Create a stack set](../../../AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.md")
-- For general AWS CloudFormation information on stack sets, see
+- For general CloudFormation information on stack sets, see
   [StackSets concepts](../../../AWSCloudFormation/latest/UserGuide/stacksets-concepts.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-concepts.md")
 - To learn more about AMS multi-account landing zone, see
   [AWS Managed Services (AMS) Now Offers Managed Landing Zones](https://aws.amazon.com/about-aws/whats-new/2019/10/aws-managed-services-now-offers-managed-landing-zones/ "https://aws.amazon.com/about-aws/whats-new/2019/10/aws-managed-services-now-offers-managed-landing-zones/").

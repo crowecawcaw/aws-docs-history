@@ -166,7 +166,7 @@ aws amscm create-rfc --generate-cli-skeleton > UpdateBucketRfc.json
 aws amscm create-rfc --cli-input-json file://UpdateBucketRfc.json  --execution-parameters file://UpdateBucketParams.json
 ```
 
-You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. 6. To view the S3 bucket or load objects to it, look in the execution output: Use the `stack_id` to view the bucket in the AWS CloudFormation Console,
+You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. 6. To view the S3 bucket or load objects to it, look in the execution output: Use the `stack_id` to view the bucket in the CloudFormation Console,
 use the **S3BucketName** to view the bucket in the Amazon S3 Console.
 
 ###### Note
