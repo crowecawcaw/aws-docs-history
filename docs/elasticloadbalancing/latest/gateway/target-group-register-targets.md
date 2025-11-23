@@ -100,7 +100,7 @@ Use the [register-targets](../../../cli/latest/reference/elbv2/register-targets.
 
 ## Deregister targets
 
-When you deregister a target, Elastic Load Balancing waits until in-flight requests have completed.
+When you deregister a target, ELB waits until in-flight requests have completed.
 This is known as _connection draining_. The status of a target is
 `draining` while connection draining is in progress. After deregistration
 is complete, status of the target changes to `unused`. For more information,
