@@ -79,9 +79,9 @@ You can either add the Resource Groups [`ResourceGroupsTaggingAPITagUntagSupport
     By default, creating an application using an existing tag key-value pair creates a tag-sync. After setup, tag-sync also continuously manages the application's resources, adding or
      removing resources as they are tagged or untagged with the specified key-value pair. You can manage tag-sync from the Manage resources page of the application.
 
-10. If associating a AWS CloudFormation stack, select the checkbox at the bottom of the page.
+10. If associating a CloudFormation stack, select the checkbox at the bottom of the page.
 
 ###### Note
 
-Adding an AWS CloudFormation stack to the application requires a stack update because all resources added to your application are tagged with the AWS application tag. Manual configurations performed after the stack was last updated may not
-be reflected after this update. This can cause downtime or other application issues. For more information, see [Update behaviors of stack resources](../../../servicecatalog/latest/arguide/overview-appreg.md#tag-sync-role "../../../servicecatalog/latest/arguide/overview-appreg.md#tag-sync-role") in the _AWS CloudFormation User Guide_. 11. Choose **Create application**.
+Adding an CloudFormation stack to the application requires a stack update because all resources added to your application are tagged with the AWS application tag. Manual configurations performed after the stack was last updated may not
+be reflected after this update. This can cause downtime or other application issues. For more information, see [Update behaviors of stack resources](../../../servicecatalog/latest/arguide/overview-appreg.md#tag-sync-role "../../../servicecatalog/latest/arguide/overview-appreg.md#tag-sync-role") in the _CloudFormation User Guide_. 11. Choose **Create application**.

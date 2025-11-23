@@ -8,7 +8,7 @@ AWS Systems Manager, to connect to an Amazon EC2 Windows instance using the Remo
 (RDP).
 
 This guide demonstrates a test environment to set up and experience an AWS Management Console Private
-Access connection to Amazon Simple Storage Service from an Amazon EC2 instance. This tutorial uses AWS CloudFormation to create and
+Access connection to Amazon Simple Storage Service from an Amazon EC2 instance. This tutorial uses CloudFormation to create and
 configure the network setup to be used by Amazon EC2 to visualize this feature.
 
 The following diagram describes the workflow for using Amazon EC2 to access an AWS Management Console
@@ -16,12 +16,12 @@ Private Access setup. It shows how a user is connected to Amazon S3 using a priv
 endpoint.
 
 ![The setup configuration for trying out AWS Management Console Private Access using an Amazon EC2.](images/vpce-ec2-how-to-1.png)
-Copy the following AWS CloudFormation template and save it to a file that you will use in step three
+Copy the following CloudFormation template and save it to a file that you will use in step three
 of the _To set up a network_ procedure.
 
 ###### Note
 
-This AWS CloudFormation template uses configurations that are currently not supported in the
+This CloudFormation template uses configurations that are currently not supported in the
 Israel (Tel Aviv) Region.
 
 ```
@@ -519,9 +519,9 @@ Resources:
 
 ###### To set up a network
 
-1. Sign in to the management account for your organization and open the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
+1. Sign in to the management account for your organization and open the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
 2. Choose **Create stack**.
-3. Choose **With new resources (standard)**. Upload the AWS CloudFormation template
+3. Choose **With new resources (standard)**. Upload the CloudFormation template
    file that you previously created, and choose **Next**.
 4. Enter a name for the stack, such as
    `PrivateConsoleNetworkForS3`, then choose
@@ -542,7 +542,7 @@ Resources:
 1. Sign in to the management account for your organization and open the [Amazon EC2 console](https://console.aws.amazon.com/ec2 "https://console.aws.amazon.com/ec2").
 2. In the navigation pane, choose **Instances**.
 3. On the **Instances** page, select **Console VPCE test
-   instance** that was created by the AWS CloudFormation template. Then choose
+   instance** that was created by the CloudFormation template. Then choose
    **Connect**.
 
 ###### Note
@@ -552,7 +552,7 @@ Windows Server. It might take a few minutes before the connection can be
 started. 4. On the **Connect to instance** page, choose **RDP
 Client**, then **Connect using Fleet Manager**. 5. Choose **Fleet Manager Remote Desktop**. 6. To get the administrative password for the Amazon EC2 instance and access the Windows
 Desktop using the web interface, use the private key associated with the Amazon EC2 key pair
-that you used when creating the AWS CloudFormation template . 7. From the Amazon EC2 Windows instance, open the AWS Management Console in the browser. 8. After you sign in with your AWS credentials, open the [Amazon S3 console](https://console.aws.amazon.com/s3 "https://console.aws.amazon.com/s3") and verify that you are connected using AWS Management Console
+that you used when creating the CloudFormation template . 7. From the Amazon EC2 Windows instance, open the AWS Management Console in the browser. 8. After you sign in with your AWS credentials, open the [Amazon S3 console](https://console.aws.amazon.com/s3 "https://console.aws.amazon.com/s3") and verify that you are connected using AWS Management Console
 Private Access.
 
 ###### To test AWS Management Console Private Access setup

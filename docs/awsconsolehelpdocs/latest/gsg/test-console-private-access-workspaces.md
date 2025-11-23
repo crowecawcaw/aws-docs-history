@@ -21,7 +21,7 @@ Private Access setup. It shows the relationship between a client WorkSpace, an A
 managed VPC and a customer managed VPC.
 
 ![The setup configuration for testing a AWS Management Console Private Access using an Amazon WorkSpaces.](images/vpce-workspaces-how-to-1.png)
-Copy the following AWS CloudFormation template and save it to a file that you will use in step 3 of
+Copy the following CloudFormation template and save it to a file that you will use in step 3 of
 the procedure to set up a network.
 
 ```
@@ -524,9 +524,9 @@ Region.
 
 ###### To set up a network
 
-1. Sign in to the management account for your organization and open the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
+1. Sign in to the management account for your organization and open the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
 2. Choose **Create stack**.
-3. Choose **With new resources (standard)**. Upload the AWS CloudFormation template
+3. Choose **With new resources (standard)**. Upload the CloudFormation template
    file that you previously created, and choose **Next**.
 4. Enter a name for the stack, such as
    `PrivateConsoleNetworkForS3`, then choose
@@ -557,7 +557,7 @@ access a WorkSpace.
 
 ![The Directories page with an entry for a directory with an active status.](images/vpce-workspaces-how-to-3-updated.png) 4. To use a directory in WorkSpaces, you must register it. In the navigation pane,
 choose **WorkSpaces**, then choose **Create
-WorkSpaces**. 5. For **Select a directory**, choose the directory created by AWS CloudFormation
+WorkSpaces**. 5. For **Select a directory**, choose the directory created by CloudFormation
 in the preceding procedure. On the **Actions** menu, choose
 **Register**. 6. For the subnet selection, select the two private subnets noted in step nine of the
 preceding procedure. 7. Select **Enable self-service permissions**, then choose
