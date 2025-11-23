@@ -398,7 +398,7 @@ Let's review what this snippet does. Inside the scope of `api`, we're
 creating a new GraphQL API by calling `appsync.GraphqlApi(scope: Construct, id:
  string, props: GraphqlApiProps)`. The scope is `this`, which
 refers to the current object. The id is `API_ID`, which
-will be your GraphQL API's resource name in AWS CloudFormation when it's created. The
+will be your GraphQL API's resource name in CloudFormation when it's created. The
 `GraphqlApiProps` contains the `name` of your GraphQL API
 and the `schema`. The `schema` will generate a schema
 (`SchemaFile.fromAsset`) by searching the absolute path

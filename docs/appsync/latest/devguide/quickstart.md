@@ -40,7 +40,7 @@ AWS AppSync also supports several non-console options to create GraphQL APIs. Th
 
 1. AWS Amplify
 2. AWS SAM
-3. AWS CloudFormation
+3. CloudFormation
 4. The CDK
    The following example will show you how to create the basic components of a GraphQL API using predefined
    models and DynamoDB.

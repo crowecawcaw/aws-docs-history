@@ -29,7 +29,7 @@ aws cloudformation create-stack \
     --capabilities CAPABILITY_NAMED_IAM
 ```
 
-Alternatively, you can launch the following AWS CloudFormation stack in the US-West 2 (Oregon) region in your AWS
+Alternatively, you can launch the following CloudFormation stack in the US-West 2 (Oregon) region in your AWS
 account.
 
 [![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/dynamodb/AmazonDynamoDBCFTemplate.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/dynamodb/AmazonDynamoDBCFTemplate.yaml")
@@ -2477,7 +2477,7 @@ To clean up, you can delete the AppSync GraphQL API from the console.
 
 To delete the DynamoDB table and the IAM role you created for this tutorial, you can run
 the following to delete the `AWSAppSyncTutorialForAmazonDynamoDB` stack, or visit
-the AWS CloudFormation console and delete the stack:
+the CloudFormation console and delete the stack:
 
 ```
 aws cloudformation delete-stack \

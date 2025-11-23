@@ -59,7 +59,7 @@ You'll notice we have several important directories:
   guide.
 - `lib`: The lib directory contains your stack files. You can think of stack files as
   individual units of execution. Constructs will be inside our stack files. Basically, these are
-  resources for a service that will be spun up in AWS CloudFormation when the app is deployed. This is where most
+  resources for a service that will be spun up in CloudFormation when the app is deployed. This is where most
   of our coding will happen.
 - `node_modules`: This directory is created by NPM and contains all package dependencies
   you installed using the `npm` command.
@@ -131,14 +131,14 @@ Bootstrap will spin up several resources. The final message will look like this:
 ![Terminal output showing successful bootstrapping of an AWS environment.](images/cdk-init-bootstrap-final.png)
 
 This is done once per account per Region, so you won't have to do this often. The main resources of the
-bootstrap are the AWS CloudFormation stack and the Amazon S3 bucket.
+bootstrap are the CloudFormation stack and the Amazon S3 bucket.
 
 The Amazon S3 bucket is used to store files and IAM roles that grant permissions needed to perform
-deployments. The required resources are defined in an AWS CloudFormation stack, called the bootstrap stack, which is
-usually named `CDKToolkit`. Like any AWS CloudFormation stack, it appears in the AWS CloudFormation console once it has
+deployments. The required resources are defined in an CloudFormation stack, called the bootstrap stack, which is
+usually named `CDKToolkit`. Like any CloudFormation stack, it appears in the CloudFormation console once it has
 been deployed:
 
-![CDKToolkit stack with CREATE_COMPLETE status in AWS CloudFormation console.](images/cdk-init-bootstrap-cfn-console.png)
+![CDKToolkit stack with CREATE_COMPLETE status in CloudFormation console.](images/cdk-init-bootstrap-cfn-console.png)
 
 The same can be said for the bucket:
 
@@ -272,12 +272,12 @@ It appears our API was created. Now, we'll check the schema attached to the API:
 ![GraphQL schema defining CreatePostInput, Post type, Mutation, and Query operations.](images/cdk-code-deploy-schema-result-2.png)
 
 This appears to match up with our schema code, so it was successful. Another way to confirm this from a
-metadata viewpoint is to look at the AWS CloudFormation stack:
+metadata viewpoint is to look at the CloudFormation stack:
 
-![AWS CloudFormation stack showing ExampleCdkAppStack update complete and CDKToolkit creation complete.](images/cdk-code-deploy-schema-result-3.png)
+![CloudFormation stack showing ExampleCdkAppStack update complete and CDKToolkit creation complete.](images/cdk-code-deploy-schema-result-3.png)
 
-When we deploy our CDK app, it goes through AWS CloudFormation to spin up resources like the bootstrap. Each stack
-within our app maps 1:1 with an AWS CloudFormation stack. If you go back to the stack code, the stack name was grabbed
+When we deploy our CDK app, it goes through CloudFormation to spin up resources like the bootstrap. Each stack
+within our app maps 1:1 with an CloudFormation stack. If you go back to the stack code, the stack name was grabbed
 from the class name `ExampleCdkAppStack`. You can see the resources it created, which also match
 our naming conventions in our GraphQL API construct:
 
@@ -334,10 +334,10 @@ We should check the DynamoDB console for our new table:
 
 ![DynamoDB console showing ExampleCdkAppStack-poststable as Active with Provisioned capacity.](images/cdk-code-deploy-ddb-result-1.png)
 
-Our stack name is correct, and the table name matches our code. If we check our AWS CloudFormation stack again, we'll
+Our stack name is correct, and the table name matches our code. If we check our CloudFormation stack again, we'll
 now see the new table:
 
-![Expanded view of a logical ID in AWS CloudFormation showing post-apis, posts-table, and CDKMetadata.](images/cdk-code-deploy-ddb-result-2.png)
+![Expanded view of a logical ID in CloudFormation showing post-apis, posts-table, and CDKMetadata.](images/cdk-code-deploy-ddb-result-2.png)
 
 ## Implementing a CDK project - Resolver
 
@@ -497,7 +497,7 @@ These also match the code. If we look at `get_posts_func_1`:
 
 ![Code snippet showing two exported functions: request returning 'Scan' operation and response returning items.](images/cdk-code-deploy-resolver-result-5.png)
 
-Everything appears to be in place. To confirm this from a metadata perspective, we can check our stack in AWS CloudFormation
+Everything appears to be in place. To confirm this from a metadata perspective, we can check our stack in CloudFormation
 again:
 
 ![List of logical IDs for AWS resources including API, table, functions, and pipelines.](images/cdk-code-deploy-resolver-result-6.png)

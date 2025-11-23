@@ -6,7 +6,7 @@ Realtime endpoints without exposing data publicly.
 
 To establish a private connection between your VPC and the AWS AppSync service, you must create
 interface VPC endpoints. Interface endpoints are powered by [AWS PrivateLink](http://aws.amazon.com/privatelink "http://aws.amazon.com/privatelink"), which enables you to privately
-access AWS AppSync APIs without an internet gateway, NAT device, VPN connection, or AWS Direct Connect
+access AWS AppSync APIs without an internet gateway, NAT device, VPN connection, or Direct Connect
 connection. Instances in your VPC don't need public IP addresses to communicate with AWS AppSync
 APIs. Traffic between your VPC and AWS AppSync doesn't leave the AWS network.
 
@@ -28,7 +28,7 @@ There are some additional factors to consider before enabling Private API featur
   can then be used by resources in the VPC to invoke the public API.
 - Your AWS AppSync Private APIs will only be available from your VPC. The AWS AppSync console Query
   editor will only be able to reach your API if your browser's network configuration can route
-  traffic to your VPC (e.g., connection via VPN or over AWS Direct Connect).
+  traffic to your VPC (e.g., connection via VPN or over Direct Connect).
 - With a VPC interface endpoint for AWS AppSync, you can access any Private API in the same AWS account and
   Region. To further restrict access to Private APIs, you can consider the following options:
   - Ensuring only the required administrators can create VPC endpoint interfaces for AWS AppSync.

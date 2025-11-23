@@ -45,7 +45,7 @@ console, follow the setup process below.
 ### Setting Up Your Non AWS AppSync Resources
 
 The API communicates with two DynamoDB tables: a **pictures** table that stores pictures and a **friends** table that stores relationships between users. The API is
-configured to use Amazon Cognito user pool as authentication type. The following AWS CloudFormation stack sets
+configured to use Amazon Cognito user pool as authentication type. The following CloudFormation stack sets
 up these resources in the account.
 
 [![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/pipeline/pipeline-resolvers-resources-only.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/pipeline/pipeline-resolvers-resources-only.yaml")

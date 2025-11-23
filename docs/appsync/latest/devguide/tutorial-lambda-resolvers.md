@@ -86,7 +86,7 @@ aws cloudformation create-stack --stack-name AppSyncLambdaExample \
 --capabilities CAPABILITY_NAMED_IAM
 ```
 
-You can also launch the AWS CloudFormation stack in the US West (Oregon) AWS Region in your
+You can also launch the CloudFormation stack in the US West (Oregon) AWS Region in your
 AWS account from here:
 
 [![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/lambda/LambdaCFTemplate.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/lambda/LambdaCFTemplate.yaml")
