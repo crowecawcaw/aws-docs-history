@@ -43,7 +43,7 @@ including microservices and containers.
 required. It is capable of handling millions of requests per second while maintaining
 ultra-low latencies, and it is optimized to handle sudden and volatile traffic patterns.
 
-[Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/") provides integrated
+[ELB](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/") provides integrated
 certificate management and SSL/TLS decryption, allowing you the flexibility to centrally
 manage the SSL settings of the load balancer and offload CPU intensive work from your
 workload.
@@ -73,10 +73,10 @@ Another consideration for latency-sensitive workloads is cross-zone load balanci
 cross-zone load balancing, each load balancer node distributes traffic across the registered
 targets in all allowed Availability Zones.
 
-Use Auto Scaling integrated with your load balancer. One of the key aspects of a performance
+Use Amazon EC2 Auto Scaling integrated with your load balancer. One of the key aspects of a performance
 efficient system has to do with right-sizing your backend resources. To do this, you can
 leverage load balancer integrations for backend target resources. Using the load balancer
-integration with Auto Scaling groups, targets will be added or removed from the load balancer as
+integration with Amazon EC2 Auto Scaling groups, targets will be added or removed from the load balancer as
 required in response to incoming traffic. Load balancers can also integrate with [Amazon ECS](../../../AmazonECS/latest/developerguide/service-load-balancing.md "../../../AmazonECS/latest/developerguide/service-load-balancing.md") and [Amazon EKS](../../../eks/latest/userguide/alb-ingress.md "../../../eks/latest/userguide/alb-ingress.md") for containerized workloads.
 
 - [Amazon ECS - Service load
@@ -155,22 +155,22 @@ required in response to incoming traffic. Load balancers can also integrate with
   Application Load Balancers](../../../elasticloadbalancing/latest/application/load-balancer-monitoring.md "../../../elasticloadbalancing/latest/application/load-balancer-monitoring.md")
 - [Monitor your
   Network Load Balancer](../../../elasticloadbalancing/latest/network/load-balancer-monitoring.md "../../../elasticloadbalancing/latest/network/load-balancer-monitoring.md")
-- [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group](../../../autoscaling/ec2/userguide/autoscaling-load-balancer.md "../../../autoscaling/ec2/userguide/autoscaling-load-balancer.md")
+- [Use ELB to distribute traffic across the instances in your Amazon EC2 Auto Scaling group](../../../autoscaling/ec2/userguide/autoscaling-load-balancer.md "../../../autoscaling/ec2/userguide/autoscaling-load-balancer.md")
 
 **Related videos:**
 
 - [AWS re:Invent 2023: What can
   networking do for your application?](https://www.youtube.com/watch?v=tUh26i8uY9Q "https://www.youtube.com/watch?v=tUh26i8uY9Q")
 - [AWS re:Inforce 20: How to use
-  Elastic Load Balancing to enhance your security posture at scale](https://www.youtube.com/watch?v=YhNc5VSzOGQ "https://www.youtube.com/watch?v=YhNc5VSzOGQ")
-- [AWS re:Invent 2018: Elastic Load Balancing: Deep
+  ELB to enhance your security posture at scale](https://www.youtube.com/watch?v=YhNc5VSzOGQ "https://www.youtube.com/watch?v=YhNc5VSzOGQ")
+- [AWS re:Invent 2018: ELB: Deep
   Dive and Best Practices](https://www.youtube.com/watch?v=VIgAT7vjol8 "https://www.youtube.com/watch?v=VIgAT7vjol8")
 - [AWS re:Invent 2021 - How to
   choose the right load balancer for your AWS workloads](https://www.youtube.com/watch?v=p0YZBF03r5A "https://www.youtube.com/watch?v=p0YZBF03r5A")
 - [AWS re:Invent 2019: Get the
-  most from Elastic Load Balancing for different workloads](https://www.youtube.com/watch?v=HKh54BkaOK0 "https://www.youtube.com/watch?v=HKh54BkaOK0")
+  most from ELB for different workloads](https://www.youtube.com/watch?v=HKh54BkaOK0 "https://www.youtube.com/watch?v=HKh54BkaOK0")
 
 **Related examples:**
 
 - [Gateway Load Balancer](https://catalog.workshops.aws/gwlb-networking/en-US "https://catalog.workshops.aws/gwlb-networking/en-US")
-- [CDK and AWS CloudFormation samples for Log Analysis with Amazon Athena](https://github.com/aws/elastic-load-balancing-tools/tree/master/log-analysis-elb-cdk-cf-template "https://github.com/aws/elastic-load-balancing-tools/tree/master/log-analysis-elb-cdk-cf-template")
+- [CDK and CloudFormation samples for Log Analysis with Amazon Athena](https://github.com/aws/elastic-load-balancing-tools/tree/master/log-analysis-elb-cdk-cf-template "https://github.com/aws/elastic-load-balancing-tools/tree/master/log-analysis-elb-cdk-cf-template")

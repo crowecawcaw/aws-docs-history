@@ -110,7 +110,7 @@ transfer between nodes.
   and reduced throughput for your workload due to the impact
   of encryption and decryption. For such workloads, consider
   SSL/TLS offloading
-  on [Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/") to improve workload performance by
+  on [ELB](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/") to improve workload performance by
   allowing the load balancer to handle SSL/TLS encryption and
   decryption process instead of having backend instances do
   it. This can help reduce the CPU utilization on the backend

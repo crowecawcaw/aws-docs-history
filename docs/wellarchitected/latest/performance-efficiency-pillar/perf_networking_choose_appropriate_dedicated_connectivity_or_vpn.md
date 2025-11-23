@@ -30,18 +30,18 @@ is not established:** High
 ## Implementation guidance
 
 Develop a hybrid networking architecture based on your bandwidth
-requirements. [AWS Direct Connect](https://aws.amazon.com/directconnect/ "https://aws.amazon.com/directconnect/") allows you to connect your
+requirements. [Direct Connect](https://aws.amazon.com/directconnect/ "https://aws.amazon.com/directconnect/") allows you to connect your
 on-premises network privately with AWS. It is suitable when you
 need high-bandwidth and low-latency while achieving consistent
 performance. A VPN connection establishes secure connection over
 the internet. It is used when only a temporary connection is
 required, when cost is a factor, or as a contingency while waiting
-for resilient physical network connectivity to be established when using AWS Direct Connect.
+for resilient physical network connectivity to be established when using Direct Connect.
 
 If your bandwidth requirements are high, you might consider
-multiple AWS Direct Connect or VPN services. Traffic can be load
+multiple Direct Connect or VPN services. Traffic can be load
 balanced across services, although we don't recommend load
-balancing between AWS Direct Connect and VPN because of the latency
+balancing between Direct Connect and VPN because of the latency
 and bandwidth differences.
 
 ### Implementation steps
@@ -57,7 +57,7 @@ and bandwidth differences.
 
 - Select dedicated connection or VPN as your connectivity
   option. Based on all workload requirements (encryption,
-  bandwidth, and traffic needs), you can either choose AWS Direct Connect or [AWS VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/") (or both). The
+  bandwidth, and traffic needs), you can either choose AWS Direct Connect or [Site-to-Site VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/") (or both). The
   following diagram can help you choose the appropriate
   connection type.
   - [AWS Direct Connect](https://aws.amazon.com/directconnect/ "https://aws.amazon.com/directconnect/") provides dedicated connectivity to the
@@ -75,7 +75,7 @@ and bandwidth differences.
 
 - Follow AWS documentation to choose an appropriate
   connectivity option:
-  - If you decide to use AWS Direct Connect, select the
+  - If you decide to use Direct Connect, select the
     appropriate bandwidth for your connectivity.
   - If you are using an AWS Site-to-Site VPN across multiple
     locations to connect to an AWS Region, use
