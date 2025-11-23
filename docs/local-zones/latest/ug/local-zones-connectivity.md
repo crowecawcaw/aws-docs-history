@@ -11,7 +11,7 @@ automatically adjusts any relevant gateways and route tables.
 
 The following diagram shows a network with resources running in two Availability Zones and in
 a Local Zone within an AWS Region. The Local Zone network can have public or private subnets, internet
-gateways, and AWS Direct Connect gateways (DXGW). Workloads running in the Local Zone can directly access
+gateways, and Direct Connect gateways (DXGW). Workloads running in the Local Zone can directly access
 workloads or AWS services that live in any AWS Region.
 
 ![An AWS Region with a VPC. The VPC contains two Availability Zones and a Local Zone. Each zone has a public subnet and a private subnet. The VPC also has an internet gateway and an AWS Direct Connect gateway.](images/local-zones-direct-connect-internet-gateway.png)

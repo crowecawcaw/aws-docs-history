@@ -1,7 +1,7 @@
 # How AWS Local Zones work
 
 A Local Zone is an extension of an AWS Region in geographic proximity to your users. Local Zones have
-their own connections to the internet and support AWS Direct Connect, so that resources created in a Local Zone
+their own connections to the internet and support Direct Connect, so that resources created in a Local Zone
 can serve applications that require low latency.
 
 To use a Local Zone, you must first enable it. Next, you create a subnet in the Local Zone. Finally, you
@@ -27,13 +27,13 @@ with resources that are supported in Local Zones, see [AWS Local Zones features]
   location into a Local Zone using a Transit Gateway.
 - You cannot select a subnet from a Local Zone while creating a Cloud WAN or transit gateway VPC
   attachment. Doing so will result in an error.
-- Traffic that is destined for a subnet in a Local Zone using AWS Direct Connect does not travel through the
+- Traffic that is destined for a subnet in a Local Zone using Direct Connect does not travel through the
   parent Region of the Local Zone. Instead, traffic takes the shortest path to the Local Zone. This decreases
   latency and helps make your applications more responsive.
 
-If you require a more resilient connection, implement more than one AWS Direct Connect between your
-on-premises locations and the Local Zone. For more information on building resilience with AWS Direct Connect,
-see [AWS Direct Connect Resiliency
+If you require a more resilient connection, implement more than one Direct Connect between your
+on-premises locations and the Local Zone. For more information on building resilience with Direct Connect,
+see [Direct Connect Resiliency
 Recommendations](https://aws.amazon.com/directconnect/resiliency-recommendation/ "https://aws.amazon.com/directconnect/resiliency-recommendation/").
 
 - The following Local Zones support IPv6: `us-east-1-atl-2a`,
@@ -57,7 +57,7 @@ _AWS Site-to-Site VPN User Guide_.
 - Generally, the Maximum Transmission Unit (MTU) is as follows:
   - 9001 bytes between Amazon EC2 instances in the same Local Zone.
   - 1500 bytes between an internet gateway and a Local Zone.
-  - 1468 bytes between AWS Direct Connect and a Local Zone.
+  - 1468 bytes between Direct Connect and a Local Zone.
   - 1300 bytes between an Amazon EC2 instance in a Local Zone and an Amazon EC2 instance in the Region for
     most Local Zones except:
     - 9001 bytes for `us-west-2-lax-1a` and `us-west-2-lax-1b`
