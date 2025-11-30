@@ -20,9 +20,9 @@ To allow safe updates of early boot code, these PCRs will always contain constan
 - `PCR8 - 15` — Defined for use by the Static Operating System
 - `PCR16` — Debug
 - `PCR23` — Application Support
-  **PCR4** and **PCR7** specifically are used
-  to validate that an instance was launched using an Attestable AMI. PCR4 can be used to validate with standard
-  boot, and PCR7 can be used to validate with Secure Boot.
+  **PCR4**, **PCR7**, and **PCR12**
+  specifically are used to validate that an instance was launched using an Attestable AMI. PCR4 and PCR12 can be used to
+  validate with standard boot, and PCR7 can be used to validate with Secure Boot.
 
 - **PCR4 (Boot Manager Code)** — When an instance starts, the NitroTPM
   creates cryptographic hashes of all the binaries executed by its UEFI environment. With Attestable AMIs, these
@@ -39,3 +39,6 @@ you can then sign the boot binary with your certificate and install it as the on
 AMI’s UEFI-data. Keep in mind that this model requires you to still generate a new certificate, install it in
 your policy and update AMIs if you want to prevent instances launched from old (untrusted) AMIs from passing
 your KMS policy.
+
+- **PCR12** — Contains the hash of the command line passed to the UEFI boot binary.
+  Required in conjunction with PCR4 for standard boot to validate the command line was not modified.

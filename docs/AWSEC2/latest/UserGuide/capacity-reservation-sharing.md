@@ -77,7 +77,8 @@ the shared Capacity Reservation.
 Consumers are responsible for managing their instances that are running the
 shared Capacity Reservation. Consumers cannot modify the shared Capacity Reservation in any way, and they cannot
 view or modify instances that are owned by other consumers or the Capacity Reservation
-owner.
+owner. Consumers can only view the total capacity and available capacity in the
+shared reservation.
 
 ## Billing and metering
 

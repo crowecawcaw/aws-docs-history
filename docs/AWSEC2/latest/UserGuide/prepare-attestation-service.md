@@ -9,18 +9,18 @@ After you have created your Attestable AMI, you should have reference measuremen
 from an Amazon EC2 instance. AWS KMS provides built-in support for attestation with NitroTPM.
 
 For the AWS KMS key that you used to encrypt your secret data, add a key policy that allows key access only
-if API requests include an Attestation Document with PCR4 or PCR7 measurements that match the reference measurements you
-generated during the Attestable AMI creation process. This ensures that only requests from instances launched
-using the Attestable AMI can perform cryptographic operations using the AWS KMS key.
+if API requests include an Attestation Document with measurements that match the reference measurements you generated during the Attestable AMI
+creation process. Use PCR4 and PCR12 measurements for standard boot or PCR7 measurements for Secure Boot. This
+ensures that only requests from instances launched using the Attestable AMI can perform cryptographic operations using
+the AWS KMS key.
 
-AWS KMS provides `kms:RecipientAttestation:NitroTPMPCR4` and `kms:RecipientAttestation:NitroTPMPCR7`
-condition keys that enable you to create attestation-based conditions for NitroTPM KMS key policies. For more information,
-see [Condition keys for
-NitroTPM](../../../kms/latest/developerguide/conditions-nitro-tpm.md "../../../kms/latest/developerguide/conditions-nitro-tpm.md").
+AWS KMS provides `kms:RecipientAttestation:NitroTPMPCR4`, `kms:RecipientAttestation:NitroTPMPCR7`,
+and `kms:RecipientAttestation:NitroTPMPCR12` condition keys that enable you to create attestation-based
+conditions for NitroTPM KMS key policies. For more information, see [Condition keys for NitroTPM](../../../kms/latest/developerguide/conditions-nitro-tpm.md "../../../kms/latest/developerguide/conditions-nitro-tpm.md").
 
 For example, the following AWS KMS key policy allows key access only if the request originates from an
 instance with the `MyEC2InstanceRole` instance profile attached, and if the request includes an
-Attestation Document with specific PCR 4 and PCR 7 values.
+Attestation Document with specific PCR 4 and PCR 12 values.
 
 ```
 {
@@ -41,7 +41,7 @@ Attestation Document with specific PCR 4 and PCR 7 values.
       **"Condition": {
  "StringEqualsIgnoreCase": {
  "kms:RecipientAttestation:NitroTPMPCR4":"`EXAMPLE6b9b3d89a53b13f5dfd14a1049ec0b80a9ae4b159adde479e9f7f512f33e835a0b9023ca51ada02160EXAMPLE`",
- "kms:RecipientAttestation:NitroTPMPCR7":"`EXAMPLE34a884328944cd806127c7784677ab60a154249fd21546a217299ccfa1ebfe4fa96a163bf41d3bcfaeEXAMPLE`"
+ "kms:RecipientAttestation:NitroTPMPCR12":"`000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`"
  }
  }**
     }

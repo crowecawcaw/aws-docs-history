@@ -45,7 +45,8 @@ The utility returns the reference measurements in the following JSON format:
   "Measurements": {
     "HashAlgorithm": "SHA384 { ... }",
     "PCR4": "`PCR4_measurement`",
-    "PCR7": "`PCR7_measurement`"
+    "PCR7": "`PCR7_measurement`",
+    "PCR12": "`PCR12_measurement`"
   }
 }
 ```
