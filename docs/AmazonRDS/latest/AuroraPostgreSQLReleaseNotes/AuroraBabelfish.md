@@ -26,8 +26,89 @@ releases, see [Babelfish for Aurora PostgreSQL reference](../AuroraUserGuide/USE
 
 ###### Version updates
 
+- [Babelfish for Aurora PostgreSQL 5.3](#AuroraBabelfish.Updates.53X "#AuroraBabelfish.Updates.53X")
 - [Babelfish for Aurora PostgreSQL 5.2](#AuroraBabelfish.Updates.52X "#AuroraBabelfish.Updates.52X")
 - [Babelfish for Aurora PostgreSQL 5.1](#AuroraBabelfish.Updates.51X "#AuroraBabelfish.Updates.51X")
+
+### Babelfish for Aurora PostgreSQL 5.3
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.6. For more
+information about the improvements in Aurora PostgreSQL 17.6, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+5.3 adds several new features, enhancements, and fixes. For more information about
+Babelfish for Aurora PostgreSQL, see [Working with
+Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
+
+#### Aurora Babelfish release 5.3.0, November 25, 2025
+
+**New Features**
+
+- Added support for boolean operators and prefix term grammer in T-SQL CONTAINS clause for Full-Text Search.
+- Added support for Z-M flags for Point Instances and Z, M, HasZ and HasM functions for GEOMETRY and GEOGRAPHY datatypes.
+- Added support for sp_helplogins stored procedure.
+- Enabled Support for weak binding views with few limitations [Give hyperlink of new page once generated using the content mentioned in column C, row 5 in spreadsheet in this section - New Feature Pages].
+- Babelfish now support dynamic data masking feature using pg_columnmask extension. Users needs to create masking policies on their T-SQL objects by using the PostgreSQL endpoint. Subsequently data will be masked on TSQL and PostgreSQL endpoints. For details refer <link>.
+
+**Critical enhancements**
+
+- Fixed an issue during TDS Reset Connection in certain situations.
+- Fixed an issue in GroupAD where login with mapped user should not have access to guest privileges.
+- Improved the performance of queries using the ISNUMERIC() function in predicates.
+- Added support for queries to choose index scan for queries having predicates comparing numeric and integer data types.
+
+**High Priority stability enhancements**
+
+- Fixed overflow checks in all arithmetic operations with smallmoney being a higher precedence operand.
+- Fixed overflow checks in all arithmetic operations with money being a higher precedence operand.
+- Fixed the output datatype for all arithmetic operations involving smallmoney and bit.
+- Fixed behavior of certain math functions like CEIL, ROUND, POWER and FLOOR for money and smallmoney data types.
+- Fixed issue with connection crash during arithmetic operations on smallmoney and int.
+- Fixed overflow checks in all arithmetic operations with smallmoney/money being a operand.
+- Fixed an issue with DATENAME() to gives correct value of TZOFFSET part.
+- Handling for CHAR()/NCHAR() function to return NULL instead of errors when values are out of range.
+- Handling for NCHAR() function to accept inputs that can be converted to integers.
+- Fixed PATINDEX() function to correctly finds patterns at the end of text and handles wildcard searches accurately.
+- Enabled index usage for Accent Sensitive / Insensitive collation for LIKE operator when the pattern is EXACT or PREFIX or INFIX match with following conditions:
+  - For Accent Sensitive collation, user needs to create index from TSQL endpoint : CREATE INDEX <index_name> ON <table_name>(<column_name>)
+  - For Accent Insensitive collation, user needs to create index from PSQL endpoint: CREATE INDEX <index_name> ON <schema_name>.<table_name>(sys.remove_accents_internal_using_cache(<column_name>))
+
+- Fixed an issue where TRY_CAST and TRY_CONVERT was incorrectly rounding decimal values when casting to integer types, instead of truncating the fractional part.
+- Fixed precision and scale for arithmetic operations between money and numeric.
+- Fixed precision and scale handling for case expressions when with numeric and smallmoney/money branches.
+- Fixed precision and scale for arithmetic operations between smallmoney and numeric.
+- Fixed precsion and scale for money/smallmoney in union operators.
+- Fixed an issue with precision and scale for arithmetic operations between money and numeric.
+- Fixed precision and scale handling for numeric expressions with sub-expressions as money/smallmoney or fixed length datatypes.
+- Fixed an issue with handling of bigint and money/smallmoney multiplication operations.
+- Fixed an issue where money/smallmoney multiplications was incorrectly truncating decimal values in result, insetad of rounding the fractional part.
+- Fixed precision and scale handling for nested case expressions with numeric and money/smallmoney as their branches.
+- Fixed precision and scale handling for SUM()/AVG() functions with money/smallmoney and fixed length datatypes.
+- Fixed an issue with airthetic operations between numeric variable and fixed length variables.
+- Fixed precision and scale handling for aggregate functions with numeric.
+- Fixed an issue with babelfish connections restored during ZDP.
+- Fixed an issue with RESET ALL command from postgres endpoint.
+- Fixed an issue with response packets when reading large nvarchar(max) data, which could cause ArgumentOutOfRangeException with .NET driver.
+- Fixed an issue where parallelism won't be used for pltsql RETURN expression.
+- Fixed permission denied issue in cross-db TVF.
+- Added handling for empty input string handling in date and time datatypes.
+- Fixed precision and scale handling for money/smallmoney while creating objects, casts, variables and user defined datatypes using it.
+- Fixed an issue to preserve Timezone information during casting from string to datetimeoffset.
+- Fixed Function QUOTENAME() to return correct strings.
+- Added handling of binary arguments for Len() function.
+- Fixed the precision and scale for aggregate function that have \*(all columns) as input.
+- Fixed an issue for CaseExpr with numeric computation.
+- Fixed a crash in queries using 'FOR JSON AUTO' and 'JSON PATH'.
+- Fixed rounding off issue during storing datetime datatype. Existing users should run the following query from TSQL endpoint to update their existing data: UPDATE <table_name> SET <datetime_col> = CAST(CAST(<datetime_col> as VARCHAR) AS DATETIME).
+- Fixed Arithmetic overflow error for numeric operations with money.
+- Fixed datetime comparison in Babelfish to match TSQL behavior of treating datetime values within 0.00333 second precision as equal.
+
+**Additional improvements and enhancements**
+
+- Fixed an issue with OBJECT_DEFINITION function where it was trucating the output after 4000 characters.
+- Fixed the database_principals view to display the correct SID.
+- Handle PostgreSQL reserved keywords in Cursor operations.
+- Added support for sys.server_permissions, sys.sql_logins views and sys.fn_varbintohexsubstring system function.
+- Fixed an issue while adding a column with default value which resulted in an error.
+- Fixed an issue with INSERT ... EXECUTE statements in stored procedures related to nested levels.
 
 ### Babelfish for Aurora PostgreSQL 5.2
 
@@ -260,6 +341,7 @@ For more information about relevant permission management and access control set
 
 ###### Version updates
 
+- [Babelfish for Aurora PostgreSQL 4.7](#AuroraBabelfish.Updates.47X "#AuroraBabelfish.Updates.47X")
 - [Babelfish for Aurora PostgreSQL 4.6](#AuroraBabelfish.Updates.46X "#AuroraBabelfish.Updates.46X")
 - [Babelfish for Aurora PostgreSQL 4.5](#AuroraBabelfish.Updates.45X "#AuroraBabelfish.Updates.45X")
 - [Babelfish for Aurora PostgreSQL 4.4](#AuroraBabelfish.Updates.44X "#AuroraBabelfish.Updates.44X")
@@ -267,6 +349,86 @@ For more information about relevant permission management and access control set
 - [Babelfish for Aurora PostgreSQL 4.2](#AuroraBabelfish.Updates.42X "#AuroraBabelfish.Updates.42X")
 - [Babelfish for Aurora PostgreSQL 4.1](#AuroraBabelfish.Updates.41X "#AuroraBabelfish.Updates.41X")
 - [Babelfish for Aurora PostgreSQL 4.0](#AuroraBabelfish.Updates.40X "#AuroraBabelfish.Updates.40X")
+
+### Babelfish for Aurora PostgreSQL 4.7
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.10. For more
+information about the improvements in Aurora PostgreSQL 16.10, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+4.7 adds several new features, enhancements, and fixes. For more information about
+Babelfish for Aurora PostgreSQL, see [Working with
+Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
+
+###### Releases
+
+- [Aurora Babelfish release 4.7.0, November 25, 2025](#AuroraBabelfish.Updates.470 "#AuroraBabelfish.Updates.470")
+
+#### Aurora Babelfish release 4.7.0, November 25, 2025
+
+**New Features**
+
+- Added support for Z-M flags for Point Instances and Z, M, HasZ and HasM functions for GEOMETRY and GEOGRAPHY datatypes.
+- Added support for sp_helplogins stored procedure.
+- Enabled Support for weak binding views with few limitations [Give hyperlink of new page once generated using the content mentioned in column C, row 5 in spreadsheet in this section - New Feature Pages].
+- Babelfish now support dynamic data masking feature using pg_columnmask extension. Users needs to create masking policies on their T-SQL objects by using the PostgreSQL endpoint. Subsequently data will be masked on TSQL and PostgreSQL endpoints. For details refer <link>.
+
+**Critical enhancements**
+
+- Fixed an issue during TDS Reset Connection in certain situations.
+- Fixed an issue in GroupAD where login with mapped user should not have access to guest privileges.
+- Improved the performance of queries using the ISNUMERIC() function in predicates.
+- Added support for queries to choose index scan for queries having predicates comparing numeric and integer data types.
+
+**High Priority stability enhancements**
+
+- Fixed overflow checks in all arithmetic operations with smallmoney being a higher precedence operand.
+- Fixed overflow checks in all arithmetic operations with money being a higher precedence operand.
+- Fixed the output datatype for all arithmetic operations involving smallmoney and bit.
+- Fixed behavior of certain math functions like CEIL, ROUND, POWER and FLOOR for money and smallmoney data types.
+- Fixed issue with connection crash during arithmetic operations on smallmoney and int.
+- Fixed overflow checks in all arithmetic operations with smallmoney/money being a operand.
+- Fixed an issue with DATENAME() to gives correct value of TZOFFSET part.
+- Handling for CHAR()/NCHAR() function to return NULL instead of errors when values are out of range.
+- Handling for NCHAR() function to accept inputs that can be converted to integers.
+- Fixed PATINDEX() function to correctly finds patterns at the end of text and handles wildcard searches accurately.
+- To use Index for Accent Sensitive collation for LIKE operator when the pattern is EXACT or PREFIX or INFIX match, user needs to create index from TSQL endpoint : CREATE INDEX <index_name> ON <table_name>(<column_name>). To use Index for Accent Insensitive collation for LIKE operator when the pattern is EXACT or PREFIX or INFIX match, user needs to create index from PSQL endpoint: CREATE INDEX <index_name> ON <schema_name>.<table_name>(sys.remove_accents_internal_using_cache(<column_name>)).
+- Fixed an issue where TRY_CAST and TRY_CONVERT was incorrectly rounding decimal values when casting to integer types, instead of truncating the fractional part.
+- Fixed precision and scale for arithmetic operations between money and numeric.
+- Fixed precision and scale handling for case expressions when with numeric and smallmoney/money branches.
+- Fixed precision and scale for arithmetic operations between smallmoney and numeric.
+- Fixed precsion and scale for money/smallmoney in union operators.
+- Fixed an issue with precision and scale for arithmetic operations between money and numeric.
+- Fixed precision and scale handling for numeric expressions with sub-expressions as money/smallmoney or fixed length datatypes.
+- Fixed an issue with handling of bigint and money/smallmoney multiplication operations.
+- Fixed an issue where money/smallmoney multiplications was incorrectly truncating decimal values in result, insetad of rounding the fractional part.
+- Fixed precision and scale handling for nested case expressions with numeric and money/smallmoney as their branches.
+- Fixed precision and scale handling for SUM()/AVG() functions with money/smallmoney and fixed length datatypes.
+- Fixed an issue with airthetic operations between numeric variable and fixed length variables.
+- Fixed precision and scale handling for aggregate functions with numeric.
+- Fixed an issue with babelfish connections restored during ZDP.
+- Fixed an issue with RESET ALL command from postgres endpoint.
+- Fixed an issue with response packets when reading large nvarchar(max) data, which could cause ArgumentOutOfRangeException with .NET driver.
+- Fixed an issue where parallelism won't be used for pltsql RETURN expression.
+- Fixed permission denied issue in cross-db TVF.
+- Added Handling for empty input string handling in date and time datatypes.
+- Fixed precision and scale handling for money/smallmoney while creating objects,casts,variables and user defined datatypes using it.
+- Fixed an issue to preserve Timezone information during casting from string to datetimeoffset.
+- Fixed Function QUOTENAME() to return correct strings.
+- Added handling of binary arguments for Len() function.
+- Fixed the precision and scale for aggregate function that have \*(all columns) as input.
+- Fixed an issue for CaseExpr with numeric computation.
+- Fixed a crash in queries using 'FOR JSON AUTO' and 'JSON PATH'.
+- Fixed rounding off issue during storing datetime datatype. Existing users should run the following query from TSQL endpoint to update their existing data: UPDATE <table_name> SET <datetime_col> = CAST(CAST(<datetime_col> as VARCHAR) AS DATETIME).
+- Fixed Arithmetic overflow error for numeric operations with money.
+- Fixed datetime comparison in Babelfish to match TSQL behavior of treating datetime values within 0.00333 second precision as equal.
+
+**Additional improvements and enhancements**
+
+- Fixed an issue with OBJECT_DEFINITION function where it was trucating the output after 4000 characters.
+- Fixed the database_principals view to display the correct SID.
+- Handle PostgreSQL reserved keywords in Cursor operations.
+- Add full support for sys.server_permissions, sys.sql_logins views and sys.fn_varbintohexsubstring system function.
+- Fixed an issue while adding a column with default value which resulted in an error.
+- Fixed an issue with INSERT ... EXECUTE statements in stored procedures related to nested levels.
 
 ### Babelfish for Aurora PostgreSQL 4.6
 
@@ -1059,6 +1221,7 @@ January 31, 2024
 
 ###### Version updates
 
+- [Babelfish for Aurora PostgreSQL 3.11](#AuroraBabelfish.Updates.311 "#AuroraBabelfish.Updates.311")
 - [Babelfish for Aurora PostgreSQL 3.10](#AuroraBabelfish.Updates.310 "#AuroraBabelfish.Updates.310")
 - [Babelfish for Aurora PostgreSQL 3.9](#AuroraBabelfish.Updates.39X "#AuroraBabelfish.Updates.39X")
 - [Babelfish for Aurora PostgreSQL 3.8](#AuroraBabelfish.Updates.38X "#AuroraBabelfish.Updates.38X")
@@ -1069,6 +1232,86 @@ January 31, 2024
 - [Babelfish for Aurora PostgreSQL 3.3](#AuroraBabelfish.Updates.33X "#AuroraBabelfish.Updates.33X")
 - [Babelfish for Aurora PostgreSQL 3.2](#AuroraBabelfish.Updates.32X "#AuroraBabelfish.Updates.32X")
 - [Babelfish for Aurora PostgreSQL 3.1 (Deprecated)](#AuroraBabelfish.Updates.31X "#AuroraBabelfish.Updates.31X")
+
+### Babelfish for Aurora PostgreSQL 3.11
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.14. For more
+information about the improvements in Aurora PostgreSQL 15.14, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+3.11 adds several new features, enhancements, and fixes. For more information about
+Babelfish for Aurora PostgreSQL, see [Working with
+Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
+
+###### Releases
+
+- [Aurora Babelfish release 3.11.0, November 25, 2025](#AuroraBabelfish.Updates.3110 "#AuroraBabelfish.Updates.3110")
+
+#### Aurora Babelfish release 3.11.0, November 25, 2025
+
+**New Features**
+
+- Added support for Z-M flags for Point Instances and Z, M, HasZ and HasM functions for GEOMETRY and GEOGRAPHY datatypes.
+- Added support for sp_helplogins stored procedure.
+- Enabled Support for weak binding views with few limitations [Give hyperlink of new page once generated using the content mentioned in column C, row 5 in spreadsheet in this section - New Feature Pages].
+- Babelfish now support dynamic data masking feature using pg_columnmask extension. Users needs to create masking policies on their T-SQL objects by using the PostgreSQL endpoint. Subsequently data will be masked on TSQL and PostgreSQL endpoints. For details refer <link>.
+
+**Critical enhancements**
+
+- Fixed an issue during TDS Reset Connection in certain situations.
+- Fixed an issue in GroupAD where login with mapped user should not have access to guest privileges.
+- Improved the performance of queries using the ISNUMERIC() function in predicates.
+- Added support for queries to choose index scan for queries having predicates comparing numeric and integer data types.
+
+**High Priority stability enhancements**
+
+- Fixed overflow checks in all arithmetic operations with smallmoney being a higher precedence operand.
+- Fixed overflow checks in all arithmetic operations with money being a higher precedence operand.
+- Fixed the output datatype for all arithmetic operations involving smallmoney and bit.
+- Fixed behavior of certain math functions like CEIL, ROUND, POWER and FLOOR for money and smallmoney data types.
+- Fixed issue with connection crash during arithmetic operations on smallmoney and int.
+- Fixed overflow checks in all arithmetic operations with smallmoney/money being a operand.
+- Fixed an issue with DATENAME() to gives correct value of TZOFFSET part.
+- Handling for CHAR()/NCHAR() function to return NULL instead of errors when values are out of range.
+- Handling for NCHAR() function to accept inputs that can be converted to integers.
+- Fixed PATINDEX() function to correctly finds patterns at the end of text and handles wildcard searches accurately.
+- To use Index for Accent Sensitive collation for LIKE operator when the pattern is EXACT or PREFIX or INFIX match, user needs to create index from TSQL endpoint : CREATE INDEX <index_name> ON <table_name>(<column_name>). To use Index for Accent Insensitive collation for LIKE operator when the pattern is EXACT or PREFIX or INFIX match, user needs to create index from PSQL endpoint: CREATE INDEX <index_name> ON <schema_name>.<table_name>(sys.remove_accents_internal_using_cache(<column_name>)).
+- Fixed an issue where TRY_CAST and TRY_CONVERT was incorrectly rounding decimal values when casting to integer types, instead of truncating the fractional part.
+- Fixed precision and scale for arithmetic operations between money and numeric.
+- Fixed precision and scale handling for case expressions when with numeric and smallmoney/money branches.
+- Fixed precision and scale for arithmetic operations between smallmoney and numeric.
+- Fixed precsion and scale for money/smallmoney in union operators.
+- Fixed an issue with precision and scale for arithmetic operations between money and numeric.
+- Fixed precision and scale handling for numeric expressions with sub-expressions as money/smallmoney or fixed length datatypes.
+- Fixed an issue with handling of bigint and money/smallmoney multiplication operations.
+- Fixed an issue where money/smallmoney multiplications was incorrectly truncating decimal values in result, insetad of rounding the fractional part.
+- Fixed precision and scale handling for nested case expressions with numeric and money/smallmoney as their branches.
+- Fixed precision and scale handling for SUM()/AVG() functions with money/smallmoney and fixed length datatypes.
+- Fixed an issue with airthetic operations between numeric variable and fixed length variables.
+- Fixed precision and scale handling for aggregate functions with numeric.
+- Fixed an issue with babelfish connections restored during ZDP.
+- Fixed an issue with RESET ALL command from postgres endpoint.
+- Fixed an issue with response packets when reading large nvarchar(max) data, which could cause ArgumentOutOfRangeException with .NET driver.
+- Fixed an issue where parallelism won't be used for pltsql RETURN expression.
+- Fixed permission denied issue in cross-db TVF.
+- Added Handling for empty input string handling in date and time datatypes.
+- Fixed precision and scale handling for money/smallmoney while creating objects,casts,variables and user defined datatypes using it.
+- Fixed an issue to preserve Timezone information during casting from string to datetimeoffset.
+- Fixed Function QUOTENAME() to return correct strings.
+- Added handling of binary arguments for Len() function.
+- Fixed the precision and scale for aggregate function that have \*(all columns) as input.
+- Fixed an issue for CaseExpr with numeric computation.
+- Fixed a crash in queries using 'FOR JSON AUTO' and 'JSON PATH'.
+- Fixed rounding off issue during storing datetime datatype. Existing users should run the following query from TSQL endpoint to update their existing data: UPDATE <table_name> SET <datetime_col> = CAST(CAST(<datetime_col> as VARCHAR) AS DATETIME).
+- Fixed Arithmetic overflow error for numeric operations with money.
+- Fixed datetime comparison in Babelfish to match TSQL behavior of treating datetime values within 0.00333 second precision as equal.
+
+**Additional improvements and enhancements**
+
+- Fixed an issue with OBJECT_DEFINITION function where it was trucating the output after 4000 characters.
+- Fixed the database_principals view to display the correct SID.
+- Handle PostgreSQL reserved keywords in Cursor operations.
+- Add full support for sys.server_permissions, sys.sql_logins views and sys.fn_varbintohexsubstring system function.
+- Fixed an issue while adding a column with default value which resulted in an error.
+- Fixed an issue with INSERT ... EXECUTE statements in stored procedures related to nested levels.
 
 ### Babelfish for Aurora PostgreSQL 3.10
 

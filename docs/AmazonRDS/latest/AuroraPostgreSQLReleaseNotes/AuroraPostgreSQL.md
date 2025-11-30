@@ -27,6 +27,7 @@ Guide_.
 
 ###### Topics
 
+- [PostgreSQL 18.1](#AuroraPostgreSQL.Updates.180X "#AuroraPostgreSQL.Updates.180X")
 - [PostgreSQL 17 versions](#aurorapostgresql-versions-version17 "#aurorapostgresql-versions-version17")
 - [PostgreSQL 16 versions](#aurorapostgresql-versions-version16 "#aurorapostgresql-versions-version16")
 - [PostgreSQL 15 versions (includes some deprecated versions)](#aurorapostgresql-versions-version15 "#aurorapostgresql-versions-version15")
@@ -40,13 +41,170 @@ Guide_.
 - [PostgreSQL 9.6 versions
   (Deprecated)](#AuroraPostgreSQL.versions-version96 "#AuroraPostgreSQL.versions-version96")
 
+## PostgreSQL 18.1
+
+The PostgreSQL community releases new Major versions of PostgreSQL annually. The Amazon RDS Database Preview Environment allows you to test beta, release candidate, and early production versions of Amazon Aurora releases. This allows customers to create DB Clusters on an early release of Aurora PostgreSQL 18 in the Preview environment and test its features.
+
+The following limitations apply to Aurora PostgreSQL Clusters in the Preview environment:
+
+1. All DB instances/clusters are deleted 60 days after you create them, along with any backups and snapshots.
+2. You can't copy a snapshot of a DB instance from Preview to a production environment.
+3. The following options are supported by the Preview.
+   1. You can create DB instances using r6g, r6i, r7g, r7i, r8g, x2g, t3 and t4g instance types only. For more information about RDS Aurora instance classes, see DB instance classes.
+   2. You can use both single-AZ and multi-AZ deployments.
+   3. You can use standard PostgreSQL dump and load functions to export databases from or import databases to the Database Preview Environment.
+
+Some of the Features that are not supported for APG18.1 Preview:
+
+1. Serverless v1/v2
+2. Major Version Upgrades i.e. MVU
+3. No new minors will be released in preview region i.e. APG17.1 will not be released in preview region
+4. RDS PostgreSQL to Aurora PostgreSQL Inbound replication
+5. Amazon RDS Blue/Green deployment
+6. Cross-Region snapshot copy
+7. Global DB
+8. Database Activity Streams (DAS), RDS Proxy and Data Migration Service (DMS)
+9. Auto Scaling Read Replicas
+10.
+11. RDS Export
+12. Performance Insights
+13. Custom Endpoints
+14. Snapshot Copy
+15. zero-ETL
+16. Babelfish
+17. PostGis Topology module is not supported because of a community regression: [https://trac.osgeo.org/postgis/ticket/5983](https://trac.osgeo.org/postgis/ticket/5983 "https://trac.osgeo.org/postgis/ticket/5983")
+
+### Creating a new DB Cluster in the preview environment
+
+Use the following procedure to create a DB Cluster in the preview environment.
+
+###### To create a DB Cluster in the preview environment
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. Choose Dashboard from the navigation pane.
+3. In the Dashboard page, locate the Database Preview Environment section on the Dashboard page, as shown in the following image.
+4. You can navigate directly to the Database preview environment. Before you can proceed, you must acknowledge and accept the limitations.
+5. To create the Aurora PostgreSQL DB instance, follow the same process as that for creating any Amazon Aurora PostgreSQL DB Cluster. For more information, see the Console procedure in Creating an Amazon Aurora PostgreSQL DB cluster.
+6. To create an Cluster in the Database Preview Environment using the RDS API or the AWS CLI, use the following endpoint.
+
+`rds-preview.us-east-2.amazonaws.com`
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 18.1 in the Amazon RDS Preview environment](#AuroraPostgreSQL.Updates.181Preview "#AuroraPostgreSQL.Updates.181Preview")
+
+### Aurora PostgreSQL 18.1 in the Amazon RDS Preview environment
+
+**_This is preview documentation for Amazon Aurora PostgreSQL version 18.1. It is subject to change._**
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 18.1. For more information about the improvements in PostgreSQL 18.1, see [PostgreSQL release 18.0](https://www.postgresql.org/docs/18/release-18.html "https://www.postgresql.org/docs/18/release-18.html") and [PostgreSQL release 18.1](https://www.postgresql.org/docs/18/release-18-1.html "https://www.postgresql.org/docs/18/release-18-1.html").
+
+###### Parameter updates
+
+- `track_cost_delay_timing` default is set to on
+- `max_active_replication_origins` default is set to 20
+- `pclient_connection_check_interval` default is set to 60000
+- `log_connections` was updated to reflect the new PostgreSQL 18 behavior. The old default value of 0 is equivalent to the new default empty value, and the old value of 1 is equivalent to specifying all three values of receipt, authentication, and authorization
+- `autovacuum_worker_slots`, `io_workers`, `io_max_concurrency`
+
+###### Extension updates
+
+- Updated h3-pg to version 4.2.3
+- Updated PostGIS to version 3.6.0
+- Updated pg_hint_plan to version 1.8.0
+- Updated pg_cron to version 1.6.7
+- Updated hypopg to version 1.4.2
+- Updated MySQL FDW to version REL-2_9_3
+- Updated pglogical to version 2.4.6
+- Updated pgvector to version 0.8.1
+- Updated PLv8 to version 3.2.4
+- Updated TDS FDW to version 2.0.5
+- Updated pg_tle to version 1.5.2
+- Updated PgAudit to version 18.0
+- Updated to PgRouting to version 3.8.0
+
+###### General enhancements
+
+- Reduced commit latency when I/O optimized is enabled
+
+###### Unsupported Features
+
+- Aurora PostgreSQL 18.1 does not currently support logical decoding on Aurora Read Replicas.
+- Aurora PostgreSQL 18.1 does not currently support failover control within a Cluster.
+- Aurora PostgreSQL 18.1 does not currently support pg_createsubscriber on Aurora Read Replicas.
+- Aurora PostgreSQL 18.1 does not currently support Aurora PostgreSQL Query Plan Management.
+- Aurora PostgreSQL 18.1 does not currently support in-region write forwarding
+
 ## PostgreSQL 17 versions
 
 ###### Version updates
 
+- [PostgreSQL 17.6](#aurorapostgresql-versions-version176x "#aurorapostgresql-versions-version176x")
 - [PostgreSQL 17.5](#aurorapostgresql-versions-version175x "#aurorapostgresql-versions-version175x")
 - [PostgreSQL 17.4](#aurorapostgresql-versions-version174x "#aurorapostgresql-versions-version174x")
 - [PostgreSQL 17.0](#AuroraPostgreSQL.Updates.170X "#AuroraPostgreSQL.Updates.170X")
+
+### PostgreSQL 17.6
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 17.6. For more information about
+the improvements in PostgreSQL 17.6, see [PostgreSQL release
+17.6](https://www.postgresql.org/docs/17/release-17-6.html "https://www.postgresql.org/docs/17/release-17-6.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 17.6, November 25, 2025](#aurorapostgresql-versions-version176x-176 "#aurorapostgresql-versions-version176x-176")
+
+#### Aurora PostgreSQL 17.6, November 25, 2025
+
+**New features**
+
+- Introduced Dynamic Data Masking (DDM), a database-level security feature that protects sensitive data by masking column values before they are presented to database clients, without modifying the actual stored data. DDM enables organizations to control access to Personally Identifiable Information (PII) and other sensitive data through role-based masking policies that are applied dynamically at query execution time. For more details visit <Link to be updated>.
+- Introduced Shared Plan Cache to reduce memory usage by sharing query plans between backend processes.
+- Added support for correlated subquery cache for EXISTS, NOT EXISTS, and row comparison subqueries.
+- Introduced a new feature to significantly reduce database downtime during restarts by initializing Aurora storage metadata in parallel and reducing contention during initialization.
+- Added new pg_columnmask extension
+
+**Critical stability enhancements**
+
+- Fixed an issue related to Optimized Reads-enabled tiered cache functionality that might result in longer recovery times after a failover to Aurora replica instances.
+
+**High priority enhancements**
+
+- Back-ported fixes for the following PostgreSQL community security issues:
+  - CVE-2025-8713
+  - CVE-2025-8714
+  - CVE-2025-8715
+
+- Fixed an issue in logical replication where subscriber databases could skip replicating transactions after recovering from a crash.
+- Fixed an issue which could prevent logical replication from resuming after upgrade.
+- Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
+- Fixed a security issue when altering routine ownership.
+- Fixed an issue causing query execution failure for execution plans using the "bitmap heap scan" access method.
+- Fixed an issue impacting query execution performance for execution plans using the "bitmap heap scan" access method.
+
+**General enhancements**
+
+- Updated the following extensions:
+  - oracle_fdw to version to 2.8.0
+  - pg_repack extension to version 1.5.2
+  - aws_lamba extension to version 2.0
+
+- Improvements to the replay performance of the Aurora WAL replay process on read replica instances.
+- Improved file metadata initialization times.
+- Fixed an issue that caused reader instance to restart when attempting to create PostgreSQL SLRU files.
+- Fixed an issue which caused prolonged Serverless v2 scaling time.
+- Fixed an issue that could cause database restart during Serverless v2 scaling.
+- Fixed a performance issue on 48xlarge graviton instances.
+- Fixed a timing issue in replication diagnostics that could prevent accurate reporting of Aurora replica recovery status when state transitions occur in rapid succession.
+- Updated the aws_lambda extension to version 2.0, which resolves a performance issue that was present in version 1.0.
+- Added support to include Geodetic TIFF grid files for PROJ.
+- Fixed an issue that could cause database restart during aws_s3 export.
+- Addressed an issue with logging when replication slots are invalidated.
+- Fixed CVE-2023-3079 for V8 Engine in the PLV8 extension.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue where read queries may time out on Aurora replica nodes during the replay of lazy truncation triggered by vacuum on the writer node.
+- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed an issue which prevented online recovery of an Aurora Replica forcing offline recovery.
 
 ### PostgreSQL 17.5
 
@@ -490,6 +648,7 @@ persisted to Aurora storage.
 
 ###### Version updates
 
+- [PostgreSQL 16.10](#aurorapostgresql-versions-version1610x "#aurorapostgresql-versions-version1610x")
 - [PostgreSQL 16.9](#aurorapostgresql-versions-version169x "#aurorapostgresql-versions-version169x")
 - [PostgreSQL 16.8](#aurorapostgresql-versions-version168x "#aurorapostgresql-versions-version168x")
 - [PostgreSQL 16.6](#aurorapostgresql-versions-version166x "#aurorapostgresql-versions-version166x")
@@ -497,6 +656,68 @@ persisted to Aurora storage.
 - [PostgreSQL 16.3](#aurorapostgresql-versions-version163x "#aurorapostgresql-versions-version163x")
 - [PostgreSQL 16.2](#AuroraPostgreSQL.Updates.20180305.162X "#AuroraPostgreSQL.Updates.20180305.162X")
 - [PostgreSQL 16.1](#AuroraPostgreSQL.Updates.20180305.161X "#AuroraPostgreSQL.Updates.20180305.161X")
+
+### PostgreSQL 16.10
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 16.10. For more information about
+the improvements in PostgreSQL 16.10, see [PostgreSQL release
+16.10](https://www.postgresql.org/docs/16/release-16-10.html "https://www.postgresql.org/docs/16/release-16-10.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 16.10, November 25, 2025](#aurorapostgresql-versions-version1610x-1610 "#aurorapostgresql-versions-version1610x-1610")
+
+#### Aurora PostgreSQL 16.10, November 25, 2025
+
+**New features**
+
+- Introduced Dynamic Data Masking (DDM), a database-level security feature that protects sensitive data by masking column values before they are presented to database clients, without modifying the actual stored data. DDM enables organizations to control access to Personally Identifiable Information (PII) and other sensitive data through role-based masking policies that are applied dynamically at query execution time. For more details visit <Link to be updated>.
+- Introduced Shared Plan Cache to reduce memory usage by sharing query plans between backend processes.
+- Added support for correlated subquery cache for EXISTS, NOT EXISTS, and row comparison subqueries.
+- Introduced a new feature to significantly reduce database downtime during restarts by initializing Aurora storage metadata in parallel and reducing contention during initialization.
+- Added new pg_columnmask extension
+
+**Critical stability enhancements**
+
+- Fixed an issue related to Optimized Reads-enabled tiered cache functionality that might result in longer recovery times after a failover to Aurora replica instances.
+
+**High priority enhancements**
+
+- Back-ported fixes for the following PostgreSQL community security issues:
+  - CVE-2025-8713
+  - CVE-2025-8714
+  - CVE-2025-8715
+
+- Fixed an issue in logical replication where subscriber databases could skip replicating transactions after recovering from a crash.
+- Fixed an issue which could prevent logical replication from resuming after upgrade.
+- Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
+- Fixed a security issue when altering routine ownership.
+- Fixed an issue causing query execution failure for execution plans using the "bitmap heap scan" access method.
+- Fixed an issue impacting query execution performance for execution plans using the "bitmap heap scan" access method.
+
+**General enhancements**
+
+- Updated the following extensions:
+  - oracle_fdw to version to 2.8.0
+  - pg_repack extension to version 1.5.2
+  - aws_lamba extension to version 2.0
+
+- Improvements to the replay performance of the Aurora WAL replay process on read replica instances.
+- Improved file metadata initialization times.
+- Fixed an issue that caused reader instance to restart when attempting to create PostgreSQL SLRU files.
+- Fixed an issue which caused prolonged Serverless v2 scaling time.
+- Fixed an issue that could cause database restart during Serverless v2 scaling.
+- Fixed a performance issue on 48xlarge graviton instances.
+- Fixed a timing issue in replication diagnostics that could prevent accurate reporting of Aurora replica recovery status when state transitions occur in rapid succession.
+- Updated the aws_lambda extension to version 2.0, which resolves a performance issue that was present in version 1.0.
+- Added support to include Geodetic TIFF grid files for PROJ.
+- Fixed an issue that could cause database restart during aws_s3 export.
+- Addressed an issue with logging when replication slots are invalidated.
+- Fixed CVE-2023-3079 for V8 Engine in the PLV8 extension.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue where read queries may time out on Aurora replica nodes during the replay of lazy truncation triggered by vacuum on the writer node.
+- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed an issue which prevented online recovery of an Aurora Replica forcing offline recovery.
 
 ### PostgreSQL 16.9
 
@@ -1735,6 +1956,7 @@ For information about extensions and modules, see [Extensions supported for Auro
 
 ###### Version updates
 
+- [PostgreSQL 15.14](#aurorapostgresql-versions-version1514x "#aurorapostgresql-versions-version1514x")
 - [PostgreSQL 15.13](#aurorapostgresql-versions-version1513x "#aurorapostgresql-versions-version1513x")
 - [PostgreSQL 15.12](#aurorapostgresql-versions-version1512x "#aurorapostgresql-versions-version1512x")
 - [PostgreSQL 15.10](#aurorapostgresql-versions-version1510x "#aurorapostgresql-versions-version1510x")
@@ -1745,6 +1967,59 @@ For information about extensions and modules, see [Extensions supported for Auro
 - [PostgreSQL 15.4](#AuroraPostgreSQL.Updates.20180305.154X "#AuroraPostgreSQL.Updates.20180305.154X")
 - [PostgreSQL 15.3](#AuroraPostgreSQL.Updates.20180305.153X "#AuroraPostgreSQL.Updates.20180305.153X")
 - [PostgreSQL 15.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.152X "#AuroraPostgreSQL.Updates.20180305.152X")
+
+### PostgreSQL 15.14
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 15.14. For more information about
+the improvements in PostgreSQL 15.14, see [PostgreSQL release
+15.14](https://www.postgresql.org/docs/15/release-15-14.html "https://www.postgresql.org/docs/15/release-15-14.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 15.14, November 25, 2025](#aurorapostgresql-versions-version1514x-1514 "#aurorapostgresql-versions-version1514x-1514")
+
+#### Aurora PostgreSQL 15.14, November 25, 2025
+
+**New features**
+
+- Introduced a new feature to significantly reduce database downtime during restarts by initializing Aurora storage metadata in parallel and reducing contention during initialization.
+
+**Critical stability enhancements**
+
+- Fixed an issue related to Optimized Reads-enabled tiered cache functionality that might result in longer recovery times after a failover to Aurora replica instances.
+
+**High priority enhancements**
+
+- Back-ported fixes for the following PostgreSQL community security issues:
+  - CVE-2025-8713
+  - CVE-2025-8714
+  - CVE-2025-8715
+
+- Fixed an issue in logical replication where subscriber databases could skip replicating transactions after recovering from a crash.
+- Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
+- Fixed a security issue when altering routine ownership.
+
+**General enhancements**
+
+- Updated the following extensions:
+  - oracle_fdw to version to 2.8.0
+  - pg_repack extension to version 1.5.2
+  - aws_lamba extension to version 2.0
+
+- Improved file metadata initialization times.
+- Fixed an issue that caused reader instance to restart when attempting to create PostgreSQL SLRU files.
+- Fixed an issue which caused prolonged Serverless v2 scaling time.
+- Fixed an issue that could cause database restart during Serverless v2 scaling.
+- Fixed a timing issue in replication diagnostics that could prevent accurate reporting of Aurora replica recovery status when state transitions occur in rapid succession.
+- Updated the aws_lambda extension to version 2.0, which resolves a performance issue that was present in version 1.0.
+- Added support to include Geodetic TIFF grid files for PROJ.
+- Fixed an issue that could cause database restart during aws_s3 export.
+- Addressed an issue with logging when replication slots are invalidated.
+- Fixed CVE-2023-3079 for V8 Engine in the PLV8 extension.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue where read queries may time out on Aurora replica nodes during the replay of lazy truncation triggered by vacuum on the writer node.
+- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed an issue which prevented online recovery of an Aurora Replica forcing offline recovery.
 
 ### PostgreSQL 15.13
 
@@ -3630,6 +3905,7 @@ and prefetching during WAL recovery. In addition, sequences can be specified as 
 
 ###### Version updates
 
+- [PostgreSQL 14.19](#aurorapostgresql-versions-version1419x "#aurorapostgresql-versions-version1419x")
 - [PostgreSQL 14.18](#aurorapostgresql-versions-version1418x "#aurorapostgresql-versions-version1418x")
 - [PostgreSQL 14.17](#aurorapostgresql-versions-version1417x "#aurorapostgresql-versions-version1417x")
 - [PostgreSQL 14.15](#aurorapostgresql-versions-version1415x "#aurorapostgresql-versions-version1415x")
@@ -3644,6 +3920,59 @@ and prefetching during WAL recovery. In addition, sequences can be specified as 
 - [PostgreSQL 14.5 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.145X "#AuroraPostgreSQL.Updates.20180305.145X")
 - [PostgreSQL 14.4 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.144X "#AuroraPostgreSQL.Updates.20180305.144X")
 - [PostgreSQL 14.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.143X "#AuroraPostgreSQL.Updates.20180305.143X")
+
+### PostgreSQL 14.19
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 14.19. For more information about
+the improvements in PostgreSQL 14.19, see [PostgreSQL release
+14.19](https://www.postgresql.org/docs/14/release-14-19.html "https://www.postgresql.org/docs/14/release-14-19.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 14.19, November 25, 2025](#aurorapostgresql-versions-version1419x-1419 "#aurorapostgresql-versions-version1419x-1419")
+
+#### Aurora PostgreSQL 14.19, November 25, 2025
+
+**New features**
+
+- Introduced a new feature to significantly reduce database downtime during restarts by initializing Aurora storage metadata in parallel and reducing contention during initialization.
+
+**Critical stability enhancements**
+
+- Fixed an issue related to Optimized Reads-enabled tiered cache functionality that might result in longer recovery times after a failover to Aurora replica instances.
+
+**High priority enhancements**
+
+- Back-ported fixes for the following PostgreSQL community security issues:
+  - CVE-2025-8713
+  - CVE-2025-8714
+  - CVE-2025-8715
+
+- Fixed an issue in logical replication where subscriber databases could skip replicating transactions after recovering from a crash.
+- Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
+- Fixed a security issue when altering routine ownership.
+
+**General enhancements**
+
+- Updated the following extensions:
+  - oracle_fdw to version to 2.8.0
+  - pg_repack extension to version 1.5.2
+  - aws_lamba extension to version 2.0
+
+- Improved file metadata initialization times.
+- Fixed an issue that caused reader instance to restart when attempting to create PostgreSQL SLRU files.
+- Fixed an issue which caused prolonged Serverless v2 scaling time.
+- Fixed an issue that could cause database restart during Serverless v2 scaling.
+- Fixed a timing issue in replication diagnostics that could prevent accurate reporting of Aurora replica recovery status when state transitions occur in rapid succession.
+- Updated the aws_lambda extension to version 2.0, which resolves a performance issue that was present in version 1.0.
+- Added support to include Geodetic TIFF grid files for PROJ.
+- Fixed an issue that could cause database restart during aws_s3 export.
+- Addressed an issue with logging when replication slots are invalidated.
+- Fixed CVE-2023-3079 for V8 Engine in the PLV8 extension.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue where read queries may time out on Aurora replica nodes during the replay of lazy truncation triggered by vacuum on the writer node.
+- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed an issue which prevented online recovery of an Aurora Replica forcing offline recovery.
 
 ### PostgreSQL 14.18
 
@@ -6206,6 +6535,7 @@ Aurora PostgreSQL 14.3.0, June 21, 2022
 
 ###### Version updates
 
+- [PostgreSQL 13.22](#aurorapostgresql-versions-version1322x "#aurorapostgresql-versions-version1322x")
 - [PostgreSQL 13.21](#aurorapostgresql-versions-version1321x "#aurorapostgresql-versions-version1321x")
 - [PostgreSQL 13.20](#aurorapostgresql-versions-version1320x "#aurorapostgresql-versions-version1320x")
 - [PostgreSQL 13.18](#aurorapostgresql-versions-version1318x "#aurorapostgresql-versions-version1318x")
@@ -6223,6 +6553,59 @@ Aurora PostgreSQL 14.3.0, June 21, 2022
 - [PostgreSQL 13.5 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.135X "#AuroraPostgreSQL.Updates.20180305.135X")
 - [PostgreSQL 13.4 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.134X "#AuroraPostgreSQL.Updates.20180305.134X")
 - [PostgreSQL 13.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.133X "#AuroraPostgreSQL.Updates.20180305.133X")
+
+### PostgreSQL 13.22
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 13.22. For more information about
+the improvements in PostgreSQL 13.22, see [PostgreSQL release
+13.22](https://www.postgresql.org/docs/13/release-13-22.html "https://www.postgresql.org/docs/13/release-13-22.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 13.22, November 25, 2025](#aurorapostgresql-versions-version1322x-1322 "#aurorapostgresql-versions-version1322x-1322")
+
+#### Aurora PostgreSQL 13.22, November 25, 2025
+
+**New features**
+
+- Introduced a new feature to significantly reduce database downtime during restarts by initializing Aurora storage metadata in parallel and reducing contention during initialization.
+
+**Critical stability enhancements**
+
+- Fixed an issue related to Optimized Reads-enabled tiered cache functionality that might result in longer recovery times after a failover to Aurora replica instances.
+
+**High priority enhancements**
+
+- Back-ported fixes for the following PostgreSQL community security issues:
+  - CVE-2025-8713
+  - CVE-2025-8714
+  - CVE-2025-8715
+
+- Fixed an issue in logical replication where subscriber databases could skip replicating transactions after recovering from a crash.
+- Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
+- Fixed a security issue when altering routine ownership.
+
+**General enhancements**
+
+- Updated the following extensions:
+  - oracle_fdw to version to 2.8.0
+  - pg_repack extension to version 1.5.2
+  - aws_lamba extension to version 2.0
+
+- Improved file metadata initialization times.
+- Fixed an issue that caused reader instance to restart when attempting to create PostgreSQL SLRU files.
+- Fixed an issue which caused prolonged Serverless v2 scaling time.
+- Fixed an issue that could cause database restart during Serverless v2 scaling.
+- Fixed a timing issue in replication diagnostics that could prevent accurate reporting of Aurora replica recovery status when state transitions occur in rapid succession.
+- Updated the aws_lambda extension to version 2.0, which resolves a performance issue that was present in version 1.0.
+- Added support to include Geodetic TIFF grid files for PROJ.
+- Fixed an issue that could cause database restart during aws_s3 export.
+- Addressed an issue with logging when replication slots are invalidated.
+- Fixed CVE-2023-3079 for V8 Engine in the PLV8 extension.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue where read queries may time out on Aurora replica nodes during the replay of lazy truncation triggered by vacuum on the writer node.
+- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed an issue which prevented online recovery of an Aurora Replica forcing offline recovery.
 
 ### PostgreSQL 13.21
 
