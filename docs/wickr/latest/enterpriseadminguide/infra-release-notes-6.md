@@ -1,38 +1,39 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr
 Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# Infrastructure 6.20 release
+# Infrastructure 6.32 release
 
-The following release notes include information for infrastructure release 6.20. For
-information on the release timeline, see [Change log](#infra-release-notes-6.20-change-log "#infra-release-notes-6.20-change-log").
+The following release notes include information for infrastructure release 6.32. For
+information on the release timeline, see [Change log](#infra-release-notes-6.32-change-log "#infra-release-notes-6.32-change-log").
 
 **Platform version**
 
 |                |               |
 | -------------- | ------------- |
-| Infrastructure | 6.20.0 (1732) |
+| Infrastructure | 6.32.1 (1024) |
 
-**Changes, enhancements, and resolved issues**
+**New features**:
 
-The switchboard components were updated to:
+- Administrators can now toggle private IP restrictions at the superadmin level. Toggling
+  the restrictions off facilitates ADFS and other SSO integration over private
+  connections.
+- The downloaded config filename now matches the name in the admin dashboard.
+  **Improvements**:
 
-- the latest version of fast-xml-parser to address potential abuse for DoS attack.
-- the latest version jsonwebtoken to ensure signature validation cannot be bypassed and iOS
-  push notifications are not broken; and ensure development dependencies used for testing are not
-  included in production.
-  The schema components were updated to:
-
-- remove node-modules address request header exploit, regex DoS, and prototype pollution
-  vulnerabilities.
-- ensure development dependencies used for testing are not included in production.
-  The crond was updated to ensure development dependencies used for testing are not included
-  in production.
+- Added a new port allowlist (TCP 8443). This port allowlist is needed for the new
+  CALLING_BASE_URL environment variable in the Switchboard container, which facilitates internal
+  communication between the messaging and calling servers.
+- Redirected the base URL to /admin
+- Added a “Removed” banner for former Wickr Me users
+- Updated ServerAPI to Node18
+- Proactively retry to reconnect web sockets in federation gateway on disconnect
 
 ## Change log
 
-**Change log for 6.20 release and release notes**
+**Change log for 6.32 release and release notes**
 
-| Change                | Description                                   | Date            |
-| --------------------- | --------------------------------------------- | --------------- |
-| Infrastructure update | Updates to address vulnerability scan results | August 11, 2023 |
-| Initial release       | Initial release of August release notes       | August 11, 2023 |
+| Change                | Description                                                                                                                                            | Date              |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| Final release         | Final notes with Replicated build number<br>NoteReplicated build numbers are dependent on deployment model, KOTS (1024) or Native<br>Scheduler (1882). | February 12, 2024 |
+| Infrastructure update | Updates to address vulnerability scan results, new features, and patching                                                                              | February 8, 2024  |
+| Initial release       | Initial release of February release notes                                                                                                              | February 5, 2024  |
