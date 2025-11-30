@@ -1,154 +1,151 @@
-# Managing statistics
+# Query hints and plan guides
 
-This topic provides reference information about statistics and query optimization in SQL Server and PostgreSQL databases. You can understand how these database systems use statistics to improve query performance and how they differ in their approach to collecting and managing statistical data. The topic compares the methods for creating, viewing, and updating statistics in SQL Server with similar functionality in PostgreSQL.
+This topic provides reference information about the differences in feature compatibility between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL, specifically regarding database hints and query optimization. You can understand how SQL Server’s hint functionality, which allows direct influence over query execution plans, contrasts with PostgreSQL’s approach. While PostgreSQL doesn’t support database hints in the same way, it offers alternative methods to influence query planning through session parameters.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                       |
-| -------------------------------- | ---------------------------------- | ------------------------- | ----------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | Syntax and option differences, similar functionality. |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                 |
+| ------------------------------ | ---------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------- |
+| Two star feature compatibility | N/A                                | N/A                       | Very limited set of hints<br>• Index hints and optimizer hints as comments. Syntax differences. |
 
 ## SQL Server Usage
 
-Statistics objects in SQL Server are designed to support SQL Server cost-based query optimizer. It uses statistics to evaluate the various plan options and choose an optimal plan for optimal query performance.
+SQL Server hints are instructions that override automatic choices made by the query processor for DML and DQL statements. The term hint is misleading because, in reality, it forces an override to any other choice of run plan.
 
-Statistics are stored as BLOBs in system tables and contain histograms and other statistical information about the distribution of values in one or more columns. A histogram is created for the first column only and samples the occurrence frequency of distinct values. Statistics and histograms are collected by either scanning the entire table or by sampling only a percentage of the rows.
+### JOIN Hints
 
-You can view Statistics manually using the `DBCC SHOW_STATISTICS` statement or the more recent `sys.dm_db_stats_properties` and `sys.dm_db_stats_histogram` system views.
+You can explicitly add `LOOP`, `HASH`, `MERGE`, and `REMOTE` hints to a `JOIN` statement. For example, `…​ Table1 INNER LOOP JOIN Table2 ON …​`.
 
-SQL Server provides the capability to create filtered statistics containing a WHERE predicate. Filtered statistics are useful for optimizing histogram granularity by eliminating rows whose values are of less interest, for example NULLs.
+These hints force the optimizer to use nested loops, hash match, or merge physical join algorithms.
 
-SQL Server can manage the collection and refresh of statistics automatically (the default). Use the `AUTO_CREATE_STATISTICS` and `AUTO_UPDATE_STATISTICS` database options to change the defaults.
+`REMOTE` enables processing a join with a remote table on the local server.
 
-When a query is submitted with `AUTO_CREATE_STATISTICS` on and the query optimizer may benefit from a statistics that don’t yet exist, SQL Server creates the statistics automatically. You can use the `AUTO_UPDATE_STATISTICS_ASYNC` database property to set new statistics creation to occur immediately (causing queries to wait) or to run asynchronously. When run asynchronously, the triggering run can’t benefit from optimizations the optimizer may derive from it.
+### Table Hints
 
-After creation of a new statistics object, either automatically or explicitly using the `CREATE STATISTICS` statement, the refresh of the statistics is controlled by the `AUTO_UPDATE_STATISTICS` database option. When set to `ON`, statistics are recalculated when they are stale, which happens when significant data modifications have occurred since the last refresh.
+Table hints override the default behavior of the query optimizer. Table hints are used to explicitly force a particular locking strategy or access method for a table operation clause. These hints don’t modify the defaults and apply only for the duration of the DML or DQL statement.
+
+Some common table hints are `INDEX = <Index value>`, `FORCESEEK`, `NOLOCK`, and `TABLOCKX`.
+
+### Query Hints
+
+Query hints affect the entire set of query operators, not just the individual clause in which they appear. Query hints may be `JOIN` hints, table hints, or from a set of hints that are only relevant for query hints.
+
+Some common table hints include `OPTIMIZE FOR`, `RECOMPILE`, `FORCE ORDER`, `FAST <rows>`.
+
+You can specify query hints after the query itself following the `WITH` options clause.
+
+### Plan Guides
+
+Plan guides provide similar functionality to query hints in the sense they allow explicit user intervention and control over query optimizer plan choices. Plan guides can use either query hints or a full fixed, pre-generated plan attached to a query. The difference between query hints and plan guides is the way they are associated with a query.
+
+While query or table hints need to be explicitly stated in the query text, they aren’t an option if you have no control over the source code generating these queries. If an application uses ad-hoc queries instead of stored procedures, views, and functions, the only way to affect query plans is to use plan guides. They are often used to mitigate performance issues with third-party software.
+
+A plan guide consists of the statement whose run plan needs to be adjusted and either an `OPTION` clause that lists the desired query hints or a full XML query plan that is enforced as long it is valid.
+
+At run time, SQL Server matches the text of the query specified by the guide and attaches the OPTION hints. Alternatively, it assigns the provided plan for running.
+
+SQL Server supports three types of plan guides:
+
+- **Object plan guides** target statements that run within the scope of a code object such as a stored procedure, function, or trigger. If the same statement is found in another context, the plan guide is not be applied.
+- **SQL plan guides** are used for matching general ad-hoc statements not within the scope of code objects. In this case, any instance of the statement regardless of the originating client is assigned the plan guide.
+- **Template plan guides** can be used to abstract statement templates that differ only in parameter values. You can use them to override the `PARAMETERIZATION` database option setting for a family of queries.
 
 ### Syntax
 
+The following example uses query hints in a `SELECT` statement. You can use query hints in all DQL and DML statements.
+
 ```
-CREATE STATISTICS <Statistics Name>
-ON <Table Name> (<Column> [,...])
-[WHERE <Filter Predicate>]
-[WITH <Statistics Options>;
+SELECT <statement>
+OPTION
+(
+{{HASH|ORDER} GROUP
+|{CONCAT |HASH|MERGE} UNION
+|{LOOP|MERGE|HASH} JOIN
+|EXPAND VIEWS
+|FAST <Rows>
+|FORCE ORDER
+|{FORCE|DISABLE} EXTERNALPUSHDOWN
+|IGNORE_NONCLUSTERED_COLUMNSTORE_INDEX
+|KEEP PLAN
+|KEEPFIXED PLAN
+|MAX_GRANT_PERCENT = <Percent>
+|MIN_GRANT_PERCENT = <Percent>
+|MAXDOP <Number of Processors>
+|MAXRECURSION <Number>
+|NO_PERFORMANCE_SPOOL
+|OPTIMIZE FOR (@<Variable> {UNKNOWN|= <Value>}[,...])
+|OPTIMIZE FOR UNKNOWN
+|PARAMETERIZATION {SIMPLE|FORCED}
+|RECOMPILE
+|ROBUST PLAN
+|USE HINT ('<Hint>' [,...])
+|USE PLAN N'<XML Plan>'
+|TABLE HINT (<Object Name> [,<Table Hint>[[,...]])
+});
+```
+
+The following example creates a plan guide.
+
+```
+EXECUTE sp_create_plan_guide @name = '<Plan Guide Name>'
+  ,@stmt = '<Statement>'
+  ,@type = '<OBJECT|SQL|TEMPLATE>'
+  ,@module_or_batch = 'Object Name>'|'<Batch Text>'| NULL
+  ,@params = '<Parameter List>'|NULL }
+  ,@hints = 'OPTION(<Query Hints>'|'<XML Plan>'|NULL;
 ```
 
 ### Examples
 
-The following example creates new statistics on multiple columns. Set to use a full scan and to not refresh.
+Limit parallelism for a sales report query.
 
 ```
-CREATE STATISTICS MyStatistics
-ON MyTable (Col1, Col2)
-WITH FULLSCAN, NORECOMPUTE;
+EXEC sp_create_plan_guide
+  @name = N'SalesReportPlanGuideMAXDOP',
+  @stmt = N'SELECT *
+    FROM dbo.fn_SalesReport(GETDATE())
+  @type = N'SQL',
+  @module_or_batch = NULL,
+  @params = NULL,
+  @hints = N'OPTION (MAXDOP 1)';
 ```
 
-The following example updates statistics with a 50% sampling rate.
+Use table and query hints.
 
 ```
-UPDATE STATISTICS MyTable(MyStatistics)
-WITH SAMPLE 50 PERCENT;
+SELECT *
+FROM MyTable1 AS T1
+  WITH (FORCESCAN)
+  INNER LOOP JOIN
+  MyTable2 AS T2
+  WITH (TABLOCK, HOLDLOCK)
+  ON T1.Col1 = T2.Col1
+WHERE T1.Date BETWEEN DATEADD(DAY, -7, GETDATE()) AND GETDATE()
 ```
 
-View the statistics histogram and data.
-
-```
-DBCC SHOW_STATISTICS ('MyTable','MyStatistics');
-```
-
-Turn off automatic statistics creation for a database.
-
-```
-ALTER DATABASE MyDB SET AUTO_CREATE_STATS OFF;
-```
-
-For more information, see [Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15"), [CREATE STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15"), and [DBCC SHOW_STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Hints (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql?view=sql-server-ver15") and [Plan Guides](https://docs.microsoft.com/en-us/sql/relational-databases/performance/plan-guides?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/performance/plan-guides?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
-Use the `ANALYZE` command to collect statistics about a database, a table, or a specific table column. The PostgreSQL `ANALYZE` command collects table statistics that support the generation of efficient query run plans by the query planner.
-
-- **Histograms** — `ANALYZE` collects statistics on table column values and creates a histogram of the approximate data distribution in each column.
-- **Pages and Rows** — `ANALYZE` collects statistics on the number of database pages and rows from which each table is comprised.
-- **Data Sampling** — For large tables, the `ANALYZE` command takes random samples of values rather than examining each row. This allows the `ANALYZE` command to scan very large tables in a relatively small amount of time.
-- **Statistic Collection Granularity** — Running the `ANALYZE` command without parameters instructs PostgreSQL to examine every table in the current schema. Supplying the table name or column name to `ANALYZE` instructs the database to examine a specific table or table column.
-
-### Automatic Statistics Collection
-
-By default, PostgreSQL is configured with an `AUTOVACUUM` daemon which automates the run of statistics collection by using the ANALYZE commands (in addition to automation of the VACUUM command). The `AUTOVACUUM` daemon scans for tables that show signs of large modifications in data to collect the current statistics. `AUTOVACUUM` is controlled by several parameters.
-
-Individual tables have several storage parameters which can trigger `AUTOVACUUM` process sooner or later. You can set or change such parameters as `autovacuum_enabled`, `autovacuum_vacuum_threshold`, and others, using `CREATE TABLE` or `ALTER TABLE` statements.
-
-```
-ALTER TABLE custom_autovaccum SET (autovacuum_enabled = true, autovacuum_vacuum_cost_delay = 10ms, autovacuum_vacuum_scale_factor = 0.01, autovacuum_analyze_scale_factor = 0.005);
-```
-
-The preceding command enables `AUTOVACUUM` for the `custom_autovaccum` table and specifies the `AUTOVACUUM` process to sleep for 10 milliseconds each run.
-
-It also specifies a 1% of the table size to be added to `autovacuum_vacuum_threshold` and 0.5% of the table size to be added to `autovacuum_analyze_threshold` when deciding whether to trigger a `VACUUM`.
-
-For more information, see [Automatic Vacuuming](https://www.postgresql.org/docs/13/runtime-config-autovacuum.html "https://www.postgresql.org/docs/13/runtime-config-autovacuum.html") in the _PostgreSQL documentation_.
-
-### Manual Statistics Collection
-
-In PostgreSQL, you can collect statistics on-demand using the `ANALYZE` command at the database level, table level, or column level.
-
-- `ANALYZE` on indexes isn’t currently supported.
-- `ANALYZE` requires only a read-lock on the target table. It can run in parallel with other activity on the table.
-- For large tables, `ANALYZE` takes a random sample of the table contents. It is configured by the show `default_statistics_target` parameter. The default value is 100 entries. Raising the limit might allow more accurate planner estimates to be made at the price of consuming more space in the `pg_statistic` table.
-
-Starting from PostgreSQL 10, there is a new command `CREATE STATISTICS`, which creates a new extended statistics object tracking data about the specified table.
-
-The `STATISTICS` object tells the server to collect more detailed statistics.
+PostgreSQL doesn’t support database hints to influence the behavior of the query planner, and you can’t influence how run plans are generated from within SQL queries. Although database hints aren’t directly supported, session parameters (also known as Query Planning Parameters) can influence the behavior of the query optimizer at the session level.
 
 ### Examples
 
-The following example gathers statistics for the entire database.
+Configure the query planner to use indexes instead of full table scans (disable SEQSCAN).
 
 ```
-ANALYZE;
+SET ENABLE_SEQSCAN=FALSE;
 ```
 
-The following example gathers statistics for a specific table. The `VERBOSE` keyword displays progress.
+Set the query planner’s estimated cost of a disk page fetch that is part of a series of sequential fetches (`SEQ_PAGE_COST`) and set the planner’s estimate of the cost of a non-sequentially-fetched disk page (`RANDOM_PAGE_COST`). Reducing the value of `RANDOM_PAGE_COST` relative to `SEQ_PAGE_COST` causes the query planner to prefer index scans, while raising the value makes index scans more expensive.
 
 ```
-ANALYZE VERBOSE EMPLOYEES;
+SET SEQ_PAGE_COST to 4;
+SET RANDOM_PAGE_COST to 1;
 ```
 
-The following example gathers statistics for a specific column.
+Turn on or turn off the query planner’s use of nested-loops when performing joins. While it is impossible to completely disable the usage of nested-loop joins, setting the ENABLE_NESTLOOP to OFF discourages the query planner from choosing nested-loop joins compared to alternative join methods.
 
 ```
-ANALYZE EMPLOYEES (HIRE_DATE);
+SET ENABLE_NESTLOOP to FALSE;
 ```
 
-Specify the default_statistics_target parameter for an individual table column and reset it back to default.
-
-```
-ALTER TABLE EMPLOYEES ALTER COLUMN SALARY SET STATISTICS 150;
-
-ALTER TABLE EMPLOYEES ALTER COLUMN SALARY SET STATISTICS -1;
-```
-
-Larger values increase the time needed to complete an ANALYZE, but improve the quality of the collected planner’s statistics, which can potentially lead to better run plans.
-
-View the current (session or global) `default_statistics_target`, modify it to 150, and analyze the `EMPLOYEES` table:
-
-```
-SHOW default_statistics_target ;
-SET default_statistics_target to 150;
-ANALYZE EMPLOYEES ;
-```
-
-View the last time statistics were collected for a table.
-
-```
-select relname, last_analyze from pg_stat_all_tables;
-```
-
-## Summary
-
-| Feature                                                   | SQL Server                                                                   | PostgreSQL                                                                                                               |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Analyze a specific database table                         | `<br>CREATE STATISTICS MyStatistics<br>ON MyTable (Col1, Col2)<br>`          | `<br>ANALYZE EMPLOYEES;<br>`                                                                                             |
-| Analyze a database table while only sampling certain rows | `<br>UPDATE STATISTICS MyTable(MyStatistics)<br>WITH SAMPLE 50 PERCENT;<br>` | Configure the number of entries for the table:<br>`<br>SET default_statistics_target to 150;<br>ANALYZE EMPLOYEES ;<br>` |
-| View last time statistics were collected                  | `<br>DBCC SHOW_STATISTICS ('MyTable','MyStatistics');<br>`                   | `<br>select relname, last<br>`                                                                                           |
-
-For more information, see [ANALYZE](https://www.postgresql.org/docs/13/sql-analyze.html "https://www.postgresql.org/docs/13/sql-analyze.html") and [The Autovacuum Daemon](https://www.postgresql.org/docs/13/routine-vacuuming.html#AUTOVACUUM "https://www.postgresql.org/docs/13/routine-vacuuming.html#AUTOVACUUM") in the _PostgreSQL documentation_.
+For more information, see [Query Planning](https://www.postgresql.org/docs/13/static/runtime-config-query.html "https://www.postgresql.org/docs/13/static/runtime-config-query.html") in the _PostgreSQL documentation_.

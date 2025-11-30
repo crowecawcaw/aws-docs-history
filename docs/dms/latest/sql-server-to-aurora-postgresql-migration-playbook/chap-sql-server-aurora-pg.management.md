@@ -1,135 +1,183 @@
-# Resource governor features
+# Export and import features
 
-This topic provides reference information comparing resource management capabilities between Microsoft SQL Server and Amazon Aurora PostgreSQL. You can understand how SQL Server’s Resource Governor functionality, which allows administrators to control and manage resource consumption, differs from Aurora PostgreSQL. While Aurora PostgreSQL doesn’t have built-in resource management equivalent to SQL Server, it leverages cloud economics and flexibility to address similar needs.
+This topic provides reference information on data export and import capabilities in Microsoft SQL Server and PostgreSQL, with a focus on migration scenarios. You can use various tools and utilities to export data from SQL Server and import it into PostgreSQL, which is particularly useful when migrating to Amazon Aurora PostgreSQL.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                    |
-| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------------------ |
-| Three star feature compatibility | N/A                                | N/A                       | Distribute load, applications, or users across multiple instances. |
+| Feature compatibility    | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences      |
+| ------------------------ | ---------------------------------- | ------------------------- | -------------------- |
+| No feature compatibility | N/A                                | N/A                       | Non-compatible tool. |
 
 ## SQL Server Usage
 
-SQL Server Resource Governor provides the capability to control and manage resource consumption. Administrators can specify and enforce workload limits on CPU, physical I/O, and Memory. Resource configurations are dynamic and you can change them in real time.
+SQL Server provides many options for exporting and importing text files. These operations are commonly used for data migration, scripting, and backup.
 
-In SQL Server 2019 configurable value for the `REQUEST_MAX_MEMORY_GRANT_PERCENT` option of `CREATE WORKLOAD GROUP` and `ALTER WORKLOAD GROUP` has been changed from an integer to a float data type to allow more granular control of memory limits. For more information, see [ALTER WORKLOAD GROUP (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-workload-group-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-workload-group-transact-sql?view=sql-server-ver15") and [CREATE WORKLOAD GROUP (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-workload-group-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-workload-group-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+- Save results to a file in SQL Server Management Studio (SSMS). For more information, see [KB - How to create .csv or .rpt files from an SQL statement in Microsoft SQL Server](https://support.microsoft.com/en-us/topic/kb-how-to-create-csv-or-rpt-files-from-an-sql-statement-in-microsoft-sql-server-baaccba6-a3d9-b77d-7f4e-107ae4dd739b "https://support.microsoft.com/en-us/topic/kb-how-to-create-csv-or-rpt-files-from-an-sql-statement-in-microsoft-sql-server-baaccba6-a3d9-b77d-7f4e-107ae4dd739b") in the _SQL Server documentation_.
+  l SQLCMD. For more information, see [Run the script file](https://docs.microsoft.com/en-us/sql/ssms/scripting/sqlcmd-run-transact-sql-script-files?view=sql-server-ver15#save-the-output-to-a-text-file "https://docs.microsoft.com/en-us/sql/ssms/scripting/sqlcmd-run-transact-sql-script-files?view=sql-server-ver15#save-the-output-to-a-text-file") in the _SQL Server documentation_.
+  l PowerShell wrapper for SQLCMD
+  l SSMS Import/Export Wizard. For more information, see [Start the SQL Server Import and Export Wizard](https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard?view=sql-server-ver15") in the _SQL Server documentation_.
+  l SQL Server Reporting Services (SSRS)
+  l Bulk Copy Program (BCP). For more information, see [Import and export bulk data using bcp (SQL Server)](https://docs.microsoft.com/en-us/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
 
-### Use Cases
+All of the options described before required additional tools to export data. Most of the tools are open source and provide support for a variety of databases.
 
-The following list identifies typical Resource Governor use cases:
+SQLCMD is a command line utility for running T-SQL statements, system procedures, and script files. It uses ODBC to run T-SQL batches. For example:
 
-- **Minimize performance bottlenecks and inconsistencies** to better support Service Level Agreements (SLA) for multiple workloads and users.
-- **Protect against runaway queries** that consume a large amount of resources or explicitly throttle I/O intensive operations. For example, consistency checks with DBCC that may bottleneck the I/O subsystem and negatively impact concurrent workloads.
-- **Allow tracking and control for resource-based pricing scenarios** to improve predictability of user charges.
+```
+SQLCMD -i C:\sql\myquery.sql -o C:\sql\output.txt
+```
 
-### Concepts
+SQLCMD utility syntax:
 
-The three basic concepts in Resource Governor are Resource Pools, Workload Groups, and Classification.
-
-- **Resource Pools** represent physical resources. Two built-in resource pools, internal and default, are created when SQL Server is installed. You can create custom user-defined resource pools for specific workload types.
-- **Workload Groups** are logical containers for session requests with similar characteristics. Workload Groups allow aggregate resource monitoring of multiple sessions. Resource limit policies are defined for a Workload Group. Each Workload Group belongs to a Resource Pool.
-- **Classification** is a process that inspects incoming connections and assigns them to a specific Workload Group based on the common attributes. User-defined functions are used to implement Classification. For more information, see [User-Defined Functions](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md").
+```
+sqlcmd
+    -a packet_size
+    -A (dedicated administrator connection)
+    -b (terminate batch job if there is an error)
+    -c batch_terminator
+    -C (trust the server certificate)
+    -d db_name
+    -e (echo input)
+    -E (use trusted connection)
+    -f codepage | i:codepage[,o:codepage] | o:codepage[,i:codepage]
+    -g (enable column encryption)
+    -G (use Azure Active Directory for authentication)
+    -h rows_per_header
+    -H workstation_name
+    -i input_file
+    -I (enable quoted identifiers)
+    -j (Print raw error messages)
+    -k[1 | 2] (remove or replace control characters)
+    -K application_intent
+    -l login_timeout
+    -L[c] (list servers, optional clean output)
+    -m error_level
+    -M multisubnet_failover
+    -N (encrypt connection)
+    -o output_file
+    -p[1] (print statistics, optional colon format)
+    -P password
+    -q "cmdline query"
+    -Q "cmdline query" (and exit)
+    -r[0 | 1] (msgs to stderr)
+    -R (use client regional settings)
+    -s col_separator
+    -S [protocol:]server[instance_name][,port]
+    -t query_timeout
+    -u (unicode output file)
+    -U login_id
+    -v var = "value"
+    -V error_severity_level
+    -w column_width
+    -W (remove trailing spaces)
+    -x (disable variable substitution)
+    -X[1] (disable commands, startup script, environment variables, optional exit)
+    -y variable_length_type_display_width
+    -Y fixed_length_type_display_width
+    -z new_password
+    -Z new_password (and exit)
+    -? (usage)
+```
 
 ### Examples
 
-Enable the Resource Governor.
+Connect to a named instance using Windows Authentication and specify input and output files.
 
 ```
-ALTER RESOURCE GOVERNOR RECONFIGURE;
+sqlcmd -S MyMSSQLServer\MyMSSQLInstance -i query.sql -o outputfile.txt
 ```
 
-Create a Resource Pool.
+If the file is needed for import to another database, query the data as `INSERT` commands and `CREATE` for the object.
 
-```
-CREATE RESOURCE POOL ReportingWorkloadPool
-    WITH (MAX_CPU_PERCENT = 20);
-```
+You can export data with SQLCMD and import with the Export/Import wizard.
 
-```
-ALTER RESOURCE GOVERNOR RECONFIGURE;
-```
-
-Create a Workload Group.
-
-```
-CREATE WORKLOAD GROUP ReportingWorkloadGroup USING poolAdhoc;
-```
-
-```
-ALTER RESOURCE GOVERNOR RECONFIGURE;
-```
-
-Create a classifier function.
-
-```
-CREATE FUNCTION dbo.WorkloadClassifier()
-RETURNS sysname WITH SCHEMABINDING
-AS
-BEGIN
-    RETURN (CASE
-        WHEN HOST_NAME()= 'ReportServer'
-        THEN 'ReportingWorkloadGroup'
-        ELSE 'Default'
-    END)
-END;
-```
-
-Register the classifier function.
-
-```
-ALTER RESOURCE GOVERNOR with (CLASSIFIER_FUNCTION = dbo.WorkloadClassifier);
-```
-
-```
-ALTER RESOURCE GOVERNOR RECONFIGURE;
-```
-
-For more information, see [Resource Governor](https://docs.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [sqlcmd Utility](https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
-PostgreSQL doesn’t have built-in resource management capabilities equivalent to the functionality provided by SQL Server’s Resource Governor. However, due to the elasticity and flexibility provided by cloud economics, workarounds could be applicable and such capabilities might not be as of similar importance to monolithic on-premises databases.
+PostgreSQL provides the native utilities `pg_dump` and `pg_restore` to perform logical database exports and imports with comparable functionality to the SQl Server SQLCMD utility. For example, moving data between two databases and creating logical database backups.
 
-The SQL Server’s Resource Governor primarily exists because traditionally, SQL Server instances were installed on very powerful monolithic servers that powered multiple applications simultaneously. The monolithic model made the most sense in an environment where the licensing for the SQL Server database was per-CPU and where SQL Server instances were deployed on physical hardware. In these scenarios, it made sense to consolidate as many workloads as possible into fewer servers. With cloud databases, the strict requirement to maximize the usage of each individual server is often not as important and you can use a different approach.
+- **pg_dump** to export data.
+- **pg_restore** to import data.
 
-You can deploy individual Amazon Aurora clusters with varying sizes, each dedicated to a specific application or workload. You can use additional read-only Amazon Aurora Replica servers to offload any reporting workloads from the master instance.
+The binaries for both utilities must be installed on your local workstation or on an Amazon EC2 server as part of the PostgreSQL client binaries.
 
-With Amazon Aurora, you can deploy separate and dedicated database clusters, each dedicated to a specific application or workload creating isolation between multiple connected sessions and applications.
+You can export and copy PostgreSQL dump files created using `pg_dump` to an Amazon S3 bucket as cloud backup storage or for maintaining the desired backup retention policy. Later, when you need the dump files for database restore, you can copy them copied back to a desktop or server that has a PostgreSQL client, such as your workstation or an Amazon EC2 server. Then you can issue the `pg_restore` command.
 
-Each Amazon Aurora instance (primary or replica) can scale independently in terms of CPU and memory resources using different instance types. Because you can instantly deploy multiple Amazon Aurora Instances and much less overhead is associated with the deployment and management of Amazon Aurora instances when compared to physical servers, separating different workloads to different instance classes could be a suitable solution for controlling resource management.
+Starting with PostgreSQL 10, these capabilities were added:
 
-For more information, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
+- You can exclude a schema in `pg_dump` and `pg_restore` commands.
+- Can create dumps with no blobs.
+- Allow to run `pg_dumpall` by non-superusers, using the `--no-role-passwords` option.
+- Create additional integrity option to ensure that the data is stored in disk using `fsync()` method.
 
-In addition, each Amazon Aurora instance can also be directly accessed from your applications using its own endpoint. This capability is especially useful if you have multiple Amazon Aurora read-replicas for a given cluster and you want to use different Amazon Aurora replicas to segment your workload.
+Starting with PostgreSQL 11, the following capabilities were added: \* `pg_dump` and `pg_restore` now export or import relationships between extensions and database objects established with `ALTER …​ DEPENDS ON EXTENSION`, which allows these objects to be dropped when extension is dropped with `CASCADE` option.
 
-You can adjust the resources and some parameters for Amazon Aurora read-replicas in the same cluster to avoid having additional cluster, however, this will allow to be used only for read operations.
+### Notes
+
+- `pg_dump` creates consistent backups even if the database is being used concurrently.
+- `pg_dump` doesn’t block other users accessing the database (readers or writers).
+- `pg_dump` only exports a single database. To backup global objects common to all databases in a cluster (such as roles and tablespaces), use `pg_dumpall`.
+- PostgreSQL dump files can be plain-text and custom format files.
+
+Another option to export and import data from PostgreSQL database is to use `COPY TO/COPY FROM` commands. Starting with PostgreSQL 12, you can use the `COPY FROM` command to load data into DB. This command has support for filtering incoming rows with the `WHERE` condition.
+
+```
+CREATE TABLE tst_copy(v TEXT);
+
+COPY tst_copy FROM '/home/postgres/file.csv' WITH (FORMAT CSV) WHERE v LIKE '%apple%';
+```
 
 ### Examples
 
-Follow these steps to create an Amazon Aurora cluster.
+Export data using `pg_dump`. Use a workstation or server with the PostgreSQL client installed to connect to the Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) instance. Issue the `pg_dump` command providing the hostname (-h), database user name (-U), and database name (-d).
 
-1. In the AWS console, choose **RDS**.
-2. Choose **Databases**, and then choose **Create database**.
-3. Follow the wizard. Your new cluster appears in the **Databases** section.
+```
+$ pg_dump -h hostname.rds.amazonaws.com -U username -d db_name -f dump_file_name.sql
+```
 
-Suppose that you were using a single SQL Server instance for multiple separate applications and used SQL Server Resource Governor to enforce a workload separation, allocating a specific amount of server resources for each application. With Amazon Aurora, you might want to create multiple separate databases for each individual application.
+The output `dump_file_name.sql` file is stored on the server where the `pg_dump` command runs. You can copy the output file to an Amazon S3 bucket if needed.
 
-Follow these steps to add additional replica instances to an existing Amazon Aurora cluster:
+Run `pg_dump` and copy the backup file to an Amazon S3 bucket using a pipe and the AWS CLI.
 
-1. In the AWS console, choose **RDS**.
-2. Choose the Amazon Aurora cluster that you want to scale-out by adding an additional read replica.
-3. For **Instance actions**, choose **Create Aurora Replica**.
-4. Select the instance class depending on the amount of compute resources your application requires.
-5. Choose **Create Aurora Replica**.
+```
+$ pg_dump -h hostname.rds.amazonaws.com -U username -d db_name -f dump_file_name.sql | aws s3 cp - s3://pg-backup/pg_bck-$(date"+%Y-%m-%d-%H-%M-%S")
+```
 
-### Dedicated Aurora PostgreSQL Instances
+Restore data using `pg_restore`. Use a workstation or server with the PostgreSQL client installed to connect to the Aurora PostgreSQL instance. Issue the `pg_restore` command providing the hostname (-h), database user name (-U), database name (-d), and the dump file.
 
-| Feature                                                                          | Amazon Aurora instances                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Set the maximum CPU usage for a resource group.                                  | Create a dedicated Amazon Aurora instance for a specific application.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Limit the degree of parallelism for specific queries.                            | `<br>SET max_parallel_workers_per_gather TO x;<br>`<br>Setting the PostgreSQL `max_parallel_workers_per_gather` parameter should be done as part of your application database connection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Limit parallel runs                                                              | `<br>SET max_parallel_workers_per_gather TO 0;<br>`<br>or<br>`<br>SET max_parallel_workers TO x; -<br>• for the whole system (since PostgreSQL 10)<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Limit the number of active sessions.                                             | Manually detect the number of connections that are open from a specific application and restrict connectivity either with database procedures or within the application DAL itself.<br>`<br>select pid from pg_stat_activity where usename in( select usename from pg_stat_activity<br>where state = 'active' group by usename having count(*) > 10)<br>and state = 'active' order by query_Start;<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Restrict maximum runtime of queries.                                             | Manually terminate sessions that exceed the required threshold. You can detect the length of running queries using SQL commands and restrict max run duration using either database procedures or within the application DAL itself.<br>`<br>SELECT pg_terminate_backend(pid)<br>FROM pg_stat_activity<br>WHERE now()-pg_stat_activity.query_start > interval '5 minutes';<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Limit the maximum idle time for sessions.                                        | Manually terminate sessions that exceed the required threshold. You can detect the length of your idle sessions using SQL queries and restrict maximum run using either database procedures or within the application DAL itself.<br>`<br>SELECT pg_terminate_backend(pid)<br>FROM pg_stat_activity<br>WHERE datname = 'regress' AND pid <> pg_backend_pid()<br>AND state = 'idle' AND state_change < current_timestamp<br>• INTERVAL '5' MINUTE;<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Limit the time that an idle session holding open locks can block other sessions. | Manually terminate sessions that exceed the required threshold. You can detect the length of blocking idle sessions using SQL queries and restrict max run duration using either database procedures or within the application DAL itself.<br>`<br>SELECT pg_terminate_backend(blocking_locks.pid)<br>FROM pg_catalog.pg_locks AS blocked_locks<br>JOIN pg_catalog.pg_stat_activity AS blocked_activity ON blocked_activity.pid = blocked_locks.pid<br>JOIN pg_catalog.pg_locks AS blocking_locks ON blocking_locks.locktype = blocked_locks.locktype<br>AND blocking_locks.DATABASE IS NOT DISTINCT FROM blocked_locks.DATABASE<br>AND blocking_locks.relation IS NOT DISTINCT FROM blocked_locks.relation<br>AND blocking_locks.page IS NOT DISTINCT FROM blocked_locks.page<br>AND blocking_locks.tuple IS NOT DISTINCT FROM blocked_locks.tuple<br>AND blocking_locks.virtualxid IS NOT DISTINCT FROM blocked_locks.virtualxid<br>AND blocking_locks.transactionid IS NOT DISTINCT FROM blocked_locks.transactionid<br>AND blocking_locks.classid IS NOT DISTINCT FROM blocked_locks.classid<br>AND blocking_locks.objid IS NOT DISTINCT FROM blocked_locks.objid<br>AND blocking_locks.objsubid IS NOT DISTINCT FROM blocked_locks.objsubid<br>AND blocking_locks.pid != blocked_locks.pid<br>JOIN pg_catalog.pg_stat_activity AS blocking_activity<br>ON blocking_activity.pid = blocking_locks.pid<br>WHERE NOT blocked_locks.granted and blocked_activity.state_change < current_timestamp<br>• INTERVAL '5' minute;<br>` |
+```
+$ pg_restore -h hostname.rds.amazonaws.com -U username -d dbname_restore dump_file_name.sql
+```
 
-For more information, see [Resource Consumption](https://www.postgresql.org/docs/13/runtime-config-resource.html "https://www.postgresql.org/docs/13/runtime-config-resource.html") in the _PostgreSQL documentation_.
+Copy the output file from the local server to an Amazon S3 Bucket using the AWS CLI. Upload the dump file to an Amazon S3 bucket.
+
+```
+$ aws s3 cp /usr/Exports/hr.dmp s3://my-bucket/backup-$(date "+%Y-%m-%d-%H-%M-%S")
+```
+
+###### Note
+
+The `{-$(date "+%Y-%m-%d-%H-%M-%S")}` format is valid on Linux servers only.
+
+Download the output file from the Amazon S3 bucket.
+
+```
+$ aws s3 cp s3://my-bucket/backup-2017-09-10-01-10-10 /usr/Exports/hr.dmp
+```
+
+###### Note
+
+You can create a copy of an existing database without having to use `pg_dump` or `pg_restore`. Instead, use the template keyword to specify the source database.
+
+```
+CREATE DATABASE mydb_copy TEPLATE mydb;
+```
+
+## Summary
+
+| Description                                                                                         | SQL Server export / import                                                                           |
+| --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| PostgreSQL Dump                                                                                     | Export data to a file                                                                                |
+| Using SQLCMD or Export/Import Wizard<br>`<br>SQLCMD -i C:\sql\myquery.sql -o C:\sql\output.txt<br>` | `<br>pg_dump -F c -h hostname.rds.amazonaws.com<br>-U username -d hr -p 5432 > c:\Export\hr.dmp<br>` |
+| Import data to a new database with a new name                                                       | Run SQLCMD with objects and data creation script<br>`<br>SQLCMD -i C:\sql\myquery.sql<br>`           |
+
+For more information, see [SQL Dump](https://www.postgresql.org/docs/13/backup-dump.html "https://www.postgresql.org/docs/13/backup-dump.html") and [pg_restore](https://www.postgresql.org/docs/13/app-pgrestore.html "https://www.postgresql.org/docs/13/app-pgrestore.html") in the _PostgreSQL documentation_.

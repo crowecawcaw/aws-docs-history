@@ -1,58 +1,75 @@
-# AWS Database Migration Service overview
+# AWS Schema Conversion Tool overview
 
-This topic provides conceptual information about AWS Database Migration Service (AWS DMS). It introduces you to the capabilities and benefits of AWS DMS for migrating databases to AWS quickly and securely
+You can use the AWS Schema Conversion Tool (AWS SCT) to streamline the migration of your Microsoft SQL Server 2019 database to Amazon Aurora PostgreSQL. This powerful Java utility automates the conversion of most database objects, significantly reducing manual effort in the migration process. By following the step-by-step instructions provided, you can connect to your source and target databases, analyze the schema objects, and generate a comprehensive migration assessment report. The tool offers valuable insights into potential conversion challenges and provides detailed recommendations for addressing them.
 
-The AWS Database Migration Service (AWS DMS) helps you migrate databases to AWS quickly and securely. The source database remains fully operational during the migration, minimizing downtime to applications that rely on the database. The AWS Database Migration Service can migrate your data to and from most widely-used commercial and open-source databases.
+The AWS Schema Conversion Tool (AWS SCT) is a Java utility that connects to source and target databases, scans the source database schema objects (tables, views, indexes, procedures, and so on), and converts them to target database objects.
 
-The service supports homogenous migrations such as Oracle to Oracle as well as heterogeneous migrations between different database platforms such as Oracle to Amazon Aurora or Microsoft SQL Server to MySQL. You can also use AWS DMS to stream data to Amazon Redshift, Amazon DynamoDB, and Amazon S3 from any of the supported sources, which are Amazon Aurora, PostgreSQL, MySQL, MariaDB, Oracle Database, SAP ASE, SQL Server, IBM DB2 LUW, and MongoDB, enabling consolidation and easy analysis of data in a petabyte-scale data warehouse. The AWS Database Migration Service can also be used for continuous data replication with high availability.
+This section provides a step-by-step process for using AWS SCT to migrate an SQL Server database to an Aurora PostgreSQL database cluster. Since AWS SCT can automatically migrate most of the database objects, it greatly reduces manual effort.
 
-For AWS DMS pricing, see [Database Migration Service pricing](https://aws.amazon.com/dms/pricing "https://aws.amazon.com/dms/pricing").
+We recommend to start every migration with the process outlined in this section and then use the rest of the Playbook to further explore manual solutions for objects that couldn’t be migrated automatically. For more information, see [Schema Conversion Tool user guide](../../../SchemaConversionTool/latest/userguide/Welcome.md "../../../SchemaConversionTool/latest/userguide/Welcome.md").
 
-For all supported sources for AWS DMS, see [Sources for data migration](../userguide/CHAP_Source.md "../userguide/CHAP_Source.md").
+###### Note
 
-For all supported targets for AWS DMS, see [Targets for data migration](../userguide/CHAP_Target.md "../userguide/CHAP_Target.md").
+This walkthrough uses the AWS DMS Sample Database. You can download it from [GitHub](https://github.com/aws-samples/aws-database-migration-samples "https://github.com/aws-samples/aws-database-migration-samples").
 
-## Migration Tasks Performed by AWS DMS
+## Download the Software and Drivers
 
-In a traditional solution, you need to perform capacity analysis, procure hardware and software, install and administer systems, and test and debug the installation. AWS DMS automatically manages the deployment, management, and monitoring of all hardware and software needed for your migration. You can start your migration within minutes of starting the AWS DMS configuration process.
+Download and install AWS SCT from the [Schema Conversion Tool user guide](../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md "../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md").
 
-With AWS DMS, you can scale up (or scale down) your migration resources as needed to match your actual workload. For example, if you determine that you need additional storage, you can easily increase your allocated storage and restart your migration, usually within minutes. On the other hand, if you discover that you aren’t using all of the resource capacity you configured, you can easily downsize to meet your actual workload.
+Download the [Microsoft SQL Server](https://docs.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver15#72 "https://docs.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver15#72") and [PostgreSQL](https://jdbc.postgresql.org/download "https://jdbc.postgresql.org/download") drivers.
 
-AWS DMS uses a pay-as-you-go model. You only pay for AWS DMS resources while you use them as opposed to traditional licensing models with up-front purchase costs and ongoing maintenance charges.
+Find other supported drivers in the [Schema Conversion Tool user guide](../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md#CHAP_Installing.JDBCDrivers "../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md#CHAP_Installing.JDBCDrivers").
 
-AWS DMS automatically manages all of the infrastructure that supports your migration server including hardware and software, software patching, and error reporting.
+## Configure AWS SCT
 
-AWS DMS provides automatic failover. If your primary replication server fails for any reason, a backup replication server can take over with little or no interruption of service.
+1. Start AWS Schema Conversion Tool (AWS SCT).
+2. Choose **Settings** and then choose **Global settings**.
+3. On the left navigation bar, choose **Drivers**.
+4. Enter the paths for the SQL Server and PostgreSQL drivers downloaded in the first step.
 
-AWS DMS can help you switch to a modern, perhaps more cost-effective database engine than the one you are running now. For example, AWS DMS can help you take advantage of the managed database services provided by Amazon RDS or Amazon Aurora. Or, it can help you move to the managed data warehouse service provided by Amazon Redshift, NoSQL platforms like Amazon DynamoDB, or low-cost storage platforms like Amazon S3. Conversely, if you want to migrate away from old infrastructure but continue to use the same database engine, AWS DMS also supports that process.
+![Enter the paths for the Microsoft and PostgreSQL drivers](images/pb-sql-server-aurora-pg-configure-aws-sct.png) 5. Choose **Apply** and then **OK**.
 
-AWS DMS supports nearly all of today’s most popular DBMS engines as data sources, including Oracle, Microsoft SQL Server, MySQL, MariaDB, PostgreSQL, Db2 LUW, SAP, MongoDB, and Amazon Aurora.
+## Create a New Migration Project
 
-AWS DMS provides a broad coverage of available target engines including Oracle, Microsoft SQL Server, PostgreSQL, MySQL, Amazon Redshift, SAP ASE, Amazon S3, and Amazon DynamoDB.
+1. Choose **File**, and then choose **New project wizard**. Alternatively, use the keyboard shortcut **Ctrl+W**.
+2. Enter a project name and select a location for the project files. For **Source engine**, choose **Microsoft SQL Server**, and then choose **Next**.
+3. Enter connection details for the source SQL Server database and choose **Test connection** to verify. Choose **Next**.
+4. Select the schema or database to migrate and choose **Next**.
 
-You can migrate from any of the supported data sources to any of the supported data targets. AWS DMS supports fully heterogeneous data migrations between the supported engines.
+The progress bar displays the objects that AWS SCT analyzes. When AWS SCT completes the analysis, the application displays the database migration assessment report. Read the Executive summary and other sections. Note that the information on the screen is only partial. To read the full report, including details of the individual issues, choose **Save to PDF** at the top right and open the PDF document.
 
-AWS DMS ensures that your data migration is secure. Data at rest is encrypted with AWS Key Management Service (AWS KMS) encryption. During migration, you can use Secure Socket Layers (SSL) to encrypt your in-flight data as it travels from source to target.
+![Assessment report](images/pb-sql-server-aurora-pg-aws-sct-assessment-report.png)
 
-## How AWS DMS Works
+Scroll down to the **Database objects with conversion actions for Amazon Aurora (PostgreSQL compatible)** section.
 
-At its most basic level, AWS DMS is a server in the AWS Cloud that runs replication software. You create a source and target connection to tell AWS DMS where to extract from and load to. Then, you schedule a task that runs on this server to move your data. AWS DMS creates the tables and associated primary keys if they don’t exist on the target. You can pre-create the target tables manually if you prefer. Or you can use AWS SCT to create some or all of the target tables, indexes, views, triggers, and so on.
+![Assessment report conversion statistics](images/pb-sql-server-aurora-pg-aws-sct-assessment-report-conversion-statistics.png)
 
-The following diagram illustrates the AWS DMS process.
+Scroll further down to the **Detailed recommendations for Amazon Aurora (PostgreSQL compatible) migrations** section.
 
-![How Database Migration Service works](images/pb-how-aws-dms-works.png)
+![Assessment report detailed recommendations](images/pb-sql-server-aurora-pg-aws-sct-assessment-report-detailed-recommendations.png)
 
-## Latest Updates
+Return to AWS SCT and choose **Next**. Enter the connection details for the target Aurora PostgreSQL database and choose **Finish**.
 
-AWS DMS is continuously evolving and supporting more and more options, find some of the latest updates following:
+When the connection is complete, AWS SCT displays the main window. In this interface, you can explore the individual issues and recommendations discovered by AWS SCT.
 
-- Support for full-load with change data capture (CDC) and CDC-only tasks running against Oracle source tables created using the `CREATE TABLE AS` statement.
-- New MySQL version AWS DMS now supports MySQL version 8.0 as a source except when the transaction payload is compressed.
-- Support for AWS Secrets Manager integration. You can store the database connection details (user credentials) for supported endpoints securely in AWS Secrets Manager. You can then submit the corresponding secret instead of plain-text credentials to AWS DMS when you create or modify an endpoint. AWS DMS then connects to the endpoint databases using the secret. For more information, see [Using secrets to access Database Migration Service endpoints](../userguide/CHAP_Security.md#security_iam_secretsmanager "../userguide/CHAP_Security.md#security_iam_secretsmanager").
-- Support for Oracle extended data types for source and target.
-- Support for TLS 1.2 for MySQL endpoints.
-- Support for TLS 1.2 for SQL Server endpoints.
+Choose the schema, open the context (right-click) menu, and then choose **Create report** to create a report tailored for the target database type. You can view this report in AWS SCT.
 
-For a complete guide with a step-by-step walkthrough including all the latest notes for migrating SQL Server to Aurora MySQL with AWS DMS, see [Migrating a SQL Server Database to Amazon Aurora MySQL](../sbs/chap-sqlserver2aurora.md "../sbs/chap-sqlserver2aurora.md").
+The progress bar updates while the report is generated.
 
-For more information about AWS DMS, see [What is Database Migration Service?](../userguide/Welcome.md "../userguide/Welcome.md") and [Best practices for Database Migration Service](../userguide/CHAP_BestPractices.md "../userguide/CHAP_BestPractices.md").
+AWS SCT displays the executive summary page of the database migration assessment report.
+
+Choose **Action items**. In this window, you can investigate each issue in detail and view the suggested course of action. For each issue, drill down to view all instances of that issue.
+
+Choose the database name, open the context (right-click) menu, and choose **Convert schema**. Make sure that you uncheck the `sys` and `information_schema` system schemas. Aurora PostgreSQL already has an `information_schema` schema.
+
+This step doesn’t make any changes to the target database.
+
+On the right pane, AWS SCT displays the new virtual schema as if it exists in the target database. Drilling down into individual objects displays the actual syntax generated by AWS SCT to migrate the objects.
+
+Choose the database on the right pane, open the context (right-click) menu, and choose either **Apply to database** to automatically run the conversion script against the target database, or choose **Save as SQL** to save to an SQL file.
+
+![Apply to database](images/pb-sql-server-aurora-pg-aws-sct-apply-to-database.png)
+
+We recommend saving to an SQL file because you can verify and QA the converted code. Also, you can make the adjustments needed for objects that couldn’t be automatically converted.
+
+For more information, see the [Schema Conversion Tool user guide](../../../SchemaConversionTool/latest/userguide/CHAP_Welcome.md "../../../SchemaConversionTool/latest/userguide/CHAP_Welcome.md").

@@ -1,171 +1,252 @@
-# User-defined functions for T-SQL
+# User-defined types for T-SQL
 
-This topic provides reference information about User-Defined Functions (UDFs) in SQL Server and their compatibility with PostgreSQL. It introduces the types of UDFs supported in SQL Server, including scalar functions, table-valued functions, and multi-statement table-valued functions. The topic explains the characteristics of UDFs, such as their inability to modify database structures or data outside their scope, and the distinction between deterministic and non-deterministic functions.
+This topic provides reference information about user-defined types in SQL Server and PostgreSQL, which is valuable for database administrators and developers migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. You can gain insight into how both database systems implement custom data types, including their similarities and differences.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                |
-| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------ |
-| Three star feature compatibility | Three star automation level        | N/A                       | Syntax and option differences. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                |
+| ------------------------------- | ---------------------------------- | ------------------------- | ------------------------------ |
+| Four star feature compatibility | Four star automation level         | N/A                       | Syntax and option differences. |
 
 ## SQL Server Usage
 
-User-Defined Functions (UDF) are code objects that accept input parameters and return either a scalar value or a set consisting of rows and columns. You can use T-SQL or Common Language Runtime (CLR) code to implement SQL Server UDFs.
+SQL Server user-defined types provide a mechanism for encapsulating custom data types and for adding NULL constraints.
+
+SQL Server also supports table-valued user-defined types, which you can use to pass a set of values to a stored procedure.
+
+User-defined types can also be associated to CLR code assemblies. Beginning with SQL Server 2014, memory optimized types support memory optimized tables and code.
 
 ###### Note
 
-This section doesn’t cover CLR code objects.
+If your code uses custom rules bound to data types, Microsoft recommends discontinuing the use of this deprecated feature.
 
-Function invocations can’t have any lasting impact on the database. They must be contained and can only modify objects and data local to their scope (for example, data in local variables). Functions aren’t allowed to modify data or the structure of a database.
+All user-defined types are based on an existing system data types. They allow developers to reuse the definition, making the code and schema more readable.
 
-Functions may be deterministic or non-deterministic. Deterministic functions always return the same result when you run them with the same data. Non-deterministic functions may return different results each time they run. For example, a function that returns the current date or time.
+### Syntax
 
-SQL Server supports three types of T-SQL UDFs: Scalar Functions, Table-Valued Functions, and Multi-Statement Table-Valued Functions.
-
-SQL Server 2019 adds scalar user-defined functions (UDF) inlining. Inlining transforms functions into relational expressions and embeds them in the calling SQL query. This transformation improves the performance of workloads that take advantage of scalar UDFs. Scalar UDF inlining facilitates cost-based optimization of operations inside UDFs. The results are efficient, set-oriented, and parallel instead of inefficient, iterative, serial run plans. For more information, see [Scalar UDF Inlining](https://docs.microsoft.com/en-us/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=sql-server-ver15") in the _SQL Server documentation_.
-
-### Scalar User-Defined Functions
-
-Scalar UDFs accept zero or more parameters and return a scalar value. You can use scalar UDFs in T-SQL expressions.
-
-#### Syntax
+The simplified syntax for the `CREATE TYPE` statement is shown following.
 
 ```
-CREATE FUNCTION <Function Name> ([{<Parameter Name> [AS] <Data Type> [= <Default
-Value>] [READONLY]} [,...n]])
-RETURNS <Return Data Type>
-[AS]
-BEGIN
-<Function Body Code>
-RETURN <Scalar Expression>
-END[;]
+CREATE TYPE <type name> {
+FROM <base type> [ NULL | NOT NULL ] | AS TABLE (<Table Definition>)}
 ```
 
-#### Examples
+### User-Defined Types Examples
 
-The following example creates a scalar function to change the first character of a string to upper case.
+The following example creates a `ZipCode` scalar user-defined type.
 
 ```
-CREATE FUNCTION dbo.UpperCaseFirstChar (@String VARCHAR(20))
-RETURNS VARCHAR(20)
+CREATE TYPE ZipCode
+FROM CHAR(5)
+NOT NULL
+```
+
+The following example uses this `ZipCode` type in a table.
+
+```
+CREATE TABLE UserLocations
+(UserID INT NOT NULL PRIMARY KEY, ZipCode ZipCode);
+
+INSERT INTO [UserLocations] ([UserID],[ZipCode]) VALUES (1, '94324');
+INSERT INTO [UserLocations] ([UserID],[ZipCode]) VALUES (2, NULL);
+```
+
+The code in the preceding example displays the following error message indicating that NULL values for `ZipCode` aren’t allowed.
+
+```
+Msg 515, Level 16, State 2, Line 78
+Can't insert the value NULL into column 'ZipCode', table 'tempdb.dbo.UserLocations';
+column does not allow nulls. INSERT fails.
+The statement has been terminated.
+```
+
+### Table-Valued Types Examples
+
+The following example demonstrates how to create and use a table-valued types to pass a set of values to a stored procedure.
+
+Create the `OrderItems` table.
+
+```
+CREATE TABLE OrderItems
+(
+  OrderID INT NOT NULL,
+  Item VARCHAR(20) NOT NULL,
+  Quantity SMALLINT NOT NULL,
+  PRIMARY KEY(OrderID, Item)
+);
+```
+
+Create a table-valued type for the `OrderItems` table.
+
+```
+CREATE TYPE OrderItems
+AS TABLE
+(
+  OrderID INT NOT NULL,
+  Item VARCHAR(20) NOT NULL,
+  Quantity SMALLINT NOT NULL,
+  PRIMARY KEY(OrderID, Item)
+);
+```
+
+Create the InsertOrderItems procedure. Note that the entire set of rows from the table-valued parameter is handled with one statement.
+
+```
+CREATE PROCEDURE InsertOrderItems
+@OrderItems AS OrderItems READONLY
 AS
 BEGIN
-RETURN UPPER(LEFT(@String, 1)) + LOWER(SUBSTRING(@String, 2, 19))
-END;
+  INSERT INTO OrderItems(OrderID, Item, Quantity)
+  SELECT OrderID,
+    Item,
+    Quantity
+  FROM @OrderItems;
+END
 ```
 
-```
-SELECT dbo.UpperCaseFirstChar ('mIxEdCasE');
-
-Mixedcase
-```
-
-### User-Defined Table-Valued Functions
-
-Inline table-valued UDFs are similar to views or a Common Table Expressions (CTE) with the added benefit of parameters. You can use inline table-valued UDFs in `FROM` clauses as subqueries. Also, you can join inline table-valued UDFs to other source table rows using the `APPLY` and `OUTER APPLY` operators. In-line table-valued UDFs have many associated internal optimizer optimizations due to their simple, view-like characteristics.
-
-#### Syntax
+Instantiate the OrderItems type, insert the values, and pass it to a stored procedure.
 
 ```
-CREATE FUNCTION <Function Name> ([{<Parameter Name> [AS] <Data Type> [= <Default
-Value>] [READONLY]} [,...n]])
-RETURNS TABLE
-[AS]
-RETURN (<SELECT Query>)[;]
-```
+DECLARE @OrderItems AS OrderItems;
 
-#### Examples
-
-The following example creates a table-valued function to aggregate employee orders.
-
-```
-CREATE TABLE Orders
-(
-  OrderID INT NOT NULL PRIMARY KEY,
-  EmployeeID INT NOT NULL,
-  OrderDate DATETIME NOT NULL
-);
-```
-
-```
-INSERT INTO Orders (OrderID, EmployeeID, OrderDate)
+INSERT INTO @OrderItems ([OrderID], [Item], [Quantity])
 VALUES
-(1, 1, '20180101 13:00:05'),
-(2, 1, '20180201 11:33:12'),
-(3, 2, '20180112 10:22:35');
+(1, 'M8 Bolt', 100),
+(1, 'M8 Nut', 100),
+(1, M8 Washer, 200);
+
+EXECUTE [InsertOrderItems] @OrderItems = @OrderItems;
+
+(3 rows affected)
 ```
 
-```
-CREATE FUNCTION dbo.EmployeeMonthlyOrders
-(@EmployeeID INT)
-RETURNS TABLE AS
-RETURN
-(
-  SELECT EmployeeID,
-    YEAR(OrderDate) AS OrderYear,
-    MONTH(OrderDate) AS OrderMonth,
-    COUNT(*) AS NumOrders
-  FROM Orders AS O
-  WHERE EmployeeID = @EmployeeID
-  GROUP BY EmployeeID,
-    YEAR(OrderDate),
-    MONTH(OrderDate)
-);
-```
+Select all rows from the OrderItems table.
 
 ```
-SELECT *
-FROM dbo.EmployeeMonthlyOrders (1)
+SELECT * FROM OrderItems;
 
-EmployeeID  OrderYear  OrderMonth  NumOrders
-1           2018       1           1
-1           2018       2           1
+OrderID  Item       Quantity
+1        M8 Bolt    100
+1        M8 Nut     100
+1        M8 Washer  200
 ```
 
-### Multi-Statement User-Defined Table-Valued Functions
-
-Multi-statement table-valued UDFs, such as In-line UDFs, are also similar to views or CTEs with the added benefit of parameters. You can use multi-statement table-valued UDFs in `FROM` clauses as sub queries. Also, you can join multi-statement table-valued UDFs to other source table rows using the `APPLY` and `OUTER APPLY` operators.
-
-The difference between multi-statement UDFs and the inline UDFs is that multi-statement UDFs aren’t restricted to a single `SELECT` statement. They can consist of multiple statements including logic implemented with flow control, complex data processing, security checks, and so on.
-
-The downside of using multi-statement UDFs is that there are far less optimizations possible and performance may suffer.
-
-#### Syntax
-
-```
-CREATE FUNCTION <Function Name> ([{<Parameter Name> [AS] <Data Type> [= <Default
-Value>] [READONLY]} [,...n]])
-RETURNS <@Return Variable> TABLE <Table Definition>
-[AS]
-BEGIN
-<Function Body Code>
-RETURN
-END[;]
-```
-
-For more information, see [CREATE FUNCTION (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-function-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-function-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [CREATE TYPE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-type-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-type-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
-For more information, see [Stored Procedures](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md").
+Similar to SQL Server, PostgreSQL enables the creation of user-defined types using the `CREATE TYPE` statement.
+
+A user-defined type is owned by the user who creates it. If a schema name is specified, the type is created under that schema.
+
+PostgreSQL supports the creation of several different user-defined types: \* Composite types store a single named attribute attached to a data type or multiple attributes as an attribute collection. In PostgreSQL, you can also use the CREATE TYPE statement standalone with an association to a table. \* Enumerated types (enum) store a static ordered set of values. For example, product categories.
+
+-
+
+```
+CREATE TYPE PRODUCT_CATEGORT AS ENUM
+  ('Hardware', 'Software', 'Document');
+```
+
+- Range Types store a range of values, for example, a range of timestamps used to represent the ranges of time of when a course is scheduled.
+
+```
+CREATE TYPE float8_range AS RANGE
+  (subtype = float8, subtype_diff = float8mi);
+```
+
+For more information, see [Range Types](https://www.postgresql.org/docs/13/rangetypes.html "https://www.postgresql.org/docs/13/rangetypes.html") in the _PostgreSQL documentation_.
+
+- Base types are the system core types (abstract types) and are implemented in a low-level language such as C.
+- Array types support definition of columns as multidimensional arrays. You can create an array column with a built-in type or a user-defined base type, enum type, or composite.
+
+```
+CREATE TABLE COURSE_SCHEDULE (
+  COURSE_ID NUMERIC PRIMARY KEY,
+  COURSE_NAME VARCHAR(60),
+  COURSE_SCHEDULES text[]);
+```
+
+For more information, see [Arrays](https://www.postgresql.org/docs/13/arrays.html "https://www.postgresql.org/docs/13/arrays.html") in the _PostgreSQL documentation_.
 
 ### Syntax
 
 ```
-CREATE [ OR REPLACE ] FUNCTION
-name ( [ [ argmode ] [ argname ] argtype [ { DEFAULT | = } default_expr ] [, ...]] )
-[ RETURNS rettype
-| RETURNS TABLE ( column_name column_type [, ...] ) ]
-{ LANGUAGE lang_name
-| TRANSFORM { FOR TYPE type_name } [, ... ]
-| WINDOW
-| IMMUTABLE | STABLE | VOLATILE | [ NOT ] LEAKPROOF
-| CALLED ON NULL INPUT | RETURNS NULL ON NULL INPUT | STRICT
-| [ EXTERNAL ] SECURITY INVOKER | [ EXTERNAL ] SECURITY DEFINER
-| PARALLEL { UNSAFE | RESTRICTED | SAFE }
-| COST execution_cost
-| ROWS result_rows
-| SET configuration_parameter { TO value | = value | FROM CURRENT }
-| AS 'definition'
-| AS 'obj_file', 'link_symbol'
-} ...
-[ WITH ( attribute [, ...] ) ]
+CREATE TYPE name AS RANGE (
+  SUBTYPE = subtype
+  [ , SUBTYPE_OPCLASS = subtype_operator_class ]
+  [ , COLLATION = collation ]
+  [ , CANONICAL = canonical_function ]
+  [ , SUBTYPE_DIFF = subtype_diff_function ]
+)
+CREATE TYPE name (
+  INPUT = input_function,
+  OUTPUT = output_function
+  [ , RECEIVE = receive_function ]
+  [ , SEND = send_function ]
+  [ , TYPMOD_IN = type_modifier_input_function ]
+  [ , TYPMOD_OUT = type_modifier_output_function ]
+  [ , ANALYZE = analyze_function ]
+  [ , INTERNALLENGTH = { internallength | VARIABLE } ]
+  [ , PASSEDBYVALUE ]
+  [ , ALIGNMENT = alignment ]
+  [ , STORAGE = storage ]
+  [ , LIKE = like_type ]
+  [ , CATEGORY = category ]
+  [ , PREFERRED = preferred ]
+  [ , DEFAULT = default ]
+  [ , ELEMENT = element ]
+  [ , DELIMITER = delimiter ]
+  [ , COLLATABLE = collatable ]
+)
 ```
+
+### Examples
+
+The following example creates a user-defined type for storing an employee phone numbers.
+
+```
+CREATE TYPE EMP_PHONE_NUM AS (
+  PHONE_NUM VARCHAR(11));
+
+CREATE TABLE EMPLOYEES (
+  EMP_ID NUMERIC PRIMARY KEY,
+  EMP_PHONE EMP_PHONE_NUM NOT NULL);
+
+INSERT INTO EMPLOYEES VALUES(1, ROW('111-222-333'));
+
+SELECT a.EMP_ID, (a.EMP_PHONE).PHONE_NUM FROM EMPLOYEES a;
+
+emp_id  phone_num
+1       111-222-333
+(1 row)
+```
+
+The following example creates a PostgreSQL Object Type as a collection of Attributes for the employees table.
+
+```
+CREATE OR REPLACE TYPE EMP_ADDRESS AS OBJECT (
+  STATE VARCHAR(2),
+  CITY VARCHAR(20),
+  STREET VARCHAR(20),
+  ZIP_CODE NUMERIC);
+
+CREATE TABLE EMPLOYEES (
+  EMP_ID NUMERIC PRIMARY KEY,
+  EMP_NAME VARCHAR(10) NOT NULL,
+  EMP_ADDRESS EMP_ADDRESS NOT NULL);
+
+INSERT INTO EMPLOYEES
+  VALUES(1, 'John Smith',
+  ('AL', 'Gulf Shores', '3033 Joyce Street', '36542'));
+
+SELECT a.EMP_NAME,
+  (a.EMP_ADDRESS).STATE,
+  (a.EMP_ADDRESS).CITY,
+  (a.EMP_ADDRESS).STREET,
+  (a.EMP_ADDRESS).ZIP_CODE
+FROM EMPLOYEES a;
+
+emp_name    state  city         street             zip_code
+John Smith  AL     Gulf Shores  3033 Joyce Street  36542
+```
+
+For more information, see [CREATE TYPE](https://www.postgresql.org/docs/13/sql-createtype.html "https://www.postgresql.org/docs/13/sql-createtype.html") and [Composite Types](https://www.postgresql.org/docs/13/rowtypes.htm "https://www.postgresql.org/docs/13/rowtypes.htm") in the _PostgreSQL documentation_.
