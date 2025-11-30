@@ -1,40 +1,27 @@
-# Delete a practice run configuration
+# Examples of
 
-You can delete a practice run configuration for a resource, but you must first disable zonal
-autoshift for the resource. A resource is required to have a practice run configuration to have zonal
-autoshift enabled. Regular practice runs help you to make sure that your application can run normally without one
-Availability Zone.
+using the AWS CLI with zonal autoshift
 
-To delete a practice run configuration by using the CLI, first, disable zonal autoshift, if needed
-by using the `update-zonal-autoshift` command. Then, to delete the practice run configuration, use the
-`delete-practice-run-configuration` command.
+This section walks through simple application examples of working with zonal autoshift, using the AWS Command Line Interface to work with
+the zonal autoshift capability in Amazon Application Recovery Controller (ARC) using API operations. The examples are intended to help you develop a basic
+understanding of how to work with zonal autoshift using the CLI.
 
-First, disable zonal autoshift for the resource, using a command like the following:
+Zonal autoshift is a capability in ARC. With zonal autoshift, you authorize AWS to shift away
+supported application resource traffic from an Availability Zone during events, on your behalf, to help reduce your time to recovery.
+For more information about resources that you can use with zonal autoshift, see [Supported resources](arc-zonal-shift.md "arc-zonal-shift.md").
 
-```
-aws arc-zonal-shift update-zonal-autoshift-configuration \
-      --resource-identifier="arn:aws:elasticloadbalancing:`Region`:`111122223333`:`ExampleALB123456890`" \
-      --zonal-autoshift-status="DISABLED"
-```
+Zonal autoshift includes practice runs, which also shift traffic away from Availability Zones, to help verify
+that autoshifts are safe for your application.
 
-```
-{
-   "resourceIdentifier": "arn:aws:elasticloadbalancing:us-west-2:111122223333:ExampleALB123456890",
-   "zonalAutoshiftStatus": "DISABLED"
-}
-```
+For a list of zonal autoshift API actions and links to more information, see [Zonal autoshift API operations](actions.md "actions.md"). For more information about using the AWS CLI, see the
+[AWS CLI Command Reference](../../../cli/latest/reference/arc-zonal-shift/index.md "../../../cli/latest/reference/arc-zonal-shift/index.md").
 
-Then, delete the practice run configuration, using a command like the following:
+###### Contents
 
-```
-aws arc-zonal-shift delete-practice-run-configuration \
-      --resource-identifier="arn:aws:elasticloadbalancing:`Region`:`111122223333`:`ExampleALB123456890`"
-```
-
-```
-{
-   "arn": "arn:aws:elasticloadbalancing:us-west-2:111122223333:ExampleALB123456890",
-   "name": "TestResource",
-   "zonalAutoshiftStatus": "DISABLED"
-}
-```
+- [Create a practice run configuration](getting-started-cli-update-zonal_autoshift.md "getting-started-cli-update-zonal_autoshift.md")
+- [Enable or disable autoshifts](getting-started-cli-zonal-autoshift.md "getting-started-cli-zonal-autoshift.md")
+- [Start an on-demand practice run](getting-started-cli-zonal-autoshift.md "getting-started-cli-zonal-autoshift.md")
+- [Cancel an in-progress practice run](getting-started-cli-zonal-autoshift.md "getting-started-cli-zonal-autoshift.md")
+- [Cancel an in-progress autoshift](getting-started-cli-zonal-autoshift.md "getting-started-cli-zonal-autoshift.md")
+- [Edit a practice run configuration](getting-started-cli-zonal_autoshift.md "getting-started-cli-zonal_autoshift.md")
+- [Delete a practice run configuration](getting-started-cli-zonal-autoshift.md "getting-started-cli-zonal-autoshift.md")

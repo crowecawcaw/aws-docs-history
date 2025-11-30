@@ -1,48 +1,47 @@
-# Capacity checks for practice runs
+# When ARC schedules, starts, and ends practice runs
 
-When a practice run starts, to temporarily move traffic away from an Availability Zone, ARC runs a check to verify
-that you have enough capacity in other Availability Zones to safely move traffic away from the AZ.
-If there isn't sufficient capacity available, the traffic shift for the practice run is not started and the
-practice run ends.
+ARC schedules a practice run for a resource weekly, for about 30 minutes.
+ARC schedules, starts, and manages practice runs for each resource independently. ARC does not
+batch together practice runs for resources in the same account. You can also start on-demand practice
+runs yourself, to help verify that your setup is safe for a zonal autoshift event.
 
-In addition, ARC runs a capacity check for load balancer resources when a zonal autoshift
-completes, before ARC ends the traffic shift started by the autoshift. If the capacity check
-fails when the autoshift ends, traffic is not shifted back to the Availability Zone that it was
-moved away from.
+When a practice run continues for the expected duration, without interruption, it is
+marked with an outcome of `SUCCESSFUL`. There are several other possible outcomes:
+`FAILED`, `INTERRUPTED`, `CAPACITY_CHECK_FAILED` and `PENDING`. Outcome values
+and descriptions are included in the
+[Outcomes for practice runs](arc-zonal-autoshift.md#ZAConsiderationsPracticeRunOutcomes "arc-zonal-autoshift.md#ZAConsiderationsPracticeRunOutcomes") section.
 
-Checks for balanced capacity are only completed for load balancers and Amazon EC2 Auto Scaling groups.
+There are some scenarios when ARC interrupts a practice run and ends it. For example, if an
+autoshift starts during a practice run, ARC interrupts the practice run and ends it. As another
+example, say that the resource has an adverse response to a practice run and causes an alarm that
+you've specified to monitor the practice run to go into an `ALARM` state. In this scenario,
+ARC also interrupts the practice run and ends it.
 
-For a load balancer resource, capacity checks validate that healthy hosts associated with the load balancer
-are distributed across Availability Zones. Specifically, capacity checks make sure that the number of healthy
-hosts across all Availability Zones where the resource is registered are balanced. For capacity checks, balanced
-means that the healthy capacity for each Availability Zone is in parity with the other zones, within a small variance.
+In addition, there are several scenarios when ARC does not start a schedule practice run for a resource.
 
-Note that capacity checks are not applied to load balancers with target groups of type Lambda nor to Application Load Balancers,
-because those targets are not configured zonally.
+In response to interrupted and blocked practice runs for a resource, ARC does the following:
 
-Capacity checks are also completed for Amazon EC2 Auto Scaling groups. For an Amazon EC2 Auto Scaling group, capacity checks validate that the total
-healthy zonal capacity of an Amazon EC2 Auto Scaling group–that is, the number of total healthy hosts across all the
-Availability Zones–meet the desired capacity set for that Amazon EC2 Auto Scaling group.
+- If a practice run for a resource is interrupted while it's in progress, ARC considers the
+  weekly practice run to be over, and schedules a new practice run for the resource for the next week.
+  The weekly practice outcome is `INTERRUPTED` in this scenario, not `FAILED`.
+  The practice run outcome set to `FAILED` only when the outcome alarm that monitors the
+  practice run goes into an `ALARM` state during the practice run.
+- If there is a blocking constraint when a practice run for a resource is scheduled to be
+  started, ARC does not start the practice run. ARC continues regular monitoring, to determine if there
+  are still one or more blocking constraints. When there aren't any blocking constraints, ARC starts
+  the practice run for the resource.
+  The following are examples of blocking constraints that stop ARC from starting, or continuing,
+  a practice run for a resource:
 
-**When a capacity check fails**
-
-When a capacity check finds that available capacity isn't balanced for a resource, the
-outcome for the practice run is `CAPACITY_CHECK_FAILED`. To learn more about why a capacity check
-has failed, see the comment field for the `ZonalShiftSummary`. To find the comment field for
-your practice run zonal shift, do the following:
-
-1. Using the AWS CLI, list the zonal shifts for the resource that you specified in the practice run
-   using the [ListZonalShifts](../../../arc-zonal-shift/latest/api/API_ListZonalShifts.md "../../../arc-zonal-shift/latest/api/API_ListZonalShifts.md")
-   API operation.
-
-FOr example, to return the zonal shifts, you can run a command similar to the following:
-
-```
-aws arc-zonal-shift start-practice-run
-    --resource-identifier="arn:aws:elasticloadbalancing:`Region`:`111122223333`:`ExampleALB123456890`"
-
-```
-
-2. Review the array of `ZonalShiftSummary` objects returned to find the zonal shift for
-   the practice run that failed due to capacity checks.
-3. For the applicable zonal shift, review the information in the `Comment` field.
+- ARC does not start or continue practice runs when there is an AWS Fault Injection Service experiment in
+  progress. If an AWS FIS event is active when ARC has scheduled a practice run to start, ARC does
+  not start the practice run. ARC monitors throughout practice runs for blocking constraints,
+  including an AWS FIS event. If an AWS FIS event starts while a practice run is active, ARC ends the practice run and
+  doesn't attempt to start another one until the next regularly scheduled practice run for the
+  resource.
+- If there is a current AWS event in a Region, ARC does not start practice runs
+  for resources, and ends active practice runs, in the Region.
+  When the practice run finishes without being interrupted, ARC schedules
+  the next practice run in a week, as usual. If a practice run isn't started because of a blocking constraint,
+  such as a AWS FIS experiment or a blocked time window that you've specified, ARC continues to attempt
+  to start a practice run until the practice run can be started.
