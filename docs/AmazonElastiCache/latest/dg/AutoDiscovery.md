@@ -1,106 +1,141 @@
-# Adding Auto Discovery to your Memcached client library
+# Using Auto Discovery
 
-The configuration information for Auto Discovery is stored redundantly in each Memcached cluster
-node. Client applications can query any cache node and obtain the configuration
-information for all of the nodes in the cluster.
+To begin using Auto Discovery with ElastiCache for Memcached, follow these steps:
 
-The way in which an application does this depends upon the cache engine version:
+- [Obtain the Configuration Endpoint](#AutoDiscovery.Using.ConfigEndpoint "#AutoDiscovery.Using.ConfigEndpoint")
+- [Download the ElastiCache Cluster Client](#AutoDiscovery.Using.ClusterClient "#AutoDiscovery.Using.ClusterClient")
+- [Modify Your Application Program](#AutoDiscovery.Using.ModifyApp "#AutoDiscovery.Using.ModifyApp")
 
-- If the cache engine version is **1.4.14 or higher**, use the
-  `config` command.
-- If the cache engine version is **lower than 1.4.14**, use the
-  `get AmazonElastiCache:cluster` command.
-  The outputs from these two commands are identical, and are described in the [Output Format](#AutoDiscovery.AddingToYourClientLibrary.OutputFormat "#AutoDiscovery.AddingToYourClientLibrary.OutputFormat") section below.
+## Obtain the Configuration Endpoint
 
-## Cache engine version 1.4.14 or higher
+To connect to a cluster, client programs must know the cluster configuration endpoint. See the
+topic [Finding a Cluster's Endpoints (Console) (Memcached)](Endpoints.md#Endpoints.Find.Memcached "Endpoints.md#Endpoints.Find.Memcached")
 
-For cache engine version 1.4.14 or higher, use the `config` command. This
-command has been added to the Memcached ASCII and binary protocols by ElastiCache, and is
-implemented in the ElastiCache Cluster Client. If you want to use Auto Discovery with
-another client library, then that library will need to be extended to support the
-`config` command.
+You can also use the `aws elasticache describe-cache-clusters` command with the
+`--show-cache-node-info` parameter:
+
+Whatever method you use to find the cluster's endpoints, the configuration endpoint will always
+have **.cfg** in its address.
+
+###### Example Finding endpoints using the AWS CLI for ElastiCache
+
+For Linux, macOS, or Unix:
+
+```
+aws elasticache describe-cache-clusters \
+    --cache-cluster-id `mycluster` \
+    --show-cache-node-info
+```
+
+For Windows:
+
+```
+aws elasticache describe-cache-clusters ^
+    --cache-cluster-id `mycluster` ^
+    --show-cache-node-info
+```
+
+This operation produces output similar to the following (JSON format):
+
+```
+{
+    "CacheClusters": [
+        {
+            "Engine": "memcached",
+            "CacheNodes": [
+                {
+                    "CacheNodeId": "0001",
+                    "Endpoint": {
+                        "Port": 11211,
+                        "Address": "mycluster.fnjyzo.cfg.0001.use1.cache.amazonaws.com"
+                    },
+                    "CacheNodeStatus": "available",
+                    "ParameterGroupStatus": "in-sync",
+                    "CacheNodeCreateTime": "2016-10-12T21:39:28.001Z",
+                    "CustomerAvailabilityZone": "us-east-1e"
+                },
+                {
+                    "CacheNodeId": "0002",
+                    "Endpoint": {
+                        "Port": 11211,
+                        "Address": "mycluster.fnjyzo.cfg.0002.use1.cache.amazonaws.com"
+                    },
+                    "CacheNodeStatus": "available",
+                    "ParameterGroupStatus": "in-sync",
+                    "CacheNodeCreateTime": "2016-10-12T21:39:28.001Z",
+                    "CustomerAvailabilityZone": "us-east-1a"
+                }
+            ],
+            "CacheParameterGroup": {
+                "CacheNodeIdsToReboot": [],
+                "CacheParameterGroupName": "default.memcached1.4",
+                "ParameterApplyStatus": "in-sync"
+            },
+            "CacheClusterId": "mycluster",
+            "PreferredAvailabilityZone": "Multiple",
+            "ConfigurationEndpoint": {
+                "Port": 11211,
+                "Address": "mycluster.fnjyzo.cfg.use1.cache.amazonaws.com"
+            },
+            "CacheSecurityGroups": [],
+            "CacheClusterCreateTime": "2016-10-12T21:39:28.001Z",
+            "AutoMinorVersionUpgrade": true,
+            "CacheClusterStatus": "available",
+            "NumCacheNodes": 2,
+            "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
+            "CacheSubnetGroupName": "default",
+            "EngineVersion": "1.4.24",
+            "PendingModifiedValues": {},
+            "PreferredMaintenanceWindow": "sat:06:00-sat:07:00",
+            "CacheNodeType": "cache.r3.large"
+        }
+    ]
+}
+```
+
+## Download the ElastiCache Cluster Client
+
+To take advantage of Auto Discovery, client programs must use the _ElastiCache
+Cluster Client_. The ElastiCache Cluster Client is available for Java, PHP, and .NET
+and contains all of the necessary logic for discovering and connecting to all of your
+cache nodes.
+
+###### To download the ElastiCache Cluster Client
+
+1. Sign in to the AWS Management Console and open the ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
+2. From the ElastiCache console, choose **ElastiCache Cluster Client**
+   then choose **Download**.
+
+The source code for the ElastiCache Cluster Client for Java is available at [https://github.com/amazonwebservices/aws-elasticache-cluster-client-memcached-for-java](https://github.com/amazonwebservices/aws-elasticache-cluster-client-memcached-for-java "https://github.com/amazonwebservices/aws-elasticache-cluster-client-memcached-for-java").
+This library is based on the popular Spymemcached client.
+The ElastiCache Cluster Client is released under the Amazon Software License
+[https://aws.amazon.com/asl](https://aws.amazon.com/asl "https://aws.amazon.com/asl").
+You are free to modify the source code as you see fit.
+You can even incorporate the code into other open source Memcached libraries, or
+into your own client code.
 
 ###### Note
 
-The following documentation pertains to the ASCII protocol; however, the
-`config` command supports both ASCII and binary. If you want to
-add Auto Discovery support using the binary protocol, refer to the [source code for the ElastiCache Cluster Client](https://github.com/amazonwebservices/aws-elasticache-cluster-client-memcached-for-java/tree/master/src/main/java/net/spy/memcached/protocol/binary "https://github.com/amazonwebservices/aws-elasticache-cluster-client-memcached-for-java/tree/master/src/main/java/net/spy/memcached/protocol/binary").
+To use the ElastiCache Cluster Client for PHP, you will first need to install it on your Amazon EC2 instance.
+For more information, see [Installing the ElastiCache cluster client for PHP](Appendix.md "Appendix.md").
 
-**Syntax**
+For a TLS supported client download the binary with PHP version 7.4 or higher.
 
-`config [sub-command] [key]`
+To use the ElastiCache Cluster Client for .NET, you will first need to install it on your Amazon EC2 instance.
+For more information, see [Installing the ElastiCache cluster client for .NET](Appendix.md "Appendix.md").
 
-### Options
+## Modify Your Application Program
 
-| Name          | Description                                                                                                     | Required |
-| ------------- | --------------------------------------------------------------------------------------------------------------- | -------- |
-| `sub-command` | The sub-command used to interact with a cache node. For<br>Auto Discovery, this sub-command is `get`.           | Yes      |
-| `key`         | The key under which the cluster configuration is stored.<br>For Auto Discovery, this key is named<br>`cluster`. | Yes      |
+Modify your application program so that it uses Auto Discovery.
+The following sections show how to use the ElastiCache Cluster Client for Java, PHP, and .NET.
 
-To get the cluster configuration information, use the following command:
+###### Important
 
-```
-`config get cluster`
-```
-
-## Cache engine version 1.4.14 or lower
-
-To get the cluster configuration information, use the following command:
+When specifying the cluster's configuration endpoint, be sure that the endpoint has ".cfg" in its
+address as shown here. Do not use a CNAME or an endpoint without ".cfg" in it.
 
 ```
-`get AmazonElastiCache:cluster`
+"mycluster.fnjyzo**.cfg**.use1.cache.amazonaws.com";
 ```
 
-###### Note
-
-Do not tamper with the "AmazonElastiCache:cluster" key, since this is
-where the cluster configuration information resides. If you do overwrite this
-key, then the client may be incorrectly configured for a brief period of time
-(no more than 15 seconds) before ElastiCache automatically and correctly updates the
-configuration information.
-
-## Output Format
-
-Whether you use `config get cluster` or `get
- AmazonElastiCache:cluster`, the reply consists of two lines:
-
-- The version number of the configuration information. Each time a node is added or removed
-  from the cluster, the version number increases by one.
-- A list of cache nodes. Each node in the list is represented by a
-  _hostname|ip-address|port_ group, and each node is
-  delimited by a space.
-
-A carriage return and a linefeed character (CR + LF) appears at the end of each line.
-The data line contains a linefeed character (LF) at the end, to which the CR + LF is added.
-The config version line is terminated by LF without the CR.
-
-A cluster containing three nodes would be represented as follows:
-
-```
-`configversion\n
-hostname|ip-address|port hostname|ip-address|port hostname|ip-address|port\n\r\n`
-```
-
-Each node is shown with both the CNAME and the private IP address. The
-CNAME will always be present; if the private IP address is not available, it will
-not be shown; however, the pipe characters "`|`" will still be
-printed.
-
-###### Example
-
-Here is an example of the payload returned when you query the configuration information:
-
-```
-`CONFIG cluster 0 136\r\n
-12\n
-myCluster.pc4ldq.0001.use1.cache.amazonaws.com|10.82.235.120|11211 myCluster.pc4ldq.0002.use1.cache.amazonaws.com|10.80.249.27|11211\n\r\n
-END\r\n`
-```
-
-###### Note
-
-- The second line indicates that the configuration information has been modified
-  twelve times so far.
-- In the third line, the list of nodes is in
-  alphabetical order by hostname. This ordering might be in a different sequence
-  from what you are currently using in your client application.
+Failure to explicitly specify the cluster's configuration endpoint results in configuring to a specific node.

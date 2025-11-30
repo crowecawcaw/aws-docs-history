@@ -1,35 +1,57 @@
-# Viewing a
+# Viewing a replication group's details
 
-Valkey or Redis OSS (Cluster Mode Disabled) with replicas
+(ElastiCache API)
 
-You can view the details of a Valkey or Redis OSS (cluster mode disabled) cluster with replicas (API/CLI: _replication group_)
-using the ElastiCache console, the AWS CLI for ElastiCache, or the ElastiCache API.
+You can view the details for a replication using the AWS CLI `DescribeReplicationGroups` operation.
+Use the following optional parameters to refine the listing.
+Omitting the parameters returns the details for up to 100 replication groups.
 
-###### Viewing a Valkey or Redis OSS (Cluster Mode Disabled) Cluster's Details
+###### Optional Parameters
 
-- [Using the ElastiCache Console](Replication.ViewDetails.md#Replication.ViewDetails.Redis.CON "Replication.ViewDetails.md#Replication.ViewDetails.Redis.CON")
-- [Using the AWS CLI](Replication.ViewDetails.md#Replication.ViewDetails.Redis.CLI "Replication.ViewDetails.md#Replication.ViewDetails.Redis.CLI")
-- [Using the ElastiCache API](Replication.ViewDetails.md#Replication.ViewDetails.Redis.API "Replication.ViewDetails.md#Replication.ViewDetails.Redis.API")
+- `ReplicationGroupId` –
+  Use this parameter to list the details of a specific replication group.
+  If the specified replication group has more than one node group, results are returned grouped by node group.
+- `MaxRecords` –
+  Use this parameter to limit the number of replication groups listed.
+  The value of `MaxRecords` cannot be less than 20 or greater than 100.
+  The default is 100.
+  The following code list the details for up to 100 replication groups.
 
-## Viewing a
+```
+https://elasticache.us-west-2.amazonaws.com/
+   ?Action=DescribeReplicationGroups
+   &Version=2015-02-02
+   &SignatureVersion=4
+   &SignatureMethod=HmacSHA256
+   &Timestamp=20150202T192317Z
+   &X-Amz-Credential=<credential>
+```
 
-Valkey or Redis OSS (Cluster Mode Disabled) Replication Group (Console)
+The following code lists the details for `myReplGroup`.
 
-To view the details of a Valkey or Redis OSS (cluster mode disabled) cluster with replicas using the ElastiCache console,
-see the topic [Viewing Valkey or Redis OSS (Cluster Mode Disabled) details (Console)](Clusters.md#Clusters.ViewDetails.CON.Redis "Clusters.md#Clusters.ViewDetails.CON.Redis").
+```
+https://elasticache.us-west-2.amazonaws.com/
+   ?Action=DescribeReplicationGroups
+   &ReplicationGroupId=myReplGroup
+   &Version=2015-02-02
+   &SignatureVersion=4
+   &SignatureMethod=HmacSHA256
+   &Timestamp=20150202T192317Z
+   &X-Amz-Credential=<credential>
+```
 
-## Viewing a
+The following code list the details for up to 25 clusters.
 
-Valkey or Redis OSS (Cluster Mode Disabled) replication group (AWS CLI)
+```
+https://elasticache.us-west-2.amazonaws.com/
+   ?Action=DescribeReplicationGroups
+   &MaxRecords=25
+   &Version=2015-02-02
+   &SignatureVersion=4
+   &SignatureMethod=HmacSHA256
+   &Timestamp=20150202T192317Z
+   &X-Amz-Credential=<credential>
+```
 
-For an AWS CLI example that displays a Valkey or Redis OSS (cluster mode disabled) replication group's details, see
-[Viewing a replication group's details
-(AWS CLI)](Replication.ViewDetails.md "Replication.ViewDetails.md").
-
-## Viewing a
-
-Valkey or Redis OSS (Cluster Mode Disabled) Replication Group (ElastiCache API)
-
-For an ElastiCache API example that displays a Valkey or Redis OSS (cluster mode disabled) replication group's details,
-see [Viewing a replication group's details
-(ElastiCache API)](Replication.ViewDetails.md "Replication.ViewDetails.md").
+For more information,
+see the ElastiCache API reference topic DescribeReplicationGroups.
