@@ -12,7 +12,7 @@ If you do not create cloud-based tests, you could encounter issues due to differ
 
 Continue reading this short guide to learn about testing strategies for serverless applications, or visit the [Serverless Test Samples repository](https://github.com/aws-samples/serverless-test-samples "https://github.com/aws-samples/serverless-test-samples") to dive in with practical examples, specific to your chosen language and runtime.
 
-![illustration showing the relationship between types of tests](/images/lambda/latest/dg/images/test-type-illustration2.png)
+![illustration showing the relationship between types of tests](images/test-type-illustration2.png)
 
 For serverless testing, you will still write _unit_, _integration_ and _end-to-end_ tests.
 
