@@ -1,28 +1,18 @@
-# [DL.LD.10] Manage unused development environments
+# [DL.LD.2] Consistently provision local environments
 
-**Category:** OPTIONAL
+**Category:** FOUNDATIONAL
 
-Properly managing unused environments prevents unnecessary
-resource utilization and potential security threats. When
-development environments are not in use, the environment and
-associated resources should be disabled or deleted.
+Standardize and automate the process for setting up local development environments
+using managed services, infrastructure as code (IaC), and scripted automation. This approach
+permits environments to be reliably replicated across different systems and teams, ensuring
+uniformity. Consistent local environments help to reduce issues that occur only on particular machines.
 
-Managing unused development environments requires tracking,
-disabling, or removing development setups that are dormant or
-no longer in active use. Regularly audit the active and
-inactive development environments. Implement automated tools
-or scripts that monitor activity and provide notifications
-regarding dormant environments.
-
-Once identified, these environments should be archived,
-disabled, or removed, depending on the future needs of the
-project. Treat development environments as ephemeral
-environments to reduces the risk of incurring unexpected cost
-and leaving potentially insecure resources running.
-
-**Related information:**
-
-- [AWS Well-Architected Sustainability Pillar: SUS02-BP03 Stop
-  the creation and maintenance of unused assets](../sustainability-pillar/sus_sus_user_a4.md "../sustainability-pillar/sus_sus_user_a4.md")
-- [AWS Well-Architected Cost Optimization Pillar: COST04-BP03
-  Decommission resources](../cost-optimization-pillar/cost_decomissioning_resources_decommission.md "../cost-optimization-pillar/cost_decomissioning_resources_decommission.md")
+Create a baseline configuration for your local development environment that mirrors
+the production setup as closely as possible. Use IaC tools to define this environment, and
+script the provisioning process. All IaC and scripts should be version-controlled, helping
+to ensure that any changes are tracked and can be rolled back if necessary. Educate
+developers on the importance of using the provisioned environments and provide documentation
+on how to set up and troubleshoot these environments. Regularly review and update the
+baseline configuration to keep it aligned with changes in the production environment.
+Consider allowing developers to request local environments on-demand through a self-service
+developer portal.

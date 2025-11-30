@@ -1,51 +1,30 @@
-# [DL.CI.3] Ensure automated quality assurance for every build
+# [DL.CI.2] Trigger builds automatically upon source code modifications
 
 **Category:** FOUNDATIONAL
 
-As code changes become more frequent in a DevOps environment,
-it becomes important to reduce the time it takes to get
-feedback on those changes. Adding automated quality assurance
-(QA) tests into the continuous integration pipeline enables
-rapidly validating changes and receiving fast feedback.
+Continuous integration (CI) tools should be configured to
+regularly monitor the source code repository for any changes.
+Alternatively, set up the source code repository to send an
+event upon each commit. This implementation creates an
+environment where developers can focus on coding and commit
+their changes, leaving the system to handle building, testing,
+and deploying the application.
 
-Add stages to the pipeline which run pre-deployment checks to
-validate that code changes work alongside the existing code
-base. These checks should automatically trigger functional,
-non-functional, and security tests against the integrated code
-base and build artifacts.
-
-_Breaking-the-build_, which stops the integration pipeline process
-due to test failures, is a powerful feedback mechanism. However, it should be used
-judiciously. Reserve breaking-the-build for critical issues, such as actual build failures,
-high severity security findings, or non-negotiable compliance findings, that demand
-immediate developer attention. Overuse can disrupt the continuous flow of development,
-leading to unforeseen delays, bottlenecks, and poor developer experience.  Instead, continue
-to provide feedback to developers in tools they already use, such as IDEs, chat clients, or
-email, and let them decide if they should stop the process.
-
-It is often more practical to automate enforcement of quality
-assurance findings as part of the continuous delivery process.
-This allows enforcement to be objectively targeted based on
-the environment to which the build is being deployed into.
-Have an exception mechanism and escalation plans prepared that
-developers can use if the continuous integration or continuous
-deployment prevent deployments which they do not agree with.
+Having this process in place aligns with the continuous integration principle of
+_failing fast_. It offers immediate feedback on the impact of changes,
+whether they cause a minor regression or a major bug, allowing for prompt correction. If a
+build fails, it becomes immediately visible to the team. Fixing a broken build is then
+prioritized, fostering a culture of discipline and continuous improvement. This approach
+minimizes the risk of integration conflicts and bugs while reducing the likelihood of
+unexpected outcomes that can arise from manual processes or irregular updates. It also
+streamlines the development process, promotes productivity, and contributes to delivering a
+higher-quality outcome.
 
 **Related information:**
 
-- [AWS Well-Architected Reliability Pillar: REL08-BP02 Integrate
-  functional testing as part of your deployment](../reliability-pillar/rel_tracking_change_management_functional_testing.md "../reliability-pillar/rel_tracking_change_management_functional_testing.md")
-- [AWS Well-Architected Security Pillar: SEC11-BP02 Automate
-  testing throughout the development and release lifecycle](../framework/sec_appsec_automate_testing_throughout_lifecycle.md "../framework/sec_appsec_automate_testing_throughout_lifecycle.md")
-- [Testing
-  stages in continuous integration and continuous
-  delivery](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/testing-stages-in-continuous-integration-and-continuous-delivery.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/testing-stages-in-continuous-integration-and-continuous-delivery.md")
-- [Amazon's
-  approach to high-availability deployment: Release guidance
-  lifecycle](https://youtu.be/bCgD2bX1LI4?t=855 "https://youtu.be/bCgD2bX1LI4?t=855")
-- [Testing
-  software and systems at Amazon: Continuous integration and
-  deployment](https://youtu.be/o1sc3cK9bMU?t=1206 "https://youtu.be/o1sc3cK9bMU?t=1206")
-- [The
-  Amazon Software Development Process: Automated
-  Testing](https://youtu.be/52SC80SFPOw?t=1340 "https://youtu.be/52SC80SFPOw?t=1340")
+- [Amazon CodeCatalyst](https://codecatalyst.aws/explore "https://codecatalyst.aws/explore")
+- [Building
+  the pipeline](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/building-the-pipeline.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/building-the-pipeline.md")
+- [Deploy
+  container applications in a multicloud environment using
+  Amazon CodeCatalyst](https://aws.amazon.com/blogs/devops/deploy-container-applications-in-a-multicloud-environment-using-amazon-codecatalyst/ "https://aws.amazon.com/blogs/devops/deploy-container-applications-in-a-multicloud-environment-using-amazon-codecatalyst/")

@@ -1,26 +1,32 @@
-# [DL.CS.1] Implement automated digital attestation signing
+# [DL.CS.4] Enhance traceability using commit signing
 
-**Category:** RECOMMENDED
+**Category:** OPTIONAL
 
-Digital attestations serve as verifiable evidence that
-software components were built, tested, and conform to
-organizational standards within a controlled environment.
-Signatures associated with each attestation can be verified to
-ensure that the component has not been tampered with and
-originated from a trusted source. Generating attestations
-throughout the development lifecycle provides a method of
-ensuring software quality, origin, and authenticity.
+Commit signing involves attaching a digital signature to code
+commits, certifying the integrity of changes and the identity
+of the committer. While not universally adopted by all
+organizations, commit signing enhances trust and traceability
+as developers make code changes, making it easier to track the
+origin of changes and ensure their authenticity.
 
-Embed automated tools into the deployment pipeline to produce digital
-attestations. Create an attestation for each action you want to create proof for, such as
-a test being run, software being packaged, or even manual approval acceptance steps. Sign
-these attestations using symmetric or asymmetric keys. Follow metadata frameworks such
-as [in-toto](https://in-toto.io/ "https://in-toto.io/") for best practices for formatting
-attestations to include metadata about the software, the build environment, and the
-authoring party. Store attestations either with build artifacts in a repository or within
-governance tools for deeper analysis.
+Have developers sign their code changes when submitting to
+version control using personal private keys from tools
+like [GPG](https://gnupg.org/ "https://gnupg.org/").
+Developers should be encouraged to sign both commits and tags
+with their private keys. This can be particularly valuable for
+open-source projects or where code originates from diverse
+sources. 
+
+For this approach to be effective in practice, developers require an understanding of
+certificates and using them for signing. Developers must ensure that their private keys
+remain confidential, taking measures to store them securely and avoid potential
+exposure. They also should be trained to recognize signs of key compromise, such as
+unexpected commits. When compromise is detected, the associated key should be revoked
+immediately to mitigate potential risks.
 
 **Related information:**
 
-- [Software
-  attestations](https://slsa.dev/attestation-model "https://slsa.dev/attestation-model")
+- [Signing
+  Commits](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work#_signing_commits "https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work#_signing_commits")
+- [The GNU Privacy
+  Guard](https://gnupg.org/ "https://gnupg.org/")

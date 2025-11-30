@@ -1,18 +1,17 @@
-# [OA.BCL.6] Provide teams the autonomy to make decision that align with organizational objectives
+# [OA.BCL.3] Reduce troubleshooting and technical debt through continuous improvement
 
 **Category:** FOUNDATIONAL
 
-Provide teams with the autonomy to make decisions and changes
-at the lowest level possible. Provide the necessary
-information, policies, and tools to make informed decisions
-aligned with the organization's goals and objectives.
-Establish clear guardrails to guide decisions and achieve
-consistency with the overall strategy while avoiding adverse
-impacts on other teams or the organization. Encourage a
-culture of empowerment, where team members feel confident in
-making decisions and taking action.
+Proactively reducing the frequency of interruptions and addressing technical debt can
+have a significant positive impact on overall DevOps adoption. Allocating budget and a
+portion of the team's time to improve existing processes, environments, and
+workloads can yield a net improvement to overall development speed, code quality,
+and system stability. This can be achieved by implementing tools, processes, and team norms
+to identify, track, and manage technical debt, as well as regularly assessing and
+prioritizing process improvement opportunities. 
 
-**Related information:**
-
-- [Amazon's
-  approach to security during development: Ownership](https://youtu.be/NeR7FhHqDGQ?t=632 "https://youtu.be/NeR7FhHqDGQ?t=632")
+To focus teams on impactful improvements, encourage teams to factor in time and effort towards these
+initiatives. Establish metrics to measure their impact. Prioritizing addressing technical debt as part
+of regular work can also reduce the likelihood of production
+issues, ultimately resulting in more stable and reliable
+systems.

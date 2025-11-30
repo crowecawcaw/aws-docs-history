@@ -1,28 +1,57 @@
-# [OA.LS.5] Assemble a cross-functional enabling team that focuses on organizational
+# [OA.LS.2] Align DevOps adoption with business objectives
 
-transformation
+**Category:** FOUNDATIONAL
 
-**Category:** RECOMMENDED
+DevOps adoption should not be an isolated project within the
+organization. It should be aligned to broader business goals,
+fully supported by leadership, with other teams also adopting
+capabilities to streamline their individual value streams.
+Synchronizing DevOps adoption and the overall business
+strategy means that the resources and effort put into adopting
+DevOps are also directly improving business outcomes.
 
-To spread knowledge across the organizations and help individual teams adopt DevOps
-capabilities, create an enabling team with expertise in DevOps culture, practices, and tools. The single-threaded DevOps owner is responsible for creating this team and
-providing it with the autonomy, resources, training, and tools that help them
-effectively support and guide other teams.This centralized team should collaborate closely with other
-teams to identify and address barriers to adoption, share best practices, and promote a
-culture of nearly continuous learning and improvement. 
+Gain an understanding of your existing DevOps capabilities by
+conducting a comprehensive assessment of your current software
+development practices. You can use the AWS DevOps Sagas
+indicators provided in this guidance to assess your existing
+DevOps capabilities against best practices. This activity
+should result in a prioritized list of DevOps capabilities
+that are missing or could use improvement within your
+organization. These findings should be shared with leadership
+and individual teams across the organization. Individual teams
+across the organization can progress towards adopting
+DevOps best practices as part of the regular planning
+processes.
 
-In many organizations, this team takes the form of the _Center of
-Enablement_. While this centralized team is not strictly required for every
-organization to adopt DevOps, we recommend it due to its potential to streamline and
-expedite transformation. If leadership chooses not to create a Center of Enablement, they
-can supplement it by fostering a strong culture of collaboration, sharing,
-automation, and continuous improvement. With the right support and resources being
-provided from leadership, teams can work together to establish their own DevOps processes.
-Use existing tools and resources to support these efforts.
+Planning processes vary from organization to organization, so we will provide an
+example using Amazon's annual planning process. To kick start the yearly planning process,
+members of every team in the organization dedicate weeks of effort to focus on planning.
+The Senior Leadership team (S-Team) kicks off the process by defining business objectives.
+These high-level objectives are generally based on current business needs and
+future aspirations.
+
+Teams build their operating plans based on the leadership-defined expectations and
+objectives. The first iteration of the operating plan (OP1) is a bottom-up proposal to gain
+alignment with other teams and approval from leadership. Operating plans should include
+progress towards the implementation of the DevOps capabilities from the prioritized
+list. Which capabilities to implement should be chosen based on alignment to S-Team goals in addition to their own individual goals. The team's operating plan should be shared with
+leadership and other relevant teams within the organization to promote shared knowledge
+and collaboration. Gaining approval from leadership helps align DevOps initiatives with the broader organizational goals. Additionally, this helps facilitate gaining the full support of leadership,
+including the requirements for funding, time, and resources.
+
+Priorities, learnings, and customer needs often change over
+time. The second iteration of operating plan review (OP2)
+provides an opportunity to adapt the plan accordingly before
+finishing the plan. Consistently revisit the prioritized
+DevOps capability list at least once a year to continue
+progressing towards adopting DevOps best practices.
 
 **Related information:**
 
-- [AWS Well-Architected Operational Excellence Pillar: Separated AEO and IEO with
-  centralized governance and an internal service provider consulting partner](../operational-excellence-pillar/separated-aeo-ieo-with-cent-gov-and-partner.md "../operational-excellence-pillar/separated-aeo-ieo-with-cent-gov-and-partner.md")
-- [What is a cloud center of excellence and why should your organization create
-  one?](https://aws.amazon.com/blogs/publicsector/what-is-cloud-center-excellence-why-should-your-organization-create-one/ "https://aws.amazon.com/blogs/publicsector/what-is-cloud-center-excellence-why-should-your-organization-create-one/")
+- [What We Can Learn From Amazon's Planning Process](https://academy.nobl.io/10x-thinking-and-cross-functional-goals-what-we-can-learn-from-amazons-planning-process/ "https://academy.nobl.io/10x-thinking-and-cross-functional-goals-what-we-can-learn-from-amazons-planning-process/")
+- [This is How Amazon
+  Measures Itself](https://www.holistics.io/blog/how-amazon-measures/ "https://www.holistics.io/blog/how-amazon-measures/")
+- [How can we make our planning process more agile and customer-centric?](https://www.kearney.com/industry/consumer-retail/article/-/insights/how-can-we-make-our-planning-process-more-agile-and-customer-centric "https://www.kearney.com/industry/consumer-retail/article/-/insights/how-can-we-make-our-planning-process-more-agile-and-customer-centric")
+- [Predicts 2023: Collaborate,
+  Automate and Orchestrate to Optimize Costs and Value During the Economic
+  Crisis](https://www.gartner.com/en/documents/4020625 "https://www.gartner.com/en/documents/4020625")

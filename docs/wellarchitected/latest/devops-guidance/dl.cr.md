@@ -1,29 +1,27 @@
-# [DL.CR.4] Comprehensive code reviews with an emphasis on business logic
+# [DL.CR.8] Designate code owners for expert review
 
-**Category:** FOUNDATIONAL
+**Category:** OPTIONAL
 
-Use automated code review tools to detect potential issues before they are merged
-into the code base. This approach provides fast feedback to developers to fix issues before
-a manual review takes place. This also frees manual reviewers from needing to review for
-trivial issues like code style inconsistencies or syntax errors. Reviewers can instead focus
-on more on complex aspects of the code such as business logic, maintainability, and
-scalability, which may be difficult to automate. This accelerates the review process,
-reduces the feedback loop, and promotes rapid iteration.
+A code owners process assigns a designated owner, usually the
+person or team with the most knowledge or expertise, to each
+part of the code base. In a DevOps environment, this helps
+ensure that there is an expert reviewer available for specific
+or complex parts of the system at all times.
 
-Start by identifying the types of issues that can be automated (like code formatting,
-syntax errors, and potential security vulnerabilities). Then, choose suitable tools that fit
-your code base and your team's needs. Integrate these quality assurance (QA) tools into your
-development lifecycle so that the checks are automatically run when code changes are being
-developed and merged.
+To implement a code owners process, determine who the code owners should be based on
+expertise and distribute the ownership equally amongst the team to avoid bottlenecks. You
+can use features in version control systems that automatically assign code owners to
+review code changes in their area of expertise. One example of this would be to use a
+`CODEOWNERS` file stored along with the code in the repository. This file
+defines individuals or teams that are responsible for code in a repository.
 
-Using automated code review tools is recommended for improved
-efficiency and consistency, but is not absolutely required for
-code reviews as DevOps teams can function and conduct manual
-code reviews without them.
+While this practice is optional and not beneficial for all organizations, it can be
+particularly useful for larger teams or those with complex, distributed systems as it
+provides an additional layer of control and can prevent potential issues from going
+unnoticed if all reviewers are not equally experienced with a specific or complex part of
+the code base.
 
 **Related information:**
 
-- [Create
-  code reviews in Amazon CodeGuru Reviewer](../../../codeguru/latest/reviewer-ug/create-code-reviews.md "../../../codeguru/latest/reviewer-ug/create-code-reviews.md")
-- [Automate
-  code reviews with Amazon CodeGuru Reviewer](https://aws.amazon.com/blogs/devops/automate-code-reviews-with-amazon-codeguru-reviewer/ "https://aws.amazon.com/blogs/devops/automate-code-reviews-with-amazon-codeguru-reviewer/")
+- [About
+  code owners](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners")

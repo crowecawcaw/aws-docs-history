@@ -1,24 +1,28 @@
-# [OA.PPD.2] Allocate time and budget for targeted training
+# [OA.PPD.3] Offer diverse and accessible training options
 
-**Category:** FOUNDATIONAL
+**Category:** FOUNDATIONAL
 
-Allocate dedicated time and budget for internal and external
-training, specifically targeting areas that are necessary for
-achieving business objectives and driving transformation. This
-could include leadership training, new employee training,
-or continuous training for already
-experienced individual contributors. Identify relevant skills
-and knowledge gaps, develop a comprehensive training plan, and
-dedicate resources and time to
-complete the training. Implement feedback and evaluation
-mechanisms to measure training outcomes and identify areas for
-improvement. Exemplary organizations tend to provide financial
-support or reimbursements for costs associated with taking
-certifications or course registration fees.
+Offer accessible training options with materials and courses made available in
+multiple languages and formats, including in-person, remote, and self-paced options.
+Provide accessible and inclusive content for employees with visual or communication
+impairments, incorporating features like closed captioning and screen reader
+compatibility.
+
+Leaders should identify the diverse training needs of teams and individual team
+members, and develop accessible training options that are available in multiple languages
+and formats. Keep training content relevant and up-to-date. Some organizations
+choose to implement a learning management system (LMS) to track employee progress and
+provide access to training materials, while others choose to use content developed by third
+parties. Gather feedback from employees to improve the training modules and
+delivery formats.
 
 **Related information:**
 
-- [AWS Well-Architected Cost Optimization Pillar: COST01-BP03
-  Establish cloud budgets and forecasts](../cost-optimization-pillar/cost_cloud_financial_management_budget_forecast.md "../cost-optimization-pillar/cost_cloud_financial_management_budget_forecast.md")
-- [AWS Certification Paths](https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf")
-- [AWS Learning Needs Analysis](https://aws.amazon.com/training/teams/learning-needs-analysis/ "https://aws.amazon.com/training/teams/learning-needs-analysis/")
+- [AWS Certification](https://aws.amazon.com/certification "https://aws.amazon.com/certification")
+- [AWS Educate](https://aws.amazon.com/education/awseducate/ "https://aws.amazon.com/education/awseducate/")
+- [AWS Skills Centers](https://aws.amazon.com/training/skills-centers/ "https://aws.amazon.com/training/skills-centers/")
+- [AWS re/Start](https://aws.amazon.com/training/restart/ "https://aws.amazon.com/training/restart/")
+- [Cloud
+  Academy: DevOps Training Library](https://cloudacademy.com/library/devops/ "https://cloudacademy.com/library/devops/")
+- [Pluralsight:
+  DevOps Courses](https://www.pluralsight.com/search?q=DevOps "https://www.pluralsight.com/search?q=DevOps")

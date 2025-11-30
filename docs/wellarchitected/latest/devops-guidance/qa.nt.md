@@ -1,51 +1,33 @@
-# [QA.NT.5] Automate adherence to compliance standards through conformance testing
+# [QA.NT.1] Evaluate code quality through static testing
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Conformance testing, often referred to as compliance testing, verifies that a system
-meets internal and external compliance requirements. It compares the system's behaviors,
-functions, and capabilities with predefined criteria from recognized standards or
-specifications.
+Static testing is a proactive method of assessing the quality of code without needing
+to run it. It can be used to test application source code, as well as other design
+artifacts, documentation, and infrastructure as code (IaC) files. Static testing allows
+teams to spot misconfigurations, security vulnerabilities, or non-compliance with
+organizational standards in these components before they get applied in a real environment.
 
-Conformance testing acts as a safeguard, ensuring that while agility is prioritized,
-compliance isn't compromised. There are many regulated industries, such as finance,
-healthcare, or aerospace, that have a strict set of compliance requirements which must be
-met when delivering software. Historically, balancing fast software delivery with
-stringent compliance was a challenge in these industries. Generating the documentation and
-proof required to maintain compliance was often a manual, time-intensive step that created
-a bottleneck at the end of the development lifecycle.
+Static testing should be available to developers on-demand in local environments, as
+well as automatically run in automated pipelines. Use static testing to run automated code
+reviews and detect defects early on to provide fast feedback to developers. This feedback
+enables developers to fix and remove bugs before deployment, which is much easier and cost
+effective than fixing them after deployment.
 
-Conformance testing integrated into deployment pipelines provides a solution to this
-problem by automating the creation of compliance attestations and documentation. It can be
-used to meet both internal and external compliance requirements. Start by determining both
-internal (for example, risk assessment policies, or change management procedures) and
-external standards (for example, [GxP](https://aws.amazon.com/compliance/gxp-part-11-annex-11/ "https://aws.amazon.com/compliance/gxp-part-11-annex-11/") for life sciences). Prioritize and
-choose the relevant parts of the standards which can be automated (for example, GxP
-Installation Qualification report). Ensure that conformance tests remain current by
-updating them according to evolving standards.
-
-Use the data at your disposal, including APIs, output from other forms of testing,
-and possibly additional data from IT Service Management (ITSM) and Configuration
-Management Databases (CMDB). Embed conformance testing scripts into deployment pipelines
-to generate real-time compliance attestations and documentation using this data. Consider
-using machine-readable markup languages, such as JSON and YAML, to store the compliance
-artifacts. If the markup languages are not considered sufficiently human readable by
-auditors, then retain the ability to convert these markdown files into another format.
-This conversion can then be done when needed, not as a default step, removing the burden
-of document management where it is not absolutely necessary.
+Use specialized static analysis tools tailored to the type of
+code you are using. For example, tools
+like [AWS CloudFormation Guard](../../../cfn-guard/latest/ug/what-is-guard.md "../../../cfn-guard/latest/ug/what-is-guard.md") and
+[cfn-lint](https://github.com/aws-cloudformation/cfn-lint "https://github.com/aws-cloudformation/cfn-lint")
+are designed to catch issues in
+[AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") templates. These tools can be configured
+to detect issues like insecure permissions, enforcing tagging
+standards, or misconfigurations that could make infrastructure
+vulnerable. Keep your static analysis tools updated and
+regularly review their findings to adapt to changing
+infrastructure security and compliance best practices.
 
 **Related information:**
 
-- [Wikipedia
-  - Conformance testing](https://en.wikipedia.org/wiki/Conformance_testing "https://en.wikipedia.org/wiki/Conformance_testing")
-- [Qualification
-  Strategy for Life Science Organizations](../../../whitepapers/latest/gxp-systems-on-aws/qualification-strategy-for-life-science-organizations.md "../../../whitepapers/latest/gxp-systems-on-aws/qualification-strategy-for-life-science-organizations.md")
-- [Automating
-  the Installation Qualification (IQ) Step to Expedite GxP
-  Compliance](https://aws.amazon.com/blogs/industries/automating-the-installation-qualification-iq-step-to-expedite-gxp-compliance/ "https://aws.amazon.com/blogs/industries/automating-the-installation-qualification-iq-step-to-expedite-gxp-compliance/")
-- [Automating
-  GxP compliance in the cloud: Best practices and
-  architecture guidelines](https://aws.amazon.com/blogs/industries/automating-gxp-compliance-in-the-cloud-best-practices-and-architecture-guidelines/ "https://aws.amazon.com/blogs/industries/automating-gxp-compliance-in-the-cloud-best-practices-and-architecture-guidelines/")
-- [Automating
-  GxP Infrastructure Installation Qualification on AWS with
-  Chef InSpec](https://aws.amazon.com/blogs/industries/automating-gxp-infrastructure-installation-qualification-on-aws-with-chef-inspec/ "https://aws.amazon.com/blogs/industries/automating-gxp-infrastructure-installation-qualification-on-aws-with-chef-inspec/")
+- [What
+  is Amazon CodeGuru Reviewer?](../../../codeguru/latest/reviewer-ug/welcome.md "../../../codeguru/latest/reviewer-ug/welcome.md")
+- [Checkov](https://www.checkov.io/ "https://www.checkov.io/")

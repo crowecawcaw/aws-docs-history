@@ -1,42 +1,28 @@
-# [QA.ST.1] Evolve vulnerability management processes to be conducive of DevOps practices
+# [QA.ST.5] Evaluate runtime security with dynamic application security testing
 
 **Category:** FOUNDATIONAL
 
-Vulnerability management requires an ongoing, iterative process consistent with agile
-development practices. The goal is to discover potential vulnerabilities across networks,
-infrastructures, and applications, and to prioritize and take action on them.
+While other forms of security testing identifies potential vulnerabilities in code
+that hasn't been run, dynamic application security testing (DAST) detects vulnerabilities in
+a running application. DAST works by simulating real-world attacks to identify potential
+security flaws while the application is running, enabling uncovering vulnerabilities that
+may not be detectable through static testing. By proactively uncovering security weaknesses
+during runtime, DAST reduces the likelihood of vulnerabilities being exploited in production
+environments.
 
-Automated vulnerability scanning must be integrated into deployment pipelines to
-provide feedback to developers regarding security vulnerabilities and improvements early on.
-This minimizes extensive security evaluations during deployment and is consistent with the
-DevOps _shift left_ approach—addressing security problems early on in the
-development process. Choose vulnerability scanning tools that are compatible with your
-existing technology and platforms. For instance, if [Amazon CodeCatalyst](https://aws.amazon.com/codecatalyst/ "https://aws.amazon.com/codecatalyst/") is your pipeline tool of choice, verify that the
-chosen vulnerability scanning tool has a CodeCatalyst plugin or API integration capability. If
-vulnerabilities are detected during a build, the pipeline should automatically generate
-alerts, allowing developers to address issues quickly.
-
-If you use issue-tracking systems like Jira or [CodeCatalyst Issues](../../../codecatalyst/latest/userguide/issues.md "../../../codecatalyst/latest/userguide/issues.md"), it can be
-beneficial to automatically generate tickets to assist developers with tracking issues. When
-a vulnerability is detected, an automated ticket should be generated, tagged with severity,
-and assigned to the appropriate developer or team. Use vulnerability management dashboards
-to consistently monitor and analyze threats. Regular reports should detail vulnerability
-trends, ensuring vulnerabilities are not reintroduced and pinpointing recurrent security
-challenges.
-
-To effectively practice vulnerability management in a DevOps environment, it's
-important to adopt a culture where security is everyone's responsibility. Development and
-security teams need collaboration, with clear delineations for security issue handoff and
-ownership. In a DevOps model, distributed development teams take on security
-responsibilities for their products. Centralized security teams often become enabling teams,
-offering training, insights, and support. They can also take on the responsibilities of a
-security platform team, producing reusable components, improving efficiency, reducing
-duplication of work, and overall providing autonomy to distributed teams so that they can
-efficiently secure their products.
+Begin by choosing a DAST tool that offers broad vulnerability coverage, including
+recognition of threats listed in the [OWASP Top 10](https://owasp.org/www-project-top-ten/ "https://owasp.org/www-project-top-ten/"). When selecting a tool, verify that it can integrate seamlessly with
+your existing toolsets, authentication mechanisms, and protocols used by your systems. With
+DAST, false positive rates are generally lower than other forms of security testing since it
+actively exploits known vulnerabilities. Still, pay attention to false positive rates and
+the tool's ability to provide actionable insights. False positives can erode developer trust
+in security testing while detracting from genuine threats and consuming unnecessary
+resources.
 
 **Related information:**
 
-- [Enterprise
-  DevOps: Why You Should Run What You Build](https://aws.amazon.com/blogs/enterprise-strategy/enterprise-devops-why-you-should-run-what-you-build/ "https://aws.amazon.com/blogs/enterprise-strategy/enterprise-devops-why-you-should-run-what-you-build/")
-- [Automated
-  Software Vulnerability Management - Amazon Inspector](https://aws.amazon.com/inspector/ "https://aws.amazon.com/inspector/")
+- [Security
+  in every stage of the CI/CD pipeline: DAST](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#dynamic-application-security-testing-dast "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#dynamic-application-security-testing-dast")
+- [Building
+  end-to-end AWS DevSecOps CI/CD pipeline with open source
+  SCA, SAST and DAST tools](https://aws.amazon.com/blogs/devops/building-end-to-end-aws-devsecops-ci-cd-pipeline-with-open-source-sca-sast-and-dast-tools/ "https://aws.amazon.com/blogs/devops/building-end-to-end-aws-devsecops-ci-cd-pipeline-with-open-source-sca-sast-and-dast-tools/")

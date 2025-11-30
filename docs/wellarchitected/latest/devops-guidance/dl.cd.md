@@ -1,30 +1,50 @@
-# [DL.CD.2] Deploy exclusively from trusted artifact repositories
+# [DL.CD.4] Automate the entire deployment process
 
 **Category:** FOUNDATIONAL
 
-All artifacts involved in the delivery process should
-originate from a trusted artifact repository. These
-repositories contain validated, tested, and integrated
-artifacts that have been deemed safe for deployment. By using
-trusted artifact repositories, teams can ensure the security
-of deployed workloads, maintain quality and security
-standards, and promote trust in the delivery pipeline.
+Automate as many stages of the delivery process as possible. Exceptions for
+continuous delivery might include optional manual approval gates. Automation reduces the
+risk of human error, brings consistency to deployments, and accelerates the delivery
+process.
 
-The delivery pipeline should be restricted to using only
-trusted artifact repositories, which could be enforced through
-mechanisms such as allow lists, IP restrictions, or
-authentication controls. Additionally, we recommend using
-cryptographic signing to validate artifacts and including a
-validation stage in the pipeline to verify that the artifacts
-meet the necessary standards before deployment. In this way,
-the integrity and security of the deployed workloads are
-maintained consistently.
+Use the delivery pipeline to automate every stage of deploying changes, from copying
+the build artifact to setting up any required configurations. While optional manual approval
+gates can exist, all other stages should be automated, maintaining the integrity of the
+artifact and reducing the likelihood of errors. Humans should not have access to the target
+environments or have the ability to inject code, parameters, configuration, or interfere
+with the integrity of the artifact in any way.
+
+Some organizations might still require manual oversight at certain stages as they
+evolve their DevOps capabilities. If the organization is early in its DevOps adoption or
+operates in a highly regulated environment, there might be a need for manual interventions
+or approvals at certain stages. These could be due to governance or regulatory requirements
+or simply the need for a human decision at a critical point in the deployment process. Over
+time, even for these organizations, the goal should be to have no manual deployment stages
+in the deployment of changes.
 
 **Related information:**
 
-- [Artifact
-  Repository - AWS CodeArtifact](https://aws.amazon.com/codeartifact/ "https://aws.amazon.com/codeartifact/")
-- [Fully
-  Managed Container Registry - Amazon Elastic Container Registry](https://aws.amazon.com/ecr/ "https://aws.amazon.com/ecr/")
-- [Code
-  Repositories and Artifact Management | AWS Marketplace](https://aws.amazon.com/marketplace/solutions/devops/code-repositories-and-artifact-management?aws-marketplace-cards.sort-by=item.additionalFields.headline&aws-marketplace-cards.sort-order=asc&awsf.aws-marketplace-devops-store-use-cases=*all "https://aws.amazon.com/marketplace/solutions/devops/code-repositories-and-artifact-management?aws-marketplace-cards.sort-by=item.additionalFields.headline&aws-marketplace-cards.sort-order=asc&awsf.aws-marketplace-devops-store-use-cases=*all")
+- [AWS Well-Architected Reliability Pillar: REL08-BP05 Deploy
+  changes with automation](../reliability-pillar/rel_tracking_change_management_automated_changemgmt.md "../reliability-pillar/rel_tracking_change_management_automated_changemgmt.md")
+- [AWS Well-Architected Security Pillar: SEC11-BP06 Deploy
+  software programmatically](../framework/sec_appsec_deploy_software_programmatically.md "../framework/sec_appsec_deploy_software_programmatically.md")
+- [What
+  is Continuous Delivery?](https://aws.amazon.com/devops/continuous-delivery/ "https://aws.amazon.com/devops/continuous-delivery/")
+- [Amazon CodeCatalyst](https://codecatalyst.aws/explore "https://codecatalyst.aws/explore")
+- [Building
+  the pipeline](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/building-the-pipeline.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/building-the-pipeline.md")
+- [Going
+  faster with continuous delivery](https://aws.amazon.com/builders-library/going-faster-with-continuous-delivery/ "https://aws.amazon.com/builders-library/going-faster-with-continuous-delivery/")
+- [AWS Deployment Pipeline Reference Architecture](https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture "https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture")
+- [Deploy
+  container applications in a multicloud environment using
+  Amazon CodeCatalyst](https://aws.amazon.com/blogs/devops/deploy-container-applications-in-a-multicloud-environment-using-amazon-codecatalyst/ "https://aws.amazon.com/blogs/devops/deploy-container-applications-in-a-multicloud-environment-using-amazon-codecatalyst/")
+- [Amazon's
+  approach to high-availability deployment: Release guidance
+  lifecycle](https://youtu.be/bCgD2bX1LI4?t=855 "https://youtu.be/bCgD2bX1LI4?t=855")
+- [Testing
+  software and systems at Amazon: Continuous integration and
+  deployment](https://youtu.be/o1sc3cK9bMU?t=1206 "https://youtu.be/o1sc3cK9bMU?t=1206")
+- [The
+  Amazon Software Development Process: Continuous
+  Delivery](https://youtu.be/52SC80SFPOw?t=814 "https://youtu.be/52SC80SFPOw?t=814")

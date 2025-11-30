@@ -1,17 +1,43 @@
-# [DL.SCM.5] Maintain an approved open-source software license list
+# [DL.SCM.3] Use artifact repositories with enforced authentication and authorization
 
 **Category:** FOUNDATIONAL
 
-Manage and regularly update an allowed and forbidden
-open-source software (OSS) licenses list. This list should
-reflect which licenses are, or are not, compliant with laws,
-regulations, and security requirements applicable to your
-organization. Use this list to detect and prevent legal issues
-while using open-source components.
+Artifact repositories and registries offer secure storage and
+management for artifacts generated during the build stage of
+the development lifecycle. Examples of artifacts that are
+stored in these repositories are container images, compiled
+software artifacts, third-party modules, and other shared code
+modules. Using an artifact repository streamlines artifact
+versioning, access control, traceability, and dependency
+management, contributing to efficient and reliable software
+releases. They can significantly improve the auditability,
+security, and organization of your software artifacts, leading
+to higher-quality software deliveries.
 
-Enforce the allowed and forbidden OSS licenses list by continuously assessing all OSS
-usage automatically as part of the build process. This can be enforced through quality
-assurance testing processes, like scanning the [Software Bill of Materials (SBOM)](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md") with Software Composition Analysis (SCA)
-tooling. Continuous enforcement helps to ensure that only approved OSS licenses are used in
-the code base, reducing the risk of legal issues and license violations while providing
-developers with fast feedback.
+Artifact repositories are in the critical path for ensuring
+the integrity of the software that is deployed into your
+environments. All artifacts in the repository should be
+expected to be built and tested using trusted automated
+processes in an effort to prevent errors or bugs from being
+introduced into the system. Artifact repositories should not
+contain manually produced artifacts or allow existing
+artifacts to be altered by users. Altering artifacts in the
+artifact repository degrades the integrity of the artifact and
+repository, so artifact repositories should enforce that
+artifacts are immutable.
+
+Use role-based or attribute-based access control to limit which users and systems can
+store and modify artifacts in artifact repositories. Access to create, update, or delete
+artifacts should remain restricted to emergencies, security use cases, and build and
+deployment processes.
+
+**Related information:**
+
+- [AWS Well-Architected Security Pillar: SEC11-BP05 Centralize
+  services for packages and dependencies](../framework/sec_appsec_centralize_services_for_packages_and_dependencies.md "../framework/sec_appsec_centralize_services_for_packages_and_dependencies.md")
+- [Artifact
+  Repository - AWS CodeArtifact](https://aws.amazon.com/codeartifact/ "https://aws.amazon.com/codeartifact/")
+- [Fully
+  Managed Container Registry - Amazon Elastic Container Registry](https://aws.amazon.com/ecr/ "https://aws.amazon.com/ecr/")
+- [Code
+  Repositories and Artifact Management | AWS Marketplace](https://aws.amazon.com/marketplace/solutions/devops/code-repositories-and-artifact-management?aws-marketplace-cards.sort-by=item.additionalFields.headline&aws-marketplace-cards.sort-order=asc&awsf.aws-marketplace-devops-store-use-cases=*all "https://aws.amazon.com/marketplace/solutions/devops/code-repositories-and-artifact-management?aws-marketplace-cards.sort-by=item.additionalFields.headline&aws-marketplace-cards.sort-order=asc&awsf.aws-marketplace-devops-store-use-cases=*all")

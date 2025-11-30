@@ -1,53 +1,32 @@
-# [OA.STD.7] Amplify the scale and impact of centralized functions
+# [OA.STD.4] Structure teams around desired business outcomes
 
 **Category:** FOUNDATIONAL
 
-As decentralized teams become responsible for their respective
-value streams and products, including responsibilities like
-security and quality assurance, centralized functions can
-often become bottlenecks. These bottlenecks can delay releases
-and cause inefficiencies in the development lifecycle, which
-can limit the adoption of DevOps best practices.
+To maximize value and effectiveness in product delivery,
+intentionally design team structures that reflect the desired
+architecture and interactions of the systems being built.
+Clearly define roles, responsibilities, and ownership for each team and align with the expected business
+outcomes. This approach increases the chances of building and
+supporting effective products optimized for full
+coverage of the full value stream.
 
-We recommend adopting a [Guardian
-Model](https://www.youtube.com/clip/UgkxFAoUn6nHH6D3GjwAHD3xXK07Q2NhcYGx "https://www.youtube.com/clip/UgkxFAoUn6nHH6D3GjwAHD3xXK07Q2NhcYGx") within your organization to scale centralized functions. This involves
-embedding specialized champions or _Guardians_ within individual teams to
-enhance and scale the capabilities of centralized functions, such as security, quality, and
-audit. Embedding guardians directly into teams helps make specialized knowledge
-always available, reducing wait times and facilitating real-time, context-aware
-decision-making. This approach not only accelerates delivery, but also continually meets
-quality, security, and compliance standards.
-
-To implement this model, begin by defining the strategy for the initiative. Recognize
-the inefficiencies and gaps within teams that these guardians can rectify, and identify
-which centralized function would benefit most from on-the-ground, embedded expertise.
-Security, quality assurance, and audit functions are great examples of centralized functions that must scale when adopting DevOps best practices. Leadership support is
-required so that they can allocate necessary resources, make policy changes, and inspire an
-organizational culture that genuinely values the guardian role.
-
-When selecting and training guardians, pinpoint passionate
-team members who volunteer to undergo specialized training to
-become focal points for their respective domains. This
-includes proactive responsibilities, such as threat modeling
-or test planning, and reactive responsibilities, like defect
-resolution or compliance checks. These responsibilities should
-be clearly defined to avoid ambiguity, confusion, and
-conflict. Continue to gather feedback from guardians and their
-teams, using the insights to refine and iterate on the model.
-
-The guardian role is an important factor for the success of this
-model. Encourage adoption of the role by providing specialized training opportunities, avenues for
-influencing best practices, and clear paths for career evolution. These incentives keep
-guardians motivated, engaged, and eager to drive excellence within their respective
-teams.
+Conway's Law, introduced by Melvin Conway in the paper [_How Do Committees
+Invent?_](https://www.melconway.com/Home/pdf/committees.pdf "https://www.melconway.com/Home/pdf/committees.pdf"), posits that the structure
+of an organization influences the design of the systems it builds. Organizations can
+use this concept to build more effective team structures by employing the [Inverse
+Conway Maneuver](http://jonnyleroy.com/2011/02/03/dealing-with-creaky-legacy-platforms/ "http://jonnyleroy.com/2011/02/03/dealing-with-creaky-legacy-platforms/"), also known as _Reverse Conway's Law_, as
+described by Jonny LeRoy and Matt Simons. By designing teams and their communication
+structures to reflect the intended architecture and interactions of the system being built,
+organizations can achieve increased efficiency and more effective collaboration between
+teams, ultimately enhancing the overall product delivery process.
 
 **Related information:**
 
-- [AWS Well-Architected Security Pillar: SEC11-BP08 Build a
-  program that embeds security ownership in workload teams](../security-pillar/sec_appsec_build_program_that_embeds_security_ownership_in_teams.md "../security-pillar/sec_appsec_build_program_that_embeds_security_ownership_in_teams.md")
-- [Scaling
-  security and compliance](https://aws.amazon.com/blogs/security/scaling-security-and-compliance/ "https://aws.amazon.com/blogs/security/scaling-security-and-compliance/")
-- [AWS Security Guardians](https://youtube.com/clip/UgkxFAoUn6nHH6D3GjwAHD3xXK07Q2NhcYGx "https://youtube.com/clip/UgkxFAoUn6nHH6D3GjwAHD3xXK07Q2NhcYGx")
-- [Amazon's
-  approach to security during development: Security Review
-  Process](https://youtu.be/NeR7FhHqDGQ?t=1285 "https://youtu.be/NeR7FhHqDGQ?t=1285")
+- [How
+  Do Committees Invent?](https://www.melconway.com/Home/pdf/committees.pdf "https://www.melconway.com/Home/pdf/committees.pdf")
+- [Dealing
+  with creaky legacy platforms](http://jonnyleroy.com/2011/02/03/dealing-with-creaky-legacy-platforms/ "http://jonnyleroy.com/2011/02/03/dealing-with-creaky-legacy-platforms/")
+- [Demystifying
+  Conway's Law](https://www.thoughtworks.com/insights/articles/demystifying-conways-law "https://www.thoughtworks.com/insights/articles/demystifying-conways-law")
+- [Inverse
+  Conway Maneuver](https://www.thoughtworks.com/en-de/radar/techniques/inverse-conway-maneuver "https://www.thoughtworks.com/en-de/radar/techniques/inverse-conway-maneuver")

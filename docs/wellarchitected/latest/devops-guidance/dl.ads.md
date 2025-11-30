@@ -1,46 +1,67 @@
-# [DL.ADS.5] Ensure backwards compatibility for data store and schema changes
+# [DL.ADS.4] Implement Incremental Feature Release Techniques
 
 **Category:** RECOMMENDED
 
-Backwards compatibility in data stores and schemas ensures
-that as changes are made, previous versions of the system
-continue to operate as expected. This requires careful
-planning, thorough testing, and detailed monitoring. As
-modifications, additions, or deletions are made to data
-structures and schemas, these changes should be designed to
-coexist with previous data structures, allowing both old and
-new versions to operate concurrently. Maintaining backwards
-compatibility helps to avoid breaking changes that could
-disrupt continuous integration and delivery pipelines.
+Incremental feature releases gradually roll out new features
+to users, reducing risk and maintaining system stability.
+Techniques include dark launching, two-phase deployments,
+feature flags, and canary releases. These techniques enable
+safe, controlled, and iterative changes to distributed systems
+which reduces risk associated with concurrent updates and
+maintaining system stability.
 
-One way to achieve backwards compatibility is by implementing
-versioning in your data schemas. With this method, new changes
-are incorporated into a new version, while older versions
-remain functional for existing applications.
+[Dark
+launches](https://martinfowler.com/bliki/DarkLaunching.html "https://martinfowler.com/bliki/DarkLaunching.html") allow teams to integrate and test new features
+in a live environment, without needing to make them visible to
+the entire user base. This approach allows for monitoring and
+analyzing the impact and performance of new features under
+real-world conditions, while mitigating the risk of widespread
+disruptions. Depending on system implementation and team
+preferences, dark launches can be implemented using
+versioning, A/B testing, canary releases, or most commonly,
+using feature flags.
+
 [Feature
-flags](https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags") can also be used to conceal new alterations until
-they're fully ready, facilitating testing and phased rollout
-of updates without affecting existing users.
+flags](https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags") allow developers to turn on or off certain
+features in their code base without affecting other
+functionality. This allows for testing of new features with a
+subset of users, limiting potential negative impacts. Feature
+flags provide an additional layer of control over the feature
+rollout process and can be used for A/B testing, canary
+releases, and dark launches.
 
-To ensure the safe implementation of these changes, they
-should be thoroughly tested in a non-production
-environment. Testing typically involves three stages to detect
-potential issues: initially, the change is deployed to a
-fraction of the servers to verify coexistence of software
-versions; next, the deployment is completed across all
-servers; and finally, a rollback deployment is initiated. If
-no errors or unexpected behavior occur during these stages,
-the test is considered successful.
+[Two-phase
+deployments](https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments#Two-phase_deployment_technique "https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments#Two-phase_deployment_technique") complement dark launching, focusing
+primarily on managing read and write changes in a systematic
+and phased manner. Changes should first be prepared to handle
+a new update without actively implementing it (Prepare phase),
+followed by a second deployment that activates the new changes
+(Activate phase). This approach requires careful planning and
+coordination, but pays off by prioritizing data integrity and
+preventing stale records that could emerge from concurrent
+changes.
 
-In scenarios involving changes that require coordination between different
-microservices, it is important to maintain consistency in the order of deployments across
-environments. For example, in serialization contexts, readers are typically deployed
-before writers during roll-forward, while writers precede readers during rollbacks.
+The specific choice of technique, be it dark launching, two-phase deployments,
+feature flags, canary releases, or a combination, depends on your unique needs, the nature
+of the changes, the complexity of the system, and the degree of control required over the
+release process. Each of these methods offers its own advantages, and their strategic
+implementation can significantly enhance the resilience and efficiency of your
+deployments.
 
 **Related information:**
 
+- [Amazon CloudWatch Evidently](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently.md")
+- [Feature
+  Flags - AWS AppConfig](https://aws.amazon.com/systems-manager/features/appconfig/ "https://aws.amazon.com/systems-manager/features/appconfig/")
+- [My
+  CI/CD pipeline is my release captain: Multiple inflight
+  releases](https://aws.amazon.com/builders-library/cicd-pipeline/#Multiple_inflight_releases "https://aws.amazon.com/builders-library/cicd-pipeline/#Multiple_inflight_releases")
 - [Ensuring
   rollback safety during deployments](https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments/ "https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments/")
 - [Using
-  Amazon RDS Blue/Green Deployments for database
-  updates](../../../AmazonRDS/latest/UserGuide/blue-green-deployments.md "../../../AmazonRDS/latest/UserGuide/blue-green-deployments.md")
+  AWS AppConfig Feature Flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/ "https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/")
+- [The
+  Only Guide to Dark Launching You'll Ever Need](https://launchdarkly.com/blog/guide-to-dark-launching/ "https://launchdarkly.com/blog/guide-to-dark-launching/")
+- [Deployment
+  Pipeline Reference Architecture: Dynamic Configuration
+  Pipeline](https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture/dynamic-configuration-pipeline/index.html "https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture/dynamic-configuration-pipeline/index.html")

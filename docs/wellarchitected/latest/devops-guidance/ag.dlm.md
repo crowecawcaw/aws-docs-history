@@ -1,45 +1,40 @@
-# [AG.DLM.3] Automate data processes for reliable collection, transformation, and storage using pipelines
+# [AG.DLM.6] Centralize shared data to enhance governance
 
 **Category:** FOUNDATIONAL
 
-A data pipeline is a series of steps to systematically
-collect, transform, and store data from various sources. Data
-pipelines can follow different sequences, such as extract,
-transform, and load (ETL), or extract and load unstructured
-data directly into a data lake without transformations.
+Practicing DevOps puts an emphasis on teams working
+collaboratively and continuously exchanging data. Governing
+this shared data requires proper control, management, and
+distribution of data to prevent unauthorized access, data
+breaches, and other security incidents, fostering trust and
+enhancing the quality and reliability of software delivery.
 
-Consistent data collection and transformation fuels informed
-decision-making, proactive responses, and feedback loops. Data
-pipelines play a key role in enhancing data quality by
-performing operations like sorting, reformatting,
-deduplication, verification, and validation, making data more
-useful for analysis.
+Use centralized data lakes to provide a single source of truth
+of data and management within your organization, helping to
+reduce data silos and inconsistencies. It enables secure and
+efficient data sharing across teams, enhancing collaboration
+and overall productivity. Use Role-Based Access Control (RBAC)
+or Attribute-Based Access Control (ABAC) to limit access to
+data based on the user context. Implement automated metadata
+management to better understand the context, source, and
+lineage of the data, and deploy continuous, automated data
+quality checks to ensure the accuracy and usability of the
+data.
 
-Just as DevOps principles are applied to software delivery,
-the same can be done with data management through pipelines
-using a methodology commonly referred to as DataOps. DataOps
-incorporates DevOps principles into data management, including
-the automation of testing and deployment processes for data
-pipelines. This approach improves monitoring, accelerates
-issue troubleshooting, and fosters collaboration between
-development and data operations teams.
+When collaboration extends beyond the organization's boundaries, _clean
+rooms_ can be used to maintain data privacy and security. Clean rooms create
+isolated data processing environments that let multiple parties collaborate and share data
+in a controlled, privacy-safe manner. With predefined rules that automatically govern the
+flow and accessibility of data, these clean rooms help ensure data privacy while still
+allowing for the extraction of valuable insights. This isolation facilitates decision-making
+and strategic planning, enabling stakeholders to collaborate and share information while
+protecting user privacy and maintaining compliance with various regulations.
 
 **Related information:**
 
-- [What
-  Is A Data Pipeline?](https://aws.amazon.com/what-is/data-pipeline/ "https://aws.amazon.com/what-is/data-pipeline/")
-- [AWS DataOps Development Kit](https://awslabs.github.io/aws-ddk/ "https://awslabs.github.io/aws-ddk/")
-- [AWS Glue DataBrew](../../../prescriptive-guidance/latest/serverless-etl-aws-glue/databrew.md "../../../prescriptive-guidance/latest/serverless-etl-aws-glue/databrew.md")
-- [AWS Glue ETL](../../../prescriptive-guidance/latest/serverless-etl-aws-glue/aws-glue-etl.md "../../../prescriptive-guidance/latest/serverless-etl-aws-glue/aws-glue-etl.md")
-- [AWS Step Functions](https://aws.amazon.com/step-functions/ "https://aws.amazon.com/step-functions/")
+- [AWS Well-Architected Sustainability Pillar: SUS04-BP06 Use
+  shared file systems or storage to access common data](../sustainability-pillar/sus_sus_data_a7.md "../sustainability-pillar/sus_sus_data_a7.md")
 - [Data
-  Matching Service – AWS Entity Resolution](https://aws.amazon.com/entity-resolution "https://aws.amazon.com/entity-resolution")
-- [Blog:
-  Build a DataOps platform to break silos between engineers
-  and analysts](https://aws.amazon.com/blogs/big-data/build-a-dataops-platform-to-break-silos-between-engineers-and-analysts/ "https://aws.amazon.com/blogs/big-data/build-a-dataops-platform-to-break-silos-between-engineers-and-analysts/")
-- [DataOps](https://en.wikipedia.org/wiki/DataOps "https://en.wikipedia.org/wiki/DataOps")
-- [Using
-  Amazon RDS Blue/Green Deployments for database
-  updates](../../../AmazonRDS/latest/UserGuide/blue-green-deployments.md "../../../AmazonRDS/latest/UserGuide/blue-green-deployments.md")
-- [AWS Well-Architected Cost Optimization Pillar: COST11-BP01
-  Perform automations for operations](../cost-optimization-pillar/cost_evaluate_cost_effort_automations_operations.md "../cost-optimization-pillar/cost_evaluate_cost_effort_automations_operations.md")
+  Collaboration Service - AWS Clean Rooms](https://aws.amazon.com/clean-rooms/ "https://aws.amazon.com/clean-rooms/")
+- [AWS Lake Formation](https://aws.amazon.com/lake-formation/ "https://aws.amazon.com/lake-formation/")
+- [AWS Data Exchange](https://aws.amazon.com/data-exchange "https://aws.amazon.com/data-exchange")

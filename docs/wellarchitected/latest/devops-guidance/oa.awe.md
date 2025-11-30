@@ -1,17 +1,22 @@
-# [OA.AWE.2] Offer inclusive options for both virtual and on-site collaboration
+# [OA.AWE.4] Provide adaptable workspaces for effective on-site collaboration
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Create a more inclusive and high-performing work environment by accommodating
-employees with diverse needs. To improve the organization's capability to accommodate
-employees with special needs, conduct assessments of existing facilities and identify
-areas that require improvement.
+Having a flexible and reconfigurable workspace environment promotes DevOps adoption
+by allowing for customizable collaboration and communication methods that fit individual
+and team needs. When teams work in the office or use a hybrid approach that requires meeting
+in person, they require tools and equipment to support their unique ways of
+working. If your team is fully remote and does not ever meet in person in a designated
+office, this capability might not apply to your organization.
 
-Collaboration tools should include accessibility features such
-as closed captioning, screen readers, and speech-to-text
-capabilities. Promote an inclusive culture throughout the
-organization by providing training for employees on topics
-such as diversity, inclusion, and accessibility. Gather
-feedback from employees with special must identify areas
-for improvement and make necessary adjustments to create a
-more inclusive and accessible work environment.
+Evaluate the current workspace layout and identify areas that can be reconfigured to
+better support in-person collaboration. Arrange the seating of teams and team members
+working on the same products or closely collaborating teams to be in close proximity to
+each other. This arrangement improves communication, collaboration, and
+problem resolution among team members. Provide on-site collaboration tools, such as meeting
+rooms, physical and virtual whiteboards, projectors, and conferencing equipment.
+
+Keep the workplace area clean, organized, and accessible
+for all employees. Gather feedback from teams to assess the
+effectiveness of the workspace environments, and make necessary
+improvements to be sure that they meet the needs of the teams.

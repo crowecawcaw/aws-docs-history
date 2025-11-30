@@ -1,28 +1,25 @@
-# [O.CM.3] Conduct post-incident analysis for continuous improvement
+# [O.CM.9] Optimize alerts to prevent fatigue and minimize monitoring costs
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Drive the continuous improvement of analysis and response mechanisms by holding
-post-incident retrospectives. The post-incident retrospectives allow teams to identify gaps
-and areas for improvement by analyzing the actions that were taken during an incident. These
-retrospectives should not be used to place blame or point fingers at individuals. Instead,
-they provide the time for teams to optimize their response process for future incidents and
-helps ensure that they are continuously learning and improving their incident response
-capabilities. This approach leads to more efficient and effective resolution of incidents
-over time.
+Reduce the number of ineffective alerts as well as the costs
+associated with monitoring by optimizing rules and thresholds
+for alerts based on business impact and issue severity. By
+continuously refining rules and thresholds for alerts, teams
+can minimize unnecessary notifications, reducing the time and
+resources spent on non-critical issues. This helps teams focus
+on high-impact issues, enhancing productivity and efficiency.
 
-All relevant stakeholders involved with the incident and the system should attend the
-retrospective. At a minimum, this should include the leaders and individual contributors who
-support the system, the customer advocates, those who were impacted by the issue internally,
-as well as those involved with the resolution of the issue. The post-incident retrospective
-findings should be anonymized, as to not place blame onto any individuals, and should be
-well documented and shared with the broader organization so that others may learn as well.
+Set up alert rules and thresholds based on the severity and
+business impact of potential issues. Teams should leverage
+cost-effective methods for delivering notifications, and work
+to reduce the amount of false positive notifications. Regular
+reviews and adjustments of these rules and thresholds should
+be done based on usage patterns to further minimize costs,
+while still ensuring that teams are alerted to critical issues
+in a timely and effective manner.
 
-**Related information:**
-
-- [AWS Well-Architected Performance Pillar: PERF07-BP02 Analyze
-  metrics when events or incidents occur](../performance-efficiency-pillar/perf_monitor_instances_post_launch_review_metrics.md "../performance-efficiency-pillar/perf_monitor_instances_post_launch_review_metrics.md")
-- [AWS Well-Architected Reliability Pillar: REL12-BP02 Perform
-  post-incident analysis](../reliability-pillar/rel_testing_resiliency_rca_resiliency.md "../reliability-pillar/rel_testing_resiliency_rca_resiliency.md")
-- [AWS Well-Architected Operational Excellence Pillar: OPS11-BP02
-  Perform post-incident analysis](../operational-excellence-pillar/ops_evolve_ops_perform_rca_process.md "../operational-excellence-pillar/ops_evolve_ops_perform_rca_process.md")
+Implementing intelligent alerting strategies, such as alert
+deduplication, aggregation, and comprehensive data
+visualization can help to reduce cost, alert fatigue, and data
+overload that comes with having too many alerts.
