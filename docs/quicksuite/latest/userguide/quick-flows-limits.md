@@ -60,6 +60,12 @@ Output limits control the size of prompts and generated responses:
   - General knowledge: Up to 40,000 characters
   - Quick Suite data: 8,000 characters
 
+## Schedule limits
+
+- **Region availability**: Schedules in flows are currently supported in US East (N. Virginia), US West (Oregon), and Europe (Ireland)
+- **Maximum schedules per user**: 20 schedules per user
+- **Maximum schedules per instance**: 10,000 schedules
+
 ## Regional availability
 
 Certain features have regional limitations:

@@ -30,6 +30,8 @@ You can interact with a chat agent in the following ways:
 - Upload files
 - View conversation history
 
-###### Note
+###### Tip
+
+You can also use your chat agents while automating your routine tasks with Quick Flows. For more information, see [Chat agents in Amazon Quick Flows](chat-agents-quick-flows.md "chat-agents-quick-flows.md").
 
 To learn more about chatting using chat agents, see [Using Amazon Quick Suite chat](using-quick-chat.md "using-quick-chat.md").
