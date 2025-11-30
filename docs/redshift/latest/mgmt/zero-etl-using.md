@@ -3,131 +3,819 @@ If you would like to use Python UDFs, create the UDFs prior to that date.
 Existing Python UDFs will continue to function as normal. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Viewing zero-ETL integrations
+# Troubleshooting zero-ETL integrations
 
-You can view your zero-ETL integrations from the Amazon Redshift console. Here you can view its configuration
-information and current status, and open screens to query and share data.
+Use the following sections to help troubleshoot problems that you have with zero-ETL
+integrations.
 
-Amazon Redshift console
+Use the following information to troubleshoot common issues with zero-ETL integrations with
+Aurora MySQL.
 
-###### To view the details of a zero-ETL integration
+###### Topics
 
-1. Sign in to the AWS Management Console and open the Amazon Redshift console at
-   [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").
-2. From the left navigation pane, choose either the
-   **Serverless** or **Provisioned clusters**
-   dashboard. Then, choose **Zero-ETL integrations**.
-3. Select the zero-ETL integration that you want to view. For each integration, the
-   following information is provided:
-   - **Integration ID** is the identifier returned when the
-     integration is created.
-   - **Status** can be one of the following:
-     - `Active` – The zero-ETL integration is sending transactional
-       data to the target Amazon Redshift data warehouse.
-     - `Syncing` – The zero-ETL integration has encountered a
-       recoverable error and is reseeding data. Affected tables aren’t available
-       for querying in Amazon Redshift until they finish resyncing.
-     - `Failed` – The zero-ETL integration encountered an
-       unrecoverable event or error that can't be fixed. You must delete and
-       recreate the zero-ETL integration.
-     - `Creating` – The zero-ETL integration is being created.
-     - `Deleting` – The zero-ETL integration is being deleted.
-     - `Needs attention` – The zero-ETL integration encountered an
-       event or error that requires manual intervention to resolve it. To fix the
-       issue, follow the steps in the error message.
+- [Creation of the integration
+  failed](#zero-etl-using.troubleshooting.creation "#zero-etl-using.troubleshooting.creation")
+- [Tables don't have
+  primary keys](#zero-etl-using.troubleshooting.primary-key "#zero-etl-using.troubleshooting.primary-key")
+- [Aurora MySQL tables
+  aren't replicating to Amazon Redshift](#zero-etl-using.troubleshooting.not-replicating "#zero-etl-using.troubleshooting.not-replicating")
+- [Unsupported data types
+  in tables](#zero-etl-using.troubleshooting.unsupported-data "#zero-etl-using.troubleshooting.unsupported-data")
+- [Data manipulation language
+  commands failed](#zero-etl-using.troubleshooting.failed-dml "#zero-etl-using.troubleshooting.failed-dml")
+- [Tracked changes
+  between data sources don't match](#zero-etl-using.troubleshooting.tracked-changes-failure "#zero-etl-using.troubleshooting.tracked-changes-failure")
+- [Authorization
+  failed](#zero-etl-using.troubleshooting.authorization "#zero-etl-using.troubleshooting.authorization")
+- [Number of tables is more
+  than 100K or the number of schemas is more than 4950](#zero-etl-using.troubleshooting.table-limits "#zero-etl-using.troubleshooting.table-limits")
+- [Amazon Redshift can't load
+  data](#zero-etl-using.troubleshooting.data-load "#zero-etl-using.troubleshooting.data-load")
+- [Workgroup parameter
+  settings are incorrect](#zero-etl-using.troubleshooting.case-sensitive "#zero-etl-using.troubleshooting.case-sensitive")
+- [Database isn't created
+  to activate a zero-ETL integration](#zero-etl-using.troubleshooting.db-creation "#zero-etl-using.troubleshooting.db-creation")
+- [Table is in the Resync
+  Required or Resync Initiated state](#zero-etl-using.troubleshooting.resync "#zero-etl-using.troubleshooting.resync")
+- [Integration lag
+  growing](#zero-etl-using.troubleshooting.integration-lag "#zero-etl-using.troubleshooting.integration-lag")
 
-   - **Source type** is the type of source data replicating to
-     the target. Types can specify other database managers, such as Aurora MySQL-Compatible Edition,
-     Amazon Aurora PostgreSQL, RDS for MySQL, and from applications (`GlueSAAS`).
-   - **Source ARN** is the ARN of the source data. For most
-     sources this is the ARN of the source database or table. For zero-ETL integration with
-     applications sources, this is the ARN of the AWS Glue connection object.
-   - **Target** is the namespace of the Amazon Redshift data warehouse
-     receiving source data.
-   - **Database** can be one of the following:
-     - `No database` – There is no destination database for
-       the integration.
-     - `Creating` – Amazon Redshift is creating the destination
-       database for the integration.
-     - `Active` – Data is being replicated from the
-       integration source to Amazon Redshift.
-     - `Error` – There is an error with the
-       integration.
-     - `Recovering` – The integration is recovering after
-       the data warehouse restarted.
-     - `Resyncing` – Amazon Redshift is resynchronizing the tables
-       in the integration.
+### Creation of the integration
 
-   - **Target type** is the type of Amazon Redshift data
-     warehouse.
-   - **Creation date** is the date and time (UTC) when the
-     integration was created.
+failed
 
-###### Note
+If the creation of the zero-ETL integration failed, the status of the integration is
+`Inactive`. Make sure that the following are correct for your source Aurora
+DB cluster:
 
-To view integration details for a data warehouse, choose the details page for
-your provisioned cluster or serverless namespace and then choose the
-**Zero-ETL integrations** tab.
+- You created your cluster in the Amazon RDS console.
+- Your source Aurora DB cluster is running a supported version. For a list of
+  supported versions, see [Supported Regions and Aurora DB engines for zero-ETL integrations with Amazon Redshift](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.md"). To
+  validate this, go to the **Configuration** tab for the cluster and
+  check the **Engine version**.
+- You correctly configured binlog parameter settings for your cluster. If your
+  Aurora MySQL binlog parameters are set incorrectly or not associated with the source
+  Aurora DB cluster, creation fails. See [Configure DB cluster parameters](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.parameters "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.parameters").
 
-From the **Zero-ETL integrations** list, you can choose **Query
-data** to jump to Amazon Redshift query editor v2. The Amazon Redshift target database has the [enable_case_sensitive_identifier](../dg/r_enable_case_sensitive_identifier.md "../dg/r_enable_case_sensitive_identifier.md") parameter enabled. When you write SQL, you
-might need to surround schemas, tables, and column names with double quotes
-("<name>"). For more information about querying data in your Amazon Redshift data
-warehouse, see [Querying a database using the query editor v2](query-editor-v2.md "query-editor-v2.md").
+In addition, make sure the following are correct for your Amazon Redshift data
+warehouse:
 
-From the **Zero-ETL integrations** list, you can choose **Share
-data** to create a datashare. To create a datashare for the Amazon Redshift database,
-follow the instructions on the **Create datashare** page. Before you
-can share data in your Amazon Redshift database, you must first create a destination database.
-For more information about data sharing, see [Data sharing concepts for
-Amazon Redshift](../dg/concepts.md "../dg/concepts.md").
+- Case sensitivity is turned on. See [Turn on case sensitivity for your
+  data warehouse](zero-etl-setting-up.md "zero-etl-setting-up.md").
+- You added the correct authorized principal and integration source for your
+  namespace. See [Configure authorization for your Amazon Redshift data
+  warehouse](zero-etl-using.md "zero-etl-using.md").
 
-To refresh your integration, you can use the [ALTER DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") command. Doing
-so replicates all of the data from your integration source into your destination
-database. The following example refreshes all synced and failed tables within your
-zero-ETL integration.
+### Tables don't have
 
-```
-ALTER DATABASE sample_integration_db INTEGRATION REFRESH ALL tables;
-```
+primary keys
 
-AWS CLI
-To describe an Amazon DynamoDB zero-ETL integration with Amazon Redshift using the AWS CLI, use the
-`describe-integrations` command with the following options:
+In the destination database, one or more of the tables don't have a primary key
+and can't be synchronized.
 
-- `integration-arn` – Specify the ARN of the DynamoDB integration
-  to describe.
-- `integration-name` – Specify an optional filter that
-  specifies one or more resources to return.
+To resolve this issue, go to the **Table statistics** tab on the
+integration details page or use SVV_INTEGRATION_TABLE_STATE to view the failed tables.
+You can add primary keys to the tables and Amazon Redshift will resynchronize the tables.
+Alternatively, although not recommended, you can drop these tables on Aurora and create
+tables with a primary key. For more information, see [Amazon Redshift best
+practices for designing tables](../dg/c_designing-tables-best-practices.md "../dg/c_designing-tables-best-practices.md").
 
-The follow example describes an integration by providing the integration
-ARN.
+### Aurora MySQL tables
+
+aren't replicating to Amazon Redshift
+
+If you don't see one or more tables reflected in Amazon Redshift, you can run the following
+command to resynchronize them. Replace `dbname` with the name
+of your Amazon Redshift database. And, replace `table1` and
+`table2` with the names of the tables to be
+synchronized.
 
 ```
-`aws redshift describe-integrations`
-         `{
- "Integrations": [
- {
- "Status": "failed",
- "IntegrationArn": "arn:aws:redshift:us-east-1:123456789012:integration:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- "Errors": [
- {
- "ErrorCode": "INVALID_TABLE_PERMISSIONS",
- "ErrorMessage": "Redshift does not have sufficient access on the table key. Refer to the Amazon DynamoDB Developer Guide."
- }
- ],
- "Tags": [],
- "CreateTime": "2023-11-09T00:32:46.444Z",
- "KMSKeyId": "arn:aws:kms:us-east-1:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
- "TargetArn": "arn:aws:redshift:us-east-1:123456789012:namespace:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
- "IntegrationName": "ddb-to-provisioned-02",
- "SourceArn": "arn:aws:dynamodb:us-east-1:123456789012:table/mytable"
- }
- ]
-}`
-
+ALTER DATABASE `dbname` INTEGRATION REFRESH TABLES `table1`, `table2`;
 ```
 
-You can also filter the results of `describe-integrations` by the
-`integration-arn`, `source-arn`, `source-types`, or
-`status`. For more information, see [describe-integrations](../../../cli/latest/reference/redshift/describe-integrations.md "../../../cli/latest/reference/redshift/describe-integrations.md") in the _Amazon Redshift CLI Guide_.
+For more information, see see [ALTER DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") in the
+_Amazon Redshift Database Developer Guide_.
+
+Your data might not be replicating because one or more of your source tables doesn't
+have a primary key. The monitoring dashboard in Amazon Redshift displays the status of these tables
+as `Failed`, and the status of the overall zero-ETL integration changes to `Needs
+ attention`. To resolve this issue, you can identify an existing key in your
+table that can become a primary key, or you can add a synthetic primary key. For
+detailed solutions, see [Handle tables without primary keys while creating Amazon Aurora MySQL or RDS for MySQL
+zero-ETL integrations with Amazon Redshift.](https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-mysql-or-amazon-rds-for-mysql-zero-etl-integrations-with-amazon-redshift/ "https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-mysql-or-amazon-rds-for-mysql-zero-etl-integrations-with-amazon-redshift/") in the _AWS Database Blog_.
+
+Also confirm that if your target is an Amazon Redshift cluster, that the cluster is not
+paused.
+
+### Unsupported data types
+
+in tables
+
+In the database that you created from the integration in Amazon Redshift and in which data
+is replicated from the Aurora DB cluster, one or more of the tables have unsupported data
+types and can't be synchronized.
+
+To resolve this issue, go to the **Table statistics** tab on the
+integration details page or use SVV_INTEGRATION_TABLE_STATE to view the failed tables.
+Then, remove these tables and recreate new tables on Amazon RDS. For more information on
+unsupported data types, see [Data type differences between Aurora and Amazon Redshift databases](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.data-type-mapping "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.data-type-mapping") in the
+_Amazon Aurora User Guide_.
+
+### Data manipulation language
+
+commands failed
+
+Amazon Redshift could not run DML commands on the Redshift tables. To resolve this issue,
+use SVV_INTEGRATION_TABLE_STATE to view the failed tables. Amazon Redshift automatically
+resynchronizes the tables to resolve this error.
+
+### Tracked changes
+
+between data sources don't match
+
+This error occurs when changes between Amazon Aurora and Amazon Redshift don't match,
+leading to the integration entering a `Failed` state.
+
+To resolve this, delete the zero-ETL integration and create it again in Amazon RDS. For more
+information, see [Creating
+zero-ETL integrations](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md") and [Deleting
+zero-ETL integrations](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md").
+
+### Authorization
+
+failed
+
+Authorization failed because the source Aurora DB cluster was removed as an
+authorized integration source for the Amazon Redshift data warehouse.
+
+To resolve this issue, delete the zero-ETL integration and create it again on Amazon RDS. For more
+information, see [Creating
+zero-ETL integrations](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md") and [Deleting
+zero-ETL integrations](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md").
+
+### Number of tables is more
+
+than 100K or the number of schemas is more than 4950
+
+For a destination data warehouse, the number of tables is more than 100K or the
+number of schemas is more than 4950. Amazon Aurora can't send data to Amazon Redshift. The
+number of tables and schemas exceeds the set limit. To resolve this issue, remove any
+unnecessary schemas or tables from the source database.
+
+### Amazon Redshift can't load
+
+data
+
+Amazon Redshift can't load data to the zero-ETL integration.
+
+To resolve this issue, delete the zero-ETL integration on Amazon RDS and create it again. For more
+information, see [Creating
+zero-ETL integrations](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md") and [Deleting
+zero-ETL integrations](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md").
+
+### Workgroup parameter
+
+settings are incorrect
+
+Your workgroup doesn't have case sensitivity turned on.
+
+To resolve this issue, go to the **Properties** tab on the
+integration details page, choose the parameter group, and turn on the case-sensitive
+identifier from the **Properties** tab. If you don't have an
+existing parameter group, create one with the case-sensitive identifier turned on. Then,
+create a new zero-ETL integration on Amazon RDS. For more information, see [Creating zero-ETL integrations](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md").
+
+### Database isn't created
+
+to activate a zero-ETL integration
+
+There isn't a database created for the zero-ETL integration to activate it.
+
+To resolve this issue, create a database for the integration. For more information,
+see [Creating destination databases in
+Amazon Redshift](zero-etl-using.md "zero-etl-using.md").
+
+### Table is in the \*\*Resync
+
+Required** or **Resync Initiated\*\* state
+
+Your table is in the **Resync Required** or **Resync
+Initiated** state.
+
+To gather more detailed error information about why your table is in that state, use
+the [SYS_LOAD_ERROR_DETAIL](../dg/SYS_LOAD_ERROR_DETAIL.md "../dg/SYS_LOAD_ERROR_DETAIL.md") system view.
+
+### Integration lag
+
+growing
+
+The integration lag of your zero-ETL integrations can grow if there is a heavy use of
+SAVEPOINT in your source database.
+
+Use the following information to troubleshoot common issues with zero-ETL integrations with
+Aurora PostgreSQL.
+
+###### Topics
+
+- [Creation of the integration
+  failed](#zero-etl-using.troubleshooting.creation "#zero-etl-using.troubleshooting.creation")
+- [Tables don't have
+  primary keys](#zero-etl-using.troubleshooting.primary-key "#zero-etl-using.troubleshooting.primary-key")
+- [Aurora PostgreSQL tables
+  aren't replicating to Amazon Redshift](#zero-etl-using.troubleshooting.not-replicating "#zero-etl-using.troubleshooting.not-replicating")
+- [Unsupported data types
+  in tables](#zero-etl-using.troubleshooting.unsupported-data "#zero-etl-using.troubleshooting.unsupported-data")
+- [Data manipulation language
+  commands failed](#zero-etl-using.troubleshooting.failed-dml "#zero-etl-using.troubleshooting.failed-dml")
+- [Tracked changes
+  between data sources don't match](#zero-etl-using.troubleshooting.tracked-changes-failure "#zero-etl-using.troubleshooting.tracked-changes-failure")
+- [Authorization
+  failed](#zero-etl-using.troubleshooting.authorization "#zero-etl-using.troubleshooting.authorization")
+- [Number of tables is more
+  than 100K or the number of schemas is more than 4950](#zero-etl-using.troubleshooting.table-limits "#zero-etl-using.troubleshooting.table-limits")
+- [Amazon Redshift can't load
+  data](#zero-etl-using.troubleshooting.data-load "#zero-etl-using.troubleshooting.data-load")
+- [Workgroup parameter
+  settings are incorrect](#zero-etl-using.troubleshooting.case-sensitive "#zero-etl-using.troubleshooting.case-sensitive")
+- [Database isn't created
+  to activate a zero-ETL integration](#zero-etl-using.troubleshooting.db-creation "#zero-etl-using.troubleshooting.db-creation")
+- [Table is in the Resync
+  Required or Resync Initiated state](#zero-etl-using.troubleshooting.resync "#zero-etl-using.troubleshooting.resync")
+
+### Creation of the integration
+
+failed
+
+If the creation of the zero-ETL integration failed, the status of the integration is
+`Inactive`. Make sure that the following are correct for your source Aurora
+DB cluster:
+
+- You created your cluster in the Amazon RDS console.
+- Your source Aurora DB cluster is running supported version. For a list of
+  supported versions, see [Supported Regions and Aurora DB engines for zero-ETL integrations with Amazon Redshift](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Zero-ETL-Postgres "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Zero-ETL-Postgres"). To
+  validate this, go to the **Configuration** tab for the cluster and
+  check the **Engine version**.
+- You correctly configured binlog parameter settings for your cluster. If your
+  Aurora PostgreSQL binlog parameters are set incorrectly or not associated with the
+  source Aurora DB cluster, creation fails. See [Configure DB cluster parameters](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.parameters "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.parameters").
+
+In addition, make sure the following are correct for your Amazon Redshift data
+warehouse:
+
+- Case sensitivity is turned on. See [Turn on case sensitivity for your
+  data warehouse](zero-etl-setting-up.md "zero-etl-setting-up.md").
+- You added the correct authorized principal and integration source for your
+  endterm="zero-etl-using.redshift-iam.title"/>.
+
+### Tables don't have
+
+primary keys
+
+In the destination database, one or more of the tables don't have a primary key
+and can't be synchronized.
+
+To resolve this issue, go to the **Table statistics** tab on the
+integration details page or use SVV_INTEGRATION_TABLE_STATE to view the failed tables.
+You can add primary keys to the tables and Amazon Redshift will resynchronize the tables.
+Alternatively, although not recommended, you can drop these tables on Aurora and create
+tables with a primary key. For more information, see [Amazon Redshift best
+practices for designing tables](../dg/c_designing-tables-best-practices.md "../dg/c_designing-tables-best-practices.md").
+
+### Aurora PostgreSQL tables
+
+aren't replicating to Amazon Redshift
+
+If you don't see one or more tables reflected in Amazon Redshift, you can run the following
+command to resynchronize them. Replace `dbname` with the name
+of your Amazon Redshift database. And, replace `table1` and
+`table2` with the names of the tables to be
+synchronized.
+
+```
+ALTER DATABASE `dbname` INTEGRATION REFRESH TABLES `table1`, `table2`;
+```
+
+For more information, see see [ALTER DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") in the
+_Amazon Redshift Database Developer Guide_.
+
+Your data might not be replicating because one or more of your source tables doesn't
+have a primary key. The monitoring dashboard in Amazon Redshift displays the status of these tables
+as `Failed`, and the status of the overall zero-ETL integration changes to `Needs
+ attention`. To resolve this issue, you can identify an existing key in your
+table that can become a primary key, or you can add a synthetic primary key. For
+detailed solutions, see [Handle tables without primary keys while creating Amazon Aurora PostgreSQL zero-ETL integrations with
+Amazon Redshift.](https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-postgresql-zero-etl-integrations-with-amazon-redshift/ "https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-postgresql-zero-etl-integrations-with-amazon-redshift/") in the _AWS Database Blog_.
+
+Also confirm that if your target is an Amazon Redshift cluster, that the cluster is not
+paused.
+
+### Unsupported data types
+
+in tables
+
+In the database that you created from the integration in Amazon Redshift and in which data
+is replicated from the Aurora DB cluster, one or more of the tables have unsupported data
+types and can't be synchronized.
+
+To resolve this issue, go to the **Table statistics** tab on the
+integration details page or use SVV_INTEGRATION_TABLE_STATE to view the failed tables.
+Then, remove these tables and recreate new tables on Amazon RDS. For more information on
+unsupported data types, see [Data type differences between Aurora and Amazon Redshift databases](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.data-type-mapping "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.data-type-mapping") in the
+_Amazon Aurora User Guide_.
+
+### Data manipulation language
+
+commands failed
+
+Amazon Redshift could not run DML commands on the Redshift tables. To resolve this issue,
+use SVV_INTEGRATION_TABLE_STATE to view the failed tables. Amazon Redshift automatically
+resynchronizes the tables to resolve this error.
+
+### Tracked changes
+
+between data sources don't match
+
+This error occurs when changes between Amazon Aurora and Amazon Redshift don't match,
+leading to the integration entering a `Failed` state.
+
+To resolve this, delete the zero-ETL integration and create it again in Amazon RDS. For more
+information, see [Creating
+zero-ETL integrations](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md") and [Deleting
+zero-ETL integrations](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md").
+
+### Authorization
+
+failed
+
+Authorization failed because the source Aurora DB cluster was removed as an
+authorized integration source for the Amazon Redshift data warehouse.
+
+To resolve this issue, delete the zero-ETL integration and create it again on Amazon RDS. For more
+information, see [Creating
+zero-ETL integrations](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md") and [Deleting
+zero-ETL integrations](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md").
+
+### Number of tables is more
+
+than 100K or the number of schemas is more than 4950
+
+For a destination data warehouse, the number of tables is more than 100K or the
+number of schemas is more than 4950. Amazon Aurora can't send data to Amazon Redshift. The
+number of tables and schemas exceeds the set limit. To resolve this issue, remove any
+unnecessary schemas or tables from the source database.
+
+### Amazon Redshift can't load
+
+data
+
+Amazon Redshift can't load data to the zero-ETL integration.
+
+To resolve this issue, delete the zero-ETL integration on Amazon RDS and create it again. For more
+information, see [Creating
+zero-ETL integrations](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md") and [Deleting
+zero-ETL integrations](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md").
+
+### Workgroup parameter
+
+settings are incorrect
+
+Your workgroup doesn't have case sensitivity turned on.
+
+To resolve this issue, go to the **Properties** tab on the
+integration details page, choose the parameter group, and turn on the case-sensitive
+identifier from the **Properties** tab. If you don't have an
+existing parameter group, create one with the case-sensitive identifier turned on. Then,
+create a new zero-ETL integration on Amazon RDS. For more information, see [Creating zero-ETL integrations](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md").
+
+### Database isn't created
+
+to activate a zero-ETL integration
+
+There isn't a database created for the zero-ETL integration to activate it.
+
+To resolve this issue, create a database for the integration. For more information,
+see [Creating destination databases in
+Amazon Redshift](zero-etl-using.md "zero-etl-using.md").
+
+### Table is in the \*\*Resync
+
+Required** or **Resync Initiated\*\* state
+
+Your table is in the **Resync Required** or **Resync
+Initiated** state.
+
+To gather more detailed error information about why your table is in that state, use
+the [SYS_LOAD_ERROR_DETAIL](../dg/SYS_LOAD_ERROR_DETAIL.md "../dg/SYS_LOAD_ERROR_DETAIL.md") system view.
+
+Use the following information to troubleshoot common issues with zero-ETL integrations with
+RDS for MySQL.
+
+###### Topics
+
+- [Creation of the integration
+  failed](#zero-etl-using.troubleshooting.creation "#zero-etl-using.troubleshooting.creation")
+- [Tables don't have
+  primary keys](#zero-etl-using.troubleshooting.primary-key "#zero-etl-using.troubleshooting.primary-key")
+- [RDS for MySQL tables
+  aren't replicating to Amazon Redshift](#zero-etl-using.troubleshooting.not-replicating "#zero-etl-using.troubleshooting.not-replicating")
+- [Unsupported data types
+  in tables](#zero-etl-using.troubleshooting.unsupported-data "#zero-etl-using.troubleshooting.unsupported-data")
+- [Data manipulation language
+  commands failed](#zero-etl-using.troubleshooting.failed-dml "#zero-etl-using.troubleshooting.failed-dml")
+- [Tracked changes
+  between data sources don't match](#zero-etl-using.troubleshooting.tracked-changes-failure "#zero-etl-using.troubleshooting.tracked-changes-failure")
+- [Authorization
+  failed](#zero-etl-using.troubleshooting.authorization "#zero-etl-using.troubleshooting.authorization")
+- [Number of tables is more
+  than 100K or the number of schemas is more than 4950](#zero-etl-using.troubleshooting.table-limits "#zero-etl-using.troubleshooting.table-limits")
+- [Amazon Redshift can't load
+  data](#zero-etl-using.troubleshooting.data-load "#zero-etl-using.troubleshooting.data-load")
+- [Workgroup parameter
+  settings are incorrect](#zero-etl-using.troubleshooting.case-sensitive "#zero-etl-using.troubleshooting.case-sensitive")
+- [Database isn't created
+  to activate a zero-ETL integration](#zero-etl-using.troubleshooting.db-creation "#zero-etl-using.troubleshooting.db-creation")
+- [Table is in the Resync
+  Required or Resync Initiated state](#zero-etl-using.troubleshooting.resync "#zero-etl-using.troubleshooting.resync")
+
+### Creation of the integration
+
+failed
+
+If the creation of the zero-ETL integration failed, the status of the integration is
+`Inactive`. Make sure that the following are correct for your source RDS DB
+instance:
+
+- You created your instance in the Amazon RDS console.
+- Your source RDS DB instance is running a supported version of RDS for MySQL. For a
+  list of supported versions, see [Supported Regions and DB engines for Amazon RDS zero-ETL integrations with Amazon Redshift](../../../AmazonRDS/latest/UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.md "../../../AmazonRDS/latest/UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.md"). To
+  validate this, go to the **Configuration** tab for the instance and
+  check the **Engine version**.
+- You correctly configured binlog parameter settings for your instance. If your
+  RDS for MySQL binlog parameters are set incorrectly or not associated with the source
+  RDS DB instance, creation fails. See [Configure DB instance parameters](../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.parameters "../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.parameters").
+
+In addition, make sure the following are correct for your Amazon Redshift data
+warehouse:
+
+- Case sensitivity is turned on. See [Turn on case sensitivity for your
+  data warehouse](zero-etl-setting-up.md "zero-etl-setting-up.md").
+- You added the correct authorized principal and integration source for your
+  namespace. See [Configure authorization for your Amazon Redshift data
+  warehouse](zero-etl-using.md "zero-etl-using.md").
+
+### Tables don't have
+
+primary keys
+
+In the destination database, one or more of the tables don't have a primary key
+and can't be synchronized.
+
+To resolve this issue, go to the **Table statistics** tab on the
+integration details page or use SVV_INTEGRATION_TABLE_STATE to view the failed tables.
+You can add primary keys to the tables and Amazon Redshift will resynchronize the tables.
+Alternatively, although not recommended, you can drop these tables on RDS and create
+tables with a primary key. For more information, see [Amazon Redshift best
+practices for designing tables](../dg/c_designing-tables-best-practices.md "../dg/c_designing-tables-best-practices.md").
+
+### RDS for MySQL tables
+
+aren't replicating to Amazon Redshift
+
+If you don't see one or more tables reflected in Amazon Redshift, you can run the following
+command to resynchronize them. Replace `dbname` with the name
+of your Amazon Redshift database. And, replace `table1` and
+`table2` with the names of the tables to be
+synchronized.
+
+```
+ALTER DATABASE `dbname` INTEGRATION REFRESH TABLES `table1`, `table2`;
+```
+
+For more information, see see [ALTER DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") in the
+_Amazon Redshift Database Developer Guide_.
+
+Your data might not be replicating because one or more of your source tables doesn't
+have a primary key. The monitoring dashboard in Amazon Redshift displays the status of these tables
+as `Failed`, and the status of the overall zero-ETL integration changes to `Needs
+ attention`. To resolve this issue, you can identify an existing key in your
+table that can become a primary key, or you can add a synthetic primary key. For
+detailed solutions, see [Handle tables without primary keys while creating Aurora MySQL-Compatible Edition or RDS for MySQL
+zero-ETL integrations with Amazon Redshift.](https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-mysql-or-amazon-rds-for-mysql-zero-etl-integrations-with-amazon-redshift/ "https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-mysql-or-amazon-rds-for-mysql-zero-etl-integrations-with-amazon-redshift/") in the _AWS Database Blog_.
+
+Also confirm that if your target is an Amazon Redshift cluster, that the cluster is not
+paused.
+
+### Unsupported data types
+
+in tables
+
+In the database that you created from the integration in Amazon Redshift and in which data
+is replicated from the RDS DB instance, one or more of the tables have unsupported data
+types and can't be synchronized.
+
+To resolve this issue, go to the **Table statistics** tab on the
+integration details page or use SVV_INTEGRATION_TABLE_STATE to view the failed tables.
+Then, remove these tables and recreate new tables on Amazon RDS. For more information on
+unsupported data types, see [Data type differences between RDS and Amazon Redshift databases](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.data-type-mapping "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.data-type-mapping") in the
+_Amazon RDS User Guide_.
+
+### Data manipulation language
+
+commands failed
+
+Amazon Redshift could not run DML commands on the Redshift tables. To resolve this issue,
+use SVV_INTEGRATION_TABLE_STATE to view the failed tables. Amazon Redshift automatically
+resynchronizes the tables to resolve this error.
+
+### Tracked changes
+
+between data sources don't match
+
+This error occurs when changes between Amazon Aurora and Amazon Redshift don't match,
+leading to the integration entering a `Failed` state.
+
+To resolve this, delete the zero-ETL integration and create it again in Amazon RDS. For more
+information, see [Creating zero-ETL integrations](../../../AmazonRDS/latest/UserGuide/zero-etl.md "../../../AmazonRDS/latest/UserGuide/zero-etl.md")
+and [Deleting
+zero-ETL integrations](../../../AmazonRDS/latest/UserGuide/zero-etl.md "../../../AmazonRDS/latest/UserGuide/zero-etl.md").
+
+### Authorization
+
+failed
+
+Authorization failed because the source RDS DB instance was removed as an authorized
+integration source for the Amazon Redshift data warehouse.
+
+To resolve this issue, delete the zero-ETL integration and create it again on Amazon RDS. For more
+information, see [Creating zero-ETL integrations](../../../AmazonRDS/latest/UserGuide/zero-etl.md "../../../AmazonRDS/latest/UserGuide/zero-etl.md")
+and [Deleting zero-ETL integrations](../../../AmazonRDS/latest/UserGuide/zero-etl.md "../../../AmazonRDS/latest/UserGuide/zero-etl.md").
+
+### Number of tables is more
+
+than 100K or the number of schemas is more than 4950
+
+For a destination data warehouse, the number of tables is more than 100K or the
+number of schemas is more than 4950. Amazon Aurora can't send data to Amazon Redshift. The
+number of tables and schemas exceeds the set limit. To resolve this issue, remove any
+unnecessary schemas or tables from the source database.
+
+### Amazon Redshift can't load
+
+data
+
+Amazon Redshift can't load data to the zero-ETL integration.
+
+To resolve this issue, delete the zero-ETL integration on Amazon RDS and create it again. For more
+information, see [Creating zero-ETL integrations](../../../AmazonRDS/latest/UserGuide/zero-etl.md "../../../AmazonRDS/latest/UserGuide/zero-etl.md")
+and [Deleting zero-ETL integrations](../../../AmazonRDS/latest/UserGuide/zero-etl.md "../../../AmazonRDS/latest/UserGuide/zero-etl.md").
+
+### Workgroup parameter
+
+settings are incorrect
+
+Your workgroup doesn't have case sensitivity turned on.
+
+To resolve this issue, go to the **Properties** tab on the
+integration details page, choose the parameter group, and turn on the case-sensitive
+identifier from the **Properties** tab. If you don't have an
+existing parameter group, create one with the case-sensitive identifier turned on. Then,
+create a new zero-ETL integration on Amazon RDS. For more information, see [Creating
+zero-ETL integrations](../../../AmazonRDS/latest/UserGuide/zero-etl.md "../../../AmazonRDS/latest/UserGuide/zero-etl.md").
+
+### Database isn't created
+
+to activate a zero-ETL integration
+
+There isn't a database created for the zero-ETL integration to activate it.
+
+To resolve this issue, create a database for the integration. For more information,
+see [Creating destination databases in
+Amazon Redshift](zero-etl-using.md "zero-etl-using.md").
+
+### Table is in the \*\*Resync
+
+Required** or **Resync Initiated\*\* state
+
+Your table is in the **Resync Required** or **Resync
+Initiated** state.
+
+To gather more detailed error information about why your table is in that state, use
+the [SYS_LOAD_ERROR_DETAIL](../dg/SYS_LOAD_ERROR_DETAIL.md "../dg/SYS_LOAD_ERROR_DETAIL.md") system view.
+
+Use the following information to troubleshoot common issues with zero-ETL integrations with
+Amazon DynamoDB.
+
+###### Topics
+
+- [Creation of
+  the integration failed](#zero-etl-dynamodb-integrations-troubleshooting-creation "#zero-etl-dynamodb-integrations-troubleshooting-creation")
+- [Unsupported data types in tables](#zero-etl-dynamodb-integrations-troubleshooting-unsupported-data-types "#zero-etl-dynamodb-integrations-troubleshooting-unsupported-data-types")
+- [Unsupported table and attribute names](#zero-etl-dynamodb-integrations-troubleshooting-unsupported-table-names "#zero-etl-dynamodb-integrations-troubleshooting-unsupported-table-names")
+- [Authorization failed](#zero-etl-dynamodb-integrations-troubleshooting-authorization "#zero-etl-dynamodb-integrations-troubleshooting-authorization")
+- [Amazon Redshift
+  can't load data](#zero-etl-dynamodb-integrations-troubleshooting-data-load "#zero-etl-dynamodb-integrations-troubleshooting-data-load")
+- [Workgroup or cluster parameter settings are incorrect](#zero-etl-dynamodb-integrations-troubleshooting-case-sensitive "#zero-etl-dynamodb-integrations-troubleshooting-case-sensitive")
+- [Database
+  isn't created to activate a zero-ETL integration](#zero-etl-dynamodb-integrations-troubleshooting-db-creation "#zero-etl-dynamodb-integrations-troubleshooting-db-creation")
+- [Point-in-time recovery (PITR) is not enabled on source DynamoDB table](#zero-etl-dynamodb-integrations-troubleshooting-pitr-recovery "#zero-etl-dynamodb-integrations-troubleshooting-pitr-recovery")
+- [KMS key access
+  denied](#zero-etl-dynamodb-integrations-troubleshooting-kms-key "#zero-etl-dynamodb-integrations-troubleshooting-kms-key")
+- [Amazon Redshift does
+  not have access to DynamoDB table key](#zero-etl-dynamodb-integrations-troubleshooting-ddb-table-key "#zero-etl-dynamodb-integrations-troubleshooting-ddb-table-key")
+
+### Creation of
+
+the integration failed
+
+If the creation of the zero-ETL integration failed, the status of the integration is
+`Inactive`. Make sure that the following are correct for your Amazon Redshift data
+warehouse and source DynamoDB table:
+
+- Case sensitivity is turned on for your data warehouse. See [Turn on case sensitivity](zero-etl-using.md#zero-etl-setting-up.case-sensitivity "zero-etl-using.md#zero-etl-setting-up.case-sensitivity") in the
+  _Amazon Redshift Management Guide_.
+- You added the correct authorized principal and integration source for your
+  namespace in Amazon Redshift. See [Configure authorization for your Amazon Redshift data warehouse](zero-etl-using.md#zero-etl-using.redshift-iam "zero-etl-using.md#zero-etl-using.redshift-iam") in the
+  _Amazon Redshift Management Guide_.
+- You added the correct resource-based policy to the source DynamoDB table. See
+  [Policies and permissions in IAM](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the
+  _IAM User Guide_.
+
+### Unsupported data types in tables
+
+DynamoDB numbers are translated to DECIMAL(38,10) in Amazon Redshift. Numbers exceeding this
+precision range are automatically transformed to (38,10). Delete the integration and
+unify the number precisions, and then re-create the integration.
+
+### Unsupported table and attribute names
+
+Amazon Redshift supports up to 127 character table and attribute names. If a long name, such as
+the DynamoDB table name or the partition key or sort key column name fails your
+integration, fix it by using a shorter name and re-create the integration.
+
+### Authorization failed
+
+Authorization can fail when the source DynamoDB table is removed as an authorized
+integration source for the Amazon Redshift data warehouse.
+
+To resolve this issue, delete the zero-ETL integration, and re-create it using
+Amazon DynamoDB.
+
+### Amazon Redshift
+
+can't load data
+
+Amazon Redshift can't load data from a zero-ETL integration.
+
+To resolve this issue, refresh the integration with ALTER DATABASE.
+
+```
+ALTER DATABASE `sample_integration_db` INTEGRATION REFRESH ALL TABLES
+```
+
+### Workgroup or cluster parameter settings are incorrect
+
+Your workgroup or cluster doesn't have case sensitivity turned on.
+
+To resolve this issue, go to the **Properties** tab on the
+integration details page, choose the parameter group, and turn on the case-sensitive
+identifier from the **Properties** tab. If you don't have an
+existing parameter group, create one with the case-sensitive identifier turned on. Then,
+create a new zero-ETL integration on DynamoDB. See [Turn on case sensitivity](zero-etl-using.md#zero-etl-setting-up.case-sensitivity "zero-etl-using.md#zero-etl-setting-up.case-sensitivity") in the _Amazon Redshift Management Guide_.
+
+### Database
+
+isn't created to activate a zero-ETL integration
+
+There isn't a database created for the zero-ETL integration to activate it.
+
+To resolve this issue, create a database for the integration. See [Creating destination databases in Amazon Redshift](zero-etl-using.md "zero-etl-using.md") in the
+_Amazon Redshift Management Guide_.
+
+### Point-in-time recovery (PITR) is not enabled on source DynamoDB table
+
+Enabling PITR is required for DynamoDB to export data. Ensure PITR is always enabled.
+If you ever turn off PITR while the integration is active, you’ll need to follow
+instructions in the error message and refresh the integration using ALTER
+DATABASE.
+
+```
+ALTER DATABASE `sample_integration_db` INTEGRATION REFRESH ALL TABLES
+```
+
+### KMS key access
+
+denied
+
+The KMS key used for the source table or integration must be configured with
+sufficient permissions. For information about table encryption and decryption, see
+[DynamoDB encryption at
+rest](../../../amazondynamodb/latest/developerguide/EncryptionAtRest.md "../../../amazondynamodb/latest/developerguide/EncryptionAtRest.md") in the _Amazon DynamoDB Developer Guide_.
+
+### Amazon Redshift does
+
+not have access to DynamoDB table key
+
+If the source table encryption is an AWS managed key, then switch to an
+AWS owned key or customer managed key. If the table is already encrypted with a customer managed key,
+ensure that the policy doesn't have any condition keys.
+
+Use the following information to troubleshoot common issues with zero-ETL integrations with
+applications, such as, Salesforce, SAP, ServiceNow, and Zendesk.
+
+###### Topics
+
+- [Creation of the integration
+  failed](#zero-etl-using.troubleshooting.creation "#zero-etl-using.troubleshooting.creation")
+- [Tables aren't replicating
+  to Amazon Redshift](#zero-etl-using.troubleshooting.primary-key "#zero-etl-using.troubleshooting.primary-key")
+- [Unsupported data types
+  in tables](#zero-etl-using.troubleshooting.unsupported-data "#zero-etl-using.troubleshooting.unsupported-data")
+- [Workgroup parameter
+  settings are incorrect](#zero-etl-using.troubleshooting.case-sensitive "#zero-etl-using.troubleshooting.case-sensitive")
+- [Database isn't created
+  to activate a zero-ETL integration](#zero-etl-using.troubleshooting.db-creation "#zero-etl-using.troubleshooting.db-creation")
+- [Table is in the Resync
+  Required or Resync Initiated state](#zero-etl-using.troubleshooting.resync "#zero-etl-using.troubleshooting.resync")
+
+### Creation of the integration
+
+failed
+
+If the creation of the zero-ETL integration failed, the status of the integration is
+`Inactive`. Make sure that the following are correct for your Amazon Redshift data
+warehouse:
+
+- Case sensitivity is turned on. See [Turn on case sensitivity for your
+  data warehouse](zero-etl-setting-up.md "zero-etl-setting-up.md").
+- You added the correct authorized principal and integration source for your
+  namespace. See [Configure authorization for your Amazon Redshift data
+  warehouse](zero-etl-using.md "zero-etl-using.md").
+
+### Tables aren't replicating
+
+to Amazon Redshift
+
+In the destination database, one or more of the tables don't have a primary key
+and can't be synchronized.
+
+To resolve this issue, go to the **Table statistics** tab on the
+integration details page or use SVV_INTEGRATION_TABLE_STATE to view the failed tables.
+You can add primary keys to the tables and Amazon Redshift will resynchronize the tables. You
+can run the following command to resynchronize them. Replace
+`dbname` with the name of your Amazon Redshift database. And, replace
+`table1` and `table2` with the names
+of the tables to be synchronized.
+
+```
+ALTER DATABASE `dbname` INTEGRATION REFRESH TABLES `table1`, `table2`;
+```
+
+For more information, see [ALTER DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") in the
+_Amazon Redshift Database Developer Guide_.
+
+### Unsupported data types
+
+in tables
+
+In the database that you created from the integration in Amazon Redshift and in which data
+is replicated from zero-ETL integrations with applications, one or more of the tables have
+unsupported data types and can't be synchronized.
+
+To resolve this issue, go to the **Table statistics** tab on the
+integration details page or use SVV_INTEGRATION_TABLE_STATE to view the failed tables.
+Then, remove these tables and recreate new tables at the source. For more information,
+see see [Zero-ETL integrations](../../../glue/latest/dg/zero-etl-using.md "../../../glue/latest/dg/zero-etl-using.md") in the _AWS Glue Developer Guide_.
+
+### Workgroup parameter
+
+settings are incorrect
+
+Your workgroup doesn't have case sensitivity turned on.
+
+To resolve this issue, go to the **Properties** tab on the
+integration details page, choose the parameter group, and turn on the case-sensitive
+identifier from the **Properties** tab. If you don't have an
+existing parameter group, create one with the case-sensitive identifier turned on. Then,
+create a new zero-ETL integration. For more information, see see [Zero-ETL integrations](../../../glue/latest/dg/zero-etl-using.md "../../../glue/latest/dg/zero-etl-using.md") in the
+_AWS Glue Developer Guide_.
+
+### Database isn't created
+
+to activate a zero-ETL integration
+
+There isn't a database created for the zero-ETL integration to activate it.
+
+To resolve this issue, create a database for the integration. For more information,
+see [Creating destination databases in
+Amazon Redshift](zero-etl-using.md "zero-etl-using.md").
+
+### Table is in the \*\*Resync
+
+Required** or **Resync Initiated\*\* state
+
+Your table is in the **Resync Required** or **Resync
+Initiated** state.
+
+To gather more detailed error information about why your table is in that state, use
+the [SYS_LOAD_ERROR_DETAIL](../dg/SYS_LOAD_ERROR_DETAIL.md "../dg/SYS_LOAD_ERROR_DETAIL.md") system view.

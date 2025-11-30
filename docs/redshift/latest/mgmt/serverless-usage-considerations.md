@@ -17,7 +17,7 @@ information, see [Quotas for Amazon Redshift Serverless objects](amazon-redshift
 When you DECLARE a cursor, the result-set size specifications for
 Amazon Redshift Serverless is specified in [DECLARE](../dg/declare.md "../dg/declare.md"). Amazon Redshift Serverless has a cursor maximum total result set size of 150,000 MB.
 
-_Maintenance Window_ – Amazon Redshift Serverless offers automatic
+_Online Patching_ – Amazon Redshift Serverless offers automatic
 software updates without requiring traditional maintenance windows. When a new update is available,
 the system applies it within 14 days of release during idle periods. The update process typically
 takes up to 15 minutes. If no 15-minute idle period occurs within 14 days, your Serverless endpoint
