@@ -1,69 +1,48 @@
-# Step 7: Create and Run Your AWS DMS Migration Task
+# Step 6: Create AWS DMS Source and Target Endpoints
 
-Using an AWS DMS task, you can specify which schema to migrate and the type of migration. You can migrate existing data, migrate existing data and replicate ongoing changes, or replicate data changes only. This walkthrough migrates existing data and replicates ongoing changes.
+While your replication instance is being created, you can specify the source and target database endpoints using the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"). However, you can only test connectivity after the replication instance has been created, because the replication instance is used in the connection.
 
-1. On the **Create Task** page, specify the task options. The following table describes the settings.
+1. Sign in to the AWS Management Console, open the [AWS DMS console](https://console.aws.amazon.com/dms/v2 "https://console.aws.amazon.com/dms/v2"), and then choose **Endpoints**.
+2. Specify your connection information for the source Oracle database and the target PostgreSQL database. The following table describes the source settings.
 
-| Parameter                | Description                                                                                                                             |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| **Task name**            | Enter a name for the migration task.                                                                                                    |
-| **Task description**     | Enter a description for the task.                                                                                                       |
-| **Source endpoint**      | Shows the Oracle source endpoint.<br>If you have more than one endpoint in the account, then choose the correct endpoint from the list. |
-| **Target endpoint**      | Shows the PostgreSQL target endpoint.                                                                                                   |
-| **Replication instance** | Shows the AWS DMS replication instance.                                                                                                 |
-| **Migration type**       | Choose **Migrate existing data and replicate ongoing changes**.                                                                         |
-| **Start task on create** | Select this option.                                                                                                                     |
+| Parameter               | Description                                                                        |
+| ----------------------- | ---------------------------------------------------------------------------------- |
+| **Endpoint Identifier** | Enter a name, such as `Orasource`.                                                 |
+| **Source Engine**       | Choose **oracle**.                                                                 |
+| **Server name**         | Provide the Oracle DB instance server name.                                        |
+| **Port**                | The port of the database. The default for Oracle is `1521`.                        |
+| **SSL mode**            | Choose an SSL mode if you want to enable encryption for your connection’s traffic. |
+| **Username**            | The user you want to use to connect to the source database.                        |
+| **Password**            | Provide the password for the user.                                                 |
+| **SID**                 | Provide the Oracle database name.                                                  |
 
-The page should look like the following:
+The following table describes the advanced source settings.
 
-![Create task page](images/sbs-rdsor2postgressql23.png) 2. Under **Task Settings**, choose **Do nothing** or **Truncate** for **Target table preparation mode**, because you have already created the tables using the AWS Schema Conversion Tool.
+| Parameter                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Extra connection attributes** | Extra parameters that you can set in an endpoint to add functionality or change the behavior of AWS DMS. Some of the most common and convenient parameters to set for an Oracle source database are the following. Separate multiple entries from each other by using a semi-colon (;).<br>• `addSupplementalLogging` - This parameter automatically configures supplemental logging when set to `Y`.<br>• `useLogminerReader` - By default, AWS DMS uses LogMiner on the Oracle database to capture all of the changes on the source database. The other mode is called Binary Reader. When using Binary Reader instead of LogMiner, AWS DMS copies the archived redo log from the source Oracle database to the replication server and reads the entire log in order to capture changes. The Binary Reader option is recommended if you are using ASM since it has performance advantages over LogMiner on ASM. If your source database is 12c, then the Binary Reader option is currently the only way to capture CDC changes in Oracle for LOB objects.<br>To use LogMiner, enter the following:<br>`useLogminerReader=Y`<br>To use Binary Reader, enter the following:<br>`useLogminerReader=N; useBfile=Y`` |
+| **KMS key**                     | Enter the KMS key if you choose to encrypt your replication instance’s storage.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-If the Oracle database has LOBs, then for **Include LOB columns in replication**, select **Full LOB mode** if you want to replicate the entire LOB for all tables. Select **Limited LOB mode** if you want to replicate the LOBs only up to a certain size. You specify the size of the LOB to migrate in **Max LOB size (kb)**.
+For information about extra connection attributes, see [Using Extra Connection Attributes](../userguide/CHAP_Introduction.md "../userguide/CHAP_Introduction.md").
 
-It is best to select **Enable logging**. If you enable logging, then you can see any errors or warnings that the task encounters, and you can troubleshoot those issues.
+The following table describes the target settings.
 
-![Task Settings section](images/sbs-rdsor2postgresql23.5.png) 3. Leave the Advanced settings at their default values. 4. Choose **Table mappings**, and select the **JSON** tab. Next, select **Enable JSON editing**, and enter the table mappings you saved in the last step in [Step 4: Convert the Oracle Schema to PostgreSQL](chap-rdsoracle2postgresql.steps.md "chap-rdsoracle2postgresql.steps.md").
+| Parameter               | Description                                                     |
+| ----------------------- | --------------------------------------------------------------- |
+| **Endpoint Identifier** | Enter a name, such as `Postgrestarget`.                         |
+| **Target Engine**       | Choose **postgres**.                                            |
+| **Servername**          | Provide the PostgreSQL DB instance server name.                 |
+| **Port**                | The port of the database. The default for PostgreSQL is `5432`. |
+| **SSL mode**            | Choose **None**.                                                |
+| **Username**            | The user you want to use to connect to the target database.     |
+| **Password**            | Provide the password for the PostgreSQL DB instance.            |
 
-The following is an example of mappings that convert schema names and table names to lowercase.
+The following is an example of the completed page.
 
-```
-{
-  "rules": [
-    {
-      "rule-type": "transformation",
-      "rule-id": "100000",
-      "rule-name": "Default Lowercase Table Rule",
-      "rule-action": "convert-lowercase",
-      "rule-target": "table",
-      "object-locator": {
-        "schema-name": "%",
-        "table-name": "%"
-      }
-    },
-    {
-      "rule-type": "transformation",
-      "rule-id": "100001",
-      "rule-name": "Default Lowercase Schema Rule",
-      "rule-action": "convert-lowercase",
-      "rule-target": "schema",
-      "object-locator": {
-        "schema-name": "%"
-      }
-    }
-  ]
-}
-```
+![Completed replication task connections page](images/sbs-rdsor2postgressql19.5.png) 3. After the endpoints and replication instance have been created, test each endpoint connection by choosing **Run test** for the source and target endpoints. 4. Drop foreign key constraints and triggers on the target database.
 
-5. Choose **Create task**. The task will begin immediately.
-   The Tasks section shows you the status of the migration task.
+During the full load process, AWS DMS does not load tables in any particular order, so it may load the child table data before parent table data. As a result, foreign key constraints might be violated if they are enabled. Also, if triggers are present on the target database, then it may change data loaded by AWS DMS in unexpected ways. 5. If you do not have one, then generate a script that enables the foreign key constraints and triggers.
 
-![Migration task status](images/sbs-rdsor2postgressql25.png)
-You can monitor your task if you chose **Enable logging** when you set up your task. You can then view the CloudWatch metrics by doing the following:
+Later, when you want to add them to your migrated database, you can just run this script. 6. (Optional) Drop secondary indexes on the target database.
 
-1. On the navigation pane, choose **Tasks**.
-2. Choose your migration task.
-3. Choose the **Task monitoring** tab, and monitor the task in progress on that tab.
-
-When the full load is complete and cached changes are applied, the task will stop on its own. 4. On the target PostgreSQL database, enable foreign key constraints and triggers using the script you saved previously. 5. On the target PostgreSQL database, re-create the secondary indexes if you removed them previously. 6. In the AWS DMS console, start the AWS DMS task by clicking **Start/Resume** for the task.
-
-The AWS DMS task keeps the target PostgreSQL database up-to-date with source database changes. AWS DMS will keep all of the tables in the task up-to-date until it is time to implement the application migration. The latency will be zero, or close to zero, when the target has caught up to the source.
+Secondary indexes (as with all indexes) can slow down the full load of data into tables since they need to be maintained and updated during the loading process. Dropping them can improve the performance of your full load process. If you drop the indexes, then you will need to add them back later after the full load is complete. 7. Choose **Next**.

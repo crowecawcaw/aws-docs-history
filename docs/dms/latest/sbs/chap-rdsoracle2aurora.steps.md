@@ -1,35 +1,110 @@
-# Step 10: Verify That Your Data Migration Completed Successfully
+# Step 3: Test Connectivity to the Oracle DB Instance and Create the Sample Schema
 
-When the migration task completes, you can compare your task results with the expected results.
+After the AWS CloudFormation stack has been created, test the connection to the Oracle DB instance by using SQL Workbench/J and then create the **HR** sample schema.
 
-1. On the navigation pane, choose **Tasks**.
-2. Choose your migration task (`migratehrschema`).
-3. Choose the **Table statistics** tab, shown following.
+To test the connection to your Oracle DB instance and create the sample schema, do the following:
 
-![Table statistics tab](images/sbs-rdsor2aurora26.png) 4. Connect to the Amazon Aurora MySQL instance by using SQL Workbench/J, and then check if the database tables were successfully migrated from Oracle to Aurora MySQL by running the SQL script shown following.
+1. In SQL Workbench/J, choose **File**, then choose **Connect window**. Create a new connection profile using the following information as shown following
+
+| For This Parameter        | Do This                                                                                                                                      |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| \*_New profile_<br>• name | Enter `RDSOracleConnection`.                                                                                                                 |
+| **Driver**                | Choose `Oracle (oracle.jdbc.OracleDriver)`.                                                                                                  |
+| **URL**                   | Use the \*_OracleJDBCConnectionString_<br>• value you recorded when you examined the output details of the DMSdemo stack in a previous step. |
+| **Username**              | Enter `oraadmin`.                                                                                                                            |
+| **Password**              | Provide the password for the admin user that you assigned when creating the Oracle DB instance using the AWS CloudFormation template.        |
+
+2. To test the connection, choose **Test**. Choose **OK** to close the dialog box, then choose **OK** to create the connection profile.
+
+![Connecting to the Oracle DB instance](images/sbs-rdsor2aurora9.png)
+
+###### Note
+
+If your connection is unsuccessful, ensure that the IP address you assigned when creating the AWS CloudFormation template is the one you are attempting to connect from. This is the most common issue when trying to connect to an instance. 3. Create the HR schema you will use for migration using a custom SQL script (Oracle-HR-Schema-Build.sql). To obtain this script, do the following:
+
+    1. Download the following archive to your computer: [`dms-sbs-RDSOracle2Aurora.zip`](samples/dms-sbs-RDSOracle2Aurora.md "samples/dms-sbs-RDSOracle2Aurora.md").
+    2. Extract the SQL script(`Oracle-HR-Schema-Build.sql`) from the archive.
+    3. Copy and paste the `Oracle-HR-Schema-Build.sql` file into your current directory.
+
+4. Open the provided SQL script in a text editor. Copy the entire script.
+5. In SQL Workbench/J, paste the SQL script in the Default.wksp window showing **Statement 1**.
+6. Choose **SQL**, then choose **Execute All**.
+
+When you run the script, you will get an error message indicating that user **HR** does not exist. You can ignore this error and run the script. The script drops the user before creating it, which generates the error. 7. Verify the object types and count in **HR** Schema were created successfully by running the following SQL query.
 
 ```
-SELECT TABLE_NAME,TABLE_ROWS
-    FROM INFORMATION_SCHEMA.TABLES
-    WHERE TABLE_SCHEMA = 'HR' and TABLE_TYPE='BASE TABLE' order by 1;
+Select OBJECT_TYPE, COUNT(*) from dba_OBJECTS where owner='HR'
+GROUP BY OBJECT_TYPE;
 ```
 
-![Table statistics tab](images/sbs-rdsor2aurora27.png) 5. Run the following query to check the relationship in tables; this query checks the departments with employees greater than 10.
+The results of this query should be similar to the following:
 
 ```
-SELECT B.DEPARTMENT_NAME,COUNT(*)
-  FROM HR.EMPLOYEES A,HR.DEPARTMENTS B
-  WHERE A.DEPARTMENT_ID=B.DEPARTMENT_ID
-  GROUP BY B.DEPARTMENT_NAME HAVING COUNT(*) > 10
-  ORDER BY 1;
+OBJECT_TYPE    COUNT(*)
+INDEX          8
+PROCEDURE      2
+SEQUENCE       3
+TABLE          7
+VIEW           1
 ```
 
-The output from this query should be similar to the following.
+8. Verify the number of constraints in the **HR** schema by running the following SQL query:
 
 ```
-department_name	count(*)
+Select CONSTRAINT_TYPE,COUNT(*) from dba_constraints  where owner='HR'
+	AND (CONSTRAINT_TYPE IN ('P','R')OR SEARCH_CONDITION_VC NOT LIKE '%NOT NULL%')
+	GROUP BY CONSTRAINT_TYPE;
+```
+
+The results of this query should be similar to the following:
+
+```
+CONSTRAINT_TYPE	COUNT(*)
+	R	         10
+	P	          7
+	C	          1
+```
+
+9. Analyze the **HR** schema by running the following:
+
+```
+BEGIN
+    dbms_stats.gather_schema_stats('HR');
+END;
+/
+```
+
+10. Verify the total number of tables and number of rows for each table by running the following SQL query:
+
+```
+SELECT table_name, num_rows from dba_tables where owner='HR'  order by 1;
+```
+
+The results of this query should be similar to the following:
+
+```
+TABLE_NAME      NUM_ROWS
+COUNTRIES        25
+DEPARTMENTS      27
+EMPLOYEES       107
+JOBS             19
+JOB_HISTORY      10
+LOCATIONS        23
+REGIONS           4
+```
+
+11. Verify the relationships of the tables. Check the departments with employees greater than 10 by running the following SQL query:
+
+```
+Select b.department_name,count(*) from HR.Employees a,HR.departments b where a.department_id=b.department_id
+group by b.department_name having count(*) > 10
+order by 1;
+```
+
+The results of this query should be similar to the following:
+
+```
+DEPARTMENT_NAME      COUNT(*)
 Sales                34
 Shipping             45
 ```
-
-Now you have successfully completed a database migration from an Amazon RDS for Oracle database instance to Amazon Aurora MySQL.

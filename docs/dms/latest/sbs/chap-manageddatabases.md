@@ -1,12 +1,25 @@
-# Migrate PostgreSQL database with AWS DMS ongoing replication
+# Full load SQL Server database migration options performance comparison
 
-After you complete the full load, make sure that you perform ongoing replication using AWS DMS to keep the source and target databases in sync. To configure the ongoing replication task, open the Database Migration Service console. On the **Create database migration task** page, follow these steps to create a migration task.
+To compare the full load migration performance for all three methods, we used a test environment. In this environment, we populated the `dms_sample` database with 410.90 GB of data. We used the same on-premise SQL Server source and RDS SQL Server target databases to load data three times. For these data loads, we used the following methods:
 
-1. For **Migration type**, choose **Replicate ongoing changes**.
-2. Under **CDC start mode for source transactions**, choose **Enable custom CDC start mode**.
-3. Under **Custom CDC start point**, paste the native start point you captured when you prepared for ongoing replication. For more information, see [Preparing for Ongoing Replication](chap-manageddatabases.md "chap-manageddatabases.md").
+- Backup and restore.
+- Import and export wizard.
+- Generate and publish scripts wizard and bulk copy program utility (bcp).
+  The following image represents the performance comparison of the three migration methods. We expect similar performance trends for larger datasets.
 
-###### Note
+![performance comparison of the three migration methods](images/sql-server-rds-sql-server-performance.png)
+The elapsed time shown in the diagram is the actual migration time. It doesn’t include the time spent on implementing prerequisites.
 
-PostgreSQL as a source doesn’t support a custom CDC start time. This is because the PostgreSQL database engine doesn’t have a way to map a timestamp to an LSN or SCN as Oracle and SQL Server do.
-For more information, see [Creating tasks for ongoing replication](../userguide/CHAP_Task.md "../userguide/CHAP_Task.md") and [Migrate from PostgreSQL to Amazon RDS](https://aws.amazon.com/getting-started/hands-on/move-to-managed/migrate-postgresql-to-amazon-rds/ "https://aws.amazon.com/getting-started/hands-on/move-to-managed/migrate-postgresql-to-amazon-rds/").
+For the backup and restore method, we spent 4.24 hours. This time includes:
+
+- 1.66 hours to backup the database.
+- 1.75 hours to copy the data from backup location to Amazon S3.
+- 0.88 hours to restore the data from the S3 bucket to Amazon RDS for SQL Server.
+  For the import and export wizard, we spent 8.58 hours.
+
+For the bcp method, we spent 199 hours. This time includes:
+
+- 0.01 hours to generate scripts.
+- 0.01 hours to run the generated script on Amazon RDS for SQL Server.
+- 27.88 hours to run the bcp statements for unloading data from on-premise SQL Server.
+- 171.1 hours to run the bcp statements for loading data into Amazon RDS for SQL Server.

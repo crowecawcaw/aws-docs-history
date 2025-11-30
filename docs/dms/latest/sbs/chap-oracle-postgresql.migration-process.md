@@ -1,55 +1,36 @@
-# Oracle database migration testing and bug fixing
+# Database migration script/ETL/report conversion
 
-Testing can be manual or automated. We recommend that you use an automated framework for testing. During migration, you will need to run the test multiple times, so having an automated testing framework helps speed up the bug fixing and optimization cycles.
+ETL is an acronym that stands for Extract, Transform and Load. The ETL process plays a central role in data integration strategies. ETL allows businesses to gather data from multiple sources and consolidate it into a single, centralized location. ETL also makes it possible for different types of data to work together.
 
-## Unit Testing
+ELT is similar to ETL. However, the primary difference between them is that the data transformation processes occur after the Raw data from the source have been extracted and loaded into a staging area. The transformation of the data may occur in the destination database or in the middle tier or via serverless tools that might reduce the cost of the data processing.
 
-Unit testing at the data level after migration can range from comparing every last bit of data in source and target by comparing extracted CSV files, but more realistically, custom aggregation queries should be constructed to incorporate large amounts of the migrated data and compare the results.
+Transforming the data is a critical process that may provide significant value to the data. It’s also the stage where the data could be cleansed, standardized, deduplicated, verified, sorted, shared, and much more.
 
-Unit tests validate individual units of your code, independent from any other components. Unit tests check the smallest unit of functionality and should have few reasons to fail.
+The role of ELT or ETL in database migration projects is critical for any successful migration.
 
-Database objects need to be validated after migrating the DDL of an Oracle database to PostgreSQL. Database objects includes packages, tables, views, sequences, triggers, primary and foreign keys, indexes, constraints.
+For the remainder of this document, ETL will also refer to ELT patterns.
 
-A typical way to perform unit testing on the converted database is to script out calls to stored procedures and functions and compare the returned data with external tools such as standard Linux/Unix tooling of diff.
+ETL can be implemented in the database itself, in external scripts or in third-party tools such as Informatica, Talend, and so on. If the ETL is done using Oracle stored procedure, the freely available AWS Schema Conversion Tool (AWS SCT) is capable of converting the ETL code to AWS Glue. For more information, see [Automation](chap-oracle-postgresql.md#chap-oracle-postgresql.automation "chap-oracle-postgresql.md#chap-oracle-postgresql.automation").
 
-The application needs to be validated with new and existing test case scenarios based on documented changes on database objects such as field names, types, minimum and maximum values, length, mandatory fields, field level validations etc.
+## Process for Conversion to AWS Glue
 
-## Functional Testing
+If Python/Glue is a desired future state architecture for ETL code, and the ETL is implemented in the database, the conversion process works like this:
 
-Functional testing of the application is done by exercising user stories and comparing the results on the source and target system. This is typically a manual process, but third-party tools do exist to make automated regression tests of the UI (e.g. Selenium).
+1. Perform the database conversion. This is necessary because the PL/SQL conversion needs to know the schema of the database. For more information, see [Database Schema Conversion](chap-oracle-postgresql.migration-process.md "chap-oracle-postgresql.migration-process.md").
+2. Run AWS SCT, select the code involved in ETL and automatically convert the ETL code to AWS Glue. For more information, see [Converting ETL processes](../../../SchemaConversionTool/latest/userguide/CHAP-converting-aws-glue.md "../../../SchemaConversionTool/latest/userguide/CHAP-converting-aws-glue.md").
+3. Fix any warnings and errors in the ETL code conversion.
 
-Functional testing of the database is largely done through the application, but there may be additional direct database use cases that can only be done directly on the database such as ETL for imports and extracts. In these cases, the data can be compared automatically before and after using standard Linux/Unix tooling like diff on extracted CSV files for example.
+## Process for Conversion of Stored Procedures
 
-Functional testing of reports involve visual inspection to see that all fields are correctly displayed and comparison of the semantic values between the old and the new reports.
+If ETL or report process is implemented in the database, then the database conversion takes care of converting the code, and only the method to call the stored procedures need to change.
 
-## Load Testing
+## Process for Conversion of Scripts, Reports, and Third-Party ETL
 
-In order to stress the migrated system and test its performance you may perform load testing which is typically done on a system that is scaled the same as production and requires a means of simulating load on the system. It is sometimes limited to running specific well-known expensive operations rather than user traffic.
+If the ETL or Report code is available in scripts or hosted in third-party tools and those tools will be used in the future, then a custom process will have to be implemented:
 
-## Standard Operating Procedures
-
-Standard Operating Procedures (SOP) may be affected by a migration of database application. Database management procedures change when going to PostgreSQL and some procedures may be unnecessary when going to the highly managed Aurora PostgreSQL.
-
-In any case, all existing operational procedures need to be tested and their language updated to reflect the new environment. For more information, see [Managing Amazon Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md").
-
-## Monitoring
-
-Monitoring of the database will be affected by the migration and some metrics may change which could affect how SLA is monitored. The way operational staff go from detecting a problem to diving into the underlying details may be affected. For more information, see [Monitor Amazon RDS for PostgreSQL and Amazon Aurora for PostgreSQL database log errors and set up notifications using Amazon CloudWatch](https://aws.amazon.com/blogs/database/monitor-amazon-rds-for-postgresql-and-amazon-aurora-for-postgresql-database-log-errors-and-set-up-notifications-using-amazon-cloudwatch/ "https://aws.amazon.com/blogs/database/monitor-amazon-rds-for-postgresql-and-amazon-aurora-for-postgresql-database-log-errors-and-set-up-notifications-using-amazon-cloudwatch/").
-
-## Cutover
-
-Cutover procedures are the planned event where everything goes the way you want, but it still needs to be tested.
-
-## Fallback
-
-Fallback is when you have both old and new systems in sync with the new one operating as primary and you decide to switch back to the original which is still in sync.
-
-## Rolling back the Oracle database migration to PostgreSQL
-
-Rollback is usually the scenario when you don’t have an ongoing replication mechanism to keep old and new in sync, so in the event of a no-go decision during the cutover, you abandon the new system and go back to the original.
-
-## Migrate Back
-
-In some rare cases, you may decide to include the option of migrating production from the new system back to the old system after having the cutover. If you include this scenario, it must be tested.
-
-For more information, see [Testing Amazon Aurora PostgreSQL by using fault injection queries](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Managing.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Managing.md"), [Automate benchmark tests for Amazon Aurora PostgreSQL](https://aws.amazon.com/blogs/database/automate-benchmark-tests-for-amazon-aurora-postgresql/ "https://aws.amazon.com/blogs/database/automate-benchmark-tests-for-amazon-aurora-postgresql/"), [Validating database objects after migration](https://aws.amazon.com/blogs/database/validating-database-objects-after-migration-using-aws-sct-and-aws-dms/ "https://aws.amazon.com/blogs/database/validating-database-objects-after-migration-using-aws-sct-and-aws-dms/"), and [Validate database objects after migrating from Oracle to Amazon Aurora PostgreSQL](../../../prescriptive-guidance/latest/patterns/validate-database-objects-after-migrating-from-oracle-to-amazon-aurora-postgresql.md "../../../prescriptive-guidance/latest/patterns/validate-database-objects-after-migrating-from-oracle-to-amazon-aurora-postgresql.md").
+1. Perform the database conversion. This is necessary because the PL/SQL conversion needs to know the schema of the database. For more information, see [Database Schema Conversion](chap-oracle-postgresql.migration-process.md "chap-oracle-postgresql.migration-process.md").
+2. Extract PL/SQL statements from the third-party ETL or reporting tool into flat files, unless already available.
+3. Write YAML configuration files for AWS SCT CLI to convert external files.
+4. Run AWS SCT CLI on the external scripts using the YAML configuration files. For more information, see [AWS Schema Conversion Tool CLI and Interactive Mode Reference](https://s3.amazonaws.com/publicsctdownload/AWS+SCT+CLI+Reference.pdf "https://s3.amazonaws.com/publicsctdownload/AWS+SCT+CLI+Reference.pdf").
+5. Fix any warnings and errors in the ETL or report code conversion.
+6. Insert the converted PL/pgSQL code back into the third-party ETL or reporting tool, unless they stay as flat files.

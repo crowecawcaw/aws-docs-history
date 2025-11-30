@@ -1,92 +1,46 @@
-# Create source and target endpoints for MongoDB migration
+# Create and run a MongoDB migration task
 
-The source endpoint is the endpoint for your MongoDB installation running on your Amazon EC2 instance.
+You are now ready to launch an AWS DMS migration task, to migrate the `zips` data from MongoDB to Amazon DocumentDB.
 
 1.  Open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
-2.  In the navigation pane, choose **Endpoints**.
-3.  Choose **Create endpoint** and enter the following information:
+2.  In the navigation pane, choose **Database migration tasks**.
+3.  Choose **Create task** and enter the following information:
 
-        * For **Endpoint type**, choose **Source**.
-        * For **Endpoint identifier**, enter a name that’s easy to remember, for example `mongodb-source`.
-        * For **Source engine**, choose **mongodb**.
-        * For **Server name**, enter the public DNS name of your Amazon EC2 instance, for example `ec2-11-22-33-44.us-west-2.compute.amazonaws.com`.
-        * For **Port**, enter `27017`.
-        * For **SSL mode**, choose **none**.
-        * For **Authentication mode**, choose **none**.
-        * For **Database name**, enter `zips-db`.
-        * For **Authentication mechanism**, choose **default**.
-        * For **Metadata mode**, choose **document**.
-
-
-        When the settings are as you want them, choose **Create endpoint**.
-
-    Next, you create a target endpoint. This endpoint is for your Amazon DocumentDB cluster, which should already be running. For more information about launching your Amazon DocumentDB cluster, see [Getting started](../../../documentdb/latest/developerguide/getting-started.md "../../../documentdb/latest/developerguide/getting-started.md") in the _Amazon DocumentDB Developer Guide._
-
-###### Important
-
-Before you proceed, do the following:
-
-- Create indexes on your Amazon DocumentDB cluster before you begin migration because it can reduce the overall time and increase the speed of the migration. To extract indexes from a running MongoDB instance, you can use the [Amazon DocumentDB Index Tool](https://github.com/awslabs/amazon-documentdb-tools "https://github.com/awslabs/amazon-documentdb-tools").
-- Get the master user name and password for your Amazon DocumentDB cluster.
-- Get the DNS name and port number of your Amazon DocumentDB cluster, so that AWS DMS can connect to it. To determine this information, use the following AWS CLI command, replacing `cluster-id` with the name of your Amazon DocumentDB cluster.
-
-```
-aws docdb describe-db-clusters \
-    --db-cluster-identifier cluster-id \
-    --query "DBClusters[*].[Endpoint,Port]"
-```
-
-- Download a certificate bundle that Amazon DocumentDB can use to verify SSL connections. To do this, enter the following command. Here, `aws-api-domain` completes the Amazon S3 domain in your AWS Region required to access the specified S3 bucket and the `rds-combined-ca-bundle.pem` file that it provides.
-
-```
-wget https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
-```
-
-To create a target endpoint, do the following:
-
-1.  In the navigation pane, choose **Endpoints**.
-2.  Choose **Create endpoint** and enter the following information:
-
-        * For **Endpoint type**, choose **Target**.
-        * For **Endpoint identifier**, enter a name that’s easy to remember, for example `docdb-target`.
-        * For **Target engine**, choose **docdb**.
-        * For **Server name**, enter the DNS name of your Amazon DocumentDB cluster.
-        * For **Port**, enter the port number of your Amazon DocumentDB cluster.
-        * For **SSL mode**, choose **verify-full**.
-        * For **CA certificate**, do one of the following to attach the SSL certificate to your endpoint:
+        * For **Task configuration**, choose the following settings:
 
 
 
 
-        	+ If available, choose the existing **rds-combined-ca-bundle** certificate from the **Choose a certificate** drop down.
-        	+ Choose **Add new CA certificate**. Then, for **Certificate identifier**, enter `rds-combined-ca-bundle`. For **Import certificate file**, choose **Choose file** and navigate to the `rds-combined-ca-bundle.pem` file that you previously downloaded. Select and open the file. Choose **Import certificate**, then choose **rds-combined-ca-bundle** from the **Choose a certificate** drop down.
-        * For **User name**, enter the master user name of your Amazon DocumentDB cluster.
-        * For **Password**, enter the master password of your Amazon DocumentDB cluster.
-        * For **Database name**, enter `zips-db`.
+        	+ **Task identifier** — enter a name that’s easy to remember, for example `my-dms-task`.
+        	+ **Replication instance** — choose the replication instance that you created in [Create a replication instance](chap-mongodb2documentdb.md "chap-mongodb2documentdb.md").
+        	+ **Source database endpoint** — choose the source endpoint that you created in [Create source and target endpoints](chap-mongodb2documentdb.md "chap-mongodb2documentdb.md").
+        	+ **Target database endpoint** — choose the target endpoint that you created in [Create source and target endpoints](chap-mongodb2documentdb.md "chap-mongodb2documentdb.md").
+        	+ **Migration type** — choose **Migrate existing data**.
+        * For **Task settings**, choose the following settings:
 
 
-        When the settings are as you want them, choose **Create endpoint**.
 
-    Now that you’ve created the source and target endpoints, test them to ensure that they work correctly. Also, to ensure that AWS DMS can access the database objects at each endpoint, refresh the endpoints' schemas.
 
-To test an endpoint, do the following:
+        	+ **Target table preparation mode** — Do nothing
+        	+ **Include LOB columns in replication** — Limited LOB mode
+        	+ **Maximum LOB size (KB)** — 32
+        	+ **Enable validation**
+        	+ **Enable CloudWatch logs**
 
-1. In the navigation pane, choose **Endpoints**.
-2. Choose the source endpoint (`mongodb-source`), and then choose **Test connection**.
-3. Choose your replication instance (`mongodb2docdb`), and then choose **Run test**. It takes a few minutes for the test to complete, and for the **Status** to change to **successful**.
 
-If the **Status** changes to **failed** instead, review the failure message. Correct any errors that might be present, and test the endpoint again.
+
+        	###### Note
+
+        	CloudWatch logs usage will be charged at standard rates. See [here](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/") for more details.
+        * For **Advanced task settings**, keep all of the options at their default values.
+        * For **Premigration assessment**, keep the option at its default value.
+        * For **Start migration task** in **Migration task startup configuration**, choose **Automatically on create**.
+        * For **Tags**, keep all of the options at their default values.
+
+    When the settings are as you want them, choose **Create task**.
+
+AWS DMS now begins migrating data from MongoDB to Amazon DocumentDB. The task status changes from **Starting** to **Running**. You can monitor the progress by choosing **Tasks** in the AWS DMS console. After several minutes, the status changes to **Load complete**.
 
 ###### Note
 
-Repeat this procedure for the target endpoint (`docdb-target`).
-
-To refresh schemas, do the following:
-
-1. In the navigation pane, choose **Endpoints**.
-2. Choose the source endpoint (`mongodb-source`), and then choose **Refresh schemas**.
-3. Choose your replication instance (`mongodb2docdb`), and then choose **Refresh schemas**.
-
-###### Note
-
-Repeat this procedure for the target endpoint (`docdb-target`).
+After the migration is complete, you can use the mongo shell to connect to your Amazon DocumentDB cluster and view the `zips` data. For more information, see [Access your Amazon DocumentDB cluster using the mongo shell](../../../documentdb/latest/developerguide/getting-started.md "../../../documentdb/latest/developerguide/getting-started.md") in the _Amazon DocumentDB Developer Guide._
