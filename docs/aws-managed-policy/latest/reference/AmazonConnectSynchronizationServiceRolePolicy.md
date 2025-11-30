@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: October 27, 2023, 22:38 UTC
-- **Edited time:** November 12, 2024, 22:22 UTC
+- **Edited time:** November 21, 2025, 20:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonConnectSynchronizationServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -37,15 +37,20 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "connect:Create*",
+        "connect:BatchCreate*",
         "connect:Update*",
+        "connect:BatchUpdate*",
         "connect:Delete*",
+        "connect:BatchDelete*",
         "connect:Describe*",
+        "connect:BatchDescribe*",
         "connect:List*",
         "connect:Search*",
         "connect:Associate*",
         "connect:Disassociate*",
         "connect:Get*",
         "connect:BatchGet*",
+        "connect:Import*",
         "connect:TagResource",
         "connect:UntagResource"
       ],

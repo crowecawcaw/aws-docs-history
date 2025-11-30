@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: September 29, 2025, 22:49 UTC
-- **Edited time:** September 29, 2025, 22:49 UTC
+- **Edited time:** November 21, 2025, 23:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSTransformApplicationECSDeploymentPolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -164,7 +164,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
     },
     {
       "Effect" : "Allow",
-      "Action" : "iam:GetRole",
+      "Action" : [
+        "iam:GetRole",
+        "iam:GetRolePolicy",
+        "iam:ListRolePolicies",
+        "iam:ListAttachedRolePolicies"
+      ],
       "Resource" : [
         "arn:aws:iam::*:role/AWSTransform-Deploy-ECS-Task-Role",
         "arn:aws:iam::*:role/AWSTransform-Deploy-ECS-Execution-Role"
@@ -319,6 +324,46 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "logs:ListTagsForResource"
       ],
       "Resource" : "*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:CreateServiceLinkedRole"
+      ],
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : "ecs.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:CreateGrant"
+      ],
+      "Resource" : "arn:aws:kms:*:*:key/*",
+      "Condition" : {
+        "Bool" : {
+          "kms:GrantIsForAWSResource" : "true"
+        },
+        "StringLike" : {
+          "kms:ViaService" : [
+            "ecr.*.amazonaws.com"
+          ],
+          "kms:EncryptionContext:aws:ecr:arn" : "*"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "kms:GrantConstraintType" : "EncryptionContextSubset"
+        },
+        "ForAllValues:StringEquals" : {
+          "kms:GrantOperations" : [
+            "Decrypt",
+            "GenerateDataKey"
+          ]
+        }
+      }
     }
   ]
 }

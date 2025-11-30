@@ -1,26 +1,26 @@
-# AmazonS3TablesFullAccess
+# AWSMcpServiceActionsFullAccess
 
-**Description**: Provides full access to all S3 table buckets.
+**Description**: Provides full access to all MCP service actions. This policy does not grant access to the actions taken by the MCP, only the MCP actions themselves.
 
-`AmazonS3TablesFullAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AWSMcpServiceActionsFullAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `AmazonS3TablesFullAccess` to your users, groups, and roles.
+You can attach `AWSMcpServiceActionsFullAccess` to your users, groups, and roles.
 
 ## Policy
 
 details
 
 - **Type**: AWS managed policy
-- **Creation time**: December 03, 2024, 15:21 UTC
-- **Edited time:** November 22, 2025, 01:04 UTC
+- **Creation time**: November 21, 2025, 22:49 UTC
+- **Edited time:** November 21, 2025, 22:49 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/AmazonS3TablesFullAccess`
+  `arn:aws:iam::aws:policy/AWSMcpServiceActionsFullAccess`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -32,24 +32,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
+      "Sid" : "AllowAllMCPServiceActions",
       "Effect" : "Allow",
-      "Action" : [
-        "s3tables:*"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "PassRoleToS3TablesReplication",
-      "Effect" : "Allow",
-      "Action" : [
-        "iam:PassRole"
-      ],
+      "Action" : "*",
       "Resource" : "*",
       "Condition" : {
-        "StringEquals" : {
-          "iam:PassedToService" : [
-            "replication.s3tables.amazonaws.com"
-          ]
+        "Bool" : {
+          "aws:IsMcpServiceAction" : "true"
         }
       }
     }

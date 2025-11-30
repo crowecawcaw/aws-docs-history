@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: August 28, 2025, 06:34 UTC
-- **Edited time:** September 29, 2025, 22:19 UTC
+- **Edited time:** November 21, 2025, 23:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSTransformApplicationDeploymentPolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -93,7 +93,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeSubnets",
         "ec2:DescribeSecurityGroups",
         "ec2:DescribeImages",
-        "ec2:DescribeInstances"
+        "ec2:DescribeInstances",
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeInternetGateways"
       ],
       "Resource" : "*"
     },
@@ -173,7 +175,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "iam:GetRole",
-        "iam:GetInstanceProfile"
+        "iam:GetInstanceProfile",
+        "iam:GetRolePolicy",
+        "iam:ListRolePolicies",
+        "iam:ListAttachedRolePolicies"
       ],
       "Condition" : {
         "StringEquals" : {
@@ -264,6 +269,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
     {
       "Effect" : "Allow",
       "Action" : [
+        "s3:GetBucketLocation",
         "s3:PutObject",
         "s3:ListMultipartUploadParts",
         "s3:ListBucketMultipartUploads",
@@ -274,6 +280,88 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:s3:::aws-transform-deployment-bucket-*",
         "arn:aws:s3:::aws-transform-deployment-bucket-*/*"
       ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:ListAllMyBuckets"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+      ],
+      "Resource" : "arn:aws:kms:*:*:key/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/CreatedFor" : "AWSTransform",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        },
+        "StringLike" : {
+          "kms:EncryptionContext:aws-transform" : "*",
+          "kms:ViaService" : "s3.*.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:CreateGrant"
+      ],
+      "Resource" : "arn:aws:kms:*:*:key/*",
+      "Condition" : {
+        "Bool" : {
+          "kms:GrantIsForAWSResource" : "true"
+        },
+        "StringLike" : {
+          "kms:ViaService" : [
+            "ec2.*.amazonaws.com"
+          ],
+          "kms:EncryptionContext:aws:ebs:id" : "*"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "kms:GrantConstraintType" : "EncryptionContextSubset"
+        },
+        "ForAllValues:StringEquals" : {
+          "kms:GrantOperations" : [
+            "Decrypt"
+          ]
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:GenerateDataKeyWithoutPlaintext"
+      ],
+      "Resource" : "arn:aws:kms:*:*:key/*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "ec2.*.amazonaws.com",
+          "kms:EncryptionContext:aws:ebs:id" : "*"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:DescribeKey"
+      ],
+      "Resource" : "arn:aws:kms:*:*:key/*",
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"

@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2024, 21:55 UTC
-- **Edited time:** September 08, 2025, 18:34 UTC
+- **Edited time:** November 21, 2025, 17:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioProjectRoleMachineLearningPolicy`
 
 ## Policy version
 
-**Policy version:** v11 (default)
+**Policy version:** v12 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -161,50 +161,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sagemaker:StopMlflowTrackingServer",
         "sagemaker:DescribeMlflowTrackingServer",
         "sagemaker:CreatePresignedMlflowTrackingServerUrl",
-        "sagemaker-mlflow:AccessUI",
-        "sagemaker-mlflow:CreateExperiment",
-        "sagemaker-mlflow:SearchExperiments",
-        "sagemaker-mlflow:GetExperiment",
-        "sagemaker-mlflow:GetExperimentByName",
-        "sagemaker-mlflow:DeleteExperiment",
-        "sagemaker-mlflow:RestoreExperiment",
-        "sagemaker-mlflow:UpdateExperiment",
-        "sagemaker-mlflow:CreateRun",
-        "sagemaker-mlflow:DeleteRun",
-        "sagemaker-mlflow:RestoreRun",
-        "sagemaker-mlflow:GetRun",
-        "sagemaker-mlflow:LogMetric",
-        "sagemaker-mlflow:LogBatch",
-        "sagemaker-mlflow:LogModel",
-        "sagemaker-mlflow:LogInputs",
-        "sagemaker-mlflow:SetExperimentTag",
-        "sagemaker-mlflow:SetTag",
-        "sagemaker-mlflow:DeleteTag",
-        "sagemaker-mlflow:LogParam",
-        "sagemaker-mlflow:GetMetricHistory",
-        "sagemaker-mlflow:SearchRuns",
-        "sagemaker-mlflow:ListArtifacts",
-        "sagemaker-mlflow:UpdateRun",
-        "sagemaker-mlflow:CreateRegisteredModel",
-        "sagemaker-mlflow:GetRegisteredModel",
-        "sagemaker-mlflow:RenameRegisteredModel",
-        "sagemaker-mlflow:UpdateRegisteredModel",
-        "sagemaker-mlflow:DeleteRegisteredModel",
-        "sagemaker-mlflow:GetLatestModelVersions",
-        "sagemaker-mlflow:CreateModelVersion",
-        "sagemaker-mlflow:GetModelVersion",
-        "sagemaker-mlflow:UpdateModelVersion",
-        "sagemaker-mlflow:DeleteModelVersion",
-        "sagemaker-mlflow:SearchModelVersions",
-        "sagemaker-mlflow:GetDownloadURIForModelVersionArtifacts",
-        "sagemaker-mlflow:TransitionModelVersionStage",
-        "sagemaker-mlflow:SearchRegisteredModels",
-        "sagemaker-mlflow:SetRegisteredModelTag",
-        "sagemaker-mlflow:DeleteRegisteredModelTag",
-        "sagemaker-mlflow:DeleteModelVersionTag",
-        "sagemaker-mlflow:DeleteRegisteredModelAlias",
-        "sagemaker-mlflow:SetRegisteredModelAlias",
-        "sagemaker-mlflow:GetModelVersionByAlias"
+        "sagemaker-mlflow:*"
       ],
       "Resource" : "arn:aws:sagemaker:*:*:mlflow-tracking-server/*",
       "Condition" : {

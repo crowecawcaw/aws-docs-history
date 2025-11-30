@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: May 30, 2018, 23:31 UTC
-- **Edited time:** November 12, 2025, 20:49 UTC
+- **Edited time:** November 21, 2025, 17:04 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSConfigServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v62 (default)
+**Policy version:** v63 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -1157,6 +1157,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "license-manager:ListDistributedGrants",
         "license-manager:ListLicenses",
         "license-manager:ListReceivedGrants",
+        "lightsail:GetActiveNames",
         "lightsail:GetAlarms",
         "lightsail:GetBuckets",
         "lightsail:GetCertificates",
@@ -1174,6 +1175,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "lightsail:GetLoadBalancer",
         "lightsail:GetLoadBalancers",
         "lightsail:GetLoadBalancerTlsCertificates",
+        "lightsail:GetOperations",
         "lightsail:GetRelationalDatabase",
         "lightsail:GetRelationalDatabaseParameters",
         "lightsail:GetRelationalDatabases",
@@ -1590,6 +1592,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3:GetAccessPointPolicyStatusForObjectLambda",
         "s3:GetAccountPublicAccessBlock",
         "s3:GetBucketAcl",
+        "s3:GetBucketAbac",
         "s3:GetBucketCORS",
         "s3:GetBucketLocation",
         "s3:GetBucketLogging",

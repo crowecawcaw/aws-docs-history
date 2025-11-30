@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 27, 2018, 23:54 UTC
-- **Edited time:** June 17, 2025, 13:07 UTC
+- **Edited time:** November 21, 2025, 21:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSSecurityHubFullAccess`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -57,8 +57,28 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "guardduty:GetDetector",
         "guardduty:ListDetectors",
+        "guardduty:UpdateDetector",
+        "guardduty:EnableOrganizationAdminAccount",
+        "guardduty:ListOrganizationAdminAccounts",
+        "guardduty:DeleteDetector",
+        "guardduty:CreateDetector",
+        "guardduty:CreateMembers",
+        "guardduty:UpdateOrganizationConfiguration",
+        "guardduty:DescribeOrganizationConfiguration",
         "inspector2:BatchGetAccountStatus",
-        "pricing:GetProducts"
+        "inspector2:Enable",
+        "inspector2:Disable",
+        "inspector2:EnableDelegatedAdminAccount",
+        "inspector2:DisableDelegatedAdminAccount",
+        "inspector2:ListDelegatedAdminAccounts",
+        "inspector2:UpdateOrganizationConfiguration",
+        "inspector2:DescribeOrganizationConfiguration",
+        "pricing:GetProducts",
+        "account:ListRegions",
+        "account:GetRegionOptStatus",
+        "iam:GetPolicy",
+        "iam:GetPolicyVersion",
+        "iam:GetRole"
       ],
       "Resource" : "*"
     }

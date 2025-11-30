@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 15, 2021, 20:53 UTC
-- **Edited time:** June 24, 2025, 22:22 UTC
+- **Edited time:** November 21, 2025, 21:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSSecurityHubOrganizationsAccess`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -47,7 +47,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "organizations:DescribeOrganizationalUnit",
         "organizations:ListPolicies",
         "organizations:ListPoliciesForTarget",
-        "organizations:ListTargetsForPolicy"
+        "organizations:ListTargetsForPolicy",
+        "organizations:DescribeResourcePolicy"
       ],
       "Resource" : "*"
     },
@@ -58,7 +59,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
-          "organizations:ServicePrincipal" : "securityhub.amazonaws.com"
+          "organizations:ServicePrincipal" : [
+            "securityhub.amazonaws.com",
+            "inspector2.amazonaws.com",
+            "guardduty.amazonaws.com",
+            "malware-protection.guardduty.amazonaws.com"
+          ]
         }
       }
     },
@@ -72,7 +78,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:organizations::*:account/o-*/*",
       "Condition" : {
         "StringEquals" : {
-          "organizations:ServicePrincipal" : "securityhub.amazonaws.com"
+          "organizations:ServicePrincipal" : [
+            "securityhub.amazonaws.com",
+            "inspector2.amazonaws.com",
+            "guardduty.amazonaws.com",
+            "malware-protection.guardduty.amazonaws.com"
+          ]
         }
       }
     },
@@ -94,11 +105,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:organizations::*:root/o-*/*",
         "arn:aws:organizations::*:account/o-*/*",
         "arn:aws:organizations::*:ou/o-*/*",
-        "arn:aws:organizations::*:policy/o-*/securityhub_policy/*"
+        "arn:aws:organizations::*:policy/o-*/securityhub_policy/*",
+        "arn:aws:organizations::*:policy/o-*/inspector_policy/*"
       ],
       "Condition" : {
         "StringLikeIfExists" : {
-          "organizations:PolicyType" : "SECURITYHUB_POLICY"
+          "organizations:PolicyType" : [
+            "SECURITYHUB_POLICY",
+            "INSPECTOR_POLICY"
+          ]
         }
       }
     },
@@ -111,7 +126,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "organizations:ListTagsForResource"
       ],
       "Resource" : [
-        "arn:aws:organizations::*:policy/o-*/securityhub_policy/*"
+        "arn:aws:organizations::*:policy/o-*/securityhub_policy/*",
+        "arn:aws:organizations::*:policy/o-*/inspector_policy/*"
       ]
     }
   ]
