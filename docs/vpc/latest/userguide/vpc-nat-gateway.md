@@ -49,6 +49,7 @@ public or private NAT gateway, the NAT gateway translates the address back to th
 - [Regional NAT gateways for automatic multi-AZ expansion](nat-gateways-regional.md "nat-gateways-regional.md")
 - [Use cases](nat-gateway-scenarios.md "nat-gateway-scenarios.md")
 - [DNS64 and NAT64](nat-gateway-nat64-dns64.md "nat-gateway-nat64-dns64.md")
+- [Inspect traffic from NAT gateways](nat-gateway-inspect-traffic.md "nat-gateway-inspect-traffic.md")
 - [CloudWatch metrics](vpc-nat-gateway-cloudwatch.md "vpc-nat-gateway-cloudwatch.md")
 - [Troubleshooting](nat-gateway-troubleshooting.md "nat-gateway-troubleshooting.md")
 - [Pricing](nat-gateway-pricing.md "nat-gateway-pricing.md")
