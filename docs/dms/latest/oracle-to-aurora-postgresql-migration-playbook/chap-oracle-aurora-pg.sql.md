@@ -1,140 +1,192 @@
-# Oracle DBMS_RANDOM and PostgreSQL RANDOM function
+# Oracle transaction model and PostgreSQL transactions
 
-With AWS DMS, you can generate random numbers or randomly select data for various purposes, such as testing, sampling, or introducing randomness in your applications. Oracle `DBMS_RANDOM` and PostgreSQL `RANDOM` function provide methods to generate random numbers or randomly select data from a specified dataset.
+Transactions are logical units of work that allow multiple database operations to be executed as a single atomic unit. The Oracle transaction model and PostgreSQL transactions define how transactions are handled, including features like atomicity, consistency, isolation, and durability (ACID properties).
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                            |
-| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------ |
-| Three star feature compatibility | No automation                      | N/A                       | Different syntax may require code rewrite. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                      | Key differences                                                                     |
+| ------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Four star feature compatibility | Four star automation level         | [Transaction Isolation](chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.transaction "chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.transaction") | PostgreSQL doesn’t support `SAVEPOINT`, `ROLLBACK TO SAVEPOINT` inside of functions |
 
 ## Oracle usage
 
-Oracle `DBMS_RANDOM` package provides functionality for generating random numbers or strings as part of an SQL statement or PL/SQL procedure.
+Database transactions are a logical, atomic units of processing containing one or more SQL statements that may run concurrently alongside other transactions. The primary purpose of a transaction is to ensure the ACID model is enforced.
 
-The `DBMS_RANDOM` Package stored procedures include:
+- **Atomicity** — All statements in a transaction are processed as one logical unit, or none are processed. If a single part of a transaction fails, the entire transaction is aborted and no changes are persisted (all or nothing).
+- **Consistency** — All data integrity constraints are checked and all triggers are processed before a transaction is processed. If any of the constraints are violated, the entire transaction fails.
+- **Isolation** — One transaction isn’t affected by the behavior of other concurrentl transactions. The effect of a transaction isn’t visible to other transactions until the transaction is committed.
+- **Durability** — Once a transaction commits, its results will not be lost regardless of subsequent failures. After a transaction completes, changes made by committed transactions are permanent. The database ensures that committed transactions can’t be lost.
 
-- **NORMAL** — Returns random numbers in a standard normal distribution.
-- **SEED** — Resets the seed that generates random numbers or strings.
-- **STRING** — Returns a random string.
-- **VALUE** — Returns a number greater than or equal to 0 and less than 1 with 38 digits to the right of the decimal. Alternatively, you could generate a random number greater than or equal to a low parameter and less than a high parameter.
+### Database transaction isolation levels
 
-`DBMS_RANDOM.RANDOM` produces integers in the range [-2^^31, 2^^31].
+The ANSI/ISO SQL standard (SQL92) defines four levels of isolation. Each level provides a different approach for handling concurrent run of database transactions. Transaction isolation levels manage the visibility of changed data as seen by other running transactions. In addition, when accessing the same data with several concurrent transactions, the selected level of transaction isolation affects the way different transactions interact. For example, if a bank account is shared by two individuals, what will happen if both parties attempt to perform a transaction on the shared account at the same time? One checks the account balance while the other withdraws money. Oracle supports the following isolation levels:
 
-`DBMS_RANDOM.VALUE` produces numbers in the range [0,1] with 38 digits of precision.
+- **Read-uncommitted** — A currently processed transaction can see uncommitted data made by the other transaction. If a rollback is performed, all data is restored to its previous state.
+- **Read-committed** — A transaction only sees data changes that were committed. Uncommitted changes(“dirty reads”) aren’t possible.
+- **Repeatable read** — A transaction can view changes made by the other transaction only after both transactions issue a COMMIT or both are rolled-back.
+- **Serializable** — Any concurrent run of a set of serializable transactions is guaranteed to produce the same effect as running them sequentially in the same order.
+
+Isolation levels affect the following database behavior.
+
+- **Dirty reads** — A transaction can read data that was written by another transaction, but isn’t yet committed.
+- **Non-repeatable (fuzzy) reads** — When reading the same data several times, a transaction can find that the data has been modified by another transaction that has just committed. The same query executed twice can return different values for the same rows.
+- **Phantom reads** — Similar to a non-repeatable read, but it is related to new data created by another transaction. The same query run twice can return a different numbers of records.
+
+| Isolation level  | Dirty reads   | Non-repeatable reads | Phantom reads |
+| ---------------- | ------------- | -------------------- | ------------- |
+| Read-uncommitted | Permitted     | Permitted            | Permitted     |
+| Read-committed   | Not permitted | Permitted            | Permitted     |
+| Repeatable read  | Not permitted | Not permitted        | Permitted     |
+| Serializable     | Not permitted | Not permitted        | Not permitted |
+
+### Oracle isolation levels
+
+Oracle supports the read-committed and serializable isolation levels. It also provides a Read-Only isolation level which isn’t a part of the ANSI/ISO SQL standard (SQL92). Read-committed is the default.
+
+- **Read-committed (default)** — Each query that you run within a transaction only sees data that was committed before the query itself. The Oracle database nevers allow reading “dirty pages” and uncommitted data.
+- **Serializable** — Serializable transactions don’t experience non-repeatable reads or phantom reads because they are only able to “see” changes that were committed at the time the transaction began (in addition to the changes made by the transaction itself performing DML operations).
+- **Read-only** — The read-only isolation level doesn’t allow any DML operations during the transaction and
+  only sees data committed at the time the transaction began.
+
+### Oracle Multiversion Concurrency Controls
+
+Oracle uses the Oracle Multiversion Concurrency Controls (MVCC) mechanism to provide automatic read consistency across the entire database and all sessions. Using MVCC, database sessions see data based on a single point in time ensuring only committed changes are viewable. Oracle relies on the System Change Number (SCN) of the current transaction to obtain a consistent view of the database. Therefore, all database queries only return data committed with respect to the SCN at the time of query run.
+
+### Setting isolation levels
+
+Isolation levels can be changed at the transaction and session levels.
 
 **Examples**
 
-Generate a random number.
+Change the isolation level at the transaction-level.
 
 ```
-select dbms_random.value() from dual;
-
-DBMS_RANDOM.VALUE()
-.859251508
-
-select dbms_random.value() from dual;
-
-DBMS_RANDOM.VALUE()
-.364792387
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+SET TRANSACTION READ ONLY;
 ```
 
-Generate a random string. The first character determines the returned string type and the number specifies the length.
+Change the isolation-level at a session-level.
 
 ```
-select dbms_random.string('p',10) from dual;
-DBMS_RANDOM.STRING('P',10)
-
-la'?z[Q&/2
-
-select dbms_random.string('p',10) from dual;
-DBMS_RANDOM.STRING('P',10)
-
-t?!Gf2M60q
+ALTER SESSION SET ISOLATION_LEVEL = SERIALIZABLE;
+ALTER SESSION SET ISOLATION_LEVEL = READ COMMITTED;
 ```
 
-For more information, see [DBMS_RANDOM](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_RANDOM.html#GUID-8DC48B0C-3707-4172-A306-C0308DD2EB0F "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_RANDOM.html#GUID-8DC48B0C-3707-4172-A306-C0308DD2EB0F") in the _Oracle documentation_.
+For more information, see [Transactions](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/transactions.html#GUID-B97790CB-DF82-442D-B9D5-50CCE6BF9FBD "https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/transactions.html#GUID-B97790CB-DF82-442D-B9D5-50CCE6BF9FBD") in the _Oracle documentation_.
 
 ## PostgreSQL usage
 
-PostgreSQL doesn’t provide a dedicated package equivalent to Oracle `DBMS_RANDOM`, a 1:1 migration isn’t possible. However, you can use other PostgreSQL functions as workarounds under certain conditions. For example, generating random numbers can be performed using the `random()` function. For generating random strings, you can use the value returned from the `random()` function coupled with an `md5()` function.
+The same ANSI/ISO SQL (SQL92) isolation levels apply to PostgreSQL, with several similarities and some differences:
+
+| Isolation level  | Dirty reads                                 | Non-repeatable reads | Phantom reads                               |
+| ---------------- | ------------------------------------------- | -------------------- | ------------------------------------------- |
+| Read-uncommitted | Permitted but not implemented in PostgreSQL | Permitted            | Permitted                                   |
+| Read-committed   | Not permitted                               | Permitted            | Permitted                                   |
+| Repeatable read  | Not permitted                               | Not permitted        | Permitted but not implemented in PostgreSQL |
+| Serializable     | Not permitted                               | Not permitted        | Not permitted                               |
+
+PostgreSQL technically supports the use of any of the above four transaction isolation levels, but only three can practically be used. The read-uncommitted isolation level serves as read-committed.
+
+The way the Repeatable-Read isolation-level is implemented doesn’t allow for phantom reads, which is similar to the serializable isolation level. The primary difference between repeatable read and serializable is that serializable guarantees that the result of concurrent transactions will be precisely the same as if they were run serially, which isn’t always true for repeatable reads.
+
+Starting with PostgreSQL 12, you can add the `AND CHAIN` option to `COMMIT` or `ROLLBACK` commands to immediately start another transaction with the same parameters as preceding transaction.
+
+### Isolation levels supported by PostgreSQL
+
+PostgreSQL supports the read-committed, repeatable reads, and serializable isolation levels. Read-committed is the default isolation level (similar to the default isolation level in the Oracle database).
+
+- **Read-committed** — The default PostgreSQL transaction isolation level. Preventing sessions from “seeing” data from concurrent transactions until it is committed. Dirty reads aren’t permitted.
+- **Repeatable read** — Queries can only see rows committed before the first query or DML statement was run in the transaction.
+- **Serializable** — Provides the strictest transaction isolation level. The Serializable isolation level assures that the result of the concurrent transactions will be the same as if they were executed serially. This isn’t always the case for the Repeatable-Read isolation level.
+
+### Multiversion Concurrency Control
+
+PostgreSQL implements a similar Multiversion Concurrency Control (MVCC) mechanism when compared to Oracle. In PostgreSQL, the MVCC mechanism allows transactions to work with a consistent snapshot of data ignoring changes made by other transactions which have not yet committed or rolled back. Each transaction “sees” a snapshot of accessed data accurate to its run start time, regardless of what other transactions are doing concurrently.
+
+### Setting isolation levels in Aurora PostgreSQL
+
+You can configure isolation levels at several levels:
+
+- Session level.
+- Transaction level.
+- Instance level using Aurora Parameter Groups.
 
 **Examples**
 
-Generate a random number.
+Configure the isolation level for a specific transaction.
 
 ```
-select random();
-random
-
-0.866594325285405
-(1 row)
-
-select random();
-random
-
-0.524613124784082
-(1 row)
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 ```
 
-Generate a random string.
+Configure the isolation level for a specific session.
 
 ```
-select md5(random()::text);
-md5
-
-f83e73114eccfed571b43777b99e0795
-(1 row)
-
-select md5(random()::text);
-md5
-
-d46de3ce24a99d5761bb34bfb6579848
-(1 row)
+SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL READ COMMITTED;
+SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 ```
 
-To generate a random string of the specified length, you can use the following function.
+View the current isolation level.
 
 ```
-create or replace function random_string(length integer) returns text as
-$$
-declare
-  chars text[] := '{0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z}';
-  result text := '';
-  i integer := 0;
-begin
-  if length < 0 then
-    raise exception 'Given length cannot be less than 0';
-  end if;
-  for i in 1..length loop
-    result := result || chars[1+random()*(array_length(chars, 1)-1)];
-  end loop;
-  return result;
-end;
-$$ language plpgsql;
+SELECT CURRENT_SETTING('TRANSACTION_ISOLATION'); -- Session
+SHOW DEFAULT_TRANSACTION_ISOLATION;              -- Instance
 ```
 
-The following code example shows the result of using this function.
+You can modify instance-level parameters for Aurora PostgreSQL by using parameter groups. For example, you can alter the `default_transaction_isolation` parameter using the AWS Console or the AWS CLI.
+
+For more information, see [Modifying parameters in a DB parameter group](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.md#USER_WorkingWithParamGroups.Modifying "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.md#USER_WorkingWithParamGroups.Modifying") in the _Amazon RDS documentation_.
+
+### PostgreSQL Transaction Synopsis
 
 ```
-select random_string(15);
-random_string
+SET TRANSACTION transaction_mode [...]
+SET TRANSACTION SNAPSHOT snapshot_id
+SET SESSION CHARACTERISTICS AS TRANSACTION transaction_mode [...]
 
-5emZKMYxB9C2vT6
-(1 row)
+where transaction_mode is one of:
 
-select random_string(10);
-random_string
-
-tMAxfql0iM
-(1 row)
+ISOLATION LEVEL {
+SERIALIZABLE | REPEATABLE READ | READ COMMITTED | READ UNCOMMITTED
+}
+READ WRITE | READ ONLY [ NOT ] DEFERRABLE
 ```
 
-## Summary
+| Database feature                       | Oracle                  | PostgreSQL                                                                                                                                                                                                                                                  |
+| -------------------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AutoCommit                             | Off                     | Depends. Autocommit is turned off by default, however, some client tools such as psql and more are setting this to ON by default. Check your client tool defaults or run the following command to check current configuration in psql: `\echo :AUTOCOMMIT`. |
+| MVCC                                   | Yes                     | Yes                                                                                                                                                                                                                                                         |
+| Default Isolation Level                | Read-committed          | Read-committed                                                                                                                                                                                                                                              |
+| Supported Isolation Levels             | Serializable, Read-only | Repeatable Reads, Serializable, Read-only                                                                                                                                                                                                                   |
+| Configure Session Isolation Levels     | Yes                     | Yes                                                                                                                                                                                                                                                         |
+| Configure Transaction Isolation Levels | Yes                     | Yes                                                                                                                                                                                                                                                         |
+| Nested Transaction Support             | Yes                     | No. Consider using `SAVEPOINT` instead.                                                                                                                                                                                                                     |
+| Support for transaction `SAVEPOINT`s   | Yes                     | Yes                                                                                                                                                                                                                                                         |
 
-| Description                               | Oracle                                         | PostgreSQL                           |
-| ----------------------------------------- | ---------------------------------------------- | ------------------------------------ |
-| Generate a random number                  | `select dbms_random.value() from dual;`        | `select random();`                   |
-| Generate a random number between 1 to 100 | `select dbms_random.value(1,100) from dual;`   | `select random()*100;`               |
-| Generate a random string                  | `select dbms_random.string('p',10) from dual;` | `select md5(random()::text);`        |
-| Generate a random string in upper case    | `select dbms_random.string('U',10) from dual;` | `select upper(md5(random()::text));` |
+**Read-committed isolation level.**
 
-For more information, see [Mathematical Functions and Operators](https://www.postgresql.org/docs/13/functions-math.html "https://www.postgresql.org/docs/13/functions-math.html") and [String Functions and Operators](https://www.postgresql.org/docs/10/functions-string.html "https://www.postgresql.org/docs/10/functions-string.html") in the _PostgreSQL documentation_.
+| TX1                                                                                                                              | TX2                                                                                                                              | Comment                                                                                                     |
+| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          24000.00<br>` | `<br>select employee_id, salary<br>from EMPLOYEES<br>where employee_id=100;<br>employee_id  salary<br>100          24000.00<br>` | Same results returned from both sessions                                                                    |
+| `<br>begin;<br>UPDATE employees<br>SET salary=27000<br>WHERE employee_id=100;<br>`                                               | `<br>begin;<br>set transaction isolation<br>level read committed;<br>`                                                           | TX1 starts a transaction; performs an update. TX2 starts a transaction with read-committed isolation level. |
+| `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          27000.00<br>` | `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          24000.00<br>` | TX1 will “see” the modified results (27000.00) while TX2 “sees” the original data (24000.00).               |
+|                                                                                                                                  | `<br>UPDATE employees<br>SET salary=29000<br>WHERE employee_id=100;<br>`                                                         | Waits because TX2 is blocked by TX1.                                                                        |
+| `<br>Commit;<br>`                                                                                                                |                                                                                                                                  | TX1 issues a commit, and the lock is released.                                                              |
+|                                                                                                                                  | `<br>Commit;<br>`                                                                                                                | TX2 issues a commit.                                                                                        |
+| `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          29000.00<br>` | `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          29000.00<br>` | Both queries return the value<br>• 29000.00.                                                                |
+
+**Serializable isolation level.**
+
+| TX1                                                                                                                              | TX2                                                                                                                              | Comment                                                                                                                       |
+| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          24000.00<br>` | `<br>select employee_id, salary<br>from EMPLOYEES<br>where employee_id=100;<br>employee_id  salary<br>100          24000.00<br>` | Same results returned from both sessions                                                                                      |
+| `<br>begin;<br>UPDATE employees<br>SET salary=27000<br>WHERE employee_id=100;<br>`                                               | `<br>begin;<br>set transaction isolation<br>level serializable;<br>`                                                             | TX1 starts a transaction and performs an update. TX2 starts a transaction with serializable isolation level.                  |
+| `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          27000.00<br>` | `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          24000.00<br>` | TX1 will “see” the modified results (27000.00) while TX2 “sees” the original data (24000.00).                                 |
+|                                                                                                                                  | `<br>UPDATE employees<br>SET salary=29000<br>WHERE employee_id=100;<br>`                                                         | Waits because TX2 is blocked by TX1.                                                                                          |
+| `<br>Commit;<br>`                                                                                                                |                                                                                                                                  | TX1 issues a commit, and the lock is released.                                                                                |
+|                                                                                                                                  | ERROR: could not serialize access due to concurrent update.                                                                      | TX2 received an error message.                                                                                                |
+|                                                                                                                                  | `<br>Commit;<br>ROLLBACK<br>`                                                                                                    | TX2 trying to issue a commit but receives a rollback message, the transaction failed due to the serializable isolation level. |
+| `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          27000.00<br>` | `<br>SELECT employee_id, salary<br>FROM EMPLOYEES<br>WHERE employee_id=100;<br>employee_id  salary<br>100          27000.00<br>` | Both queries will return the data updated according to TX1.                                                                   |
+
+For more information, see [Transactions](https://www.postgresql.org/docs/13/tutorial-transactions.html "https://www.postgresql.org/docs/13/tutorial-transactions.html"), [Transaction Isolation](https://www.postgresql.org/docs/13/transaction-iso.html "https://www.postgresql.org/docs/13/transaction-iso.html"), and [SET TRANSACTION](https://www.postgresql.org/docs/13/sql-set-transaction.html "https://www.postgresql.org/docs/13/sql-set-transaction.html") in the _PostgreSQL documentation_.
