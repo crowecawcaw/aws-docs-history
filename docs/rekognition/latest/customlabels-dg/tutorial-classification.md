@@ -311,4 +311,4 @@ model is running. If you have finished using the model, you should stop it.
 when the status in the **Start or stop model** section is
 **Stopped**.
 
-![Stopped status indicator with explanation that the model is not running and needs to be started using the Start button or code example.](images/get-started-stopped-model.jpg)
+![Stopped status indicator with explanation that the model is not running and needs to be started using the Start button or code example.](/images/rekognition/latest/customlabels-dg/images/get-started-stopped-model.jpg)
