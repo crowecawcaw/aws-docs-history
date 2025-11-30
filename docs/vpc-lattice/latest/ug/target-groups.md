@@ -12,7 +12,7 @@ create different target groups for different types of requests. For example, cre
 target group for general requests and other target groups for requests that include specific
 rule conditions, such as a path or header value.
 
-![A service with a listener, listener rules, and two target groups.](/images/vpc-lattice/latest/ug/images/service.png)
+![A service with a listener, listener rules, and two target groups.](images/service.png)
 You define health check settings for your service on a per target group basis. Each target
 group uses the default health check settings, unless you override them when you create the
 target group or modify them later on. After you specify a target group in a rule for a
