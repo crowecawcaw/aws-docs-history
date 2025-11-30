@@ -128,7 +128,7 @@ following:
 
 
 
-    ![Logging pane for Configure additional details in the Create server wizard. Choose an existing log group is selected.](images/logging-server-choose-existing-group.png)
+    ![Logging pane for Configure additional details in the Create server wizard. Choose an existing log group is selected.](/images/transfer/latest/userguide/images/logging-server-choose-existing-group.png)
 
     If you choose **Create log group**, the CloudWatch console
      ([https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/")) opens to the **Create log
@@ -189,7 +189,7 @@ following:
     	 For additional details,
     	 see the `PassiveIp` documentation in the [ProtocolDetails](../APIReference/API_ProtocolDetails.md "../APIReference/API_ProtocolDetails.md") topic.
 
-    ![The Additional configuration screen showing the SetStat, TLS session resumption, and Passive IP parameters.](images/create-server-configure-additional-items-all.png)
+    ![The Additional configuration screen showing the SetStat, TLS session resumption, and Passive IP parameters.](/images/transfer/latest/userguide/images/create-server-configure-additional-items-all.png)
 
 8.  In **Review and create**, review your choices.
 

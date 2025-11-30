@@ -113,58 +113,58 @@ types.
 | Security policy                         | 2024-01 | SshAuditCompliant-2025-02 | 2023-05 | 2022-03 | **2020-06**<br>**2020-06 restricted** | **FIPS-2024-05**<br>**FIPS-2024-01** | FIPS-2023-05 | FIPS-2020-06 | **2018-11**<br>**2018-11 restricted** | TransferSecurityPolicy-AS2Restricted-2025-07 |
 | --------------------------------------- | ------- | ------------------------- | ------- | ------- | ------------------------------------- | ------------------------------------ | ------------ | ------------ | ------------------------------------- | -------------------------------------------- |
 | **SshCiphers**                          |
-| aes128-ctr                              | ♦      | ♦                        |         |         | ♦                                    | ♦                                   |              | ♦           | ♦                                    | ♦                                           |
-| aes128-gcm@openssh.com                  | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    | ♦                                           |
-| aes192-ctr                              | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    | ♦                                           |
-| aes256-ctr                              | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    | ♦                                           |
-| aes256-gcm@openssh.com                  | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    | ♦                                           |
-| chacha20-poly1305@openssh.com           |         |                           |         |         | ♦\*                                  |                                      |              |              | ♦\*                                  |                                              |
+| aes128-ctr                              | ♦       | ♦                         |         |         | ♦                                     | ♦                                    |              | ♦            | ♦                                     | ♦                                            |
+| aes128-gcm@openssh.com                  | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     | ♦                                            |
+| aes192-ctr                              | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     | ♦                                            |
+| aes256-ctr                              | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     | ♦                                            |
+| aes256-gcm@openssh.com                  | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     | ♦                                            |
+| chacha20-poly1305@openssh.com           |         |                           |         |         | ♦\*                                   |                                      |              |              | ♦\*                                   |                                              |
 | **SshKexs**                             |
-| mlkem768x25519-sha256                   |         |                           |         |         |                                       |                                      |              |              |                                       | ♦                                           |
-| mlkem768nistp256-sha256                 |         |                           |         |         |                                       |                                      |              |              |                                       | ♦                                           |
-| mlkem1024nistp384-sha384                |         |                           |         |         |                                       |                                      |              |              |                                       | ♦                                           |
-| curve25519-sha256                       | ♦      | ♦                        | ♦      | ♦      |                                       |                                      |              |              | ♦                                    | ♦                                           |
-| curve25519-sha256@libssh.org            | ♦      | ♦                        | ♦      | ♦      |                                       |                                      |              |              | ♦                                    | ♦                                           |
-| diffie-hellman-group14-sha1             |         |                           |         |         |                                       |                                      |              |              | ♦                                    |                                              |
-| diffie-hellman-group14-sha256           |         |                           |         |         | ♦                                    |                                      |              | ♦           | ♦                                    |                                              |
-| diffie-hellman-group16-sha512           | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    | ♦                                           |
-| diffie-hellman-group18-sha512           | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    | ♦                                           |
-| diffie-hellman-group-exchange-sha256    | ♦      | ♦                        | ♦      | ♦      | ♦                                    |                                      | ♦           | ♦           | ♦                                    | ♦                                           |
-| ecdh-sha2-nistp256                      | ♦      |                           |         |         | ♦                                    | ♦                                   |              | ♦           | ♦                                    | ♦                                           |
-| ecdh-sha2-nistp384                      | ♦      |                           |         |         | ♦                                    | ♦                                   |              | ♦           | ♦                                    | ♦                                           |
-| ecdh-sha2-nistp521                      | ♦      |                           |         |         | ♦                                    | ♦                                   |              | ♦           | ♦                                    | ♦                                           |
+| mlkem768x25519-sha256                   |         |                           |         |         |                                       |                                      |              |              |                                       | ♦                                            |
+| mlkem768nistp256-sha256                 |         |                           |         |         |                                       |                                      |              |              |                                       | ♦                                            |
+| mlkem1024nistp384-sha384                |         |                           |         |         |                                       |                                      |              |              |                                       | ♦                                            |
+| curve25519-sha256                       | ♦       | ♦                         | ♦       | ♦       |                                       |                                      |              |              | ♦                                     | ♦                                            |
+| curve25519-sha256@libssh.org            | ♦       | ♦                         | ♦       | ♦       |                                       |                                      |              |              | ♦                                     | ♦                                            |
+| diffie-hellman-group14-sha1             |         |                           |         |         |                                       |                                      |              |              | ♦                                     |                                              |
+| diffie-hellman-group14-sha256           |         |                           |         |         | ♦                                     |                                      |              | ♦            | ♦                                     |                                              |
+| diffie-hellman-group16-sha512           | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     | ♦                                            |
+| diffie-hellman-group18-sha512           | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     | ♦                                            |
+| diffie-hellman-group-exchange-sha256    | ♦       | ♦                         | ♦       | ♦       | ♦                                     |                                      | ♦            | ♦            | ♦                                     | ♦                                            |
+| ecdh-sha2-nistp256                      | ♦       |                           |         |         | ♦                                     | ♦                                    |              | ♦            | ♦                                     | ♦                                            |
+| ecdh-sha2-nistp384                      | ♦       |                           |         |         | ♦                                     | ♦                                    |              | ♦            | ♦                                     | ♦                                            |
+| ecdh-sha2-nistp521                      | ♦       |                           |         |         | ♦                                     | ♦                                    |              | ♦            | ♦                                     | ♦                                            |
 | **SshMacs**                             |
-| hmac-sha1                               |         |                           |         |         |                                       |                                      |              |              | ♦                                    |                                              |
-| hmac-sha1-etm@openssh.com               |         |                           |         |         |                                       |                                      |              |              | ♦                                    |                                              |
-| hmac-sha2-256                           |         |                           |         | ♦      | ♦                                    |                                      |              | ♦           | ♦                                    |                                              |
-| hmac-sha2-256-etm@openssh.com           | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    | ♦                                           |
-| hmac-sha2-512                           |         |                           |         | ♦      | ♦                                    |                                      |              | ♦           | ♦                                    |                                              |
-| hmac-sha2-512-etm@openssh.com           | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    | ♦                                           |
-| umac-128-etm@openssh.com                |         |                           |         |         | ♦                                    |                                      |              |              | ♦                                    |                                              |
-| umac-128@openssh.com                    |         |                           |         |         | ♦                                    |                                      |              |              | ♦                                    |                                              |
-| umac-64-etm@openssh.com                 |         |                           |         |         |                                       |                                      |              |              | ♦                                    |                                              |
-| umac-64@openssh.com                     |         |                           |         |         |                                       |                                      |              |              | ♦                                    |                                              |
+| hmac-sha1                               |         |                           |         |         |                                       |                                      |              |              | ♦                                     |                                              |
+| hmac-sha1-etm@openssh.com               |         |                           |         |         |                                       |                                      |              |              | ♦                                     |                                              |
+| hmac-sha2-256                           |         |                           |         | ♦       | ♦                                     |                                      |              | ♦            | ♦                                     |                                              |
+| hmac-sha2-256-etm@openssh.com           | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     | ♦                                            |
+| hmac-sha2-512                           |         |                           |         | ♦       | ♦                                     |                                      |              | ♦            | ♦                                     |                                              |
+| hmac-sha2-512-etm@openssh.com           | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     | ♦                                            |
+| umac-128-etm@openssh.com                |         |                           |         |         | ♦                                     |                                      |              |              | ♦                                     |                                              |
+| umac-128@openssh.com                    |         |                           |         |         | ♦                                     |                                      |              |              | ♦                                     |                                              |
+| umac-64-etm@openssh.com                 |         |                           |         |         |                                       |                                      |              |              | ♦                                     |                                              |
+| umac-64@openssh.com                     |         |                           |         |         |                                       |                                      |              |              | ♦                                     |                                              |
 | **ContentEncryptionCiphers**            |
-| aes256-cbc                              | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    | ♦                                           |
-| aes192-cbc                              | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    | ♦                                           |
-| aes128-cbc                              | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    | ♦                                           |
-| 3des-cbc                                | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    |                                              |
+| aes256-cbc                              | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     | ♦                                            |
+| aes192-cbc                              | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     | ♦                                            |
+| aes128-cbc                              | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     | ♦                                            |
+| 3des-cbc                                | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     |                                              |
 | **HashAlgorithms**                      |
-| sha256                                  | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    | ♦                                           |
-| sha384                                  | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    | ♦                                           |
-| sha512                                  | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    | ♦                                           |
-| sha1                                    | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    |                                              |
+| sha256                                  | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     | ♦                                            |
+| sha384                                  | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     | ♦                                            |
+| sha512                                  | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     | ♦                                            |
+| sha1                                    | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     |                                              |
 | **TlsCiphers**                          |
-| TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    |                                              |
-| TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    |                                              |
-| TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    |                                              |
-| TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    |                                              |
-| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256   | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    |                                              |
-| TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256   | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    |                                              |
-| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384   | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    |                                              |
-| TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384   | ♦      | ♦                        | ♦      | ♦      | ♦                                    | ♦                                   | ♦           | ♦           | ♦                                    |                                              |
-| TLS_RSA_WITH_AES_128_CBC_SHA256         |         |                           |         |         |                                       |                                      |              |              | ♦                                    |                                              |
-| TLS_RSA_WITH_AES_256_CBC_SHA256         |         |                           |         |         |                                       |                                      |              |              | ♦                                    |                                              |
+| TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     |                                              |
+| TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     |                                              |
+| TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     |                                              |
+| TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     |                                              |
+| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256   | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     |                                              |
+| TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256   | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     |                                              |
+| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384   | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     |                                              |
+| TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384   | ♦       | ♦                         | ♦       | ♦       | ♦                                     | ♦                                    | ♦            | ♦            | ♦                                     |                                              |
+| TLS_RSA_WITH_AES_128_CBC_SHA256         |         |                           |         |         |                                       |                                      |              |              | ♦                                     |                                              |
+| TLS_RSA_WITH_AES_256_CBC_SHA256         |         |                           |         |         |                                       |                                      |              |              | ♦                                     |                                              |
 
 ## TransferSecurityPolicy-2024-01
 
@@ -808,46 +808,46 @@ deprecated. We recommend that you use the new policies instead.
 | Security policy                         | TransferSecurityPolicy-2025-03 | TransferSecurityPolicy-FIPS-2025-03 |
 | --------------------------------------- | ------------------------------ | ----------------------------------- |
 | **SSH<br>ciphers**                      |
-| aes128-ctr                              | ♦                             | ♦                                  |
-| aes128-gcm@openssh.com                  | ♦                             | ♦                                  |
-| aes192-ctr                              | ♦                             | ♦                                  |
-| aes256-ctr                              | ♦                             | ♦                                  |
-| aes256-gcm@openssh.com                  | ♦                             | ♦                                  |
+| aes128-ctr                              | ♦                              | ♦                                   |
+| aes128-gcm@openssh.com                  | ♦                              | ♦                                   |
+| aes192-ctr                              | ♦                              | ♦                                   |
+| aes256-ctr                              | ♦                              | ♦                                   |
+| aes256-gcm@openssh.com                  | ♦                              | ♦                                   |
 | **KEXs**                                |
-| mlkem768x25519-sha256                   | ♦                             | ♦                                  |
-| mlkem768nistp256-sha256                 | ♦                             | ♦                                  |
-| mlkem1024nistp384-sha384                | ♦                             | ♦                                  |
-| diffie-hellman-group14-sha256           | ♦                             | ♦                                  |
-| diffie-hellman-group16-sha512           | ♦                             | ♦                                  |
-| diffie-hellman-group18-sha512           | ♦                             | ♦                                  |
-| ecdh-sha2-nistp384                      | ♦                             | ♦                                  |
-| ecdh-sha2-nistp521                      | ♦                             | ♦                                  |
-| ecdh-sha2-nistp256                      | ♦                             | ♦                                  |
-| diffie-hellman-group-exchange-sha256    | ♦                             | ♦                                  |
-| curve25519-sha256@libssh.org            | ♦                             |                                     |
-| curve25519-sha256                       | ♦                             |                                     |
+| mlkem768x25519-sha256                   | ♦                              | ♦                                   |
+| mlkem768nistp256-sha256                 | ♦                              | ♦                                   |
+| mlkem1024nistp384-sha384                | ♦                              | ♦                                   |
+| diffie-hellman-group14-sha256           | ♦                              | ♦                                   |
+| diffie-hellman-group16-sha512           | ♦                              | ♦                                   |
+| diffie-hellman-group18-sha512           | ♦                              | ♦                                   |
+| ecdh-sha2-nistp384                      | ♦                              | ♦                                   |
+| ecdh-sha2-nistp521                      | ♦                              | ♦                                   |
+| ecdh-sha2-nistp256                      | ♦                              | ♦                                   |
+| diffie-hellman-group-exchange-sha256    | ♦                              | ♦                                   |
+| curve25519-sha256@libssh.org            | ♦                              |                                     |
+| curve25519-sha256                       | ♦                              |                                     |
 | **MACs**                                |
-| hmac-sha2-256-etm@openssh.com           | ♦                             | ♦                                  |
-| hmac-sha2-512-etm@openssh.com           | ♦                             | ♦                                  |
+| hmac-sha2-256-etm@openssh.com           | ♦                              | ♦                                   |
+| hmac-sha2-512-etm@openssh.com           | ♦                              | ♦                                   |
 | **ContentEncryptionCiphers**            |
-| aes256-cbc                              | ♦                             | ♦                                  |
-| aes192-cbc                              | ♦                             | ♦                                  |
-| aes128-cbc                              | ♦                             | ♦                                  |
-| 3des-cbc                                | ♦                             | ♦                                  |
+| aes256-cbc                              | ♦                              | ♦                                   |
+| aes192-cbc                              | ♦                              | ♦                                   |
+| aes128-cbc                              | ♦                              | ♦                                   |
+| 3des-cbc                                | ♦                              | ♦                                   |
 | **HashAlgorithms**                      |
-| sha256                                  | ♦                             | ♦                                  |
-| sha384                                  | ♦                             | ♦                                  |
-| sha512                                  | ♦                             | ♦                                  |
-| sha1                                    | ♦                             | ♦                                  |
+| sha256                                  | ♦                              | ♦                                   |
+| sha384                                  | ♦                              | ♦                                   |
+| sha512                                  | ♦                              | ♦                                   |
+| sha1                                    | ♦                              | ♦                                   |
 | **TLS<br>ciphers**                      |
-| TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 | ♦                             | ♦                                  |
-| TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 | ♦                             | ♦                                  |
-| TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 | ♦                             | ♦                                  |
-| TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 | ♦                             | ♦                                  |
-| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256   | ♦                             | ♦                                  |
-| TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256   | ♦                             | ♦                                  |
-| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384   | ♦                             | ♦                                  |
-| TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384   | ♦                             | ♦                                  |
+| TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 | ♦                              | ♦                                   |
+| TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 | ♦                              | ♦                                   |
+| TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 | ♦                              | ♦                                   |
+| TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 | ♦                              | ♦                                   |
+| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256   | ♦                              | ♦                                   |
+| TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256   | ♦                              | ♦                                   |
+| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384   | ♦                              | ♦                                   |
+| TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384   | ♦                              | ♦                                   |
 
 ### TransferSecurityPolicy-2025-03
 
