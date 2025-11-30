@@ -1,23 +1,19 @@
-# ADD_PREFIX
+# REMOVE_MISSING
 
-Adds one or more characters, concatenating them as a prefix to the beginning of a
-column.
+Returns only the rows in which a specified column isn't missing data.
 
 ###### Parameters
 
 - `sourceColumn` – The name of an existing column.
-- `pattern` – The character or characters to place at the
-  beginning of the column values.
 
 ###### Example
 
 ```
 {
     "RecipeAction": {
-        "Operation": "ADD_PREFIX",
+        "Operation": "REMOVE_MISSING",
         "Parameters": {
-            "pattern": "aaa",
-            "sourceColumn": "info_url"
+            "sourceColumn": "last_name"
         }
     }
 }

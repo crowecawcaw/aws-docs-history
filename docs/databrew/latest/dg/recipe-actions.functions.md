@@ -1,6 +1,6 @@
-# MONTH_NAME
+# WEEK_DAY
 
-Creates a new column containing the name of the month, from a string that represents a
+Creates a new column containing the day of the week, from a string that represents a
 date.
 
 ###### Parameters
@@ -19,10 +19,10 @@ both.
 ```
 {
     "RecipeAction": {
-        "Operation": "MONTH_NAME",
+        "Operation": "WEEK_DAY",
         "Parameters": {
-            "value": "2018-05-27",
-            "targetColumn": "MONTHNAME Column 1"
+            "sourceColumn": "DATETIME Column 1",
+            "targetColumn": "DATETIME Column 1_WEEKDAY"
         }
     }
 }
