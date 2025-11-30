@@ -1,12 +1,35 @@
-# Limitations of data type mapping in the AWS Schema Conversion Tool
+# Mapping data types in the AWS Schema Conversion Tool
 
-The following limitations apply when converting schemas using multiple servers in a
-single AWS SCT project:
+You can add multiple source and target databases in a single AWS SCT project. Doing this
+simplifies the management of projects, when you migrate multiple databases to different
+target platforms.
 
-- You can add the same server to a project only once.
-- You can't map server schemas to a specific target schema, only to a
-  target server. AWS SCT creates the target schema during conversion.
-- You can't map lower-level source objects to the target server.
-- You can map one source schema to only one target server in a project.
-- Make sure to map a source to a target server to create an assessment report,
-  convert schemas, or extract data.
+After you create a new project and add source and target databases, create mapping rules.
+AWS SCT requires at least one mapping rule to create a migration assessment report and
+convert database schemas.
+
+A _mapping rule_ describes a source-target pair that includes a source database schema
+or source database and a target database platform. You can create multiple mapping rules
+in a single AWS SCT project. Use mapping rules to convert every
+source database schema to the right target database platform.
+
+To change the name of your schema in the converted code, set up a migration rule. For example,
+with migrations rules, you can rename your schema, add a prefix to object names, change column
+collation, or change data types. To apply these changes to your converted code, make sure that
+you create migration rules before you convert your source schema. For more information, see
+[Applying migration rules](CHAP_Converting.md "CHAP_Converting.md").
+
+You can create mapping rules only for supported database conversion pairs. For the list
+of supported conversion pairs, see [Connecting to source databases with the AWS Schema Conversion Tool](CHAP_Source.md "CHAP_Source.md").
+
+If you open a project saved in AWS SCT version 1.0.655 or before, AWS SCT
+automatically creates mapping rules for all source database schemas to the
+target database platform. To add other target database platforms,
+delete existing mapping rules and then create new mapping rules.
+
+###### Topics
+
+- [Mapping new data types in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md")
+- [Editing data type mappings in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md")
+- [Mapping to virtual targets in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md")
+- [Limitations of data type mapping in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md")

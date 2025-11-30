@@ -1,624 +1,627 @@
-# Using
+# Using an AWS SCT extension pack to
 
-an AWS SCT extension pack to emulate SQL Server Agent in PostgreSQL
+emulate SQL Server Database Mail in PostgreSQL
 
-SQL Server Agent is a Microsoft Windows service that runs SQL Server jobs. SQL Server Agent
-runs jobs on a schedule, in response to a specific event, or on demand. For more information
-about SQL Server Agent, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent?view=sql-server-ver15").
+You can use SQL Server Database Mail to send email messages to users from
+the SQL Server Database Engine or Azure SQL Managed Instance. These email messages
+can contain query results or include files from any resource on your network. For
+more information about SQL Server Database Mail, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/database-mail/database-mail?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/database-mail/database-mail?view=sql-server-ver15").
 
-PostgreSQL doesn't have an equivalent for SQL Server Agent. To emulate the SQL Server Agent
-features, AWS SCT creates an extension pack. This extension pack uses AWS Lambda and Amazon CloudWatch.
-AWS Lambda implements the interface that you use to manage schedules and run jobs.
-Amazon CloudWatch maintains the schedule rules.
+PostgreSQL doesn't have an equivalent for SQL Server Database Mail. To emulate the
+SQL Server Database Mail features, AWS SCT creates an extension pack.
+This extension pack uses AWS Lambda and Amazon Simple Email Service (Amazon SES).
+AWS Lambda provides users with an interface to interact with Amazon SES email sending
+service. To set up this interaction, add the Amazon Resource Name (ARN) of your
+Lambda function.
 
-AWS Lambda and Amazon CloudWatch use a JSON parameter to interact. This JSON parameter has
-the following structure.
-
-```
-{
-    "mode": `mode`,
-    "parameters": {
-        `list of parameters`
-    },
-    "callback": `procedure name`
-}
-```
-
-In the preceding example, `mode` is the type
-of the task and `list of parameters` is a set
-of parameters that depend on the type of the task. Also,
-`procedure name` is the name of the
-procedure that runs after the task is completed.
-
-AWS SCT uses one Lambda function to control and run jobs. The CloudWatch rule starts the
-run of the job and provides the necessary information to start the job. When the
-CloudWatch rule triggers, it starts the Lambda function using the parameters from the
-rule.
-
-To create a simple job that calls a procedure, use the following format.
+For a new email account, use the following command.
 
 ```
-{
-    "mode": "run_job",
-    "parameters": {
-        "vendor": "mysql",
-        "cmd": "lambda_db.nightly_job"
-    }
-}
+do
+$$
+begin
+PERFORM sysmail_add_account_sp (
+    par_account_name :='your_account_name',
+    par_email_address := 'your_account_email',
+    par_display_name := 'your_account_display_name',
+    par_mailserver_type := 'AWSLAMBDA'
+    par_mailserver_name := '`ARN`'
+);
+end;
+$$ language plpgsql;
 ```
 
-To create a job with several steps, use the following format.
+To add the ARN of your Lambda function to the existing email account, use the
+following command.
 
 ```
-{
-    "mode": "run_job",
-    "parameters": {
-        "job_name": "Job1",
-        "enabled": "true",
-        "start_step_id": 1,
-        "notify_level_email": [0|1|2|3],
-        "notify_email": email,
-        "delete_level": [0|1|2|3],
-        "job_callback": "ProcCallBackJob(job_name, code, message)",
-        "step_callback": "ProcCallBackStep(job_name, step_id, code, message)"
-    },
-    "steps": [
-        {
-            "id":1,
-            "cmd": "ProcStep1",
-            "cmdexec_success_code": 0,
-            "on_success_action": [|2|3|4],
-            "on_success_step_id": 1,
-            "on_fail_action": 0,
-            "on_fail_step_id": 0,
-            "retry_attempts": number,
-            "retry_interval": number
-        },
-        {
-            "id":2,
-            "cmd": "ProcStep2",
-            "cmdexec_success_code": 0,
-            "on_success_action": [1|2|3|4],
-            "on_success_step_id": 0,
-            "on_fail_action": 0,
-            "on_fail_step_id": 0,
-            "retry_attempts": number,
-            "retry_interval": number
-        },
-        ...
-]
-}
+do
+$$
+begin
+PERFORM sysmail_update_account_sp (
+    par_account_name :='existind_account_name',
+    par_mailserver_type := 'AWSLAMBDA'
+    par_mailserver_name := '`ARN`'
+);
+end;
+$$ language plpgsql;
 ```
 
-To emulate the SQL Server Agent behavior in PostgreSQL, the AWS SCT extension pack also
-creates the following tables and procedures.
+In the preceding examples, `ARN` is the ARN
+of your Lambda function.
 
-## Tables that emulate SQL Server Agent in PostgreSQL
+To emulate the SQL Server Database Mail behavior in PostgreSQL, the AWS SCT
+extension pack uses the following tables, views, and procedures.
 
-To emulate SQL Server Agent, the extension pack uses the following tables:
+## Tables that emulate SQL Server Database Mail in PostgreSQL
 
-**sysjobs**
-Stores the information about the jobs.
+To emulate SQL Server Database Mail, the extension pack uses the following tables:
 
-**sysjobsteps**
-Stores the information about the steps of a job.
+**sysmail_account**
+Stores the information about the email accounts.
 
-**sysschedules**
-Stores the information about the job schedules.
+**sysmail_profile**
+Stores the information about the user profiles.
 
-**sysjobschedules**
-Stores the schedule information for individual jobs.
+**sysmail_server**
+Stores the information about the email servers.
 
-**sysjobhistory**
-Stores the information about the runs of scheduled jobs.
+**sysmail_mailitems**
+Stores the list of the email messages.
 
-## Procedures that emulate SQL Server Agent in PostgreSQL
+**sysmail_attachments**
+Contains one row for each email attachment.
 
-To emulate SQL Server Agent, the extension pack uses the following procedures:
+**sysmail_log**
+Stores the service information about sending email messages.
 
-**sp_add_job**
-Adds a new job.
+**sysmail_profileaccount**
+Stores the information about the user profiles and email accounts.
 
-**sp_add_jobstep**
-Adds a step to a job.
+## Views that emulate SQL Server Database Mail in PostgreSQL
 
-**sp_add_schedule**
-Creates a new schedule rule in Amazon CloudWatch. You can use this schedule with any number of
-jobs.
+To emulate SQL Server Database Mail, AWS SCT creates the following views in
+the PostgreSQL database to ensure compatibility. The extension pack doesn't use
+them, but your converted code can query these views.
 
-**sp_attach_schedule**
-Sets a schedule for the selected job.
+**sysmail_allitems**
+Includes a list of all emails.
 
-**sp_add_jobschedule**
-Creates a schedule rule for a job in Amazon CloudWatch and sets
-the target for this rule.
+**sysmail_faileditems**
+Includes a list of emails that couldn't be sent.
 
-**sp_update_job**
-Updates the attributes of the previously created job.
+**sysmail_sentitems**
+Includes a list of sent emails.
 
-**sp_update_jobstep**
-Updates the attributes of the step in a job.
+**sysmail_unsentitems**
+Includes a list of emails that aren't sent yet.
 
-**sp_update_schedule**
-Updates the attributes of a schedule rule in Amazon CloudWatch.
+**sysmail_mailattachments**
+Includes a list of attached files.
 
-**sp_update_jobschedule**
-Updates the attributes of the schedule for the specified job.
+## Procedures that emulate SQL Server Database Mail in PostgreSQL
 
-**sp_delete_job**
-Deletes a job.
+To emulate SQL Server Database Mail, the extension pack uses the following procedures:
 
-**sp_delete_jobstep**
-Deletes a job step from a job.
+**sp_send_dbmail**
+Sends an email to the specified recipients.
 
-**sp_delete_schedule**
-Deletes a schedule.
+**sysmail_add_profile_sp**
+Creates a new user profile.
 
-**sp_delete_jobschedule**
-Deletes the schedule rule for the specified job from Amazon CloudWatch.
+**sysmail_add_account_sp**
+Creates a new email account that stores such information
+as Simple Mail Transfer Protocol (SMTP) credentials, and so on.
 
-**sp_detach_schedule**
-Removes an association between a schedule and a job.
+**sysmail_add_profileaccount_sp**
+Adds an email account to the specified user profile.
 
-**get_jobs, update_job**
-Internal procedures that interact with AWS Elastic Beanstalk.
+**sysmail_update_profile_sp**
+Changes the attributes of the user profile such as
+description, name, and so on.
 
-**sp_verify_job_date, sp_verify_job_time, sp_verify_job, sp_verify_jobstep, sp_verify_schedule, sp_verify_job_identifiers, sp_verify_schedule_identifiers**
+**sysmail_update_account_sp**
+Changes the information in the existing email account.
+
+**sysmail_update_profileaccount_sp**
+Updates the email account information in the specified user profile.
+
+**sysmail_delete_profileaccount_sp**
+Removes an email account from the specified user profile.
+
+**sysmail_delete_account_sp**
+Deletes the email account.
+
+**sysmail_delete_profile_sp**
+Deletes the user profile.
+
+**sysmail_delete_mailitems_sp**
+Deletes emails from internal tables.
+
+**sysmail_help_profile_sp**
+Displays information about the user profile.
+
+**sysmail_help_account_sp**
+Displays information about the email account.
+
+**sysmail_help_profileaccount_sp**
+Displays information about email accounts associated
+with the user profile.
+
+**sysmail_dbmail_json**
+An internal procedure that generates JSON requests
+for AWS Lambda functions.
+
+**sysmail_verify_profile_sp, sysmail_verify_account_sp, sysmail_verify_addressparams_sp**
 Internal procedures that check settings.
+
+**sp_get_dbmail, sp_set_dbmail, sysmail_dbmail_xml**
+Deprecated internal procedures.
 
 ## Syntax for procedures that
 
-emulate SQL Server Agent in PostgreSQL
+emulate SQL Server Database Mail in PostgreSQL
 
-The `aws_sqlserver_ext.sp_add_job` procedure in the extension pack
-emulates the `msdb.dbo.sp_add_job` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-job-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-job-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sp_send_dbmail` procedure in the extension pack
+emulates the `msdb.dbo.sp_send_dbmail` procedure. For more information
+about the source SQL Server Database Mail procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql?view=sql-server-ver15").
 
 ```
-par_job_name varchar,
-par_enabled smallint = 1,
+par_profile_name varchar = NULL::character varying,
+par_recipients text = NULL::text,
+par_copy_recipients text = NULL::text,
+par_blind_copy_recipients text = NULL::text,
+par_subject varchar = NULL::character varying,
+par_body text = NULL::text,
+par_body_format varchar = NULL::character varying,
+par_importance varchar = 'NORMAL'::character varying,
+par_sensitivity varchar = 'NORMAL'::character varying,
+par_file_attachments text = NULL::text,
+par_query text = NULL::text,
+par_execute_query_database varchar = NULL::character varying,
+par_attach_query_result_as_file smallint = 0,
+par_query_attachment_filename varchar = NULL::character varying,
+par_query_result_header smallint = 1,
+par_query_result_width integer = 256,
+par_query_result_separator VARCHAR = ' '::character varying,
+par_exclude_query_output smallint = 0,
+par_append_query_error smallint = 0,
+par_query_no_truncate smallint = 0,
+par_query_result_no_padding smallint = 0,
+out par_mailitem_id integer,
+par_from_address text = NULL::text,
+par_reply_to text = NULL::text,
+out returncode integer
+```
+
+The `aws_sqlserver_ext.sysmail_delete_mailitems_sp` procedure in the extension pack
+emulates the `msdb.dbo.sysmail_delete_mailitems_sp` procedure. For more information
+about the source SQL Server Database Mail procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-delete-mailitems-sp-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-delete-mailitems-sp-transact-sql?view=sql-server-ver15").
+
+```
+par_sent_before timestamp = NULL::timestamp without time zone,
+par_sent_status varchar = NULL::character varying,
+out returncode integer
+```
+
+The `aws_sqlserver_ext.sysmail_add_profile_sp` procedure in the extension pack
+emulates the `msdb.dbo.sysmail_add_profile_sp` procedure. For more information
+about the source SQL Server Database Mail procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-profile-sp-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-profile-sp-transact-sql?view=sql-server-ver15").
+
+```
+par_profile_name varchar,
 par_description varchar = NULL::character varying,
-par_start_step_id integer = 1,
-par_category_name varchar = NULL::character varying,
-par_category_id integer = NULL::integer,
-par_owner_login_name varchar = NULL::character varying,
-par_notify_level_eventlog integer = 2,
-par_notify_level_email integer = 0,
-par_notify_level_netsend integer = 0,
-par_notify_level_page integer = 0,
-par_notify_email_operator_name varchar = NULL::character varying,
-par_notify_netsend_operator_name varchar = NULL::character varying,
-par_notify_page_operator_name varchar = NULL::character varying,
-par_delete_level integer = 0,
-inout par_job_id integer = NULL::integer,
-par_originating_server varchar = NULL::character varying,
+out par_profile_id integer,
 out returncode integer
 ```
 
-The `aws_sqlserver_ext.sp_add_jobstep` procedure in the extension pack
-emulates the `msdb.dbo.sp_add_jobstep` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-jobstep-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-jobstep-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sysmail_add_account_sp` procedure in the extension pack
+emulates the `msdb.dbo.sysmail_add_account_sp` procedure. For more information
+about the source SQL Server Database Mail procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-account-sp-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-account-sp-transact-sql?view=sql-server-ver15").
 
 ```
-par_job_id integer = NULL::integer,
-par_job_name varchar = NULL::character varying,
-par_step_id integer = NULL::integer,
-par_step_name varchar = NULL::character varying,
-par_subsystem varchar = 'TSQL'::bpchar,
-par_command text = NULL::text,
-par_additional_parameters text = NULL::text,
-par_cmdexec_success_code integer = 0,
-par_on_success_action smallint = 1,
-par_on_success_step_id integer = 0,
-par_on_fail_action smallint = 2,
-par_on_fail_step_id integer = 0,
-par_server varchar = NULL::character varying,
-par_database_name varchar = NULL::character varying,
-par_database_user_name varchar = NULL::character varying,
-par_retry_attempts integer = 0,
-par_retry_interval integer = 0,
-par_os_run_priority integer = 0,
-par_output_file_name varchar = NULL::character varying,
-par_flags integer = 0,
-par_proxy_id integer = NULL::integer,
-par_proxy_name varchar = NULL::character varying,
-inout par_step_uid char = NULL::bpchar,
-out returncode integer
-```
-
-The `aws_sqlserver_ext.sp_add_schedule` procedure in the extension pack
-emulates the `msdb.dbo.sp_add_schedule` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-schedule-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-schedule-transact-sql?view=sql-server-ver15").
-
-```
-par_schedule_name varchar,
-par_enabled smallint = 1,
-par_freq_type integer = 0,
-par_freq_interval integer = 0,
-par_freq_subday_type integer = 0,
-par_freq_subday_interval integer = 0,
-par_freq_relative_interval integer = 0,
-par_freq_recurrence_factor integer = 0,
-par_active_start_date integer = NULL::integer,
-par_active_end_date integer = 99991231,
-par_active_start_time integer = 0,
-par_active_end_time integer = 235959,
-par_owner_login_name varchar = NULL::character varying,
-*inout par_schedule_uid char = NULL::bpchar,*
-inout par_schedule_id integer = NULL::integer,
-par_originating_server varchar = NULL::character varying,
-out returncode integer
-```
-
-The `aws_sqlserver_ext.sp_attach_schedule` procedure in the extension pack
-emulates the `msdb.dbo.sp_attach_schedule` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-attach-schedule-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-attach-schedule-transact-sql?view=sql-server-ver15").
-
-```
-par_job_id integer = NULL::integer,
-par_job_name varchar = NULL::character varying,
-par_schedule_id integer = NULL::integer,
-par_schedule_name varchar = NULL::character varying,
-par_automatic_post smallint = 1,
-out returncode integer
-```
-
-The `aws_sqlserver_ext.sp_add_jobschedule` procedure in the extension pack
-emulates the `msdb.dbo.sp_add_jobschedule` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-jobschedule-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-jobschedule-transact-sql?view=sql-server-ver15").
-
-```
-par_job_id integer = NULL::integer,
-par_job_name varchar = NULL::character varying,
-par_name varchar = NULL::character varying,
-par_enabled smallint = 1,
-par_freq_type integer = 1,
-par_freq_interval integer = 0,
-par_freq_subday_type integer = 0,
-par_freq_subday_interval integer = 0,
-par_freq_relative_interval integer = 0,
-par_freq_recurrence_factor integer = 0,
-par_active_start_date integer = NULL::integer,
-par_active_end_date integer = 99991231,
-par_active_start_time integer = 0,
-par_active_end_time integer = 235959,
-inout par_schedule_id integer = NULL::integer,
-par_automatic_post smallint = 1,
-inout par_schedule_uid char = NULL::bpchar,
-out returncode integer
-```
-
-The `aws_sqlserver_ext.sp_delete_job` procedure in the extension pack
-emulates the `msdb.dbo.sp_delete_job` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-job-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-job-transact-sql?view=sql-server-ver15").
-
-```
-par_job_id integer = NULL::integer,
-par_job_name varchar = NULL::character varying,
-par_originating_server varchar = NULL::character varying,
-par_delete_history smallint = 1,
-par_delete_unused_schedule smallint = 1,
-out returncode integer
-```
-
-The `aws_sqlserver_ext.sp_delete_jobstep` procedure in the extension pack
-emulates the `msdb.dbo.sp_delete_jobstep` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-jobsteplog-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-jobsteplog-transact-sql?view=sql-server-ver15").
-
-```
-par_job_id integer = NULL::integer,
-par_job_name varchar = NULL::character varying,
-par_step_id integer = NULL::integer,
-out returncode integer
-```
-
-The `aws_sqlserver_ext.sp_delete_jobschedule` procedure in the extension pack
-emulates the `msdb.dbo.sp_delete_jobschedule` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-jobschedule-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-jobschedule-transact-sql?view=sql-server-ver15").
-
-```
-par_job_id integer = NULL::integer,
-par_job_name varchar = NULL::character varying,
-par_name varchar = NULL::character varying,
-par_keep_schedule integer = 0,
-par_automatic_post smallint = 1,
-out returncode integer
-```
-
-The `aws_sqlserver_ext.sp_delete_schedule` procedure in the extension pack
-emulates the `msdb.dbo.sp_delete_schedule` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-schedule-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-schedule-transact-sql?view=sql-server-ver15").
-
-```
-par_schedule_id integer = NULL::integer,
-par_schedule_name varchar = NULL::character varying,
-par_force_delete smallint = 0,
-par_automatic_post smallint = 1,
-out returncode integer
-```
-
-The `aws_sqlserver_ext.sp_detach_schedule` procedure in the extension pack
-emulates the `msdb.dbo.sp_detach_schedule` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-detach-schedule-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-detach-schedule-transact-sql?view=sql-server-ver15").
-
-```
-par_job_id integer = NULL::integer,
-par_job_name varchar = NULL::character varying,
-par_schedule_id integer = NULL::integer,
-par_schedule_name varchar = NULL::character varying,
-par_delete_unused_schedule smallint = 0,
-par_automatic_post smallint = 1,
-out returncode integer
-```
-
-The `aws_sqlserver_ext.sp_update_job` procedure in the extension pack
-emulates the `msdb.dbo.sp_update_job` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-job-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-job-transact-sql?view=sql-server-ver15").
-
-```
-par_job_id integer = NULL::integer
-par_job_name varchar = NULL::character varying
-par_new_name varchar = NULL::character varying
-par_enabled smallint = NULL::smallint
+par_account_name varchar
+par_email_address varchar
+par_display_name varchar = NULL::character varying
+par_replyto_address varchar = NULL::character varying
 par_description varchar = NULL::character varying
-par_start_step_id integer = NULL::integer
-par_category_name varchar = NULL::character varying
-par_owner_login_name varchar = NULL::character varying
-par_notify_level_eventlog integer = NULL::integer
-par_notify_level_email integer = NULL::integer
-par_notify_level_netsend integer = NULL::integer
-par_notify_level_page integer = NULL::integer
-par_notify_email_operator_name varchar = NULL::character varying
-par_notify_netsend_operator_name varchar = NULL::character varying
-par_notify_page_operator_name varchar = NULL::character varying
-par_delete_level integer = NULL::integer
-par_automatic_post smallint = 1
+par_mailserver_name varchar = NULL::character varying
+par_mailserver_type varchar = 'SMTP'::bpchar
+par_port integer = 25
+par_username varchar = NULL::character varying
+par_password varchar = NULL::character varying
+par_use_default_credentials smallint = 0
+par_enable_ssl smallint = 0
+out par_account_id integer
 out returncode integer
 ```
 
-The `aws_sqlserver_ext.sp_update_jobschedule` procedure in the extension pack
-emulates the `msdb.dbo.sp_update_jobschedule` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-jobschedule-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-jobschedule-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sysmail_add_profileaccount_sp` procedure in the extension pack
+emulates the `msdb.dbo.sysmail_add_profileaccount_sp` procedure. For more information
+about the source SQL Server Database Mail procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-profileaccount-sp-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-profileaccount-sp-transact-sql?view=sql-server-ver15").
 
 ```
-par_job_id integer = NULL::integer
-par_job_name varchar = NULL::character varying
-par_name varchar = NULL::character varying
-par_new_name varchar = NULL::character varying
-par_enabled smallint = NULL::smallint
-par_freq_type integer = NULL::integer
-par_freq_interval integer = NULL::integer
-par_freq_subday_type integer = NULL::integer
-par_freq_subday_interval integer = NULL::integer
-par_freq_relative_interval integer = NULL::integer
-par_freq_recurrence_factor integer = NULL::integer
-par_active_start_date integer = NULL::integer
-par_active_end_date integer = NULL::integer
-par_active_start_time integer = NULL::integer
-                par_active_end_time integer = NULL::integer
-par_automatic_post smallint = 1
+par_profile_id integer = NULL::integer,
+par_profile_name varchar = NULL::character varying,
+par_account_id integer = NULL::integer,
+par_account_name varchar = NULL::character varying,
+par_sequence_number integer = NULL::integer,
 out returncode integer
 ```
 
-The `aws_sqlserver_ext.sp_update_jobstep` procedure in the extension pack
-emulates the `msdb.dbo.sp_update_jobstep` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-jobstep-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-jobstep-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sysmail_help_profile_sp` procedure in the extension pack
+emulates the `msdb.dbo.sysmail_help_profile_sp` procedure. For more information
+about the source SQL Server Database Mail procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-help-profile-sp-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-help-profile-sp-transact-sql?view=sql-server-ver15").
 
 ```
-par_job_id integer = NULL::integer
-par_job_name varchar = NULL::character varying
-par_step_id integer = NULL::integer
-par_step_name varchar = NULL::character varying
-par_subsystem varchar = NULL::character varying
-par_command text = NULL::text
-par_additional_parameters text = NULL::text
-par_cmdexec_success_code integer = NULL::integer
-par_on_success_action smallint = NULL::smallint
-par_on_success_step_id integer = NULL::integer
-par_on_fail_action smallint = NULL::smallint
-par_on_fail_step_id integer = NULL::integer
-par_server varchar = NULL::character varying
-par_database_name varchar = NULL::character varying
-par_database_user_name varchar = NULL::character varying
-par_retry_attempts integer = NULL::integer
-par_retry_interval integer = NULL::integer
-par_os_run_priority integer = NULL::integer
-par_output_file_name varchar = NULL::character varying
-par_flags integer = NULL::integer
-par_proxy_id integer = NULL::integer
-par_proxy_name varchar = NULL::character varying
+par_profile_id integer = NULL::integer,
+par_profile_name varchar = NULL::character varying,
 out returncode integer
 ```
 
-The `aws_sqlserver_ext.sp_update_schedule` procedure in the extension pack
-emulates the `msdb.dbo.sp_update_schedule` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-schedule-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-schedule-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sysmail_update_profile_sp` procedure in the extension pack
+emulates the `msdb.dbo.sysmail_update_profile_sp` procedure. For more information
+about the source SQL Server Database Mail procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-update-profile-sp-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-update-profile-sp-transact-sql?view=sql-server-ver15").
 
 ```
-par_schedule_id integer = NULL::integer
-par_name varchar = NULL::character varying
-par_new_name varchar = NULL::character varying
-par_enabled smallint = NULL::smallint
-par_freq_type integer = NULL::integer
-par_freq_interval integer = NULL::integer
-par_freq_subday_type integer = NULL::integer
-par_freq_subday_interval integer = NULL::integer
-par_freq_relative_interval integer = NULL::integer
-par_freq_recurrence_factor integer = NULL::integer
-par_active_start_date integer = NULL::integer
-par_active_end_date integer = NULL::integer
-par_active_start_time integer = NULL::integer
-par_active_end_time integer = NULL::integer
-par_owner_login_name varchar = NULL::character varying
-par_automatic_post smallint = 1
+par_profile_id integer = NULL::integer,
+par_profile_name varchar = NULL::character varying,
+par_description varchar = NULL::character varying,
 out returncode integer
 ```
 
-## Examples for using
+The `aws_sqlserver_ext.sysmail_delete_profile_sp` procedure in the extension pack
+emulates the `msdb.dbo.sysmail_delete_profile_sp` procedure. For more information
+about the source SQL Server Database Mail procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-delete-profile-sp-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-delete-profile-sp-transact-sql?view=sql-server-ver15").
 
-procedures that emulate SQL Server Agent in PostgreSQL
+```
+par_profile_id integer = NULL::integer,
+par_profile_name varchar = NULL::character varying,
+par_force_delete smallint = 1,
+out returncode integer
+```
 
-To add a new job, use the `aws_sqlserver_ext.sp_add_job` procedure
+The `aws_sqlserver_ext.sysmail_help_account_sp` procedure in the extension pack
+emulates the `msdb.dbo.sysmail_help_account_sp` procedure. For more information
+about the source SQL Server Database Mail procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-help-account-sp-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-help-account-sp-transact-sql?view=sql-server-ver15").
+
+```
+par_account_id integer = NULL::integer,
+par_account_name varchar = NULL::character varying,
+out returncode integer
+```
+
+The `aws_sqlserver_ext.sysmail_update_account_sp` procedure in the extension pack
+emulates the `msdb.dbo.sysmail_update_account_sp` procedure. For more information
+about the source SQL Server Database Mail procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-update-account-sp-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-update-account-sp-transact-sql?view=sql-server-ver15").
+
+```
+par_account_id integer = NULL::integer,
+par_account_name varchar = NULL::character varying,
+par_email_address varchar = NULL::character varying,
+par_display_name varchar = NULL::character varying,
+par_replyto_address varchar = NULL::character varying,
+par_description varchar = NULL::character varying,
+par_mailserver_name varchar = NULL::character varying,
+par_mailserver_type varchar = NULL::character varying,
+par_port integer = NULL::integer,
+par_username varchar = NULL::character varying,
+par_password varchar = NULL::character varying,
+par_use_default_credentials smallint = NULL::smallint,
+par_enable_ssl smallint = NULL::smallint,
+par_timeout integer = NULL::integer,
+par_no_credential_change smallint = NULL::smallint,
+out returncode integer
+```
+
+The `aws_sqlserver_ext.sysmail_delete_account_sp` procedure in the extension pack
+emulates the `msdb.dbo.sysmail_delete_account_sp` procedure. For more information
+about the source SQL Server Database Mail procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-delete-account-sp-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-delete-account-sp-transact-sql?view=sql-server-ver15").
+
+```
+par_account_id integer = NULL::integer,
+par_account_name varchar = NULL::character varying,
+out returncode integer
+```
+
+The `aws_sqlserver_ext.sysmail_help_profileaccount_sp` procedure in the extension pack
+emulates the `msdb.dbo.sysmail_help_profileaccount_sp` procedure. For more information
+about the source SQL Server Database Mail procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-help-profileaccount-sp-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-help-profileaccount-sp-transact-sql?view=sql-server-ver15").
+
+```
+par_profile_id integer = NULL::integer,
+par_profile_name varchar = NULL::character varying,
+par_account_id integer = NULL::integer,
+par_account_name varchar = NULL::character varying,
+out returncode integer
+```
+
+The `aws_sqlserver_ext.sysmail_update_profileaccount_sp` procedure in the extension pack
+emulates the `msdb.dbo.sysmail_update_profileaccount_sp` procedure. For more information
+about the source SQL Server Database Mail procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-update-profileaccount-sp-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-update-profileaccount-sp-transact-sql?view=sql-server-ver15").
+
+```
+par_profile_id integer = NULL::integer,
+par_profile_name varchar = NULL::character varying,
+par_account_id integer = NULL::integer,
+par_account_name varchar = NULL::character varying,
+par_sequence_number integer = NULL::integer,
+out returncode integer
+```
+
+The `aws_sqlserver_ext.sysmail_delete_profileaccount_sp` procedure in the extension pack
+emulates the `msdb.dbo.sysmail_delete_profileaccount_sp` procedure. For more information
+about the source SQL Server Database Mail procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-delete-profileaccount-sp-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-delete-profileaccount-sp-transact-sql?view=sql-server-ver15").
+
+```
+par_profile_id integer = NULL::integer,
+par_profile_name varchar = NULL::character varying,
+par_account_id integer = NULL::integer,
+par_account_name varchar = NULL::character varying,
+out returncode integer
+```
+
+## Examples for using procedures
+
+that emulate SQL Server Database Mail in PostgreSQL
+
+To send an email, use the `aws_sqlserver_ext.sp_send_dbmail` procedure
 as shown following.
 
 ```
-SELECT * FROM aws_sqlserver_ext.sp_add_job (
-    par_job_name := 'test_job',
-    par_enabled := 1::smallint,
-    par_start_step_id := 1::integer,
-    par_category_name := '[Uncategorized (Local)]',
-    par_owner_login_name := 'sa');
+PERFORM sp_send_dbmail (
+    par_profile_name := 'Administrator',
+    par_recipients := 'hello@rusgl.info',
+    par_subject := 'Automated Success Message',
+    par_body := 'The stored procedure finished'
+);
 ```
 
-To add a new job step, use the `aws_sqlserver_ext.sp_add_jobstep`
-procedure as shown following.
+The following example shows how to send an email with query results.
 
 ```
-SELECT * FROM aws_sqlserver_ext.sp_add_jobstep (
-    par_job_name := 'test_job',
-    par_step_id := 1::smallint,
-    par_step_name := 'test_job_step1',
-    par_subsystem := 'TSQL',
-    par_command := 'EXECUTE [dbo].[PROC_TEST_JOB_STEP1];',
-    par_server := NULL,
-    par_database_name := 'GOLD_TEST_SS');
+PERFORM sp_send_dbmail (
+    par_profile_name := 'Administrator',
+    par_recipients := 'hello@rusgl.info',
+    par_subject := 'Account with id = 1',
+    par_query := 'SELECT COUNT(*)FROM Account WHERE id = 1'
+);
 ```
 
-To add a simple schedule, use the `aws_sqlserver_ext.sp_add_schedule`
-procedure as shown following.
+The following example shows how to send an email with HTML code.
 
 ```
-SELECT * FROM aws_sqlserver_ext.sp_add_schedule(
-    par_schedule_name := 'RunOnce',
-    par_freq_type := 1,
-    par_active_start_time := 233000);
+DECLARE var_tableHTML TEXT;
+SET var_tableHTML := CONCAT(
+    '<H1>Work Order Report</H1>',
+    '<table border="1">',
+    '<tr><th>Work Order ID</th><th>Product ID</th>',
+    '<th>Name</th><th>Order Qty</th><th>Due Date</th>',
+    '<th>Expected Revenue</th></tr>',
+    '</table>'
+);
+PERFORM sp_send_dbmail (
+    par_recipients := 'hello@rusgl.info',
+    par_subject := 'Work Order List',
+    par_body := var_tableHTML,
+    par_body_format := 'HTML'
+);
 ```
 
-To set a schedule for a job, use the `aws_sqlserver_ext.sp_attach_schedule`
-procedure as shown following.
+To delete emails, use the `aws_sqlserver_ext.sysmail_delete_mailitems_sp` procedure
+as shown following.
 
 ```
-SELECT * FROM aws_sqlserver_ext.sp_attach_schedule (
-    par_job_name := 'test_job',
-    par_schedule_name := 'NightlyJobs');
+DECLARE var_GETDATE datetime;
+SET var_GETDATE = NOW();
+PERFORM sysmail_delete_mailitems_sp (
+    par_sent_before := var_GETDATE
+);
 ```
 
-To create a schedule for a job, use the `aws_sqlserver_ext.sp_add_jobschedule`
-procedure as shown following.
+The following example shows how to delete the oldest emails.
 
 ```
-SELECT * FROM aws_sqlserver_ext.sp_add_jobschedule (
-    par_job_name := 'test_job2',
-    par_name := 'test_schedule2',
-    par_enabled := 1::smallint,
-    par_freq_type := 4,
-    par_freq_interval := 1,
-    par_freq_subday_type := 4,
-    par_freq_subday_interval := 1,
-    par_freq_relative_interval := 0,
-    par_freq_recurrence_factor := 0,
-    par_active_start_date := 20100801,
-    par_active_end_date := 99991231,
-    par_active_start_time := 0,
-    par_active_end_time := 0);
+PERFORM sysmail_delete_mailitems_sp (
+    par_sent_before := '31.12.2015'
+);
+```
+
+The following example shows how to delete all emails that can't be
+sent.
+
+```
+PERFORM sysmail_delete_mailitems_sp (
+    par_sent_status := 'failed'
+);
+```
+
+To create a new user profile, use
+the `aws_sqlserver_ext.sysmail_add_profile_sp` procedure
+as shown following.
+
+```
+PERFORM sysmail_add_profile_sp (
+    profile_name := 'Administrator',
+    par_description := 'administrative mail'
+);
+```
+
+The following example shows how to create a new profile and save the
+unique profile identifier in a variable.
+
+```
+DECLARE var_profileId INT;
+SELECT par_profile_id
+    FROM sysmail_add_profile_sp (
+        profile_name := 'Administrator',
+        par_description := ' Profile used for administrative mail.')
+    INTO var_profileId;
+
+SELECT var_profileId;
+```
+
+To create a new email account, use
+the `aws_sqlserver_ext.sysmail_add_account_sp` procedure
+as shown following.
+
+```
+PERFORM sysmail_add_account_sp (
+    par_account_name :='Audit Account',
+    par_email_address := 'dba@rusgl.info',
+    par_display_name := 'Test Automated Mailer',
+    par_description := 'Account for administrative e-mail.',
+    par_mailserver_type := 'AWSLAMBDA'
+    par_mailserver_name := 'arn:aws:lambda:us-west-2:555555555555:function:pg_v3'
+);
+```
+
+To add an email account to the user profile, use
+the `aws_sqlserver_ext.sysmail_add_profileaccount_sp` procedure
+as shown following.
+
+```
+PERFORM sysmail_add_profileaccount_sp (
+    par_account_name := 'Administrator',
+    par_account_name := 'Audit Account',
+    par_sequence_number := 1
+);
 ```
 
 ## Use case examples for
 
-emulating SQL Server Agent in PostgreSQL
+emulating SQL Server Database Mail in PostgreSQL
 
-If your source database code uses SQL Server Agent to run jobs, you can use
-the SQL Server to PostgreSQL extension pack for AWS SCT to convert this code to
-PostgreSQL. The extension pack uses AWS Lambda functions to emulate the behavior
-of SQL Server Agent.
+If your source database code uses SQL Server Database Mail to send emails,
+you can use the AWS SCT extension pack to convert this code to PostgreSQL.
 
-You can create a new AWS Lambda function or register an existing function.
+###### To send an email from your PostgreSQL database
 
-###### To create a new AWS Lambda function
-
-1. In AWS SCT, in the target database tree, open the context (right-click)
-   menu, choose **Apply extension pack for**,
-   and then choose **PostgreSQL**.
-
-The extension pack wizard appears. 2. On the **SQL Server Agent emulation service** tab,
-do the following:
-
-    * Choose **Create an AWS Lambda function**.
-    * For **Database login**, enter the name of the
-     target database user.
-    * For **Database password**, enter the password
-     for the user name that you entered on the preceding step.
-    * For **Python library folder**, enter the path
-     to your Python library folder.
-    * Choose **Create AWS Lambda function**, and then
-     choose **Next**.
-
-###### To register an AWS Lambda function that you deployed earlier
-
-- Run the following script on your target database.
-
-```
-SELECT
-    FROM aws_sqlserver_ext.set_service_setting(
-        p_service := 'JOB',
-        p_setting := 'LAMBDA_ARN',
-        p_value := `ARN`)
-```
-
-In the preceding example, `ARN`
-is the Amazon Resource Name (ARN) of the deployed AWS Lambda
-function.
-
-The following example creates a simple task that consists of one step. Every five
-minutes, this task runs the previously created `job_example` function.
-This function inserts records into the `job_example_table` table.
-
-###### To create this simple task
-
-1. Create a job using the `aws_sqlserver_ext.sp_add_job`
+1. Create and configure your AWS Lambda function.
+2. Apply the AWS SCT extension pack.
+3. Create a user profile using the `sysmail_add_profile_sp`
+   function as shown following.
+4. Create an email account using the `sysmail_add_account_sp`
+   function as shown following.
+5. Add this email account to your user profile using
+   the `sysmail_add_profileaccount_sp`
    function as shown following.
 
 ```
-SELECT
-    FROM aws_sqlserver_ext.sp_add_job (
-        par_job_name := 'test_simple_job');
+CREATE OR REPLACE FUNCTION aws_sqlserver_ext.
+proc_dbmail_settings_msdb()
+RETURNS void
+AS
+$BODY$
+BEGIN
+PERFORM aws_sqlserver_ext.sysmail_add_profile_sp(
+    par_profile_name := 'Administrator',
+    par_description := 'administrative mail'
+);
+PERFORM aws_sqlserver_ext.sysmail_add_account_sp(
+    par_account_name := 'Audit Account',
+    par_description := 'Account for administrative e-mail.',
+    par_email_address := 'dba@rusgl.info',
+    par_display_name := 'Test Automated Mailer',
+    par_mailserver_type := 'AWSLAMBDA'
+    par_mailserver_name := 'your_ARN'
+);
+PERFORM aws_sqlserver_ext.sysmail_add_profileaccount_sp(
+    par_profile_name := 'Administrator',
+    par_account_name := 'Audit Account',
+    par_sequence_number := 1
+);
+END;
+$BODY$
+LANGUAGE plpgsql;
 ```
 
-2. Create a job step using the
-   `aws_sqlserver_ext.sp_add_jobstep` function as shown
-   following.
+6. Send an email using the `sp_send_dbmail` function
+   as shown following.
 
 ```
-SELECT
-    FROM aws_sqlserver_ext.sp_add_jobstep (
-        par_job_name := 'test_simple_job',
-        par_step_name := 'test_simple_job_step1',
-        par_command := 'PERFORM job_simple_example;');
+CREATE OR REPLACE FUNCTION aws_sqlserver_ext.
+proc_dbmail_send_msdb()
+RETURNS void
+AS
+$BODY$
+BEGIN
+PERFORM aws_sqlserver_ext.sp_send_dbmail(
+    par_profile_name := 'Administrator',
+    par_recipients := 'hello@rusgl.info',
+    par_body := 'The stored procedure finished',
+    par_subject := 'Automated Success Message'
+);
+END;
+$BODY$
+LANGUAGE plpgsql;
 ```
 
-The job step specifies what the function does. 3. Create a scheduler for the job using the
-`aws_sqlserver_ext.sp_add_jobschedule` function as shown
-following.
+To view the information about all user profiles, use the
+`sysmail_help_profile_sp` procedure as shown following.
 
 ```
-SELECT
-    FROM aws_sqlserver_ext.sp_add_jobschedule (
-        par_job_name := 'test_simple_job',
-        par_name := 'test_schedule',
-        par_freq_type := 4, /* Daily */
-        par_freq_interval := 1, /* frequency_interval is unused */
-        par_freq_subday_type := 4, /* Minutes */
-        par_freq_subday_interval := 5 /* 5 minutes */);
+SELECT FROM aws_sqlserver_ext.sysmail_help_profile_sp();
 ```
 
-The job step specifies what the function does.
-
-To delete this job, use the `aws_sqlserver_ext.sp_delete_job`
-function as shown following.
+The following example displays the information about the specific user
+profile.
 
 ```
-PERFORM aws_sqlserver_ext.sp_delete_job(
-    par_job_name := 'PeriodicJob1'::character varying,
-    par_delete_history := 1::smallint,
-    par_delete_unused_schedule := 1::smallint);
+select from aws_sqlserver_ext.sysmail_help_profile_sp(par_profile_id := 1);
+select from aws_sqlserver_ext.sysmail_help_profile_sp(par_profile_name := 'Administrator');
+```
+
+To view the information about all email accounts, use the
+`sysmail_help_account_sp` procedure as shown following.
+
+```
+select from aws_sqlserver_ext.sysmail_help_account_sp();
+```
+
+The following example displays the information about the specific email
+account.
+
+```
+select from aws_sqlserver_ext.sysmail_help_account_sp(par_account_id := 1);
+select from aws_sqlserver_ext.sysmail_help_account_sp(par_account_name := 'Audit Account');
+```
+
+To view the information about all email accounts that are associated with the
+user profiles, use the `sysmail_help_profileaccount_sp` procedure as
+shown following.
+
+```
+select from aws_sqlserver_ext.sysmail_help_profileaccount_sp();
+```
+
+The following example filters the records by identifier, profile name, or
+account name.
+
+```
+select from aws_sqlserver_ext.sysmail_help_profileaccount_sp(par_profile_id := 1);
+select from aws_sqlserver_ext.sysmail_help_profileaccount_sp(par_profile_id := 1, par_account_id := 1);
+select from aws_sqlserver_ext.sysmail_help_profileaccount_sp(par_profile_name := 'Administrator');
+select from aws_sqlserver_ext.sysmail_help_profileaccount_sp(par_account_name := 'Audit Account');
+```
+
+To change the user profile name or description, use the
+`sysmail_update_profile_sp` procedure as shown following.
+
+```
+select aws_sqlserver_ext.sysmail_update_profile_sp(
+    par_profile_id := 2,
+    par_profile_name := 'New profile name'
+);
+```
+
+To change the email account settings, use the
+`ysmail_update_account_sp` procedure as shown following.
+
+```
+select from aws_sqlserver_ext.sysmail_update_account_sp (
+    par_account_name := 'Audit Account',
+    par_mailserver_name := 'arn:aws:lambda:region:XXXXXXXXXXXX:function:func_test',
+    par_mailserver_type := 'AWSLAMBDA'
+);
 ```
