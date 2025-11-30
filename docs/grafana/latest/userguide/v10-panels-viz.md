@@ -95,7 +95,7 @@ For time based line, area, and bar charts, we recommend the default [time series
 
 For categorical data, use a [bar chart](v10-panels-bar-chart.md "v10-panels-bar-chart.md").
 
-![An image showing examples of bar chart visualizations in Grafana.](images/viz/barchart_example.png)
+![An image showing examples of bar chart visualizations in Grafana.](/images/grafana/latest/userguide/images/viz/barchart_example.png)
 
 ## Big numbers & stats
 
