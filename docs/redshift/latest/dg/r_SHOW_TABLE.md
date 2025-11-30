@@ -6,10 +6,8 @@ Existing Python UDFs will continue to function as normal. For more information, 
 # SHOW TABLE
 
 Shows the definition of a table, including table attributes, table constraints, column
-attributes, and column constraints. You can use the output of the SHOW TABLE statement to
+attributes, column collation and column constraints. You can use the output of the SHOW TABLE statement to
 recreate the table.
-
-Collation information is shown for any CHAR, VARCHAR or SUPER column.
 
 For more information on table creation, see [CREATE TABLE](r_CREATE_TABLE_NEW.md "r_CREATE_TABLE_NEW.md").
 
@@ -92,24 +90,29 @@ b integer ENCODE az64, PRIMARY KEY (a)
 DISTSTYLE AUTO;
 ```
 
-The following example creates table `collation` with explicit collation CASE_INSENSITIVE for column `a`.
-The collation of the database is CASE_SENSITIVE.
+In this example, we create a table where columns `a` and `b` are explicitly set to CASE_INSENSITIVE collation, while column
+`c` inherits the database's default CASE_SENSITIVE collation.
 
 ```
-CREATE TABLE public.collation (a CHAR COLLATE CASE_INSENSITIVE, b CHAR);
+CREATE TABLE public.foo (
+a CHAR COLLATE CASE_INSENSITIVE,
+b VARCHAR(10) COLLATE CASE_INSENSITIVE,
+c SUPER
+);
 ```
 
 The SHOW TABLE results display the create statement with all properties of the
-`collation` table.
+`foo` table.
 
 ```
-show table public.collation;
+show table public.foo;
 ```
 
 ```
-CREATE TABLE public.collation (
+CREATE TABLE public.foo (
 a character(1) ENCODE lzo COLLATE case_insensitive,
-b character(1) ENCODE lzo COLLATE case_sensitive
+b character varying(10) ENCODE lzo COLLATE case_insensitive,
+c super COLLATE case_sensitive
 )
 DISTSTYLE AUTO;
 ```
