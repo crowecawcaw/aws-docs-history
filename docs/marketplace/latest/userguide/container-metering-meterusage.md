@@ -208,7 +208,7 @@ In the following diagram, **Resource 1** has a unique set of
 `Operations`. As a result, they're combined into a single
 `UsageAllocations` entry in the **Metering Record**.
 
-![Diagram showing how vendor metering tags combine usage data. Three resources (Resource 1, 2, and 3) with different AccountIds and BusinessUnits are consolidated into a single Metering Record with UsageAllocations grouped by AccountId and BusinessUnit before being sent to the AWS Marketplace Metering Service.](images/seller-vendor-meter-tag.png)
+![Diagram showing how vendor metering tags combine usage data. Three resources (Resource 1, 2, and 3) with different AccountIds and BusinessUnits are consolidated into a single Metering Record with UsageAllocations grouped by AccountId and BusinessUnit before being sent to the AWS Marketplace Metering Service.](/images/marketplace/latest/userguide/images/seller-vendor-meter-tag.png)
 
 Sellers can also combine resources without tags into a single
 `UsageAllocation` with the allocated usage quantity and send it as one of the
