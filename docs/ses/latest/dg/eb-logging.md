@@ -205,7 +205,7 @@ The logs are generated per recipient.
 
 ```
 {
-    "resource_arn": "arn:aws:ses:us-east-1:1234567890:mailmanager-ingress-point/inp-xxxxx" CPY,
+    "resource_arn": "arn:aws:ses:us-east-1:1234567890:mailmanager-ingress-point/inp-xxxxx",
     "event_timestamp": 1728562395042,
     "ingress_point_type": "OPEN" | "AUTH",
     "ingress_point_id": "inp-xxxx",
@@ -231,7 +231,15 @@ The logs are generated per recipient.
             {
                 "action": "ALLOW" | "DENY",
                 "policyStatementMatched": true,
-                "type": "DefaultAction"
+                "type": "DefaultAction",
+                "scope": "Recipient"
+            },
+            // Only present if the email was too large according to the traffic policy
+            {
+                "action": "DENY",
+                "allowedMessageSize": 41943040,
+                "receivedMessageSize": 42495384,
+                "scope": "Data"
             }
     ],
     "traffic_policy_verdict": "REJECT" | "ACCEPT",
