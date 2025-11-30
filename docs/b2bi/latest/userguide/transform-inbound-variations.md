@@ -115,7 +115,7 @@ The latter are described as part of the partnership resource.
    `/aws/vendedlogs/b2bi/p-ABCDE111122223333`.
 4. Optionally, add tags as needed.
 
-![The AWS B2B Data Interchange console Profiles page, showing an example profile.](/images/b2bi/latest/userguide/images/profile-configure.png)
+![The AWS B2B Data Interchange console Profiles page, showing an example profile.](images/profile-configure.png)
 
 ## Create an inbound transformer
 

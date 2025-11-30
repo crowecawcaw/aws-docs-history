@@ -209,7 +209,7 @@ Based on the EDI direction selected and the transformer attached to the trading 
      can then paste into your input/output directory's bucket policy to
      provide AWS B2B Data Interchange the necessary access.
 
-![An example capability, showing the settings, the associate partnership, input and output directories, and an example tag.](images/capability-example-inbound.png) 4. Optionally, add tags as needed. 5. After you have configured all of the settings, choose **Create
+![An example capability, showing the settings, the associate partnership, input and output directories, and an example tag.](/images/b2bi/latest/userguide/images/capability-example-inbound.png) 4. Optionally, add tags as needed. 5. After you have configured all of the settings, choose **Create
 capability**.
 
 ###### Important considerations to avoid failed transformation attempts and unnecessary
