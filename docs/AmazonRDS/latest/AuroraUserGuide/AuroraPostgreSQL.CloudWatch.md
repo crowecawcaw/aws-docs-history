@@ -1,77 +1,154 @@
-# Analyzing PostgreSQL logs using CloudWatch Logs Insights
+# Turning on the option to publish logs to Amazon CloudWatch
 
-With the PostgreSQL logs from your Aurora PostgreSQL DB cluster published as CloudWatch Logs, you
-can use CloudWatch Logs Insights to interactively search and analyze your log data in Amazon CloudWatch Logs.
-CloudWatch Logs Insights includes a query language, sample queries, and other tools
-for analyzing your log data so that you can identify potential issues and verify
-fixes. To learn more, see [Analyzing log data with
-CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md") in the _Amazon CloudWatch Logs User Guide_.
+To publish your Aurora PostgreSQL DB cluster's PostgreSQL log to CloudWatch Logs, choose the
+**Log export** option for the cluster. You can choose the Log
+export setting when you create your Aurora PostgreSQL DB cluster. Or, you can modify the
+cluster later on. When you modify an existing cluster, its PostgreSQL logs from each
+instance are published to CloudWatch cluster from that point on. For Aurora PostgreSQL, the
+PostgreSQL log (`postgresql.log`) is the only log that gets published to
+Amazon CloudWatch.
 
-###### To analyze PostgreSQL logs with CloudWatch Logs Insights
+You can use the AWS Management Console, the AWS CLI, or the RDS API to turn on the Log export feature for your
+Aurora PostgreSQL DB cluster.
 
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the navigation pane, open **Logs** and choose **Log insights**.
-3. In **Select log group(s)**, select the log group for your Aurora PostgreSQL DB cluster.
+You choose the Log exports option to start
+publishing the PostgreSQL logs from your Aurora PostgreSQL DB cluster to
+CloudWatch Logs.
 
-![Choose the Aurora PostgreSQL log group.](images/apg-cwl-insights-select-log-group.png) 4. In the query editor, delete the query that is currently shown, enter the following, and then
-choose **Run query**.
+###### To turn on the Log export feature from the console
+
+1. Open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Databases**.
+3. Choose the Aurora PostgreSQL DB cluster whose log data you want to publish to
+   CloudWatch Logs.
+4. Choose **Modify**.
+5. In the **Log exports** section, choose
+   **PostgreSQL log**.
+6. Choose **Continue**, and then choose **Modify
+   cluster** on the summary page.
+   You can turn on the log export option to start publishing Aurora PostgreSQL logs
+   to Amazon CloudWatch Logs with the AWS CLI. To do so,
+   run the [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") AWS CLI
+   command with the following options:
+
+- `--db-cluster-identifier`—The DB cluster
+  identifier.
+- `--cloudwatch-logs-export-configuration`—The
+  configuration setting for the log types to be set for export to CloudWatch Logs
+  for the DB cluster.
+  You can also publish Aurora PostgreSQL logs by running one of the following AWS CLI
+  commands:
+
+- [create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md")
+- [restore-db-cluster-from-s3](../../../cli/latest/reference/rds/restore-db-cluster-from-s3.md "../../../cli/latest/reference/rds/restore-db-cluster-from-s3.md")
+- [restore-db-cluster-from-snapshot](../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md "../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md")
+- [restore-db-cluster-to-point-in-time](../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md")
+  Run one of these AWS CLI commands with the following options:
+
+- `--db-cluster-identifier`—The DB cluster
+  identifier.
+- `--engine`—The database engine.
+- `--enable-cloudwatch-logs-exports`—The configuration
+  setting for the log types to be enabled for export to CloudWatch Logs for the DB
+  cluster.
+  Other options might be required depending on the AWS CLI command that you
+  run.
+
+The following command creates an Aurora PostgreSQL DB cluster to publish log files to
+CloudWatch Logs.
+
+For Linux, macOS, or Unix:
 
 ```
-##Autovacuum execution time in seconds per 5 minute
-fields @message
-| parse @message "elapsed: * s" as @duration_sec
-| filter @message like / automatic vacuum /
-| display @duration_sec
-| sort @timestamp
-| stats avg(@duration_sec) as avg_duration_sec,
-max(@duration_sec) as max_duration_sec
-by bin(5 min)
+aws rds create-db-cluster \
+    --db-cluster-identifier `my-db-cluster` \
+    --engine aurora-postgresql \
+    --enable-cloudwatch-logs-exports postgresql
 ```
 
-![Query in the query editor.](images/apg-cwl-insights-query.png) 5. Choose the **Visualization** tab.
+For Windows:
 
-![The Visualization tab.](images/apg-cwl-insights-visualization.png) 6. Choose **Add to dashboard**. 7. In **Select a dashboard**, either select a dashboard or enter a name to create a new dashboard. 8. In **Widget type**, choose a widget type for your visualization.
+```
+aws rds create-db-cluster ^
+    --db-cluster-identifier `my-db-cluster` ^
+    --engine aurora-postgresql ^
+    --enable-cloudwatch-logs-exports postgresql
+```
 
-![The dashboard.](images/apg-cwl-insights-dashboard.png) 9. (Optional) Add more widgets based on your log query results.
+The following command modifies an existing Aurora PostgreSQL DB cluster to publish
+log files to CloudWatch Logs. The `--cloudwatch-logs-export-configuration`
+value is a JSON object. The key for this object is `EnableLogTypes`,
+and its value is `postgresql`, and `instance`.
 
-    1. Choose **Add widget**.
-    2. Choose a widget type, such as **Line**.
+For Linux, macOS, or Unix:
 
+```
+aws rds modify-db-cluster \
+    --db-cluster-identifier `my-db-cluster` \
+    --cloudwatch-logs-export-configuration '{"EnableLogTypes":["postgresql","instance"]}'
+```
 
+For Windows:
 
-    ![Choose a widget.](images/apg-cwl-insights-widget.png)
-    3. In the **Add to this dashboard** window, choose **Logs**.
+```
+aws rds modify-db-cluster ^
+    --db-cluster-identifier `my-db-cluster` ^
+    --cloudwatch-logs-export-configuration '{\"EnableLogTypes\":[\"postgresql\",\"instance\"]}'
+```
 
+###### Note
 
+When using the Windows command prompt, make sure to escape double
+quotation marks (") in JSON code by prefixing them with a backslash
+(\).
 
-    ![Add logs to the dashboard.](images/apg-cwl-add-logs-to-dashboard.png)
-    4. In **Select log group(s)**, select the log group for your DB cluster.
-    5. In the query editor, delete the query that is currently shown, enter the following, and then
-     choose **Run query**.
+The following example modifies an existing Aurora PostgreSQL DB cluster to disable publishing log files to CloudWatch Logs.
+The `--cloudwatch-logs-export-configuration` value is a JSON object. The key for this object is
+`DisableLogTypes`, and its value is `postgresql` and `instance`.
 
+For Linux, macOS, or Unix:
 
+```
+aws rds modify-db-cluster \
+    --db-cluster-identifier `mydbinstance` \
+    --cloudwatch-logs-export-configuration '{"DisableLogTypes":["postgresql","instance"]}'
+```
 
-    ```
-    ##Autovacuum tuples statistics per 5 min
-    fields @timestamp, @message
-    | parse @message "tuples: " as @tuples_temp
-    | parse @tuples_temp "* removed," as @tuples_removed
-    | parse @tuples_temp "remain, * are dead but not yet removable, " as @tuples_not_removable
-    | filter @message like / automatic vacuum /
-    | sort @timestamp
-    | stats  avg(@tuples_removed) as avg_tuples_removed,
-    avg(@tuples_not_removable) as avg_tuples_not_removable
-    by bin(5 min)
-    ```
+For Windows:
 
+```
+aws rds modify-db-cluster ^
+    --db-cluster-identifier `mydbinstance` ^
+    --cloudwatch-logs-export-configuration "{\"DisableLogTypes\":[\"postgresql\",\"instance\"]}"
+```
 
-    ![Query in the query editor.](images/apg-cwl-insights-query2.png)
-    6. Choose **Create widget**.
+###### Note
 
+When using the Windows command prompt, you must escape double quotes (") in JSON code by
+prefixing them with a backslash (\).
 
-    Your dashboard should look similar to the following image.
+You can turn on the log export option to start publishing Aurora PostgreSQL logs with
+the RDS API. To do so, run the [ModifyDBCluster](../APIReference/API_ModifyDBCluster.md "../APIReference/API_ModifyDBCluster.md")
+operation with the following options:
 
+- `DBClusterIdentifier` – The DB cluster identifier.
+- `CloudwatchLogsExportConfiguration` – The configuration
+  setting for the log types to be enabled for export to CloudWatch Logs for the DB
+  cluster.
+  You can also publish Aurora PostgreSQL logs with the RDS API by running one of the
+  following RDS API operations:
 
+- [CreateDBCluster](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md")
+- [RestoreDBClusterFromS3](../APIReference/API_RestoreDBClusterFromS3.md "../APIReference/API_RestoreDBClusterFromS3.md")
+- [RestoreDBClusterFromSnapshot](../APIReference/API_RestoreDBClusterFromSnapshot.md "../APIReference/API_RestoreDBClusterFromSnapshot.md")
+- [RestoreDBClusterToPointInTime](../APIReference/API_RestoreDBClusterToPointInTime.md "../APIReference/API_RestoreDBClusterToPointInTime.md")
+  Run the RDS API action with the following parameters:
 
-    ![Dashboard with two graphs.](images/apg-cwl-insights-dashboard-two-graphs.png)
+- `DBClusterIdentifier`—The DB cluster identifier.
+- `Engine`—The database engine.
+- `EnableCloudwatchLogsExports`—The configuration setting
+  for the log types to be enabled for export to CloudWatch Logs for the DB
+  cluster.
+  Other parameters might be required depending on the AWS CLI command that you
+  run.

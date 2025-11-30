@@ -1,56 +1,47 @@
-# Displaying volume status for an
+# Specifying the RAM disk for the
 
-Aurora PostgreSQL DB cluster
+stats_temp_directory
 
-In Amazon Aurora, a DB cluster volume consists of a collection of logical blocks. Each of
-these represents 10 gigabytes of allocated storage. These blocks are called
-_protection groups_.
+You can use the Aurora PostgreSQL parameter, `rds.pg_stat_ramdisk_size`, to
+specify the system memory allocated to a RAM disk for storing the PostgreSQL
+`stats_temp_directory`. The RAM disk parameter is only available in
+Aurora PostgreSQL 14 and lower versions.
 
-The data in each protection group is replicated across six physical storage devices,
-called _storage nodes_. These storage nodes are allocated across
-three Availability Zones (AZs) in the region where the DB cluster resides. In turn, each
-storage node contains one or more logical blocks of data for the DB cluster volume. For
-more information about protection groups and storage nodes, see [Introducing the Aurora storage
-engine](https://aws.amazon.com/blogs/database/introducing-the-aurora-storage-engine/ "https://aws.amazon.com/blogs/database/introducing-the-aurora-storage-engine/") on the AWS Database Blog. To learn more about Aurora cluster volumes
-in general, see [Amazon Aurora
-storage](Aurora.Overview.md "Aurora.Overview.md").
+Under certain workloads, setting this parameter can improve performance and decrease
+IO requirements. For more information about the `stats_temp_directory`, see
+[Run-time Statistics](https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-STATS-TEMP-DIRECTORY "https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-STATS-TEMP-DIRECTORY") in the PostgreSQL documentation. From PostgreSQL
+version 15, the PostgreSQL community switched to use dynamic shared memory. So, there is
+no need to set `stats_temp_directory`.
 
-Use the `aurora_show_volume_status()` function to return the following
-server status variables:
+To enable a RAM disk for your `stats_temp_directory`, set the
+`rds.pg_stat_ramdisk_size` parameter to a non-zero value in the DB
+cluster parameter group used by your DB cluster. This parameter denotes MB, so you must
+use an integer value. Expressions, formulas, and functions aren't valid for the
+`rds.pg_stat_ramdisk_size` parameter. Be sure to restart the DB cluster
+so that the change takes effect. For information about setting parameters, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For more information about restarting the DB cluster, see [Rebooting an Amazon Aurora DB cluster or Amazon Aurora DB instance](USER_RebootCluster.md "USER_RebootCluster.md").
 
-- `Disks` — The total number of logical blocks of data for the
-  DB cluster volume.
-- `Nodes`
-  — The total number of storage nodes for the
-  DB cluster volume.
-  You can use the `aurora_show_volume_status()` function to help avoid an
-  error when using the `aurora_inject_disk_failure()` fault injection function.
-  The `aurora_inject_disk_failure()` fault injection function simulates the
-  failure of an entire storage node, or a single logical block of data within a storage
-  node. In the function, you specify the index value of a specific logical block of data
-  or storage node. However, the statement returns an error if you specify an index value
-  greater than the number of logical blocks of data or storage nodes used by the DB
-  cluster volume. For more information about fault injection queries, see [Testing
-  Amazon Aurora PostgreSQL by using fault injection queries](AuroraPostgreSQL.Managing.md "AuroraPostgreSQL.Managing.md").
-
-###### Note
-
-The `aurora_show_volume_status()` function is available for
-Aurora PostgreSQL version 10.11. For more information about Aurora PostgreSQL versions, see
-[Amazon Aurora PostgreSQL releases and
-engine versions](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
-
-**Syntax**
+As an example, the following AWS CLI command sets the RAM disk parameter to 256
+MB.
 
 ```
-SELECT * FROM aurora_show_volume_status();
+aws rds modify-db-cluster-parameter-group \
+    --db-cluster-parameter-group-name db-cl-pg-ramdisk-testing \
+    --parameters "ParameterName=rds.pg_stat_ramdisk_size, ParameterValue=256, ApplyMethod=pending-reboot"
 ```
 
-**Example**
+After you restart the DB cluster, run the following command to see the status of the
+`stats_temp_directory`:
 
 ```
-customer_database=> SELECT * FROM aurora_show_volume_status();
- disks | nodes
--------+-------
-    96 |    45
+`postgres=>` `SHOW stats_temp_directory;`
+```
+
+The command should return the following:
+
+```
+stats_temp_directory
+---------------------------
+/rdsdbramdisk/pg_stat_tmp
+(1 row)
 ```

@@ -189,7 +189,7 @@ _optional_**.
 Select **Connect to an EC2 compute resource**. Choose the
 EC2 instance you created previously.
 
-![Set up EC2 connection option.](/images/AmazonRDS/latest/AuroraUserGuide/images/EC2_RDS_Setup_Conn-EasyCreate.png) 11. Open **View default settings for Easy create**.
+![Set up EC2 connection option.](images/EC2_RDS_Setup_Conn-EasyCreate.png) 11. Open **View default settings for Easy create**.
 
 ![Easy create default settings.](images/easy-create-view-default-settings-aurora-postgresql.png)
 

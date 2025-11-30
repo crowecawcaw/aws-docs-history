@@ -1,19 +1,13 @@
-# IO:XactSync
+# Lock:extend
 
-The `IO:XactSync` event occurs when the database is waiting for the Aurora
-storage subsystem to acknowledge the commit of a regular transaction, or the commit or
-rollback of a prepared transaction. A prepared transaction is part of PostgreSQL's
-support for a two-phase commit. This event can also occur when a query is waiting for
-another transaction to commit, particularly in cases where auto-commit is turned off. In
-such scenarios, updates might appear to be waiting on XactSync even though they haven't been
-committed yet.
+The `Lock:extend` event occurs when a backend process is waiting to lock a relation to extend it while another process has a lock on that relation for the same purpose.
 
 ###### Topics
 
-- [Supported engine versions](#apg-waits.xactsync.context.supported "#apg-waits.xactsync.context.supported")
-- [Context](#apg-waits.xactsync.context "#apg-waits.xactsync.context")
-- [Likely causes of increased waits](#apg-waits.xactsync.causes "#apg-waits.xactsync.causes")
-- [Actions](#apg-waits.xactsync.actions "#apg-waits.xactsync.actions")
+- [Supported engine versions](#apg-waits.lockextend.context.supported "#apg-waits.lockextend.context.supported")
+- [Context](#apg-waits.lockextend.context "#apg-waits.lockextend.context")
+- [Likely causes of increased waits](#apg-waits.lockextend.causes "#apg-waits.lockextend.causes")
+- [Actions](#apg-waits.lockextend.actions "#apg-waits.lockextend.actions")
 
 ## Supported engine versions
 
@@ -21,20 +15,23 @@ This wait event information is supported for all versions of Aurora PostgreSQL.
 
 ## Context
 
-The event `IO:XactSync` indicates that the instance is spending time waiting for the Aurora storage subsystem to confirm that transaction data was processed.
+The event `Lock:extend` indicates that a backend process is waiting
+to extend a relation that another backend process holds a lock on while it's extending
+that relation. Because only one process at a time can extend a relation, the system generates a
+`Lock:extend` wait event. `INSERT`, `COPY`, and
+`UPDATE` operations can generate this event.
 
 ## Likely causes of increased waits
 
-When the `IO:XactSync` event appears more than normal, possibly indicating a performance problem, typical causes include the following:
+When the `Lock:extend` event appears more than normal, possibly indicating a performance problem, typical causes include the following:
 
-**Network saturation**
+**Surge in concurrent inserts or updates to the same table**
 
-Traffic between clients and the DB instance or traffic to the
-storage subsystem might be too heavy for the network bandwidth.
+There might be an increase in the number of concurrent sessions with queries that insert into or update the same table.
 
-**CPU pressure**
+**Insufficient network bandwidth**
 
-A heavy workload might be preventing the Aurora storage daemon from getting sufficient CPU time.
+The network bandwidth on the DB instance might be insufficient for the storage communication needs of the current workload. This can contribute to storage latency that causes an increase in `Lock:extend` events.
 
 ## Actions
 
@@ -42,41 +39,61 @@ We recommend different actions depending on the causes of your wait event.
 
 ###### Topics
 
-- [Monitor your resources](#apg-waits.xactsync.actions.monitor "#apg-waits.xactsync.actions.monitor")
-- [Scale up the CPU](#apg-waits.xactsync.actions.scalecpu "#apg-waits.xactsync.actions.scalecpu")
-- [Increase network bandwidth](#apg-waits.xactsync.actions.scalenetwork "#apg-waits.xactsync.actions.scalenetwork")
-- [Reduce the number of commits](#apg-waits.xactsync.actions.commits "#apg-waits.xactsync.actions.commits")
+- [Reduce concurrent inserts and updates to the same relation](#apg-waits.lockextend.actions.action1 "#apg-waits.lockextend.actions.action1")
+- [Increase network bandwidth](#apg-waits.lockextend.actions.increase-network-bandwidth "#apg-waits.lockextend.actions.increase-network-bandwidth")
 
-### Monitor your resources
+### Reduce concurrent inserts and updates to the same relation
 
-To determine the cause of the increased `IO:XactSync` events, check the following metrics:
+First, determine whether there's an increase in `tup_inserted` and `tup_updated` metrics and an accompanying increase
+in this wait event. If so, check which relations are in high contention for insert and update operations. To determine this, query the
+`pg_stat_all_tables` view for the values in `n_tup_ins` and `n_tup_upd` fields. For information about the `pg_stat_all_tables` view, see
+[pg_stat_all_tables](https://www.postgresql.org/docs/13/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW "https://www.postgresql.org/docs/13/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW") in the PostgreSQL documentation.
 
-- `WriteThroughput` and `CommitThroughput` – Changes in write
-  throughput or commit throughput can show an increase in workload.
-- `WriteLatency` and `CommitLatency` – Changes in write latency or
-  commit latency can show that the storage subsystem is being asked to do more
-  work.
-- `CPUUtilization` – If the instance's CPU utilization is above 90
-  percent, the Aurora storage daemon might not be getting sufficient time on
-  the CPU. In this case, I/O performance degrades.
+To get more information about blocking and blocked queries, query `pg_stat_activity` as in the following example:
 
-For information about these metrics, see [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
+```
+SELECT
+    blocked.pid,
+    blocked.usename,
+    blocked.query,
+    blocking.pid AS blocking_id,
+    blocking.query AS blocking_query,
+    blocking.wait_event AS blocking_wait_event,
+    blocking.wait_event_type AS blocking_wait_event_type
+FROM pg_stat_activity AS blocked
+JOIN pg_stat_activity AS blocking ON blocking.pid = ANY(pg_blocking_pids(blocked.pid))
+where
+blocked.wait_event = 'extend'
+and blocked.wait_event_type = 'Lock';
 
-### Scale up the CPU
+   pid  | usename  |            query             | blocking_id |                         blocking_query                           | blocking_wait_event | blocking_wait_event_type
+  ------+----------+------------------------------+-------------+------------------------------------------------------------------+---------------------+--------------------------
+   7143 |  myuser  | insert into tab1 values (1); |        4600 | INSERT INTO tab1 (a) SELECT s FROM generate_series(1,1000000) s; | DataFileExtend      | IO
+```
 
-To address CPU starvation issues, consider changing to an instance type with more CPU capacity. For information about CPU capacity for a DB instance class, see [Hardware specifications for DB instance
-classes for Aurora](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+After you identify relations that contribute to increase `Lock:extend` events, use the following techniques to reduce the contention:
+
+- Find out whether you can use partitioning to reduce contention for the same table. Separating inserted or updated tuples into different partitions can reduce contention.
+  For information about partitioning, see [Managing PostgreSQL partitions with the pg_partman extension](PostgreSQL_Partitions.md "PostgreSQL_Partitions.md").
+- If the wait event is mainly due to update activity, consider reducing the relation's fillfactor value. This can reduce requests for new blocks during the update.
+  The fillfactor is a storage parameter for a table that determines the maximum amount of space for packing a table page. It's expressed as a percentage of the total space for a page.
+  For more information about the fillfactor parameter, see [CREATE TABLE](https://www.postgresql.org/docs/13/sql-createtable.html "https://www.postgresql.org/docs/13/sql-createtable.html") in the PostgreSQL documentation.
+
+###### Important
+
+We highly recommend that you test your system if you change the fillfactor because changing this value can negatively impact performance, depending on your workload.
 
 ### Increase network bandwidth
 
-To determine whether the instance is reaching its network bandwidth limits, check for the following other wait events:
+To see whether there's an increase in write latency, check the `WriteLatency` metric in CloudWatch. If there is, use the `WriteThroughput` and `ReadThroughput` Amazon CloudWatch
+metrics to monitor the storage related traffic on the DB cluster. These metrics can help you to
+determine if network bandwidth is sufficient for the storage activity of your workload.
 
-- `IO:DataFileRead`, `IO:BufferRead`, `IO:BufferWrite`, and `IO:XactWrite` – Queries using large amounts of I/O can generate more of these wait events.
-- `Client:ClientRead` and `Client:ClientWrite` – Queries with large amounts of client communication can generate more of these wait events.
+If your network bandwidth isn't enough, increase it. If your DB instance is reaching the
+network bandwidth limits, the only way to increase the bandwidth is to increase your DB instance size.
 
-If network bandwidth is an issue, consider changing to an instance type with more network bandwidth. For information about network performance for a DB instance class, see [Hardware specifications for DB instance
+For more information about CloudWatch metrics,
+
+see [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.md "Aurora.AuroraMonitoring.md").
+For information about network performance for each DB instance class, see [Hardware specifications for DB instance
 classes for Aurora](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
-
-### Reduce the number of commits
-
-To reduce the number of commits, combine statements into transaction blocks.

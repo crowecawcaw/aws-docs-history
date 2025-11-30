@@ -1,270 +1,115 @@
-# Encrypting Amazon Aurora
+# Logging and monitoring in Amazon Aurora
 
-resources
+Monitoring is an important part of maintaining the reliability, availability, and
+performance of
+Amazon Aurora and your AWS solutions. You should collect monitoring data
+from all of the parts of your AWS solution so that you can more easily debug a
+multi-point failure if one occurs. AWS provides several tools for monitoring your
 
-Amazon Aurora can encrypt your Amazon Aurora DB clusters. Data that is encrypted at rest includes the underlying
-storage for DB clusters, its automated backups, read replicas,
-and snapshots.
+Amazon Aurora resources and responding to potential incidents:
 
-Amazon Aurora encrypted DB clusters use the
-industry standard AES-256 encryption algorithm to encrypt your data on the
-server that hosts your Amazon Aurora DB clusters. After your
-data is encrypted, Amazon Aurora handles authentication of access and
-decryption of your data transparently with a minimal impact on performance. You
-don't need to modify your database client applications to use encryption.
+**Amazon CloudWatch Alarms**
 
-###### Note
+Using Amazon CloudWatch alarms, you watch a single metric over a time period that
+you specify. If the metric exceeds a given threshold, a notification is sent
+to an Amazon SNS topic or AWS Auto Scaling policy. CloudWatch alarms do not invoke actions
+because they are in a particular state. Rather the state must have changed
+and been maintained for a specified number of periods.
 
-For encrypted and unencrypted DB clusters, data
-that is in transit between the source and the read replicas is encrypted,
-even when replicating across AWS Regions.
+**AWS CloudTrail Logs**
 
-###### Topics
+CloudTrail provides a record of actions taken by a user, role, or an AWS
+service in
+Amazon Aurora. CloudTrail captures all API calls for
 
-- [Overview of encrypting
-  Amazon Aurora resources](#Overview.Encryption.Overview "#Overview.Encryption.Overview")
-- [Encrypting an Amazon Aurora DB
-  cluster](#Overview.Encryption.Enabling "#Overview.Encryption.Enabling")
-- [Determining whether
-  encryption is turned on for a DB cluster](#Overview.Encryption.Determining "#Overview.Encryption.Determining")
-- [Availability of Amazon Aurora encryption](#Overview.Encryption.Availability "#Overview.Encryption.Availability")
-- [Encryption in
-  transit](#Overview.Encryption.InTransit "#Overview.Encryption.InTransit")
-- [Limitations of Amazon Aurora encrypted DB clusters](#Overview.Encryption.Limitations "#Overview.Encryption.Limitations")
+Amazon Aurora as events, including calls from the console and from
+code calls to Amazon RDS API operations. Using the information collected by CloudTrail,
+you can determine the request that was made to
+Amazon Aurora, the IP
+address from which the request was made, who made the request, when it was
+made, and additional details. For more information, see [Monitoring Amazon Aurora API calls in AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+.
 
-## Overview of encrypting
+**Enhanced Monitoring**
 
-Amazon Aurora resources
+Amazon Aurora provides metrics in real time for the operating
+system (OS) that your DB
+cluster runs on.
+You can view the metrics for your DB
+cluster using the
+console, or consume the Enhanced Monitoring JSON output from Amazon CloudWatch Logs in a
+monitoring system of your choice. For more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md")
+.
 
-Amazon Aurora encrypted DB clusters provide an additional layer of data
-protection by securing your data from unauthorized access to the underlying storage. You
-can use Amazon Aurora encryption to increase data protection of your applications deployed
-in the cloud, and to fulfill compliance requirements for encryption at rest. For an
-Amazon Aurora encrypted DB cluster, all DB instances, logs, backups, and snapshots are
-encrypted. For more information about the availability and limitations of encryption,
-see [Availability of Amazon Aurora encryption](#Overview.Encryption.Availability "#Overview.Encryption.Availability") and
-[Limitations of Amazon Aurora encrypted DB clusters](#Overview.Encryption.Limitations "#Overview.Encryption.Limitations").
+**Amazon RDS Performance Insights**
 
-Amazon Aurora uses an AWS Key Management Service key to encrypt these resources. AWS KMS combines
-secure, highly available hardware and software to provide a key management system scaled
-for the cloud. You can use an AWS managed key, or you can create customer managed keys.
+Performance Insights expands on existing
+Amazon Aurora monitoring
+features to illustrate your database's performance and help you analyze
+any issues that affect it. With the Performance Insights dashboard, you can
+visualize the database load and filter the load by waits, SQL statements,
+hosts, or users. For more information, see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md")
+.
 
-When you create an encrypted DB cluster, you can choose a customer managed key or the
-AWS managed key for Amazon Aurora to encrypt your DB cluster. If you don't specify
-the key identifier for a customer managed key, Amazon Aurora uses the AWS managed key for your new
-DB cluster. Amazon Aurora creates an AWS managed key for Amazon Aurora for your AWS account.
-Your AWS account has a different AWS managed key for Amazon Aurora for each AWS
-Region.
+**Database Logs**
 
-To manage the customer managed keys used for encrypting and decrypting your Amazon Aurora resources,
-you use the [AWS Key Management Service (AWS KMS)](../../../kms/latest/developerguide.md "../../../kms/latest/developerguide.md").
+You can view, download, and watch database logs using the AWS Management Console,
+AWS CLI, or RDS API. For more information, see [Monitoring Amazon Aurora log files](USER_LogAccess.md "USER_LogAccess.md")
+.
 
-Using AWS KMS, you can create customer managed keys and define the policies to control the use of
-these customer managed keys. AWS KMS supports CloudTrail, so you can audit KMS key usage to verify that
-customer managed keys are being used appropriately. You can use your customer managed keys with Amazon Aurora
-and supported AWS services such as Amazon S3, Amazon EBS, and Amazon Redshift. For a list of services that
-are integrated with AWS KMS, see [AWS Service Integration](https://aws.amazon.com/kms/features/#AWS_Service_Integration "https://aws.amazon.com/kms/features/#AWS_Service_Integration"). Some
-considerations about using KMS keys:
+**Amazon Aurora Recommendations**
 
-- Once you have created an encrypted DB instance, you can't change the
-  KMS key used by that DB instance. Therefore, be sure to determine your
-  KMS key requirements before you create your encrypted DB instance.
+Amazon Aurora provides automated recommendations for database
+resources. These recommendations provide best practice guidance by analyzing
+DB
+cluster configuration, usage, and performance data. For more
+information, see [Recommendations from Amazon Aurora](monitoring-recommendations.md "monitoring-recommendations.md")
+.
 
-If you must change the encryption key for your DB cluster, create a manual snapshot
-of your cluster and enable encryption while copying the snapshot. For more
-information, see [re:Post
-Knowledge article](https://repost.aws/knowledge-center/update-encryption-key-rds "https://repost.aws/knowledge-center/update-encryption-key-rds").
+**Amazon Aurora Event Notification**
 
-- If you copy an encrypted snapshot, you can use a different KMS key to
-  encrypt the target snapshot than the one that was used to encrypt the source
-  snapshot.
-- You can't share a snapshot that has been encrypted using the
-  AWS managed key of the AWS account that shared the snapshot.
-- Each DB instance in the DB cluster is encrypted using the same KMS key as
-  the DB cluster.
-- You can also encrypt a read replica of an Amazon Aurora encrypted cluster.
+Amazon Aurora uses the Amazon Simple Notification Service (Amazon SNS) to provide notification
+when an
+Amazon Aurora event occurs. These notifications
+can be in any notification form supported by Amazon SNS for an AWS Region, such
+as an email, a text message, or a call to an HTTP endpoint. For more
+information, see [Working with Amazon RDS event notification](USER_Events.md "USER_Events.md")
+.
 
-###### Important
+**AWS Trusted Advisor**
 
-Amazon Aurora can lose access to the KMS key for a DB cluster when you disable the
-KMS key. In these cases, the encrypted DB cluster goes into
-`inaccessible-encryption-credentials-recoverable` state. The DB cluster
-remains in this state for seven days, during which the instance is stopped. API
-calls made to the DB cluster during this time might not succeed. To recover the DB cluster,
-enable the KMS key and restart this DB cluster. Enable the KMS key from the
-AWS Management Console, AWS CLI, or RDS API. Restart the DB cluster using the AWS CLI command [start-db-cluster](../../../cli/latest/reference/rds/start-db-cluster.md "../../../cli/latest/reference/rds/start-db-cluster.md") or
-AWS Management Console.
+Trusted Advisor draws upon best practices learned from serving hundreds of
+thousands of AWS customers. Trusted Advisor inspects your AWS environment and
+then makes recommendations when opportunities exist to save money, improve
+system availability and performance, or help close security gaps. All AWS
+customers have access to five Trusted Advisor checks. Customers with a Business or
+Enterprise support plan can view all Trusted Advisor checks.
 
-The `inaccessible-encryption-credentials-recoverable` state only
-applies to DB clusters that can stop. This recoverable state is not applicable to instances
-that can't stop, such as clusters with cross-Region
-read replicas. For more information, see [Limitations for stopping and starting Aurora DB clusters](aurora-cluster-stop-start.md#aurora-cluster-stop-limitations "aurora-cluster-stop-start.md#aurora-cluster-stop-limitations").
+Trusted Advisor has the following
+Amazon Aurora-related
+checks:
 
-If the DB cluster isn't recovered within seven days, it goes into the terminal
-`inaccessible-encryption-credentials` state. In this state, the DB cluster
-is not usable anymore and you can only restore the DB cluster from a backup. We strongly
-recommend that you always turn on backups for encrypted DB clusters to guard against the
-loss of encrypted data in your databases.
+- Amazon Aurora Idle DB Instances
+- Amazon Aurora Security Group Access
+  Risk
+- Amazon Aurora Backups
+- Amazon Aurora Multi-AZ
+- Aurora DB Instance Accessibility
 
-During the creation of a DB cluster, Aurora checks if the calling principal has access
-to the KMS key and generates a grant from the KMS key that it uses for the
-entire lifetime of the DB cluster. Revoking the calling principals access to the
-KMS key does not affect a running database. When using KMS keys in cross-account
-scenarios, such as copying a snapshot to another account, the KMS key needs to be
-shared with the other account. If you create a DB cluster from the snapshot without
-specifying a different KMS key, the new cluster uses the KMS key from the source
-account. Revoking access to the key after you create the DB cluster does not affect the
-cluster. However, disabling the key impacts all DB clusters encrypted with that key. To
-prevent this, specify a different key during the snapshot copy operation.
+For more information on these checks, see [Trusted Advisor best
+practices (checks)](https://aws.amazon.com/premiumsupport/trustedadvisor/best-practices/ "https://aws.amazon.com/premiumsupport/trustedadvisor/best-practices/").
 
-For more information about KMS keys, see [AWS KMS keys](../../../kms/latest/developerguide/concepts.md#kms_keys "../../../kms/latest/developerguide/concepts.md#kms_keys") in the
-_AWS Key Management Service Developer Guide_ and [AWS KMS key management](Overview.Encryption.md "Overview.Encryption.md").
+**Database activity streams**
 
-## Encrypting an Amazon Aurora DB
+Database
+activity streams can protect your databases from internal threats by
+controlling DBA access to the database activity streams. Thus, the
+collection, transmission, storage, and subsequent processing of the database
+activity stream is beyond the access of the DBAs that manage the database.
+Database activity streams can provide safeguards for your database and meet
+compliance and regulatory requirements. For more information, see[Monitoring Amazon Aurora with Database Activity
+Streams](DBActivityStreams.md "DBActivityStreams.md")
+.
 
-cluster
-
-To encrypt a new DB cluster, choose **Enable encryption**
-on the console. For information on creating a DB cluster, see [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
-
-If you use the [create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md") AWS CLI command to create an encrypted DB
-cluster, set the `--storage-encrypted` parameter. If you use the
-[CreateDBCluster](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md") API operation, set the
-`StorageEncrypted` parameter to true.
-
-Once you have created an encrypted DB cluster, you can't change the
-KMS key used by that DB cluster. Therefore, be sure to determine your
-KMS key requirements before you create your encrypted DB cluster.
-
-If you use the AWS CLI `create-db-cluster` command to create an
-encrypted DB cluster with a customer managed key, set the `--kms-key-id`
-parameter to any key identifier for the KMS key. If you use the Amazon RDS API
-`CreateDBInstance` operation, set the `KmsKeyId`
-parameter to any key identifier for the KMS key. To use a customer managed key in a
-different AWS account, specify the key ARN or alias ARN.
-
-## Determining whether
-
-encryption is turned on for a DB cluster
-
-You can use the AWS Management Console, AWS CLI, or RDS API to determine whether
-encryption at rest is turned on for a DB cluster.
-
-###### To determine whether encryption at rest is turned on for a DB
-
-cluster
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose
-   **Databases**.
-3. Choose the name of the DB cluster that you want to check
-   to view its details.
-4. Choose the **Configuration** tab and
-   check the **Encryption** value.
-
-It shows either **Enabled** or
-**Not enabled**.
-
-![Checking encryption at rest for a DB cluster](images/encryption-check-db-cluster.png)
-To determine whether encryption at rest is turned on for a DB
-cluster by using the AWS CLI, call the [describe-db-clusters](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md") command with the following option:
-
-- `--db-cluster-identifier` – The name of
-  the DB cluster.
-  The following example uses a query to return either
-  `TRUE` or `FALSE` regarding encryption at
-  rest for the `mydb` DB cluster.
-
-###### Example
-
-```
-aws rds describe-db-clusters --db-cluster-identifier `mydb` --query "*[].{StorageEncrypted:StorageEncrypted}" --output text
-```
-
-To determine whether encryption at rest is turned on for a DB
-cluster by using the Amazon RDS API, call the [DescribeDBClusters](../APIReference/API_DescribeDBClusters.md "../APIReference/API_DescribeDBClusters.md") operation with the following
-parameter:
-
-- `DBClusterIdentifier` – The name of the
-  DB cluster.
-
-## Availability of Amazon Aurora encryption
-
-Amazon Aurora encryption is currently available for all database
-engines and storage types.
-
-###### Note
-
-Amazon Aurora encryption is not available for the db.t2.micro DB instance
-class.
-
-## Encryption in
-
-transit
-
-**Encryption at the physical layer**
-
-All data flowing accross AWS Regions over the AWS global network
-is automatically encrypted at the physical layer before it leaves AWS
-secured facilities. All traffic between AZs is encrypted. Additional layers of encryption,
-including those listed in this section may provide additional protections.
-
-**Encryption provided by Amazon VPC peering and Transit Gateway cross-Region peering**
-
-All cross-Region traffic that uses Amazon VPC and Transit Gateway peering is automatically bulk-encrypted
-when it exits a Region. An additional layer of encryption is automatically provided at the physical layer
-for all traffic before it leaves AWS secured facilities.
-
-**Encryption between instances**
-
-AWS provides secure and private connectivity between DB instances of all
-types. In addition, some instance types use the offload capabilities of the
-underlying Nitro System hardware to automatically encrypt in-transit traffic
-between instances. This encryption uses Authenticated Encryption with
-Associated Data (AEAD) algorithms, with 256-bit encryption. There is no
-impact on network performance. To support this additional in-transit traffic
-encryption between instances, the following requirements must be met:
-
-- The instances use the following instance types:
-  - **General purpose**: M6i,
-    M6id, M6in, M6idn, M7g
-  - **Memory optimized**: R6i,
-    R6id, R6in, R6idn, R7g, X2idn, X2iedn, X2iezn
-
-- The instances are in the same AWS Region.
-- The instances are in the same VPC or peered VPCs, and the traffic
-  does not pass through a virtual network device or service, such as a
-  load balancer or a transit gateway.
-
-## Limitations of Amazon Aurora encrypted DB clusters
-
-The following limitations exist for Amazon Aurora encrypted
-DB clusters:
-
-- You can't turn off encryption on an encrypted DB cluster.
-- You can't create an encrypted snapshot of an unencrypted DB
-  cluster.
-- A snapshot of an encrypted DB cluster
-  must be encrypted using the same KMS key as the DB cluster.
-- You can't convert an unencrypted DB cluster to an encrypted
-  one. However, you can restore an unencrypted snapshot to an
-  encrypted Aurora DB cluster. To do this, specify a KMS key when you
-  restore from the unencrypted snapshot.
-- You can't create an encrypted Aurora Replica from an
-  unencrypted Aurora DB cluster. You can't create an unencrypted
-  Aurora Replica from an encrypted Aurora DB cluster.
-- To copy an encrypted snapshot from one AWS Region to another,
-  you must specify the KMS key in the destination AWS Region. This
-  is because KMS keys are specific to the AWS Region that they are
-  created in.
-
-The source snapshot remains encrypted throughout the copy process.
-Amazon Aurora uses envelope encryption
-to protect data during the copy process. For more information about
-envelope encryption, see [Envelope encryption](../../../kms/latest/developerguide/concepts.md#enveloping "../../../kms/latest/developerguide/concepts.md#enveloping") in the _AWS Key Management Service
-Developer Guide_.
-
-- You can't unencrypt an encrypted DB cluster. However, you can export
-  data from an encrypted DB cluster
-  and import the data into an unencrypted DB cluster.
+For more information about monitoring Aurora see [Monitoring metrics in an Amazon Aurora cluster](MonitoringAurora.md "MonitoringAurora.md")
+.

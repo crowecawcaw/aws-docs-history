@@ -1,100 +1,110 @@
-# Using GTID-based replication
+# Disabling GTID-based replication for
 
-The following content explains how to use global transaction identifiers (GTIDs) with
-binary log (binlog) replication
-between an Aurora MySQL cluster and an external source.
+an Aurora MySQL DB
+cluster
 
-###### Note
-
-For Aurora, you can use this feature only with Aurora MySQL clusters that use binlog
-replication to or from an external MySQL database. The other database might be an Amazon RDS
-MySQL instance, an on-premises MySQL database, or an Aurora DB cluster in a different
-AWS Region. To learn how to configure that kind of replication, see [Replication between Aurora and MySQL or between Aurora and another Aurora DB
-cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
-
-If you use binlog replication and aren't familiar with GTID-based replication with MySQL,
-see [Replication
-with global transaction identifiers](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html "https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html") in the MySQL documentation.
-
-GTID-based replication is supported for Aurora MySQL version 2 and 3.
-
-###### Topics
-
-- [Overview of global transaction identifiers (GTIDs)](#mysql-replication-gtid.overview "#mysql-replication-gtid.overview")
-- [Parameters for GTID-based replication](#mysql-replication-gtid.parameters "#mysql-replication-gtid.parameters")
-- [Enabling GTID-based replication for an Aurora MySQL cluster](mysql-replication-gtid.md "mysql-replication-gtid.md")
-- [Disabling GTID-based replication for
-  an Aurora MySQL DB
-  cluster](mysql-replication-gtid.md "mysql-replication-gtid.md")
-
-## Overview of global transaction identifiers (GTIDs)
-
-_Global transaction identifiers (GTIDs)_ are unique
-identifiers generated for committed MySQL transactions. You can use GTIDs to make binlog
-replication simpler and easier to troubleshoot.
+You can disable GTID-based replication for an Aurora MySQL DB
+cluster. Doing so means that the Aurora cluster can't perform inbound or
+outbound binlog replication with external databases that use GTID-based
+replication.
 
 ###### Note
 
-When Aurora synchronizes data among the DB instances in a cluster, that replication
-mechanism doesn't involve the binary log (binlog). For Aurora MySQL,
-GTID-based replication only applies when you also use binlog replication to
-replicate into or out of an Aurora MySQL DB cluster from an external MySQL-compatible
-database.
+In the following procedure, _read replica_ means the replication
+target in an Aurora configuration with binlog replication to or from an external
+database. It doesn't mean the read-only Aurora Replica DB instances. For
+example, when an Aurora cluster accepts incoming replication from an external source,
+the Aurora primary instance acts as the read replica for binlog replication.
 
-MySQL uses two different types of transactions for binlog replication:
+For more details about the stored procedures mentioned in this
+section, see [Aurora MySQL stored procedure reference](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md").
 
-- _GTID transactions_ – Transactions that are identified by a GTID.
-- _Anonymous transactions_ – Transactions that
-  don't have a GTID assigned.
+###### To disable GTID-based replication for an Aurora MySQL DB
 
-In a replication configuration, GTIDs are unique across all DB instances. GTIDs simplify
-replication configuration because when you use them, you don't have to refer to log
-file positions. GTIDs also make it easier to track replicated transactions and determine
-whether the source instance and replicas are consistent.
+cluster
 
-You typically use GTID-based replication with Aurora when replicating from an external MySQL-compatible database
-into an Aurora cluster. You can set up this replication configuration as part of a migration from an on-premises or
-Amazon RDS database into Aurora MySQL. If the external database already uses GTIDs, enabling GTID-based replication for the
-Aurora cluster simplifies the replication process.
+1. On the Aurora replicas, run the following procedure:
 
-You configure GTID-based replication for an Aurora MySQL cluster by
-first setting the relevant configuration parameters in a DB cluster parameter group. You
-then associate that parameter group with the cluster.
+For version 3
 
-## Parameters for GTID-based replication
+```
+CALL mysql.rds_set_source_auto_position(0);
 
-Use the following parameters to configure GTID-based replication.
+```
 
-| Parameter                  | Valid values                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| -------------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `gtid_mode`                | `OFF`, `OFF_PERMISSIVE`,<br>`ON_PERMISSIVE`, `ON` | `OFF` specifies that new transactions are anonymous<br>transactions (that is, don't have GTIDs), and a transaction<br>must be anonymous to be replicated.<br>`OFF_PERMISSIVE` specifies that new transactions<br>are anonymous transactions, but all transactions can be<br>replicated.<br>`ON_PERMISSIVE` specifies that new transactions are<br>GTID transactions, but all transactions can be replicated.<br>`ON` specifies that new transactions are GTID<br>transactions, and a transaction must be a GTID transaction to be<br>replicated. |
-| `enforce_gtid_consistency` | `OFF`, `ON`, `WARN`                               | `OFF` allows transactions to violate GTID<br>consistency.<br>`ON` prevents transactions from violating GTID<br>consistency.<br>`WARN` allows transactions to violate GTID<br>consistency but generates a warning when a violation occurs.                                                                                                                                                                                                                                                                                                        |
+For version 2
 
-###### Note
+```
+CALL mysql.rds_set_master_auto_position(0);
 
-In the AWS Management Console, the `gtid_mode` parameter appears as `gtid-mode`.
+```
 
-For GTID-based replication, use these settings for the DB cluster
-parameter group for your Aurora MySQL DB cluster:
+2. Reset the `gtid_mode` to `ON_PERMISSIVE`.
+   1. Make sure that the DB cluster parameter group associated with the Aurora MySQL
+      cluster has `gtid_mode` set to
+      `ON_PERMISSIVE`.
 
-- `ON` and `ON_PERMISSIVE` apply only to outgoing replication
-  from an Aurora MySQL cluster. Both of these values cause your Aurora DB cluster to
-  use GTIDs for transactions that are replicated to an external database.
-  `ON` requires that the external database also use GTID-based
-  replication. `ON_PERMISSIVE` makes GTID-based replication optional on
-  the external database.
-- `OFF_PERMISSIVE`, if set, means that your Aurora DB
-  cluster can accept incoming replication from an external database. It can do
-  this whether the external database uses GTID-based replication or not.
-- `OFF`, if set, means that your Aurora DB cluster
-  only accepts incoming replication from external databases that don't use
-  GTID-based replication.
+   For more information about setting configuration parameters using parameter groups, see
+   [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 2. Restart the Aurora MySQL DB cluster.
 
-###### Tip
+3. Reset the `gtid_mode` to `OFF_PERMISSIVE`.
+   1. Make sure that the DB cluster parameter group associated with the Aurora MySQL
+      cluster has `gtid_mode` set to
+      `OFF_PERMISSIVE`.
+   2. Restart the Aurora MySQL DB cluster.
 
-Incoming replication is the most common binlog replication scenario for Aurora MySQL
-clusters. For incoming replication, we recommend that you set the GTID mode to
-`OFF_PERMISSIVE`. That setting allows incoming replication from
-external databases regardless of the GTID settings at the replication source.
+4. Wait for all of the GTID transactions to be applied on the
+   Aurora primary instance. To check that these are applied, do the following
+   steps:
+   1. On the
 
-For more information about parameter groups, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+   Aurora primary
+   instance, run the `SHOW MASTER STATUS` command.
+
+   Your output should be similar to the following output.
+
+   ```
+
+   File                        Position
+   ------------------------------------
+   mysql-bin-changelog.000031      107
+   ------------------------------------
+
+   ```
+
+   Note the file and position in your output. 2. On each read replica, use the file and position information from its
+   source instance in the previous step to run the following query:
+
+   For version 3
+
+   ```
+   SELECT SOURCE_POS_WAIT('`file`', `position`);
+   ```
+
+   For version 2
+
+   ```
+   SELECT MASTER_POS_WAIT('`file`', `position`);
+   ```
+
+   For example, if the file name is `mysql-bin-changelog.000031` and the position is `107`, run the following statement:
+
+   For version 3
+
+   ```
+   SELECT SOURCE_POS_WAIT('mysql-bin-changelog.000031', 107);
+   ```
+
+   For version 2
+
+   ```
+   SELECT MASTER_POS_WAIT('mysql-bin-changelog.000031', 107);
+   ```
+
+5. Reset the GTID parameters to disable GTID-based replication.
+   1. Make sure that the DB cluster parameter group associated with the Aurora MySQL
+      cluster has the following parameter settings:
+      - `gtid_mode` – `OFF`
+      - `enforce_gtid_consistency` – `OFF`
+
+   2. Restart the Aurora MySQL DB cluster.

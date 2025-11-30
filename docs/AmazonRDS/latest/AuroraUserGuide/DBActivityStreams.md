@@ -1,148 +1,555 @@
-# Monitoring Amazon Aurora with Database Activity
+# Audit log contents and examples for database activity streams
 
-Streams
+Monitored events are represented in the database activity stream as JSON strings. The structure consists of a
+JSON object containing a `DatabaseActivityMonitoringRecord`, which in turn contains a
+`databaseActivityEventList` array of activity events.
 
-By using Database Activity Streams, you can monitor near real-time streams of database
-activity.
+###### Note
+
+For database activity streams, the `paramList` JSON array doesn't include null values from Hibernate applications.
 
 ###### Topics
 
-- [Overview of Database Activity Streams](#DBActivityStreams.Overview "#DBActivityStreams.Overview")
-- [Network prerequisites for Aurora MySQL database activity streams](DBActivityStreams.md "DBActivityStreams.md")
-- [Starting a database activity stream](DBActivityStreams.md "DBActivityStreams.md")
-- [Getting the status of a database activity stream](DBActivityStreams.md "DBActivityStreams.md")
-- [Stopping a database activity stream](DBActivityStreams.md "DBActivityStreams.md")
-- [Monitoring database activity streams](DBActivityStreams.md "DBActivityStreams.md")
-- [IAM policy examples for database activity streams](DBActivityStreams.md "DBActivityStreams.md")
+- [Examples of an audit log for an activity stream](#DBActivityStreams.AuditLog.Examples "#DBActivityStreams.AuditLog.Examples")
+- [DatabaseActivityMonitoringRecords
+  JSON object](#DBActivityStreams.AuditLog.DatabaseActivityMonitoringRecords "#DBActivityStreams.AuditLog.DatabaseActivityMonitoringRecords")
+- [databaseActivityEvents JSON
+  Object](#DBActivityStreams.AuditLog.databaseActivityEvents "#DBActivityStreams.AuditLog.databaseActivityEvents")
 
-## Overview of Database Activity Streams
+## Examples of an audit log for an activity stream
 
-As an Amazon Aurora database
-administrator, you need to safeguard your database and meet compliance and regulatory requirements. One strategy is to
-integrate database activity streams with your monitoring tools. In this way, you monitor and set alarms for auditing
-activity in your Amazon Aurora cluster.
+Following are sample decrypted JSON audit logs of activity event records.
 
-Security threats are both external and internal. To protect against internal threats, you
-can control administrator access to data streams by configuring the Database Activity Streams
-feature. DBAs don't have access to the collection,
-transmission, storage, and processing of the streams.
+###### Example Activity event record of an Aurora PostgreSQL CONNECT SQL statement
 
-###### Contents
+The following activity event record shows a login with the use of a
+`CONNECT` SQL statement (`command`) by a psql client (`clientApplication`).
 
-- [How database activity streams work](DBActivityStreams.md#DBActivityStreams.Overview.how-they-work "DBActivityStreams.md#DBActivityStreams.Overview.how-they-work")
-- [Asynchronous and synchronous
-  mode for database activity streams](DBActivityStreams.md#DBActivityStreams.Overview.sync-mode "DBActivityStreams.md#DBActivityStreams.Overview.sync-mode")
-- [Requirements and limitations for
-  database activity streams](DBActivityStreams.md#DBActivityStreams.Overview.requirements "DBActivityStreams.md#DBActivityStreams.Overview.requirements")
-- [Region and version availability](DBActivityStreams.md#DBActivityStreams.Overview.Availability "DBActivityStreams.md#DBActivityStreams.Overview.Availability")
-- [Supported DB instance classes for database activity streams](DBActivityStreams.md#DBActivityStreams.Overview.requirements.classes "DBActivityStreams.md#DBActivityStreams.Overview.requirements.classes")
+```
+{
+  "type":"DatabaseActivityMonitoringRecords",
+  "version":"1.1",
+  "databaseActivityEvents":
+    {
+      "type":"DatabaseActivityMonitoringRecord",
+      "clusterId":"cluster-4HNY5V4RRNPKKYB7ICFKE5JBQQ",
+      "instanceId":"db-FZJTMYKCXQBUUZ6VLU7NW3ITCM",
+      "databaseActivityEventList":[
+        {
+          "startTime": "2019-10-30 00:39:49.940668+00",
+          "logTime": "2019-10-30 00:39:49.990579+00",
+          "statementId": 1,
+          "substatementId": 1,
+          "objectType": null,
+          "command": "CONNECT",
+          "objectName": null,
+          "databaseName": "postgres",
+          "dbUserName": "rdsadmin",
+          "remoteHost": "172.31.3.195",
+          "remotePort": "49804",
+          "sessionId": "5ce5f7f0.474b",
+          "rowCount": null,
+          "commandText": null,
+          "paramList": [],
+          "pid": 18251,
+          "clientApplication": "psql",
+          "exitCode": null,
+          "class": "MISC",
+          "serverVersion": "2.3.1",
+          "serverType": "PostgreSQL",
+          "serviceName": "Amazon Aurora PostgreSQL-Compatible edition",
+          "serverHost": "172.31.3.192",
+          "netProtocol": "TCP",
+          "dbProtocol": "Postgres 3.0",
+          "type": "record",
+          "errorMessage": null
+        }
+      ]
+    },
+   "key":"decryption-key"
+}
+```
 
-### How database activity streams work
+###### Example Activity event record of an Aurora MySQL CONNECT SQL statement
 
-In Amazon Aurora, you start a database activity stream at the cluster level. All DB instances within your cluster have
-database activity streams enabled.
+The following activity event record shows a logon with the use of a
+`CONNECT` SQL statement (`command`) by a mysql client
+(`clientApplication`).
 
-Your Aurora DB cluster pushes activities to an
-Amazon Kinesis data stream in near real time. The Kinesis stream is created automatically. From Kinesis, you can configure AWS services such as Amazon Data Firehose
-and AWS Lambda to consume the stream and store the data.
+```
+{
+  "type":"DatabaseActivityMonitoringRecord",
+  "clusterId":"cluster-`some_id`",
+  "instanceId":"db-`some_id`",
+  "databaseActivityEventList":[
+    {
+      "logTime":"2020-05-22 18:07:13.267214+00",
+      "type":"record",
+      "clientApplication":null,
+      "pid":2830,
+      "dbUserName":"rdsadmin",
+      "databaseName":"",
+      "remoteHost":"localhost",
+      "remotePort":"11053",
+      "command":"CONNECT",
+      "commandText":"",
+      "paramList":null,
+      "objectType":"TABLE",
+      "objectName":"",
+      "statementId":0,
+      "substatementId":1,
+      "exitCode":"0",
+      "sessionId":"725121",
+      "rowCount":0,
+      "serverHost":"master",
+      "serverType":"MySQL",
+      "serviceName":"Amazon Aurora MySQL",
+      "serverVersion":"MySQL 5.7.12",
+      "startTime":"2020-05-22 18:07:13.267207+00",
+      "endTime":"2020-05-22 18:07:13.267213+00",
+      "transactionId":"0",
+      "dbProtocol":"MySQL",
+      "netProtocol":"TCP",
+      "errorMessage":"",
+      "class":"MAIN"
+    }
+  ]
+}
+```
 
-###### Important
+###### Example Activity event record of an
 
-Use of the database activity streams feature in
-Amazon Aurora is free, but Amazon Kinesis
-charges for a data stream. For more information, see [Amazon Kinesis Data Streams
-pricing](https://aws.amazon.com/kinesis/data-streams/pricing/ "https://aws.amazon.com/kinesis/data-streams/pricing/").
+Aurora PostgreSQL CREATE TABLE statement
 
-If you use an Aurora global database, start a database activity stream on each DB cluster separately. Each cluster delivers
-audit data to its own Kinesis stream within its own AWS Region. The activity streams don't operate differently during a failover. They continue
-to audit your global database as usual.
+The following example shows a `CREATE TABLE` event for Aurora PostgreSQL.
 
-You can configure applications for compliance management to consume database activity streams. For
-Aurora PostgreSQL, compliance applications include IBM's Security Guardium and Imperva's SecureSphere Database Audit and
-Protection. These applications can use the stream to generate alerts and audit activity on your Aurora DB
-cluster.
+```
+{
+  "type":"DatabaseActivityMonitoringRecords",
+  "version":"1.1",
+  "databaseActivityEvents":
+    {
+      "type":"DatabaseActivityMonitoringRecord",
+      "clusterId":"cluster-4HNY5V4RRNPKKYB7ICFKE5JBQQ",
+      "instanceId":"db-FZJTMYKCXQBUUZ6VLU7NW3ITCM",
+      "databaseActivityEventList":[
+        {
+          "startTime": "2019-05-24 00:36:54.403455+00",
+          "logTime": "2019-05-24 00:36:54.494235+00",
+          "statementId": 2,
+          "substatementId": 1,
+          "objectType": null,
+          "command": "CREATE TABLE",
+          "objectName": null,
+          "databaseName": "postgres",
+          "dbUserName": "rdsadmin",
+          "remoteHost": "172.31.3.195",
+          "remotePort": "34534",
+          "sessionId": "5ce73c6f.7e64",
+          "rowCount": null,
+          "commandText": "create table my_table (id serial primary key, name varchar(32));",
+          "paramList": [],
+          "pid": 32356,
+          "clientApplication": "psql",
+          "exitCode": null,
+          "class": "DDL",
+          "serverVersion": "2.3.1",
+          "serverType": "PostgreSQL",
+          "serviceName": "Amazon Aurora PostgreSQL-Compatible edition",
+          "serverHost": "172.31.3.192",
+          "netProtocol": "TCP",
+          "dbProtocol": "Postgres 3.0",
+          "type": "record",
+          "errorMessage": null
+        }
+      ]
+    },
+   "key":"decryption-key"
+}
+```
 
-The following graphic shows an Aurora DB cluster configured with Amazon Data Firehose.
+###### Example Activity event record of an Aurora MySQL CREATE TABLE statement
 
-![Architecture diagram showing database activity streams from an Aurora DB cluster consumed by Firehose](images/aurora-das.png)
+The following example shows a `CREATE TABLE` statement for Aurora MySQL.
+The operation is represented as two separate event records. One event has
+`"class":"MAIN"`. The other event has `"class":"AUX"`. The
+messages might arrive in any order. The `logTime` field of the
+`MAIN` event is always earlier than the `logTime` fields of any
+corresponding `AUX` events.
 
-### Asynchronous and synchronous
+The following example shows the event with a `class` value of
+`MAIN`.
 
-mode for database activity streams
+```
+{
+  "type":"DatabaseActivityMonitoringRecord",
+  "clusterId":"cluster-`some_id`",
+  "instanceId":"db-`some_id`",
+  "databaseActivityEventList":[
+    {
+      "logTime":"2020-05-22 18:07:12.250221+00",
+      "type":"record",
+      "clientApplication":null,
+      "pid":2830,
+      "dbUserName":"master",
+      "databaseName":"test",
+      "remoteHost":"localhost",
+      "remotePort":"11054",
+      "command":"QUERY",
+      "commandText":"CREATE TABLE test1 (id INT)",
+      "paramList":null,
+      "objectType":"TABLE",
+      "objectName":"test1",
+      "statementId":65459278,
+      "substatementId":1,
+      "exitCode":"0",
+      "sessionId":"725118",
+      "rowCount":0,
+      "serverHost":"master",
+      "serverType":"MySQL",
+      "serviceName":"Amazon Aurora MySQL",
+      "serverVersion":"MySQL 5.7.12",
+      "startTime":"2020-05-22 18:07:12.226384+00",
+      "endTime":"2020-05-22 18:07:12.250222+00",
+      "transactionId":"0",
+      "dbProtocol":"MySQL",
+      "netProtocol":"TCP",
+      "errorMessage":"",
+      "class":"MAIN"
+    }
+  ]
+}
+```
 
-You can choose to have the database session handle database activity events in either of the
-following modes:
+The following example shows the corresponding event with a `class` value of
+`AUX`.
 
-- **Asynchronous mode** – When a database session generates an activity
-  stream event, the session returns to normal activities immediately. In the background, the activity stream event
-  is made a durable record. If an error occurs in the background task, an RDS event is sent. This event indicates
-  the beginning and end of any time windows where activity stream event records might have been lost.
+```
+{
+  "type":"DatabaseActivityMonitoringRecord",
+  "clusterId":"cluster-`some_id`",
+  "instanceId":"db-`some_id`",
+  "databaseActivityEventList":[
+    {
+      "logTime":"2020-05-22 18:07:12.247182+00",
+      "type":"record",
+      "clientApplication":null,
+      "pid":2830,
+      "dbUserName":"master",
+      "databaseName":"test",
+      "remoteHost":"localhost",
+      "remotePort":"11054",
+      "command":"CREATE",
+      "commandText":"test1",
+      "paramList":null,
+      "objectType":"TABLE",
+      "objectName":"test1",
+      "statementId":65459278,
+      "substatementId":2,
+      "exitCode":"",
+      "sessionId":"725118",
+      "rowCount":0,
+      "serverHost":"master",
+      "serverType":"MySQL",
+      "serviceName":"Amazon Aurora MySQL",
+      "serverVersion":"MySQL 5.7.12",
+      "startTime":"2020-05-22 18:07:12.226384+00",
+      "endTime":"2020-05-22 18:07:12.247182+00",
+      "transactionId":"0",
+      "dbProtocol":"MySQL",
+      "netProtocol":"TCP",
+      "errorMessage":"",
+      "class":"AUX"
+    }
+  ]
+}
+```
 
-Asynchronous mode favors database performance over the accuracy of the activity
+###### Example Activity event record of an Aurora PostgreSQL SELECT statement
+
+The following example shows a `SELECT` event .
+
+```
+{
+  "type":"DatabaseActivityMonitoringRecords",
+  "version":"1.1",
+  "databaseActivityEvents":
+    {
+      "type":"DatabaseActivityMonitoringRecord",
+      "clusterId":"cluster-4HNY5V4RRNPKKYB7ICFKE5JBQQ",
+      "instanceId":"db-FZJTMYKCXQBUUZ6VLU7NW3ITCM",
+      "databaseActivityEventList":[
+        {
+          "startTime": "2019-05-24 00:39:49.920564+00",
+          "logTime": "2019-05-24 00:39:49.940668+00",
+          "statementId": 6,
+          "substatementId": 1,
+          "objectType": "TABLE",
+          "command": "SELECT",
+          "objectName": "public.my_table",
+          "databaseName": "postgres",
+          "dbUserName": "rdsadmin",
+          "remoteHost": "172.31.3.195",
+          "remotePort": "34534",
+          "sessionId": "5ce73c6f.7e64",
+          "rowCount": 10,
+          "commandText": "select * from my_table;",
+          "paramList": [],
+          "pid": 32356,
+          "clientApplication": "psql",
+          "exitCode": null,
+          "class": "READ",
+          "serverVersion": "2.3.1",
+          "serverType": "PostgreSQL",
+          "serviceName": "Amazon Aurora PostgreSQL-Compatible edition",
+          "serverHost": "172.31.3.192",
+          "netProtocol": "TCP",
+          "dbProtocol": "Postgres 3.0",
+          "type": "record",
+          "errorMessage": null
+        }
+      ]
+    },
+   "key":"decryption-key"
+}
+```
+
+```
+{
+    "type": "DatabaseActivityMonitoringRecord",
+    "clusterId": "",
+    "instanceId": "db-4JCWQLUZVFYP7DIWP6JVQ77O3Q",
+    "databaseActivityEventList": [
+        {
+            "class": "TABLE",
+            "clientApplication": "Microsoft SQL Server Management Studio - Query",
+            "command": "SELECT",
+            "commandText": "select * from [testDB].[dbo].[TestTable]",
+            "databaseName": "testDB",
+            "dbProtocol": "SQLSERVER",
+            "dbUserName": "test",
+            "endTime": null,
+            "errorMessage": null,
+            "exitCode": 1,
+            "logTime": "2022-10-06 21:24:59.9422268+00",
+            "netProtocol": null,
+            "objectName": "TestTable",
+            "objectType": "TABLE",
+            "paramList": null,
+            "pid": null,
+            "remoteHost": "local machine",
+            "remotePort": null,
+            "rowCount": 0,
+            "serverHost": "172.31.30.159",
+            "serverType": "SQLSERVER",
+            "serverVersion": "15.00.4073.23.v1.R1",
+            "serviceName": "sqlserver-ee",
+            "sessionId": 62,
+            "startTime": null,
+            "statementId": "0x03baed90412f564fad640ebe51f89b99",
+            "substatementId": 1,
+            "transactionId": "4532935",
+            "type": "record",
+            "engineNativeAuditFields": {
+                "target_database_principal_id": 0,
+                "target_server_principal_id": 0,
+                "target_database_principal_name": "",
+                "server_principal_id": 2,
+                "user_defined_information": "",
+                "response_rows": 0,
+                "database_principal_name": "dbo",
+                "target_server_principal_name": "",
+                "schema_name": "dbo",
+                "is_column_permission": true,
+                "object_id": 581577110,
+                "server_instance_name": "EC2AMAZ-NFUJJNO",
+                "target_server_principal_sid": null,
+                "additional_information": "",
+                "duration_milliseconds": 0,
+                "permission_bitmask": "0x00000000000000000000000000000001",
+                "data_sensitivity_information": "",
+                "session_server_principal_name": "test",
+                "connection_id": "AD3A5084-FB83-45C1-8334-E923459A8109",
+                "audit_schema_version": 1,
+                "database_principal_id": 1,
+                "server_principal_sid": "0x010500000000000515000000bdc2795e2d0717901ba6998cf4010000",
+                "user_defined_event_id": 0,
+                "host_name": "EC2AMAZ-NFUJJNO"
+            }
+        }
+    ]
+}
+```
+
+###### Example Activity event record of an Aurora MySQL SELECT statement
+
+The following example shows a `SELECT` event.
+
+The following example shows the event with a `class` value of `MAIN`.
+
+```
+{
+  "type":"DatabaseActivityMonitoringRecord",
+  "clusterId":"cluster-`some_id`",
+  "instanceId":"db-`some_id`",
+  "databaseActivityEventList":[
+    {
+      "logTime":"2020-05-22 18:29:57.986467+00",
+      "type":"record",
+      "clientApplication":null,
+      "pid":2830,
+      "dbUserName":"master",
+      "databaseName":"test",
+      "remoteHost":"localhost",
+      "remotePort":"11054",
+      "command":"QUERY",
+      "commandText":"SELECT * FROM test1 WHERE id < 28",
+      "paramList":null,
+      "objectType":"TABLE",
+      "objectName":"test1",
+      "statementId":65469218,
+      "substatementId":1,
+      "exitCode":"0",
+      "sessionId":"726571",
+      "rowCount":2,
+      "serverHost":"master",
+      "serverType":"MySQL",
+      "serviceName":"Amazon Aurora MySQL",
+      "serverVersion":"MySQL 5.7.12",
+      "startTime":"2020-05-22 18:29:57.986364+00",
+      "endTime":"2020-05-22 18:29:57.986467+00",
+      "transactionId":"0",
+      "dbProtocol":"MySQL",
+      "netProtocol":"TCP",
+      "errorMessage":"",
+      "class":"MAIN"
+    }
+  ]
+}
+```
+
+The following example shows the corresponding event with a `class` value of `AUX`.
+
+```
+{
+  "type":"DatabaseActivityMonitoringRecord",
+  "instanceId":"db-`some_id`",
+  "databaseActivityEventList":[
+    {
+      "logTime":"2020-05-22 18:29:57.986399+00",
+      "type":"record",
+      "clientApplication":null,
+      "pid":2830,
+      "dbUserName":"master",
+      "databaseName":"test",
+      "remoteHost":"localhost",
+      "remotePort":"11054",
+      "command":"READ",
+      "commandText":"test1",
+      "paramList":null,
+      "objectType":"TABLE",
+      "objectName":"test1",
+      "statementId":65469218,
+      "substatementId":2,
+      "exitCode":"",
+      "sessionId":"726571",
+      "rowCount":0,
+      "serverHost":"master",
+      "serverType":"MySQL",
+      "serviceName":"Amazon Aurora MySQL",
+      "serverVersion":"MySQL 5.7.12",
+      "startTime":"2020-05-22 18:29:57.986364+00",
+      "endTime":"2020-05-22 18:29:57.986399+00",
+      "transactionId":"0",
+      "dbProtocol":"MySQL",
+      "netProtocol":"TCP",
+      "errorMessage":"",
+      "class":"AUX"
+    }
+  ]
+}
+```
+
+## DatabaseActivityMonitoringRecords
+
+JSON object
+
+The database activity event records are in a JSON object that contains the following information.
+
+| JSON Field                                                                                                                        | Data Type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                                            | string    | The type of JSON record. The value is `DatabaseActivityMonitoringRecords`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `version`                                                                                                                         | string    | The version of the database activity monitoring<br>records. The version of the generated<br>database activity records depends on the engine version of the DB cluster:<br>• Version 1.1 database activity records are generated for Aurora PostgreSQL DB<br>clusters running the engine versions 10.10 and later minor versions and engine<br>versions 11.5 and later.<br>• Version 1.0 database activity records are generated for Aurora PostgreSQL DB<br>clusters running the engine versions 10.7 and 11.4.<br>All of the following fields are in both<br>version 1.0 and version 1.1 except where specifically noted. |
+| [databaseActivityEvents](#DBActivityStreams.AuditLog.databaseActivityEvents "#DBActivityStreams.AuditLog.databaseActivityEvents") | string    | A JSON object that contains the activity events.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| key                                                                                                                               | string    | An encryption key that you use to decrypt the [databaseActivityEventList JSON array](DBActivityStreams.AuditLog.md "DBActivityStreams.AuditLog.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+
+## databaseActivityEvents JSON
+
+Object
+
+The `databaseActivityEvents` JSON object contains the following information.
+
+### Top-level fields in JSON record
+
+Each event in the audit log is wrapped inside a record in JSON format.
+This record contains the following fields.
+
+**type**
+
+This field always has the value `DatabaseActivityMonitoringRecords`.
+
+**version**
+
+This field represents the version of the database activity stream data
+protocol or contract. It defines which fields are available.
+
+Version 1.0 represents the original data activity streams support for
+Aurora PostgreSQL versions 10.7 and 11.4. Version 1.1 represents the data activity streams support for
+Aurora PostgreSQL versions 10.10 and higher and Aurora PostgreSQL 11.5 and higher. Version 1.1 includes the
+additional fields `errorMessage` and `startTime`. Version 1.2 represents the data
+activity streams support for Aurora MySQL 2.08 and higher. Version 1.2 includes the additional fields
+`endTime` and `transactionId`.
+
+**databaseActivityEvents**
+
+An encrypted string representing one or more activity events. It's represented as a base64 byte
+array. When you decrypt the string, the result is a record in JSON format with fields as shown in the
+examples in this section.
+
+**key**
+
+The encrypted data key used to encrypt the `databaseActivityEvents` string. This is the
+same AWS KMS key that you provided when you started the database activity
 stream.
 
-###### Note
+The following example shows the format of this record.
 
-Asynchronous mode is available for both Aurora PostgreSQL and Aurora MySQL.
+```
+{
+  "type":"DatabaseActivityMonitoringRecords",
+  "version":"1.1",
+  "databaseActivityEvents":"`encrypted audit records`",
+  "key":"`encrypted key`"
+}
+```
 
-- **Synchronous mode** – When a database session generates an activity
-  stream event, the session blocks other activities until the event is made durable. If the event can't be
-  made durable for some reason, the database session returns to normal activities. However, an RDS event is sent
-  indicating that activity stream records might be lost for some time. A second RDS event is sent after the system
-  is back to a healthy state.
+Take the following steps to decrypt the contents of the `databaseActivityEvents` field:
 
-The synchronous mode favors the accuracy of the activity stream over database performance.
+1. Decrypt the value in the `key` JSON field using the KMS key you provided when starting
+   database activity stream. Doing so returns the data encryption key in clear text.
+2. Base64-decode the value in the `databaseActivityEvents` JSON field to obtain the ciphertext,
+   in binary format, of the audit payload.
+3. Decrypt the binary ciphertext with the data encryption key that you decoded in the first step.
+4. Decompress the decrypted payload.
+   - The encrypted payload is in the `databaseActivityEvents` field.
+   - The `databaseActivityEventList` field contains an array of audit records. The
+     `type` fields in the array can be `record` or `heartbeat`.
 
-###### Note
+The audit log activity event record is a JSON object that contains the following information.
 
-Synchronous mode is available for Aurora PostgreSQL. You can't use synchronous mode with Aurora MySQL.
-
-### Requirements and limitations for
-
-database activity streams
-
-In Aurora, database activity streams have the
-following requirements and limitations:
-
-- Amazon Kinesis is required for database activity streams.
-- AWS Key Management Service (AWS KMS) is required for database activity streams because they are always encrypted.
-- Applying additional encryption to your Amazon Kinesis data stream is incompatible with database activity streams, which are already encrypted
-  with your AWS KMS key.
-- Start your database activity stream at the DB cluster level. If you add a DB instance to your cluster, you don't need to start an
-  activity stream on the instance: it is audited automatically.
-- In an Aurora global database, make sure to start an activity stream on each DB cluster separately. Each cluster delivers audit data to
-  its own Kinesis stream within its own AWS Region.
-- In Aurora PostgreSQL, make sure to stop database activity stream before a major version upgrade. You can start the database activity stream after the upgrade completes.
-
-### Region and version availability
-
-Feature availability and support varies across specific versions of each Aurora database engine, and across AWS Regions.
-For more information on version and Region availability with Aurora and database activity streams, see
-[Supported
-Regions and Aurora DB engines for database activity streams](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
-
-### Supported DB instance classes for database activity streams
-
-For Aurora MySQL, you can use database activity streams with the following DB instance
-classes:
-
-- db.r8g.\*large
-- db.r7g.\*large
-- db.r7i.\*large
-- db.r6g.\*large
-- db.r6i.\*large
-- db.r5.\*large
-- db.x2g.\*
-
-For Aurora PostgreSQL, you can use database activity streams with the following DB instance
-classes:
-
-- db.r8g.\*large
-- db.r7i.\*large
-- db.r7g.\*large
-- db.r6g.\*large
-- db.r6i.\*large
-- db.r6id.\*large
-- db.r5.\*large
-- db.r4.\*large
-- db.x2g.\*
+| JSON Field                                                                                            | Data Type | Description                                                                                              |
+| ----------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                | string    | The type of JSON record. The value is `DatabaseActivityMonitoringRecord`.                                |
+| `clusterId`                                                                                           | string    | The DB cluster resource identifier. It corresponds to the DB cluster<br>attribute `DbClusterResourceId`. |
+| `instanceId`                                                                                          | string    | The DB instance resource identifier. It corresponds to the DB instance attribute<br>`DbiResourceId`.     |
+| [databaseActivityEventList JSON array](DBActivityStreams.AuditLog.md "DBActivityStreams.AuditLog.md") | string    | An array of activity audit records or heartbeat messages.                                                |

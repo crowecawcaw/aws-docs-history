@@ -1,88 +1,43 @@
-# Capturing Aurora PostgreSQL
+# Examining Aurora PostgreSQL query
 
-execution plans
+plans in the dba_plans view
 
-Aurora PostgreSQL query plan management offers two different modes for capturing query
-execution plans, automatic or manual. You choose the mode by setting the value of the
-`apg_plan_mgmt.capture_plans_baselines` to `automatic` or to
-`manual`. You can capture execution plans for specific SQL statements by
-using manual plan capture. Alternatively, you can capture all (or the slowest) plans
-that are executed two or more times as your application runs by using automatic plan
-capture.
+Database users and administrators that have been granted the
+`apg_plan_mgmt` role can view and manage the plans stored in the
+`apg_plan_mgmt.dba_plans`. An Aurora PostgreSQL DB cluster's
+administrator (someone with `rds_superuser` permissions) must explicitly
+grant this role to the database users who need to work with query plan management.
 
-When capturing plans, the optimizer sets the status of a managed statement's
-first captured plan to `approved`. The optimizer sets the status of any
-additional plans captured for a managed statement to `unapproved`. However,
-more than one plan might occasionally be saved with the `approved` status.
-This can happen when multiple plans are created for a statement in parallel and before
-the first plan for the statement is committed.
+The `apg_plan_mgmt` view contains the plan history for all managed SQL
+statements for every database on the writer instance of the Aurora PostgreSQL DB cluster.
+This view lets you examine plans, their state, when last used, and all other relevant
+details.
 
-To control the maximum number of plans that can be captured and stored in the
-`dba_plans` view, set the `apg_plan_mgmt.max_plans` parameter
-in your DB instance-level parameter group. A change to the
-`apg_plan_mgmt.max_plans` parameter requires a DB instance reboot for a
-new value to take effect. For more information, see the [apg_plan_mgmt.max_plans](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Parameters.max_plans "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Parameters.max_plans") parameter.
+As discussed in [Normalization and the SQL hash](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Start.hash-and-normalization "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Start.hash-and-normalization"), each
+managed plan is identified by the combined SQL hash value and a plan hash value. With
+these identifiers, you can use tools such as Amazon RDS Performance Insights to track
+individual plan performance. For more information about Performance Insights, see [Using Amazon RDS performance
+insights](../UserGuide/USER_PerfInsights.md "../UserGuide/USER_PerfInsights.md").
 
-## Manually capturing
+## Listing managed
 
-plans for specific SQL statements
+plans
 
-If you have a known set of SQL statements to manage, put the statements into a SQL
-script file and then manually capture plans. The following shows a psql example of
-how to capture query plans manually for a set of SQL statements.
+To list the managed plans, use a SELECT statement on the
+`apg_plan_mgmt.dba_plans` view. The following example displays some
+columns in the `dba_plans` view such as the `status`, which
+identifies the approved and unapproved plans.
 
 ```
-`psql>` SET apg_plan_mgmt.capture_plan_baselines = manual;
-`psql>` \i my-statements.sql
-`psql>` SET apg_plan_mgmt.capture_plan_baselines = off;
+`SELECT sql_hash, plan_hash, status, enabled, stmt_name
+FROM apg_plan_mgmt.dba_plans;`
+`sql_hash | plan_hash | status | enabled | stmt_name
+------------+-----------+------------+---------+------------
+ 1984047223 | 512153379 | Approved | t | rangequery
+ 1984047223 | 512284451 | Unapproved | t | rangequery
+ (2 rows)`
 ```
 
-After capturing a plan for each SQL statement, the optimizer adds a new row to the
-`apg_plan_mgmt.dba_plans` view.
-
-We recommend that you use either EXPLAIN or EXPLAIN EXECUTE statements in the SQL
-script file. Make sure that you include enough variations in parameter values to
-capture all the plans of interest.
-
-If you know of a better plan than the optimizer's minimum cost plan, you
-might be able to force the optimizer to use the better plan. To do so, specify one
-or more optimizer hints. For more information, see [Fixing plans
-using pg_hint_plan](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan"). To compare
-the performance of the `unapproved` and `approved` plans and
-approve, reject, or delete them, see [Evaluating plan performance](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance").
-
-## Automatically
-
-capturing plans
-
-Use automatic plan capture for situations such as the following:
-
-- You don't know the specific SQL statements that you want to
-  manage.
-- You have hundreds or thousands of SQL statements to manage.
-- Your application uses a client API. For example, JDBC uses unnamed
-  prepared statements or bulk-mode statements that can't be expressed in
-  psql.
-
-###### To capture plans automatically
-
-1. Turn on automatic plan capture by setting
-   `apg_plan_mgmt.capture_plan_baselines` to
-   `automatic` in the DB instance-level parameter group. For
-   more information, see [Modifying parameters in a DB parameter group
-   in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
-2. As the application runs, the optimizer captures plans for each SQL
-   statement that runs at least twice.
-
-As the application runs with default query plan management parameter
-settings, the optimizer captures plans for each SQL statement that runs at
-least twice. Capturing all plans while using the defaults has very little
-run-time overhead and can be enabled in production.
-
-###### To turn off automatic plan capture
-
-- Set the `apg_plan_mgmt.capture_plan_baselines` parameter to
-  `off` from the DB instance-level parameter group.
-
-To measure the performance of the unapproved plans and approve, reject, or delete
-them, see [Evaluating plan performance](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance").
+For readability, the query and the output shown list just a few of the columns
+from the `dba_plans` view. For complete information, see [Reference for the
+apg_plan_mgmt.dba_plans view for Aurora PostgreSQL-Compatible Edition](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").

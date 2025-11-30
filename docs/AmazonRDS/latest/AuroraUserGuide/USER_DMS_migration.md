@@ -1,35 +1,89 @@
-# Monitoring your data migrations
+# Managing data migrations
 
-After the data migrations starts, you can monitor its status and progress. Data migrations of large data sets take hours to complete.
-To maintain the reliability, availability, and high performance of your data migration,
-monitor its progress regularly.
+After using the **Migrate data from EC2 database** action from the RDS console,
+Aurora starts the migration automatically.
 
-###### To check the status and progress of your data migration
+If you used the AWS DMS console to create the migration resources, you can start the migration process.
+
+## Starting the data migration
+
+Follow these steps to start data migration:
+
+###### Starting a data migration
 
 1. Choose the target database on the **Databases** page in the RDS console.
 2. In the database details page, choose the **Data migrations** tab.
-3. The **Associated data migrations** section lists your data migrations. Check the
-   **Status** column.
-4. For running data migrations, the **Migration process** column displays the
-   percentage of migrated data.
-5. To monitor the process in CloudWatch, use the link in the in **CloudWatch** column.
+3. Under the **Data migrations** tab, the
+   **Associated data migrations** lists the available data migrations.
 
-## Migration statuses
+Migrations set up using the Aurora
+console start automatically once the required resources are set up.
 
-For each data migration that you run, the Aurora console
-displays the **Status**. The following list includes the statuses:
+Migrations set up using the DMS console are set to **Ready**.
 
-- `Ready`: The data migration is ready to start.
-- `Starting`: Aurora is
-  creating the serverless environment for your data migration.
-- `Load running`: Aurora is performing the full load
-  migration.
-- `Load complete, replication ongoing`: Aurora
-  completed the full load and now replicates the ongoing changes. This status only applies for full load and CDC type migrations.
-- `Replication ongoing`: Aurora is
-  replicating ongoing changes. This status only applies to CDC type migrations.
-- `Stopping`: Aurora
-  is stopping the data migrations. This status applies when you choose to stop the data migration from the **Actions** menu.
-- `Stopped`: Aurora has stopped the data migration.
-- `Failed`: The data migration has failed. For more information, see the log files.
-- `Restarting`: The data migration has restarted an ongoing data replication from a CDC start point.
+To begin these migrations, select the **Actions**
+drop down and select **Start**. 4. This begins the data migration for your EC2 database.
+
+## Stopping the data migration
+
+For data migrations whose replication type is full load, stopping the migration
+causes the process to stop and can't be resumed. Once stopped, you must restart the
+migration.
+
+For migrations with replication type set to change data capture (CDC) or full load and CDC,
+you can stop the continuous replication process, and resume the process later.
+
+###### Stopping a data migration
+
+1. Choose the target database on the **Databases** page in the RDS console.
+2. In the database details page, choose the **Data migrations** tab.
+3. Under the **Data migrations** tab, the
+   **Associated data migrations** lists the ongoing data migrations.
+
+To stop a migration, select a data migration and select **Stop**
+in the **Actions** drop down. 4. This stops the data migration for your EC2 database.
+
+## Resuming the data migration
+
+For data migrations whose replication type is full load and change data capture (CDC)
+or change data capture (CDC) migration, you can resume the CDC process from the last stop point.
+
+###### Resuming a data migration
+
+1. Choose the target database on the **Databases** page in the RDS console.
+2. In the database details page, choose the **Data migrations** tab.
+3. Under the **Data migrations** tab, the
+   **Associated data migrations** lists the stopped data migrations.
+
+To resume a migration, select a data migration and select **Resume processing**
+in the **Actions** drop down. 4. This resume the data migration for your EC2 database.
+
+## Deleting the data migration
+
+To delete an associated data migration, use the following instructions
+
+###### Deleting a data migration
+
+1. Choose the target database on the **Databases** page in the RDS console.
+2. In the database details page, choose the **Data migrations** tab.
+3. To delete a migration, select a data migration and select **Delete**
+   in the **Actions** drop down.
+4. This deletes the data migration.
+
+Deleting a data migration that was in progress doesn't impact
+any data that has already been loaded to the target database.
+
+## Restarting the data migration
+
+To restart an associated data migration from a CDC start point, use the following instructions
+
+###### Restarting a data migration
+
+1. Choose the target database on the **Databases** page in the RDS console.
+2. In the database details page, choose the **Data migrations** tab.
+3. To restart a migration, select a data migration and select **Restart**
+   in the **Actions** drop down.
+4. This restarts the data migration from a CDC start point.
+
+Restarting a data migration that was in progress doesn't impact
+any data that has already been loaded to the target database.
