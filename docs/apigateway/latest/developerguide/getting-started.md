@@ -105,7 +105,7 @@ API.
 2. Choose your API.
 3. Note your API's invoke URL.
 
-![After you create your API, the console shows your API's invoke URL.](/images/apigateway/latest/developerguide/images/getting-started-invoke-url.png) 4. Copy your API's invoke URL, and enter it in a web browser. Append the name of your Lambda function to your
+![After you create your API, the console shows your API's invoke URL.](images/getting-started-invoke-url.png) 4. Copy your API's invoke URL, and enter it in a web browser. Append the name of your Lambda function to your
 invoke URL to call your Lambda function. By default, the API Gateway console creates a route with the same name as
 your Lambda function, `my-function`.
 

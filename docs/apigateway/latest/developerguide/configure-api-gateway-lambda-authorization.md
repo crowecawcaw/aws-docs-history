@@ -92,7 +92,7 @@ If you are using the [Example REQUEST authorizer Lambda function](apigateway-use
 
 Authorizer** test event template for your Lambda function. Then, you can test your Lambda
 authorizer function with modified context variables. For more information, see [Testing Lambda functions in the console](../../../lambda/latest/dg/testing-functions.md "../../../lambda/latest/dg/testing-functions.md") in the
-_AWS Lambda Developer Guide_. 4. Choose **Test authorizer\*\*.
+*AWS Lambda Developer Guide*. 4. Choose **Test authorizer\*\*.
 
 TOKEN authorizer###### To test a `TOKEN` Lambda authorizer
 
