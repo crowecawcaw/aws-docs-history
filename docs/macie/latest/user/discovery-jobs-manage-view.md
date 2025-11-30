@@ -66,7 +66,7 @@ operation of the Amazon Macie API.
      ).
    - To remove a filter, choose the remove filter icon
      (
-     ![The remove filter condition icon, which is a circle that has an X in it.](images/icon-filter-remove.png)
+     ![The remove filter condition icon, which is a circle that has an X in it.](/images/macie/latest/user/images/icon-filter-remove.png)
      ) for the filter to remove.
 
 6. To review additional settings and details for a particular job, choose the

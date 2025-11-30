@@ -153,7 +153,7 @@ the details panel. In the panel, you can also:
   ![The zoom in icon, which is a magnifying glass that has a plus sign in it.](images/icon-magnifying-glass-plus-sign.png)
   to show buckets with the same value. Choose
 
-![The zoom out icon, which is a magnifying glass that has a minus sign in it.](images/icon-magnifying-glass-minus-sign.png)
+![The zoom out icon, which is a magnifying glass that has a minus sign in it.](/images/macie/latest/user/images/icon-magnifying-glass-minus-sign.png)
 to show buckets with other values.
 
 - Retrieve the latest metadata for objects in the bucket. This can be
