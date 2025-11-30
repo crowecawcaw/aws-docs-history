@@ -1,6 +1,6 @@
-# 03-GetItem-Test.cs
+# 04-Query-Test.cs
 
-The `03-GetItem-Test.cs` program performs `GetItem`
+The `04-Query-Test.cs` program performs `Query`
 operations on `TryDaxTable`.
 
 ```
@@ -8,9 +8,9 @@ operations on `TryDaxTable`.
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Amazon.Runtime;
 using Amazon.DAX;
 using Amazon.DynamoDBv2.Model;
-using Amazon.Runtime;
 
 namespace ClientTest
 {
@@ -21,6 +21,7 @@ namespace ClientTest
             string endpointUri = args[0];
             Console.WriteLine($"Using DAX client - endpointUri={endpointUri}");
 
+
             var clientConfig = new DaxClientConfig(endpointUri)
             {
                 AwsCredentials = FallbackCredentialsFactory.GetCredentials()
@@ -29,30 +30,28 @@ namespace ClientTest
 
             var tableName = "TryDaxTable";
 
-            var pk = 1;
-            var sk = 10;
+            var pk = 5;
+            var sk1 = 2;
+            var sk2 = 9;
             var iterations = 5;
 
-            var startTime = System.DateTime.Now;
+            var startTime = DateTime.Now;
 
             for (var i = 0; i < iterations; i++)
             {
-                for (var ipk = 1; ipk <= pk; ipk++)
+                var request = new QueryRequest()
                 {
-                    for (var isk = 1; isk <= sk; isk++)
-                    {
-                        var request = new GetItemRequest()
-                        {
-                            TableName = tableName,
-                            Key = new Dictionary<string, AttributeValue>() {
-                            {"pk", new AttributeValue {N = ipk.ToString()} },
-                            {"sk", new AttributeValue {N = isk.ToString() } }
-                        }
-                        };
-                        var response = await client.GetItemAsync(request);
-                        Console.WriteLine($"GetItem succeeded for pk: {ipk},sk: {isk}");
+                    TableName = tableName,
+                    KeyConditionExpression = "pk = :pkval and sk between :skval1 and :skval2",
+                    ExpressionAttributeValues = new Dictionary<string, AttributeValue>() {
+                            {":pkval", new AttributeValue {N = pk.ToString()} },
+                            {":skval1", new AttributeValue {N = sk1.ToString()} },
+                            {":skval2", new AttributeValue {N = sk2.ToString()} }
                     }
-                }
+                };
+                var response = await client.QueryAsync(request);
+                Console.WriteLine($"{i}: Query succeeded");
+
             }
 
             var endTime = DateTime.Now;

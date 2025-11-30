@@ -1,129 +1,146 @@
-# Querying data in DynamoDB
+# Creating an external table in
 
-The following examples show some ways that you can use HiveQL to query data stored in
-DynamoDB.
+Hive
 
-These examples refer to the _ddb_features_ table in the tutorial
-([Step 5: Copy data to
-DynamoDB](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")).
+In [Tutorial: Working with Amazon DynamoDB and Apache
+Hive](EMRforDynamoDB.md "EMRforDynamoDB.md"),
+you created an external Hive table that mapped to a DynamoDB table. When you issued HiveQL
+statements against the external table, the read and write operations were passed through
+to the DynamoDB table.
+
+You can think of an external table as a pointer to a data source that is managed and
+stored elsewhere. In this case, the underlying data source is a DynamoDB table. (The table
+must already exist. You cannot create, update, or delete a DynamoDB table from within
+Hive.) You use the `CREATE EXTERNAL TABLE` statement to create the external
+table. After that, you can use HiveQL to work with data in DynamoDB, as if that data were
+stored locally within Hive.
+
+###### Note
+
+You can use `INSERT` statements to insert data into an external table
+and `SELECT` statements to select data from it. However, you cannot use
+`UPDATE` or `DELETE` statements to manipulate data in the
+table.
+
+If you no longer need the external table, you can remove it using the `DROP
+ TABLE` statement. In this case, `DROP TABLE` only removes the
+external table in Hive. It does not affect the underlying DynamoDB table or any of its
+data.
 
 ###### Topics
 
-- [Using aggregate
-  functions](#EMRforDynamoDB.Querying.AggregateFunctions "#EMRforDynamoDB.Querying.AggregateFunctions")
-- [Using the GROUP BY and
-  HAVING clauses](#EMRforDynamoDB.Querying.GroupByAndHaving "#EMRforDynamoDB.Querying.GroupByAndHaving")
-- [Joining two DynamoDB
-  tables](#EMRforDynamoDB.Querying.JoiningTwoTables "#EMRforDynamoDB.Querying.JoiningTwoTables")
-- [Joining
-  tables from different sources](#EMRforDynamoDB.Querying.JoiningTablesFromDifferentSources "#EMRforDynamoDB.Querying.JoiningTablesFromDifferentSources")
+- [CREATE EXTERNAL TABLE
+  syntax](#EMRforDynamoDB.ExternalTableForDDB.Syntax "#EMRforDynamoDB.ExternalTableForDDB.Syntax")
+- [Data type
+  mappings](#EMRforDynamoDB.ExternalTableForDDB.DataTypes "#EMRforDynamoDB.ExternalTableForDDB.DataTypes")
 
-## Using aggregate
+## CREATE EXTERNAL TABLE
 
-functions
+syntax
 
-HiveQL provides built-in functions for summarizing data values. For example, you
-can use the `MAX` function to find the largest value for a selected
-column. The following example returns the elevation of the highest feature in the
-state of Colorado.
+The following shows the HiveQL syntax for creating an external Hive table that
+maps to a DynamoDB table:
 
 ```
-SELECT MAX(elev_in_ft)
-FROM ddb_features
-WHERE state_alpha = 'CO';
-```
-
-## Using the GROUP BY and
-
-HAVING clauses
-
-You can use the `GROUP BY` clause to collect data across multiple
-records. This is often used with an aggregate function such as `SUM`,
-`COUNT`, `MIN`, or `MAX`. You can also use the
-`HAVING` clause to discard any results that do not meet certain
-criteria.
-
-The following example returns a list of the highest elevations from states that
-have more than five features in the _ddb_features_ table.
-
-```
-SELECT state_alpha, max(elev_in_ft)
-FROM ddb_features
-GROUP BY state_alpha
-HAVING count(*) >= 5;
-```
-
-## Joining two DynamoDB
-
-tables
-
-The following example maps another Hive table
-(_east_coast_states_) to a table in DynamoDB. The
-`SELECT` statement is a join across these two tables. The join is
-computed on the cluster and returned. The join does not take place in DynamoDB.
-
-Consider a DynamoDB table named EastCoastStates that contains the following
-data:
-
-```
-**StateName StateAbbrev**
-
-Maine           ME
-New Hampshire   NH
-Massachusetts   MA
-Rhode Island    RI
-Connecticut     CT
-New York        NY
-New Jersey      NJ
-Delaware        DE
-Maryland        MD
-Virginia        VA
-North Carolina  NC
-South Carolina  SC
-Georgia         GA
-Florida         FL
-```
-
-Let's assume the table is available as a Hive external table named
-east_coast_states:
-
-```
-CREATE EXTERNAL TABLE ddb_east_coast_states (state_name STRING, state_alpha STRING)
+CREATE EXTERNAL TABLE `hive_table`
+    (`hive_column1_name` `hive_column1_datatype`, `hive_column2_name` `hive_column2_datatype`...)
 STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'
-TBLPROPERTIES ("dynamodb.table.name" = "EastCoastStates",
-"dynamodb.column.mapping" = "state_name:StateName,state_alpha:StateAbbrev");
+TBLPROPERTIES (
+    "dynamodb.table.name" = `"dynamodb_table"`,
+    "dynamodb.column.mapping" = "`hive_column1_name`:`dynamodb_attribute1_name`,`hive_column2_name`:`dynamodb_attribute2_name`..."
+);
 ```
 
-The following join returns the states on the East Coast of the United States that
-have at least three features:
+Line 1 is the start of the `CREATE EXTERNAL TABLE` statement, where you
+provide the name of the Hive table (_hive_table_) you want to
+create.
 
-```
-SELECT ecs.state_name, f.feature_class, COUNT(*)
-FROM ddb_east_coast_states ecs
-JOIN ddb_features f on ecs.state_alpha = f.state_alpha
-GROUP BY ecs.state_name, f.feature_class
-HAVING COUNT(*) >= 3;
-```
+Line 2 specifies the columns and data types for _hive_table_.
+You need to define columns and data types that correspond to the attributes in the
+DynamoDB table.
 
-## Joining
+Line 3 is the `STORED BY` clause, where you specify a class that
+handles data management between the Hive and the DynamoDB table. For DynamoDB,
+`STORED BY` should be set to
+`'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'`.
 
-tables from different sources
+Line 4 is the start of the `TBLPROPERTIES` clause, where you define the
+following parameters for `DynamoDBStorageHandler`:
 
-In the following example, s3_east_coast_states is a Hive table associated with a
-CSV file stored in Amazon S3. The _ddb_features_ table is associated
-with data in DynamoDB. The following example joins these two tables, returning the
-geographic features from states whose names begin with "New."
+- `dynamodb.table.name`—the name of the DynamoDB table.
+- `dynamodb.column.mapping`—pairs of column names in the Hive
+  table and their corresponding attributes in the DynamoDB table. Each pair is of
+  the form _hive_column_name:dynamodb_attribute_name_, and
+  the pairs are separated by commas.
 
-```
-create external table s3_east_coast_states (state_name STRING, state_alpha STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-LOCATION 's3://`bucketname`/`path`/`subpath`/';
-```
+Note the following:
 
-```
-SELECT ecs.state_name, f.feature_name, f.feature_class
-FROM s3_east_coast_states ecs
-JOIN ddb_features f
-ON ecs.state_alpha = f.state_alpha
-WHERE ecs.state_name LIKE 'New%';
-```
+- The name of the Hive table name does not have to be the same as the DynamoDB
+  table name.
+- The Hive table column names do not have to be the same as those in the
+  DynamoDB table.
+- The table specified by `dynamodb.table.name` must exist in
+  DynamoDB.
+- For `dynamodb.column.mapping`:
+  - You must map the key schema attributes for the DynamoDB table. This
+    includes the partition key and the sort key (if present).
+  - You do not have to map the non-key attributes of the DynamoDB table.
+    However, you will not see any data from those attributes when you
+    query the Hive table.
+  - If the data types of a Hive table column and a DynamoDB attribute are
+    incompatible, you will see `NULL` in these columns when
+    you query the Hive table.
+
+###### Note
+
+The `CREATE EXTERNAL TABLE` statement does not perform any
+validation on the `TBLPROPERTIES` clause. The values you provide for
+`dynamodb.table.name` and `dynamodb.column.mapping`
+are only evaluated by the `DynamoDBStorageHandler` class when you
+attempt to access the table.
+
+## Data type
+
+mappings
+
+The following table shows DynamoDB data types and compatible Hive data types:
+
+| DynamoDB Data Type | Hive Data Type                        |
+| ------------------ | ------------------------------------- |
+| String             | `STRING`                              |
+| Number             | `BIGINT` or `DOUBLE`                  |
+| Binary             | `BINARY`                              |
+| String Set         | `ARRAY<STRING>`                       |
+| Number Set         | `ARRAY<BIGINT>` or<br>`ARRAY<DOUBLE>` |
+| Binary Set         | `ARRAY<BINARY>`                       |
+
+###### Note
+
+The following DynamoDB data types are not supported by the
+`DynamoDBStorageHandler` class, so they cannot be used with
+`dynamodb.column.mapping`:
+
+- Map
+- List
+- Boolean
+- Null
+  However, if you need to work with these data types, you can create a single
+  entity called `item` that represents the entire DynamoDB item as a map
+  of strings for both keys and values in the map. For more information, see [Copying data
+  without a column mapping](EMRforDynamoDB.CopyingData.md#EMRforDynamoDB.CopyingData.S3.NoColumnMapping "EMRforDynamoDB.CopyingData.md#EMRforDynamoDB.CopyingData.S3.NoColumnMapping")
+
+If you want to map a DynamoDB attribute of type Number, you must choose an
+appropriate Hive type:
+
+- The Hive `BIGINT` type is for 8-byte signed integers. It is the
+  same as the `long` data type in Java.
+- The Hive `DOUBLE` type is for 8-bit double precision floating
+  point numbers. It is the same as the `double` type in
+  Java.
+
+If you have numeric data stored in DynamoDB that has a higher precision than the Hive
+data type you choose, then accessing the DynamoDB data could cause a loss of precision.
+
+If you export data of type Binary from DynamoDB to (Amazon S3) or HDFS, the data is stored
+as a Base64-encoded string. If you import data from Amazon S3 or HDFS into the DynamoDB
+Binary type, you must ensure the data is encoded as a Base64 string.

@@ -1,200 +1,187 @@
 # Differences between a relational (SQL) database
 
-and DynamoDB when writing data to a table
+and DynamoDB when modifying data in a table
 
-Relational database tables contain _rows_ of data. Rows are
-composed of _columns_. Amazon DynamoDB tables contain
-_items_. Items are composed of
-_attributes_.
-
-This section describes how to write one row (or item) to a table.
+The SQL language provides the `UPDATE` statement for modifying data.
+Amazon DynamoDB uses the `UpdateItem` operation to accomplish similar tasks.
 
 ###### Topics
 
-- [Writing data to a table with SQL](#SQLtoNoSQL.WriteData.SQL "#SQLtoNoSQL.WriteData.SQL")
-- [Writing data to a table in
-  DynamoDB](#SQLtoNoSQL.WriteData.DynamoDB "#SQLtoNoSQL.WriteData.DynamoDB")
+- [Modifying data in a table with
+  SQL](#SQLtoNoSQL.UpdateData.SQL "#SQLtoNoSQL.UpdateData.SQL")
+- [Modifying data in a table in
+  DynamoDB](#SQLtoNoSQL.UpdateData.DynamoDB "#SQLtoNoSQL.UpdateData.DynamoDB")
 
-## Writing data to a table with SQL
+## Modifying data in a table with
 
-A table in a relational database is a two-dimensional data structure composed of
-rows and columns. Some database management systems also provide support for
-semistructured data, usually with native JSON or XML data types. However, the
-implementation details vary among vendors.
+SQL
 
-In SQL, you would use the `INSERT` statement to add a row to a
-table.
+In SQL, you would use the `UPDATE` statement to modify one or more
+rows. The `SET` clause specifies new values for one or more columns, and
+the `WHERE` clause determines which rows are modified. The following is
+an example.
 
 ```
-INSERT INTO Music
-    (Artist, SongTitle, AlbumTitle,
-    Year, Price, Genre,
-    Tags)
-VALUES(
-    'No One You Know', 'Call Me Today', 'Somewhat Famous',
-    2015, 2.14, 'Country',
-    '{"Composers": ["Smith", "Jones", "Davis"],"LengthInSeconds": 214}'
-);
+UPDATE Music
+SET RecordLabel = 'Global Records'
+WHERE Artist = 'No One You Know' AND SongTitle = 'Call Me Today';
 ```
 
-The primary key for this table consists of _Artist_ and
-_SongTitle_. You must specify values for these
-columns.
+If no rows match the `WHERE` clause, the `UPDATE` statement
+has no effect.
 
-###### Note
-
-This example uses the _Tags_ column to store semistructured
-data about the songs in the _Music_ table. The
-_Tags_ column is defined as type TEXT, which can store up
-to 65,535 characters in MySQL.
-
-## Writing data to a table in
+## Modifying data in a table in
 
 DynamoDB
 
-In Amazon DynamoDB, you can use either the DynamoDB API or [PartiQL](ql-reference.md "ql-reference.md") (a SQL-compatible query
-language) to add an item to a table.
+In DynamoDB, you can use either the DynamoDB API or [PartiQL](ql-reference.md "ql-reference.md") (a SQL-compatible query
+language) to modify a single item. If you want to modify multiple items, you must
+use multiple operations.
 
 DynamoDB API
-With the DynamoDB API, you use the `PutItem` operation to add
-an item to a table.
+With the DynamoDB API, you use the `UpdateItem` operation to
+modify a single item.
 
 ```
 {
     TableName: "Music",
-    Item: {
+    Key: {
         "Artist":"No One You Know",
-        "SongTitle":"Call Me Today",
-        "AlbumTitle":"Somewhat Famous",
-        "Year": 2015,
-        "Price": 2.14,
-        "Genre": "Country",
-        "Tags": {
-            "Composers": [
-                  "Smith",
-                  "Jones",
-                  "Davis"
-            ],
-            "LengthInSeconds": 214
-        }
+        "SongTitle":"Call Me Today"
+    },
+    UpdateExpression: "SET RecordLabel = :label",
+    ExpressionAttributeValues: {
+        ":label": "Global Records"
     }
 }
 ```
 
-The primary key for this table consists of _Artist_
-and _SongTitle_. You must specify values for these
-attributes.
+You must specify the `Key` attributes of the item to be
+modified and an `UpdateExpression` to specify attribute
+values. `UpdateItem` behaves like an "upsert" operation. The
+item is updated if it exists in the table, but if not, a new item is
+added (inserted).
 
-Here are some key things to know about this `PutItem`
-example:
-
-- DynamoDB provides native support for documents, using JSON. This
-  makes DynamoDB ideal for storing semistructured data, such as
-  _Tags_. You can also retrieve and
-  manipulate data from within JSON documents.
-- The _Music_ table does not have any
-  predefined attributes, other than the primary key
-  (_Artist_ and
-  _SongTitle_).
-- Most SQL databases are transaction oriented. When you issue an
-  `INSERT` statement, the data modifications are
-  not permanent until you issue a `COMMIT` statement.
-  With Amazon DynamoDB, the effects of a `PutItem` operation
-  are permanent when DynamoDB replies with an HTTP 200 status code
-  (`OK`).
-
-The following are some other `PutItem` examples.
+`UpdateItem` supports _conditional
+writes_, where the operation succeeds only if a specific
+`ConditionExpression` evaluates to true. For example, the
+following `UpdateItem` operation does not perform the update
+unless the price of the song is greater than or equal to 2.00.
 
 ```
 {
     TableName: "Music",
-    Item: {
-        "Artist": "No One You Know",
-        "SongTitle": "My Dog Spot",
-        "AlbumTitle":"Hey Now",
-        "Price": 1.98,
-        "Genre": "Country",
-        "CriticRating": 8.4
+    Key: {
+        "Artist":"No One You Know",
+        "SongTitle":"Call Me Today"
+    },
+    UpdateExpression: "SET RecordLabel = :label",**ConditionExpression: "Price >= :p",**
+    ExpressionAttributeValues: {
+        ":label": "Global Records",**":p": 2.00**
     }
 }
 ```
+
+`UpdateItem` also supports _atomic
+counters_, or attributes of type `Number` that
+can be incremented or decremented. Atomic counters are similar in many
+ways to sequence generators, identity columns, or autoincrement fields
+in SQL databases.
+
+The following is an example of an `UpdateItem` operation to
+initialize a new attribute (_Plays_) to keep track of
+the number of times a song has been played.
 
 ```
 {
     TableName: "Music",
-    Item: {
-        "Artist": "No One You Know",
-        "SongTitle": "Somewhere Down The Road",
-        "AlbumTitle":"Somewhat Famous",
-        "Genre": "Country",
-        "CriticRating": 8.4,
-        "Year": 1984
-    }
+    Key: {
+        "Artist":"No One You Know",
+        "SongTitle":"Call Me Today"
+    },
+    UpdateExpression: "SET Plays = :val",
+    ExpressionAttributeValues: {
+        ":val": 0
+    },
+    ReturnValues: "UPDATED_NEW"
 }
 ```
+
+The `ReturnValues` parameter is set to
+`UPDATED_NEW`, which returns the new values of any
+attributes that were updated. In this case, it returns 0 (zero).
+
+Whenever someone plays this song, we can use the following
+`UpdateItem` operation to increment
+_Plays_ by one.
 
 ```
 {
     TableName: "Music",
-    Item: {
-        "Artist": "The Acme Band",
-        "SongTitle": "Still In Love",
-        "AlbumTitle":"The Buck Starts Here",
-        "Price": 2.47,
-        "Genre": "Rock",
-        "PromotionInfo": {
-            "RadioStationsPlaying":[
-                 "KHCR", "KBQX", "WTNR", "WJJH"
-            ],
-            "TourDates": {
-                "Seattle": "20150625",
-                "Cleveland": "20150630"
-            },
-            "Rotation": "Heavy"
-        }
-    }
+    Key: {
+        "Artist":"No One You Know",
+        "SongTitle":"Call Me Today"
+    },
+    UpdateExpression: "SET Plays = Plays + :incr",
+    ExpressionAttributeValues: {
+        ":incr": 1
+    },
+    ReturnValues: "UPDATED_NEW"
 }
 ```
-
-```
-{
-    TableName: "Music",
-    Item: {
-        "Artist": "The Acme Band",
-        "SongTitle": "Look Out, World",
-        "AlbumTitle":"The Buck Starts Here",
-        "Price": 0.99,
-        "Genre": "Rock"
-    }
-}
-```
-
-###### Note
-
-In addition to `PutItem`, DynamoDB supports a
-`BatchWriteItem` operation for writing multiple items
-at the same time.
 
 PartiQL for DynamoDB
 With PartiQL, you use the `ExecuteStatement` operation to
-add an item to a table, using the PartiQL `Insert`
+modify an item in a table, using the PartiQL `Update`
 statement.
-
-```
-INSERT into Music value {
-    'Artist': 'No One You Know',
-    'SongTitle': 'Call Me Today',
-    'AlbumTitle': 'Somewhat Famous',
-    'Year' : '2015',
-    'Genre' : 'Acme'
-}
-```
 
 The primary key for this table consists of _Artist_
 and _SongTitle_. You must specify values for these
 attributes.
 
+```
+UPDATE Music
+SET RecordLabel ='Global Records'
+WHERE Artist='No One You Know' AND SongTitle='Call Me Today'
+```
+
+You can also modify multiple fields at once, such as in the following
+example.
+
+```
+UPDATE Music
+SET RecordLabel = 'Global Records'
+SET AwardsWon = 10
+WHERE Artist ='No One You Know' AND SongTitle='Call Me Today'
+```
+
+`Update` also supports _atomic
+counters_, or attributes of type `Number` that can
+be incremented or decremented. Atomic counters are similar in many ways
+to sequence generators, identity columns, or autoincrement fields in SQL
+databases.
+
+The following is an example of an `Update` statement to
+initialize a new attribute (_Plays_) to keep track of
+the number of times a song has been played.
+
+```
+UPDATE Music
+SET Plays = 0
+WHERE Artist='No One You Know' AND SongTitle='Call Me Today'
+```
+
+Whenever someone plays this song, we can use the following
+`Update` statement to increment
+_Plays_ by one.
+
+```
+UPDATE Music
+SET Plays = Plays + 1
+WHERE Artist='No One You Know' AND SongTitle='Call Me Today'
+```
+
 ###### Note
 
-For code examples using `Insert` and
-`ExecuteStatement`, see [PartiQL insert statements for DynamoDB](ql-reference.md "ql-reference.md").
+For code examples using `Update` and
+`ExecuteStatement`, see [PartiQL update statements for DynamoDB](ql-reference.md "ql-reference.md").

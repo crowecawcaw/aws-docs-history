@@ -1,141 +1,180 @@
-# DAX cluster sizing guide
+# DAX: How it works
 
-This guide provides advice for choosing an appropriate Amazon DynamoDB Accelerator (DAX) cluster
-size and node type for your application. These instructions guide you through the steps of
-estimating your application’s DAX traffic, selecting a cluster configuration, and testing
-it.
-
-If you have an existing DAX cluster and want to evaluate whether it has the appropriate
-number and size of nodes, please refer to [Scaling a DAX cluster](DAX.md#DAX.cluster-management.scaling "DAX.md#DAX.cluster-management.scaling").
-
-###### Topics
-
-- [Overview](#DAX.sizing-guide.overview "#DAX.sizing-guide.overview")
-- [Estimating traffic](#DAX.sizing-guide.estimating-traffic "#DAX.sizing-guide.estimating-traffic")
-- [Load testing](#DAX.sizing-guide.load-testing "#DAX.sizing-guide.load-testing")
-
-## Overview
-
-It's important to scale your DAX cluster appropriately for your workload, whether
-you're creating a new cluster or maintaining an existing cluster. As time goes on and
-your application's workload changes, you should periodically revisit your scaling
-decisions to make sure that they are still appropriate.
-
-The process typically follows these steps:
-
-1. **Estimating traffic.** In this step, you make
-   predictions about the volume of traffic that your application will send to
-   DAX, the nature of the traffic (read vs. write operations), and the expected
-   cache hit rate.
-2. **Load testing.** In this step, you create a
-   cluster and send traffic to it mirroring your estimates from the previous step.
-   Repeat this step until you find a suitable cluster configuration.
-3. **Production monitoring.** While your application
-   is using DAX in production, you should [monitor
-   the cluster](DAX.md "DAX.md") to continuously validate that it is still scaled
-   correctly as your workload changes over time.
-
-## Estimating traffic
-
-There are three main factors that characterize a typical DAX workload:
-
-- Cache hit rate
-- [Read capacity
-  units](provisioned-capacity-mode.md#read-write-capacity-units "provisioned-capacity-mode.md#read-write-capacity-units") (RCUs) per second
-- [Write capacity
-  units](provisioned-capacity-mode.md#read-write-capacity-units "provisioned-capacity-mode.md#read-write-capacity-units") (WCUs) per second
-
-### Estimating cache hit
-
-rate
-
-If you already have a DAX cluster, you can use the `ItemCacheHits`
-and `ItemCacheMisses`
-[Amazon CloudWatch metrics](dax-metrics-dimensions-dax.md "dax-metrics-dimensions-dax.md") to determine the
-cache hit rate. The cache hit rate is equal to `ItemCacheHits` /
-(`ItemCacheHits` + `ItemCacheMisses`). If your workload
-includes `Query` or `Scan` operations, you should also look at
-the `QueryCacheHits`, `QueryCacheMisses`,
-`ScanCacheHits`, and `ScanCacheMisses` metrics. Cache hit
-rates vary from one application to another and are heavily influenced by the
-cluster's Time to Live (TTL) setting. Typical hit rates for applications using DAX are
-85–95 percent.
-
-### Estimating read and
-
-write capacity units
-
-If you already have DynamoDB tables for your application, look at the
-`ConsumedReadCapacityUnits` and
-`ConsumedWriteCapacityUnits`
-[CloudWatch metrics](dax-metrics-dimensions-dax.md "dax-metrics-dimensions-dax.md"). Use the
-`Sum` statistic and divide by the number of seconds in the period.
-
-If you also already have a DAX cluster, remember that the DynamoDB
-`ConsumedReadCapacityUnits` metric only accounts for cache misses.
-So, to get an idea of the read capacity units per second handled by your DAX
-cluster, divide the number by your cache miss rate (that is, 1 - cache hit
-rate).
-
-If you don't already have a DynamoDB table, see the documentation about [read and write capacity units](provisioned-capacity-mode.md#read-write-capacity-units "provisioned-capacity-mode.md#read-write-capacity-units") to estimate your traffic based on your application's estimated
-request rate, items accessed per request, and item size.
-
-When making traffic estimates, plan for future growth and for expected and
-unexpected peaks to ensure that your cluster has enough headroom for traffic
-increases.
-
-## Load testing
-
-The next step after estimating traffic is to test the cluster configuration under
-load.
-
-1. For your initial load test, we recommend that you start with the
-   `dax.r4.large` node type, the lowest-cost fixed performance,
-   memory-optimized node type.
-2. A fault-tolerant cluster requires at least three nodes, spread across three
-   Availability Zones. In this case, if an Availability Zone becomes unavailable,
-   the effective number of Availability Zones is reduced by one-third. For your
-   initial load test, we recommend that you start with a two-node cluster, which
-   simulates the failure of one Availability Zone in a three-node cluster.
-3. Drive sustained traffic (as estimated in the previous step) to your test
-   cluster for the duration of the load test.
-4. Monitor the performance of the cluster during the load test.
-
-Ideally, the traffic profile that you drive during the load test should be as similar
-as possible to your application's real traffic. This includes the distribution of
-operations (for example, 70 percent `GetItem`, 25 percent `Query`,
-and 5 percent `PutItem`), the request rate for each operation, the number of
-items accessed per request, and the distribution of item sizes. To achieve a cache hit
-rate similar to your application's expected cache hit rate, pay close attention to the
-distribution of keys in your test traffic.
+Amazon DynamoDB Accelerator (DAX) is designed to run within an Amazon Virtual Private Cloud (Amazon VPC) environment. The
+Amazon VPC service defines a virtual network that closely resembles a traditional data center.
+With a VPC, you have control over its IP address range, subnets, routing tables, network
+gateways, and security settings. You can launch a DAX cluster in your virtual network and
+control access to the cluster by using Amazon VPC security groups.
 
 ###### Note
 
-Be careful when load testing T2 node types (`dax.t2.small` and
-`dax.t2.medium`). T2 node types provide [burstable CPU performance](../../../AWSEC2/latest/UserGuide/burstable-performance-instances.md "../../../AWSEC2/latest/UserGuide/burstable-performance-instances.md") that varies over time depending on the node's
-CPU credit balance. A DAX cluster running on T2 nodes might appear to be operating
-normally, but if any node is bursting above the [baseline performance](../../../AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.md "../../../AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.md") of its instance, the node is spending its accrued
-CPU credit balance. When the credit balance runs low, [performance is gradually lowered](../../../AWSEC2/latest/UserGuide/burstable-performance-instances-standard-mode.md "../../../AWSEC2/latest/UserGuide/burstable-performance-instances-standard-mode.md") to the baseline performance
-level.
+If you created your AWS account after December 4, 2013, you already have a default
+VPC in each AWS Region. The VPC is ready for you to use immediately—without
+having to perform any additional configuration steps.
 
-[Monitor your DAX cluster](DAX.md "DAX.md") during the load test
-to determine whether the node type that you're using for the load test is the right node
-type for you. In addition, during a load test, you should monitor your request rate and
-cache hit rate to ensure that your test infrastructure is actually driving the amount of
-traffic you intend.
+For more information, see [Default VPC and
+default subnets](../../../vpc/latest/userguide/default-vpc.md "../../../vpc/latest/userguide/default-vpc.md") in the _Amazon VPC User Guide_.
 
-You should pay attention to network bytes consumption of your selected cluster instance type. Exceeding the
-available baseline bandwidth for an Amazon EC2 instance indicates that your cluster may not sustain your application's
-workload, and needs to be scaled.
+The following diagram shows a high-level overview of DAX.
 
-If load testing indicates that the selected cluster configuration can't sustain your
-application's workload, you should [switch to a larger node
-type](DAX.md#DAX.cluster-management.scaling.node-types "DAX.md#DAX.cluster-management.scaling.node-types"), especially if you see high CPU utilization on the primary node in the
-cluster, high eviction rates, or high cache memory utilization. If hit rates are
-consistently high, and the ratio of read to write traffic is high, you may want to
-consider [adding more nodes
-to your cluster](DAX.md#DAX.cluster-management.scaling.read-scaling "DAX.md#DAX.cluster-management.scaling.read-scaling"). Refer to [Scaling a DAX cluster](DAX.md#DAX.cluster-management.scaling "DAX.md#DAX.cluster-management.scaling") for additional guidance on when to
-use a larger node type (vertical scaling) or add more nodes (horizontal scaling).
+![Workflow diagram showing interaction of application, DAX client, and DAX cluster in a VPC.](images/dax_high_level.png)
+To create a DAX cluster, you use the AWS Management Console. Unless you specify otherwise, your DAX
+cluster runs within your default VPC. To run your application, you launch an Amazon EC2 instance
+into your Amazon VPC. You then deploy your application (with the DAX client) on the EC2
+instance.
 
-You should repeat your load test after making changes to your cluster
-configuration.
+At runtime, the DAX client directs all of your application's DynamoDB API requests to the
+DAX cluster. If DAX can process one of these API requests directly, it does so.
+Otherwise, it passes the request through to DynamoDB.
+
+Finally, the DAX cluster returns the results to your application.
+
+###### Topics
+
+- [How DAX processes requests](#DAX.concepts.request-processing "#DAX.concepts.request-processing")
+- [Item cache](#DAX.concepts.item-cache "#DAX.concepts.item-cache")
+- [Query cache](#DAX.concepts.query-cache "#DAX.concepts.query-cache")
+
+## How DAX processes requests
+
+A DAX cluster consists of one or more nodes. Each node runs its own instance of the
+DAX caching software. One of the nodes serves as the primary node for the cluster.
+Additional nodes (if present) serve as read replicas. For more information, see [Nodes](DAX.concepts.md#DAX.concepts.nodes "DAX.concepts.md#DAX.concepts.nodes").
+
+Your application can access DAX by specifying the endpoint for the DAX cluster.
+The DAX client software works with the cluster endpoint to perform intelligent load
+balancing and routing.
+
+### Read operations
+
+DAX can respond to the following API calls:
+
+- `GetItem`
+- `BatchGetItem`
+- `Query`
+- `Scan`
+
+If the request specifies _eventually consistent reads_ (the
+default behavior), it tries to read the item from DAX:
+
+- If DAX has the item available (a _cache
+  hit_), DAX returns the item to the application without
+  accessing DynamoDB.
+- If DAX does not have the item available (a _cache
+  miss_), DAX passes the request through to DynamoDB. When it
+  receives the response from DynamoDB, DAX returns the results to the
+  application. But it also writes the results to the cache on the primary
+  node.
+
+###### Note
+
+If there are any read replicas in the cluster, DAX automatically keeps the
+replicas in sync with the primary node. For more information, see [Clusters](DAX.concepts.md#DAX.concepts.clusters "DAX.concepts.md#DAX.concepts.clusters").
+
+If the request specifies _strongly consistent reads_, DAX
+passes the request through to DynamoDB. The results from DynamoDB are not cached in DAX.
+Instead, they are simply returned to the application.
+
+### Write operations
+
+The following DAX API operations are considered "write-through":
+
+- `BatchWriteItem`
+- `UpdateItem`
+- `DeleteItem`
+- `PutItem`
+
+With these operations, data is first written to the DynamoDB table, and then to the
+DAX cluster. The operation is successful only if the data is successfully written
+to _both_ the table and to DAX.
+
+### Other operations
+
+DAX does not recognize any DynamoDB operations for managing tables (such as
+`CreateTable`, `UpdateTable`, and so on). If your
+application needs to perform these operations, it must access DynamoDB directly rather
+than using DAX.
+
+For detailed information about DAX and DynamoDB consistency, see [DAX and DynamoDB consistency models](DAX.md "DAX.md").
+
+For information about how transactions work in DAX, see [Using transactional APIs in DynamoDB Accelerator (DAX)](transaction-apis.md#transaction-apis-dax "transaction-apis.md#transaction-apis-dax").
+
+### Request rate
+
+limiting
+
+If the number of requests sent to DAX exceeds the capacity of a node, DAX
+limits the rate at which it accepts additional requests by returning a [ThrottlingException](../APIReference/CommonErrors.md#CommonErrors-ThrottlingException "../APIReference/CommonErrors.md#CommonErrors-ThrottlingException"). DAX continuously evaluates your CPU utilization
+to determine the volume of requests it can process while maintaining a healthy
+cluster state.
+
+You can monitor the [ThrottledRequestCount metric](dax-metrics-dimensions-dax.md "dax-metrics-dimensions-dax.md") that DAX publishes to Amazon CloudWatch. If you
+see these exceptions regularly, you should consider [scaling up your cluster](DAX.md#DAX.cluster-management.scaling "DAX.md#DAX.cluster-management.scaling").
+
+## Item cache
+
+DAX maintains an _item cache_ to store the results from
+`GetItem` and `BatchGetItem` operations. The items in the
+cache represent eventually consistent data from DynamoDB, and are stored by their primary
+key values.
+
+When an application sends a `GetItem` or `BatchGetItem` request,
+DAX tries to read the items directly from the item cache using the specified key
+values. If the items are found (cache hit), DAX returns them to the application
+immediately. If the items are not found (cache miss), DAX sends the request to DynamoDB.
+DynamoDB processes the requests using eventually consistent reads and returns the items to
+DAX. DAX stores them in the item cache and then returns them to the
+application.
+
+The item cache has a Time to Live (TTL) setting, which is 5 minutes by default. DAX assigns
+a timestamp to every item that it writes to the item cache. An item expires if it has
+remained in the cache for longer than the TTL setting. If you issue a
+`GetItem` request on an expired item, this is considered a cache miss,
+and DAX sends the `GetItem` request to DynamoDB.
+
+###### Note
+
+You can specify the TTL setting for the item cache when you create a new DAX
+cluster. For more information, see [Managing DAX clusters](DAX.md "DAX.md") .
+
+DAX also maintains a least recently used (LRU) list for the item cache. The LRU list
+tracks when an item was first written to the cache, and when the item was last read from
+the cache. If the item cache becomes full, DAX evicts older items (even if they
+haven't expired yet) to make room for new items. The LRU algorithm is always enabled for
+the item cache and is not user-configurable.
+
+If you specify zero as the _item cache_ TTL setting, items in the
+item cache will only be refreshed due to an LRU eviction or a ["write-through"](DAX.md#DAX.concepts.request-processing-write "DAX.md#DAX.concepts.request-processing-write") operation.
+
+For detailed information about the consistency of the item cache in DAX, see [DAX item cache behavior](DAX.md#DAX.consistency.item-cache "DAX.md#DAX.consistency.item-cache").
+
+## Query cache
+
+DAX also maintains a _query cache_ to store the results from
+`Query` and `Scan` operations. The items in this cache
+represent result sets from queries and scans on DynamoDB tables. These result sets are
+stored by their parameter values.
+
+When an application sends a `Query` or `Scan` request, DAX
+tries to read a matching result set from the query cache using the specified parameter
+values. If the result set is found (cache hit), DAX returns it to the application
+immediately. If the result set is not found (cache miss), DAX sends the request to
+DynamoDB. DynamoDB processes the requests using eventually consistent reads and returns the
+result set to DAX. DAX stores it in the query cache and then returns it to the
+application.
+
+###### Note
+
+You can specify the TTL setting for the query cache when you create a new DAX
+cluster. For more information, see [Managing DAX clusters](DAX.md "DAX.md") .
+
+DAX also maintains an LRU list for the query cache. The list tracks when a result
+set was first written to the cache, and when the result was last read from the cache. If
+the query cache becomes full, DAX evicts older result sets (even if they have not
+expired yet) to make room for new result sets. The LRU algorithm is always enabled for
+the query cache, and is not user-configurable.
+
+If you specify zero as the _query cache_ TTL setting, the query
+response will not be cached.
+
+For detailed information about the consistency of the query cache in DAX, see [DAX query cache behavior](DAX.md#DAX.consistency.query-cache "DAX.md#DAX.consistency.query-cache").

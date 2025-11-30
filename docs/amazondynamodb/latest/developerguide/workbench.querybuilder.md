@@ -1,24 +1,54 @@
-# Building complex
+# Connecting to live datasets
 
-operations
+To connect to your Amazon DynamoDB tables with NoSQL Workbench, you must first connect to
+your AWS account.
 
-The operation builder in NoSQL Workbench for Amazon DynamoDB provides a visual interface
-where you can perform complex data plane operations. It includes support for projection
-expressions and condition expressions. Once you've built an operation, you can save it
-for later use (up to 50 operations can be saved). You can then browse a list of your
-frequently used data-plane operations in the **Saved Operations** menu,
-and use them to automatically populate and build a new operation. You can also generate
-sample code for these operations, in multiple languages.
+###### To add a connection to your database
 
-NoSQL Workbench supports building [PartiQL](ql-reference.md "ql-reference.md") for
-DynamoDB statements, which allows you to interact with DynamoDB using a SQL-compatible query
-language. NoSQL Workbench also supports building DynamoDB CRUD API operations.
+1.  In NoSQL Workbench, in the navigation pane on the left side, choose the
+    **Operation builder** icon.
+2.  Choose **Add connection**.
+3.  Specify the following information:
 
-To use NoSQL Workbench to build operations, in the navigation pane on the left side,
-choose the **Operation builder** icon.
+        * **Connection name**
+        * **AWS Region**
+        * **Access key ID**
+        * **Secret access key**
 
-###### Topics
+    For more information about how to obtain the access keys, see [Getting an AWS access key](SettingUp.md#SettingUp.DynamoWebService.GetCredentials "SettingUp.md#SettingUp.DynamoWebService.GetCredentials").
 
-- [Building PartiQL statements](workbench.querybuilder.md "workbench.querybuilder.md")
-- [Building API
-  operations](workbench.querybuilder.operationbuilder.md "workbench.querybuilder.operationbuilder.md")
+You can optionally, specify the following:
+
+    * [**Session token**](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md")
+    * [**IAM role ARN**](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns "../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns")
+
+4. Choose **Connect**.
+
+If you don't want to sign up for a free tier account, and prefer to use
+[DynamoDB
+local (downloadable version)](DynamoDBLocal.md "DynamoDBLocal.md"):
+
+    1. Choose the **Local** tab on the connection
+     screen.
+    2. Specify the following information:
+
+
+
+
+    	* **Connection name**
+    	* **Port**
+    3. Choose the **connect** button.###### Note
+
+To connect to DynamoDB local, either manually launch DynamoDB local using your
+terminal (see [deploying
+DynamoDB local on your computer](DynamoDBLocal.md "DynamoDBLocal.md")) or launch DynamoDB local directly using
+the DDB local toggle in the NoSQL Workbench navigation menu. Ensure the
+connection port is the same as your DynamoDB local port. 5. On the created connection, choose **Open**.
+After connecting to your DynamoDB database, the list of available tables appears in the
+left pane. Choose one of the tables to return a sample of the data stored in the
+table.
+
+You can now run queries against the selected table.
+
+To run queries on a table, see the next section on building operations see [Building complex
+operations](workbench.querybuilder.md "workbench.querybuilder.md").

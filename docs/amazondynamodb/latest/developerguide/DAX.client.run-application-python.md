@@ -1,78 +1,44 @@
-# 04-query-test.py
+# 01-create-table.py
 
-The `04-query-test.py` program performs `Query`
-operations on `TryDaxTable`.
+The `01-create-table.py` program creates a table
+(`TryDaxTable`). The remaining Python programs in this
+section depend on this table.
 
 ```
-import argparse
-import time
-import sys
-import amazondax
 import boto3
-from boto3.dynamodb.conditions import Key
 
 
-def query_test(partition_key, sort_keys, iterations, dyn_resource=None):
+def create_dax_table(dyn_resource=None):
     """
-    Queries the table a specified number of times. The time before the
-    first iteration and the time after the last iteration are both captured
-    and reported.
+    Creates a DynamoDB table.
 
-    :param partition_key: The partition key value to use in the query. The query
-                          returns items that have partition keys equal to this value.
-    :param sort_keys: The range of sort key values for the query. The query returns
-                      items that have sort key values between these two values.
-    :param iterations: The number of iterations to run.
     :param dyn_resource: Either a Boto3 or DAX resource.
-    :return: The start and end times of the test.
+    :return: The newly created table.
     """
     if dyn_resource is None:
         dyn_resource = boto3.resource("dynamodb")
 
-    table = dyn_resource.Table("TryDaxTable")
-    key_condition_expression = Key("partition_key").eq(partition_key) & Key(
-        "sort_key"
-    ).between(*sort_keys)
-
-    start = time.perf_counter()
-    for _ in range(iterations):
-        table.query(KeyConditionExpression=key_condition_expression)
-        print(".", end="")
-        sys.stdout.flush()
-    print()
-    end = time.perf_counter()
-    return start, end
+    table_name = "TryDaxTable"
+    params = {
+        "TableName": table_name,
+        "KeySchema": [
+            {"AttributeName": "partition_key", "KeyType": "HASH"},
+            {"AttributeName": "sort_key", "KeyType": "RANGE"},
+        ],
+        "AttributeDefinitions": [
+            {"AttributeName": "partition_key", "AttributeType": "N"},
+            {"AttributeName": "sort_key", "AttributeType": "N"},
+        ],
+        "BillingMode": "PAY_PER_REQUEST",
+    }
+    table = dyn_resource.create_table(**params)
+    print(f"Creating {table_name}...")
+    table.wait_until_exists()
+    return table
 
 
 if __name__ == "__main__":
-    # pylint: disable=not-context-manager
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "endpoint_url",
-        nargs="?",
-        help="When specified, the DAX cluster endpoint. Otherwise, DAX is not used.",
-    )
-    args = parser.parse_args()
-
-    test_partition_key = 5
-    test_sort_keys = (2, 9)
-    test_iterations = 100
-    if args.endpoint_url:
-        print(f"Querying the table {test_iterations} times, using the DAX client.")
-        # Use a with statement so the DAX client closes the cluster after completion.
-        with amazondax.AmazonDaxClient.resource(endpoint_url=args.endpoint_url) as dax:
-            test_start, test_end = query_test(
-                test_partition_key, test_sort_keys, test_iterations, dyn_resource=dax
-            )
-    else:
-        print(f"Querying the table {test_iterations} times, using the Boto3 client.")
-        test_start, test_end = query_test(
-            test_partition_key, test_sort_keys, test_iterations
-        )
-
-    print(
-        f"Total time: {test_end - test_start:.4f} sec. Average time: "
-        f"{(test_end - test_start)/test_iterations}."
-    )
+    dax_table = create_dax_table()
+    print(f"Created table.")
 
 ```

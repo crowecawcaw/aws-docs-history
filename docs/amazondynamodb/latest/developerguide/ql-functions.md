@@ -1,18 +1,31 @@
-# Using the MISSING function with PartiQL for DynamoDB
+# Using the EXISTS function with PartiQL for DynamoDB
 
-Returns `TRUE` if the item does not contain the attribute specified. Only equality and inequality operators can be used with this function.
+You can use EXISTS to perform the same function as `ConditionCheck` does in
+the [TransactWriteItems](transaction-apis.md#transaction-apis-txwriteitems "transaction-apis.md#transaction-apis-txwriteitems") API. The EXISTS function can only be used in
+transactions.
+
+Given a value, returns `TRUE` if the value is a non-empty collection.
+Otherwise, returns `FALSE`.
+
+###### Note
+
+This function can only be used in transactional operations.
 
 ## Syntax
 
 ```
- `attributename` IS | IS NOT  MISSING
+EXISTS ( `statement` )
 ```
 
 ## Arguments
 
-`attributename`
+`statement`
 
-(Required) The attribute name to look for.
+(Required) The SELECT statement that the function evaluates.
+
+###### Note
+
+The SELECT statement must specify a full primary key and one other condition.
 
 ## Return type
 
@@ -21,5 +34,7 @@ Returns `TRUE` if the item does not contain the attribute specified. Only equali
 ## Examples
 
 ```
-SELECT * FROM Music WHERE "Awards" is MISSING
+EXISTS(
+    SELECT * FROM "Music"
+    WHERE "Artist" = 'Acme Band' AND "SongTitle" = 'PartiQL Rocks')
 ```
