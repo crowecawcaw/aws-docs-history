@@ -203,11 +203,11 @@ VPC endpoints are available for all of the core AWS services that are required t
 
 A [Network Load Balancer](../../../elasticloadbalancing/latest/network/introduction.md "../../../elasticloadbalancing/latest/network/introduction.md")can be used to support a high-availability deployment of SAP Web Dispatchers and/or SAP Central Services across multiple Availability Zones. For more details, see [Overlay IP Routing with Network Load Balancer](../sap-hana/sap-oip-overlay-ip-routing-with-network-load-balancer.md "../sap-hana/sap-oip-overlay-ip-routing-with-network-load-balancer.md").
 
-A **_load balancer_** serves as the single point of contact for clients. The load balancer distributes incoming traffic across multiple targets, such as Amazon EC2 instances.
+A ***load balancer*** serves as the single point of contact for clients. The load balancer distributes incoming traffic across multiple targets, such as Amazon EC2 instances.
 
 A **_listener_** checks for connection requests from clients, using the protocol and port that you configure, and forwards requests to a target group.
 
-Each **_target group_** routes requests to one or more registered targets, such as Amazon EC2 instances, using the TCP protocol and the specified port number. You can configure health checks on a per target group basis. Health checks are performed on all targets registered to a target group that is specified in a listener rule for your load balancer.
+Each ***target group*** routes requests to one or more registered targets, such as Amazon EC2 instances, using the TCP protocol and the specified port number. You can configure health checks on a per target group basis. Health checks are performed on all targets registered to a target group that is specified in a listener rule for your load balancer.
 
 For TCP traffic, the Network Load Balancer selects a target using a flow hash algorithm based on the protocol, source IP address, source port, destination IP address, destination port, and TCP sequence number. Each individual TCP connection is routed to a single target for the life of the connection.
 
