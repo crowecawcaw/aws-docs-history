@@ -1,83 +1,94 @@
 #
 
-How to avoid connection collisions that result in TCP connection time delays
+Transition endpoints with client IP address preservation
 
-Intermittent connectivity issues can be caused by connection collisions in AWS Global Accelerator. These can
-occur when users (with the same source IP and source port) access resources in Global Accelerator in certain scenarios. The
-collisions can result in TCP connection time delays for traffic that goes through your accelerators.
+If you haven't yet configured client IP address preservation for the endpoints in your accelerator,
+follow the guidance in this section add and transition one or more endpoints to
+endpoints that preserve the user’s client IP address. You can choose to transition an Application Load Balancer, Network Load Balancer with security groups, or an Elastic
+IP address endpoint to a corresponding endpoint—a corresponding load balancer endpoint or an
+EC2 instance endpoint—that has client IP address preservation.
 
-You can avoid these delays by configuring your accelerators with _port overrides_,
-a feature in Global Accelerator that enables you to route incoming traffic to a different destination
-ports on your accelerator endpoints. Follow the guidance in this section to learn about how to use port overrides to prevent
-the connection collisions and avoid potential TCP connection time delays.
-
-##
-
-Scenarios that can cause connection collisions
-
-There are three scenarios in Global Accelerator that can lead to connection collisions,
-and thus to TCP connection time delays:
-
-- You configure the same resource as an endpoint with multiple accelerators.
-- You configure resources as endpoints behind Global Accelerator, and you also send traffic
-  directly over the internet from your end users to the same resources.
-- You configure Network Load Balancer endpoints for cross-zone traffic.
-
-For Network Load Balancer endpoints, we recommend that
-you disable cross-zone traffic for the load balancers to avoid connection collisions. For more information, see
-[TCP Connection Delays](../../../elasticloadbalancing/latest/network/load-balancer-troubleshooting.md#tcp-delays "../../../elasticloadbalancing/latest/network/load-balancer-troubleshooting.md#tcp-delays") in the _User Guide for Network Load Balancers_.
-
-For the other scenarios, we recommend that you use the port override feature with the endpoint group
-to prevent collisions. Using port overrides, you can map Global Accelerator listener ports to different destination
-port numbers on an endpoint resource. Listener ports default to using the same port numbers on endpoint resources.
-By using port overrides, accelerators can route traffic from the same users (with the source IP and source port)
-to the same endpoint, but use different destination port numbers, which avoids collisions.
-
-The next section provides specific examples for each of the scenarios of how you can configure port
-overrides to avoid connection collisions. For more information about configuring port overrides, see
-[Override listener ports for restricted ports or connection collisions](about-endpoint-groups-port-override.md "about-endpoint-groups-port-override.md").
+This section explains how to add and transition endpoints by using the AWS Global Accelerator console. If you
+want to use API operations with Global Accelerator, see the [AWS Global Accelerator API Reference](../api/Welcome.md "../api/Welcome.md").
 
 ##
 
-How to prevent connection collisions by using port overrides
+Transitioning endpoints to use client IP address preservation
 
-By default, an accelerator routes user traffic to endpoints in AWS Regions using the same protocol
-and the same destination port ranges that you specify when you create a listener. However, you can
-optionally choose to override the port number mapping for the listener port. That is, you can map a
-listener port number to route traffic to a different destination port number on an endpoint.
+We recommend that you transition endpoints to using client IP address preservation slowly.
 
-For example, if you define a listener that accepts TCP traffic on ports 80 and 443, by default,
-the accelerator routes traffic to those same ports, 80 and 443, on endpoints. However, using the
-port override feature, the accelerator can route traffic coming in on those ports to different
-ports on endpoints, such as 8080 and 8443.
+- **Add the new endpoint:** First, add to Global Accelerator the new load balancer or
+  EC2 instance endpoints that you enable to preserve the client IP address.
+- **Slowly increase traffic:** Then, slowly move traffic from existing endpoints
+  to the new endpoints by configuring weights on the endpoints.
+- **Test as you go:** After you move a small amount of traffic to the new endpoint
+  with client IP address preservation, test to make sure that your configuration is working as you expect it to.
+  Then gradually increase the proportion of traffic to the new endpoint by adjusting the
+  weights on the corresponding endpoints.
 
-By creating different port mappings for listeners in two (or more) accelerators that have
-the same resources configured behind them, you can use separate destination port numbers for each accelerator
-and avoid collisions.
+Follow the steps in the following sections to transition your endpoints.
 
-For example, say you have Accelerator-A and Accelerator-B, and each one has a listener configured for
-TCP and port 443. You can set up a port override for the listener for Accelerator-A to map port 443 to
-8443, and the listener for Accelerator-B to map port 443 to 9443. Now you configure an Application Load Balancer endpoint,
-ALB-1234, for example, to listen on both ports 8443 and 9443. Then traffic coming in on port 443
-(to the listeners for both accelerators) from the same user IP address will arrive at ALB-1234,
-without connection collisions or TCP connection time delays.
+Client IP address preservation is supported in all AWS Regions where Global Accelerator is supported. For a list of
+supported Regions, see [AWS Region availability for AWS Global Accelerator](preserve-client-ip-address.md "preserve-client-ip-address.md").
 
-You can see the traffic paths for this example illustrated in the following:
+###### Important
 
-`Accelerator-A [listener: tcp,443] → Endpoint-Group [port-override: 443→8443] → ALB-1234 (listener: HTTPS,8443)`
+Before you begin to route traffic to endpoints that preserve the client IP address, make sure
+that all the configurations in which you’ve included Global Accelerator client IP addresses on allow lists
+are updated to include the user client IP address instead.
 
-`Accelerator-B [listener: tcp,443] → Endpoint-Group [port-override: 443→9443] → ALB-1234 (listener: HTTPS,9443)`
+## To add an endpoint with client
 
-You can use a port override in a similar way to prevent connection collisions for
-resources that are accessed by both direct user traffic and through an accelerator
-by overriding the default mapping for the accelerator's listener port number. To prevent collisions in this scenario, do the following:
+IP address preservation
 
-1. Determine the port that you want the resource to listen on for your direct traffic.
-2. Configure the listener for your accelerator to override the default port, and configure the listener
-   on your resource to listen on that port for accelerator traffic.
+1. Open the Global Accelerator console at [https://console.aws.amazon.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home "https://console.aws.amazon.com/globalaccelerator/home").
+2. On the Accelerators page, choose an accelerator.
+3. In the **Listeners** section, choose a listener.
+4. In the **Endpoint group** section, choose an endpoint group.
+5. In the **Endpoints** section, choose **Add endpoint**.
+6. On the **Add endpoints** page, in the **Endpoints**
+   drop-down menu, choose an endpoint that supports client IP address preservation.
+7. In the **Weight** field, choose a low number compared to the weights that are set
+   for your existing endpoints. For example, if the weight for a corresponding Application Load Balancer is 255, you could
+   enter a weight of 5 for the new Application Load Balancer, to start with. For more information, see [How endpoint weights work to manage traffic volume](about-endpoints-endpoint-weights.md "about-endpoints-endpoint-weights.md").
+8. If needed, under **Preserve client IP address**, select **Preserve address**.
+9. Choose **Save changes**.
 
-For example, you could set up a port override for the listener for your accelerator to map port
-443 to port 8443. Now, you could configure an Application Load Balancer endpoint, for example, to
-listen for your accelerator traffic on port 8443 and for direct traffic on port 443. With this
-configuration, you avoid connection collisions on the Application Load Balancer for traffic coming
-from the same user IP address.
+Next, follow the steps here to edit the corresponding existing endpoints (that you're replacing with the new endpoints with
+client IP address preservation) to reduce the weights for existing endpoints so that less traffic goes to them.
+
+## To reduce traffic for the existing endpoints
+
+1. On the **Endpoint group** page, choose an existing endpoint that doesn't have client IP address
+   preservation.
+2. Choose **Edit**.
+3. On the **Edit endpoint** page, in the **Weight** field,
+   enter a lower number than the current number. For example, if the weight for an existing endpoint is 255, you could
+   enter a weight of 220 for the new endpoint (with client IP address preservation).
+4. Choose **Save changes**.
+
+After you’ve tested with a small portion of the original traffic by setting the weight for
+the new endpoint to a low number, you can slowly transition all the traffic by continuing
+to adjust the weights for the original and new endpoints.
+
+For example, say you start with an existing Application Load Balancer with a weight set to 200, and you add a
+new Application Load Balancer endpoint with client IP address preservation enabled with a weight set to 5.
+Gradually shift traffic from the original Application Load Balancer to the new Application Load Balancer by increasing the
+weight for the new Application Load Balancer and decreasing the weight for the original Application Load Balancer. For example:
+
+- Original weight → 190 new weight 10
+- Original weight 180 → new weight 20
+- Original weight 170 → new weight 30, and so on.
+
+When you have decreased the weight to 0 for the original endpoint, all traffic (in this
+example scenario) goes to the new Application Load Balancer endpoint, which includes client IP address preservation.
+
+If you have additional endpoints—load balancers or EC2 instances—that you want to
+transition to use client IP address preservation,
+repeat the steps in this section to transition them.
+
+If you need to revert your configuration for an endpoint so that traffic to the endpoint
+doesn't preserve the client IP address, you can do that at any time: increase the weight
+for the endpoint that does _not_ have client IP address preservation
+to the original value, and decrease the weight for the endpoint
+_with_ client IP address preservation to 0.
