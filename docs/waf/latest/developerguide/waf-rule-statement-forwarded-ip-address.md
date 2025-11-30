@@ -41,7 +41,10 @@ The rule statements that use IP addresses are the following:
 
 ###### Note
 
-If the header that you specify isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
+If a header is missing, AWS WAF evaluates any statement that uses that header as
+"No match." If you use a NOT statement with a "No match" result, AWS WAF converts
+the evaluation to "Match." Missing headers don't trigger fallback behavior -
+only invalid header values do.
 
 ###### Fallback behavior
 
