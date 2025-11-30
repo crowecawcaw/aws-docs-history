@@ -14,7 +14,7 @@ You, the resource owner.
 Your resources contained within the AWS service (for
 example, Amazon SQS queues).
 
-![In the previous diagram, section number three.](images/number-3-red.png)
+![In the previous diagram, section number three.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-3-red.png)
 Your policies. It is a good practice to have one policy per
 resource. The AWS service provides an API you use to upload and manage your
 policies.
