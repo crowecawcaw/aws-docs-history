@@ -5,7 +5,7 @@ using an advanced configuration of preset parameters, follow these steps.
 
 1. Select **Edit in advanced setup**.
 
-![Interface for creating AWS Supply Chain application with options to create or edit in advanced setup.](images/create-instance.png)
+![Interface for creating AWS Supply Chain application with options to create or edit in advanced setup.](/images/aws-supply-chain/latest/adminguide/images/create-instance.png)
 
 The **Instance properties** page will appear.
 
