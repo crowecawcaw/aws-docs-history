@@ -34,7 +34,7 @@ Each letter in RACI represents a different party that's involved in the matrix:
 | Deploying and reviewing backup plans                                                                                                                              | C            | R, A    |
 | Deploying and managing third-party backup tools, such as Commvault                                                                                                | R, A         | C       |
 | **Migration**                                                                                                                                                     |
-| Migrating data from the existing OSDU® to the EDI environment                                                                                                    | R, A         | C       |
+| Migrating data from the existing OSDU® to the EDI environment                                                                                                     | R, A         | C       |
 | Data snapshot backup and restore through AWS Disaster Recovery                                                                                                    | R, A         | C       |
 | **Upgrades and patching**                                                                                                                                         |
 | Upgrading the EDI environment                                                                                                                                     | I            | R       |
