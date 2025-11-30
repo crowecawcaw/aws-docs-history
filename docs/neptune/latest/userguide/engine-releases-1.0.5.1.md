@@ -1,27 +1,33 @@
-# Amazon Neptune maintenance release, version 1.0.5.1.R4 (2022-05-16)
+# Amazon Neptune Engine Version 1.0.5.1.R3 (2022-01-13)
 
-As of 2022-05-16, engine version 1.0.5.1.R4 is being generally deployed. Please note
+As of 2022-01-13, engine version 1.0.5.1.R3 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
+
+## Defects Fixed in This Engine Release
+
+- Fixed a bug that can cause a resource leak when a query fails to acquire
+  all the resources it needs.
+- Fixed a small memory leak during query execution caused by an unclaimed
+  memory allocation.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.5.1.R4, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.5.1.R3, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin version:_ `3.4.11`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.5.1.R4
+## Upgrade Paths to Engine Release 1.0.5.1.R3
 
-Your cluster will be upgraded to this maintenance patch release automatically
-during your next maintenance window if you are running engine version
-`1.0.5.1`.
+Your cluster will be upgraded to this patch release automatically during your next
+maintenance window if you are running engine version `1.0.5.1`.
 
 You can manually upgrade any previous Neptune engine release to this release.
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.5.1.R4 is now generally available.
+Amazon Neptune 1.0.5.1.R3 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster
