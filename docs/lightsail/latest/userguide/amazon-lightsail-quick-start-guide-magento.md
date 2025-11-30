@@ -98,7 +98,7 @@ sudo /opt/bitnami/configure_app_domain --domain `203.0.113.0`
 You should see a response similar to the following example. The Magento software
 should now be aware of the new static IP address.
 
-![Result of the domain configuration tool](images/quick-start-configure-domain-ip.png)
+![Result of the domain configuration tool](/images/lightsail/latest/userguide/images/quick-start-configure-domain-ip.png)
 
 ###### Note
 
