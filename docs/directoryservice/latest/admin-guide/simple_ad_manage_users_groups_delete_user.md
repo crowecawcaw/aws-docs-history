@@ -17,4 +17,4 @@ You can run the following from a command prompt on the instance to open the Acti
 
 3. In the directory tree, select the OU containing the user that you want to delete (for example, `corp\Users`).
 
-![Active Directory Users and Computers tool showing example OU structure.](/images/directoryservice/latest/admin-guide/images/create-security-groups-OU.png) 4. Select the user you wish to delete. On the **Action** menu, choose **Delete**. 5. A dialog box will appear prompting you to confirm you want to delete the user. Choose **Yes** to delete the user. This permanently deletes the selected user.
+![Active Directory Users and Computers tool showing example OU structure.](images/create-security-groups-OU.png) 4. Select the user you wish to delete. On the **Action** menu, choose **Delete**. 5. A dialog box will appear prompting you to confirm you want to delete the user. Choose **Yes** to delete the user. This permanently deletes the selected user.
