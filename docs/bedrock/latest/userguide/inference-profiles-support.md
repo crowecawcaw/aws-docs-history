@@ -52,6 +52,42 @@ include all commercial AWS Regions.
 
 Expand one of the following sections to see information about a cross-Region inference profile, the source Regions from which it can be called, and the destination Regions to which it can route requests.
 
+To call the GLOBAL Anthropic Claude Opus 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+global.anthropic.claude-opus-4-5-20251101-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                      |
+| -------------- | ---------------------------------------- |
+| ap-northeast-1 | Commercial AWS Regions<br>ap-northeast-1 |
+| ap-northeast-2 | Commercial AWS Regions<br>ap-northeast-2 |
+| ap-northeast-3 | Commercial AWS Regions<br>ap-northeast-3 |
+| ap-south-1     | Commercial AWS Regions<br>ap-south-1     |
+| ap-south-2     | Commercial AWS Regions<br>ap-south-2     |
+| ap-southeast-1 | Commercial AWS Regions<br>ap-southeast-1 |
+| ap-southeast-2 | Commercial AWS Regions<br>ap-southeast-2 |
+| ap-southeast-3 | Commercial AWS Regions<br>ap-southeast-3 |
+| ap-southeast-4 | Commercial AWS Regions<br>ap-southeast-4 |
+| ca-central-1   | Commercial AWS Regions<br>ca-central-1   |
+| eu-central-1   | Commercial AWS Regions<br>eu-central-1   |
+| eu-central-2   | Commercial AWS Regions<br>eu-central-2   |
+| eu-north-1     | Commercial AWS Regions<br>eu-north-1     |
+| eu-south-1     | Commercial AWS Regions<br>eu-south-1     |
+| eu-south-2     | Commercial AWS Regions<br>eu-south-2     |
+| eu-west-1      | Commercial AWS Regions<br>eu-west-1      |
+| eu-west-2      | Commercial AWS Regions<br>eu-west-2      |
+| eu-west-3      | Commercial AWS Regions<br>eu-west-3      |
+| sa-east-1      | Commercial AWS Regions<br>sa-east-1      |
+| us-east-1      | Commercial AWS Regions<br>us-east-1      |
+| us-east-2      | Commercial AWS Regions<br>us-east-2      |
+| us-west-1      | Commercial AWS Regions<br>us-west-1      |
+| us-west-2      | Commercial AWS Regions<br>us-west-2      |
+
 To call the Global Anthropic Claude Haiku 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
 
 ```
@@ -652,34 +688,6 @@ The following table shows the source Regions from which you can call the inferen
 | us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
 | us-west-2      | us-east-1<br>us-east-2<br>us-west-2              |
 
-To call the US Palmyra X4 inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.writer.palmyra-x4-v1:0
-```
-
-For more information about inference profile parameters, see [Link](model-parameters-writer-palmyra.md "model-parameters-writer-palmyra.md").
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Regions | Destination Regions                 |
-| -------------- | ----------------------------------- |
-| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Palmyra X5 inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.writer.palmyra-x5-v1:0
-```
-
-For more information about inference profile parameters, see [Link](model-parameters-writer-palmyra.md "model-parameters-writer-palmyra.md").
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Regions | Destination Regions                 |
-| -------------- | ----------------------------------- |
-| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
-
 To call the US Pegasus v1.2 inference profile, specify the following inference profile ID in one of the source Regions:
 
 ```
@@ -932,6 +940,40 @@ The following table shows the source Regions from which you can call the inferen
 | Source Regions | Destination Regions                              |
 | -------------- | ------------------------------------------------ |
 | us-east-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
+
+To call the US Writer Palmyra X4 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.writer.palmyra-x4-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-writer-palmyra.md "model-parameters-writer-palmyra.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                              |
+| -------------- | ------------------------------------------------ |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2              |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2              |
+| us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2              |
+
+To call the US Writer Palmyra X5 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.writer.palmyra-x5-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-writer-palmyra.md "model-parameters-writer-palmyra.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                              |
+| -------------- | ------------------------------------------------ |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2              |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2              |
+| us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2              |
 
 To call the US-GOV Claude 3 Haiku inference profile, specify the following inference profile ID in one of the source Regions:
 

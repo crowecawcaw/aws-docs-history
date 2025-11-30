@@ -82,7 +82,8 @@ number of cache checkpoints, and fields that allow cache checkpoints.
 
 | Model name           | Model ID                                  | Release Type        | Minimum number of tokens per cache checkpoint | Maximum number of cache checkpoints per request | Fields that accept prompt cache checkpoints |
 | -------------------- | ----------------------------------------- | ------------------- | --------------------------------------------- | ----------------------------------------------- | ------------------------------------------- |
-| Claude 3 Opus 4.1    | anthropic.claude-opus-4-1-20250805-v1:0   | Generally Available | 1,024                                         | 4                                               | `system`, `messages`, and `tools`           |
+| Claude Opus 4.5      | anthropic.claude-opus-4-5-20251101-v1:0   | Generally Available | 4,096                                         | 4                                               | `system`, `messages`, and `tools`           |
+| Claude Opus 4.1      | anthropic.claude-opus-4-1-20250805-v1:0   | Generally Available | 1,024                                         | 4                                               | `system`, `messages`, and `tools`           |
 | Claude Opus 4        | anthropic.claude-opus-4-20250514-v1:0     | Generally Available | 1,024                                         | 4                                               | `system`, `messages`, and `tools`           |
 | Claude Sonnet 4.5    | anthropic.claude-sonnet-4-5-20250929-v1:0 | Generally Available | 1,024                                         | 4                                               | `system`, `messages`, and `tools`           |
 | Claude Haiku 4.5     | anthropic.claude-haiku-4-5-20251001-v1:0  | Generally Available | 4,096                                         | 4                                               | `system`, `messages`, and `tools`           |
@@ -197,7 +198,7 @@ In this example, you provide your system prompt in the
 tools checkpoints
 In this example, you provide your tool definition in the
 `toolSpec` field. (Alternatively, you can call a tool that
-you’ve previously defined. For more information, see [Call a tool with the Converse API](tool-use-inference-call.md "tool-use-inference-call.md").) Afterward, you can add
+youâ€™ve previously defined. For more information, see [Call a tool with the Converse API](tool-use-inference-call.md "tool-use-inference-call.md").) Afterward, you can add
 a `cachePoint` field to cache the tool.
 
 ```
@@ -326,7 +327,7 @@ option, and Amazon Bedrock automatically creates cache checkpoints for you.
 
 Follow the instructions in [Generate responses in the console using playgrounds](playgrounds.md "playgrounds.md") to get started with prompting in an Amazon Bedrock
 playground. For supported models, prompt caching is automatically turned on
-in the playground. However, if it’s not, then do the following to turn on prompt caching:
+in the playground. However, if itâ€™s not, then do the following to turn on prompt caching:
 
 1. In the left side panel, open the **Configurations** menu.
 2. Turn on the **Prompt caching** toggle.

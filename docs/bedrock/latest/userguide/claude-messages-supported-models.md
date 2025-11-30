@@ -2,6 +2,7 @@
 
 You can use the Messages API with the following Anthropic Claude models.
 
+- Anthropic Claude Opus 4.5
 - Anthropic Claude Opus 4.1
 - Anthropic Claude Opus 4
 - Anthropic Claude Sonnet 4.5

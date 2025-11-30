@@ -8,8 +8,7 @@ Claude Messages API.
 ###### Topics
 
 - [Anthropic Claude Messages API overview](#model-parameters-anthropic-claude-messages-overview "#model-parameters-anthropic-claude-messages-overview")
-- [Tool
-  use](model-parameters-anthropic-claude-messages-tool-use.md "model-parameters-anthropic-claude-messages-tool-use.md")
+- [Tool use](model-parameters-anthropic-claude-messages-tool-use.md "model-parameters-anthropic-claude-messages-tool-use.md")
 - [Extended thinking](claude-messages-extended-thinking.md "claude-messages-extended-thinking.md")
 - [Thinking encryption](claude-messages-thinking-encryption.md "claude-messages-thinking-encryption.md")
 - [Differences in thinking

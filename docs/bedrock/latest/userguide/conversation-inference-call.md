@@ -586,7 +586,7 @@ The following example shows the `serviceTier` structure:
 
 ```
 "serviceTier": {
-  "type": "priority" | "default" | "flex"
+  "type": "reserved" | "priority" | "default" | "flex"
 }
 ```
 

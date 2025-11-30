@@ -44,6 +44,7 @@ a product ID:
 | Anthropic Claude 3 Opus        | prod-fm3feywmwerog                   |
 | Anthropic Claude Opus 4        | prod-azycxvnd5mhqi                   |
 | Anthropic Claude Opus 4.1      | prod-w3q2d6rfge4tw                   |
+| Anthropic Claude Opus 4.5      | prod-jhuafngbly644                   |
 | Cohere Command                 | a61c46fe-1747-41aa-9af0-2e0ae8a9ce05 |
 | Cohere Command Light           | 216b69fd-07d5-4c7b-866b-936456d68311 |
 | Cohere Command R               | prod-tukx4z3hrewle                   |

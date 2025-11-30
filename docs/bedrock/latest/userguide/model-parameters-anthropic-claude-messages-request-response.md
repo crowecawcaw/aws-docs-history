@@ -154,6 +154,9 @@ Available beta headers include the following:
 | Developer mode for raw thinking on Claude 4+ models | `dev-full-thinking-2025-05-14`     | Compatible with Claude 4+ models only. Contact your account team to access this beta. |
 | 1 million tokens                                    | `context-1m-2025-08-07`            | Compatible with Claude Sonnet 4                                                       |
 | Context management                                  | `context-management-2025-06-27`    | Compatible with Claude Sonnet 4.5 and Claude Haiku 4.5                                |
+| Effort                                              | `effort-2025-11-24`                | Compatible with Claude Opus 4.5                                                       |
+| Tool search tool                                    | `tool-search-tool-2025-10-19`      | Compatible with Claude Opus 4.5                                                       |
+| Tool use examples                                   | `tool-examples-2025-10-29`         | Compatible with Claude Opus 4.5                                                       |
 
 - **stop_sequences** – (Optional)
   Custom text sequences that cause the model to stop generating.
@@ -454,3 +457,36 @@ Example responses with new stop_reason values:
   - **stop_sequence** – The
     model generated one of the stop sequences that you specified
     in the `stop_sequences` input field.
+
+## Effort parameter
+
+(beta)
+
+The `effort` parameter is an alternative to thinking token budgets for Claude Opus 4.5. This parameter tells Claude how liberally it should spend tokens to produce the best result, adjusting token usage across thinking, tool calls, and user communication. It can be used with or without extended thinking mode.
+
+The effort parameter can be set to:
+
+- `high` (default) – Claude spends as many tokens as needed for the best result
+- `medium` – Balanced token usage
+- `low` – Conservative token usage
+
+To use this feature you must pass the beta header `effort-2025-11-24`.
+
+Request example:
+
+```
+{
+    "anthropic_version": "bedrock-2023-05-31",
+    "anthropic_beta": [
+        "effort-2025-11-24"
+    ],
+    "max_tokens": 4096,
+    "output_config": {
+        "effort": "medium"
+    },
+    "messages": [{
+        "role": "user",
+        "content": "Analyze this complex dataset and provide insights"
+    }]
+}
+```

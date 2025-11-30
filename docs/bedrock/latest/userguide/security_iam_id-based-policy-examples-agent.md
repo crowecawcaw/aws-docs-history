@@ -123,7 +123,7 @@ The following example shows an identity-based policy that denies access to all s
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "bedrock:ServiceTier": ["priority", "default", "flex"]
+                    "bedrock:ServiceTier": ["reserved", "priority", "default", "flex"]
                 }
             }
         }

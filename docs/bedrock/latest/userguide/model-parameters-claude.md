@@ -34,14 +34,10 @@ references to information in the document used by the model in a response.
 
 ###### Note
 
-To use system prompts in inference calls, you must use one of the following models:
+To use system prompts in inference calls, you must use Anthropic Claude versions that are 2.1 or greater.
 
-- Anthropic Claude 3.5 Sonnet
-- Anthropic Claude version 2.1
-- Anthropic Claude 3 model or newer, such as
-  Anthropic Claude 3.7 Sonnet
-  For information about creating system prompts, see [Giving Claude a role with a system prompt](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts") in the
-  Anthropic Claude documentation.
+For information about creating system prompts, see [Giving Claude a role with a system prompt](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts") in the
+Anthropic Claude documentation.
 
 To avoid timeouts with Anthropic Claude version 2.1, we recommend limiting the input token count in the
 `prompt` field to 180K. We expect to address this timeout issue soon.

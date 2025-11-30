@@ -10,11 +10,13 @@ The supported models are as follows:
 
 | Model             | Model ID                                    |
 | ----------------- | ------------------------------------------- |
+| Claude Opus 4.5   | `anthropic.claude-opus-4-5-20251101-v1:0`   |
 | Claude Opus 4     | `anthropic.claude-opus-4-20250514-v1:0`     |
 | Claude Sonnet 4   | `anthropic.claude-sonnet-4-20250514-v1:0`   |
 | Claude Sonnet 4.5 | `anthropic.claude-sonnet-4-5-20250929-v1:0` |
 | Claude Haiku 4.5  | `anthropic.claude-haiku-4-5-20251001-v1:0`  |
 | Claude 3.7 Sonnet | `anthropic.claude-3-7-sonnet-20250219-v1:0` |
+| Claude Sonnet 4.5 | `anthropic.claude-opus-4-5-20251101-v1:0`   |
 
 ###### Note
 
@@ -252,8 +254,7 @@ which can result in this delivery pattern.
 
 tool use
 
-Extended thinking can be used alongside [Tool
-use](model-parameters-anthropic-claude-messages-tool-use.md "model-parameters-anthropic-claude-messages-tool-use.md") allowing Claude to reason
+Extended thinking can be used alongside [Tool use](model-parameters-anthropic-claude-messages-tool-use.md "model-parameters-anthropic-claude-messages-tool-use.md") allowing Claude to reason
 through tool selection and results processing. When using extended thinking with
 tool use, be aware of the following limitations:
 
