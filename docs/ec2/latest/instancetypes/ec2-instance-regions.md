@@ -393,7 +393,7 @@ The following instance types are available in South America (São Paulo).
 - **Compute Optimized:** C1 | C3 | C4 | C5 | C5a | C5ad | C5d | C5n | C6a | C6g | C6gd | C6gn | C6i | C6id | C6in | C7g | C7gd | C7i | C7i-flex | C8g
 - **Memory Optimized:** R3 | R4 | R5 | R5a | R5ad | R5b | R5d | R5n | R6g | R6gd | R6i | R7g | R7i | R8g | R8gd | U-3tb1 | U-6tb1 | U7i-12tb | X1 | X1e | X2idn | X2iedn
 - **Storage Optimized:** I3 | I3en | I4g | I4i | I7i | I7ie | I8g
-- **Accelerated Computing:** G4dn | G5 | G6 | G6f | Gr6 | Gr6f | Inf1 | Inf2 | P4d | P5 | P5e
+- **Accelerated Computing:** G4dn | G5 | G6 | G6f | Gr6 | Gr6f | Inf1 | Inf2 | P4d | P5 | P5e | Trn2
 - **Previous Generation:** C1 | C3 | C4 | M1 | M2 | M3 | M4 | R3 | R4 | T1
 
 ## AWS GovCloud (US-East) — `us-gov-east-1`
