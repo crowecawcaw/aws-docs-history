@@ -64,7 +64,7 @@ If you are going to test incident functionality, then add the no-action flag (AM
 
 To add an attachment, choose **Add Attachment**, browse to the attachment you want, and
 click **Open**. To delete the attachment, click the Delete icon:
-![Blue circular icon with a white X symbol in the center.](/images/managedservices/latest/userguide/images/icon-delete-attachment.png)
+![Blue circular icon with a white X symbol in the center.](images/icon-delete-attachment.png)
 . 7. Choose **Submit**.
 
 A details page opens with information on the incident—such as **Type**, **Subject**, **Created**, **ID**, and **Status**—and a **Correspondence** area that includes the description of the request you created.
