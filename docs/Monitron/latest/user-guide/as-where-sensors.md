@@ -32,7 +32,7 @@ of the asset's vibration.
 The following example of an electric motor pump set shows sensor locations, with four
 positions: two on the motor and two on the pump.
 
-![Diagram of motor and pump connected by coupling, without sensor locations shown.](/images/Monitron/latest/user-guide/images/assets-positions.png)
+![Diagram of motor and pump connected by coupling, without sensor locations shown.](images/assets-positions.png)
 The following example shows where you might mount sensors if your primary concern is
 the motor rather than the pump.
 
