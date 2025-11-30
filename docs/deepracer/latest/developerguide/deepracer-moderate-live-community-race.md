@@ -46,7 +46,7 @@ launch racers until the toggle is switched off.
    to using the model’s speed parameters, racers can reset the multiplier to 1. Remind racers that the speed
    control slider is not the gas pedal; it’s an opportunity for a strategic real-time adjustment.
 
-![Racers can use the speed control slider to manually set maximum speed, which temporarily overrides their model’s speed parameters, but not the steering angle.](images/deepracer-speed-control.png) 9. Next, explain that the video overlay of the race window features information to help optimize a racer’s
+![Racers can use the speed control slider to manually set maximum speed, which temporarily overrides their model’s speed parameters, but not the steering angle.](/images/deepracer/latest/developerguide/images/deepracer-speed-control.png) 9. Next, explain that the video overlay of the race window features information to help optimize a racer’s
 performance. The track map overlay is divided into three sectors that change color depending on a racer’s
 pace. Green indicates the section of the tack where a racer clocked a personal best, yellow denotes the
 slowest sector driven, and purple signifies a session best. Racers can also find statistics detailing their
