@@ -136,7 +136,7 @@ The script to be run after the action Deploy phase.
 The following image shows an example of the **Edit** page for the
 action where **Use action configurations** is chosen.
 
-![The Edit action page for a new pipeline with the EC2Deploy action specifying using the action configuration](/images/codepipeline/latest/userguide/images/ec2deploy-action.png)
+![The Edit action page for a new pipeline with the EC2Deploy action specifying using the action configuration](images/ec2deploy-action.png)
 
 The following image shows an example of the **Edit** page for the
 action where **Use a DeploySpec file** is chosen.
