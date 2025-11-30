@@ -40,7 +40,7 @@ name.
 
 To get to the service dashboard, navigate to the **Services** page (see previous section), and then choose your App Runner service.
 
-![App Runner service dashboard page](images/console-dashboard.png)
+![App Runner service dashboard page](/images/apprunner/latest/dg/images/console-dashboard.png)
 
 The **Service overview** section provides basic details about the App Runner service and your application. Things you can do here:
 
@@ -83,7 +83,7 @@ services. You can scope the list down by using the filter text box. For more inf
 1. Open the [App Runner console](https://console.aws.amazon.com/apprunner "https://console.aws.amazon.com/apprunner"), and in the **Regions** list, select your AWS Region.
 2. In the navigation pane, choose **Auto scaling configuration**.
 
-![App Runner Auto scaling configurations page](/images/apprunner/latest/dg/images/asc-top-level.png)
+![App Runner Auto scaling configurations page](images/asc-top-level.png)
 
 Things you can do here:
 
